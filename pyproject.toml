@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tca-map"
+version = "0.1.0"
+description = "Target-Conditioned ActionMap scaffold for VLA counterfactual grounding pilots"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "TCA-Map contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["numpy>=1.26", "PyYAML>=6.0", "pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["tca_map*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

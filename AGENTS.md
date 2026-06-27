@@ -1,22 +1,27 @@
-\# AGENTS.md
+# AGENTS.md
 
+This repository is for the TCA-Map robot-learning research pilot.
 
+## Non-negotiable rules
 
-This repository is for the TCA-Map VLA research pilot.
+1. Do not fabricate results.
+2. Do not hide failed runs.
+3. Do not overwrite previous experiment outputs.
+4. Do not use privileged simulator state at default inference time.
+5. Simulator labels may be used only for training supervision, evaluation metrics, or oracle ablations.
+6. Do not launch GPU jobs until preflight and dummy smoke tests pass.
+7. Do not download OpenVLA-OFT, SmolVLA, LIBERO, RoboCasa, checkpoints, or datasets automatically.
+8. If local assets are missing, keep dummy smoke and interface validation running and write `reports/missing_assets.md`.
+9. Do not call offline proxy metrics standard success. Use names such as `offline_standard_proxy` or `standard_proxy_score`.
+10. Final paper-grade standard success requires simulator rollouts.
 
+## Required first milestone
 
+1. Scaffold repository structure.
+2. Run repository-local preflight.
+3. Run dummy smoke train/eval only if preflight passes.
+4. Skip real OpenVLA-OFT, SmolVLA, LIBERO, RoboCasa, simulator, and rollout work unless local paths and safety checks pass in a later step.
 
-Rules:
+## Local path policy
 
-\- Do not run GPU jobs until preflight and smoke tests pass.
-
-\- Do not download large checkpoints or datasets automatically.
-
-\- Do not use privileged simulator state at default inference.
-
-\- Write scaffold, configs, scripts, reports, and dummy smoke tests first.
-
-\- If assets are missing, write reports/missing\_assets.md.
-
-\- If local Windows execution is needed, write reports/local\_run\_instructions.md.
-
+Read optional local paths from `configs/paths.local.yaml` or environment variables. Never commit `configs/paths.local.yaml` if it contains machine paths or tokens.

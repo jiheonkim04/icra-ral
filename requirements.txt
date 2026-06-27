@@ -1,0 +1,14 @@
+# Minimal scaffold dependencies.
+# The dummy preflight and smoke paths are designed to run with the Python standard library.
+
+numpy>=1.26
+PyYAML>=6.0
+pytest>=8.0
+
+# Optional later, install manually only when running real VLA pilots:
+# torch
+# transformers
+# accelerate
+# wandb
+# libero
+# robosuite
