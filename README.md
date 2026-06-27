@@ -32,6 +32,28 @@ powershell -ExecutionPolicy Bypass -File scripts/05_eval_smoke.ps1
 
 The shell script `scripts/00_preflight.sh` is included for Linux/WSL users, but PowerShell preflight is the supported first path on Windows.
 
+## Real asset readiness
+
+The current recommendation is **SmolVLA-first** for the first real-adapter smoke on an RTX 5080 16GB local machine. OpenVLA-OFT remains the primary paper-grade baseline target, but full OpenVLA-OFT fine-tuning should not be attempted locally.
+
+Read the plan:
+
+```powershell
+Get-Content reports/real_asset_setup_plan.md
+```
+
+Check local paths without downloads, heavy model imports, GPU jobs, or rollouts:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/11_check_real_assets.ps1
+```
+
+Linux/WSL equivalent:
+
+```bash
+bash scripts/11_check_real_assets.sh
+```
+
 ## Asset configuration
 
 Copy `configs/paths.local.yaml.example` to `configs/paths.local.yaml` and fill in local paths if available. The local file is ignored by git.
