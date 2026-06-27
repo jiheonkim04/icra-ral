@@ -13,10 +13,13 @@ $required = @(
     "reports/missing_assets.md",
     "reports/linux_setup_todo.md",
     "reports/local_run_instructions.md",
+    "reports/real_asset_setup_plan.md",
     "scripts/00_preflight.ps1",
     "scripts/00_preflight.sh",
     "scripts/04_train_smoke.ps1",
     "scripts/05_eval_smoke.ps1",
+    "scripts/11_check_real_assets.ps1",
+    "scripts/11_check_real_assets.sh",
     "scripts/99_tree_check.ps1",
     "tca_map/__init__.py"
 )
