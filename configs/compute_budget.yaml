@@ -1,0 +1,21 @@
+forbidden:
+  openvla_oft_full_finetune: true
+  openvla_oft_full_rollout: true
+  openvla_oft_multiseed_sweep: true
+  high_resolution_voxel_heatmap: true
+
+allowed:
+  smolvla_adapter_smoke: true
+  smolvla_head_only_training: true
+  cached_feature_training: true
+  low_res_heatmap: true
+  coarse_to_fine_heatmap: true
+  openvla_oft_frozen_smoke_only: true
+
+limits:
+  max_vram_gb_local: 14
+  min_vram_headroom_gb: 2
+  default_batch_size: 1
+  max_heatmap_grid_initial: 8
+  max_trainable_params_millions_initial: 50
+  max_local_pilot_steps_initial: 1000
