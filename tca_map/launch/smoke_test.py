@@ -17,6 +17,49 @@ from tca_map.models import DummyAdapter
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 REPORTS_DIR = REPO_ROOT / "reports"
+SMOKE_REPORT_PATH = REPORTS_DIR / "smoke_report.json"
+
+
+def _relative_report_path(path: Path) -> str:
+    return path.relative_to(REPO_ROOT).as_posix()
+
+
+def _load_json_if_exists(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _update_smoke_report(mode: str, metrics_path: Path, metrics: dict) -> dict:
+    train_path = REPORTS_DIR / "dummy_train_metrics.json"
+    eval_path = REPORTS_DIR / "dummy_eval_metrics.json"
+    existing = _load_json_if_exists(SMOKE_REPORT_PATH) or {}
+
+    train_metrics = metrics if mode == "train" else _load_json_if_exists(train_path)
+    eval_metrics = metrics if mode == "eval" else _load_json_if_exists(eval_path)
+    train_passed = bool(train_metrics and train_metrics.get("mode") == "train")
+    eval_passed = bool(eval_metrics and eval_metrics.get("mode") == "eval")
+
+    report = {
+        **existing,
+        "train_metrics_path": _relative_report_path(train_path) if train_path.exists() or mode == "train" else None,
+        "eval_metrics_path": _relative_report_path(eval_path) if eval_path.exists() or mode == "eval" else None,
+        "safe_to_run_pilot_gpu": False,
+        "train_smoke_passed": train_passed,
+        "eval_smoke_passed": eval_passed,
+        "downloads_performed": False,
+        "gpu_training_performed": False,
+        "real_rollouts_performed": False,
+        "recommended_next_step": (
+            "Configure local real assets and rerun preflight before any pilot GPU work."
+            if train_passed and eval_passed
+            else "Run both dummy train and eval smoke before considering real asset checks."
+        ),
+        "last_updated_by": f"dummy_{mode}_smoke",
+        "last_metrics_path": _relative_report_path(metrics_path),
+    }
+    SMOKE_REPORT_PATH.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    return report
 
 
 def run_smoke(mode: str) -> dict:
@@ -65,7 +108,8 @@ def run_smoke(mode: str) -> dict:
     )
     output_path = REPORTS_DIR / f"dummy_{mode}_metrics.json"
     output_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
-    print(json.dumps(metrics, indent=2))
+    smoke_report = _update_smoke_report(mode, output_path, metrics)
+    print(json.dumps({"metrics": metrics, "smoke_report": smoke_report}, indent=2))
     return metrics
 
 
