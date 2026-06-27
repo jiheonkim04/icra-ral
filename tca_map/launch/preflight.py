@@ -53,10 +53,36 @@ def _read_simple_paths_config() -> dict[str, str]:
 
 def _command_output(command: list[str]) -> dict:
     try:
-        completed = subprocess.run(command, capture_output=True, text=True, timeout=10, check=False)
-        return {"available": completed.returncode == 0, "stdout": completed.stdout.strip(), "stderr": completed.stderr.strip()}
+        completed = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=10,
+            check=False,
+        )
+        stdout = (completed.stdout or "").strip()
+        stderr = (completed.stderr or "").strip()
+        return {
+            "available": completed.returncode == 0,
+            "returncode": completed.returncode,
+            "stdout": stdout,
+            "stderr": stderr,
+        }
+    except FileNotFoundError:
+        return {"available": False, "warning": f"Command not found: {command[0]}"}
+    except subprocess.TimeoutExpired as exc:
+        stdout = (exc.stdout or "") if isinstance(exc.stdout, str) else ""
+        stderr = (exc.stderr or "") if isinstance(exc.stderr, str) else ""
+        return {
+            "available": False,
+            "warning": f"Command timed out: {command[0]}",
+            "stdout": stdout.strip(),
+            "stderr": stderr.strip(),
+        }
     except Exception as exc:  # pragma: no cover - defensive environment probe
-        return {"available": False, "error": str(exc)}
+        return {"available": False, "warning": str(exc)}
 
 
 def _check_assets() -> tuple[dict, list[str]]:
@@ -66,38 +92,33 @@ def _check_assets() -> tuple[dict, list[str]]:
     for key, env_name in ENV_KEYS.items():
         value = os.environ.get(env_name) or configured.get(key)
         exists = bool(value) and (key == "wandb_api_key" or Path(value).exists())
-        status[key] = {"env": env_name, "configured": bool(value), "exists": bool(exists), "value_redacted": "set" if value else None}
+        status[key] = {
+            "env": env_name,
+            "configured": bool(value),
+            "exists": bool(exists),
+            "value_redacted": "set" if value else None,
+        }
         if key != "wandb_api_key" and not exists:
             missing.append(key)
     return status, missing
 
 
-def _write_missing_assets(missing: list[str]) -> None:
-    lines = [
-        "# Missing Assets",
-        "",
-        "Preflight uses local paths only and did not download anything.",
-        "Missing assets do not block dummy smoke or interface validation.",
-        "",
-        "## Missing local paths",
-        "",
-    ]
-    if missing:
-        lines.extend(f"- `{name}`" for name in missing)
-    else:
-        lines.append("No required local path gaps detected by the scaffold preflight.")
-    lines.extend(
-        [
-            "",
-            "## Setup",
-            "",
-            "1. Copy `configs/paths.local.yaml.example` to `configs/paths.local.yaml`.",
-            "2. Fill in paths for assets you have locally.",
-            "3. Or set environment variables: `OPENVLA_OFT_CKPT`, `SMOLVLA_CKPT`, `LIBERO_ROOT`, `LIBERO_DATA_ROOT`, `ROBOSUITE_ROOT`, `DATA_ROOT`, `CHECKPOINT_ROOT`, `HF_HOME`, `WANDB_API_KEY`.",
-            "4. Re-run `scripts/00_preflight.ps1`.",
-        ]
+def _write_missing_assets_runtime(missing: list[str], asset_status: dict) -> None:
+    runtime_report = {
+        "local_paths_only": True,
+        "downloads_performed": False,
+        "missing_assets": missing,
+        "assets": asset_status,
+        "setup": {
+            "config_file": "configs/paths.local.yaml",
+            "template": "configs/paths.local.yaml.example",
+            "environment_variables": list(ENV_KEYS.values()),
+        },
+    }
+    (REPORTS_DIR / "missing_assets_runtime.json").write_text(
+        json.dumps(runtime_report, indent=2),
+        encoding="utf-8",
     )
-    (REPORTS_DIR / "missing_assets.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def run_preflight() -> dict:
@@ -141,7 +162,7 @@ def run_preflight() -> dict:
         "uses_privileged_state_at_default_inference": False,
     }
 
-    _write_missing_assets(missing)
+    _write_missing_assets_runtime(missing, asset_status)
     (REPORTS_DIR / "preflight_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report, indent=2))
     return report
