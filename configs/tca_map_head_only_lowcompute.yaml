@@ -1,0 +1,41 @@
+run:
+  name: tca_map_head_only_lowcompute
+  stage: head_only_offline_proxy
+  seed: 0
+  downloads_allowed: false
+  gpu_training_allowed: false
+  rollouts_allowed: false
+
+backbone:
+  name: smolvla
+  checkpoint_env: SMOLVLA_CKPT
+  freeze: true
+  use_cached_features: true
+  openvla_oft_enabled: false
+
+head:
+  name: tca_map
+  train: true
+  trainable_params_millions_estimate: 20
+  target_conditioned: true
+  counterfactual_alignment: true
+
+training:
+  batch_size: 1
+  gradient_accumulation_steps: 8
+  max_steps: 1000
+  train_backbone: false
+  train_heads: true
+  precision: fp16_if_safe
+
+heatmap:
+  grid_size: 8
+  low_resolution: true
+  coarse_to_fine: true
+  high_resolution_voxel_heatmap: false
+
+openvla_oft:
+  enabled: false
+  full_finetune: false
+  full_rollout: false
+  multiseed_sweep: false

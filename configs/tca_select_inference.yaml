@@ -1,0 +1,36 @@
+run:
+  name: tca_select_inference
+  mode: inference_selection
+  downloads_allowed: false
+  gpu_training_allowed: false
+  rollouts_allowed: false
+
+backbone:
+  name: smolvla
+  freeze: true
+  use_cached_features: true
+  openvla_oft_enabled: false
+
+inference:
+  method: tca_select
+  K: 4
+  temperature: 0.5
+  use_external_verifier: false
+  use_privileged_metadata: false
+  selection_signals:
+    target_action_consistency: true
+    condition_sensitivity: true
+    heatmap_probability: true
+
+heatmap:
+  grid_size: 8
+  low_resolution: true
+  coarse_to_fine: true
+  high_resolution_voxel_heatmap: false
+
+openvla_oft:
+  enabled: false
+  frozen_smoke_only: false
+  full_finetune: false
+  full_rollout: false
+  multiseed_sweep: false

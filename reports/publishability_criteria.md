@@ -1,0 +1,58 @@
+# Publishability Criteria
+
+## RA-L+ High Target
+
+RA-L+ is high only if all of the following hold:
+
+- At least one real simulator rollout benchmark runs.
+- ActionMap baseline is included.
+- TCA-Map + TCA-Select beats ActionMap + counterfactual augmentation.
+- Wrong-target rate drops by at least 20 percent relative.
+- Counterfactual success improves by at least +10 percentage points.
+- Standard performance drops by no more than 1-2 percentage points.
+- Default inference uses no privileged simulator state or oracle target labels.
+- Compute table is included.
+
+The compute table must include:
+
+- GPU type,
+- VRAM peak,
+- latency,
+- trainable parameters,
+- batch size,
+- heatmap grid size,
+- whether features were cached,
+- whether LoRA/QLoRA was used.
+
+## SOTA High Target
+
+SOTA potential is high only if the claim is restricted to low-compute target-conditioned action decoding and counterfactual robustness.
+
+Do not claim full standard OpenVLA-OFT leaderboard SOTA unless OpenVLA-OFT is directly reproduced under comparable benchmark conditions.
+
+Required comparisons:
+
+- native SmolVLA head,
+- ActionMap,
+- ActionMap + counterfactual augmentation,
+- TCA-Map,
+- TCA-Map + TCA-Select.
+
+Required reporting:
+
+- latency,
+- VRAM,
+- trainable parameters,
+- offline proxy metrics clearly labeled as proxy metrics,
+- simulator rollout metrics before claiming standard manipulation success,
+- no-privileged-inference audit.
+
+## Kill Conditions
+
+Kill or pivot if:
+
+- TCA-Map + TCA-Select does not beat ActionMap + counterfactual augmentation.
+- Robust gains appear only in offline proxy metrics and do not transfer to a tiny rollout.
+- Wrong-target rate does not improve meaningfully.
+- TCA-Select adds unacceptable latency or brittle selection behavior.
+- LoRA/QLoRA accounts for the gains while TCA-Select adds little.
