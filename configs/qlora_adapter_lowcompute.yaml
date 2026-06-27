@@ -1,0 +1,40 @@
+run:
+  name: qlora_adapter_lowcompute
+  mode: optional_memory_saving_adapter_training
+  downloads_allowed: false
+  gpu_training_allowed: false
+  rollouts_allowed: false
+
+backbone:
+  name: smolvla
+  freeze: true
+  train_backbone: false
+  openvla_oft_enabled: false
+
+qlora:
+  enabled: true
+  explicit_config: true
+  main_novelty: false
+  use_only_if_lora_memory_is_too_high: true
+  quantization_bits: 4
+  rank: 8
+  alpha: 16
+  trainable_modules:
+    - target_fusion_layers
+    - action_head_projection
+    - small_adapter_layers
+  trainable_params_millions_estimate: 25
+
+training:
+  batch_size: 1
+  gradient_accumulation_steps: 8
+  max_steps: 1000
+  full_finetune: false
+  train_heads: true
+  train_backbone: false
+
+openvla_oft:
+  enabled: false
+  full_finetune: false
+  full_rollout: false
+  multiseed_sweep: false
