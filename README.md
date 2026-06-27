@@ -19,6 +19,14 @@ This repository starts with a conservative scaffold for a two-week kill-or-conti
 - Missing assets should not block dummy smoke or interface validation.
 - Offline proxy metrics are engineering validation only and must not be described as final standard success.
 
+Heavy actions require explicit environment gates:
+
+- `ALLOW_DOWNLOADS=1`
+- `ALLOW_HEAVY_IMPORT=1`
+- `ALLOW_GPU_TRAINING=1`
+- `ALLOW_ROLLOUTS=1`
+- `ALLOW_CLOUD_HANDOFF=1`
+
 ## Local-first execution
 
 On Windows PowerShell from the repository root:
@@ -52,6 +60,25 @@ Linux/WSL equivalent:
 
 ```bash
 bash scripts/11_check_real_assets.sh
+```
+
+## Path to Paper-Grade Experiments Without Leaving Home
+
+1. Local Windows scaffold validation: run tree check, preflight, dummy train/eval smoke, pytest, asset checks, and system readiness checks.
+2. WSL2/Linux rollout setup: use `scripts/24_wsl2_setup_check.ps1`, then install Ubuntu manually if needed and validate GPU visibility from WSL2.
+3. SmolVLA-first local smoke: configure `SMOLVLA_CKPT`, `HF_HOME`, and `CHECKPOINT_ROOT`, then run readiness checks. Model execution remains a later approved task.
+4. Small local rollout: after WSL2/Linux, LIBERO, RoboSuite, and data paths pass checks, run only a separately approved tiny rollout task.
+5. OpenVLA-OFT frozen smoke: keep OpenVLA-OFT as the paper-grade baseline target, but attempt only frozen/load smoke locally and only after memory checks pass.
+6. Cloud/remote GPU handoff: use `scripts/23_cloud_handoff_manifest.*` to prepare a manifest for 24GB, 48GB, or 80GB GPU classes depending on baseline scale.
+
+Planner scripts:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/20_system_readiness.ps1
+powershell -ExecutionPolicy Bypass -File scripts/21_make_asset_dirs.ps1
+powershell -ExecutionPolicy Bypass -File scripts/22_plan_local_experiment_matrix.ps1
+powershell -ExecutionPolicy Bypass -File scripts/23_cloud_handoff_manifest.ps1
+powershell -ExecutionPolicy Bypass -File scripts/24_wsl2_setup_check.ps1
 ```
 
 ## Asset configuration
