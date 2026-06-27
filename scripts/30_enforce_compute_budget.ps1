@@ -71,7 +71,7 @@ foreach ($path in Get-ConfigFiles) {
 
     foreach ($forbiddenKey in @("openvla_oft_full_finetune", "openvla_oft_full_rollout", "openvla_oft_multiseed_sweep", "high_resolution_voxel_heatmap", "full_finetune", "full_rollout", "multiseed_sweep", "train_backbone")) {
         if (Test-TruthyLine -Lines $lines -Key $forbiddenKey) {
-            $errors.Add("$path enables forbidden key `$forbiddenKey: true`.") | Out-Null
+            $errors.Add("$path enables forbidden key ${forbiddenKey}: true.") | Out-Null
         }
     }
 
@@ -90,11 +90,14 @@ foreach ($path in Get-ConfigFiles) {
         $errors.Add("$path sets max_steps=$steps above max_local_pilot_steps_initial=$maxSteps.") | Out-Null
     }
 
-    if ($text.Contains("openvla") -and -not ($text.Contains("frozen") -or $text.Contains("load") -or $text.Contains("smoke"))) {
-        $warnings.Add("$path mentions OpenVLA without an obvious frozen/load/smoke context.") | Out-Null
+    $openvlaMentioned = $text.Contains("openvla")
+    $openvlaExplicitlyDisabled = $text.Contains("openvla_oft_enabled: false") -or ($text.Contains("openvla_oft:") -and $text.Contains("enabled: false"))
+    $openvlaActive = $openvlaMentioned -and -not $openvlaExplicitlyDisabled
+    if ($openvlaActive -and -not ($text.Contains("frozen") -or $text.Contains("load") -or $text.Contains("smoke"))) {
+        $warnings.Add("$path mentions active OpenVLA without an obvious frozen/load/smoke context.") | Out-Null
     }
-    if ($text.Contains("openvla") -and ($text.Contains("train: true") -or $text.Contains("train_heads: true"))) {
-        $warnings.Add("$path mentions OpenVLA and training. Verify this is not OpenVLA training.") | Out-Null
+    if ($openvlaActive -and ($text.Contains("train: true") -or $text.Contains("train_heads: true"))) {
+        $warnings.Add("$path mentions active OpenVLA and training. Verify this is not OpenVLA training.") | Out-Null
     }
 }
 
