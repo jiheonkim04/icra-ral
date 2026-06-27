@@ -1,5 +1,6 @@
 # Python
 __pycache__/
+*.pyc
 *.py[cod]
 *.pyo
 *.egg-info/
@@ -13,6 +14,14 @@ venv/
 configs/paths.local.yaml
 .env
 *.env
+
+# Runtime-generated reports
+reports/preflight_report.json
+reports/smoke_report.json
+reports/dummy_train_metrics.json
+reports/dummy_eval_metrics.json
+reports/missing_assets_runtime.json
+reports/missing_assets_runtime.md
 
 # Runs and generated artifacts
 runs/
