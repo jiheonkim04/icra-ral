@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local machine paths and secrets
+configs/paths.local.yaml
+.env
+*.env
+
+# Runs and generated artifacts
+runs/
+outputs/
+*.log
+
+# Large local assets
+checkpoints/
+data/
+datasets/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

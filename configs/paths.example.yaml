@@ -1,0 +1,20 @@
+# Example non-secret asset configuration for TCA-Map.
+# Copy configs/paths.local.yaml.example to configs/paths.local.yaml for real local paths.
+# Do not commit configs/paths.local.yaml.
+
+assets:
+  openvla_oft_ckpt: null
+  smolvla_ckpt: null
+  libero_root: null
+  libero_data_root: null
+  robosuite_root: null
+  data_root: null
+  checkpoint_root: null
+  hf_home: null
+  wandb_api_key: null
+
+policy:
+  local_paths_only: true
+  allow_downloads: false
+  allow_gpu_training_in_scaffold: false
+  allow_real_rollouts_without_simulator_preflight: false

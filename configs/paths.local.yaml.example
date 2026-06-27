@@ -1,0 +1,24 @@
+# Copy this file to configs/paths.local.yaml and edit for your machine.
+# configs/paths.local.yaml is git-ignored because it can contain local paths or tokens.
+
+assets:
+  openvla_oft_ckpt: "C:/path/to/openvla-oft/checkpoint"
+  smolvla_ckpt: "C:/path/to/smolvla/checkpoint"
+  libero_root: "C:/path/to/LIBERO"
+  libero_data_root: "C:/path/to/libero/data"
+  robosuite_root: "C:/path/to/robosuite"
+  data_root: "C:/path/to/data"
+  checkpoint_root: "C:/path/to/checkpoints"
+  hf_home: "C:/path/to/hf_home"
+  wandb_api_key: null
+
+# Equivalent environment variables:
+# OPENVLA_OFT_CKPT
+# SMOLVLA_CKPT
+# LIBERO_ROOT
+# LIBERO_DATA_ROOT
+# ROBOSUITE_ROOT
+# DATA_ROOT
+# CHECKPOINT_ROOT
+# HF_HOME
+# WANDB_API_KEY
