@@ -1,15 +1,25 @@
 # Copy this file to configs/paths.local.yaml and edit for your machine.
 # configs/paths.local.yaml is git-ignored because it can contain local paths or tokens.
+# No scaffold script downloads assets automatically.
 
 assets:
-  openvla_oft_ckpt: "C:/path/to/openvla-oft/checkpoint"
-  smolvla_ckpt: "C:/path/to/smolvla/checkpoint"
-  libero_root: "C:/path/to/LIBERO"
-  libero_data_root: "C:/path/to/libero/data"
-  robosuite_root: "C:/path/to/robosuite"
-  data_root: "C:/path/to/data"
-  checkpoint_root: "C:/path/to/checkpoints"
-  hf_home: "C:/path/to/hf_home"
+  # Paper-grade target later. Do not attempt full OpenVLA-OFT fine-tuning locally.
+  openvla_oft_ckpt: "C:/assets/checkpoints/openvla-oft"
+
+  # Recommended first real-adapter smoke target on RTX 5080 16GB.
+  smolvla_ckpt: "C:/assets/checkpoints/smolvla"
+
+  # Required only before LIBERO offline subsets or simulator rollouts.
+  libero_root: "C:/assets/repos/LIBERO"
+  libero_data_root: "C:/assets/data/libero"
+  robosuite_root: "C:/assets/repos/robosuite"
+
+  # Shared roots for local-only data/cache organization.
+  data_root: "C:/assets/data"
+  checkpoint_root: "C:/assets/checkpoints"
+  hf_home: "C:/assets/hf_home"
+
+  # Optional. Prefer environment variable storage for real tokens.
   wandb_api_key: null
 
 # Equivalent environment variables:
@@ -22,3 +32,6 @@ assets:
 # CHECKPOINT_ROOT
 # HF_HOME
 # WANDB_API_KEY
+
+# Readiness check after editing:
+# powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
