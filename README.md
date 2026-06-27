@@ -18,6 +18,7 @@ This repository starts with a conservative scaffold for a two-week kill-or-conti
 - No real rollouts until simulator paths pass preflight.
 - Missing assets should not block dummy smoke or interface validation.
 - Offline proxy metrics are engineering validation only and must not be described as final standard success.
+- OpenVLA-OFT large experiments are forbidden on local hardware; OpenVLA-OFT may only be used for frozen/load smoke unless a separate explicit approval branch changes this policy.
 
 ## Local-first execution
 
@@ -54,6 +55,32 @@ Linux/WSL equivalent:
 bash scripts/11_check_real_assets.sh
 ```
 
+## TCA-Select + optional LoRA low-compute method
+
+The publishable low-compute method is TCA-Map plus TCA-Select, with optional LoRA/QLoRA only if head-only training underfits.
+
+TCA-Select is the inference-time trick. It samples `K=4` candidate actions from the target-conditioned action heatmap and selects among them using internal target/action consistency and condition-sensitivity signals. It must not use external verifiers or privileged simulator state.
+
+LoRA/QLoRA are support tools. They can reduce training cost or memory pressure, but they are not the main novelty. The default is frozen SmolVLA backbone, cached features, and head-only ActionMap/TCA-Map training.
+
+Read the method notes:
+
+```powershell
+Get-Content reports/tca_select_method.md
+Get-Content reports/lora_vs_inference_trick_strategy.md
+Get-Content reports/publishability_criteria.md
+```
+
+Publication-oriented tables should separate:
+
+- native SmolVLA head,
+- ActionMap,
+- ActionMap + counterfactual augmentation,
+- TCA-Map,
+- TCA-Map + TCA-Select,
+- optional LoRA/QLoRA variants if used,
+- latency, VRAM, and trainable parameters.
+
 ## Asset configuration
 
 Copy `configs/paths.local.yaml.example` to `configs/paths.local.yaml` and fill in local paths if available. The local file is ignored by git.
@@ -79,5 +106,7 @@ The Python package contains lightweight, dependency-minimal dummy components for
 - dummy VLA adapter,
 - ActionMap-style heatmap head,
 - target-conditioned TCA-Map head,
+- TCA-Select inference-time candidate selection,
+- optional LoRA/QLoRA policy guards,
 - offline proxy metrics,
 - preflight and smoke entrypoints.
