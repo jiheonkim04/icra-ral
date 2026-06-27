@@ -87,11 +87,19 @@ for file in "${CONFIGS[@]}"; do
     ERRORS+=("$file sets max_steps=$steps above max_local_pilot_steps_initial=$MAX_STEPS")
   fi
   lower="$(tr '[:upper:]' '[:lower:]' < "$file")"
-  if [[ "$lower" == *openvla* && "$lower" != *frozen* && "$lower" != *load* && "$lower" != *smoke* ]]; then
-    WARNINGS+=("$file mentions OpenVLA without an obvious frozen/load/smoke context")
+  openvla_active=false
+  if [[ "$lower" == *openvla* && "$lower" != *"openvla_oft_enabled: false"* ]]; then
+    if [[ "$lower" == *"openvla_oft:"* && "$lower" == *"enabled: false"* ]]; then
+      openvla_active=false
+    else
+      openvla_active=true
+    fi
   fi
-  if [[ "$lower" == *openvla* && ( "$lower" == *"train: true"* || "$lower" == *"train_heads: true"* ) ]]; then
-    WARNINGS+=("$file mentions OpenVLA and training. Verify this is not OpenVLA training")
+  if [[ "$openvla_active" == true && "$lower" != *frozen* && "$lower" != *load* && "$lower" != *smoke* ]]; then
+    WARNINGS+=("$file mentions active OpenVLA without an obvious frozen/load/smoke context")
+  fi
+  if [[ "$openvla_active" == true && ( "$lower" == *"train: true"* || "$lower" == *"train_heads: true"* ) ]]; then
+    WARNINGS+=("$file mentions active OpenVLA and training. Verify this is not OpenVLA training")
   fi
 done
 
