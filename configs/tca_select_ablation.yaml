@@ -1,0 +1,38 @@
+run:
+  name: tca_select_ablation
+  mode: inference_selection_ablation
+  downloads_allowed: false
+  gpu_training_allowed: false
+  rollouts_allowed: false
+
+backbone:
+  name: smolvla
+  freeze: true
+  use_cached_features: true
+  openvla_oft_enabled: false
+
+ablations:
+  native_head: true
+  actionmap: true
+  actionmap_counterfactual_augmentation: true
+  tca_map_without_select: true
+  tca_map_with_tca_select: true
+  selection_without_condition_sensitivity: true
+  selection_without_target_consistency: true
+
+inference:
+  method: tca_select
+  K: 4
+  temperature: 0.5
+  use_external_verifier: false
+  use_privileged_metadata: false
+
+metrics:
+  offline_standard_proxy: true
+  target_top1_topk_accuracy: true
+  wrong_target_proxy_rate: true
+  counterfactual_separation_margin: true
+  nuisance_stability: true
+  latency: true
+  vram: true
+  trainable_parameters: true
