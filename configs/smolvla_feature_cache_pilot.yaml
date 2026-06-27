@@ -1,0 +1,43 @@
+run:
+  name: smolvla_feature_cache_pilot
+  stage: feature_cache_pilot
+  seed: 0
+  downloads_allowed: false
+  gpu_training_allowed: false
+  rollouts_allowed: false
+
+backbone:
+  name: smolvla
+  checkpoint_env: SMOLVLA_CKPT
+  freeze: true
+  heavy_import_required: true
+  openvla_oft_enabled: false
+
+feature_cache:
+  enabled: true
+  output_dir: runs/feature_cache/smolvla_tiny
+  max_samples: 200
+  cache_hidden_tokens: true
+  cache_observations: false
+  overwrite: false
+
+training:
+  enabled: false
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  max_steps: 0
+  train_backbone: false
+  train_heads: false
+  trainable_params_millions_estimate: 0
+
+heatmap:
+  enabled: false
+  grid_size: 8
+  low_resolution: true
+  coarse_to_fine: false
+
+openvla_oft:
+  enabled: false
+  full_finetune: false
+  full_rollout: false
+  multiseed_sweep: false

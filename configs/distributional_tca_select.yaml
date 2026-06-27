@@ -1,0 +1,25 @@
+# Distributional TCA-Select inference scaffold.
+# This config is safe to inspect locally: it does not trigger downloads, GPU jobs,
+# heavy VLA imports, or simulator rollouts by itself.
+
+method: distributional_tca_select
+K: 4
+temperature: 0.5
+
+use_condition_masked_heatmap: true
+use_counterfactual_negative_heatmap: true
+use_target_heatmap_margin: true
+entropy_penalty: true
+
+use_kl: true
+use_js_optional: true
+no_external_verifier: true
+no_privileged_inference: true
+
+candidate_score_weights:
+  log_probability: 1.0
+  condition_kl: 0.25
+  negative_action_divergence: 0.25
+  target_consistency: 0.5
+  target_margin: 0.25
+  entropy_penalty: 0.05

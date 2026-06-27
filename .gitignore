@@ -22,6 +22,8 @@ reports/dummy_train_metrics.json
 reports/dummy_eval_metrics.json
 reports/missing_assets_runtime.json
 reports/missing_assets_runtime.md
+reports/system_readiness.json
+reports/wsl2_status.md
 
 # Runs and generated artifacts
 runs/
