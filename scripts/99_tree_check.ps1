@@ -31,6 +31,7 @@ $required = @(
     "reports/local_experiment_matrix.md",
     "reports/cloud_handoff_manifest.md",
     "reports/cloud_handoff_manifest.json",
+    "reports/integration_lowcompute_distributional_stack.md",
     "reports/tca_select_method.md",
     "reports/final_method_spec_distributional_tca_map.md",
     "reports/action_decoder_landscape.md",
