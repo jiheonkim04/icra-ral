@@ -71,6 +71,7 @@ $required = @(
     "tca_map/adapters/lora_policy.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
+    "tests/test_smolvla_asset_readiness.py",
     "tests/test_lora_config_guards.py"
 )
 

@@ -102,6 +102,8 @@ Check whether a local SmolVLA checkpoint is ready for a later separately approve
 powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
 ```
 
+Path readiness and adapter smoke readiness are different. An empty `SMOLVLA_CKPT` directory can pass a path check, but it is not adapter-smoke-ready until config, tokenizer, and weights files are present and `HF_HOME` or `CHECKPOINT_ROOT` exists.
+
 Linux/WSL equivalents:
 
 ```bash
