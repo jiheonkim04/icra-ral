@@ -38,6 +38,16 @@ powershell -ExecutionPolicy Bypass -File scripts\30_enforce_compute_budget.ps1
 python -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_guards.py tests\test_tca_select.py
 ```
 
+## Cursor one-command safe check
+
+Use this command when Cursor Agent needs to run the routine safe local validation stack without pasting each command manually:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\40_cursor_safe_local_check.ps1
+```
+
+This wrapper uses `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe` directly, writes ignored runtime reports under `reports\`, and does not run GPU jobs, downloads, rollouts, real training, heavy VLA imports, or OpenVLA-OFT.
+
 If `python` resolves to the Microsoft Store alias, pass the interpreter explicitly for Python-backed scripts:
 
 ```powershell
