@@ -8,6 +8,14 @@ Impact: Blocks adapter-smoke readiness.
 
 Mitigation: Follow `reports/smolvla_manual_acquisition_checklist.md`, place real checkpoint files manually or through a later explicitly approved download task, then rerun readiness checks.
 
+## Manual Confirmation Drift
+
+Risk: Codex may waste turns asking the user to confirm routine state that can be checked automatically.
+
+Impact: Slower progress, stale context, and avoidable human coordination overhead.
+
+Mitigation: Follow the self-check gate policy in `reports/codex_delegation_manual.md`. Codex should run existing checkers, branch behavior on checker output, update state docs when useful, and ask only at dangerous gates.
+
 ## Windows / CUDA / PyTorch Compatibility
 
 Risk: Local Windows environment may have CUDA or PyTorch compatibility issues, especially with newer RTX 5080 hardware.

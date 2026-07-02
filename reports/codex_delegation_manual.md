@@ -37,6 +37,72 @@ Maintain these state files when decisions or status change:
 - `reports/decision_log.md`,
 - `reports/risk_register.md`.
 
+## Self-check gate policy
+
+Codex must not ask the user to confirm routine state that can be checked automatically from the repository, filesystem, git, or existing scripts.
+
+Codex must check these by itself:
+
+- current branch,
+- current commit,
+- git status,
+- whether `main` is up to date,
+- whether pytest passes,
+- whether the safe runner passes,
+- whether `C:\assets\checkpoints\smolvla` exists,
+- whether config/tokenizer/weights files exist,
+- whether `ready_for_smolvla_path_check` is true,
+- whether `smolvla_checkpoint_files_present` is true,
+- whether `ready_for_smolvla_adapter_smoke` is true,
+- whether scripts report downloads, GPU jobs, training, rollouts, heavy imports, or OpenVLA-OFT execution.
+
+Use existing checkers instead of asking:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\14_plan_smolvla_download.ps1
+powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
+powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
+powershell -ExecutionPolicy Bypass -File scripts\40_cursor_safe_local_check.ps1
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pytest -q
+```
+
+Decision logic:
+
+Case A: If the SmolVLA checkpoint path is missing or not configured, report the exact missing path/config, update `project_state` and `next_actions`, stop at the asset path gate, and do not ask the user whether the path exists.
+
+Case B: If the SmolVLA path exists but config/tokenizer/weights are missing, report the exact missing file classes, update `project_state` and `next_actions`, stop at the checkpoint-file gate, and do not ask the user whether files were placed.
+
+Case C: If config/tokenizer/weights are present and readiness says adapter-smoke-ready, update `project_state` and `next_actions`, prepare the next safe load-only adapter smoke plan, do not perform heavy import or GPU execution, and stop for explicit approval before any heavy import or model load.
+
+Case D: If a checker fails due to Windows, PATH, or tooling issues, diagnose and fix minimally on a new branch if safe, validate again, and do not ask the user to debug manually unless the issue requires external installation or credentials.
+
+Case E: If a dangerous gate is reached, stop and ask for explicit user approval. Clearly state what approval is needed and what risk it carries. Do not proceed automatically.
+
+Only ask the user for:
+
+- actual download approval,
+- `ALLOW_DOWNLOADS=1` approval,
+- `ALLOW_HEAVY_IMPORT=1` approval,
+- GPU inference approval,
+- training approval,
+- rollout approval,
+- simulator execution approval,
+- OpenVLA-OFT execution approval,
+- token/secret/API key access,
+- paper-level empirical claim approval.
+
+Do not ask:
+
+- "Did you place the checkpoint files?"
+- "Should I check readiness?"
+- "Should I run pytest?"
+- "Should I run safe runner?"
+- "What is the current branch?"
+- "Is git clean?"
+- "What is missing?"
+
+Inspect and report instead.
+
 ## Branch Workflow
 
 Never modify `main` directly.

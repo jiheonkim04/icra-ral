@@ -1,15 +1,30 @@
 # Next Actions
 
-## Immediate Safe Steps
+## Immediate Autonomous Behavior
 
-1. Read `reports/smolvla_manual_acquisition_checklist.md`.
-2. Manually place a valid SmolVLA-compatible checkpoint under:
+Codex should self-check current state instead of asking the user to confirm it.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\14_plan_smolvla_download.ps1
+powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
+powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
+```
+
+If checkpoint files are missing, report the missing file classes and stop at the checkpoint-file gate.
+
+If checkpoint files are present, verify readiness and prepare a load-only adapter smoke plan. Do not perform heavy import, GPU inference, download, training, rollout, simulator execution, token access, or OpenVLA-OFT execution without explicit approval.
+
+## Current Manual User Action
+
+Place a valid SmolVLA-compatible checkpoint under:
 
 ```text
 C:\assets\checkpoints\smolvla
 ```
 
-3. Verify files without loading the model:
+Verify files without loading the model:
 
 ```powershell
 Test-Path C:\assets\checkpoints\smolvla
@@ -17,13 +32,6 @@ Get-ChildItem C:\assets\checkpoints\smolvla
 Test-Path C:\assets\checkpoints\smolvla\config.json
 Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.safetensors
 Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
-```
-
-4. Rerun readiness checks:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
-powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
 ```
 
 ## Expected Order
@@ -36,6 +44,18 @@ powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.
 6. Feature cache planning and implementation.
 7. Tiny head-only pilot.
 8. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+
+## Self-Check Cases
+
+Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact missing path/config, updates state/action docs if needed, and stops at asset path gate.
+
+Case B: SmolVLA path exists but config/tokenizer/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
+
+Case C: Config/tokenizer/weights are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval.
+
+Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
+
+Case E: Dangerous gate reached. Codex stops and asks for explicit approval with risk explanation.
 
 ## Blocked Steps Requiring Explicit Approval
 
@@ -51,6 +71,8 @@ Codex must stop before:
 - heavy SmolVLA/OpenVLA import,
 - OpenVLA-OFT execution,
 - token or secret access.
+
+Codex should not ask routine questions such as whether files were placed, whether readiness should be checked, whether pytest should run, which branch is current, whether git is clean, or what is missing. It should inspect and report.
 
 ## Readiness Target
 

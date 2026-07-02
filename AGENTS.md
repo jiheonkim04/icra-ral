@@ -4,6 +4,8 @@ This repository is for the TCA-Map robot-learning research pilot.
 
 Future Codex sessions should read `reports/codex_delegation_manual.md` first. The repository files, reports, configs, scripts, tests, and git history are the source of truth; do not rely on old ChatGPT conversation context.
 
+Self-check routine state before asking the user. Branch, commit, git status, pytest, safe runner, SmolVLA path readiness, checkpoint file completeness, and checker policy fields should be inspected directly with existing scripts. Ask only at dangerous gates such as downloads, heavy imports, GPU inference/training, rollouts, simulator execution, OpenVLA-OFT execution, secrets, or paper-level empirical claims.
+
 ## Non-negotiable rules
 
 1. Do not fabricate results.

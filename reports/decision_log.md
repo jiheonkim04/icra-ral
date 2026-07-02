@@ -59,3 +59,11 @@ Decision: The publishable low-compute method requires Distributional TCA-Select.
 Reason: TCA-Map alone risks looking like ActionMap plus a target head. Distributional TCA-Select adds inference-time target/action distribution consistency without external verifiers or privileged simulator state.
 
 Consequence: LoRA/QLoRA remain optional support tools, not the core novelty.
+
+## Self-Check Gate Policy
+
+Decision: Codex must self-check routine project state and only ask the user at dangerous gates.
+
+Reason: Branch, commit, git status, pytest, safe runner, asset path readiness, checkpoint file completeness, and script policy fields can be checked from the repository, filesystem, git, and existing scripts.
+
+Consequence: Codex should not ask whether checkpoint files were placed or whether readiness/pytest/safe runner should be checked. Codex should inspect, report, update state/action docs if needed, and stop only at asset gates, checkpoint-file gates, validation failures, external installation/credential requirements, or dangerous gates requiring explicit approval.
