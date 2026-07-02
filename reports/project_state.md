@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-b09b684dcb0bf96910f2a2e3a9d604da97174e1b
+bd069a82c1f1b268dbfd9c21a9c18dd1b2ccc448
 ```
 
 Use explicit Python for validation:
@@ -59,9 +59,29 @@ CHECKPOINT_ROOT=C:\assets\checkpoints
 HF_HOME=C:\assets\hf_home
 ```
 
-The SmolVLA checkpoint directory exists, but required checkpoint files are missing.
+The SmolVLA checkpoint directory exists. The approved SmolVLA source has been acquired from `lerobot/smolvla_base`.
 
-Current checker output:
+Approved SmolVLA checkpoint source for the acquisition task:
+
+```text
+lerobot/smolvla_base
+```
+
+Acquisition target:
+
+```text
+C:\assets\checkpoints\smolvla
+```
+
+Cache target:
+
+```text
+C:\assets\hf_home
+```
+
+The approval was limited to SmolVLA checkpoint acquisition from `lerobot/smolvla_base`. It did not approve GPU jobs, model inference, training, rollouts, heavy VLA imports, `ALLOW_HEAVY_IMPORT=1`, OpenVLA-OFT execution/download, dataset downloads, token/secret access, or committing checkpoint/cache files.
+
+Current checker output after acquiring `lerobot/smolvla_base`:
 
 ```text
 ready_for_smolvla_path_check=true
@@ -71,7 +91,15 @@ ready_for_openvla_oft_smoke=false
 ready_for_libero_rollout=false
 ```
 
-The current gate is Case B from the self-check gate policy: path exists, but config/tokenizer/weights are missing.
+Detected local files include `config.json`, `model.safetensors`, `policy_preprocessor.json`, `policy_postprocessor.json`, and processor safetensors. The readiness checker still reports `smolvla_checkpoint_files_present=false` because no repo-local tokenizer file is present.
+
+`policy_preprocessor.json` references tokenizer/model source:
+
+```text
+HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+```
+
+That external tokenizer/model source was not downloaded because the approved acquisition scope was only `lerobot/smolvla_base`. The current gate remains Case B from the self-check gate policy: path exists and config/weights exist, but the tokenizer file group is missing under the local readiness semantics.
 
 Other missing assets currently expected:
 
@@ -82,7 +110,7 @@ Other missing assets currently expected:
 
 ## Current Blocker
 
-The next real-adapter step is blocked by missing SmolVLA checkpoint files under:
+The next real-adapter step is blocked by missing repo-local tokenizer files under:
 
 ```text
 C:\assets\checkpoints\smolvla
@@ -94,7 +122,7 @@ Required groups:
 - tokenizer file,
 - weights file.
 
-Codex should not ask whether these files were placed. It should run the readiness checkers, report exact missing file classes, and stop at the checkpoint-file gate until files are present or a dangerous gate is explicitly approved.
+Codex should not ask whether these files were placed. It should run the readiness checkers, report exact missing file classes, and stop at the checkpoint-file gate until files are present or a dangerous gate is explicitly approved. Any future acquisition outside `lerobot/smolvla_base`, including the referenced `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` tokenizer/model, requires a separate explicit approval.
 
 ## Validation Commands
 
@@ -150,4 +178,4 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. If checkpoint files remain missing, it should report the missing file classes and stop. If checkpoint files are present, it should verify readiness and prepare a load-only adapter smoke plan, but must not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.
+Codex should self-check current state. If tokenizer files remain missing, it should report the missing tokenizer file group and stop. If config/tokenizer/weights are present, it should verify readiness and prepare a load-only adapter smoke plan, but must not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.

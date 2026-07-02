@@ -6,7 +6,23 @@ Risk: `C:\assets\checkpoints\smolvla` exists but lacks config/tokenizer/weights 
 
 Impact: Blocks adapter-smoke readiness.
 
-Mitigation: Follow `reports/smolvla_manual_acquisition_checklist.md`, place real checkpoint files manually or through a later explicitly approved download task, then rerun readiness checks.
+Mitigation: Follow `reports/smolvla_manual_acquisition_checklist.md`, place real checkpoint files manually, or use the explicitly approved SmolVLA-only acquisition source `lerobot/smolvla_base`, then rerun readiness checks.
+
+## Wrong Checkpoint Source
+
+Risk: Accidentally downloading from an unapproved mirror, private fork, OpenVLA-OFT repository, dataset repository, or unrelated Hugging Face model.
+
+Impact: Invalid readiness state, unexpected file formats, accidental large downloads, or policy drift into unapproved assets.
+
+Mitigation: The approved SmolVLA source is only `lerobot/smolvla_base`. Stop if login/token access is required, if the source redirects to an ambiguous asset, or if the command attempts OpenVLA-OFT, LIBERO, RoboSuite, RoboCasa, dataset, GPU, training, rollout, heavy import, or inference behavior.
+
+## External Tokenizer Dependency
+
+Risk: The acquired `lerobot/smolvla_base` files reference `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` for tokenizer/model support, but the current acquisition approval only covered `lerobot/smolvla_base`.
+
+Impact: Config and weights can be present while `ready_for_smolvla_adapter_smoke` remains false because repo-local tokenizer files are absent.
+
+Mitigation: Do not silently download the referenced external source. Require a separate explicit approval or update the readiness checker only after confirming the true SmolVLA load contract without heavy imports or model inference.
 
 ## Manual Confirmation Drift
 
