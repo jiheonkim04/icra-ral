@@ -1,0 +1,64 @@
+# SmolVLA-first adapter smoke readiness scaffold.
+# Safe to inspect locally: this config does not trigger downloads, training,
+# rollouts, heavy VLA imports, GPU jobs, or OpenVLA-OFT execution.
+
+method: smolvla_adapter_smoke_readiness
+
+policy:
+  smolvla_first: true
+  openvla_oft_enabled: false
+  downloads_allowed_by_default: false
+  training_allowed: false
+  rollouts_allowed: false
+  libero_required: false
+  heavy_import_requires_gate: true
+  heavy_import_gate: ALLOW_HEAVY_IMPORT
+  download_gate: ALLOW_DOWNLOADS
+
+paths:
+  smolvla_ckpt_env: SMOLVLA_CKPT
+  hf_home_env: HF_HOME
+  checkpoint_root_env: CHECKPOINT_ROOT
+  local_paths_file: configs/paths.local.yaml
+
+expected_checkpoint_files:
+  config:
+    - config.json
+  tokenizer_any:
+    - tokenizer.json
+    - tokenizer_config.json
+    - special_tokens_map.json
+    - vocab.json
+    - merges.txt
+    - tokenizer.model
+    - sentencepiece.bpe.model
+  weights_any:
+    - model.safetensors
+    - pytorch_model.bin
+    - model-00001-of-00001.safetensors
+    - pytorch_model-00001-of-00001.bin
+    - '*.safetensors'
+    - '*.bin'
+
+memory_estimate:
+  local_gpu: RTX 5080 16GB
+  estimated_smolvla_load_mb: 12000
+  required_headroom_mb: 2048
+  max_recommended_usage_mb: 14000
+  batch_size: 1
+  precision_preference:
+    - bf16
+    - fp16
+
+smoke_scope:
+  checks:
+    - local checkpoint path exists
+    - config/tokenizer/weights files are present
+    - lightweight adapter guard import works
+    - estimated memory fits local GPU
+  does_not_do:
+    - download checkpoints or datasets
+    - train adapters
+    - run simulator rollouts
+    - require LIBERO
+    - execute OpenVLA-OFT
