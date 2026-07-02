@@ -2,6 +2,8 @@
 
 This repository is for the TCA-Map robot-learning research pilot.
 
+Future Codex sessions should read `reports/codex_delegation_manual.md` first. The repository files, reports, configs, scripts, tests, and git history are the source of truth; do not rely on old ChatGPT conversation context.
+
 ## Non-negotiable rules
 
 1. Do not fabricate results.
