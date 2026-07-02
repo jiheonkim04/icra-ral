@@ -67,3 +67,19 @@ Decision: Codex must self-check routine project state and only ask the user at d
 Reason: Branch, commit, git status, pytest, safe runner, asset path readiness, checkpoint file completeness, and script policy fields can be checked from the repository, filesystem, git, and existing scripts.
 
 Consequence: Codex should not ask whether checkpoint files were placed or whether readiness/pytest/safe runner should be checked. Codex should inspect, report, update state/action docs if needed, and stop only at asset gates, checkpoint-file gates, validation failures, external installation/credential requirements, or dangerous gates requiring explicit approval.
+
+## Official SmolVLA Checkpoint Source
+
+Decision: Use `lerobot/smolvla_base` as the official SmolVLA checkpoint source for local acquisition.
+
+Reason: The previous plan identified the required local layout and readiness checks but did not name a specific official source. The source ambiguity is now resolved.
+
+Consequence: SmolVLA checkpoint acquisition may use `ALLOW_DOWNLOADS=1` only for `lerobot/smolvla_base` and only for files needed under `C:\assets\checkpoints\smolvla`. This does not authorize OpenVLA-OFT downloads, datasets, token access, model inference, heavy VLA imports, GPU jobs, training, or rollouts.
+
+## SmolVLA Source Acquisition Result
+
+Decision: Treat `lerobot/smolvla_base` acquisition as complete for the approved source, but not adapter-smoke-ready under the current repo-local tokenizer-file readiness semantics.
+
+Reason: The acquired source contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. It does not contain a repo-local tokenizer file accepted by the current checker. Its preprocessor references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`.
+
+Consequence: Do not download the referenced Hugging Face model/tokenizer source without separate explicit approval. Keep `ready_for_smolvla_adapter_smoke=false` until the tokenizer requirement is resolved by either approved local files or a deliberate checker update backed by the actual SmolVLA loading contract.

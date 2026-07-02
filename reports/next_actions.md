@@ -16,13 +16,33 @@ If checkpoint files are missing, report the missing file classes and stop at the
 
 If checkpoint files are present, verify readiness and prepare a load-only adapter smoke plan. Do not perform heavy import, GPU inference, download, training, rollout, simulator execution, token access, or OpenVLA-OFT execution without explicit approval.
 
-## Current Manual User Action
+## Current Asset State
 
-Place a valid SmolVLA-compatible checkpoint under:
+The approved SmolVLA checkpoint source has been acquired:
+
+```text
+lerobot/smolvla_base
+```
+
+Target directory:
 
 ```text
 C:\assets\checkpoints\smolvla
 ```
+
+Cache directory:
+
+```text
+C:\assets\hf_home
+```
+
+Detected groups:
+
+- config: present (`config.json`),
+- weights: present (`model.safetensors` and processor safetensors),
+- tokenizer: missing under the current repo-local readiness checker.
+
+The acquired `policy_preprocessor.json` references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` for tokenization/model support. That external source is outside the completed `lerobot/smolvla_base` acquisition scope.
 
 Verify files without loading the model:
 
@@ -37,7 +57,7 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 ## Expected Order
 
 1. Manual SmolVLA acquisition checklist.
-2. User places checkpoint files manually or explicitly approves a download task.
+2. If repo-local tokenizer files are required, obtain separate explicit approval for the exact source before any further download.
 3. Readiness recheck.
 4. Load-only adapter smoke planning.
 5. Heavy import/GPU only with explicit approval.

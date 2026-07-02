@@ -6,6 +6,30 @@ This document plans safe SmolVLA checkpoint acquisition for the SmolVLA-first lo
 
 No repository script in this stage downloads checkpoints or datasets. Any future download-capable script must require `ALLOW_DOWNLOADS=1`, must avoid committing tokens, and must still keep OpenVLA-OFT large local execution forbidden.
 
+## Official Source
+
+The approved SmolVLA checkpoint source for local acquisition is the public Hugging Face model repository:
+
+```text
+lerobot/smolvla_base
+```
+
+Use only this repository for the SmolVLA checkpoint acquisition task. Do not use alternate mirrors, private forks, OpenVLA-OFT repositories, LIBERO/RoboSuite/RoboCasa assets, or datasets.
+
+Target directory:
+
+```text
+C:\assets\checkpoints\smolvla
+```
+
+Cache directory:
+
+```text
+C:\assets\hf_home
+```
+
+This acquisition task is limited to checkpoint/model files needed for local readiness. It does not authorize model inference, heavy VLA imports, GPU jobs, training, rollouts, OpenVLA-OFT execution, or token/secret access.
+
 ## Required Local Layout
 
 Expected local checkpoint path:
@@ -55,12 +79,14 @@ Adapter-smoke readiness requires all three groups below:
 
 An empty `C:\assets\checkpoints\smolvla` directory is only path-ready. It is not adapter-smoke-ready.
 
+After acquiring the approved source `lerobot/smolvla_base`, the local directory contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. The current readiness checker still requires a repo-local tokenizer file. The acquired `policy_preprocessor.json` references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`, which is outside the `lerobot/smolvla_base` acquisition scope and must not be downloaded without separate explicit approval.
+
 ## Manual Acquisition Options
 
-Use a manual, authenticated workflow outside this repository to place a SmolVLA-compatible checkpoint under `SMOLVLA_CKPT`. Acceptable options include:
+Use the approved source `lerobot/smolvla_base` to place a SmolVLA-compatible checkpoint under `SMOLVLA_CKPT`. Acceptable options include:
 
 - copying a checkpoint directory from another local disk,
-- using an organization-approved Hugging Face CLI workflow outside this script,
+- using an organization-approved Hugging Face workflow for `lerobot/smolvla_base`,
 - restoring a checkpoint directory from an internal artifact store,
 - mounting a read-only checkpoint directory and pointing `SMOLVLA_CKPT` at it.
 
