@@ -7,6 +7,10 @@ assets:
   openvla_oft_ckpt: "C:/assets/checkpoints/openvla-oft"
 
   # Recommended first real-adapter smoke target on RTX 5080 16GB.
+  # Expected contents for readiness:
+  # - config.json
+  # - tokenizer file such as tokenizer.json or tokenizer_config.json
+  # - weights such as model.safetensors, pytorch_model.bin, or shards
   smolvla_ckpt: "C:/assets/checkpoints/smolvla"
 
   # Required only before LIBERO offline subsets or simulator rollouts.
@@ -35,3 +39,4 @@ assets:
 
 # Readiness check after editing:
 # powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
+# powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1

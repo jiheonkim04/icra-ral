@@ -7,7 +7,8 @@ These commands run safe scaffold, asset-readiness, compute-budget, and planning 
 ```bat
 cd C:\Users\jiheo\tca_map
 git fetch origin
-git switch codex/integrate-lowcompute-distributional-stack
+git switch main
+git pull origin main
 conda activate tca_map
 set PYTHONUTF8=1
 set PYTHONIOENCODING=utf-8
@@ -25,7 +26,8 @@ python -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_
 ```powershell
 cd C:\Users\jiheo\tca_map
 git fetch origin
-git switch codex/integrate-lowcompute-distributional-stack
+git switch main
+git pull origin main
 conda activate tca_map
 $env:PYTHONUTF8="1"
 $env:PYTHONIOENCODING="utf-8"
@@ -75,6 +77,36 @@ Dry-run asset directory plan:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\21_make_asset_dirs.ps1
+```
+
+## SmolVLA asset prep and adapter smoke readiness
+
+These commands are safe planning/readiness checks. They do not download assets, train, run rollouts, require LIBERO, import heavy VLA models, or execute OpenVLA-OFT.
+
+Dry-run SmolVLA asset setup:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\12_prepare_smolvla_assets.ps1
+```
+
+Create only the local directory skeleton when explicitly desired:
+
+```powershell
+$env:ALLOW_CREATE_DIRS="1"
+powershell -ExecutionPolicy Bypass -File scripts\12_prepare_smolvla_assets.ps1
+```
+
+Check whether a local SmolVLA checkpoint is ready for a later separately approved load-only adapter smoke:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
+```
+
+Linux/WSL equivalents:
+
+```bash
+bash scripts/12_prepare_smolvla_assets.sh
+bash scripts/13_check_smolvla_adapter_smoke.sh
 ```
 
 Actually create the recommended directories only when explicitly approved:
