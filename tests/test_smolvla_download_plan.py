@@ -9,6 +9,61 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "14_plan_smolvla_download.ps1"
+BASH_SKIP_REASON = "No usable GNU Bash found; skipping Bash planner test on this Windows environment."
+
+
+def _is_windowsapps_bash(path: str) -> bool:
+    normalized = path.replace("/", "\\").lower()
+    return "\\windowsapps\\" in normalized and normalized.endswith("\\bash.exe")
+
+
+def _validate_bash(candidate: str) -> bool:
+    if _is_windowsapps_bash(candidate):
+        return False
+    try:
+        result = subprocess.run(
+            [candidate, "--version"],
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            capture_output=True,
+            timeout=10,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+
+    output = f"{result.stdout}\n{result.stderr}".lower()
+    return result.returncode == 0 and "bash" in output and "gnu bash" in output
+
+
+def find_usable_bash() -> str | None:
+    candidates: list[str] = []
+
+    env_bash = os.environ.get("BASH_EXE")
+    if env_bash:
+        candidates.append(env_bash)
+
+    path_bash = shutil.which("bash")
+    if path_bash:
+        candidates.append(path_bash)
+
+    for common_path in (
+        r"C:\Program Files\Git\bin\bash.exe",
+        r"C:\Program Files\Git\usr\bin\bash.exe",
+    ):
+        if Path(common_path).exists():
+            candidates.append(common_path)
+
+    seen: set[str] = set()
+    for candidate in candidates:
+        key = os.path.normcase(os.path.abspath(candidate))
+        if key in seen:
+            continue
+        seen.add(key)
+        if _validate_bash(candidate):
+            return candidate
+    return None
 
 
 def _run_download_plan(tmp_path: Path, allow_downloads: bool = False) -> dict:
@@ -92,9 +147,9 @@ def test_allow_downloads_gate_does_not_make_planner_download(tmp_path):
 
 
 def test_bash_smolvla_download_plan_outputs_valid_dry_run_json():
-    bash = shutil.which("bash")
+    bash = find_usable_bash()
     if bash is None:
-        pytest.skip("Bash is required for the Linux/WSL SmolVLA download planner")
+        pytest.skip(BASH_SKIP_REASON)
 
     env = os.environ.copy()
     env.pop("ALLOW_DOWNLOADS", None)

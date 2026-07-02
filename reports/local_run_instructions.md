@@ -118,6 +118,8 @@ bash scripts/12_prepare_smolvla_assets.sh
 bash scripts/13_check_smolvla_adapter_smoke.sh
 ```
 
+On Windows, `C:\Users\jiheo\AppData\Local\Microsoft\WindowsApps\bash.exe` is a launcher shim, not a usable GNU Bash for script validation. Use the PowerShell scripts as the supported Windows path, or install/use Git Bash or WSL when Bash validation is needed.
+
 Actually create the recommended directories only when explicitly approved:
 
 ```powershell
