@@ -18,11 +18,11 @@ Mitigation: The approved SmolVLA source is only `lerobot/smolvla_base`. Stop if 
 
 ## External Tokenizer Dependency
 
-Risk: The acquired `lerobot/smolvla_base` files reference `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` for tokenizer/model support, but the current acquisition approval only covered `lerobot/smolvla_base`.
+Risk: The acquired `lerobot/smolvla_base` files reference `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` for tokenizer/model support.
 
-Impact: Config and weights can be present while `ready_for_smolvla_adapter_smoke` remains false because repo-local tokenizer files are absent.
+Impact: Config and weights can be present while readiness remains false if the external dependency is missing or is not recognized by the checker.
 
-Mitigation: Do not silently download the referenced external source. Require a separate explicit approval or update the readiness checker only after confirming the true SmolVLA load contract without heavy imports or model inference.
+Mitigation: The dependency acquisition was separately approved for tokenizer/processor/config files only. The checker now recognizes the dependency under `HF_HOME`. Do not silently download full SmolVLM2 model weights, run heavy imports, or execute inference without separate explicit approval.
 
 ## Manual Confirmation Drift
 
