@@ -10,7 +10,7 @@ OpenVLA-OFT large local execution remains forbidden. Do not run OpenVLA-OFT loca
 
 ## Safety Policy
 
-Default behavior is dry-run and local-only:
+Default behavior is dry-run and local-only. No downloads happen by default.
 
 - no downloads unless `ALLOW_DOWNLOADS=1` is explicitly set,
 - no heavy VLA imports unless `ALLOW_HEAVY_IMPORT=1` is explicitly set,
@@ -20,7 +20,7 @@ Default behavior is dry-run and local-only:
 - no tokens in committed files,
 - no OpenVLA-OFT execution.
 
-The current scripts do not implement automatic downloading. They prepare directories, print setup instructions, and check local checkpoint readiness.
+The current scripts do not implement automatic downloading. If future download support is added, it must require `ALLOW_DOWNLOADS=1`. If future heavy model import support is added, it must require `ALLOW_HEAVY_IMPORT=1`. The current scripts prepare directories, print setup instructions, and check local checkpoint readiness.
 
 ## Required Local Paths
 

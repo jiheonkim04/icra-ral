@@ -7,7 +7,8 @@ These commands run safe scaffold, asset-readiness, compute-budget, and planning 
 ```bat
 cd C:\Users\jiheo\tca_map
 git fetch origin
-git switch codex/integrate-lowcompute-distributional-stack
+git switch main
+git pull origin main
 conda activate tca_map
 set PYTHONUTF8=1
 set PYTHONIOENCODING=utf-8
@@ -25,7 +26,8 @@ python -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_
 ```powershell
 cd C:\Users\jiheo\tca_map
 git fetch origin
-git switch codex/integrate-lowcompute-distributional-stack
+git switch main
+git pull origin main
 conda activate tca_map
 $env:PYTHONUTF8="1"
 $env:PYTHONIOENCODING="utf-8"
