@@ -18,7 +18,7 @@ powershell -ExecutionPolicy Bypass -File scripts\04_train_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts\05_eval_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
 powershell -ExecutionPolicy Bypass -File scripts\30_enforce_compute_budget.ps1
-python -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_guards.py tests\test_tca_select.py
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_guards.py tests\test_tca_select.py
 ```
 
 ## PowerShell
@@ -37,7 +37,7 @@ powershell -ExecutionPolicy Bypass -File scripts\04_train_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts\05_eval_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
 powershell -ExecutionPolicy Bypass -File scripts\30_enforce_compute_budget.ps1
-python -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_guards.py tests\test_tca_select.py
+& "C:\Users\jiheo\miniconda3\envs\tca_map\python.exe" -m pytest tests\test_distributional_tca_select.py tests\test_lora_config_guards.py tests\test_tca_select.py
 ```
 
 ## Cursor one-command safe check
@@ -83,6 +83,12 @@ powershell -ExecutionPolicy Bypass -File scripts\21_make_asset_dirs.ps1
 
 These commands are safe planning/readiness checks. They do not download assets, train, run rollouts, require LIBERO, import heavy VLA models, or execute OpenVLA-OFT.
 
+Dry-run SmolVLA checkpoint acquisition plan:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\14_plan_smolvla_download.ps1
+```
+
 Dry-run SmolVLA asset setup:
 
 ```powershell
@@ -107,6 +113,7 @@ Path readiness and adapter smoke readiness are different. An empty `SMOLVLA_CKPT
 Linux/WSL equivalents:
 
 ```bash
+bash scripts/14_plan_smolvla_download.sh
 bash scripts/12_prepare_smolvla_assets.sh
 bash scripts/13_check_smolvla_adapter_smoke.sh
 ```
