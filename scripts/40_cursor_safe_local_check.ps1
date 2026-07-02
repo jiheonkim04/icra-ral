@@ -143,14 +143,14 @@ Write-Host $commit
 
 Write-Host ""
 Write-Host "git status --short"
-$initialGitStatus = Convert-ToStringArray -Value (& git status --short)
+$initialGitStatus = @(Convert-ToStringArray -Value (& git status --short))
 if ($initialGitStatus.Count -gt 0) {
     $initialGitStatus | ForEach-Object { Write-Host $_ }
 } else {
     Write-Host "(clean)"
 }
 
-$initialSourceStatus = Convert-ToStringArray -Value (Get-SourceStatus)
+$initialSourceStatus = @(Convert-ToStringArray -Value (Get-SourceStatus))
 $steps = New-Object System.Collections.Generic.List[object]
 
 $steps.Add((Invoke-Step -Name "tree_check" -Required $true -Script {
@@ -197,9 +197,9 @@ if ($smokeReportExists) {
     Write-Host "MISSING: reports\smoke_report.json" -ForegroundColor Red
 }
 
-$finalGitStatus = Convert-ToStringArray -Value (& git status --short)
-$finalSourceStatus = Convert-ToStringArray -Value (Get-SourceStatus)
-$sourceStatusDelta = @(Compare-Object -ReferenceObject $initialSourceStatus -DifferenceObject $finalSourceStatus | ForEach-Object {
+$finalGitStatus = @(Convert-ToStringArray -Value (& git status --short))
+$finalSourceStatus = @(Convert-ToStringArray -Value (Get-SourceStatus))
+$sourceStatusDelta = @(Compare-Object -ReferenceObject @($initialSourceStatus) -DifferenceObject @($finalSourceStatus) | ForEach-Object {
     "$($_.SideIndicator) $($_.InputObject)"
 })
 $sourceStatusChanged = ($sourceStatusDelta.Count -gt 0)
