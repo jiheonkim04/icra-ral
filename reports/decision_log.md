@@ -78,8 +78,16 @@ Consequence: SmolVLA checkpoint acquisition may use `ALLOW_DOWNLOADS=1` only for
 
 ## SmolVLA Source Acquisition Result
 
-Decision: Treat `lerobot/smolvla_base` acquisition as complete for the approved source, but not adapter-smoke-ready under the current repo-local tokenizer-file readiness semantics.
+Decision: Treat `lerobot/smolvla_base` acquisition as complete for the approved source.
 
-Reason: The acquired source contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. It does not contain a repo-local tokenizer file accepted by the current checker. Its preprocessor references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`.
+Reason: The acquired source contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. Its preprocessor references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`.
 
-Consequence: Do not download the referenced Hugging Face model/tokenizer source without separate explicit approval. Keep `ready_for_smolvla_adapter_smoke=false` until the tokenizer requirement is resolved by either approved local files or a deliberate checker update backed by the actual SmolVLA loading contract.
+Consequence: The referenced tokenizer/processor dependency requires separate approval before acquisition.
+
+## SmolVLA Tokenizer Dependency Acquisition Result
+
+Decision: Acquire tokenizer/processor/config files from `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` and update readiness checks to recognize that external dependency under `HF_HOME`.
+
+Reason: `policy_preprocessor.json` in `lerobot/smolvla_base` names this dependency for tokenization/model support, and the user explicitly approved tokenizer/processor dependency acquisition only.
+
+Consequence: Full SmolVLM2 model weights remain forbidden for this step and were avoided. `ready_for_smolvla_adapter_smoke=true` now means file/interface readiness only. It does not authorize heavy imports, model loading, inference, GPU execution, training, rollouts, OpenVLA-OFT, or paper-grade claims.

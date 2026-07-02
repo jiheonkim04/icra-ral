@@ -40,9 +40,9 @@ Detected groups:
 
 - config: present (`config.json`),
 - weights: present (`model.safetensors` and processor safetensors),
-- tokenizer: missing under the current repo-local readiness checker.
+- tokenizer/processor dependency: present under `C:\assets\hf_home\HuggingFaceTB\SmolVLM2-500M-Video-Instruct`.
 
-The acquired `policy_preprocessor.json` references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` for tokenization/model support. That external source is outside the completed `lerobot/smolvla_base` acquisition scope.
+The dependency was acquired with full model weights avoided. Retained files include tokenizer JSON/config, vocab/merges, special tokens, chat template, preprocessor config, processor config, and config.
 
 Verify files without loading the model:
 
@@ -57,21 +57,20 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 ## Expected Order
 
 1. Manual SmolVLA acquisition checklist.
-2. If repo-local tokenizer files are required, obtain separate explicit approval for the exact source before any further download.
-3. Readiness recheck.
-4. Load-only adapter smoke planning.
-5. Heavy import/GPU only with explicit approval.
-6. Feature cache planning and implementation.
-7. Tiny head-only pilot.
-8. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+2. Readiness recheck.
+3. Load-only adapter smoke planning.
+4. Heavy import/GPU only with explicit approval.
+5. Feature cache planning and implementation.
+6. Tiny head-only pilot.
+7. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
 ## Self-Check Cases
 
 Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact missing path/config, updates state/action docs if needed, and stops at asset path gate.
 
-Case B: SmolVLA path exists but config/tokenizer/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
+Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer/weights are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval.
+Case C: Config/tokenizer dependency/weights are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval. This is the current case.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 

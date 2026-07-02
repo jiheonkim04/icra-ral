@@ -79,7 +79,21 @@ Adapter-smoke readiness requires all three groups below:
 
 An empty `C:\assets\checkpoints\smolvla` directory is only path-ready. It is not adapter-smoke-ready.
 
-After acquiring the approved source `lerobot/smolvla_base`, the local directory contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. The current readiness checker still requires a repo-local tokenizer file. The acquired `policy_preprocessor.json` references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`, which is outside the `lerobot/smolvla_base` acquisition scope and must not be downloaded without separate explicit approval.
+After acquiring the approved source `lerobot/smolvla_base`, the local directory contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. The acquired `policy_preprocessor.json` references the tokenizer/processor dependency `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`.
+
+The approved tokenizer/processor dependency source is:
+
+```text
+HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+```
+
+This dependency is stored under:
+
+```text
+C:\assets\hf_home\HuggingFaceTB\SmolVLM2-500M-Video-Instruct
+```
+
+Only tokenizer/processor/config files are retained there. Full SmolVLM2 model weights are not retained for this readiness step.
 
 ## Manual Acquisition Options
 
@@ -129,3 +143,13 @@ Go for a later separately approved load-only adapter smoke only if:
 - the later task explicitly authorizes the load-only smoke.
 
 No-go if any required file group is missing, if a runtime download would be needed, if a heavy import is not explicitly authorized, or if the task drifts into training, rollouts, LIBERO evaluation, or OpenVLA-OFT execution.
+
+Current status after tokenizer dependency acquisition:
+
+```text
+ready_for_smolvla_path_check=true
+smolvla_checkpoint_files_present=true
+ready_for_smolvla_adapter_smoke=true
+```
+
+This is still readiness only. It is not a model load, not inference, not training, not a rollout, and not paper-grade evidence.

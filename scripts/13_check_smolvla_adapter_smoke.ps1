@@ -81,6 +81,108 @@ function Test-AnyFile {
     return @($matches | Select-Object -Unique)
 }
 
+function Get-SmolVlaTokenizerDependencyName {
+    param([string]$Root)
+
+    $preprocessorPath = Join-Path $Root "policy_preprocessor.json"
+    if (-not (Test-Path -LiteralPath $preprocessorPath)) {
+        return $null
+    }
+
+    try {
+        $preprocessor = Get-Content -LiteralPath $preprocessorPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        foreach ($step in @($preprocessor.steps)) {
+            if ($step.registry_name -eq "tokenizer_processor" -and $step.config.tokenizer_name) {
+                return [string]$step.config.tokenizer_name
+            }
+        }
+    } catch {
+        return $null
+    }
+    return $null
+}
+
+function Get-DependencyRoots {
+    param(
+        [string]$DependencyName,
+        [string[]]$BaseRoots
+    )
+
+    $roots = New-Object System.Collections.Generic.List[string]
+    if ([string]::IsNullOrWhiteSpace($DependencyName)) {
+        return @()
+    }
+
+    $parts = $DependencyName -split "/"
+    if ($parts.Count -lt 2) {
+        return @()
+    }
+
+    $org = $parts[0]
+    $repo = $parts[1]
+    foreach ($base in $BaseRoots) {
+        if ([string]::IsNullOrWhiteSpace($base) -or -not (Test-Path -LiteralPath $base)) {
+            continue
+        }
+
+        $plainRoot = Join-Path (Join-Path $base $org) $repo
+        $roots.Add($plainRoot) | Out-Null
+
+        $hubRoot = Join-Path $base ("models--{0}--{1}" -f $org, $repo)
+        $roots.Add($hubRoot) | Out-Null
+        $snapshots = Join-Path $hubRoot "snapshots"
+        if (Test-Path -LiteralPath $snapshots) {
+            Get-ChildItem -LiteralPath $snapshots -Directory -ErrorAction SilentlyContinue | ForEach-Object {
+                $roots.Add($_.FullName) | Out-Null
+            }
+        }
+    }
+
+    return @($roots | Select-Object -Unique)
+}
+
+function Find-ExternalTokenizerDependency {
+    param(
+        [string]$DependencyName,
+        [string[]]$BaseRoots
+    )
+
+    $candidateRoots = Get-DependencyRoots -DependencyName $DependencyName -BaseRoots $BaseRoots
+    foreach ($root in $candidateRoots) {
+        $tokenizerFiles = Test-AnyFile -Root $root -Names @(
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "special_tokens_map.json",
+            "vocab.json",
+            "merges.txt",
+            "tokenizer.model",
+            "sentencepiece.bpe.model",
+            "chat_template.json",
+            "chat_template.jinja",
+            "preprocessor_config.json",
+            "processor_config.json",
+            "config.json"
+        ) -Patterns @()
+        if ($tokenizerFiles.Count -gt 0) {
+            return @{
+                name = $DependencyName
+                found = $true
+                root = $root
+                files = @($tokenizerFiles)
+                candidate_roots = @($candidateRoots)
+            }
+        }
+    }
+
+    return @{
+        name = $DependencyName
+        found = $false
+        root = $null
+        files = @()
+        candidate_roots = @($candidateRoots)
+    }
+}
+
 $config = Read-AssetConfig -Path $PathsFile
 $smolVla = Get-ConfiguredValue -Config $config -Key "smolvla_ckpt" -EnvName "SMOLVLA_CKPT"
 $checkpointRoot = Get-ConfiguredValue -Config $config -Key "checkpoint_root" -EnvName "CHECKPOINT_ROOT"
@@ -97,15 +199,22 @@ $tokenizerFiles = if ($ckptExists) {
 $weightFiles = if ($ckptExists) {
     Test-AnyFile -Root $ckptPath -Names @("model.safetensors", "pytorch_model.bin", "model-00001-of-00001.safetensors", "pytorch_model-00001-of-00001.bin") -Patterns @("*.safetensors", "*.bin")
 } else { @() }
+$tokenizerDependencyName = if ($ckptExists) { Get-SmolVlaTokenizerDependencyName -Root $ckptPath } else { $null }
+$externalTokenizerDependency = Find-ExternalTokenizerDependency -DependencyName $tokenizerDependencyName -BaseRoots @($hfHome.Value, $checkpointRoot.Value)
+$tokenizerPresent = [bool]($tokenizerFiles.Count -gt 0 -or $externalTokenizerDependency.found)
 
 $gpuName = $null
 $gpuMemoryMb = $null
 try {
-    $nvidia = & nvidia-smi --query-gpu=name,memory.total --format=csv,noheader,nounits 2>$null | Select-Object -First 1
-    if ($LASTEXITCODE -eq 0 -and $nvidia) {
+    $nvidiaOutput = & nvidia-smi --query-gpu=name,memory.total --format=csv,noheader,nounits 2>$null
+    $nvidiaExitCode = $LASTEXITCODE
+    if (($nvidiaExitCode -eq 0) -and $nvidiaOutput) {
+        $nvidia = @($nvidiaOutput)[0]
         $parts = $nvidia.Split(",")
-        $gpuName = $parts[0].Trim()
-        $gpuMemoryMb = [int]$parts[1].Trim()
+        if ($parts.Count -ge 2) {
+            $gpuName = $parts[0].Trim()
+            $gpuMemoryMb = [int]$parts[1].Trim()
+        }
     }
 } catch {
     $gpuName = $null
@@ -134,7 +243,7 @@ if (Test-Path -LiteralPath $Python) {
 $ready = [bool](
     $ckptExists -and
     $configFiles.Count -gt 0 -and
-    $tokenizerFiles.Count -gt 0 -and
+    $tokenizerPresent -and
     $weightFiles.Count -gt 0 -and
     $memoryFits -and
     $lightweightAdapterImportOk
@@ -144,7 +253,7 @@ if ($ready) {
     $recommended = "Ready for a separately approved SmolVLA load-only adapter smoke. Do not train."
 } elseif (-not $ckptExists) {
     $recommended = "Configure SMOLVLA_CKPT to a local checkpoint directory first."
-} elseif ($configFiles.Count -eq 0 -or $tokenizerFiles.Count -eq 0 -or $weightFiles.Count -eq 0) {
+} elseif ($configFiles.Count -eq 0 -or -not $tokenizerPresent -or $weightFiles.Count -eq 0) {
     $recommended = "Checkpoint path exists but expected config/tokenizer/weights files are incomplete."
 } elseif (-not $memoryFits) {
     $recommended = "Memory estimate does not leave enough RTX 5080 16GB headroom for local smoke."
@@ -180,6 +289,13 @@ $report = [ordered]@{
         config_found = @($configFiles)
         tokenizer_found = @($tokenizerFiles)
         weights_found = @($weightFiles)
+        external_tokenizer_dependency = [ordered]@{
+            name = $externalTokenizerDependency.name
+            found = $externalTokenizerDependency.found
+            root = $externalTokenizerDependency.root
+            files_found = @($externalTokenizerDependency.files)
+            candidate_roots = @($externalTokenizerDependency.candidate_roots)
+        }
     }
     adapter_check = [ordered]@{
         lightweight_adapter_guard_import_ok = $lightweightAdapterImportOk

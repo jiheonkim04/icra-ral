@@ -81,6 +81,108 @@ function Test-AnyFile {
     return @($matches | Select-Object -Unique)
 }
 
+function Get-SmolVlaTokenizerDependencyName {
+    param([string]$Root)
+
+    $preprocessorPath = Join-Path $Root "policy_preprocessor.json"
+    if (-not (Test-Path -LiteralPath $preprocessorPath)) {
+        return $null
+    }
+
+    try {
+        $preprocessor = Get-Content -LiteralPath $preprocessorPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        foreach ($step in @($preprocessor.steps)) {
+            if ($step.registry_name -eq "tokenizer_processor" -and $step.config.tokenizer_name) {
+                return [string]$step.config.tokenizer_name
+            }
+        }
+    } catch {
+        return $null
+    }
+    return $null
+}
+
+function Get-DependencyRoots {
+    param(
+        [string]$DependencyName,
+        [string[]]$BaseRoots
+    )
+
+    $roots = New-Object System.Collections.Generic.List[string]
+    if ([string]::IsNullOrWhiteSpace($DependencyName)) {
+        return @()
+    }
+
+    $parts = $DependencyName -split "/"
+    if ($parts.Count -lt 2) {
+        return @()
+    }
+
+    $org = $parts[0]
+    $repo = $parts[1]
+    foreach ($base in $BaseRoots) {
+        if ([string]::IsNullOrWhiteSpace($base) -or -not (Test-Path -LiteralPath $base)) {
+            continue
+        }
+
+        $plainRoot = Join-Path (Join-Path $base $org) $repo
+        $roots.Add($plainRoot) | Out-Null
+
+        $hubRoot = Join-Path $base ("models--{0}--{1}" -f $org, $repo)
+        $roots.Add($hubRoot) | Out-Null
+        $snapshots = Join-Path $hubRoot "snapshots"
+        if (Test-Path -LiteralPath $snapshots) {
+            Get-ChildItem -LiteralPath $snapshots -Directory -ErrorAction SilentlyContinue | ForEach-Object {
+                $roots.Add($_.FullName) | Out-Null
+            }
+        }
+    }
+
+    return @($roots | Select-Object -Unique)
+}
+
+function Find-ExternalTokenizerDependency {
+    param(
+        [string]$DependencyName,
+        [string[]]$BaseRoots
+    )
+
+    $candidateRoots = Get-DependencyRoots -DependencyName $DependencyName -BaseRoots $BaseRoots
+    foreach ($root in $candidateRoots) {
+        $tokenizerFiles = Test-AnyFile -Root $root -Names @(
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "special_tokens_map.json",
+            "vocab.json",
+            "merges.txt",
+            "tokenizer.model",
+            "sentencepiece.bpe.model",
+            "chat_template.json",
+            "chat_template.jinja",
+            "preprocessor_config.json",
+            "processor_config.json",
+            "config.json"
+        ) -Patterns @()
+        if ($tokenizerFiles.Count -gt 0) {
+            return @{
+                name = $DependencyName
+                found = $true
+                root = $root
+                files = @($tokenizerFiles)
+                candidate_roots = @($candidateRoots)
+            }
+        }
+    }
+
+    return @{
+        name = $DependencyName
+        found = $false
+        root = $null
+        files = @()
+        candidate_roots = @($candidateRoots)
+    }
+}
+
 $assetSpecs = @(
     @{ Key = "openvla_oft_ckpt"; Env = "OPENVLA_OFT_CKPT"; Label = "OpenVLA-OFT checkpoint or local model directory" },
     @{ Key = "smolvla_ckpt"; Env = "SMOLVLA_CKPT"; Label = "SmolVLA checkpoint or local model directory" },
@@ -117,6 +219,8 @@ foreach ($spec in $assetSpecs) {
 }
 
 $smolVlaPath = (Get-ConfiguredValue -Config $config -Key "smolvla_ckpt" -EnvName "SMOLVLA_CKPT").Value
+$checkpointRootPath = (Get-ConfiguredValue -Config $config -Key "checkpoint_root" -EnvName "CHECKPOINT_ROOT").Value
+$hfHomePath = (Get-ConfiguredValue -Config $config -Key "hf_home" -EnvName "HF_HOME").Value
 $smolVlaPathConfigured = -not [string]::IsNullOrWhiteSpace($smolVlaPath)
 $smolVlaPathExists = [bool]($smolVlaPathConfigured -and (Test-Path -LiteralPath $smolVlaPath))
 $smolVlaConfigFiles = if ($smolVlaPathExists) { Test-AnyFile -Root $smolVlaPath -Names @("config.json") -Patterns @() } else { @() }
@@ -126,7 +230,10 @@ $smolVlaTokenizerFiles = if ($smolVlaPathExists) {
 $smolVlaWeightFiles = if ($smolVlaPathExists) {
     Test-AnyFile -Root $smolVlaPath -Names @("model.safetensors", "pytorch_model.bin", "model-00001-of-00001.safetensors", "pytorch_model-00001-of-00001.bin") -Patterns @("*.safetensors", "*.bin")
 } else { @() }
-$smolVlaCheckpointFilesPresent = [bool]($smolVlaConfigFiles.Count -gt 0 -and $smolVlaTokenizerFiles.Count -gt 0 -and $smolVlaWeightFiles.Count -gt 0)
+$smolVlaTokenizerDependencyName = if ($smolVlaPathExists) { Get-SmolVlaTokenizerDependencyName -Root $smolVlaPath } else { $null }
+$smolVlaExternalTokenizerDependency = Find-ExternalTokenizerDependency -DependencyName $smolVlaTokenizerDependencyName -BaseRoots @($hfHomePath, $checkpointRootPath)
+$smolVlaTokenizerPresent = [bool]($smolVlaTokenizerFiles.Count -gt 0 -or $smolVlaExternalTokenizerDependency.found)
+$smolVlaCheckpointFilesPresent = [bool]($smolVlaConfigFiles.Count -gt 0 -and $smolVlaTokenizerPresent -and $smolVlaWeightFiles.Count -gt 0)
 $readyForSmolVlaPathCheck = [bool]($smolVlaPathConfigured -and $smolVlaPathExists)
 $readyForSmolVlaAdapterSmoke = [bool](
     $smolVlaPathConfigured -and
@@ -166,6 +273,13 @@ $report = [ordered]@{
         config_found = @($smolVlaConfigFiles)
         tokenizer_found = @($smolVlaTokenizerFiles)
         weights_found = @($smolVlaWeightFiles)
+        external_tokenizer_dependency = [ordered]@{
+            name = $smolVlaExternalTokenizerDependency.name
+            found = $smolVlaExternalTokenizerDependency.found
+            root = $smolVlaExternalTokenizerDependency.root
+            files_found = @($smolVlaExternalTokenizerDependency.files)
+            candidate_roots = @($smolVlaExternalTokenizerDependency.candidate_roots)
+        }
     }
     ready_for_openvla_oft_smoke = $readyForOpenVlaOftSmoke
     ready_for_libero_rollout = $readyForLiberoRollout

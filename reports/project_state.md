@@ -79,19 +79,33 @@ Cache target:
 C:\assets\hf_home
 ```
 
-The approval was limited to SmolVLA checkpoint acquisition from `lerobot/smolvla_base`. It did not approve GPU jobs, model inference, training, rollouts, heavy VLA imports, `ALLOW_HEAVY_IMPORT=1`, OpenVLA-OFT execution/download, dataset downloads, token/secret access, or committing checkpoint/cache files.
+The approved tokenizer/processor dependency source has also been acquired:
 
-Current checker output after acquiring `lerobot/smolvla_base`:
+```text
+HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+```
+
+Dependency target:
+
+```text
+C:\assets\hf_home\HuggingFaceTB\SmolVLM2-500M-Video-Instruct
+```
+
+Only tokenizer/processor/config files are retained for this dependency. Full SmolVLM2 model weights were avoided.
+
+The approvals were limited to SmolVLA checkpoint acquisition from `lerobot/smolvla_base` and tokenizer/processor/config dependency acquisition from `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`. They did not approve GPU jobs, model inference, training, rollouts, heavy VLA imports, `ALLOW_HEAVY_IMPORT=1`, OpenVLA-OFT execution/download, dataset downloads, token/secret access, or committing checkpoint/cache files.
+
+Current checker output after acquiring `lerobot/smolvla_base` and its tokenizer/processor dependency:
 
 ```text
 ready_for_smolvla_path_check=true
-smolvla_checkpoint_files_present=false
-ready_for_smolvla_adapter_smoke=false
+smolvla_checkpoint_files_present=true
+ready_for_smolvla_adapter_smoke=true
 ready_for_openvla_oft_smoke=false
 ready_for_libero_rollout=false
 ```
 
-Detected local files include `config.json`, `model.safetensors`, `policy_preprocessor.json`, `policy_postprocessor.json`, and processor safetensors. The readiness checker still reports `smolvla_checkpoint_files_present=false` because no repo-local tokenizer file is present.
+Detected checkpoint files include `config.json`, `model.safetensors`, `policy_preprocessor.json`, `policy_postprocessor.json`, and processor safetensors.
 
 `policy_preprocessor.json` references tokenizer/model source:
 
@@ -99,7 +113,7 @@ Detected local files include `config.json`, `model.safetensors`, `policy_preproc
 HuggingFaceTB/SmolVLM2-500M-Video-Instruct
 ```
 
-That external tokenizer/model source was not downloaded because the approved acquisition scope was only `lerobot/smolvla_base`. The current gate remains Case B from the self-check gate policy: path exists and config/weights exist, but the tokenizer file group is missing under the local readiness semantics.
+The external tokenizer/processor dependency is now detected under `C:\assets\hf_home`. The current gate is Case C from the self-check gate policy: readiness is true, but the next load-only adapter smoke still requires separate explicit approval before any heavy import or model load.
 
 Other missing assets currently expected:
 
@@ -108,21 +122,21 @@ Other missing assets currently expected:
 - LIBERO data root,
 - RoboSuite root.
 
-## Current Blocker
+## Current Gate
 
-The next real-adapter step is blocked by missing repo-local tokenizer files under:
+The next real-adapter step is a separately approved SmolVLA load-only adapter smoke. It remains blocked by the heavy import/model-load gate, not by file readiness.
 
 ```text
 C:\assets\checkpoints\smolvla
 ```
 
-Required groups:
+Ready file groups:
 
 - `config.json`,
-- tokenizer file,
+- external tokenizer/processor/config dependency files,
 - weights file.
 
-Codex should not ask whether these files were placed. It should run the readiness checkers, report exact missing file classes, and stop at the checkpoint-file gate until files are present or a dangerous gate is explicitly approved. Any future acquisition outside `lerobot/smolvla_base`, including the referenced `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` tokenizer/model, requires a separate explicit approval.
+Codex should not ask whether these files were placed. It should run the readiness checkers. Because readiness is true, Codex may prepare a load-only adapter smoke plan, but must stop before setting `ALLOW_HEAVY_IMPORT=1`, importing SmolVLA/SmolVLM2, running inference, using GPU execution, training, rollouts, simulator execution, token access, or OpenVLA-OFT.
 
 ## Validation Commands
 
@@ -178,4 +192,4 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. If tokenizer files remain missing, it should report the missing tokenizer file group and stop. If config/tokenizer/weights are present, it should verify readiness and prepare a load-only adapter smoke plan, but must not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present and adapter-smoke readiness is true, prepare the next safe load-only adapter smoke plan, but do not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.
