@@ -43,11 +43,15 @@ assets:
 
 ## Expected Checkpoint Contents
 
+An empty SmolVLA checkpoint directory is only **path-ready**. It is not **adapter-smoke-ready**. The real-asset checker reports these states separately so a placeholder directory cannot be mistaken for a usable checkpoint.
+
 The smoke checker looks for:
 
 - `config.json`,
 - at least one tokenizer file such as `tokenizer.json`, `tokenizer_config.json`, `vocab.json`, `merges.txt`, `tokenizer.model`, or `sentencepiece.bpe.model`,
 - at least one weights file such as `model.safetensors`, `pytorch_model.bin`, sharded `*.safetensors`, or sharded `*.bin`.
+
+Actual config, tokenizer, and weights files are required before any later load-only adapter smoke. Creating `C:\assets\checkpoints\smolvla` by itself is not enough.
 
 Exact SmolVLA file names may differ by release. If the checker reports missing files but the local checkpoint is valid, update the expected-file list in `configs/smolvla_smoke.yaml` and the checker scripts.
 
