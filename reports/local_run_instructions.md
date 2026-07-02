@@ -110,6 +110,14 @@ powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.
 
 Path readiness and adapter smoke readiness are different. An empty `SMOLVLA_CKPT` directory can pass a path check, but it is not adapter-smoke-ready until config, tokenizer, and weights files are present and `HF_HOME` or `CHECKPOINT_ROOT` exists.
 
+Plan the later load-only adapter smoke without importing SmolVLA or loading a model:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
+```
+
+This planner writes `reports\smolvla_load_only_smoke_plan_report.json`, which is ignored by git. It refuses to run if `ALLOW_HEAVY_IMPORT=1` is already set.
+
 Linux/WSL equivalents:
 
 ```bash

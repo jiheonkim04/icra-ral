@@ -58,6 +58,12 @@ Check local paths without downloads, heavy model imports, GPU jobs, or rollouts:
 powershell -ExecutionPolicy Bypass -File scripts/11_check_real_assets.ps1
 ```
 
+Plan the later SmolVLA load-only smoke without importing SmolVLA or loading a model:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/15_plan_smolvla_load_only_smoke.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash

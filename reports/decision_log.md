@@ -91,3 +91,11 @@ Decision: Acquire tokenizer/processor/config files from `HuggingFaceTB/SmolVLM2-
 Reason: `policy_preprocessor.json` in `lerobot/smolvla_base` names this dependency for tokenization/model support, and the user explicitly approved tokenizer/processor dependency acquisition only.
 
 Consequence: Full SmolVLM2 model weights remain forbidden for this step and were avoided. `ready_for_smolvla_adapter_smoke=true` now means file/interface readiness only. It does not authorize heavy imports, model loading, inference, GPU execution, training, rollouts, OpenVLA-OFT, or paper-grade claims.
+
+## SmolVLA Load-Only Smoke Planning Guard
+
+Decision: Add a planning-only SmolVLA load-only smoke guard before any heavy import/model-load task.
+
+Reason: Readiness is true, but actual SmolVLA/SmolVLM loading crosses the heavy import/model-load gate and needs a separate explicit approval step.
+
+Consequence: `scripts\15_plan_smolvla_load_only_smoke.ps1` may run safely without `ALLOW_HEAVY_IMPORT=1`. It writes a planning report, refuses to run when `ALLOW_HEAVY_IMPORT=1` is already set, and does not import SmolVLA, load models, run inference, train, rollout, download assets, access secrets, or execute OpenVLA-OFT.
