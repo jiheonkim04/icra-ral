@@ -9,16 +9,31 @@ $SmokeReport = Join-Path $RepoRoot "reports\smoke_report.json"
 function Get-StatusPath {
     param([string]$Line)
 
+    if ([string]::IsNullOrWhiteSpace($Line)) {
+        return ""
+    }
     if ($Line.Length -lt 4) {
         return $Line
     }
     return $Line.Substring(3).Trim().Trim('"')
 }
 
+function Convert-ToStringArray {
+    param([object]$Value)
+
+    if ($null -eq $Value) {
+        return @()
+    }
+    return @($Value | Where-Object { $null -ne $_ } | ForEach-Object { $_.ToString() })
+}
+
 function Test-AllowedRuntimeStatus {
     param([string]$Line)
 
     $path = (Get-StatusPath -Line $Line).Replace("\", "/")
+    if ([string]::IsNullOrWhiteSpace($path)) {
+        return $true
+    }
     $allowed = @(
         "reports/preflight_report.json",
         "reports/smoke_report.json",
@@ -29,11 +44,23 @@ function Test-AllowedRuntimeStatus {
         "reports/cursor_safe_check_report.json",
         "reports/cursor_safe_check_report.md"
     )
-    return $allowed -contains $path
+    if ($allowed -contains $path) {
+        return $true
+    }
+    if ($path -eq ".pytest_cache" -or $path.StartsWith(".pytest_cache/")) {
+        return $true
+    }
+    if ($path -eq "__pycache__" -or $path.EndsWith("/__pycache__") -or $path.Contains("/__pycache__/")) {
+        return $true
+    }
+    if ($path.EndsWith(".pyc")) {
+        return $true
+    }
+    return $false
 }
 
 function Get-SourceStatus {
-    $lines = @(& git status --porcelain)
+    $lines = Convert-ToStringArray -Value (& git status --porcelain)
     return @($lines | Where-Object { $_ -and -not (Test-AllowedRuntimeStatus -Line $_) })
 }
 
@@ -116,14 +143,14 @@ Write-Host $commit
 
 Write-Host ""
 Write-Host "git status --short"
-$initialGitStatus = @(& git status --short)
+$initialGitStatus = Convert-ToStringArray -Value (& git status --short)
 if ($initialGitStatus.Count -gt 0) {
     $initialGitStatus | ForEach-Object { Write-Host $_ }
 } else {
     Write-Host "(clean)"
 }
 
-$initialSourceStatus = Get-SourceStatus
+$initialSourceStatus = Convert-ToStringArray -Value (Get-SourceStatus)
 $steps = New-Object System.Collections.Generic.List[object]
 
 $steps.Add((Invoke-Step -Name "tree_check" -Required $true -Script {
@@ -170,8 +197,8 @@ if ($smokeReportExists) {
     Write-Host "MISSING: reports\smoke_report.json" -ForegroundColor Red
 }
 
-$finalGitStatus = @(& git status --short)
-$finalSourceStatus = Get-SourceStatus
+$finalGitStatus = Convert-ToStringArray -Value (& git status --short)
+$finalSourceStatus = Convert-ToStringArray -Value (Get-SourceStatus)
 $sourceStatusDelta = @(Compare-Object -ReferenceObject $initialSourceStatus -DifferenceObject $finalSourceStatus | ForEach-Object {
     "$($_.SideIndicator) $($_.InputObject)"
 })
