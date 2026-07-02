@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-ed991ee734a93db9c43e7e9e0d17c6f30c1d854a
+b09b684dcb0bf96910f2a2e3a9d604da97174e1b
 ```
 
 Use explicit Python for validation:
@@ -46,7 +46,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - SmolVLA readiness semantics split,
 - SmolVLA download plan guard,
 - Windows Bash shim handling for Bash-specific tests,
-- manual SmolVLA acquisition checklist.
+- manual SmolVLA acquisition checklist,
+- Codex delegation manual and project state files.
 
 ## Current Asset Status
 
@@ -60,13 +61,17 @@ HF_HOME=C:\assets\hf_home
 
 The SmolVLA checkpoint directory exists, but required checkpoint files are missing.
 
-Current expected readiness:
+Current checker output:
 
 ```text
 ready_for_smolvla_path_check=true
 smolvla_checkpoint_files_present=false
 ready_for_smolvla_adapter_smoke=false
+ready_for_openvla_oft_smoke=false
+ready_for_libero_rollout=false
 ```
+
+The current gate is Case B from the self-check gate policy: path exists, but config/tokenizer/weights are missing.
 
 Other missing assets currently expected:
 
@@ -89,6 +94,8 @@ Required groups:
 - tokenizer file,
 - weights file.
 
+Codex should not ask whether these files were placed. It should run the readiness checkers, report exact missing file classes, and stop at the checkpoint-file gate until files are present or a dangerous gate is explicitly approved.
+
 ## Validation Commands
 
 Run:
@@ -105,6 +112,8 @@ Relevant dry-run planner:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\14_plan_smolvla_download.ps1
 ```
+
+Codex should run these commands itself when routine state is needed. The user should only be asked at dangerous gates.
 
 ## Safety Gates
 
@@ -141,4 +150,4 @@ Core method:
 
 ## Immediate Next Step
 
-Follow `reports/smolvla_manual_acquisition_checklist.md`, manually place valid SmolVLA checkpoint files, then rerun readiness checks.
+Codex should self-check current state. If checkpoint files remain missing, it should report the missing file classes and stop. If checkpoint files are present, it should verify readiness and prepare a load-only adapter smoke plan, but must not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.
