@@ -16,6 +16,12 @@ If checkpoint files are missing, report the missing file classes and stop at the
 
 If checkpoint files are present, verify readiness and prepare a load-only adapter smoke plan. Do not perform heavy import, GPU inference, download, training, rollout, simulator execution, token access, or OpenVLA-OFT execution without explicit approval.
 
+The planning command is:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
+```
+
 ## Current Asset State
 
 The approved SmolVLA checkpoint source has been acquired:
@@ -59,7 +65,7 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 1. Manual SmolVLA acquisition checklist.
 2. Readiness recheck.
 3. Load-only adapter smoke planning.
-4. Heavy import/GPU only with explicit approval.
+4. Separately approved load-only model import task.
 5. Feature cache planning and implementation.
 6. Tiny head-only pilot.
 7. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
@@ -70,7 +76,7 @@ Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact m
 
 Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer dependency/weights are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval. This is the current case.
+Case C: Config/tokenizer dependency/weights are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval. The plan now exists; actual model loading is still gated.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 
@@ -105,4 +111,4 @@ ready_for_smolvla_adapter_smoke=true
 
 ## Later Task
 
-After readiness is true, create a new branch for SmolVLA load-only adapter smoke. That branch should remain load/interface-only and must not train, rollout, or execute OpenVLA-OFT.
+After readiness and planning are true, create a new branch for the separately approved SmolVLA load-only execution smoke. That branch should remain load/interface-only and must not infer, train, rollout, or execute OpenVLA-OFT.

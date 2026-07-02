@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-bd069a82c1f1b268dbfd9c21a9c18dd1b2ccc448
+b0c395a7431871c8f94761fbc8854c5822188043
 ```
 
 Use explicit Python for validation:
@@ -47,7 +47,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - SmolVLA download plan guard,
 - Windows Bash shim handling for Bash-specific tests,
 - manual SmolVLA acquisition checklist,
-- Codex delegation manual and project state files.
+- Codex delegation manual and project state files,
+- SmolVLA load-only adapter smoke planning guard.
 
 ## Current Asset Status
 
@@ -113,7 +114,7 @@ Detected checkpoint files include `config.json`, `model.safetensors`, `policy_pr
 HuggingFaceTB/SmolVLM2-500M-Video-Instruct
 ```
 
-The external tokenizer/processor dependency is now detected under `C:\assets\hf_home`. The current gate is Case C from the self-check gate policy: readiness is true, but the next load-only adapter smoke still requires separate explicit approval before any heavy import or model load.
+The external tokenizer/processor dependency is now detected under `C:\assets\hf_home`. The current gate is Case C from the self-check gate policy: readiness is true, and the load-only adapter smoke plan is prepared, but actual load-only execution still requires separate explicit approval before any heavy import or model load.
 
 Other missing assets currently expected:
 
@@ -124,7 +125,7 @@ Other missing assets currently expected:
 
 ## Current Gate
 
-The next real-adapter step is a separately approved SmolVLA load-only adapter smoke. It remains blocked by the heavy import/model-load gate, not by file readiness.
+The next real-adapter step is a separately approved SmolVLA load-only adapter smoke. It remains blocked by the heavy import/model-load gate, not by file readiness or planning.
 
 ```text
 C:\assets\checkpoints\smolvla
@@ -137,6 +138,18 @@ Ready file groups:
 - weights file.
 
 Codex should not ask whether these files were placed. It should run the readiness checkers. Because readiness is true, Codex may prepare a load-only adapter smoke plan, but must stop before setting `ALLOW_HEAVY_IMPORT=1`, importing SmolVLA/SmolVLM2, running inference, using GPU execution, training, rollouts, simulator execution, token access, or OpenVLA-OFT.
+
+Planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
+```
+
+This writes ignored runtime output to:
+
+```text
+reports\smolvla_load_only_smoke_plan_report.json
+```
 
 ## Validation Commands
 
@@ -153,6 +166,7 @@ Relevant dry-run planner:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\14_plan_smolvla_download.ps1
+powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
 ```
 
 Codex should run these commands itself when routine state is needed. The user should only be asked at dangerous gates.
@@ -192,4 +206,4 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present and adapter-smoke readiness is true, prepare the next safe load-only adapter smoke plan, but do not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, and the load-only smoke plan exists, the next step is a separate explicit approval task for actual SmolVLA load-only model loading. Do not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.

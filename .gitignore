@@ -25,6 +25,7 @@ reports/missing_assets_runtime.md
 reports/cursor_safe_check_report.json
 reports/cursor_safe_check_report.md
 reports/system_readiness.json
+reports/smolvla_load_only_smoke_plan_report.json
 reports/wsl2_status.md
 
 # Runs and generated artifacts

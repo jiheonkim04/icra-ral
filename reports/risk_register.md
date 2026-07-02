@@ -48,6 +48,14 @@ Impact: OOM during future load-only smoke, feature caching, or pilots.
 
 Mitigation: SmolVLA-first, frozen/head-only defaults, low-resolution heatmaps, batch size 1, memory estimates, and optional LoRA/QLoRA only with explicit config.
 
+## Premature Heavy Import
+
+Risk: A load-only smoke task may accidentally become a heavy import, model inference, or GPU execution task without explicit approval and bounded scope.
+
+Impact: CUDA/Windows instability, OOM, hidden inference, or invalid claim that readiness is a result.
+
+Mitigation: Use `scripts\15_plan_smolvla_load_only_smoke.ps1` first. It is planning-only, refuses `ALLOW_HEAVY_IMPORT=1`, and records the future gate. Actual loading requires a separate explicit approval task with no inference, training, rollout, dataset, simulator, or OpenVLA-OFT behavior.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.
