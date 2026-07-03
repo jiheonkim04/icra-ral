@@ -78,6 +78,7 @@ REPORTS = {
     "head_only_comparison": REPO / "reports" / "head_only_tiny_comparison_report.json",
     "tiny_lora": REPO / "reports" / "tiny_lora_smoke_report.json",
     "tiny_lora_comparison": REPO / "reports" / "tiny_lora_comparison_report.json",
+    "bounded_local_pilot_extension": REPO / "reports" / "bounded_local_pilot_extension_report.json",
     "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
 }
 
@@ -117,6 +118,7 @@ status = {
     "head_only_comparison_passed": bool(data("head_only_comparison").get("head_only_tiny_comparison_passed")),
     "tiny_lora_smoke_passed": bool(data("tiny_lora").get("tiny_lora_smoke_passed")),
     "tiny_lora_comparison_passed": bool(data("tiny_lora_comparison").get("tiny_lora_comparison_passed")),
+    "bounded_local_pilot_extension_passed": bool(data("bounded_local_pilot_extension").get("bounded_local_pilot_extension_passed")),
     "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
     "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
 }
@@ -134,6 +136,7 @@ all_bounded_smokes_passed = all(
         "head_only_comparison_passed",
         "tiny_lora_smoke_passed",
         "tiny_lora_comparison_passed",
+        "bounded_local_pilot_extension_passed",
     ]
 )
 
@@ -171,7 +174,7 @@ report = {
         "LIBERO/LIBERO-CF metadata or tiny subset setup if official and inside download budget",
         "simulator readiness/import-render smoke if already installed locally",
         "bounded rollout only after simulator smoke, task_count<=5, runtime<=30 minutes, no paper claim",
-        "bounded local training extension up to 300 steps after stable smaller smoke",
+        "bounded local training extension beyond the current cached-feature smoke only after a fresh green risk assessment",
         "QLoRA feasibility or tooling only if package/CUDA/PyTorch risk is inside budget",
     ],
     "external_irreversible_stop_gates": [

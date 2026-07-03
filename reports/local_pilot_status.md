@@ -38,3 +38,11 @@ The generator is inside the risk-assessed pilot envelope because it:
 - does not make paper claims.
 
 The generator refuses execution gates, including `ALLOW_TINY_TRAINING`, because it is summary-only.
+
+It also reads the bounded cached-feature local pilot extension report when present:
+
+```text
+reports\bounded_local_pilot_extension_report.json
+```
+
+That extension remains offline proxy/interface evidence only. It is not standard success, rollout success, or paper-grade evidence.

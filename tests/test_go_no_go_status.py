@@ -72,6 +72,9 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["policy"]["risk_assessed_autonomy_policy"] is True
     assert report["decision"].startswith("no_go")
     assert report["ready_for_bounded_local_pilot"] in {True, False}
+    assert "bounded_local_pilot_extension" in report["completed_safe_smokes"]
+    assert "bounded_local_pilot_extension" in report
+    assert report["bounded_local_pilot_extension"].get("not_paper_grade") in {True, False, None}
     assert report["blocked_for_larger_paper_grade_stage"] is True
     assert "lora_qlora_planning" in report
     assert report["lora_qlora_planning"]["qlora_safe_to_run_now"] is False

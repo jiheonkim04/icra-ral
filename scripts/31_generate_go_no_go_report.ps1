@@ -86,6 +86,7 @@ load_only = load_json("reports/smolvla_load_only_smoke_report.json")
 single_sample = load_json("reports/smolvla_single_sample_interface_report.json")
 feature_cache = load_json("reports/feature_cache_eval_report.json")
 tiny_head = load_json("reports/tiny_head_only_smoke_report.json")
+bounded_extension = load_json("reports/bounded_local_pilot_extension_report.json")
 hard_stop = load_json("reports/hard_stop_status_report.json")
 lora_adapter_plan = load_json("reports/lora_adapter_construction_plan_report.json")
 lora_tiny_scaffold = load_json("reports/lora_tiny_smoke_scaffold_report.json")
@@ -97,6 +98,7 @@ completed = {
     "single_sample_interface_smoke": passed(single_sample, "result", "passed"),
     "feature_cache_eval_smoke": bool((feature_cache or {}).get("cache_valid")),
     "tiny_head_only_smoke": bool((tiny_head or {}).get("tiny_head_only_smoke_passed")),
+    "bounded_local_pilot_extension": bool((bounded_extension or {}).get("bounded_local_pilot_extension_passed")),
 }
 
 runtime_reports_available = {
@@ -104,6 +106,7 @@ runtime_reports_available = {
     "smolvla_single_sample_interface_report": single_sample is not None,
     "feature_cache_eval_report": feature_cache is not None,
     "tiny_head_only_smoke_report": tiny_head is not None,
+    "bounded_local_pilot_extension_report": bounded_extension is not None,
     "hard_stop_status_report": hard_stop is not None,
     "lora_adapter_construction_plan_report": lora_adapter_plan is not None,
     "lora_tiny_smoke_scaffold_report": lora_tiny_scaffold is not None,
@@ -123,6 +126,19 @@ if isinstance(tiny_head, dict):
             "wrong_target_proxy_rate": metrics.get("wrong_target_proxy_rate"),
             "max_gpu_memory_mb": metrics.get("max_gpu_memory_mb"),
         }
+
+bounded_extension_summary = {}
+if isinstance(bounded_extension, dict):
+    bounded_extension_summary = {
+        "passed": bool(bounded_extension.get("bounded_local_pilot_extension_passed")),
+        "requested_max_steps": (bounded_extension.get("bounds") or {}).get("requested_max_steps"),
+        "runner_max_steps_cap": (bounded_extension.get("bounds") or {}).get("runner_max_steps_cap"),
+        "local_policy_max_steps": (bounded_extension.get("bounds") or {}).get("local_policy_max_steps"),
+        "safe_to_run_real_dataset_pilot": bool(bounded_extension.get("safe_to_run_real_dataset_pilot")),
+        "safe_to_run_rollouts": bool(bounded_extension.get("safe_to_run_rollouts")),
+        "offline_proxy_only": bool((bounded_extension.get("policy") or {}).get("offline_proxy_only")),
+        "not_paper_grade": bool((bounded_extension.get("policy") or {}).get("not_paper_grade")),
+    }
 
 all_safe_smokes_passed = all(completed.values())
 lora_qlora_planning = {
@@ -218,6 +234,7 @@ report = {
     "all_lora_qlora_planning_done": all_lora_qlora_planning_done,
     "runtime_reports_available": runtime_reports_available,
     "tiny_head_only_metrics": tiny_metrics,
+    "bounded_local_pilot_extension": bounded_extension_summary,
     "blocked_by": blocked_by,
     "hard_stop_status": {
         "hard_stop_reached": (hard_stop or {}).get("hard_stop_reached"),

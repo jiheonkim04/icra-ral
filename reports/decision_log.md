@@ -355,3 +355,11 @@ Decision: Add a bounded cached-feature local pilot extension runner.
 Reason: After the smaller head-only and LoRA smokes passed, the next safe local execution step is a slightly longer cached-feature head-only smoke inside the 300-step risk policy, without real datasets or simulator execution.
 
 Consequence: `scripts\44_bounded_local_pilot_extension.ps1` runs the existing cached-feature head-only smoke path with a stricter 100-step runner cap and a 64-step default. It writes ignored runtime reports and labels the result as offline proxy only, not standard success and not paper-grade evidence.
+
+## Bounded Extension Status Consolidation
+
+Decision: Include the bounded local pilot extension report in consolidated status and go/no-go summaries.
+
+Reason: Once the bounded extension runner exists, the repository status reports should not ignore its runtime report.
+
+Consequence: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` read `reports\bounded_local_pilot_extension_report.json` when present. They remain summary-only and do not train, download, use GPU, import heavy models, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims.

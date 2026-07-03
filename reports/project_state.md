@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-47162fd or newer
+f15161f or newer
 ```
 
 Use explicit Python for validation:
@@ -506,6 +506,8 @@ Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 ```
 
 This remains offline proxy/interface evidence only. It does not authorize real dataset training, simulator execution, rollouts, OpenVLA-OFT, or paper claims.
+
+The consolidated local pilot status and go/no-go generators now include the bounded extension report when present. They remain summary-only and refuse execution gates.
 
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
 
