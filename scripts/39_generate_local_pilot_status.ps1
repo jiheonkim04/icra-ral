@@ -79,6 +79,8 @@ REPORTS = {
     "tiny_lora": REPO / "reports" / "tiny_lora_smoke_report.json",
     "tiny_lora_comparison": REPO / "reports" / "tiny_lora_comparison_report.json",
     "bounded_local_pilot_extension": REPO / "reports" / "bounded_local_pilot_extension_report.json",
+    "libero_metadata_subset": REPO / "reports" / "libero_metadata_subset_report.json",
+    "libero_offline_interface": REPO / "reports" / "libero_offline_interface_smoke_report.json",
     "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
 }
 
@@ -119,6 +121,10 @@ status = {
     "tiny_lora_smoke_passed": bool(data("tiny_lora").get("tiny_lora_smoke_passed")),
     "tiny_lora_comparison_passed": bool(data("tiny_lora_comparison").get("tiny_lora_comparison_passed")),
     "bounded_local_pilot_extension_passed": bool(data("bounded_local_pilot_extension").get("bounded_local_pilot_extension_passed")),
+    "libero_metadata_subset_ready": bool(data("libero_metadata_subset").get("ready_for_metadata_only_subset")),
+    "libero_offline_interface_ready": bool(data("libero_offline_interface").get("ready_for_offline_interface_smoke")),
+    "libero_offline_interface_decision": data("libero_offline_interface").get("decision"),
+    "libero_rollout_ready": bool(data("libero_offline_interface").get("ready_for_rollout")),
     "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
     "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
 }
@@ -171,7 +177,7 @@ report = {
     "parse_errors": parse_errors,
     "risk_assessed_next_gates": [
         "real benchmark dataset acquisition if source/size/license/disk checks pass",
-        "LIBERO/LIBERO-CF metadata or tiny subset setup if official and inside download budget",
+        "LIBERO/LIBERO-CF metadata is safe; tiny real/offline dataset smoke only if local demo files are present",
         "simulator readiness/import-render smoke if already installed locally",
         "bounded rollout only after simulator smoke, task_count<=5, runtime<=30 minutes, no paper claim",
         "bounded local training extension beyond the current cached-feature smoke only after a fresh green risk assessment",

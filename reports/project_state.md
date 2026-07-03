@@ -419,6 +419,8 @@ The next safe local action is to run the metadata-only LIBERO subset builder. Th
 
 After the metadata-only builder, the offline interface smoke gate can be run safely. In the current local state it should report `stop`, because `LIBERO_DATA_ROOT` contains only the no-full-dataset marker and no demo/data files.
 
+The consolidated local pilot and go/no-go summaries now include these LIBERO data gates when their runtime reports are present.
+
 The required LoRA/QLoRA experiment-track policy is documented in `reports\lora_required_experiment_plan.md`:
 
 ```powershell
