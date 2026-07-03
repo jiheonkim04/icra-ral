@@ -307,3 +307,11 @@ Decision: Add a bounded local tiny LoRA comparison report.
 Reason: The required LoRA track needs an explicit analysis artifact that separates TCA-Map + LoRA gains from Distributional TCA-Select gains.
 
 Consequence: `scripts\38_compare_tiny_lora_pilot.ps1` reads the existing tiny LoRA smoke report and emits offline proxy deltas only. It does not download assets, run GPU jobs, train, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+
+## Consolidated Local Pilot Status
+
+Decision: Add a summary-only local pilot status report.
+
+Reason: The bounded local offline proxy tier now has several runtime reports, and the repository needs one artifact that says what has passed and what remains a hard-stop gate.
+
+Consequence: `scripts\39_generate_local_pilot_status.ps1` reads existing reports and writes a consolidated status without training, downloading, running GPU jobs, importing heavy VLA models, loading models, inferring, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims. It marks the next meaningful steps as explicit hard-stop gate decisions.

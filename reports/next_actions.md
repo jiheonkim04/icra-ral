@@ -163,10 +163,11 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 18. Bounded local pilot execution is standing-approved if inside limits. Done: head-only ActionMap vs TCA-Map comparison report.
 19. Tiny LoRA smoke runner inside standing approval. Done.
 20. Tiny LoRA comparison report. Done.
-21. Next bounded local pilot step: consolidated local pilot status/report inside standing approval.
-22. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+21. Consolidated local pilot status/report inside standing approval. Done.
+22. No further safe local pilot execution remains without a hard-stop gate.
+23. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, tiny LoRA smoke runner, tiny LoRA comparison report, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. Bounded local SmolVLA-only pilot work is standing-approved if it stays within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. Bounded local SmolVLA-only pilot work is complete for the current safe offline proxy tier. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 Planning command:
 
@@ -178,6 +179,7 @@ powershell -ExecutionPolicy Bypass -File scripts\35_check_qlora_feasibility.ps1
 powershell -ExecutionPolicy Bypass -File scripts\36_compare_head_only_tiny_pilot.ps1
 $env:ALLOW_TINY_TRAINING="1"; powershell -ExecutionPolicy Bypass -File scripts\37_tiny_lora_smoke.ps1 -PrepareDummyCache; Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 powershell -ExecutionPolicy Bypass -File scripts\38_compare_tiny_lora_pilot.ps1
+powershell -ExecutionPolicy Bypass -File scripts\39_generate_local_pilot_status.ps1
 ```
 
 ## Required LoRA/QLoRA Progression
@@ -240,4 +242,4 @@ ready_for_smolvla_adapter_smoke=true
 
 After readiness, planning, load-only smoke, single-sample interface smoke, and feature-cache/interface validation are true, continue on a new branch for a tiny head-only smoke runner. That branch may run only bounded head-only smoke and must not train a backbone, rollout, evaluate real datasets, or execute OpenVLA-OFT.
 
-After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, and tiny LoRA comparison report, continue into bounded local SmolVLA pilot work if it stays inside the standing-approved limits. The next safe task is a consolidated local pilot status/report that reads existing reports and makes no new empirical claims. Stop only for true hard-stop gates such as QLoRA tooling/package work, real dataset setup, simulator rollout, OpenVLA-OFT-related work, training over 100 steps, runtime over 30 minutes, VRAM over 14GB, secrets, or paper-grade claims.
+After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparison report, and consolidated local pilot status report, no further safe local pilot execution remains without crossing a hard-stop gate. Stop for the next explicit gate decision: real dataset setup, simulator rollout path, OpenVLA-OFT-related work, QLoRA tooling/package work, training over 100 steps, runtime over 30 minutes, VRAM over 14GB, secrets, or paper-grade claims.

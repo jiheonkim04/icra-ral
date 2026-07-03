@@ -462,6 +462,14 @@ powershell -ExecutionPolicy Bypass -File scripts\38_compare_tiny_lora_pilot.ps1
 
 The comparison reads `reports\tiny_lora_smoke_report.json` and reports ActionMap+LoRA vs TCA-Map+LoRA and TCA-Map+LoRA vs TCA-Map+LoRA+Distributional TCA-Select deltas using offline proxy metrics only. It does not train, download, use GPU, import heavy VLA models, load models, run inference, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims.
 
+The consolidated local pilot status report is documented in `reports\local_pilot_status.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\39_generate_local_pilot_status.ps1
+```
+
+The status generator reads existing bounded local runtime reports and summarizes what has passed. It is summary-only and does not download, train, use GPU, import heavy VLA models, load models, run inference, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims. Once it passes, the current safe offline proxy tier is complete; the next meaningful steps require explicit hard-stop gate approval.
+
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
 
 ```powershell
