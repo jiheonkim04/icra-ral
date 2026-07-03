@@ -130,7 +130,7 @@ Decision: Complete the explicitly approved SmolVLA runtime package install in th
 
 Reason: The user approved runtime package installation after the planner identified the missing SmolVLA runtime packages.
 
-Consequence: The environment now has `torch==2.10.0+cu128`, `torchvision==0.25.0+cu128`, `transformers==4.57.6`, `lerobot==0.4.4`, `safetensors==0.8.0`, `accelerate==1.14.0`, and `huggingface-hub==0.35.3`. This clears the runtime dependency gate only. It does not authorize `ALLOW_HEAVY_IMPORT=1`, model loading, inference, GPU execution, training, rollouts, simulator execution, OpenVLA-OFT, token access, package upgrades, CUDA toolkit changes, or paper-grade claims.
+Consequence: The environment now has `torch==2.10.0+cu128`, `torchvision==0.25.0+cu128`, `transformers==4.57.6`, `lerobot==0.4.4`, `safetensors==0.8.0`, `accelerate==1.14.0`, and `huggingface-hub==0.35.3`. The later bounded load-only debug path also identified and installed `num2words==0.5.14` for the SmolVLM processor. This clears the runtime dependency gate only. It does not authorize inference, GPU execution, training, rollouts, simulator execution, OpenVLA-OFT, token access, package upgrades, CUDA toolkit changes, or paper-grade claims outside the standing-approved bounded pilot policy.
 
 ## Feature Cache Interface Before Real Extraction
 
@@ -171,3 +171,11 @@ Decision: Treat the expected low-compute SmolVLA pilot path as standing-approved
 Reason: The checkpoint/dependency files are ready, runtime dependencies are installed, safe runner and pytest pass, and repeated approval prompts for predictable load-only/interface/tiny-smoke steps prevent autonomous research-engineering progress.
 
 Consequence: Codex should continue without asking before bounded SmolVLA load-only heavy import/model construction, load-only debugging, one synthetic or dummy single-sample interface smoke, tiny feature-cache/interface validation, and tiny head-only smoke with frozen backbone, max 100 steps, max 15 minutes, and max 14GB VRAM. Codex may set `ALLOW_HEAVY_IMPORT=1` only inside the bounded load-only task. Codex must still stop before OpenVLA-OFT download/import/load/execution, LIBERO/RoboSuite/RoboCasa/dataset downloads, simulator execution, rollouts, real benchmark evaluation, training outside the tiny-smoke budget, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, unplanned large package installs, token/secret/login requirements, multi-seed experiments, paper-level empirical claims, external submission/upload/publishing, or destructive deletion outside repository/approved cache cleanup.
+
+## SmolVLA Load-Only Smoke Execution Result
+
+Decision: Treat the bounded CPU SmolVLA load-only smoke as passed.
+
+Reason: The local checkpoint, local tokenizer/processor dependency, runtime packages, memory policy, and heavy-import gate were sufficient to construct the SmolVLA policy from local files with `load_vlm_weights=false`.
+
+Consequence: This is an engineering smoke result only, not a paper-grade result. It performed no inference, training, rollout, OpenVLA-OFT execution, token access, or downloads. The next autonomous step is a single-sample interface smoke with synthetic or dummy inputs inside the same bounded pilot policy.

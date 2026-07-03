@@ -126,6 +126,16 @@ powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 
 Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set inside the standing-approved bounded SmolVLA load-only task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any loader path can proceed.
 
+Run the bounded load-only smoke only inside the standing-approved task:
+
+```powershell
+$env:ALLOW_HEAVY_IMPORT="1"
+powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
+Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
+```
+
+This is an engineering smoke only. Passing it does not authorize paper claims, rollouts, training, real benchmark evaluation, OpenVLA-OFT execution, token access, or model downloads.
+
 Check the runtime package prerequisites without importing heavy VLA models:
 
 ```powershell

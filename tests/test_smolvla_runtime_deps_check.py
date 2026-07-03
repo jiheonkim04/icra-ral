@@ -48,3 +48,4 @@ def test_runtime_dependency_checker_is_check_only(tmp_path):
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
     assert "torch" in report["runtime_dependencies"]["required"]
+    assert "num2words" in report["runtime_dependencies"]["required"]

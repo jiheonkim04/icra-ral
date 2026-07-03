@@ -4,6 +4,7 @@
 numpy>=1.26
 PyYAML>=6.0
 pytest>=8.0
+num2words>=0.5.14
 
 # Optional later, install manually only when running real VLA pilots:
 # torch

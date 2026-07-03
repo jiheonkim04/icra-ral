@@ -56,6 +56,27 @@ function Get-ConfiguredValue {
     return @{ Value = $null; Source = $null }
 }
 
+function Test-LoadOnlySmokePassed {
+    param([string]$ExpectedSmolVlaPath)
+
+    $reportPath = Join-Path $RepoRoot "reports\smolvla_load_only_smoke_report.json"
+    if ([string]::IsNullOrWhiteSpace($ExpectedSmolVlaPath) -or -not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $reportedPath = [string]$report.paths.smolvla_ckpt
+        if ([string]::IsNullOrWhiteSpace($reportedPath)) {
+            return $false
+        }
+        $expectedFullPath = [System.IO.Path]::GetFullPath($ExpectedSmolVlaPath)
+        $reportedFullPath = [System.IO.Path]::GetFullPath($reportedPath)
+        return [bool]($report.result.passed -and $expectedFullPath -eq $reportedFullPath)
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -244,8 +265,11 @@ $readyForSmolVlaAdapterSmoke = [bool](
 $readyForSmolVlaSmoke = $readyForSmolVlaAdapterSmoke
 $readyForOpenVlaOftSmoke = [bool]($status["openvla_oft_ckpt"].exists -and $status["hf_home"].exists -and $status["checkpoint_root"].exists)
 $readyForLiberoRollout = [bool]($status["libero_root"].exists -and $status["libero_data_root"].exists -and $status["robosuite_root"].exists)
+$loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $smolVlaPath
 
-if ($readyForSmolVlaAdapterSmoke) {
+if ($readyForSmolVlaAdapterSmoke -and $loadOnlySmokePassed) {
+    $recommendedNextStep = "Continue to the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
+} elseif ($readyForSmolVlaAdapterSmoke) {
     $recommendedNextStep = "Continue to the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
 } elseif ($readyForSmolVlaPathCheck -and -not $smolVlaCheckpointFilesPresent) {
     $recommendedNextStep = "SmolVLA path exists, but config/tokenizer/weights files are missing. This is path-ready only, not adapter-smoke-ready."
@@ -269,6 +293,7 @@ $report = [ordered]@{
     smolvla_checkpoint_files_present = $smolVlaCheckpointFilesPresent
     ready_for_smolvla_path_check = $readyForSmolVlaPathCheck
     ready_for_smolvla_adapter_smoke = $readyForSmolVlaAdapterSmoke
+    smolvla_load_only_smoke_passed = $loadOnlySmokePassed
     smolvla_expected_files = [ordered]@{
         config_found = @($smolVlaConfigFiles)
         tokenizer_found = @($smolVlaTokenizerFiles)

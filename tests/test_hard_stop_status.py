@@ -82,6 +82,7 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert load_only_request["current_blocker"] is False
     assert tiny_request["current_blocker"] is False
     assert "ready_for_autonomous_tiny_training_smoke" in report["tiny_head_only"]
+    assert "num2words" in report["runtime"]["required"]
     if runtime_request["current_blocker"]:
         assert "runtime installation" in report["hard_stop_reason"]
     else:

@@ -63,7 +63,9 @@ def test_runtime_install_planner_is_planning_only(tmp_path):
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert "torch" in {item["distribution"] for item in report["packages"]}
+    planned_distributions = {item["distribution"] for item in report["packages"]}
+    assert "torch" in planned_distributions
+    assert "num2words" in planned_distributions
 
 
 def test_runtime_install_planner_refuses_dangerous_gates(tmp_path):

@@ -56,6 +56,27 @@ function Get-ConfiguredValue {
     return @{ Value = $null; Source = $null }
 }
 
+function Test-LoadOnlySmokePassed {
+    param([string]$ExpectedSmolVlaPath)
+
+    $reportPath = Join-Path $RepoRoot "reports\smolvla_load_only_smoke_report.json"
+    if ([string]::IsNullOrWhiteSpace($ExpectedSmolVlaPath) -or -not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $reportedPath = [string]$report.paths.smolvla_ckpt
+        if ([string]::IsNullOrWhiteSpace($reportedPath)) {
+            return $false
+        }
+        $expectedFullPath = [System.IO.Path]::GetFullPath($ExpectedSmolVlaPath)
+        $reportedFullPath = [System.IO.Path]::GetFullPath($reportedPath)
+        return [bool]($report.result.passed -and $expectedFullPath -eq $reportedFullPath)
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -248,8 +269,11 @@ $ready = [bool](
     $memoryFits -and
     $lightweightAdapterImportOk
 )
+$loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $ckptPath
 
-if ($ready) {
+if ($ready -and $loadOnlySmokePassed) {
+    $recommended = "Ready for the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
+} elseif ($ready) {
     $recommended = "Ready for the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
 } elseif (-not $ckptExists) {
     $recommended = "Configure SMOLVLA_CKPT to a local checkpoint directory first."
@@ -273,6 +297,7 @@ $report = [ordered]@{
         heavy_import_gate_set = $allowHeavyImport
     }
     ready_for_smolvla_adapter_smoke = $ready
+    smolvla_load_only_smoke_passed = $loadOnlySmokePassed
     smolvla_ckpt = [ordered]@{
         configured = -not [string]::IsNullOrWhiteSpace($ckptPath)
         exists = $ckptExists

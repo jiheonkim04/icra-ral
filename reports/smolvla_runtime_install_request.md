@@ -14,6 +14,7 @@ lerobot==0.4.4
 safetensors==0.8.0
 accelerate==1.14.0
 huggingface-hub==0.35.3
+num2words==0.5.14
 ```
 
 Installing, upgrading, or changing these packages remains a hard-stop gate because it can alter CUDA/PyTorch behavior on the RTX 5080 Windows environment.
@@ -40,6 +41,7 @@ The approved install used:
 
 ```powershell
 C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 torch==2.10.0+cu128 torchvision==0.25.0+cu128 lerobot==0.4.4 transformers==4.57.6 safetensors==0.8.0 accelerate==1.14.0
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install num2words==0.5.14
 ```
 
 No model checkpoints, datasets, simulator assets, OpenVLA-OFT assets, tokens, or secrets were part of this package install approval.

@@ -56,7 +56,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - tiny head-only pilot approval planner,
 - hard-stop approval status summary,
 - explicitly approved SmolVLA runtime package install,
-- SmolVLA autonomous pilot standing approval policy.
+- SmolVLA autonomous pilot standing approval policy,
+- bounded SmolVLA load-only model construction smoke on CPU.
 
 ## Current Asset Status
 
@@ -134,9 +135,32 @@ lerobot=0.4.4
 safetensors=0.8.0
 huggingface_hub=0.35.3
 accelerate=1.14.0
+num2words=0.5.14
 ```
 
 The runtime install used the explicit package-install approval only. The standing-approved autonomous pilot policy now authorizes bounded SmolVLA load-only heavy import/model construction, single-sample interface smoke, tiny feature-cache/interface validation, and tiny head-only training smoke within budget. It still does not authorize rollouts, simulator execution, OpenVLA-OFT, token access, paper-grade claims, dataset downloads, major CUDA/PyTorch changes, unplanned large package installs, or jobs over the runtime/VRAM budget.
+
+The bounded SmolVLA load-only smoke has now passed on CPU with `ALLOW_HEAVY_IMPORT=1` set only inside that task. It loaded the local SmolVLA policy from `C:\assets\checkpoints\smolvla`, used the local tokenizer/processor dependency under `C:\assets\hf_home`, kept `load_vlm_weights=false`, and did not run inference, training, rollouts, OpenVLA-OFT, downloads, or token access.
+
+Observed load-only smoke metrics:
+
+```text
+device=cpu
+load_elapsed_sec=22.531
+total_elapsed_sec=28.188
+parameter_count=450046176
+trainable_parameter_count=99880992
+cuda_max_allocated_mb=0.0
+rss_before_mb=651.992
+rss_after_mb=1323.711
+downloads_performed=false
+model_inference_performed=false
+training_performed=false
+real_rollouts_performed=false
+openvla_oft_executed=false
+```
+
+During the bounded load-only debugging path, the SmolVLM processor required the small Python package `num2words`. The environment now has `num2words==0.5.14`, and `requirements.txt` plus the runtime dependency checkers include it so future environments fail early before load-only construction.
 
 Runtime dependency checker:
 
@@ -161,7 +185,7 @@ Other missing assets currently expected:
 
 ## Current Gate
 
-The next real-adapter step is the standing-approved bounded SmolVLA load-only adapter smoke. It is not blocked by file readiness, planning, missing runtime dependencies, or routine approval prompts.
+The next real-adapter step is the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. It is not a paper result and must remain within the bounded autonomous pilot policy.
 
 ```text
 C:\assets\checkpoints\smolvla
@@ -173,7 +197,7 @@ Ready file groups:
 - external tokenizer/processor/config dependency files,
 - weights file.
 
-Codex should not ask whether these files were placed, whether runtime packages are installed, whether to run load-only smoke, or whether to set `ALLOW_HEAVY_IMPORT=1` for the bounded load-only task. It should run the readiness checkers and continue autonomously through the SmolVLA pilot path. It must still stop before inference beyond a single dummy/interface smoke, rollout, simulator execution, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs.
+Codex should not ask whether these files were placed, whether runtime packages are installed, whether load-only smoke passed, or whether to run the next bounded interface smoke. It should run the readiness checkers and continue autonomously through the SmolVLA pilot path. It must still stop before inference beyond a single dummy/interface smoke, rollout, simulator execution, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs.
 
 Planning command:
 
@@ -251,7 +275,7 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, and the load-only smoke plan exists, the next step is to autonomously run the bounded SmolVLA load-only smoke with `ALLOW_HEAVY_IMPORT=1` inside that task. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, and the bounded load-only smoke passed, the next step is to autonomously create or run a single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 
