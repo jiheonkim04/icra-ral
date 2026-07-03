@@ -76,6 +76,12 @@ Check SmolVLA runtime dependencies without installing or importing heavy models:
 powershell -ExecutionPolicy Bypass -File scripts/17_check_smolvla_runtime_deps.ps1
 ```
 
+Plan the explicit SmolVLA runtime install approval boundary without installing packages:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/18_plan_smolvla_runtime_install.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash

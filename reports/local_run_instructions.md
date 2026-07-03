@@ -132,6 +132,12 @@ Check the runtime package prerequisites without installing anything:
 powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
 ```
 
+Plan the SmolVLA runtime install approval boundary without installing anything:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1
+```
+
 Linux/WSL equivalents:
 
 ```bash

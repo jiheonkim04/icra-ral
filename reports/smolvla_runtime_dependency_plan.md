@@ -45,6 +45,18 @@ Installing or changing these packages is a hard-stop gate:
 
 Do not install or upgrade them automatically. A later explicit environment task must define exact versions, expected disk usage, CUDA compatibility, rollback plan, and validation commands.
 
+The install approval boundary is tracked in:
+
+```text
+reports\smolvla_runtime_install_request.md
+```
+
+The check-only planner is:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1
+```
+
 ## Recommended Install Strategy Later
 
 Prefer a separate environment task that:
