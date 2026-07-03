@@ -62,6 +62,7 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert "runtime_install" in gates
     assert "smolvla_load_only_heavy_import" in gates
     assert "tiny_head_only_training" in gates
+    assert "single_sample_interface_smoke" in gates
     blocking_gates = {
         item["gate"]
         for item in report["approval_requests"]
@@ -77,11 +78,17 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     tiny_request = next(
         item for item in report["approval_requests"] if item["gate"] == "tiny_head_only_training"
     )
+    interface_request = next(
+        item for item in report["approval_requests"] if item["gate"] == "single_sample_interface_smoke"
+    )
     assert load_only_request["standing_approval"] is True
     assert tiny_request["standing_approval"] is True
+    assert interface_request["standing_approval"] is True
     assert load_only_request["current_blocker"] is False
     assert tiny_request["current_blocker"] is False
+    assert interface_request["current_blocker"] is False
     assert "ready_for_autonomous_tiny_training_smoke" in report["tiny_head_only"]
+    assert "single_sample_interface_passed" in report["smolvla_smokes"]
     assert "num2words" in report["runtime"]["required"]
     if runtime_request["current_blocker"]:
         assert "runtime installation" in report["hard_stop_reason"]

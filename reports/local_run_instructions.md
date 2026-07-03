@@ -136,6 +136,18 @@ Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
 
 This is an engineering smoke only. Passing it does not authorize paper claims, rollouts, training, real benchmark evaluation, OpenVLA-OFT execution, token access, or model downloads.
 
+Run the bounded single-sample interface smoke only inside the standing-approved task:
+
+```powershell
+$env:ALLOW_HEAVY_IMPORT="1"
+$env:ALLOW_SINGLE_SAMPLE_INFERENCE="1"
+powershell -ExecutionPolicy Bypass -File scripts\28_smolvla_single_sample_interface_smoke.ps1
+Remove-Item Env:\ALLOW_SINGLE_SAMPLE_INFERENCE -ErrorAction SilentlyContinue
+Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
+```
+
+This uses one synthetic observation and one CPU action-selection call. It is not training, rollout, dataset evaluation, or paper evidence.
+
 Check the runtime package prerequisites without importing heavy VLA models:
 
 ```powershell
@@ -217,6 +229,7 @@ These gates must remain unset for planning-only tasks:
 ```powershell
 $env:ALLOW_DOWNLOADS="1"
 $env:ALLOW_HEAVY_IMPORT="1"
+$env:ALLOW_SINGLE_SAMPLE_INFERENCE="1"
 $env:ALLOW_GPU_TRAINING="1"
 $env:ALLOW_ROLLOUTS="1"
 $env:ALLOW_CLOUD_HANDOFF="1"

@@ -162,6 +162,34 @@ openvla_oft_executed=false
 
 During the bounded load-only debugging path, the SmolVLM processor required the small Python package `num2words`. The environment now has `num2words==0.5.14`, and `requirements.txt` plus the runtime dependency checkers include it so future environments fail early before load-only construction.
 
+The single-sample interface smoke is now scaffolded as:
+
+```powershell
+scripts\28_smolvla_single_sample_interface_smoke.ps1
+```
+
+It requires both `ALLOW_HEAVY_IMPORT=1` and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` inside the bounded task. It uses one synthetic state/image/text input, one local-only CPU `select_action` call, and writes `reports\smolvla_single_sample_interface_report.json`.
+
+The bounded single-sample interface smoke has now passed on CPU. It used one synthetic observation, one local tokenizer pass, and one `select_action` call. It did not train, rollout, evaluate datasets, execute OpenVLA-OFT, download assets, access tokens, or make paper claims.
+
+Observed single-sample interface smoke metrics:
+
+```text
+device=cpu
+num_steps=1
+load_and_interface_elapsed_sec=29.75
+single_sample_inference_elapsed_sec=1.657
+action_shape=[1, 6]
+action_finite=true
+cuda_max_allocated_mb=0.0
+rss_before_mb=478.16
+rss_after_mb=1695.855
+downloads_performed=false
+training_performed=false
+real_rollouts_performed=false
+openvla_oft_executed=false
+```
+
 Runtime dependency checker:
 
 ```powershell
@@ -275,7 +303,7 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, and the bounded load-only smoke passed, the next step is to autonomously create or run a single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, and single-sample interface smoke passed, the next step is tiny feature-cache/interface validation. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

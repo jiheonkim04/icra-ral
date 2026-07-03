@@ -64,6 +64,14 @@ Impact: CUDA/Windows instability, OOM, hidden inference, or invalid claim that r
 
 Mitigation: Set `ALLOW_HEAVY_IMPORT=1` only inside the bounded SmolVLA load-only task. Enforce no inference, no training, no rollout, no dataset evaluation, no simulator import, no OpenVLA-OFT, max 10 minutes for load-only, and max 14GB VRAM.
 
+## Single-Sample Interface Scope Creep
+
+Risk: A synthetic interface smoke may be mistaken for real evaluation or expanded into repeated inference.
+
+Impact: Invalid claims, unapproved workload, or drift toward rollout/dataset evaluation.
+
+Mitigation: Require `ALLOW_SINGLE_SAMPLE_INFERENCE=1` only inside the bounded task. Run one synthetic sample only, CPU by default, no dataset, no simulator, no rollout, no training, no OpenVLA-OFT, max 10 minutes, and max 14GB VRAM.
+
 ## SmolVLA Runtime Dependency Drift
 
 Risk: Local files are ready and runtime packages are installed now, but later package upgrades or CUDA/PyTorch changes could break the SmolVLA load-only path.

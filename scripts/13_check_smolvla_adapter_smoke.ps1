@@ -77,6 +77,27 @@ function Test-LoadOnlySmokePassed {
     }
 }
 
+function Test-SingleSampleInterfacePassed {
+    param([string]$ExpectedSmolVlaPath)
+
+    $reportPath = Join-Path $RepoRoot "reports\smolvla_single_sample_interface_report.json"
+    if ([string]::IsNullOrWhiteSpace($ExpectedSmolVlaPath) -or -not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $reportedPath = [string]$report.paths.smolvla_ckpt
+        if ([string]::IsNullOrWhiteSpace($reportedPath)) {
+            return $false
+        }
+        $expectedFullPath = [System.IO.Path]::GetFullPath($ExpectedSmolVlaPath)
+        $reportedFullPath = [System.IO.Path]::GetFullPath($reportedPath)
+        return [bool]($report.result.passed -and $expectedFullPath -eq $reportedFullPath)
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -270,8 +291,11 @@ $ready = [bool](
     $lightweightAdapterImportOk
 )
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $ckptPath
+$singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $ckptPath
 
-if ($ready -and $loadOnlySmokePassed) {
+if ($ready -and $singleSampleInterfacePassed) {
+    $recommended = "Ready for tiny feature-cache/interface validation. Do not train or rollout."
+} elseif ($ready -and $loadOnlySmokePassed) {
     $recommended = "Ready for the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
 } elseif ($ready) {
     $recommended = "Ready for the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
@@ -298,6 +322,7 @@ $report = [ordered]@{
     }
     ready_for_smolvla_adapter_smoke = $ready
     smolvla_load_only_smoke_passed = $loadOnlySmokePassed
+    smolvla_single_sample_interface_passed = $singleSampleInterfacePassed
     smolvla_ckpt = [ordered]@{
         configured = -not [string]::IsNullOrWhiteSpace($ckptPath)
         exists = $ckptExists
