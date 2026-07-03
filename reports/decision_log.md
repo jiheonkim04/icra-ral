@@ -283,3 +283,11 @@ Decision: Treat bounded local SmolVLA-only pilot experiments as standing-approve
 Reason: The safe local smoke stack is complete, and stopping after every smoke prevents meaningful low-compute research progress.
 
 Consequence: Codex should autonomously continue through bounded local head-only, LoRA, TCA-Map + LoRA, Distributional TCA-Select, QLoRA feasibility, offline proxy, and tiny comparison tasks when they stay within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, frozen backbone except LoRA adapter weights, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Codex must still stop before true hard-stop gates.
+
+## Head-Only Tiny Comparison Report
+
+Decision: Add a bounded local ActionMap vs TCA-Map tiny comparison report.
+
+Reason: The tiny head-only smoke already trains both heads, but the autonomous pilot path needs an explicit comparison artifact before moving to LoRA diagnostics.
+
+Consequence: `scripts\36_compare_head_only_tiny_pilot.ps1` reads the existing tiny smoke report and emits offline proxy deltas only. It does not download assets, run GPU jobs, train, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.

@@ -176,6 +176,14 @@ Impact: The method claim becomes unclear and weakens publishability.
 
 Mitigation: Require the comparison matrix in `reports\lora_comparison_plan.md`: TCA-Map + LoRA vs ActionMap + LoRA, and TCA-Map + LoRA + Distributional TCA-Select vs TCA-Map + LoRA only. Report head gain, LoRA gain, and inference-time selection gain separately.
 
+## Offline Proxy Overinterpretation
+
+Risk: A tiny ActionMap vs TCA-Map offline proxy comparison may be mistaken for standard success or paper-grade evidence.
+
+Impact: Misleading claims and poor research decisions.
+
+Mitigation: `scripts\36_compare_head_only_tiny_pilot.ps1` labels the output as offline proxy only, reports `not_standard_success=true` and `not_paper_grade=true`, and avoids SOTA or paper-grade language.
+
 ## QLoRA Tooling Drift
 
 Risk: QLoRA may require bitsandbytes/PEFT behavior, CUDA support, or PyTorch compatibility that is not stable on native Windows.

@@ -61,6 +61,7 @@ $required = @(
     "reports/lora_tiny_smoke_scaffold.md",
     "reports/lora_comparison_plan.md",
     "reports/qlora_feasibility_check.md",
+    "reports/head_only_tiny_comparison.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -91,6 +92,7 @@ $required = @(
     "scripts/33_plan_lora_tiny_smoke.ps1",
     "scripts/34_plan_lora_comparison.ps1",
     "scripts/35_check_qlora_feasibility.ps1",
+    "scripts/36_compare_head_only_tiny_pilot.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -134,6 +136,7 @@ $required = @(
     "tests/test_lora_tiny_smoke_scaffold.py",
     "tests/test_lora_comparison_plan.py",
     "tests/test_qlora_feasibility_check.py",
+    "tests/test_head_only_tiny_comparison.py",
     "tests/test_lora_config_guards.py"
 )
 
