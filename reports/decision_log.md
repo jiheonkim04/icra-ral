@@ -147,3 +147,11 @@ Decision: Add a planning-only gate for the first tiny ActionMap/TCA-Map head-onl
 Reason: The configs are within the low-compute policy, but any actual head training still crosses an explicit training approval gate.
 
 Consequence: `scripts\26_plan_tiny_head_only_pilot.ps1` checks the configs and reports that training is not safe to run yet. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, or execute OpenVLA-OFT.
+
+## Consolidated Hard-Stop Status
+
+Decision: Add a summary-only hard-stop approval status command.
+
+Reason: The next meaningful steps are now gated by explicit approval, and those gates are spread across runtime install, heavy import/load-only smoke, and tiny training plans.
+
+Consequence: `scripts\27_summarize_hard_stop_status.ps1` records the current approval choices without installing packages, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, accessing tokens, executing simulators, executing OpenVLA-OFT, or making paper-grade claims.

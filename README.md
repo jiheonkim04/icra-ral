@@ -100,6 +100,12 @@ Plan the tiny head-only pilot approval boundary without training:
 powershell -ExecutionPolicy Bypass -File scripts/26_plan_tiny_head_only_pilot.ps1
 ```
 
+Summarize the current hard-stop approval choices:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/27_summarize_hard_stop_status.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash

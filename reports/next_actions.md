@@ -60,6 +60,12 @@ Plan the tiny head-only pilot approval boundary without training:
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
 ```
 
+Summarize the current hard-stop approval choices:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
+```
+
 ## Current Asset State
 
 The approved SmolVLA checkpoint source has been acquired:
@@ -109,7 +115,8 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 7. Eval-only cached-feature head/metric smoke.
 8. Tiny head-only pilot planning and approval boundary.
 9. Tiny head-only pilot only after explicit training approval.
-10. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+10. Summarize hard-stop approval choices.
+11. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
 Current hard-stop: installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors requires explicit user approval.
 

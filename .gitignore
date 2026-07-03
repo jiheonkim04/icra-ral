@@ -32,6 +32,7 @@ reports/smolvla_runtime_install_plan_report.json
 reports/feature_cache_plan_report.json
 reports/feature_cache_eval_report.json
 reports/tiny_head_only_pilot_plan_report.json
+reports/hard_stop_status_report.json
 reports/wsl2_status.md
 
 # Runs and generated artifacts
