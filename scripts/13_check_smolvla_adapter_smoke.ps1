@@ -111,6 +111,19 @@ function Test-FeatureCacheEvalPassed {
     }
 }
 
+function Test-TinyHeadOnlySmokePassed {
+    $reportPath = Join-Path $RepoRoot "reports\tiny_head_only_smoke_report.json"
+    if (-not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        return [bool]$report.tiny_head_only_smoke_passed
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -306,8 +319,11 @@ $ready = [bool](
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $ckptPath
 $singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $ckptPath
 $featureCacheEvalPassed = Test-FeatureCacheEvalPassed
+$tinyHeadOnlySmokePassed = Test-TinyHeadOnlySmokePassed
 
-if ($ready -and $featureCacheEvalPassed) {
+if ($ready -and $tinyHeadOnlySmokePassed) {
+    $recommended = "Tiny head-only smoke has passed. Treat it as interface validation only; stop before real dataset training, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
+} elseif ($ready -and $featureCacheEvalPassed) {
     $recommended = "Ready for a tiny head-only smoke runner with strict caps. Do not rollout or execute OpenVLA-OFT."
 } elseif ($ready -and $singleSampleInterfacePassed) {
     $recommended = "Ready for tiny feature-cache/interface validation. Do not train or rollout."
@@ -340,6 +356,7 @@ $report = [ordered]@{
     smolvla_load_only_smoke_passed = $loadOnlySmokePassed
     smolvla_single_sample_interface_passed = $singleSampleInterfacePassed
     feature_cache_eval_smoke_passed = $featureCacheEvalPassed
+    tiny_head_only_smoke_passed = $tinyHeadOnlySmokePassed
     smolvla_ckpt = [ordered]@{
         configured = -not [string]::IsNullOrWhiteSpace($ckptPath)
         exists = $ckptExists

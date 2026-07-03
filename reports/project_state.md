@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-b0c395a7431871c8f94761fbc8854c5822188043
+4fbbec1 or newer
 ```
 
 Use explicit Python for validation:
@@ -54,6 +54,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - feature-cache interface contract and dummy cache planner,
 - eval-only cached-feature smoke for the head/metric interface,
 - tiny head-only pilot approval planner,
+- bounded tiny head-only smoke runner,
 - hard-stop approval status summary,
 - explicitly approved SmolVLA runtime package install,
 - SmolVLA autonomous pilot standing approval policy,
@@ -158,6 +159,33 @@ model_inference_performed=false
 training_performed=false
 real_rollouts_performed=false
 openvla_oft_executed=false
+```
+
+The bounded tiny head-only smoke has passed on cached/dummy features. It trained tiny CPU NumPy ActionMap and TCA-Map heads for 16 steps, overrode the 1000-step config value to the smoke cap, and did not import SmolVLA, load a model, run VLA inference, use GPU, rollout, execute OpenVLA-OFT, download assets, or make paper claims.
+
+Observed tiny head-only smoke metrics:
+
+```text
+cache_valid=true
+max_steps=16
+max_steps_cap=100
+elapsed_seconds=0.00644
+actionmap_action_l1=0.078738
+actionmap_action_mse=0.012221
+tca_map_action_l1=0.071502
+tca_map_action_mse=0.010418
+tca_map_target_top1_accuracy=0.75
+tca_map_wrong_target_proxy_rate=0.25
+tca_map_offline_standard_proxy=0.696373
+max_gpu_memory_mb=0.0
+downloads_performed=false
+gpu_jobs_performed=false
+heavy_model_imports_performed=false
+model_load_performed=false
+model_inference_performed=false
+rollouts_performed=false
+openvla_oft_executed=false
+paper_grade_claims_made=false
 ```
 
 During the bounded load-only debugging path, the SmolVLM processor required the small Python package `num2words`. The environment now has `num2words==0.5.14`, and `requirements.txt` plus the runtime dependency checkers include it so future environments fail early before load-only construction.
@@ -322,7 +350,7 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, and dummy feature-cache/interface validation passed, the next step is a tiny head-only smoke runner that enforces max_steps<=100, frozen backbone, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, and bounded tiny head-only smoke passed, the next safe non-heavy task is a go/no-go/status summary. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 
@@ -342,6 +370,14 @@ The tiny head-only pilot approval boundary is documented in `reports\tiny_head_o
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
+```
+
+The bounded tiny head-only smoke runner is documented in `reports\tiny_head_only_smoke.md`:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\29_tiny_head_only_smoke.ps1 -PrepareDummyCache
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 ```
 
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
