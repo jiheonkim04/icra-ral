@@ -319,3 +319,27 @@ Risk: A longer cached-feature local pilot extension could be mistaken for real b
 Impact: Premature method claims, invalid comparison language, or drift into real dataset training without simulator/benchmark readiness.
 
 Mitigation: `scripts\44_bounded_local_pilot_extension.ps1` uses cached/dummy features only, keeps the runner cap at 100 steps, reports offline proxy labels, and keeps real dataset training, simulator execution, rollout, OpenVLA-OFT, and paper claims behind separate risk gates.
+
+## LIBERO Full Dataset Size Risk
+
+Risk: The official LIBERO demonstrations dataset is documented through the official LIBERO repo and Hugging Face, but the dataset card reports about 100 GB total file size.
+
+Impact: Automatic full-dataset acquisition would exceed the current 80 GB autonomous download budget and could consume disk before a tiny/offline interface smoke is ready.
+
+Mitigation: `scripts\45_resolve_libero_robosuite_sources.ps1` marks the full dataset download as stopped while allowing small official source repo setup. Use a documented tiny subset, metadata-only setup, or a separate risk budget before downloading full demonstrations.
+
+## Source Repo Setup Scope Creep
+
+Risk: A safe LIBERO/RoboSuite code checkout task could drift into simulator installation, simulator import, render smoke, rollout, training, or benchmark evaluation.
+
+Impact: Native Windows instability, hidden MuJoCo/RoboSuite work, or accidental paper-grade framing.
+
+Mitigation: `scripts\46_prepare_libero_robosuite_sources.ps1` is source-repo setup only. It may shallow-clone official code repos with task-local `ALLOW_DOWNLOADS=1` and create a data root marker, but it does not install packages, import simulators, render, rollout, train, run GPU jobs, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+## LIBERO Path-Ready Misread As Rollout-Ready
+
+Risk: Creating `LIBERO_ROOT`, `LIBERO_DATA_ROOT`, and `ROBOSUITE_ROOT` can make paths exist even when no real demonstration files are present and no simulator import/render/rollout has run.
+
+Impact: A checker could incorrectly report rollout readiness from directories alone.
+
+Mitigation: `scripts\11_check_real_assets.ps1` now separates `ready_for_libero_path_check`, `libero_dataset_files_present`, and `ready_for_libero_rollout`. Empty data roots or marker-only roots are path-ready only, not rollout-ready.

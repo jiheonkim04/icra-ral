@@ -25,6 +25,12 @@ Write-Host "This script is planning-only. It does not download datasets, run GPU
 $downloadBudgetGb = 80.0
 $diskSafetyMarginGb = 100.0
 
+if ([string]::IsNullOrWhiteSpace($Source)) {
+    $Source = "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets"
+    $OfficialSource = $true
+    $ExpectedSizeGb = 100.0
+}
+
 function Read-AssetConfig {
     param([string]$Path)
     $values = @{}
@@ -178,6 +184,8 @@ $recommendedNextStep = if ($readyForOfflineSubset) {
     "Create a metadata-only or tiny LIBERO/LIBERO-CF-style subset manifest; do not train, rollout, or make paper claims."
 } elseif ($acquisitionRiskGreen) {
     "A future dataset acquisition task may proceed with task-local ALLOW_DOWNLOADS=1, but this planner did not download anything."
+} elseif ($readyForPathCheck -and -not $dataFilesDetected -and $ExpectedSizeGb -gt $downloadBudgetGb) {
+    "LIBERO/RoboSuite paths are ready, but no tiny dataset files are present and the official full dataset exceeds the local task budget. Document or place a tiny subset under LIBERO_DATA_ROOT before offline dataset smoke."
 } else {
     "Provide an official dataset source, expected size, and valid local LIBERO paths, or place a tiny local subset under LIBERO_DATA_ROOT."
 }

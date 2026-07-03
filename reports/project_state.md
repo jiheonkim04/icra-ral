@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-eff27a4 or newer
+283707d or newer
 ```
 
 Use explicit Python for validation:
@@ -49,6 +49,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - head-only ActionMap vs TCA-Map tiny comparison report,
 - local paper-grade runner and planning scripts,
 - LIBERO dataset risk planner,
+- LIBERO/RoboSuite official source-resolution planner,
 - simulator readiness risk planner,
 - bounded local pilot budget alignment and extension runner,
 - Cursor safe local runner,
@@ -273,9 +274,17 @@ This planner is check-only. It writes `reports\smolvla_runtime_install_plan_repo
 Other missing assets currently expected:
 
 - OpenVLA-OFT checkpoint,
-- LIBERO source checkout,
-- LIBERO data root,
-- RoboSuite root.
+- LIBERO demonstration files or a documented tiny subset.
+
+The LIBERO and RoboSuite source checkouts are now path-ready after bounded source repo setup:
+
+```text
+LIBERO_ROOT=C:\assets\repos\LIBERO
+ROBOSUITE_ROOT=C:\assets\repos\robosuite
+LIBERO_DATA_ROOT=C:\assets\data\libero
+```
+
+The LIBERO data root is path-ready only. The full official LIBERO demonstrations dataset was not downloaded because its expected 100 GB size exceeds the 80 GB autonomous task budget. `reports\libero_robosuite_setup_report.json` records that only source repos were acquired and that no simulator, rollout, training, GPU job, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred.
 
 ## Current Gate
 
@@ -293,16 +302,18 @@ Ready SmolVLA file groups:
 
 The current executable local path is now blocked at the real dataset/simulator boundary:
 
-- `LIBERO_ROOT` is configured but does not exist,
-- `LIBERO_DATA_ROOT` is configured but does not exist,
-- `ROBOSUITE_ROOT` is configured but does not exist,
-- no official/documented LIBERO dataset source and expected size are recorded for autonomous acquisition.
+- `LIBERO_ROOT` exists,
+- `ROBOSUITE_ROOT` exists,
+- `LIBERO_DATA_ROOT` exists,
+- no real LIBERO demonstration files or documented tiny subset are present under `LIBERO_DATA_ROOT`,
+- the official full LIBERO dataset source is resolved, but its expected 100 GB size exceeds the current 80 GB autonomous task budget.
 
 Codex should keep running routine readiness and status checks without asking. The next safe work is planning-only dataset/simulator readiness, status maintenance, or larger-compute handoff planning. It must stop before dataset acquisition, simulator import/render/rollout, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs unless a risk assessment is green and inside policy.
 
 Current planning commands:
 
 ```powershell
+powershell -ExecutionPolicy Bypass -File scripts\45_resolve_libero_robosuite_sources.ps1
 powershell -ExecutionPolicy Bypass -File scripts\42_plan_libero_dataset_risk.ps1
 powershell -ExecutionPolicy Bypass -File scripts\43_plan_simulator_readiness.ps1
 powershell -ExecutionPolicy Bypass -File scripts\39_generate_local_pilot_status.ps1
@@ -313,6 +324,8 @@ These write ignored runtime outputs such as:
 
 ```text
 reports\libero_dataset_risk_report.json
+reports\libero_robosuite_source_resolution_report.json
+reports\libero_robosuite_setup_report.json
 reports\simulator_readiness_plan_report.json
 reports\local_pilot_status_report.json
 reports\go_no_go_status_report.json
@@ -386,16 +399,17 @@ Codex should self-check current state. Since config/tokenizer dependency/weights
 The current planner state is:
 
 ```text
-scripts\42_plan_libero_dataset_risk.ps1 -> decision=stop
-scripts\43_plan_simulator_readiness.ps1 -> decision=stop
+scripts\45_resolve_libero_robosuite_sources.ps1 -> repo setup decision=proceed, full dataset decision=stop
+scripts\46_prepare_libero_robosuite_sources.ps1 -> completed source repo setup only
+scripts\42_plan_libero_dataset_risk.ps1 -> decision=stop for full dataset by size budget unless a tiny subset exists
+scripts\43_plan_simulator_readiness.ps1 -> decision=proceed for a separate bounded simulator import-smoke plan, but no simulator import/render/rollout has run
 ```
 
 Reasons:
 
-- `LIBERO_ROOT` is missing or does not exist,
-- `LIBERO_DATA_ROOT` is missing or does not exist,
-- `ROBOSUITE_ROOT` is missing or does not exist,
-- the dataset source is not yet recorded as official/documented with an expected size.
+- LIBERO/RoboSuite source paths are now present,
+- no tiny real/offline dataset files exist under `LIBERO_DATA_ROOT`,
+- the official full dataset is about 100 GB, which exceeds the current 80 GB autonomous task budget.
 
 Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. Actual dataset acquisition, simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 

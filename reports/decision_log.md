@@ -363,3 +363,19 @@ Decision: Include the bounded local pilot extension report in consolidated statu
 Reason: Once the bounded extension runner exists, the repository status reports should not ignore its runtime report.
 
 Consequence: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` read `reports\bounded_local_pilot_extension_report.json` when present. They remain summary-only and do not train, download, use GPU, import heavy models, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims.
+
+## LIBERO/RoboSuite Official Source Resolution
+
+Decision: Treat official LIBERO/RoboSuite source resolution as an autonomous risk-assessed task instead of stopping because source/size metadata is missing.
+
+Reason: The project can inspect public documentation and record official sources, expected sizes, license/token/payment status, target paths, and disk budget without running rollouts, simulators, training, heavy VLA imports, or OpenVLA-OFT.
+
+Consequence: `scripts\45_resolve_libero_robosuite_sources.ps1` records official source candidates. LIBERO and RoboSuite code checkouts are small enough for bounded source setup, while the full official LIBERO demonstrations dataset is about 100 GB and remains stopped under the 80 GB autonomous download budget. `scripts\46_prepare_libero_robosuite_sources.ps1` may shallow-clone only the official code repos with task-local `ALLOW_DOWNLOADS=1`; it must not download the full dataset, run simulators, run rollouts, train, use GPU, import heavy VLA models, access tokens, execute OpenVLA-OFT, or make paper claims.
+
+## LIBERO/RoboSuite Source Repo Setup Result
+
+Decision: Treat bounded LIBERO/RoboSuite source repo setup as complete.
+
+Reason: The official LIBERO and RoboSuite code repos were risk-green for shallow clone, while the full official LIBERO dataset remained stopped because it is about 100 GB.
+
+Consequence: `LIBERO_ROOT` and `ROBOSUITE_ROOT` are now path-ready under `C:\assets\repos`, and `LIBERO_DATA_ROOT` exists with a marker explaining that the full dataset was not downloaded. This clears source path setup only. It does not clear tiny offline dataset readiness, simulator import readiness as an executed result, rollout readiness, real benchmark readiness, OpenVLA-OFT, or paper claims.

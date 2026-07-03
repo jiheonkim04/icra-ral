@@ -20,6 +20,7 @@ $required = @(
     "configs/distributional_tca_select.yaml",
     "configs/lora_adapter_lowcompute.yaml",
     "configs/qlora_adapter_lowcompute.yaml",
+    "configs/libero_robosuite_sources.yaml",
     "reports/missing_assets.md",
     "reports/linux_setup_todo.md",
     "reports/local_run_instructions.md",
@@ -67,6 +68,7 @@ $required = @(
     "reports/local_pilot_status.md",
     "reports/bounded_local_pilot_extension.md",
     "reports/libero_dataset_risk_plan.md",
+    "reports/libero_robosuite_source_resolution.md",
     "reports/simulator_readiness_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
@@ -106,6 +108,8 @@ $required = @(
     "scripts/42_plan_libero_dataset_risk.ps1",
     "scripts/43_plan_simulator_readiness.ps1",
     "scripts/44_bounded_local_pilot_extension.ps1",
+    "scripts/45_resolve_libero_robosuite_sources.ps1",
+    "scripts/46_prepare_libero_robosuite_sources.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -158,6 +162,7 @@ $required = @(
     "tests/test_bounded_local_pilot_extension.py",
     "tests/test_risk_assess_task.py",
     "tests/test_libero_dataset_risk_plan.py",
+    "tests/test_libero_robosuite_source_resolution.py",
     "tests/test_simulator_readiness_plan.py",
     "tests/test_lora_config_guards.py"
 )

@@ -71,6 +71,24 @@ powershell -ExecutionPolicy Bypass -File scripts\23_cloud_handoff_manifest.ps1
 powershell -ExecutionPolicy Bypass -File scripts\24_wsl2_setup_check.ps1
 ```
 
+## LIBERO/RoboSuite source resolution
+
+Resolve official sources and write a risk assessment without downloading anything:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\45_resolve_libero_robosuite_sources.ps1
+```
+
+If `ready_for_repo_setup=true`, shallow-clone only the official LIBERO and RoboSuite code repos and create the LIBERO data root marker:
+
+```powershell
+$env:ALLOW_DOWNLOADS="1"
+powershell -ExecutionPolicy Bypass -File scripts\46_prepare_libero_robosuite_sources.ps1
+Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
+```
+
+This does not download the full LIBERO dataset. The official full dataset is about 100 GB and remains outside the current 80 GB autonomous task budget.
+
 ## Configure Local Assets Later
 
 Dry-run asset directory plan:
