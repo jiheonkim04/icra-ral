@@ -64,6 +64,12 @@ Plan the later SmolVLA load-only smoke without importing SmolVLA or loading a mo
 powershell -ExecutionPolicy Bypass -File scripts/15_plan_smolvla_load_only_smoke.ps1
 ```
 
+Check the bounded load-only execution scaffold. It will stop before heavy import/model load unless the appropriate gate and runtime dependencies are present:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/16_smolvla_load_only_smoke.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash

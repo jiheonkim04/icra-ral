@@ -63,6 +63,7 @@ $required = @(
     "scripts/14_plan_smolvla_download.ps1",
     "scripts/14_plan_smolvla_download.sh",
     "scripts/15_plan_smolvla_load_only_smoke.ps1",
+    "scripts/16_smolvla_load_only_smoke.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -80,11 +81,14 @@ $required = @(
     "tca_map/inference/tca_select.py",
     "tca_map/adapters/__init__.py",
     "tca_map/adapters/lora_policy.py",
+    "tca_map/smolvla/__init__.py",
+    "tca_map/smolvla/load_only_smoke.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
     "tests/test_smolvla_asset_readiness.py",
     "tests/test_smolvla_download_plan.py",
     "tests/test_smolvla_load_only_smoke_plan.py",
+    "tests/test_smolvla_load_only_smoke_scaffold.py",
     "tests/test_lora_config_guards.py"
 )
 

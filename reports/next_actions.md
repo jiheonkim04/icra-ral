@@ -22,6 +22,14 @@ The planning command is:
 powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
 ```
 
+The bounded execution scaffold is:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
+```
+
+It will not load a model without `ALLOW_HEAVY_IMPORT=1`, and it currently blocks on missing runtime dependencies rather than installing packages automatically.
+
 ## Current Asset State
 
 The approved SmolVLA checkpoint source has been acquired:
@@ -65,7 +73,7 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 1. Manual SmolVLA acquisition checklist.
 2. Readiness recheck.
 3. Load-only adapter smoke planning.
-4. Separately approved load-only model import task.
+4. Resolve runtime dependency plan for PyTorch/Transformers/LeRobot without changing CUDA/PyTorch automatically.
 5. Feature cache planning and implementation.
 6. Tiny head-only pilot.
 7. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.

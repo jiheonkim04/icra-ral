@@ -99,3 +99,11 @@ Decision: Add a planning-only SmolVLA load-only smoke guard before any heavy imp
 Reason: Readiness is true, but actual SmolVLA/SmolVLM loading crosses the heavy import/model-load gate and needs a separate explicit approval step.
 
 Consequence: `scripts\15_plan_smolvla_load_only_smoke.ps1` may run safely without `ALLOW_HEAVY_IMPORT=1`. It writes a planning report, refuses to run when `ALLOW_HEAVY_IMPORT=1` is already set, and does not import SmolVLA, load models, run inference, train, rollout, download assets, access secrets, or execute OpenVLA-OFT.
+
+## SmolVLA Load-Only Execution Scaffold
+
+Decision: Add a bounded load-only smoke execution scaffold that stops before unsafe runtime behavior.
+
+Reason: Readiness is true, but local runtime packages for SmolVLA loading are currently missing. Installing large packages or changing CUDA/PyTorch is a hard-stop gate.
+
+Consequence: `scripts\16_smolvla_load_only_smoke.ps1` and `tca_map.smolvla.load_only_smoke` check gates, files, runtime dependencies, and memory policy. They report blockers without downloading assets, importing heavy VLA code, loading a model, running inference, training, rollouts, or OpenVLA-OFT.

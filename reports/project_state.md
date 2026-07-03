@@ -48,7 +48,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - Windows Bash shim handling for Bash-specific tests,
 - manual SmolVLA acquisition checklist,
 - Codex delegation manual and project state files,
-- SmolVLA load-only adapter smoke planning guard.
+- SmolVLA load-only adapter smoke planning guard,
+- SmolVLA load-only execution scaffold.
 
 ## Current Asset Status
 
@@ -114,7 +115,20 @@ Detected checkpoint files include `config.json`, `model.safetensors`, `policy_pr
 HuggingFaceTB/SmolVLM2-500M-Video-Instruct
 ```
 
-The external tokenizer/processor dependency is now detected under `C:\assets\hf_home`. The current gate is Case C from the self-check gate policy: readiness is true, and the load-only adapter smoke plan is prepared, but actual load-only execution still requires separate explicit approval before any heavy import or model load.
+The external tokenizer/processor dependency is now detected under `C:\assets\hf_home`. The current gate is Case C from the self-check gate policy: readiness is true, the load-only adapter smoke plan is prepared, and the bounded execution scaffold exists. Actual model loading remains blocked by runtime dependency and heavy-import policy checks.
+
+Current runtime dependency probe:
+
+```text
+torch=false
+transformers=false
+lerobot=false
+safetensors=false
+huggingface_hub=false
+accelerate=false
+```
+
+Installing or changing large packages such as PyTorch/CUDA/LeRobot is a hard-stop gate under the continuous autopilot policy.
 
 Other missing assets currently expected:
 
@@ -143,6 +157,12 @@ Planning command:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
+```
+
+Execution scaffold command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
 This writes ignored runtime output to:

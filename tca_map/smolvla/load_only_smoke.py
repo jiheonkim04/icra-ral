@@ -1,0 +1,269 @@
+"""Bounded SmolVLA load-only smoke guard.
+
+This module is intentionally conservative. It checks gates, local files, runtime
+dependencies, and memory before any heavy import or model load can happen.
+"""
+
+from __future__ import annotations
+
+import argparse
+import importlib.util
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+from typing import Any
+
+
+RUNTIME_DEPENDENCIES = ["torch", "transformers", "lerobot", "safetensors"]
+FORBIDDEN_GATES = ["ALLOW_GPU_TRAINING", "ALLOW_ROLLOUTS", "ALLOW_CLOUD_HANDOFF"]
+
+
+def _env_flag(name: str) -> bool:
+    return os.environ.get(name) == "1"
+
+
+def _find_files(root: Path, names: list[str], patterns: list[str] | None = None) -> list[str]:
+    if not root.exists():
+        return []
+    found: list[str] = []
+    for name in names:
+        if (root / name).exists():
+            found.append(name)
+    for pattern in patterns or []:
+        found.extend(path.name for path in root.glob(pattern) if path.is_file())
+    return sorted(set(found))
+
+
+def _read_tokenizer_dependency(root: Path) -> str | None:
+    preprocessor = root / "policy_preprocessor.json"
+    if not preprocessor.exists():
+        return None
+    try:
+        data = json.loads(preprocessor.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    for step in data.get("steps", []):
+        if step.get("registry_name") == "tokenizer_processor":
+            tokenizer_name = step.get("config", {}).get("tokenizer_name")
+            if tokenizer_name:
+                return str(tokenizer_name)
+    return None
+
+
+def _dependency_roots(dependency_name: str | None, base_roots: list[Path]) -> list[Path]:
+    if not dependency_name or "/" not in dependency_name:
+        return []
+    org, repo = dependency_name.split("/", 1)
+    roots: list[Path] = []
+    for base in base_roots:
+        if not base.exists():
+            continue
+        plain = base / org / repo
+        roots.append(plain)
+        hub_root = base / f"models--{org}--{repo}"
+        roots.append(hub_root)
+        snapshots = hub_root / "snapshots"
+        if snapshots.exists():
+            roots.extend(path for path in snapshots.iterdir() if path.is_dir())
+    seen: set[str] = set()
+    unique: list[Path] = []
+    for root in roots:
+        key = str(root)
+        if key not in seen:
+            seen.add(key)
+            unique.append(root)
+    return unique
+
+
+def _external_tokenizer_files(dependency_name: str | None, base_roots: list[Path]) -> dict[str, Any]:
+    expected = [
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "special_tokens_map.json",
+        "vocab.json",
+        "merges.txt",
+        "tokenizer.model",
+        "sentencepiece.bpe.model",
+        "chat_template.json",
+        "chat_template.jinja",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "config.json",
+    ]
+    roots = _dependency_roots(dependency_name, base_roots)
+    for root in roots:
+        found = _find_files(root, expected)
+        if found:
+            return {
+                "name": dependency_name,
+                "found": True,
+                "root": str(root),
+                "files_found": found,
+                "candidate_roots": [str(path) for path in roots],
+            }
+    return {
+        "name": dependency_name,
+        "found": False,
+        "root": None,
+        "files_found": [],
+        "candidate_roots": [str(path) for path in roots],
+    }
+
+
+def _runtime_dependencies() -> dict[str, bool]:
+    return {name: importlib.util.find_spec(name) is not None for name in RUNTIME_DEPENDENCIES}
+
+
+def _nvidia_smi() -> dict[str, Any]:
+    try:
+        result = subprocess.run(
+            [
+                "nvidia-smi",
+                "--query-gpu=name,memory.total,memory.used",
+                "--format=csv,noheader,nounits",
+            ],
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            capture_output=True,
+            check=False,
+            timeout=10,
+        )
+    except (FileNotFoundError, subprocess.SubprocessError):
+        return {"available": False, "gpu_name": None, "memory_total_mb": None, "memory_used_mb": None}
+    if result.returncode != 0 or not result.stdout.strip():
+        return {"available": False, "gpu_name": None, "memory_total_mb": None, "memory_used_mb": None}
+    first = result.stdout.strip().splitlines()[0]
+    parts = [part.strip() for part in first.split(",")]
+    if len(parts) < 3:
+        return {"available": False, "gpu_name": None, "memory_total_mb": None, "memory_used_mb": None}
+    return {
+        "available": True,
+        "gpu_name": parts[0],
+        "memory_total_mb": int(parts[1]),
+        "memory_used_mb": int(parts[2]),
+    }
+
+
+def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
+    started = time.monotonic()
+    smolvla_ckpt = Path(os.environ.get("SMOLVLA_CKPT") or args.smolvla_ckpt)
+    checkpoint_root = Path(os.environ.get("CHECKPOINT_ROOT") or args.checkpoint_root)
+    hf_home = Path(os.environ.get("HF_HOME") or args.hf_home)
+
+    config_files = _find_files(smolvla_ckpt, ["config.json"])
+    tokenizer_files = _find_files(
+        smolvla_ckpt,
+        [
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "special_tokens_map.json",
+            "vocab.json",
+            "merges.txt",
+            "tokenizer.model",
+            "sentencepiece.bpe.model",
+        ],
+    )
+    weight_files = _find_files(
+        smolvla_ckpt,
+        ["model.safetensors", "pytorch_model.bin", "model-00001-of-00001.safetensors"],
+        ["*.safetensors", "*.bin"],
+    )
+    dependency_name = _read_tokenizer_dependency(smolvla_ckpt)
+    external_dependency = _external_tokenizer_files(dependency_name, [hf_home, checkpoint_root])
+    deps = _runtime_dependencies()
+    gpu = _nvidia_smi()
+
+    heavy_gate = _env_flag("ALLOW_HEAVY_IMPORT")
+    forbidden_gates_set = [name for name in FORBIDDEN_GATES if _env_flag(name)]
+    files_ready = bool(config_files and weight_files and (tokenizer_files or external_dependency["found"]))
+    deps_ready = all(deps.values())
+    gpu_memory_ok = bool(gpu["available"] and gpu["memory_total_mb"] and gpu["memory_total_mb"] <= 16384)
+    vram_policy_ok = bool(gpu["available"] and gpu["memory_total_mb"] and gpu["memory_total_mb"] >= 14048)
+
+    exit_code = 0
+    blocked_reason = None
+    if not heavy_gate:
+        exit_code = 2
+        blocked_reason = "ALLOW_HEAVY_IMPORT=1 is required for actual load-only execution."
+    elif forbidden_gates_set:
+        exit_code = 3
+        blocked_reason = f"Forbidden gate(s) set: {', '.join(forbidden_gates_set)}"
+    elif not files_ready:
+        exit_code = 4
+        blocked_reason = "SmolVLA checkpoint/tokenizer/weights readiness is incomplete."
+    elif not deps_ready:
+        exit_code = 5
+        missing = [name for name, present in deps.items() if not present]
+        blocked_reason = f"Missing runtime dependencies: {', '.join(missing)}"
+    elif not gpu_memory_ok or not vram_policy_ok:
+        exit_code = 6
+        blocked_reason = "GPU memory policy check failed before load."
+    else:
+        exit_code = 7
+        blocked_reason = (
+            "Runtime dependencies appear present, but the concrete SmolVLA loader is not implemented "
+            "in this scaffold. Stop before importing heavy VLA code."
+        )
+
+    report = {
+        "policy": {
+            "load_only": True,
+            "downloads_performed": False,
+            "model_load_performed": False,
+            "model_inference_performed": False,
+            "gpu_training_performed": False,
+            "training_performed": False,
+            "real_rollouts_performed": False,
+            "openvla_oft_executed": False,
+            "tokens_read_or_written": False,
+            "heavy_import_gate_set": heavy_gate,
+            "forbidden_gates_set": forbidden_gates_set,
+            "max_vram_policy_mb": 14336,
+        },
+        "paths": {
+            "smolvla_ckpt": str(smolvla_ckpt),
+            "checkpoint_root": str(checkpoint_root),
+            "hf_home": str(hf_home),
+        },
+        "files": {
+            "config_found": config_files,
+            "tokenizer_found": tokenizer_files,
+            "weights_found": weight_files,
+            "external_tokenizer_dependency": external_dependency,
+            "files_ready": files_ready,
+        },
+        "runtime_dependencies": deps,
+        "gpu": gpu,
+        "result": {
+            "passed": exit_code == 0,
+            "blocked": exit_code != 0,
+            "blocked_reason": blocked_reason,
+            "elapsed_sec": round(time.monotonic() - started, 3),
+        },
+    }
+    return report, exit_code
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--smolvla-ckpt", default="C:/assets/checkpoints/smolvla")
+    parser.add_argument("--checkpoint-root", default="C:/assets/checkpoints")
+    parser.add_argument("--hf-home", default="C:/assets/hf_home")
+    parser.add_argument("--report-path", default="reports/smolvla_load_only_smoke_report.json")
+    args = parser.parse_args(argv)
+
+    report, exit_code = build_report(args)
+    report_path = Path(args.report_path)
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    print(json.dumps(report, indent=2))
+    return exit_code
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
