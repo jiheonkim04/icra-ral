@@ -134,7 +134,7 @@ Risk: The SmolVLA autonomous pilot standing approval may be misread as permissio
 
 Impact: A bounded local smoke could turn into an unapproved experiment or paper claim.
 
-Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1` and `reports\hard_stop_status.md`. The standing approval covers only bounded SmolVLA load-only/interface/tiny-smoke steps. Stop before true hard-stop gates.
+Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1`, `scripts\31_generate_go_no_go_report.ps1`, `reports\hard_stop_status.md`, and `reports\go_no_go_status.md`. The standing approval covers only bounded SmolVLA load-only/interface/tiny-smoke steps. Stop before true hard-stop gates.
 
 ## 24GB System RAM
 

@@ -202,6 +202,7 @@ single_sample_report = load_json("reports/smolvla_single_sample_interface_report
 feature_cache_eval_report = load_json("reports/feature_cache_eval_report.json") or {}
 tiny_plan = load_json("reports/tiny_head_only_pilot_plan_report.json") or {}
 tiny_smoke_report = load_json("reports/tiny_head_only_smoke_report.json") or {}
+go_no_go_report = load_json("reports/go_no_go_status_report.json") or {}
 local_paths = load_local_paths()
 smolvla_readiness = smolvla_file_readiness(local_paths)
 
@@ -271,7 +272,12 @@ if hard_stop_reached:
     recommended_next_step = f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates."
 else:
     hard_stop_reason = None
-    if tiny_smoke_report.get("tiny_head_only_smoke_passed"):
+    if go_no_go_report.get("decision"):
+        recommended_next_step = (
+            "Go/no-go summary is complete. Stop before true gates unless the user explicitly approves "
+            "exactly one next stage: real dataset setup, simulator rollout, larger training, or OpenVLA-OFT."
+        )
+    elif tiny_smoke_report.get("tiny_head_only_smoke_passed"):
         recommended_next_step = (
             "Tiny head-only smoke has passed. Prepare a go/no-go summary or stop before true gates: "
             "real dataset training, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
@@ -355,6 +361,11 @@ report = {
         "configs_pass_policy": tiny_plan.get("configs_pass_policy"),
         "smoke_passed": tiny_smoke_report.get("tiny_head_only_smoke_passed"),
         "smoke_report_path": "reports/tiny_head_only_smoke_report.json",
+    },
+    "go_no_go": {
+        "decision": go_no_go_report.get("decision"),
+        "all_safe_smokes_passed": go_no_go_report.get("all_safe_smokes_passed"),
+        "report_path": "reports/go_no_go_status_report.json",
     },
     "smolvla_smokes": {
         "load_only_passed": load_only_report.get("result", {}).get("passed"),

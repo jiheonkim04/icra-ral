@@ -194,6 +194,12 @@ Summarize the current hard-stop approval choices:
 powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
 ```
 
+Generate the current go/no-go status summary:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
+```
+
 Linux/WSL equivalents:
 
 ```bash

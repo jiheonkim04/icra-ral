@@ -89,6 +89,7 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert interface_request["current_blocker"] is False
     assert "ready_for_autonomous_tiny_training_smoke" in report["tiny_head_only"]
     assert "smoke_passed" in report["tiny_head_only"]
+    assert "decision" in report["go_no_go"]
     assert "single_sample_interface_passed" in report["smolvla_smokes"]
     assert "eval_smoke_passed" in report["feature_cache"]
     assert "num2words" in report["runtime"]["required"]
@@ -97,7 +98,9 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     else:
         assert report["hard_stop_reason"] is None
         assert report["hard_stop_reached"] is False
-        if report["tiny_head_only"]["smoke_passed"]:
+        if report["go_no_go"]["decision"]:
+            assert "Go/no-go summary is complete" in report["recommended_next_step"]
+        elif report["tiny_head_only"]["smoke_passed"]:
             assert "go/no-go summary" in report["recommended_next_step"]
         else:
             assert "Continue autonomous SmolVLA pilot" in report["recommended_next_step"]
