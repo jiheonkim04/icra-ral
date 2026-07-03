@@ -35,6 +35,7 @@ def build_feature_record(sample: dict, hidden_tokens: list[float], adapter_name:
         "expert_action": sample["expert_action"],
         "hidden_tokens": [float(value) for value in hidden_tokens],
         "hidden_dim": len(hidden_tokens),
+        "candidate_objects": sample.get("observation", {}).get("candidate_objects", []),
         "observation_summary": {
             "rgb_shape": sample.get("observation", {}).get("rgb_shape"),
             "candidate_object_count": len(sample.get("observation", {}).get("candidate_objects", [])),
