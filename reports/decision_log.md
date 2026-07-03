@@ -235,3 +235,11 @@ Decision: LoRA/QLoRA are required experimental tracks, but not the main novelty.
 Reason: A publishable low-compute VLA paper should show that TCA-Map works both in head-only mode and under parameter-efficient adaptation.
 
 Consequence: The required matrix now includes ActionMap + LoRA, TCA-Map + LoRA, TCA-Map + LoRA + Distributional TCA-Select, and a QLoRA feasibility arm if memory/tooling allows. Full backbone fine-tuning remains forbidden locally, and LoRA gains must be separated from TCA-Map and Distributional TCA-Select gains.
+
+## LoRA Adapter Construction Planner
+
+Decision: Add a planning-only LoRA adapter construction/readiness scaffold.
+
+Reason: Required LoRA tracks need an adapter construction boundary before any LoRA tiny smoke can be considered.
+
+Consequence: `scripts\32_plan_lora_adapter_construction.ps1` validates LoRA/QLoRA configs and local checkpoint file inputs without downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims.

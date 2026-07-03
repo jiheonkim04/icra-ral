@@ -29,7 +29,7 @@ qlora:
 training:
   batch_size: 1
   gradient_accumulation_steps: 8
-  max_steps: 1000
+  max_steps: 100
   full_finetune: false
   train_heads: true
   train_backbone: false

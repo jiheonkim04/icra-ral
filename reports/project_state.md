@@ -41,6 +41,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - Distributional TCA-Select scaffold,
 - LoRA/QLoRA config guards,
 - LoRA/QLoRA required experiment-track policy,
+- LoRA adapter construction planning scaffold,
 - local paper-grade runner and planning scripts,
 - Cursor safe local runner,
 - SmolVLA asset prep,
@@ -361,6 +362,14 @@ The required LoRA/QLoRA experiment-track policy is documented in `reports\lora_r
 ```powershell
 Get-Content reports\lora_required_experiment_plan.md
 ```
+
+The required LoRA adapter construction plan is documented in `reports\lora_adapter_construction_plan.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\32_plan_lora_adapter_construction.ps1
+```
+
+The planning-only LoRA adapter construction check has passed. It validated the required LoRA and QLoRA configs, confirmed the adapter module allowlist, and did not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

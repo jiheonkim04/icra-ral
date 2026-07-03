@@ -16,6 +16,7 @@ DEFAULT_LORA_MODULES = [
     "small_adapter_layers",
 ]
 LOWCOMPUTE_MAX_TRAINABLE_PARAMS_MILLIONS = 50
+LORA_TINY_SMOKE_MAX_STEPS = 100
 _FORBIDDEN_TRUE_KEYS = {
     "full_finetune",
     "full_backbone_finetune",
@@ -65,6 +66,9 @@ def validate_lora_policy_config(config: dict) -> dict:
     adapter = config.get("adapter", {}) if isinstance(config.get("adapter", {}), dict) else {}
     qlora = config.get("qlora", {}) if isinstance(config.get("qlora", {}), dict) else {}
     lora = config.get("lora", {}) if isinstance(config.get("lora", {}), dict) else {}
+    training = config.get("training", {}) if isinstance(config.get("training", {}), dict) else {}
+    lora_enabled = _bool_value(lora.get("enabled", False))
+    qlora_enabled = _bool_value(qlora.get("enabled", False))
 
     trainable_params = adapter.get("trainable_params_millions_estimate")
     if trainable_params is None:
@@ -75,7 +79,14 @@ def validate_lora_policy_config(config: dict) -> dict:
             f"{LOWCOMPUTE_MAX_TRAINABLE_PARAMS_MILLIONS}M: {trainable_params}M"
         )
 
-    if _bool_value(qlora.get("enabled", False)) and not _bool_value(qlora.get("explicit_config", False)):
+    max_steps = training.get("max_steps")
+    if (lora_enabled or qlora_enabled) and max_steps is not None and int(max_steps) > LORA_TINY_SMOKE_MAX_STEPS:
+        errors.append(
+            "LoRA/QLoRA tiny smoke must keep training.max_steps <= "
+            f"{LORA_TINY_SMOKE_MAX_STEPS}: {max_steps}"
+        )
+
+    if qlora_enabled and not _bool_value(qlora.get("explicit_config", False)):
         errors.append("QLoRA requires explicit_config=true because it is a required feasibility track when memory/tooling allows.")
 
     trainable_modules = adapter.get("trainable_modules") or lora.get("trainable_modules") or DEFAULT_LORA_MODULES
@@ -83,9 +94,9 @@ def validate_lora_policy_config(config: dict) -> dict:
     if forbidden_modules:
         errors.append(f"Backbone modules are not allowed in local LoRA trainable_modules: {forbidden_modules}")
 
-    if _bool_value(lora.get("enabled", False)):
+    if lora_enabled:
         warnings.append("LoRA is a required experimental track after head-only validation, not the main novelty; report it separately from TCA-Select gain.")
-    if _bool_value(qlora.get("enabled", False)):
+    if qlora_enabled:
         warnings.append("QLoRA is a required feasibility track if memory/tooling allows; report it separately from TCA-Select gain.")
 
     return {

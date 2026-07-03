@@ -73,3 +73,14 @@ def test_qlora_explicit_config_is_required_feasibility_track():
     result = validate_lora_policy_config(config)
     assert result["passed"] is True
     assert any("required feasibility track" in warning for warning in result["warnings"])
+
+
+def test_lora_tiny_smoke_rejects_more_than_100_steps():
+    config = {
+        "lora": {"enabled": True},
+        "adapter": {"train_backbone": False, "trainable_params_millions_estimate": 20},
+        "training": {"max_steps": 101},
+    }
+    result = validate_lora_policy_config(config)
+    assert result["passed"] is False
+    assert any("max_steps <= 100" in error for error in result["errors"])

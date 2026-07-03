@@ -38,6 +38,7 @@ reports/tiny_head_only_smoke_report.json
 reports/hard_stop_status_report.json
 reports/go_no_go_status_report.json
 reports/go_no_go_status_report.md
+reports/lora_adapter_construction_plan_report.json
 reports/wsl2_status.md
 
 # Runs and generated artifacts
