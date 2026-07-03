@@ -1,0 +1,2 @@
+"""SmolVLA local smoke helpers."""
+

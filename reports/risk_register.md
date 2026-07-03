@@ -56,6 +56,14 @@ Impact: CUDA/Windows instability, OOM, hidden inference, or invalid claim that r
 
 Mitigation: Use `scripts\15_plan_smolvla_load_only_smoke.ps1` first. It is planning-only, refuses `ALLOW_HEAVY_IMPORT=1`, and records the future gate. Actual loading requires a separate explicit approval task with no inference, training, rollout, dataset, simulator, or OpenVLA-OFT behavior.
 
+## Missing SmolVLA Runtime Dependencies
+
+Risk: Local files are ready, but Python packages required for an actual SmolVLA load-only smoke are not installed.
+
+Impact: Load-only execution cannot proceed, and ad hoc package installation could destabilize the CUDA/PyTorch environment.
+
+Mitigation: `scripts\16_smolvla_load_only_smoke.ps1` reports missing dependencies without installing anything. Installing or changing PyTorch/CUDA/LeRobot requires explicit user approval and should be handled as a separate environment task.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

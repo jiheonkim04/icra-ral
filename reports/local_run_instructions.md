@@ -118,6 +118,14 @@ powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke
 
 This planner writes `reports\smolvla_load_only_smoke_plan_report.json`, which is ignored by git. It refuses to run if `ALLOW_HEAVY_IMPORT=1` is already set.
 
+The bounded execution scaffold is:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
+```
+
+Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set in a separately approved task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any future loader path can proceed.
+
 Linux/WSL equivalents:
 
 ```bash
