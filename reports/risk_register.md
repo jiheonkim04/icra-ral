@@ -168,6 +168,14 @@ Impact: Unapproved compute use, invalid local evidence, or confusion between LoR
 
 Mitigation: Keep `scripts\33_plan_lora_tiny_smoke.ps1` planning-only with `safe_to_execute_lora_tiny_smoke_now=false`. A future execution runner must require `ALLOW_TINY_TRAINING=1`, train adapter weights only, keep max 100 steps, max 15 minutes, max 14GB VRAM, and always compare ActionMap + LoRA against TCA-Map + LoRA.
 
+## LoRA Attribution Risk
+
+Risk: LoRA adaptation may dominate the observed gains and make TCA-Map or Distributional TCA-Select look incidental.
+
+Impact: The method claim becomes unclear and weakens publishability.
+
+Mitigation: Require the comparison matrix in `reports\lora_comparison_plan.md`: TCA-Map + LoRA vs ActionMap + LoRA, and TCA-Map + LoRA + Distributional TCA-Select vs TCA-Map + LoRA only. Report head gain, LoRA gain, and inference-time selection gain separately.
+
 ## Standing Approval Scope Confusion
 
 Risk: The SmolVLA autonomous pilot standing approval may be misread as permission for OpenVLA-OFT, rollouts, real benchmark evaluation, datasets, or larger training.

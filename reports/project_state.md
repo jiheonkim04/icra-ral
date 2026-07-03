@@ -43,6 +43,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - LoRA/QLoRA required experiment-track policy,
 - LoRA adapter construction planning scaffold,
 - LoRA tiny-smoke scaffold,
+- TCA-Map + LoRA comparison plan,
 - local paper-grade runner and planning scripts,
 - Cursor safe local runner,
 - SmolVLA asset prep,
@@ -379,6 +380,14 @@ powershell -ExecutionPolicy Bypass -File scripts\33_plan_lora_tiny_smoke.ps1
 ```
 
 The scaffold has passed as a dry-run guard. It defines the required LoRA tiny-smoke envelope but does not construct adapters, train, import heavy VLA models, load models, infer, run GPU jobs, download assets, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims. Actual LoRA tiny-smoke execution remains gated by a separate bounded runner.
+
+The required TCA-Map + LoRA comparison plan is documented in `reports\lora_comparison_plan.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\34_plan_lora_comparison.ps1
+```
+
+The comparison plan has passed as a planning-only guard. It fixes the required ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select comparisons while separating head architecture gain, LoRA adaptation gain, and inference-time selection gain. It does not train, construct adapters, import heavy VLA models, load models, infer, run GPU jobs, download assets, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

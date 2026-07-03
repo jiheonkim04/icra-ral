@@ -251,3 +251,11 @@ Decision: Add a planning-only scaffold for the required LoRA tiny smoke.
 Reason: The required LoRA track needs an explicit tiny-smoke boundary before any adapter update is allowed.
 
 Consequence: `scripts\33_plan_lora_tiny_smoke.ps1` validates the LoRA/QLoRA configs and future tiny-smoke envelope while keeping `safe_to_execute_lora_tiny_smoke_now=false`. It does not construct adapters, train, download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+
+## TCA-Map + LoRA Comparison Plan
+
+Decision: Add a planning-only comparison matrix for the required LoRA arms.
+
+Reason: The required LoRA track must not let LoRA gains obscure the TCA-Map or Distributional TCA-Select contribution.
+
+Consequence: `scripts\34_plan_lora_comparison.ps1` fixes the ActionMap + LoRA, TCA-Map + LoRA, TCA-Map + LoRA + Distributional TCA-Select, and QLoRA-if-feasible comparisons without training, constructing adapters, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims.
