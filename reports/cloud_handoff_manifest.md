@@ -5,13 +5,16 @@ This manifest is generated for remote Linux GPU preparation only. It does not la
 ## Git
 
 - Repository: https://github.com/jiheonkim04/icra-ral.git
-- Branch: codex/replace-hard-stops-with-risk-assessed-autonomy
-- Commit hash: c78ef1a029b09064bcf4e453e3391f7d0042dfc8
+- Remote target branch: main
+- Generated from branch: codex/refresh-cloud-handoff-manifest-current-main
+- Generated from commit hash: e061af9d074eab163dc1932b776d6c96dd88ce79
+- Regenerate before remote execution: true
 
 ## Python / Conda Summary
 
 - Conda env: unavailable
-- Python: unavailable
+- Python executable: C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
+- Python: Python 3.10.20
 
 ## Required Assets
 
@@ -41,7 +44,8 @@ This manifest is generated for remote Linux GPU preparation only. It does not la
 
 git clone https://github.com/jiheonkim04/icra-ral.git tca_map
 cd tca_map
-git checkout codex/replace-hard-stops-with-risk-assessed-autonomy
+git checkout main
+git pull origin main
 conda activate tca_map
 bash scripts/00_preflight.sh
 bash scripts/11_check_real_assets.sh

@@ -1,3 +1,8 @@
+param(
+    [string]$RemoteBranch = "main",
+    [string]$Python = ""
+)
+
 $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $RepoRoot
@@ -15,8 +20,16 @@ function Try-Git {
 
 $commit = Try-Git "rev-parse" "HEAD"
 $branch = Try-Git "branch" "--show-current"
+$pythonCommand = $Python
+if ([string]::IsNullOrWhiteSpace($pythonCommand) -and -not [string]::IsNullOrWhiteSpace($env:TCA_MAP_PYTHON)) {
+    $pythonCommand = $env:TCA_MAP_PYTHON
+}
+if ([string]::IsNullOrWhiteSpace($pythonCommand)) {
+    $localPython = "C:\Users\jiheo\miniconda3\envs\tca_map\python.exe"
+    if (Test-Path -LiteralPath $localPython) { $pythonCommand = $localPython } else { $pythonCommand = "python" }
+}
 $pythonVersion = "unavailable"
-try { $pythonVersion = ((python --version 2>&1) | ForEach-Object { $_.ToString() }) -join "`n" } catch {}
+try { $pythonVersion = ((& $pythonCommand --version 2>&1) | ForEach-Object { $_.ToString() }) -join "`n" } catch {}
 $condaEnv = if ([string]::IsNullOrWhiteSpace($env:CONDA_DEFAULT_ENV)) { "unavailable" } else { $env:CONDA_DEFAULT_ENV }
 
 $manifest = [ordered]@{
@@ -30,12 +43,15 @@ $manifest = [ordered]@{
         require_cloud_gate = "ALLOW_CLOUD_HANDOFF=1"
     }
     git = [ordered]@{
-        commit_hash = $commit
-        branch = $branch
+        generated_from_commit_hash = $commit
+        generated_from_branch = $branch
+        remote_target_branch = $RemoteBranch
         repository = "https://github.com/jiheonkim04/icra-ral.git"
+        regenerate_before_remote_execution = $true
     }
     environment = [ordered]@{
         conda_env = $condaEnv
+        python_executable = $pythonCommand
         python = $pythonVersion.Trim()
         os_note = "Generate this manifest locally, then re-run on remote Linux after clone."
     }
@@ -63,7 +79,8 @@ $manifest = [ordered]@{
     remote_commands = @(
         "git clone https://github.com/jiheonkim04/icra-ral.git tca_map",
         "cd tca_map",
-        "git checkout $branch",
+        "git checkout $RemoteBranch",
+        "git pull origin $RemoteBranch",
         "conda activate tca_map",
         "bash scripts/00_preflight.sh",
         "bash scripts/11_check_real_assets.sh",
@@ -89,12 +106,15 @@ $md = @(
     "## Git",
     "",
     "- Repository: https://github.com/jiheonkim04/icra-ral.git",
-    "- Branch: $branch",
-    "- Commit hash: $commit",
+    "- Remote target branch: $RemoteBranch",
+    "- Generated from branch: $branch",
+    "- Generated from commit hash: $commit",
+    "- Regenerate before remote execution: true",
     "",
     "## Python / Conda Summary",
     "",
     "- Conda env: $condaEnv",
+    "- Python executable: $pythonCommand",
     "- Python: $($pythonVersion.Trim())",
     "",
     "## Required Assets",
@@ -125,7 +145,8 @@ $md = @(
     "",
     "git clone https://github.com/jiheonkim04/icra-ral.git tca_map",
     "cd tca_map",
-    "git checkout $branch",
+    "git checkout $RemoteBranch",
+    "git pull origin $RemoteBranch",
     "conda activate tca_map",
     "bash scripts/00_preflight.sh",
     "bash scripts/11_check_real_assets.sh",
