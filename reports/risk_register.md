@@ -80,6 +80,14 @@ Impact: Broken local environment, CUDA mismatch, unexpected downloads, or blocke
 
 Mitigation: Use `scripts\18_plan_smolvla_runtime_install.ps1` and `reports\smolvla_runtime_install_request.md`. The planner refuses dangerous gates and records that installs, downloads, heavy imports, model loads, inference, training, rollouts, and OpenVLA-OFT execution were not performed.
 
+## Feature Cache Contract Drift
+
+Risk: Later SmolVLA feature extraction may produce records that do not match the head-only training interface.
+
+Impact: Head-only pilots fail late or silently train on inconsistent metadata.
+
+Mitigation: Use `reports\feature_cache_interface_plan.md`, `tca_map.features.cache`, and `scripts\19_plan_feature_cache.ps1` to validate manifest and JSONL schema with dummy features before any real extraction.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

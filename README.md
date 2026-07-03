@@ -82,6 +82,12 @@ Plan the explicit SmolVLA runtime install approval boundary without installing p
 powershell -ExecutionPolicy Bypass -File scripts/18_plan_smolvla_runtime_install.ps1
 ```
 
+Plan or validate the dummy feature-cache interface without SmolVLA imports:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/19_plan_feature_cache.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash
