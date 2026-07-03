@@ -104,6 +104,14 @@ Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bo
 
 Mitigation: Use `scripts\26_plan_tiny_head_only_pilot.ps1`, which refuses training/heavy gates and reports `safe_to_run_training_now=false`. Actual training requires explicit user approval.
 
+## Approval Scope Confusion
+
+Risk: Runtime install, heavy import/load-only smoke, and tiny training approvals may be mixed together accidentally.
+
+Impact: A small approval could unintentionally permit package changes, model loading, GPU use, or training in the same task.
+
+Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1` and `reports\hard_stop_status.md`. Approve at most one gate at a time unless a later task explicitly scopes and justifies a combined approval.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

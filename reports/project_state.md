@@ -53,7 +53,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - SmolVLA runtime dependency checker and install approval plan,
 - feature-cache interface contract and dummy cache planner,
 - eval-only cached-feature smoke for the head/metric interface,
-- tiny head-only pilot approval planner.
+- tiny head-only pilot approval planner,
+- hard-stop approval status summary.
 
 ## Current Asset Status
 
@@ -266,4 +267,10 @@ The tiny head-only pilot approval boundary is documented in `reports\tiny_head_o
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
+```
+
+The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
 ```
