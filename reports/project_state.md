@@ -50,7 +50,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - Codex delegation manual and project state files,
 - SmolVLA load-only adapter smoke planning guard,
 - SmolVLA load-only execution scaffold,
-- SmolVLA runtime dependency checker and install approval plan.
+- SmolVLA runtime dependency checker and install approval plan,
+- feature-cache interface contract and dummy cache planner.
 
 ## Current Asset Status
 
@@ -246,3 +247,9 @@ Codex should self-check current state. Since config/tokenizer dependency/weights
 Because runtime packages are missing, the next prerequisite is an explicit environment installation decision. Do not install PyTorch, Transformers, LeRobot, Safetensors, Accelerate, CUDA toolkits, or change CUDA/PyTorch versions automatically.
 
 The install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Codex may keep this plan current, but must stop before actual package installation or CUDA/PyTorch changes.
+
+The feature-cache interface contract is documented in `reports\feature_cache_interface_plan.md` and can be checked without SmolVLA imports:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\19_plan_feature_cache.ps1
+```
