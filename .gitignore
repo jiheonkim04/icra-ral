@@ -49,6 +49,9 @@ reports/tiny_lora_comparison_report.json
 reports/tiny_lora_comparison_report.md
 reports/local_pilot_status_report.json
 reports/local_pilot_status_report.md
+reports/bounded_head_only_extension_report.json
+reports/bounded_local_pilot_extension_report.json
+reports/bounded_local_pilot_extension_report.md
 reports/risk_assessment_report.json
 reports/risk_assessment_report.md
 reports/libero_dataset_risk_report.json
