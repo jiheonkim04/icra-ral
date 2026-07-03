@@ -1,0 +1,40 @@
+# Official/documented source candidates for LIBERO/RoboSuite setup.
+# This file is planning metadata only. It does not authorize downloads by itself.
+
+sources:
+  libero_repo:
+    url: "https://github.com/Lifelong-Robot-Learning/LIBERO.git"
+    documentation_url: "https://github.com/Lifelong-Robot-Learning/LIBERO"
+    target_path: "C:/assets/repos/LIBERO"
+    official_or_documented: true
+    license: "MIT"
+    expected_size_gb: 0.35
+    size_estimation_method: "GitHub repository API size was about 323128 KB on 2026-07-04; shallow clone should be smaller."
+    token_required: false
+    license_click_through_required: false
+    payment_required: false
+
+  robosuite_repo:
+    url: "https://github.com/ARISE-Initiative/robosuite.git"
+    documentation_url: "https://robosuite.ai/docs/index.html"
+    target_path: "C:/assets/repos/robosuite"
+    official_or_documented: true
+    license: "MIT with bundled DeepMind MuJoCo Apache-2.0 notice"
+    expected_size_gb: 0.70
+    size_estimation_method: "GitHub repository API size was about 644964 KB on 2026-07-04; shallow clone should be smaller."
+    token_required: false
+    license_click_through_required: false
+    payment_required: false
+
+  libero_full_dataset:
+    url: "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets"
+    documentation_url: "https://github.com/Lifelong-Robot-Learning/LIBERO"
+    target_path: "C:/assets/data/libero"
+    official_or_documented: true
+    license: "apache-2.0"
+    expected_size_gb: 100.0
+    size_estimation_method: "Hugging Face dataset card reports total file size as 100 GB."
+    token_required: false
+    license_click_through_required: false
+    payment_required: false
+    current_policy_decision: "stop_full_dataset_download_exceeds_80gb_budget"

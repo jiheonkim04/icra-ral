@@ -26,3 +26,14 @@ Proceed to a separate bounded simulator import-smoke task only if:
 - no rollout, render loop, policy execution, dataset evaluation, OpenVLA-OFT execution, or paper claim is included.
 
 Native Windows remains a planning/readiness path. Real simulator work should use WSL2/Linux unless a later risk assessment proves a native path is safe.
+
+The source-resolution/setup path for code checkouts is:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\45_resolve_libero_robosuite_sources.ps1
+$env:ALLOW_DOWNLOADS="1"
+powershell -ExecutionPolicy Bypass -File scripts\46_prepare_libero_robosuite_sources.ps1
+Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
+```
+
+This may make `LIBERO_ROOT` and `ROBOSUITE_ROOT` path-ready, but it still does not install simulator dependencies, import simulator modules, render, rollout, train, or make paper-grade claims.

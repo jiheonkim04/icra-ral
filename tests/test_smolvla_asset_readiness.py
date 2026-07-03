@@ -16,6 +16,7 @@ def _run_real_asset_checker(
     smolvla_dir: Path,
     checkpoint_root: Path,
     hf_home: Path | None = None,
+    extra_env: dict[str, str] | None = None,
 ) -> dict:
     powershell = shutil.which("powershell")
     if powershell is None:
@@ -34,6 +35,7 @@ def _run_real_asset_checker(
             "DATA_ROOT": str(tmp_path / "missing_data"),
         }
     )
+    env.update(extra_env or {})
     result = subprocess.run(
         [
             powershell,
@@ -130,3 +132,28 @@ def test_external_smolvla_tokenizer_dependency_can_satisfy_readiness(tmp_path):
     assert dependency["name"] == "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
     assert dependency["found"] is True
     assert dependency["files_found"] == ["tokenizer_config.json"]
+
+
+def test_libero_path_ready_is_not_rollout_ready_without_dataset_files(tmp_path):
+    smolvla_dir = tmp_path / "smolvla"
+    checkpoint_root = tmp_path / "checkpoints"
+    libero_root = tmp_path / "LIBERO"
+    libero_data_root = tmp_path / "libero_data"
+    robosuite_root = tmp_path / "robosuite"
+    for path in (smolvla_dir, checkpoint_root, libero_root, libero_data_root, robosuite_root):
+        path.mkdir()
+
+    report = _run_real_asset_checker(
+        tmp_path,
+        smolvla_dir,
+        checkpoint_root,
+        extra_env={
+            "LIBERO_ROOT": str(libero_root),
+            "LIBERO_DATA_ROOT": str(libero_data_root),
+            "ROBOSUITE_ROOT": str(robosuite_root),
+        },
+    )
+
+    assert report["ready_for_libero_path_check"] is True
+    assert report["libero_dataset_files_present"] is False
+    assert report["ready_for_libero_rollout"] is False

@@ -149,6 +149,23 @@ function Test-AnyFile {
     return @($matches | Select-Object -Unique)
 }
 
+function Get-LiberoDatasetFiles {
+    param([string]$Root)
+    if ([string]::IsNullOrWhiteSpace($Root) -or -not (Test-Path -LiteralPath $Root)) {
+        return @()
+    }
+    $extensions = @(".hdf5", ".h5", ".npz", ".pkl", ".json", ".jsonl")
+    try {
+        return @(
+            Get-ChildItem -LiteralPath $Root -File -Recurse -Depth 3 -ErrorAction SilentlyContinue |
+                Where-Object { $extensions -contains $_.Extension.ToLowerInvariant() } |
+                Select-Object -First 20 -ExpandProperty FullName
+        )
+    } catch {
+        return @()
+    }
+}
+
 function Get-SmolVlaTokenizerDependencyName {
     param([string]$Root)
 
@@ -311,7 +328,11 @@ $readyForSmolVlaAdapterSmoke = [bool](
 )
 $readyForSmolVlaSmoke = $readyForSmolVlaAdapterSmoke
 $readyForOpenVlaOftSmoke = [bool]($status["openvla_oft_ckpt"].exists -and $status["hf_home"].exists -and $status["checkpoint_root"].exists)
-$readyForLiberoRollout = [bool]($status["libero_root"].exists -and $status["libero_data_root"].exists -and $status["robosuite_root"].exists)
+$liberoDataRootPath = (Get-ConfiguredValue -Config $config -Key "libero_data_root" -EnvName "LIBERO_DATA_ROOT").Value
+$liberoDatasetFiles = Get-LiberoDatasetFiles -Root $liberoDataRootPath
+$readyForLiberoPathCheck = [bool]($status["libero_root"].exists -and $status["libero_data_root"].exists -and $status["robosuite_root"].exists)
+$liberoDatasetFilesPresent = [bool]($liberoDatasetFiles.Count -gt 0)
+$readyForLiberoRollout = [bool]($readyForLiberoPathCheck -and $liberoDatasetFilesPresent)
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $smolVlaPath
 $singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $smolVlaPath
 $featureCacheEvalPassed = Test-FeatureCacheEvalPassed
@@ -366,6 +387,9 @@ $report = [ordered]@{
         }
     }
     ready_for_openvla_oft_smoke = $readyForOpenVlaOftSmoke
+    ready_for_libero_path_check = $readyForLiberoPathCheck
+    libero_dataset_files_present = $liberoDatasetFilesPresent
+    libero_dataset_file_sample = @($liberoDatasetFiles)
     ready_for_libero_rollout = $readyForLiberoRollout
     missing_assets = @($missing)
     recommended_next_step = $recommendedNextStep
