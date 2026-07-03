@@ -23,7 +23,7 @@ Self-check routine state before asking the user. Branch, commit, git status, pyt
 13. TCA-Select must be distributional for the final method, not only heuristic geometry. Heuristic target/action consistency is an ablation.
 14. LoRA/QLoRA are supporting tools, not the main novelty.
 15. Any SOTA claim must be restricted to low-compute target-conditioned action decoding or counterfactual robustness unless full standard baselines are directly reproduced.
-16. Heavy actions require explicit environment gates such as `ALLOW_DOWNLOADS=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_GPU_TRAINING=1`, `ALLOW_ROLLOUTS=1`, or `ALLOW_CLOUD_HANDOFF=1`; bounded SmolVLA load-only smoke may set `ALLOW_HEAVY_IMPORT=1` inside the standing-approved autonomous pilot budget.
+16. Heavy actions require explicit environment gates such as `ALLOW_DOWNLOADS=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_TINY_TRAINING=1`, `ALLOW_GPU_TRAINING=1`, `ALLOW_ROLLOUTS=1`, or `ALLOW_CLOUD_HANDOFF=1`; bounded SmolVLA load-only smoke may set `ALLOW_HEAVY_IMPORT=1`, and bounded tiny head-only smoke may set `ALLOW_TINY_TRAINING=1`, only inside the standing-approved autonomous pilot budget.
 17. Run compute-budget enforcement before any new local config or pilot command.
 
 ## Low-compute protocol

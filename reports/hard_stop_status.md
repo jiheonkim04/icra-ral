@@ -4,7 +4,7 @@
 
 This report explains the current bounded-autopilot stop condition in one place.
 
-The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, the explicitly approved SmolVLA runtime package install, and the SmolVLA autonomous pilot standing approval policy. The next bounded SmolVLA pilot steps do not require routine approval prompts.
+The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, bounded tiny head-only smoke runner, the explicitly approved SmolVLA runtime package install, and the SmolVLA autonomous pilot standing approval policy. The next safe non-heavy task is a go/no-go/status summary.
 
 ## Summary Command
 
@@ -32,6 +32,8 @@ The bounded single-sample interface smoke has also passed on CPU. It used one sy
 
 The dummy feature-cache/interface validation has passed. It wrote and validated a dummy cache and ran eval-only cached-feature metrics without heavy model import, model inference, training, rollout, simulator execution, OpenVLA-OFT, downloads, or token access.
 
+The bounded tiny head-only smoke has passed on cached/dummy features. It trained tiny CPU NumPy heads for 16 steps and did not use GPU, import or load SmolVLA/OpenVLA, run VLA inference, rollout, execute simulators, download assets, or make paper claims.
+
 Codex may continue autonomously through:
 
 - SmolVLA load-only heavy import/model construction smoke with `ALLOW_HEAVY_IMPORT=1` set only inside that task,
@@ -45,7 +47,7 @@ Do not combine this standing approval with true hard-stop gates.
 ## Current Known Blockers
 
 - Runtime dependencies are present in the current `tca_map` environment.
-- No true hard-stop currently blocks the next tiny head-only smoke runner if it enforces max_steps<=100, runtime<=15 minutes, VRAM<=14GB, frozen backbone, no rollout, no simulator, no OpenVLA-OFT, and no paper claim.
+- The bounded tiny head-only smoke has passed within max_steps<=100, runtime<=15 minutes, frozen backbone/cached-feature, no GPU job, no rollout, no simulator, no OpenVLA-OFT, and no paper claim.
 - LIBERO/RoboSuite/RoboCasa/simulator assets remain missing for rollout work.
 - OpenVLA-OFT local large execution remains forbidden.
 
@@ -80,4 +82,7 @@ powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.
 powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
 powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
+powershell -ExecutionPolicy Bypass -File scripts\29_tiny_head_only_smoke.ps1
 ```
+
+Set `ALLOW_TINY_TRAINING=1` only for the bounded tiny head-only smoke task, then remove it after the command finishes.

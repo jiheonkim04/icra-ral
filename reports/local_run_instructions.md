@@ -178,6 +178,16 @@ Plan the tiny head-only pilot approval boundary without training:
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
 ```
 
+Run the bounded tiny head-only smoke only inside the standing-approved task:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\29_tiny_head_only_smoke.ps1 -PrepareDummyCache
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
+```
+
+This trains only tiny CPU NumPy heads over cached/dummy features. It is interface validation only, not paper evidence or standard success.
+
 Summarize the current hard-stop approval choices:
 
 ```powershell
@@ -231,6 +241,7 @@ $env:ALLOW_DOWNLOADS="1"
 $env:ALLOW_HEAVY_IMPORT="1"
 $env:ALLOW_SINGLE_SAMPLE_INFERENCE="1"
 $env:ALLOW_GPU_TRAINING="1"
+$env:ALLOW_TINY_TRAINING="1"
 $env:ALLOW_ROLLOUTS="1"
 $env:ALLOW_CLOUD_HANDOFF="1"
 ```

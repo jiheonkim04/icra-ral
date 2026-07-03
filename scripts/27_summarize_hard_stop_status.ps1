@@ -201,6 +201,7 @@ load_only_report = load_json("reports/smolvla_load_only_smoke_report.json") or {
 single_sample_report = load_json("reports/smolvla_single_sample_interface_report.json") or {}
 feature_cache_eval_report = load_json("reports/feature_cache_eval_report.json") or {}
 tiny_plan = load_json("reports/tiny_head_only_pilot_plan_report.json") or {}
+tiny_smoke_report = load_json("reports/tiny_head_only_smoke_report.json") or {}
 local_paths = load_local_paths()
 smolvla_readiness = smolvla_file_readiness(local_paths)
 
@@ -270,7 +271,12 @@ if hard_stop_reached:
     recommended_next_step = f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates."
 else:
     hard_stop_reason = None
-    if feature_cache_eval_report.get("cache_valid"):
+    if tiny_smoke_report.get("tiny_head_only_smoke_passed"):
+        recommended_next_step = (
+            "Tiny head-only smoke has passed. Prepare a go/no-go summary or stop before true gates: "
+            "real dataset training, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
+        )
+    elif feature_cache_eval_report.get("cache_valid"):
         recommended_next_step = (
             "Continue autonomous SmolVLA pilot: create or run a tiny head-only smoke runner with "
             "max_steps<=100, runtime<=15 minutes, VRAM<=14GB, frozen backbone, no rollout, and no paper claim."
@@ -347,6 +353,8 @@ report = {
         "ready_to_request_tiny_training_approval": tiny_plan.get("ready_to_request_tiny_training_approval"),
         "safe_to_run_training_now": tiny_plan.get("safe_to_run_training_now"),
         "configs_pass_policy": tiny_plan.get("configs_pass_policy"),
+        "smoke_passed": tiny_smoke_report.get("tiny_head_only_smoke_passed"),
+        "smoke_report_path": "reports/tiny_head_only_smoke_report.json",
     },
     "smolvla_smokes": {
         "load_only_passed": load_only_report.get("result", {}).get("passed"),

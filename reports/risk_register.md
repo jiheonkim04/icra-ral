@@ -126,7 +126,7 @@ Risk: A standing-approved tiny head-only smoke may drift into longer training, r
 
 Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bounded autopilot session.
 
-Mitigation: Require frozen backbone, dummy or tiny local non-paper data, max 100 steps, max 15 minutes, max 14GB VRAM, no rollout, no OpenVLA-OFT, no multi-seed, and no paper claim. Stop for explicit approval outside that envelope.
+Mitigation: Require `scripts\29_tiny_head_only_smoke.ps1` to run only with `ALLOW_TINY_TRAINING=1`, use cached/dummy features, train tiny CPU heads only, enforce max 100 steps and max 15 minutes, refuse GPU/download/heavy-import/rollout gates, and make no paper claim. Stop for explicit approval outside that envelope.
 
 ## Standing Approval Scope Confusion
 

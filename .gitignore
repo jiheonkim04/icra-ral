@@ -34,6 +34,7 @@ reports/runtime_install_*_report.json
 reports/feature_cache_plan_report.json
 reports/feature_cache_eval_report.json
 reports/tiny_head_only_pilot_plan_report.json
+reports/tiny_head_only_smoke_report.json
 reports/hard_stop_status_report.json
 reports/wsl2_status.md
 

@@ -36,6 +36,7 @@ $required = @(
     "reports/feature_cache_interface_plan.md",
     "reports/feature_cache_eval_smoke_plan.md",
     "reports/tiny_head_only_pilot_plan.md",
+    "reports/tiny_head_only_smoke.md",
     "reports/hard_stop_status.md",
     "reports/no_large_openvla_strategy.md",
     "reports/low_compute_experiment_plan.md",
@@ -78,6 +79,7 @@ $required = @(
     "scripts/26_plan_tiny_head_only_pilot.ps1",
     "scripts/27_summarize_hard_stop_status.ps1",
     "scripts/28_smolvla_single_sample_interface_smoke.ps1",
+    "scripts/29_tiny_head_only_smoke.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -101,6 +103,7 @@ $required = @(
     "tca_map/features/__init__.py",
     "tca_map/features/cache.py",
     "tca_map/features/cached_eval.py",
+    "tca_map/features/tiny_head_only_smoke.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
     "tests/test_smolvla_asset_readiness.py",
@@ -113,6 +116,7 @@ $required = @(
     "tests/test_feature_cache_interface.py",
     "tests/test_feature_cache_eval_smoke.py",
     "tests/test_tiny_head_only_pilot_plan.py",
+    "tests/test_tiny_head_only_smoke.py",
     "tests/test_hard_stop_status.py",
     "tests/test_lora_config_guards.py"
 )

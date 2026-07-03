@@ -70,6 +70,16 @@ Plan the tiny head-only pilot approval boundary without training:
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
 ```
 
+Run the bounded tiny head-only smoke runner:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\29_tiny_head_only_smoke.ps1 -PrepareDummyCache
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
+```
+
+This is a tiny CPU head-only smoke on cached/dummy features. It is not a paper-grade result.
+
 Summarize the current hard-stop approval choices:
 
 ```powershell
@@ -136,11 +146,11 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 7. Feature cache interface validation with dummy cached features. Done.
 8. Eval-only cached-feature head/metric smoke. Done.
 9. Tiny head-only pilot planning and budget check. Done.
-10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Next.
-11. Summarize hard-stop approval choices.
+10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Done.
+11. Summarize hard-stop approval choices. Next.
 12. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: none for a tiny head-only smoke if the runner enforces frozen backbone, cached/dummy features, max_steps<=100, runtime<=15 minutes, VRAM<=14GB, no rollout, no OpenVLA-OFT, and no paper claim. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: the bounded tiny head-only smoke has passed. The next safe non-heavy task is a go/no-go/status summary. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 ## Self-Check Cases
 

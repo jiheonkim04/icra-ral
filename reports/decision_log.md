@@ -203,3 +203,19 @@ Decision: Treat the dummy feature-cache planner and eval-only cached-feature smo
 Reason: The cache contract wrote and validated `manifest.json` plus `features.jsonl`, then the eval-only path consumed 4 dummy records through the ActionMap/TCA-Map head and offline metric interface.
 
 Consequence: This is still not real SmolVLA feature extraction and not paper evidence. It clears the dummy cached-feature/head contract. The next autonomous step is a tiny head-only smoke runner with hard caps and no rollout, simulator, OpenVLA-OFT, real dataset evaluation, or paper claims.
+
+## Tiny Head-Only Smoke Runner
+
+Decision: Add a bounded tiny head-only smoke runner over cached/dummy feature records.
+
+Reason: After cached-feature eval passed, the next safe interface risk is whether head-only optimization and offline proxy metric plumbing work without importing SmolVLA, using GPU, touching rollouts, or training a backbone.
+
+Consequence: `scripts\29_tiny_head_only_smoke.ps1` requires `ALLOW_TINY_TRAINING=1` only inside the bounded task and refuses download, heavy-import, GPU, rollout, runtime-install, and single-sample inference gates. It trains tiny CPU NumPy ActionMap/TCA-Map heads for at most 100 steps and writes an ignored report. Passing it is interface validation only, not a paper-grade result.
+
+## Tiny Head-Only Smoke Result
+
+Decision: Treat the bounded tiny head-only smoke as passed.
+
+Reason: The runner trained tiny CPU NumPy ActionMap and TCA-Map heads over 4 cached/dummy records for 16 steps, stayed under the 100-step and 900-second caps, and produced finite offline proxy metrics.
+
+Consequence: This validates only the cached-feature head-only optimization path. It did not download assets, run GPU jobs, import or load SmolVLA/OpenVLA, perform VLA inference, train a backbone, rollout, execute simulators, or make paper claims. The next safe non-heavy task is a go/no-go/status summary; real dataset training, rollouts, simulator execution, OpenVLA-OFT, and paper claims remain hard-stop gates.

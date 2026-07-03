@@ -60,3 +60,23 @@ Paper-grade standard success requires later simulator rollouts after separate si
 This planner refuses execution gates such as `ALLOW_GPU_TRAINING=1`, `ALLOW_TINY_TRAINING=1`, `ALLOW_HEAVY_IMPORT=1`, or `ALLOW_DOWNLOADS=1` because it is planning-only.
 
 It does not download assets, run GPU jobs, import heavy VLA models, load models, run inference, train, rollout, or execute OpenVLA-OFT.
+
+## Bounded Smoke Runner
+
+The bounded runner is:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\29_tiny_head_only_smoke.ps1 -PrepareDummyCache
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
+```
+
+It writes:
+
+```text
+reports\tiny_head_only_smoke_report.json
+```
+
+This runner trains tiny CPU NumPy heads on cached/dummy feature records only. It refuses more than 100 steps, refuses runtime caps above 900 seconds, refuses download/heavy-import/GPU/rollout gates, and never loads SmolVLA or OpenVLA-OFT.
+
+Passing this runner validates only cached-feature head optimization and offline proxy metric plumbing. It is not standard success and not a paper-grade empirical result.

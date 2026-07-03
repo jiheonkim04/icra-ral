@@ -111,6 +111,19 @@ function Test-FeatureCacheEvalPassed {
     }
 }
 
+function Test-TinyHeadOnlySmokePassed {
+    $reportPath = Join-Path $RepoRoot "reports\tiny_head_only_smoke_report.json"
+    if (-not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        return [bool]$report.tiny_head_only_smoke_passed
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -302,8 +315,11 @@ $readyForLiberoRollout = [bool]($status["libero_root"].exists -and $status["libe
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $smolVlaPath
 $singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $smolVlaPath
 $featureCacheEvalPassed = Test-FeatureCacheEvalPassed
+$tinyHeadOnlySmokePassed = Test-TinyHeadOnlySmokePassed
 
-if ($readyForSmolVlaAdapterSmoke -and $featureCacheEvalPassed) {
+if ($readyForSmolVlaAdapterSmoke -and $tinyHeadOnlySmokePassed) {
+    $recommendedNextStep = "Tiny head-only smoke has passed. Treat it as interface validation only; stop before real dataset training, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
+} elseif ($readyForSmolVlaAdapterSmoke -and $featureCacheEvalPassed) {
     $recommendedNextStep = "Continue to a tiny head-only smoke runner with strict caps. Do not rollout or execute OpenVLA-OFT."
 } elseif ($readyForSmolVlaAdapterSmoke -and $singleSampleInterfacePassed) {
     $recommendedNextStep = "Continue to tiny feature-cache/interface validation. Do not train or rollout."
@@ -336,6 +352,7 @@ $report = [ordered]@{
     smolvla_load_only_smoke_passed = $loadOnlySmokePassed
     smolvla_single_sample_interface_passed = $singleSampleInterfacePassed
     feature_cache_eval_smoke_passed = $featureCacheEvalPassed
+    tiny_head_only_smoke_passed = $tinyHeadOnlySmokePassed
     smolvla_expected_files = [ordered]@{
         config_found = @($smolVlaConfigFiles)
         tokenizer_found = @($smolVlaTokenizerFiles)
