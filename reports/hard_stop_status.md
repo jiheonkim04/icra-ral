@@ -4,7 +4,7 @@
 
 This report explains the current bounded-autopilot stop condition in one place.
 
-The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, and tiny head-only pilot planner. The next meaningful steps now require explicit approval.
+The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, and the explicitly approved SmolVLA runtime package install. The next meaningful steps now require explicit approval.
 
 ## Summary Command
 
@@ -24,17 +24,18 @@ The script is summary-only. It does not install packages, download assets, run G
 
 ## Current Approval Choices
 
-Approve at most one gate at a time:
+The runtime install gate has been used and is currently clear: `torch`, `transformers`, `lerobot`, and `safetensors` are installed in the `tca_map` environment.
 
-1. Runtime install planning-to-execution task for `torch`, `transformers`, `lerobot`, and `safetensors`.
-2. SmolVLA load-only heavy-import task with `ALLOW_HEAVY_IMPORT=1`, after runtime dependencies are present.
-3. Tiny head-only training task with `ALLOW_TINY_TRAINING=1`, after cached features are real and runtime checks are valid.
+Approve at most one remaining gate at a time:
 
-Do not combine runtime install, heavy import, and training in the same approval unless a later task explicitly narrows and justifies that combined scope.
+1. SmolVLA load-only heavy-import task with `ALLOW_HEAVY_IMPORT=1`, after runtime dependencies are present.
+2. Tiny head-only training task with `ALLOW_TINY_TRAINING=1`, after cached features are real and runtime checks are valid.
+
+Do not combine heavy import/model loading and training in the same approval unless a later task explicitly narrows and justifies that combined scope.
 
 ## Current Known Blockers
 
-- Runtime dependencies are missing in the current `tca_map` environment.
+- Runtime dependencies are present in the current `tca_map` environment.
 - Actual SmolVLA load-only construction requires `ALLOW_HEAVY_IMPORT=1`.
 - Any tiny head-only training requires explicit training approval.
 - LIBERO/RoboSuite/RoboCasa/simulator assets remain missing for rollout work.

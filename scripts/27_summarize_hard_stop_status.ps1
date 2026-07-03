@@ -232,6 +232,29 @@ approval_requests = [
     },
 ]
 
+blocking_labels = []
+if missing_required_runtime:
+    blocking_labels.append("runtime installation")
+blocking_labels.extend(
+    [
+        "SmolVLA load-only heavy import/model construction",
+        "tiny head-only training",
+    ]
+)
+
+if len(blocking_labels) == 1:
+    blocking_summary = blocking_labels[0]
+elif len(blocking_labels) == 2:
+    blocking_summary = " or ".join(blocking_labels)
+else:
+    blocking_summary = ", ".join(blocking_labels[:-1]) + ", or " + blocking_labels[-1]
+
+next_gate_names = [
+    request["gate"]
+    for request in approval_requests
+    if request["current_blocker"]
+]
+
 git_branch = run_small(["git", "branch", "--show-current"])
 git_commit = run_small(["git", "log", "-1", "--oneline"])
 git_status = run_small(["git", "status", "--short"])
@@ -289,14 +312,10 @@ report = {
         "configs_pass_policy": tiny_plan.get("configs_pass_policy"),
     },
     "approval_requests": approval_requests,
+    "current_blocking_gates": next_gate_names,
     "hard_stop_reached": True,
-    "hard_stop_reason": (
-        "Next meaningful steps require explicit approval for runtime installation, heavy import/load-only model construction, or tiny head-only training."
-    ),
-    "recommended_next_step": (
-        "Request explicit approval for exactly one gated task: runtime install, SmolVLA load-only heavy import, or tiny head-only training. "
-        "Do not combine gates."
-    ),
+    "hard_stop_reason": f"Next meaningful steps require explicit approval for {blocking_summary}.",
+    "recommended_next_step": f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates.",
 }
 
 report_path = Path(os.environ["TCA_MAP_HARD_STOP_STATUS_REPORT"])

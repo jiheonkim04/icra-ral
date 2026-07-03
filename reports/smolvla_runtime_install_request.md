@@ -2,18 +2,21 @@
 
 ## Purpose
 
-This document prepares the approval boundary for installing the runtime packages needed for a future SmolVLA load-only smoke. It is not approval to install anything.
+This document records the approval boundary that was used for installing the runtime packages needed for a future SmolVLA load-only smoke. It is not approval for any further package changes.
 
-The current local SmolVLA checkpoint and tokenizer/processor files are present, but the Python environment is missing core runtime packages:
+The local SmolVLA checkpoint and tokenizer/processor files are present, and the Python environment now has the core runtime packages:
 
 ```text
-torch
-transformers
-lerobot
-safetensors
+torch==2.10.0+cu128
+torchvision==0.25.0+cu128
+transformers==4.57.6
+lerobot==0.4.4
+safetensors==0.8.0
+accelerate==1.14.0
+huggingface-hub==0.35.3
 ```
 
-Installing or changing these packages is a hard-stop gate because it can alter CUDA/PyTorch behavior on the RTX 5080 Windows environment.
+Installing, upgrading, or changing these packages remains a hard-stop gate because it can alter CUDA/PyTorch behavior on the RTX 5080 Windows environment.
 
 ## Planning Command
 
@@ -31,25 +34,19 @@ reports\smolvla_runtime_install_plan_report.json
 
 The planner does not install packages, download assets, import heavy VLA models, load models, run inference, train, rollout, access tokens, or execute OpenVLA-OFT. It refuses to run if dangerous gates such as `ALLOW_DOWNLOADS=1` or `ALLOW_HEAVY_IMPORT=1` are already set.
 
-## Packages Requiring Explicit Approval
+## Completed Approved Install
 
-Required before a real SmolVLA load-only smoke:
+The approved install used:
 
-- `torch`,
-- `transformers`,
-- `lerobot`,
-- `safetensors`.
+```powershell
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 torch==2.10.0+cu128 torchvision==0.25.0+cu128 lerobot==0.4.4 transformers==4.57.6 safetensors==0.8.0 accelerate==1.14.0
+```
 
-Likely optional but useful:
-
-- `accelerate`,
-- `huggingface_hub`.
-
-No package should be installed or upgraded automatically. A later approved install task should pin versions, preserve an environment snapshot, avoid token access, avoid dataset/checkpoint downloads, and validate with repository checkers.
+No model checkpoints, datasets, simulator assets, OpenVLA-OFT assets, tokens, or secrets were part of this package install approval.
 
 ## Approval Boundary
 
-The next environment task must explicitly approve:
+Any later environment task must explicitly approve:
 
 - whether the existing `tca_map` conda environment may be modified,
 - exact package versions and install source,

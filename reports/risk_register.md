@@ -56,21 +56,21 @@ Impact: CUDA/Windows instability, OOM, hidden inference, or invalid claim that r
 
 Mitigation: Use `scripts\15_plan_smolvla_load_only_smoke.ps1` first. It is planning-only, refuses `ALLOW_HEAVY_IMPORT=1`, and records the future gate. Actual loading requires a separate explicit approval task with no inference, training, rollout, dataset, simulator, or OpenVLA-OFT behavior.
 
-## Missing SmolVLA Runtime Dependencies
+## SmolVLA Runtime Dependency Drift
 
-Risk: Local files are ready, but Python packages required for an actual SmolVLA load-only smoke are not installed.
+Risk: Local files are ready and runtime packages are installed now, but later package upgrades or CUDA/PyTorch changes could break the SmolVLA load-only path.
 
-Impact: Load-only execution cannot proceed, and ad hoc package installation could destabilize the CUDA/PyTorch environment.
+Impact: Load-only execution may fail, or CUDA behavior may change unexpectedly on Windows.
 
-Mitigation: `scripts\16_smolvla_load_only_smoke.ps1` reports missing dependencies without installing anything. Installing or changing PyTorch/CUDA/LeRobot requires explicit user approval and should be handled as a separate environment task.
+Mitigation: Keep package versions recorded in `reports\project_state.md` and re-run `scripts\17_check_smolvla_runtime_deps.ps1`. Any future package upgrade, CUDA toolkit change, or PyTorch change requires separate explicit approval.
 
-## Unpinned Runtime Install
+## Unpinned Runtime Upgrade
 
-Risk: Installing PyTorch, LeRobot, Transformers, or Safetensors without pinned versions can break the current environment or mismatch the RTX 5080/CUDA stack.
+Risk: Upgrading PyTorch, LeRobot, Transformers, or Safetensors without pinned versions can break the current environment or mismatch the RTX 5080/CUDA stack.
 
 Impact: Failed model load, CUDA errors, dependency conflicts, or a hard-to-reproduce local setup.
 
-Mitigation: Use `reports\smolvla_runtime_dependency_plan.md` and `scripts\17_check_smolvla_runtime_deps.ps1`. Require explicit approval before installing or changing packages, capture environment state before and after, and validate with the safe runner.
+Mitigation: Use `reports\smolvla_runtime_dependency_plan.md` and `scripts\17_check_smolvla_runtime_deps.ps1`. Require explicit approval before changing packages, capture environment state before and after, and validate with the safe runner.
 
 ## Accidental Runtime Install During Planning
 
@@ -79,6 +79,14 @@ Risk: A planning task for SmolVLA runtime packages may accidentally become a pac
 Impact: Broken local environment, CUDA mismatch, unexpected downloads, or blocked load-only validation.
 
 Mitigation: Use `scripts\18_plan_smolvla_runtime_install.ps1` and `reports\smolvla_runtime_install_request.md`. The planner refuses dangerous gates and records that installs, downloads, heavy imports, model loads, inference, training, rollouts, and OpenVLA-OFT execution were not performed.
+
+## Runtime-Ready Misread As Load-Ready
+
+Risk: Runtime dependency readiness may be mistaken for permission to import/load SmolVLA.
+
+Impact: A routine check could accidentally cross the heavy import/model-load gate.
+
+Mitigation: Keep `ALLOW_HEAVY_IMPORT=1` as a separate explicit gate. Runtime package installation only clears dependency availability; it does not authorize heavy imports, model loading, inference, GPU execution, training, rollouts, OpenVLA-OFT, or paper-grade claims.
 
 ## Feature Cache Contract Drift
 

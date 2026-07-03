@@ -28,7 +28,7 @@ The bounded execution scaffold is:
 powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
-It will not load a model without `ALLOW_HEAVY_IMPORT=1`, and it currently blocks on missing runtime dependencies rather than installing packages automatically.
+It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, but the heavy-import/model-load gate remains closed.
 
 Check runtime dependency readiness:
 
@@ -36,7 +36,7 @@ Check runtime dependency readiness:
 powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
 ```
 
-Plan the explicit runtime install approval boundary without installing anything:
+Recheck the completed runtime install state without importing heavy VLA models:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1
@@ -109,8 +109,8 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 1. Manual SmolVLA acquisition checklist.
 2. Readiness recheck.
 3. Load-only adapter smoke planning.
-4. Resolve runtime dependency plan for PyTorch/Transformers/LeRobot without changing CUDA/PyTorch automatically.
-5. Request explicit approval before installing or changing runtime packages.
+4. Runtime dependency install completed under explicit approval.
+5. Request explicit approval before SmolVLA load-only heavy import/model construction.
 6. Feature cache interface validation with dummy cached features.
 7. Eval-only cached-feature head/metric smoke.
 8. Tiny head-only pilot planning and approval boundary.
@@ -118,7 +118,7 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 10. Summarize hard-stop approval choices.
 11. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors requires explicit user approval.
+Current hard-stop: SmolVLA load-only heavy import/model construction requires explicit user approval with `ALLOW_HEAVY_IMPORT=1`. Future package upgrades or CUDA/PyTorch changes also require separate explicit approval.
 
 ## Self-Check Cases
 
@@ -126,7 +126,7 @@ Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact m
 
 Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer dependency/weights are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval. The plan now exists; actual model loading is still gated.
+Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval. The plan now exists; actual model loading is still gated.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 
