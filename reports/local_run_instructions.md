@@ -93,6 +93,7 @@ Build a metadata-only task/counterfactual manifest from local BDDL files:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\47_build_libero_metadata_subset.ps1
+powershell -ExecutionPolicy Bypass -File scripts\48_plan_libero_offline_interface_smoke.ps1
 ```
 
 This refuses execution gates such as `ALLOW_DOWNLOADS=1` or `ALLOW_HEAVY_IMPORT=1`. It is not a real dataset smoke, not rollout readiness, and not paper-grade evidence.
@@ -231,6 +232,7 @@ Plan LIBERO/LIBERO-CF-style dataset readiness without downloads or rollouts:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\42_plan_libero_dataset_risk.ps1
 powershell -ExecutionPolicy Bypass -File scripts\47_build_libero_metadata_subset.ps1
+powershell -ExecutionPolicy Bypass -File scripts\48_plan_libero_offline_interface_smoke.ps1
 ```
 
 Plan simulator readiness without imports, render smoke, or rollouts:

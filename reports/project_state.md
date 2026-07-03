@@ -403,6 +403,7 @@ scripts\45_resolve_libero_robosuite_sources.ps1 -> repo setup decision=proceed, 
 scripts\46_prepare_libero_robosuite_sources.ps1 -> completed source repo setup only
 scripts\42_plan_libero_dataset_risk.ps1 -> decision=stop for full dataset by size budget unless a tiny subset exists
 scripts\47_build_libero_metadata_subset.ps1 -> metadata-only target/counterfactual manifest builder, no demos required
+scripts\48_plan_libero_offline_interface_smoke.ps1 -> check-only gate for tiny local data files; expected decision=stop until demos exist
 scripts\43_plan_simulator_readiness.ps1 -> decision=proceed for a separate bounded simulator import-smoke plan, but no simulator import/render/rollout has run
 ```
 
@@ -415,6 +416,8 @@ Reasons:
 Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. Actual dataset acquisition, simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 
 The next safe local action is to run the metadata-only LIBERO subset builder. That can validate task/counterfactual split plumbing from BDDL files, but it does not clear real offline dataset interface readiness because no demonstration files are present.
+
+After the metadata-only builder, the offline interface smoke gate can be run safely. In the current local state it should report `stop`, because `LIBERO_DATA_ROOT` contains only the no-full-dataset marker and no demo/data files.
 
 The required LoRA/QLoRA experiment-track policy is documented in `reports\lora_required_experiment_plan.md`:
 

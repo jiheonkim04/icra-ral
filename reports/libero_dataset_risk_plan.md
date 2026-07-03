@@ -44,4 +44,12 @@ powershell -ExecutionPolicy Bypass -File scripts\47_build_libero_metadata_subset
 
 That builder reads BDDL/task metadata from the local LIBERO source checkout only. It can validate target/counterfactual split plumbing, but `ready_for_real_dataset_interface_smoke` remains false until actual demo files are present under `LIBERO_DATA_ROOT`.
 
+To check whether a tiny local data file is structurally usable for offline interface smoke, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\48_plan_libero_offline_interface_smoke.ps1
+```
+
+The expected current decision is `stop` because only the no-full-dataset marker exists under `LIBERO_DATA_ROOT`.
+
 Paper-grade standard success still requires simulator rollout evidence later. Offline subset metrics remain offline proxy evidence only.

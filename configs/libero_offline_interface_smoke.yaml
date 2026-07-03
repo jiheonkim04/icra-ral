@@ -1,0 +1,15 @@
+description: Safe offline LIBERO-style dataset interface smoke gate.
+max_files: 5
+requires_local_demo_file: true
+metadata_only_is_not_enough: true
+not_standard_success: true
+not_paper_grade: true
+forbidden:
+  - downloads
+  - gpu_jobs
+  - training
+  - simulator_execution
+  - rollouts
+  - heavy_vla_imports
+  - openvla_oft
+  - paper_grade_claims
