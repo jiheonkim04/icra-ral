@@ -4,12 +4,19 @@
 
 This document defines the safe interpretation of the completed local SmolVLA-first smoke stack.
 
-The current status is no-go for the next larger experimental stage until the user explicitly approves exactly one true next gate. Required LoRA/QLoRA planning is still allowed because it is documentation/config/checker work, not training.
+The current status is ready for bounded local SmolVLA pilot work inside standing approval, while still no-go for the next larger paper-grade experimental stage until the user explicitly approves exactly one true hard-stop gate.
 
 ## Current Decision
 
 ```text
 no_go_for_next_larger_experimental_stage
+```
+
+Additional status:
+
+```text
+ready_for_bounded_local_pilot=true
+blocked_for_larger_paper_grade_stage=true
 ```
 
 The project is go for:
@@ -19,13 +26,12 @@ The project is go for:
 - planning-only reports,
 - required LoRA/QLoRA adapter construction and feasibility planning,
 - LoRA/QLoRA planning interpretation and risk review,
-- preparing a request for exactly one explicit next gate if the user wants to continue.
+- bounded local SmolVLA pilot tasks inside standing approval.
 
 The project is no-go for:
 
 - paper-grade empirical claims,
-- real dataset training,
-- LoRA or QLoRA execution without a bounded runner,
+- real benchmark evaluation that could be mistaken for paper-grade evidence,
 - simulator rollouts,
 - OpenVLA-OFT execution,
 - multi-seed experiments.
@@ -73,11 +79,10 @@ Stop before:
 - simulator execution,
 - rollout,
 - real benchmark evaluation,
-- LoRA/QLoRA execution without bounded runner and explicit tiny-training gate,
-- training beyond the tiny smoke budget,
-- package/CUDA/PyTorch changes for QLoRA,
-- jobs expected over 30 minutes,
+- training beyond 100 steps,
+- runtime expected over 30 minutes,
 - more than 14GB VRAM,
+- package/CUDA/PyTorch changes for QLoRA,
 - major CUDA/PyTorch changes,
 - unplanned large package installs,
 - token/secret/login requirements,

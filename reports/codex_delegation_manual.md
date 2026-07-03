@@ -85,7 +85,7 @@ Only ask the user for true hard-stop gates:
 - simulator execution,
 - rollout approval,
 - real benchmark evaluation that could be mistaken for a paper-grade result,
-- training longer than 15 minutes or more than 100 steps,
+- training more than 100 steps,
 - any job expected to exceed 30 minutes,
 - using more than 14GB VRAM,
 - changing CUDA/PyTorch major versions,
@@ -179,7 +179,7 @@ Codex must stop and ask before true hard-stop gates:
 - simulator execution,
 - rollout,
 - real benchmark evaluation that could be mistaken for a paper-grade result,
-- training longer than 15 minutes or more than 100 steps,
+- training more than 100 steps,
 - any job expected to exceed 30 minutes,
 - using more than 14GB VRAM,
 - changing CUDA/PyTorch major versions,
@@ -192,9 +192,11 @@ Codex must stop and ask before true hard-stop gates:
 
 Routine dry-run scripts, readiness checks, and standing-approved bounded SmolVLA pilot steps are allowed when they stay within the safety budget below.
 
-## SmolVLA Autonomous Pilot Standing Approval
+## Bounded local pilot standing approval
 
-The user grants standing approval for Codex to autonomously execute the expected SmolVLA low-compute pilot path as long as each task stays inside this safety budget.
+The user grants standing approval for Codex to autonomously run bounded local SmolVLA-only pilot experiments as long as each task stays inside this safety budget.
+
+Codex should no longer stop merely because the next task is a small local experiment. It should stop only if a true hard-stop gate is reached.
 
 Codex should no longer ask before these bounded steps:
 
@@ -219,15 +221,35 @@ Codex should no longer ask before these bounded steps:
 4. Tiny feature-cache/interface validation.
    - May use dummy or tiny local samples only.
    - No real benchmark claim, rollout, OpenVLA-OFT, or multi-seed.
-   - Max runtime 15 minutes and max VRAM target 14GB.
+   - Max runtime 30 minutes and max VRAM target 14GB.
 
-5. Tiny head-only training smoke.
-   - Allowed only with dummy or tiny local non-paper data.
+5. Tiny head-only and bounded local comparison pilots.
+   - Allowed only with dummy, synthetic, generated JSONL counterfactual splits, or tiny local non-paper data.
    - Backbone must be frozen.
    - Trainable parameters must stay within `configs/compute_budget.yaml`.
-   - Max steps 100, max runtime 15 minutes, max VRAM target 14GB.
+   - Max steps 100, max samples 200, max runtime 30 minutes, max VRAM target 14GB.
+   - Includes ActionMap head-only, TCA-Map head-only, TCA-Map + Distributional TCA-Select, and native/frozen baseline if locally available.
    - No rollout, OpenVLA-OFT, or paper claim.
-   - This is a smoke test only, not a research result.
+   - These are smoke/pilot diagnostics only, not paper-grade results.
+
+6. Required LoRA/QLoRA bounded pilots.
+   - LoRA is required, not optional.
+   - Codex may create LoRA/QLoRA configs, validate LoRA/QLoRA construction, run tiny LoRA smoke, run tiny TCA-Map + LoRA smoke, run tiny TCA-Map + LoRA + Distributional TCA-Select smoke, and run QLoRA feasibility checks when memory/tooling allow.
+   - SmolVLA only.
+   - No OpenVLA-OFT.
+   - No full fine-tuning.
+   - Freeze the backbone except LoRA adapter weights.
+   - Max steps 100, max samples 200, batch size 1, max runtime 30 minutes, max VRAM target 14GB.
+   - No rollout, simulator, or paper claim.
+
+7. Offline proxy evaluation.
+   - Codex may run offline proxy evaluation on dummy data, synthetic counterfactual data, tiny local non-paper samples, or generated local JSONL counterfactual splits.
+   - Allowed metric names include `offline_standard_proxy`, `standard_proxy_score`, target top-1/top-k, `wrong_target_proxy_rate`, counterfactual separation, nuisance stability, latency, and memory.
+   - Do not call these standard success, paper-grade results, or SOTA.
+
+8. Baseline tiny comparisons.
+   - Codex may autonomously compare native/frozen baseline if available, ActionMap head-only, TCA-Map head-only, TCA-Map + Distributional TCA-Select, ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select.
+   - These are bounded diagnostics only, not paper claims.
 
 Expected autonomous progression:
 
@@ -236,12 +258,23 @@ B. If readiness is true but load-only smoke has not passed, create/run SmolVLA l
 C. If load-only smoke passes, create/run single-sample interface smoke.
 D. If interface smoke passes, create/run tiny feature-cache/interface validation.
 E. If that passes, create/run tiny head-only training smoke if still inside budget.
-F. If tiny head-only smoke passes, create a required LoRA adapter construction/config plan.
-G. If the LoRA plan passes, prepare a required tiny LoRA smoke scaffold within the same 100-step/15-minute/14GB boundary.
-H. If tiny LoRA smoke later passes, prepare the required TCA-Map + LoRA comparison plan.
+F. If head-only tiny smoke exists but not a meaningful ActionMap vs TCA-Map tiny comparison, create/run that comparison.
+G. If the LoRA required track is not implemented, create LoRA construction/checker and tiny LoRA smoke.
+H. If LoRA smoke passes, run TCA-Map + LoRA + Distributional TCA-Select tiny diagnostic.
 I. Run a QLoRA feasibility check if memory/tooling allows.
-J. Write a go/no-go report for the next larger experimental stage.
+J. Generate a bounded local pilot report.
 K. Stop only when a true hard-stop gate is reached.
+
+Do not ask:
+
+- "Should I run bounded head-only pilot?"
+- "Should I run tiny LoRA smoke?"
+- "Should I create LoRA configs?"
+- "Should I run offline proxy?"
+- "Should I compare ActionMap and TCA-Map on tiny local data?"
+- "Should I continue after a smoke passes?"
+
+These are standing-approved if they stay inside the bounded local pilot limits.
 
 ## Research Direction
 

@@ -62,7 +62,7 @@ Risk: Required LoRA arms may exceed the RTX 5080 16GB budget once adapters, opti
 
 Impact: OOM, unstable Windows/CUDA behavior, or pressure to loosen the compute policy.
 
-Mitigation: Require memory estimates before LoRA smoke, batch size 1, max 100 smoke steps, max 15 minutes, max 14GB VRAM target, and stop if QLoRA or cloud resources are needed.
+Mitigation: Require memory estimates before LoRA smoke, batch size 1, max 100 smoke steps, max 200 samples, max 30 minutes, max 14GB VRAM target, and stop if QLoRA needs package/CUDA/PyTorch changes or cloud resources.
 
 ## LoRA API Mismatch Risk
 
@@ -158,7 +158,7 @@ Risk: A standing-approved tiny head-only smoke may drift into longer training, r
 
 Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bounded autopilot session.
 
-Mitigation: Require `scripts\29_tiny_head_only_smoke.ps1` to run only with `ALLOW_TINY_TRAINING=1`, use cached/dummy features, train tiny CPU heads only, enforce max 100 steps and max 15 minutes, refuse GPU/download/heavy-import/rollout gates, and make no paper claim. Stop for explicit approval outside that envelope.
+Mitigation: Require bounded local pilot runners to run only with explicit task-local gates such as `ALLOW_TINY_TRAINING=1`, use cached/dummy/synthetic/tiny local non-paper data, enforce max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, refuse download/heavy-import/rollout/simulator/OpenVLA gates unless separately approved, and make no paper claim. Stop for explicit approval outside that envelope.
 
 ## LoRA Tiny Smoke Scope Creep
 
@@ -166,7 +166,7 @@ Risk: The required LoRA track may drift from a bounded adapter smoke into real t
 
 Impact: Unapproved compute use, invalid local evidence, or confusion between LoRA adaptation gains and the TCA-Map / Distributional TCA-Select contribution.
 
-Mitigation: Keep `scripts\33_plan_lora_tiny_smoke.ps1` planning-only with `safe_to_execute_lora_tiny_smoke_now=false`. A future execution runner must require `ALLOW_TINY_TRAINING=1`, train adapter weights only, keep max 100 steps, max 15 minutes, max 14GB VRAM, and always compare ActionMap + LoRA against TCA-Map + LoRA.
+Mitigation: LoRA execution is standing-approved only for bounded local pilots. A future execution runner must require task-local `ALLOW_TINY_TRAINING=1`, train adapter weights only, freeze the backbone, keep max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, and always compare ActionMap + LoRA against TCA-Map + LoRA.
 
 ## LoRA Attribution Risk
 
@@ -190,7 +190,7 @@ Risk: The SmolVLA autonomous pilot standing approval may be misread as permissio
 
 Impact: A bounded local smoke could turn into an unapproved experiment or paper claim.
 
-Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1`, `scripts\31_generate_go_no_go_report.ps1`, `reports\hard_stop_status.md`, and `reports\go_no_go_status.md`. The standing approval covers only bounded SmolVLA load-only/interface/tiny-smoke steps. Stop before true hard-stop gates.
+Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1`, `scripts\31_generate_go_no_go_report.ps1`, `reports\hard_stop_status.md`, and `reports\go_no_go_status.md`. The standing approval covers bounded SmolVLA-only local pilots, including tiny head-only, LoRA, offline proxy, and tiny comparison diagnostics inside the budget. Stop before true hard-stop gates.
 
 ## 24GB System RAM
 
