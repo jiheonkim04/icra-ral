@@ -98,6 +98,19 @@ function Test-SingleSampleInterfacePassed {
     }
 }
 
+function Test-FeatureCacheEvalPassed {
+    $reportPath = Join-Path $RepoRoot "reports\feature_cache_eval_report.json"
+    if (-not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        return [bool]$report.cache_valid
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -292,8 +305,11 @@ $ready = [bool](
 )
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $ckptPath
 $singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $ckptPath
+$featureCacheEvalPassed = Test-FeatureCacheEvalPassed
 
-if ($ready -and $singleSampleInterfacePassed) {
+if ($ready -and $featureCacheEvalPassed) {
+    $recommended = "Ready for a tiny head-only smoke runner with strict caps. Do not rollout or execute OpenVLA-OFT."
+} elseif ($ready -and $singleSampleInterfacePassed) {
     $recommended = "Ready for tiny feature-cache/interface validation. Do not train or rollout."
 } elseif ($ready -and $loadOnlySmokePassed) {
     $recommended = "Ready for the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
@@ -323,6 +339,7 @@ $report = [ordered]@{
     ready_for_smolvla_adapter_smoke = $ready
     smolvla_load_only_smoke_passed = $loadOnlySmokePassed
     smolvla_single_sample_interface_passed = $singleSampleInterfacePassed
+    feature_cache_eval_smoke_passed = $featureCacheEvalPassed
     smolvla_ckpt = [ordered]@{
         configured = -not [string]::IsNullOrWhiteSpace($ckptPath)
         exists = $ckptExists

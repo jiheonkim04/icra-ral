@@ -89,6 +89,7 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert interface_request["current_blocker"] is False
     assert "ready_for_autonomous_tiny_training_smoke" in report["tiny_head_only"]
     assert "single_sample_interface_passed" in report["smolvla_smokes"]
+    assert "eval_smoke_passed" in report["feature_cache"]
     assert "num2words" in report["runtime"]["required"]
     if runtime_request["current_blocker"]:
         assert "runtime installation" in report["hard_stop_reason"]
