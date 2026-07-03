@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-4fbbec1 or newer
+2476180 or newer
 ```
 
 Use explicit Python for validation:
@@ -48,6 +48,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - LoRA/QLoRA go/no-go status update,
 - head-only ActionMap vs TCA-Map tiny comparison report,
 - local paper-grade runner and planning scripts,
+- LIBERO dataset risk planner,
+- simulator readiness risk planner,
 - Cursor safe local runner,
 - SmolVLA asset prep,
 - SmolVLA readiness semantics split,
@@ -492,7 +494,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, admin/system-level installers, OpenVLA-OFT execution, or paper-level empirical claims.
 
-Next autonomous direction: run risk assessment for the next concrete stage instead of asking for approval. The current next concrete stage is LIBERO/LIBERO-CF-style dataset readiness/tiny subset planning via `scripts\42_plan_libero_dataset_risk.ps1`; no download, rollout, simulator execution, training, or paper claim is authorized by that planner.
+Next autonomous direction: run risk assessment for the next concrete stage instead of asking for approval. The LIBERO/LIBERO-CF-style dataset planner exists and currently stops until local paths or an official source are ready. The current next concrete stage is simulator readiness planning via `scripts\43_plan_simulator_readiness.ps1`; no simulator import, render smoke, rollout, download, training, OpenVLA-OFT execution, or paper claim is authorized by that planner.
 
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
 

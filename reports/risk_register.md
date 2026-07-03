@@ -295,3 +295,11 @@ Risk: A LIBERO/LIBERO-CF-style dataset task could start from an ambiguous source
 Impact: Unsafe downloads, invalid offline proxy evidence, blocked rollout setup, or accidental paper-grade framing.
 
 Mitigation: Use `scripts\42_plan_libero_dataset_risk.ps1` first. Proceed only with an official/documented source, known expected size, enough disk margin, no token/license/payment/license-click gate, or an already-present tiny local subset under `LIBERO_DATA_ROOT`.
+
+## Simulator Readiness Scope Creep
+
+Risk: A simulator readiness task could accidentally become MuJoCo/RoboSuite/LIBERO import, render smoke, rollout, policy execution, or paper-grade benchmark evaluation.
+
+Impact: Native Windows instability, missing dependency failures, unapproved rollout work, or invalid standard-success claims.
+
+Mitigation: Use `scripts\43_plan_simulator_readiness.ps1` first. It is planning-only and reports path/WSL2/Linux readiness without importing simulators or executing rollouts. A later simulator import-smoke task must be separate, bounded, WSL2/Linux-oriented, and still no-rollout unless a rollout risk assessment passes.
