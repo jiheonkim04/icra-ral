@@ -87,6 +87,10 @@ single_sample = load_json("reports/smolvla_single_sample_interface_report.json")
 feature_cache = load_json("reports/feature_cache_eval_report.json")
 tiny_head = load_json("reports/tiny_head_only_smoke_report.json")
 hard_stop = load_json("reports/hard_stop_status_report.json")
+lora_adapter_plan = load_json("reports/lora_adapter_construction_plan_report.json")
+lora_tiny_scaffold = load_json("reports/lora_tiny_smoke_scaffold_report.json")
+lora_comparison_plan = load_json("reports/lora_comparison_plan_report.json")
+qlora_feasibility = load_json("reports/qlora_feasibility_report.json")
 
 completed = {
     "smolvla_load_only_smoke": passed(load_only, "result", "passed"),
@@ -101,6 +105,10 @@ runtime_reports_available = {
     "feature_cache_eval_report": feature_cache is not None,
     "tiny_head_only_smoke_report": tiny_head is not None,
     "hard_stop_status_report": hard_stop is not None,
+    "lora_adapter_construction_plan_report": lora_adapter_plan is not None,
+    "lora_tiny_smoke_scaffold_report": lora_tiny_scaffold is not None,
+    "lora_comparison_plan_report": lora_comparison_plan is not None,
+    "qlora_feasibility_report": qlora_feasibility is not None,
 }
 
 tiny_metrics = {}
@@ -117,10 +125,27 @@ if isinstance(tiny_head, dict):
         }
 
 all_safe_smokes_passed = all(completed.values())
+lora_qlora_planning = {
+    "lora_adapter_construction_plan": bool((lora_adapter_plan or {}).get("ready_for_lora_adapter_construction_plan")),
+    "lora_tiny_smoke_scaffold": bool((lora_tiny_scaffold or {}).get("lora_tiny_smoke_scaffold_ready")),
+    "lora_comparison_plan": bool((lora_comparison_plan or {}).get("lora_comparison_plan_ready")),
+    "qlora_feasibility_check_present": qlora_feasibility is not None,
+    "qlora_safe_to_run_now": bool(((qlora_feasibility or {}).get("feasibility") or {}).get("safe_to_run_qlora_now")),
+    "qlora_locally_feasible_now": bool(((qlora_feasibility or {}).get("feasibility") or {}).get("locally_feasible_now")),
+    "qlora_blockers": (qlora_feasibility or {}).get("blockers", []),
+}
+all_lora_qlora_planning_done = (
+    lora_qlora_planning["lora_adapter_construction_plan"]
+    and lora_qlora_planning["lora_tiny_smoke_scaffold"]
+    and lora_qlora_planning["lora_comparison_plan"]
+    and lora_qlora_planning["qlora_feasibility_check_present"]
+)
 blocked_by = [
     "real LIBERO/LIBERO-CF data and simulator rollout assets are not validated",
     "rollout and simulator execution require explicit approval",
     "real dataset training beyond the tiny smoke budget requires explicit approval",
+    "LoRA comparison execution remains blocked until a bounded runner and explicit tiny-training gate are in place",
+    "QLoRA execution remains blocked if PEFT/bitsandbytes/tooling are missing or require unapproved CUDA/PyTorch/package changes",
     "OpenVLA-OFT download/import/load/execution remains forbidden locally",
     "offline proxy metrics are not standard success and cannot support paper-grade claims",
 ]
@@ -137,6 +162,8 @@ go_for = [
 ]
 if all_safe_smokes_passed:
     go_for.append("requesting explicit approval for one true next gate, if the user wants to proceed")
+if all_lora_qlora_planning_done:
+    go_for.append("LoRA/QLoRA planning interpretation and risk review")
 
 report = {
     "policy": {
@@ -158,12 +185,15 @@ report = {
     "no_go_for": [
         "paper-grade empirical claims",
         "real dataset training",
+        "LoRA or QLoRA execution without a bounded runner",
         "simulator rollouts",
         "OpenVLA-OFT execution",
         "multi-seed experiments",
     ],
     "completed_safe_smokes": completed,
     "all_safe_smokes_passed": all_safe_smokes_passed,
+    "lora_qlora_planning": lora_qlora_planning,
+    "all_lora_qlora_planning_done": all_lora_qlora_planning_done,
     "runtime_reports_available": runtime_reports_available,
     "tiny_head_only_metrics": tiny_metrics,
     "blocked_by": blocked_by,
@@ -175,7 +205,7 @@ report = {
         "ready_for_openvla_oft_smoke": ((hard_stop or {}).get("assets") or {}).get("ready_for_openvla_oft_smoke"),
     },
     "recommended_next_step": (
-        "No-go for larger experimental stages. Continue only with routine checks/docs or required LoRA/QLoRA planning; stop before true gates such as real dataset setup, LoRA training beyond tiny smoke, simulator rollout, larger training, or OpenVLA-OFT."
+        "No-go for larger experimental stages. Continue only with routine checks/docs, LoRA/QLoRA planning interpretation, or a separate bounded-runner proposal; stop before true gates such as real dataset setup, LoRA/QLoRA execution, simulator rollout, larger training, package/CUDA/PyTorch changes, or OpenVLA-OFT."
         if all_safe_smokes_passed
         else "Rerun the missing safe smoke reports before any larger experimental stage."
     ),
@@ -198,6 +228,10 @@ for name, value in completed.items():
     lines.append(f"- `{name}`: `{str(value).lower()}`")
 lines.extend(
     [
+        "",
+        "## Required LoRA/QLoRA Planning",
+        *[f"- `{name}`: `{str(value).lower()}`" for name, value in lora_qlora_planning.items() if name != "qlora_blockers"],
+        f"- `qlora_blockers`: `{lora_qlora_planning['qlora_blockers']}`",
         "",
         "## Go For",
         *[f"- {item}" for item in go_for],

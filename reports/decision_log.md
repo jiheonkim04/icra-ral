@@ -267,3 +267,11 @@ Decision: Add a check-only QLoRA feasibility gate.
 Reason: QLoRA is a required feasibility track if memory/tooling allows, but it must not force unapproved package installs or CUDA/PyTorch changes.
 
 Consequence: `scripts\35_check_qlora_feasibility.ps1` checks config validity and local QLoRA tooling availability without installing packages, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims. It keeps `safe_to_run_qlora_now=false`.
+
+## LoRA/QLoRA Go/No-Go Update
+
+Decision: Extend the go/no-go generator to summarize LoRA/QLoRA planning readiness.
+
+Reason: After the required LoRA/QLoRA planning stack, the project needs a clear stop point before any execution-stage work.
+
+Consequence: `scripts\31_generate_go_no_go_report.ps1` now reports LoRA adapter planning, tiny-smoke scaffold, comparison planning, and QLoRA feasibility status. It remains summary-only and no-go for LoRA/QLoRA execution without a bounded runner and explicit gate approval.

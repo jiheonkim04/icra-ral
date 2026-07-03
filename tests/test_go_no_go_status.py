@@ -70,7 +70,10 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
     assert report["decision"].startswith("no_go")
+    assert "lora_qlora_planning" in report
+    assert report["lora_qlora_planning"]["qlora_safe_to_run_now"] is False
     assert "paper-grade empirical claims" in report["no_go_for"]
+    assert "LoRA or QLoRA execution without a bounded runner" in report["no_go_for"]
     assert json_report.exists()
     assert markdown_report.exists()
 
