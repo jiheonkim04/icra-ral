@@ -287,3 +287,11 @@ Risk: Accidentally using simulator state or labels at default inference.
 Impact: Invalid method comparison.
 
 Mitigation: Keep default inference free of privileged state. Use simulator labels only for supervision, metrics, or explicit oracle ablations.
+
+## LIBERO Dataset Source Ambiguity
+
+Risk: A LIBERO/LIBERO-CF-style dataset task could start from an ambiguous source, unknown size, missing local paths, or token/license/payment requirement.
+
+Impact: Unsafe downloads, invalid offline proxy evidence, blocked rollout setup, or accidental paper-grade framing.
+
+Mitigation: Use `scripts\42_plan_libero_dataset_risk.ps1` first. Proceed only with an official/documented source, known expected size, enough disk margin, no token/license/payment/license-click gate, or an already-present tiny local subset under `LIBERO_DATA_ROOT`.

@@ -323,3 +323,11 @@ Decision: Replace broad approval-based hard-stops with risk-assessed autonomous 
 Reason: Codex can inspect many risks directly: source, size, disk, RAM, VRAM, runtime, dependencies, license/token requirements, and repository policy. Asking for permission merely because a task involves downloads, GPU, training, datasets, simulator readiness, or bounded rollout slows autonomous research-engineering work.
 
 Consequence: Codex must write or print a short risk assessment before bounded download/GPU/training/dataset/simulator/rollout steps. If source and setup are clear and the task is inside budget, Codex proceeds autonomously. Codex stops only when risk is ambiguous or outside budget, when token/secret/payment/license/system-level/external irreversible action is required, when OpenVLA-OFT execution is involved, or when paper-level claims would be made. The default budgets are 80GB download soft limit with at least 100GB disk remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only bounded training with frozen backbone or LoRA/QLoRA adapters, and <=300 local pilot steps after smaller smoke is stable.
+
+## LIBERO Dataset Risk Planner
+
+Decision: Add a planning-only LIBERO/LIBERO-CF-style dataset risk planner.
+
+Reason: The next meaningful step after the local SmolVLA smoke stack is to evaluate whether real dataset readiness or tiny-subset setup is safe without drifting into downloads, simulator execution, rollout, or paper-grade claims.
+
+Consequence: `scripts\42_plan_libero_dataset_risk.ps1` checks local LIBERO paths, a shallow dataset-file probe, optional official source/size metadata, disk budget, and token/license/payment gates. It writes ignored runtime reports and does not download, train, rollout, import simulators/heavy VLA models, execute OpenVLA-OFT, or make paper claims.
