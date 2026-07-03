@@ -331,3 +331,11 @@ Decision: Add a planning-only LIBERO/LIBERO-CF-style dataset risk planner.
 Reason: The next meaningful step after the local SmolVLA smoke stack is to evaluate whether real dataset readiness or tiny-subset setup is safe without drifting into downloads, simulator execution, rollout, or paper-grade claims.
 
 Consequence: `scripts\42_plan_libero_dataset_risk.ps1` checks local LIBERO paths, a shallow dataset-file probe, optional official source/size metadata, disk budget, and token/license/payment gates. It writes ignored runtime reports and does not download, train, rollout, import simulators/heavy VLA models, execute OpenVLA-OFT, or make paper claims.
+
+## Simulator Readiness Planner
+
+Decision: Add a planning-only simulator readiness risk planner before any LIBERO/RoboSuite/MuJoCo import, render smoke, or rollout.
+
+Reason: The project needs simulator evidence eventually, but native Windows and missing local simulator paths make direct execution risky. The safe next step is to separate path/OS readiness from actual simulator import/render/rollout execution.
+
+Consequence: `scripts\43_plan_simulator_readiness.ps1` checks local LIBERO and RoboSuite paths plus WSL2/Linux suitability. It writes ignored runtime reports and does not install packages, download assets, import simulators, render, rollout, run GPU jobs, train, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.

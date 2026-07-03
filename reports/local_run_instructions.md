@@ -206,6 +206,12 @@ Plan LIBERO/LIBERO-CF-style dataset readiness without downloads or rollouts:
 powershell -ExecutionPolicy Bypass -File scripts\42_plan_libero_dataset_risk.ps1
 ```
 
+Plan simulator readiness without imports, render smoke, or rollouts:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\43_plan_simulator_readiness.ps1
+```
+
 Generate the current go/no-go status summary:
 
 ```powershell
