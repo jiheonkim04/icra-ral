@@ -444,6 +444,16 @@ powershell -ExecutionPolicy Bypass -File scripts\29_tiny_head_only_smoke.ps1 -Pr
 Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 ```
 
+The bounded tiny LoRA smoke runner is documented in `reports\tiny_lora_smoke.md`:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\37_tiny_lora_smoke.ps1 -PrepareDummyCache
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
+```
+
+The runner trains only tiny NumPy LoRA adapter matrices over cached/dummy features. It covers `actionmap_lora`, `tca_map_lora`, and `tca_map_lora_distributional_select`, reports offline proxy metrics only, and does not download assets, use GPU, import heavy VLA models, load models, run model inference, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims.
+
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
 
 ```powershell

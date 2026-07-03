@@ -291,3 +291,11 @@ Decision: Add a bounded local ActionMap vs TCA-Map tiny comparison report.
 Reason: The tiny head-only smoke already trains both heads, but the autonomous pilot path needs an explicit comparison artifact before moving to LoRA diagnostics.
 
 Consequence: `scripts\36_compare_head_only_tiny_pilot.ps1` reads the existing tiny smoke report and emits offline proxy deltas only. It does not download assets, run GPU jobs, train, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+
+## Tiny LoRA Smoke Runner
+
+Decision: Add a bounded local tiny LoRA smoke runner.
+
+Reason: LoRA/QLoRA are required experimental tracks after head-only validation, and the project needs a minimal adapter-update check before larger LoRA comparisons.
+
+Consequence: `scripts\37_tiny_lora_smoke.ps1` requires `ALLOW_TINY_TRAINING=1` and trains only tiny NumPy LoRA adapter matrices over cached/dummy features. It covers ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select as offline proxy diagnostics only. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
