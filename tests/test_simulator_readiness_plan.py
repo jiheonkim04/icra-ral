@@ -62,6 +62,8 @@ def test_simulator_readiness_stops_when_paths_missing(tmp_path):
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
     assert "LIBERO_ROOT is missing or does not exist" in report["stop_reasons"]
+    assert "\x00" not in report["wsl"]["status"]["output"]
+    assert "\x00" not in report["wsl"]["distros"]["output"]
     assert json_report.exists()
     assert md_report.exists()
 

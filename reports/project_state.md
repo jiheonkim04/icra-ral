@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-f15161f or newer
+eff27a4 or newer
 ```
 
 Use explicit Python for validation:
@@ -279,36 +279,43 @@ Other missing assets currently expected:
 
 ## Current Gate
 
-The next real-adapter step is the risk-assessed single-sample SmolVLA interface smoke with synthetic or dummy inputs. It is not a paper result and must remain within the bounded autonomous pilot policy.
+The bounded local SmolVLA smoke stack is complete through load-only construction, single-sample interface smoke, dummy feature-cache validation, tiny head-only smoke, tiny LoRA smoke, head-only/LoRA comparison summaries, and the bounded cached-feature local pilot extension.
 
 ```text
 C:\assets\checkpoints\smolvla
 ```
 
-Ready file groups:
+Ready SmolVLA file groups:
 
 - `config.json`,
 - external tokenizer/processor/config dependency files,
 - weights file.
 
-Codex should not ask whether these files were placed, whether runtime packages are installed, whether load-only smoke passed, or whether to run the next bounded interface smoke. It should run the readiness checkers and continue autonomously through the SmolVLA pilot path. It must still stop before inference beyond a single dummy/interface smoke, rollout, simulator execution, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs.
+The current executable local path is now blocked at the real dataset/simulator boundary:
 
-Planning command:
+- `LIBERO_ROOT` is configured but does not exist,
+- `LIBERO_DATA_ROOT` is configured but does not exist,
+- `ROBOSUITE_ROOT` is configured but does not exist,
+- no official/documented LIBERO dataset source and expected size are recorded for autonomous acquisition.
+
+Codex should keep running routine readiness and status checks without asking. The next safe work is planning-only dataset/simulator readiness, status maintenance, or larger-compute handoff planning. It must stop before dataset acquisition, simulator import/render/rollout, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs unless a risk assessment is green and inside policy.
+
+Current planning commands:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\15_plan_smolvla_load_only_smoke.ps1
+powershell -ExecutionPolicy Bypass -File scripts\42_plan_libero_dataset_risk.ps1
+powershell -ExecutionPolicy Bypass -File scripts\43_plan_simulator_readiness.ps1
+powershell -ExecutionPolicy Bypass -File scripts\39_generate_local_pilot_status.ps1
+powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
 ```
 
-Execution scaffold command:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
-```
-
-This writes ignored runtime output to:
+These write ignored runtime outputs such as:
 
 ```text
-reports\smolvla_load_only_smoke_plan_report.json
+reports\libero_dataset_risk_report.json
+reports\simulator_readiness_plan_report.json
+reports\local_pilot_status_report.json
+reports\go_no_go_status_report.json
 ```
 
 ## Validation Commands
@@ -374,7 +381,23 @@ LoRA and QLoRA are required experimental tracks after the head-only path is vali
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, bounded tiny head-only smoke passed, and the go/no-go summary exists, the next safe path is risk-assessed local SmolVLA work. Bounded local pilots may proceed autonomously if risk assessment stays within max 300 local pilot steps after smaller smoke is stable, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Downloads, datasets, simulator readiness, GPU work, and bounded rollout should be assessed rather than treated as approval-only gates.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, bounded tiny head-only smoke passed, tiny LoRA smoke passed, the bounded cached-feature local pilot extension passed, and the consolidated go/no-go summaries include that extension, the next safe path is no longer another dummy smoke. The next boundary is real LIBERO/LIBERO-CF-style data and simulator readiness.
+
+The current planner state is:
+
+```text
+scripts\42_plan_libero_dataset_risk.ps1 -> decision=stop
+scripts\43_plan_simulator_readiness.ps1 -> decision=stop
+```
+
+Reasons:
+
+- `LIBERO_ROOT` is missing or does not exist,
+- `LIBERO_DATA_ROOT` is missing or does not exist,
+- `ROBOSUITE_ROOT` is missing or does not exist,
+- the dataset source is not yet recorded as official/documented with an expected size.
+
+Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. Actual dataset acquisition, simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 
 The required LoRA/QLoRA experiment-track policy is documented in `reports\lora_required_experiment_plan.md`:
 

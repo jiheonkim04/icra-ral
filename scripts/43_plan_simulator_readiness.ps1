@@ -69,13 +69,32 @@ function Get-PathStatus {
 }
 
 function Invoke-SafeCommand {
-    param([string[]]$Command)
+    param(
+        [string[]]$Command,
+        [System.Text.Encoding]$Encoding = [System.Text.Encoding]::UTF8
+    )
     try {
-        $output = & $Command[0] @($Command[1..($Command.Count - 1)]) 2>&1
-        $text = (($output | ForEach-Object { $_.ToString() }) -join "`n").Replace("`0", "")
+        $psi = New-Object System.Diagnostics.ProcessStartInfo
+        $psi.FileName = $Command[0]
+        if ($Command.Count -gt 1) {
+            $psi.Arguments = (($Command[1..($Command.Count - 1)] | ForEach-Object {
+                if ($_ -match '[\s"]') { '"' + ($_.Replace('"', '\"')) + '"' } else { $_ }
+            }) -join " ")
+        }
+        $psi.RedirectStandardOutput = $true
+        $psi.RedirectStandardError = $true
+        $psi.UseShellExecute = $false
+        $psi.StandardOutputEncoding = $Encoding
+        $psi.StandardErrorEncoding = $Encoding
+
+        $process = [System.Diagnostics.Process]::Start($psi)
+        $stdout = $process.StandardOutput.ReadToEnd()
+        $stderr = $process.StandardError.ReadToEnd()
+        $process.WaitForExit()
+        $text = (($stdout, $stderr) -join "`n").Trim().Replace("`0", "")
         return [ordered]@{
-            ok = $LASTEXITCODE -eq 0
-            returncode = $LASTEXITCODE
+            ok = $process.ExitCode -eq 0
+            returncode = $process.ExitCode
             output = $text
         }
     } catch {
@@ -90,8 +109,9 @@ function Invoke-SafeCommand {
 function Get-WslProbe {
     $wslCommand = Get-Command wsl -ErrorAction SilentlyContinue
     $wslInstalled = $null -ne $wslCommand
-    $status = if ($wslInstalled) { Invoke-SafeCommand @("wsl", "--status") } else { [ordered]@{ ok = $false; returncode = $null; output = "wsl command not found" } }
-    $distros = if ($wslInstalled) { Invoke-SafeCommand @("wsl", "--list", "--verbose") } else { [ordered]@{ ok = $false; returncode = $null; output = "wsl command not found" } }
+    $wslEncoding = [System.Text.Encoding]::Unicode
+    $status = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "--status") -Encoding $wslEncoding } else { [ordered]@{ ok = $false; returncode = $null; output = "wsl command not found" } }
+    $distros = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "--list", "--verbose") -Encoding $wslEncoding } else { [ordered]@{ ok = $false; returncode = $null; output = "wsl command not found" } }
     $ubuntuDetected = $false
     if ($distros.output) { $ubuntuDetected = $distros.output -match "Ubuntu" }
     return [ordered]@{
