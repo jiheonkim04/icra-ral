@@ -40,6 +40,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - no-large local OpenVLA-OFT policy,
 - Distributional TCA-Select scaffold,
 - LoRA/QLoRA config guards,
+- LoRA/QLoRA required experiment-track policy,
 - local paper-grade runner and planning scripts,
 - Cursor safe local runner,
 - SmolVLA asset prep,
@@ -347,11 +348,19 @@ Core method:
 - Distributional TCA-Select,
 - counterfactual target/action consistency,
 - nuisance invariance,
-- optional LoRA/QLoRA only as compute-saving support.
+- required LoRA/QLoRA experiment tracks as compute-saving adaptation arms.
+
+LoRA and QLoRA are required experimental tracks after the head-only path is validated. They are not the main novelty. The main novelty remains target-conditioned action heatmaps, counterfactual target/action consistency, and Distributional TCA-Select.
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, and bounded tiny head-only smoke passed, the next safe non-heavy task is a go/no-go/status summary. After that summary, no larger experimental stage is safe without explicit approval for exactly one true next gate. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, bounded tiny head-only smoke passed, and the go/no-go summary exists, the next safe non-heavy task is LoRA/QLoRA required-track planning. No larger experimental stage is safe without explicit approval for exactly one true next gate. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+
+The required LoRA/QLoRA experiment-track policy is documented in `reports\lora_required_experiment_plan.md`:
+
+```powershell
+Get-Content reports\lora_required_experiment_plan.md
+```
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

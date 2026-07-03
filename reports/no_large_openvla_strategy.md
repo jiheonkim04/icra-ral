@@ -26,7 +26,7 @@ The low-compute protocol relies on:
 3. Head-only ActionMap/TCA-Map training.
 4. Cached hidden features so small heads can train without repeatedly running the backbone.
 5. Low-resolution or coarse-to-fine heatmaps.
-6. Optional LoRA/QLoRA only for small adapters if head-only is insufficient.
+6. Required LoRA/QLoRA experimental tracks after head-only validation, using only small adapters and no full fine-tuning.
 7. No OpenVLA-OFT full fine-tuning.
 
 ## Role Of OpenVLA-OFT

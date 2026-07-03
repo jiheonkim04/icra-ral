@@ -2,11 +2,11 @@
 
 ## Definition
 
-**Distributional TCA-Map = TCA-Map + Distributional TCA-Select + optional LoRA/QLoRA.**
+**Distributional TCA-Map = TCA-Map + Distributional TCA-Select + required LoRA/QLoRA experimental tracks.**
 
 The method is a low-compute target-conditioned action decoder for counterfactual robustness. It keeps the VLA backbone frozen by default, trains a small target-conditioned action heatmap head, and uses a verifier-free distributional inference-time selector.
 
-LoRA/QLoRA are optional support tools. They are not the core novelty and should be introduced only if head-only TCA-Map underfits.
+LoRA/QLoRA are required experimental tracks after head-only validation. They are not the core novelty and must be reported separately from TCA-Map and Distributional TCA-Select gains.
 
 ## Decoder
 
@@ -103,7 +103,8 @@ Minimum comparisons:
 4. TCA-Map without selection,
 5. TCA-Map + heuristic TCA-Select,
 6. TCA-Map + Distributional TCA-Select,
-7. TCA-Map + Distributional TCA-Select + LoRA only if LoRA is used.
+7. TCA-Map + Distributional TCA-Select + LoRA.
+8. TCA-Map + Distributional TCA-Select + QLoRA if memory/tooling allows.
 
 Required metrics:
 

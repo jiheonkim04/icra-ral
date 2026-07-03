@@ -22,7 +22,7 @@ The compute table must include:
 - batch size,
 - heatmap grid size,
 - whether features were cached,
-- whether LoRA/QLoRA was used.
+- whether the required LoRA/QLoRA tracks were run or explicitly ruled infeasible.
 
 ## SOTA High Target
 
@@ -36,7 +36,11 @@ Required comparisons:
 - ActionMap,
 - ActionMap + counterfactual augmentation,
 - TCA-Map,
-- TCA-Map + TCA-Select.
+- TCA-Map + TCA-Select,
+- ActionMap + LoRA,
+- TCA-Map + LoRA,
+- TCA-Map + LoRA + TCA-Select,
+- QLoRA variant if feasible under the compute budget.
 
 Required reporting:
 

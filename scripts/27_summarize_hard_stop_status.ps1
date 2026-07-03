@@ -274,8 +274,8 @@ else:
     hard_stop_reason = None
     if go_no_go_report.get("decision"):
         recommended_next_step = (
-            "Go/no-go summary is complete. Stop before true gates unless the user explicitly approves "
-            "exactly one next stage: real dataset setup, simulator rollout, larger training, or OpenVLA-OFT."
+            "Go/no-go summary is complete. Continue only with required LoRA/QLoRA planning or other safe docs/checkers; "
+            "stop before true gates such as real dataset setup, LoRA training beyond tiny smoke, simulator rollout, larger training, or OpenVLA-OFT."
         )
     elif tiny_smoke_report.get("tiny_head_only_smoke_passed"):
         recommended_next_step = (

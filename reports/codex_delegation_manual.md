@@ -236,8 +236,12 @@ B. If readiness is true but load-only smoke has not passed, create/run SmolVLA l
 C. If load-only smoke passes, create/run single-sample interface smoke.
 D. If interface smoke passes, create/run tiny feature-cache/interface validation.
 E. If that passes, create/run tiny head-only training smoke if still inside budget.
-F. If tiny head-only smoke passes, write a go/no-go report for the next larger experimental stage.
-G. Stop only when a true hard-stop gate is reached.
+F. If tiny head-only smoke passes, create a required LoRA adapter construction/config plan.
+G. If the LoRA plan passes, prepare a required tiny LoRA smoke scaffold within the same 100-step/15-minute/14GB boundary.
+H. If tiny LoRA smoke later passes, prepare the required TCA-Map + LoRA comparison plan.
+I. Run a QLoRA feasibility check if memory/tooling allows.
+J. Write a go/no-go report for the next larger experimental stage.
+K. Stop only when a true hard-stop gate is reached.
 
 ## Research Direction
 
@@ -257,7 +261,7 @@ Target-conditioned ActionMap
 + Distributional TCA-Select
 + counterfactual target/action consistency
 + nuisance invariance
-+ optional LoRA/QLoRA as compute-saving support
++ required LoRA/QLoRA experiment tracks as compute-saving adaptation arms
 ```
 
 Main hypothesis:
@@ -284,7 +288,7 @@ Offline proxy metrics must stay named as proxy metrics, such as `offline_standar
 - Local large OpenVLA-OFT fine-tuning is forbidden.
 - Local execution must remain low-compute.
 - Prefer frozen backbone, head-only, cached-feature, and interface-validation workflows.
-- LoRA/QLoRA are optional support, not core novelty.
+- LoRA/QLoRA are required experimental tracks after head-only validation, but not core novelty.
 
 ## SmolVLA Readiness Semantics
 

@@ -322,7 +322,7 @@ $featureCacheEvalPassed = Test-FeatureCacheEvalPassed
 $tinyHeadOnlySmokePassed = Test-TinyHeadOnlySmokePassed
 
 if ($ready -and $tinyHeadOnlySmokePassed) {
-    $recommended = "Tiny head-only smoke has passed. Treat it as interface validation only; stop before real dataset training, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
+    $recommended = "Tiny head-only smoke has passed. Continue to required LoRA/QLoRA planning only; stop before real dataset training, LoRA training beyond tiny smoke, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
 } elseif ($ready -and $featureCacheEvalPassed) {
     $recommended = "Ready for a tiny head-only smoke runner with strict caps. Do not rollout or execute OpenVLA-OFT."
 } elseif ($ready -and $singleSampleInterfacePassed) {

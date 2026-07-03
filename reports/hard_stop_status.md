@@ -4,7 +4,7 @@
 
 This report explains the current bounded-autopilot stop condition in one place.
 
-The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, bounded tiny head-only smoke runner, go/no-go status summary scaffold, the explicitly approved SmolVLA runtime package install, and the SmolVLA autonomous pilot standing approval policy. No larger experimental stage is safe without explicit approval for exactly one true next gate.
+The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, bounded tiny head-only smoke runner, go/no-go status summary scaffold, the explicitly approved SmolVLA runtime package install, and the SmolVLA autonomous pilot standing approval policy. No larger experimental stage is safe without explicit approval for exactly one true next gate. Required LoRA/QLoRA planning remains a safe non-heavy next step.
 
 ## Summary Command
 

@@ -1,6 +1,6 @@
 run:
   name: qlora_adapter_lowcompute
-  mode: optional_memory_saving_adapter_training
+  mode: required_memory_feasibility_track
   downloads_allowed: false
   gpu_training_allowed: false
   rollouts_allowed: false
@@ -14,8 +14,9 @@ backbone:
 qlora:
   enabled: true
   explicit_config: true
+  required_experiment_track_if_feasible: true
+  required_feasibility_check: true
   main_novelty: false
-  use_only_if_lora_memory_is_too_high: true
   quantization_bits: 4
   rank: 8
   alpha: 16

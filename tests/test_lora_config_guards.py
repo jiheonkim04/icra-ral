@@ -16,6 +16,7 @@ def test_head_only_lora_policy_passes():
     result = validate_lora_policy_config(config)
     assert result["passed"] is True
     assert result["full_backbone_finetuning_allowed"] is False
+    assert any("required experimental track" in warning for warning in result["warnings"])
 
 
 def test_forbidden_full_finetuning_config_fails():
@@ -62,3 +63,13 @@ def test_qlora_requires_explicit_config():
     result = validate_lora_policy_config(config)
     assert result["passed"] is False
     assert any("QLoRA requires explicit_config" in error for error in result["errors"])
+
+
+def test_qlora_explicit_config_is_required_feasibility_track():
+    config = {
+        "qlora": {"enabled": True, "explicit_config": True},
+        "adapter": {"train_backbone": False, "trainable_params_millions_estimate": 20},
+    }
+    result = validate_lora_policy_config(config)
+    assert result["passed"] is True
+    assert any("required feasibility track" in warning for warning in result["warnings"])

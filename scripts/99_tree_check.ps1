@@ -56,6 +56,7 @@ $required = @(
     "reports/mg_select_vs_distributional_tca_select.md",
     "reports/lora_inference_ablation_plan.md",
     "reports/lora_vs_inference_trick_strategy.md",
+    "reports/lora_required_experiment_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",

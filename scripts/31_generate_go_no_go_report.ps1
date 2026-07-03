@@ -175,7 +175,7 @@ report = {
         "ready_for_openvla_oft_smoke": ((hard_stop or {}).get("assets") or {}).get("ready_for_openvla_oft_smoke"),
     },
     "recommended_next_step": (
-        "Stop autonomous escalation here. Continue only with routine checks/docs, or ask the user for exactly one explicit next gate: real dataset setup, simulator rollout, larger training, or OpenVLA-OFT."
+        "No-go for larger experimental stages. Continue only with routine checks/docs or required LoRA/QLoRA planning; stop before true gates such as real dataset setup, LoRA training beyond tiny smoke, simulator rollout, larger training, or OpenVLA-OFT."
         if all_safe_smokes_passed
         else "Rerun the missing safe smoke reports before any larger experimental stage."
     ),

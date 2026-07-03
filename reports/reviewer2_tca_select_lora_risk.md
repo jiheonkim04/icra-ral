@@ -6,7 +6,7 @@ It will look that way if TCA-Select is absent or weak. TCA-Select must show that
 
 ## Does LoRA Make The Paper Less Novel?
 
-LoRA helps efficiency but is not novel by itself. If LoRA is the only reason performance improves, the method claim weakens. LoRA/QLoRA must be reported as optional support, with head-only and selection-only ablations separated.
+LoRA helps efficiency but is not novel by itself. If LoRA is the only reason performance improves, the method claim weakens. LoRA/QLoRA are now required experimental tracks, but they must be reported as supporting adaptation arms with head-only, LoRA, and selection-only ablations separated.
 
 ## What Baseline Kills The Paper?
 
@@ -18,7 +18,7 @@ The ablation must show incremental value from:
 
 1. target-conditioned heatmap decoding,
 2. TCA-Select inference-time selection,
-3. LoRA/QLoRA only if used.
+3. LoRA/QLoRA required tracks after head-only validation.
 
 TCA-Select should improve counterfactual selection or wrong-target rate without harming standard performance beyond 1-2 percentage points.
 

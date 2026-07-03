@@ -54,7 +54,39 @@ Risk: 16GB VRAM may be insufficient for larger VLA models, large heatmaps, full-
 
 Impact: OOM during future load-only smoke, feature caching, or pilots.
 
-Mitigation: SmolVLA-first, frozen/head-only defaults, low-resolution heatmaps, batch size 1, memory estimates, and optional LoRA/QLoRA only with explicit config.
+Mitigation: SmolVLA-first, frozen/head-only defaults, low-resolution heatmaps, batch size 1, memory estimates, required LoRA track only under the tiny-smoke budget, and QLoRA feasibility only when tooling and memory allow.
+
+## LoRA Memory Risk
+
+Risk: Required LoRA arms may exceed the RTX 5080 16GB budget once adapters, optimizer state, activations, and tokenizer/VLM dependencies are included.
+
+Impact: OOM, unstable Windows/CUDA behavior, or pressure to loosen the compute policy.
+
+Mitigation: Require memory estimates before LoRA smoke, batch size 1, max 100 smoke steps, max 15 minutes, max 14GB VRAM target, and stop if QLoRA or cloud resources are needed.
+
+## LoRA API Mismatch Risk
+
+Risk: LeRobot, Transformers, PEFT-style APIs, or local SmolVLA modules may not expose stable target module names for adapter insertion.
+
+Impact: Adapter construction fails or silently attaches to the wrong modules.
+
+Mitigation: Add a planning-only adapter construction checker before training. Require explicit module allowlists such as target fusion layers, action head projection, and small adapter layers.
+
+## PEFT / Transformers / LeRobot Compatibility Risk
+
+Risk: PEFT, Transformers, LeRobot, and local PyTorch/CUDA versions may be incompatible for LoRA/QLoRA.
+
+Impact: Import errors, quantization failures, incorrect parameter freezing, or environment drift.
+
+Mitigation: Treat package/CUDA/PyTorch changes as hard-stop gates. Prefer check-only guards and tiny construction smoke before any LoRA training.
+
+## LoRA Attribution Risk
+
+Risk: LoRA gains may dominate TCA-Map gains, making the target-conditioned heatmap and Distributional TCA-Select contribution unclear.
+
+Impact: The paper claim weakens or becomes a generic PEFT result.
+
+Mitigation: Always compare ActionMap + LoRA vs TCA-Map + LoRA, and TCA-Map + LoRA vs TCA-Map + LoRA + Distributional TCA-Select. Report LoRA gain, target-conditioning gain, and selection gain separately.
 
 ## Unbounded Heavy Import
 

@@ -2,7 +2,7 @@
 
 ## Strategy
 
-LoRA and QLoRA are support tools, not the core novelty. Their role is to reduce adaptation cost if head-only TCA-Map underfits. The main method contribution is Distributional TCA-Select: verifier-free test-time selection using target-conditioned action heatmap distributions.
+LoRA and QLoRA are required experimental tracks after head-only validation, not the core novelty. Their role is to test compute-efficient adaptation arms for TCA-Map. The main method contribution is Distributional TCA-Select: verifier-free test-time selection using target-conditioned action heatmap distributions.
 
 Default training remains:
 
@@ -32,13 +32,14 @@ Do not report a single combined number as if it explains all three effects.
 | TCA-Map | Frozen | Target + action heatmap heads | None or argmax | TBD | TBD | TBD | TBD | TBD | Tests target conditioning |
 | TCA-Map + heuristic TCA-Select | Frozen | Target + action heatmap heads | Geometry/consistency heuristic | TBD | TBD | TBD | TBD | TBD | Ablation against distributional selector |
 | TCA-Map + Distributional TCA-Select | Frozen | Target + action heatmap heads | KL/JS/margin selector | TBD | TBD | TBD | TBD | TBD | Main method |
-| TCA-Map + Distributional TCA-Select + LoRA | Frozen backbone plus small adapters | Target fusion, action projection, optional adapters | KL/JS/margin selector | TBD | TBD | TBD | TBD | TBD | Only if head-only underfits |
+| ActionMap + LoRA | Frozen backbone plus small adapters | Action projection and allowed adapters | None | TBD | TBD | TBD | TBD | TBD | Required PEFT baseline |
+| TCA-Map + LoRA | Frozen backbone plus small adapters | Target fusion, action projection, allowed adapters | None | TBD | TBD | TBD | TBD | TBD | Required PEFT target-conditioned arm |
+| TCA-Map + Distributional TCA-Select + LoRA | Frozen backbone plus small adapters | Target fusion, action projection, allowed adapters | KL/JS/margin selector | TBD | TBD | TBD | TBD | TBD | Required PEFT + selector arm |
 
 ## Go / No-Go for LoRA
 
-Use LoRA only if:
+Run LoRA as a required track only if the bounded policy is satisfied:
 
-- head-only TCA-Map underfits on offline proxy metrics,
 - local memory checks pass,
 - trainable parameter count remains small,
 - adapters are limited to target fusion layers, action head projection, or explicitly configured small adapter layers.
