@@ -96,6 +96,14 @@ Impact: The first head-only pilot fails after expensive feature extraction or pr
 
 Mitigation: Run `scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache` and `tests\test_feature_cache_eval_smoke.py` to validate the consumer path with dummy cached features before real SmolVLA extraction.
 
+## Accidental Tiny Training
+
+Risk: A planning step for the tiny head-only pilot may accidentally launch training.
+
+Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bounded autopilot session.
+
+Mitigation: Use `scripts\26_plan_tiny_head_only_pilot.ps1`, which refuses training/heavy gates and reports `safe_to_run_training_now=false`. Actual training requires explicit user approval.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

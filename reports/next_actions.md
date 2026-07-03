@@ -54,6 +54,12 @@ Run the eval-only cached-feature smoke with dummy cached features:
 powershell -ExecutionPolicy Bypass -File scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
 ```
 
+Plan the tiny head-only pilot approval boundary without training:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
+```
+
 ## Current Asset State
 
 The approved SmolVLA checkpoint source has been acquired:
@@ -101,8 +107,9 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 5. Request explicit approval before installing or changing runtime packages.
 6. Feature cache interface validation with dummy cached features.
 7. Eval-only cached-feature head/metric smoke.
-8. Tiny head-only pilot after explicit training approval.
-9. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+8. Tiny head-only pilot planning and approval boundary.
+9. Tiny head-only pilot only after explicit training approval.
+10. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
 Current hard-stop: installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors requires explicit user approval.
 

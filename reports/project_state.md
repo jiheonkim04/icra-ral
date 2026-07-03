@@ -52,7 +52,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - SmolVLA load-only execution scaffold,
 - SmolVLA runtime dependency checker and install approval plan,
 - feature-cache interface contract and dummy cache planner,
-- eval-only cached-feature smoke for the head/metric interface.
+- eval-only cached-feature smoke for the head/metric interface,
+- tiny head-only pilot approval planner.
 
 ## Current Asset Status
 
@@ -259,4 +260,10 @@ The eval-only cached-feature smoke is documented in `reports\feature_cache_eval_
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
+```
+
+The tiny head-only pilot approval boundary is documented in `reports\tiny_head_only_pilot_plan.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
 ```

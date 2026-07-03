@@ -139,3 +139,11 @@ Decision: Add an eval-only cached-feature smoke before any head training.
 Reason: The next safe interface risk is whether cached hidden-token records can feed TCA-Map heads and offline proxy metrics without invoking SmolVLA or training.
 
 Consequence: `scripts\25_eval_feature_cache_smoke.ps1` may prepare a dummy cache and compute offline proxy metrics. It does not download assets, run GPU jobs, import heavy VLA models, load models, perform VLA inference, train, rollout, or execute OpenVLA-OFT.
+
+## Tiny Head-Only Pilot Approval Boundary
+
+Decision: Add a planning-only gate for the first tiny ActionMap/TCA-Map head-only pilot.
+
+Reason: The configs are within the low-compute policy, but any actual head training still crosses an explicit training approval gate.
+
+Consequence: `scripts\26_plan_tiny_head_only_pilot.ps1` checks the configs and reports that training is not safe to run yet. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, or execute OpenVLA-OFT.

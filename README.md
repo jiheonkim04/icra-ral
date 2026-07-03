@@ -94,6 +94,12 @@ Run the eval-only cached-feature smoke with dummy cached features:
 powershell -ExecutionPolicy Bypass -File scripts/25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
 ```
 
+Plan the tiny head-only pilot approval boundary without training:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/26_plan_tiny_head_only_pilot.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash
