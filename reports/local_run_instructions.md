@@ -206,6 +206,12 @@ Review the required LoRA/QLoRA experiment-track policy:
 Get-Content reports\lora_required_experiment_plan.md
 ```
 
+Plan required LoRA adapter construction without heavy imports or training:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\32_plan_lora_adapter_construction.ps1
+```
+
 Linux/WSL equivalents:
 
 ```bash

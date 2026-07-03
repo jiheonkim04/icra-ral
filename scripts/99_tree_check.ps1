@@ -57,6 +57,7 @@ $required = @(
     "reports/lora_inference_ablation_plan.md",
     "reports/lora_vs_inference_trick_strategy.md",
     "reports/lora_required_experiment_plan.md",
+    "reports/lora_adapter_construction_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -83,6 +84,7 @@ $required = @(
     "scripts/28_smolvla_single_sample_interface_smoke.ps1",
     "scripts/29_tiny_head_only_smoke.ps1",
     "scripts/31_generate_go_no_go_report.ps1",
+    "scripts/32_plan_lora_adapter_construction.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -122,6 +124,7 @@ $required = @(
     "tests/test_tiny_head_only_smoke.py",
     "tests/test_hard_stop_status.py",
     "tests/test_go_no_go_status.py",
+    "tests/test_lora_adapter_construction_plan.py",
     "tests/test_lora_config_guards.py"
 )
 

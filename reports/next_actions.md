@@ -155,21 +155,27 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Done.
 11. Summarize hard-stop approval choices. Done.
 12. Generate go/no-go status summary. Done.
-13. Required LoRA adapter construction plan. Next.
-14. Required LoRA tiny smoke scaffold.
+13. Required LoRA adapter construction plan. Done.
+14. Required LoRA tiny smoke scaffold. Next.
 15. Required TCA-Map + LoRA comparison plan.
 16. QLoRA feasibility check.
 17. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: the bounded tiny head-only smoke and go/no-go summary have passed. LoRA/QLoRA are now required experimental tracks after the head-only path, but not the main novelty. The next safe non-heavy task is a required LoRA adapter construction/config plan. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: the bounded tiny head-only smoke, go/no-go summary, and required LoRA adapter construction plan have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The next safe task is a bounded LoRA tiny-smoke scaffold. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+
+Planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\32_plan_lora_adapter_construction.ps1
+```
 
 ## Required LoRA/QLoRA Progression
 
 A. SmolVLA load-only smoke. Done.
 B. Single-sample interface smoke. Done.
 C. Frozen/head-only TCA-Map tiny pilot. Done as bounded smoke.
-D. Required LoRA adapter construction plan. Next.
-E. Required LoRA tiny smoke.
+D. Required LoRA adapter construction plan. Done.
+E. Required LoRA tiny smoke. Next.
 F. Required TCA-Map + LoRA comparison.
 G. QLoRA feasibility check.
 H. Go/no-go report.
