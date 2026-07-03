@@ -46,6 +46,7 @@ The safe local stack has completed:
 - dummy feature-cache/interface validation,
 - eval-only cached-feature smoke,
 - bounded tiny head-only smoke.
+- bounded cached-feature local pilot extension.
 - required LoRA adapter construction plan,
 - LoRA tiny-smoke scaffold,
 - TCA-Map + LoRA comparison plan,

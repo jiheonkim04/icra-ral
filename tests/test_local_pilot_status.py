@@ -88,6 +88,8 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "OpenVLA-OFT execution" in report["hard_stop_boundaries"]
     assert "token or secret access" in report["external_irreversible_stop_gates"]
     assert "local_pilot_status_passed" in report
+    assert "bounded_local_pilot_extension" in report["source_reports"]
+    assert "bounded_local_pilot_extension_passed" in report["status"]
     assert json_report.exists()
     assert markdown_report.exists()
 
