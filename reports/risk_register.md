@@ -64,6 +64,14 @@ Impact: Load-only execution cannot proceed, and ad hoc package installation coul
 
 Mitigation: `scripts\16_smolvla_load_only_smoke.ps1` reports missing dependencies without installing anything. Installing or changing PyTorch/CUDA/LeRobot requires explicit user approval and should be handled as a separate environment task.
 
+## Unpinned Runtime Install
+
+Risk: Installing PyTorch, LeRobot, Transformers, or Safetensors without pinned versions can break the current environment or mismatch the RTX 5080/CUDA stack.
+
+Impact: Failed model load, CUDA errors, dependency conflicts, or a hard-to-reproduce local setup.
+
+Mitigation: Use `reports\smolvla_runtime_dependency_plan.md` and `scripts\17_check_smolvla_runtime_deps.ps1`. Require explicit approval before installing or changing packages, capture environment state before and after, and validate with the safe runner.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

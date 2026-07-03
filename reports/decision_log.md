@@ -107,3 +107,11 @@ Decision: Add a bounded load-only smoke execution scaffold that stops before uns
 Reason: Readiness is true, but local runtime packages for SmolVLA loading are currently missing. Installing large packages or changing CUDA/PyTorch is a hard-stop gate.
 
 Consequence: `scripts\16_smolvla_load_only_smoke.ps1` and `tca_map.smolvla.load_only_smoke` check gates, files, runtime dependencies, and memory policy. They report blockers without downloading assets, importing heavy VLA code, loading a model, running inference, training, rollouts, or OpenVLA-OFT.
+
+## SmolVLA Runtime Dependency Boundary
+
+Decision: Add a check-only runtime dependency script and a separate install plan.
+
+Reason: Local SmolVLA files are ready, but `torch`, `transformers`, `lerobot`, and `safetensors` are not installed in the current environment. Installing large packages or changing CUDA/PyTorch versions is a hard-stop gate.
+
+Consequence: `scripts\17_check_smolvla_runtime_deps.ps1` reports package readiness without installing anything. Any actual install must be a separately approved environment task with pinned versions and rollback/validation steps.

@@ -70,6 +70,12 @@ Check the bounded load-only execution scaffold. It will stop before heavy import
 powershell -ExecutionPolicy Bypass -File scripts/16_smolvla_load_only_smoke.ps1
 ```
 
+Check SmolVLA runtime dependencies without installing or importing heavy models:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/17_check_smolvla_runtime_deps.ps1
+```
+
 Linux/WSL equivalent:
 
 ```bash
