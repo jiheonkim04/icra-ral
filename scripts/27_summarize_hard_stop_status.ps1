@@ -10,9 +10,9 @@ Set-Location $RepoRoot
 $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 
-Write-Host "Hard-stop approval status summary"
+Write-Host "Risk-gate status summary"
 Write-Host "Repo root: $RepoRoot"
-Write-Host "This script summarizes approval gates only. It does not install packages, download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, access tokens, or execute OpenVLA-OFT."
+Write-Host "This script summarizes risk gates only. It does not install packages, download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, access tokens, or execute OpenVLA-OFT."
 
 if (-not (Test-Path -LiteralPath $Python)) {
     Write-Error "Python interpreter not found: $Python"
@@ -212,38 +212,38 @@ dangerous_gate_values = {
 }
 dangerous_gates_set = [name for name, is_set in dangerous_gate_values.items() if is_set]
 
-approval_requests = [
+risk_gate_requests = [
     {
         "gate": "runtime_install",
         "required_before": "installing torch/transformers/lerobot/safetensors or changing CUDA/PyTorch",
         "current_blocker": bool(missing_required_runtime),
         "missing_runtime_packages": missing_required_runtime,
         "safe_planner": "scripts/18_plan_smolvla_runtime_install.ps1",
-        "approval_env_if_later_approved": "ALLOW_RUNTIME_INSTALL=1 or explicit install task instructions",
+        "risk_gate_if_later_needed": "ALLOW_RUNTIME_INSTALL=1 only if package/CUDA/PyTorch risk assessment is inside budget",
     },
     {
         "gate": "smolvla_load_only_heavy_import",
         "required_before": "setting ALLOW_HEAVY_IMPORT=1 outside the bounded SmolVLA autonomous pilot envelope",
         "current_blocker": False,
         "safe_planner": "scripts/15_plan_smolvla_load_only_smoke.ps1",
-        "approval_env_if_later_approved": "Standing-approved for bounded SmolVLA load-only smoke only",
-        "standing_approval": True,
+        "risk_gate_if_later_needed": "Allowed for bounded SmolVLA load-only smoke only after risk assessment",
+        "risk_assessed_autonomy": True,
     },
     {
         "gate": "tiny_head_only_training",
-        "required_before": "running training outside tiny-smoke budget: max_steps<=100, runtime<=15 minutes, VRAM<=14GB",
+        "required_before": "running training outside bounded local pilot budget: max_steps<=300 after stable smaller smoke, runtime<=30 minutes, VRAM<=14GB",
         "current_blocker": False,
         "safe_planner": "scripts/26_plan_tiny_head_only_pilot.ps1",
-        "approval_env_if_later_approved": "Standing-approved for bounded tiny head-only smoke only",
-        "standing_approval": True,
+        "risk_gate_if_later_needed": "Allowed for bounded tiny head-only smoke only after risk assessment",
+        "risk_assessed_autonomy": True,
     },
     {
         "gate": "single_sample_interface_smoke",
         "required_before": "running model inference outside one synthetic SmolVLA interface smoke",
         "current_blocker": False,
         "safe_planner": "scripts/28_smolvla_single_sample_interface_smoke.ps1",
-        "approval_env_if_later_approved": "Standing-approved for one bounded synthetic SmolVLA interface smoke only",
-        "standing_approval": True,
+        "risk_gate_if_later_needed": "Allowed for one bounded synthetic SmolVLA interface smoke only after risk assessment",
+        "risk_assessed_autonomy": True,
     },
 ]
 
@@ -262,30 +262,30 @@ else:
 
 next_gate_names = [
     request["gate"]
-    for request in approval_requests
+    for request in risk_gate_requests
     if request["current_blocker"]
 ]
 
 hard_stop_reached = bool(next_gate_names)
 if hard_stop_reached:
-    hard_stop_reason = f"Next meaningful steps require explicit approval for {blocking_summary}."
-    recommended_next_step = f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates."
+    hard_stop_reason = f"Next meaningful steps require risk assessment for {blocking_summary}."
+    recommended_next_step = f"Run risk assessment for exactly one gated task: {blocking_summary}. Do not combine gates."
 else:
     hard_stop_reason = None
     if go_no_go_report.get("decision"):
         recommended_next_step = (
-            "Go/no-go summary is complete. Continue only with required LoRA/QLoRA planning or other safe docs/checkers; "
-            "stop before true gates such as real dataset setup, LoRA training beyond tiny smoke, simulator rollout, larger training, or OpenVLA-OFT."
+            "Go/no-go summary is complete. Continue with risk-assessed next tasks; "
+            "stop only if risk is outside budget, ambiguous, external/irreversible, OpenVLA-OFT-related, token/license/payment-related, system-level, or paper-claim-related."
         )
     elif tiny_smoke_report.get("tiny_head_only_smoke_passed"):
         recommended_next_step = (
             "Tiny head-only smoke has passed. Prepare a go/no-go summary or stop before true gates: "
-            "real dataset training, rollouts, simulator execution, OpenVLA-OFT, or paper claims."
+            "OpenVLA-OFT, token/license/payment gates, system-level changes, or paper claims."
         )
     elif feature_cache_eval_report.get("cache_valid"):
         recommended_next_step = (
             "Continue autonomous SmolVLA pilot: create or run a tiny head-only smoke runner with "
-            "max_steps<=100, runtime<=15 minutes, VRAM<=14GB, frozen backbone, no rollout, and no paper claim."
+            "max_steps<=300 after stable smaller smoke, runtime<=30 minutes, VRAM<=14GB, frozen backbone, no rollout, and no paper claim."
         )
     elif single_sample_report.get("result", {}).get("passed"):
         recommended_next_step = (
@@ -310,6 +310,7 @@ git_status = run_small(["git", "status", "--short"])
 report = {
     "policy": {
         "summary_only": True,
+        "risk_assessed_autonomy_policy": True,
         "installs_performed": False,
         "downloads_performed": False,
         "gpu_jobs_performed": False,
@@ -339,7 +340,7 @@ report = {
         "missing_required": missing_required_runtime,
         "ready_for_load_only_runtime": not missing_required_runtime,
         "latest_runtime_deps_report_ready": smolvla_runtime_deps_report.get("runtime_dependencies", {}).get("ready_for_load_only_runtime"),
-        "install_plan_ready_to_request": runtime_install_plan.get("ready_to_request_install_approval"),
+        "install_plan_ready_for_risk_assessment": runtime_install_plan.get("ready_for_install_risk_assessment", False),
     },
     "assets": {
         **smolvla_readiness,
@@ -356,7 +357,7 @@ report = {
     },
     "tiny_head_only": {
         "ready_for_autonomous_tiny_training_smoke": tiny_plan.get("ready_for_autonomous_tiny_training_smoke"),
-        "ready_to_request_tiny_training_approval": tiny_plan.get("ready_to_request_tiny_training_approval"),
+        "ready_for_tiny_training_risk_assessment": tiny_plan.get("ready_for_tiny_training_risk_assessment", tiny_plan.get("ready_for_autonomous_tiny_training_smoke")),
         "safe_to_run_training_now": tiny_plan.get("safe_to_run_training_now"),
         "configs_pass_policy": tiny_plan.get("configs_pass_policy"),
         "smoke_passed": tiny_smoke_report.get("tiny_head_only_smoke_passed"),
@@ -377,7 +378,26 @@ report = {
         "record_count": feature_cache_eval_report.get("metrics", {}).get("cache_record_count"),
         "report_path": "reports/feature_cache_eval_report.json",
     },
-    "approval_requests": approval_requests,
+    "risk_gate_requests": risk_gate_requests,
+    "risk_assessment_required_for": [
+        "runtime/package changes",
+        "SmolVLA heavy import/load smoke",
+        "bounded tiny training",
+        "single-sample interface smoke",
+        "dataset setup",
+        "simulator readiness",
+        "bounded rollout",
+    ],
+    "external_irreversible_stop_gates": [
+        "token/secret/API key access",
+        "paid service",
+        "license click-through",
+        "external upload/submission/publishing",
+        "system-wide CUDA/PyTorch/driver changes",
+        "admin/system-level installers",
+        "OpenVLA-OFT execution",
+        "paper-level empirical claims",
+    ],
     "current_blocking_gates": next_gate_names,
     "hard_stop_reached": hard_stop_reached,
     "hard_stop_reason": hard_stop_reason,

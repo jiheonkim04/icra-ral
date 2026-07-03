@@ -225,7 +225,7 @@ report = {
         "same_tiny_smoke_step_cap": 100,
         "same_runtime_cap_seconds": 900,
         "same_vram_target_gb": 14,
-        "single_seed_only_until_later_approval": True,
+        "single_seed_only_until_later_risk_assessment": True,
         "no_privileged_inference": True,
     },
     "minimum_metrics": [

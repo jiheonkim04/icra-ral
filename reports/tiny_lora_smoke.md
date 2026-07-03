@@ -24,7 +24,7 @@ reports\tiny_lora_smoke_report.json
 
 ## Bounds
 
-The runner is standing-approved only inside these limits:
+The runner is allowed only after a green risk assessment and inside these limits:
 
 - cached/dummy features only,
 - frozen backbone,

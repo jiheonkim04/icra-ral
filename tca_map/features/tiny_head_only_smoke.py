@@ -47,7 +47,7 @@ def _load_records(cache_dir: Path) -> list[dict]:
 def _policy(training_performed: bool) -> dict:
     return {
         "bounded_tiny_head_only_smoke": True,
-        "standing_approval_for_tiny_training_smoke": True,
+        "risk_assessed_autonomy_for_tiny_training_smoke": True,
         "cached_features_used": True,
         "backbone_frozen": True,
         "offline_proxy_only": True,

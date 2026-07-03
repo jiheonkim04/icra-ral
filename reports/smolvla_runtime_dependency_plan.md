@@ -6,7 +6,7 @@ This plan covers the runtime packages needed before any actual SmolVLA load-only
 
 ## Current Local Status
 
-The current `tca_map` Python environment has the packages needed for the standing-approved bounded SmolVLA load-only smoke:
+The current `tca_map` Python environment has the packages needed for the risk-assessed bounded SmolVLA load-only smoke:
 
 ```text
 torch=2.10.0+cu128
@@ -19,7 +19,7 @@ huggingface-hub=0.35.3
 num2words=0.5.14
 ```
 
-This means the local files and Python runtime dependencies are ready for the standing-approved bounded SmolVLA load-only task. `ALLOW_HEAVY_IMPORT=1` may be set only inside that task.
+This means the local files and Python runtime dependencies are ready for the risk-assessed bounded SmolVLA load-only task. `ALLOW_HEAVY_IMPORT=1` may be set only after that task's risk assessment is green.
 
 ## Check Command
 
@@ -50,7 +50,7 @@ Installing, upgrading, or changing these packages is a hard-stop gate:
 
 Do not install or upgrade them automatically. A later explicit environment task must define exact versions, expected disk usage, CUDA compatibility, rollback plan, and validation commands.
 
-The install approval boundary is tracked in:
+The install risk boundary is tracked in:
 
 ```text
 reports\smolvla_runtime_install_request.md
@@ -80,7 +80,7 @@ Prefer a separate environment task for any future upgrade that:
 - pins package versions,
 - avoids changing the existing CUDA driver,
 - records `pip freeze` or `conda env export` before and after,
-- validates `torch.cuda.is_available()` only after install approval,
+- validates `torch.cuda.is_available()` only after package/runtime risk assessment,
 - reruns `scripts\17_check_smolvla_runtime_deps.ps1`,
 - reruns `scripts\16_smolvla_load_only_smoke.ps1` without inference or training.
 

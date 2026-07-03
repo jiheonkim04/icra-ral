@@ -46,11 +46,11 @@ Actual load-only smoke still requires the explicit environment flag:
 ALLOW_HEAVY_IMPORT=1
 ```
 
-This flag is now standing-approved only inside the bounded SmolVLA autonomous pilot load-only task. Do not set it during planning or unrelated checks.
+This flag may be set only inside a green risk-assessed bounded SmolVLA autonomous pilot load-only task. Do not set it during planning or unrelated checks.
 
 ## Future Load-Only Scope
 
-Inside the standing-approved bounded task, the load-only smoke should:
+Inside the risk-assessed bounded task, the load-only smoke should:
 
 - import only the minimal SmolVLA/LeRobot stack required to instantiate or load the policy,
 - load local files only,

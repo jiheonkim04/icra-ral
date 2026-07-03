@@ -189,7 +189,7 @@ Go/no-go criteria:
 Failure modes:
 
 - Asset transfer or cache mismatch between local and remote.
-- Remote checkpoint download requires explicit approval and credentials.
+- Remote checkpoint download requires a green remote/cloud risk assessment and valid credentials that are not committed.
 - Non-reproducible CUDA or simulator versions.
 - Baseline implementation gaps invalidate SOTA-facing claims.
 - Cost/time grows before a clear pilot signal appears.

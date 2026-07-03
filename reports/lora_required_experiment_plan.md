@@ -110,6 +110,6 @@ If TCA-Map only improves without LoRA but disappears under LoRA, report that hon
 
 ## Current Local Status
 
-The current local status is ready for bounded local SmolVLA pilot work inside standing approval and remains no-go for larger paper-grade experimental stages. The safe smoke stack has validated interface paths, not paper-grade results.
+The current local status is ready for bounded local SmolVLA pilot work inside the risk-assessed pilot envelope and remains no-go for larger paper-grade experimental stages. The safe smoke stack has validated interface paths, not paper-grade results.
 
 Next bounded local pilot work may continue autonomously through tiny LoRA smoke, TCA-Map + LoRA smoke, and TCA-Map + LoRA + Distributional TCA-Select diagnostics if each run stays within the documented 100-step, 200-sample, 30-minute, 14GB budget and does not cross hard-stop gates.

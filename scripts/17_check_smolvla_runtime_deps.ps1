@@ -82,12 +82,12 @@ report = {
         "ready_for_load_only_runtime": not missing_required,
     },
     "gpu": nvidia(),
-    "hard_stop": {
-        "installing_large_packages_requires_user_approval": bool(missing_required),
-        "reason": "Missing runtime packages require explicit install/CUDA/PyTorch approval." if missing_required else None,
+    "risk_gate": {
+        "runtime_install_risk_assessment_required": bool(missing_required),
+        "reason": "Missing runtime packages require a package/runtime risk assessment before install." if missing_required else None,
     },
     "recommended_next_step": (
-        "Stop before installing PyTorch/Transformers/LeRobot. Prepare an environment install plan for explicit approval."
+        "Stop before installing PyTorch/Transformers/LeRobot. Prepare an environment install plan and run risk assessment first."
         if missing_required
         else "Runtime dependencies appear present. A bounded load-only smoke may be considered under ALLOW_HEAVY_IMPORT=1."
     ),

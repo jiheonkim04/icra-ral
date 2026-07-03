@@ -73,6 +73,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     report = _json_from_stdout(result.stdout)
 
     assert report["policy"]["summary_only"] is True
+    assert report["policy"]["risk_assessed_autonomy_policy"] is True
     assert report["policy"]["offline_proxy_only"] is True
     assert report["policy"]["not_standard_success"] is True
     assert report["policy"]["not_paper_grade"] is True
@@ -83,7 +84,9 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert "real benchmark dataset acquisition" in report["hard_stop_boundaries"]
+    assert "real benchmark dataset acquisition if source/size/license/disk checks pass" in report["risk_assessed_next_gates"]
+    assert "OpenVLA-OFT execution" in report["hard_stop_boundaries"]
+    assert "token or secret access" in report["external_irreversible_stop_gates"]
     assert "local_pilot_status_passed" in report
     assert json_report.exists()
     assert markdown_report.exists()

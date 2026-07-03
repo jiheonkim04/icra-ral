@@ -102,7 +102,7 @@ $env:ALLOW_CREATE_DIRS="1"
 powershell -ExecutionPolicy Bypass -File scripts\12_prepare_smolvla_assets.ps1
 ```
 
-Check whether a local SmolVLA checkpoint is ready for the standing-approved bounded load-only adapter smoke:
+Check whether a local SmolVLA checkpoint is ready for a risk-assessed bounded load-only adapter smoke:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
@@ -124,9 +124,9 @@ The bounded execution scaffold is:
 powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
-Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set inside the standing-approved bounded SmolVLA load-only task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any loader path can proceed.
+Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set inside a green risk-assessed bounded SmolVLA load-only task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any loader path can proceed.
 
-Run the bounded load-only smoke only inside the standing-approved task:
+Run the bounded load-only smoke only after the risk assessment is green:
 
 ```powershell
 $env:ALLOW_HEAVY_IMPORT="1"
@@ -136,7 +136,7 @@ Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
 
 This is an engineering smoke only. Passing it does not authorize paper claims, rollouts, training, real benchmark evaluation, OpenVLA-OFT execution, token access, or model downloads.
 
-Run the bounded single-sample interface smoke only inside the standing-approved task:
+Run the bounded single-sample interface smoke only after the risk assessment is green:
 
 ```powershell
 $env:ALLOW_HEAVY_IMPORT="1"
@@ -154,7 +154,7 @@ Check the runtime package prerequisites without importing heavy VLA models:
 powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
 ```
 
-Review the completed SmolVLA runtime install boundary. Future package upgrades still need separate approval:
+Review the completed SmolVLA runtime install boundary. Future package upgrades need package/runtime risk assessment:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1
@@ -172,13 +172,13 @@ Run the eval-only cached-feature smoke with dummy cached features:
 powershell -ExecutionPolicy Bypass -File scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
 ```
 
-Plan the tiny head-only pilot approval boundary without training:
+Plan the tiny head-only pilot risk boundary without training:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
 ```
 
-Run the bounded tiny head-only smoke only inside the standing-approved task:
+Run the bounded tiny head-only smoke only after the risk assessment is green:
 
 ```powershell
 $env:ALLOW_TINY_TRAINING="1"
@@ -188,10 +188,16 @@ Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 
 This trains only tiny CPU NumPy heads over cached/dummy features. It is interface validation only, not paper evidence or standard success.
 
-Summarize the current hard-stop approval choices:
+Generate the current risk-gate status summary:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
+```
+
+Write a structured risk assessment before bounded downloads, GPU tasks, training, dataset setup, simulator readiness, or rollout:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\41_risk_assess_task.ps1 -Task "next concrete task" -Category "generic"
 ```
 
 Generate the current go/no-go status summary:

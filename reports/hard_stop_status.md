@@ -1,10 +1,10 @@
-# Hard-Stop Approval Status
+# Risk-Gate Status
 
 ## Purpose
 
 This report explains the current bounded-autopilot stop condition in one place.
 
-The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, bounded tiny head-only smoke runner, go/no-go status summary scaffold, the explicitly approved SmolVLA runtime package install, and the SmolVLA autonomous pilot standing approval policy. No larger experimental stage is safe without explicit approval for exactly one true next gate. Required LoRA/QLoRA planning remains a safe non-heavy next step.
+The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, bounded tiny head-only smoke runner, go/no-go status summary scaffold, the bounded SmolVLA runtime package install, and the SmolVLA autonomous pilot risk policy. Larger experimental stages require a green risk assessment and must stop at external irreversible, OpenVLA-OFT, token/license/payment, system-level, or paper-claim gates.
 
 ## Summary Command
 
@@ -22,7 +22,7 @@ reports\hard_stop_status_report.json
 
 The script is summary-only. It does not install packages, download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, access tokens, execute simulators, execute OpenVLA-OFT, or make paper-grade claims.
 
-## SmolVLA Autonomous Pilot Standing Approval
+## SmolVLA Autonomous Pilot Risk Envelope
 
 The runtime install gate has been used and is currently clear: `torch`, `transformers`, `lerobot`, `safetensors`, and `num2words` are installed in the `tca_map` environment.
 
@@ -34,20 +34,20 @@ The dummy feature-cache/interface validation has passed. It wrote and validated 
 
 The bounded tiny head-only smoke has passed on cached/dummy features. It trained tiny CPU NumPy heads for 16 steps and did not use GPU, import or load SmolVLA/OpenVLA, run VLA inference, rollout, execute simulators, download assets, or make paper claims.
 
-Codex may continue autonomously through:
+Codex may continue autonomously through a green risk assessment for:
 
 - SmolVLA load-only heavy import/model construction smoke with `ALLOW_HEAVY_IMPORT=1` set only inside that task,
 - load-only debugging for dependency/import/API/layout/Windows/minor compatibility issues,
 - one synthetic or dummy single-sample interface smoke with `ALLOW_SINGLE_SAMPLE_INFERENCE=1` set only inside that task,
 - tiny feature-cache/interface validation,
-- tiny head-only training smoke with frozen backbone, max 100 steps, max 15 minutes, max 14GB VRAM, and no paper claim.
+- tiny head-only training smoke with frozen backbone, max 300 steps after stable smaller smoke, max 30 minutes, max 14GB VRAM, and no paper claim.
 
-Do not combine this standing approval with true hard-stop gates.
+Do not combine this risk envelope with true external stop gates.
 
 ## Current Known Blockers
 
 - Runtime dependencies are present in the current `tca_map` environment.
-- The bounded tiny head-only smoke has passed within max_steps<=100, runtime<=15 minutes, frozen backbone/cached-feature, no GPU job, no rollout, no simulator, no OpenVLA-OFT, and no paper claim.
+- The bounded tiny head-only smoke has passed within its smoke caps, frozen backbone/cached-feature, no GPU job, no rollout, no simulator, no OpenVLA-OFT, and no paper claim.
 - LIBERO/RoboSuite/RoboCasa/simulator assets remain missing for rollout work.
 - OpenVLA-OFT local large execution remains forbidden.
 
@@ -56,11 +56,11 @@ Do not combine this standing approval with true hard-stop gates.
 Codex must still stop before:
 
 - OpenVLA-OFT download/import/load/execution,
-- LIBERO/RoboSuite/RoboCasa/dataset download,
-- simulator execution,
-- rollout,
+- LIBERO/RoboSuite/RoboCasa/dataset download without passing source/size/license/token/disk risk assessment,
+- simulator execution without passing readiness risk assessment,
+- rollout without passing bounded rollout risk assessment,
 - real benchmark evaluation that could be mistaken for paper-grade evidence,
-- training longer than 15 minutes or more than 100 steps,
+- training longer than 30 minutes or more than 300 steps after stable smaller smoke,
 - any job expected to exceed 30 minutes,
 - using more than 14GB VRAM,
 - changing CUDA/PyTorch major versions,

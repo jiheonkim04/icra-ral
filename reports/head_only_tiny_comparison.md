@@ -23,7 +23,7 @@ reports\head_only_tiny_comparison_report.md
 
 ## Bounds
 
-The comparison is standing-approved because it:
+The comparison is inside the risk-assessed pilot envelope because it:
 
 - reads an existing bounded tiny smoke report,
 - uses offline proxy metrics only,

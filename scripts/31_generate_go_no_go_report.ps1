@@ -143,10 +143,10 @@ all_lora_qlora_planning_done = (
 ready_for_bounded_local_pilot = all_safe_smokes_passed
 blocked_for_larger_paper_grade_stage = True
 blocked_by = [
-    "real LIBERO/LIBERO-CF data and simulator rollout assets are not validated",
-    "rollout and simulator execution require explicit approval",
-    "real dataset training or benchmark evaluation that could be mistaken for paper-grade evidence requires explicit approval",
-    "QLoRA execution remains blocked if PEFT/bitsandbytes/tooling are missing or require unapproved CUDA/PyTorch/package changes",
+    "real LIBERO/LIBERO-CF data and simulator rollout assets require risk assessment before use",
+    "rollout and simulator execution require risk assessment; proceed only if inside strict budget",
+    "real dataset training or benchmark evaluation must stay labeled local/offline unless rollout evidence exists",
+    "QLoRA execution requires risk assessment if PEFT/bitsandbytes/tooling are missing or require CUDA/PyTorch/package changes",
     "OpenVLA-OFT download/import/load/execution remains forbidden locally",
     "offline proxy metrics are not standard success and cannot support paper-grade claims",
 ]
@@ -162,7 +162,7 @@ go_for = [
     "planning-only reports",
 ]
 if all_safe_smokes_passed:
-    go_for.append("bounded local SmolVLA pilot tasks inside standing approval")
+    go_for.append("risk-assessed bounded local SmolVLA pilot tasks inside budget")
 if all_lora_qlora_planning_done:
     go_for.append("LoRA/QLoRA planning interpretation and risk review")
 
@@ -180,15 +180,35 @@ report = {
         "openvla_oft_executed": False,
         "tokens_read_or_written": False,
         "paper_grade_claims_made": False,
+        "risk_assessed_autonomy_policy": True,
     },
     "decision": decision,
     "go_for": go_for,
     "no_go_for": [
         "paper-grade empirical claims",
-        "real benchmark evaluation that could be mistaken for paper-grade evidence",
-        "simulator rollouts",
+        "real benchmark claims from offline proxy evidence",
+        "simulator rollouts without passing risk assessment",
         "OpenVLA-OFT execution",
         "multi-seed experiments",
+    ],
+    "risk_assessment_required_for": [
+        "downloads",
+        "GPU tasks",
+        "bounded training",
+        "real dataset setup",
+        "simulator readiness",
+        "bounded rollouts",
+        "large package/tooling changes",
+    ],
+    "external_irreversible_stop_gates": [
+        "token/secret/API key access",
+        "paid service",
+        "license click-through",
+        "external upload/submission/publishing",
+        "deleting user files outside approved cache/repo cleanup",
+        "system-wide CUDA/PyTorch/driver changes",
+        "admin/system-level installers",
+        "paper-level empirical claims",
     ],
     "completed_safe_smokes": completed,
     "all_safe_smokes_passed": all_safe_smokes_passed,
@@ -207,7 +227,7 @@ report = {
         "ready_for_openvla_oft_smoke": ((hard_stop or {}).get("assets") or {}).get("ready_for_openvla_oft_smoke"),
     },
     "recommended_next_step": (
-        "Ready for bounded local SmolVLA pilot work inside standing approval. No-go remains only for larger paper-grade stages and true hard-stop gates such as dataset downloads, simulator rollout, real benchmark evaluation, training >100 steps, runtime >30 minutes, >14GB VRAM, package/CUDA/PyTorch changes, or OpenVLA-OFT."
+        "Ready for risk-assessed bounded local SmolVLA pilot work. Proceed automatically if the next task is inside budget: official/documented source, <=80GB download with >=100GB disk remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only frozen/LoRA/QLoRA training <=300 steps after stable smoke, no OpenVLA-OFT, no token/license/payment gate, and no paper claim."
         if all_safe_smokes_passed
         else "Rerun the missing safe smoke reports before any bounded local pilot or larger experimental stage."
     ),
@@ -223,7 +243,7 @@ lines = [
     "# Go/No-Go Status Report",
     "",
     f"Decision: `{decision}`",
-    f"Ready for bounded local pilot: `{str(ready_for_bounded_local_pilot).lower()}`",
+        f"Ready for risk-assessed bounded local pilot: `{str(ready_for_bounded_local_pilot).lower()}`",
     f"Blocked for larger paper-grade stage: `{str(blocked_for_larger_paper_grade_stage).lower()}`",
     "",
     "## Safe Smoke Evidence",
@@ -243,7 +263,13 @@ lines.extend(
         "## No-Go For",
         *[f"- {item}" for item in report["no_go_for"]],
         "",
-        "## Blockers",
+        "## Risk Assessment Required For",
+        *[f"- {item}" for item in report["risk_assessment_required_for"]],
+        "",
+        "## External Stop Gates",
+        *[f"- {item}" for item in report["external_irreversible_stop_gates"]],
+        "",
+        "## Current Blockers",
         *[f"- {item}" for item in blocked_by],
         "",
         "## Recommended Next Step",

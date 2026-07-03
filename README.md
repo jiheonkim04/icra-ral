@@ -18,10 +18,10 @@ This repository starts with a conservative scaffold for a two-week kill-or-conti
 - No real rollouts until simulator paths pass preflight.
 - Missing assets should not block dummy smoke or interface validation.
 - Offline proxy metrics are engineering validation only and must not be described as final standard success.
-- OpenVLA-OFT large experiments are forbidden on local hardware; OpenVLA-OFT may only be used for frozen/load smoke unless a separate explicit approval branch changes this policy.
+- OpenVLA-OFT large experiments are forbidden on local hardware; OpenVLA-OFT execution remains blocked unless a separate OpenVLA-specific risk policy changes this.
 - Any SOTA claim must be restricted to low-compute target-conditioned action decoding or counterfactual robustness unless full standard baselines are directly reproduced.
 
-Heavy actions require explicit environment gates:
+Heavy actions require a green risk assessment before task-local environment gates are set:
 
 - `ALLOW_DOWNLOADS=1`
 - `ALLOW_HEAVY_IMPORT=1`
@@ -76,7 +76,7 @@ Check SmolVLA runtime dependencies without installing or importing heavy models:
 powershell -ExecutionPolicy Bypass -File scripts/17_check_smolvla_runtime_deps.ps1
 ```
 
-Plan the explicit SmolVLA runtime install approval boundary without installing packages:
+Plan the SmolVLA runtime install risk boundary without installing packages:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/18_plan_smolvla_runtime_install.ps1
@@ -94,13 +94,13 @@ Run the eval-only cached-feature smoke with dummy cached features:
 powershell -ExecutionPolicy Bypass -File scripts/25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
 ```
 
-Plan the tiny head-only pilot approval boundary without training:
+Plan the tiny head-only pilot risk boundary without training:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/26_plan_tiny_head_only_pilot.ps1
 ```
 
-Summarize the current hard-stop approval choices:
+Summarize the current risk-gate choices:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/27_summarize_hard_stop_status.ps1

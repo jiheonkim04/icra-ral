@@ -15,7 +15,7 @@ $env:TRANSFORMERS_OFFLINE = "1"
 Write-Host "SmolVLA load-only smoke scaffold"
 Write-Host "Repo root: $RepoRoot"
 Write-Host "This script does not train, run rollouts, run inference, download assets, access tokens, or execute OpenVLA-OFT."
-Write-Host "It requires ALLOW_HEAVY_IMPORT=1, which is standing-approved only for this bounded load-only task."
+Write-Host "It requires ALLOW_HEAVY_IMPORT=1, which may be set only after a green risk assessment for this bounded load-only task."
 
 if (-not (Test-Path -LiteralPath $Python)) {
     Write-Error "Python interpreter not found: $Python"

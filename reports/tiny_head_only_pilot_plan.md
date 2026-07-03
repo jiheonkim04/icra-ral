@@ -4,12 +4,12 @@
 
 This plan prepares the future tiny head-only ActionMap/TCA-Map offline-proxy pilot. It does not run training.
 
-The tiny smoke version is now covered by the SmolVLA autonomous pilot standing approval if it stays inside the bounded budget:
+The tiny smoke version is now covered by the SmolVLA autonomous pilot risk envelope if risk assessment is green and it stays inside the bounded budget:
 
 - dummy or tiny local non-paper data only,
 - frozen backbone,
-- max 100 steps,
-- max 15 minutes,
+- max 300 steps after stable smaller smoke,
+- max 30 minutes,
 - max 14GB VRAM,
 - no rollout,
 - no OpenVLA-OFT,
@@ -35,7 +35,7 @@ It verifies that the ActionMap and TCA-Map head-only configs remain within the l
 - frozen backbone,
 - cached features,
 - batch size 1 style execution,
-- max 1000 initial local pilot steps in config, with the standing-approved smoke capped at 100 steps,
+- max 1000 initial local pilot steps in config, with the local autonomous smoke capped by risk assessment,
 - trainable parameters under the initial 50M limit,
 - grid size 8,
 - low-resolution heatmaps,
@@ -53,7 +53,7 @@ offline_standard_proxy
 standard_proxy_score
 ```
 
-Paper-grade standard success requires later simulator rollouts after separate simulator setup and rollout approvals.
+Paper-grade standard success requires later simulator rollouts after simulator setup and rollout risk assessments pass.
 
 ## Safety Boundary
 
@@ -77,6 +77,6 @@ It writes:
 reports\tiny_head_only_smoke_report.json
 ```
 
-This runner trains tiny CPU NumPy heads on cached/dummy feature records only. It refuses more than 100 steps, refuses runtime caps above 900 seconds, refuses download/heavy-import/GPU/rollout gates, and never loads SmolVLA or OpenVLA-OFT.
+This runner trains tiny CPU NumPy heads on cached/dummy feature records only. It refuses work outside the local risk budget, refuses download/heavy-import/GPU/rollout gates, and never loads SmolVLA or OpenVLA-OFT.
 
 Passing this runner validates only cached-feature head optimization and offline proxy metric plumbing. It is not standard success and not a paper-grade empirical result.

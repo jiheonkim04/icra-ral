@@ -54,7 +54,7 @@ def test_runtime_install_planner_is_planning_only(tmp_path):
     report = _json_from_stdout(result.stdout)
 
     assert report["policy"]["planning_only"] is True
-    assert report["policy"]["approval_required_before_install"] is True
+    assert report["policy"]["risk_assessment_required_before_install"] is True
     assert report["policy"]["installs_performed"] is False
     assert report["policy"]["downloads_performed"] is False
     assert report["policy"]["heavy_imports_performed"] is False

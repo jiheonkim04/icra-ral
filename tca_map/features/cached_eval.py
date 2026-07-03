@@ -85,7 +85,7 @@ def evaluate_feature_cache(cache_dir: Path, report_path: Path, prepare_dummy_cac
         "cache_valid": True,
         "validation_errors": [],
         "metrics": metrics,
-        "recommended_next_step": "Use this eval-only smoke to guard cached-feature/head contracts. Stop before real SmolVLA feature extraction or training without explicit approval.",
+        "recommended_next_step": "Use this eval-only smoke to guard cached-feature/head contracts. Run risk assessment before real SmolVLA feature extraction or training.",
     }
     _write_report(report_path, report)
     return report

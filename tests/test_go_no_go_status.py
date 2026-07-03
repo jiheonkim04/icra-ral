@@ -69,6 +69,7 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
+    assert report["policy"]["risk_assessed_autonomy_policy"] is True
     assert report["decision"].startswith("no_go")
     assert report["ready_for_bounded_local_pilot"] in {True, False}
     assert report["blocked_for_larger_paper_grade_stage"] is True
@@ -76,9 +77,11 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["lora_qlora_planning"]["qlora_safe_to_run_now"] is False
     assert "paper-grade empirical claims" in report["no_go_for"]
     assert (
-        "bounded local SmolVLA pilot tasks inside standing approval" in report["go_for"]
+        "risk-assessed bounded local SmolVLA pilot tasks inside budget" in report["go_for"]
         or report["all_safe_smokes_passed"] is False
     )
+    assert "downloads" in report["risk_assessment_required_for"]
+    assert "token/secret/API key access" in report["external_irreversible_stop_gates"]
     assert json_report.exists()
     assert markdown_report.exists()
 

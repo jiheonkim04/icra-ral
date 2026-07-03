@@ -4,7 +4,7 @@
 
 This checklist covers manual placement and verification of SmolVLA checkpoint files before any model loading. It is a local file-readiness checklist only. It does not authorize downloads, GPU jobs, training, rollouts, heavy VLA imports, or OpenVLA-OFT execution.
 
-Actual download support still requires explicit approval in a later task. Bounded SmolVLA load-only adapter smoke is now covered by the SmolVLA autonomous pilot standing approval, and `ALLOW_HEAVY_IMPORT=1` may be set only inside that bounded load-only task.
+Actual download support requires a green source/size/license/token/disk risk assessment. Bounded SmolVLA load-only adapter smoke is covered by the SmolVLA autonomous pilot risk envelope, and `ALLOW_HEAVY_IMPORT=1` may be set only inside that bounded load-only task after risk assessment passes.
 
 ## Target Directory
 

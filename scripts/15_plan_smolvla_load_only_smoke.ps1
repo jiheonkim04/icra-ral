@@ -48,9 +48,9 @@ $policy = [ordered]@{
 $readyForPlan = [bool]$checkerReport.ready_for_smolvla_adapter_smoke
 $unsafeGateSet = [bool]$allowHeavyImport
 if ($unsafeGateSet) {
-    $recommended = "Unset ALLOW_HEAVY_IMPORT for planning-only checks. Set it only inside the standing-approved bounded load-only execution task."
+    $recommended = "Unset ALLOW_HEAVY_IMPORT for planning-only checks. Set it only inside a risk-assessed bounded load-only execution task."
 } elseif ($readyForPlan) {
-    $recommended = "Continue autonomously to the standing-approved bounded SmolVLA load-only smoke. Do not train, infer, rollout, or execute OpenVLA-OFT."
+    $recommended = "Continue autonomously to the risk-assessed bounded SmolVLA load-only smoke. Do not train, infer, rollout, or execute OpenVLA-OFT."
 } else {
     $recommended = "Resolve SmolVLA readiness before planning any load-only execution."
 }
@@ -67,10 +67,10 @@ $report = [ordered]@{
         checker = $checkerReport
     }
     next_gate = [ordered]@{
-        explicit_approval_required = $false
+        risk_assessment_required = $true
         required_gate = "ALLOW_HEAVY_IMPORT=1"
         gate_is_currently_set = $allowHeavyImport
-        standing_approval = "SmolVLA autonomous pilot standing approval"
+        risk_assessed_autonomy = "SmolVLA autonomous pilot risk envelope"
         execution_script_to_create_later = "scripts/16_smolvla_load_only_smoke.ps1"
         permitted_autonomous_scope = @(
             "heavy import/load only",

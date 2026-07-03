@@ -66,7 +66,7 @@ Decision: Codex must self-check routine project state and only ask the user at d
 
 Reason: Branch, commit, git status, pytest, safe runner, asset path readiness, checkpoint file completeness, and script policy fields can be checked from the repository, filesystem, git, and existing scripts.
 
-Consequence: Codex should not ask whether checkpoint files were placed or whether readiness/pytest/safe runner should be checked. Codex should inspect, report, update state/action docs if needed, and stop only at asset gates, checkpoint-file gates, validation failures, external installation/credential requirements, or dangerous gates requiring explicit approval.
+Consequence: Codex should not ask whether checkpoint files were placed or whether readiness/pytest/safe runner should be checked. Codex should inspect, report, update state/action docs if needed, and stop only at asset gates, checkpoint-file gates, validation failures, external installation/credential requirements, or risk gates that fail or cannot be evaluated.
 
 ## Official SmolVLA Checkpoint Source
 
@@ -82,7 +82,7 @@ Decision: Treat `lerobot/smolvla_base` acquisition as complete for the approved 
 
 Reason: The acquired source contains `config.json`, `model.safetensors`, processor JSON files, and processor safetensors. Its preprocessor references `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`.
 
-Consequence: The referenced tokenizer/processor dependency requires separate approval before acquisition.
+Consequence: The referenced tokenizer/processor dependency requires a source/size/license/token risk assessment before acquisition.
 
 ## SmolVLA Tokenizer Dependency Acquisition Result
 
@@ -96,7 +96,7 @@ Consequence: Full SmolVLM2 model weights remain forbidden for this step and were
 
 Decision: Add a planning-only SmolVLA load-only smoke guard before any heavy import/model-load task.
 
-Reason: Readiness was true, but actual SmolVLA/SmolVLM loading crossed the heavy import/model-load gate before the later autonomous pilot standing approval.
+Reason: Readiness was true, but actual SmolVLA/SmolVLM loading crossed the heavy import/model-load gate before the later bounded risk policy.
 
 Consequence: `scripts\15_plan_smolvla_load_only_smoke.ps1` may run safely without `ALLOW_HEAVY_IMPORT=1`. It writes a planning report, refuses to run when `ALLOW_HEAVY_IMPORT=1` is already set, and does not import SmolVLA, load models, run inference, train, rollout, download assets, access secrets, or execute OpenVLA-OFT.
 
@@ -112,13 +112,13 @@ Consequence: `scripts\16_smolvla_load_only_smoke.ps1` and `tca_map.smolvla.load_
 
 Decision: Add a check-only runtime dependency script and a separate install plan.
 
-Reason: Local SmolVLA files were ready, but `torch`, `transformers`, `lerobot`, and `safetensors` were not installed in the environment. Installing large packages or changing CUDA/PyTorch versions is a hard-stop gate.
+Reason: Local SmolVLA files were ready, but `torch`, `transformers`, `lerobot`, and `safetensors` were not installed in the environment. Installing large packages or changing CUDA/PyTorch versions requires a package/runtime risk assessment and remains blocked if it needs system-wide changes.
 
-Consequence: `scripts\17_check_smolvla_runtime_deps.ps1` reports package readiness without installing anything. Any actual install must be a separately approved environment task with pinned versions and rollback/validation steps.
+Consequence: `scripts\17_check_smolvla_runtime_deps.ps1` reports package readiness without installing anything. Any actual install must have pinned versions, rollback/validation steps, and a green package/runtime risk assessment.
 
-## SmolVLA Runtime Install Approval Boundary
+## SmolVLA Runtime Install Risk Boundary
 
-Decision: Add a planning-only runtime install request before any package installation or CUDA/PyTorch changes.
+Decision: Add a planning-only runtime install risk report before any package installation or CUDA/PyTorch changes.
 
 Reason: The environment is missing SmolVLA runtime packages, but installing PyTorch, LeRobot, Transformers, Safetensors, Accelerate, or Hugging Face Hub dependencies can destabilize the local Windows/CUDA setup.
 
@@ -130,7 +130,7 @@ Decision: Complete the explicitly approved SmolVLA runtime package install in th
 
 Reason: The user approved runtime package installation after the planner identified the missing SmolVLA runtime packages.
 
-Consequence: The environment now has `torch==2.10.0+cu128`, `torchvision==0.25.0+cu128`, `transformers==4.57.6`, `lerobot==0.4.4`, `safetensors==0.8.0`, `accelerate==1.14.0`, and `huggingface-hub==0.35.3`. The later bounded load-only debug path also identified and installed `num2words==0.5.14` for the SmolVLM processor. This clears the runtime dependency gate only. It does not authorize inference, GPU execution, training, rollouts, simulator execution, OpenVLA-OFT, token access, package upgrades, CUDA toolkit changes, or paper-grade claims outside the standing-approved bounded pilot policy.
+Consequence: The environment now has `torch==2.10.0+cu128`, `torchvision==0.25.0+cu128`, `transformers==4.57.6`, `lerobot==0.4.4`, `safetensors==0.8.0`, `accelerate==1.14.0`, and `huggingface-hub==0.35.3`. The later bounded load-only debug path also identified and installed `num2words==0.5.14` for the SmolVLM processor. This clears the runtime dependency gate only. It does not authorize inference, GPU execution, training, rollouts, simulator execution, OpenVLA-OFT, token access, package upgrades, CUDA toolkit changes, or paper-grade claims outside the current risk-assessed bounded pilot policy.
 
 ## Feature Cache Interface Before Real Extraction
 
@@ -152,25 +152,25 @@ Consequence: `scripts\25_eval_feature_cache_smoke.ps1` may prepare a dummy cache
 
 Decision: Add a planning-only gate for the first tiny ActionMap/TCA-Map head-only pilot.
 
-Reason: The configs are within the low-compute policy, but any actual head training still crosses an explicit training approval gate.
+Reason: The configs are within the low-compute policy, but any actual head training still requires a green bounded-training risk assessment.
 
 Consequence: `scripts\26_plan_tiny_head_only_pilot.ps1` checks the configs and reports that training is not safe to run yet. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, or execute OpenVLA-OFT.
 
 ## Consolidated Hard-Stop Status
 
-Decision: Add a summary-only hard-stop approval status command.
+Decision: Add a summary-only risk-gate status command.
 
-Reason: The next meaningful steps are now gated by explicit approval, and those gates are spread across runtime install, heavy import/load-only smoke, and tiny training plans.
+Reason: The next meaningful steps require consistent risk-gate reporting across runtime install, heavy import/load-only smoke, and tiny training plans.
 
-Consequence: `scripts\27_summarize_hard_stop_status.ps1` records the current approval choices without installing packages, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, accessing tokens, executing simulators, executing OpenVLA-OFT, or making paper-grade claims.
+Consequence: `scripts\27_summarize_hard_stop_status.ps1` records the current risk-gate choices without installing packages, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, accessing tokens, executing simulators, executing OpenVLA-OFT, or making paper-grade claims.
 
-## SmolVLA Autonomous Pilot Standing Approval
+## SmolVLA Autonomous Pilot Risk Envelope
 
-Decision: Treat the expected low-compute SmolVLA pilot path as standing-approved inside a bounded safety envelope.
+Decision: Treat the expected low-compute SmolVLA pilot path as autonomous when it stays inside the bounded risk envelope.
 
 Reason: The checkpoint/dependency files are ready, runtime dependencies are installed, safe runner and pytest pass, and repeated approval prompts for predictable load-only/interface/tiny-smoke steps prevent autonomous research-engineering progress.
 
-Consequence: Codex should continue without asking before bounded SmolVLA load-only heavy import/model construction, load-only debugging, one synthetic or dummy single-sample interface smoke, tiny feature-cache/interface validation, and tiny local pilots with frozen backbone, max 100 steps, max 200 samples, max 30 minutes, and max 14GB VRAM. Codex may set task-local gates such as `ALLOW_HEAVY_IMPORT=1` or `ALLOW_TINY_TRAINING=1` only inside the bounded task. Codex must still stop before OpenVLA-OFT download/import/load/execution, LIBERO/RoboSuite/RoboCasa/dataset downloads, simulator execution, rollouts, real benchmark evaluation, training outside the bounded local pilot budget, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, unplanned large package installs, token/secret/login requirements, multi-seed experiments, paper-level empirical claims, external submission/upload/publishing, or destructive deletion outside repository/approved cache cleanup.
+Consequence: Codex should continue without asking before bounded SmolVLA load-only heavy import/model construction, load-only debugging, one synthetic or dummy single-sample interface smoke, tiny feature-cache/interface validation, and tiny local pilots with frozen backbone, max 300 steps after a stable smaller smoke, max 200 samples, max 30 minutes, and max 14GB VRAM. Codex may set task-local gates such as `ALLOW_HEAVY_IMPORT=1` or `ALLOW_TINY_TRAINING=1` only inside a green risk-assessed bounded task. Codex must still stop before OpenVLA-OFT download/import/load/execution, dataset/simulator/rollout work whose risk assessment fails or is ambiguous, real benchmark claims, training outside the bounded local pilot budget, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, unplanned large package installs, token/secret/login requirements, multi-seed experiments, paper-level empirical claims, external submission/upload/publishing, or destructive deletion outside repository/approved cache cleanup.
 
 ## SmolVLA Load-Only Smoke Execution Result
 
@@ -250,7 +250,7 @@ Decision: Add a planning-only scaffold for the required LoRA tiny smoke.
 
 Reason: The required LoRA track needs an explicit tiny-smoke boundary before any adapter update is allowed.
 
-Consequence: `scripts\33_plan_lora_tiny_smoke.ps1` validates the LoRA/QLoRA configs and future tiny-smoke envelope. It is planning-only, but a later bounded runner may execute tiny LoRA smoke under the standing-approved local pilot limits. The scaffold itself does not construct adapters, train, download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+Consequence: `scripts\33_plan_lora_tiny_smoke.ps1` validates the LoRA/QLoRA configs and future tiny-smoke envelope. It is planning-only, but a later bounded runner may execute tiny LoRA smoke under the risk-assessed local pilot limits. The scaffold itself does not construct adapters, train, download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
 
 ## TCA-Map + LoRA Comparison Plan
 
@@ -272,17 +272,17 @@ Consequence: `scripts\35_check_qlora_feasibility.ps1` checks config validity and
 
 Decision: Extend the go/no-go generator to summarize LoRA/QLoRA planning readiness.
 
-Reason: After the required LoRA/QLoRA planning stack, the project needs a clear distinction between standing-approved bounded local pilots and larger paper-grade hard-stop gates.
+Reason: After the required LoRA/QLoRA planning stack, the project needs a clear distinction between risk-assessed bounded local pilots and larger paper-grade stop gates.
 
-Consequence: `scripts\31_generate_go_no_go_report.ps1` now reports LoRA adapter planning, tiny-smoke scaffold, comparison planning, QLoRA feasibility status, `ready_for_bounded_local_pilot`, and `blocked_for_larger_paper_grade_stage`. It remains summary-only and no-go for paper-grade or larger experimental stages, but it must not block bounded local SmolVLA-only pilots inside the standing-approved limits.
+Consequence: `scripts\31_generate_go_no_go_report.ps1` now reports LoRA adapter planning, tiny-smoke scaffold, comparison planning, QLoRA feasibility status, `ready_for_bounded_local_pilot`, and `blocked_for_larger_paper_grade_stage`. It remains summary-only and no-go for paper-grade or larger experimental stages, but it must not block bounded local SmolVLA-only pilots inside the risk-assessed limits.
 
-## Bounded Local Pilot Standing Approval
+## Bounded Local Pilot Risk Envelope
 
-Decision: Treat bounded local SmolVLA-only pilot experiments as standing-approved.
+Decision: Treat bounded local SmolVLA-only pilot experiments as autonomous when the risk assessment is green.
 
 Reason: The safe local smoke stack is complete, and stopping after every smoke prevents meaningful low-compute research progress.
 
-Consequence: Codex should autonomously continue through bounded local head-only, LoRA, TCA-Map + LoRA, Distributional TCA-Select, QLoRA feasibility, offline proxy, and tiny comparison tasks when they stay within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, frozen backbone except LoRA adapter weights, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Codex must still stop before true hard-stop gates.
+Consequence: Codex should autonomously continue through bounded local head-only, LoRA, TCA-Map + LoRA, Distributional TCA-Select, QLoRA feasibility, offline proxy, and tiny comparison tasks when the risk assessment stays within max 300 steps after stable smaller smoke, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, frozen backbone except LoRA adapter weights, no rollout unless separately risk-assessed, no simulator unless separately risk-assessed, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Codex must still stop before true external irreversible/OpenVLA/paper-claim gates.
 
 ## Head-Only Tiny Comparison Report
 
@@ -312,6 +312,14 @@ Consequence: `scripts\38_compare_tiny_lora_pilot.ps1` reads the existing tiny Lo
 
 Decision: Add a summary-only local pilot status report.
 
-Reason: The bounded local offline proxy tier now has several runtime reports, and the repository needs one artifact that says what has passed and what remains a hard-stop gate.
+Reason: The bounded local offline proxy tier now has several runtime reports, and the repository needs one artifact that says what has passed and what requires risk assessment next.
 
-Consequence: `scripts\39_generate_local_pilot_status.ps1` reads existing reports and writes a consolidated status without training, downloading, running GPU jobs, importing heavy VLA models, loading models, inferring, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims. It marks the next meaningful steps as explicit hard-stop gate decisions.
+Consequence: `scripts\39_generate_local_pilot_status.ps1` reads existing reports and writes a consolidated status without training, downloading, running GPU jobs, importing heavy VLA models, loading models, inferring, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims. It marks the next meaningful steps as risk-assessed gates rather than routine approval prompts.
+
+## Risk-Assessed Autonomous Execution
+
+Decision: Replace broad approval-based hard-stops with risk-assessed autonomous execution.
+
+Reason: Codex can inspect many risks directly: source, size, disk, RAM, VRAM, runtime, dependencies, license/token requirements, and repository policy. Asking for permission merely because a task involves downloads, GPU, training, datasets, simulator readiness, or bounded rollout slows autonomous research-engineering work.
+
+Consequence: Codex must write or print a short risk assessment before bounded download/GPU/training/dataset/simulator/rollout steps. If source and setup are clear and the task is inside budget, Codex proceeds autonomously. Codex stops only when risk is ambiguous or outside budget, when token/secret/payment/license/system-level/external irreversible action is required, when OpenVLA-OFT execution is involved, or when paper-level claims would be made. The default budgets are 80GB download soft limit with at least 100GB disk remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only bounded training with frozen backbone or LoRA/QLoRA adapters, and <=300 local pilot steps after smaller smoke is stable.

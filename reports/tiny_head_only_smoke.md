@@ -43,4 +43,4 @@ The runner refuses to start unless `ALLOW_TINY_TRAINING=1` is set for that task.
 
 ## Interpretation
 
-A passing smoke means only that cached hidden-token records can drive bounded head-only optimization and offline proxy metric plumbing. It does not prove task success. Real paper-grade standard success still requires later simulator rollouts after separate LIBERO/RoboSuite setup and explicit rollout approval.
+A passing smoke means only that cached hidden-token records can drive bounded head-only optimization and offline proxy metric plumbing. It does not prove task success. Real paper-grade standard success still requires later simulator rollouts after LIBERO/RoboSuite setup and a green rollout risk assessment.

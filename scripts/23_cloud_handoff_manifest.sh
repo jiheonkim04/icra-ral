@@ -19,7 +19,7 @@ cat > reports/cloud_handoff_manifest.json <<JSON
     "training_performed": false,
     "real_rollouts_performed": false,
     "provider_secrets_included": false,
-    "require_explicit_download_gate": "ALLOW_DOWNLOADS=1",
+    "require_download_gate": "ALLOW_DOWNLOADS=1 after green remote/cloud risk assessment",
     "require_cloud_gate": "ALLOW_CLOUD_HANDOFF=1"
   },
   "git": {
@@ -67,7 +67,7 @@ cat > reports/cloud_handoff_manifest.json <<JSON
     "rsync_to_remote": "rsync -av --exclude configs/paths.local.yaml --exclude runs/ --exclude reports/system_readiness.json ./ user@remote:/path/to/tca_map/",
     "collect_results": "rsync -av user@remote:/path/to/tca_map/reports/ ./reports/"
   },
-  "download_policy": "Download or cache models on remote only after explicit approval and ALLOW_DOWNLOADS=1. Do not store provider tokens in tracked files."
+  "download_policy": "Download or cache models on remote only after a green remote/cloud risk assessment and task-local ALLOW_DOWNLOADS=1. Do not store provider tokens in tracked files."
 }
 JSON
 
@@ -133,7 +133,7 @@ rsync -av user@remote:/path/to/tca_map/reports/ ./reports/
 
 ## Download Policy
 
-Download or cache models only after explicit approval and `ALLOW_DOWNLOADS=1`. Do not include provider-specific secrets or tokens in tracked files.
+Download or cache models only after a green remote/cloud risk assessment and task-local `ALLOW_DOWNLOADS=1`. Do not include provider-specific secrets or tokens in tracked files.
 MD
 
 echo "Wrote reports/cloud_handoff_manifest.json"

@@ -144,6 +144,7 @@ report = {
     "policy": {
         "summary_only": True,
         "bounded_local_pilot": True,
+        "risk_assessed_autonomy_policy": True,
         "offline_proxy_only": True,
         "not_standard_success": True,
         "not_paper_grade": True,
@@ -165,22 +166,34 @@ report = {
     "all_bounded_smoke_reports_present_and_passed": all_bounded_smokes_passed,
     "missing_reports": missing_reports,
     "parse_errors": parse_errors,
-    "hard_stop_boundaries": [
-        "real benchmark dataset acquisition",
-        "LIBERO/RoboSuite/RoboCasa setup or download",
-        "simulator execution",
-        "rollouts",
-        "OpenVLA-OFT download/import/load/execution",
-        "training over 100 steps",
-        "jobs over 30 minutes",
-        "VRAM over 14GB",
-        "major CUDA/PyTorch changes",
+    "risk_assessed_next_gates": [
+        "real benchmark dataset acquisition if source/size/license/disk checks pass",
+        "LIBERO/LIBERO-CF metadata or tiny subset setup if official and inside download budget",
+        "simulator readiness/import-render smoke if already installed locally",
+        "bounded rollout only after simulator smoke, task_count<=5, runtime<=30 minutes, no paper claim",
+        "bounded local training extension up to 300 steps after stable smaller smoke",
+        "QLoRA feasibility or tooling only if package/CUDA/PyTorch risk is inside budget",
+    ],
+    "external_irreversible_stop_gates": [
+        "OpenVLA-OFT download/import/load/execution until separate risk budget exists",
         "token or secret access",
+        "paid service",
+        "license click-through",
+        "external upload/submission/publishing",
+        "system-wide CUDA/PyTorch/driver changes",
+        "admin/system-level installers",
+        "paper-grade empirical claims",
+    ],
+    "hard_stop_boundaries": [
+        "OpenVLA-OFT execution",
+        "token/secret/payment/license gate",
+        "external upload/submission/publishing",
+        "system-level CUDA/PyTorch/driver change",
         "paper-grade empirical claims",
     ],
     "local_pilot_status_passed": not parse_errors and all_bounded_smokes_passed,
     "recommended_next_step": (
-        "No further safe local pilot execution step remains without crossing a hard-stop gate. Prepare for an explicit next-gate decision: real dataset setup, simulator rollout path, or larger compute handoff."
+        "Choose the next concrete stage and run a risk assessment. Proceed automatically if the assessment is inside budget; stop only if risk is ambiguous, outside budget, external/irreversible, OpenVLA-OFT-related, token/license/payment-related, system-level, or paper-claim-related."
         if all_bounded_smokes_passed
         else "Regenerate the missing or failed bounded local pilot reports before any larger step."
     ),
@@ -205,8 +218,11 @@ if missing_reports:
         lines.append(f"- `{name}`")
 else:
     lines.append("- none")
-lines.extend(["", "## Hard-Stop Boundaries"])
-for item in report["hard_stop_boundaries"]:
+lines.extend(["", "## Risk-Assessed Next Gates"])
+for item in report["risk_assessed_next_gates"]:
+    lines.append(f"- {item}")
+lines.extend(["", "## External Stop Gates"])
+for item in report["external_irreversible_stop_gates"]:
     lines.append(f"- {item}")
 lines.extend(["", "## Next Step", report["recommended_next_step"], ""])
 MD_OUT.write_text("\n".join(lines), encoding="utf-8")

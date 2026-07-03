@@ -14,7 +14,7 @@ powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.
 
 If checkpoint files are missing, report the missing file classes and stop at the checkpoint-file gate.
 
-If checkpoint files are present, verify readiness and continue through the standing-approved bounded SmolVLA pilot path. Load-only construction has passed; the next bounded step is a single-sample interface smoke with synthetic or dummy inputs. Do not perform rollout, simulator execution, real benchmark evaluation, token access, OpenVLA-OFT execution, or work outside the SmolVLA autonomous pilot budget without explicit approval.
+If checkpoint files are present, verify readiness and continue through the risk-assessed bounded SmolVLA pilot path. Load-only construction has passed; the next bounded step is selected by risk assessment. Do not perform rollout, simulator execution, real benchmark evaluation, token access, OpenVLA-OFT execution, or work outside the SmolVLA autonomous pilot budget unless the risk assessment says proceed.
 
 The planning command is:
 
@@ -28,7 +28,7 @@ The bounded execution scaffold is:
 powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
-It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, and the bounded load-only smoke has passed on CPU. `ALLOW_HEAVY_IMPORT=1` may be set by Codex only inside standing-approved bounded SmolVLA tasks.
+It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, and the bounded load-only smoke has passed on CPU. `ALLOW_HEAVY_IMPORT=1` may be set by Codex only inside risk-assessed bounded SmolVLA tasks.
 
 Check runtime dependency readiness:
 
@@ -64,7 +64,7 @@ Run the eval-only cached-feature smoke with dummy cached features:
 powershell -ExecutionPolicy Bypass -File scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
 ```
 
-Plan the tiny head-only pilot approval boundary without training:
+Plan the tiny head-only pilot risk boundary without training:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\26_plan_tiny_head_only_pilot.ps1
@@ -80,7 +80,7 @@ Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 
 This is a tiny CPU head-only smoke on cached/dummy features. It is not a paper-grade result.
 
-Summarize the current hard-stop approval choices:
+Summarize the current risk-gate choices:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
@@ -146,28 +146,29 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 1. Manual SmolVLA acquisition checklist.
 2. Readiness recheck.
 3. Load-only adapter smoke planning.
-4. Runtime dependency install completed under explicit approval.
-5. Run standing-approved SmolVLA load-only heavy import/model construction. Done.
+4. Runtime dependency install completed under the earlier install gate. Done.
+5. Run risk-assessed SmolVLA load-only heavy import/model construction. Done.
 6. Create or run single-sample SmolVLA interface smoke with synthetic or dummy inputs. Done.
 7. Feature cache interface validation with dummy cached features. Done.
 8. Eval-only cached-feature head/metric smoke. Done.
 9. Tiny head-only pilot planning and budget check. Done.
-10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=30 minutes, and VRAM<=14GB. Done.
-11. Summarize hard-stop approval choices. Done.
+10. Tiny head-only smoke runner with bounded steps, no rollout, no OpenVLA-OFT, no paper claim, runtime<=30 minutes, and VRAM<=14GB. Done.
+11. Summarize risk-gate choices. Done.
 12. Generate go/no-go status summary. Done.
 13. Required LoRA adapter construction plan. Done.
 14. Required LoRA tiny smoke scaffold. Done.
 15. Required TCA-Map + LoRA comparison plan. Done.
 16. QLoRA feasibility check. Done.
 17. Update LoRA/QLoRA go/no-go status. Done.
-18. Bounded local pilot execution is standing-approved if inside limits. Done: head-only ActionMap vs TCA-Map comparison report.
-19. Tiny LoRA smoke runner inside standing approval. Done.
+18. Bounded local pilot execution is risk-assessed autonomous if inside limits. Done: head-only ActionMap vs TCA-Map comparison report.
+19. Tiny LoRA smoke runner inside risk-assessed budget. Done.
 20. Tiny LoRA comparison report. Done.
-21. Consolidated local pilot status/report inside standing approval. Done.
-22. No further safe local pilot execution remains without a hard-stop gate.
-23. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+21. Consolidated local pilot status/report inside risk-assessed budget. Done.
+22. Approval-based hard-stops replaced by risk-assessed autonomous execution. Done.
+23. Next: run a risk assessment for the next concrete stage and proceed if inside budget.
+24. Candidate next stages: real dataset readiness/tiny subset setup, simulator readiness/import-render smoke, bounded local pilot extension up to 300 steps, or larger compute handoff planning.
 
-Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. Bounded local SmolVLA-only pilot work is complete for the current safe offline proxy tier. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The repository now uses risk-assessed autonomous execution instead of broad approval-based hard-stops. Downloads, GPU tasks, bounded training, real dataset setup, simulator readiness, and bounded rollout should proceed automatically if a risk assessment is green and should stop only if risk is ambiguous, outside budget, external/irreversible, OpenVLA-OFT-related, or paper-claim-related.
 
 Planning command:
 
@@ -201,30 +202,44 @@ Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact m
 
 Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the next standing-approved bounded SmolVLA pilot task. Since load-only construction, single-sample interface smoke, and dummy feature-cache/interface validation have passed, the next task is a tiny head-only smoke runner with strict caps.
+Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the next risk-assessed bounded SmolVLA pilot task. Since load-only construction, single-sample interface smoke, and dummy feature-cache/interface validation have passed, the next task is selected by risk assessment.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 
-Case E: Dangerous gate reached. Codex stops and asks for explicit approval with risk explanation.
+Case E: Risk gate reached. Codex runs risk assessment. If the task is inside budget, proceed; if outside/ambiguous/external irreversible/OpenVLA/paper-claim-related, stop and report the blocker.
 
-## Blocked Steps Requiring Explicit Approval
+## Risk-Assessed Next Gates
 
-Codex must stop before true hard-stop gates:
+Codex must not ask for routine approval when risk can be checked automatically. Before downloads, GPU, training, dataset setup, simulator readiness, or rollout, write/print a risk assessment with task, source, expected size, target path, disk free before/after estimate, expected runtime, expected RAM/VRAM, budget, source status, token/license/payment status, decision, and reason.
 
-- OpenVLA-OFT download/import/load/execution,
-- LIBERO/RoboSuite/RoboCasa/dataset download,
-- simulator execution,
-- rollout,
-- real benchmark evaluation,
-- training more than 100 steps,
-- any job expected to exceed 30 minutes,
-- using more than 14GB VRAM,
-- changing CUDA/PyTorch major versions,
-- installing large unplanned packages,
-- token or secret access.
-- multi-seed experiment,
-- paper-level empirical claim,
-- external submission/upload/publishing.
+Structured helper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\41_risk_assess_task.ps1 -Task "next concrete task" -Category "generic"
+```
+
+Proceed automatically if inside budget. Stop and report if risk is ambiguous or outside budget.
+
+Default autonomous budgets:
+
+- download <=80GB per task and keep >=100GB free disk,
+- GPU VRAM <=14GB, runtime <=30 minutes, batch size 1,
+- SmolVLA-only local training, frozen backbone or LoRA/QLoRA adapter only, max 300 steps after smaller smoke is stable,
+- dataset setup only from official/documented unambiguous sources without token/login/payment/license click-through,
+- simulator readiness/import-render smoke only if already installed locally and <=10 minutes,
+- bounded rollout only after readiness smoke, task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no paper claim.
+
+Always stop before:
+
+- OpenVLA-OFT execution until a separate risk budget exists,
+- token/secret/API key access,
+- paid services,
+- license click-through,
+- external upload/submission/publishing,
+- deleting user files outside approved cache/repo cleanup,
+- system-wide CUDA/PyTorch/driver changes,
+- admin/system-level installers,
+- paper-level empirical claims.
 
 Codex should not ask routine questions such as whether files were placed, whether readiness should be checked, whether pytest should run, which branch is current, whether git is clean, or what is missing. It should inspect and report.
 
@@ -242,4 +257,4 @@ ready_for_smolvla_adapter_smoke=true
 
 After readiness, planning, load-only smoke, single-sample interface smoke, and feature-cache/interface validation are true, continue on a new branch for a tiny head-only smoke runner. That branch may run only bounded head-only smoke and must not train a backbone, rollout, evaluate real datasets, or execute OpenVLA-OFT.
 
-After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparison report, and consolidated local pilot status report, no further safe local pilot execution remains without crossing a hard-stop gate. Stop for the next explicit gate decision: real dataset setup, simulator rollout path, OpenVLA-OFT-related work, QLoRA tooling/package work, training over 100 steps, runtime over 30 minutes, VRAM over 14GB, secrets, or paper-grade claims.
+After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status report, and risk-assessed policy update, continue autonomously by choosing the next concrete task and running its risk assessment. Good next candidates are real dataset readiness/tiny subset planning, simulator readiness/import-render smoke if local installs exist, bounded local pilot extension up to 300 steps, or larger compute handoff planning. Stop only if the assessment is ambiguous/outside budget or reaches external irreversible, OpenVLA-OFT, token/secret/payment/license, system-level, or paper-claim gates.
