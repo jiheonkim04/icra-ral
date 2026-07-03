@@ -454,6 +454,14 @@ Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
 
 The runner trains only tiny NumPy LoRA adapter matrices over cached/dummy features. It covers `actionmap_lora`, `tca_map_lora`, and `tca_map_lora_distributional_select`, reports offline proxy metrics only, and does not download assets, use GPU, import heavy VLA models, load models, run model inference, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims.
 
+The tiny LoRA comparison report is documented in `reports\tiny_lora_comparison.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\38_compare_tiny_lora_pilot.ps1
+```
+
+The comparison reads `reports\tiny_lora_smoke_report.json` and reports ActionMap+LoRA vs TCA-Map+LoRA and TCA-Map+LoRA vs TCA-Map+LoRA+Distributional TCA-Select deltas using offline proxy metrics only. It does not train, download, use GPU, import heavy VLA models, load models, run inference, rollout, execute simulators, execute OpenVLA-OFT, or make paper claims.
+
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
 
 ```powershell

@@ -192,6 +192,14 @@ Impact: Misleading method claims and premature paper conclusions.
 
 Mitigation: `scripts\37_tiny_lora_smoke.ps1` uses cached/dummy features only, reports `offline_proxy_only=true`, `not_standard_success=true`, and `not_paper_grade=true`, and keeps future real-data or rollout claims behind explicit hard-stop gates.
 
+## Tiny LoRA Comparison Overinterpretation
+
+Risk: The tiny LoRA comparison report may be mistaken for a real adapter benchmark.
+
+Impact: LoRA or TCA-Select contributions could be overstated before real data or rollout validation.
+
+Mitigation: `scripts\38_compare_tiny_lora_pilot.ps1` reads only cached/dummy offline proxy smoke outputs, refuses execution gates, labels the report as not standard success and not paper-grade, and keeps all real benchmark claims behind hard-stop gates.
+
 ## QLoRA Tooling Drift
 
 Risk: QLoRA may require bitsandbytes/PEFT behavior, CUDA support, or PyTorch compatibility that is not stable on native Windows.
