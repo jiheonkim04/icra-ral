@@ -14,7 +14,7 @@ powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.
 
 If checkpoint files are missing, report the missing file classes and stop at the checkpoint-file gate.
 
-If checkpoint files are present, verify readiness and continue to the standing-approved bounded load-only adapter smoke. Do not perform rollout, simulator execution, real benchmark evaluation, token access, OpenVLA-OFT execution, or work outside the SmolVLA autonomous pilot budget without explicit approval.
+If checkpoint files are present, verify readiness and continue through the standing-approved bounded SmolVLA pilot path. Load-only construction has passed; the next bounded step is a single-sample interface smoke with synthetic or dummy inputs. Do not perform rollout, simulator execution, real benchmark evaluation, token access, OpenVLA-OFT execution, or work outside the SmolVLA autonomous pilot budget without explicit approval.
 
 The planning command is:
 
@@ -28,7 +28,7 @@ The bounded execution scaffold is:
 powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
-It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, and `ALLOW_HEAVY_IMPORT=1` may be set by Codex only inside the standing-approved bounded load-only task.
+It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, and the bounded load-only smoke has passed on CPU. `ALLOW_HEAVY_IMPORT=1` may be set by Codex only inside standing-approved bounded SmolVLA tasks.
 
 Check runtime dependency readiness:
 
@@ -94,6 +94,17 @@ Detected groups:
 
 The dependency was acquired with full model weights avoided. Retained files include tokenizer JSON/config, vocab/merges, special tokens, chat template, preprocessor config, processor config, and config.
 
+Bounded load-only status:
+
+- passed on CPU,
+- local checkpoint loaded,
+- `load_vlm_weights=false`,
+- no model inference,
+- no training,
+- no rollout,
+- no OpenVLA-OFT execution,
+- no downloads.
+
 Verify files without loading the model:
 
 ```powershell
@@ -110,15 +121,16 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 2. Readiness recheck.
 3. Load-only adapter smoke planning.
 4. Runtime dependency install completed under explicit approval.
-5. Run standing-approved SmolVLA load-only heavy import/model construction.
-6. Feature cache interface validation with dummy cached features.
-7. Eval-only cached-feature head/metric smoke.
-8. Tiny head-only pilot planning and budget check.
-9. Tiny head-only smoke if within standing-approved budget.
-10. Summarize hard-stop approval choices.
-11. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+5. Run standing-approved SmolVLA load-only heavy import/model construction. Done.
+6. Create or run single-sample SmolVLA interface smoke with synthetic or dummy inputs.
+7. Feature cache interface validation with dummy cached features.
+8. Eval-only cached-feature head/metric smoke.
+9. Tiny head-only pilot planning and budget check.
+10. Tiny head-only smoke if within standing-approved budget.
+11. Summarize hard-stop approval choices.
+12. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: none for the next bounded SmolVLA load-only smoke if readiness remains true and runtime stays under 10 minutes and 14GB VRAM. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: none for the next bounded single-sample interface smoke if readiness remains true and runtime stays within the autonomous pilot budget. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 ## Self-Check Cases
 
@@ -126,7 +138,7 @@ Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact m
 
 Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the standing-approved bounded load-only adapter smoke. The plan now exists; actual model loading is allowed only inside the bounded task with `ALLOW_HEAVY_IMPORT=1`.
+Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the next standing-approved bounded SmolVLA pilot task. Since load-only construction has passed, the next task is single-sample interface smoke.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 
@@ -165,4 +177,4 @@ ready_for_smolvla_adapter_smoke=true
 
 ## Later Task
 
-After readiness and planning are true, continue on a new branch for the standing-approved SmolVLA load-only execution smoke. That branch should remain load/interface-only and must not run real inference, train, rollout, evaluate datasets, or execute OpenVLA-OFT.
+After readiness, planning, and load-only smoke are true, continue on a new branch for the standing-approved single-sample SmolVLA interface smoke. That branch should remain interface-only, use synthetic or dummy inputs, and must not train, rollout, evaluate datasets, or execute OpenVLA-OFT.

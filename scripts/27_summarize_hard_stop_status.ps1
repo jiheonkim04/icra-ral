@@ -40,7 +40,7 @@ except Exception:
     yaml = None
 
 REPO_ROOT = Path.cwd()
-REQUIRED_RUNTIME = ["torch", "transformers", "lerobot", "safetensors"]
+REQUIRED_RUNTIME = ["torch", "transformers", "lerobot", "safetensors", "num2words"]
 OPTIONAL_RUNTIME = ["accelerate", "huggingface_hub"]
 DANGEROUS_GATES = [
     "ALLOW_DOWNLOADS",

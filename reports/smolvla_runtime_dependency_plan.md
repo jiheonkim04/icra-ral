@@ -16,6 +16,7 @@ lerobot=0.4.4
 safetensors=0.8.0
 accelerate=1.14.0
 huggingface-hub=0.35.3
+num2words=0.5.14
 ```
 
 This means the local files and Python runtime dependencies are ready for the standing-approved bounded SmolVLA load-only task. `ALLOW_HEAVY_IMPORT=1` may be set only inside that task.
@@ -43,6 +44,7 @@ Installing, upgrading, or changing these packages is a hard-stop gate:
 - LeRobot,
 - Transformers,
 - Safetensors,
+- Num2words,
 - Accelerate,
 - any CUDA toolkit or driver-level dependency.
 
@@ -66,6 +68,7 @@ The explicitly approved runtime install used:
 
 ```powershell
 C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 torch==2.10.0+cu128 torchvision==0.25.0+cu128 lerobot==0.4.4 transformers==4.57.6 safetensors==0.8.0 accelerate==1.14.0
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install num2words==0.5.14
 ```
 
 No model loading, inference, training, rollouts, simulator execution, OpenVLA-OFT execution, token access, or dataset/checkpoint acquisition was authorized by this install.

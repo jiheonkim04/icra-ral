@@ -24,6 +24,14 @@ Impact: Config and weights can be present while readiness remains false if the e
 
 Mitigation: The dependency acquisition was separately approved for tokenizer/processor/config files only. The checker now recognizes the dependency under `HF_HOME`. Do not silently download full SmolVLM2 model weights or execute inference. Heavy import/model construction is allowed only inside the bounded SmolVLA autonomous pilot load-only task.
 
+## Hidden Processor Python Dependencies
+
+Risk: SmolVLA can pass file readiness checks but fail during local policy construction because the referenced SmolVLM processor imports small Python utilities not listed in the original runtime gate.
+
+Impact: Load-only smoke fails late with an import error after assets and core runtime packages appear ready.
+
+Mitigation: The bounded load-only debug path identified `num2words==0.5.14` as required. It is now listed in `requirements.txt`, `scripts\17_check_smolvla_runtime_deps.ps1`, `scripts\18_plan_smolvla_runtime_install.ps1`, and `scripts\27_summarize_hard_stop_status.ps1`.
+
 ## Manual Confirmation Drift
 
 Risk: Codex may waste turns asking the user to confirm routine state that can be checked automatically.

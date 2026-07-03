@@ -83,6 +83,12 @@ package_plan = [
         "install_requires_explicit_approval": True,
     },
     {
+        "distribution": "num2words",
+        "module": "num2words",
+        "required_for": "SmolVLM processor text utility used during local SmolVLA policy construction",
+        "install_requires_explicit_approval": True,
+    },
+    {
         "distribution": "accelerate",
         "module": "accelerate",
         "required_for": "optional memory/device placement support",
@@ -136,7 +142,7 @@ for item in package_plan:
 missing_required = [
     item["distribution"]
     for item in packages
-    if item["distribution"] in {"torch", "transformers", "lerobot", "safetensors"}
+    if item["distribution"] in {"torch", "transformers", "lerobot", "safetensors", "num2words"}
     and not item["installed"]
 ]
 

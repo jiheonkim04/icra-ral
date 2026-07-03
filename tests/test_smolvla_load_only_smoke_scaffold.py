@@ -37,7 +37,9 @@ def _make_ready_layout(tmp_path: Path) -> tuple[Path, Path, Path]:
     return smolvla, checkpoint_root, hf_home
 
 
-def _run_module(tmp_path: Path, allow_heavy_import: bool) -> subprocess.CompletedProcess[str]:
+def _run_module(
+    tmp_path: Path, allow_heavy_import: bool, extra_env: dict[str, str] | None = None
+) -> subprocess.CompletedProcess[str]:
     smolvla, checkpoint_root, hf_home = _make_ready_layout(tmp_path)
     report = tmp_path / "report.json"
     env = os.environ.copy()
@@ -49,6 +51,7 @@ def _run_module(tmp_path: Path, allow_heavy_import: bool) -> subprocess.Complete
             "HF_HOME": str(hf_home),
         }
     )
+    env.update(extra_env or {})
     return subprocess.run(
         [
             sys.executable,
@@ -85,11 +88,12 @@ def test_load_only_smoke_requires_heavy_import_gate(tmp_path):
     assert report["policy"]["openvla_oft_executed"] is False
 
 
-def test_load_only_smoke_blocks_on_missing_runtime_dependencies(tmp_path):
-    result = _run_module(tmp_path, allow_heavy_import=True)
+def test_load_only_smoke_blocks_forbidden_gates_before_loading(tmp_path):
+    result = _run_module(tmp_path, allow_heavy_import=True, extra_env={"ALLOW_ROLLOUTS": "1"})
     report = _report(result.stdout)
-    assert result.returncode in {5, 6, 7}
+    assert result.returncode == 3
     assert report["policy"]["heavy_import_gate_set"] is True
+    assert report["policy"]["heavy_model_imports_performed"] is False
     assert report["policy"]["model_load_performed"] is False
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["training_performed"] is False

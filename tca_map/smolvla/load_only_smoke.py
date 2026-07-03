@@ -17,8 +17,9 @@ from pathlib import Path
 from typing import Any
 
 
-RUNTIME_DEPENDENCIES = ["torch", "transformers", "lerobot", "safetensors"]
+RUNTIME_DEPENDENCIES = ["torch", "transformers", "lerobot", "safetensors", "num2words"]
 FORBIDDEN_GATES = ["ALLOW_GPU_TRAINING", "ALLOW_ROLLOUTS", "ALLOW_CLOUD_HANDOFF"]
+MAX_LOAD_ONLY_SECONDS = 600
 
 
 def _env_flag(name: str) -> bool:
@@ -148,6 +149,84 @@ def _nvidia_smi() -> dict[str, Any]:
     }
 
 
+def _rss_mb() -> float | None:
+    try:
+        import psutil
+
+        return round(psutil.Process(os.getpid()).memory_info().rss / (1024 * 1024), 3)
+    except Exception:
+        return None
+
+
+def _load_smolvla_policy(
+    smolvla_ckpt: Path,
+    hf_home: Path,
+    external_dependency: dict[str, Any],
+    device: str,
+) -> dict[str, Any]:
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
+    import torch
+    from lerobot.configs.policies import PreTrainedConfig
+    from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+
+    started = time.monotonic()
+    memory_before = _rss_mb()
+    gpu_before = _nvidia_smi()
+
+    config = PreTrainedConfig.from_pretrained(
+        smolvla_ckpt,
+        local_files_only=True,
+        cache_dir=hf_home,
+    )
+    config.device = device
+    config.load_vlm_weights = False
+    config.compile_model = False
+    config.push_to_hub = False
+    if external_dependency.get("found") and external_dependency.get("root"):
+        config.vlm_model_name = external_dependency["root"]
+
+    policy = SmolVLAPolicy.from_pretrained(
+        smolvla_ckpt,
+        config=config,
+        local_files_only=True,
+        cache_dir=hf_home,
+        token=False,
+        strict=False,
+    )
+    policy.eval()
+
+    parameter_count = sum(param.numel() for param in policy.parameters())
+    trainable_parameter_count = sum(param.numel() for param in policy.parameters() if param.requires_grad)
+    model_device = next(policy.parameters()).device.type
+    elapsed = time.monotonic() - started
+
+    cuda_max_allocated_mb = None
+    if torch.cuda.is_available():
+        cuda_max_allocated_mb = round(torch.cuda.max_memory_allocated() / (1024 * 1024), 3)
+
+    # Drop the model immediately: this is load-only validation, not an interactive session.
+    del policy
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    return {
+        "load_elapsed_sec": round(elapsed, 3),
+        "rss_before_mb": memory_before,
+        "rss_after_mb": _rss_mb(),
+        "gpu_before": gpu_before,
+        "gpu_after": _nvidia_smi(),
+        "cuda_max_allocated_mb": cuda_max_allocated_mb,
+        "parameter_count": int(parameter_count),
+        "trainable_parameter_count": int(trainable_parameter_count),
+        "device": model_device,
+        "config_device": config.device,
+        "vlm_model_name": config.vlm_model_name,
+        "load_vlm_weights": config.load_vlm_weights,
+    }
+
+
 def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     started = time.monotonic()
     smolvla_ckpt = Path(os.environ.get("SMOLVLA_CKPT") or args.smolvla_ckpt)
@@ -186,6 +265,9 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
 
     exit_code = 0
     blocked_reason = None
+    load_attempted = False
+    load_result: dict[str, Any] | None = None
+    load_error: dict[str, Any] | None = None
     if not heavy_gate:
         exit_code = 2
         blocked_reason = "ALLOW_HEAVY_IMPORT=1 is required and may be set only inside the bounded SmolVLA autonomous load-only task."
@@ -203,17 +285,34 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         exit_code = 6
         blocked_reason = "GPU memory policy check failed before load."
     else:
-        exit_code = 7
-        blocked_reason = (
-            "Runtime dependencies appear present, but the concrete SmolVLA loader is not implemented "
-            "in this scaffold. Stop before importing heavy VLA code."
-        )
+        try:
+            load_attempted = True
+            load_result = _load_smolvla_policy(
+                smolvla_ckpt=smolvla_ckpt,
+                hf_home=hf_home,
+                external_dependency=external_dependency,
+                device=args.device,
+            )
+            if load_result["load_elapsed_sec"] > MAX_LOAD_ONLY_SECONDS:
+                exit_code = 8
+                blocked_reason = "Load-only smoke exceeded the 10 minute runtime budget."
+            elif (load_result.get("cuda_max_allocated_mb") or 0) > 14336:
+                exit_code = 9
+                blocked_reason = "Load-only smoke exceeded the 14GB VRAM budget."
+        except Exception as exc:  # noqa: BLE001 - report exact load-only smoke failure.
+            exit_code = 8
+            blocked_reason = f"SmolVLA load-only construction failed: {type(exc).__name__}: {exc}"
+            load_error = {
+                "type": type(exc).__name__,
+                "message": str(exc),
+            }
 
     report = {
         "policy": {
             "load_only": True,
             "downloads_performed": False,
-            "model_load_performed": False,
+            "heavy_model_imports_performed": load_attempted,
+            "model_load_performed": bool(load_result),
             "model_inference_performed": False,
             "gpu_training_performed": False,
             "training_performed": False,
@@ -223,6 +322,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "heavy_import_gate_set": heavy_gate,
             "forbidden_gates_set": forbidden_gates_set,
             "max_vram_policy_mb": 14336,
+            "max_runtime_sec": MAX_LOAD_ONLY_SECONDS,
         },
         "paths": {
             "smolvla_ckpt": str(smolvla_ckpt),
@@ -238,6 +338,8 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         },
         "runtime_dependencies": deps,
         "gpu": gpu,
+        "load": load_result,
+        "load_error": load_error,
         "result": {
             "passed": exit_code == 0,
             "blocked": exit_code != 0,
@@ -254,6 +356,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--checkpoint-root", default="C:/assets/checkpoints")
     parser.add_argument("--hf-home", default="C:/assets/hf_home")
     parser.add_argument("--report-path", default="reports/smolvla_load_only_smoke_report.json")
+    parser.add_argument("--device", default="cpu", choices=["cpu", "cuda"])
     args = parser.parse_args(argv)
 
     report, exit_code = build_report(args)

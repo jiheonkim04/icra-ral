@@ -24,7 +24,9 @@ The script is summary-only. It does not install packages, download assets, run G
 
 ## SmolVLA Autonomous Pilot Standing Approval
 
-The runtime install gate has been used and is currently clear: `torch`, `transformers`, `lerobot`, and `safetensors` are installed in the `tca_map` environment.
+The runtime install gate has been used and is currently clear: `torch`, `transformers`, `lerobot`, `safetensors`, and `num2words` are installed in the `tca_map` environment.
+
+The bounded SmolVLA load-only smoke has passed on CPU. It loaded local policy weights with `load_vlm_weights=false` and did not run model inference, training, rollouts, OpenVLA-OFT, downloads, or token access.
 
 Codex may continue autonomously through:
 
@@ -39,7 +41,7 @@ Do not combine this standing approval with true hard-stop gates.
 ## Current Known Blockers
 
 - Runtime dependencies are present in the current `tca_map` environment.
-- No true hard-stop currently blocks the next bounded SmolVLA load-only smoke if readiness checks remain true.
+- No true hard-stop currently blocks the next bounded single-sample SmolVLA interface smoke if readiness checks remain true.
 - LIBERO/RoboSuite/RoboCasa/simulator assets remain missing for rollout work.
 - OpenVLA-OFT local large execution remains forbidden.
 
