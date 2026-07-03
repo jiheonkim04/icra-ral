@@ -176,6 +176,14 @@ Impact: The method claim becomes unclear and weakens publishability.
 
 Mitigation: Require the comparison matrix in `reports\lora_comparison_plan.md`: TCA-Map + LoRA vs ActionMap + LoRA, and TCA-Map + LoRA + Distributional TCA-Select vs TCA-Map + LoRA only. Report head gain, LoRA gain, and inference-time selection gain separately.
 
+## QLoRA Tooling Drift
+
+Risk: QLoRA may require bitsandbytes/PEFT behavior, CUDA support, or PyTorch compatibility that is not stable on native Windows.
+
+Impact: The local environment could be destabilized by package or CUDA/PyTorch changes before the method is ready.
+
+Mitigation: Keep `scripts\35_check_qlora_feasibility.ps1` check-only. Defer QLoRA execution to Linux/WSL/cloud if tooling is missing or Windows support is uncertain, and never install packages or change CUDA/PyTorch without explicit approval.
+
 ## Standing Approval Scope Confusion
 
 Risk: The SmolVLA autonomous pilot standing approval may be misread as permission for OpenVLA-OFT, rollouts, real benchmark evaluation, datasets, or larger training.

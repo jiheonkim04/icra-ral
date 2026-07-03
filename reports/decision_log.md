@@ -259,3 +259,11 @@ Decision: Add a planning-only comparison matrix for the required LoRA arms.
 Reason: The required LoRA track must not let LoRA gains obscure the TCA-Map or Distributional TCA-Select contribution.
 
 Consequence: `scripts\34_plan_lora_comparison.ps1` fixes the ActionMap + LoRA, TCA-Map + LoRA, TCA-Map + LoRA + Distributional TCA-Select, and QLoRA-if-feasible comparisons without training, constructing adapters, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims.
+
+## QLoRA Feasibility Check
+
+Decision: Add a check-only QLoRA feasibility gate.
+
+Reason: QLoRA is a required feasibility track if memory/tooling allows, but it must not force unapproved package installs or CUDA/PyTorch changes.
+
+Consequence: `scripts\35_check_qlora_feasibility.ps1` checks config validity and local QLoRA tooling availability without installing packages, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims. It keeps `safe_to_run_qlora_now=false`.
