@@ -160,10 +160,11 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 15. Required TCA-Map + LoRA comparison plan. Done.
 16. QLoRA feasibility check. Done.
 17. Update LoRA/QLoRA go/no-go status. Done.
-18. Bounded local pilot execution is standing-approved if inside limits. Next: create/run the next bounded local pilot step.
-19. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+18. Bounded local pilot execution is standing-approved if inside limits. Done: head-only ActionMap vs TCA-Map comparison report.
+19. Next bounded local pilot step: tiny LoRA smoke runner or TCA-Map + LoRA diagnostic inside standing approval.
+20. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current status: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. Bounded local SmolVLA-only pilot work is standing-approved if it stays within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. Bounded local SmolVLA-only pilot work is standing-approved if it stays within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 Planning command:
 
@@ -172,6 +173,7 @@ powershell -ExecutionPolicy Bypass -File scripts\32_plan_lora_adapter_constructi
 powershell -ExecutionPolicy Bypass -File scripts\33_plan_lora_tiny_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts\34_plan_lora_comparison.ps1
 powershell -ExecutionPolicy Bypass -File scripts\35_check_qlora_feasibility.ps1
+powershell -ExecutionPolicy Bypass -File scripts\36_compare_head_only_tiny_pilot.ps1
 ```
 
 ## Required LoRA/QLoRA Progression
