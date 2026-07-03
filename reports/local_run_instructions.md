@@ -218,6 +218,12 @@ Plan the required LoRA tiny smoke envelope without adapter construction or train
 powershell -ExecutionPolicy Bypass -File scripts\33_plan_lora_tiny_smoke.ps1
 ```
 
+Plan the required TCA-Map + LoRA comparison matrix without adapter construction or training:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\34_plan_lora_comparison.ps1
+```
+
 Linux/WSL equivalents:
 
 ```bash
