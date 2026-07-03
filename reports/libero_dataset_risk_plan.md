@@ -23,12 +23,20 @@ The planner now defaults to the official/documented LIBERO dataset source:
 https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets
 ```
 
-The full official dataset is expected to be about 100 GB, which exceeds the current 80 GB autonomous task budget. Therefore the default decision should remain `stop` for full dataset acquisition unless a later risk policy changes the budget or a smaller documented subset is selected.
+The full official dataset is expected to be about 100 GB. The current policy has a LIBERO-only acquisition exception: this source may use a 180 GB task budget only if at least 250 GB disk remains after acquisition and no token/login/payment/license click-through gate appears. The planner remains dry-run only and does not acquire data.
 
 Proceed only if either:
 
 - a local tiny LIBERO/LIBERO-CF-style subset already exists under `LIBERO_DATA_ROOT`, or
-- a future acquisition task has an official/documented small subset source, known expected size within budget, enough disk margin, no token/login/payment/license click-through, and an approved local asset root.
+- the official LIBERO acquisition gate in `scripts\49_acquire_libero_data.ps1` reports a green risk assessment for `https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets`, known expected size within the 180 GB LIBERO-only budget, at least 250 GB disk remaining after acquisition, no token/login/payment/license click-through, and the approved target root `C:\assets\data\libero`.
+
+Official LIBERO data acquisition command, only after the dry-run risk report is green:
+
+```powershell
+$env:ALLOW_DOWNLOADS="1"
+powershell -ExecutionPolicy Bypass -File scripts\49_acquire_libero_data.ps1 -RemoteSizeCheck -Acquire
+Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
+```
 
 Use the source-resolution planner before setup:
 

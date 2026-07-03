@@ -212,6 +212,7 @@ Default download budget:
 
 - single task download soft limit: 80GB,
 - keep at least 100GB free disk after download,
+- official LIBERO data exception: only `https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets` may use a 180GB single-task budget, and only when at least 250GB disk remains after acquisition,
 - if size is unknown, first estimate or do a dry-run/listing,
 - if source is ambiguous, stop,
 - if token/login/payment/license click-through is required, stop,

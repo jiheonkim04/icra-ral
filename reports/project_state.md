@@ -284,7 +284,7 @@ ROBOSUITE_ROOT=C:\assets\repos\robosuite
 LIBERO_DATA_ROOT=C:\assets\data\libero
 ```
 
-The LIBERO data root is path-ready only. The full official LIBERO demonstrations dataset was not downloaded because its expected 100 GB size exceeds the 80 GB autonomous task budget. `reports\libero_robosuite_setup_report.json` records that only source repos were acquired and that no simulator, rollout, training, GPU job, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred.
+The LIBERO data root is path-ready only. The full official LIBERO demonstrations dataset was not downloaded by source setup, but the policy now allows a dedicated official LIBERO acquisition gate with a 180 GB task budget if at least 250 GB disk remains after acquisition. `reports\libero_robosuite_setup_report.json` records that only source repos were acquired and that no simulator, rollout, training, GPU job, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred.
 
 ## Current Gate
 
@@ -306,7 +306,7 @@ The current executable local path is now blocked at the real dataset/simulator b
 - `ROBOSUITE_ROOT` exists,
 - `LIBERO_DATA_ROOT` exists,
 - no real LIBERO demonstration files or documented tiny subset are present under `LIBERO_DATA_ROOT`,
-- the official full LIBERO dataset source is resolved, but its expected 100 GB size exceeds the current 80 GB autonomous task budget.
+- the official full LIBERO dataset source is resolved, and its expected 100 GB size is inside the dedicated 180 GB LIBERO-only acquisition budget if at least 250 GB disk remains after acquisition.
 
 Codex should keep running routine readiness and status checks without asking. The next safe work is planning-only dataset/simulator readiness, status maintenance, or larger-compute handoff planning. It must stop before dataset acquisition, simulator import/render/rollout, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs unless a risk assessment is green and inside policy.
 
@@ -411,7 +411,7 @@ Reasons:
 
 - LIBERO/RoboSuite source paths are now present,
 - no tiny real/offline dataset files exist under `LIBERO_DATA_ROOT`,
-- the official full dataset is about 100 GB, which exceeds the current 80 GB autonomous task budget.
+- the official full dataset is about 100 GB, which is inside the dedicated 180 GB LIBERO-only acquisition budget if at least 250 GB disk remains after acquisition.
 
 Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. Actual dataset acquisition, simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 
@@ -531,7 +531,7 @@ If the risk assessment says `proceed`, Codex should continue autonomously. If it
 
 Current default budgets:
 
-- downloads: official/documented unambiguous source, no token/login/payment/license click-through, <=80GB single-task soft limit, keep >=100GB free disk, approved roots such as `C:\assets`, no asset/cache/data commits,
+- downloads: official/documented unambiguous source, no token/login/payment/license click-through, <=80GB single-task soft limit, keep >=100GB free disk, approved roots such as `C:\assets`, no asset/cache/data commits. Official LIBERO data from `yifengzhu-hf/LIBERO-datasets` is the only current exception and may use <=180GB only if >=250GB remains after acquisition,
 - GPU: SmolVLA/local-pilot only, expected VRAM <=14GB, runtime <=30 minutes, batch size 1, timeout/stop condition, memory/runtime logged when measurable,
 - training: SmolVLA-only, frozen backbone or LoRA/QLoRA adapter only, no full fine-tuning, max 300 local pilot steps after smaller smoke is stable, runtime <=30 minutes, VRAM <=14GB, batch size 1, smoke/offline proxy/local pilot labels only,
 - real datasets: official/documented unambiguous source, no token/login/payment/license click-through, inside download/disk budget, no automatic rollout, prefer metadata-only or tiny subset first,

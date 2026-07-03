@@ -1,0 +1,23 @@
+description: Official LIBERO dataset acquisition budget for local real-data ladder.
+source_url: "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets"
+repo_id: "yifengzhu-hf/LIBERO-datasets"
+target_path: "C:/assets/data/libero"
+cache_path: "C:/assets/hf_home"
+official_or_documented: true
+license: "apache-2.0"
+token_required: false
+login_required: false
+license_click_through_required: false
+payment_required: false
+expected_size_gb: 100.0
+libero_download_budget_gb: 180.0
+min_free_after_gb: 250.0
+allowed_only_for_libero_data: true
+forbidden:
+  - simulator_rollout
+  - benchmark_rollout
+  - openvla_oft
+  - heavy_vla_import
+  - paper_grade_claim
+  - token_or_secret_access
+  - external_upload

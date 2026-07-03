@@ -167,7 +167,7 @@ Get-Content reports/publishability_criteria.md
 1. Local Windows scaffold validation: run tree check, preflight, dummy train/eval smoke, pytest, asset checks, compute-budget enforcement, and system readiness checks.
 2. WSL2/Linux rollout setup: use `scripts/24_wsl2_setup_check.ps1`, then install Ubuntu manually if needed and validate GPU visibility from WSL2.
 3. SmolVLA-first local smoke: configure `SMOLVLA_CKPT`, `HF_HOME`, and `CHECKPOINT_ROOT`, then run readiness checks. Model execution remains a later approved task.
-4. LIBERO/RoboSuite source setup: resolve official sources with `scripts/45_resolve_libero_robosuite_sources.ps1`; shallow-clone only budget-green code repos with `scripts/46_prepare_libero_robosuite_sources.ps1`. The full LIBERO dataset is about 100 GB and is not downloaded under the current 80 GB autonomous budget.
+4. LIBERO/RoboSuite source setup: resolve official sources with `scripts/45_resolve_libero_robosuite_sources.ps1`; shallow-clone only budget-green code repos with `scripts/46_prepare_libero_robosuite_sources.ps1`. The official full LIBERO dataset is about 100 GB and may be acquired only through `scripts/49_acquire_libero_data.ps1` under the LIBERO-only 180 GB budget with at least 250 GB free disk remaining after acquisition.
 5. LIBERO metadata subset: build a BDDL/task-only manifest with `scripts/47_build_libero_metadata_subset.ps1`. This validates target/counterfactual split plumbing only; it is not a real dataset smoke or paper-grade result.
 6. LIBERO offline interface gate: run `scripts/48_plan_libero_offline_interface_smoke.ps1` to stop/proceed based on tiny local file structure. It remains no-rollout and no-training.
 7. Small local rollout: after WSL2/Linux, LIBERO, RoboSuite, and data paths pass checks, run only a separately approved tiny rollout task.
@@ -185,6 +185,7 @@ powershell -ExecutionPolicy Bypass -File scripts/24_wsl2_setup_check.ps1
 powershell -ExecutionPolicy Bypass -File scripts/45_resolve_libero_robosuite_sources.ps1
 powershell -ExecutionPolicy Bypass -File scripts/47_build_libero_metadata_subset.ps1
 powershell -ExecutionPolicy Bypass -File scripts/48_plan_libero_offline_interface_smoke.ps1
+powershell -ExecutionPolicy Bypass -File scripts/49_acquire_libero_data.ps1 -RemoteSizeCheck
 ```
 
 Publication-oriented tables should separate:

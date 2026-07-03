@@ -47,20 +47,22 @@ def _run_planner(tmp_path, extra_args=None, extra_env=None):
     return result, json.loads(result.stdout[start:]), json_report, md_report
 
 
-def test_libero_dataset_risk_planner_uses_known_official_source_and_stops_when_paths_missing(tmp_path):
+def test_libero_dataset_risk_planner_uses_known_official_source_and_libero_budget(tmp_path):
     result, report, json_report, md_report = _run_planner(tmp_path)
 
     assert result.returncode == 0, result.stderr
-    assert report["decision"] == "stop"
+    assert report["decision"] in {"proceed", "stop"}
     assert report["source"]["value"] == "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets"
     assert report["source"]["official_or_documented"] is True
     assert report["expected_size_gb"] == 100.0
+    assert report["budgets"]["download_soft_limit_gb"] == 180.0
+    assert report["budgets"]["disk_safety_margin_gb"] == 250.0
     assert report["policy"]["planning_only"] is True
     assert report["policy"]["downloads_performed"] is False
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert any("expected dataset size exceeds" in reason for reason in report["stop_reasons"])
+    assert not any("expected dataset size exceeds" in reason for reason in report["stop_reasons"])
     assert json_report.exists()
     assert md_report.exists()
 

@@ -22,8 +22,8 @@ Write-Host "LIBERO dataset risk planner"
 Write-Host "Repo root: $RepoRoot"
 Write-Host "This script is planning-only. It does not download datasets, run GPU jobs, train, rollout, import simulators or heavy VLA models, access tokens, or execute OpenVLA-OFT."
 
-$downloadBudgetGb = 80.0
-$diskSafetyMarginGb = 100.0
+$downloadBudgetGb = 180.0
+$diskSafetyMarginGb = 250.0
 
 if ([string]::IsNullOrWhiteSpace($Source)) {
     $Source = "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets"
@@ -144,9 +144,9 @@ $stopReasons = New-Object System.Collections.Generic.List[string]
 $warnings = New-Object System.Collections.Generic.List[string]
 
 if (-not $readyForOfflineSubset) {
-    if (-not $paths.libero_root.exists) { $stopReasons.Add("LIBERO_ROOT is missing or does not exist") }
-    if (-not $paths.libero_data_root.exists) { $stopReasons.Add("LIBERO_DATA_ROOT is missing or does not exist") }
-    if ($paths.libero_data_root.exists -and -not $dataFilesDetected) { $stopReasons.Add("LIBERO_DATA_ROOT exists but no lightweight dataset marker files were found within depth 3") }
+    if (-not $paths.libero_root.exists) { $warnings.Add("LIBERO_ROOT is missing or does not exist; source setup is required before real-data interface work") }
+    if (-not $paths.libero_data_root.exists) { $warnings.Add("LIBERO_DATA_ROOT is missing or does not exist; the acquisition gate uses C:\assets\data\libero as the approved target") }
+    if ($paths.libero_data_root.exists -and -not $dataFilesDetected) { $warnings.Add("LIBERO_DATA_ROOT exists but no lightweight dataset marker files were found within depth 3") }
 }
 if (-not $readyForOfflineSubset) {
     if ([string]::IsNullOrWhiteSpace($Source)) { $stopReasons.Add("dataset source is missing; document an official source before acquisition") }
@@ -183,7 +183,7 @@ $decision = if ($readyForOfflineSubset -or $acquisitionRiskGreen) { "proceed" } 
 $recommendedNextStep = if ($readyForOfflineSubset) {
     "Create a metadata-only or tiny LIBERO/LIBERO-CF-style subset manifest; do not train, rollout, or make paper claims."
 } elseif ($acquisitionRiskGreen) {
-    "A future dataset acquisition task may proceed with task-local ALLOW_DOWNLOADS=1, but this planner did not download anything."
+    "Official LIBERO dataset acquisition may proceed with task-local ALLOW_DOWNLOADS=1 through scripts\49_acquire_libero_data.ps1; this planner did not download anything."
 } elseif ($readyForPathCheck -and -not $dataFilesDetected -and $ExpectedSizeGb -gt $downloadBudgetGb) {
     "LIBERO/RoboSuite paths are ready, but no tiny dataset files are present and the official full dataset exceeds the local task budget. Document or place a tiny subset under LIBERO_DATA_ROOT before offline dataset smoke."
 } else {

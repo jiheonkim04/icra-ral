@@ -119,7 +119,7 @@ $marker = Join-Path $dataRoot "_NO_FULL_DATASET_DOWNLOADED.txt"
 if (-not (Test-Path -LiteralPath $marker)) {
     @(
         "This directory is path-ready only.",
-        "The full LIBERO dataset was not downloaded because the official dataset is about 100 GB, above the current 80 GB autonomous task budget.",
+        "The full LIBERO dataset was not downloaded by this source-setup script. Use scripts\49_acquire_libero_data.ps1 for the official LIBERO-only acquisition gate with the 180 GB budget and 250 GB free-after requirement.",
         "Place a documented tiny subset or rerun a future risk-assessed dataset acquisition task before offline dataset smoke."
     ) -join "`n" | Set-Content -LiteralPath $marker -Encoding UTF8
 }

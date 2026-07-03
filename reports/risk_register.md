@@ -324,9 +324,17 @@ Mitigation: `scripts\44_bounded_local_pilot_extension.ps1` uses cached/dummy fea
 
 Risk: The official LIBERO demonstrations dataset is documented through the official LIBERO repo and Hugging Face, but the dataset card reports about 100 GB total file size.
 
-Impact: Automatic full-dataset acquisition would exceed the current 80 GB autonomous download budget and could consume disk before a tiny/offline interface smoke is ready.
+Impact: Automatic full-dataset acquisition could consume substantial disk and still fail before a tiny/offline interface smoke is ready.
 
-Mitigation: `scripts\45_resolve_libero_robosuite_sources.ps1` marks the full dataset download as stopped while allowing small official source repo setup. Use a documented tiny subset, metadata-only setup, or a separate risk budget before downloading full demonstrations.
+Mitigation: Only `https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets` may use the dedicated 180 GB LIBERO-only acquisition budget, and only if at least 250 GB disk remains after acquisition. `scripts\49_acquire_libero_data.ps1` must run the source/disk/license/token risk gate and writes ignored reports. It must stop on ambiguous source, token/login/payment/license click-through, expected size over 180 GB, disk-after below 250 GB, simulator/rollout/OpenVLA-OFT requirements, or repeated acquisition failure.
+
+## LIBERO Dataset Commit Risk
+
+Risk: Downloaded LIBERO demonstrations or Hugging Face cache files could accidentally be committed or copied into the repository.
+
+Impact: Repository bloat, license/distribution problems, and accidental publication of local assets.
+
+Mitigation: Keep all LIBERO data under `C:\assets\data\libero` and cache under `C:\assets\hf_home`. Never commit `C:\assets`, dataset files, cache files, or `configs\paths.local.yaml`. Runtime acquisition reports are ignored by git.
 
 ## Source Repo Setup Scope Creep
 
