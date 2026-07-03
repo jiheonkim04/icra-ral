@@ -152,7 +152,7 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 7. Feature cache interface validation with dummy cached features. Done.
 8. Eval-only cached-feature head/metric smoke. Done.
 9. Tiny head-only pilot planning and budget check. Done.
-10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Done.
+10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=30 minutes, and VRAM<=14GB. Done.
 11. Summarize hard-stop approval choices. Done.
 12. Generate go/no-go status summary. Done.
 13. Required LoRA adapter construction plan. Done.
@@ -160,10 +160,10 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 15. Required TCA-Map + LoRA comparison plan. Done.
 16. QLoRA feasibility check. Done.
 17. Update LoRA/QLoRA go/no-go status. Done.
-18. Hard stop: pick exactly one explicit next gate before any execution-stage work. Next.
+18. Bounded local pilot execution is standing-approved if inside limits. Next: create/run the next bounded local pilot step.
 19. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. No execution-stage LoRA/QLoRA work is safe without choosing exactly one explicit next gate. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current status: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. Bounded local SmolVLA-only pilot work is standing-approved if it stays within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 Planning command:
 
@@ -208,7 +208,7 @@ Codex must stop before true hard-stop gates:
 - simulator execution,
 - rollout,
 - real benchmark evaluation,
-- training longer than 15 minutes or more than 100 steps,
+- training more than 100 steps,
 - any job expected to exceed 30 minutes,
 - using more than 14GB VRAM,
 - changing CUDA/PyTorch major versions,
@@ -234,4 +234,4 @@ ready_for_smolvla_adapter_smoke=true
 
 After readiness, planning, load-only smoke, single-sample interface smoke, and feature-cache/interface validation are true, continue on a new branch for a tiny head-only smoke runner. That branch may run only bounded head-only smoke and must not train a backbone, rollout, evaluate real datasets, or execute OpenVLA-OFT.
 
-After the LoRA/QLoRA go/no-go update, stop before execution-stage work. The next meaningful gates are LoRA tiny-smoke execution, QLoRA tooling/package work, real dataset setup, simulator rollout, or OpenVLA-OFT-related work; each requires explicit approval for exactly that gate.
+After the LoRA/QLoRA go/no-go update, continue into bounded local SmolVLA pilot work if it stays inside the standing-approved limits. Stop only for true hard-stop gates such as QLoRA tooling/package work, real dataset setup, simulator rollout, OpenVLA-OFT-related work, training over 100 steps, runtime over 30 minutes, VRAM over 14GB, secrets, or paper-grade claims.

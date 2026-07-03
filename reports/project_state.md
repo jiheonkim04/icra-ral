@@ -328,7 +328,7 @@ Forbidden until explicitly approved as true hard-stop gates:
 - rollouts,
 - simulator execution,
 - real benchmark evaluation,
-- training longer than 15 minutes or more than 100 steps,
+- training more than 100 steps,
 - any job expected to exceed 30 minutes,
 - using more than 14GB VRAM,
 - changing CUDA/PyTorch major versions,
@@ -359,7 +359,7 @@ LoRA and QLoRA are required experimental tracks after the head-only path is vali
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, bounded tiny head-only smoke passed, and the go/no-go summary exists, the next safe non-heavy task is LoRA/QLoRA required-track planning. No larger experimental stage is safe without explicit approval for exactly one true next gate. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, bounded tiny head-only smoke passed, and the go/no-go summary exists, the next safe path is bounded local SmolVLA-only pilot work. Bounded local pilots are standing-approved if they stay within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
 
 The required LoRA/QLoRA experiment-track policy is documented in `reports\lora_required_experiment_plan.md`:
 
@@ -405,7 +405,7 @@ The LoRA/QLoRA-aware go/no-go generator is documented in `reports\go_no_go_statu
 powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
 ```
 
-The updated go/no-go status remains no-go for larger experimental stages. The next meaningful work would cross an execution or environment gate, such as LoRA tiny-smoke execution, QLoRA package/tooling changes, real dataset setup, simulator rollout, or OpenVLA-OFT-related work. Those require explicit approval for exactly one gate.
+The updated go/no-go status is ready for bounded local pilot work and remains no-go only for larger paper-grade stages. The next meaningful work may include bounded LoRA tiny smoke, ActionMap/TCA-Map/Distributional TCA-Select offline proxy comparisons, or a bounded local pilot report. QLoRA package/tooling changes, real dataset setup, simulator rollout, OpenVLA-OFT-related work, and paper-grade claims still require explicit approval for exactly one gate.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

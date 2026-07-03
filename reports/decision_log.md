@@ -170,7 +170,7 @@ Decision: Treat the expected low-compute SmolVLA pilot path as standing-approved
 
 Reason: The checkpoint/dependency files are ready, runtime dependencies are installed, safe runner and pytest pass, and repeated approval prompts for predictable load-only/interface/tiny-smoke steps prevent autonomous research-engineering progress.
 
-Consequence: Codex should continue without asking before bounded SmolVLA load-only heavy import/model construction, load-only debugging, one synthetic or dummy single-sample interface smoke, tiny feature-cache/interface validation, and tiny head-only smoke with frozen backbone, max 100 steps, max 15 minutes, and max 14GB VRAM. Codex may set `ALLOW_HEAVY_IMPORT=1` only inside the bounded load-only task. Codex must still stop before OpenVLA-OFT download/import/load/execution, LIBERO/RoboSuite/RoboCasa/dataset downloads, simulator execution, rollouts, real benchmark evaluation, training outside the tiny-smoke budget, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, unplanned large package installs, token/secret/login requirements, multi-seed experiments, paper-level empirical claims, external submission/upload/publishing, or destructive deletion outside repository/approved cache cleanup.
+Consequence: Codex should continue without asking before bounded SmolVLA load-only heavy import/model construction, load-only debugging, one synthetic or dummy single-sample interface smoke, tiny feature-cache/interface validation, and tiny local pilots with frozen backbone, max 100 steps, max 200 samples, max 30 minutes, and max 14GB VRAM. Codex may set task-local gates such as `ALLOW_HEAVY_IMPORT=1` or `ALLOW_TINY_TRAINING=1` only inside the bounded task. Codex must still stop before OpenVLA-OFT download/import/load/execution, LIBERO/RoboSuite/RoboCasa/dataset downloads, simulator execution, rollouts, real benchmark evaluation, training outside the bounded local pilot budget, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, unplanned large package installs, token/secret/login requirements, multi-seed experiments, paper-level empirical claims, external submission/upload/publishing, or destructive deletion outside repository/approved cache cleanup.
 
 ## SmolVLA Load-Only Smoke Execution Result
 
@@ -250,7 +250,7 @@ Decision: Add a planning-only scaffold for the required LoRA tiny smoke.
 
 Reason: The required LoRA track needs an explicit tiny-smoke boundary before any adapter update is allowed.
 
-Consequence: `scripts\33_plan_lora_tiny_smoke.ps1` validates the LoRA/QLoRA configs and future tiny-smoke envelope while keeping `safe_to_execute_lora_tiny_smoke_now=false`. It does not construct adapters, train, download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+Consequence: `scripts\33_plan_lora_tiny_smoke.ps1` validates the LoRA/QLoRA configs and future tiny-smoke envelope. It is planning-only, but a later bounded runner may execute tiny LoRA smoke under the standing-approved local pilot limits. The scaffold itself does not construct adapters, train, download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
 
 ## TCA-Map + LoRA Comparison Plan
 
@@ -272,6 +272,14 @@ Consequence: `scripts\35_check_qlora_feasibility.ps1` checks config validity and
 
 Decision: Extend the go/no-go generator to summarize LoRA/QLoRA planning readiness.
 
-Reason: After the required LoRA/QLoRA planning stack, the project needs a clear stop point before any execution-stage work.
+Reason: After the required LoRA/QLoRA planning stack, the project needs a clear distinction between standing-approved bounded local pilots and larger paper-grade hard-stop gates.
 
-Consequence: `scripts\31_generate_go_no_go_report.ps1` now reports LoRA adapter planning, tiny-smoke scaffold, comparison planning, and QLoRA feasibility status. It remains summary-only and no-go for LoRA/QLoRA execution without a bounded runner and explicit gate approval.
+Consequence: `scripts\31_generate_go_no_go_report.ps1` now reports LoRA adapter planning, tiny-smoke scaffold, comparison planning, QLoRA feasibility status, `ready_for_bounded_local_pilot`, and `blocked_for_larger_paper_grade_stage`. It remains summary-only and no-go for paper-grade or larger experimental stages, but it must not block bounded local SmolVLA-only pilots inside the standing-approved limits.
+
+## Bounded Local Pilot Standing Approval
+
+Decision: Treat bounded local SmolVLA-only pilot experiments as standing-approved.
+
+Reason: The safe local smoke stack is complete, and stopping after every smoke prevents meaningful low-compute research progress.
+
+Consequence: Codex should autonomously continue through bounded local head-only, LoRA, TCA-Map + LoRA, Distributional TCA-Select, QLoRA feasibility, offline proxy, and tiny comparison tasks when they stay within max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, batch size 1, frozen backbone except LoRA adapter weights, no rollout, no simulator, no OpenVLA-OFT, no full fine-tuning, and no paper claim. Codex must still stop before true hard-stop gates.

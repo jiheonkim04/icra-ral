@@ -140,11 +140,12 @@ all_lora_qlora_planning_done = (
     and lora_qlora_planning["lora_comparison_plan"]
     and lora_qlora_planning["qlora_feasibility_check_present"]
 )
+ready_for_bounded_local_pilot = all_safe_smokes_passed
+blocked_for_larger_paper_grade_stage = True
 blocked_by = [
     "real LIBERO/LIBERO-CF data and simulator rollout assets are not validated",
     "rollout and simulator execution require explicit approval",
-    "real dataset training beyond the tiny smoke budget requires explicit approval",
-    "LoRA comparison execution remains blocked until a bounded runner and explicit tiny-training gate are in place",
+    "real dataset training or benchmark evaluation that could be mistaken for paper-grade evidence requires explicit approval",
     "QLoRA execution remains blocked if PEFT/bitsandbytes/tooling are missing or require unapproved CUDA/PyTorch/package changes",
     "OpenVLA-OFT download/import/load/execution remains forbidden locally",
     "offline proxy metrics are not standard success and cannot support paper-grade claims",
@@ -161,7 +162,7 @@ go_for = [
     "planning-only reports",
 ]
 if all_safe_smokes_passed:
-    go_for.append("requesting explicit approval for one true next gate, if the user wants to proceed")
+    go_for.append("bounded local SmolVLA pilot tasks inside standing approval")
 if all_lora_qlora_planning_done:
     go_for.append("LoRA/QLoRA planning interpretation and risk review")
 
@@ -184,14 +185,15 @@ report = {
     "go_for": go_for,
     "no_go_for": [
         "paper-grade empirical claims",
-        "real dataset training",
-        "LoRA or QLoRA execution without a bounded runner",
+        "real benchmark evaluation that could be mistaken for paper-grade evidence",
         "simulator rollouts",
         "OpenVLA-OFT execution",
         "multi-seed experiments",
     ],
     "completed_safe_smokes": completed,
     "all_safe_smokes_passed": all_safe_smokes_passed,
+    "ready_for_bounded_local_pilot": ready_for_bounded_local_pilot,
+    "blocked_for_larger_paper_grade_stage": blocked_for_larger_paper_grade_stage,
     "lora_qlora_planning": lora_qlora_planning,
     "all_lora_qlora_planning_done": all_lora_qlora_planning_done,
     "runtime_reports_available": runtime_reports_available,
@@ -205,9 +207,9 @@ report = {
         "ready_for_openvla_oft_smoke": ((hard_stop or {}).get("assets") or {}).get("ready_for_openvla_oft_smoke"),
     },
     "recommended_next_step": (
-        "No-go for larger experimental stages. Continue only with routine checks/docs, LoRA/QLoRA planning interpretation, or a separate bounded-runner proposal; stop before true gates such as real dataset setup, LoRA/QLoRA execution, simulator rollout, larger training, package/CUDA/PyTorch changes, or OpenVLA-OFT."
+        "Ready for bounded local SmolVLA pilot work inside standing approval. No-go remains only for larger paper-grade stages and true hard-stop gates such as dataset downloads, simulator rollout, real benchmark evaluation, training >100 steps, runtime >30 minutes, >14GB VRAM, package/CUDA/PyTorch changes, or OpenVLA-OFT."
         if all_safe_smokes_passed
-        else "Rerun the missing safe smoke reports before any larger experimental stage."
+        else "Rerun the missing safe smoke reports before any bounded local pilot or larger experimental stage."
     ),
 }
 
@@ -221,6 +223,8 @@ lines = [
     "# Go/No-Go Status Report",
     "",
     f"Decision: `{decision}`",
+    f"Ready for bounded local pilot: `{str(ready_for_bounded_local_pilot).lower()}`",
+    f"Blocked for larger paper-grade stage: `{str(blocked_for_larger_paper_grade_stage).lower()}`",
     "",
     "## Safe Smoke Evidence",
 ]

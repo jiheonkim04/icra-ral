@@ -66,15 +66,18 @@ These comparisons separate:
 
 ## LoRA Policy
 
-Allowed later, after SmolVLA load-only and single-sample interface smoke pass:
+Standing-approved after SmolVLA load-only and single-sample interface smoke pass:
 
 - LoRA adapter construction,
 - LoRA config validation,
 - tiny LoRA smoke,
+- tiny TCA-Map + LoRA smoke,
+- tiny TCA-Map + LoRA + Distributional TCA-Select smoke,
 - frozen backbone except LoRA adapter weights,
 - batch size 1,
 - max 100 steps for tiny smoke,
-- max runtime 15 minutes for smoke,
+- max 200 samples for bounded local pilot diagnostics,
+- max runtime 30 minutes for smoke,
 - max VRAM target 14GB,
 - no rollout,
 - no simulator,
@@ -86,6 +89,7 @@ Hard-stop if:
 - LoRA requires full backbone fine-tuning,
 - memory estimate exceeds 14GB,
 - training would exceed 100 smoke steps,
+- runtime is expected to exceed 30 minutes,
 - CUDA/PyTorch major changes are required,
 - OpenVLA-OFT is required,
 - dataset download is required.
@@ -106,6 +110,6 @@ If TCA-Map only improves without LoRA but disappears under LoRA, report that hon
 
 ## Current Local Status
 
-The current local status remains no-go for larger experimental stages. The safe smoke stack has validated interface paths, not paper-grade results.
+The current local status is ready for bounded local SmolVLA pilot work inside standing approval and remains no-go for larger paper-grade experimental stages. The safe smoke stack has validated interface paths, not paper-grade results.
 
-Next safe task after this policy update is a planning-only LoRA adapter construction/readiness scaffold. Actual LoRA smoke is allowed only if it stays within the documented tiny-smoke budget and does not cross hard-stop gates.
+Next bounded local pilot work may continue autonomously through tiny LoRA smoke, TCA-Map + LoRA smoke, and TCA-Map + LoRA + Distributional TCA-Select diagnostics if each run stays within the documented 100-step, 200-sample, 30-minute, 14GB budget and does not cross hard-stop gates.
