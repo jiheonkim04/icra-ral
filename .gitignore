@@ -62,6 +62,8 @@ reports/libero_robosuite_source_resolution_report.json
 reports/libero_robosuite_source_resolution_report.md
 reports/libero_robosuite_setup_report.json
 reports/libero_robosuite_setup_report.md
+reports/libero_metadata_subset_report.json
+reports/libero_metadata_subset_report.md
 reports/wsl2_status.md
 
 # Runs and generated artifacts
@@ -70,9 +72,9 @@ outputs/
 *.log
 
 # Large local assets
-checkpoints/
-data/
-datasets/
+/checkpoints/
+/data/
+/datasets/
 
 # OS/editor
 .DS_Store

@@ -379,3 +379,11 @@ Decision: Treat bounded LIBERO/RoboSuite source repo setup as complete.
 Reason: The official LIBERO and RoboSuite code repos were risk-green for shallow clone, while the full official LIBERO dataset remained stopped because it is about 100 GB.
 
 Consequence: `LIBERO_ROOT` and `ROBOSUITE_ROOT` are now path-ready under `C:\assets\repos`, and `LIBERO_DATA_ROOT` exists with a marker explaining that the full dataset was not downloaded. This clears source path setup only. It does not clear tiny offline dataset readiness, simulator import readiness as an executed result, rollout readiness, real benchmark readiness, OpenVLA-OFT, or paper claims.
+
+## LIBERO Metadata-Only Subset Construction
+
+Decision: Add a metadata-only LIBERO task/counterfactual manifest builder.
+
+Reason: The official full LIBERO demonstrations dataset is too large for the current autonomous local budget, but the official source checkout contains BDDL/task metadata that is enough to validate target/counterfactual split plumbing.
+
+Consequence: `scripts\47_build_libero_metadata_subset.ps1` may read local BDDL/task metadata and write ignored metadata reports. It must not download data, run GPU jobs, train, rollout, import simulators or heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper-grade claims. Metadata-only readiness does not imply real dataset interface readiness.

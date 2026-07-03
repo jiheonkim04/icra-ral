@@ -343,3 +343,11 @@ Risk: Creating `LIBERO_ROOT`, `LIBERO_DATA_ROOT`, and `ROBOSUITE_ROOT` can make 
 Impact: A checker could incorrectly report rollout readiness from directories alone.
 
 Mitigation: `scripts\11_check_real_assets.ps1` now separates `ready_for_libero_path_check`, `libero_dataset_files_present`, and `ready_for_libero_rollout`. Empty data roots or marker-only roots are path-ready only, not rollout-ready.
+
+## LIBERO Metadata-Only Overclaim Risk
+
+Risk: A metadata-only LIBERO task/counterfactual manifest could be mistaken for real offline dataset evaluation.
+
+Impact: Invalid evidence claims, premature comparison language, or hidden drift toward training without demonstration files.
+
+Mitigation: `scripts\47_build_libero_metadata_subset.ps1` labels outputs as metadata-only, refuses execution gates, reports `ready_for_real_dataset_interface_smoke=false` when demo files are absent, and keeps all offline dataset smoke, simulator execution, rollout, and paper claims behind later risk gates.

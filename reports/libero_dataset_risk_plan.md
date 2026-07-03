@@ -36,4 +36,12 @@ Use the source-resolution planner before setup:
 powershell -ExecutionPolicy Bypass -File scripts\45_resolve_libero_robosuite_sources.ps1
 ```
 
+For a safe next step without downloading demonstrations, run the metadata-only subset builder:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\47_build_libero_metadata_subset.ps1
+```
+
+That builder reads BDDL/task metadata from the local LIBERO source checkout only. It can validate target/counterfactual split plumbing, but `ready_for_real_dataset_interface_smoke` remains false until actual demo files are present under `LIBERO_DATA_ROOT`.
+
 Paper-grade standard success still requires simulator rollout evidence later. Offline subset metrics remain offline proxy evidence only.

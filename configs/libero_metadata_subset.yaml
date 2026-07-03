@@ -1,0 +1,22 @@
+libero_metadata_subset:
+  description: Metadata-only LIBERO task subset for target/counterfactual split plumbing.
+
+suites:
+  - libero_spatial
+  - libero_object
+  - libero_goal
+  - libero_10
+
+max_tasks_per_suite: 3
+max_counterfactual_pairs: 8
+metadata_only: true
+requires_demo_files_for_real_interface_smoke: true
+forbidden:
+  - downloads
+  - gpu_jobs
+  - training
+  - simulator_execution
+  - rollouts
+  - heavy_vla_imports
+  - openvla_oft
+  - paper_grade_claims
