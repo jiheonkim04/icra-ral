@@ -34,6 +34,7 @@ $required = @(
     "reports/smolvla_runtime_install_request.md",
     "reports/feature_cache_interface_plan.md",
     "reports/feature_cache_eval_smoke_plan.md",
+    "reports/tiny_head_only_pilot_plan.md",
     "reports/no_large_openvla_strategy.md",
     "reports/low_compute_experiment_plan.md",
     "reports/reviewer2_no_large_openvla_risk.md",
@@ -72,6 +73,7 @@ $required = @(
     "scripts/18_plan_smolvla_runtime_install.ps1",
     "scripts/19_plan_feature_cache.ps1",
     "scripts/25_eval_feature_cache_smoke.ps1",
+    "scripts/26_plan_tiny_head_only_pilot.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -104,6 +106,7 @@ $required = @(
     "tests/test_smolvla_runtime_install_plan.py",
     "tests/test_feature_cache_interface.py",
     "tests/test_feature_cache_eval_smoke.py",
+    "tests/test_tiny_head_only_pilot_plan.py",
     "tests/test_lora_config_guards.py"
 )
 
