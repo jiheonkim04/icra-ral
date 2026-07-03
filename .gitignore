@@ -40,6 +40,7 @@ reports/go_no_go_status_report.json
 reports/go_no_go_status_report.md
 reports/lora_adapter_construction_plan_report.json
 reports/lora_tiny_smoke_scaffold_report.json
+reports/tiny_lora_smoke_report.json
 reports/lora_comparison_plan_report.json
 reports/qlora_feasibility_report.json
 reports/head_only_tiny_comparison_report.json

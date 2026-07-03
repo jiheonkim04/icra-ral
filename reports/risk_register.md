@@ -184,6 +184,14 @@ Impact: Misleading claims and poor research decisions.
 
 Mitigation: `scripts\36_compare_head_only_tiny_pilot.ps1` labels the output as offline proxy only, reports `not_standard_success=true` and `not_paper_grade=true`, and avoids SOTA or paper-grade language.
 
+## Tiny LoRA Smoke Overinterpretation
+
+Risk: The bounded tiny LoRA smoke may be mistaken for evidence that LoRA improves real SmolVLA behavior.
+
+Impact: Misleading method claims and premature paper conclusions.
+
+Mitigation: `scripts\37_tiny_lora_smoke.ps1` uses cached/dummy features only, reports `offline_proxy_only=true`, `not_standard_success=true`, and `not_paper_grade=true`, and keeps future real-data or rollout claims behind explicit hard-stop gates.
+
 ## QLoRA Tooling Drift
 
 Risk: QLoRA may require bitsandbytes/PEFT behavior, CUDA support, or PyTorch compatibility that is not stable on native Windows.

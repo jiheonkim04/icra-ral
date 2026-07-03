@@ -59,6 +59,7 @@ $required = @(
     "reports/lora_required_experiment_plan.md",
     "reports/lora_adapter_construction_plan.md",
     "reports/lora_tiny_smoke_scaffold.md",
+    "reports/tiny_lora_smoke.md",
     "reports/lora_comparison_plan.md",
     "reports/qlora_feasibility_check.md",
     "reports/head_only_tiny_comparison.md",
@@ -93,6 +94,7 @@ $required = @(
     "scripts/34_plan_lora_comparison.ps1",
     "scripts/35_check_qlora_feasibility.ps1",
     "scripts/36_compare_head_only_tiny_pilot.ps1",
+    "scripts/37_tiny_lora_smoke.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -110,6 +112,7 @@ $required = @(
     "tca_map/inference/tca_select.py",
     "tca_map/adapters/__init__.py",
     "tca_map/adapters/lora_policy.py",
+    "tca_map/adapters/tiny_lora_smoke.py",
     "tca_map/smolvla/__init__.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
@@ -137,6 +140,7 @@ $required = @(
     "tests/test_lora_comparison_plan.py",
     "tests/test_qlora_feasibility_check.py",
     "tests/test_head_only_tiny_comparison.py",
+    "tests/test_tiny_lora_smoke.py",
     "tests/test_lora_config_guards.py"
 )
 
