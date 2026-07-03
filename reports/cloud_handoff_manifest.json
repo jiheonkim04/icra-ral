@@ -9,13 +9,16 @@
                    "require_cloud_gate":  "ALLOW_CLOUD_HANDOFF=1"
                },
     "git":  {
-                "commit_hash":  "c78ef1a029b09064bcf4e453e3391f7d0042dfc8",
-                "branch":  "codex/replace-hard-stops-with-risk-assessed-autonomy",
-                "repository":  "https://github.com/jiheonkim04/icra-ral.git"
+                "generated_from_commit_hash":  "e061af9d074eab163dc1932b776d6c96dd88ce79",
+                "generated_from_branch":  "codex/refresh-cloud-handoff-manifest-current-main",
+                "remote_target_branch":  "main",
+                "repository":  "https://github.com/jiheonkim04/icra-ral.git",
+                "regenerate_before_remote_execution":  true
             },
     "environment":  {
                         "conda_env":  "unavailable",
-                        "python":  "unavailable",
+                        "python_executable":  "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe",
+                        "python":  "Python 3.10.20",
                         "os_note":  "Generate this manifest locally, then re-run on remote Linux after clone."
                     },
     "required_assets":  [
@@ -42,7 +45,8 @@
     "remote_commands":  [
                             "git clone https://github.com/jiheonkim04/icra-ral.git tca_map",
                             "cd tca_map",
-                            "git checkout codex/replace-hard-stops-with-risk-assessed-autonomy",
+                            "git checkout main",
+                            "git pull origin main",
                             "conda activate tca_map",
                             "bash scripts/00_preflight.sh",
                             "bash scripts/11_check_real_assets.sh",

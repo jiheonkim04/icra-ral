@@ -7,6 +7,7 @@ mkdir -p reports
 
 COMMIT_HASH="$(git rev-parse HEAD 2>/dev/null || echo unavailable)"
 BRANCH="$(git branch --show-current 2>/dev/null || echo unavailable)"
+REMOTE_BRANCH="${CLOUD_HANDOFF_BRANCH:-main}"
 PYTHON_BIN="${PYTHON:-python}"
 PYTHON_VERSION="$($PYTHON_BIN --version 2>&1 || echo unavailable)"
 CONDA_ENV_VALUE="${CONDA_DEFAULT_ENV:-}"
@@ -23,12 +24,15 @@ cat > reports/cloud_handoff_manifest.json <<JSON
     "require_cloud_gate": "ALLOW_CLOUD_HANDOFF=1"
   },
   "git": {
-    "commit_hash": "$COMMIT_HASH",
-    "branch": "$BRANCH",
-    "repository": "https://github.com/jiheonkim04/icra-ral.git"
+    "generated_from_commit_hash": "$COMMIT_HASH",
+    "generated_from_branch": "$BRANCH",
+    "remote_target_branch": "$REMOTE_BRANCH",
+    "repository": "https://github.com/jiheonkim04/icra-ral.git",
+    "regenerate_before_remote_execution": true
   },
   "environment": {
     "conda_env": "$CONDA_ENV_VALUE",
+    "python_executable": "$PYTHON_BIN",
     "python": "$PYTHON_VERSION",
     "os_note": "Generate this manifest locally, then re-run on remote Linux after clone."
   },
@@ -56,7 +60,8 @@ cat > reports/cloud_handoff_manifest.json <<JSON
   "remote_commands": [
     "git clone https://github.com/jiheonkim04/icra-ral.git tca_map",
     "cd tca_map",
-    "git checkout $BRANCH",
+    "git checkout $REMOTE_BRANCH",
+    "git pull origin $REMOTE_BRANCH",
     "conda activate tca_map",
     "bash scripts/00_preflight.sh",
     "bash scripts/11_check_real_assets.sh",
@@ -79,12 +84,15 @@ This manifest is generated for remote Linux GPU preparation only. It does not la
 ## Git
 
 - Repository: https://github.com/jiheonkim04/icra-ral.git
-- Branch: $BRANCH
-- Commit hash: $COMMIT_HASH
+- Remote target branch: $REMOTE_BRANCH
+- Generated from branch: $BRANCH
+- Generated from commit hash: $COMMIT_HASH
+- Regenerate before remote execution: true
 
 ## Python / Conda Summary
 
 - Conda env: $CONDA_ENV_VALUE
+- Python executable: $PYTHON_BIN
 - Python: $PYTHON_VERSION
 
 ## Required Assets
@@ -106,34 +114,31 @@ This manifest is generated for remote Linux GPU preparation only. It does not la
 
 ## Configs To Upload
 
-- `configs/paths.local.yaml` after replacing local paths with remote paths and removing secrets.
+- configs/paths.local.yaml after replacing local paths with remote paths and removing secrets.
 - Experiment configs once created.
-- `reports/real_asset_setup_plan.md`.
-- `reports/local_papergrade_plan.md`.
+- reports/real_asset_setup_plan.md.
+- reports/local_papergrade_plan.md.
 
 ## Remote Linux Commands
 
-```bash
-git clone https://github.com/jiheonkim04/icra-ral.git tca_map
-cd tca_map
-git checkout $BRANCH
-conda activate tca_map
-bash scripts/00_preflight.sh
-bash scripts/11_check_real_assets.sh
-bash scripts/20_system_readiness.sh
-bash scripts/22_plan_local_experiment_matrix.sh
-```
+    git clone https://github.com/jiheonkim04/icra-ral.git tca_map
+    cd tca_map
+    git checkout $REMOTE_BRANCH
+    git pull origin $REMOTE_BRANCH
+    conda activate tca_map
+    bash scripts/00_preflight.sh
+    bash scripts/11_check_real_assets.sh
+    bash scripts/20_system_readiness.sh
+    bash scripts/22_plan_local_experiment_matrix.sh
 
 ## Transfer Examples
 
-```bash
-rsync -av --exclude configs/paths.local.yaml --exclude runs/ --exclude reports/system_readiness.json ./ user@remote:/path/to/tca_map/
-rsync -av user@remote:/path/to/tca_map/reports/ ./reports/
-```
+    rsync -av --exclude configs/paths.local.yaml --exclude runs/ --exclude reports/system_readiness.json ./ user@remote:/path/to/tca_map/
+    rsync -av user@remote:/path/to/tca_map/reports/ ./reports/
 
 ## Download Policy
 
-Download or cache models only after a green remote/cloud risk assessment and task-local `ALLOW_DOWNLOADS=1`. Do not include provider-specific secrets or tokens in tracked files.
+Download or cache models only after a green remote/cloud risk assessment and task-local ALLOW_DOWNLOADS=1. Do not include provider-specific secrets or tokens in tracked files.
 MD
 
 echo "Wrote reports/cloud_handoff_manifest.json"
