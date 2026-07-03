@@ -168,9 +168,10 @@ Get-Content reports/publishability_criteria.md
 2. WSL2/Linux rollout setup: use `scripts/24_wsl2_setup_check.ps1`, then install Ubuntu manually if needed and validate GPU visibility from WSL2.
 3. SmolVLA-first local smoke: configure `SMOLVLA_CKPT`, `HF_HOME`, and `CHECKPOINT_ROOT`, then run readiness checks. Model execution remains a later approved task.
 4. LIBERO/RoboSuite source setup: resolve official sources with `scripts/45_resolve_libero_robosuite_sources.ps1`; shallow-clone only budget-green code repos with `scripts/46_prepare_libero_robosuite_sources.ps1`. The full LIBERO dataset is about 100 GB and is not downloaded under the current 80 GB autonomous budget.
-5. Small local rollout: after WSL2/Linux, LIBERO, RoboSuite, and data paths pass checks, run only a separately approved tiny rollout task.
-6. OpenVLA-OFT frozen smoke: keep OpenVLA-OFT as the paper-grade baseline target, but attempt only frozen/load smoke locally and only after memory checks pass.
-7. Cloud/remote GPU handoff: use `scripts/23_cloud_handoff_manifest.*` to prepare a manifest for 24GB, 48GB, or 80GB GPU classes depending on baseline scale.
+5. LIBERO metadata subset: build a BDDL/task-only manifest with `scripts/47_build_libero_metadata_subset.ps1`. This validates target/counterfactual split plumbing only; it is not a real dataset smoke or paper-grade result.
+6. Small local rollout: after WSL2/Linux, LIBERO, RoboSuite, and data paths pass checks, run only a separately approved tiny rollout task.
+7. OpenVLA-OFT frozen smoke: keep OpenVLA-OFT as the paper-grade baseline target, but attempt only frozen/load smoke locally and only after memory checks pass.
+8. Cloud/remote GPU handoff: use `scripts/23_cloud_handoff_manifest.*` to prepare a manifest for 24GB, 48GB, or 80GB GPU classes depending on baseline scale.
 
 Planner scripts:
 
@@ -181,6 +182,7 @@ powershell -ExecutionPolicy Bypass -File scripts/22_plan_local_experiment_matrix
 powershell -ExecutionPolicy Bypass -File scripts/23_cloud_handoff_manifest.ps1
 powershell -ExecutionPolicy Bypass -File scripts/24_wsl2_setup_check.ps1
 powershell -ExecutionPolicy Bypass -File scripts/45_resolve_libero_robosuite_sources.ps1
+powershell -ExecutionPolicy Bypass -File scripts/47_build_libero_metadata_subset.ps1
 ```
 
 Publication-oriented tables should separate:
