@@ -56,6 +56,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - tiny head-only pilot approval planner,
 - bounded tiny head-only smoke runner,
 - hard-stop approval status summary,
+- go/no-go status summary,
 - explicitly approved SmolVLA runtime package install,
 - SmolVLA autonomous pilot standing approval policy,
 - bounded SmolVLA load-only model construction smoke on CPU.
@@ -350,7 +351,7 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, and bounded tiny head-only smoke passed, the next safe non-heavy task is a go/no-go/status summary. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, dummy feature-cache/interface validation passed, and bounded tiny head-only smoke passed, the next safe non-heavy task is a go/no-go/status summary. After that summary, no larger experimental stage is safe without explicit approval for exactly one true next gate. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 
@@ -384,4 +385,10 @@ The consolidated hard-stop status is documented in `reports\hard_stop_status.md`
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
+```
+
+The go/no-go status summary is documented in `reports\go_no_go_status.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
 ```

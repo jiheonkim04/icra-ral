@@ -86,6 +86,12 @@ Summarize the current hard-stop approval choices:
 powershell -ExecutionPolicy Bypass -File scripts\27_summarize_hard_stop_status.ps1
 ```
 
+Generate the go/no-go status summary:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
+```
+
 ## Current Asset State
 
 The approved SmolVLA checkpoint source has been acquired:
@@ -147,10 +153,11 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 8. Eval-only cached-feature head/metric smoke. Done.
 9. Tiny head-only pilot planning and budget check. Done.
 10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Done.
-11. Summarize hard-stop approval choices. Next.
-12. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+11. Summarize hard-stop approval choices. Done.
+12. Generate go/no-go status summary. In progress.
+13. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: the bounded tiny head-only smoke has passed. The next safe non-heavy task is a go/no-go/status summary. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: the bounded tiny head-only smoke has passed, and the go/no-go summary is being prepared. After that, no larger experimental stage is safe without explicit approval for exactly one true next gate. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 ## Self-Check Cases
 
