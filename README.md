@@ -88,6 +88,12 @@ Plan or validate the dummy feature-cache interface without SmolVLA imports:
 powershell -ExecutionPolicy Bypass -File scripts/19_plan_feature_cache.ps1
 ```
 
+Run the eval-only cached-feature smoke with dummy cached features:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
+```
+
 Linux/WSL equivalent:
 
 ```bash

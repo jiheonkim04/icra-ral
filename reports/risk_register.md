@@ -88,6 +88,14 @@ Impact: Head-only pilots fail late or silently train on inconsistent metadata.
 
 Mitigation: Use `reports\feature_cache_interface_plan.md`, `tca_map.features.cache`, and `scripts\19_plan_feature_cache.ps1` to validate manifest and JSONL schema with dummy features before any real extraction.
 
+## Cached-Feature Consumer Drift
+
+Risk: Cached features may be valid on disk but unusable by TCA-Map heads or offline metric code.
+
+Impact: The first head-only pilot fails after expensive feature extraction or produces invalid proxy metrics.
+
+Mitigation: Run `scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache` and `tests\test_feature_cache_eval_smoke.py` to validate the consumer path with dummy cached features before real SmolVLA extraction.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

@@ -51,7 +51,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - SmolVLA load-only adapter smoke planning guard,
 - SmolVLA load-only execution scaffold,
 - SmolVLA runtime dependency checker and install approval plan,
-- feature-cache interface contract and dummy cache planner.
+- feature-cache interface contract and dummy cache planner,
+- eval-only cached-feature smoke for the head/metric interface.
 
 ## Current Asset Status
 
@@ -252,4 +253,10 @@ The feature-cache interface contract is documented in `reports\feature_cache_int
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\19_plan_feature_cache.ps1
+```
+
+The eval-only cached-feature smoke is documented in `reports\feature_cache_eval_smoke_plan.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache
 ```
