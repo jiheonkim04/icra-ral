@@ -179,3 +179,19 @@ Decision: Treat the bounded CPU SmolVLA load-only smoke as passed.
 Reason: The local checkpoint, local tokenizer/processor dependency, runtime packages, memory policy, and heavy-import gate were sufficient to construct the SmolVLA policy from local files with `load_vlm_weights=false`.
 
 Consequence: This is an engineering smoke result only, not a paper-grade result. It performed no inference, training, rollout, OpenVLA-OFT execution, token access, or downloads. The next autonomous step is a single-sample interface smoke with synthetic or dummy inputs inside the same bounded pilot policy.
+
+## SmolVLA Single-Sample Interface Smoke Scaffold
+
+Decision: Add a bounded single-sample SmolVLA interface smoke after load-only construction passed.
+
+Reason: The next interface risk is whether the local checkpoint, tokenizer, synthetic image/state/text batch, and policy action interface agree end to end.
+
+Consequence: `scripts\28_smolvla_single_sample_interface_smoke.ps1` requires `ALLOW_HEAVY_IMPORT=1` and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` inside the bounded task, uses CPU by default, and writes an ignored report. It must not download assets, train, rollout, access simulator/datasets/tokens, execute OpenVLA-OFT, or make paper claims.
+
+## SmolVLA Single-Sample Interface Smoke Result
+
+Decision: Treat the bounded CPU single-sample interface smoke as passed.
+
+Reason: The local checkpoint, local tokenizer, synthetic image/state/text batch, and one CPU `select_action` call produced a finite action tensor with shape `[1, 6]`.
+
+Consequence: This is an engineering interface smoke only. It is not a benchmark or paper result. The next autonomous step is tiny feature-cache/interface validation without training, rollouts, simulator execution, OpenVLA-OFT, dataset evaluation, token access, or paper claims.

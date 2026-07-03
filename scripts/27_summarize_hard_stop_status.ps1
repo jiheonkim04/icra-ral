@@ -197,6 +197,8 @@ missing_required_runtime = [name for name, found in runtime_required.items() if 
 asset_report = load_json("reports/missing_assets_runtime.json") or {}
 smolvla_runtime_deps_report = load_json("reports/smolvla_runtime_deps_report.json") or {}
 runtime_install_plan = load_json("reports/smolvla_runtime_install_plan_report.json") or {}
+load_only_report = load_json("reports/smolvla_load_only_smoke_report.json") or {}
+single_sample_report = load_json("reports/smolvla_single_sample_interface_report.json") or {}
 tiny_plan = load_json("reports/tiny_head_only_pilot_plan_report.json") or {}
 local_paths = load_local_paths()
 smolvla_readiness = smolvla_file_readiness(local_paths)
@@ -232,6 +234,14 @@ approval_requests = [
         "approval_env_if_later_approved": "Standing-approved for bounded tiny head-only smoke only",
         "standing_approval": True,
     },
+    {
+        "gate": "single_sample_interface_smoke",
+        "required_before": "running model inference outside one synthetic SmolVLA interface smoke",
+        "current_blocker": False,
+        "safe_planner": "scripts/28_smolvla_single_sample_interface_smoke.ps1",
+        "approval_env_if_later_approved": "Standing-approved for one bounded synthetic SmolVLA interface smoke only",
+        "standing_approval": True,
+    },
 ]
 
 blocking_labels = []
@@ -259,10 +269,21 @@ if hard_stop_reached:
     recommended_next_step = f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates."
 else:
     hard_stop_reason = None
-    recommended_next_step = (
-        "Continue autonomous SmolVLA pilot: run bounded load-only smoke with ALLOW_HEAVY_IMPORT=1 "
-        "inside that task, then proceed to single-sample interface smoke if it passes."
-    )
+    if single_sample_report.get("result", {}).get("passed"):
+        recommended_next_step = (
+            "Continue autonomous SmolVLA pilot: proceed to tiny feature-cache/interface validation. "
+            "Do not train or rollout."
+        )
+    elif load_only_report.get("result", {}).get("passed"):
+        recommended_next_step = (
+            "Continue autonomous SmolVLA pilot: run bounded single-sample interface smoke with "
+            "ALLOW_HEAVY_IMPORT=1 and ALLOW_SINGLE_SAMPLE_INFERENCE=1 inside that task."
+        )
+    else:
+        recommended_next_step = (
+            "Continue autonomous SmolVLA pilot: run bounded load-only smoke with ALLOW_HEAVY_IMPORT=1 "
+            "inside that task, then proceed to single-sample interface smoke if it passes."
+        )
 
 git_branch = run_small(["git", "branch", "--show-current"])
 git_commit = run_small(["git", "log", "-1", "--oneline"])
@@ -320,6 +341,11 @@ report = {
         "ready_to_request_tiny_training_approval": tiny_plan.get("ready_to_request_tiny_training_approval"),
         "safe_to_run_training_now": tiny_plan.get("safe_to_run_training_now"),
         "configs_pass_policy": tiny_plan.get("configs_pass_policy"),
+    },
+    "smolvla_smokes": {
+        "load_only_passed": load_only_report.get("result", {}).get("passed"),
+        "single_sample_interface_passed": single_sample_report.get("result", {}).get("passed"),
+        "single_sample_interface_report_path": "reports/smolvla_single_sample_interface_report.json",
     },
     "approval_requests": approval_requests,
     "current_blocking_gates": next_gate_names,

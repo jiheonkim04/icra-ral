@@ -77,6 +77,27 @@ function Test-LoadOnlySmokePassed {
     }
 }
 
+function Test-SingleSampleInterfacePassed {
+    param([string]$ExpectedSmolVlaPath)
+
+    $reportPath = Join-Path $RepoRoot "reports\smolvla_single_sample_interface_report.json"
+    if ([string]::IsNullOrWhiteSpace($ExpectedSmolVlaPath) -or -not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        $reportedPath = [string]$report.paths.smolvla_ckpt
+        if ([string]::IsNullOrWhiteSpace($reportedPath)) {
+            return $false
+        }
+        $expectedFullPath = [System.IO.Path]::GetFullPath($ExpectedSmolVlaPath)
+        $reportedFullPath = [System.IO.Path]::GetFullPath($reportedPath)
+        return [bool]($report.result.passed -and $expectedFullPath -eq $reportedFullPath)
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -266,8 +287,11 @@ $readyForSmolVlaSmoke = $readyForSmolVlaAdapterSmoke
 $readyForOpenVlaOftSmoke = [bool]($status["openvla_oft_ckpt"].exists -and $status["hf_home"].exists -and $status["checkpoint_root"].exists)
 $readyForLiberoRollout = [bool]($status["libero_root"].exists -and $status["libero_data_root"].exists -and $status["robosuite_root"].exists)
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $smolVlaPath
+$singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $smolVlaPath
 
-if ($readyForSmolVlaAdapterSmoke -and $loadOnlySmokePassed) {
+if ($readyForSmolVlaAdapterSmoke -and $singleSampleInterfacePassed) {
+    $recommendedNextStep = "Continue to tiny feature-cache/interface validation. Do not train or rollout."
+} elseif ($readyForSmolVlaAdapterSmoke -and $loadOnlySmokePassed) {
     $recommendedNextStep = "Continue to the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
 } elseif ($readyForSmolVlaAdapterSmoke) {
     $recommendedNextStep = "Continue to the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
@@ -294,6 +318,7 @@ $report = [ordered]@{
     ready_for_smolvla_path_check = $readyForSmolVlaPathCheck
     ready_for_smolvla_adapter_smoke = $readyForSmolVlaAdapterSmoke
     smolvla_load_only_smoke_passed = $loadOnlySmokePassed
+    smolvla_single_sample_interface_passed = $singleSampleInterfacePassed
     smolvla_expected_files = [ordered]@{
         config_found = @($smolVlaConfigFiles)
         tokenizer_found = @($smolVlaTokenizerFiles)
