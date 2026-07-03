@@ -75,6 +75,10 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert "bounded_local_pilot_extension" in report["completed_safe_smokes"]
     assert "bounded_local_pilot_extension" in report
     assert report["bounded_local_pilot_extension"].get("not_paper_grade") in {True, False, None}
+    assert "libero_data_gates" in report
+    assert report["libero_data_gates"]["ready_for_rollout"] is False
+    assert report["runtime_reports_available"]["libero_metadata_subset_report"] in {True, False}
+    assert report["runtime_reports_available"]["libero_offline_interface_smoke_report"] in {True, False}
     assert report["blocked_for_larger_paper_grade_stage"] is True
     assert "lora_qlora_planning" in report
     assert report["lora_qlora_planning"]["qlora_safe_to_run_now"] is False

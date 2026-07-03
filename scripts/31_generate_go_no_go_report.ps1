@@ -92,6 +92,8 @@ lora_adapter_plan = load_json("reports/lora_adapter_construction_plan_report.jso
 lora_tiny_scaffold = load_json("reports/lora_tiny_smoke_scaffold_report.json")
 lora_comparison_plan = load_json("reports/lora_comparison_plan_report.json")
 qlora_feasibility = load_json("reports/qlora_feasibility_report.json")
+libero_metadata_subset = load_json("reports/libero_metadata_subset_report.json")
+libero_offline_interface = load_json("reports/libero_offline_interface_smoke_report.json")
 
 completed = {
     "smolvla_load_only_smoke": passed(load_only, "result", "passed"),
@@ -112,6 +114,8 @@ runtime_reports_available = {
     "lora_tiny_smoke_scaffold_report": lora_tiny_scaffold is not None,
     "lora_comparison_plan_report": lora_comparison_plan is not None,
     "qlora_feasibility_report": qlora_feasibility is not None,
+    "libero_metadata_subset_report": libero_metadata_subset is not None,
+    "libero_offline_interface_smoke_report": libero_offline_interface is not None,
 }
 
 tiny_metrics = {}
@@ -156,6 +160,15 @@ all_lora_qlora_planning_done = (
     and lora_qlora_planning["lora_comparison_plan"]
     and lora_qlora_planning["qlora_feasibility_check_present"]
 )
+libero_data_gates = {
+    "metadata_subset_report_present": libero_metadata_subset is not None,
+    "metadata_subset_ready": bool((libero_metadata_subset or {}).get("ready_for_metadata_only_subset")),
+    "offline_interface_report_present": libero_offline_interface is not None,
+    "offline_interface_decision": (libero_offline_interface or {}).get("decision"),
+    "ready_for_offline_interface_smoke": bool((libero_offline_interface or {}).get("ready_for_offline_interface_smoke")),
+    "ready_for_rollout": bool((libero_offline_interface or {}).get("ready_for_rollout")),
+    "reason": (libero_offline_interface or {}).get("reason"),
+}
 ready_for_bounded_local_pilot = all_safe_smokes_passed
 blocked_for_larger_paper_grade_stage = True
 blocked_by = [
@@ -166,6 +179,8 @@ blocked_by = [
     "OpenVLA-OFT download/import/load/execution remains forbidden locally",
     "offline proxy metrics are not standard success and cannot support paper-grade claims",
 ]
+if not libero_data_gates["ready_for_offline_interface_smoke"]:
+    blocked_by.append("no tiny local LIBERO-style demo file is ready for offline interface smoke")
 
 decision = (
     "no_go_for_next_larger_experimental_stage"
@@ -235,6 +250,7 @@ report = {
     "runtime_reports_available": runtime_reports_available,
     "tiny_head_only_metrics": tiny_metrics,
     "bounded_local_pilot_extension": bounded_extension_summary,
+    "libero_data_gates": libero_data_gates,
     "blocked_by": blocked_by,
     "hard_stop_status": {
         "hard_stop_reached": (hard_stop or {}).get("hard_stop_reached"),
@@ -273,6 +289,9 @@ lines.extend(
         "## Required LoRA/QLoRA Planning",
         *[f"- `{name}`: `{str(value).lower()}`" for name, value in lora_qlora_planning.items() if name != "qlora_blockers"],
         f"- `qlora_blockers`: `{lora_qlora_planning['qlora_blockers']}`",
+        "",
+        "## LIBERO Data Gates",
+        *[f"- `{name}`: `{value}`" for name, value in libero_data_gates.items()],
         "",
         "## Go For",
         *[f"- {item}" for item in go_for],

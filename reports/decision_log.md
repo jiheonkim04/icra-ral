@@ -395,3 +395,11 @@ Decision: Add a check-only gate for tiny local LIBERO-style data files.
 Reason: After metadata-only task plumbing is available, the next safe boundary is distinguishing absent data from a tiny local data file that can be structurally read without training, rollout, simulator execution, or heavy imports.
 
 Consequence: `scripts\48_plan_libero_offline_interface_smoke.ps1` inspects only local JSON/JSONL/NPZ/HDF5-like files under `LIBERO_DATA_ROOT` and reports `proceed` only if instruction/action-like fields are readable. In the current state it should report `stop` because no real demo files are present.
+
+## Consolidate LIBERO Data Gates Into Status Reports
+
+Decision: Include LIBERO metadata/offline-interface gate reports in the consolidated local pilot and go/no-go summaries.
+
+Reason: Once the LIBERO source, metadata, and offline-interface gates exist, the main status reports should make the current blocker visible without requiring manual inspection of individual runtime reports.
+
+Consequence: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` now read the metadata subset and offline interface smoke gate reports when present. The summaries remain report-only and perform no downloads, GPU jobs, training, rollouts, simulator execution, heavy imports, OpenVLA-OFT execution, token access, or paper claims.
