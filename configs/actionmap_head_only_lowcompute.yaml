@@ -23,7 +23,7 @@ head:
 training:
   batch_size: 1
   gradient_accumulation_steps: 8
-  max_steps: 1000
+  max_steps: 300
   train_backbone: false
   train_heads: true
   precision: fp16_if_safe

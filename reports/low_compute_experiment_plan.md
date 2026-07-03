@@ -66,7 +66,7 @@ Rules:
 - Do not call offline proxy standard success.
 - Keep heatmap grid initial size at or below 8.
 - Keep trainable parameters at or below 50M initially.
-- Keep local pilot steps at or below 1000 initially.
+- Keep local pilot steps at or below 300 initially after smaller smoke is stable.
 
 ## Stage D: Small Rollout After WSL2/LIBERO Passes
 

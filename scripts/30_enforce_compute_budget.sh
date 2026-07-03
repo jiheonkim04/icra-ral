@@ -18,9 +18,9 @@ scalar_value() {
   local value
   value="$(awk -v wanted="$key" '
     $1 == wanted":" {
-      $1=""; sub(/^[[:space:]]+/, "", $0); gsub(/^\"|\"$/, "", $0); print $0; exit
+      $1=""; sub(/^[[:space:]]+/, "", $0); gsub(/^"|"$/, "", $0); print $0; exit
     }
-  ' "$file")"
+  ' "$file" | tr -d '\r')"
   if [[ -n "$value" ]]; then printf '%s' "$value"; else printf '%s' "$default_value"; fi
 }
 
@@ -37,12 +37,12 @@ numeric_key() {
     $1 == wanted":" {
       print $2; exit
     }
-  ' "$file"
+  ' "$file" | tr -d '\r'
 }
 
 MAX_GRID="$(scalar_value "$BUDGET_FILE" max_heatmap_grid_initial 8)"
 MAX_PARAMS="$(scalar_value "$BUDGET_FILE" max_trainable_params_millions_initial 50)"
-MAX_STEPS="$(scalar_value "$BUDGET_FILE" max_local_pilot_steps_initial 1000)"
+MAX_STEPS="$(scalar_value "$BUDGET_FILE" max_local_pilot_steps_initial 300)"
 ERRORS=()
 WARNINGS=()
 CHECKED=()
@@ -86,7 +86,7 @@ for file in "${CONFIGS[@]}"; do
   if [[ -n "$steps" && "$steps" -gt "$MAX_STEPS" ]]; then
     ERRORS+=("$file sets max_steps=$steps above max_local_pilot_steps_initial=$MAX_STEPS")
   fi
-  lower="$(tr '[:upper:]' '[:lower:]' < "$file")"
+  lower="$(tr -d '\r' < "$file" | tr '[:upper:]' '[:lower:]')"
   openvla_active=false
   if [[ "$lower" == *openvla* && "$lower" != *"openvla_oft_enabled: false"* ]]; then
     if [[ "$lower" == *"openvla_oft:"* && "$lower" == *"enabled: false"* ]]; then

@@ -339,3 +339,11 @@ Decision: Add a planning-only simulator readiness risk planner before any LIBERO
 Reason: The project needs simulator evidence eventually, but native Windows and missing local simulator paths make direct execution risky. The safe next step is to separate path/OS readiness from actual simulator import/render/rollout execution.
 
 Consequence: `scripts\43_plan_simulator_readiness.ps1` checks local LIBERO and RoboSuite paths plus WSL2/Linux suitability. It writes ignored runtime reports and does not install packages, download assets, import simulators, render, rollout, run GPU jobs, train, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+## Local Pilot Step Budget Alignment
+
+Decision: Align the local pilot compute budget and head-only pilot configs to a 300-step maximum.
+
+Reason: The risk-assessed autonomous policy caps bounded local pilot training at 300 steps after smaller smoke is stable, but older config files still allowed 1000 initial steps.
+
+Consequence: `configs\compute_budget.yaml`, `configs\actionmap_head_only_lowcompute.yaml`, and `configs\tca_map_head_only_lowcompute.yaml` now use `300` as the local pilot step ceiling. Tiny smoke runners may still use narrower caps such as 100 steps.

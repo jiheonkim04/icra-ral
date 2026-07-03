@@ -35,7 +35,7 @@ It verifies that the ActionMap and TCA-Map head-only configs remain within the l
 - frozen backbone,
 - cached features,
 - batch size 1 style execution,
-- max 1000 initial local pilot steps in config, with the local autonomous smoke capped by risk assessment,
+- max 300 initial local pilot steps in config, with the local autonomous smoke capped by risk assessment,
 - trainable parameters under the initial 50M limit,
 - grid size 8,
 - low-resolution heatmaps,

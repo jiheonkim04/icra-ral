@@ -303,3 +303,11 @@ Risk: A simulator readiness task could accidentally become MuJoCo/RoboSuite/LIBE
 Impact: Native Windows instability, missing dependency failures, unapproved rollout work, or invalid standard-success claims.
 
 Mitigation: Use `scripts\43_plan_simulator_readiness.ps1` first. It is planning-only and reports path/WSL2/Linux readiness without importing simulators or executing rollouts. A later simulator import-smoke task must be separate, bounded, WSL2/Linux-oriented, and still no-rollout unless a rollout risk assessment passes.
+
+## Local Pilot Step Budget Drift
+
+Risk: Config files, compute budget checks, and autonomy policy could disagree on whether local pilots are capped at 300 or 1000 steps.
+
+Impact: A bounded smoke could accidentally become a longer local training run than the current risk policy allows.
+
+Mitigation: Keep `configs\compute_budget.yaml`, head-only pilot configs, and planning docs aligned to `max_steps<=300` for bounded local pilots. Tiny smoke runners may enforce stricter caps.

@@ -51,7 +51,7 @@ function Get-NumericLineValue {
 
 $maxGrid = Read-ScalarValue -Path $BudgetFile -Key "max_heatmap_grid_initial" -Default 8
 $maxTrainable = Read-ScalarValue -Path $BudgetFile -Key "max_trainable_params_millions_initial" -Default 50
-$maxSteps = Read-ScalarValue -Path $BudgetFile -Key "max_local_pilot_steps_initial" -Default 1000
+$maxSteps = Read-ScalarValue -Path $BudgetFile -Key "max_local_pilot_steps_initial" -Default 300
 $errors = New-Object System.Collections.Generic.List[string]
 $warnings = New-Object System.Collections.Generic.List[string]
 $checked = New-Object System.Collections.Generic.List[string]
