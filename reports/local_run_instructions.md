@@ -200,6 +200,12 @@ Generate the current go/no-go status summary:
 powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
 ```
 
+Review the required LoRA/QLoRA experiment-track policy:
+
+```powershell
+Get-Content reports\lora_required_experiment_plan.md
+```
+
 Linux/WSL equivalents:
 
 ```bash

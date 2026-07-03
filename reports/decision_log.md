@@ -58,7 +58,7 @@ Decision: The publishable low-compute method requires Distributional TCA-Select.
 
 Reason: TCA-Map alone risks looking like ActionMap plus a target head. Distributional TCA-Select adds inference-time target/action distribution consistency without external verifiers or privileged simulator state.
 
-Consequence: LoRA/QLoRA remain optional support tools, not the core novelty.
+Consequence: LoRA/QLoRA are required experimental tracks after head-only validation, but not the core novelty.
 
 ## Self-Check Gate Policy
 
@@ -227,3 +227,11 @@ Decision: Add a summary-only go/no-go report for the next larger experimental st
 Reason: The safe local smoke stack has passed, but the next larger stage would require real dataset setup, simulator rollout, larger training, or OpenVLA-OFT decisions.
 
 Consequence: `scripts\31_generate_go_no_go_report.ps1` reads local reports and emits a no-go for paper-grade or larger experimental claims until the user explicitly approves exactly one true next gate. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+
+## Required LoRA/QLoRA Experiment Tracks
+
+Decision: LoRA/QLoRA are required experimental tracks, but not the main novelty.
+
+Reason: A publishable low-compute VLA paper should show that TCA-Map works both in head-only mode and under parameter-efficient adaptation.
+
+Consequence: The required matrix now includes ActionMap + LoRA, TCA-Map + LoRA, TCA-Map + LoRA + Distributional TCA-Select, and a QLoRA feasibility arm if memory/tooling allows. Full backbone fine-tuning remains forbidden locally, and LoRA gains must be separated from TCA-Map and Distributional TCA-Select gains.

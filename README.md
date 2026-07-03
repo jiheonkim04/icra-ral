@@ -134,9 +134,9 @@ bash scripts/30_enforce_compute_budget.sh
 bash scripts/30_enforce_compute_budget.sh configs/tca_map_head_only_lowcompute.yaml
 ```
 
-## Distributional TCA-Select + optional LoRA low-compute method
+## Distributional TCA-Select + required LoRA low-compute tracks
 
-The publishable low-compute method is **Distributional TCA-Map**: TCA-Map plus Distributional TCA-Select, with optional LoRA/QLoRA only if head-only training underfits.
+The publishable low-compute method is **Distributional TCA-Map**: TCA-Map plus Distributional TCA-Select, with required LoRA/QLoRA experimental tracks after head-only validation.
 
 TCA-Select must be distributional for the final method, not only heuristic geometry. The final selector samples `K=4` candidate actions from the target-conditioned action heatmap and selects among them using internal heatmap-distribution signals:
 
@@ -148,7 +148,7 @@ TCA-Select must be distributional for the final method, not only heuristic geome
 
 It must not use external verifiers or privileged simulator state at inference. Heuristic target/action consistency remains useful as an ablation, not the final method.
 
-LoRA/QLoRA are support tools. They can reduce training cost or memory pressure, but they are not the main novelty. The default is frozen SmolVLA backbone, cached features, and head-only ActionMap/TCA-Map training.
+LoRA/QLoRA are required compute-efficient adaptation arms, but they are not the main novelty. The default first path is frozen SmolVLA backbone, cached features, and head-only ActionMap/TCA-Map training. After that path is validated, the plan must include ActionMap + LoRA, TCA-Map + LoRA, TCA-Map + LoRA + Distributional TCA-Select, and QLoRA if memory/tooling allows.
 
 Read the method notes:
 
@@ -158,6 +158,7 @@ Get-Content reports/final_method_spec_distributional_tca_map.md
 Get-Content reports/mg_select_vs_distributional_tca_select.md
 Get-Content reports/lora_inference_ablation_plan.md
 Get-Content reports/lora_vs_inference_trick_strategy.md
+Get-Content reports/lora_required_experiment_plan.md
 Get-Content reports/publishability_criteria.md
 ```
 
@@ -188,7 +189,10 @@ Publication-oriented tables should separate:
 - TCA-Map,
 - TCA-Map + heuristic TCA-Select,
 - TCA-Map + Distributional TCA-Select,
-- optional LoRA/QLoRA variants if used,
+- ActionMap + LoRA,
+- TCA-Map + LoRA,
+- TCA-Map + LoRA + Distributional TCA-Select,
+- TCA-Map + QLoRA + Distributional TCA-Select if memory/tooling allows,
 - latency, VRAM, and trainable parameters.
 
 ## Asset configuration
@@ -217,7 +221,7 @@ The Python package contains lightweight, dependency-minimal dummy components for
 - ActionMap-style heatmap head,
 - target-conditioned TCA-Map head,
 - heuristic and distributional TCA-Select inference-time candidate selection,
-- optional LoRA/QLoRA policy guards,
+- required LoRA/QLoRA experiment-track policy guards,
 - compute-budget guards,
 - local paper-grade planning scripts,
 - cloud handoff planning artifacts,

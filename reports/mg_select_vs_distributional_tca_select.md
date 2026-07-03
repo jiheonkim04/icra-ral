@@ -45,7 +45,7 @@ A fair low-compute evaluation should compare:
 5. TCA-Map + heuristic TCA-Select,
 6. TCA-Map + Distributional TCA-Select.
 
-If LoRA/QLoRA is added, report it as a separate support-tool ablation rather than merging it into the main novelty claim.
+Because LoRA/QLoRA are required experimental tracks after head-only validation, report them as separate support-tool ablations rather than merging them into the main novelty claim.
 
 ## Reporting Rule
 

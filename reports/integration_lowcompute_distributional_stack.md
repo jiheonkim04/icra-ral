@@ -19,7 +19,7 @@ No content conflicts needed manual line-level resolution in this connector-based
 - keep frozen backbone, cached features, head-only TCA-Map, low-resolution/coarse-to-fine heatmaps as the local path,
 - keep Distributional TCA-Select as the main inference-time method contribution,
 - keep heuristic TCA-Select as an ablation only,
-- keep LoRA/QLoRA as optional support tools, not the main novelty,
+- keep LoRA/QLoRA as required experimental tracks after head-only validation, not the main novelty,
 - preserve Windows PowerShell scripts and Linux/WSL shell companions,
 - preserve compute-budget enforcement before new pilot commands,
 - preserve local paper-grade runner scripts and cloud handoff plans,

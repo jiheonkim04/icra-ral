@@ -1,6 +1,6 @@
 run:
   name: lora_adapter_lowcompute
-  mode: optional_adapter_training
+  mode: required_adapter_experiment_track
   downloads_allowed: false
   gpu_training_allowed: false
   rollouts_allowed: false
@@ -13,8 +13,9 @@ backbone:
 
 lora:
   enabled: true
+  required_experiment_track: true
+  required_after_head_only_validated: true
   main_novelty: false
-  use_only_if_head_only_underfits: true
   rank: 8
   alpha: 16
   dropout: 0.05

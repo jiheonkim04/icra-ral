@@ -1,7 +1,8 @@
 """Low-compute LoRA/QLoRA policy guards.
 
-LoRA and QLoRA are optional support tools. They are not the core novelty and
-must not enable full-backbone fine-tuning in the local low-compute protocol.
+LoRA and QLoRA are required experimental tracks after the head-only path is
+validated. They are still supporting adaptation arms, not the core novelty,
+and must not enable full-backbone fine-tuning in the local protocol.
 """
 
 from __future__ import annotations
@@ -44,7 +45,7 @@ def _bool_value(value: Any) -> bool:
 
 
 def validate_lora_policy_config(config: dict) -> dict:
-    """Validate optional LoRA/QLoRA config for the low-compute protocol."""
+    """Validate required LoRA/QLoRA experiment-track config for the protocol."""
     errors: list[str] = []
     warnings: list[str] = []
     flat_items = _walk_items(config)
@@ -75,7 +76,7 @@ def validate_lora_policy_config(config: dict) -> dict:
         )
 
     if _bool_value(qlora.get("enabled", False)) and not _bool_value(qlora.get("explicit_config", False)):
-        errors.append("QLoRA requires explicit_config=true because it is an optional memory-saving path.")
+        errors.append("QLoRA requires explicit_config=true because it is a required feasibility track when memory/tooling allows.")
 
     trainable_modules = adapter.get("trainable_modules") or lora.get("trainable_modules") or DEFAULT_LORA_MODULES
     forbidden_modules = [module for module in trainable_modules if "backbone" in str(module).lower()]
@@ -83,9 +84,9 @@ def validate_lora_policy_config(config: dict) -> dict:
         errors.append(f"Backbone modules are not allowed in local LoRA trainable_modules: {forbidden_modules}")
 
     if _bool_value(lora.get("enabled", False)):
-        warnings.append("LoRA is optional support, not the main novelty; report it separately from TCA-Select gain.")
+        warnings.append("LoRA is a required experimental track after head-only validation, not the main novelty; report it separately from TCA-Select gain.")
     if _bool_value(qlora.get("enabled", False)):
-        warnings.append("QLoRA is a memory-saving support path; report it separately from TCA-Select gain.")
+        warnings.append("QLoRA is a required feasibility track if memory/tooling allows; report it separately from TCA-Select gain.")
 
     return {
         "passed": not errors,
@@ -97,7 +98,7 @@ def validate_lora_policy_config(config: dict) -> dict:
 
 
 def build_lora_policy(config: dict | None = None) -> dict:
-    """Return a normalized optional LoRA policy after validation."""
+    """Return a normalized required-track LoRA policy after validation."""
     normalized = deepcopy(config or {})
     normalized.setdefault("adapter", {})
     normalized["adapter"].setdefault("trainable_modules", list(DEFAULT_LORA_MODULES))

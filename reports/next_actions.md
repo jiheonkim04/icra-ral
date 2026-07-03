@@ -154,10 +154,27 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 9. Tiny head-only pilot planning and budget check. Done.
 10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Done.
 11. Summarize hard-stop approval choices. Done.
-12. Generate go/no-go status summary. In progress.
-13. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+12. Generate go/no-go status summary. Done.
+13. Required LoRA adapter construction plan. Next.
+14. Required LoRA tiny smoke scaffold.
+15. Required TCA-Map + LoRA comparison plan.
+16. QLoRA feasibility check.
+17. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: the bounded tiny head-only smoke has passed, and the go/no-go summary is being prepared. After that, no larger experimental stage is safe without explicit approval for exactly one true next gate. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: the bounded tiny head-only smoke and go/no-go summary have passed. LoRA/QLoRA are now required experimental tracks after the head-only path, but not the main novelty. The next safe non-heavy task is a required LoRA adapter construction/config plan. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+
+## Required LoRA/QLoRA Progression
+
+A. SmolVLA load-only smoke. Done.
+B. Single-sample interface smoke. Done.
+C. Frozen/head-only TCA-Map tiny pilot. Done as bounded smoke.
+D. Required LoRA adapter construction plan. Next.
+E. Required LoRA tiny smoke.
+F. Required TCA-Map + LoRA comparison.
+G. QLoRA feasibility check.
+H. Go/no-go report.
+
+LoRA/QLoRA are required adaptation tracks, not optional nice-to-have items. Full fine-tuning remains forbidden locally.
 
 ## Self-Check Cases
 

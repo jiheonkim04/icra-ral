@@ -4,7 +4,7 @@
 
 This document defines the safe interpretation of the completed local SmolVLA-first smoke stack.
 
-The current status is no-go for the next larger experimental stage until the user explicitly approves exactly one true next gate.
+The current status is no-go for the next larger experimental stage until the user explicitly approves exactly one true next gate. Required LoRA/QLoRA planning is still allowed because it is documentation/config/checker work, not training.
 
 ## Current Decision
 
@@ -17,6 +17,7 @@ The project is go for:
 - routine safe checks,
 - documentation and checker maintenance,
 - planning-only reports,
+- required LoRA/QLoRA adapter construction and feasibility planning,
 - preparing a request for exactly one explicit next gate if the user wants to continue.
 
 The project is no-go for:
