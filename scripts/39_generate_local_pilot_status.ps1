@@ -1,0 +1,217 @@
+param(
+    [string]$Python = "C:\Users\jiheo\miniconda3\envs\tca_map\python.exe",
+    [string]$JsonReportPath = "reports\local_pilot_status_report.json",
+    [string]$MarkdownReportPath = "reports\local_pilot_status_report.md"
+)
+
+$ErrorActionPreference = "Stop"
+$RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+Set-Location $RepoRoot
+
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+
+Write-Host "Local pilot status report"
+Write-Host "Repo root: $RepoRoot"
+Write-Host "This script summarizes existing reports only. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims."
+
+if (-not (Test-Path -LiteralPath $Python)) {
+    Write-Error "Python interpreter not found: $Python"
+    exit 10
+}
+
+$executionGates = @(
+    "ALLOW_DOWNLOADS",
+    "ALLOW_HEAVY_IMPORT",
+    "ALLOW_GPU_TRAINING",
+    "ALLOW_TINY_TRAINING",
+    "ALLOW_ROLLOUTS",
+    "ALLOW_RUNTIME_INSTALL",
+    "ALLOW_SINGLE_SAMPLE_INFERENCE",
+    "ALLOW_CLOUD_HANDOFF"
+)
+
+$setExecutionGates = @()
+foreach ($gate in $executionGates) {
+    $value = [Environment]::GetEnvironmentVariable($gate)
+    if (-not [string]::IsNullOrWhiteSpace($value)) {
+        $setExecutionGates += $gate
+    }
+}
+
+if ($setExecutionGates.Count -gt 0) {
+    Write-Host ("Refusing local pilot status generation while execution gates are set: " + ($setExecutionGates -join ", "))
+    exit 20
+}
+
+$jsonFullPath = if ([System.IO.Path]::IsPathRooted($JsonReportPath)) {
+    $JsonReportPath
+} else {
+    Join-Path $RepoRoot $JsonReportPath
+}
+$markdownFullPath = if ([System.IO.Path]::IsPathRooted($MarkdownReportPath)) {
+    $MarkdownReportPath
+} else {
+    Join-Path $RepoRoot $MarkdownReportPath
+}
+
+$env:TCA_MAP_LOCAL_PILOT_STATUS_JSON = $jsonFullPath
+$env:TCA_MAP_LOCAL_PILOT_STATUS_MARKDOWN = $markdownFullPath
+
+$script = @'
+import json
+import os
+from pathlib import Path
+
+JSON_OUT = Path(os.environ["TCA_MAP_LOCAL_PILOT_STATUS_JSON"])
+MD_OUT = Path(os.environ["TCA_MAP_LOCAL_PILOT_STATUS_MARKDOWN"])
+REPO = Path.cwd()
+
+REPORTS = {
+    "preflight": REPO / "reports" / "preflight_report.json",
+    "smoke": REPO / "reports" / "smoke_report.json",
+    "runtime_deps": REPO / "reports" / "smolvla_runtime_deps_report.json",
+    "load_only": REPO / "reports" / "smolvla_load_only_smoke_report.json",
+    "single_sample_interface": REPO / "reports" / "smolvla_single_sample_interface_report.json",
+    "feature_cache_eval": REPO / "reports" / "feature_cache_eval_report.json",
+    "tiny_head_only": REPO / "reports" / "tiny_head_only_smoke_report.json",
+    "head_only_comparison": REPO / "reports" / "head_only_tiny_comparison_report.json",
+    "tiny_lora": REPO / "reports" / "tiny_lora_smoke_report.json",
+    "tiny_lora_comparison": REPO / "reports" / "tiny_lora_comparison_report.json",
+    "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
+}
+
+def read_json(path):
+    if not path.exists():
+        return {"exists": False, "data": None}
+    try:
+        return {"exists": True, "data": json.loads(path.read_text(encoding="utf-8"))}
+    except json.JSONDecodeError as exc:
+        return {"exists": True, "data": None, "error": str(exc)}
+
+loaded = {name: read_json(path) for name, path in REPORTS.items()}
+
+def data(name):
+    return loaded[name].get("data") or {}
+
+def result_passed(name):
+    return bool(data(name).get("result", {}).get("passed") or data(name).get(f"{name}_passed"))
+
+def source_summary(name):
+    payload = data(name)
+    return {
+        "path": str(REPORTS[name]),
+        "exists": bool(loaded[name].get("exists")),
+        "error": loaded[name].get("error"),
+        "top_level_keys": sorted(payload.keys()) if isinstance(payload, dict) else [],
+    }
+
+status = {
+    "preflight_passed": bool(data("preflight").get("safe_to_run_dummy_smoke")),
+    "dummy_smoke_passed": bool(data("smoke").get("train_smoke_passed") and data("smoke").get("eval_smoke_passed")),
+    "runtime_deps_ready": bool(data("runtime_deps").get("runtime_dependencies", {}).get("ready_for_load_only_runtime")),
+    "smolvla_load_only_smoke_passed": result_passed("load_only"),
+    "single_sample_interface_passed": result_passed("single_sample_interface"),
+    "feature_cache_eval_passed": bool(data("feature_cache_eval").get("cache_valid") and not data("feature_cache_eval").get("validation_errors")),
+    "tiny_head_only_smoke_passed": bool(data("tiny_head_only").get("tiny_head_only_smoke_passed")),
+    "head_only_comparison_passed": bool(data("head_only_comparison").get("head_only_tiny_comparison_passed")),
+    "tiny_lora_smoke_passed": bool(data("tiny_lora").get("tiny_lora_smoke_passed")),
+    "tiny_lora_comparison_passed": bool(data("tiny_lora_comparison").get("tiny_lora_comparison_passed")),
+    "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
+    "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
+}
+
+all_bounded_smokes_passed = all(
+    status[key]
+    for key in [
+        "preflight_passed",
+        "dummy_smoke_passed",
+        "runtime_deps_ready",
+        "smolvla_load_only_smoke_passed",
+        "single_sample_interface_passed",
+        "feature_cache_eval_passed",
+        "tiny_head_only_smoke_passed",
+        "head_only_comparison_passed",
+        "tiny_lora_smoke_passed",
+        "tiny_lora_comparison_passed",
+    ]
+)
+
+missing_reports = [name for name, item in loaded.items() if not item.get("exists")]
+parse_errors = {name: item.get("error") for name, item in loaded.items() if item.get("error")}
+
+report = {
+    "policy": {
+        "summary_only": True,
+        "bounded_local_pilot": True,
+        "offline_proxy_only": True,
+        "not_standard_success": True,
+        "not_paper_grade": True,
+        "downloads_performed": False,
+        "gpu_jobs_performed": False,
+        "gpu_training_performed": False,
+        "heavy_model_imports_performed": False,
+        "model_load_performed": False,
+        "model_inference_performed": False,
+        "training_performed": False,
+        "rollouts_performed": False,
+        "simulator_executed": False,
+        "openvla_oft_executed": False,
+        "tokens_read_or_written": False,
+        "paper_grade_claims_made": False,
+    },
+    "source_reports": {name: source_summary(name) for name in REPORTS},
+    "status": status,
+    "all_bounded_smoke_reports_present_and_passed": all_bounded_smokes_passed,
+    "missing_reports": missing_reports,
+    "parse_errors": parse_errors,
+    "hard_stop_boundaries": [
+        "real benchmark dataset acquisition",
+        "LIBERO/RoboSuite/RoboCasa setup or download",
+        "simulator execution",
+        "rollouts",
+        "OpenVLA-OFT download/import/load/execution",
+        "training over 100 steps",
+        "jobs over 30 minutes",
+        "VRAM over 14GB",
+        "major CUDA/PyTorch changes",
+        "token or secret access",
+        "paper-grade empirical claims",
+    ],
+    "local_pilot_status_passed": not parse_errors and all_bounded_smokes_passed,
+    "recommended_next_step": (
+        "No further safe local pilot execution step remains without crossing a hard-stop gate. Prepare for an explicit next-gate decision: real dataset setup, simulator rollout path, or larger compute handoff."
+        if all_bounded_smokes_passed
+        else "Regenerate the missing or failed bounded local pilot reports before any larger step."
+    ),
+}
+
+JSON_OUT.parent.mkdir(parents=True, exist_ok=True)
+MD_OUT.parent.mkdir(parents=True, exist_ok=True)
+JSON_OUT.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+
+lines = [
+    "# Local Pilot Status Report",
+    "",
+    "This is a summary-only report over existing bounded local smoke outputs. It is not standard success, not rollout success, and not paper-grade evidence.",
+    "",
+    "## Status",
+]
+for key, value in status.items():
+    lines.append(f"- `{key}`: `{value}`")
+lines.extend(["", "## Missing Reports"])
+if missing_reports:
+    for name in missing_reports:
+        lines.append(f"- `{name}`")
+else:
+    lines.append("- none")
+lines.extend(["", "## Hard-Stop Boundaries"])
+for item in report["hard_stop_boundaries"]:
+    lines.append(f"- {item}")
+lines.extend(["", "## Next Step", report["recommended_next_step"], ""])
+MD_OUT.write_text("\n".join(lines), encoding="utf-8")
+print(json.dumps(report, indent=2, sort_keys=True))
+'@
+
+$script | & $Python -
+exit $LASTEXITCODE

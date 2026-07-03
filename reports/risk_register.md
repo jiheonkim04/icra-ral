@@ -200,6 +200,14 @@ Impact: LoRA or TCA-Select contributions could be overstated before real data or
 
 Mitigation: `scripts\38_compare_tiny_lora_pilot.ps1` reads only cached/dummy offline proxy smoke outputs, refuses execution gates, labels the report as not standard success and not paper-grade, and keeps all real benchmark claims behind hard-stop gates.
 
+## Consolidated Status Overinterpretation
+
+Risk: A consolidated local pilot status report may be mistaken for a paper-ready result.
+
+Impact: The project could move to claims before simulator rollouts, real benchmark data, or stronger baselines exist.
+
+Mitigation: `scripts\39_generate_local_pilot_status.ps1` labels the report as summary-only, offline proxy only, not standard success, and not paper-grade. It lists explicit hard-stop boundaries for the next stage.
+
 ## QLoRA Tooling Drift
 
 Risk: QLoRA may require bitsandbytes/PEFT behavior, CUDA support, or PyTorch compatibility that is not stable on native Windows.

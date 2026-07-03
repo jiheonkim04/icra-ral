@@ -47,6 +47,8 @@ reports/head_only_tiny_comparison_report.json
 reports/head_only_tiny_comparison_report.md
 reports/tiny_lora_comparison_report.json
 reports/tiny_lora_comparison_report.md
+reports/local_pilot_status_report.json
+reports/local_pilot_status_report.md
 reports/wsl2_status.md
 
 # Runs and generated artifacts
