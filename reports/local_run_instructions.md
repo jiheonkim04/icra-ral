@@ -126,13 +126,13 @@ powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 
 Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set in a separately approved task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any future loader path can proceed.
 
-Check the runtime package prerequisites without installing anything:
+Check the runtime package prerequisites without importing heavy VLA models:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
 ```
 
-Plan the SmolVLA runtime install approval boundary without installing anything:
+Review the completed SmolVLA runtime install boundary. Future package upgrades still need separate approval:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1

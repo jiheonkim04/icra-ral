@@ -62,4 +62,17 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert "runtime_install" in gates
     assert "smolvla_load_only_heavy_import" in gates
     assert "tiny_head_only_training" in gates
+    blocking_gates = {
+        item["gate"]
+        for item in report["approval_requests"]
+        if item["current_blocker"]
+    }
+    assert set(report["current_blocking_gates"]) == blocking_gates
+    runtime_request = next(
+        item for item in report["approval_requests"] if item["gate"] == "runtime_install"
+    )
+    if runtime_request["current_blocker"]:
+        assert "runtime installation" in report["hard_stop_reason"]
+    else:
+        assert "runtime installation" not in report["hard_stop_reason"]
     assert report_path.exists()

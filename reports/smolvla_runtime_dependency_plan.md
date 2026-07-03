@@ -2,20 +2,23 @@
 
 ## Purpose
 
-This plan covers the runtime packages needed before any actual SmolVLA load-only model smoke. It is an environment planning document only. It does not authorize package installation, CUDA/PyTorch changes, downloads, model loading, inference, training, rollouts, simulator execution, or OpenVLA-OFT.
+This plan covers the runtime packages needed before any actual SmolVLA load-only model smoke. It records the current local runtime state and does not authorize package upgrades, CUDA/PyTorch changes, downloads, model loading, inference, training, rollouts, simulator execution, or OpenVLA-OFT.
 
 ## Current Local Status
 
-The current `tca_map` Python environment is missing the packages needed for a real SmolVLA load-only smoke:
+The current `tca_map` Python environment has the packages needed for a separately approved SmolVLA load-only smoke:
 
 ```text
-torch=false
-transformers=false
-lerobot=false
-safetensors=false
+torch=2.10.0+cu128
+torchvision=0.25.0+cu128
+transformers=4.57.6
+lerobot=0.4.4
+safetensors=0.8.0
+accelerate=1.14.0
+huggingface-hub=0.35.3
 ```
 
-This means the local files are ready, but the runtime is not ready for actual model loading.
+This means the local files and Python runtime dependencies are ready for a future bounded load-only task. Actual model loading is still blocked by the separate `ALLOW_HEAVY_IMPORT=1` hard-stop gate.
 
 ## Check Command
 
@@ -33,7 +36,7 @@ reports\smolvla_runtime_deps_report.json
 
 ## Hard-Stop Boundary
 
-Installing or changing these packages is a hard-stop gate:
+Installing, upgrading, or changing these packages is a hard-stop gate:
 
 - PyTorch,
 - CUDA-enabled PyTorch wheels,
@@ -57,9 +60,19 @@ The check-only planner is:
 powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install.ps1
 ```
 
-## Recommended Install Strategy Later
+## Completed Install Record
 
-Prefer a separate environment task that:
+The explicitly approved runtime install used:
+
+```powershell
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 torch==2.10.0+cu128 torchvision==0.25.0+cu128 lerobot==0.4.4 transformers==4.57.6 safetensors==0.8.0 accelerate==1.14.0
+```
+
+No model loading, inference, training, rollouts, simulator execution, OpenVLA-OFT execution, token access, or dataset/checkpoint acquisition was authorized by this install.
+
+## Recommended Upgrade Strategy Later
+
+Prefer a separate environment task for any future upgrade that:
 
 - pins package versions,
 - avoids changing the existing CUDA driver,

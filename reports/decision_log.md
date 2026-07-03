@@ -104,7 +104,7 @@ Consequence: `scripts\15_plan_smolvla_load_only_smoke.ps1` may run safely withou
 
 Decision: Add a bounded load-only smoke execution scaffold that stops before unsafe runtime behavior.
 
-Reason: Readiness is true, but local runtime packages for SmolVLA loading are currently missing. Installing large packages or changing CUDA/PyTorch is a hard-stop gate.
+Reason: Readiness is true, but local runtime packages for SmolVLA loading were missing at scaffold time. Installing large packages or changing CUDA/PyTorch is a hard-stop gate.
 
 Consequence: `scripts\16_smolvla_load_only_smoke.ps1` and `tca_map.smolvla.load_only_smoke` check gates, files, runtime dependencies, and memory policy. They report blockers without downloading assets, importing heavy VLA code, loading a model, running inference, training, rollouts, or OpenVLA-OFT.
 
@@ -112,7 +112,7 @@ Consequence: `scripts\16_smolvla_load_only_smoke.ps1` and `tca_map.smolvla.load_
 
 Decision: Add a check-only runtime dependency script and a separate install plan.
 
-Reason: Local SmolVLA files are ready, but `torch`, `transformers`, `lerobot`, and `safetensors` are not installed in the current environment. Installing large packages or changing CUDA/PyTorch versions is a hard-stop gate.
+Reason: Local SmolVLA files were ready, but `torch`, `transformers`, `lerobot`, and `safetensors` were not installed in the environment. Installing large packages or changing CUDA/PyTorch versions is a hard-stop gate.
 
 Consequence: `scripts\17_check_smolvla_runtime_deps.ps1` reports package readiness without installing anything. Any actual install must be a separately approved environment task with pinned versions and rollback/validation steps.
 
@@ -123,6 +123,14 @@ Decision: Add a planning-only runtime install request before any package install
 Reason: The environment is missing SmolVLA runtime packages, but installing PyTorch, LeRobot, Transformers, Safetensors, Accelerate, or Hugging Face Hub dependencies can destabilize the local Windows/CUDA setup.
 
 Consequence: `scripts\18_plan_smolvla_runtime_install.ps1` may run safely as a check-only planner. It refuses dangerous gates and does not install packages, download assets, import heavy VLA models, load models, infer, train, rollout, access tokens, or execute OpenVLA-OFT.
+
+## SmolVLA Runtime Install Execution Result
+
+Decision: Complete the explicitly approved SmolVLA runtime package install in the local `tca_map` environment.
+
+Reason: The user approved runtime package installation after the planner identified the missing SmolVLA runtime packages.
+
+Consequence: The environment now has `torch==2.10.0+cu128`, `torchvision==0.25.0+cu128`, `transformers==4.57.6`, `lerobot==0.4.4`, `safetensors==0.8.0`, `accelerate==1.14.0`, and `huggingface-hub==0.35.3`. This clears the runtime dependency gate only. It does not authorize `ALLOW_HEAVY_IMPORT=1`, model loading, inference, GPU execution, training, rollouts, simulator execution, OpenVLA-OFT, token access, package upgrades, CUDA toolkit changes, or paper-grade claims.
 
 ## Feature Cache Interface Before Real Extraction
 
