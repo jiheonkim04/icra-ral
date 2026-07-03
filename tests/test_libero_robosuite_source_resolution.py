@@ -47,12 +47,12 @@ def test_libero_robosuite_source_resolution_splits_repo_and_dataset_decisions(tm
     assert result.returncode == 0, result.stderr
     assert report["decision"] == "proceed"
     assert report["ready_for_repo_setup"] is True
-    assert report["ready_for_full_dataset_download"] is False
+    assert report["ready_for_full_dataset_download"] is True
     assert report["sources"]["libero_repo"]["source_url"] == "https://github.com/Lifelong-Robot-Learning/LIBERO.git"
     assert report["sources"]["robosuite_repo"]["source_url"] == "https://github.com/ARISE-Initiative/robosuite.git"
     assert report["sources"]["libero_full_dataset"]["source_url"] == "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets"
     assert report["sources"]["libero_full_dataset"]["expected_size_gb"] == 100.0
-    assert report["sources"]["libero_full_dataset"]["decision"] == "stop"
+    assert report["sources"]["libero_full_dataset"]["decision"] == "proceed"
     assert report["policy"]["downloads_performed"] is False
     assert report["policy"]["simulator_executed"] is False
     assert report["policy"]["rollouts_performed"] is False

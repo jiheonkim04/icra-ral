@@ -87,7 +87,21 @@ powershell -ExecutionPolicy Bypass -File scripts\46_prepare_libero_robosuite_sou
 Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
 ```
 
-This does not download the full LIBERO dataset. The official full dataset is about 100 GB and remains outside the current 80 GB autonomous task budget.
+This does not download the full LIBERO dataset. The official full dataset is about 100 GB and now has a LIBERO-only 180 GB acquisition budget with a 250 GB free-after-acquisition disk requirement.
+
+Dry-run the official LIBERO data acquisition gate:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\49_acquire_libero_data.ps1 -RemoteSizeCheck
+```
+
+Only if that gate is green, acquire the official LIBERO data:
+
+```powershell
+$env:ALLOW_DOWNLOADS="1"
+powershell -ExecutionPolicy Bypass -File scripts\49_acquire_libero_data.ps1 -RemoteSizeCheck -Acquire
+Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
+```
 
 Build a metadata-only task/counterfactual manifest from local BDDL files:
 

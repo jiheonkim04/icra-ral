@@ -34,7 +34,9 @@ sources:
     license: "apache-2.0"
     expected_size_gb: 100.0
     size_estimation_method: "Hugging Face dataset card reports total file size as 100 GB."
+    libero_download_budget_gb: 180.0
+    min_free_after_gb: 250.0
     token_required: false
     license_click_through_required: false
     payment_required: false
-    current_policy_decision: "stop_full_dataset_download_exceeds_80gb_budget"
+    current_policy_decision: "proceed_only_if_official_source_disk_and_180gb_libero_budget_are_green"

@@ -7,8 +7,8 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $RepoRoot
 
-$downloadBudgetGb = 80.0
-$diskSafetyMarginGb = 100.0
+$downloadBudgetGb = 180.0
+$diskSafetyMarginGb = 250.0
 
 function Get-FreeDiskGb {
     param([string]$Path)
@@ -75,7 +75,7 @@ function New-Source {
         login_token_required = $TokenRequired
         license_click_through_required = $LicenseClickThroughRequired
         payment_required = $PaymentRequired
-        expected_runtime = "minutes for shallow repo clone; full dataset download not allowed by this planner"
+        expected_runtime = if ($Name -eq "libero_full_dataset") { "dataset acquisition may take many minutes depending on network throughput" } else { "minutes for shallow repo clone" }
         simulator_will_run = $SimulatorWillRun
         rollout_will_run = $RolloutWillRun
         license = $License
@@ -159,12 +159,12 @@ $report = [ordered]@{
     ready_for_tiny_or_metadata_only_dataset_setup = $true
     decision = $repoSetupDecision
     reason = if ($repoSetupDecision -eq "proceed") {
-        "LIBERO and RoboSuite source checkout acquisition is inside budget; full LIBERO dataset download remains stopped because it exceeds the 80GB budget."
+        "LIBERO and RoboSuite source checkout acquisition is inside budget; official LIBERO full dataset acquisition is inside the LIBERO-only 180GB budget if disk remains above 250GB, and must use scripts\49_acquire_libero_data.ps1 with task-local ALLOW_DOWNLOADS=1."
     } else {
         "One or more required source checkouts failed risk assessment."
     }
     recommended_next_step = if ($repoSetupDecision -eq "proceed") {
-        "Run scripts\46_prepare_libero_robosuite_sources.ps1 with task-local ALLOW_DOWNLOADS=1 to shallow-clone source repos only and create the dataset root without downloading the full dataset."
+        "Run scripts\46_prepare_libero_robosuite_sources.ps1 for source checkout if needed, then use scripts\49_acquire_libero_data.ps1 for the official LIBERO dataset only after a green risk assessment."
     } else {
         "Fix source ambiguity, size, disk, license, token, or payment blockers before any acquisition."
     }
@@ -191,7 +191,7 @@ $md = @(
     "- RoboSuite repo: $($sources.robosuite_repo.source_url) -> $($sources.robosuite_repo.decision)",
     "- Full LIBERO dataset: $($sources.libero_full_dataset.source_url) -> $($sources.libero_full_dataset.decision)",
     "",
-    "The full LIBERO dataset is official/documented but is not downloaded by this planner because the expected size is 100 GB, above the 80 GB autonomous task budget.",
+    "The full LIBERO dataset is official/documented and now inside the LIBERO-only 180 GB acquisition budget if at least 250 GB disk remains after acquisition. This planner still performs no downloads.",
     "",
     "This report is planning-only. It performs no downloads, GPU jobs, training, simulator execution, rollouts, heavy VLA imports, token access, OpenVLA-OFT execution, or paper-grade claims."
 ) -join "`n"

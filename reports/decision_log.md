@@ -370,13 +370,13 @@ Decision: Treat official LIBERO/RoboSuite source resolution as an autonomous ris
 
 Reason: The project can inspect public documentation and record official sources, expected sizes, license/token/payment status, target paths, and disk budget without running rollouts, simulators, training, heavy VLA imports, or OpenVLA-OFT.
 
-Consequence: `scripts\45_resolve_libero_robosuite_sources.ps1` records official source candidates. LIBERO and RoboSuite code checkouts are small enough for bounded source setup, while the full official LIBERO demonstrations dataset is about 100 GB and remains stopped under the 80 GB autonomous download budget. `scripts\46_prepare_libero_robosuite_sources.ps1` may shallow-clone only the official code repos with task-local `ALLOW_DOWNLOADS=1`; it must not download the full dataset, run simulators, run rollouts, train, use GPU, import heavy VLA models, access tokens, execute OpenVLA-OFT, or make paper claims.
+Consequence: `scripts\45_resolve_libero_robosuite_sources.ps1` records official source candidates. LIBERO and RoboSuite code checkouts are small enough for bounded source setup, while the full official LIBERO demonstrations dataset is about 100 GB and now requires the dedicated LIBERO-only acquisition gate. `scripts\46_prepare_libero_robosuite_sources.ps1` may shallow-clone only the official code repos with task-local `ALLOW_DOWNLOADS=1`; it must not download the full dataset, run simulators, run rollouts, train, use GPU, import heavy VLA models, access tokens, execute OpenVLA-OFT, or make paper claims.
 
 ## LIBERO/RoboSuite Source Repo Setup Result
 
 Decision: Treat bounded LIBERO/RoboSuite source repo setup as complete.
 
-Reason: The official LIBERO and RoboSuite code repos were risk-green for shallow clone, while the full official LIBERO dataset remained stopped because it is about 100 GB.
+Reason: The official LIBERO and RoboSuite code repos were risk-green for shallow clone, while the full official LIBERO dataset was left for a separate acquisition gate because it is about 100 GB.
 
 Consequence: `LIBERO_ROOT` and `ROBOSUITE_ROOT` are now path-ready under `C:\assets\repos`, and `LIBERO_DATA_ROOT` exists with a marker explaining that the full dataset was not downloaded. This clears source path setup only. It does not clear tiny offline dataset readiness, simulator import readiness as an executed result, rollout readiness, real benchmark readiness, OpenVLA-OFT, or paper claims.
 
@@ -403,3 +403,11 @@ Decision: Include LIBERO metadata/offline-interface gate reports in the consolid
 Reason: Once the LIBERO source, metadata, and offline-interface gates exist, the main status reports should make the current blocker visible without requiring manual inspection of individual runtime reports.
 
 Consequence: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` now read the metadata subset and offline interface smoke gate reports when present. The summaries remain report-only and perform no downloads, GPU jobs, training, rollouts, simulator execution, heavy imports, OpenVLA-OFT execution, token access, or paper claims.
+
+## Official LIBERO Data Acquisition Budget
+
+Decision: Raise the autonomous acquisition budget only for the official LIBERO demonstrations dataset.
+
+Reason: The local machine has about 500 GB free, and the official LIBERO dataset source recorded in the repository is about 100 GB with no token/login/payment/license click-through requirement. This makes a bounded acquisition safe if disk remains above a stricter post-download floor.
+
+Consequence: `scripts\49_acquire_libero_data.ps1` and `tca_map.datasets.libero_data_acquisition` may acquire only `yifengzhu-hf/LIBERO-datasets` into `C:\assets\data\libero` using `C:\assets\hf_home` as cache. The task-local budget is 180 GB with at least 250 GB free disk remaining after acquisition. The command still performs no GPU jobs, training, simulator execution, rollouts, heavy VLA imports, OpenVLA-OFT execution, token access, external upload, or paper claims.

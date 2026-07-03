@@ -260,7 +260,7 @@ report = {
         "ready_for_openvla_oft_smoke": ((hard_stop or {}).get("assets") or {}).get("ready_for_openvla_oft_smoke"),
     },
     "recommended_next_step": (
-        "Ready for risk-assessed bounded local SmolVLA pilot work. Proceed automatically if the next task is inside budget: official/documented source, <=80GB download with >=100GB disk remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only frozen/LoRA/QLoRA training <=300 steps after stable smoke, no OpenVLA-OFT, no token/license/payment gate, and no paper claim."
+        "Ready for risk-assessed bounded local SmolVLA pilot work. Proceed automatically if the next task is inside budget: official/documented source, <=80GB download with >=100GB disk remaining by default, official LIBERO data exception <=180GB with >=250GB remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only frozen/LoRA/QLoRA training <=300 steps after stable smoke, no OpenVLA-OFT, no token/license/payment gate, and no paper claim."
         if all_safe_smokes_passed
         else "Rerun the missing safe smoke reports before any bounded local pilot or larger experimental stage."
     ),

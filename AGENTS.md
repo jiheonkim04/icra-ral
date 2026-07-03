@@ -38,7 +38,7 @@ Codex must not ask the user for routine approval when risk can be checked automa
 
 Default local risk budgets:
 
-- downloads: source official/documented/unambiguous, no token/login/payment/license click-through, single task soft limit 80GB, keep at least 100GB free disk, write only under approved roots such as `C:\assets`, never commit checkpoint/cache/data files,
+- downloads: source official/documented/unambiguous, no token/login/payment/license click-through, single task soft limit 80GB, keep at least 100GB free disk, write only under approved roots such as `C:\assets`, never commit checkpoint/cache/data files. Official LIBERO data is the only current exception: `yifengzhu-hf/LIBERO-datasets` may use a 180GB task budget only if at least 250GB free disk remains after acquisition and no token/login/payment/license click-through is required,
 - GPU: SmolVLA/local-pilot related, no OpenVLA-OFT, expected VRAM <=14GB, runtime <=30 minutes, batch size 1 or equivalent, timeout/stop condition, memory/runtime logged when measurable,
 - training: SmolVLA-only, frozen backbone or LoRA/QLoRA adapter only, no full fine-tuning, no rollout, max 300 local pilot steps after smaller smoke is stable, runtime <=30 minutes, VRAM <=14GB, batch size 1, proxy/local-pilot labels only,
 - real datasets: official/documented/unambiguous source, no token/login/payment/license click-through, inside download/disk budget, no simulator rollout triggered automatically, prefer metadata-only or tiny subset first,
