@@ -38,19 +38,19 @@ It writes an ignored runtime report:
 reports\smolvla_load_only_smoke_plan_report.json
 ```
 
-## Next Gate
+## Standing-Approved Load-Only Gate
 
-Actual load-only smoke remains behind a dangerous gate:
+Actual load-only smoke still requires the explicit environment flag:
 
 ```text
 ALLOW_HEAVY_IMPORT=1
 ```
 
-Do not set this gate during planning. A later task must explicitly approve heavy import/model load and define the exact execution script.
+This flag is now standing-approved only inside the bounded SmolVLA autonomous pilot load-only task. Do not set it during planning or unrelated checks.
 
 ## Future Load-Only Scope
 
-When separately approved, the load-only smoke should:
+Inside the standing-approved bounded task, the load-only smoke should:
 
 - import only the minimal SmolVLA/LeRobot stack required to instantiate or load the policy,
 - load local files only,

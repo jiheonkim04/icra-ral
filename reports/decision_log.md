@@ -96,7 +96,7 @@ Consequence: Full SmolVLM2 model weights remain forbidden for this step and were
 
 Decision: Add a planning-only SmolVLA load-only smoke guard before any heavy import/model-load task.
 
-Reason: Readiness is true, but actual SmolVLA/SmolVLM loading crosses the heavy import/model-load gate and needs a separate explicit approval step.
+Reason: Readiness was true, but actual SmolVLA/SmolVLM loading crossed the heavy import/model-load gate before the later autonomous pilot standing approval.
 
 Consequence: `scripts\15_plan_smolvla_load_only_smoke.ps1` may run safely without `ALLOW_HEAVY_IMPORT=1`. It writes a planning report, refuses to run when `ALLOW_HEAVY_IMPORT=1` is already set, and does not import SmolVLA, load models, run inference, train, rollout, download assets, access secrets, or execute OpenVLA-OFT.
 
@@ -163,3 +163,11 @@ Decision: Add a summary-only hard-stop approval status command.
 Reason: The next meaningful steps are now gated by explicit approval, and those gates are spread across runtime install, heavy import/load-only smoke, and tiny training plans.
 
 Consequence: `scripts\27_summarize_hard_stop_status.ps1` records the current approval choices without installing packages, downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, accessing tokens, executing simulators, executing OpenVLA-OFT, or making paper-grade claims.
+
+## SmolVLA Autonomous Pilot Standing Approval
+
+Decision: Treat the expected low-compute SmolVLA pilot path as standing-approved inside a bounded safety envelope.
+
+Reason: The checkpoint/dependency files are ready, runtime dependencies are installed, safe runner and pytest pass, and repeated approval prompts for predictable load-only/interface/tiny-smoke steps prevent autonomous research-engineering progress.
+
+Consequence: Codex should continue without asking before bounded SmolVLA load-only heavy import/model construction, load-only debugging, one synthetic or dummy single-sample interface smoke, tiny feature-cache/interface validation, and tiny head-only smoke with frozen backbone, max 100 steps, max 15 minutes, and max 14GB VRAM. Codex may set `ALLOW_HEAVY_IMPORT=1` only inside the bounded load-only task. Codex must still stop before OpenVLA-OFT download/import/load/execution, LIBERO/RoboSuite/RoboCasa/dataset downloads, simulator execution, rollouts, real benchmark evaluation, training outside the tiny-smoke budget, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, unplanned large package installs, token/secret/login requirements, multi-seed experiments, paper-level empirical claims, external submission/upload/publishing, or destructive deletion outside repository/approved cache cleanup.

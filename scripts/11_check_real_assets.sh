@@ -105,7 +105,7 @@ echo "ready_for_libero_rollout: $ready_for_libero_rollout"
 echo "missing_assets: ${MISSING_ASSETS[*]:-none}"
 
 if [[ "$ready_for_smolvla_smoke" == true ]]; then
-  echo "recommended_next_step: Run a separate approved SmolVLA load-only adapter smoke task. Do not train."
+  echo "recommended_next_step: Continue to the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
 elif [[ "$ready_for_openvla_oft_smoke" == true ]]; then
   echo "recommended_next_step: OpenVLA-OFT assets are present, but SmolVLA-first is still recommended on RTX 5080 16GB."
 else

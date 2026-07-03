@@ -4,7 +4,7 @@
 
 This report explains the current bounded-autopilot stop condition in one place.
 
-The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, and the explicitly approved SmolVLA runtime package install. The next meaningful steps now require explicit approval.
+The project has completed the safe scaffolds, planners, readiness checks, dummy cache path, cached-feature eval-only smoke, tiny head-only pilot planner, the explicitly approved SmolVLA runtime package install, and the SmolVLA autonomous pilot standing approval policy. The next bounded SmolVLA pilot steps do not require routine approval prompts.
 
 ## Summary Command
 
@@ -22,24 +22,46 @@ reports\hard_stop_status_report.json
 
 The script is summary-only. It does not install packages, download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, access tokens, execute simulators, execute OpenVLA-OFT, or make paper-grade claims.
 
-## Current Approval Choices
+## SmolVLA Autonomous Pilot Standing Approval
 
 The runtime install gate has been used and is currently clear: `torch`, `transformers`, `lerobot`, and `safetensors` are installed in the `tca_map` environment.
 
-Approve at most one remaining gate at a time:
+Codex may continue autonomously through:
 
-1. SmolVLA load-only heavy-import task with `ALLOW_HEAVY_IMPORT=1`, after runtime dependencies are present.
-2. Tiny head-only training task with `ALLOW_TINY_TRAINING=1`, after cached features are real and runtime checks are valid.
+- SmolVLA load-only heavy import/model construction smoke with `ALLOW_HEAVY_IMPORT=1` set only inside that task,
+- load-only debugging for dependency/import/API/layout/Windows/minor compatibility issues,
+- one synthetic or dummy single-sample interface smoke,
+- tiny feature-cache/interface validation,
+- tiny head-only training smoke with frozen backbone, max 100 steps, max 15 minutes, max 14GB VRAM, and no paper claim.
 
-Do not combine heavy import/model loading and training in the same approval unless a later task explicitly narrows and justifies that combined scope.
+Do not combine this standing approval with true hard-stop gates.
 
 ## Current Known Blockers
 
 - Runtime dependencies are present in the current `tca_map` environment.
-- Actual SmolVLA load-only construction requires `ALLOW_HEAVY_IMPORT=1`.
-- Any tiny head-only training requires explicit training approval.
+- No true hard-stop currently blocks the next bounded SmolVLA load-only smoke if readiness checks remain true.
 - LIBERO/RoboSuite/RoboCasa/simulator assets remain missing for rollout work.
 - OpenVLA-OFT local large execution remains forbidden.
+
+## Remaining True Hard-Stops
+
+Codex must still stop before:
+
+- OpenVLA-OFT download/import/load/execution,
+- LIBERO/RoboSuite/RoboCasa/dataset download,
+- simulator execution,
+- rollout,
+- real benchmark evaluation that could be mistaken for paper-grade evidence,
+- training longer than 15 minutes or more than 100 steps,
+- any job expected to exceed 30 minutes,
+- using more than 14GB VRAM,
+- changing CUDA/PyTorch major versions,
+- installing large unplanned packages,
+- token/secret/API key/login requirement,
+- multi-seed experiment,
+- paper-level empirical claim,
+- external submission/upload/publishing,
+- destructive file deletion outside repository or approved cache cleanup.
 
 ## Safe Commands Still Allowed
 

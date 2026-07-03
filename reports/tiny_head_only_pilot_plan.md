@@ -1,14 +1,20 @@
-# Tiny Head-Only Pilot Approval Plan
+# Tiny Head-Only Pilot Plan
 
 ## Purpose
 
 This plan prepares the future tiny head-only ActionMap/TCA-Map offline-proxy pilot. It does not run training.
 
-The pilot is still blocked by explicit approval gates:
+The tiny smoke version is now covered by the SmolVLA autonomous pilot standing approval if it stays inside the bounded budget:
 
-- runtime package installation approval,
-- real SmolVLA feature extraction heavy-import/load-only approval,
-- tiny head-only training approval.
+- dummy or tiny local non-paper data only,
+- frozen backbone,
+- max 100 steps,
+- max 15 minutes,
+- max 14GB VRAM,
+- no rollout,
+- no OpenVLA-OFT,
+- no multi-seed,
+- no paper claim.
 
 ## Planner
 
@@ -29,7 +35,7 @@ It verifies that the ActionMap and TCA-Map head-only configs remain within the l
 - frozen backbone,
 - cached features,
 - batch size 1 style execution,
-- max 1000 initial local steps,
+- max 1000 initial local pilot steps in config, with the standing-approved smoke capped at 100 steps,
 - trainable parameters under the initial 50M limit,
 - grid size 8,
 - low-resolution heatmaps,
@@ -51,6 +57,6 @@ Paper-grade standard success requires later simulator rollouts after separate si
 
 ## Safety Boundary
 
-This planner refuses dangerous gates such as `ALLOW_GPU_TRAINING=1`, `ALLOW_TINY_TRAINING=1`, `ALLOW_HEAVY_IMPORT=1`, or `ALLOW_DOWNLOADS=1`.
+This planner refuses execution gates such as `ALLOW_GPU_TRAINING=1`, `ALLOW_TINY_TRAINING=1`, `ALLOW_HEAVY_IMPORT=1`, or `ALLOW_DOWNLOADS=1` because it is planning-only.
 
 It does not download assets, run GPU jobs, import heavy VLA models, load models, run inference, train, rollout, or execute OpenVLA-OFT.

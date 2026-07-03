@@ -188,7 +188,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     blocked_reason = None
     if not heavy_gate:
         exit_code = 2
-        blocked_reason = "ALLOW_HEAVY_IMPORT=1 is required for actual load-only execution."
+        blocked_reason = "ALLOW_HEAVY_IMPORT=1 is required and may be set only inside the bounded SmolVLA autonomous load-only task."
     elif forbidden_gates_set:
         exit_code = 3
         blocked_reason = f"Forbidden gate(s) set: {', '.join(forbidden_gates_set)}"

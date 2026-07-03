@@ -55,8 +55,11 @@ def test_tiny_head_only_pilot_planner_is_planning_only(tmp_path):
 
     assert report["configs_pass_policy"] is True
     assert report["safe_to_run_training_now"] is False
-    assert report["ready_to_request_tiny_training_approval"] is True
+    assert report["ready_for_autonomous_tiny_training_smoke"] is True
+    assert report["ready_to_request_tiny_training_approval"] is False
     assert report["policy"]["planning_only"] is True
+    assert report["policy"]["standing_approval_for_tiny_training_smoke"] is True
+    assert report["policy"]["approval_required_before_training"] is False
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["gpu_jobs_performed"] is False
     assert report["policy"]["downloads_performed"] is False

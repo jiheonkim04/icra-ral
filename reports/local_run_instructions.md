@@ -102,7 +102,7 @@ $env:ALLOW_CREATE_DIRS="1"
 powershell -ExecutionPolicy Bypass -File scripts\12_prepare_smolvla_assets.ps1
 ```
 
-Check whether a local SmolVLA checkpoint is ready for a later separately approved load-only adapter smoke:
+Check whether a local SmolVLA checkpoint is ready for the standing-approved bounded load-only adapter smoke:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
@@ -124,7 +124,7 @@ The bounded execution scaffold is:
 powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
-Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set in a separately approved task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any future loader path can proceed.
+Without `ALLOW_HEAVY_IMPORT=1`, it exits before any heavy import or model load. With the gate set inside the standing-approved bounded SmolVLA load-only task, it still checks runtime dependencies, local files, memory policy, and forbidden gates before any loader path can proceed.
 
 Check the runtime package prerequisites without importing heavy VLA models:
 

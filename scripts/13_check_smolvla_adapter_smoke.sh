@@ -146,7 +146,7 @@ echo "memory.required_headroom_mb: $required_headroom_mb"
 echo "memory.fits_rtx_5080_16gb_budget: $memory_fits"
 
 if [[ "$ready" == true ]]; then
-  echo "recommended_next_step: Ready for a separately approved SmolVLA load-only adapter smoke. Do not train."
+  echo "recommended_next_step: Ready for the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
 elif [[ "$ckpt_exists" != true ]]; then
   echo "recommended_next_step: Configure SMOLVLA_CKPT to a local checkpoint directory first."
 else

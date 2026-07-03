@@ -4,7 +4,7 @@
 
 This plan defines a lightweight feature-cache contract for head-only ActionMap/TCA-Map development before any real SmolVLA feature extraction. It uses dummy hidden tokens only.
 
-The feature-cache scaffold is not a paper-grade result and is not evidence that SmolVLA works locally. It is an interface contract for later frozen-backbone feature extraction after runtime install and heavy-import gates are explicitly approved.
+The feature-cache scaffold is not a paper-grade result and is not evidence that SmolVLA works locally. It is an interface contract for later frozen-backbone feature extraction after runtime install and within the standing-approved bounded SmolVLA pilot policy.
 
 ## Files
 
@@ -54,7 +54,7 @@ The dummy cache is written under `runs\`, which is also ignored by git.
 Real SmolVLA feature extraction remains blocked until all of these are explicitly approved and valid:
 
 - runtime packages are installed and checked,
-- `ALLOW_HEAVY_IMPORT=1` is approved for load-only behavior,
+- `ALLOW_HEAVY_IMPORT=1` is set only inside standing-approved bounded load-only behavior,
 - no inference/training/rollout is performed,
 - memory policy remains within the local RTX 5080 16GB budget,
 - no OpenVLA-OFT execution occurs.

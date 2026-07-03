@@ -22,7 +22,7 @@ Risk: The acquired `lerobot/smolvla_base` files reference `HuggingFaceTB/SmolVLM
 
 Impact: Config and weights can be present while readiness remains false if the external dependency is missing or is not recognized by the checker.
 
-Mitigation: The dependency acquisition was separately approved for tokenizer/processor/config files only. The checker now recognizes the dependency under `HF_HOME`. Do not silently download full SmolVLM2 model weights, run heavy imports, or execute inference without separate explicit approval.
+Mitigation: The dependency acquisition was separately approved for tokenizer/processor/config files only. The checker now recognizes the dependency under `HF_HOME`. Do not silently download full SmolVLM2 model weights or execute inference. Heavy import/model construction is allowed only inside the bounded SmolVLA autonomous pilot load-only task.
 
 ## Manual Confirmation Drift
 
@@ -48,13 +48,13 @@ Impact: OOM during future load-only smoke, feature caching, or pilots.
 
 Mitigation: SmolVLA-first, frozen/head-only defaults, low-resolution heatmaps, batch size 1, memory estimates, and optional LoRA/QLoRA only with explicit config.
 
-## Premature Heavy Import
+## Unbounded Heavy Import
 
-Risk: A load-only smoke task may accidentally become a heavy import, model inference, or GPU execution task without explicit approval and bounded scope.
+Risk: A standing-approved load-only smoke task may accidentally become model inference, training, rollout, or GPU-heavy execution outside the bounded scope.
 
 Impact: CUDA/Windows instability, OOM, hidden inference, or invalid claim that readiness is a result.
 
-Mitigation: Use `scripts\15_plan_smolvla_load_only_smoke.ps1` first. It is planning-only, refuses `ALLOW_HEAVY_IMPORT=1`, and records the future gate. Actual loading requires a separate explicit approval task with no inference, training, rollout, dataset, simulator, or OpenVLA-OFT behavior.
+Mitigation: Set `ALLOW_HEAVY_IMPORT=1` only inside the bounded SmolVLA load-only task. Enforce no inference, no training, no rollout, no dataset evaluation, no simulator import, no OpenVLA-OFT, max 10 minutes for load-only, and max 14GB VRAM.
 
 ## SmolVLA Runtime Dependency Drift
 
@@ -80,13 +80,13 @@ Impact: Broken local environment, CUDA mismatch, unexpected downloads, or blocke
 
 Mitigation: Use `scripts\18_plan_smolvla_runtime_install.ps1` and `reports\smolvla_runtime_install_request.md`. The planner refuses dangerous gates and records that installs, downloads, heavy imports, model loads, inference, training, rollouts, and OpenVLA-OFT execution were not performed.
 
-## Runtime-Ready Misread As Load-Ready
+## Runtime-Ready Misread As Result-Ready
 
-Risk: Runtime dependency readiness may be mistaken for permission to import/load SmolVLA.
+Risk: Runtime dependency readiness or load-only success may be mistaken for a research result.
 
-Impact: A routine check could accidentally cross the heavy import/model-load gate.
+Impact: The project could overclaim from engineering smoke tests.
 
-Mitigation: Keep `ALLOW_HEAVY_IMPORT=1` as a separate explicit gate. Runtime package installation only clears dependency availability; it does not authorize heavy imports, model loading, inference, GPU execution, training, rollouts, OpenVLA-OFT, or paper-grade claims.
+Mitigation: Keep load-only, single-sample interface, feature-cache, and tiny head-only training smoke reports labeled as smoke/interface checks only. No paper-level empirical claim is allowed without later real benchmark evaluation and explicit approval.
 
 ## Feature Cache Contract Drift
 
@@ -104,21 +104,21 @@ Impact: The first head-only pilot fails after expensive feature extraction or pr
 
 Mitigation: Run `scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache` and `tests\test_feature_cache_eval_smoke.py` to validate the consumer path with dummy cached features before real SmolVLA extraction.
 
-## Accidental Tiny Training
+## Accidental Tiny Training Scope Creep
 
-Risk: A planning step for the tiny head-only pilot may accidentally launch training.
+Risk: A standing-approved tiny head-only smoke may drift into longer training, real benchmark evaluation, or GPU-heavy experimentation.
 
 Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bounded autopilot session.
 
-Mitigation: Use `scripts\26_plan_tiny_head_only_pilot.ps1`, which refuses training/heavy gates and reports `safe_to_run_training_now=false`. Actual training requires explicit user approval.
+Mitigation: Require frozen backbone, dummy or tiny local non-paper data, max 100 steps, max 15 minutes, max 14GB VRAM, no rollout, no OpenVLA-OFT, no multi-seed, and no paper claim. Stop for explicit approval outside that envelope.
 
-## Approval Scope Confusion
+## Standing Approval Scope Confusion
 
-Risk: Runtime install, heavy import/load-only smoke, and tiny training approvals may be mixed together accidentally.
+Risk: The SmolVLA autonomous pilot standing approval may be misread as permission for OpenVLA-OFT, rollouts, real benchmark evaluation, datasets, or larger training.
 
-Impact: A small approval could unintentionally permit package changes, model loading, GPU use, or training in the same task.
+Impact: A bounded local smoke could turn into an unapproved experiment or paper claim.
 
-Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1` and `reports\hard_stop_status.md`. Approve at most one gate at a time unless a later task explicitly scopes and justifies a combined approval.
+Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1` and `reports\hard_stop_status.md`. The standing approval covers only bounded SmolVLA load-only/interface/tiny-smoke steps. Stop before true hard-stop gates.
 
 ## 24GB System RAM
 
