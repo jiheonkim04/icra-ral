@@ -347,3 +347,11 @@ Decision: Align the local pilot compute budget and head-only pilot configs to a 
 Reason: The risk-assessed autonomous policy caps bounded local pilot training at 300 steps after smaller smoke is stable, but older config files still allowed 1000 initial steps.
 
 Consequence: `configs\compute_budget.yaml`, `configs\actionmap_head_only_lowcompute.yaml`, and `configs\tca_map_head_only_lowcompute.yaml` now use `300` as the local pilot step ceiling. Tiny smoke runners may still use narrower caps such as 100 steps.
+
+## Bounded Local Pilot Extension
+
+Decision: Add a bounded cached-feature local pilot extension runner.
+
+Reason: After the smaller head-only and LoRA smokes passed, the next safe local execution step is a slightly longer cached-feature head-only smoke inside the 300-step risk policy, without real datasets or simulator execution.
+
+Consequence: `scripts\44_bounded_local_pilot_extension.ps1` runs the existing cached-feature head-only smoke path with a stricter 100-step runner cap and a 64-step default. It writes ignored runtime reports and labels the result as offline proxy only, not standard success and not paper-grade evidence.

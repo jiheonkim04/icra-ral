@@ -311,3 +311,11 @@ Risk: Config files, compute budget checks, and autonomy policy could disagree on
 Impact: A bounded smoke could accidentally become a longer local training run than the current risk policy allows.
 
 Mitigation: Keep `configs\compute_budget.yaml`, head-only pilot configs, and planning docs aligned to `max_steps<=300` for bounded local pilots. Tiny smoke runners may enforce stricter caps.
+
+## Bounded Local Pilot Extension Overinterpretation
+
+Risk: A longer cached-feature local pilot extension could be mistaken for real benchmark evidence or standard success.
+
+Impact: Premature method claims, invalid comparison language, or drift into real dataset training without simulator/benchmark readiness.
+
+Mitigation: `scripts\44_bounded_local_pilot_extension.ps1` uses cached/dummy features only, keeps the runner cap at 100 steps, reports offline proxy labels, and keeps real dataset training, simulator execution, rollout, OpenVLA-OFT, and paper claims behind separate risk gates.

@@ -212,6 +212,14 @@ Plan simulator readiness without imports, render smoke, or rollouts:
 powershell -ExecutionPolicy Bypass -File scripts\43_plan_simulator_readiness.ps1
 ```
 
+Run the bounded cached-feature local pilot extension only after a green training risk assessment:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\44_bounded_local_pilot_extension.ps1 -PrepareDummyCache
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
+```
+
 Generate the current go/no-go status summary:
 
 ```powershell
