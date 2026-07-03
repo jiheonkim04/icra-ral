@@ -45,6 +45,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - LoRA tiny-smoke scaffold,
 - TCA-Map + LoRA comparison plan,
 - QLoRA feasibility check,
+- LoRA/QLoRA go/no-go status update,
 - local paper-grade runner and planning scripts,
 - Cursor safe local runner,
 - SmolVLA asset prep,
@@ -397,6 +398,14 @@ powershell -ExecutionPolicy Bypass -File scripts\35_check_qlora_feasibility.ps1
 ```
 
 The check has passed as a check-only gate. It records whether QLoRA tooling is present without installing packages or changing CUDA/PyTorch. It keeps `safe_to_run_qlora_now=false` and does not train, construct adapters, import heavy VLA models, load models, infer, run GPU jobs, download assets, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+The LoRA/QLoRA-aware go/no-go generator is documented in `reports\go_no_go_status.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
+```
+
+The updated go/no-go status remains no-go for larger experimental stages. The next meaningful work would cross an execution or environment gate, such as LoRA tiny-smoke execution, QLoRA package/tooling changes, real dataset setup, simulator rollout, or OpenVLA-OFT-related work. Those require explicit approval for exactly one gate.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

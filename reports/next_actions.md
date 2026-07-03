@@ -159,10 +159,11 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 14. Required LoRA tiny smoke scaffold. Done.
 15. Required TCA-Map + LoRA comparison plan. Done.
 16. QLoRA feasibility check. Done.
-17. Update LoRA/QLoRA go/no-go status. Next.
-18. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+17. Update LoRA/QLoRA go/no-go status. Done.
+18. Hard stop: pick exactly one explicit next gate before any execution-stage work. Next.
+19. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, and QLoRA feasibility check have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The next safe task is an updated LoRA/QLoRA go/no-go status. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, and LoRA/QLoRA go/no-go update have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. No execution-stage LoRA/QLoRA work is safe without choosing exactly one explicit next gate. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 Planning command:
 
@@ -182,7 +183,7 @@ D. Required LoRA adapter construction plan. Done.
 E. Required LoRA tiny smoke scaffold. Done; execution remains gated.
 F. Required TCA-Map + LoRA comparison plan. Done.
 G. QLoRA feasibility check. Done.
-H. Go/no-go report. Next.
+H. Go/no-go report. Done.
 
 LoRA/QLoRA are required adaptation tracks, not optional nice-to-have items. Full fine-tuning remains forbidden locally.
 
@@ -232,3 +233,5 @@ ready_for_smolvla_adapter_smoke=true
 ## Later Task
 
 After readiness, planning, load-only smoke, single-sample interface smoke, and feature-cache/interface validation are true, continue on a new branch for a tiny head-only smoke runner. That branch may run only bounded head-only smoke and must not train a backbone, rollout, evaluate real datasets, or execute OpenVLA-OFT.
+
+After the LoRA/QLoRA go/no-go update, stop before execution-stage work. The next meaningful gates are LoRA tiny-smoke execution, QLoRA tooling/package work, real dataset setup, simulator rollout, or OpenVLA-OFT-related work; each requires explicit approval for exactly that gate.
