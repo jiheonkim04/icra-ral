@@ -218,31 +218,29 @@ approval_requests = [
     },
     {
         "gate": "smolvla_load_only_heavy_import",
-        "required_before": "setting ALLOW_HEAVY_IMPORT=1 and attempting load-only SmolVLA model construction",
-        "current_blocker": True,
+        "required_before": "setting ALLOW_HEAVY_IMPORT=1 outside the bounded SmolVLA autonomous pilot envelope",
+        "current_blocker": False,
         "safe_planner": "scripts/15_plan_smolvla_load_only_smoke.ps1",
-        "approval_env_if_later_approved": "ALLOW_HEAVY_IMPORT=1",
+        "approval_env_if_later_approved": "Standing-approved for bounded SmolVLA load-only smoke only",
+        "standing_approval": True,
     },
     {
         "gate": "tiny_head_only_training",
-        "required_before": "running any head-only training, even tiny/offline-proxy training",
-        "current_blocker": True,
+        "required_before": "running training outside tiny-smoke budget: max_steps<=100, runtime<=15 minutes, VRAM<=14GB",
+        "current_blocker": False,
         "safe_planner": "scripts/26_plan_tiny_head_only_pilot.ps1",
-        "approval_env_if_later_approved": "ALLOW_TINY_TRAINING=1 plus explicit training task instructions",
+        "approval_env_if_later_approved": "Standing-approved for bounded tiny head-only smoke only",
+        "standing_approval": True,
     },
 ]
 
 blocking_labels = []
 if missing_required_runtime:
     blocking_labels.append("runtime installation")
-blocking_labels.extend(
-    [
-        "SmolVLA load-only heavy import/model construction",
-        "tiny head-only training",
-    ]
-)
 
-if len(blocking_labels) == 1:
+if len(blocking_labels) == 0:
+    blocking_summary = ""
+elif len(blocking_labels) == 1:
     blocking_summary = blocking_labels[0]
 elif len(blocking_labels) == 2:
     blocking_summary = " or ".join(blocking_labels)
@@ -254,6 +252,17 @@ next_gate_names = [
     for request in approval_requests
     if request["current_blocker"]
 ]
+
+hard_stop_reached = bool(next_gate_names)
+if hard_stop_reached:
+    hard_stop_reason = f"Next meaningful steps require explicit approval for {blocking_summary}."
+    recommended_next_step = f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates."
+else:
+    hard_stop_reason = None
+    recommended_next_step = (
+        "Continue autonomous SmolVLA pilot: run bounded load-only smoke with ALLOW_HEAVY_IMPORT=1 "
+        "inside that task, then proceed to single-sample interface smoke if it passes."
+    )
 
 git_branch = run_small(["git", "branch", "--show-current"])
 git_commit = run_small(["git", "log", "-1", "--oneline"])
@@ -307,15 +316,16 @@ report = {
         },
     },
     "tiny_head_only": {
+        "ready_for_autonomous_tiny_training_smoke": tiny_plan.get("ready_for_autonomous_tiny_training_smoke"),
         "ready_to_request_tiny_training_approval": tiny_plan.get("ready_to_request_tiny_training_approval"),
         "safe_to_run_training_now": tiny_plan.get("safe_to_run_training_now"),
         "configs_pass_policy": tiny_plan.get("configs_pass_policy"),
     },
     "approval_requests": approval_requests,
     "current_blocking_gates": next_gate_names,
-    "hard_stop_reached": True,
-    "hard_stop_reason": f"Next meaningful steps require explicit approval for {blocking_summary}.",
-    "recommended_next_step": f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates.",
+    "hard_stop_reached": hard_stop_reached,
+    "hard_stop_reason": hard_stop_reason,
+    "recommended_next_step": recommended_next_step,
 }
 
 report_path = Path(os.environ["TCA_MAP_HARD_STOP_STATUS_REPORT"])

@@ -173,7 +173,7 @@ report = {
     "recommended_next_step": (
         "Ask for explicit approval for a pinned SmolVLA runtime install task before installing packages."
         if missing_required
-        else "Runtime packages appear installed; rerun scripts/17_check_smolvla_runtime_deps.ps1 and then consider a separately approved load-only smoke."
+        else "Runtime packages appear installed; rerun scripts/17_check_smolvla_runtime_deps.ps1 and then continue to the standing-approved bounded load-only smoke."
     ),
 }
 

@@ -15,7 +15,7 @@ Codex acts as:
 - adversarial reviewer,
 - safety gatekeeper.
 
-Codex should move work forward without asking approval for routine safe actions, but must stop before any dangerous gate listed below.
+Codex should move work forward without asking approval for routine safe actions or expected bounded SmolVLA pilot steps. It must stop only before a true hard-stop gate listed below.
 
 ## Repo-First Operation
 
@@ -72,24 +72,29 @@ Case A: If the SmolVLA checkpoint path is missing or not configured, report the 
 
 Case B: If the SmolVLA path exists but config/tokenizer/weights are missing, report the exact missing file classes, update `project_state` and `next_actions`, stop at the checkpoint-file gate, and do not ask the user whether files were placed.
 
-Case C: If config/tokenizer/weights are present and readiness says adapter-smoke-ready, update `project_state` and `next_actions`, prepare the next safe load-only adapter smoke plan, do not perform heavy import or GPU execution, and stop for explicit approval before any heavy import or model load.
+Case C: If config/tokenizer/weights are present, runtime dependencies are installed, and readiness says adapter-smoke-ready, continue into the standing-approved SmolVLA autonomous pilot path. Create or run the next bounded step without asking the user to type "continue" or approve routine progress.
 
 Case D: If a checker fails due to Windows, PATH, or tooling issues, diagnose and fix minimally on a new branch if safe, validate again, and do not ask the user to debug manually unless the issue requires external installation or credentials.
 
-Case E: If a dangerous gate is reached, stop and ask for explicit user approval. Clearly state what approval is needed and what risk it carries. Do not proceed automatically.
+Case E: If a true hard-stop gate is reached, stop and ask for explicit user approval. Clearly state what approval is needed and what risk it carries. Do not proceed automatically.
 
-Only ask the user for:
+Only ask the user for true hard-stop gates:
 
-- actual download approval,
-- `ALLOW_DOWNLOADS=1` approval,
-- `ALLOW_HEAVY_IMPORT=1` approval,
-- GPU inference approval,
-- training approval,
+- OpenVLA-OFT download/import/load/execution,
+- LIBERO/RoboSuite/RoboCasa/dataset download,
+- simulator execution,
 - rollout approval,
-- simulator execution approval,
-- OpenVLA-OFT execution approval,
+- real benchmark evaluation that could be mistaken for a paper-grade result,
+- training longer than 15 minutes or more than 100 steps,
+- any job expected to exceed 30 minutes,
+- using more than 14GB VRAM,
+- changing CUDA/PyTorch major versions,
+- installing large unplanned packages,
 - token/secret/API key access,
-- paper-level empirical claim approval.
+- multi-seed experiments,
+- paper-level empirical claims,
+- external submission/upload/publishing,
+- destructive file deletion outside repository or approved cache cleanup.
 
 Do not ask:
 
@@ -97,6 +102,13 @@ Do not ask:
 - "Should I check readiness?"
 - "Should I run pytest?"
 - "Should I run safe runner?"
+- "Should I run load-only smoke?"
+- "Should I set ALLOW_HEAVY_IMPORT=1 for bounded load-only smoke?"
+- "Should I debug this import error?"
+- "Should I create the next branch?"
+- "Should I merge if checks pass?"
+- "Should I update project_state?"
+- "Should I proceed to the next safe smoke?"
 - "What is the current branch?"
 - "Is git clean?"
 - "What is missing?"
@@ -160,21 +172,72 @@ bash scripts/14_plan_smolvla_download.sh
 
 ## Dangerous Gates
 
-Codex must stop and ask before:
+Codex must stop and ask before true hard-stop gates:
 
-- any actual download,
-- setting `ALLOW_DOWNLOADS=1`,
-- setting `ALLOW_HEAVY_IMPORT=1`,
-- GPU inference,
-- training,
-- rollout,
+- OpenVLA-OFT download/import/load/execution,
+- LIBERO/RoboSuite/RoboCasa/dataset download,
 - simulator execution,
-- heavy SmolVLA/OpenVLA import,
-- OpenVLA-OFT execution,
+- rollout,
+- real benchmark evaluation that could be mistaken for a paper-grade result,
+- training longer than 15 minutes or more than 100 steps,
+- any job expected to exceed 30 minutes,
+- using more than 14GB VRAM,
+- changing CUDA/PyTorch major versions,
+- installing large unplanned packages,
 - token, secret, or API key access,
-- paper-level empirical claims.
+- multi-seed experiments,
+- paper-level empirical claims,
+- external submission/upload/publishing,
+- destructive file deletion outside repository or approved cache cleanup.
 
-Routine dry-run scripts and readiness checks are allowed when they explicitly report no downloads, no GPU jobs, no training, no rollouts, no heavy imports, and no OpenVLA-OFT execution.
+Routine dry-run scripts, readiness checks, and standing-approved bounded SmolVLA pilot steps are allowed when they stay within the safety budget below.
+
+## SmolVLA Autonomous Pilot Standing Approval
+
+The user grants standing approval for Codex to autonomously execute the expected SmolVLA low-compute pilot path as long as each task stays inside this safety budget.
+
+Codex should no longer ask before these bounded steps:
+
+1. SmolVLA load-only heavy import/model construction smoke.
+   - May set `ALLOW_HEAVY_IMPORT=1` only inside this task.
+   - May import/load SmolVLA from local checkpoint files.
+   - May use CPU first if feasible.
+   - May use GPU only for load-only smoke if needed and if memory estimate is below 14GB.
+   - Must not train, run rollout, evaluate datasets, execute OpenVLA-OFT, or download additional assets unless already approved SmolVLA dependency files are missing.
+
+2. SmolVLA load-only debugging.
+   - May fix missing dependency errors, import path errors, API mismatch errors, local file layout/checker mismatch, Windows path issues, and minor PyTorch/Transformers/LeRobot compatibility issues.
+   - Must stop before changing CUDA/PyTorch major versions, installing very large unplanned packages, requiring token/login, using OpenVLA-OFT, or downloading datasets.
+
+3. Single-sample interface smoke.
+   - May use one synthetic or dummy observation.
+   - No real dataset, rollout, training, or paper claim.
+   - CPU or bounded GPU only.
+   - Max runtime 10 minutes, max VRAM target 14GB, batch size 1 or smaller equivalent.
+   - Must log memory/runtime if measurable.
+
+4. Tiny feature-cache/interface validation.
+   - May use dummy or tiny local samples only.
+   - No real benchmark claim, rollout, OpenVLA-OFT, or multi-seed.
+   - Max runtime 15 minutes and max VRAM target 14GB.
+
+5. Tiny head-only training smoke.
+   - Allowed only with dummy or tiny local non-paper data.
+   - Backbone must be frozen.
+   - Trainable parameters must stay within `configs/compute_budget.yaml`.
+   - Max steps 100, max runtime 15 minutes, max VRAM target 14GB.
+   - No rollout, OpenVLA-OFT, or paper claim.
+   - This is a smoke test only, not a research result.
+
+Expected autonomous progression:
+
+A. If readiness is false, diagnose and fix if inside approved SmolVLA scope.
+B. If readiness is true but load-only smoke has not passed, create/run SmolVLA load-only smoke.
+C. If load-only smoke passes, create/run single-sample interface smoke.
+D. If interface smoke passes, create/run tiny feature-cache/interface validation.
+E. If that passes, create/run tiny head-only training smoke if still inside budget.
+F. If tiny head-only smoke passes, write a go/no-go report for the next larger experimental stage.
+G. Stop only when a true hard-stop gate is reached.
 
 ## Research Direction
 

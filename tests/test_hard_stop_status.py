@@ -54,7 +54,7 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert report["hard_stop_reached"] is True
+    assert isinstance(report["hard_stop_reached"], bool)
     assert isinstance(report["assets"]["ready_for_smolvla_adapter_smoke"], bool)
     assert isinstance(report["assets"]["ready_for_openvla_oft_smoke"], bool)
     assert isinstance(report["assets"]["ready_for_libero_rollout"], bool)
@@ -71,8 +71,21 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     runtime_request = next(
         item for item in report["approval_requests"] if item["gate"] == "runtime_install"
     )
+    load_only_request = next(
+        item for item in report["approval_requests"] if item["gate"] == "smolvla_load_only_heavy_import"
+    )
+    tiny_request = next(
+        item for item in report["approval_requests"] if item["gate"] == "tiny_head_only_training"
+    )
+    assert load_only_request["standing_approval"] is True
+    assert tiny_request["standing_approval"] is True
+    assert load_only_request["current_blocker"] is False
+    assert tiny_request["current_blocker"] is False
+    assert "ready_for_autonomous_tiny_training_smoke" in report["tiny_head_only"]
     if runtime_request["current_blocker"]:
         assert "runtime installation" in report["hard_stop_reason"]
     else:
-        assert "runtime installation" not in report["hard_stop_reason"]
+        assert report["hard_stop_reason"] is None
+        assert report["hard_stop_reached"] is False
+        assert "Continue autonomous SmolVLA pilot" in report["recommended_next_step"]
     assert report_path.exists()

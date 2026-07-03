@@ -6,7 +6,7 @@ This plan covers the runtime packages needed before any actual SmolVLA load-only
 
 ## Current Local Status
 
-The current `tca_map` Python environment has the packages needed for a separately approved SmolVLA load-only smoke:
+The current `tca_map` Python environment has the packages needed for the standing-approved bounded SmolVLA load-only smoke:
 
 ```text
 torch=2.10.0+cu128
@@ -18,7 +18,7 @@ accelerate=1.14.0
 huggingface-hub=0.35.3
 ```
 
-This means the local files and Python runtime dependencies are ready for a future bounded load-only task. Actual model loading is still blocked by the separate `ALLOW_HEAVY_IMPORT=1` hard-stop gate.
+This means the local files and Python runtime dependencies are ready for the standing-approved bounded SmolVLA load-only task. `ALLOW_HEAVY_IMPORT=1` may be set only inside that task.
 
 ## Check Command
 

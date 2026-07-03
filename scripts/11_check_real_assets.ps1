@@ -246,7 +246,7 @@ $readyForOpenVlaOftSmoke = [bool]($status["openvla_oft_ckpt"].exists -and $statu
 $readyForLiberoRollout = [bool]($status["libero_root"].exists -and $status["libero_data_root"].exists -and $status["robosuite_root"].exists)
 
 if ($readyForSmolVlaAdapterSmoke) {
-    $recommendedNextStep = "Run a separate approved SmolVLA load-only adapter smoke task. Do not train."
+    $recommendedNextStep = "Continue to the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
 } elseif ($readyForSmolVlaPathCheck -and -not $smolVlaCheckpointFilesPresent) {
     $recommendedNextStep = "SmolVLA path exists, but config/tokenizer/weights files are missing. This is path-ready only, not adapter-smoke-ready."
 } elseif ($readyForOpenVlaOftSmoke) {

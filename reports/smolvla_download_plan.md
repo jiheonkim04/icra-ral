@@ -133,7 +133,7 @@ powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
 powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
 ```
 
-Go for a later separately approved load-only adapter smoke only if:
+Go for the standing-approved bounded load-only adapter smoke only if:
 
 - `ready_for_smolvla_path_check=true`,
 - `smolvla_checkpoint_files_present=true`,

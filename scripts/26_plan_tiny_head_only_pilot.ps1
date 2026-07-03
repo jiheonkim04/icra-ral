@@ -10,7 +10,7 @@ Set-Location $RepoRoot
 $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 
-Write-Host "Tiny head-only pilot approval planner"
+Write-Host "Tiny head-only pilot planner"
 Write-Host "Repo root: $RepoRoot"
 Write-Host "This script plans a future tiny head-only pilot only. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, train, rollout, or execute OpenVLA-OFT."
 
@@ -116,7 +116,8 @@ for path in CONFIGS:
 report = {
     "policy": {
         "planning_only": True,
-        "approval_required_before_training": True,
+        "standing_approval_for_tiny_training_smoke": True,
+        "approval_required_before_training": False,
         "downloads_performed": False,
         "gpu_jobs_performed": False,
         "heavy_model_imports_performed": False,
@@ -132,17 +133,26 @@ report = {
     "errors": errors,
     "configs_pass_policy": not errors,
     "safe_to_run_training_now": False,
-    "ready_to_request_tiny_training_approval": not errors,
+    "ready_for_autonomous_tiny_training_smoke": not errors,
+    "ready_to_request_tiny_training_approval": False,
     "offline_proxy_name_policy": "Use offline_standard_proxy or standard_proxy_score; do not call it standard success.",
     "hard_stop": {
-        "tiny_training_requires_explicit_user_approval": True,
-        "runtime_install_requires_explicit_user_approval": True,
-        "real_smolvla_feature_extraction_requires_heavy_import_approval": True,
+        "tiny_training_requires_explicit_user_approval": False,
+        "runtime_install_requires_explicit_user_approval": False,
+        "real_smolvla_feature_extraction_requires_heavy_import_approval": False,
+        "standing_approval": "SmolVLA autonomous pilot standing approval",
+        "remaining_true_hard_stops": [
+            "training longer than 15 minutes or more than 100 steps",
+            "using more than 14GB VRAM",
+            "rollout or simulator execution",
+            "OpenVLA-OFT execution",
+            "paper-level empirical claims"
+        ],
     },
     "recommended_next_step": (
-        "Request explicit approval before any tiny head-only training. Until then, continue only with planners, tests, and eval-only/dummy-cache checks."
+        "Continue autonomously to a tiny head-only training smoke only if the implementation enforces max_steps<=100, frozen backbone, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB."
         if not errors
-        else "Fix config policy errors before requesting tiny head-only training approval."
+        else "Fix config policy errors before any tiny head-only training smoke."
     ),
 }
 

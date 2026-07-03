@@ -48,9 +48,9 @@ $policy = [ordered]@{
 $readyForPlan = [bool]$checkerReport.ready_for_smolvla_adapter_smoke
 $unsafeGateSet = [bool]$allowHeavyImport
 if ($unsafeGateSet) {
-    $recommended = "Unset ALLOW_HEAVY_IMPORT for planning-only checks. A later task must explicitly approve heavy import/model load."
+    $recommended = "Unset ALLOW_HEAVY_IMPORT for planning-only checks. Set it only inside the standing-approved bounded load-only execution task."
 } elseif ($readyForPlan) {
-    $recommended = "Prepare a separate approved SmolVLA load-only smoke execution task. Do not train, infer, rollout, or execute OpenVLA-OFT."
+    $recommended = "Continue autonomously to the standing-approved bounded SmolVLA load-only smoke. Do not train, infer, rollout, or execute OpenVLA-OFT."
 } else {
     $recommended = "Resolve SmolVLA readiness before planning any load-only execution."
 }
@@ -67,12 +67,15 @@ $report = [ordered]@{
         checker = $checkerReport
     }
     next_gate = [ordered]@{
-        explicit_approval_required = $true
+        explicit_approval_required = $false
         required_gate = "ALLOW_HEAVY_IMPORT=1"
         gate_is_currently_set = $allowHeavyImport
+        standing_approval = "SmolVLA autonomous pilot standing approval"
         execution_script_to_create_later = "scripts/16_smolvla_load_only_smoke.ps1"
-        permitted_future_scope_after_approval = @(
+        permitted_autonomous_scope = @(
             "heavy import/load only",
+            "CPU first if feasible",
+            "bounded GPU load-only if needed and under 14GB VRAM",
             "no inference",
             "no training",
             "no rollouts",
@@ -87,7 +90,7 @@ $report = [ordered]@{
             "CHECKPOINT_ROOT"
         )
         expected_safety_controls = @(
-            "separate explicit approval before ALLOW_HEAVY_IMPORT=1",
+            "ALLOW_HEAVY_IMPORT=1 set only inside bounded load-only task",
             "walltime cap",
             "max GPU memory recording",
             "no model inference",

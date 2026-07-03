@@ -14,7 +14,7 @@ powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.
 
 If checkpoint files are missing, report the missing file classes and stop at the checkpoint-file gate.
 
-If checkpoint files are present, verify readiness and prepare a load-only adapter smoke plan. Do not perform heavy import, GPU inference, download, training, rollout, simulator execution, token access, or OpenVLA-OFT execution without explicit approval.
+If checkpoint files are present, verify readiness and continue to the standing-approved bounded load-only adapter smoke. Do not perform rollout, simulator execution, real benchmark evaluation, token access, OpenVLA-OFT execution, or work outside the SmolVLA autonomous pilot budget without explicit approval.
 
 The planning command is:
 
@@ -28,7 +28,7 @@ The bounded execution scaffold is:
 powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 ```
 
-It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, but the heavy-import/model-load gate remains closed.
+It will not load a model without `ALLOW_HEAVY_IMPORT=1`. Runtime dependencies are now installed, and `ALLOW_HEAVY_IMPORT=1` may be set by Codex only inside the standing-approved bounded load-only task.
 
 Check runtime dependency readiness:
 
@@ -110,15 +110,15 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 2. Readiness recheck.
 3. Load-only adapter smoke planning.
 4. Runtime dependency install completed under explicit approval.
-5. Request explicit approval before SmolVLA load-only heavy import/model construction.
+5. Run standing-approved SmolVLA load-only heavy import/model construction.
 6. Feature cache interface validation with dummy cached features.
 7. Eval-only cached-feature head/metric smoke.
-8. Tiny head-only pilot planning and approval boundary.
-9. Tiny head-only pilot only after explicit training approval.
+8. Tiny head-only pilot planning and budget check.
+9. Tiny head-only smoke if within standing-approved budget.
 10. Summarize hard-stop approval choices.
 11. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: SmolVLA load-only heavy import/model construction requires explicit user approval with `ALLOW_HEAVY_IMPORT=1`. Future package upgrades or CUDA/PyTorch changes also require separate explicit approval.
+Current hard-stop: none for the next bounded SmolVLA load-only smoke if readiness remains true and runtime stays under 10 minutes and 14GB VRAM. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 ## Self-Check Cases
 
@@ -126,7 +126,7 @@ Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact m
 
 Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs and prepares the next safe load-only adapter smoke plan, then stops before heavy import or model load approval. The plan now exists; actual model loading is still gated.
+Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the standing-approved bounded load-only adapter smoke. The plan now exists; actual model loading is allowed only inside the bounded task with `ALLOW_HEAVY_IMPORT=1`.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 
@@ -134,18 +134,22 @@ Case E: Dangerous gate reached. Codex stops and asks for explicit approval with 
 
 ## Blocked Steps Requiring Explicit Approval
 
-Codex must stop before:
+Codex must stop before true hard-stop gates:
 
-- any actual download,
-- setting `ALLOW_DOWNLOADS=1`,
-- setting `ALLOW_HEAVY_IMPORT=1`,
-- GPU inference,
-- training,
-- rollout,
+- OpenVLA-OFT download/import/load/execution,
+- LIBERO/RoboSuite/RoboCasa/dataset download,
 - simulator execution,
-- heavy SmolVLA/OpenVLA import,
-- OpenVLA-OFT execution,
+- rollout,
+- real benchmark evaluation,
+- training longer than 15 minutes or more than 100 steps,
+- any job expected to exceed 30 minutes,
+- using more than 14GB VRAM,
+- changing CUDA/PyTorch major versions,
+- installing large unplanned packages,
 - token or secret access.
+- multi-seed experiment,
+- paper-level empirical claim,
+- external submission/upload/publishing.
 
 Codex should not ask routine questions such as whether files were placed, whether readiness should be checked, whether pytest should run, which branch is current, whether git is clean, or what is missing. It should inspect and report.
 
@@ -161,4 +165,4 @@ ready_for_smolvla_adapter_smoke=true
 
 ## Later Task
 
-After readiness and planning are true, create a new branch for the separately approved SmolVLA load-only execution smoke. That branch should remain load/interface-only and must not infer, train, rollout, or execute OpenVLA-OFT.
+After readiness and planning are true, continue on a new branch for the standing-approved SmolVLA load-only execution smoke. That branch should remain load/interface-only and must not run real inference, train, rollout, evaluate datasets, or execute OpenVLA-OFT.
