@@ -30,6 +30,7 @@ $required = @(
     "reports/smolvla_download_plan.md",
     "reports/smolvla_load_only_smoke_plan.md",
     "reports/smolvla_manual_acquisition_checklist.md",
+    "reports/smolvla_runtime_dependency_plan.md",
     "reports/no_large_openvla_strategy.md",
     "reports/low_compute_experiment_plan.md",
     "reports/reviewer2_no_large_openvla_risk.md",
@@ -64,6 +65,7 @@ $required = @(
     "scripts/14_plan_smolvla_download.sh",
     "scripts/15_plan_smolvla_load_only_smoke.ps1",
     "scripts/16_smolvla_load_only_smoke.ps1",
+    "scripts/17_check_smolvla_runtime_deps.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -89,6 +91,7 @@ $required = @(
     "tests/test_smolvla_download_plan.py",
     "tests/test_smolvla_load_only_smoke_plan.py",
     "tests/test_smolvla_load_only_smoke_scaffold.py",
+    "tests/test_smolvla_runtime_deps_check.py",
     "tests/test_lora_config_guards.py"
 )
 

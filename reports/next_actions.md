@@ -30,6 +30,12 @@ powershell -ExecutionPolicy Bypass -File scripts\16_smolvla_load_only_smoke.ps1
 
 It will not load a model without `ALLOW_HEAVY_IMPORT=1`, and it currently blocks on missing runtime dependencies rather than installing packages automatically.
 
+Check runtime dependency readiness:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
+```
+
 ## Current Asset State
 
 The approved SmolVLA checkpoint source has been acquired:
@@ -77,6 +83,8 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 5. Feature cache planning and implementation.
 6. Tiny head-only pilot.
 7. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+
+Current hard-stop: installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors requires explicit user approval.
 
 ## Self-Check Cases
 

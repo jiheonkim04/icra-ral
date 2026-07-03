@@ -49,7 +49,8 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - manual SmolVLA acquisition checklist,
 - Codex delegation manual and project state files,
 - SmolVLA load-only adapter smoke planning guard,
-- SmolVLA load-only execution scaffold.
+- SmolVLA load-only execution scaffold,
+- SmolVLA runtime dependency checker and install plan.
 
 ## Current Asset Status
 
@@ -129,6 +130,12 @@ accelerate=false
 ```
 
 Installing or changing large packages such as PyTorch/CUDA/LeRobot is a hard-stop gate under the continuous autopilot policy.
+
+Runtime dependency checker:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
+```
 
 Other missing assets currently expected:
 
@@ -227,3 +234,5 @@ Core method:
 ## Immediate Next Step
 
 Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, and the load-only smoke plan exists, the next step is a separate explicit approval task for actual SmolVLA load-only model loading. Do not cross heavy import, GPU, download, rollout, simulator, token, or OpenVLA-OFT gates without explicit approval.
+
+Because runtime packages are missing, the next prerequisite is an explicit environment installation decision. Do not install PyTorch, Transformers, LeRobot, Safetensors, Accelerate, CUDA toolkits, or change CUDA/PyTorch versions automatically.
