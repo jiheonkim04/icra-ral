@@ -18,4 +18,4 @@ limits:
   default_batch_size: 1
   max_heatmap_grid_initial: 8
   max_trainable_params_millions_initial: 50
-  max_local_pilot_steps_initial: 1000
+  max_local_pilot_steps_initial: 300
