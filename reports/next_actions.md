@@ -158,10 +158,11 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 13. Required LoRA adapter construction plan. Done.
 14. Required LoRA tiny smoke scaffold. Done.
 15. Required TCA-Map + LoRA comparison plan. Done.
-16. QLoRA feasibility check. Next.
-17. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
+16. QLoRA feasibility check. Done.
+17. Update LoRA/QLoRA go/no-go status. Next.
+18. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, and TCA-Map + LoRA comparison plan have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The next safe task is a QLoRA feasibility check. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: the bounded tiny head-only smoke, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, and QLoRA feasibility check have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The next safe task is an updated LoRA/QLoRA go/no-go status. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 Planning command:
 
@@ -169,6 +170,7 @@ Planning command:
 powershell -ExecutionPolicy Bypass -File scripts\32_plan_lora_adapter_construction.ps1
 powershell -ExecutionPolicy Bypass -File scripts\33_plan_lora_tiny_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts\34_plan_lora_comparison.ps1
+powershell -ExecutionPolicy Bypass -File scripts\35_check_qlora_feasibility.ps1
 ```
 
 ## Required LoRA/QLoRA Progression
@@ -179,8 +181,8 @@ C. Frozen/head-only TCA-Map tiny pilot. Done as bounded smoke.
 D. Required LoRA adapter construction plan. Done.
 E. Required LoRA tiny smoke scaffold. Done; execution remains gated.
 F. Required TCA-Map + LoRA comparison plan. Done.
-G. QLoRA feasibility check. Next.
-H. Go/no-go report.
+G. QLoRA feasibility check. Done.
+H. Go/no-go report. Next.
 
 LoRA/QLoRA are required adaptation tracks, not optional nice-to-have items. Full fine-tuning remains forbidden locally.
 

@@ -44,6 +44,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 - LoRA adapter construction planning scaffold,
 - LoRA tiny-smoke scaffold,
 - TCA-Map + LoRA comparison plan,
+- QLoRA feasibility check,
 - local paper-grade runner and planning scripts,
 - Cursor safe local runner,
 - SmolVLA asset prep,
@@ -388,6 +389,14 @@ powershell -ExecutionPolicy Bypass -File scripts\34_plan_lora_comparison.ps1
 ```
 
 The comparison plan has passed as a planning-only guard. It fixes the required ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select comparisons while separating head architecture gain, LoRA adaptation gain, and inference-time selection gain. It does not train, construct adapters, import heavy VLA models, load models, infer, run GPU jobs, download assets, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+The QLoRA feasibility check is documented in `reports\qlora_feasibility_check.md`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\35_check_qlora_feasibility.ps1
+```
+
+The check has passed as a check-only gate. It records whether QLoRA tooling is present without installing packages or changing CUDA/PyTorch. It keeps `safe_to_run_qlora_now=false` and does not train, construct adapters, import heavy VLA models, load models, infer, run GPU jobs, download assets, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

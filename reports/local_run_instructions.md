@@ -224,6 +224,12 @@ Plan the required TCA-Map + LoRA comparison matrix without adapter construction 
 powershell -ExecutionPolicy Bypass -File scripts\34_plan_lora_comparison.ps1
 ```
 
+Check QLoRA feasibility without installing packages or changing CUDA/PyTorch:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\35_check_qlora_feasibility.ps1
+```
+
 Linux/WSL equivalents:
 
 ```bash
