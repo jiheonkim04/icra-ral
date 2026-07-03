@@ -243,3 +243,11 @@ Decision: Add a planning-only LoRA adapter construction/readiness scaffold.
 Reason: Required LoRA tracks need an adapter construction boundary before any LoRA tiny smoke can be considered.
 
 Consequence: `scripts\32_plan_lora_adapter_construction.ps1` validates LoRA/QLoRA configs and local checkpoint file inputs without downloading assets, running GPU jobs, importing heavy VLA models, loading models, inferring, training, rolling out, executing simulators, accessing tokens, executing OpenVLA-OFT, or making paper claims.
+
+## LoRA Tiny Smoke Scaffold
+
+Decision: Add a planning-only scaffold for the required LoRA tiny smoke.
+
+Reason: The required LoRA track needs an explicit tiny-smoke boundary before any adapter update is allowed.
+
+Consequence: `scripts\33_plan_lora_tiny_smoke.ps1` validates the LoRA/QLoRA configs and future tiny-smoke envelope while keeping `safe_to_execute_lora_tiny_smoke_now=false`. It does not construct adapters, train, download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.

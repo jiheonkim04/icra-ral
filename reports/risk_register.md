@@ -160,6 +160,14 @@ Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bo
 
 Mitigation: Require `scripts\29_tiny_head_only_smoke.ps1` to run only with `ALLOW_TINY_TRAINING=1`, use cached/dummy features, train tiny CPU heads only, enforce max 100 steps and max 15 minutes, refuse GPU/download/heavy-import/rollout gates, and make no paper claim. Stop for explicit approval outside that envelope.
 
+## LoRA Tiny Smoke Scope Creep
+
+Risk: The required LoRA track may drift from a bounded adapter smoke into real training, model loading, GPU-heavy work, or a paper claim.
+
+Impact: Unapproved compute use, invalid local evidence, or confusion between LoRA adaptation gains and the TCA-Map / Distributional TCA-Select contribution.
+
+Mitigation: Keep `scripts\33_plan_lora_tiny_smoke.ps1` planning-only with `safe_to_execute_lora_tiny_smoke_now=false`. A future execution runner must require `ALLOW_TINY_TRAINING=1`, train adapter weights only, keep max 100 steps, max 15 minutes, max 14GB VRAM, and always compare ActionMap + LoRA against TCA-Map + LoRA.
+
 ## Standing Approval Scope Confusion
 
 Risk: The SmolVLA autonomous pilot standing approval may be misread as permission for OpenVLA-OFT, rollouts, real benchmark evaluation, datasets, or larger training.
