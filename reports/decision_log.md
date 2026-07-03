@@ -299,3 +299,11 @@ Decision: Add a bounded local tiny LoRA smoke runner.
 Reason: LoRA/QLoRA are required experimental tracks after head-only validation, and the project needs a minimal adapter-update check before larger LoRA comparisons.
 
 Consequence: `scripts\37_tiny_lora_smoke.ps1` requires `ALLOW_TINY_TRAINING=1` and trains only tiny NumPy LoRA adapter matrices over cached/dummy features. It covers ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select as offline proxy diagnostics only. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
+
+## Tiny LoRA Comparison Report
+
+Decision: Add a bounded local tiny LoRA comparison report.
+
+Reason: The required LoRA track needs an explicit analysis artifact that separates TCA-Map + LoRA gains from Distributional TCA-Select gains.
+
+Consequence: `scripts\38_compare_tiny_lora_pilot.ps1` reads the existing tiny LoRA smoke report and emits offline proxy deltas only. It does not download assets, run GPU jobs, train, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims.
