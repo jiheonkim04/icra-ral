@@ -72,6 +72,14 @@ Impact: Failed model load, CUDA errors, dependency conflicts, or a hard-to-repro
 
 Mitigation: Use `reports\smolvla_runtime_dependency_plan.md` and `scripts\17_check_smolvla_runtime_deps.ps1`. Require explicit approval before installing or changing packages, capture environment state before and after, and validate with the safe runner.
 
+## Accidental Runtime Install During Planning
+
+Risk: A planning task for SmolVLA runtime packages may accidentally become a package installation or CUDA/PyTorch change.
+
+Impact: Broken local environment, CUDA mismatch, unexpected downloads, or blocked load-only validation.
+
+Mitigation: Use `scripts\18_plan_smolvla_runtime_install.ps1` and `reports\smolvla_runtime_install_request.md`. The planner refuses dangerous gates and records that installs, downloads, heavy imports, model loads, inference, training, rollouts, and OpenVLA-OFT execution were not performed.
+
 ## 24GB System RAM
 
 Risk: System RAM can become a bottleneck during dataset loading, simulator setup, or feature caching.

@@ -115,3 +115,11 @@ Decision: Add a check-only runtime dependency script and a separate install plan
 Reason: Local SmolVLA files are ready, but `torch`, `transformers`, `lerobot`, and `safetensors` are not installed in the current environment. Installing large packages or changing CUDA/PyTorch versions is a hard-stop gate.
 
 Consequence: `scripts\17_check_smolvla_runtime_deps.ps1` reports package readiness without installing anything. Any actual install must be a separately approved environment task with pinned versions and rollback/validation steps.
+
+## SmolVLA Runtime Install Approval Boundary
+
+Decision: Add a planning-only runtime install request before any package installation or CUDA/PyTorch changes.
+
+Reason: The environment is missing SmolVLA runtime packages, but installing PyTorch, LeRobot, Transformers, Safetensors, Accelerate, or Hugging Face Hub dependencies can destabilize the local Windows/CUDA setup.
+
+Consequence: `scripts\18_plan_smolvla_runtime_install.ps1` may run safely as a check-only planner. It refuses dangerous gates and does not install packages, download assets, import heavy VLA models, load models, infer, train, rollout, access tokens, or execute OpenVLA-OFT.
