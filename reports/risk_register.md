@@ -351,3 +351,11 @@ Risk: A metadata-only LIBERO task/counterfactual manifest could be mistaken for 
 Impact: Invalid evidence claims, premature comparison language, or hidden drift toward training without demonstration files.
 
 Mitigation: `scripts\47_build_libero_metadata_subset.ps1` labels outputs as metadata-only, refuses execution gates, reports `ready_for_real_dataset_interface_smoke=false` when demo files are absent, and keeps all offline dataset smoke, simulator execution, rollout, and paper claims behind later risk gates.
+
+## LIBERO Offline Interface Gate Drift
+
+Risk: A structural offline file check could drift into real dataset training or be described as standard success.
+
+Impact: Invalid evidence, accidental training, or premature claims from file-format readiness alone.
+
+Mitigation: `scripts\48_plan_libero_offline_interface_smoke.ps1` is check-only, refuses execution gates, reports rollout readiness as false, and labels its result as not standard success and not paper-grade evidence. It proceeds only when a tiny local file has readable instruction/action-like fields.

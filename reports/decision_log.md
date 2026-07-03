@@ -387,3 +387,11 @@ Decision: Add a metadata-only LIBERO task/counterfactual manifest builder.
 Reason: The official full LIBERO demonstrations dataset is too large for the current autonomous local budget, but the official source checkout contains BDDL/task metadata that is enough to validate target/counterfactual split plumbing.
 
 Consequence: `scripts\47_build_libero_metadata_subset.ps1` may read local BDDL/task metadata and write ignored metadata reports. It must not download data, run GPU jobs, train, rollout, import simulators or heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper-grade claims. Metadata-only readiness does not imply real dataset interface readiness.
+
+## LIBERO Offline Interface Smoke Gate
+
+Decision: Add a check-only gate for tiny local LIBERO-style data files.
+
+Reason: After metadata-only task plumbing is available, the next safe boundary is distinguishing absent data from a tiny local data file that can be structurally read without training, rollout, simulator execution, or heavy imports.
+
+Consequence: `scripts\48_plan_libero_offline_interface_smoke.ps1` inspects only local JSON/JSONL/NPZ/HDF5-like files under `LIBERO_DATA_ROOT` and reports `proceed` only if instruction/action-like fields are readable. In the current state it should report `stop` because no real demo files are present.
