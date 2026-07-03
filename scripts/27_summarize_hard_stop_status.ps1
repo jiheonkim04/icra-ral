@@ -199,6 +199,7 @@ smolvla_runtime_deps_report = load_json("reports/smolvla_runtime_deps_report.jso
 runtime_install_plan = load_json("reports/smolvla_runtime_install_plan_report.json") or {}
 load_only_report = load_json("reports/smolvla_load_only_smoke_report.json") or {}
 single_sample_report = load_json("reports/smolvla_single_sample_interface_report.json") or {}
+feature_cache_eval_report = load_json("reports/feature_cache_eval_report.json") or {}
 tiny_plan = load_json("reports/tiny_head_only_pilot_plan_report.json") or {}
 local_paths = load_local_paths()
 smolvla_readiness = smolvla_file_readiness(local_paths)
@@ -269,7 +270,12 @@ if hard_stop_reached:
     recommended_next_step = f"Request explicit approval for exactly one gated task: {blocking_summary}. Do not combine gates."
 else:
     hard_stop_reason = None
-    if single_sample_report.get("result", {}).get("passed"):
+    if feature_cache_eval_report.get("cache_valid"):
+        recommended_next_step = (
+            "Continue autonomous SmolVLA pilot: create or run a tiny head-only smoke runner with "
+            "max_steps<=100, runtime<=15 minutes, VRAM<=14GB, frozen backbone, no rollout, and no paper claim."
+        )
+    elif single_sample_report.get("result", {}).get("passed"):
         recommended_next_step = (
             "Continue autonomous SmolVLA pilot: proceed to tiny feature-cache/interface validation. "
             "Do not train or rollout."
@@ -346,6 +352,11 @@ report = {
         "load_only_passed": load_only_report.get("result", {}).get("passed"),
         "single_sample_interface_passed": single_sample_report.get("result", {}).get("passed"),
         "single_sample_interface_report_path": "reports/smolvla_single_sample_interface_report.json",
+    },
+    "feature_cache": {
+        "eval_smoke_passed": feature_cache_eval_report.get("cache_valid"),
+        "record_count": feature_cache_eval_report.get("metrics", {}).get("cache_record_count"),
+        "report_path": "reports/feature_cache_eval_report.json",
     },
     "approval_requests": approval_requests,
     "current_blocking_gates": next_gate_names,

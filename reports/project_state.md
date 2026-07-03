@@ -190,6 +190,25 @@ real_rollouts_performed=false
 openvla_oft_executed=false
 ```
 
+The dummy feature-cache/interface validation has also passed. The planner wrote a dummy cache under `runs\feature_cache\dummy_contract`, validated `manifest.json` plus `features.jsonl`, and the eval-only cached-feature smoke consumed 4 records through the head/metric path.
+
+Observed feature-cache interface metrics:
+
+```text
+cache_valid=true
+cache_record_count=4
+hidden_dim=12
+offline_standard_proxy=0.157986
+target_top1_accuracy=0.25
+wrong_target_proxy_rate=0.75
+downloads_performed=false
+heavy_model_imports_performed=false
+model_inference_performed=false
+training_performed=false
+rollouts_performed=false
+openvla_oft_executed=false
+```
+
 Runtime dependency checker:
 
 ```powershell
@@ -303,7 +322,7 @@ Core method:
 
 ## Immediate Next Step
 
-Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, and single-sample interface smoke passed, the next step is tiny feature-cache/interface validation. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
+Codex should self-check current state. Since config/tokenizer dependency/weights are present, adapter-smoke readiness is true, runtime dependencies are installed, bounded load-only smoke passed, single-sample interface smoke passed, and dummy feature-cache/interface validation passed, the next step is a tiny head-only smoke runner that enforces max_steps<=100, frozen backbone, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Do not cross rollout, simulator, real benchmark, token, OpenVLA-OFT, major CUDA/PyTorch, unplanned large package, >14GB VRAM, >30 minute, or paper-claim gates without explicit approval.
 
 The completed install approval boundary is documented in `reports\smolvla_runtime_install_request.md`. Future package upgrades, CUDA toolkit changes, or PyTorch changes remain separate hard-stop gates.
 

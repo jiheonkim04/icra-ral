@@ -30,6 +30,8 @@ The bounded SmolVLA load-only smoke has passed on CPU. It loaded local policy we
 
 The bounded single-sample interface smoke has also passed on CPU. It used one synthetic observation and one `select_action` call, produced a finite `[1, 6]` action tensor, and did not train, rollout, evaluate datasets, execute OpenVLA-OFT, download assets, access tokens, or make paper claims.
 
+The dummy feature-cache/interface validation has passed. It wrote and validated a dummy cache and ran eval-only cached-feature metrics without heavy model import, model inference, training, rollout, simulator execution, OpenVLA-OFT, downloads, or token access.
+
 Codex may continue autonomously through:
 
 - SmolVLA load-only heavy import/model construction smoke with `ALLOW_HEAVY_IMPORT=1` set only inside that task,
@@ -43,7 +45,7 @@ Do not combine this standing approval with true hard-stop gates.
 ## Current Known Blockers
 
 - Runtime dependencies are present in the current `tca_map` environment.
-- No true hard-stop currently blocks the next tiny feature-cache/interface validation if it remains dummy/interface-only.
+- No true hard-stop currently blocks the next tiny head-only smoke runner if it enforces max_steps<=100, runtime<=15 minutes, VRAM<=14GB, frozen backbone, no rollout, no simulator, no OpenVLA-OFT, and no paper claim.
 - LIBERO/RoboSuite/RoboCasa/simulator assets remain missing for rollout work.
 - OpenVLA-OFT local large execution remains forbidden.
 

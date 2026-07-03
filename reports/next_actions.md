@@ -133,14 +133,14 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 4. Runtime dependency install completed under explicit approval.
 5. Run standing-approved SmolVLA load-only heavy import/model construction. Done.
 6. Create or run single-sample SmolVLA interface smoke with synthetic or dummy inputs. Done.
-7. Feature cache interface validation with dummy cached features. Next.
-8. Eval-only cached-feature head/metric smoke.
-9. Tiny head-only pilot planning and budget check.
-10. Tiny head-only smoke if within standing-approved budget.
+7. Feature cache interface validation with dummy cached features. Done.
+8. Eval-only cached-feature head/metric smoke. Done.
+9. Tiny head-only pilot planning and budget check. Done.
+10. Tiny head-only smoke runner with hard max_steps<=100, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB. Next.
 11. Summarize hard-stop approval choices.
 12. Later simulator rollout after LIBERO/RoboSuite/simulator paths pass checks.
 
-Current hard-stop: none for the next tiny feature-cache/interface validation if it remains check/interface-only and within the autonomous pilot budget. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
+Current hard-stop: none for a tiny head-only smoke if the runner enforces frozen backbone, cached/dummy features, max_steps<=100, runtime<=15 minutes, VRAM<=14GB, no rollout, no OpenVLA-OFT, and no paper claim. Future package upgrades, CUDA/PyTorch major changes, OpenVLA-OFT, rollouts, simulator execution, real benchmark evaluation, tokens, multi-seed work, or paper claims still require separate explicit approval.
 
 ## Self-Check Cases
 
@@ -148,7 +148,7 @@ Case A: SmolVLA checkpoint path missing or not configured. Codex reports exact m
 
 Case B: SmolVLA path exists but config/tokenizer dependency/weights are missing. Codex reports exact missing file classes, updates state/action docs if needed, and stops at checkpoint-file gate.
 
-Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the next standing-approved bounded SmolVLA pilot task. Since load-only construction and single-sample interface smoke have passed, the next task is tiny feature-cache/interface validation.
+Case C: Config/tokenizer dependency/weights and runtime dependencies are present and adapter-smoke-ready. Codex updates state/action docs if needed and continues to the next standing-approved bounded SmolVLA pilot task. Since load-only construction, single-sample interface smoke, and dummy feature-cache/interface validation have passed, the next task is a tiny head-only smoke runner with strict caps.
 
 Case D: Checker fails due to Windows/PATH/tooling. Codex diagnoses and fixes minimally on a new branch if safe, then validates again.
 
@@ -187,4 +187,4 @@ ready_for_smolvla_adapter_smoke=true
 
 ## Later Task
 
-After readiness, planning, load-only smoke, and single-sample interface smoke are true, continue on a new branch for tiny feature-cache/interface validation. That branch should remain interface-only or dummy-cache-only and must not train, rollout, evaluate datasets, or execute OpenVLA-OFT.
+After readiness, planning, load-only smoke, single-sample interface smoke, and feature-cache/interface validation are true, continue on a new branch for a tiny head-only smoke runner. That branch may run only bounded head-only smoke and must not train a backbone, rollout, evaluate real datasets, or execute OpenVLA-OFT.

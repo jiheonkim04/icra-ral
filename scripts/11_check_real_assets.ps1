@@ -98,6 +98,19 @@ function Test-SingleSampleInterfacePassed {
     }
 }
 
+function Test-FeatureCacheEvalPassed {
+    $reportPath = Join-Path $RepoRoot "reports\feature_cache_eval_report.json"
+    if (-not (Test-Path -LiteralPath $reportPath)) {
+        return $false
+    }
+    try {
+        $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        return [bool]$report.cache_valid
+    } catch {
+        return $false
+    }
+}
+
 function Test-AnyFile {
     param(
         [string]$Root,
@@ -288,8 +301,11 @@ $readyForOpenVlaOftSmoke = [bool]($status["openvla_oft_ckpt"].exists -and $statu
 $readyForLiberoRollout = [bool]($status["libero_root"].exists -and $status["libero_data_root"].exists -and $status["robosuite_root"].exists)
 $loadOnlySmokePassed = Test-LoadOnlySmokePassed -ExpectedSmolVlaPath $smolVlaPath
 $singleSampleInterfacePassed = Test-SingleSampleInterfacePassed -ExpectedSmolVlaPath $smolVlaPath
+$featureCacheEvalPassed = Test-FeatureCacheEvalPassed
 
-if ($readyForSmolVlaAdapterSmoke -and $singleSampleInterfacePassed) {
+if ($readyForSmolVlaAdapterSmoke -and $featureCacheEvalPassed) {
+    $recommendedNextStep = "Continue to a tiny head-only smoke runner with strict caps. Do not rollout or execute OpenVLA-OFT."
+} elseif ($readyForSmolVlaAdapterSmoke -and $singleSampleInterfacePassed) {
     $recommendedNextStep = "Continue to tiny feature-cache/interface validation. Do not train or rollout."
 } elseif ($readyForSmolVlaAdapterSmoke -and $loadOnlySmokePassed) {
     $recommendedNextStep = "Continue to the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
@@ -319,6 +335,7 @@ $report = [ordered]@{
     ready_for_smolvla_adapter_smoke = $readyForSmolVlaAdapterSmoke
     smolvla_load_only_smoke_passed = $loadOnlySmokePassed
     smolvla_single_sample_interface_passed = $singleSampleInterfacePassed
+    feature_cache_eval_smoke_passed = $featureCacheEvalPassed
     smolvla_expected_files = [ordered]@{
         config_found = @($smolVlaConfigFiles)
         tokenizer_found = @($smolVlaTokenizerFiles)
