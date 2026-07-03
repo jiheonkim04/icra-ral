@@ -212,6 +212,12 @@ Plan required LoRA adapter construction without heavy imports or training:
 powershell -ExecutionPolicy Bypass -File scripts\32_plan_lora_adapter_construction.ps1
 ```
 
+Plan the required LoRA tiny smoke envelope without adapter construction or training:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\33_plan_lora_tiny_smoke.ps1
+```
+
 Linux/WSL equivalents:
 
 ```bash
