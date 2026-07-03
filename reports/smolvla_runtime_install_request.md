@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document records the approval boundary that was used for installing the runtime packages needed for a future SmolVLA load-only smoke. It is not approval for any further package changes.
+This document records the bounded package-install decision that was used for installing the runtime packages needed for a future SmolVLA load-only smoke. It is not authorization for any further package changes.
 
 The local SmolVLA checkpoint and tokenizer/processor files are present, and the Python environment now has the core runtime packages:
 
@@ -44,7 +44,7 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install --extra-index-u
 C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pip install num2words==0.5.14
 ```
 
-No model checkpoints, datasets, simulator assets, OpenVLA-OFT assets, tokens, or secrets were part of this package install approval.
+No model checkpoints, datasets, simulator assets, OpenVLA-OFT assets, tokens, or secrets were part of this package install decision.
 
 ## Approval Boundary
 
@@ -70,4 +70,4 @@ powershell -ExecutionPolicy Bypass -File scripts\40_cursor_safe_local_check.ps1
 C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pytest -q
 ```
 
-`scripts\16_smolvla_load_only_smoke.ps1` still requires `ALLOW_HEAVY_IMPORT=1`, which may be set only inside the standing-approved bounded SmolVLA load-only task. Runtime installation alone does not authorize inference, training beyond the tiny-smoke budget, rollouts, simulator execution, OpenVLA-OFT, or paper-level claims.
+`scripts\16_smolvla_load_only_smoke.ps1` still requires `ALLOW_HEAVY_IMPORT=1`, which may be set only inside a green risk-assessed bounded SmolVLA load-only task. Runtime installation alone does not authorize inference, training beyond the tiny-smoke budget, rollouts, simulator execution, OpenVLA-OFT, or paper-level claims.

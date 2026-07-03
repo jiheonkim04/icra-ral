@@ -149,7 +149,7 @@ report = {
         "Offline proxy diagnostic only: TCA-Map and ActionMap are compared on cached/dummy tiny data. "
         "This is not standard success, not rollout success, and not paper-grade evidence."
     ),
-    "recommended_next_step": "Proceed to bounded tiny LoRA smoke scaffolding/execution inside standing approval; stop before real benchmarks, rollouts, simulator execution, OpenVLA-OFT, package/CUDA/PyTorch changes, or paper claims.",
+    "recommended_next_step": "Proceed to bounded tiny LoRA smoke scaffolding/execution inside the risk-assessed pilot envelope; stop before real benchmarks, rollouts without risk assessment, simulator execution without risk assessment, OpenVLA-OFT, package/CUDA/PyTorch changes without risk assessment, or paper claims.",
 }
 
 JSON_OUT.parent.mkdir(parents=True, exist_ok=True)

@@ -75,7 +75,7 @@ def validate_smoke_bounds(max_steps: int, max_runtime_seconds: int, max_samples:
 def _policy(training_performed: bool) -> dict:
     return {
         "bounded_tiny_lora_smoke": True,
-        "standing_approval_for_tiny_training_smoke": True,
+        "risk_assessed_autonomy_for_tiny_training_smoke": True,
         "cached_features_used": True,
         "backbone_frozen": True,
         "trainable_lora_adapter_weights_only": True,

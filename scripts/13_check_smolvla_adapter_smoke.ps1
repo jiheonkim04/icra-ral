@@ -328,9 +328,9 @@ if ($ready -and $tinyHeadOnlySmokePassed) {
 } elseif ($ready -and $singleSampleInterfacePassed) {
     $recommended = "Ready for tiny feature-cache/interface validation. Do not train or rollout."
 } elseif ($ready -and $loadOnlySmokePassed) {
-    $recommended = "Ready for the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
+    $recommended = "Ready for the risk-assessed single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
 } elseif ($ready) {
-    $recommended = "Ready for the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
+    $recommended = "Ready for the risk-assessed bounded SmolVLA load-only adapter smoke. Do not train."
 } elseif (-not $ckptExists) {
     $recommended = "Configure SMOLVLA_CKPT to a local checkpoint directory first."
 } elseif ($configFiles.Count -eq 0 -or -not $tokenizerPresent -or $weightFiles.Count -eq 0) {

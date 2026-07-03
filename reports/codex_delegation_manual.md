@@ -15,7 +15,7 @@ Codex acts as:
 - adversarial reviewer,
 - safety gatekeeper.
 
-Codex should move work forward without asking approval for routine safe actions or expected bounded SmolVLA pilot steps. It must stop only before a true hard-stop gate listed below.
+Codex should move work forward without asking approval for routine safe actions or risk-assessed bounded steps. It must stop only when risk cannot be evaluated, exceeds the documented budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make a paper-level claim.
 
 ## Repo-First Operation
 
@@ -72,29 +72,25 @@ Case A: If the SmolVLA checkpoint path is missing or not configured, report the 
 
 Case B: If the SmolVLA path exists but config/tokenizer/weights are missing, report the exact missing file classes, update `project_state` and `next_actions`, stop at the checkpoint-file gate, and do not ask the user whether files were placed.
 
-Case C: If config/tokenizer/weights are present, runtime dependencies are installed, and readiness says adapter-smoke-ready, continue into the standing-approved SmolVLA autonomous pilot path. Create or run the next bounded step without asking the user to type "continue" or approve routine progress.
+Case C: If config/tokenizer/weights are present, runtime dependencies are installed, and readiness says adapter-smoke-ready, continue into the risk-assessed SmolVLA autonomous pilot path. Create or run the next bounded step without asking the user to type "continue" or approve routine progress.
 
 Case D: If a checker fails due to Windows, PATH, or tooling issues, diagnose and fix minimally on a new branch if safe, validate again, and do not ask the user to debug manually unless the issue requires external installation or credentials.
 
-Case E: If a true hard-stop gate is reached, stop and ask for explicit user approval. Clearly state what approval is needed and what risk it carries. Do not proceed automatically.
+Case E: If a task involves download, GPU, training, dataset setup, simulator readiness, or rollout, run the risk assessment policy below. Proceed automatically if the task is inside budget and the source/setup is clear. Stop and report only when the risk cannot be evaluated, exceeds budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make a paper-level claim.
 
-Only ask the user for true hard-stop gates:
+Only ask the user or stop for external irreversible or unevaluable gates:
 
-- OpenVLA-OFT download/import/load/execution,
-- LIBERO/RoboSuite/RoboCasa/dataset download,
-- simulator execution,
-- rollout approval,
-- real benchmark evaluation that could be mistaken for a paper-grade result,
-- training more than 100 steps,
-- any job expected to exceed 30 minutes,
-- using more than 14GB VRAM,
-- changing CUDA/PyTorch major versions,
-- installing large unplanned packages,
+- OpenVLA-OFT download/import/load/execution until a separate OpenVLA risk budget exists,
 - token/secret/API key access,
-- multi-seed experiments,
-- paper-level empirical claims,
+- paid service,
+- license click-through,
 - external submission/upload/publishing,
-- destructive file deletion outside repository or approved cache cleanup.
+- deleting user files outside repository or approved cache cleanup,
+- changing system-wide CUDA/PyTorch/driver versions,
+- admin/system-level installers,
+- very large unplanned package installs,
+- paper-level empirical claims,
+- any task whose source, size, license, runtime, RAM/VRAM, or disk impact cannot be assessed.
 
 Do not ask:
 
@@ -170,46 +166,200 @@ Linux/WSL or Git Bash equivalent when a real GNU Bash is available:
 bash scripts/14_plan_smolvla_download.sh
 ```
 
-## Dangerous Gates
+## Risk-assessed autonomous execution policy
 
-Codex must stop and ask before true hard-stop gates:
+Core rule: Codex must not ask the user for routine approval when risk can be checked automatically. Codex should inspect source, disk, RAM, VRAM, runtime, dependency, license/token requirements, and repository safety policy. If all checks pass within the approved risk budget, Codex should proceed autonomously. If checks fail or are ambiguous, Codex should stop and report the exact blocker.
 
-- OpenVLA-OFT download/import/load/execution,
-- LIBERO/RoboSuite/RoboCasa/dataset download,
-- simulator execution,
-- rollout,
-- real benchmark evaluation that could be mistaken for a paper-grade result,
-- training more than 100 steps,
-- any job expected to exceed 30 minutes,
-- using more than 14GB VRAM,
-- changing CUDA/PyTorch major versions,
-- installing large unplanned packages,
-- token, secret, or API key access,
-- multi-seed experiments,
-- paper-level empirical claims,
-- external submission/upload/publishing,
-- destructive file deletion outside repository or approved cache cleanup.
+Before any bounded download, GPU task, training run, dataset setup, simulator readiness check, or rollout, Codex must write or print a short risk assessment:
 
-Routine dry-run scripts, readiness checks, and standing-approved bounded SmolVLA pilot steps are allowed when they stay within the safety budget below.
+- task,
+- source,
+- expected size,
+- target path,
+- disk free before/after estimate,
+- expected runtime,
+- expected RAM/VRAM,
+- allowed budget,
+- whether source is official/documented,
+- whether token/license/payment is needed,
+- decision: proceed or stop,
+- reason.
 
-## Bounded local pilot standing approval
+If the decision is `proceed`, continue automatically. If the decision is `stop`, report the blocker and recommended next action.
 
-The user grants standing approval for Codex to autonomously run bounded local SmolVLA-only pilot experiments as long as each task stays inside this safety budget.
+Use the repository helper when a structured risk report is useful:
 
-Codex should no longer stop merely because the next task is a small local experiment. It should stop only if a true hard-stop gate is reached.
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\41_risk_assess_task.ps1 -Task "describe task" -Category "download|gpu|training|dataset|simulator|rollout|generic"
+```
 
-Codex should no longer ask before these bounded steps:
+The helper writes `reports\risk_assessment_report.json` and `reports\risk_assessment_report.md`. It is assessment-only and must not download, install, run GPU jobs, train, rollout, import heavy VLA models, access tokens, or execute OpenVLA-OFT.
+
+### Downloads
+
+Codex may autonomously download or acquire assets if all conditions are true:
+
+- source is official, documented, or already referenced in the repository plan,
+- source URL or repo id is unambiguous,
+- no login, token, secret, payment, or license click-through is required,
+- expected size is known or can be estimated,
+- total new download is within the local budget,
+- disk free space after download will remain above the safety margin,
+- files are placed only under approved asset/cache roots such as `C:\assets`,
+- no checkpoint/cache/data files are committed to git.
+
+Default download budget:
+
+- single task download soft limit: 80GB,
+- keep at least 100GB free disk after download,
+- if size is unknown, first estimate or do a dry-run/listing,
+- if source is ambiguous, stop,
+- if token/login/payment/license click-through is required, stop,
+- if download would exceed budget, stop and report.
+
+Codex should not ask "Should I download this?" when source, size, license, and disk checks are green.
+
+### GPU / VRAM tasks
+
+Codex may autonomously run bounded local GPU tasks if all conditions are true:
+
+- task is SmolVLA/local-pilot related, not OpenVLA-OFT,
+- no rollout/simulator unless separately inside simulator policy,
+- expected VRAM <= 14GB,
+- `nvidia-smi` is available and GPU memory is checked before launch,
+- batch size is 1 or smaller equivalent,
+- runtime expected <= 30 minutes,
+- job has timeout or stop condition,
+- task logs peak memory/runtime if measurable,
+- OOM or CUDA errors stop the task immediately.
+
+Codex should not ask "Should I run this GPU smoke?" if it is within the above envelope.
+
+### Training
+
+Codex may autonomously run bounded local training if all conditions are true:
+
+- SmolVLA-only,
+- frozen backbone or LoRA/QLoRA adapter only,
+- no full fine-tuning,
+- no OpenVLA-OFT,
+- no rollout,
+- max steps <= 300 for local pilot by default,
+- max runtime <= 30 minutes,
+- max VRAM <= 14GB,
+- batch size 1,
+- dataset is dummy, synthetic, tiny local, or bounded real subset,
+- results are labeled as smoke/offline proxy/local pilot only, not paper-grade.
+
+Codex may increase from 100 to 300 steps if previous 100-step smoke passed and memory/runtime are stable.
+
+Codex must stop if full backbone fine-tuning is required, expected runtime exceeds 30 minutes, expected VRAM exceeds 14GB, training needs OpenVLA-OFT, training needs simulator rollout, or training would create paper-level claims.
+
+### Real dataset setup
+
+Codex may autonomously set up real datasets if:
+
+- source is official/documented and unambiguous,
+- license/token/login requirements are absent,
+- size is within download budget,
+- disk safety margin remains,
+- no simulator rollout is automatically triggered,
+- no paper-grade claim is made.
+
+Codex must first create or use a dataset readiness checker. If the dataset has a small subset or metadata-only mode, use that first. If full dataset is too large, prefer a documented tiny subset or stop and report.
+
+### Simulator / rollout
+
+Codex may autonomously do simulator readiness and import/render smoke if:
+
+- simulator is already installed locally,
+- no new large install/download is required,
+- no license/token/manual setup is required,
+- runtime <= 10 minutes,
+- no policy rollout,
+- no benchmark evaluation,
+- no paper claim.
+
+Actual task rollouts remain risk-assessed but stricter. Codex may only run bounded rollout if:
+
+- simulator is installed and import/render smoke passed,
+- task count <= 5,
+- runtime <= 30 minutes,
+- no OpenVLA-OFT,
+- no paper claim,
+- no external service/token,
+- no unbounded rendering loop.
+
+If any of these are not satisfied, stop and report.
+
+### OpenVLA-OFT
+
+OpenVLA-OFT is still not automatic by default. Codex may prepare plans, checkers, and docs for OpenVLA-OFT. OpenVLA-OFT download/import/load/execution remains blocked unless a separate risk budget is added later.
+
+### Paper claims
+
+Codex must never make paper-level claims automatically.
+
+Allowed:
+
+- local smoke passed,
+- offline proxy improved,
+- tiny pilot diagnostic,
+- not paper-grade,
+- not standard success.
+
+Forbidden:
+
+- SOTA,
+- paper-ready,
+- standard success from offline proxy,
+- real-world deployability,
+- solved grounding.
+
+### External irreversible actions
+
+Codex must always stop before:
+
+- token/secret/API key access,
+- paid service,
+- license click-through,
+- external upload/submission/publishing,
+- deleting user files outside approved cache/repo cleanup,
+- changing system-wide CUDA/PyTorch/driver versions,
+- installing very large unplanned packages,
+- using admin/system-level installers.
+
+### Autonomous progression
+
+Codex should not stop after each stage just to ask for permission. It should continue through safe, risk-assessed steps, including:
+
+- real dataset setup,
+- tiny real/offline interface smoke,
+- counterfactual split construction,
+- ActionMap vs TCA-Map tiny local comparison,
+- required LoRA tiny comparison,
+- QLoRA feasibility if safe,
+- bounded local pilot report,
+- simulator readiness plan,
+- simulator import/render smoke if safe,
+- bounded rollout only if within the strict rollout budget.
+
+Codex should stop only if risk assessment fails or a truly irreversible/external action is needed.
+
+## Bounded local pilot examples
+
+The following steps are examples of tasks Codex may continue through after risk assessment. They are not the only permitted autonomous tasks.
 
 1. SmolVLA load-only heavy import/model construction smoke.
    - May set `ALLOW_HEAVY_IMPORT=1` only inside this task.
    - May import/load SmolVLA from local checkpoint files.
    - May use CPU first if feasible.
    - May use GPU only for load-only smoke if needed and if memory estimate is below 14GB.
-   - Must not train, run rollout, evaluate datasets, execute OpenVLA-OFT, or download additional assets unless already approved SmolVLA dependency files are missing.
+   - Must not train, run rollout, evaluate datasets, execute OpenVLA-OFT, or download additional assets unless a download risk assessment passes.
 
 2. SmolVLA load-only debugging.
    - May fix missing dependency errors, import path errors, API mismatch errors, local file layout/checker mismatch, Windows path issues, and minor PyTorch/Transformers/LeRobot compatibility issues.
-   - Must stop before changing CUDA/PyTorch major versions, installing very large unplanned packages, requiring token/login, using OpenVLA-OFT, or downloading datasets.
+   - Must stop before changing CUDA/PyTorch major versions, installing very large unplanned packages, requiring token/login, or using OpenVLA-OFT. Dataset downloads require the dataset risk assessment above.
 
 3. Single-sample interface smoke.
    - May use one synthetic or dummy observation.
@@ -227,7 +377,7 @@ Codex should no longer ask before these bounded steps:
    - Allowed only with dummy, synthetic, generated JSONL counterfactual splits, or tiny local non-paper data.
    - Backbone must be frozen.
    - Trainable parameters must stay within `configs/compute_budget.yaml`.
-   - Max steps 100, max samples 200, max runtime 30 minutes, max VRAM target 14GB.
+   - Max steps 300 after previous 100-step smoke is stable, max samples 200, max runtime 30 minutes, max VRAM target 14GB.
    - Includes ActionMap head-only, TCA-Map head-only, TCA-Map + Distributional TCA-Select, and native/frozen baseline if locally available.
    - No rollout, OpenVLA-OFT, or paper claim.
    - These are smoke/pilot diagnostics only, not paper-grade results.
@@ -239,7 +389,7 @@ Codex should no longer ask before these bounded steps:
    - No OpenVLA-OFT.
    - No full fine-tuning.
    - Freeze the backbone except LoRA adapter weights.
-   - Max steps 100, max samples 200, batch size 1, max runtime 30 minutes, max VRAM target 14GB.
+   - Max steps 300 after previous 100-step smoke is stable, max samples 200, batch size 1, max runtime 30 minutes, max VRAM target 14GB.
    - No rollout, simulator, or paper claim.
 
 7. Offline proxy evaluation.
@@ -253,7 +403,7 @@ Codex should no longer ask before these bounded steps:
 
 Expected autonomous progression:
 
-A. If readiness is false, diagnose and fix if inside approved SmolVLA scope.
+A. If readiness is false, diagnose and fix if inside the risk-assessed SmolVLA scope.
 B. If readiness is true but load-only smoke has not passed, create/run SmolVLA load-only smoke.
 C. If load-only smoke passes, create/run single-sample interface smoke.
 D. If interface smoke passes, create/run tiny feature-cache/interface validation.
@@ -263,7 +413,7 @@ G. If the LoRA required track is not implemented, create LoRA construction/check
 H. If LoRA smoke passes, run TCA-Map + LoRA + Distributional TCA-Select tiny diagnostic.
 I. Run a QLoRA feasibility check if memory/tooling allows.
 J. Generate a bounded local pilot report.
-K. Stop only when a true hard-stop gate is reached.
+K. Stop only when risk assessment fails, is ambiguous, exceeds budget, or reaches an external irreversible/OpenVLA/paper-claim stop gate.
 
 Do not ask:
 
@@ -274,7 +424,7 @@ Do not ask:
 - "Should I compare ActionMap and TCA-Map on tiny local data?"
 - "Should I continue after a smoke passes?"
 
-These are standing-approved if they stay inside the bounded local pilot limits.
+These are autonomously allowed if the risk assessment stays inside the bounded local pilot limits.
 
 ## Research Direction
 
@@ -343,7 +493,7 @@ Adapter-smoke-ready means:
 - `HF_HOME` or `CHECKPOINT_ROOT` exists,
 - lightweight adapter guard import succeeds,
 - memory estimate fits local budget,
-- a later task explicitly authorizes load-only adapter smoke.
+- a later risk assessment authorizes load-only adapter smoke.
 
 An empty configured checkpoint directory is not adapter-smoke-ready. SmolVLA smoke is interface validation only, not paper-grade evidence.
 

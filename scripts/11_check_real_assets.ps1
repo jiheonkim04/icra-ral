@@ -324,9 +324,9 @@ if ($readyForSmolVlaAdapterSmoke -and $tinyHeadOnlySmokePassed) {
 } elseif ($readyForSmolVlaAdapterSmoke -and $singleSampleInterfacePassed) {
     $recommendedNextStep = "Continue to tiny feature-cache/interface validation. Do not train or rollout."
 } elseif ($readyForSmolVlaAdapterSmoke -and $loadOnlySmokePassed) {
-    $recommendedNextStep = "Continue to the standing-approved single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
+    $recommendedNextStep = "Continue to the risk-assessed single-sample SmolVLA interface smoke with synthetic or dummy inputs. Do not train or rollout."
 } elseif ($readyForSmolVlaAdapterSmoke) {
-    $recommendedNextStep = "Continue to the standing-approved bounded SmolVLA load-only adapter smoke. Do not train."
+    $recommendedNextStep = "Continue to the risk-assessed bounded SmolVLA load-only adapter smoke. Do not train."
 } elseif ($readyForSmolVlaPathCheck -and -not $smolVlaCheckpointFilesPresent) {
     $recommendedNextStep = "SmolVLA path exists, but config/tokenizer/weights files are missing. This is path-ready only, not adapter-smoke-ready."
 } elseif ($readyForOpenVlaOftSmoke) {

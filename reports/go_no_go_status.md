@@ -4,7 +4,7 @@
 
 This document defines the safe interpretation of the completed local SmolVLA-first smoke stack.
 
-The current status is ready for bounded local SmolVLA pilot work inside standing approval, while still no-go for the next larger paper-grade experimental stage until the user explicitly approves exactly one true hard-stop gate.
+The current status is ready for bounded local SmolVLA pilot work inside the risk-assessed pilot envelope, while still no-go for the next larger paper-grade experimental stage until the relevant risk assessment passes and no external stop gate is reached.
 
 ## Current Decision
 
@@ -26,13 +26,13 @@ The project is go for:
 - planning-only reports,
 - required LoRA/QLoRA adapter construction and feasibility planning,
 - LoRA/QLoRA planning interpretation and risk review,
-- bounded local SmolVLA pilot tasks inside standing approval.
+- risk-assessed bounded local SmolVLA pilot tasks inside budget.
 
 The project is no-go for:
 
 - paper-grade empirical claims,
 - real benchmark evaluation that could be mistaken for paper-grade evidence,
-- simulator rollouts,
+- simulator rollouts without passing risk assessment,
 - OpenVLA-OFT execution,
 - multi-seed experiments.
 
@@ -75,11 +75,11 @@ The generator reads local reports only. It does not download assets, run GPU job
 Stop before:
 
 - OpenVLA-OFT download/import/load/execution,
-- LIBERO/RoboSuite/RoboCasa/dataset download,
-- simulator execution,
-- rollout,
+- LIBERO/RoboSuite/RoboCasa/dataset download without passing source/size/license/token/disk risk assessment,
+- simulator execution without passing readiness risk assessment,
+- rollout without passing bounded rollout risk assessment,
 - real benchmark evaluation,
-- training beyond 100 steps,
+- training beyond 300 steps after stable smaller smoke,
 - runtime expected over 30 minutes,
 - more than 14GB VRAM,
 - package/CUDA/PyTorch changes for QLoRA,

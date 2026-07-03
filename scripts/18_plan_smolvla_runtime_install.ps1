@@ -12,7 +12,7 @@ $env:PYTHONIOENCODING = "utf-8"
 
 Write-Host "SmolVLA runtime install planning check"
 Write-Host "Repo root: $RepoRoot"
-Write-Host "This script plans an install approval only. It does not install packages, download assets, import heavy VLA models, load models, train, rollout, or execute OpenVLA-OFT."
+Write-Host "This script plans a runtime install risk assessment only. It does not install packages, download assets, import heavy VLA models, load models, train, rollout, or execute OpenVLA-OFT."
 
 if (-not (Test-Path -LiteralPath $Python)) {
     Write-Error "Python interpreter not found: $Python"
@@ -62,43 +62,43 @@ package_plan = [
         "distribution": "torch",
         "module": "torch",
         "required_for": "SmolVLA load-only model construction and CUDA/CPU tensor runtime",
-        "install_requires_explicit_approval": True,
+        "install_requires_risk_assessment": True,
     },
     {
         "distribution": "transformers",
         "module": "transformers",
         "required_for": "SmolVLA/SmolVLM tokenizer, processor, and model config classes",
-        "install_requires_explicit_approval": True,
+        "install_requires_risk_assessment": True,
     },
     {
         "distribution": "lerobot",
         "module": "lerobot",
         "required_for": "SmolVLA policy implementation",
-        "install_requires_explicit_approval": True,
+        "install_requires_risk_assessment": True,
     },
     {
         "distribution": "safetensors",
         "module": "safetensors",
         "required_for": "local safetensors checkpoint reads",
-        "install_requires_explicit_approval": True,
+        "install_requires_risk_assessment": True,
     },
     {
         "distribution": "num2words",
         "module": "num2words",
         "required_for": "SmolVLM processor text utility used during local SmolVLA policy construction",
-        "install_requires_explicit_approval": True,
+        "install_requires_risk_assessment": True,
     },
     {
         "distribution": "accelerate",
         "module": "accelerate",
         "required_for": "optional memory/device placement support",
-        "install_requires_explicit_approval": True,
+        "install_requires_risk_assessment": True,
     },
     {
         "distribution": "huggingface_hub",
         "module": "huggingface_hub",
-        "required_for": "optional local cache utilities; no network use without separate approval",
-        "install_requires_explicit_approval": True,
+        "required_for": "optional local cache utilities; no network use without a green download risk assessment",
+        "install_requires_risk_assessment": True,
     },
 ]
 
@@ -149,7 +149,7 @@ missing_required = [
 report = {
     "policy": {
         "planning_only": True,
-        "approval_required_before_install": True,
+        "risk_assessment_required_before_install": True,
         "installs_performed": False,
         "downloads_performed": False,
         "heavy_imports_performed": False,
@@ -171,15 +171,15 @@ report = {
     ),
     "packages": packages,
     "missing_required": missing_required,
-    "ready_to_request_install_approval": bool(missing_required),
-    "hard_stop": {
-        "install_requires_explicit_user_approval": True,
-        "reason": "Installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors is outside bounded autopilot.",
+    "ready_for_install_risk_assessment": bool(missing_required),
+    "risk_gate": {
+        "install_requires_risk_assessment": True,
+        "reason": "Installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors requires a green package/runtime risk assessment.",
     },
     "recommended_next_step": (
-        "Ask for explicit approval for a pinned SmolVLA runtime install task before installing packages."
+        "Run a pinned SmolVLA runtime install risk assessment before installing packages."
         if missing_required
-        else "Runtime packages appear installed; rerun scripts/17_check_smolvla_runtime_deps.ps1 and then continue to the standing-approved bounded load-only smoke."
+        else "Runtime packages appear installed; rerun scripts/17_check_smolvla_runtime_deps.ps1 and then continue to the risk-assessed bounded load-only smoke."
     ),
 }
 

@@ -96,9 +96,9 @@ def test_smolvla_load_only_smoke_planner_is_planning_only(tmp_path):
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["heavy_model_imports_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert report["next_gate"]["explicit_approval_required"] is False
+    assert report["next_gate"]["risk_assessment_required"] is True
     assert report["next_gate"]["required_gate"] == "ALLOW_HEAVY_IMPORT=1"
-    assert report["next_gate"]["standing_approval"] == "SmolVLA autonomous pilot standing approval"
+    assert report["next_gate"]["risk_assessed_autonomy"] == "SmolVLA autonomous pilot risk envelope"
 
 
 def test_smolvla_load_only_smoke_planner_refuses_heavy_import_gate(tmp_path):

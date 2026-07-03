@@ -51,7 +51,7 @@ Minimum local/offline metrics:
 - max GPU memory,
 - trainable parameter estimate.
 
-Paper-grade rollout metrics remain blocked until simulator paths and rollout approval pass.
+Paper-grade rollout metrics remain blocked until simulator paths exist and rollout risk assessment passes.
 
 ## Command
 

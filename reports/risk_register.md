@@ -46,7 +46,7 @@ Risk: Local Windows environment may have CUDA or PyTorch compatibility issues, e
 
 Impact: Heavy imports or future GPU inference may fail even if file checks pass.
 
-Mitigation: Keep current checks lightweight. Require explicit approval before heavy import or GPU inference. Prefer WSL2/Linux for simulator or heavier training work.
+Mitigation: Keep current checks lightweight. Require risk assessment before heavy import or GPU inference, and proceed only if source/setup, runtime, RAM/VRAM, and policy budget are green. Prefer WSL2/Linux for simulator or heavier training work.
 
 ## RTX 5080 16GB VRAM
 
@@ -78,7 +78,7 @@ Risk: PEFT, Transformers, LeRobot, and local PyTorch/CUDA versions may be incomp
 
 Impact: Import errors, quantization failures, incorrect parameter freezing, or environment drift.
 
-Mitigation: Treat package/CUDA/PyTorch changes as hard-stop gates. Prefer check-only guards and tiny construction smoke before any LoRA training.
+Mitigation: Treat package/CUDA/PyTorch changes as risk-assessed gates, with system-wide changes and large unplanned installs still external stop gates. Prefer check-only guards and tiny construction smoke before any LoRA training.
 
 ## LoRA Attribution Risk
 
@@ -90,7 +90,7 @@ Mitigation: Always compare ActionMap + LoRA vs TCA-Map + LoRA, and TCA-Map + LoR
 
 ## Unbounded Heavy Import
 
-Risk: A standing-approved load-only smoke task may accidentally become model inference, training, rollout, or GPU-heavy execution outside the bounded scope.
+Risk: A risk-assessed load-only smoke task may accidentally become model inference, training, rollout, or GPU-heavy execution outside the bounded scope.
 
 Impact: CUDA/Windows instability, OOM, hidden inference, or invalid claim that readiness is a result.
 
@@ -110,7 +110,7 @@ Risk: Local files are ready and runtime packages are installed now, but later pa
 
 Impact: Load-only execution may fail, or CUDA behavior may change unexpectedly on Windows.
 
-Mitigation: Keep package versions recorded in `reports\project_state.md` and re-run `scripts\17_check_smolvla_runtime_deps.ps1`. Any future package upgrade, CUDA toolkit change, or PyTorch change requires separate explicit approval.
+Mitigation: Keep package versions recorded in `reports\project_state.md` and re-run `scripts\17_check_smolvla_runtime_deps.ps1`. Any future package upgrade, CUDA toolkit change, or PyTorch change requires risk assessment; system-wide or very large unplanned changes remain external stop gates.
 
 ## Unpinned Runtime Upgrade
 
@@ -118,7 +118,7 @@ Risk: Upgrading PyTorch, LeRobot, Transformers, or Safetensors without pinned ve
 
 Impact: Failed model load, CUDA errors, dependency conflicts, or a hard-to-reproduce local setup.
 
-Mitigation: Use `reports\smolvla_runtime_dependency_plan.md` and `scripts\17_check_smolvla_runtime_deps.ps1`. Require explicit approval before changing packages, capture environment state before and after, and validate with the safe runner.
+Mitigation: Use `reports\smolvla_runtime_dependency_plan.md` and `scripts\17_check_smolvla_runtime_deps.ps1`. Run risk assessment before changing packages, capture environment state before and after, and validate with the safe runner. Stop for system-wide or very large unplanned package changes.
 
 ## Accidental Runtime Install During Planning
 
@@ -134,7 +134,7 @@ Risk: Runtime dependency readiness or load-only success may be mistaken for a re
 
 Impact: The project could overclaim from engineering smoke tests.
 
-Mitigation: Keep load-only, single-sample interface, feature-cache, and tiny head-only training smoke reports labeled as smoke/interface checks only. No paper-level empirical claim is allowed without later real benchmark evaluation and explicit approval.
+Mitigation: Keep load-only, single-sample interface, feature-cache, and tiny head-only training smoke reports labeled as smoke/interface checks only. No paper-level empirical claim is allowed automatically; paper claims remain external stop gates.
 
 ## Feature Cache Contract Drift
 
@@ -154,11 +154,11 @@ Mitigation: Run `scripts\25_eval_feature_cache_smoke.ps1 -PrepareDummyCache` and
 
 ## Accidental Tiny Training Scope Creep
 
-Risk: A standing-approved tiny head-only smoke may drift into longer training, real benchmark evaluation, or GPU-heavy experimentation.
+Risk: A risk-assessed tiny head-only smoke may drift into longer training, real benchmark evaluation, or GPU-heavy experimentation.
 
 Impact: Unapproved GPU use, invalid local results, or policy drift beyond the bounded autopilot session.
 
-Mitigation: Require bounded local pilot runners to run only with explicit task-local gates such as `ALLOW_TINY_TRAINING=1`, use cached/dummy/synthetic/tiny local non-paper data, enforce max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, refuse download/heavy-import/rollout/simulator/OpenVLA gates unless separately approved, and make no paper claim. Stop for explicit approval outside that envelope.
+Mitigation: Require bounded local pilot runners to run only after a green risk assessment and task-local gates such as `ALLOW_TINY_TRAINING=1`, use cached/dummy/synthetic/tiny local non-paper data, enforce max 300 steps after stable smaller smoke, max 200 samples, max 30 minutes, max 14GB VRAM, refuse OpenVLA and paper-claim gates, and make no paper claim. Stop if the assessment is ambiguous or outside budget.
 
 ## LoRA Tiny Smoke Scope Creep
 
@@ -166,7 +166,7 @@ Risk: The required LoRA track may drift from a bounded adapter smoke into real t
 
 Impact: Unapproved compute use, invalid local evidence, or confusion between LoRA adaptation gains and the TCA-Map / Distributional TCA-Select contribution.
 
-Mitigation: LoRA execution is standing-approved only for bounded local pilots. A future execution runner must require task-local `ALLOW_TINY_TRAINING=1`, train adapter weights only, freeze the backbone, keep max 100 steps, max 200 samples, max 30 minutes, max 14GB VRAM, and always compare ActionMap + LoRA against TCA-Map + LoRA.
+Mitigation: LoRA execution is autonomous only for risk-assessed bounded local pilots. A future execution runner must require task-local `ALLOW_TINY_TRAINING=1`, train adapter weights only, freeze the backbone, keep max 300 steps after stable smaller smoke, max 200 samples, max 30 minutes, max 14GB VRAM, and always compare ActionMap + LoRA against TCA-Map + LoRA.
 
 ## LoRA Attribution Risk
 
@@ -190,7 +190,7 @@ Risk: The bounded tiny LoRA smoke may be mistaken for evidence that LoRA improve
 
 Impact: Misleading method claims and premature paper conclusions.
 
-Mitigation: `scripts\37_tiny_lora_smoke.ps1` uses cached/dummy features only, reports `offline_proxy_only=true`, `not_standard_success=true`, and `not_paper_grade=true`, and keeps future real-data or rollout claims behind explicit hard-stop gates.
+Mitigation: `scripts\37_tiny_lora_smoke.ps1` uses cached/dummy features only, reports `offline_proxy_only=true`, `not_standard_success=true`, and `not_paper_grade=true`, and keeps future real-data or rollout claims behind risk assessment and paper-claim stop gates.
 
 ## Tiny LoRA Comparison Overinterpretation
 
@@ -198,7 +198,7 @@ Risk: The tiny LoRA comparison report may be mistaken for a real adapter benchma
 
 Impact: LoRA or TCA-Select contributions could be overstated before real data or rollout validation.
 
-Mitigation: `scripts\38_compare_tiny_lora_pilot.ps1` reads only cached/dummy offline proxy smoke outputs, refuses execution gates, labels the report as not standard success and not paper-grade, and keeps all real benchmark claims behind hard-stop gates.
+Mitigation: `scripts\38_compare_tiny_lora_pilot.ps1` reads only cached/dummy offline proxy smoke outputs, refuses execution gates, labels the report as not standard success and not paper-grade, and keeps all real benchmark claims behind risk assessment and paper-claim stop gates.
 
 ## Consolidated Status Overinterpretation
 
@@ -214,15 +214,23 @@ Risk: QLoRA may require bitsandbytes/PEFT behavior, CUDA support, or PyTorch com
 
 Impact: The local environment could be destabilized by package or CUDA/PyTorch changes before the method is ready.
 
-Mitigation: Keep `scripts\35_check_qlora_feasibility.ps1` check-only. Defer QLoRA execution to Linux/WSL/cloud if tooling is missing or Windows support is uncertain, and never install packages or change CUDA/PyTorch without explicit approval.
+Mitigation: Keep `scripts\35_check_qlora_feasibility.ps1` check-only. Defer QLoRA execution to Linux/WSL/cloud if tooling is missing or Windows support is uncertain, and never install packages or change CUDA/PyTorch without a green risk assessment.
 
-## Standing Approval Scope Confusion
+## Autonomous Scope Confusion
 
-Risk: The SmolVLA autonomous pilot standing approval may be misread as permission for OpenVLA-OFT, rollouts, real benchmark evaluation, datasets, or larger training.
+Risk: The risk-assessed autonomous policy may be misread as permission for OpenVLA-OFT, paper claims, token/license gates, or unbounded training/rollouts.
 
-Impact: A bounded local smoke could turn into an unapproved experiment or paper claim.
+Impact: A bounded local smoke could turn into an invalid experiment or paper claim.
 
-Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1`, `scripts\31_generate_go_no_go_report.ps1`, `reports\hard_stop_status.md`, and `reports\go_no_go_status.md`. The standing approval covers bounded SmolVLA-only local pilots, including tiny head-only, LoRA, offline proxy, and tiny comparison diagnostics inside the budget. Stop before true hard-stop gates.
+Mitigation: Use `scripts\27_summarize_hard_stop_status.ps1`, `scripts\31_generate_go_no_go_report.ps1`, `scripts\39_generate_local_pilot_status.ps1`, `reports\codex_delegation_manual.md`, and `reports\go_no_go_status.md`. Autonomy covers only tasks whose risk assessment is inside budget. Stop for ambiguous/out-of-budget assessments, OpenVLA-OFT execution, token/secret/payment/license gates, system-level changes, external irreversible actions, and paper-level claims.
+
+## Risk Assessment Drift
+
+Risk: The new risk-assessed autonomous policy may be interpreted as permission to run any download, GPU job, training run, dataset setup, simulator task, or rollout without first checking concrete budgets.
+
+Impact: Disk exhaustion, unstable local environment, invalid claims, or accidental crossing into OpenVLA-OFT, token/license, system-level, or paper-claim territory.
+
+Mitigation: Before any bounded download/GPU/training/dataset/simulator/rollout step, Codex must write or print a risk assessment covering source, expected size, target path, disk free before/after estimate, runtime, RAM/VRAM, budget, official/documented source status, token/license/payment requirements, decision, and reason. Proceed only if the decision is `proceed`; stop if ambiguous or outside budget.
 
 ## 24GB System RAM
 

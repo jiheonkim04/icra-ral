@@ -1,32 +1,57 @@
-{
-  "note": "Starter manifest. Run scripts/23_cloud_handoff_manifest.ps1 or scripts/23_cloud_handoff_manifest.sh to regenerate with current checkout metadata.",
-  "policy": {
-    "downloads_performed": false,
-    "gpu_jobs_performed": false,
-    "training_performed": false,
-    "real_rollouts_performed": false,
-    "provider_secrets_included": false,
-    "require_explicit_download_gate": "ALLOW_DOWNLOADS=1",
-    "require_cloud_gate": "ALLOW_CLOUD_HANDOFF=1"
-  },
-  "git": {
-    "repository": "https://github.com/jiheonkim04/icra-ral.git",
-    "branch": "codex/local-papergrade-runner",
-    "commit_hash": "regenerate locally with scripts/23_cloud_handoff_manifest.*"
-  },
-  "required_assets": [
-    "OPENVLA_OFT_CKPT",
-    "SMOLVLA_CKPT",
-    "LIBERO_ROOT",
-    "LIBERO_DATA_ROOT",
-    "ROBOSUITE_ROOT",
-    "DATA_ROOT",
-    "CHECKPOINT_ROOT",
-    "HF_HOME"
-  ],
-  "expected_resources": {
-    "disk": "300GB minimum; 500GB-1TB recommended",
-    "vram": "24GB minimum OpenVLA-OFT frozen/head-only; 48GB recommended larger baseline; 80GB recommended multi-seed full baseline",
-    "ram": "64GB minimum; 128GB recommended"
-  }
+﻿{
+    "policy":  {
+                   "downloads_performed":  false,
+                   "gpu_jobs_performed":  false,
+                   "training_performed":  false,
+                   "real_rollouts_performed":  false,
+                   "provider_secrets_included":  false,
+                   "require_download_gate":  "ALLOW_DOWNLOADS=1 after green remote/cloud risk assessment",
+                   "require_cloud_gate":  "ALLOW_CLOUD_HANDOFF=1"
+               },
+    "git":  {
+                "commit_hash":  "c78ef1a029b09064bcf4e453e3391f7d0042dfc8",
+                "branch":  "codex/replace-hard-stops-with-risk-assessed-autonomy",
+                "repository":  "https://github.com/jiheonkim04/icra-ral.git"
+            },
+    "environment":  {
+                        "conda_env":  "unavailable",
+                        "python":  "unavailable",
+                        "os_note":  "Generate this manifest locally, then re-run on remote Linux after clone."
+                    },
+    "required_assets":  [
+                            "OPENVLA_OFT_CKPT",
+                            "SMOLVLA_CKPT",
+                            "LIBERO_ROOT",
+                            "LIBERO_DATA_ROOT",
+                            "ROBOSUITE_ROOT",
+                            "DATA_ROOT",
+                            "CHECKPOINT_ROOT",
+                            "HF_HOME"
+                        ],
+    "expected_resources":  {
+                               "disk":  "300GB minimum for focused OpenVLA-OFT/LIBERO work; 500GB-1TB recommended for multi-seed full baselines",
+                               "vram":  "24GB minimum OpenVLA-OFT frozen/head-only; 48GB recommended larger baseline; 80GB recommended multi-seed full baseline",
+                               "ram":  "64GB minimum; 128GB recommended"
+                           },
+    "configs_to_upload":  [
+                              "configs/paths.local.yaml after removing secrets or replacing local paths with remote paths",
+                              "experiment configs once created",
+                              "reports/real_asset_setup_plan.md",
+                              "reports/local_papergrade_plan.md"
+                          ],
+    "remote_commands":  [
+                            "git clone https://github.com/jiheonkim04/icra-ral.git tca_map",
+                            "cd tca_map",
+                            "git checkout codex/replace-hard-stops-with-risk-assessed-autonomy",
+                            "conda activate tca_map",
+                            "bash scripts/00_preflight.sh",
+                            "bash scripts/11_check_real_assets.sh",
+                            "bash scripts/20_system_readiness.sh",
+                            "bash scripts/22_plan_local_experiment_matrix.sh"
+                        ],
+    "transfer":  {
+                     "rsync_to_remote":  "rsync -av --exclude configs/paths.local.yaml --exclude runs/ --exclude reports/system_readiness.json ./ user@remote:/path/to/tca_map/",
+                     "collect_results":  "rsync -av user@remote:/path/to/tca_map/reports/ ./reports/"
+                 },
+    "download_policy":  "Download or cache models on remote only after a green remote/cloud risk assessment and task-local ALLOW_DOWNLOADS=1. Do not store provider tokens in tracked files."
 }

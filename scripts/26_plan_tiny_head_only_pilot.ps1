@@ -116,8 +116,8 @@ for path in CONFIGS:
 report = {
     "policy": {
         "planning_only": True,
-        "standing_approval_for_tiny_training_smoke": True,
-        "approval_required_before_training": False,
+        "risk_assessed_autonomy_for_tiny_training_smoke": True,
+        "risk_assessment_required_before_training": True,
         "downloads_performed": False,
         "gpu_jobs_performed": False,
         "heavy_model_imports_performed": False,
@@ -134,15 +134,15 @@ report = {
     "configs_pass_policy": not errors,
     "safe_to_run_training_now": False,
     "ready_for_autonomous_tiny_training_smoke": not errors,
-    "ready_to_request_tiny_training_approval": False,
+    "ready_for_tiny_training_risk_assessment": not errors,
     "offline_proxy_name_policy": "Use offline_standard_proxy or standard_proxy_score; do not call it standard success.",
     "hard_stop": {
-        "tiny_training_requires_explicit_user_approval": False,
-        "runtime_install_requires_explicit_user_approval": False,
-        "real_smolvla_feature_extraction_requires_heavy_import_approval": False,
-        "standing_approval": "SmolVLA autonomous pilot standing approval",
+        "tiny_training_requires_risk_assessment": True,
+        "runtime_install_requires_risk_assessment": False,
+        "real_smolvla_feature_extraction_requires_heavy_import_risk_assessment": False,
+        "risk_assessed_autonomy": "SmolVLA autonomous pilot risk envelope",
         "remaining_true_hard_stops": [
-            "training longer than 15 minutes or more than 100 steps",
+            "training longer than 30 minutes or more than 300 steps after stable smaller smoke",
             "using more than 14GB VRAM",
             "rollout or simulator execution",
             "OpenVLA-OFT execution",
@@ -150,7 +150,7 @@ report = {
         ],
     },
     "recommended_next_step": (
-        "Continue autonomously to a tiny head-only training smoke only if the implementation enforces max_steps<=100, frozen backbone, no rollout, no OpenVLA-OFT, no paper claim, runtime<=15 minutes, and VRAM<=14GB."
+        "Continue autonomously to a tiny head-only training smoke only after a green risk assessment and only if the implementation enforces max_steps<=300 after stable smaller smoke, frozen backbone, no rollout, no OpenVLA-OFT, no paper claim, runtime<=30 minutes, and VRAM<=14GB."
         if not errors
         else "Fix config policy errors before any tiny head-only training smoke."
     ),

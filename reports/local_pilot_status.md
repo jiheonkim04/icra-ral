@@ -23,7 +23,7 @@ reports\local_pilot_status_report.md
 
 ## Bounds
 
-The generator is standing-approved because it:
+The generator is inside the risk-assessed pilot envelope because it:
 
 - reads existing local JSON reports,
 - uses offline proxy status only,

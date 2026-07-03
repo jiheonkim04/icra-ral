@@ -58,32 +58,32 @@ def test_hard_stop_status_summary_is_check_only(tmp_path):
     assert isinstance(report["assets"]["ready_for_smolvla_adapter_smoke"], bool)
     assert isinstance(report["assets"]["ready_for_openvla_oft_smoke"], bool)
     assert isinstance(report["assets"]["ready_for_libero_rollout"], bool)
-    gates = {item["gate"] for item in report["approval_requests"]}
+    gates = {item["gate"] for item in report["risk_gate_requests"]}
     assert "runtime_install" in gates
     assert "smolvla_load_only_heavy_import" in gates
     assert "tiny_head_only_training" in gates
     assert "single_sample_interface_smoke" in gates
     blocking_gates = {
         item["gate"]
-        for item in report["approval_requests"]
+        for item in report["risk_gate_requests"]
         if item["current_blocker"]
     }
     assert set(report["current_blocking_gates"]) == blocking_gates
     runtime_request = next(
-        item for item in report["approval_requests"] if item["gate"] == "runtime_install"
+        item for item in report["risk_gate_requests"] if item["gate"] == "runtime_install"
     )
     load_only_request = next(
-        item for item in report["approval_requests"] if item["gate"] == "smolvla_load_only_heavy_import"
+        item for item in report["risk_gate_requests"] if item["gate"] == "smolvla_load_only_heavy_import"
     )
     tiny_request = next(
-        item for item in report["approval_requests"] if item["gate"] == "tiny_head_only_training"
+        item for item in report["risk_gate_requests"] if item["gate"] == "tiny_head_only_training"
     )
     interface_request = next(
-        item for item in report["approval_requests"] if item["gate"] == "single_sample_interface_smoke"
+        item for item in report["risk_gate_requests"] if item["gate"] == "single_sample_interface_smoke"
     )
-    assert load_only_request["standing_approval"] is True
-    assert tiny_request["standing_approval"] is True
-    assert interface_request["standing_approval"] is True
+    assert load_only_request["risk_assessed_autonomy"] is True
+    assert tiny_request["risk_assessed_autonomy"] is True
+    assert interface_request["risk_assessed_autonomy"] is True
     assert load_only_request["current_blocker"] is False
     assert tiny_request["current_blocker"] is False
     assert interface_request["current_blocker"] is False

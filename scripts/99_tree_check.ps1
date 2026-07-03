@@ -99,6 +99,7 @@ $required = @(
     "scripts/37_tiny_lora_smoke.ps1",
     "scripts/38_compare_tiny_lora_pilot.ps1",
     "scripts/39_generate_local_pilot_status.ps1",
+    "scripts/41_risk_assess_task.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -147,6 +148,7 @@ $required = @(
     "tests/test_tiny_lora_smoke.py",
     "tests/test_tiny_lora_comparison.py",
     "tests/test_local_pilot_status.py",
+    "tests/test_risk_assess_task.py",
     "tests/test_lora_config_guards.py"
 )
 
