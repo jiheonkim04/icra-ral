@@ -65,6 +65,7 @@ $required = @(
     "reports/head_only_tiny_comparison.md",
     "reports/tiny_lora_comparison.md",
     "reports/local_pilot_status.md",
+    "reports/libero_dataset_risk_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -100,6 +101,7 @@ $required = @(
     "scripts/38_compare_tiny_lora_pilot.ps1",
     "scripts/39_generate_local_pilot_status.ps1",
     "scripts/41_risk_assess_task.ps1",
+    "scripts/42_plan_libero_dataset_risk.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -149,6 +151,7 @@ $required = @(
     "tests/test_tiny_lora_comparison.py",
     "tests/test_local_pilot_status.py",
     "tests/test_risk_assess_task.py",
+    "tests/test_libero_dataset_risk_plan.py",
     "tests/test_lora_config_guards.py"
 )
 

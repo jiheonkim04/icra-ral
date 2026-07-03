@@ -492,7 +492,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, admin/system-level installers, OpenVLA-OFT execution, or paper-level empirical claims.
 
-Next autonomous direction: run risk assessment for the next concrete stage instead of asking for approval. Likely candidates are a real dataset readiness/download assessment, metadata/tiny subset setup if source and size are clear, simulator readiness planning/import smoke if local installs already exist, or a bounded local pilot extension if it remains inside budget.
+Next autonomous direction: run risk assessment for the next concrete stage instead of asking for approval. The current next concrete stage is LIBERO/LIBERO-CF-style dataset readiness/tiny subset planning via `scripts\42_plan_libero_dataset_risk.ps1`; no download, rollout, simulator execution, training, or paper claim is authorized by that planner.
 
 The consolidated hard-stop status is documented in `reports\hard_stop_status.md`:
 

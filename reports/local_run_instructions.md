@@ -200,6 +200,12 @@ Write a structured risk assessment before bounded downloads, GPU tasks, training
 powershell -ExecutionPolicy Bypass -File scripts\41_risk_assess_task.ps1 -Task "next concrete task" -Category "generic"
 ```
 
+Plan LIBERO/LIBERO-CF-style dataset readiness without downloads or rollouts:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\42_plan_libero_dataset_risk.ps1
+```
+
 Generate the current go/no-go status summary:
 
 ```powershell
