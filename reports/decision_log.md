@@ -493,3 +493,11 @@ Reason: The readiness planner can show that paths and WSL are available, but the
 Consequence: `scripts\55_bounded_simulator_import_smoke.ps1` requires `ALLOW_SIMULATOR_IMPORT_SMOKE=1` after a green risk assessment and attempts only package imports in WSL. The output is ignored runtime readiness evidence, not standard success, not rollout success, and not paper-grade evidence.
 
 Follow-up: The first local bounded run found that WSL `libero` imports but `robosuite` needs `numpy` in WSL Python. Dependency installation is not folded into the import-smoke script; it requires a separate risk-planned dependency task.
+
+## WSL Simulator Dependency Checker
+
+Decision: Add a check-only WSL simulator dependency report before any simulator dependency installation.
+
+Reason: The bounded simulator import smoke found a concrete WSL dependency blocker, but WSL lacks `pip` and `ensurepip`; jumping directly to `apt` would cross into system/package-management setup.
+
+Consequence: `scripts\56_check_wsl_simulator_deps.ps1` records WSL `python3`, `pip`, `ensurepip`, `numpy`, and missing modules from the import-smoke report. It performs no installs, downloads, render smoke, rollouts, simulator environment steps, GPU jobs, training, heavy VLA imports, OpenVLA-OFT execution, token access, or paper claims.

@@ -86,6 +86,7 @@ $required = @(
     "reports/libero_hdf5_reader_dependency_plan.md",
     "reports/simulator_readiness_plan.md",
     "reports/bounded_simulator_import_smoke.md",
+    "reports/wsl_simulator_dependency_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -135,6 +136,7 @@ $required = @(
     "scripts/53_compare_libero_offline_lora.ps1",
     "scripts/54_generate_libero_offline_bounded_pilot_report.ps1",
     "scripts/55_bounded_simulator_import_smoke.ps1",
+    "scripts/56_check_wsl_simulator_deps.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -205,6 +207,7 @@ $required = @(
     "tests/test_libero_offline_pilot_report.py",
     "tests/test_simulator_readiness_plan.py",
     "tests/test_bounded_simulator_import_smoke.py",
+    "tests/test_wsl_simulator_dependency_check.py",
     "tests/test_lora_config_guards.py"
 )
 

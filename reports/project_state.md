@@ -433,6 +433,8 @@ The bounded simulator import smoke scaffold is implemented in `scripts\55_bounde
 
 Current local bounded simulator import smoke result: the script ran under the task-local gate, WSL path and `python3` probes passed, `libero` imported, and `robosuite` import stopped because WSL Python is missing `numpy`. No render, rollout, simulator environment step, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred. The next safe task is a WSL simulator dependency risk planner, not a rollout.
 
+The WSL simulator dependency checker is implemented in `scripts\56_check_wsl_simulator_deps.ps1`. It is check-only and records whether WSL has `python3`, `pip`, `ensurepip`, `numpy`, and missing modules from the bounded simulator import-smoke report. Current local result: WSL has `python3` but lacks `pip`, `ensurepip`, and `numpy`, so automatic dependency installation is blocked until a separate WSL packaging/setup risk gate is green.
+
 The offline interface smoke gate inspects the acquired LIBERO demonstrations without model loading, training, simulator execution, rollout, OpenVLA-OFT, or paper claims. Its HDF5 report now records bounded samples instead of dumping every dataset path.
 
 The consolidated local pilot and go/no-go summaries now include these LIBERO data gates when their runtime reports are present.
