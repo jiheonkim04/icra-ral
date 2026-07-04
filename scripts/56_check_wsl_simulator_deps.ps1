@@ -1,6 +1,7 @@
 param(
     [string]$JsonReportPath = "reports\wsl_simulator_dependency_report.json",
-    [string]$MarkdownReportPath = "reports\wsl_simulator_dependency_report.md"
+    [string]$MarkdownReportPath = "reports\wsl_simulator_dependency_report.md",
+    [string]$WslPython = '$HOME/.venvs/tca_map_sim/bin/python'
 )
 
 $ErrorActionPreference = "Stop"
@@ -70,6 +71,11 @@ $pythonVersion = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "pyth
 $pipVersion = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "python3", "-m", "pip", "--version") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
 $ensurePip = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "python3", "-m", "ensurepip", "--version") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
 $numpyProbe = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "python3", "-c", "import numpy; print(numpy.__version__)") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
+$selectedPython = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "bash", "-lc", "if [ -x $WslPython ]; then printf '%s' $WslPython; else printf '%s' python3; fi") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
+$selectedPythonExecutable = if ($selectedPython.ok -and -not [string]::IsNullOrWhiteSpace($selectedPython.stdout)) { $selectedPython.stdout } else { "python3" }
+$selectedPythonVersion = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "bash", "-lc", "$selectedPythonExecutable --version") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
+$selectedPipVersion = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "bash", "-lc", "$selectedPythonExecutable -m pip --version") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
+$selectedNumpyProbe = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "bash", "-lc", "$selectedPythonExecutable -c 'import numpy; print(numpy.__version__)'") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
 $aptProbe = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "which", "apt") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
 $userSite = if ($wslInstalled) { Invoke-SafeCommand -Command @("wsl", "python3", "-m", "site", "--user-site") } else { [ordered]@{ ok = $false; timed_out = $false; returncode = $null; stdout = ""; stderr = "wsl command not found" } }
 
@@ -87,16 +93,16 @@ $stopReasons = New-Object System.Collections.Generic.List[string]
 $warnings = New-Object System.Collections.Generic.List[string]
 if (-not $wslInstalled) { $stopReasons.Add("wsl command is not available") }
 if (-not $pythonVersion.ok) { $stopReasons.Add("WSL python3 is not available") }
-if (-not $numpyProbe.ok) { $stopReasons.Add("WSL python3 cannot import numpy") }
-if (-not $pipVersion.ok -and -not $ensurePip.ok) {
+if (-not $selectedNumpyProbe.ok) { $stopReasons.Add("selected WSL Python cannot import numpy") }
+if (-not $selectedPipVersion.ok -and -not $pipVersion.ok -and -not $ensurePip.ok) {
     $stopReasons.Add("WSL python3 has neither pip nor ensurepip; run the standing-approved WSL simulator dependency ladder risk assessment before minimal packaging setup")
 }
 if ($aptProbe.ok) {
     $warnings.Add("apt is available in WSL; this check-only script will not install packages, but minimal WSL Python packaging setup may run later only through the standing-approved dependency ladder after a green risk assessment")
 }
 
-$readyForUserLevelPipInstall = [bool]($wslInstalled -and $pythonVersion.ok -and ($pipVersion.ok -or $ensurePip.ok))
-$readyForSimulatorImportRetry = [bool]($wslInstalled -and $pythonVersion.ok -and $numpyProbe.ok)
+$readyForUserLevelPipInstall = [bool]($wslInstalled -and $pythonVersion.ok -and ($selectedPipVersion.ok -or $pipVersion.ok -or $ensurePip.ok))
+$readyForSimulatorImportRetry = [bool]($wslInstalled -and $selectedPythonVersion.ok -and $selectedNumpyProbe.ok)
 $decision = if ($readyForSimulatorImportRetry) { "proceed" } else { "stop" }
 $recommendedNextStep = if ($readyForSimulatorImportRetry) {
     "Rerun scripts\55_bounded_simulator_import_smoke.ps1 with task-local ALLOW_SIMULATOR_IMPORT_SMOKE=1."
@@ -127,6 +133,11 @@ $report = [ordered]@{
         pip_version = $pipVersion
         ensurepip = $ensurePip
         numpy_probe = $numpyProbe
+        selected_python = $selectedPython
+        selected_python_executable = $selectedPythonExecutable
+        selected_python_version = $selectedPythonVersion
+        selected_pip_version = $selectedPipVersion
+        selected_numpy_probe = $selectedNumpyProbe
         apt_probe = $aptProbe
         user_site = $userSite
     }

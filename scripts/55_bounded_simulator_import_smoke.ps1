@@ -2,6 +2,7 @@ param(
     [string]$PathsFile = "configs\paths.local.yaml",
     [ValidateSet("auto", "windows", "wsl", "linux")]
     [string]$RuntimePlatform = "auto",
+    [string]$WslPython = '$HOME/.venvs/tca_map_sim/bin/python',
     [int]$TimeoutSeconds = 120,
     [string]$JsonReportPath = "reports\bounded_simulator_import_smoke_report.json",
     [string]$MarkdownReportPath = "reports\bounded_simulator_import_smoke_report.md"
@@ -197,10 +198,15 @@ $liberoRootWin = $planner.paths.libero_root.path
 $robosuiteRootWin = $planner.paths.robosuite_root.path
 $liberoRootWsl = Invoke-SafeCommand -Command @("wsl", "wslpath", "-a", (Convert-PathForWslArg -Path $liberoRootWin)) -TimeoutSec 30
 $robosuiteRootWsl = Invoke-SafeCommand -Command @("wsl", "wslpath", "-a", (Convert-PathForWslArg -Path $robosuiteRootWin)) -TimeoutSec 30
-$pythonVersion = Invoke-SafeCommand -Command @("wsl", "python3", "--version") -TimeoutSec 30
+$pythonSelector = "if [ -x $WslPython ]; then printf '%s' $WslPython; else printf '%s' python3; fi"
+$selectedWslPython = Invoke-SafeCommand -Command @("wsl", "bash", "-lc", $pythonSelector) -TimeoutSec 30
+$wslPythonExecutable = if ($selectedWslPython.ok -and -not [string]::IsNullOrWhiteSpace($selectedWslPython.stdout)) { $selectedWslPython.stdout } else { "python3" }
+$pythonVersion = Invoke-SafeCommand -Command @("wsl", "bash", "-lc", "$wslPythonExecutable --version") -TimeoutSec 30
 $report.wsl = [ordered]@{
     libero_root = $liberoRootWsl
     robosuite_root = $robosuiteRootWsl
+    selected_python = $selectedWslPython
+    python_executable = $wslPythonExecutable
     python3_version = $pythonVersion
 }
 
@@ -255,7 +261,7 @@ if (-not $probeScriptWsl.ok) {
     exit 0
 }
 
-$bashCommand = "export TCA_MAP_LIBERO_ROOT_WSL='$($liberoRootWsl.stdout)'; export TCA_MAP_ROBOSUITE_ROOT_WSL='$($robosuiteRootWsl.stdout)'; export MUJOCO_GL=disable; python3 '$($probeScriptWsl.stdout)'"
+$bashCommand = "export TCA_MAP_LIBERO_ROOT_WSL='$($liberoRootWsl.stdout)'; export TCA_MAP_ROBOSUITE_ROOT_WSL='$($robosuiteRootWsl.stdout)'; export MUJOCO_GL=disable; $wslPythonExecutable '$($probeScriptWsl.stdout)'"
 $importProbe = Invoke-SafeCommand -Command @("wsl", "bash", "-lc", $bashCommand) -TimeoutSec $TimeoutSeconds
 $report.policy.simulator_imports_attempted = $true
 $report.policy.simulator_imports_performed = $true
