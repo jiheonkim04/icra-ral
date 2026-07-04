@@ -494,9 +494,20 @@ safetensors==0.8.0
 huggingface-hub==0.35.3
 accelerate==1.14.0
 num2words==0.5.14
+draccus==0.10.0
+datasets==4.8.5
+imageio==2.37.3
+imageio-ffmpeg==0.6.0
+diffusers==0.35.2
+pyserial==3.5
+deepdiff==8.6.2
+av==15.1.0
+einops==0.8.2
 ```
 
-The first task-local setup run reached the 1800 second timeout after venv package downloads/install activity. No residual pip/install process remained, and a follow-up module-spec probe reported all required modules present. A second task-local setup guard run detected `setup_required=false` and reported `setup_passed=true` without further installs or downloads. This is runtime readiness only: no model load, no inference, no training, no rollout, no GPU job, no OpenVLA-OFT execution, no token access, and no paper claim.
+The first task-local setup run reached the 1800 second timeout after venv package downloads/install activity. No residual pip/install process remained, and a follow-up module-spec probe reported all required modules present. A second task-local setup guard run detected `setup_required=false` and reported `setup_passed=true` without further installs or downloads. The later WSL single-action smoke found additional LeRobot import/runtime dependencies (`draccus`, `datasets`, `imageio`, `diffusers`, `pyserial`, `deepdiff`, `av`, and `einops`), which were installed venv-local after green risk assessments. This is runtime readiness only: no training, no rollout, no GPU job, no OpenVLA-OFT execution, no token access, and no paper claim.
+
+The bounded WSL SmolVLA single-action smoke has now passed. It loaded the local SmolVLA policy in WSL, used CPU, ran one synthetic `select_action` call, produced a finite action with shape `[1, 6]`, and completed in about 20.26 seconds. It did not create a simulator environment, rollout, train, use GPU jobs, download assets during the smoke, execute OpenVLA-OFT, access tokens, or make paper claims.
 
 WSL simulator compatibility adjustments made after green risk assessments:
 
@@ -640,7 +651,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or unsupported paper-level empirical claims. Paper-grade candidate reports are allowed only from verified experiment outputs with explicit evidence labels. Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment; a sudo password prompt remains a hard stop.
 
-Next autonomous direction: `scripts\66_plan_libero_policy_rollout_readiness.ps1` now reports the WSL-only simulator plus SmolVLA runtime topology as green. Create a separately gated tiny learned-policy rollout runner. Stop before multi-seed rollout, OpenVLA-OFT, full fine-tuning, external upload, or unsupported paper-level claims.
+Next autonomous direction: `scripts\66_plan_libero_policy_rollout_readiness.ps1` now reports the WSL-only simulator plus SmolVLA runtime topology as green, and `scripts\70_bounded_wsl_smolvla_single_action_smoke.ps1` has passed one CPU synthetic action. Create a separately gated tiny learned-policy LIBERO rollout runner. Stop before multi-seed rollout, OpenVLA-OFT, full fine-tuning, external upload, or unsupported paper-level claims.
 
 The current bounded cached-feature local pilot extension is documented in `reports\bounded_local_pilot_extension.md` and runs through:
 

@@ -202,7 +202,7 @@ if [ ! -x "$PY" ]; then
 fi
 "$PY" -m pip install --upgrade setuptools wheel
 "$PY" -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
-"$PY" -m pip install transformers==4.57.6 safetensors==0.8.0 huggingface_hub==0.35.3 accelerate==1.14.0 num2words==0.5.14
+"$PY" -m pip install transformers==4.57.6 safetensors==0.8.0 huggingface_hub==0.35.3 accelerate==1.14.0 num2words==0.5.14 draccus==0.10.0 datasets==4.8.5 'imageio[ffmpeg]==2.37.3' diffusers==0.35.2 pyserial==3.5 deepdiff==8.6.2 av==15.1.0 einops==0.8.2
 "$PY" -m pip install --no-deps lerobot==0.4.4
 '@
 
@@ -224,6 +224,14 @@ required = [
     "huggingface_hub",
     "accelerate",
     "num2words",
+    "draccus",
+    "datasets",
+    "imageio",
+    "diffusers",
+    "serial",
+    "deepdiff",
+    "av",
+    "einops",
 ]
 specs = {}
 for name in required:

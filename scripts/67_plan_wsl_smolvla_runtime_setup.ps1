@@ -20,9 +20,9 @@ Write-Host "WSL SmolVLA runtime setup planner"
 Write-Host "Repo root: $RepoRoot"
 Write-Host "This script is planning-only. It does not install packages, download assets, import heavy VLA models, load models, run inference, train, rollout, use GPU, execute OpenVLA-OFT, access tokens, or make paper claims."
 
-$RequiredModules = @("torch", "torchvision", "transformers", "lerobot", "safetensors", "huggingface_hub", "accelerate", "num2words")
+$RequiredModules = @("torch", "torchvision", "transformers", "lerobot", "safetensors", "huggingface_hub", "accelerate", "num2words", "draccus", "datasets", "imageio", "diffusers", "serial", "deepdiff", "av", "einops")
 $TorchPackages = @("torch==2.10.0", "torchvision==0.25.0")
-$RuntimePackages = @("transformers==4.57.6", "safetensors==0.8.0", "huggingface_hub==0.35.3", "accelerate==1.14.0", "num2words==0.5.14")
+$RuntimePackages = @("transformers==4.57.6", "safetensors==0.8.0", "huggingface_hub==0.35.3", "accelerate==1.14.0", "num2words==0.5.14", "draccus==0.10.0", "datasets==4.8.5", "imageio[ffmpeg]==2.37.3", "diffusers==0.35.2", "pyserial==3.5", "deepdiff==8.6.2", "av==15.1.0", "einops==0.8.2")
 $NoDepsPackages = @("lerobot==0.4.4")
 
 function Resolve-RepoPath {

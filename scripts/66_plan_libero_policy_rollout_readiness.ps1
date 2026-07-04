@@ -144,6 +144,14 @@ required_modules = [
     "huggingface_hub",
     "accelerate",
     "num2words",
+    "draccus",
+    "datasets",
+    "imageio",
+    "diffusers",
+    "serial",
+    "deepdiff",
+    "av",
+    "einops",
 ]
 
 module_specs = {}

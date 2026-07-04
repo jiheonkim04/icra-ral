@@ -12,7 +12,19 @@ authors = [{ name = "TCA-Map contributors" }]
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["numpy>=1.26", "PyYAML>=6.0", "pytest>=8.0"]
+dev = [
+    "numpy>=1.26",
+    "PyYAML>=6.0",
+    "pytest>=8.0",
+    "draccus>=0.10.0",
+    "datasets>=4.0.0,<5.0.0",
+    "imageio[ffmpeg]>=2.34.0,<3.0.0",
+    "diffusers>=0.27.2,<0.36.0",
+    "pyserial>=3.5,<4.0",
+    "deepdiff>=7.0.1,<9.0.0",
+    "av>=15.0.0,<16.0.0",
+    "einops>=0.8.0,<0.9.0",
+]
 libero = ["h5py>=3.11"]
 
 [tool.setuptools.packages.find]
