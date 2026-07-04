@@ -278,6 +278,7 @@ $required = @(
     "tests/test_zero_action_policy_diagnostic_comparison.py",
     "tests/test_action_state_adapter_patch_plan.py",
     "tests/test_rollout_bridge_adapter_wiring_plan.py",
+    "tests/test_rollout_bridge_adapter_wiring.py",
     "tests/test_lora_config_guards.py"
 )
 

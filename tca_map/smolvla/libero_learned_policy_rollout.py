@@ -21,6 +21,12 @@ from typing import Any
 
 import numpy as np
 
+from tca_map.smolvla.interface_adapters import (
+    DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
+    adapt_observation_state,
+    adapt_policy_action_to_env_action,
+    select_image_source,
+)
 from tca_map.smolvla.load_only_smoke import (
     _external_tokenizer_files,
     _find_files,
@@ -76,48 +82,17 @@ def _task_language(path: Path) -> str:
     return path.stem.replace("_", " ")
 
 
-def _flatten_obs_values(obs: dict[str, Any], keys: list[str]) -> list[float]:
-    values: list[float] = []
-    for key in keys:
-        if key not in obs:
-            continue
-        array = np.asarray(obs[key], dtype=np.float32).reshape(-1)
-        values.extend(float(x) for x in array)
-    return values
-
-
 def _state_tensor(obs: dict[str, Any], dim: int, device: str):
     import torch
 
-    values = _flatten_obs_values(
+    state_adapter = adapt_observation_state(
         obs,
-        [
-            "robot0_eef_pos",
-            "robot0_eef_quat",
-            "robot0_gripper_qpos",
-            "robot0_joint_pos",
-            "robot0_joint_vel",
-        ],
+        DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
+        dim,
+        adapter_name="diagnostic_eef_pos_quat_xyz_6d_state_adapter",
     )
-    if len(values) < dim:
-        values.extend([0.0] * (dim - len(values)))
-    values = values[:dim]
-    return torch.tensor([values], dtype=torch.float32, device=device)
-
-
-def _select_image_array(obs: dict[str, Any], feature_key: str) -> tuple[np.ndarray | None, str | None]:
-    candidates: list[str]
-    lower_key = feature_key.lower()
-    if "camera1" in lower_key or "agent" in lower_key:
-        candidates = ["agentview_image", "agentview_rgb"]
-    elif "camera2" in lower_key or "wrist" in lower_key or "hand" in lower_key:
-        candidates = ["robot0_eye_in_hand_image", "eye_in_hand_image", "agentview_image"]
-    else:
-        candidates = ["agentview_image", "robot0_eye_in_hand_image"]
-    for key in candidates:
-        if key in obs:
-            return np.asarray(obs[key]), key
-    return None, None
+    tensor = torch.tensor([state_adapter.values], dtype=torch.float32, device=device)
+    return tensor, state_adapter.metadata
 
 
 def _image_tensor(obs: dict[str, Any], feature_key: str, feature: Any, device: str):
@@ -125,16 +100,16 @@ def _image_tensor(obs: dict[str, Any], feature_key: str, feature: Any, device: s
     import torch.nn.functional as F
 
     channels, height, width = [int(x) for x in feature.shape]
-    array, source_key = _select_image_array(obs, feature_key)
-    if array is None:
-        tensor = torch.zeros((1, channels, height, width), dtype=torch.float32, device=device)
-        return tensor, None
+    selected = select_image_source(obs, feature_key)
+    array = np.asarray(selected.value)
+    source_key = selected.metadata["source_key"]
 
     if array.ndim == 2:
         array = np.repeat(array[:, :, None], 3, axis=2)
     if array.ndim != 3:
-        tensor = torch.zeros((1, channels, height, width), dtype=torch.float32, device=device)
-        return tensor, None
+        raise ValueError(
+            f"image source {source_key} for {feature_key} must be rank 2 or 3, got shape {list(array.shape)}"
+        )
 
     if array.shape[0] in (1, 3) and array.shape[-1] not in (1, 3):
         chw = array.astype(np.float32)
@@ -142,14 +117,29 @@ def _image_tensor(obs: dict[str, Any], feature_key: str, feature: Any, device: s
         chw = np.transpose(array, (2, 0, 1)).astype(np.float32)
     if chw.max(initial=0.0) > 1.5:
         chw = chw / 255.0
+    channel_padding_performed = chw.shape[0] < channels
+    channel_truncation_performed = chw.shape[0] > channels
     if chw.shape[0] < channels:
         pad = np.zeros((channels - chw.shape[0], chw.shape[1], chw.shape[2]), dtype=np.float32)
         chw = np.concatenate([chw, pad], axis=0)
     chw = chw[:channels]
     tensor = torch.from_numpy(chw).unsqueeze(0).to(dtype=torch.float32, device=device)
+    resized = tensor.shape[-2:] != (height, width)
     if tensor.shape[-2:] != (height, width):
         tensor = F.interpolate(tensor, size=(height, width), mode="bilinear", align_corners=False)
-    return tensor, source_key
+    metadata = dict(selected.metadata)
+    metadata.update(
+        {
+            "input_shape": list(array.shape),
+            "tensor_shape": list(tensor.shape),
+            "target_shape": [1, channels, height, width],
+            "resized": bool(resized),
+            "channel_padding_performed": bool(channel_padding_performed),
+            "channel_truncation_performed": bool(channel_truncation_performed),
+            "zero_image_fallback_performed": False,
+        }
+    )
+    return tensor, source_key, metadata
 
 
 def _build_batch(config: Any, tokenizer_root: Path, obs: dict[str, Any], task: str, device: str) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -170,31 +160,28 @@ def _build_batch(config: Any, tokenizer_root: Path, obs: dict[str, Any], task: s
     )
 
     state_dim = int(config.input_features["observation.state"].shape[0])
+    state_tensor, state_metadata = _state_tensor(obs, state_dim, device)
     batch: dict[str, Any] = {
-        "observation.state": _state_tensor(obs, state_dim, device),
+        "observation.state": state_tensor,
         "observation.language.tokens": encoded["input_ids"].to(dtype=torch.long, device=device),
         "observation.language.attention_mask": encoded["attention_mask"].to(dtype=torch.bool, device=device),
     }
     image_sources: dict[str, str | None] = {}
+    image_adapters: dict[str, dict[str, Any]] = {}
     for key, feature in config.image_features.items():
-        tensor, source = _image_tensor(obs, key, feature, device)
+        tensor, source, image_metadata = _image_tensor(obs, key, feature, device)
         batch[key] = tensor
         image_sources[key] = source
+        image_adapters[key] = image_metadata
 
     metadata = {
         "batch_keys": sorted(batch.keys()),
         "image_sources": image_sources,
+        "image_adapters": image_adapters,
         "state_dim": state_dim,
+        "state_adapter": state_metadata,
     }
     return batch, metadata
-
-
-def _policy_action_to_env_action(action: Any, action_dim: int) -> list[float]:
-    flat = np.asarray(action.detach().cpu(), dtype=np.float32).reshape(-1)
-    values = [float(np.clip(x, -1.0, 1.0)) for x in flat]
-    if len(values) < action_dim:
-        values.extend([0.0] * (action_dim - len(values)))
-    return values[:action_dim]
 
 
 def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
@@ -352,7 +339,9 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 "action_dim": None,
                 "last_policy_action_shape": None,
                 "last_env_action_preview": None,
+                "last_action_adapter_metadata": None,
                 "last_batch_metadata": None,
+                "last_adapter_metadata": None,
                 "agentview_image_shape": None,
                 "agentview_image_mean": None,
                 "elapsed_sec": None,
@@ -381,13 +370,20 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                         policy_action = policy.select_action(batch, noise=noise)
                     report["policy"]["learned_policy_inference_performed"] = True
                     report["policy"]["model_inference_performed"] = True
-                    env_action = _policy_action_to_env_action(policy_action, action_dim)
+                    action_adapter = adapt_policy_action_to_env_action(policy_action, action_dim)
+                    env_action = action_adapter.values
                     obs, reward, done, _info = env.step(env_action)
                     summary["steps_performed"] += 1
                     summary["policy_calls"] += 1
                     summary["last_policy_action_shape"] = list(policy_action.detach().cpu().shape)
                     summary["last_env_action_preview"] = [round(float(x), 6) for x in env_action[: min(7, len(env_action))]]
+                    summary["last_action_adapter_metadata"] = action_adapter.metadata
                     summary["last_batch_metadata"] = batch_metadata
+                    summary["last_adapter_metadata"] = {
+                        "action_adapter": action_adapter.metadata,
+                        "state_adapter": batch_metadata.get("state_adapter"),
+                        "image_adapters": batch_metadata.get("image_adapters"),
+                    }
                     summary["last_inference_sec"] = round(time.monotonic() - infer_started, 6)
                     try:
                         summary["reward_sum"] += float(reward)

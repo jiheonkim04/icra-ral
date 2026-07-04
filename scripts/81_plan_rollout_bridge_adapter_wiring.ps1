@@ -104,6 +104,7 @@ def write_outputs(report):
         f"- decision: {report['decision']}",
         f"- planner passed: {report['rollout_bridge_adapter_wiring_plan_passed']}",
         f"- ready for rollout bridge adapter wiring: {report['ready_for_rollout_bridge_adapter_wiring']}",
+        f"- rollout bridge adapter wiring complete: {report['rollout_bridge_adapter_wiring_complete']}",
         f"- ready for rollout execution: {report['ready_for_rollout_execution']}",
         f"- adapter metadata recorded: {report['inputs']['single_sample_adapter_metadata_recorded']}",
         f"- bridge needs action adapter: {report['source_audit']['bridge_needs_action_adapter']}",
@@ -160,6 +161,18 @@ source_audit = {
     "bridge_needs_state_adapter": adapter_has_state and not bridge_uses_state_adapter and bridge_has_state_truncation,
     "bridge_needs_image_adapter": adapter_has_image and not bridge_uses_image_adapter and bridge_has_fallback_image_selector,
 }
+bridge_adapter_wiring_complete = bool(
+    adapter_has_action
+    and adapter_has_state
+    and adapter_has_image
+    and bridge_uses_action_adapter
+    and bridge_uses_state_adapter
+    and bridge_uses_image_adapter
+    and not bridge_has_implicit_padding
+    and not bridge_has_state_truncation
+    and not bridge_has_fallback_image_selector
+)
+source_audit["bridge_adapter_wiring_complete"] = bridge_adapter_wiring_complete
 
 if not patch_passed:
     stop_reasons.append("Action/state adapter patch plan has not passed.")
@@ -176,6 +189,8 @@ ready_for_wiring = bool(
     and source_audit["bridge_needs_state_adapter"]
     and source_audit["bridge_needs_image_adapter"]
 )
+wiring_already_complete = bool(not stop_reasons and bridge_adapter_wiring_complete)
+plan_passed = bool(ready_for_wiring or wiring_already_complete)
 
 policy = {
     "planning_only": True,
@@ -225,10 +240,15 @@ wiring_plan = {
     ],
 }
 
-decision = "proceed" if ready_for_wiring else "stop"
-reason = "Rollout bridge is ready for adapter wiring implementation, but not rollout execution." if ready_for_wiring else "Rollout bridge adapter wiring prerequisites are not satisfied."
+decision = "proceed" if plan_passed else "stop"
+if ready_for_wiring:
+    reason = "Rollout bridge is ready for adapter wiring implementation, but not rollout execution."
+elif wiring_already_complete:
+    reason = "Rollout bridge adapter wiring is already complete; rollout execution still requires a separate bounded gate."
+else:
+    reason = "Rollout bridge adapter wiring prerequisites are not satisfied."
 report = {
-    "rollout_bridge_adapter_wiring_plan_passed": ready_for_wiring,
+    "rollout_bridge_adapter_wiring_plan_passed": plan_passed,
     "decision": decision,
     "reason": reason,
     "source_reports": {
@@ -252,11 +272,16 @@ report = {
     "warnings": warnings,
     "stop_reasons": stop_reasons,
     "ready_for_rollout_bridge_adapter_wiring": ready_for_wiring,
+    "rollout_bridge_adapter_wiring_complete": wiring_already_complete,
     "ready_for_rollout_execution": False,
     "recommended_next_step": (
         "Implement rollout bridge adapter wiring with unit tests only; do not run rollout until a separate bounded diagnostic gate is green."
         if ready_for_wiring
-        else "Fix missing inputs before rollout bridge adapter wiring."
+        else (
+            "Run unit/safe validation, then create a separate bounded diagnostic rollout plan before execution."
+            if wiring_already_complete
+            else "Fix missing inputs before rollout bridge adapter wiring."
+        )
     ),
 }
 write_outputs(report)

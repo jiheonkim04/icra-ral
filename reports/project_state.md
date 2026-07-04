@@ -869,3 +869,9 @@ Current local result: bounded synthetic single-sample smoke passed with adapter 
 Current planned branch: add a planning-only gate for wiring pure adapters into the learned-policy rollout bridge. This planner must not run rollouts, simulators, model loading, inference, downloads, training, or OpenVLA-OFT.
 
 Current local result: `scripts\81_plan_rollout_bridge_adapter_wiring.ps1` passed. It sets `ready_for_rollout_bridge_adapter_wiring=true` and `ready_for_rollout_execution=false`.
+
+## Rollout Bridge Adapter Wiring
+
+Current local result: pure action, state, and image adapters are wired into the learned-policy rollout bridge in code and covered by unit tests. The bridge now records adapter metadata in task summaries.
+
+This remains interface-plumbing validation only. It is not benchmark rollout evidence, standard success, counterfactual robustness evidence, or paper-grade evidence. The next autonomous rung is a separate bounded diagnostic rollout gate that compares explicit-adapter behavior against prior zero-action and legacy learned-policy diagnostics.

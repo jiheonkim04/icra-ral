@@ -663,3 +663,11 @@ Risk: Wiring adapters into rollout code could accidentally trigger execution or 
 Impact: The project could blur code wiring with empirical evidence.
 
 Mitigation: `scripts\81_plan_rollout_bridge_adapter_wiring.ps1` is planning-only and keeps `ready_for_rollout_execution=false`; actual rollout execution remains a separate bounded diagnostic gate.
+
+## Wired Adapter Diagnostic Attribution Risk
+
+Risk: A rerun after explicit adapter wiring could improve, degrade, or leave unchanged the diagnostic rollout, but that effect could be misattributed to the paper method rather than interface plumbing.
+
+Impact: The project could over-credit TCA-Map or Distributional TCA-Select for a change caused by action/state/image bridge mechanics.
+
+Mitigation: Treat the next rollout as an interface diagnostic only. Compare against prior zero-action and legacy learned-policy diagnostics, log adapter metadata, and keep all paper-grade claim flags false until method baselines and repeated benchmark protocol exist.

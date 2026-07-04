@@ -765,3 +765,11 @@ Decision: Treat pure adapter helper implementation as passed.
 Reason: Unit tests cover explicit 6D-to-7D action adaptation, named gripper strategies, refusal of unsupported action dimensions, explicit state fields without silent truncation/padding, and image alias reporting.
 
 Consequence: The next safe step is wiring adapter metadata into synthetic or single-sample interface smoke without running rollout.
+
+## Rollout Bridge Adapter Wiring Result
+
+Decision: Treat rollout bridge adapter wiring as code-level validation only, not rollout evidence.
+
+Reason: The learned-policy rollout bridge now imports and uses the pure action, state, and image adapter helpers. The bridge no longer contains the previous silent action padding helper, state truncation helper, or local image fallback selector, and task summaries include adapter metadata for later diagnostics.
+
+Consequence: The next safe step is a separately gated bounded diagnostic rollout rerun that compares explicit-adapter behavior against the prior zero-action and legacy learned-policy diagnostics. Do not treat this wiring result as benchmark success or paper-grade evidence.

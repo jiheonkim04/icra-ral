@@ -135,6 +135,30 @@ def test_rollout_bridge_adapter_wiring_plan_goes_green(tmp_path):
     assert md_report.exists()
 
 
+def test_rollout_bridge_adapter_wiring_plan_accepts_already_wired_bridge(tmp_path):
+    patch_plan, single, bridge, adapter = _make_inputs(tmp_path)
+    bridge.write_text(
+        "from tca_map.smolvla.interface_adapters import (\n"
+        "    adapt_policy_action_to_env_action,\n"
+        "    adapt_observation_state,\n"
+        "    select_image_source,\n"
+        ")\n"
+        "adapt_policy_action_to_env_action(policy_action, action_dim)\n"
+        "adapt_observation_state(obs, fields, dim)\n"
+        "select_image_source(obs, feature_key)\n",
+        encoding="utf-8",
+    )
+
+    result, report, _, _ = _run_plan(tmp_path, patch_plan, single, bridge, adapter)
+
+    assert result.returncode == 0, result.stderr
+    assert report["decision"] == "proceed"
+    assert report["rollout_bridge_adapter_wiring_plan_passed"] is True
+    assert report["ready_for_rollout_bridge_adapter_wiring"] is False
+    assert report["rollout_bridge_adapter_wiring_complete"] is True
+    assert report["ready_for_rollout_execution"] is False
+
+
 def test_rollout_bridge_adapter_wiring_plan_refuses_execution_gate(tmp_path):
     result, report, _, _ = _run_plan(
         tmp_path,
