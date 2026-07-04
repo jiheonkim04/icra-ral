@@ -647,3 +647,11 @@ Risk: Adapter helper defaults could be mistaken for the final correct LIBERO con
 Impact: A diagnostic gripper or state strategy could be over-trusted before empirical validation.
 
 Mitigation: `tca_map.smolvla.interface_adapters` exposes named strategies and metadata, refuses unsupported dimensions, and keeps rollout wiring as a later separately validated step.
+
+## Adapter Metadata Wiring Risk
+
+Risk: Adapter helper wiring could accidentally be interpreted as simulator validation.
+
+Impact: Synthetic single-sample evidence might be over-read as rollout evidence.
+
+Mitigation: The single-sample path remains synthetic-only, records `simulator_executed=false` and `real_rollouts_performed=false`, and uses adapter metadata only for interface validation.

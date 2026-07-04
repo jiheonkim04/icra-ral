@@ -27,3 +27,9 @@ Confirmed behavior:
 - state adaptation uses explicit fields and refuses silent truncation or padding,
 - missing state/image keys raise clear errors,
 - image aliases report the selected RoboSuite observation key.
+
+## Single-Sample Metadata Wiring
+
+The next safe wiring step records adapter metadata in the synthetic single-sample interface smoke. This still does not run a simulator or rollout.
+
+Current local wiring result: bounded synthetic single-sample smoke passed with `adapter_metadata_recorded=true`, diagnostic adapted action dim `7`, and no simulator, rollout, training, GPU training, OpenVLA-OFT execution, token access, or paper-grade claim.

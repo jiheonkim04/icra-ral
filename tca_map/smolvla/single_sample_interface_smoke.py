@@ -15,6 +15,14 @@ import time
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+
+from tca_map.smolvla.interface_adapters import (
+    DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
+    adapt_observation_state,
+    adapt_policy_action_to_env_action,
+    select_image_source,
+)
 from tca_map.smolvla.load_only_smoke import (
     MAX_LOAD_ONLY_SECONDS,
     RUNTIME_DEPENDENCIES,
@@ -37,6 +45,7 @@ FORBIDDEN_GATES = [
 ]
 MAX_INTERFACE_SECONDS = 600
 MAX_VRAM_MB = 14336
+DIAGNOSTIC_LIBERO_ENV_ACTION_DIM = 7
 
 
 def _load_policy(smolvla_ckpt: Path, hf_home: Path, external_dependency: dict[str, Any], device: str):
@@ -72,7 +81,7 @@ def _load_policy(smolvla_ckpt: Path, hf_home: Path, external_dependency: dict[st
     return policy, config
 
 
-def _build_synthetic_batch(config, tokenizer_root: Path, task: str, device: str) -> dict[str, Any]:
+def _build_synthetic_batch(config, tokenizer_root: Path, task: str, device: str) -> tuple[dict[str, Any], dict[str, Any]]:
     import torch
     from transformers import AutoTokenizer
 
@@ -89,19 +98,43 @@ def _build_synthetic_batch(config, tokenizer_root: Path, task: str, device: str)
         max_length=int(getattr(config, "tokenizer_max_length", 48)),
     )
 
+    state_dim = int(config.input_features["observation.state"].shape[0])
+    synthetic_state_obs = {
+        "robot0_eef_pos": np.zeros(3, dtype=np.float32),
+        "robot0_eef_quat": np.array([1.0, 0.0, 0.0, 0.0], dtype=np.float32),
+    }
+    state_adapter = adapt_observation_state(
+        synthetic_state_obs,
+        DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
+        state_dim,
+        adapter_name="diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+    )
+
     batch: dict[str, Any] = {
-        "observation.state": torch.zeros((1, config.input_features["observation.state"].shape[0]), dtype=torch.float32),
+        "observation.state": torch.tensor([state_adapter.values], dtype=torch.float32),
         "observation.language.tokens": encoded["input_ids"].to(dtype=torch.long),
         "observation.language.attention_mask": encoded["attention_mask"].to(dtype=torch.bool),
     }
+    image_adapter_metadata: dict[str, Any] = {}
     for key, feature in config.image_features.items():
         channels, height, width = feature.shape
-        image = torch.zeros((1, channels, height, width), dtype=torch.float32)
-        # Give each camera a deterministic but distinct value in [0, 1].
-        image += min(0.75, 0.1 * (len(batch) + 1))
+        fill = min(0.75, 0.1 * (len(batch) + 1))
+        synthetic_images = {
+            "agentview_image": np.full((height, width, channels), fill, dtype=np.float32),
+            "robot0_eye_in_hand_image": np.full((height, width, channels), fill / 2.0, dtype=np.float32),
+        }
+        selected = select_image_source(synthetic_images, key)
+        array = np.asarray(selected.value, dtype=np.float32)
+        image = torch.from_numpy(np.transpose(array, (2, 0, 1))).unsqueeze(0)
         batch[key] = image
+        image_adapter_metadata[key] = selected.metadata
 
-    return {key: value.to(device) if hasattr(value, "to") else value for key, value in batch.items()}
+    metadata = {
+        "state_adapter": state_adapter.metadata,
+        "image_adapters": image_adapter_metadata,
+        "synthetic_only": True,
+    }
+    return {key: value.to(device) if hasattr(value, "to") else value for key, value in batch.items()}, metadata
 
 
 def _run_single_sample_interface(
@@ -119,7 +152,7 @@ def _run_single_sample_interface(
 
     policy, config = _load_policy(smolvla_ckpt, hf_home, external_dependency, device)
     tokenizer_root = Path(external_dependency["root"])
-    batch = _build_synthetic_batch(config, tokenizer_root, task, device)
+    batch, adapter_metadata = _build_synthetic_batch(config, tokenizer_root, task, device)
     noise = torch.zeros((1, config.chunk_size, config.max_action_dim), dtype=torch.float32, device=device)
 
     infer_started = time.monotonic()
@@ -131,6 +164,12 @@ def _run_single_sample_interface(
     finite = bool(torch.isfinite(action_cpu).all().item())
     action_shape = list(action_cpu.shape)
     action_preview = [round(float(x), 6) for x in action_cpu.flatten()[: min(6, action_cpu.numel())]]
+    action_adapter = adapt_policy_action_to_env_action(action_cpu, DIAGNOSTIC_LIBERO_ENV_ACTION_DIM)
+    adapter_metadata["action_adapter"] = action_adapter.metadata
+    adapter_metadata["diagnostic_env_action_dim"] = DIAGNOSTIC_LIBERO_ENV_ACTION_DIM
+    adapter_metadata["adapted_action_preview"] = [
+        round(float(x), 6) for x in action_adapter.values[: min(DIAGNOSTIC_LIBERO_ENV_ACTION_DIM, len(action_adapter.values))]
+    ]
 
     cuda_max_allocated_mb = None
     if torch.cuda.is_available():
@@ -157,6 +196,7 @@ def _run_single_sample_interface(
         "action_shape": action_shape,
         "action_finite": finite,
         "action_preview": action_preview,
+        "adapter_metadata": adapter_metadata,
     }
 
 
@@ -254,6 +294,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "model_load_performed": bool(interface_result),
             "single_sample_model_inference_performed": bool(interface_result),
             "model_inference_performed": bool(interface_result),
+            "adapter_metadata_recorded": bool(interface_result and interface_result.get("adapter_metadata")),
             "gpu_training_performed": False,
             "training_performed": False,
             "real_rollouts_performed": False,

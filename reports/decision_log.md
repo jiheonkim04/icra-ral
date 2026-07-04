@@ -726,6 +726,22 @@ Reason: Unit-tested pure helpers isolate interface assumptions without simulator
 
 Consequence: The next wiring step must report adapter metadata in synthetic/single-sample checks before any bounded diagnostic rollout is rerun.
 
+## Single-Sample Adapter Metadata Wiring Scope
+
+Decision: Wire adapter helpers into synthetic single-sample smoke before simulator rollout code.
+
+Reason: Synthetic single-sample smoke can validate report metadata, action adaptation, state mapping, and image alias selection without simulator side effects.
+
+Consequence: Bounded rollout remains blocked until adapter metadata is visible in the synthetic/single-sample report.
+
+## Single-Sample Adapter Metadata Result
+
+Decision: Treat synthetic single-sample adapter metadata wiring as passed.
+
+Reason: The bounded single-sample smoke recorded explicit state, image alias, and action adapter metadata while keeping simulator execution, rollouts, training, GPU training, OpenVLA-OFT execution, token access, and paper-grade claims false.
+
+Consequence: The next safe step is to plan rollout-bridge adapter wiring separately before rerunning any bounded diagnostic rollout.
+
 ## Pure Adapter Helper Result
 
 Decision: Treat pure adapter helper implementation as passed.
