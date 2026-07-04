@@ -85,6 +85,7 @@ REPORTS = {
     "libero_offline_head_comparison": REPO / "reports" / "libero_offline_actionmap_tca_comparison_report.json",
     "libero_offline_lora_comparison": REPO / "reports" / "libero_offline_lora_comparison_report.json",
     "libero_offline_bounded_pilot": REPO / "reports" / "libero_offline_bounded_pilot_report.json",
+    "simulator_readiness": REPO / "reports" / "simulator_readiness_plan_report.json",
     "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
 }
 
@@ -92,7 +93,7 @@ def read_json(path):
     if not path.exists():
         return {"exists": False, "data": None}
     try:
-        return {"exists": True, "data": json.loads(path.read_text(encoding="utf-8"))}
+        return {"exists": True, "data": json.loads(path.read_text(encoding="utf-8-sig"))}
     except json.JSONDecodeError as exc:
         return {"exists": True, "data": None, "error": str(exc)}
 
@@ -137,6 +138,15 @@ status = {
     "libero_ready_for_bounded_local_pilot_report": bool(data("libero_offline_lora_comparison").get("ready_for_bounded_local_pilot_report")),
     "libero_offline_bounded_pilot_report_passed": bool(data("libero_offline_bounded_pilot").get("libero_offline_bounded_pilot_report_passed")),
     "libero_ready_for_simulator_readiness_risk_assessment": bool(data("libero_offline_bounded_pilot").get("ready_for_simulator_readiness_risk_assessment")),
+    "simulator_readiness_report_present": bool(loaded["simulator_readiness"].get("exists")),
+    "simulator_readiness_decision": data("simulator_readiness").get("decision"),
+    "simulator_effective_runtime_platform": (data("simulator_readiness").get("host") or {}).get("effective_runtime_platform"),
+    "simulator_path_ready": bool(data("simulator_readiness").get("ready_for_simulator_path_check")),
+    "simulator_dataset_path_ready": bool(data("simulator_readiness").get("ready_for_dataset_path_check")),
+    "simulator_import_smoke_ready": bool(data("simulator_readiness").get("ready_for_simulator_import_smoke")),
+    "simulator_render_smoke_ready": bool(data("simulator_readiness").get("ready_for_simulator_render_smoke")),
+    "simulator_rollout_ready": bool(data("simulator_readiness").get("ready_for_libero_rollout")),
+    "simulator_stop_reasons": data("simulator_readiness").get("stop_reasons", []),
     "libero_rollout_ready": bool(data("libero_offline_interface").get("ready_for_rollout")),
     "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
     "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
@@ -162,7 +172,11 @@ all_bounded_smokes_passed = all(
 missing_reports = [name for name, item in loaded.items() if not item.get("exists")]
 parse_errors = {name: item.get("error") for name, item in loaded.items() if item.get("error")}
 recommended_next_step = (
-    "Run a simulator readiness/import-render risk assessment if installed locally; stop before rollout unless the assessment is green and inside budget."
+    "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded import-smoke branch; keep render/rollout blocked."
+    if status["simulator_import_smoke_ready"]
+    else "Simulator readiness planner ran and keeps import/render/rollout blocked. Resolve the listed stop reasons before any simulator import smoke."
+    if status["simulator_readiness_report_present"]
+    else "Run a simulator readiness/import-render risk assessment if installed locally; stop before rollout unless the assessment is green and inside budget."
     if status["libero_ready_for_simulator_readiness_risk_assessment"]
     else (
         "Choose the next concrete stage and run a risk assessment. Proceed automatically if the assessment is inside budget; stop only if risk is ambiguous, outside budget, external/irreversible, OpenVLA-OFT-related, token/license/payment-related, system-level, or paper-claim-related."

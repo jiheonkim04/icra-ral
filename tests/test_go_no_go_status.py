@@ -83,6 +83,7 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["runtime_reports_available"]["libero_offline_actionmap_tca_comparison_report"] in {True, False}
     assert report["runtime_reports_available"]["libero_offline_lora_comparison_report"] in {True, False}
     assert report["runtime_reports_available"]["libero_offline_bounded_pilot_report"] in {True, False}
+    assert report["runtime_reports_available"]["simulator_readiness_plan_report"] in {True, False}
     assert report["libero_data_gates"]["ready_for_tiny_offline_counterfactual_split"] in {True, False}
     assert report["libero_data_gates"]["ready_for_tiny_offline_actionmap_tca_comparison"] in {True, False}
     assert report["libero_data_gates"]["offline_actionmap_tca_comparison_passed"] in {True, False}
@@ -91,6 +92,14 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["libero_data_gates"]["ready_for_bounded_local_pilot_report"] in {True, False}
     assert report["libero_data_gates"]["offline_bounded_pilot_report_passed"] in {True, False}
     assert report["libero_data_gates"]["ready_for_simulator_readiness_risk_assessment"] in {True, False}
+    assert "simulator_readiness_gates" in report
+    assert report["simulator_readiness_gates"]["report_present"] in {True, False}
+    assert report["simulator_readiness_gates"]["ready_for_simulator_import_smoke"] in {True, False}
+    assert report["simulator_readiness_gates"]["ready_for_simulator_render_smoke"] is False
+    assert report["simulator_readiness_gates"]["ready_for_libero_rollout"] is False
+    assert report["simulator_readiness_gates"]["simulator_imports_performed"] is False
+    assert report["simulator_readiness_gates"]["render_smoke_performed"] is False
+    assert report["simulator_readiness_gates"]["rollouts_performed"] is False
     assert report["blocked_for_larger_paper_grade_stage"] is True
     assert "lora_qlora_planning" in report
     assert report["lora_qlora_planning"]["qlora_safe_to_run_now"] is False

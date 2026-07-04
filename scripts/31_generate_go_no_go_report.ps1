@@ -70,7 +70,7 @@ def load_json(path):
     if not p.exists():
         return None
     try:
-        return json.loads(p.read_text(encoding="utf-8"))
+        return json.loads(p.read_text(encoding="utf-8-sig"))
     except Exception as exc:
         return {"_read_error": str(exc)}
 
@@ -98,6 +98,7 @@ libero_offline_counterfactual_split = load_json("reports/libero_offline_counterf
 libero_offline_head_comparison = load_json("reports/libero_offline_actionmap_tca_comparison_report.json")
 libero_offline_lora_comparison = load_json("reports/libero_offline_lora_comparison_report.json")
 libero_offline_bounded_pilot = load_json("reports/libero_offline_bounded_pilot_report.json")
+simulator_readiness = load_json("reports/simulator_readiness_plan_report.json")
 
 completed = {
     "smolvla_load_only_smoke": passed(load_only, "result", "passed"),
@@ -124,6 +125,7 @@ runtime_reports_available = {
     "libero_offline_actionmap_tca_comparison_report": libero_offline_head_comparison is not None,
     "libero_offline_lora_comparison_report": libero_offline_lora_comparison is not None,
     "libero_offline_bounded_pilot_report": libero_offline_bounded_pilot is not None,
+    "simulator_readiness_plan_report": simulator_readiness is not None,
 }
 
 tiny_metrics = {}
@@ -190,6 +192,22 @@ libero_data_gates = {
     "ready_for_rollout": bool((libero_offline_interface or {}).get("ready_for_rollout")),
     "reason": (libero_offline_interface or {}).get("reason"),
 }
+simulator_readiness_gates = {
+    "report_present": simulator_readiness is not None,
+    "decision": (simulator_readiness or {}).get("decision"),
+    "effective_runtime_platform": ((simulator_readiness or {}).get("host") or {}).get("effective_runtime_platform"),
+    "ready_for_simulator_path_check": bool((simulator_readiness or {}).get("ready_for_simulator_path_check")),
+    "ready_for_dataset_path_check": bool((simulator_readiness or {}).get("ready_for_dataset_path_check")),
+    "ready_for_simulator_import_smoke": bool((simulator_readiness or {}).get("ready_for_simulator_import_smoke")),
+    "ready_for_simulator_render_smoke": bool((simulator_readiness or {}).get("ready_for_simulator_render_smoke")),
+    "ready_for_libero_rollout": bool((simulator_readiness or {}).get("ready_for_libero_rollout")),
+    "planning_only": bool(((simulator_readiness or {}).get("policy") or {}).get("planning_only")),
+    "simulator_imports_performed": bool(((simulator_readiness or {}).get("policy") or {}).get("simulator_imports_performed")),
+    "render_smoke_performed": bool(((simulator_readiness or {}).get("policy") or {}).get("render_smoke_performed")),
+    "rollouts_performed": bool(((simulator_readiness or {}).get("policy") or {}).get("rollouts_performed")),
+    "stop_reasons": (simulator_readiness or {}).get("stop_reasons", []),
+    "warnings": (simulator_readiness or {}).get("warnings", []),
+}
 ready_for_bounded_local_pilot = all_safe_smokes_passed
 blocked_for_larger_paper_grade_stage = True
 blocked_by = [
@@ -210,6 +228,12 @@ if not libero_data_gates["offline_lora_comparison_passed"]:
     blocked_by.append("no tiny local LIBERO offline required LoRA comparison has passed")
 if not libero_data_gates["offline_bounded_pilot_report_passed"]:
     blocked_by.append("no LIBERO offline bounded pilot report has passed")
+if libero_data_gates["ready_for_simulator_readiness_risk_assessment"]:
+    if not simulator_readiness_gates["report_present"]:
+        blocked_by.append("simulator readiness planner has not been run yet")
+    elif not simulator_readiness_gates["ready_for_simulator_import_smoke"]:
+        reason_text = ", ".join(simulator_readiness_gates["stop_reasons"]) or "simulator import smoke is not ready"
+        blocked_by.append(f"simulator import/render/rollout remains blocked: {reason_text}")
 
 decision = (
     "no_go_for_next_larger_experimental_stage"
@@ -217,7 +241,11 @@ decision = (
     else "no_go_until_safe_smoke_evidence_is_complete"
 )
 recommended_next_step = (
-    "LIBERO offline bounded pilot report is ready. Run a simulator readiness/import-render risk assessment if installed locally; stop before rollout unless the assessment is green and inside budget."
+    "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded simulator import-smoke branch; do not render or rollout."
+    if simulator_readiness_gates["ready_for_simulator_import_smoke"]
+    else "Simulator readiness planner ran and keeps import/render/rollout blocked. Configure WSL2/Linux simulator readiness, then rerun the planner before any simulator import smoke."
+    if simulator_readiness_gates["report_present"]
+    else "LIBERO offline bounded pilot report is ready. Run a simulator readiness/import-render risk assessment if installed locally; stop before rollout unless the assessment is green and inside budget."
     if libero_data_gates["ready_for_simulator_readiness_risk_assessment"]
     else (
         "Ready for risk-assessed bounded local SmolVLA pilot work. Proceed automatically if the next task is inside budget: official/documented source, <=80GB download with >=100GB disk remaining by default, official LIBERO data exception <=180GB with >=250GB remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only frozen/LoRA/QLoRA training <=300 steps after stable smoke, no OpenVLA-OFT, no token/license/payment gate, and no paper claim."
@@ -289,6 +317,7 @@ report = {
     "tiny_head_only_metrics": tiny_metrics,
     "bounded_local_pilot_extension": bounded_extension_summary,
     "libero_data_gates": libero_data_gates,
+    "simulator_readiness_gates": simulator_readiness_gates,
     "blocked_by": blocked_by,
     "hard_stop_status": {
         "hard_stop_reached": (hard_stop or {}).get("hard_stop_reached"),
@@ -326,6 +355,9 @@ lines.extend(
         "",
         "## LIBERO Data Gates",
         *[f"- `{name}`: `{value}`" for name, value in libero_data_gates.items()],
+        "",
+        "## Simulator Readiness Gates",
+        *[f"- `{name}`: `{value}`" for name, value in simulator_readiness_gates.items()],
         "",
         "## Go For",
         *[f"- {item}" for item in go_for],
