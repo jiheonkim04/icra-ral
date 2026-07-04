@@ -851,3 +851,9 @@ Current planned branch: create a planning-only adapter patch specification befor
 The plan must require explicit action, state, and camera adapters. It must keep rollout scaling blocked until pure adapter helpers and unit tests pass, followed by single-sample/interface checks.
 
 Current local result: `scripts\80_plan_action_state_adapter_patch.ps1` passed as planning-only. It requires action, state, and camera alias adapters, sets `ready_for_pure_adapter_implementation=true`, and keeps `ready_for_rollout_scaling=false`.
+
+## Pure Action/State/Image Adapter Helpers
+
+Current planned branch: add pure helper functions for action, state, and image alias adaptation. This step must be unit-test-only and must not wire into rollout execution yet.
+
+Current local result: pure adapter helper tests passed. Rollout wiring remains intentionally untouched.

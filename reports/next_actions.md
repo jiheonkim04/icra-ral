@@ -314,8 +314,10 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
    Done as report-only comparison. Current result: zero-action and SmolVLA-action both have diagnostic success `false` and reward `0.0`; SmolVLA actions are nontrivial but do not outperform zero-action.
 8. Create an explicit action/state adapter patch plan.
    Done as planning-only. Next: implement pure action/state/image adapter helpers with unit tests; do not run rollout until adapter tests and single-sample/interface smoke pass.
-9. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-10. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+9. Implement pure action/state/image adapter helpers with unit tests.
+   Done; pure helper tests pass and rollout behavior is not wired yet.
+10. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+11. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

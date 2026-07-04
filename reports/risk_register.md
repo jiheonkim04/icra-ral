@@ -639,3 +639,11 @@ Risk: Changing rollout action/state mapping directly could create a new simulato
 Impact: Later diagnostic results would be hard to attribute to action mapping, gripper strategy, state mapping, or camera alias changes.
 
 Mitigation: `scripts\80_plan_action_state_adapter_patch.ps1` requires pure adapter helpers and unit tests before rollout wiring, and keeps rollout scaling blocked until adapter metadata is reported.
+
+## Adapter Helper Semantics Risk
+
+Risk: Adapter helper defaults could be mistaken for the final correct LIBERO control convention.
+
+Impact: A diagnostic gripper or state strategy could be over-trusted before empirical validation.
+
+Mitigation: `tca_map.smolvla.interface_adapters` exposes named strategies and metadata, refuses unsupported dimensions, and keeps rollout wiring as a later separately validated step.
