@@ -815,3 +815,11 @@ Risk: The init-state learned-policy recheck can pass execution and set the HDF5 
 Impact: The project could misread topology success as evidence that the learned policy is working on LIBERO.
 
 Mitigation: Treat `scripts\102_bounded_init_state_learned_policy_recheck.ps1` as diagnostic/local-pilot evidence only. The current result has task success `false` and reward sum `0.0`, so rollout scaling and paper-grade claims remain blocked.
+
+## Rollout Variant Exhaustion Risk
+
+Risk: After reset-only and HDF5-init-state learned-policy diagnostics all show zero reward and no task success, continuing to add rollout variants may spend time without isolating the root cause.
+
+Impact: The evidence ladder could grow broader but not more informative, and the project could drift toward weak rollout claims.
+
+Mitigation: `scripts\103_generate_init_state_recheck_metric_summary.ps1` records `decision=no_go_rollout_scaling`. The next work should be report-only or offline analysis of checkpoint/task alignment, VLM loading policy, and demonstration-conditioned action decoding before any further learned-policy rollout.
