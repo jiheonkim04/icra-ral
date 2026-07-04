@@ -652,6 +652,20 @@ Current local result: plan passed with `decision=proceed_bounded_offline_lora_sc
 
 56. Next safe step: implement the separately gated CPU-only offline LoRA scale-up runner. It may run only under task-local `ALLOW_TINY_TRAINING=1`, may use local real LIBERO HDF5 data, and must remain offline proxy only. It must not load SmolVLA, import heavy VLA models, use GPU jobs, rollout, execute OpenVLA-OFT, full fine-tune, download, install packages, access tokens, or make paper claims.
 
+Command:
+
+```powershell
+$env:ALLOW_TINY_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\126_bounded_lora_offline_scaleup.ps1
+Remove-Item Env:\ALLOW_TINY_TRAINING -ErrorAction SilentlyContinue
+```
+
+Expected interpretation: if the runner reports `bounded_lora_offline_scaleup_passed=true`, refresh the offline evidence table and gap report to include the bounded LoRA scale-up result. This remains offline proxy evidence only, not standard success, not rollout success, and not paper-grade evidence.
+
+Current local result: runner passed with `bounded_lora_offline_scaleup_passed=true`, `record_count=16`, `max_steps=64`, CPU-only execution, `ready_for_offline_evidence_refresh=true`, `ready_for_rollout=false`, and `ready_for_paper_claim=false`. The next safe step is to refresh the offline evidence table/gap report with this bounded scale-up result.
+
+57. Next safe step: refresh the offline evidence table and gap report so it includes `reports\bounded_lora_offline_scaleup_report.json`. This should be report-only and must not train, download, load models, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

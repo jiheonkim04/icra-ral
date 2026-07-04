@@ -1017,3 +1017,15 @@ Impact: The project could confuse bounded proxy adaptation with real learned-pol
 Mitigation: `scripts\125_plan_bounded_lora_offline_scaleup.ps1` is planning-only and caps any future runner to CPU-only offline proxy training with at most 16 pairs, 64 samples, 64 steps, LoRA rank 4, frozen base weights, no full fine-tuning, no model load, no heavy imports, no GPU job, no rollout, no OpenVLA-OFT, and no paper claim.
 
 Current status: the plan passed and authorized a future separately gated CPU-only offline LoRA scale-up runner under `ALLOW_TINY_TRAINING=1`.
+
+## Bounded Offline LoRA Scale-Up Overinterpretation Risk
+
+Risk: A passing bounded LoRA scale-up over local HDF5 action snippets could be mistaken for a real SmolVLA adapter result, standard success, rollout success, or paper-grade benchmark evidence.
+
+Impact: The project could overclaim useful proxy trends before validating an aligned learned-policy checkpoint or simulator rollout path.
+
+Mitigation: `scripts\126_bounded_lora_offline_scaleup.ps1` requires `ALLOW_TINY_TRAINING=1`, trains only tiny NumPy LoRA matrices on CPU, labels outputs as offline proxy only, and reports rollout and paper-claim readiness as false. It forbids downloads, GPU jobs, heavy VLA imports, model loading, inference, rollouts, simulator execution, OpenVLA-OFT, full fine-tuning, token access, and paper claims.
+
+Current status: the runner has been added as the next bounded execution gate after the scale-up plan.
+
+Current result: the runner passed under task-local `ALLOW_TINY_TRAINING=1` and reported offline proxy metrics only. It remains unsuitable for standard success, rollout success, or paper-grade claims.

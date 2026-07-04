@@ -1686,3 +1686,35 @@ Current local result:
 - ready for learned-policy rollout scaling, benchmark claims, and paper claims: false.
 
 Interpretation: the next safe task is implementation of the separately gated CPU-only offline LoRA scale-up runner.
+
+## Bounded LIBERO Offline LoRA Scale-Up Runner
+
+The bounded CPU-only runner is implemented by `scripts\126_bounded_lora_offline_scaleup.ps1` and `tca_map.datasets.libero_offline_lora_scaleup`.
+
+Scope:
+
+- requires task-local `ALLOW_TINY_TRAINING=1`,
+- trains only tiny NumPy LoRA matrices over local LIBERO HDF5 action snippets,
+- caps execution to 16 pairs, 64 records, 64 update steps, LoRA rank 4, and an enforced 900-second runtime cap,
+- freezes the base representation and forbids full fine-tuning,
+- does not download, install, import heavy VLA models, load SmolVLA, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if the runner passes, its result is useful offline proxy evidence for the required LoRA track,
+- it is not standard success, not rollout success, not a SmolVLA model-load result, and not paper-grade evidence,
+- the next safe task is to refresh the offline evidence table/gap report with the bounded scale-up result while keeping current-checkpoint learned-policy rollout scaling blocked.
+
+Current local result:
+
+- runner passed,
+- `bounded_lora_offline_scaleup_passed=true`,
+- record count: 16,
+- max steps: 64,
+- LoRA rank: 4,
+- TCA-Map + LoRA vs ActionMap + LoRA action L1 delta: -0.004018,
+- TCA-Map + LoRA vs ActionMap + LoRA wrong-target proxy delta: -0.4375,
+- Distributional TCA-Select did not change the current tiny LoRA proxy metrics in this runner,
+- GPU jobs, downloads, heavy imports, model loading, inference, rollouts, simulator execution, OpenVLA-OFT, token access, full fine-tuning, and paper claims remained false.
+
+Interpretation: the bounded LoRA scale-up is now ready to be folded into the offline evidence table. It remains offline proxy evidence only.
