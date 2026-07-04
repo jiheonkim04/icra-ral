@@ -22,6 +22,9 @@ from typing import Any
 import numpy as np
 
 from tca_map.smolvla.interface_adapters import (
+    ACTION_STRATEGY_GRIPPER_CLOSE,
+    ACTION_STRATEGY_GRIPPER_OPEN,
+    ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
     DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
     adapt_observation_state,
     adapt_policy_action_to_env_action,
@@ -229,12 +232,14 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "task_local_gate_set": (
                 _env_flag("ALLOW_TINY_LEARNED_POLICY_ROLLOUT")
                 or _env_flag("ALLOW_BOUNDED_LEARNED_POLICY_MATRIX")
+                or _env_flag("ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC")
             ),
             "task_local_gates_set": [
                 name
                 for name in [
                     "ALLOW_TINY_LEARNED_POLICY_ROLLOUT",
                     "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX",
+                    "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC",
                 ]
                 if _env_flag(name)
             ],
@@ -245,6 +250,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "max_task_count": MAX_TASK_COUNT,
             "max_steps_per_task": MAX_STEPS_PER_TASK,
             "device": args.device,
+            "action_adapter_strategy": args.action_adapter_strategy,
         },
         "paths": {
             "smolvla_ckpt": str(smolvla_ckpt),
@@ -279,7 +285,8 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
     if not report["policy"]["task_local_gate_set"]:
         report["result"]["blocked_reason"] = (
             "ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1 or "
-            "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1 is required for this bounded task."
+            "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1 or "
+            "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC=1 is required for this bounded task."
         )
         return report
     if report["policy"]["forbidden_gates_set"]:
@@ -370,7 +377,11 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                         policy_action = policy.select_action(batch, noise=noise)
                     report["policy"]["learned_policy_inference_performed"] = True
                     report["policy"]["model_inference_performed"] = True
-                    action_adapter = adapt_policy_action_to_env_action(policy_action, action_dim)
+                    action_adapter = adapt_policy_action_to_env_action(
+                        policy_action,
+                        action_dim,
+                        strategy=args.action_adapter_strategy,
+                    )
                     env_action = action_adapter.values
                     obs, reward, done, _info = env.step(env_action)
                     summary["steps_performed"] += 1
@@ -466,6 +477,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--max-steps-per-task", type=int, default=3)
     parser.add_argument("--camera-size", type=int, default=64)
     parser.add_argument("--device", default="cpu", choices=["cpu"])
+    parser.add_argument(
+        "--action-adapter-strategy",
+        default=ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
+        choices=[
+            ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
+            ACTION_STRATEGY_GRIPPER_OPEN,
+            ACTION_STRATEGY_GRIPPER_CLOSE,
+        ],
+    )
     parser.add_argument("--report-path", required=True)
     args = parser.parse_args(argv)
 

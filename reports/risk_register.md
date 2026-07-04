@@ -687,3 +687,11 @@ Risk: Gripper strategies, action-scale factors, prompt formats, and camera mappi
 Impact: The project could spend local runtime on many weak diagnostic variants before establishing which axis matters.
 
 Mitigation: `scripts\82_plan_adapter_strategy_action_scale_diagnostics.ps1` limits the first runner to one task, at most 10 steps per variant, and at most three gripper-strategy variants. Action-scale, prompt, and camera variants are planned as later rungs only after the first strategy diagnostic is summarized.
+
+## Adapter-Strategy Diagnostic Overinterpretation
+
+Risk: A bounded gripper-strategy diagnostic can pass execution while still showing zero reward and no task success.
+
+Impact: The project could mistake a clean wrapper result for improved policy behavior or scale rollout prematurely.
+
+Mitigation: Treat `scripts\83_bounded_adapter_strategy_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows all three gripper strategies execute cleanly but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and move next to action-scale, prompt, camera-source, or state-sufficiency diagnostics.

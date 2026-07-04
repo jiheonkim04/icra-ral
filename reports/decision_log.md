@@ -789,3 +789,11 @@ Decision: Add a planning-only gate before implementing more rollout diagnostics.
 Reason: The next experiment could run several bounded variants, so the repo needs an explicit envelope for gripper strategies, action-scale checks, prompt checks, runtime, and evidence labels before any execution.
 
 Consequence: Implement `scripts\82_plan_adapter_strategy_action_scale_diagnostics.ps1` first. If it passes, the next safe implementation is a separately gated one-task gripper-strategy diagnostic runner.
+
+## Adapter-Strategy Diagnostic Runner Result
+
+Decision: Do not scale learned-policy rollout after the first gripper-strategy diagnostic.
+
+Reason: `scripts\83_bounded_adapter_strategy_diagnostic.ps1` completed zero-hold, open, and close gripper-strategy variants with explicit adapter metadata, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: Gripper strategy is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test action scale/normalization, prompt format, camera source, and state sufficiency before broader rollout matrices or paper-grade claims.

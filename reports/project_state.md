@@ -908,3 +908,24 @@ The planned first diagnostic runner is one task, at most 10 steps per variant, a
 - `policy_6d_delta_pose_plus_gripper_close`.
 
 Rollout scaling remains blocked until the strategy diagnostics explain or improve the zero-reward behavior.
+
+## Adapter-Strategy Diagnostic Runner Result
+
+Current local bounded result: passed as diagnostic execution evidence only.
+
+`scripts\83_bounded_adapter_strategy_diagnostic.ps1` ran under task-local `ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC=1` and executed three one-task, 10-step gripper-strategy variants:
+
+- `policy_6d_delta_pose_plus_gripper_zero_hold`,
+- `policy_6d_delta_pose_plus_gripper_open`,
+- `policy_6d_delta_pose_plus_gripper_close`.
+
+Observed local result:
+
+- variants completed: 3,
+- wrapper/execution passed for all variants,
+- diagnostic success rate: 0.0 for all variants,
+- reward sum: 0.0 for all variants,
+- observed gripper components: `0.0`, `1.0`, and `-1.0`,
+- no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
+
+Interpretation: explicit gripper-strategy selection is now execution-tested and metadata-visible, but gripper strategy alone does not explain the zero-reward behavior on the selected diagnostic task. Rollout scaling remains blocked. The next safe rung is a bounded action-scale, prompt-format, camera-source, or state-sufficiency diagnostic before any broader learned-policy rollout matrix.
