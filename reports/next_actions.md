@@ -396,6 +396,16 @@ Current local result: passed as diagnostic execution evidence only. It loaded lo
 
 Next safe step: generate a report-only metric summary comparing this init-state recheck against previous reset-only learned-policy diagnostics. Do not scale rollout or make benchmark/paper claims.
 
+32. Init-state recheck metric summary command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\103_generate_init_state_recheck_metric_summary.ps1
+```
+
+Current local result: summary passed with `decision=no_go_rollout_scaling`. Reset-only 3-step, reset-only 10-step, and HDF5-init-state 3-step diagnostics all passed their wrappers, but all had diagnostic success `false` and reward sum `0.0`. The HDF5-init-state run correctly set the demonstration initial state and used the gripper-close adapter, but it did not improve reward or task success.
+
+Next safe step: stop rollout scaling and inspect checkpoint/task alignment, VLM loading policy, and offline demonstration-conditioned action decoding before more learned-policy rollouts.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

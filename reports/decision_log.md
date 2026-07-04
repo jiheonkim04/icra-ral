@@ -909,3 +909,11 @@ Decision: Treat the init-state learned-policy recheck as passed for execution to
 Reason: `scripts\102_bounded_init_state_learned_policy_recheck.ps1` loaded local SmolVLA in WSL CPU, created one LIBERO/RoboSuite environment, set the HDF5 demonstration initial state, and executed 3 policy-controlled steps without downloads, installs, training, GPU jobs, OpenVLA-OFT, multi-seed evaluation, token access, or paper claims. The diagnostic success check remained false and reward sum remained `0.0`.
 
 Consequence: Initial-state alignment alone does not explain the zero-reward behavior. The next safe work is a report-only metric comparison against previous reset-only learned-policy diagnostics before any further rollout decision.
+
+## Init-State Recheck Metric Summary Result
+
+Decision: Keep rollout scaling blocked.
+
+Reason: `scripts\103_generate_init_state_recheck_metric_summary.ps1` compared reset-only 3-step, reset-only 10-step, and HDF5-init-state 3-step learned-policy diagnostics. All wrappers passed, but every scenario had diagnostic success `false` and reward sum `0.0`.
+
+Consequence: The project should stop adding rollout variants for now and inspect checkpoint/task alignment, VLM loading policy, and offline demonstration-conditioned action decoding before another learned-policy rollout.
