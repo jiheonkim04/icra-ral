@@ -843,3 +843,11 @@ The comparison is summary-only. It must not download, install, load models, infe
 Expected interpretation: if zero-action simulator plumbing passed and SmolVLA emits nontrivial actions but does not improve success or reward, the next autonomous step should be an explicit action/state adapter patch plan rather than rollout scaling.
 
 Current local result: `scripts\79_compare_zero_action_policy_diagnostic.ps1` passed as summary-only. It compared the existing zero-action diagnostic against the existing SmolVLA learned-policy diagnostic on the same `libero_10` task. Both had diagnostic success `false` and reward sum `0.0`; SmolVLA actions were nontrivial with max absolute action about `0.793093`, so the learned policy did not outperform zero-action. The next autonomous direction is an explicit action/state adapter patch plan.
+
+## Action/State Adapter Patch Plan
+
+Current planned branch: create a planning-only adapter patch specification before modifying rollout behavior.
+
+The plan must require explicit action, state, and camera adapters. It must keep rollout scaling blocked until pure adapter helpers and unit tests pass, followed by single-sample/interface checks.
+
+Current local result: `scripts\80_plan_action_state_adapter_patch.ps1` passed as planning-only. It requires action, state, and camera alias adapters, sets `ready_for_pure_adapter_implementation=true`, and keeps `ready_for_rollout_scaling=false`.
