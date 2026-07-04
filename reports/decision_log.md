@@ -1003,3 +1003,13 @@ Reason: The full VLM dependency files are now local, but actual VLM-enabled poli
 Consequence: `scripts\113_plan_vlm_enabled_load_smoke.ps1` can authorize only a future separately gated load-only runner. It does not load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, access tokens, install packages, download files, or make paper-grade claims.
 
 Current result: The planner reports `decision=proceed` and `ready_for_bounded_vlm_enabled_load_smoke_runner=true`. This authorizes implementation of the separate runner, not model-load execution inside the planner.
+
+## Bounded VLM-Enabled Load Smoke Runner
+
+Decision: Add a separately gated CPU-first runner for `load_vlm_weights=true` construction.
+
+Reason: The planner is green and the full VLM dependency files are local, so the next informative compatibility test is whether SmolVLA construction succeeds with VLM weights enabled.
+
+Consequence: `scripts\114_bounded_vlm_enabled_load_smoke.ps1` requires both `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`. It is load-only and must not infer, train, rollout, use GPU jobs, download, install, execute OpenVLA-OFT, access tokens, or make paper-grade claims.
+
+Current result: The bounded runner passed on CPU with `load_vlm_weights=true`, CUDA max allocation `0MB`, and no inference/training/rollout/download/install/OpenVLA-OFT/token/paper-claim behavior. The next decision should test whether VLM-enabled loading improves repeated offline action-decoding alignment before any rollout scaling.
