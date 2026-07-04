@@ -414,6 +414,14 @@ powershell -ExecutionPolicy Bypass -File scripts\104_audit_smolvla_libero_checkp
 
 Expected local result: report-only audit with `decision=no_go_rollout_scaling` and `ready_for_offline_demonstration_conditioned_action_decoding_plan=true`. If this passes, the next safe task is a planning-only offline demonstration-conditioned action-decoding gate. That future gate should use one HDF5 observation and one expert action target, must not create a simulator environment or rollout, and may authorize a later one-sample CPU SmolVLA inference only after a green risk assessment.
 
+34. Offline demonstration-conditioned action decoding planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\105_plan_offline_demo_conditioned_action_decoding.ps1
+```
+
+Expected local result: `decision=proceed` and `ready_for_bounded_offline_demo_action_decoding_runner=true` if local checkpoint files, the selected HDF5 file, and the checkpoint-task alignment audit are all present. This planner does not load SmolVLA or run inference. If it passes, the next safe implementation is a separately gated one-sample offline action-decoding runner; it must not create a simulator environment, rollout, train, download, use OpenVLA-OFT, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

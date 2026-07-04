@@ -124,6 +124,7 @@ $required = @(
     "reports/bounded_init_state_learned_policy_recheck.md",
     "reports/init_state_recheck_metric_summary.md",
     "reports/smolvla_libero_checkpoint_task_alignment_audit.md",
+    "reports/offline_demo_conditioned_action_decoding_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -221,6 +222,7 @@ $required = @(
     "scripts/102_bounded_init_state_learned_policy_recheck.ps1",
     "scripts/103_generate_init_state_recheck_metric_summary.ps1",
     "scripts/104_audit_smolvla_libero_checkpoint_task_alignment.ps1",
+    "scripts/105_plan_offline_demo_conditioned_action_decoding.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -334,6 +336,7 @@ $required = @(
     "tests/test_bounded_init_state_learned_policy_recheck.py",
     "tests/test_init_state_recheck_metric_summary.py",
     "tests/test_smolvla_libero_checkpoint_task_alignment_audit.py",
+    "tests/test_offline_demo_conditioned_action_decoding_plan.py",
     "tests/test_lora_config_guards.py"
 )
 
