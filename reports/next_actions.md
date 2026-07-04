@@ -384,6 +384,18 @@ powershell -ExecutionPolicy Bypass -File scripts\101_plan_init_state_learned_pol
 
 If this planner reports `ready_for_bounded_init_state_learned_policy_recheck_runner=true`, the next safe implementation is a separately gated runner using `ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK=1`. It must use one HDF5 demonstration initial state, one task, at most five policy-controlled steps, WSL CPU by default, no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, and no benchmark/SOTA/paper-grade claim.
 
+31. Bounded init-state learned-policy recheck command:
+
+```powershell
+$env:ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK="1"
+powershell -ExecutionPolicy Bypass -File scripts\102_bounded_init_state_learned_policy_recheck.ps1
+Remove-Item Env:\ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK -ErrorAction SilentlyContinue
+```
+
+Current local result: passed as diagnostic execution evidence only. It loaded local SmolVLA in WSL CPU, set the local HDF5 demo `init_state`, ran one `libero_10` task for 3 policy-controlled steps with the gripper-close adapter, and kept downloads, installs, training, GPU jobs, OpenVLA-OFT, multi-seed, benchmark claims, and paper claims false. Task success remained `false` and reward sum remained `0.0`.
+
+Next safe step: generate a report-only metric summary comparing this init-state recheck against previous reset-only learned-policy diagnostics. Do not scale rollout or make benchmark/paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

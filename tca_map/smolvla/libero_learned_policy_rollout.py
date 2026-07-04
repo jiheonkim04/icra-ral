@@ -52,6 +52,7 @@ FORBIDDEN_GATES = [
     "ALLOW_ROLLOUT",
     "ALLOW_ROLLOUTS",
 ]
+INIT_STATE_RECHECK_GATE = "ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK"
 MAX_RUNTIME_SECONDS = 1800
 MAX_TASK_COUNT = 5
 MAX_STEPS_PER_TASK = 10
@@ -117,6 +118,26 @@ def _read_bddl_language(path: Path) -> str | None:
                 value = value[:-1].strip()
             return " ".join(value.split())
     return None
+
+
+def _load_hdf5_init_state(path: Path, demo_name: str | None = None) -> tuple[np.ndarray, dict[str, Any]]:
+    import h5py
+
+    with h5py.File(path, "r") as handle:
+        selected_demo = demo_name or sorted(handle["data"].keys())[0]
+        demo = handle["data"][selected_demo]
+        if "init_state" not in demo.attrs:
+            raise ValueError(f"HDF5 demo {selected_demo} does not expose init_state")
+        init_state = np.asarray(demo.attrs["init_state"], dtype=np.float64)
+        metadata = {
+            "hdf5_path": str(path),
+            "demo_name": selected_demo,
+            "init_state_shape": list(init_state.shape),
+            "model_file_attr_present": "model_file" in demo.attrs,
+            "states_present": "states" in demo,
+            "actions_present": "actions" in demo,
+        }
+    return init_state, metadata
 
 
 def _task_language(path: Path, strategy: str = PROMPT_STRATEGY_STEM_SPACES) -> str:
@@ -318,6 +339,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
     hf_home = Path(args.hf_home)
     libero_root = Path(args.libero_root)
     robosuite_root = Path(args.robosuite_root)
+    hdf5_init_state_path = Path(args.hdf5_init_state_path) if args.hdf5_init_state_path else None
 
     config_files = _find_files(smolvla_ckpt, ["config.json"])
     weight_files = _find_files(
@@ -357,6 +379,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 or _env_flag("ALLOW_PROMPT_FORMAT_DIAGNOSTIC")
                 or _env_flag("ALLOW_CAMERA_SOURCE_DIAGNOSTIC")
                 or _env_flag("ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC")
+                or _env_flag(INIT_STATE_RECHECK_GATE)
             ),
             "task_local_gates_set": [
                 name
@@ -368,6 +391,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                     "ALLOW_PROMPT_FORMAT_DIAGNOSTIC",
                     "ALLOW_CAMERA_SOURCE_DIAGNOSTIC",
                     "ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC",
+                    INIT_STATE_RECHECK_GATE,
                 ]
                 if _env_flag(name)
             ],
@@ -383,6 +407,9 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "prompt_strategy": args.prompt_strategy,
             "camera_alias_strategy": args.camera_alias_strategy,
             "state_adapter_strategy": args.state_adapter_strategy,
+            "hdf5_init_state_path": str(hdf5_init_state_path) if hdf5_init_state_path else None,
+            "hdf5_demo_name": args.hdf5_demo_name,
+            "require_hdf5_init_state": bool(args.require_hdf5_init_state),
         },
         "paths": {
             "smolvla_ckpt": str(smolvla_ckpt),
@@ -406,6 +433,13 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "elapsed_sec": None,
         },
         "tasks": [],
+        "hdf5_init_state": {
+            "requested": hdf5_init_state_path is not None or bool(args.require_hdf5_init_state),
+            "loaded": False,
+            "metadata": None,
+            "set_in_environment": False,
+            "error": None,
+        },
         "result": {
             "passed": False,
             "blocked": True,
@@ -422,7 +456,8 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "ALLOW_ACTION_SCALE_DIAGNOSTIC=1 or "
             "ALLOW_PROMPT_FORMAT_DIAGNOSTIC=1 or "
             "ALLOW_CAMERA_SOURCE_DIAGNOSTIC=1 or "
-            "ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC=1 is required for this bounded task."
+            "ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC=1 or "
+            "ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK=1 is required for this bounded task."
         )
         return report
     if report["policy"]["forbidden_gates_set"]:
@@ -436,6 +471,12 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
         return report
     if args.device != "cpu":
         report["result"]["blocked_reason"] = "The first tiny learned-policy LIBERO rollout is CPU-only."
+        return report
+    if args.require_hdf5_init_state and hdf5_init_state_path is None:
+        report["result"]["blocked_reason"] = "hdf5 init-state path is required for this init-state recheck."
+        return report
+    if hdf5_init_state_path is not None and not hdf5_init_state_path.exists():
+        report["result"]["blocked_reason"] = f"hdf5 init-state path does not exist: {hdf5_init_state_path}"
         return report
     if not report["files"]["files_ready"]:
         report["result"]["blocked_reason"] = "SmolVLA local files or tokenizer dependency are incomplete."
@@ -459,6 +500,11 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
         policy, config = _load_policy(smolvla_ckpt, hf_home, external_dependency, args.device)
         report["policy"]["model_load_performed"] = True
         tokenizer_root = Path(external_dependency["root"])
+        init_state = None
+        if hdf5_init_state_path is not None:
+            init_state, init_metadata = _load_hdf5_init_state(hdf5_init_state_path, args.hdf5_demo_name)
+            report["hdf5_init_state"]["loaded"] = True
+            report["hdf5_init_state"]["metadata"] = init_metadata
 
         import torch
 
@@ -503,6 +549,13 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 env.seed(0)
                 obs = env.reset()
                 summary["reset_ok"] = True
+                summary["hdf5_init_state_used"] = False
+                summary["hdf5_init_state_metadata"] = None
+                if init_state is not None:
+                    obs = env.set_init_state(init_state)
+                    summary["hdf5_init_state_used"] = True
+                    summary["hdf5_init_state_metadata"] = report["hdf5_init_state"]["metadata"]
+                    report["hdf5_init_state"]["set_in_environment"] = True
                 action_dim = int(getattr(env, "action_dim", 7) or 7)
                 summary["action_dim"] = action_dim
                 policy.reset()
@@ -593,6 +646,8 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
     except Exception as exc:  # noqa: BLE001 - report exact blocker.
         report["result"]["blocked_reason"] = f"{type(exc).__name__}: {exc}"
         report["result"]["error"] = _compact_error(exc)
+        if hdf5_init_state_path is not None:
+            report["hdf5_init_state"]["error"] = report["result"]["error"]
 
     report["runtime"]["rss_after_mb"] = _rss_mb()
     report["runtime"]["elapsed_sec"] = round(time.monotonic() - started, 3)
@@ -644,6 +699,9 @@ def main(argv: list[str] | None = None) -> int:
         ],
     )
     parser.add_argument("--action-scale", type=float, default=1.0)
+    parser.add_argument("--hdf5-init-state-path", default="")
+    parser.add_argument("--hdf5-demo-name", default=None)
+    parser.add_argument("--require-hdf5-init-state", action="store_true")
     parser.add_argument("--report-path", required=True)
     args = parser.parse_args(argv)
 

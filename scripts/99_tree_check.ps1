@@ -121,6 +121,7 @@ $required = @(
     "reports/hdf5_initial_state_replay_plan.md",
     "reports/bounded_hdf5_initial_state_replay.md",
     "reports/init_state_learned_policy_recheck_plan.md",
+    "reports/bounded_init_state_learned_policy_recheck.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -215,6 +216,7 @@ $required = @(
     "scripts/98_plan_hdf5_initial_state_replay.ps1",
     "scripts/100_bounded_hdf5_initial_state_replay.ps1",
     "scripts/101_plan_init_state_learned_policy_recheck.ps1",
+    "scripts/102_bounded_init_state_learned_policy_recheck.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -325,6 +327,7 @@ $required = @(
     "tests/test_hdf5_initial_state_replay_plan.py",
     "tests/test_bounded_hdf5_initial_state_replay.py",
     "tests/test_init_state_learned_policy_recheck_plan.py",
+    "tests/test_bounded_init_state_learned_policy_recheck.py",
     "tests/test_lora_config_guards.py"
 )
 
