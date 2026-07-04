@@ -287,6 +287,14 @@ It checks whether the HDF5 alignment audit authorized a replay plan, whether the
 
 If it reports `decision=proceed`, the next safe task is a separately gated one-demo replay runner. The first runner should set the HDF5 initial state if supported and replay only the first demonstration action. It must not load SmolVLA, perform learned-policy inference, train, use GPU jobs, download assets, execute OpenVLA-OFT, run multi-seed evaluation, or make paper claims.
 
+## Bounded HDF5 Initial-State Replay Runner
+
+The bounded one-demo replay runner is defined by `scripts\100_bounded_hdf5_initial_state_replay.ps1`.
+
+It requires task-local `ALLOW_HDF5_REPLAY_DIAGNOSTIC=1`, reruns the HDF5 replay planner without the gate, maps the local HDF5 demo into WSL, creates a single LIBERO/RoboSuite environment, sets the HDF5 demonstration initial state if supported, and replays only the first demonstration action.
+
+This runner is simulator/data compatibility evidence only. It performs no learned-policy loading or inference, no training, no GPU job, no download, no OpenVLA-OFT, no benchmark/multi-seed rollout, and no paper claim.
+
 Observed load-only smoke metrics:
 
 ```text
