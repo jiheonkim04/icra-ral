@@ -871,3 +871,11 @@ Risk: The policy uses ACTION `MEAN_STD` unnormalization and the 6D-to-7D adapter
 Impact: The learned-policy bridge may distort actions even when policy inference succeeds, causing zero reward or weak expert-action alignment.
 
 Mitigation: Keep rollout scaling blocked and plan a repeated offline HDF5 decoding diagnostic that logs unnormalization, clipping, gripper strategy, and expert-action error before another learned-policy rollout.
+
+## Repeated Offline Decoding Scope Risk
+
+Risk: A repeated offline action-decoding diagnostic could drift from a tiny diagnostic into repeated inference, benchmark evaluation, or a rollout substitute.
+
+Impact: The project could overclaim from a small number of HDF5 timesteps or spend compute before the VLM/action-normalization issue is understood.
+
+Mitigation: `scripts\109_plan_repeated_offline_demo_action_decoding.ps1` caps the future runner at three local HDF5 timesteps, CPU SmolVLA inference only, no simulator environment, no rollout, no training, no downloads, no GPU job, no OpenVLA-OFT, and no paper claim.

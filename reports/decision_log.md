@@ -957,3 +957,11 @@ Decision: Add a report-only audit for VLM loading policy, action normalization, 
 Reason: The offline action-decoding diagnostic produced finite actions but weak expert alignment. The checkpoint config requests `load_vlm_weights=true`, while the bounded local diagnostic used `load_vlm_weights=false`, and the 6D-to-7D adapter clipped at least one action component.
 
 Consequence: `scripts\108_plan_vlm_loading_policy_action_normalization_audit.ps1` keeps rollout scaling blocked and routes the next safe work toward a tiny repeated offline HDF5 action-decoding diagnostic. It does not load models, run inference, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
+
+## Repeated Offline Demonstration Action-Decoding Plan
+
+Decision: Add a planning-only gate for a tiny repeated offline action-decoding diagnostic.
+
+Reason: One-sample weak alignment is informative but too brittle. The next non-rollout check should determine whether weak expert-action alignment persists across a few HDF5 timesteps while explicitly logging VLM load policy, action unnormalization, clipping, gripper strategy, and image aliases.
+
+Consequence: `scripts\109_plan_repeated_offline_demo_action_decoding.ps1` inspects HDF5 metadata and writes a bounded future-runner risk assessment. It does not load models, infer, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
