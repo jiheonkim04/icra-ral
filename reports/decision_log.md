@@ -1217,3 +1217,15 @@ Consequence: `scripts\131_check_candidate_generation_contract.ps1` may run safel
 Current result: The checker passed on synthetic tensors and validated the candidate/heatmap/metadata/TCA-Select contract without model loading, model inference, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, external verifiers, privileged inference, or paper claims.
 
 Next decision: create a planning-only risk gate for a separately bounded real candidate-generation smoke.
+
+## Real Candidate-Generation Smoke Plan
+
+Decision: Add a planning-only risk gate for future bounded real candidate-generation smoke.
+
+Reason: The synthetic contract is green, but real candidate generation would require heavy import and single-sample inference gates. Those must be explicit and task-local.
+
+Consequence: `scripts\132_plan_real_candidate_generation_smoke.ps1` can authorize future implementation planning while keeping actual smoke execution false.
+
+Current result: The plan is green for implementation planning and has no blockers. Actual real candidate-generation smoke execution remains false until a future script is run with all required task-local gates.
+
+Next decision: implement the bounded real candidate-generation smoke script and tests, but keep default execution blocked.

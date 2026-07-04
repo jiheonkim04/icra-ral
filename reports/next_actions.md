@@ -771,6 +771,18 @@ Current local result: synthetic contract checker passed with `candidate_generati
 
 65. Next safe step: create a planning-only risk gate for a separately bounded real candidate-generation smoke. It must decide whether a future task may set `ALLOW_HEAVY_IMPORT=1` and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` for a single-sample candidate heatmap smoke, while keeping rollout, training, GPU-heavy execution, OpenVLA-OFT, and paper claims blocked.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\132_plan_real_candidate_generation_smoke.ps1
+```
+
+Expected interpretation: if the plan is green, implement the bounded real candidate-generation smoke in a separate branch, but do not execute it unless all required task-local gates are set.
+
+Current local result: plan passed with `decision=proceed_bounded_real_candidate_generation_smoke_implementation`, `ready_for_real_candidate_generation_smoke_implementation=true`, `ready_for_real_candidate_generation_smoke_execution=false`, no blockers, and required future gates `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1`.
+
+66. Next safe step: implement the bounded real candidate-generation smoke script and tests without executing it by default. The script must refuse to run unless all three required gates are set task-locally and must still forbid rollout, training, simulator execution, OpenVLA-OFT, downloads, external verifiers, privileged state, and paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
