@@ -92,6 +92,7 @@ $required = @(
     "reports/bounded_simulator_render_smoke.md",
     "reports/wsl_simulator_source_link.md",
     "reports/bounded_simulator_reset_step_smoke.md",
+    "reports/tiny_diagnostic_rollout_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -147,6 +148,7 @@ $required = @(
     "scripts/59_bounded_simulator_render_smoke.ps1",
     "scripts/60_link_wsl_simulator_sources.ps1",
     "scripts/61_bounded_simulator_reset_step_smoke.ps1",
+    "scripts/62_plan_tiny_diagnostic_rollout.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -223,6 +225,7 @@ $required = @(
     "tests/test_bounded_simulator_render_smoke.py",
     "tests/test_wsl_simulator_source_link.py",
     "tests/test_bounded_simulator_reset_step_smoke.py",
+    "tests/test_tiny_diagnostic_rollout_plan.py",
     "tests/test_lora_config_guards.py"
 )
 
