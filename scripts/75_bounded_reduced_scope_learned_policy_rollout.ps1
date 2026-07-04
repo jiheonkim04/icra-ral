@@ -245,6 +245,7 @@ export ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1;
 $WslPython -m tca_map.smolvla.libero_learned_policy_rollout --smolvla-ckpt '$($smolvlaWsl.stdout)' --checkpoint-root '$($checkpointRootWsl.stdout)' --hf-home '$($hfHomeWsl.stdout)' --libero-root '$($liberoRootWsl.stdout)' --robosuite-root '$($robosuiteRootWsl.stdout)' --libero-data-root '$($liberoDataRootWsl.stdout)' --task-suite '$TaskSuite' --start-task-id $StartTaskId --task-count $TaskCount --max-steps-per-task $MaxStepsPerTask --camera-size $CameraSize --device cpu --report-path '$($reportPathWsl.stdout)' > '$($stdoutLogWsl.stdout)' 2>&1
 printf 'bounded reduced-scope learned-policy rollout command finished\n'
 "@
+$bashCommand = $bashCommand -replace "`r", ""
 $rollout = Invoke-SafeCommand -Command @("wsl", "bash", "-lc", $bashCommand) -TimeoutSec $TimeoutSeconds
 $report.rollout_command = [ordered]@{ timeout_seconds = $TimeoutSeconds; device = "cpu"; task_suite = $TaskSuite; task_count = $TaskCount; max_steps_per_task = $MaxStepsPerTask }
 $report.rollout_result_raw = $rollout

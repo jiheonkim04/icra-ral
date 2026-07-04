@@ -653,3 +653,19 @@ Decision: Treat the one-task, 10-step learned-policy LIBERO rollout as passed fo
 Reason: `scripts\75_bounded_reduced_scope_learned_policy_rollout.ps1` completed 10 policy-controlled environment steps with local SmolVLA on CPU and no timeout, download, install, training, GPU job, OpenVLA-OFT execution, token access, or paper claim. The task success check remained `false` and reward sum remained `0.0`.
 
 Consequence: The project should not scale directly to a multi-task matrix as performance evidence. The next safe step is a reduced-scope metric summary and then an action-interface/normalization diagnostic before larger rollout claims.
+
+## Reduced-Scope Rollout Metric Summary Result
+
+Decision: Treat the reduced-scope rollout metric summary as passed report-only diagnostic evidence.
+
+Reason: `scripts\76_generate_reduced_scope_rollout_metric_summary.ps1` read the existing reduced-scope rollout JSON and summarized execution, success, reward, latency, action shape, action magnitude, and gripper component without any new model load, inference, simulator execution, rollout, training, GPU job, download, OpenVLA-OFT execution, token access, or paper claim.
+
+Consequence: The summary confirms the selected task remains unsolved: diagnostic success rate `0.0` and reward sum `0.0`. It also records nontrivial action magnitude with gripper component `0.0`, motivating action-interface diagnostics before rollout scaling.
+
+## WSL Bash CRLF Guard
+
+Decision: Strip carriage returns from generated WSL `bash -lc` command strings before execution.
+
+Reason: Running a PowerShell script with CRLF line endings can pass `$'\r'` tokens into WSL bash heredocs and break redirection with errors such as `ambiguous redirect`.
+
+Consequence: Both `scripts\72_bounded_tiny_learned_policy_rollout.ps1` and `scripts\75_bounded_reduced_scope_learned_policy_rollout.ps1` remove `\r` from generated bash command strings before invoking WSL. This is a robustness fix only and does not change rollout scope or evidence labels.

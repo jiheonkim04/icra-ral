@@ -305,9 +305,11 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 3. Create a separately gated one-task longer diagnostic runner with task count 1 and max steps 10.
    Done; current result is execution-pass but task-success false and reward 0.0.
 4. Generate a reduced-scope rollout metric summary.
+   Done; current result is diagnostic success rate 0.0, reward 0.0, action max abs about 0.793, gripper component 0.0.
 5. Inspect likely action-interface causes before scaling: action normalization, gripper dimension, observation/state mapping, language prompt, and camera mapping.
-6. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-7. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+6. Create a zero-action versus SmolVLA-action diagnostic comparison if the interface audit is green.
+7. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+8. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

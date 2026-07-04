@@ -764,3 +764,26 @@ Observed local result:
 - no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
 
 Interpretation: the reduced-scope longer diagnostic is stable but still not successful on the selected task. The next safe rung is a report-only reduced-scope metric summary, followed by a research decision about whether to tune interface/action scaling, inspect action semantics, or continue with a tiny controlled baseline comparison.
+
+## Reduced-Scope Rollout Metric Summary Result
+
+Current local report-only result: passed.
+
+`scripts\76_generate_reduced_scope_rollout_metric_summary.ps1` summarized the one-task, 10-step reduced-scope learned-policy rollout without loading models, running inference, creating simulator environments, rolling out, training, using GPU jobs, downloading, executing OpenVLA-OFT, accessing tokens, or making paper claims.
+
+Observed diagnostic metrics:
+
+- source runner passed: true,
+- tasks completed: 1,
+- total steps: 10,
+- policy calls: 10,
+- diagnostic success count: 0,
+- diagnostic success rate: 0.0,
+- reward sum: 0.0,
+- mean policy latency from the recorded final step: about 0.147 seconds,
+- action max absolute value: about 0.793,
+- action L2 norm: about 1.222,
+- gripper component: 0.0,
+- failure mode: `diagnostic_success_check_false`.
+
+Interpretation: the policy emits finite, nontrivial continuous actions, but the action/observation/control interface likely needs diagnosis before any larger rollout matrix is useful.
