@@ -1492,3 +1492,25 @@ Current local result:
 - rollout scaling, benchmark claims, and paper claims remain blocked.
 
 Interpretation: the current learned-policy rollout blocker is a strong action-stat/checkpoint-provenance mismatch risk. The next safe step is a planning-only action-stat mapping or checkpoint/task-provenance correction plan before any learned-policy rollout scaling.
+
+## Action-Stat Provenance Correction Plan
+
+The planning-only correction gate is implemented by `scripts\119_plan_action_stat_provenance_correction.ps1` and `tca_map.smolvla.action_stat_provenance_correction_plan`.
+
+Scope:
+
+- reads the action normalization provenance audit report,
+- selects the next safe correction/audit step,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, alter policy behavior, access tokens, or make paper claims.
+
+Expected interpretation: if the provenance mismatch is present, reduce scope to a report-only LIBERO action-stat subset audit before any normalized-action probe, postprocessor bypass, checkpoint download, or learned-policy rollout.
+
+Current local result:
+
+- plan passed,
+- decision: `reduce_scope`,
+- selected next step: `libero_action_stat_subset_audit`,
+- ready for LIBERO action-stat audit: true,
+- rollout scaling, benchmark claims, and paper claims remain blocked.
+
+Interpretation: the next safe task is to compute bounded LIBERO HDF5 action statistics and compare them against checkpoint processor stats before any policy behavior change or rollout.

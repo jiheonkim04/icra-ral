@@ -1059,3 +1059,15 @@ Consequence: `scripts\118_audit_action_normalization_provenance.ps1` reads local
 Current result: The audit passed with `decision=no_go_rollout_scaling`. Processor action stats are keyed by `so100`, `so100-blue`, and `so100-red`; action mean/std magnitudes are much larger than local LIBERO expert-action previews; policy action shape is `[6]`; the adapter path remains 7D; decoded actions still clip.
 
 Consequence: The next decision should be a planning-only action-stat mapping or checkpoint/task-provenance correction plan. Do not run another learned-policy rollout variant until this mismatch is addressed or explicitly ruled out.
+
+## Action-Stat Provenance Correction Plan
+
+Decision: Add a planning-only correction gate before changing action behavior or running another rollout.
+
+Reason: The audit found strong action-stat provenance mismatch risk. The next safest informative step is to compute LIBERO action statistics from local HDF5 files and compare them directly to checkpoint processor stats.
+
+Consequence: `scripts\119_plan_action_stat_provenance_correction.ps1` selects a report-only LIBERO action-stat subset audit as the next step. It does not authorize model changes, training, rollout, checkpoint downloads, GPU jobs, OpenVLA-OFT, or paper claims.
+
+Current result: The plan passed with `decision=reduce_scope` and selected `libero_action_stat_subset_audit`.
+
+Consequence: Implement a bounded HDF5 action-stat audit before any normalized-action probe, postprocessor bypass/replacement, checkpoint download, or learned-policy rollout.

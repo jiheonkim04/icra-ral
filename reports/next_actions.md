@@ -568,6 +568,18 @@ Current local result: audit passed with `decision=no_go_rollout_scaling`. The pr
 
 49. Next safe step: create a planning-only action-stat mapping/checkpoint-task provenance correction plan. It should decide whether to compare in normalized action space, bypass or replace mismatched unnormalizer stats for LIBERO diagnostics, seek a LIBERO-aligned SmolVLA checkpoint/source, or keep learned-policy rollouts blocked and pivot to offline head/TCA-Map evidence. Do not alter model weights, train, rollout, download new checkpoints, use GPU jobs, execute OpenVLA-OFT, or make paper claims in the planning step.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\119_plan_action_stat_provenance_correction.ps1
+```
+
+Expected next selection: a report-only LIBERO action-stat subset audit over local HDF5 files.
+
+Current local result: plan passed with `decision=reduce_scope` and selected `libero_action_stat_subset_audit`.
+
+50. Next safe step: implement the report-only LIBERO action-stat subset audit. It should read a bounded number of local HDF5 files under `LIBERO_DATA_ROOT`, compute action mean/std/min/max and action dimension statistics, compare them against checkpoint SO100 processor stats, write ignored runtime reports, and keep rollouts/model loading/training/downloads/GPU/OpenVLA/paper claims false.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
