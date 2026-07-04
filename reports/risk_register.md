@@ -1041,3 +1041,15 @@ Mitigation: The scale-up-aware evidence gap report labels all rows as `not_stand
 Current status: the evidence gap generator can include bounded LoRA scale-up rows only from an existing local runtime report; it does not train or rerun the scale-up.
 
 Current result: the refreshed evidence table included bounded scale-up rows and still reported no rollout or paper-claim readiness. The remaining risk is overattribution: TCA-Map + LoRA improves over ActionMap + LoRA in the proxy, but Distributional TCA-Select adds no extra LoRA proxy gain in this bounded runner.
+
+## Selection-Gain Attribution Gap Risk
+
+Risk: TCA-Map + LoRA proxy gains could be incorrectly attributed to Distributional TCA-Select even though the current bounded LoRA runner shows zero additional selection delta.
+
+Impact: The method narrative could overstate the inference-time selection component before a candidate-ambiguity stress test demonstrates selection-specific value.
+
+Mitigation: `scripts\127_synthesize_scaleup_attribution_gaps.ps1` records the zero selection delta as an attribution gap and routes the next safe task to a report-only TCA-Select ambiguity/stress-test plan.
+
+Current status: synthesis scaffolding is added as a report-only guard before any further selection-gain claims.
+
+Current result: the synthesis passed and explicitly routed the next step to a TCA-Select ambiguity/stress-test plan. This keeps selection-gain claims blocked until a stronger proxy test exists.
