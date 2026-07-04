@@ -443,3 +443,11 @@ Decision: Keep LIBERO HDF5 interface inspection reports bounded by recording dat
 Reason: Real LIBERO files contain many demonstrations and observation datasets. Dumping every HDF5 dataset shape makes terminal output and runtime reports unnecessarily large while adding no readiness value.
 
 Consequence: `tca_map.datasets.libero_offline_interface.inspect_hdf5` now records `dataset_count`, `dataset_sample_limit`, `datasets_sample`, and `action_dataset_paths_sample`. It still detects action fields for interface readiness, but keeps reports small enough for routine safe-runner use.
+
+## LIBERO Offline Counterfactual Split Manifest
+
+Decision: Add a tiny local LIBERO HDF5-backed counterfactual split manifest builder.
+
+Reason: After local LIBERO HDF5 files became readable, the next safe stage is linking BDDL task metadata to acquired demo files and constructing counterfactual target/action pairs without training, simulator execution, rollout, or model loading.
+
+Consequence: `scripts\51_build_libero_offline_counterfactual_split.ps1` writes ignored split reports from local metadata and HDF5 structure only. It marks outputs as offline proxy only and prepares the next tiny real/offline ActionMap vs TCA-Map comparison gate.
