@@ -724,3 +724,24 @@ Observed diagnostic metrics:
 Interpretation: the learned-policy simulator-control topology is working, but the current one-task, three-step diagnostic did not solve the task. This remains diagnostic/local-pilot evidence only.
 
 Next autonomous direction: create a bounded small learned-policy rollout matrix planner with explicit task count, step count, runtime, evidence-label, and no-paper-claim guards.
+
+## Bounded Learned-Policy Rollout Matrix Planner Result
+
+Current local planning result: `reduce_scope`.
+
+`scripts\74_plan_bounded_learned_policy_rollout_matrix.ps1` read the tiny learned-policy metric summary and did not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Decision details:
+
+- source rollout passed: true,
+- source total steps: 3,
+- source policy calls: 3,
+- diagnostic success rate: 0.0,
+- reward sum: 0.0,
+- ready for reduced-scope learned-policy runner: true,
+- ready for bounded small multi-task matrix runner: false,
+- recommended task count: 1,
+- recommended steps per task: 10,
+- evidence label: diagnostic/local pilot only.
+
+Interpretation: a broader matrix is premature because the first learned-policy diagnostic did not achieve task success. The next safe rung is a separately gated one-task longer diagnostic runner.
