@@ -965,3 +965,13 @@ Decision: Add a planning-only gate for a tiny repeated offline action-decoding d
 Reason: One-sample weak alignment is informative but too brittle. The next non-rollout check should determine whether weak expert-action alignment persists across a few HDF5 timesteps while explicitly logging VLM load policy, action unnormalization, clipping, gripper strategy, and image aliases.
 
 Consequence: `scripts\109_plan_repeated_offline_demo_action_decoding.ps1` inspects HDF5 metadata and writes a bounded future-runner risk assessment. It does not load models, infer, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
+
+## Bounded Repeated Offline Demonstration Action Decoding
+
+Decision: Add a separately gated repeated offline decoding runner capped at three local HDF5 timesteps.
+
+Reason: The planner found enough local HDF5 timesteps and the previous VLM/action audit authorized a repeated offline diagnostic. The runner can test whether weak action alignment persists without creating a simulator environment or rollout.
+
+Consequence: `scripts\110_bounded_repeated_offline_demo_action_decoding.ps1` may load local SmolVLA on CPU under `ALLOW_REPEATED_OFFLINE_DEMO_DECODING=1` and run at most three `select_action` calls. It records diagnostic metrics only and keeps rollout scaling and paper claims blocked.
+
+Current result: The bounded runner passed on three HDF5 timesteps, but alignment stayed weak (`mean_action_l1_to_expert=0.412322`, `mean_action_mse_to_expert=0.286972`, clipped values total `3`, `load_vlm_weights=false`). Rollout scaling remains blocked. The next decision should focus on VLM-enabled loading risk/provenance and action normalization, not another rollout variant.

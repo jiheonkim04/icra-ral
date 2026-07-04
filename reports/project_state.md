@@ -1245,3 +1245,33 @@ Expected result:
 - paper-grade claim ready: false.
 
 This planner does not load SmolVLA or run inference. It inspects the selected local HDF5 file and prepares a bounded future runner that may decode at most three HDF5 timesteps on CPU under `ALLOW_REPEATED_OFFLINE_DEMO_DECODING=1`.
+
+## Bounded Repeated Offline Demonstration Action Decoding
+
+The bounded repeated offline decoder is implemented by `scripts\110_bounded_repeated_offline_demo_action_decoding.ps1` and `tca_map.smolvla.repeated_offline_demo_action_decoding`.
+
+Scope:
+
+- loads local SmolVLA on CPU only under `ALLOW_REPEATED_OFFLINE_DEMO_DECODING=1`,
+- decodes at most three local LIBERO HDF5 timesteps,
+- records action L1/MSE, clipping, gripper strategy, `load_vlm_weights`, and image aliases,
+- does not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
+
+Expected interpretation: if repeated offline alignment remains weak, rollout scaling stays blocked and the next safe research direction is VLM-enabled loading risk, checkpoint provenance, or action-normalization analysis.
+
+Current local result:
+
+- runner passed,
+- decoded timesteps: `0`, `136`, and `271`,
+- sample count: 3,
+- mean action L1 to expert: `0.412322`,
+- max action L1 to expert: `0.478394`,
+- mean action MSE to expert: `0.286972`,
+- mean policy-6D L1 to expert first 6 dimensions: `0.608221`,
+- clipped action values total: 3,
+- `load_vlm_weights=false`,
+- offline alignment signal: `weak`,
+- rollout scaling ready: false,
+- paper-grade claim ready: false.
+
+Interpretation: the bounded repeated offline diagnostic confirms that weak expert-action alignment is not just a single-timestep artifact. The next safe direction is a report-only VLM-enabled loading risk/provenance plan and action-normalization diagnosis before any further learned-policy rollout.

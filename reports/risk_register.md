@@ -879,3 +879,13 @@ Risk: A repeated offline action-decoding diagnostic could drift from a tiny diag
 Impact: The project could overclaim from a small number of HDF5 timesteps or spend compute before the VLM/action-normalization issue is understood.
 
 Mitigation: `scripts\109_plan_repeated_offline_demo_action_decoding.ps1` caps the future runner at three local HDF5 timesteps, CPU SmolVLA inference only, no simulator environment, no rollout, no training, no downloads, no GPU job, no OpenVLA-OFT, and no paper claim.
+
+## Repeated Offline Runner Overinterpretation Risk
+
+Risk: A bounded repeated offline runner can load SmolVLA and compute expert-action distances, but those distances are not simulator success or benchmark evidence.
+
+Impact: Passing execution could be mistaken for task performance, especially if some action dimensions look closer to expert actions.
+
+Mitigation: `scripts\110_bounded_repeated_offline_demo_action_decoding.ps1` labels results as tiny repeated offline diagnostic evidence only. It keeps rollout scaling, benchmark claims, SOTA claims, and paper-grade claims false regardless of execution success.
+
+Current status: the runner passed, but repeated offline alignment remained weak and every adapted action clipped one value. This raises the priority of VLM-loading policy and action-normalization diagnosis before any further learned-policy rollout.
