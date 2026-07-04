@@ -985,3 +985,11 @@ Reason: Repeated offline alignment stayed weak while local diagnostics used `loa
 Consequence: `scripts\111_plan_vlm_enabled_loading_risk.ps1` queries or reads Hugging Face metadata only. It does not download weights, load models, infer, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
 
 Current result: The planner is green. The official repo is public/ungated with `apache-2.0`, required files are about `1.895GB`, and disk budget remains green. This authorizes only a future separately gated acquisition plan/runner, not immediate model loading.
+
+## VLM Required Files Acquisition Result
+
+Decision: Acquire the bounded required files from `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`.
+
+Reason: The metadata-only risk planner verified an official public ungated source, apache-2.0 license, known bounded size around `1.895GB`, no token/login/payment/license gate, and enough disk margin.
+
+Consequence: The local dependency directory now contains root `model.safetensors` plus the config/tokenizer/processor files needed for a later VLM-enabled load-smoke plan. This does not authorize model loading, inference, rollout scaling, training, GPU jobs, OpenVLA-OFT, package changes, token access, or paper-grade claims. The next step must be a separate bounded VLM-enabled load-smoke planner.

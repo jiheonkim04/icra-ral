@@ -1304,3 +1304,21 @@ Current local result:
 - ready for VLM-enabled load smoke: false.
 
 Next safe direction: create a separately gated VLM weight acquisition plan/runner for required files only. Do not run VLM-enabled loading until acquisition and a bounded load-smoke plan pass.
+
+## VLM Required Files Acquisition Result
+
+The bounded required-file acquisition runner is implemented by `scripts\112_acquire_vlm_required_files.ps1` and `tca_map.smolvla.vlm_required_files_acquisition`.
+
+Current local result:
+
+- source: `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`,
+- target: `C:\assets\hf_home\HuggingFaceTB\SmolVLM2-500M-Video-Instruct`,
+- cache: `C:\assets\hf_home`,
+- acquired required files: root `model.safetensors` plus config/tokenizer/processor files,
+- detected target size after acquisition: about `1.895GB`,
+- decision: `acquisition_complete`,
+- ready for bounded VLM-enabled load-smoke planning: true.
+
+This stage performed a bounded official download only under task-local `ALLOW_DOWNLOADS=1`. It did not load models, run inference, run training, run rollouts, use GPU jobs, execute OpenVLA-OFT, access tokens, install packages, or make paper-grade claims.
+
+The next safe research-engineering step is a separate bounded VLM-enabled load-smoke planner. Do not enable `load_vlm_weights=true` in execution until that planner passes and the load smoke remains inside the RAM/runtime budget.

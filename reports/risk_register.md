@@ -899,3 +899,11 @@ Impact: The project could accidentally download a large or gated dependency, ove
 Mitigation: `scripts\111_plan_vlm_enabled_loading_risk.ps1` is metadata-only and must pass source/license/size/disk checks before any VLM weight acquisition. VLM-enabled load smoke remains a later separate gate.
 
 Current status: metadata risk is green for acquisition planning. The remaining risk is load behavior and memory once full VLM files are present; that must be tested by a separate bounded load-smoke gate.
+
+## VLM Required Files Present But Not Load-Validated
+
+Risk: The required SmolVLM2 files are now present locally, but VLM-enabled SmolVLA loading may still exceed CPU RAM/runtime budgets or expose API/config mismatches.
+
+Impact: Enabling `load_vlm_weights=true` without a separate bounded load-smoke plan could create a long or memory-heavy model-load task and confuse acquisition readiness with policy capability.
+
+Mitigation: Treat `scripts\112_acquire_vlm_required_files.ps1` as acquisition evidence only. Before any VLM-enabled model load, add or run a separate bounded load-smoke planner that estimates RAM/runtime, refuses rollout/training/GPU/OpenVLA gates, and labels output as engineering load-smoke evidence only.
