@@ -1013,3 +1013,13 @@ Reason: The planner is green and the full VLM dependency files are local, so the
 Consequence: `scripts\114_bounded_vlm_enabled_load_smoke.ps1` requires both `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`. It is load-only and must not infer, train, rollout, use GPU jobs, download, install, execute OpenVLA-OFT, access tokens, or make paper-grade claims.
 
 Current result: The bounded runner passed on CPU with `load_vlm_weights=true`, CUDA max allocation `0MB`, and no inference/training/rollout/download/install/OpenVLA-OFT/token/paper-claim behavior. The next decision should test whether VLM-enabled loading improves repeated offline action-decoding alignment before any rollout scaling.
+
+## VLM-Enabled Repeated Offline Decoding Planner
+
+Decision: Add a planning-only gate for repeated offline action decoding with VLM weights enabled.
+
+Reason: The prior repeated offline diagnostic was weak with `load_vlm_weights=false`, while VLM-enabled load-only construction now passes. A tiny offline recheck is the next informative step before any rollout scaling.
+
+Consequence: `scripts\115_plan_vlm_enabled_repeated_offline_decoding.ps1` authorizes only a future separately gated CPU offline diagnostic capped at three local HDF5 timesteps. It does not authorize rollout scaling, simulator execution, training, GPU jobs, OpenVLA-OFT, or paper claims.
+
+Current result: The planner reports `decision=proceed` and selects timesteps `0`, `136`, and `271` for a future VLM-enabled offline recheck against the previous weak no-VLM baseline.

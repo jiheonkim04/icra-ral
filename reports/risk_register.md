@@ -917,3 +917,11 @@ Impact: The project could overrun RAM/runtime budgets or overinterpret a constru
 Mitigation: Use `scripts\113_plan_vlm_enabled_load_smoke.ps1` first. A future runner must require `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`, stay CPU-first and load-only, record RAM/runtime, perform no inference/training/rollout/GPU job/OpenVLA-OFT/token access, and label output as engineering load-smoke evidence only.
 
 Current status: the bounded CPU load-only runner passed with `load_vlm_weights=true` and no CUDA allocation. Remaining risk is behavioral: VLM-enabled construction may still produce weak offline action alignment, so the next step should be a bounded repeated offline decoding recheck before any rollout scaling.
+
+## VLM-Enabled Offline Recheck Overinterpretation Risk
+
+Risk: A VLM-enabled repeated offline decoding recheck may improve or worsen action distance but still remain non-rollout diagnostic evidence.
+
+Impact: The project could mistake offline action similarity for standard success or counterfactual robustness.
+
+Mitigation: Plan and run at most three HDF5 timestep decodes, compare directly against the previous `load_vlm_weights=false` metrics, keep rollout scaling blocked until alignment improves, and label results as offline diagnostic evidence only.
