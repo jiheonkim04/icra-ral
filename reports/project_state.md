@@ -1938,3 +1938,24 @@ Default behavior:
 - performs no downloads, installs, training, rollouts, simulator environment creation, OpenVLA-OFT execution, external verifier use, privileged inference, token access, or paper claims.
 
 If the gates are set after a green risk assessment, the bounded runner may load local SmolVLA on CPU, run one synthetic `select_action` call, build at most four low-resolution target-conditioned candidates, and run Distributional TCA-Select over the resulting heatmaps. This remains engineering smoke evidence only, not standard success, rollout success, or paper-grade evidence.
+
+## Bounded Real Candidate-Generation Smoke Result
+
+Current local result:
+
+- script: `scripts\133_bounded_real_candidate_generation_smoke.ps1`,
+- task-local gates used only for the task: `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_SINGLE_SAMPLE_INFERENCE=1`,
+- result: passed,
+- elapsed time: about 38.3 seconds,
+- device: CPU,
+- CUDA max allocated: `0.0 MB`,
+- candidate count: 4,
+- heatmap grid: 8,
+- selected candidate index: 0,
+- selected target index: 0,
+- wrong-target proxy: false,
+- downloads, installs, training, rollouts, simulator environment creation, GPU jobs, OpenVLA-OFT execution, external verifier use, privileged state, token access, and paper claims: false.
+
+Interpretation: this is engineering interface evidence that local SmolVLA can seed a tiny low-resolution candidate heatmap and Distributional TCA-Select can select a candidate without privileged inference. It is not standard success, not rollout success, and not paper-grade evidence.
+
+The report-only synthesis step is `scripts\134_summarize_real_candidate_generation_smoke.ps1`.

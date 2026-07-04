@@ -1135,3 +1135,5 @@ Impact: The project could overclaim from one synthetic input, one local model ac
 Mitigation: `scripts\133_bounded_real_candidate_generation_smoke.ps1` labels outputs as engineering smoke only, keeps standard success, rollout success, benchmark claims, and paper claims false, and requires all three task-local gates before any heavy import or inference. The smoke forbids downloads, training, rollouts, simulator execution, OpenVLA-OFT, external verifiers, privileged state, token access, and paper claims.
 
 Current status: the scaffold is implemented and default execution is refusal-only. Any execution result must be synthesized as interface evidence only.
+
+Current result: bounded execution passed on CPU with one synthetic action decode, four candidates, grid 8, selected target index 0, wrong-target proxy false, and CUDA max allocated `0.0 MB`. The overinterpretation risk remains active because this is still synthetic-input engineering evidence, not rollout or benchmark evidence.

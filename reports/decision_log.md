@@ -1237,3 +1237,11 @@ Decision: Add the separately gated real candidate-generation smoke scaffold whil
 Reason: The synthetic contract and planning gate are green, but real candidate generation crosses heavy-import and single-sample inference gates. The runner must therefore require all task-local gates and keep the normal safe stack free of heavy model execution.
 
 Consequence: `scripts\133_bounded_real_candidate_generation_smoke.ps1` refuses to run unless `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` are all set. When run after a green risk assessment, it may perform one local CPU SmolVLA synthetic action decode, build a low-resolution candidate heatmap, and run Distributional TCA-Select. It still forbids downloads, training, rollouts, simulator execution, OpenVLA-OFT, external verifiers, privileged state, token access, and paper claims.
+
+## Bounded Real Candidate-Generation Smoke Result
+
+Decision: Treat the bounded real candidate-generation smoke as passed engineering evidence.
+
+Reason: After a green risk assessment, the task-local gates were set only for this execution. The runner loaded local SmolVLA on CPU, ran one synthetic `select_action` call, built four low-resolution candidates, and selected a target-consistent candidate with Distributional TCA-Select.
+
+Consequence: The result supports the candidate-generation interface path but remains non-paper evidence. It does not unblock rollout, benchmark, or paper claims. The next step is report-only synthesis and a bounded offline candidate-generation comparison plan.
