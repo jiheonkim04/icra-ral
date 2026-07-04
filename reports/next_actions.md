@@ -338,7 +338,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done for `eef_pos_quat_first3`, `eef_pos_quat_last3`, and `eef_pos_zero_rot`. All variants passed the wrapper and changed explicit state metadata/action previews, but diagnostic success rate and reward sum remained 0.0.
 21. Learned-policy diagnostic synthesis/no-go report.
     Done. The synthesis decision is `no_go_rollout_scaling`: the diagnostic ladder is complete, but no axis produced nonzero reward or diagnostic success, and every source report keeps `ready_for_rollout_scaling=false`.
-22. Next safe research-engineering step: create a bounded environment-policy compatibility audit. Focus on task/checkpoint alignment, action convention, observation convention, and whether the chosen LIBERO task is compatible with the local SmolVLA checkpoint. Keep rollout scaling blocked unless the audit identifies a specific bounded compatibility fix and a new one-task diagnostic risk assessment is green.
+22. Bounded environment-policy compatibility audit.
+    Done. The audit decision is `no_go_rollout_scaling` with high-severity blockers in task/checkpoint alignment, `load_vlm_weights=false` diagnostic loading, 6D policy action versus 7D environment action convention, and repeated zero-reward diagnostic evidence.
+23. Next safe research-engineering step: create a bounded offline LIBERO HDF5 demonstration interface audit. Inspect one local HDF5 file for action dimensions, action ranges, observation keys, camera shapes, and language/task alignment without model loading, simulator rollout, training, downloads, GPU jobs, OpenVLA-OFT, or paper claims.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
