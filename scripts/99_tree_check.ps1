@@ -144,6 +144,7 @@ $required = @(
     "reports/checkpoint_task_provenance_resolution.md",
     "reports/offline_tca_map_lora_pivot_plan.md",
     "reports/offline_tca_lora_evidence_gap_report.md",
+    "reports/bounded_lora_offline_scaleup_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -261,6 +262,7 @@ $required = @(
     "scripts/122_resolve_checkpoint_task_provenance.ps1",
     "scripts/123_plan_offline_tca_map_lora_pivot.ps1",
     "scripts/124_generate_offline_evidence_gap_report.ps1",
+    "scripts/125_plan_bounded_lora_offline_scaleup.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -294,6 +296,7 @@ $required = @(
     "tca_map/smolvla/checkpoint_task_provenance_resolution.py",
     "tca_map/smolvla/offline_tca_map_lora_pivot_plan.py",
     "tca_map/smolvla/offline_evidence_gap_report.py",
+    "tca_map/smolvla/bounded_lora_offline_scaleup_plan.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -407,6 +410,7 @@ $required = @(
     "tests/test_checkpoint_task_provenance_resolution.py",
     "tests/test_offline_tca_map_lora_pivot_plan.py",
     "tests/test_offline_evidence_gap_report.py",
+    "tests/test_bounded_lora_offline_scaleup_plan.py",
     "tests/test_lora_config_guards.py"
 )
 

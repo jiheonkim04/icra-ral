@@ -1007,3 +1007,13 @@ Impact: The project could overstate TCA-Map or LoRA gains from deterministic/off
 Mitigation: `scripts\124_generate_offline_evidence_gap_report.ps1` labels every arm as offline proxy/not paper-grade and includes explicit gaps for standard success, learned-policy rollout, and paper claims.
 
 Current status: the evidence gap report passed and selected bounded LoRA/offline-proxy scale-up planning as the next safe step. Current-checkpoint learned-policy rollout scaling and paper claims remain blocked.
+
+## LoRA Offline Scale-Up Scope Risk
+
+Risk: A LoRA/offline proxy scale-up could drift into full fine-tuning, model loading, GPU-heavy execution, rollout, or paper-grade claims.
+
+Impact: The project could confuse bounded proxy adaptation with real learned-policy benchmark evidence or destabilize the local machine.
+
+Mitigation: `scripts\125_plan_bounded_lora_offline_scaleup.ps1` is planning-only and caps any future runner to CPU-only offline proxy training with at most 16 pairs, 64 samples, 64 steps, LoRA rank 4, frozen base weights, no full fine-tuning, no model load, no heavy imports, no GPU job, no rollout, no OpenVLA-OFT, and no paper claim.
+
+Current status: the plan passed and authorized a future separately gated CPU-only offline LoRA scale-up runner under `ALLOW_TINY_TRAINING=1`.

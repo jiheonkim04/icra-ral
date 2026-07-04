@@ -1658,3 +1658,31 @@ Current local result:
 - ready for benchmark or paper claim: false.
 
 Interpretation: the next safe work item is a planning-only bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets, while preserving the no-rollout/no-paper-claim boundary.
+
+## Bounded LoRA / Offline Proxy Scale-Up Plan
+
+The planning-only LoRA/offline scale-up gate is implemented by `scripts\125_plan_bounded_lora_offline_scaleup.ps1` and `tca_map.smolvla.bounded_lora_offline_scaleup_plan`.
+
+Scope:
+
+- reads the offline evidence gap runtime report,
+- defines a bounded future CPU-only LoRA/offline proxy runner budget,
+- caps the future runner to 16 pairs, 64 samples, 64 steps, 20 minutes, LoRA rank 4, frozen base weights, and no full fine-tuning,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, change policy behavior, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if the plan passes, implement a separately gated offline LoRA scale-up runner under `ALLOW_TINY_TRAINING=1`,
+- still label the future result as offline proxy only,
+- current-checkpoint learned-policy rollout scaling remains blocked.
+
+Current local result:
+
+- plan passed,
+- decision: `proceed_bounded_offline_lora_scaleup_runner`,
+- ready for bounded offline LoRA scale-up runner: true,
+- limits: 16 pairs, 64 samples, 64 steps, LoRA rank 4, CPU-only, frozen base, no full fine-tuning,
+- required future gate: `ALLOW_TINY_TRAINING=1`,
+- ready for learned-policy rollout scaling, benchmark claims, and paper claims: false.
+
+Interpretation: the next safe task is implementation of the separately gated CPU-only offline LoRA scale-up runner.

@@ -640,6 +640,18 @@ Current local result: evidence gap report passed with `decision=offline_evidence
 
 55. Next safe step: plan a bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets. Keep it planning-only first. It should define max files/pairs/samples/steps, CPU-first defaults, no full fine-tuning, no rollout, no model loading unless separately gated, no GPU job unless a later budget is green, no OpenVLA-OFT, and no paper claim.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\125_plan_bounded_lora_offline_scaleup.ps1
+```
+
+Expected interpretation: if the plan reports `decision=proceed_bounded_offline_lora_scaleup_runner`, the next safe task is a separately gated CPU-only offline LoRA scale-up runner under `ALLOW_TINY_TRAINING=1`. It must keep outputs as offline proxy diagnostics only.
+
+Current local result: plan passed with `decision=proceed_bounded_offline_lora_scaleup_runner`, `ready_for_bounded_lora_offline_scaleup_runner=true`, limits `max_pairs=16`, `max_samples=64`, `max_steps=64`, `lora_rank=4`, `device=cpu`, and required future gate `ALLOW_TINY_TRAINING=1`.
+
+56. Next safe step: implement the separately gated CPU-only offline LoRA scale-up runner. It may run only under task-local `ALLOW_TINY_TRAINING=1`, may use local real LIBERO HDF5 data, and must remain offline proxy only. It must not load SmolVLA, import heavy VLA models, use GPU jobs, rollout, execute OpenVLA-OFT, full fine-tune, download, install packages, access tokens, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
