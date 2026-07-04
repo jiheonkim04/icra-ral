@@ -685,3 +685,19 @@ Decision: Treat the metadata audit as passed and block rollout scaling until int
 Reason: `scripts\78_audit_action_interface_metadata.ps1` found high-priority action/control risks: 6D policy action versus 7D LIBERO action, gripper zero padding, state truncation in the observation bridge, and nontrivial policy actions with zero reward.
 
 Consequence: The next safe steps are a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan. Larger rollout matrices are not useful until these interface risks are tested or mitigated.
+
+## Zero-Action Versus Learned-Policy Comparison Scope
+
+Decision: Make the next comparison summary-only by reading the existing zero-action and learned-policy diagnostic reports.
+
+Reason: The current evidence question is whether learned-policy actions improve over already-validated simulator plumbing, not whether another rollout can be executed.
+
+Consequence: If learned-policy actions are nontrivial but success/reward do not improve over zero-action, continue to an explicit action/state adapter patch plan before rollout scaling.
+
+## Zero-Action Versus Learned-Policy Comparison Result
+
+Decision: Do not scale learned-policy rollout yet; plan the action/state adapter patch first.
+
+Reason: `scripts\79_compare_zero_action_policy_diagnostic.ps1` found that zero-action simulator plumbing passed and SmolVLA actions are nontrivial, but diagnostic success and reward did not improve over zero-action.
+
+Consequence: The next safe task is an explicit action/state adapter patch plan covering 6D-to-7D action mapping, gripper semantics, state mapping, and camera key aliases.
