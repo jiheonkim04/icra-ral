@@ -717,3 +717,19 @@ Decision: Proceed to pure adapter implementation, not rollout scaling.
 Reason: `scripts\80_plan_action_state_adapter_patch.ps1` confirmed that action, state, and camera alias adapters are required and can be planned without executing models or simulators.
 
 Consequence: Add pure adapter helpers and unit tests next. Keep rollout scaling blocked until adapter metadata appears in single-sample/interface reports.
+
+## Pure Adapter Helper Scope
+
+Decision: Add pure action, state, and image alias helpers before touching rollout execution.
+
+Reason: Unit-tested pure helpers isolate interface assumptions without simulator/model side effects.
+
+Consequence: The next wiring step must report adapter metadata in synthetic/single-sample checks before any bounded diagnostic rollout is rerun.
+
+## Pure Adapter Helper Result
+
+Decision: Treat pure adapter helper implementation as passed.
+
+Reason: Unit tests cover explicit 6D-to-7D action adaptation, named gripper strategies, refusal of unsupported action dimensions, explicit state fields without silent truncation/padding, and image alias reporting.
+
+Consequence: The next safe step is wiring adapter metadata into synthetic or single-sample interface smoke without running rollout.
