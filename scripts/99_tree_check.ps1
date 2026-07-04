@@ -113,6 +113,7 @@ $required = @(
     "reports/adapter_strategy_action_scale_diagnostics.md",
     "reports/state_sufficiency_diagnostic.md",
     "reports/learned_policy_diagnostic_synthesis.md",
+    "reports/environment_policy_compatibility_audit.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -199,6 +200,7 @@ $required = @(
     "scripts/90_plan_state_sufficiency_diagnostic.ps1",
     "scripts/91_bounded_state_sufficiency_diagnostic.ps1",
     "scripts/92_generate_learned_policy_diagnostic_synthesis.ps1",
+    "scripts/93_audit_environment_policy_compatibility.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -301,6 +303,7 @@ $required = @(
     "tests/test_camera_source_diagnostic.py",
     "tests/test_state_sufficiency_diagnostic.py",
     "tests/test_learned_policy_diagnostic_synthesis.py",
+    "tests/test_environment_policy_compatibility_audit.py",
     "tests/test_lora_config_guards.py"
 )
 

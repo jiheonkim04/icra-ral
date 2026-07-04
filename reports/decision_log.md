@@ -837,3 +837,11 @@ Decision: Treat the current learned-policy rollout ladder as no-go for rollout s
 Reason: `scripts\92_generate_learned_policy_diagnostic_synthesis.ps1` synthesized zero-action comparison, adapter strategy, action scale, prompt format, camera source, and state sufficiency. All available bounded diagnostics passed wrapper/execution checks, but none produced nonzero reward or diagnostic success, and all keep `ready_for_rollout_scaling=false`.
 
 Consequence: The next safe work is a bounded environment-policy compatibility audit focused on task/checkpoint alignment, action convention, and observation convention. Do not scale learned-policy rollouts or make paper-grade claims from the current evidence.
+
+## Environment-Policy Compatibility Audit Result
+
+Decision: Keep learned-policy rollout scaling blocked and move to offline demonstration interface auditing.
+
+Reason: `scripts\93_audit_environment_policy_compatibility.ps1` found high-severity blockers in task/checkpoint alignment, `load_vlm_weights=false` diagnostic loading, 6D policy action versus 7D environment action convention, and repeated zero-reward diagnostic evidence.
+
+Consequence: The next safe work is a bounded offline LIBERO HDF5 demonstration interface audit. It should inspect action dimensions/ranges, observation keys, camera shapes, and language/task alignment without loading models or running simulator rollout.

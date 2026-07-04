@@ -743,3 +743,11 @@ Risk: The project could continue to larger learned-policy rollout matrices even 
 Impact: Local runtime would be spent on a path that the current evidence says is unlikely to produce useful method evidence, and the boundary between diagnostic evidence and benchmark evidence could blur.
 
 Mitigation: `scripts\92_generate_learned_policy_diagnostic_synthesis.ps1` records `decision=no_go_rollout_scaling`, `positive_diagnostic_signal_found=false`, and `ready_for_rollout_scaling=false`. The next step must be a bounded environment-policy compatibility audit or a narrowly justified one-task compatibility fix, not broader rollout scaling or paper-grade claims.
+
+## Environment-Policy Compatibility Blocker Risk
+
+Risk: The learned-policy diagnostic path may be incompatible with the selected LIBERO task because checkpoint provenance, VLM loading policy, action convention, or observation convention is mismatched.
+
+Impact: Additional rollout variants could continue to produce zero reward regardless of TCA-Map method quality, obscuring whether the issue is policy-environment compatibility or the proposed method.
+
+Mitigation: `scripts\93_audit_environment_policy_compatibility.ps1` keeps rollout scaling blocked and recommends a bounded offline LIBERO HDF5 demonstration interface audit before any further learned-policy rollout variant.
