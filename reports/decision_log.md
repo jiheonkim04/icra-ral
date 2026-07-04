@@ -557,3 +557,11 @@ Decision: Treat the current local bounded reset/step smoke as passed for tiny Mu
 Reason: After import-only and render-only readiness passed, the reset/step smoke ran under task-local `ALLOW_SIMULATOR_RESET_STEP=1` and performed `mj_resetData`, `mj_forward`, and 3 `mj_step` calls on a tiny in-memory MuJoCo model.
 
 Consequence: `scripts\61_bounded_simulator_reset_step_smoke.ps1` is limited to tiny MuJoCo physics plumbing. It did not create LIBERO or RoboSuite environments, run rollouts, run policy inference, use GPU jobs, train, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims. Rollout execution remains blocked by a separate risk gate and the current user instruction.
+
+## Tiny Diagnostic Rollout Planning Result
+
+Decision: Add a planning-only tiny diagnostic rollout risk planner, but do not authorize rollout execution.
+
+Reason: Import, render, and tiny reset/step smoke now pass, so the next safe action is to document the minimal future rollout envelope while respecting the current user instruction that forbids rollout execution.
+
+Consequence: `scripts\62_plan_tiny_diagnostic_rollout.ps1` reports a one-task, one-episode, max-5-step future envelope and keeps `ready_for_tiny_diagnostic_rollout_execution=false`, `ready_for_rollout=false`, and `rollouts_performed=false`. Any actual rollout remains a separate hard-stop gate under current instructions.

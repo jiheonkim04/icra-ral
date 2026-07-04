@@ -487,3 +487,11 @@ Risk: A passing tiny MuJoCo reset/step smoke could be mistaken for LIBERO/RoboSu
 Impact: The project could move from physics plumbing into rollout or benchmark claims before LIBERO/RoboSuite env reset, policy control, and success metrics are separately validated.
 
 Mitigation: `scripts\61_bounded_simulator_reset_step_smoke.ps1` uses only a tiny in-memory MuJoCo XML model, caps steps to 5, and reports `libero_robosuite_env_created=false`, `rollouts_performed=false`, `policy_inference_performed=false`, and `ready_for_rollout=false`. Tiny diagnostic rollout requires a separate risk assessment and must not run while rollout is explicitly forbidden.
+
+## Rollout Planner Overinterpretation
+
+Risk: A planning-only tiny rollout envelope could be mistaken for permission to execute a rollout or claim benchmark readiness.
+
+Impact: The project could cross the current rollout prohibition and produce invalid evidence.
+
+Mitigation: `scripts\62_plan_tiny_diagnostic_rollout.ps1` refuses execution gates, performs no simulator environment creation, no policy inference, and no rollout, and reports `ready_for_tiny_diagnostic_rollout_execution=false`. Rollout execution remains blocked under the current user instruction.
