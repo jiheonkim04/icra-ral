@@ -2023,3 +2023,32 @@ Safety status for this milestone:
 Current interpretation: the rollout bridge is not blocked by a simple action-shape mismatch. The remaining blocker is policy/checkpoint/task/action-stat provenance or policy capability under the current LIBERO setup. Do not scale learned-policy rollouts from this evidence.
 
 Next execution-first milestone: run the fixed-integrity ActionMap vs TCA-Map tiny offline training/evaluation comparison over real LIBERO HDF5 snippets, producing loss curves and offline proxy metrics before any further learned-policy rollout scaling.
+
+## Tiny Offline ActionMap vs TCA-Map Training/Eval Result
+
+The execution-first ActionMap vs TCA-Map milestone has run on local LIBERO HDF5 snippets.
+
+Scope and safety:
+
+- script: `scripts\52_compare_libero_offline_actionmap_tca.ps1`,
+- task-local gate: `ALLOW_TINY_TRAINING=1`,
+- data source: `reports\libero_offline_counterfactual_split_report.json`,
+- samples: 8 records, deterministic manifest order,
+- split: 6 train records / 2 eval records,
+- steps: 64,
+- batch size: 1,
+- device: CPU NumPy,
+- training: true,
+- LoRA training: false,
+- rollout: false,
+- downloads/GPU jobs/heavy imports/OpenVLA-OFT/paper claims: false.
+
+Loss and metric result:
+
+- ActionMap head-only loss: `0.162408 -> 0.010239`, decreased true.
+- TCA-Map head-only loss: `0.855555 -> 0.126224`, decreased true.
+- ActionMap eval: standard proxy `0.434797`, action L1 `0.130406`, target top1 `0.5`, wrong-target proxy `0.5`, counterfactual margin `0.0`.
+- TCA-Map eval: standard proxy `0.0`, action L1 `0.111259`, target top1 `0.0`, wrong-target proxy `1.0`, counterfactual margin `0.02313`.
+- TCA-Map + Distributional TCA-Select eval matched TCA-Map in this run and added no measured gain.
+
+Conclusion: this tiny exploratory offline proxy weakens TCA-Map under the fixed integrity policy. The action regression part improved action L1 slightly, but the target head failed on the holdout pair and worsened wrong-target proxy and standard proxy. Do not present this as support for TCA-Map or as paper-grade evidence.

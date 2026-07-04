@@ -1172,3 +1172,13 @@ Impact: The project could spend execution budget on rollout variants even though
 Mitigation: Treat the completed gripper, scale, prompt, camera, state, and HDF5 init-state diagnostics as a concrete no-go for learned-policy rollout scaling with the current checkpoint. Only rerun rollout diagnostics if a new specific blocker is identified and the command directly tests it. Otherwise, move to fixed-integrity offline ActionMap vs TCA-Map training/evaluation on real LIBERO HDF5 snippets.
 
 Current result: all bounded learned-policy diagnostic variants executed but produced zero reward and zero diagnostic success. The explicit 6D-to-7D action bridge reported no silent padding or truncation, and HDF5 demo init-state setting worked. The overinterpretation risk remains active: this is diagnostic failure evidence, not a benchmark or paper result.
+
+## Tiny Head-Only Negative Result Overinterpretation Risk
+
+Risk: The tiny ActionMap vs TCA-Map offline training/eval could be selectively described as positive because TCA-Map improved action L1 and counterfactual margin while ignoring worse target accuracy and wrong-target proxy.
+
+Impact: The project could drift into p-hacking or novelty overclaiming before LoRA/QLoRA and rollout evidence exist.
+
+Mitigation: Record the conclusion as `weakens_tca_map` for this exploratory split. Any next LoRA comparison must keep ActionMap + LoRA as the central baseline and must report if LoRA gains dominate the TCA-Map contribution. TCA-Select also must remain separate because it added no measured gain in this run.
+
+Current result: ActionMap loss decreased `0.162408 -> 0.010239`; TCA-Map loss decreased `0.855555 -> 0.126224`; TCA-Map eval action L1 improved by `-0.019147`, but standard proxy delta was `-0.434797`, target top1 delta was `-0.5`, and wrong-target proxy delta was `+0.5`.
