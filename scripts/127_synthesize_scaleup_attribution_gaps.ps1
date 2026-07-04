@@ -1,6 +1,7 @@
 param(
     [string]$Python = "C:\Users\jiheo\miniconda3\envs\tca_map\python.exe",
     [string]$EvidenceReportPath = "reports\offline_tca_lora_evidence_gap_report_runtime.json",
+    [string]$TcaSelectStressReportPath = "reports\tca_select_ambiguity_stress_report.json",
     [string]$ReportPath = "reports\scaleup_attribution_gap_synthesis_report.json",
     [string]$MarkdownReportPath = "reports\scaleup_attribution_gap_synthesis_report.md"
 )
@@ -23,6 +24,7 @@ if (-not (Test-Path -LiteralPath $Python)) {
 
 & $Python -m tca_map.smolvla.scaleup_attribution_gap_synthesis `
     --evidence-report $EvidenceReportPath `
+    --tca-select-stress-report $TcaSelectStressReportPath `
     --report-path $ReportPath `
     --markdown-report-path $MarkdownReportPath
 exit $LASTEXITCODE
