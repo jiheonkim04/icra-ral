@@ -1229,3 +1229,11 @@ Consequence: `scripts\132_plan_real_candidate_generation_smoke.ps1` can authoriz
 Current result: The plan is green for implementation planning and has no blockers. Actual real candidate-generation smoke execution remains false until a future script is run with all required task-local gates.
 
 Next decision: implement the bounded real candidate-generation smoke script and tests, but keep default execution blocked.
+
+## Bounded Real Candidate-Generation Smoke Scaffold
+
+Decision: Add the separately gated real candidate-generation smoke scaffold while keeping default execution blocked.
+
+Reason: The synthetic contract and planning gate are green, but real candidate generation crosses heavy-import and single-sample inference gates. The runner must therefore require all task-local gates and keep the normal safe stack free of heavy model execution.
+
+Consequence: `scripts\133_bounded_real_candidate_generation_smoke.ps1` refuses to run unless `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` are all set. When run after a green risk assessment, it may perform one local CPU SmolVLA synthetic action decode, build a low-resolution candidate heatmap, and run Distributional TCA-Select. It still forbids downloads, training, rollouts, simulator execution, OpenVLA-OFT, external verifiers, privileged state, token access, and paper claims.

@@ -152,6 +152,7 @@ $required = @(
     "reports/candidate_generation_readiness_plan.md",
     "reports/candidate_generation_contract_check.md",
     "reports/real_candidate_generation_smoke_plan.md",
+    "reports/real_candidate_generation_smoke.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -277,6 +278,7 @@ $required = @(
     "scripts/130_plan_candidate_generation_readiness.ps1",
     "scripts/131_check_candidate_generation_contract.ps1",
     "scripts/132_plan_real_candidate_generation_smoke.ps1",
+    "scripts/133_bounded_real_candidate_generation_smoke.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -317,6 +319,7 @@ $required = @(
     "tca_map/smolvla/candidate_generation_readiness_plan.py",
     "tca_map/smolvla/candidate_generation_contract_check.py",
     "tca_map/smolvla/real_candidate_generation_smoke_plan.py",
+    "tca_map/smolvla/real_candidate_generation_smoke.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -439,6 +442,7 @@ $required = @(
     "tests/test_candidate_generation_readiness_plan.py",
     "tests/test_candidate_generation_contract_check.py",
     "tests/test_real_candidate_generation_smoke_plan.py",
+    "tests/test_real_candidate_generation_smoke.py",
     "tests/test_lora_config_guards.py"
 )
 
