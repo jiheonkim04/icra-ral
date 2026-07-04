@@ -464,10 +464,18 @@ Impact: The project could move from import-only readiness into simulator executi
 
 Mitigation: `scripts\58_plan_simulator_render_reset.ps1` is planning-only. It refuses execution gates, requires a passed import-only report, keeps `render_smoke_performed=false`, `reset_step_smoke_performed=false`, `rollouts_performed=false`, and keeps `ready_for_rollout=false`. Render smoke, reset/step smoke, and tiny diagnostic rollout must each use a separate risk assessment and task-local gate.
 
-## WSL Offscreen Render Graphics Blocker
+## WSL Simulator Source-Link Drift
 
-Risk: WSL can import MuJoCo but still fail offscreen rendering because OSMesa/OpenGL context creation is unavailable or misconfigured.
+Risk: Linking local RoboSuite/LIBERO source checkouts into WSL could be mistaken for permission to install broad simulator packages, create a repo-local venv, download assets, or run environments.
 
-Impact: Simulator reset/step and rollout work remain blocked even though source paths, data paths, WSL venv dependencies, and import-only smoke pass.
+Impact: The local Windows/WSL setup could drift away from the documented reproducible path or accidentally cross into simulator execution.
 
-Mitigation: `scripts\59_bounded_simulator_render_smoke.ps1` records the render blocker and exits safely. Do not install system graphics packages, change drivers, switch to EGL/GPU rendering, reset/step environments, rollout, or make benchmark claims without a separate risk assessment. Current local error: `AttributeError: 'NoneType' object has no attribute 'glGetError'` under `MUJOCO_GL=osmesa`.
+Mitigation: `scripts\60_link_wsl_simulator_sources.ps1` is limited to the existing `/home/jiheon/.venvs/tca_map_sim` venv, local source checkouts, `--no-index --no-deps --no-build-isolation`, a LIBERO `.pth` entry, and noninteractive WSL `~/.libero/config.yaml`. It reports no downloads, no repo-local venv creation, no render, no reset/step, no rollout, no GPU job, no training, no heavy VLA import, no OpenVLA-OFT execution, no token access, and no paper claim.
+
+## WSL Offscreen Render Overinterpretation
+
+Risk: A passing tiny MuJoCo OSMesa render smoke could be mistaken for LIBERO/RoboSuite reset readiness, rollout readiness, benchmark success, or paper-grade evidence.
+
+Impact: The project could jump from a tiny render-only proof to environment stepping or policy evaluation without the separate simulator safety checks.
+
+Mitigation: `scripts\59_bounded_simulator_render_smoke.ps1` performs only a tiny MuJoCo offscreen render and does not create, reset, or step LIBERO/RoboSuite environments. Reset/step smoke and tiny diagnostic rollout remain separate task-local gated risk assessments, and `ready_for_rollout` remains false until those gates pass.
