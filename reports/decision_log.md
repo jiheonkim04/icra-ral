@@ -853,3 +853,11 @@ Decision: Keep rollout scaling blocked and move to offline adapter reproduction 
 Reason: `scripts\94_audit_libero_hdf5_interface.ps1` confirmed that local LIBERO demonstrations use 7D actions while the SmolVLA policy config exposes 6D actions. It also found a camera-count/resolution preprocessing gap, while confirming that `obs/ee_states` is 6D and compatible with the policy state dimension.
 
 Consequence: The next safe work is report-only adapter reproduction from the first HDF5 timestep. Do not load models or run simulator rollout for that step.
+
+## Offline Adapter Reproduction Check Result
+
+Decision: Treat gripper-close as the next bounded compatibility hypothesis, not as rollout-scaling evidence.
+
+Reason: `scripts\95_check_offline_adapter_reproduction.ps1` reproduced the first local LIBERO demonstration action exactly with `policy_6d_delta_pose_plus_gripper_close`, while `policy_6d_delta_pose_plus_gripper_zero_hold` mismatched the first demonstration gripper value `-1.0`.
+
+Consequence: A future one-task diagnostic may test gripper-close under the existing bounded diagnostic envelope. This does not unblock rollout scaling, multi-seed evaluation, paper-grade claims, or OpenVLA-OFT.

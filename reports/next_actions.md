@@ -342,7 +342,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done. The audit decision is `no_go_rollout_scaling` with high-severity blockers in task/checkpoint alignment, `load_vlm_weights=false` diagnostic loading, 6D policy action versus 7D environment action convention, and repeated zero-reward diagnostic evidence.
 23. Bounded offline LIBERO HDF5 demonstration interface audit.
     Done. The audit confirms 7D demonstration actions versus 6D policy actions, 6D `obs/ee_states` matching policy state, two HDF5 RGB streams versus three policy image inputs, and 128x128 HDF5 images versus 256x256 policy image inputs.
-24. Next safe research-engineering step: create a report-only offline adapter reproduction check. Build SmolVLA-compatible state/image/action adapter inputs from the first HDF5 timestep and compare dimensions/ranges without model loading, simulator rollout, training, downloads, GPU jobs, OpenVLA-OFT, or paper claims.
+24. Report-only offline adapter reproduction check.
+    Done. The first demonstration action is best reproduced by `policy_6d_delta_pose_plus_gripper_close`, while the current zero-hold gripper default mismatches the first demonstration gripper value `-1.0`.
+25. Next safe research-engineering step: plan a bounded one-task gripper-close compatibility diagnostic. Run it only as a specific compatibility hypothesis, with no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, no rollout scaling, and no paper claims.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

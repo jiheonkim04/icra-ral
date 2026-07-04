@@ -759,3 +759,11 @@ Risk: The rollout bridge may adapt simulator observations differently from the l
 Impact: A learned-policy rollout can remain at zero reward because adapter inputs are not faithful to the training/evaluation data convention.
 
 Mitigation: `scripts\94_audit_libero_hdf5_interface.ps1` blocks rollout scaling and recommends a report-only offline adapter reproduction check from the first HDF5 timestep before additional rollout variants.
+
+## Gripper Strategy Default Risk
+
+Risk: The current zero-hold gripper default may not match local LIBERO demonstration gripper semantics.
+
+Impact: Learned-policy diagnostics can send plausible 6D motion while the gripper command remains incompatible with the demonstrated action convention, keeping reward at zero.
+
+Mitigation: `scripts\95_check_offline_adapter_reproduction.ps1` shows the first demonstration action is exactly reproduced by the gripper-close adapter, not zero-hold. Any next rollout must be a one-task compatibility diagnostic for this specific hypothesis, not rollout scaling.

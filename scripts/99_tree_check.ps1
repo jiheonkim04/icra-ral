@@ -115,6 +115,7 @@ $required = @(
     "reports/learned_policy_diagnostic_synthesis.md",
     "reports/environment_policy_compatibility_audit.md",
     "reports/libero_hdf5_interface_audit.md",
+    "reports/offline_adapter_reproduction_check.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -203,6 +204,7 @@ $required = @(
     "scripts/92_generate_learned_policy_diagnostic_synthesis.ps1",
     "scripts/93_audit_environment_policy_compatibility.ps1",
     "scripts/94_audit_libero_hdf5_interface.ps1",
+    "scripts/95_check_offline_adapter_reproduction.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -307,6 +309,7 @@ $required = @(
     "tests/test_learned_policy_diagnostic_synthesis.py",
     "tests/test_environment_policy_compatibility_audit.py",
     "tests/test_libero_hdf5_interface_audit.py",
+    "tests/test_offline_adapter_reproduction_check.py",
     "tests/test_lora_config_guards.py"
 )
 
