@@ -296,6 +296,13 @@ After readiness, planning, load-only smoke, single-sample interface smoke, and f
 
 After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status report, risk-assessed policy update, LIBERO dataset risk planner, simulator readiness planner, 300-step budget alignment, bounded local pilot extension, bounded-extension status consolidation, official source resolution, source repo setup, metadata-only subset construction, official LIBERO data acquisition, h5py reader readiness, offline interface smoke gate, counterfactual split construction, offline ActionMap/TCA-Map comparison, required offline LoRA comparison, bounded pilot report, simulator readiness status integration, WSL simulator dependency setup, local WSL source linking, bounded simulator import-only smoke, bounded render/reset-step risk planning, bounded render-smoke execution, bounded reset/step smoke, tiny diagnostic rollout risk planning, bounded tiny diagnostic rollout execution, and bounded LIBERO/RoboSuite zero-action diagnostic rollout execution, continue to learned-policy LIBERO rollout readiness planning. Stop only for multi-seed rollout before a separate risk budget, OpenVLA-OFT, token/secret/payment/license, credentialed/system-driver/license-gated changes, external irreversible actions, or unsupported paper claims.
 
+After WSL SmolVLA runtime readiness and single-action smoke passed, the separately gated tiny learned-policy LIBERO rollout runner has also passed one bounded diagnostic run. Current next actions:
+
+1. Generate a tiny learned-policy benchmark-metric diagnostic summary from the bounded rollout JSON without claiming benchmark success.
+2. Add a small learned-policy rollout matrix planner capped by the current risk budget.
+3. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+4. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

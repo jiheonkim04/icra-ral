@@ -676,3 +676,27 @@ The go/no-go status summary is documented in `reports\go_no_go_status.md`:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\31_generate_go_no_go_report.ps1
 ```
+
+## Tiny Learned-Policy LIBERO Rollout Result
+
+Current local bounded result: passed as diagnostic evidence only.
+
+`scripts\71_plan_tiny_learned_policy_rollout.ps1` reported `decision=proceed`, and `scripts\72_bounded_tiny_learned_policy_rollout.ps1` passed with task-local `ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1`.
+
+Observed local result:
+
+- suite: `libero_10`,
+- task count: 1,
+- max steps per task: 3,
+- completed steps: 3,
+- SmolVLA policy calls: 3,
+- policy action shape: `[1, 6]`,
+- LIBERO environment action dimension: 7,
+- diagnostic success check: `false`,
+- reward sum: `0.0`,
+- inner runtime: about 30.6 seconds,
+- no downloads, no training, no GPU job, no OpenVLA-OFT, no token access, no multi-seed evaluation, and no paper claim.
+
+This clears the first learned-policy LIBERO diagnostic topology only. It is not standard success, not benchmark success, not counterfactual robustness evidence, and not paper-grade evidence.
+
+Next autonomous direction: create a tiny benchmark-metric diagnostic report and, if green, progress to a bounded small learned-policy rollout matrix with explicit evidence labels and no multi-seed or paper-grade claim.

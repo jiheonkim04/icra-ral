@@ -567,3 +567,11 @@ Risk: A passing WSL SmolVLA single-action smoke could be mistaken for learned-po
 Impact: The project could overclaim one synthetic action as benchmark evidence or paper-grade progress.
 
 Mitigation: Label the result as model-load/action-interface smoke only. It used CPU, synthetic input, one action, no simulator rollout, no training, no GPU job, no OpenVLA-OFT, and no paper claim. Learned-policy LIBERO rollout requires a separate task-local runner and risk assessment.
+
+## Learned-Policy Diagnostic Rollout Overinterpretation
+
+Risk: A passing one-task, three-step learned-policy LIBERO rollout could be mistaken for benchmark success, standard performance, counterfactual robustness, or paper-grade evidence.
+
+Impact: The project could overstate a topology/integration result even though the current diagnostic success check is `false` and reward sum is `0.0`.
+
+Mitigation: Label `scripts\72_bounded_tiny_learned_policy_rollout.ps1` outputs as tiny learned-policy diagnostic evidence only. Report success checks, reward, step count, policy latency, action shape, and failure modes honestly. Do not make standard-success, SOTA, or paper-grade claims until a documented benchmark protocol, baselines, ablations, and repeated validation exist.

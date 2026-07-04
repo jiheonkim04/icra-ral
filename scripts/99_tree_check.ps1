@@ -98,6 +98,7 @@ $required = @(
     "reports/libero_policy_rollout_readiness_plan.md",
     "reports/wsl_smolvla_runtime_setup.md",
     "reports/wsl_smolvla_single_action_smoke.md",
+    "reports/tiny_learned_policy_rollout.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -162,6 +163,8 @@ $required = @(
     "scripts/68_setup_wsl_smolvla_runtime_deps.ps1",
     "scripts/69_plan_wsl_smolvla_single_action_smoke.ps1",
     "scripts/70_bounded_wsl_smolvla_single_action_smoke.ps1",
+    "scripts/71_plan_tiny_learned_policy_rollout.ps1",
+    "scripts/72_bounded_tiny_learned_policy_rollout.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -244,6 +247,7 @@ $required = @(
     "tests/test_libero_policy_rollout_readiness_plan.py",
     "tests/test_wsl_smolvla_runtime_setup.py",
     "tests/test_wsl_smolvla_single_action_smoke.py",
+    "tests/test_tiny_learned_policy_rollout.py",
     "tests/test_lora_config_guards.py"
 )
 

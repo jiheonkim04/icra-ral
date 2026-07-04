@@ -621,3 +621,11 @@ Decision: Treat the bounded WSL SmolVLA single-action smoke as passed.
 Reason: After green risk assessment and venv-local LeRobot runtime dependency fixes, `scripts\70_bounded_wsl_smolvla_single_action_smoke.ps1` loaded the local SmolVLA policy in WSL on CPU and produced one finite synthetic action with shape `[1, 6]`.
 
 Consequence: This is model-load/action-interface smoke evidence only. It does not establish LIBERO success, benchmark success, standard success, SOTA, or paper-grade evidence. The next safe task is a separately gated tiny learned-policy LIBERO rollout runner capped at one task and a few steps.
+
+## Tiny Learned-Policy LIBERO Rollout Diagnostic Result
+
+Decision: Treat the first bounded tiny learned-policy LIBERO rollout as passed diagnostic evidence.
+
+Reason: `scripts\72_bounded_tiny_learned_policy_rollout.ps1` ran under task-local `ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1`, loaded local SmolVLA in the WSL simulator topology on CPU, created one real `libero_10` RoboSuite/LIBERO environment, made 3 policy calls, and stepped the environment 3 times without timeout or wrapper failure.
+
+Consequence: This clears only the first learned-policy simulator-control topology. The observed diagnostic success check was `false` and reward sum was `0.0`, so this is not benchmark success, not standard success, not SOTA evidence, and not paper-grade evidence. The next safe rung is a tiny benchmark-metric diagnostic summary and then a bounded small rollout matrix if risk assessment remains green.
