@@ -925,3 +925,11 @@ Decision: Add a report-only checkpoint/task alignment audit before any further l
 Reason: The current diagnostics can execute reset-only and HDF5-init-state rollouts, but all reward and success signals remain zero. The next uncertainty is whether the local SmolVLA checkpoint, VLM loading policy, LIBERO task language, observation/action conventions, and demonstration-conditioned decoding are aligned.
 
 Consequence: `scripts\104_audit_smolvla_libero_checkpoint_task_alignment.ps1` reads only local config/preprocessor files, local BDDL names, and existing reports. It keeps rollout scaling blocked and routes the next safe work toward a planning-only offline demonstration-conditioned action decoding gate.
+
+## Offline Demonstration-Conditioned Action Decoding Planner
+
+Decision: Add a planning-only gate for one-sample offline action decoding before any further learned-policy rollout.
+
+Reason: The checkpoint-task alignment audit found that a non-rollout offline action-decoding check is the next informative step. It can test whether the local policy action decoder is at least consistent with a real LIBERO demonstration observation and expert action without simulator rollout.
+
+Consequence: `scripts\105_plan_offline_demo_conditioned_action_decoding.ps1` checks local file/report prerequisites and writes a risk assessment for a future one-sample runner. It does not load models, infer, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.

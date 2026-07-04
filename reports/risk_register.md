@@ -831,3 +831,11 @@ Risk: The local SmolVLA checkpoint may not be task-provenance-aligned with the s
 Impact: More rollout variants could keep producing zero reward for checkpoint/task or VLM-loading reasons rather than revealing anything about TCA-Map or Distributional TCA-Select.
 
 Mitigation: `scripts\104_audit_smolvla_libero_checkpoint_task_alignment.ps1` records checkpoint provenance fields, selected BDDL language, VLM loading policy, action-dimension convention, HDF5 adapter evidence, and the zero-signal init-state recheck result. If it passes, proceed to a planning-only offline demonstration-conditioned action-decoding gate before any further learned-policy rollout.
+
+## Offline Action-Decoding Scope Risk
+
+Risk: A useful offline action-decoding check could accidentally become simulator rollout, repeated model evaluation, training, or a paper-grade claim.
+
+Impact: The project could blur a one-sample diagnostic with benchmark evidence or spend local compute before the checkpoint/task alignment issue is understood.
+
+Mitigation: `scripts\105_plan_offline_demo_conditioned_action_decoding.ps1` is planning-only and requires a separate task-local future gate for any one-sample model inference. The future runner must cap itself to one local HDF5 observation/action pair, CPU by default, no simulator environment, no rollout, no training, no downloads, no OpenVLA-OFT, and no paper claims.
