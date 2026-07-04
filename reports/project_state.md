@@ -251,6 +251,20 @@ The first local LIBERO demonstration action has gripper value `-1.0`, so the cur
 
 Current autonomous next step: plan a bounded one-task gripper-close compatibility diagnostic only if it remains inside the tiny diagnostic budget. Keep rollout scaling and paper-grade claims blocked.
 
+## Gripper-Close Compatibility Diagnostic Plan
+
+The planning-only gripper-close compatibility gate is now defined by `scripts\96_plan_gripper_close_compat_diagnostic.ps1`.
+
+The planner reads the offline adapter reproduction report, a previous adapter-strategy diagnostic report if present, and the rollout bridge source. It does not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- `decision=proceed`: offline HDF5 evidence supports a separately gated one-task gripper-close diagnostic and no equivalent zero-signal close diagnostic has already been found.
+- `decision=reduce_scope`: gripper-close remains an offline compatibility clue, but an equivalent close-strategy rollout diagnostic already produced zero success and zero reward; do not rerun the same variant.
+- `decision=stop`: required report/source prerequisites are missing or unsafe gates are set.
+
+Rollout scaling, multi-seed evaluation, paper-grade claims, and OpenVLA-OFT remain blocked by this planning result.
+
 Observed load-only smoke metrics:
 
 ```text

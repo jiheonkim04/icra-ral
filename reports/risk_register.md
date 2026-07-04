@@ -767,3 +767,11 @@ Risk: The current zero-hold gripper default may not match local LIBERO demonstra
 Impact: Learned-policy diagnostics can send plausible 6D motion while the gripper command remains incompatible with the demonstrated action convention, keeping reward at zero.
 
 Mitigation: `scripts\95_check_offline_adapter_reproduction.ps1` shows the first demonstration action is exactly reproduced by the gripper-close adapter, not zero-hold. Any next rollout must be a one-task compatibility diagnostic for this specific hypothesis, not rollout scaling.
+
+## Duplicate Gripper-Close Diagnostic Risk
+
+Risk: The project could rerun an identical gripper-close rollout diagnostic even after a previous close-strategy variant already produced zero reward and no diagnostic success.
+
+Impact: Local runtime is spent repeating a known zero-signal variant, and the evidence ladder may look busier without becoming more informative.
+
+Mitigation: `scripts\96_plan_gripper_close_compat_diagnostic.ps1` checks the previous adapter-strategy diagnostic report before authorizing another close diagnostic. If close already ran cleanly with zero signal, the planner returns `decision=reduce_scope` and recommends an HDF5-aligned task/initial-state/action-sign compatibility check instead.

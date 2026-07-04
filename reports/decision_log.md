@@ -861,3 +861,11 @@ Decision: Treat gripper-close as the next bounded compatibility hypothesis, not 
 Reason: `scripts\95_check_offline_adapter_reproduction.ps1` reproduced the first local LIBERO demonstration action exactly with `policy_6d_delta_pose_plus_gripper_close`, while `policy_6d_delta_pose_plus_gripper_zero_hold` mismatched the first demonstration gripper value `-1.0`.
 
 Consequence: A future one-task diagnostic may test gripper-close under the existing bounded diagnostic envelope. This does not unblock rollout scaling, multi-seed evaluation, paper-grade claims, or OpenVLA-OFT.
+
+## Gripper-Close Compatibility Diagnostic Planner
+
+Decision: Add a planning-only gate before any new gripper-close compatibility rollout.
+
+Reason: Offline HDF5 evidence identifies gripper-close as the best first-action reproduction strategy, but previous bounded diagnostics may already have tested an equivalent close strategy without reward or success.
+
+Consequence: `scripts\96_plan_gripper_close_compat_diagnostic.ps1` proceeds only when the close hypothesis is specific and not an already-failed duplicate. If a prior close diagnostic has zero reward and zero diagnostic success, the planner reduces scope toward HDF5-aligned task/initial-state/action-sign checks instead of repeating the same rollout.
