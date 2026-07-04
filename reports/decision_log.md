@@ -993,3 +993,13 @@ Decision: Acquire the bounded required files from `HuggingFaceTB/SmolVLM2-500M-V
 Reason: The metadata-only risk planner verified an official public ungated source, apache-2.0 license, known bounded size around `1.895GB`, no token/login/payment/license gate, and enough disk margin.
 
 Consequence: The local dependency directory now contains root `model.safetensors` plus the config/tokenizer/processor files needed for a later VLM-enabled load-smoke plan. This does not authorize model loading, inference, rollout scaling, training, GPU jobs, OpenVLA-OFT, package changes, token access, or paper-grade claims. The next step must be a separate bounded VLM-enabled load-smoke planner.
+
+## VLM-Enabled Load Smoke Planner
+
+Decision: Add a planning-only gate before any `load_vlm_weights=true` SmolVLA construction.
+
+Reason: The full VLM dependency files are now local, but actual VLM-enabled policy construction is a heavy model-load task with RAM/runtime risk and must be separated from acquisition.
+
+Consequence: `scripts\113_plan_vlm_enabled_load_smoke.ps1` can authorize only a future separately gated load-only runner. It does not load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, access tokens, install packages, download files, or make paper-grade claims.
+
+Current result: The planner reports `decision=proceed` and `ready_for_bounded_vlm_enabled_load_smoke_runner=true`. This authorizes implementation of the separate runner, not model-load execution inside the planner.

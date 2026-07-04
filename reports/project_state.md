@@ -1322,3 +1322,32 @@ Current local result:
 This stage performed a bounded official download only under task-local `ALLOW_DOWNLOADS=1`. It did not load models, run inference, run training, run rollouts, use GPU jobs, execute OpenVLA-OFT, access tokens, install packages, or make paper-grade claims.
 
 The next safe research-engineering step is a separate bounded VLM-enabled load-smoke planner. Do not enable `load_vlm_weights=true` in execution until that planner passes and the load smoke remains inside the RAM/runtime budget.
+
+## VLM-Enabled Load Smoke Plan
+
+The planning-only VLM-enabled load-smoke gate is implemented by `scripts\113_plan_vlm_enabled_load_smoke.ps1`.
+
+Purpose:
+
+- verify that SmolVLA adapter readiness, runtime dependencies, VLM risk metadata, and VLM required-file acquisition are all present,
+- estimate a CPU-first `load_vlm_weights=true` load-only task,
+- keep model loading, inference, training, rollout, GPU jobs, OpenVLA-OFT, token access, and paper claims out of the planner.
+
+Expected interpretation:
+
+- `decision=proceed`: a future separately gated bounded runner may be created with `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`.
+- `decision=stop`: resolve the listed readiness/RAM/acquisition/gate blocker before attempting VLM-enabled loading.
+
+Passing the plan still does not prove VLM-enabled loading works. It only authorizes implementation of a bounded load-only runner.
+
+Current local result:
+
+- decision: `proceed`,
+- ready for bounded VLM-enabled load-smoke runner: true,
+- expected future task: CPU-first `load_vlm_weights=true` load-only construction,
+- expected runtime: 15 minutes,
+- expected RAM: 16GB,
+- observed total/free RAM at planning time: about `23.163GB` / `8.538GB`,
+- required future gates: `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`.
+
+The plan performed no model load, inference, training, rollout, GPU job, download, install, OpenVLA-OFT execution, token access, or paper claim.
