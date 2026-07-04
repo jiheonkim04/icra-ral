@@ -27,6 +27,7 @@ from tca_map.smolvla.interface_adapters import (
     ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
     DEFAULT_IMAGE_ALIASES,
     DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
+    StateField,
     adapt_observation_state,
     adapt_policy_action_to_env_action,
     select_image_source,
@@ -69,6 +70,14 @@ CAMERA_ALIAS_STRATEGIES = [
     CAMERA_ALIAS_STRATEGY_CURRENT,
     CAMERA_ALIAS_STRATEGY_CAMERA3_EYE_IN_HAND,
     CAMERA_ALIAS_STRATEGY_ALL_AGENTVIEW,
+]
+STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_FIRST3 = "eef_pos_quat_first3"
+STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_LAST3 = "eef_pos_quat_last3"
+STATE_ADAPTER_STRATEGY_EEF_POS_ZERO_ROT = "eef_pos_zero_rot"
+STATE_ADAPTER_STRATEGIES = [
+    STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_FIRST3,
+    STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_LAST3,
+    STATE_ADAPTER_STRATEGY_EEF_POS_ZERO_ROT,
 ]
 
 
@@ -138,17 +147,58 @@ def _camera_aliases(strategy: str) -> dict[str, tuple[str, ...]]:
     raise ValueError(f"unsupported camera alias strategy: {strategy}")
 
 
-def _state_tensor(obs: dict[str, Any], dim: int, device: str):
+def _state_tensor(
+    obs: dict[str, Any],
+    dim: int,
+    device: str,
+    state_adapter_strategy: str = STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_FIRST3,
+):
     import torch
 
-    state_adapter = adapt_observation_state(
-        obs,
-        DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
-        dim,
-        adapter_name="diagnostic_eef_pos_quat_xyz_6d_state_adapter",
-    )
-    tensor = torch.tensor([state_adapter.values], dtype=torch.float32, device=device)
-    return tensor, state_adapter.metadata
+    if state_adapter_strategy == STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_FIRST3:
+        state_adapter = adapt_observation_state(
+            obs,
+            DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
+            dim,
+            adapter_name="diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+        )
+        metadata = dict(state_adapter.metadata)
+        values = state_adapter.values
+    elif state_adapter_strategy == STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_LAST3:
+        state_adapter = adapt_observation_state(
+            obs,
+            (
+                DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS[0],
+                StateField("robot0_eef_quat", 1, 4),
+            ),
+            dim,
+            adapter_name="diagnostic_eef_pos_quat_last3_6d_state_adapter",
+        )
+        metadata = dict(state_adapter.metadata)
+        values = state_adapter.values
+    elif state_adapter_strategy == STATE_ADAPTER_STRATEGY_EEF_POS_ZERO_ROT:
+        if dim != 6:
+            raise ValueError("eef_pos_zero_rot state strategy requires output dim 6")
+        pos = np.asarray(obs["robot0_eef_pos"], dtype=np.float32).reshape(-1)
+        if pos.size != 3:
+            raise ValueError("robot0_eef_pos must contain exactly 3 values for eef_pos_zero_rot")
+        values = [float(x) for x in pos] + [0.0, 0.0, 0.0]
+        metadata = {
+            "adapter": "diagnostic_eef_pos_zero_rot_6d_state_adapter",
+            "output_dim": 6,
+            "fields": [
+                {"key": "robot0_eef_pos", "source_length": int(pos.size), "start": 0, "stop": None, "selected_length": 3},
+                {"key": "zero_rotation", "source_length": 3, "start": 0, "stop": None, "selected_length": 3},
+            ],
+            "silent_truncation_performed": False,
+            "implicit_padding_performed": False,
+            "uses_privileged_state": False,
+        }
+    else:
+        raise ValueError(f"unsupported state adapter strategy: {state_adapter_strategy}")
+    metadata["state_adapter_strategy"] = state_adapter_strategy
+    tensor = torch.tensor([values], dtype=torch.float32, device=device)
+    return tensor, metadata
 
 
 def _image_tensor(
@@ -211,6 +261,7 @@ def _build_batch(
     task: str,
     device: str,
     camera_alias_strategy: str,
+    state_adapter_strategy: str,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     import torch
     from transformers import AutoTokenizer
@@ -229,7 +280,7 @@ def _build_batch(
     )
 
     state_dim = int(config.input_features["observation.state"].shape[0])
-    state_tensor, state_metadata = _state_tensor(obs, state_dim, device)
+    state_tensor, state_metadata = _state_tensor(obs, state_dim, device, state_adapter_strategy)
     batch: dict[str, Any] = {
         "observation.state": state_tensor,
         "observation.language.tokens": encoded["input_ids"].to(dtype=torch.long, device=device),
@@ -251,6 +302,7 @@ def _build_batch(
         "state_dim": state_dim,
         "state_adapter": state_metadata,
         "camera_alias_strategy": camera_alias_strategy,
+        "state_adapter_strategy": state_adapter_strategy,
     }
     return batch, metadata
 
@@ -304,6 +356,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 or _env_flag("ALLOW_ACTION_SCALE_DIAGNOSTIC")
                 or _env_flag("ALLOW_PROMPT_FORMAT_DIAGNOSTIC")
                 or _env_flag("ALLOW_CAMERA_SOURCE_DIAGNOSTIC")
+                or _env_flag("ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC")
             ),
             "task_local_gates_set": [
                 name
@@ -314,6 +367,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                     "ALLOW_ACTION_SCALE_DIAGNOSTIC",
                     "ALLOW_PROMPT_FORMAT_DIAGNOSTIC",
                     "ALLOW_CAMERA_SOURCE_DIAGNOSTIC",
+                    "ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC",
                 ]
                 if _env_flag(name)
             ],
@@ -328,6 +382,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "action_scale": args.action_scale,
             "prompt_strategy": args.prompt_strategy,
             "camera_alias_strategy": args.camera_alias_strategy,
+            "state_adapter_strategy": args.state_adapter_strategy,
         },
         "paths": {
             "smolvla_ckpt": str(smolvla_ckpt),
@@ -366,7 +421,8 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC=1 or "
             "ALLOW_ACTION_SCALE_DIAGNOSTIC=1 or "
             "ALLOW_PROMPT_FORMAT_DIAGNOSTIC=1 or "
-            "ALLOW_CAMERA_SOURCE_DIAGNOSTIC=1 is required for this bounded task."
+            "ALLOW_CAMERA_SOURCE_DIAGNOSTIC=1 or "
+            "ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC=1 is required for this bounded task."
         )
         return report
     if report["policy"]["forbidden_gates_set"]:
@@ -458,6 +514,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                         task_language,
                         args.device,
                         args.camera_alias_strategy,
+                        args.state_adapter_strategy,
                     )
                     noise = torch.zeros((1, config.chunk_size, config.max_action_dim), dtype=torch.float32, device=args.device)
                     infer_started = time.monotonic()
@@ -571,6 +628,11 @@ def main(argv: list[str] | None = None) -> int:
         "--camera-alias-strategy",
         default=CAMERA_ALIAS_STRATEGY_CURRENT,
         choices=CAMERA_ALIAS_STRATEGIES,
+    )
+    parser.add_argument(
+        "--state-adapter-strategy",
+        default=STATE_ADAPTER_STRATEGY_EEF_POS_QUAT_FIRST3,
+        choices=STATE_ADAPTER_STRATEGIES,
     )
     parser.add_argument(
         "--action-adapter-strategy",

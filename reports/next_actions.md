@@ -334,7 +334,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done for `stem_spaces`, `bddl_language`, and `bddl_language_period`. All variants passed the wrapper and changed action previews, but diagnostic success rate and reward sum remained 0.0.
 19. Bounded camera-source diagnostic.
     Done for `current_aliases`, `camera3_eye_in_hand`, and `all_agentview`. All variants passed the wrapper and changed image-source metadata/action previews, but diagnostic success rate and reward sum remained 0.0.
-20. Next safe research-engineering step: add a bounded state-sufficiency diagnostic planner. Keep the first rung report-only or one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
+20. Bounded state-sufficiency diagnostic.
+    Done for `eef_pos_quat_first3`, `eef_pos_quat_last3`, and `eef_pos_zero_rot`. All variants passed the wrapper and changed explicit state metadata/action previews, but diagnostic success rate and reward sum remained 0.0.
+21. Next safe research-engineering step: generate a learned-policy diagnostic synthesis/no-go report. Compare adapter strategy, action scale, prompt format, camera source, and state sufficiency against zero-action and prior learned-policy diagnostics. Keep rollout scaling blocked unless the synthesis identifies a bounded compatibility fix and a new tiny diagnostic risk assessment is green.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

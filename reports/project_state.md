@@ -155,6 +155,33 @@ The runtime install used a bounded package-install decision. The risk-assessed a
 
 The bounded SmolVLA load-only smoke has now passed on CPU with `ALLOW_HEAVY_IMPORT=1` set only inside that task. It loaded the local SmolVLA policy from `C:\assets\checkpoints\smolvla`, used the local tokenizer/processor dependency under `C:\assets\hf_home`, kept `load_vlm_weights=false`, and did not run inference, training, rollouts, OpenVLA-OFT, downloads, or token access.
 
+## Latest Diagnostic State-Sufficiency Result
+
+The bounded learned-policy diagnostic ladder has now executed the state-sufficiency rung with `ALLOW_STATE_SUFFICIENCY_DIAGNOSTIC=1` set only for that task.
+
+Summary:
+
+- branch: `codex/state-sufficiency-diagnostic-runner`,
+- scripts: `scripts\90_plan_state_sufficiency_diagnostic.ps1` and `scripts\91_bounded_state_sufficiency_diagnostic.ps1`,
+- variants: `eef_pos_quat_first3`, `eef_pos_quat_last3`, and `eef_pos_zero_rot`,
+- task scope: one `libero_10` task, at most 10 steps per variant,
+- execution scope: WSL CPU learned-policy diagnostic only,
+- downloads: false,
+- training: false,
+- GPU jobs: false,
+- OpenVLA-OFT: false,
+- benchmark/paper-grade claims: false.
+
+Result:
+
+- all three variants passed wrapper/execution,
+- all three variants produced diagnostic success rate `0.0`,
+- all three variants produced reward sum `0.0`,
+- action previews changed across state strategies,
+- rollout scaling remains blocked.
+
+Interpretation: the local SmolVLA/LIBERO bridge can run bounded diagnostic rollouts and record explicit state metadata, but gripper strategy, action scale, prompt format, camera source, and state-vector variants have not produced a positive reward/success signal. The next safe research-engineering step is diagnostic synthesis and compatibility/no-go analysis, not broader rollout scaling.
+
 Observed load-only smoke metrics:
 
 ```text
