@@ -256,6 +256,17 @@ Plan simulator readiness without imports, render smoke, or rollouts:
 powershell -ExecutionPolicy Bypass -File scripts\43_plan_simulator_readiness.ps1
 ```
 
+Run bounded simulator import-only smoke only after a green risk assessment:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\41_risk_assess_task.ps1 -Task "Bounded simulator import smoke" -Category simulator -Source "official local LIBERO and RoboSuite source checkouts" -TargetPath "C:\assets\repos" -ExpectedSizeGb 0 -ExpectedRuntimeMinutes 2 -ExpectedRamGb 2 -ExpectedVramGb 0 -SimulatorInstalled -OfficialSource
+$env:ALLOW_SIMULATOR_IMPORT_SMOKE="1"
+powershell -ExecutionPolicy Bypass -File scripts\55_bounded_simulator_import_smoke.ps1
+Remove-Item Env:\ALLOW_SIMULATOR_IMPORT_SMOKE -ErrorAction SilentlyContinue
+```
+
+This is import-only readiness. It must not render, create or step simulator environments, rollout, train, download, install packages, run GPU jobs, execute OpenVLA-OFT, or make paper-grade claims.
+
 Run the bounded cached-feature local pilot extension only after a green training risk assessment:
 
 ```powershell

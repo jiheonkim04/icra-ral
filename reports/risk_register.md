@@ -431,3 +431,19 @@ Risk: The simulator readiness planner could run and produce a clear stop/proceed
 Impact: The project could repeat already-cleared planning steps or misread the current blocker before simulator import/render/rollout work.
 
 Mitigation: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` now read `reports\simulator_readiness_plan_report.json` when present. They expose platform, path readiness, import-smoke readiness, render-smoke readiness, rollout readiness, warnings, and stop reasons while remaining summary-only.
+
+## Simulator Import Smoke Scope Creep
+
+Risk: A bounded import-only smoke could drift into rendering, creating or stepping simulator environments, rolling out policies, installing simulator packages, or claiming benchmark readiness.
+
+Impact: Native/WSL simulator instability, unapproved rollout work, dependency drift, or invalid standard-success claims.
+
+Mitigation: `scripts\55_bounded_simulator_import_smoke.ps1` requires task-local `ALLOW_SIMULATOR_IMPORT_SMOKE=1`, reruns the planning gate, imports only `robosuite` and `libero`, and keeps render smoke, rollouts, environment steps, installs, downloads, GPU jobs, OpenVLA-OFT execution, token access, and paper claims false.
+
+## WSL Simulator Dependency Gap
+
+Risk: WSL paths and Python can be present while the WSL Python environment lacks basic simulator dependencies such as `numpy`.
+
+Impact: Simulator import smoke fails before any render or rollout gate, and ad hoc dependency installation could drift into a larger simulator stack install.
+
+Mitigation: Treat missing WSL simulator dependencies as a separate dependency risk-planning task. Small Python dependencies may be considered only after a green risk assessment; simulator packages, MuJoCo setup, CUDA/PyTorch changes, render smoke, and rollout remain separate gates.
