@@ -480,6 +480,18 @@ If this planner reports `decision=proceed` and `ready_for_vlm_weight_acquisition
 
 Current local result: green. Metadata reports `apache-2.0`, public/ungated, required files about `1.895GB`, free disk after estimate about `419GB`, and no token/login/license/payment requirement. Next safe step: create and run a separately gated VLM weight acquisition runner for required files only under `ALLOW_DOWNLOADS=1`; still do not load the model until a later bounded load-smoke plan passes.
 
+42. VLM required-file acquisition command:
+
+```powershell
+$env:ALLOW_DOWNLOADS="1"
+powershell -ExecutionPolicy Bypass -File scripts\112_acquire_vlm_required_files.ps1
+Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
+```
+
+Current local result: passed. The runner acquired the bounded required files from `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` into `C:\assets\hf_home\HuggingFaceTB\SmolVLM2-500M-Video-Instruct`, including root `model.safetensors` plus config/tokenizer/processor files. Target size after acquisition is about `1.895GB`. The task performed no model load, inference, training, rollout, GPU job, OpenVLA-OFT execution, package install, token access, or paper claim.
+
+Next safe step: create a bounded VLM-enabled load-smoke planner. It must estimate CPU RAM/runtime risk before any model load and keep rollout scaling blocked unless offline action-decoding alignment improves.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
