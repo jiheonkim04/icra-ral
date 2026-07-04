@@ -527,3 +527,19 @@ Risk: A passing real LIBERO/RoboSuite zero-action diagnostic rollout could be mi
 Impact: The project could overclaim simulator plumbing as standard success, counterfactual success, or paper-grade evidence.
 
 Mitigation: `scripts\65_bounded_libero_robosuite_diagnostic_rollout.ps1` uses zero actions only, no learned policy, no VLA inference, no training, no GPU job, no multi-seed run, no OpenVLA-OFT, and no benchmark/SOTA/paper claim. It keeps `ready_for_benchmark_rollout=false` and `ready_for_paper_claim=false`. Benchmark rollout and learned-policy rollout require separate risk assessment and policy gates.
+
+## Learned-Policy Rollout Topology Risk
+
+Risk: SmolVLA runtime readiness is established in the Windows conda environment, while LIBERO/RoboSuite simulator readiness is established in WSL. A learned-policy rollout needs policy inference and simulator stepping in one reliable execution topology.
+
+Impact: A naive rollout could fail through missing WSL SmolVLA dependencies, cross-process IPC latency, image serialization bugs, or inconsistent asset paths.
+
+Mitigation: Prefer the WSL-only topology first. Use `scripts\66_plan_libero_policy_rollout_readiness.ps1` to check local paths, passed diagnostic rollout evidence, SmolVLA file completeness, tokenizer dependency presence, and WSL module-spec readiness without loading the model or running rollout. Only create a tiny learned-policy rollout runner if that planner is green; otherwise reduce scope to WSL SmolVLA runtime setup/readiness.
+
+## Tiny Benchmark Rollout Overinterpretation
+
+Risk: A future tiny learned-policy LIBERO rollout could be mistaken for standard benchmark success or paper-grade evidence.
+
+Impact: A one-task or few-step local pilot could be overstated as general LIBERO performance, counterfactual robustness, or SOTA evidence.
+
+Mitigation: Keep the first learned-policy rollout capped by task count, steps, runtime, and VRAM. Label outputs as bounded benchmark diagnostic or local pilot until a documented benchmark protocol, baselines, ablations, and repeated validation exist. Paper-grade candidate reports may be generated only from verified outputs with explicit evidence labels and limitations.

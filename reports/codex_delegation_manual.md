@@ -15,7 +15,7 @@ Codex acts as:
 - adversarial reviewer,
 - safety gatekeeper.
 
-Codex should move work forward without asking approval for routine safe actions or risk-assessed bounded steps. It must stop only when risk cannot be evaluated, exceeds the documented budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make a paper-level claim.
+Codex should move work forward without asking approval for routine safe actions or risk-assessed bounded steps, including bounded training, learned-policy rollout, benchmark rollout, reports, and visualizations when they pass the automatic risk assessment. It must stop only when risk cannot be evaluated, exceeds the documented budget, requires external irreversible action, requires OpenVLA-OFT execution, requires human-only authority, or would make an unsupported empirical claim.
 
 ## Repo-First Operation
 
@@ -76,7 +76,7 @@ Case C: If config/tokenizer/weights are present, runtime dependencies are instal
 
 Case D: If a checker fails due to Windows, PATH, or tooling issues, diagnose and fix minimally on a new branch if safe, validate again, and do not ask the user to debug manually unless the issue requires external installation or credentials.
 
-Case E: If a task involves download, GPU, training, dataset setup, simulator readiness, or rollout, run the risk assessment policy below. Proceed automatically if the task is inside budget and the source/setup is clear. Stop and report only when the risk cannot be evaluated, exceeds budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make a paper-level claim.
+Case E: If a task involves download, GPU, training, dataset setup, simulator readiness, learned-policy rollout, benchmark rollout, reports, or visualizations, run the risk assessment policy below. Proceed automatically if the task is inside budget and the source/setup is clear. Stop and report only when the risk cannot be evaluated, exceeds budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make an unsupported empirical claim.
 
 Only ask the user or stop for external irreversible or unevaluable gates:
 
@@ -89,7 +89,7 @@ Only ask the user or stop for external irreversible or unevaluable gates:
 - changing system-wide CUDA/PyTorch/driver versions,
 - credentialed/system-driver/license-gated system setup,
 - very large unplanned package installs,
-- paper-level empirical claims,
+- unsupported paper-level empirical claims,
 - any task whose source, size, license, runtime, RAM/VRAM, or disk impact cannot be assessed.
 
 Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment. Credentialed, system-driver, CUDA/toolkit, graphics-stack, and license-gated changes remain hard-stop gates.
@@ -257,7 +257,7 @@ Codex may autonomously run bounded local training if all conditions are true:
 
 Codex may increase from 100 to 300 steps if previous 100-step smoke passed and memory/runtime are stable.
 
-Codex must stop if full backbone fine-tuning is required, expected runtime exceeds 30 minutes, expected VRAM exceeds 14GB, training needs OpenVLA-OFT, training needs simulator rollout, or training would create paper-level claims.
+Codex must stop if full backbone fine-tuning is required, expected runtime exceeds 30 minutes, expected VRAM exceeds 14GB, training needs OpenVLA-OFT, training needs simulator rollout outside the current risk budget, or training would create unsupported paper-level claims.
 
 ### Real dataset setup
 
@@ -267,8 +267,8 @@ Codex may autonomously set up real datasets if:
 - license/token/login requirements are absent,
 - size is within download budget,
 - disk safety margin remains,
-- no simulator rollout is automatically triggered,
-- no paper-grade claim is made.
+- no simulator rollout is automatically triggered without its own risk assessment,
+- no unsupported paper-grade claim is made.
 
 Codex must first create or use a dataset readiness checker. If the dataset has a small subset or metadata-only mode, use that first. If full dataset is too large, prefer a documented tiny subset or stop and report.
 
@@ -281,17 +281,17 @@ Codex may autonomously do simulator readiness and import/render smoke if:
 - no new large install/download is required outside that WSL ladder,
 - no license/token/manual setup is required,
 - runtime <= 10 minutes,
-- no policy rollout,
-- no benchmark evaluation,
-- no paper claim.
+- no policy rollout inside readiness-only scripts,
+- no benchmark evaluation inside readiness-only scripts,
+- no unsupported paper claim.
 
-Actual task rollouts remain risk-assessed but stricter. Codex may only run bounded rollout if:
+Actual task rollouts remain risk-assessed but stricter. Codex may run bounded diagnostic, tiny learned-policy, or tiny benchmark rollout if:
 
 - simulator is installed and import/render smoke passed,
 - task count <= 5,
 - runtime <= 30 minutes,
 - no OpenVLA-OFT,
-- no paper claim,
+- no unsupported paper claim,
 - no external service/token,
 - no unbounded rendering loop.
 
@@ -398,7 +398,7 @@ Before every WSL package install, render smoke, or rollout smoke, Codex must pri
 
 If the decision is `proceed`, continue automatically. If the decision is `stop`, report the exact blocker and next recommended action.
 
-True hard-stop gates still include sudo password input or credential requests, token/secret/API key/login, paid service or license click-through, CUDA driver/toolkit installation, major graphics-stack changes, Windows system-level driver changes, OpenVLA-OFT download/import/load/execution, full fine-tuning, training over 30 minutes, expected VRAM over 14GB, total new download over the approved budget, rollout beyond the bounded tiny diagnostic limits, benchmark or paper-grade claims, multi-seed experiments, external upload/submission/publishing, and deleting user files outside repo/cache cleanup.
+True hard-stop gates still include sudo password input or credential requests, token/secret/API key/login, paid service or license click-through, CUDA driver/toolkit installation, major graphics-stack changes, Windows system-level driver changes, OpenVLA-OFT download/import/load/execution, full fine-tuning, training over 30 minutes, expected VRAM over 14GB, total new download over the approved budget, rollout beyond the current risk-assessed rollout budget, unsupported benchmark or paper-grade claims, multi-seed experiments before a separate risk budget, external upload/submission/publishing, and deleting user files outside repo/cache cleanup.
 
 Minimal WSL Python packaging setup is standing-approved after risk assessment; credentialed/system-driver/license-gated changes remain hard-stop.
 
@@ -408,7 +408,7 @@ OpenVLA-OFT is still not automatic by default. Codex may prepare plans, checkers
 
 ### Paper claims
 
-Codex must never make paper-level claims automatically.
+Codex must never make unsupported paper-level claims. It may generate paper-grade candidate reports only from verified experiment outputs with explicit evidence labels, known limitations, and baseline scope.
 
 Allowed:
 
@@ -455,9 +455,9 @@ Codex should not stop after each stage just to ask for permission. It should con
 - simulator readiness plan,
 - WSL simulator dependency setup after a green ladder risk assessment,
 - simulator import/render smoke if safe,
-- bounded rollout only if within the strict rollout budget.
+- bounded rollout only if within the current strict rollout budget.
 
-Bounded rollout means diagnostic plumbing only unless a later policy says otherwise. The current autonomous rollout scope covers toy MuJoCo diagnostics and LIBERO/RoboSuite zero-action diagnostic rollouts after green risk assessment. It does not authorize learned-policy rollout, benchmark rollout, multi-seed rollout, standard-success claims, SOTA claims, paper-grade claims, OpenVLA-OFT execution, or external upload.
+Bounded rollout now progresses from diagnostic plumbing to tiny learned-policy or benchmark rollout only after a green task-specific risk assessment. The current autonomous rollout scope covers toy MuJoCo diagnostics, LIBERO/RoboSuite zero-action diagnostic rollouts, and readiness work for tiny learned-policy LIBERO rollouts. It does not authorize multi-seed rollout, SOTA claims, unsupported paper-grade claims, OpenVLA-OFT execution, or external upload.
 
 Codex should stop only if risk assessment fails or a truly irreversible/external action is needed.
 
