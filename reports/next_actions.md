@@ -179,9 +179,9 @@ Get-ChildItem C:\assets\checkpoints\smolvla -Filter *.bin
 34. Tiny real/offline ActionMap vs TCA-Map comparison with `scripts\52_compare_libero_offline_actionmap_tca.ps1`. Done if the ignored report says `libero_offline_head_comparison_passed=true`.
 35. Required tiny real/offline LoRA comparison with `scripts\53_compare_libero_offline_lora.ps1`. Done if the ignored report says `libero_offline_lora_comparison_passed=true`. This is bounded NumPy adapter training only and requires `ALLOW_TINY_TRAINING=1`.
 36. Bounded local pilot report with `scripts\54_generate_libero_offline_bounded_pilot_report.ps1`. Done if the ignored report says `libero_offline_bounded_pilot_report_passed=true`.
-37. Current gate: WSL simulator packaging/setup decision. `scripts\56_check_wsl_simulator_deps.ps1` is check-only and reports that WSL has `python3` but lacks `pip`, `ensurepip`, and `numpy`; `robosuite` import therefore remains blocked. Do not install dependencies, render, or rollout unless a separate risk assessment is green and inside budget.
+37. Current gate: WSL simulator dependency ladder risk assessment. `scripts\56_check_wsl_simulator_deps.ps1` is check-only and reports that WSL has `python3` but lacks `pip`, `ensurepip`, and `numpy`; `robosuite` import therefore remains blocked. Minimal WSL Python packaging setup is standing-approved if the ladder risk assessment is green and no sudo password, token, license, CUDA/driver, graphics-stack, OpenVLA-OFT, or paper-claim gate appears. Do not render or rollout until the later import/render/reset-step/diagnostic gates pass.
 
-Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, LoRA/QLoRA go/no-go update, LIBERO dataset risk planner, simulator readiness planner, 300-step local pilot budget alignment, bounded cached-feature local pilot extension, bounded-extension status consolidation, official LIBERO/RoboSuite source resolution, and bounded source repo setup have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The repository now uses risk-assessed autonomous execution instead of broad approval-based hard-stops. Downloads, GPU tasks, bounded training, real dataset setup, simulator readiness, and bounded rollout should proceed automatically if a risk assessment is green and should stop only if risk is ambiguous, outside budget, external/irreversible, OpenVLA-OFT-related, or paper-claim-related.
+Current status: the bounded tiny head-only smoke, ActionMap vs TCA-Map head-only comparison report, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status, go/no-go summary, required LoRA adapter construction plan, LoRA tiny-smoke scaffold, TCA-Map + LoRA comparison plan, QLoRA feasibility check, LoRA/QLoRA go/no-go update, LIBERO dataset risk planner, simulator readiness planner, 300-step local pilot budget alignment, bounded cached-feature local pilot extension, bounded-extension status consolidation, official LIBERO/RoboSuite source resolution, and bounded source repo setup have passed. LoRA/QLoRA are required experimental tracks after the head-only path, but not the main novelty. The repository now uses risk-assessed autonomous execution instead of broad approval-based hard-stops. Downloads, GPU tasks, bounded training, real dataset setup, WSL simulator dependency setup, simulator readiness, and bounded rollout should proceed automatically if a risk assessment is green and should stop only if risk is ambiguous, outside budget, external/irreversible, credentialed/system-driver/license-gated, OpenVLA-OFT-related, or paper-claim-related.
 
 Planning command:
 
@@ -245,7 +245,8 @@ Default autonomous budgets:
 - GPU VRAM <=14GB, runtime <=30 minutes, batch size 1,
 - SmolVLA-only local training, frozen backbone or LoRA/QLoRA adapter only, max 300 steps after smaller smoke is stable,
 - dataset setup only from official/documented unambiguous sources without token/login/payment/license click-through,
-- simulator readiness/import-render smoke only if already installed locally and <=10 minutes,
+- simulator readiness/import-render smoke only after WSL dependency/import readiness is green and <=10 minutes,
+- minimal WSL Python packaging setup after a green WSL simulator dependency ladder risk assessment,
 - bounded rollout only after readiness smoke, task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no paper claim.
 
 Always stop before:
@@ -257,8 +258,10 @@ Always stop before:
 - external upload/submission/publishing,
 - deleting user files outside approved cache/repo cleanup,
 - system-wide CUDA/PyTorch/driver changes,
-- admin/system-level installers,
+- credentialed/system-driver/license-gated system setup,
 - paper-level empirical claims.
+
+Minimal WSL Python packaging setup is standing-approved after risk assessment; a sudo password prompt remains a hard stop.
 
 Codex should not ask routine questions such as whether files were placed, whether readiness should be checked, whether pytest should run, which branch is current, whether git is clean, or what is missing. It should inspect and report.
 
@@ -276,4 +279,19 @@ ready_for_smolvla_adapter_smoke=true
 
 After readiness, planning, load-only smoke, single-sample interface smoke, and feature-cache/interface validation are true, continue on a new branch for a tiny head-only smoke runner. That branch may run only bounded head-only smoke and must not train a backbone, rollout, evaluate real datasets, or execute OpenVLA-OFT.
 
-After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status report, risk-assessed policy update, LIBERO dataset risk planner, simulator readiness planner, 300-step budget alignment, bounded local pilot extension, bounded-extension status consolidation, official source resolution, source repo setup, metadata-only subset construction, official LIBERO data acquisition, h5py reader readiness, offline interface smoke gate, counterfactual split construction, offline ActionMap/TCA-Map comparison, required offline LoRA comparison, bounded pilot report, and simulator readiness status integration, continue autonomously by choosing the next concrete task and running its risk assessment. The current concrete boundary is bounded simulator import-only smoke. Stop before render smoke or rollout unless the assessment is green and inside budget, and always stop for external irreversible, OpenVLA-OFT, token/secret/payment/license, system-level, or paper-claim gates.
+After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparison report, consolidated local pilot status report, risk-assessed policy update, LIBERO dataset risk planner, simulator readiness planner, 300-step budget alignment, bounded local pilot extension, bounded-extension status consolidation, official source resolution, source repo setup, metadata-only subset construction, official LIBERO data acquisition, h5py reader readiness, offline interface smoke gate, counterfactual split construction, offline ActionMap/TCA-Map comparison, required offline LoRA comparison, bounded pilot report, and simulator readiness status integration, continue autonomously by choosing the next concrete task and running its risk assessment. The current concrete boundary is WSL simulator dependency setup followed by bounded simulator import-only smoke. Stop before render smoke or rollout unless their assessments are green and inside budget, and always stop for external irreversible, OpenVLA-OFT, token/secret/payment/license, credentialed/system-driver/license-gated, or paper-claim gates.
+
+## WSL Simulator Dependency Ladder Standing Approval
+
+Next autonomous sequence:
+
+1. Run WSL simulator dependency risk assessment.
+2. If green and no sudo password is required, install only the minimal approved WSL Python packaging tools.
+3. Create or use `~/.venvs/tca_map_sim`.
+4. Install only minimal import-readiness Python dependencies.
+5. Rerun bounded simulator import smoke.
+6. If import passes, run a separate bounded render-smoke risk assessment.
+7. If render passes, run a separate bounded reset/step-smoke risk assessment.
+8. If reset/step passes, run a separate bounded tiny diagnostic rollout risk assessment.
+
+Allowed WSL apt packages are limited to `python3-pip`, `python3-venv`, `python3-dev` if needed, `build-essential` only if required for Python package builds, `git` if missing, and `curl` or `wget` only for official setup checks. Stop for sudo password, token/login, license/payment, CUDA/driver/toolkit, graphics-stack changes, OpenVLA-OFT, paper claims, or rollout beyond the tiny diagnostic limits.

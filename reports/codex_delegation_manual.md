@@ -87,10 +87,12 @@ Only ask the user or stop for external irreversible or unevaluable gates:
 - external submission/upload/publishing,
 - deleting user files outside repository or approved cache cleanup,
 - changing system-wide CUDA/PyTorch/driver versions,
-- admin/system-level installers,
+- credentialed/system-driver/license-gated system setup,
 - very large unplanned package installs,
 - paper-level empirical claims,
 - any task whose source, size, license, runtime, RAM/VRAM, or disk impact cannot be assessed.
+
+Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment. Credentialed, system-driver, CUDA/toolkit, graphics-stack, and license-gated changes remain hard-stop gates.
 
 Do not ask:
 
@@ -151,6 +153,7 @@ Required commands before push or merge:
 powershell -ExecutionPolicy Bypass -File scripts\40_cursor_safe_local_check.ps1
 powershell -ExecutionPolicy Bypass -File scripts\11_check_real_assets.ps1
 powershell -ExecutionPolicy Bypass -File scripts\13_check_smolvla_adapter_smoke.ps1
+powershell -ExecutionPolicy Bypass -File scripts\17_check_smolvla_runtime_deps.ps1
 C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pytest -q
 ```
 
@@ -274,7 +277,8 @@ Codex must first create or use a dataset readiness checker. If the dataset has a
 Codex may autonomously do simulator readiness and import/render smoke if:
 
 - simulator is already installed locally,
-- no new large install/download is required,
+- or missing WSL Python packaging/import dependencies can be resolved through the WSL simulator dependency ladder after a green risk assessment,
+- no new large install/download is required outside that WSL ladder,
 - no license/token/manual setup is required,
 - runtime <= 10 minutes,
 - no policy rollout,
@@ -292,6 +296,111 @@ Actual task rollouts remain risk-assessed but stricter. Codex may only run bound
 - no unbounded rendering loop.
 
 If any of these are not satisfied, stop and report.
+
+### WSL simulator dependency ladder standing approval
+
+The user grants standing approval for Codex to autonomously perform bounded WSL simulator dependency setup and simulator readiness progression as long as every step passes risk assessment and stays within the limits below.
+
+Codex should not ask the user before:
+
+- checking WSL distro status,
+- checking WSL `python3`, `pip`, and `venv` status,
+- installing minimal WSL Python packaging tools if risk assessment is green,
+- creating the WSL virtual environment,
+- installing minimal Python dependencies needed for LIBERO/RoboSuite import checks,
+- rerunning LIBERO/RoboSuite import checks,
+- running bounded simulator import smoke,
+- running bounded render smoke if dependencies are ready and the render risk assessment is green,
+- updating project state and continuing to the next bounded readiness step.
+
+Allowed WSL inspection commands include:
+
+- `wsl.exe --status`,
+- `wsl.exe --list --verbose`,
+- `python3 --version` inside WSL,
+- checks for `pip`, `ensurepip`, and `venv`,
+- disk-free checks inside WSL and approved Windows asset paths.
+
+Allowed apt packages inside WSL, only after a green risk assessment:
+
+- `python3-pip`,
+- `python3-venv`,
+- `python3-dev` if needed for Python package builds,
+- `build-essential` only if required by a Python package build,
+- `git` if missing,
+- `curl` or `wget` only if needed for official setup checks.
+
+Forbidden apt/system changes:
+
+- CUDA toolkit install,
+- NVIDIA driver install/change,
+- PyTorch/CUDA major system replacement,
+- desktop or GUI stack changes,
+- MuJoCo system-wide license hacks,
+- packages requiring manual license approval,
+- anything unrelated to Python packaging or minimal simulator import readiness.
+
+If a sudo password is required, stop and report the exact command needed. Do not guess, request, or handle the password.
+
+Preferred WSL virtual environment:
+
+```bash
+python3 -m venv ~/.venvs/tca_map_sim
+source ~/.venvs/tca_map_sim/bin/activate
+python -m pip install --upgrade pip setuptools wheel
+```
+
+Allowed minimal Python dependencies, only when needed for import readiness and inside budget:
+
+- `numpy`,
+- `scipy`,
+- `h5py`,
+- `pyyaml`,
+- `tqdm`,
+- `gymnasium` or `gym` if required,
+- `mujoco` if required for import/render checks,
+- `robosuite` if the local checkout requires editable/minimal install,
+- documented LIBERO dependencies only if official docs and size/runtime budgets are green.
+
+Rules:
+
+- Prefer minimal installs.
+- Prefer official LIBERO/RoboSuite setup instructions already recorded in the repository.
+- Keep WSL simulator dependencies in the WSL venv; do not change the Windows Python environment unless a later task explicitly requires it.
+- Do not install OpenVLA-OFT or heavy VLA model dependencies.
+- Do not change CUDA, PyTorch, Windows drivers, or system graphics stacks.
+
+Simulator readiness stages:
+
+Stage A: WSL import readiness. Import `numpy`, `libero`, `robosuite`, and `mujoco` if installed/needed. No rendering, rollout, policy evaluation, training, OpenVLA-OFT, or paper claim.
+
+Stage B: Bounded render smoke. Allowed only after import readiness passes and a render risk assessment is green. Runtime <=10 minutes, headless/offscreen preferred, no policy rollout, benchmark evaluation, training, OpenVLA-OFT, or paper claim.
+
+Stage C: Bounded simulator reset/step smoke. Allowed only after import/render readiness passes and a risk assessment is green. At most one environment, at most 5 reset/step attempts, runtime <=10 minutes, no learned policy, benchmark claim, paper claim, or OpenVLA-OFT.
+
+Stage D: Bounded tiny rollout diagnostic. Allowed only after earlier stages pass and a rollout risk assessment is green. Task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no training, no multi-seed, no paper claim. Logs must label the result as simulator smoke or tiny diagnostic only.
+
+Before every WSL package install, render smoke, or rollout smoke, Codex must print or write:
+
+- task,
+- WSL distro name/version if available,
+- command to be run,
+- expected install/download size if applicable,
+- target environment/path,
+- disk free before/after estimate,
+- expected runtime,
+- expected RAM/VRAM,
+- whether sudo is needed,
+- whether token/license/payment is needed,
+- whether CUDA/driver/system graphics changes are involved,
+- decision: proceed or stop,
+- reason.
+
+If the decision is `proceed`, continue automatically. If the decision is `stop`, report the exact blocker and next recommended action.
+
+True hard-stop gates still include sudo password input or credential requests, token/secret/API key/login, paid service or license click-through, CUDA driver/toolkit installation, major graphics-stack changes, Windows system-level driver changes, OpenVLA-OFT download/import/load/execution, full fine-tuning, training over 30 minutes, expected VRAM over 14GB, total new download over the approved budget, rollout beyond the bounded tiny diagnostic limits, benchmark or paper-grade claims, multi-seed experiments, external upload/submission/publishing, and deleting user files outside repo/cache cleanup.
+
+Minimal WSL Python packaging setup is standing-approved after risk assessment; credentialed/system-driver/license-gated changes remain hard-stop.
 
 ### OpenVLA-OFT
 
@@ -328,7 +437,9 @@ Codex must always stop before:
 - deleting user files outside approved cache/repo cleanup,
 - changing system-wide CUDA/PyTorch/driver versions,
 - installing very large unplanned packages,
-- using admin/system-level installers.
+- credentialed/system-driver/license-gated system setup.
+
+Minimal WSL Python packaging setup is not a hard stop when the WSL simulator dependency ladder risk assessment is green.
 
 ### Autonomous progression
 
@@ -342,6 +453,7 @@ Codex should not stop after each stage just to ask for permission. It should con
 - QLoRA feasibility if safe,
 - bounded local pilot report,
 - simulator readiness plan,
+- WSL simulator dependency setup after a green ladder risk assessment,
 - simulator import/render smoke if safe,
 - bounded rollout only if within the strict rollout budget.
 

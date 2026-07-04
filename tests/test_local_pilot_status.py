@@ -84,7 +84,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert "simulator readiness/import-render smoke if already installed locally" in report["risk_assessed_next_gates"]
+    assert "simulator readiness/import-render smoke after WSL dependency/import readiness is green" in report["risk_assessed_next_gates"]
     assert "OpenVLA-OFT execution" in report["hard_stop_boundaries"]
     assert "token or secret access" in report["external_irreversible_stop_gates"]
     assert "local_pilot_status_passed" in report
