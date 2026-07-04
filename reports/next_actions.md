@@ -311,6 +311,7 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 6. Create a bounded metadata/report-only action-interface audit.
    Done; high-priority findings are action dim mismatch, gripper zero padding, state truncation risk, and nontrivial actions with zero reward.
 7. Create a zero-action versus SmolVLA-action diagnostic comparison.
+   Done as report-only comparison. Current result: zero-action and SmolVLA-action both have diagnostic success `false` and reward `0.0`; SmolVLA actions are nontrivial but do not outperform zero-action.
 8. Create an explicit action/state adapter patch plan.
 9. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
 10. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.

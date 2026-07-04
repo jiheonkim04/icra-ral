@@ -623,3 +623,11 @@ Risk: The current bridge likely does not match SmolVLA's intended deployment int
 Impact: The policy can emit finite actions and still produce zero reward because action dimensions, gripper control, state mapping, or camera naming are wrong.
 
 Mitigation: `scripts\78_audit_action_interface_metadata.ps1` records the current high-priority risks and blocks larger rollout scaling. Next work should compare zero-action and policy-action behavior, then add an explicit action/state adapter patch plan.
+
+## Zero-Action Comparison Misinterpretation Risk
+
+Risk: A zero-action versus learned-policy diagnostic comparison could be mistaken for benchmark evidence.
+
+Impact: The project could over-claim from a single diagnostic task with no repeated benchmark protocol.
+
+Mitigation: `scripts\79_compare_zero_action_policy_diagnostic.ps1` is summary-only, sets all claim flags false, and keeps `ready_for_rollout_scaling=false` when learned-policy actions do not outperform zero-action.

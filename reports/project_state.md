@@ -833,3 +833,13 @@ Medium-priority finding:
 - camera feature naming mismatch between config and preprocessor metadata.
 
 Next autonomous direction: create a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan before any rollout scaling.
+
+## Zero-Action Versus SmolVLA-Action Diagnostic Comparison
+
+Current planned branch: compare the existing zero-action LIBERO/RoboSuite diagnostic rollout against the existing reduced-scope SmolVLA learned-policy diagnostic rollout using reports only.
+
+The comparison is summary-only. It must not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper-grade claims.
+
+Expected interpretation: if zero-action simulator plumbing passed and SmolVLA emits nontrivial actions but does not improve success or reward, the next autonomous step should be an explicit action/state adapter patch plan rather than rollout scaling.
+
+Current local result: `scripts\79_compare_zero_action_policy_diagnostic.ps1` passed as summary-only. It compared the existing zero-action diagnostic against the existing SmolVLA learned-policy diagnostic on the same `libero_10` task. Both had diagnostic success `false` and reward sum `0.0`; SmolVLA actions were nontrivial with max absolute action about `0.793093`, so the learned policy did not outperform zero-action. The next autonomous direction is an explicit action/state adapter patch plan.
