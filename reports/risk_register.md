@@ -599,3 +599,11 @@ Risk: The local SmolVLA action output can drive the LIBERO environment without c
 Impact: Rollouts can execute cleanly while reward and success remain at zero, making raw execution stability uninformative about method quality.
 
 Mitigation: After the reduced-scope metric summary, add targeted action-interface diagnostics before scaling: action magnitude/range logs, gripper behavior, observation key audit, language prompt audit, and a small comparison against zero-action or replay-style baselines. Keep all results diagnostic/local-pilot until task success appears under a documented protocol.
+
+## WSL Bash CRLF Risk
+
+Risk: PowerShell scripts stored with CRLF line endings can inject carriage returns into generated WSL bash command strings.
+
+Impact: WSL command execution can fail before the Python runner starts, with bash errors such as `$'\r': command not found` or `ambiguous redirect`.
+
+Mitigation: Strip `\r` from generated bash command strings before `bash -lc` in rollout runners, and keep tests that assert the guard exists.

@@ -9,6 +9,7 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "75_bounded_reduced_scope_learned_policy_rollout.ps1"
+TINY_SCRIPT = REPO_ROOT / "scripts" / "72_bounded_tiny_learned_policy_rollout.ps1"
 MODULE = REPO_ROOT / "tca_map" / "smolvla" / "libero_learned_policy_rollout.py"
 
 
@@ -113,3 +114,11 @@ def test_policy_module_accepts_matrix_gate_name():
 
     assert "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX" in text
     assert "task_local_gates_set" in text
+
+
+def test_wsl_bash_commands_strip_crlf_before_bash_lc():
+    reduced_text = SCRIPT.read_text(encoding="utf-8")
+    tiny_text = TINY_SCRIPT.read_text(encoding="utf-8")
+
+    assert '$bashCommand = $bashCommand -replace "`r", ""' in reduced_text
+    assert '$bashCommand = $bashCommand -replace "`r", ""' in tiny_text
