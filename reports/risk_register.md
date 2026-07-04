@@ -1053,3 +1053,15 @@ Mitigation: `scripts\127_synthesize_scaleup_attribution_gaps.ps1` records the ze
 Current status: synthesis scaffolding is added as a report-only guard before any further selection-gain claims.
 
 Current result: the synthesis passed and explicitly routed the next step to a TCA-Select ambiguity/stress-test plan. This keeps selection-gain claims blocked until a stronger proxy test exists.
+
+## TCA-Select Ambiguity Stress-Test Design Risk
+
+Risk: A weak stress test could still fail to isolate selection-specific gain, or could accidentally use privileged target/state information.
+
+Impact: The project could either miss a real inference-time selection benefit or overstate one using invalid information.
+
+Mitigation: `scripts\128_plan_tca_select_ambiguity_stress_test.ps1` requires candidate diversity, full-vs-masked condition sensitivity, target-conditioned action consistency, and explicitly forbids privileged simulator state, external verifiers, rollout outcomes, and paper-grade success labels.
+
+Current status: the stress test is planning-only and must pass before any offline stress-test runner is implemented.
+
+Current result: the plan passed with explicit forbidden inputs and offline-only metrics. The next runner must preserve those constraints.

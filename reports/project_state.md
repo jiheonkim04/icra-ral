@@ -1769,3 +1769,32 @@ Current local result:
 - ready for learned-policy rollout scaling and paper claims: false.
 
 Interpretation: the next safe task is a report-only TCA-Select candidate-ambiguity stress-test plan.
+
+## TCA-Select Ambiguity Stress-Test Plan
+
+The planning-only stress-test gate is implemented by `scripts\128_plan_tca_select_ambiguity_stress_test.ps1` and `tca_map.smolvla.tca_select_ambiguity_stress_plan`.
+
+Scope:
+
+- reads the scale-up attribution-gap synthesis report,
+- defines ambiguous candidate generation, target/action consistency scoring, condition-sensitivity scoring, and offline proxy pass/fail criteria,
+- forbids privileged simulator state, external verifiers, rollout outcomes, and paper-grade success labels,
+- does not train, download, install, import heavy VLA models, load models, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if the plan passes, implement a CPU-only offline TCA-Select ambiguity stress-test runner,
+- keep results offline proxy only,
+- use this only to debug selection-specific gain before any paper claim.
+
+Current local result:
+
+- plan passed,
+- decision: `proceed_offline_tca_select_ambiguity_stress_runner`,
+- ready for offline runner: true,
+- candidate count: 8,
+- max records: 64,
+- device: CPU,
+- ready for rollout, benchmark claims, and paper claims: false.
+
+Interpretation: the next safe task is implementation of the CPU-only offline ambiguity stress-test runner.

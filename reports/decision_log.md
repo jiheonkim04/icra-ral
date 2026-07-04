@@ -1153,3 +1153,13 @@ Reason: The scale-up-aware evidence table shows useful TCA-Map + LoRA proxy gain
 Consequence: `scripts\127_synthesize_scaleup_attribution_gaps.ps1` reads existing reports only and keeps training, rollout, model loading, GPU jobs, OpenVLA-OFT, and paper claims blocked.
 
 Current result: The synthesis passed and recorded that Distributional TCA-Select currently adds no extra LoRA proxy gain in the bounded runner. The next decision is to plan an offline candidate-ambiguity stress test before any selection-specific claim.
+
+## TCA-Select Ambiguity Stress-Test Plan
+
+Decision: Add a planning-only gate for an offline TCA-Select ambiguity stress test.
+
+Reason: Distributional TCA-Select needs a stress test with ambiguous target/action candidates before claiming inference-time selection gain.
+
+Consequence: `scripts\128_plan_tca_select_ambiguity_stress_test.ps1` defines CPU-only offline proxy metrics and pass/fail criteria while keeping training, rollout, model loading, GPU jobs, OpenVLA-OFT, privileged inference, external verifiers, and paper claims blocked.
+
+Current result: The plan passed and authorized only a CPU-only offline stress-test runner over existing local counterfactual artifacts.

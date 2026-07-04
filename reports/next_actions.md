@@ -690,6 +690,18 @@ Current local result: synthesis passed with `decision=scaleup_attribution_gaps_r
 
 59. Next safe step: plan an offline TCA-Select ambiguity/stress test that can isolate inference-time selection gain without training or rollout. It should define candidate diversity, ambiguous target/action pairs, scoring metrics, and pass/fail criteria, but remain planning-only first.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\128_plan_tca_select_ambiguity_stress_test.ps1
+```
+
+Expected interpretation: if the plan reports `decision=proceed_offline_tca_select_ambiguity_stress_runner`, the next safe task is an offline CPU-only stress-test runner over existing local counterfactual artifacts. It must remain offline proxy only.
+
+Current local result: plan passed with `decision=proceed_offline_tca_select_ambiguity_stress_runner`, `ready_for_offline_tca_select_ambiguity_stress_runner=true`, `candidate_count=8`, `max_records=64`, CPU-only, and paper/rollout readiness false.
+
+60. Next safe step: implement the CPU-only offline TCA-Select ambiguity stress-test runner. It should use existing local counterfactual artifacts, generate ambiguous candidate heatmaps without loading SmolVLA, and report offline proxy metrics only.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
