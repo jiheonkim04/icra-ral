@@ -781,3 +781,11 @@ Decision: Do not scale rollout yet; move to adapter-strategy and action-scale di
 Reason: The bounded one-task, 10-step learned-policy diagnostic passed execution with explicit adapter metadata recorded, but diagnostic success remained `0.0` and reward sum remained `0.0`. The zero-action comparison still shows no learned-policy improvement.
 
 Consequence: Keep rollout scaling blocked. Next work should compare diagnostic adapter strategies, action scale/normalization, prompt format, and camera/state mapping before larger rollout matrices or paper claims.
+
+## Adapter-Strategy/Action-Scale Diagnostics Planner Scope
+
+Decision: Add a planning-only gate before implementing more rollout diagnostics.
+
+Reason: The next experiment could run several bounded variants, so the repo needs an explicit envelope for gripper strategies, action-scale checks, prompt checks, runtime, and evidence labels before any execution.
+
+Consequence: Implement `scripts\82_plan_adapter_strategy_action_scale_diagnostics.ps1` first. If it passes, the next safe implementation is a separately gated one-task gripper-strategy diagnostic runner.

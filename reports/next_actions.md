@@ -325,6 +325,7 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 13. Rerun a bounded learned-policy diagnostic rollout with explicit adapter metadata only after the rollout gate is green.
     Done; execution passed, explicit adapter metadata is present, but diagnostic success and reward remain 0.0.
 14. Run adapter-strategy and action-scale diagnostics before rollout scaling.
+    Planning gate added; next implementation is a separately gated one-task gripper-strategy diagnostic runner.
 15. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
 16. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
