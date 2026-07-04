@@ -602,6 +602,20 @@ Expected interpretation: if the plan reports `decision=reduce_scope` and `select
 
 Current local result: plan passed with `decision=reduce_scope`, `selected_next_step=checkpoint_task_provenance_resolution`, `ready_for_checkpoint_task_provenance_resolution=true`, and `ready_for_bounded_normalized_action_space_probe_runner=false`. The next safe task is a report-only checkpoint/task provenance resolution audit.
 
+52. Next safe step: resolve checkpoint/task provenance in a report-only audit. It should inspect local SmolVLA checkpoint config, policy preprocessor/postprocessor metadata, local model-card README, the normalized-action plan, and the LIBERO action-stat subset audit. It must not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, alter policy behavior, access tokens, or make paper claims.
+
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\122_resolve_checkpoint_task_provenance.ps1
+```
+
+Expected interpretation: if the audit reports `decision=no_go_learned_policy_rollout_scaling`, do not use the current base checkpoint as LIBERO learned-policy rollout evidence. Continue through offline/head TCA-Map and required LoRA evidence, or create a separate source-resolution plan for a LIBERO-action-aligned SmolVLA checkpoint.
+
+Current local result: audit passed with `decision=no_go_learned_policy_rollout_scaling`. The current checkpoint is not valid as LIBERO learned-policy rollout evidence because its action shape/stat provenance remains 6D/SO100-like while local LIBERO actions are 7D/unit-scale. It selected `pivot_to_offline_head_tca_map_and_lora_or_find_libero_aligned_checkpoint`.
+
+53. Next safe step: do not run more learned-policy LIBERO rollout scaling with the current base checkpoint. Choose the stronger low-compute paper path: either continue offline/head TCA-Map plus required LoRA evidence on real LIBERO data, or create a separate source-resolution plan for a LIBERO-action-aligned SmolVLA checkpoint. Prefer a report-only pivot plan first; it should not download, train, rollout, load models, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
