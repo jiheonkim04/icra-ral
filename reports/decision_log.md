@@ -1071,3 +1071,15 @@ Consequence: `scripts\119_plan_action_stat_provenance_correction.ps1` selects a 
 Current result: The plan passed with `decision=reduce_scope` and selected `libero_action_stat_subset_audit`.
 
 Consequence: Implement a bounded HDF5 action-stat audit before any normalized-action probe, postprocessor bypass/replacement, checkpoint download, or learned-policy rollout.
+
+## LIBERO Action-Stat Subset Audit
+
+Decision: Add a report-only bounded HDF5 action-stat audit.
+
+Reason: The correction plan selected direct measurement of local LIBERO action statistics as the safest next step before changing policy behavior or running rollouts.
+
+Consequence: `scripts\120_audit_libero_action_stats.ps1` reads bounded local HDF5 action arrays and compares their scale/dimension to checkpoint action stats. It does not load models, infer, train, rollout, download, use GPU jobs, execute OpenVLA-OFT, alter policy behavior, or make paper claims.
+
+Current result: The audit passed with `decision=no_go_rollout_scaling`. It sampled `2500` local LIBERO actions from `5` files and confirmed 7D unit-scale LIBERO actions versus 6D SO100 large-scale checkpoint action statistics.
+
+Consequence: Do not treat current learned-policy rollout failures as paper-relevant policy performance. The next decision should plan a normalized-action-space probe or checkpoint/task provenance resolution.
