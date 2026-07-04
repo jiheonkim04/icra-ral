@@ -1162,3 +1162,13 @@ Mitigation: `scripts\133_bounded_real_candidate_generation_smoke.ps1` labels out
 Current status: the scaffold is implemented and default execution is refusal-only. Any execution result must be synthesized as interface evidence only.
 
 Current result: bounded execution passed on CPU with one synthetic action decode, four candidates, grid 8, selected target index 0, wrong-target proxy false, and CUDA max allocated `0.0 MB`. The overinterpretation risk remains active because this is still synthetic-input engineering evidence, not rollout or benchmark evidence.
+
+## Learned-Policy Zero-Reward Over-Debugging Risk
+
+Risk: Repeated bounded rollout diagnostics after zero reward could keep expanding bridge/planner work without producing loss, evaluation metrics, or a stronger diagnosis.
+
+Impact: The project could spend execution budget on rollout variants even though the current evidence already points away from a simple action-shape bridge bug.
+
+Mitigation: Treat the completed gripper, scale, prompt, camera, state, and HDF5 init-state diagnostics as a concrete no-go for learned-policy rollout scaling with the current checkpoint. Only rerun rollout diagnostics if a new specific blocker is identified and the command directly tests it. Otherwise, move to fixed-integrity offline ActionMap vs TCA-Map training/evaluation on real LIBERO HDF5 snippets.
+
+Current result: all bounded learned-policy diagnostic variants executed but produced zero reward and zero diagnostic success. The explicit 6D-to-7D action bridge reported no silent padding or truncation, and HDF5 demo init-state setting worked. The overinterpretation risk remains active: this is diagnostic failure evidence, not a benchmark or paper result.

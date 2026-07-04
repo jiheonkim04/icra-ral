@@ -1995,3 +1995,31 @@ Current local result:
 Interpretation: this is engineering interface evidence that local SmolVLA can seed a tiny low-resolution candidate heatmap and Distributional TCA-Select can select a candidate without privileged inference. It is not standard success, not rollout success, and not paper-grade evidence.
 
 The report-only synthesis step is `scripts\134_summarize_real_candidate_generation_smoke.ps1`.
+
+## Bounded Learned-Policy Rollout Diagnostic Result
+
+Execution-first rollout diagnostics have now run beyond the initial learned-policy rollout:
+
+- adapter/gripper variants,
+- action-scale variants,
+- prompt-format variants,
+- camera-source variants,
+- state-sufficiency variants,
+- HDF5 demo init-state learned-policy recheck.
+
+All bounded variants executed within the diagnostic policy and produced zero reward and zero diagnostic success on the selected LIBERO task. The init-state recheck passed execution with local SmolVLA inference on CPU and the HDF5 demo initial state set in the environment, but still produced `success=false` and `reward_sum=0.0` over 5 steps.
+
+Safety status for this milestone:
+
+- downloads: false,
+- training: false,
+- LoRA training: false,
+- GPU job: false,
+- OpenVLA-OFT execution: false,
+- paper-grade claim: false,
+- rollout: true, bounded diagnostic only,
+- loss: none; no loss because this was not a training task.
+
+Current interpretation: the rollout bridge is not blocked by a simple action-shape mismatch. The remaining blocker is policy/checkpoint/task/action-stat provenance or policy capability under the current LIBERO setup. Do not scale learned-policy rollouts from this evidence.
+
+Next execution-first milestone: run the fixed-integrity ActionMap vs TCA-Map tiny offline training/evaluation comparison over real LIBERO HDF5 snippets, producing loss curves and offline proxy metrics before any further learned-policy rollout scaling.

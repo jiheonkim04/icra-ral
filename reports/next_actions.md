@@ -845,3 +845,23 @@ Current autonomous simulator-readiness sequence:
 13. Create a separately gated tiny learned-policy rollout runner. Stop before multi-seed rollout, OpenVLA-OFT, full fine-tuning, external upload, or unsupported paper-level claims.
 
 Allowed WSL apt packages are limited to `python3-pip`, `python3-venv`, `python3-dev` if needed, `build-essential` only if required for Python package builds, `git` if missing, and `curl` or `wget` only for official setup checks. Stop for sudo password, token/login, license/payment, CUDA/driver/toolkit, graphics-stack changes, OpenVLA-OFT, paper claims, or rollout beyond the tiny diagnostic limits.
+
+## Current Execution-First Next Action
+
+Do not start another planner-only branch for learned-policy rollout debugging unless a command is directly blocked.
+
+The latest bounded learned-policy diagnostics executed gripper, action-scale, prompt-format, camera-source, state-sufficiency, and HDF5 init-state variants. All variants completed but returned zero reward and zero diagnostic success. The action bridge used explicit 6D policy-action to 7D environment-action conversion, and the init-state recheck set the HDF5 demo initial state successfully.
+
+Therefore, the next safe major milestone is:
+
+```text
+ActionMap vs TCA-Map tiny offline training/evaluation on real LIBERO HDF5 snippets
+```
+
+The task must produce at least one of:
+
+- a training loss curve,
+- offline proxy evaluation metrics,
+- or a concrete failure diagnosis that directly unblocks the comparison.
+
+Do not run OpenVLA-OFT, full fine-tuning, multi-seed sweeps, paper-grade rollout, or paper-level claims. Keep the research-integrity policy fixed before inspecting comparison results.

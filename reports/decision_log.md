@@ -1270,3 +1270,13 @@ Decision: Treat the bounded real candidate-generation smoke as passed engineerin
 Reason: After a green risk assessment, the task-local gates were set only for this execution. The runner loaded local SmolVLA on CPU, ran one synthetic `select_action` call, built four low-resolution candidates, and selected a target-consistent candidate with Distributional TCA-Select.
 
 Consequence: The result supports the candidate-generation interface path but remains non-paper evidence. It does not unblock rollout, benchmark, or paper claims. The next step is report-only synthesis and a bounded offline candidate-generation comparison plan.
+
+## Learned-Policy Rollout Diagnostic No-Go
+
+Decision: Do not scale learned-policy LIBERO rollouts from the current SmolVLA checkpoint state.
+
+Reason: Bounded diagnostics covering gripper strategy, action scale, prompt format, camera aliases, state adapters, and HDF5 demo init-state recheck all executed but produced zero reward and zero diagnostic success. The explicit action bridge reported policy action shape `[1, 6]`, environment action dimension `7`, no implicit padding, and no truncation, so the current blocker is not a simple action-shape adapter failure.
+
+Consequence: Treat the current learned-policy rollout result as a concrete failure diagnosis, not benchmark evidence. The next execution-first milestone should move to fixed-integrity ActionMap vs TCA-Map tiny offline training/evaluation on real LIBERO HDF5 snippets, where loss curves and offline proxy metrics can test the method without depending on the current checkpoint's rollout competence.
+
+Training happened: false. LoRA training happened: false. Loss was computed: false; no loss because this was not a training task. Rollout happened: true, bounded diagnostic only. Paper-grade claim: false.
