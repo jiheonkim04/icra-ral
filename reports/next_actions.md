@@ -303,8 +303,11 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 2. Add a small learned-policy rollout matrix planner capped by the current risk budget.
    Done; current decision is `reduce_scope`, not multi-task proceed.
 3. Create a separately gated one-task longer diagnostic runner with task count 1 and max steps 10.
-4. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-5. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+   Done; current result is execution-pass but task-success false and reward 0.0.
+4. Generate a reduced-scope rollout metric summary.
+5. Inspect likely action-interface causes before scaling: action normalization, gripper dimension, observation/state mapping, language prompt, and camera mapping.
+6. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+7. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
