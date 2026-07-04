@@ -1083,3 +1083,11 @@ Consequence: `scripts\120_audit_libero_action_stats.ps1` reads bounded local HDF
 Current result: The audit passed with `decision=no_go_rollout_scaling`. It sampled `2500` local LIBERO actions from `5` files and confirmed 7D unit-scale LIBERO actions versus 6D SO100 large-scale checkpoint action statistics.
 
 Consequence: Do not treat current learned-policy rollout failures as paper-relevant policy performance. The next decision should plan a normalized-action-space probe or checkpoint/task provenance resolution.
+
+## Normalized Action-Space Probe Plan
+
+Decision: Add a planning-only gate for normalized-action-space probing versus checkpoint/task provenance resolution.
+
+Reason: The LIBERO action-stat subset audit confirmed both scale and dimension mismatch, and the checkpoint processor stats are SO100-prefixed. That makes a checkpoint/task provenance audit safer and more informative than immediately changing postprocessing or running another learned-policy rollout.
+
+Consequence: `scripts\121_plan_normalized_action_space_probe.ps1` selects `checkpoint_task_provenance_resolution` as the next safe step when SO100-prefixed stats, 7D unit-scale LIBERO actions, scale mismatch, and dimension mismatch are all present. It keeps normalized-action probing deferred to a later separately gated runner and does not authorize model loading, inference, training, rollout, downloads, GPU jobs, OpenVLA-OFT, policy behavior changes, or paper claims.
