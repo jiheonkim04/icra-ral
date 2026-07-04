@@ -1926,3 +1926,15 @@ Current local result:
 - no blockers,
 - required future gates: `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_SINGLE_SAMPLE_INFERENCE=1`,
 - no model load, inference, training, rollout, GPU job, simulator execution, OpenVLA-OFT, token access, or paper claim occurred.
+
+## Bounded Real Candidate-Generation Smoke Scaffold
+
+`scripts\133_bounded_real_candidate_generation_smoke.ps1` and `tca_map.smolvla.real_candidate_generation_smoke` implement the separately gated smoke selected by the planning step.
+
+Default behavior:
+
+- refuses execution unless `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` are all set task-locally,
+- writes ignored runtime reports under `reports\real_candidate_generation_smoke_report.*`,
+- performs no downloads, installs, training, rollouts, simulator environment creation, OpenVLA-OFT execution, external verifier use, privileged inference, token access, or paper claims.
+
+If the gates are set after a green risk assessment, the bounded runner may load local SmolVLA on CPU, run one synthetic `select_action` call, build at most four low-resolution target-conditioned candidates, and run Distributional TCA-Select over the resulting heatmaps. This remains engineering smoke evidence only, not standard success, rollout success, or paper-grade evidence.

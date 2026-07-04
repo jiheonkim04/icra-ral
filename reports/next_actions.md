@@ -783,6 +783,10 @@ Current local result: plan passed with `decision=proceed_bounded_real_candidate_
 
 66. Next safe step: implement the bounded real candidate-generation smoke script and tests without executing it by default. The script must refuse to run unless all three required gates are set task-locally and must still forbid rollout, training, simulator execution, OpenVLA-OFT, downloads, external verifiers, privileged state, and paper claims.
 
+Current local result: implementation scaffold added in `scripts\133_bounded_real_candidate_generation_smoke.ps1` and `tca_map.smolvla.real_candidate_generation_smoke`. Default execution remains blocked unless `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` are all set for the task. The script writes ignored runtime reports, uses CPU by default, caps candidates at 4 and grid size at 8, and still forbids rollout, training, simulator execution, downloads, OpenVLA-OFT, external verifiers, privileged state, and paper claims.
+
+67. Next safe step: run a planning-only synthesis for the real candidate-generation smoke scaffold or, if the autonomous risk assessment is green, run the bounded real candidate-generation smoke with all three task-local gates and label it engineering evidence only. Do not treat a passing smoke as standard success, rollout success, or paper-grade evidence.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

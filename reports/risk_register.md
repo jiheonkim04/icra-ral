@@ -1125,3 +1125,13 @@ Impact: A bounded interface smoke could drift into long-running GPU inference, r
 Mitigation: `scripts\132_plan_real_candidate_generation_smoke.ps1` is planning-only, refuses execution gates while planning, caps any future smoke to one sample, max 4 candidates, grid 8, 10 minutes, 14GB VRAM, and requires task-local `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1`.
 
 Current status: planning is green for implementation, but execution remains blocked by default and must require all three task-local gates.
+
+## Real Candidate-Generation Smoke Overinterpretation Risk
+
+Risk: A passing bounded real candidate-generation smoke could be mistaken for learned-policy benchmark evidence.
+
+Impact: The project could overclaim from one synthetic input, one local model action decode, and an approximate low-resolution candidate heatmap.
+
+Mitigation: `scripts\133_bounded_real_candidate_generation_smoke.ps1` labels outputs as engineering smoke only, keeps standard success, rollout success, benchmark claims, and paper claims false, and requires all three task-local gates before any heavy import or inference. The smoke forbids downloads, training, rollouts, simulator execution, OpenVLA-OFT, external verifiers, privileged state, token access, and paper claims.
+
+Current status: the scaffold is implemented and default execution is refusal-only. Any execution result must be synthesized as interface evidence only.
