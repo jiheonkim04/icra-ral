@@ -1845,3 +1845,24 @@ Expected interpretation:
 - zero TCA-Select delta in the bounded LoRA runner is preserved as a gap,
 - positive TCA-Select ambiguity-stress proxy evidence is recorded separately,
 - paper readiness, benchmark readiness, rollout readiness, and learned-policy rollout scaling remain false.
+
+## Stress-Aware Offline Evidence Table
+
+`scripts\124_generate_offline_evidence_gap_report.ps1` now accepts `reports\tca_select_ambiguity_stress_report.json` as an optional input.
+
+Expected interpretation:
+
+- if the stress report is present and passed, the evidence table gains a dedicated `Distributional TCA-Select ambiguity stress` row,
+- selected action L1 and selected wrong-target proxy rate are table columns,
+- top-heatmap comparison deltas remain in `deltas.tca_select_ambiguity_stress_vs_top_heatmap`,
+- this remains offline proxy evidence only and does not unlock rollout or paper claims.
+
+Current local result:
+
+- evidence table refreshed successfully,
+- evidence row count: 10,
+- `tca_select_ambiguity_stress_included=true`,
+- stress wrong-target delta vs top heatmap: -1.0,
+- stress action L1 delta vs top heatmap: -0.164299,
+- stress-aware attribution synthesis now routes to report-only learned-policy candidate-generation readiness planning,
+- model inference, heavy imports, training, rollout, GPU jobs, OpenVLA-OFT, and paper claims remain false.

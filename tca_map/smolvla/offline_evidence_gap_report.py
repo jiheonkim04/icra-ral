@@ -54,6 +54,10 @@ def _metric_from_list_arms(report: dict[str, Any], arm: str, metric: str) -> flo
     return None
 
 
+def _metric(report: dict[str, Any], metric: str) -> float | int | None:
+    return (report.get("metrics") or {}).get(metric)
+
+
 def _params_from_list_arms(report: dict[str, Any], arm: str) -> int | None:
     for payload in report.get("arms") or []:
         if payload.get("arm") == arm:
@@ -120,6 +124,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     head_path = Path(args.head_report)
     lora_path = Path(args.lora_report)
     scaleup_path = Path(args.bounded_lora_scaleup_report)
+    stress_path = Path(args.tca_select_stress_report)
     provenance_path = Path(args.provenance_report)
     bounded_path = Path(args.bounded_pilot_report)
     forbidden = [name for name in FORBIDDEN_GATES if _env_flag(name)]
@@ -157,11 +162,14 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "head_report": str(head_path),
             "lora_report": str(lora_path),
             "bounded_lora_scaleup_report": str(scaleup_path),
+            "tca_select_stress_report": str(stress_path),
             "provenance_report": str(provenance_path),
             "bounded_pilot_report": str(bounded_path),
         },
         "bounded_lora_scaleup_included": False,
         "bounded_lora_scaleup_record_count": 0,
+        "tca_select_ambiguity_stress_included": False,
+        "tca_select_ambiguity_stress_record_count": 0,
         "evidence_table": [],
         "gap_table": [],
         "deltas": {},
@@ -185,6 +193,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     head = _read_json(head_path)
     lora = _read_json(lora_path)
     scaleup = _read_json(scaleup_path) if scaleup_path.exists() else {}
+    stress = _read_json(stress_path) if stress_path.exists() else {}
     provenance = _read_json(provenance_path)
     bounded = _read_json(bounded_path)
     if not pivot.get("ready_for_offline_evidence_table"):
@@ -320,6 +329,22 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         report["bounded_lora_scaleup_included"] = True
         report["bounded_lora_scaleup_record_count"] = int(scaleup.get("record_count") or 0)
 
+    if stress and stress.get("tca_select_ambiguity_stress_passed"):
+        rows.append(
+            _row(
+                arm="Distributional TCA-Select ambiguity stress",
+                evidence_type="real-LIBERO offline ambiguity stress proxy",
+                action_l1=_metric(stress, "selected_action_l1"),
+                wrong_target_proxy_rate=_metric(stress, "selected_wrong_target_proxy_rate"),
+                counterfactual_margin=_metric(stress, "condition_sensitivity_margin"),
+                offline_proxy_score=None,
+                target_top1=None,
+                trainable_params=0,
+            )
+        )
+        report["tca_select_ambiguity_stress_included"] = True
+        report["tca_select_ambiguity_stress_record_count"] = int(stress.get("record_count") or 0)
+
     report["evidence_table"] = rows
     report["deltas"] = {
         "head_tca_vs_actionmap": (head.get("comparison") or {}).get("tca_map_vs_actionmap"),
@@ -335,6 +360,16 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "tca_select_lora_vs_tca_lora"
         )
         if scaleup
+        else None,
+        "tca_select_ambiguity_stress_vs_top_heatmap": {
+            "wrong_target_proxy_rate_delta": _metric(stress, "selection_wrong_target_proxy_delta_vs_top_heatmap"),
+            "action_l1_delta": _metric(stress, "selection_action_l1_delta_vs_top_heatmap"),
+            "top_heatmap_wrong_target_proxy_rate": _metric(stress, "top_heatmap_wrong_target_proxy_rate"),
+            "selected_wrong_target_proxy_rate": _metric(stress, "selected_wrong_target_proxy_rate"),
+            "top_heatmap_action_l1": _metric(stress, "top_heatmap_action_l1"),
+            "selected_action_l1": _metric(stress, "selected_action_l1"),
+        }
+        if report["tca_select_ambiguity_stress_included"]
         else None,
     }
     report["gap_table"] = [
@@ -363,6 +398,17 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             ),
         },
         {
+            "id": "tca_select_inference_attribution",
+            "status": "offline_ambiguity_stress_proxy_present"
+            if report["tca_select_ambiguity_stress_included"]
+            else "blocked",
+            "next_step": (
+                "Use ambiguity-stress evidence as offline proxy only; next attribution step must preserve no-paper-claim labels."
+                if report["tca_select_ambiguity_stress_included"]
+                else "Run the offline TCA-Select ambiguity stress test before selection-specific attribution claims."
+            ),
+        },
+        {
             "id": "paper_claim",
             "status": "blocked",
             "next_step": "Needs rollout evidence, baselines, compute table, and no privileged inference.",
@@ -377,6 +423,9 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     )
     report["ready_for_learned_policy_rollout_scaling"] = False
     report["recommended_next_step"] = (
+        "Regenerate the stress-aware attribution synthesis; keep current-checkpoint learned-policy rollout and paper claims blocked."
+        if report["tca_select_ambiguity_stress_included"]
+        else
         "Generate a scale-up-aware offline evidence synthesis or attribution-gap report; keep current-checkpoint learned-policy rollout and paper claims blocked."
         if report["bounded_lora_scaleup_included"]
         else "Plan a bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets, while keeping current-checkpoint learned-policy rollout and paper claims blocked."
@@ -392,6 +441,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--head-report", default="reports/libero_offline_actionmap_tca_comparison_report.json")
     parser.add_argument("--lora-report", default="reports/libero_offline_lora_comparison_report.json")
     parser.add_argument("--bounded-lora-scaleup-report", default="reports/bounded_lora_offline_scaleup_report.json")
+    parser.add_argument("--tca-select-stress-report", default="reports/tca_select_ambiguity_stress_report.json")
     parser.add_argument("--provenance-report", default="reports/checkpoint_task_provenance_resolution_report.json")
     parser.add_argument("--bounded-pilot-report", default="reports/libero_offline_bounded_pilot_report.json")
     parser.add_argument("--report-path", default="reports/offline_tca_lora_evidence_gap_report_runtime.json")

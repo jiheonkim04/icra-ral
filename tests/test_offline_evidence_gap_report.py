@@ -9,11 +9,41 @@ def _write_json(path: Path, payload: dict):
     path.write_text(json.dumps(payload), encoding="utf-8")
 
 
-def _args(tmp_path: Path):
+def _write_stress_report(path: Path, passed: bool = True):
+    _write_json(
+        path,
+        {
+            "tca_select_ambiguity_stress_passed": passed,
+            "record_count": 16,
+            "policy": {
+                "offline_proxy_only": True,
+                "model_load_performed": False,
+                "training_performed": False,
+                "rollouts_performed": False,
+                "gpu_jobs_performed": False,
+                "openvla_oft_executed": False,
+                "privileged_inference_used": False,
+                "external_verifier_used": False,
+            },
+            "metrics": {
+                "top_heatmap_wrong_target_proxy_rate": 1.0,
+                "selected_wrong_target_proxy_rate": 0.0,
+                "selection_wrong_target_proxy_delta_vs_top_heatmap": -1.0,
+                "top_heatmap_action_l1": 0.164299,
+                "selected_action_l1": 0.0,
+                "selection_action_l1_delta_vs_top_heatmap": -0.164299,
+                "condition_sensitivity_margin": 0.2,
+            },
+        },
+    )
+
+
+def _args(tmp_path: Path, include_stress: bool = True):
     pivot = tmp_path / "pivot.json"
     head = tmp_path / "head.json"
     lora = tmp_path / "lora.json"
     scaleup = tmp_path / "scaleup.json"
+    stress = tmp_path / "stress.json"
     provenance = tmp_path / "provenance.json"
     bounded = tmp_path / "bounded.json"
     _write_json(
@@ -149,6 +179,8 @@ def _args(tmp_path: Path):
             },
         },
     )
+    if include_stress:
+        _write_stress_report(stress)
     _write_json(provenance, {"recommended_next_step": "do not scale rollout"})
     _write_json(bounded, {"libero_offline_bounded_pilot_report_passed": True})
     return argparse.Namespace(
@@ -156,6 +188,7 @@ def _args(tmp_path: Path):
         head_report=str(head),
         lora_report=str(lora),
         bounded_lora_scaleup_report=str(scaleup),
+        tca_select_stress_report=str(stress),
         provenance_report=str(provenance),
         bounded_pilot_report=str(bounded),
         report_path=str(tmp_path / "report.json"),
@@ -172,13 +205,35 @@ def test_evidence_gap_report_builds_table_and_blocks_claims(tmp_path, monkeypatc
     assert code == 0
     assert report["offline_evidence_gap_report_passed"] is True
     assert report["decision"] == "offline_evidence_table_ready"
-    assert len(report["evidence_table"]) == 9
+    assert len(report["evidence_table"]) == 10
     assert report["bounded_lora_scaleup_included"] is True
     assert report["bounded_lora_scaleup_record_count"] == 16
+    assert report["tca_select_ambiguity_stress_included"] is True
+    assert report["tca_select_ambiguity_stress_record_count"] == 16
+    stress_rows = [
+        row for row in report["evidence_table"] if row["arm"] == "Distributional TCA-Select ambiguity stress"
+    ]
+    assert len(stress_rows) == 1
+    assert stress_rows[0]["wrong_target_proxy_rate"] == 0.0
     assert report["deltas"]["bounded_lora_tca_vs_actionmap_lora"]["wrong_target_proxy_rate_delta"] == -0.44
+    assert report["deltas"]["tca_select_ambiguity_stress_vs_top_heatmap"]["wrong_target_proxy_rate_delta"] == -1.0
+    assert report["deltas"]["tca_select_ambiguity_stress_vs_top_heatmap"]["action_l1_delta"] == -0.164299
     assert report["ready_for_lora_scaleup_plan"] is True
     assert report["ready_for_learned_policy_rollout_scaling"] is False
     assert report["ready_for_paper_claim"] is False
+
+
+def test_evidence_gap_report_handles_missing_stress_report(tmp_path, monkeypatch):
+    for gate in report_mod.FORBIDDEN_GATES:
+        monkeypatch.delenv(gate, raising=False)
+
+    report, code = report_mod.build_report(_args(tmp_path, include_stress=False))
+
+    assert code == 0
+    assert report["offline_evidence_gap_report_passed"] is True
+    assert len(report["evidence_table"]) == 9
+    assert report["tca_select_ambiguity_stress_included"] is False
+    assert report["deltas"]["tca_select_ambiguity_stress_vs_top_heatmap"] is None
 
 
 def test_evidence_gap_report_refuses_forbidden_gate(tmp_path, monkeypatch):
