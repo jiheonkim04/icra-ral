@@ -126,6 +126,7 @@ $required = @(
     "reports/smolvla_libero_checkpoint_task_alignment_audit.md",
     "reports/offline_demo_conditioned_action_decoding_plan.md",
     "reports/offline_demo_action_decoding.md",
+    "reports/offline_demo_action_decoding_summary.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -225,6 +226,7 @@ $required = @(
     "scripts/104_audit_smolvla_libero_checkpoint_task_alignment.ps1",
     "scripts/105_plan_offline_demo_conditioned_action_decoding.ps1",
     "scripts/106_bounded_offline_demo_action_decoding.ps1",
+    "scripts/107_summarize_offline_demo_action_decoding.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -341,6 +343,7 @@ $required = @(
     "tests/test_smolvla_libero_checkpoint_task_alignment_audit.py",
     "tests/test_offline_demo_conditioned_action_decoding_plan.py",
     "tests/test_offline_demo_action_decoding.py",
+    "tests/test_offline_demo_action_decoding_summary.py",
     "tests/test_lora_config_guards.py"
 )
 

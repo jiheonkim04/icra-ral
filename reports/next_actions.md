@@ -432,6 +432,14 @@ Remove-Item Env:\ALLOW_OFFLINE_DEMO_ACTION_DECODING -ErrorAction SilentlyContinu
 
 This runner may load local SmolVLA on CPU and perform exactly one offline `select_action` call on one local HDF5 observation/action pair. It must not create a simulator environment, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims. After it runs, summarize the diagnostic before deciding whether any further rollout is justified.
 
+36. Offline demonstration action decoding summary command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\107_summarize_offline_demo_action_decoding.ps1
+```
+
+If the summary reports `offline_alignment_signal=weak`, keep learned-policy rollout scaling blocked and inspect VLM loading policy, checkpoint provenance, and action normalization before another learned-policy rollout. If it reports moderate or strong alignment, it is still diagnostic-only; plan a tiny repeated offline decoding check before rollout.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
