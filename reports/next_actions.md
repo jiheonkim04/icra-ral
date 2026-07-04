@@ -376,6 +376,14 @@ Remove-Item Env:\ALLOW_HDF5_REPLAY_DIAGNOSTIC -ErrorAction SilentlyContinue
 
 If this runner passes, it only proves that the HDF5 initial-state/action replay convention is operational. It does not prove learned-policy success. The next safe learned-policy task should be a narrow rollout recheck using a documented initial-state convention, not rollout scaling or paper claims.
 
+30. Init-state learned-policy recheck planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\101_plan_init_state_learned_policy_recheck.ps1
+```
+
+If this planner reports `ready_for_bounded_init_state_learned_policy_recheck_runner=true`, the next safe implementation is a separately gated runner using `ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK=1`. It must use one HDF5 demonstration initial state, one task, at most five policy-controlled steps, WSL CPU by default, no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, and no benchmark/SOTA/paper-grade claim.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
