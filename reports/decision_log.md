@@ -1047,3 +1047,15 @@ Consequence: `scripts\117_summarize_vlm_enabled_offline_decoding.ps1` reads exis
 Current result: The summary passed. VLM-enabled loading reduced mean action L1/MSE by `26.838%` / `24.666%`, but the alignment signal remained `weak`, clipped values persisted, ACTION `MEAN_STD` normalization is active, and the 6D policy action shape still requires provenance analysis against the 7D LIBERO action convention.
 
 Consequence: Do not scale learned-policy rollout yet. The next decision should come from a report-only action-normalization/provenance audit.
+
+## Action Normalization Provenance Audit
+
+Decision: Add a report-only audit for action normalization statistics and action-convention provenance.
+
+Reason: VLM-enabled loading improved offline action-distance metrics but did not clear weak alignment or clipping. Processor action stats, 6D policy action shape, 7D LIBERO action convention, and adapter clipping must be audited before another rollout hypothesis.
+
+Consequence: `scripts\118_audit_action_normalization_provenance.ps1` reads local config/processor JSON, processor safetensors, and offline reports only. It does not load models, infer, train, rollout, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current result: The audit passed with `decision=no_go_rollout_scaling`. Processor action stats are keyed by `so100`, `so100-blue`, and `so100-red`; action mean/std magnitudes are much larger than local LIBERO expert-action previews; policy action shape is `[6]`; the adapter path remains 7D; decoded actions still clip.
+
+Consequence: The next decision should be a planning-only action-stat mapping or checkpoint/task-provenance correction plan. Do not run another learned-policy rollout variant until this mismatch is addressed or explicitly ruled out.

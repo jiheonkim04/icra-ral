@@ -556,6 +556,18 @@ Current local result: summary passed. VLM-enabled loading reduced mean action L1
 
 48. Next safe step: create the report-only action-normalization/provenance audit. It should inspect local processor stats, action unnormalizer metadata, 6D policy action dimensions, 7D LIBERO expert-action dimensions, adapter clipping, and whether the action scale/statistics explain the weak offline alignment. Do not load models, infer, train, rollout, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims for this audit.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\118_audit_action_normalization_provenance.ps1
+```
+
+If this audit finds action-stat provenance or scale mismatch, the next autonomous step is a planning-only action-stat mapping/checkpoint-task provenance correction plan, not another learned-policy rollout variant.
+
+Current local result: audit passed with `decision=no_go_rollout_scaling`. The processor action-stat prefixes are `so100`, `so100-blue`, and `so100-red`; action mean/std magnitudes are far larger than local LIBERO expert-action previews; the policy action shape is `[6]`; the local adapter path remains 7D; clipping persists.
+
+49. Next safe step: create a planning-only action-stat mapping/checkpoint-task provenance correction plan. It should decide whether to compare in normalized action space, bypass or replace mismatched unnormalizer stats for LIBERO diagnostics, seek a LIBERO-aligned SmolVLA checkpoint/source, or keep learned-policy rollouts blocked and pivot to offline head/TCA-Map evidence. Do not alter model weights, train, rollout, download new checkpoints, use GPU jobs, execute OpenVLA-OFT, or make paper claims in the planning step.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

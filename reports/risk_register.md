@@ -937,3 +937,13 @@ Impact: The project could move to learned-policy rollout scaling even though the
 Mitigation: `scripts\117_summarize_vlm_enabled_offline_decoding.ps1` labels the comparison as report-only diagnostic evidence, keeps rollout scaling, benchmark claims, and paper claims false, and routes the next step to action-normalization/provenance analysis when weak alignment or clipping remains.
 
 Current status: the summary passed and found meaningful VLM-on improvement, but alignment remained `weak` and clipping persisted. This keeps the overinterpretation risk active and routes the next safe task to action-normalization/provenance audit.
+
+## Action Normalization Provenance Mismatch Risk
+
+Risk: The local SmolVLA processor action statistics may come from a robot/action convention that is not aligned with local LIBERO demonstration actions.
+
+Impact: Learned-policy actions can be finite and VLM-sensitive while still being systematically mis-scaled or mis-adapted for LIBERO, causing zero-reward rollouts and weak offline expert-action alignment.
+
+Mitigation: `scripts\118_audit_action_normalization_provenance.ps1` inspects processor safetensor action mean/std keys and magnitudes, compares them against local LIBERO action previews, and keeps rollout scaling blocked if provenance or scale mismatch remains.
+
+Current status: the audit found SO100 action-stat prefixes and action-stat magnitudes far outside the local LIBERO expert-action preview range. Learned-policy rollout scaling remains blocked until an action-stat mapping or checkpoint/task-provenance correction plan is created and validated.
