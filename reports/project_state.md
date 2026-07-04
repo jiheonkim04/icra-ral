@@ -361,6 +361,20 @@ Expected interpretation:
 
 The planner itself performs no model load, inference, simulator environment creation, rollout, training, GPU job, download, OpenVLA-OFT execution, token access, or paper claim. The future runner must still remain offline and non-rollout.
 
+## Bounded Offline Demonstration Action Decoding
+
+The one-sample offline action-decoding diagnostic is implemented by `scripts\106_bounded_offline_demo_action_decoding.ps1` and `tca_map.smolvla.offline_demo_action_decoding`.
+
+Scope:
+
+- reads one local LIBERO HDF5 observation/action pair,
+- loads local SmolVLA on CPU,
+- runs exactly one `select_action` call,
+- adapts the decoded 6D action to the 7D expert-action convention,
+- reports action L1/MSE to the expert action.
+
+It does not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper-grade claims. It requires the task-local gate `ALLOW_OFFLINE_DEMO_ACTION_DECODING=1`.
+
 Observed load-only smoke metrics:
 
 ```text

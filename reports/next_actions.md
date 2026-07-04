@@ -422,6 +422,16 @@ powershell -ExecutionPolicy Bypass -File scripts\105_plan_offline_demo_condition
 
 Expected local result: `decision=proceed` and `ready_for_bounded_offline_demo_action_decoding_runner=true` if local checkpoint files, the selected HDF5 file, and the checkpoint-task alignment audit are all present. This planner does not load SmolVLA or run inference. If it passes, the next safe implementation is a separately gated one-sample offline action-decoding runner; it must not create a simulator environment, rollout, train, download, use OpenVLA-OFT, or make paper claims.
 
+35. Bounded offline demonstration action decoding command:
+
+```powershell
+$env:ALLOW_OFFLINE_DEMO_ACTION_DECODING="1"
+powershell -ExecutionPolicy Bypass -File scripts\106_bounded_offline_demo_action_decoding.ps1
+Remove-Item Env:\ALLOW_OFFLINE_DEMO_ACTION_DECODING -ErrorAction SilentlyContinue
+```
+
+This runner may load local SmolVLA on CPU and perform exactly one offline `select_action` call on one local HDF5 observation/action pair. It must not create a simulator environment, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims. After it runs, summarize the diagnostic before deciding whether any further rollout is justified.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

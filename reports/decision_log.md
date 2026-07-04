@@ -933,3 +933,11 @@ Decision: Add a planning-only gate for one-sample offline action decoding before
 Reason: The checkpoint-task alignment audit found that a non-rollout offline action-decoding check is the next informative step. It can test whether the local policy action decoder is at least consistent with a real LIBERO demonstration observation and expert action without simulator rollout.
 
 Consequence: `scripts\105_plan_offline_demo_conditioned_action_decoding.ps1` checks local file/report prerequisites and writes a risk assessment for a future one-sample runner. It does not load models, infer, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+## Bounded Offline Demonstration Action Decoding Runner
+
+Decision: Add a separately gated one-sample offline action-decoding runner before any additional learned-policy rollout.
+
+Reason: The planner authorized a non-rollout check that can directly compare a local SmolVLA decoded action to a real LIBERO expert action from the same HDF5 observation.
+
+Consequence: `scripts\106_bounded_offline_demo_action_decoding.ps1` requires `ALLOW_OFFLINE_DEMO_ACTION_DECODING=1`, loads SmolVLA on CPU, reads one HDF5 timestep, runs one `select_action` call, and writes diagnostic action error metrics. It does not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
