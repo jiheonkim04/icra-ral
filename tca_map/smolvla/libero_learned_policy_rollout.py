@@ -53,6 +53,14 @@ FORBIDDEN_GATES = [
 MAX_RUNTIME_SECONDS = 1800
 MAX_TASK_COUNT = 5
 MAX_STEPS_PER_TASK = 10
+PROMPT_STRATEGY_STEM_SPACES = "stem_spaces"
+PROMPT_STRATEGY_BDDL_LANGUAGE = "bddl_language"
+PROMPT_STRATEGY_BDDL_LANGUAGE_PERIOD = "bddl_language_period"
+PROMPT_STRATEGIES = [
+    PROMPT_STRATEGY_STEM_SPACES,
+    PROMPT_STRATEGY_BDDL_LANGUAGE,
+    PROMPT_STRATEGY_BDDL_LANGUAGE_PERIOD,
+]
 
 
 def _env_flag(name: str) -> bool:
@@ -81,8 +89,27 @@ def _task_files(libero_root: Path, suite: str) -> list[Path]:
     return [Path(path) for path in sorted(glob.glob(str(pattern)))]
 
 
-def _task_language(path: Path) -> str:
-    return path.stem.replace("_", " ")
+def _read_bddl_language(path: Path) -> str | None:
+    text = path.read_text(encoding="utf-8", errors="replace")
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("(:language"):
+            value = stripped[len("(:language") :].strip()
+            if value.endswith(")"):
+                value = value[:-1].strip()
+            return " ".join(value.split())
+    return None
+
+
+def _task_language(path: Path, strategy: str = PROMPT_STRATEGY_STEM_SPACES) -> str:
+    if strategy == PROMPT_STRATEGY_STEM_SPACES:
+        return path.stem.replace("_", " ")
+    if strategy in {PROMPT_STRATEGY_BDDL_LANGUAGE, PROMPT_STRATEGY_BDDL_LANGUAGE_PERIOD}:
+        language = _read_bddl_language(path) or path.stem.replace("_", " ")
+        if strategy == PROMPT_STRATEGY_BDDL_LANGUAGE_PERIOD and language and language[-1] not in ".!?":
+            return language + "."
+        return language
+    raise ValueError(f"unsupported prompt strategy: {strategy}")
 
 
 def _state_tensor(obs: dict[str, Any], dim: int, device: str):
@@ -234,6 +261,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 or _env_flag("ALLOW_BOUNDED_LEARNED_POLICY_MATRIX")
                 or _env_flag("ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC")
                 or _env_flag("ALLOW_ACTION_SCALE_DIAGNOSTIC")
+                or _env_flag("ALLOW_PROMPT_FORMAT_DIAGNOSTIC")
             ),
             "task_local_gates_set": [
                 name
@@ -242,6 +270,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                     "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX",
                     "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC",
                     "ALLOW_ACTION_SCALE_DIAGNOSTIC",
+                    "ALLOW_PROMPT_FORMAT_DIAGNOSTIC",
                 ]
                 if _env_flag(name)
             ],
@@ -254,6 +283,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "device": args.device,
             "action_adapter_strategy": args.action_adapter_strategy,
             "action_scale": args.action_scale,
+            "prompt_strategy": args.prompt_strategy,
         },
         "paths": {
             "smolvla_ckpt": str(smolvla_ckpt),
@@ -290,7 +320,8 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1 or "
             "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1 or "
             "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC=1 or "
-            "ALLOW_ACTION_SCALE_DIAGNOSTIC=1 is required for this bounded task."
+            "ALLOW_ACTION_SCALE_DIAGNOSTIC=1 or "
+            "ALLOW_PROMPT_FORMAT_DIAGNOSTIC=1 is required for this bounded task."
         )
         return report
     if report["policy"]["forbidden_gates_set"]:
@@ -334,10 +365,11 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             task_started = time.monotonic()
             task_id = args.start_task_id + offset
             bddl_file = task_files[task_id]
-            task_language = _task_language(bddl_file)
+            task_language = _task_language(bddl_file, args.prompt_strategy)
             summary: dict[str, Any] = {
                 "task_id": task_id,
                 "task_name": bddl_file.stem,
+                "prompt_strategy": args.prompt_strategy,
                 "language": task_language,
                 "bddl_file": str(bddl_file),
                 "env_created": False,
@@ -482,6 +514,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--max-steps-per-task", type=int, default=3)
     parser.add_argument("--camera-size", type=int, default=64)
     parser.add_argument("--device", default="cpu", choices=["cpu"])
+    parser.add_argument("--prompt-strategy", default=PROMPT_STRATEGY_STEM_SPACES, choices=PROMPT_STRATEGIES)
     parser.add_argument(
         "--action-adapter-strategy",
         default=ACTION_STRATEGY_GRIPPER_ZERO_HOLD,

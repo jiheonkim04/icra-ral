@@ -948,3 +948,22 @@ Observed local result:
 - no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
 
 Interpretation: action-scale wiring is working, but action magnitude alone does not explain the zero-reward behavior on the selected diagnostic task. Rollout scaling remains blocked. The next safe rung is a bounded prompt-format, camera-source, or state-sufficiency diagnostic before any broader learned-policy rollout matrix.
+
+## Prompt-Format Diagnostic Runner Result
+
+Current local bounded result: passed as diagnostic execution evidence only.
+
+`scripts\86_plan_prompt_format_diagnostic.ps1` reported `decision=proceed`, and `scripts\87_bounded_prompt_format_diagnostic.ps1` ran under task-local `ALLOW_PROMPT_FORMAT_DIAGNOSTIC=1`.
+
+Observed local result:
+
+- prompt strategies tested: `stem_spaces`, `bddl_language`, and `bddl_language_period`,
+- observed BDDL language: `turn on the stove and put the moka pot on it`,
+- variants completed: 3,
+- wrapper/execution passed for all variants,
+- diagnostic success rate: 0.0 for all variants,
+- reward sum: 0.0 for all variants,
+- prompt changes produced different continuous action previews,
+- no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
+
+Interpretation: BDDL language prompt parsing is wired and cleaner than stem-derived prompts, but prompt format alone does not explain the zero-reward behavior on the selected diagnostic task. Rollout scaling remains blocked. The next safe rung is a bounded camera-source or state-sufficiency diagnostic before any broader learned-policy rollout matrix.

@@ -190,6 +190,8 @@ $required = @(
     "scripts/83_bounded_adapter_strategy_diagnostic.ps1",
     "scripts/84_plan_action_scale_diagnostic.ps1",
     "scripts/85_bounded_action_scale_diagnostic.ps1",
+    "scripts/86_plan_prompt_format_diagnostic.ps1",
+    "scripts/87_bounded_prompt_format_diagnostic.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -288,6 +290,7 @@ $required = @(
     "tests/test_adapter_strategy_action_scale_diagnostics_plan.py",
     "tests/test_bounded_adapter_strategy_diagnostic.py",
     "tests/test_action_scale_diagnostic.py",
+    "tests/test_prompt_format_diagnostic.py",
     "tests/test_lora_config_guards.py"
 )
 
