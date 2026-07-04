@@ -807,3 +807,11 @@ Risk: A learned-policy recheck from an HDF5 demonstration initial state could be
 Impact: The project could overclaim a narrow compatibility diagnostic or expand to broader rollout evaluation before a positive, repeated signal exists.
 
 Mitigation: `scripts\101_plan_init_state_learned_policy_recheck.ps1` is planning-only and authorizes only a future separately gated one-task runner with one HDF5 demo initial state and at most five policy-controlled steps. It keeps rollout scaling, multi-seed evaluation, GPU jobs, training, OpenVLA-OFT, and paper claims blocked.
+
+## Init-State Recheck Zero-Reward Risk
+
+Risk: The init-state learned-policy recheck can pass execution and set the HDF5 demonstration state while still producing zero reward and no diagnostic task success.
+
+Impact: The project could misread topology success as evidence that the learned policy is working on LIBERO.
+
+Mitigation: Treat `scripts\102_bounded_init_state_learned_policy_recheck.ps1` as diagnostic/local-pilot evidence only. The current result has task success `false` and reward sum `0.0`, so rollout scaling and paper-grade claims remain blocked.

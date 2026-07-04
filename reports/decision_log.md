@@ -901,3 +901,11 @@ Decision: Add a planning-only gate before learned-policy recheck from the valida
 Reason: The HDF5 replay diagnostic proves the simulator can set the demonstration initial state and step the first demonstration action, but learned-policy inference must remain a separate bounded diagnostic task with explicit scope and evidence labels.
 
 Consequence: `scripts\101_plan_init_state_learned_policy_recheck.ps1` can authorize only a future separately gated one-task recheck under `ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK=1`, capped at five policy-controlled steps. It does not authorize rollout scaling, multi-seed evaluation, GPU jobs, training, OpenVLA-OFT, or paper-grade claims.
+
+## Bounded Init-State Learned-Policy Recheck Result
+
+Decision: Treat the init-state learned-policy recheck as passed for execution topology but not for task performance.
+
+Reason: `scripts\102_bounded_init_state_learned_policy_recheck.ps1` loaded local SmolVLA in WSL CPU, created one LIBERO/RoboSuite environment, set the HDF5 demonstration initial state, and executed 3 policy-controlled steps without downloads, installs, training, GPU jobs, OpenVLA-OFT, multi-seed evaluation, token access, or paper claims. The diagnostic success check remained false and reward sum remained `0.0`.
+
+Consequence: Initial-state alignment alone does not explain the zero-reward behavior. The next safe work is a report-only metric comparison against previous reset-only learned-policy diagnostics before any further rollout decision.
