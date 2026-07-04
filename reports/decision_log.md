@@ -1091,3 +1091,11 @@ Decision: Add a planning-only gate for normalized-action-space probing versus ch
 Reason: The LIBERO action-stat subset audit confirmed both scale and dimension mismatch, and the checkpoint processor stats are SO100-prefixed. That makes a checkpoint/task provenance audit safer and more informative than immediately changing postprocessing or running another learned-policy rollout.
 
 Consequence: `scripts\121_plan_normalized_action_space_probe.ps1` selects `checkpoint_task_provenance_resolution` as the next safe step when SO100-prefixed stats, 7D unit-scale LIBERO actions, scale mismatch, and dimension mismatch are all present. It keeps normalized-action probing deferred to a later separately gated runner and does not authorize model loading, inference, training, rollout, downloads, GPU jobs, OpenVLA-OFT, policy behavior changes, or paper claims.
+
+## Checkpoint / Task Provenance Resolution
+
+Decision: Add a report-only provenance resolver for the current SmolVLA checkpoint versus local LIBERO action conventions.
+
+Reason: The normalized-action plan selected provenance resolution before any action-space probe. Local checkpoint metadata and model-card text must be checked against LIBERO HDF5 action stats so that learned-policy rollout failures are not overinterpreted.
+
+Consequence: `scripts\122_resolve_checkpoint_task_provenance.ps1` reads only local checkpoint metadata and existing runtime reports. It blocks learned-policy rollout scaling if the checkpoint remains 6D/SO100-like while local LIBERO demonstrations are 7D/unit-scale, and routes the next research path to offline/head TCA-Map plus required LoRA evidence or to a separate LIBERO-aligned checkpoint source plan.

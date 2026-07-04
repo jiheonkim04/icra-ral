@@ -977,3 +977,13 @@ Impact: The project could hide a checkpoint/task provenance mismatch behind an a
 Mitigation: `scripts\121_plan_normalized_action_space_probe.ps1` is planning-only. When SO100-prefixed checkpoint stats and 7D unit-scale LIBERO actions are confirmed, it selects checkpoint/task provenance resolution before any normalized-action runner. It keeps model loading, inference, training, rollouts, downloads, GPU jobs, OpenVLA-OFT, policy behavior changes, and paper claims false.
 
 Current status: the planner selected checkpoint/task provenance resolution and left the future normalized-action runner disabled until a separate gate exists.
+
+## Checkpoint Provenance Misuse Risk
+
+Risk: The current `lerobot/smolvla_base` checkpoint could be treated as a LIBERO learned-policy baseline even if its processor stats, action shape, and model-card cues indicate a base/SO100-like provenance mismatch.
+
+Impact: Zero-reward or weak offline diagnostics could be misreported as SmolVLA/LIBERO policy failure or as TCA-Map evidence, when they may mainly reflect checkpoint/action-convention mismatch.
+
+Mitigation: `scripts\122_resolve_checkpoint_task_provenance.ps1` is report-only and blocks learned-policy rollout scaling when checkpoint metadata remains incompatible with local LIBERO HDF5 action stats. It routes the project toward offline/head TCA-Map plus required LoRA tracks or a separate LIBERO-aligned checkpoint source plan.
+
+Current status: the audit blocked learned-policy LIBERO rollout scaling for the current checkpoint and marked offline/head TCA-Map plus required LoRA evidence, or a separate LIBERO-aligned checkpoint source plan, as the safe next direction.

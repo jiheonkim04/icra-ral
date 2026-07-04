@@ -1570,3 +1570,33 @@ Current local result:
 - ready for rollout scaling, benchmark claims, and paper claims: false.
 
 Interpretation: the current checkpoint/action mismatch is strong enough that provenance must be resolved before any postprocessor bypass, normalized-action runner, learned-policy rollout scaling, or paper claim.
+
+## Checkpoint / Task Provenance Resolution
+
+The report-only provenance resolver is implemented by `scripts\122_resolve_checkpoint_task_provenance.ps1` and `tca_map.smolvla.checkpoint_task_provenance_resolution`.
+
+Scope:
+
+- reads the local SmolVLA checkpoint config, policy preprocessor, policy postprocessor, and README,
+- reads the normalized-action plan and LIBERO action-stat subset audit runtime reports,
+- decides whether the current checkpoint can support learned-policy LIBERO rollout evidence,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, change policy behavior, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if checkpoint metadata stays 6D/SO100-like while LIBERO HDF5 action stats stay 7D/unit-scale, learned-policy rollout scaling with this checkpoint remains no-go,
+- the next safe path is offline/head TCA-Map plus required LoRA evidence, or a separate source-resolution plan for a LIBERO-action-aligned SmolVLA checkpoint,
+- normalized-action probes remain deferred until provenance is resolved and a separate gate exists.
+
+Current local result:
+
+- audit passed,
+- decision: `no_go_learned_policy_rollout_scaling`,
+- current checkpoint valid for LIBERO learned-policy rollout evidence: false,
+- selected next step: `pivot_to_offline_head_tca_map_and_lora_or_find_libero_aligned_checkpoint`,
+- ready for offline/head TCA-Map pivot: true,
+- ready for LIBERO-aligned checkpoint source plan: true,
+- ready for normalized-action-space runner: false,
+- ready for rollout scaling, benchmark claims, and paper claims: false.
+
+Interpretation: the current `lerobot/smolvla_base` checkpoint should be treated as a base/SO100-like SmolVLA asset for local interface/offline diagnostics, not as a paper-relevant LIBERO learned-policy rollout baseline. The next safe paper path is to continue real-LIBERO offline/head TCA-Map and required LoRA evidence, or separately resolve a LIBERO-action-aligned checkpoint source before any further learned-policy rollout evidence.
