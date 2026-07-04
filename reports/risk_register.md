@@ -719,3 +719,19 @@ Risk: A bounded camera-source diagnostic can pass execution and change image-sou
 Impact: The project could mistake camera-source sensitivity for improved policy behavior or scale rollout prematurely.
 
 Mitigation: Treat `scripts\89_bounded_camera_source_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows camera alias variants execute cleanly and change image sources/action previews, but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and move next to state-sufficiency diagnostics.
+
+## State-Sufficiency Diagnostic Overinterpretation
+
+Risk: A bounded state-sufficiency diagnostic can pass execution and change state-vector metadata/actions while still showing zero reward and no task success.
+
+Impact: The project could mistake state sensitivity for improved policy behavior or scale rollout prematurely.
+
+Mitigation: Treat `scripts\91_bounded_state_sufficiency_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows state variants execute cleanly and change state adapter metadata/action previews, but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and generate a diagnostic synthesis/no-go report before any larger rollout matrix.
+
+## Repeated Zero-Reward Diagnostic Ladder Risk
+
+Risk: Multiple bounded diagnostics can pass wrapper execution while all task reward and success signals remain zero.
+
+Impact: The project could spend local runtime on additional variants that are unlikely to clarify the core compatibility issue.
+
+Mitigation: After adapter strategy, action scale, prompt format, camera source, and state sufficiency all produce zero reward, prefer synthesis, no-go analysis, and environment-policy compatibility inspection over rollout scaling. Any further learned-policy diagnostic should have a specific compatibility hypothesis and remain one-task bounded.

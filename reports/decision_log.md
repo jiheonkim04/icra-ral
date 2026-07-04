@@ -821,3 +821,11 @@ Decision: Do not scale learned-policy rollout after the first camera-source diag
 Reason: `scripts\89_bounded_camera_source_diagnostic.ps1` completed `current_aliases`, `camera3_eye_in_hand`, and `all_agentview` variants with explicit camera source metadata. The variants changed image sources and action previews, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: Camera source selection is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test state sufficiency before broader rollout matrices or paper-grade claims.
+
+## State-Sufficiency Diagnostic Runner Result
+
+Decision: Do not scale learned-policy rollout after the first state-sufficiency diagnostic.
+
+Reason: `scripts\91_bounded_state_sufficiency_diagnostic.ps1` completed `eef_pos_quat_first3`, `eef_pos_quat_last3`, and `eef_pos_zero_rot` variants with explicit state adapter metadata. The variants changed state mappings and action previews, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: State-vector sufficiency is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work is a learned-policy diagnostic synthesis/no-go report or a narrower environment-policy compatibility check, not broader rollout matrices or paper-grade claims.
