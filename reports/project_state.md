@@ -857,3 +857,9 @@ Current local result: `scripts\80_plan_action_state_adapter_patch.ps1` passed as
 Current planned branch: add pure helper functions for action, state, and image alias adaptation. This step must be unit-test-only and must not wire into rollout execution yet.
 
 Current local result: pure adapter helper tests passed. Rollout wiring remains intentionally untouched.
+
+## Single-Sample Adapter Metadata Wiring
+
+Current planned branch: wire pure adapter helpers into the synthetic single-sample interface path so reports include state, image alias, and action adapter metadata without simulator execution or rollout.
+
+Current local result: bounded synthetic single-sample smoke passed with adapter metadata recorded. The report includes explicit state adapter metadata, image alias source keys, and a 6D-to-7D action adapter using the named gripper-zero diagnostic strategy. Simulator execution and rollouts remain false.
