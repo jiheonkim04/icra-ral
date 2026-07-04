@@ -148,6 +148,7 @@ $required = @(
     "reports/bounded_lora_offline_scaleup.md",
     "reports/scaleup_attribution_gap_synthesis.md",
     "reports/tca_select_ambiguity_stress_plan.md",
+    "reports/tca_select_ambiguity_stress.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -269,6 +270,7 @@ $required = @(
     "scripts/126_bounded_lora_offline_scaleup.ps1",
     "scripts/127_synthesize_scaleup_attribution_gaps.ps1",
     "scripts/128_plan_tca_select_ambiguity_stress_test.ps1",
+    "scripts/129_run_tca_select_ambiguity_stress_test.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -305,6 +307,7 @@ $required = @(
     "tca_map/smolvla/bounded_lora_offline_scaleup_plan.py",
     "tca_map/smolvla/scaleup_attribution_gap_synthesis.py",
     "tca_map/smolvla/tca_select_ambiguity_stress_plan.py",
+    "tca_map/smolvla/tca_select_ambiguity_stress.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -423,6 +426,7 @@ $required = @(
     "tests/test_bounded_lora_offline_scaleup.py",
     "tests/test_scaleup_attribution_gap_synthesis.py",
     "tests/test_tca_select_ambiguity_stress_plan.py",
+    "tests/test_tca_select_ambiguity_stress.py",
     "tests/test_lora_config_guards.py"
 )
 

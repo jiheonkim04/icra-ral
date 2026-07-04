@@ -702,6 +702,18 @@ Current local result: plan passed with `decision=proceed_offline_tca_select_ambi
 
 60. Next safe step: implement the CPU-only offline TCA-Select ambiguity stress-test runner. It should use existing local counterfactual artifacts, generate ambiguous candidate heatmaps without loading SmolVLA, and report offline proxy metrics only.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\129_run_tca_select_ambiguity_stress_test.ps1
+```
+
+Expected interpretation: if the runner passes, update the attribution synthesis/evidence table with stress-test results. It remains offline proxy evidence only.
+
+Current local result: runner passed with `tca_select_ambiguity_stress_passed=true`, `record_count=16`, selected wrong-target proxy rate `0.0`, top-heatmap wrong-target proxy rate `1.0`, wrong-target proxy delta `-1.0`, selected action L1 `0.0`, top-heatmap action L1 `0.164299`, action L1 delta `-0.164299`, CPU-only execution, no model loading, no training, no rollout, no GPU job, no OpenVLA-OFT, and paper readiness false.
+
+61. Next safe step: refresh the scale-up attribution synthesis and/or offline evidence table so it includes `reports\tca_select_ambiguity_stress_report.json`. This should remain report-only and must not train, download, load models, infer with SmolVLA, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

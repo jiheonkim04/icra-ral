@@ -1798,3 +1798,39 @@ Current local result:
 - ready for rollout, benchmark claims, and paper claims: false.
 
 Interpretation: the next safe task is implementation of the CPU-only offline ambiguity stress-test runner.
+
+## Offline TCA-Select Ambiguity Stress-Test Runner
+
+The CPU-only offline runner is implemented by `scripts\129_run_tca_select_ambiguity_stress_test.ps1` and `tca_map.smolvla.tca_select_ambiguity_stress`.
+
+Scope:
+
+- reads the existing local LIBERO offline counterfactual split report,
+- reads bounded HDF5 action snippets,
+- creates ambiguous target/action candidate heatmaps without loading SmolVLA,
+- compares Distributional TCA-Select against a top-heatmap baseline,
+- reports wrong-target proxy, action L1, condition sensitivity, target consistency, candidate diversity, latency, and GPU memory,
+- does not train, download, install, import heavy VLA models, load models, infer with SmolVLA, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if the runner passes, it provides selection-specific offline proxy evidence,
+- the result is not standard success, not rollout success, and not paper-grade evidence,
+- the next safe task is an attribution synthesis refresh that includes the stress-test result.
+
+Current local result:
+
+- runner passed,
+- `tca_select_ambiguity_stress_passed=true`,
+- record count: 16,
+- selected wrong-target proxy rate: 0.0,
+- top-heatmap wrong-target proxy rate: 1.0,
+- wrong-target proxy delta vs top heatmap: -1.0,
+- selected action L1: 0.0,
+- top-heatmap action L1: 0.164299,
+- action L1 delta vs top heatmap: -0.164299,
+- latency: 0.428231 ms,
+- max GPU memory: 0.0 MB,
+- model loading, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, and paper claims remained false.
+
+Interpretation: Distributional TCA-Select now has selection-specific offline proxy evidence in an ambiguity stress setting. This still does not unblock standard success, learned-policy rollout claims, or paper-grade claims. The next safe task is to refresh the attribution synthesis/evidence table with the stress-test result.
