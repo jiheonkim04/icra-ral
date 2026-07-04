@@ -1099,3 +1099,11 @@ Decision: Add a report-only provenance resolver for the current SmolVLA checkpoi
 Reason: The normalized-action plan selected provenance resolution before any action-space probe. Local checkpoint metadata and model-card text must be checked against LIBERO HDF5 action stats so that learned-policy rollout failures are not overinterpreted.
 
 Consequence: `scripts\122_resolve_checkpoint_task_provenance.ps1` reads only local checkpoint metadata and existing runtime reports. It blocks learned-policy rollout scaling if the checkpoint remains 6D/SO100-like while local LIBERO demonstrations are 7D/unit-scale, and routes the next research path to offline/head TCA-Map plus required LoRA evidence or to a separate LIBERO-aligned checkpoint source plan.
+
+## Offline TCA-Map / LoRA Pivot Plan
+
+Decision: Add a report-only pivot plan after checkpoint/task provenance blocks learned-policy LIBERO rollout scaling.
+
+Reason: The current base checkpoint is not valid LIBERO learned-policy rollout evidence, but the real-LIBERO offline head and LoRA proxy reports are available. The project needs a clean path that keeps paper work moving without overclaiming rollout evidence.
+
+Consequence: `scripts\123_plan_offline_tca_map_lora_pivot.ps1` selects an offline evidence table and gap report when provenance no-go and offline reports are present. It keeps learned-policy rollout scaling, standard success, benchmark success, paper claims, OpenVLA-OFT, downloads, GPU jobs, and heavy imports blocked.

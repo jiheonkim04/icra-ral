@@ -616,6 +616,18 @@ Current local result: audit passed with `decision=no_go_learned_policy_rollout_s
 
 53. Next safe step: do not run more learned-policy LIBERO rollout scaling with the current base checkpoint. Choose the stronger low-compute paper path: either continue offline/head TCA-Map plus required LoRA evidence on real LIBERO data, or create a separate source-resolution plan for a LIBERO-action-aligned SmolVLA checkpoint. Prefer a report-only pivot plan first; it should not download, train, rollout, load models, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\123_plan_offline_tca_map_lora_pivot.ps1
+```
+
+Expected interpretation: if the plan reports `decision=pivot_offline_evidence_ladder`, the next safe task is a report-only offline evidence table and gap report consolidating ActionMap, TCA-Map, Distributional TCA-Select, required LoRA, and remaining rollout/checkpoint blockers.
+
+Current local result: pivot plan passed with `decision=pivot_offline_evidence_ladder`, `ready_for_offline_evidence_table=true`, `ready_for_lora_scaleup_plan=true`, and `ready_for_learned_policy_rollout_scaling=false`. It selected `consolidate_offline_tca_lora_evidence_table_and_gap_report`.
+
+54. Next safe step: create a report-only offline evidence table and gap report. It should consolidate ActionMap, TCA-Map, Distributional TCA-Select, required LoRA, and remaining rollout/checkpoint blockers. It must not train, rollout, download, load models, infer, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
