@@ -378,7 +378,7 @@ Stage B: Bounded render smoke. Allowed only after import readiness passes and a 
 
 Stage C: Bounded simulator reset/step smoke. Allowed only after import/render readiness passes and a risk assessment is green. At most one environment, at most 5 reset/step attempts, runtime <=10 minutes, no learned policy, benchmark claim, paper claim, or OpenVLA-OFT.
 
-Stage D: Bounded tiny rollout diagnostic. Allowed only after earlier stages pass and a rollout risk assessment is green. Task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no training, no multi-seed, no paper claim. Logs must label the result as simulator smoke or tiny diagnostic only.
+Stage D: Bounded tiny rollout diagnostic. Allowed only after earlier stages pass and a rollout risk assessment is green. Task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no training, no multi-seed, no benchmark/SOTA claim, and no paper claim. Execution must use a task-local gate such as `ALLOW_TINY_ROLLOUT=1`, and logs must label the result as simulator smoke or tiny diagnostic only.
 
 Before every WSL package install, render smoke, or rollout smoke, Codex must print or write:
 

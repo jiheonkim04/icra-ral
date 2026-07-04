@@ -86,11 +86,27 @@ def test_tiny_diagnostic_rollout_plan_proceeds_for_planning_only_after_reset_pas
     assert report["decision"] == "proceed"
     assert report["risk_envelope_inside_budget"] is True
     assert report["ready_for_tiny_diagnostic_rollout_plan"] is True
-    assert report["ready_for_tiny_diagnostic_rollout_execution"] is False
+    assert report["ready_for_tiny_diagnostic_rollout_execution"] is True
     assert report["ready_for_rollout"] is False
-    assert report["execution_authorized_by_this_planner"] is False
+    assert report["execution_authorized_by_this_planner"] is True
     assert report["policy"]["rollouts_performed"] is False
     assert report["risk_assessment"]["rollout_would_run_now"] is False
+
+
+def test_tiny_diagnostic_rollout_plan_allows_five_task_boundary(tmp_path):
+    result, report, _, _ = _run_planner(
+        tmp_path,
+        reset_report={"bounded_simulator_reset_step_smoke_passed": True},
+        extra_args=["-TaskCount", "5", "-ExpectedRuntimeMinutes", "30", "-ExpectedVramGb", "14"],
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert report["decision"] == "proceed"
+    assert report["risk_envelope_inside_budget"] is True
+    assert report["ready_for_tiny_diagnostic_rollout_execution"] is True
+    assert report["risk_assessment"]["task_count"] == 5
+    assert report["risk_assessment"]["expected_runtime_minutes"] == 30
+    assert report["risk_assessment"]["expected_vram_gb"] == 14
 
 
 def test_tiny_diagnostic_rollout_plan_refuses_execution_gates(tmp_path):
