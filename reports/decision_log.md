@@ -411,3 +411,11 @@ Decision: Raise the autonomous acquisition budget only for the official LIBERO d
 Reason: The local machine has about 500 GB free, and the official LIBERO dataset source recorded in the repository is about 100 GB with no token/login/payment/license click-through requirement. This makes a bounded acquisition safe if disk remains above a stricter post-download floor.
 
 Consequence: `scripts\49_acquire_libero_data.ps1` and `tca_map.datasets.libero_data_acquisition` may acquire only `yifengzhu-hf/LIBERO-datasets` into `C:\assets\data\libero` using `C:\assets\hf_home` as cache. The task-local budget is 180 GB with at least 250 GB free disk remaining after acquisition. The command still performs no GPU jobs, training, simulator execution, rollouts, heavy VLA imports, OpenVLA-OFT execution, token access, external upload, or paper claims.
+
+## LIBERO HDF5 Reader Gate And Rollout Semantics
+
+Decision: Separate acquired-data readiness, HDF5 reader readiness, and rollout readiness.
+
+Reason: After official LIBERO data acquisition, HDF5 files can exist locally while `h5py` is unavailable. Also, path/data readiness must not imply simulator rollout readiness.
+
+Consequence: `scripts\50_check_libero_hdf5_reader.ps1` checks `h5py` availability without installing packages. `scripts\11_check_real_assets.ps1` reports path/data readiness separately and keeps `ready_for_libero_rollout=false` until a separate simulator import/render/rollout risk gate exists and passes.

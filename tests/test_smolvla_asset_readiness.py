@@ -156,4 +156,34 @@ def test_libero_path_ready_is_not_rollout_ready_without_dataset_files(tmp_path):
 
     assert report["ready_for_libero_path_check"] is True
     assert report["libero_dataset_files_present"] is False
+    assert report["ready_for_libero_rollout_path_check"] is True
     assert report["ready_for_libero_rollout"] is False
+
+
+def test_libero_dataset_files_are_offline_data_ready_not_rollout_ready(tmp_path):
+    smolvla_dir = tmp_path / "smolvla"
+    checkpoint_root = tmp_path / "checkpoints"
+    libero_root = tmp_path / "LIBERO"
+    libero_data_root = tmp_path / "libero_data"
+    robosuite_root = tmp_path / "robosuite"
+    for path in (smolvla_dir, checkpoint_root, libero_root, libero_data_root, robosuite_root):
+        path.mkdir()
+    (libero_data_root / "tiny_demo.hdf5").write_text("dummy", encoding="utf-8")
+
+    report = _run_real_asset_checker(
+        tmp_path,
+        smolvla_dir,
+        checkpoint_root,
+        extra_env={
+            "LIBERO_ROOT": str(libero_root),
+            "LIBERO_DATA_ROOT": str(libero_data_root),
+            "ROBOSUITE_ROOT": str(robosuite_root),
+        },
+    )
+
+    assert report["ready_for_libero_path_check"] is True
+    assert report["libero_dataset_files_present"] is True
+    assert report["ready_for_libero_offline_data_check"] is True
+    assert report["ready_for_libero_rollout_path_check"] is True
+    assert report["ready_for_libero_rollout"] is False
+    assert "never inferred" in report["ready_for_libero_rollout_reason"]

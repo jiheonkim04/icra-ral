@@ -306,7 +306,8 @@ The current executable local path is now blocked at the real dataset/simulator b
 - `ROBOSUITE_ROOT` exists,
 - `LIBERO_DATA_ROOT` exists,
 - no real LIBERO demonstration files or documented tiny subset are present under `LIBERO_DATA_ROOT`,
-- the official full LIBERO dataset source is resolved, and its expected 100 GB size is inside the dedicated 180 GB LIBERO-only acquisition budget if at least 250 GB disk remains after acquisition.
+- the official full LIBERO dataset has been acquired under `C:\assets\data\libero` from `yifengzhu-hf/LIBERO-datasets`; runtime acquisition reports are ignored and dataset files are not committed.
+- offline HDF5 interface inspection is currently gated by the `h5py` reader dependency.
 
 Codex should keep running routine readiness and status checks without asking. The next safe work is planning-only dataset/simulator readiness, status maintenance, or larger-compute handoff planning. It must stop before dataset acquisition, simulator import/render/rollout, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs unless a risk assessment is green and inside policy.
 
@@ -403,17 +404,18 @@ scripts\45_resolve_libero_robosuite_sources.ps1 -> repo setup decision=proceed, 
 scripts\46_prepare_libero_robosuite_sources.ps1 -> completed source repo setup only
 scripts\42_plan_libero_dataset_risk.ps1 -> decision=stop for full dataset by size budget unless a tiny subset exists
 scripts\47_build_libero_metadata_subset.ps1 -> metadata-only target/counterfactual manifest builder, no demos required
-scripts\48_plan_libero_offline_interface_smoke.ps1 -> check-only gate for tiny local data files; expected decision=stop until demos exist
+scripts\48_plan_libero_offline_interface_smoke.ps1 -> check-only gate for tiny local data files; expected decision=stop until h5py is available for HDF5 inspection
+scripts\50_check_libero_hdf5_reader.ps1 -> check-only h5py reader dependency gate
 scripts\43_plan_simulator_readiness.ps1 -> decision=proceed for a separate bounded simulator import-smoke plan, but no simulator import/render/rollout has run
 ```
 
 Reasons:
 
 - LIBERO/RoboSuite source paths are now present,
-- no tiny real/offline dataset files exist under `LIBERO_DATA_ROOT`,
-- the official full dataset is about 100 GB, which is inside the dedicated 180 GB LIBERO-only acquisition budget if at least 250 GB disk remains after acquisition.
+- official LIBERO HDF5 demonstration files exist under `LIBERO_DATA_ROOT`,
+- `h5py` is missing, so HDF5 offline interface inspection remains blocked.
 
-Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. Actual dataset acquisition, simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
+Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. HDF5 reader dependency setup requires a separate risk assessment. Simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 
 The next safe local action is to run the metadata-only LIBERO subset builder. That can validate task/counterfactual split plumbing from BDDL files, but it does not clear real offline dataset interface readiness because no demonstration files are present.
 

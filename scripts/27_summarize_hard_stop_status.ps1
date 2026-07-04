@@ -345,10 +345,12 @@ report = {
     "assets": {
         **smolvla_readiness,
         "ready_for_openvla_oft_smoke": local_paths.get("openvla_oft_ckpt", {}).get("exists", False),
-        "ready_for_libero_rollout": all(
+        "ready_for_libero_rollout_path_check": all(
             local_paths.get(key, {}).get("exists", False)
             for key in ["libero_root", "libero_data_root", "robosuite_root"]
         ),
+        "ready_for_libero_rollout": False,
+        "ready_for_libero_rollout_reason": "Rollout readiness is never inferred from paths or dataset files alone; run a separate simulator import/render/rollout risk gate.",
         "missing_assets": asset_report.get("missing_assets"),
         "paths": {
             key: {k: v for k, v in value.items() if k != "path"}
