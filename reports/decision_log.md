@@ -1205,3 +1205,15 @@ Reason: The project now has offline TCA-Select ambiguity evidence, but real cand
 Consequence: `scripts\130_plan_candidate_generation_readiness.ps1` records future gates and routes the next safe task to synthetic-tensor contract checking, not real inference or rollout.
 
 Current result: The plan passed and selected a synthetic-tensor candidate-generation contract checker as the next safe task. Real candidate-generation smoke execution remains blocked until a separate risk-gated model-inference task.
+
+## Candidate-Generation Contract Checker
+
+Decision: Add a synthetic-tensor candidate-generation contract checker before any real learned-policy candidate generation.
+
+Reason: The project needs to validate heatmap/candidate/metadata/TCA-Select contracts without crossing into heavy model inference.
+
+Consequence: `scripts\131_check_candidate_generation_contract.ps1` may run safely as a synthetic checker and keeps real candidate-generation smoke execution false.
+
+Current result: The checker passed on synthetic tensors and validated the candidate/heatmap/metadata/TCA-Select contract without model loading, model inference, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, external verifiers, privileged inference, or paper claims.
+
+Next decision: create a planning-only risk gate for a separately bounded real candidate-generation smoke.

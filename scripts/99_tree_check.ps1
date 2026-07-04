@@ -150,6 +150,7 @@ $required = @(
     "reports/tca_select_ambiguity_stress_plan.md",
     "reports/tca_select_ambiguity_stress.md",
     "reports/candidate_generation_readiness_plan.md",
+    "reports/candidate_generation_contract_check.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -273,6 +274,7 @@ $required = @(
     "scripts/128_plan_tca_select_ambiguity_stress_test.ps1",
     "scripts/129_run_tca_select_ambiguity_stress_test.ps1",
     "scripts/130_plan_candidate_generation_readiness.ps1",
+    "scripts/131_check_candidate_generation_contract.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -311,6 +313,7 @@ $required = @(
     "tca_map/smolvla/tca_select_ambiguity_stress_plan.py",
     "tca_map/smolvla/tca_select_ambiguity_stress.py",
     "tca_map/smolvla/candidate_generation_readiness_plan.py",
+    "tca_map/smolvla/candidate_generation_contract_check.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -431,6 +434,7 @@ $required = @(
     "tests/test_tca_select_ambiguity_stress_plan.py",
     "tests/test_tca_select_ambiguity_stress.py",
     "tests/test_candidate_generation_readiness_plan.py",
+    "tests/test_candidate_generation_contract_check.py",
     "tests/test_lora_config_guards.py"
 )
 
