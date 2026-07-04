@@ -1466,3 +1466,29 @@ Current local result:
 - rollout scaling, benchmark claims, and paper claims remain blocked.
 
 Interpretation: VLM-enabled loading is behaviorally relevant, but the current blocker has shifted to action-normalization/provenance and 6D-to-7D adapter interpretation. The next safe step is a report-only action-normalization/provenance audit before any learned-policy rollout scaling.
+
+## Action Normalization Provenance Audit
+
+The report-only action normalization/provenance audit is implemented by `scripts\118_audit_action_normalization_provenance.ps1` and `tca_map.smolvla.action_normalization_provenance_audit`.
+
+Scope:
+
+- reads local SmolVLA config/preprocessor/postprocessor JSON,
+- reads processor safetensors with `safetensors.safe_open`,
+- reads existing VLM-enabled offline diagnostic reports,
+- compares checkpoint action-stat prefixes and scale against local LIBERO action previews,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current local result:
+
+- audit passed,
+- decision: `no_go_rollout_scaling`,
+- action stat prefixes: `so100`, `so100-blue`, `so100-red`,
+- action mean max abs: `125.720543`,
+- action std max: `59.359951`,
+- local LIBERO expert action preview max abs: `1.0`,
+- policy action shape: `[6]`,
+- adapted decoded actions still clipped `3` values,
+- rollout scaling, benchmark claims, and paper claims remain blocked.
+
+Interpretation: the current learned-policy rollout blocker is a strong action-stat/checkpoint-provenance mismatch risk. The next safe step is a planning-only action-stat mapping or checkpoint/task-provenance correction plan before any learned-policy rollout scaling.
