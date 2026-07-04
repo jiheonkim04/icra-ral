@@ -847,3 +847,11 @@ Risk: A one-sample offline action-decoding diagnostic could be mistaken for roll
 Impact: The project could overclaim from a single HDF5 timestep even if the model action is finite or partially aligned with the expert action.
 
 Mitigation: `scripts\106_bounded_offline_demo_action_decoding.ps1` labels the output as one-sample offline diagnostic evidence only, reports action L1/MSE without success claims, and keeps rollout scaling, benchmark claims, SOTA claims, and paper-grade claims false.
+
+## Weak Offline Alignment Risk
+
+Risk: The bounded offline decoder can produce finite actions while remaining far from the expert demonstration action.
+
+Impact: More learned-policy rollout variants may keep failing for decoder/checkpoint/VLM-loading reasons unrelated to TCA-Map.
+
+Mitigation: `scripts\107_summarize_offline_demo_action_decoding.ps1` classifies one-sample action alignment and keeps rollout scaling blocked when the offline alignment signal is weak.

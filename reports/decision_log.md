@@ -941,3 +941,11 @@ Decision: Add a separately gated one-sample offline action-decoding runner befor
 Reason: The planner authorized a non-rollout check that can directly compare a local SmolVLA decoded action to a real LIBERO expert action from the same HDF5 observation.
 
 Consequence: `scripts\106_bounded_offline_demo_action_decoding.ps1` requires `ALLOW_OFFLINE_DEMO_ACTION_DECODING=1`, loads SmolVLA on CPU, reads one HDF5 timestep, runs one `select_action` call, and writes diagnostic action error metrics. It does not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
+
+## Offline Demonstration Action Decoding Summary
+
+Decision: Summarize the one-sample offline action-decoding diagnostic before any further rollout decision.
+
+Reason: The one-sample diagnostic can complete successfully while still producing a large action error to the expert action. That distinction should be explicit before adding rollout variants.
+
+Consequence: `scripts\107_summarize_offline_demo_action_decoding.ps1` keeps rollout scaling blocked when offline alignment is weak and routes the next work toward VLM loading policy, checkpoint provenance, or action normalization analysis.
