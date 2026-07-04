@@ -85,6 +85,7 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["runtime_reports_available"]["libero_offline_bounded_pilot_report"] in {True, False}
     assert report["runtime_reports_available"]["simulator_readiness_plan_report"] in {True, False}
     assert report["runtime_reports_available"]["bounded_simulator_import_smoke_report"] in {True, False}
+    assert report["runtime_reports_available"]["wsl_simulator_dependency_report"] in {True, False}
     assert report["libero_data_gates"]["ready_for_tiny_offline_counterfactual_split"] in {True, False}
     assert report["libero_data_gates"]["ready_for_tiny_offline_actionmap_tca_comparison"] in {True, False}
     assert report["libero_data_gates"]["offline_actionmap_tca_comparison_passed"] in {True, False}
@@ -104,6 +105,9 @@ def test_go_no_go_status_generator_is_summary_only(tmp_path):
     assert report["simulator_readiness_gates"]["bounded_import_smoke_report_present"] in {True, False}
     assert report["simulator_readiness_gates"]["bounded_import_smoke_passed"] in {True, False}
     assert report["simulator_readiness_gates"]["bounded_import_smoke_rollouts_performed"] is False
+    assert report["simulator_readiness_gates"]["wsl_dependency_report_present"] in {True, False}
+    assert report["simulator_readiness_gates"]["wsl_ready_for_user_level_pip_install"] in {True, False}
+    assert report["simulator_readiness_gates"]["wsl_ready_for_simulator_import_retry"] in {True, False}
     assert report["blocked_for_larger_paper_grade_stage"] is True
     assert "lora_qlora_planning" in report
     assert report["lora_qlora_planning"]["qlora_safe_to_run_now"] is False

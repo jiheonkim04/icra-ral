@@ -97,6 +97,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "libero_offline_bounded_pilot" in report["source_reports"]
     assert "simulator_readiness" in report["source_reports"]
     assert "bounded_simulator_import_smoke" in report["source_reports"]
+    assert "wsl_simulator_dependency" in report["source_reports"]
     assert "bounded_local_pilot_extension_passed" in report["status"]
     assert "libero_metadata_subset_ready" in report["status"]
     assert "libero_offline_interface_ready" in report["status"]
@@ -122,6 +123,11 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "bounded_simulator_import_smoke_decision" in report["status"]
     assert "bounded_simulator_import_smoke_imports_attempted" in report["status"]
     assert "bounded_simulator_import_smoke_rollouts_performed" in report["status"]
+    assert "wsl_simulator_dependency_report_present" in report["status"]
+    assert "wsl_simulator_dependency_decision" in report["status"]
+    assert "wsl_ready_for_user_level_pip_install" in report["status"]
+    assert "wsl_ready_for_simulator_import_retry" in report["status"]
+    assert "wsl_simulator_dependency_stop_reasons" in report["status"]
     assert report["status"]["simulator_render_smoke_ready"] is False
     assert report["status"]["simulator_rollout_ready"] is False
     assert report["status"]["bounded_simulator_import_smoke_rollouts_performed"] is False

@@ -446,4 +446,4 @@ Risk: WSL paths and Python can be present while the WSL Python environment lacks
 
 Impact: Simulator import smoke fails before any render or rollout gate, and ad hoc dependency installation could drift into a larger simulator stack install.
 
-Mitigation: Treat missing WSL simulator dependencies as a separate dependency risk-planning task. Small Python dependencies may be considered only after a green risk assessment; simulator packages, MuJoCo setup, CUDA/PyTorch changes, render smoke, and rollout remain separate gates.
+Mitigation: Use `scripts\56_check_wsl_simulator_deps.ps1` before any install. Treat missing WSL simulator dependencies as a separate dependency risk-planning task. Small Python dependencies may be considered only after a green risk assessment; simulator packages, MuJoCo setup, CUDA/PyTorch changes, render smoke, and rollout remain separate gates.

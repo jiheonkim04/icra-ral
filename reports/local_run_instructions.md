@@ -267,6 +267,12 @@ Remove-Item Env:\ALLOW_SIMULATOR_IMPORT_SMOKE -ErrorAction SilentlyContinue
 
 This is import-only readiness. It must not render, create or step simulator environments, rollout, train, download, install packages, run GPU jobs, execute OpenVLA-OFT, or make paper-grade claims.
 
+Check WSL simulator Python dependencies without installing anything:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\56_check_wsl_simulator_deps.ps1
+```
+
 Run the bounded cached-feature local pilot extension only after a green training risk assessment:
 
 ```powershell

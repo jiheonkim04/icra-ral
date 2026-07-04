@@ -87,6 +87,7 @@ REPORTS = {
     "libero_offline_bounded_pilot": REPO / "reports" / "libero_offline_bounded_pilot_report.json",
     "simulator_readiness": REPO / "reports" / "simulator_readiness_plan_report.json",
     "bounded_simulator_import_smoke": REPO / "reports" / "bounded_simulator_import_smoke_report.json",
+    "wsl_simulator_dependency": REPO / "reports" / "wsl_simulator_dependency_report.json",
     "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
 }
 
@@ -153,6 +154,11 @@ status = {
     "bounded_simulator_import_smoke_decision": data("bounded_simulator_import_smoke").get("decision"),
     "bounded_simulator_import_smoke_imports_attempted": bool((data("bounded_simulator_import_smoke").get("policy") or {}).get("simulator_imports_attempted")),
     "bounded_simulator_import_smoke_rollouts_performed": bool((data("bounded_simulator_import_smoke").get("policy") or {}).get("rollouts_performed")),
+    "wsl_simulator_dependency_report_present": bool(loaded["wsl_simulator_dependency"].get("exists")),
+    "wsl_simulator_dependency_decision": data("wsl_simulator_dependency").get("decision"),
+    "wsl_ready_for_user_level_pip_install": bool(data("wsl_simulator_dependency").get("ready_for_user_level_pip_install")),
+    "wsl_ready_for_simulator_import_retry": bool(data("wsl_simulator_dependency").get("ready_for_simulator_import_retry")),
+    "wsl_simulator_dependency_stop_reasons": data("wsl_simulator_dependency").get("stop_reasons", []),
     "libero_rollout_ready": bool(data("libero_offline_interface").get("ready_for_rollout")),
     "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
     "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
@@ -180,6 +186,8 @@ parse_errors = {name: item.get("error") for name, item in loaded.items() if item
 recommended_next_step = (
     "Bounded simulator import smoke passed. Create a separate bounded render-smoke risk gate if needed; keep rollout blocked."
     if status["bounded_simulator_import_smoke_passed"]
+    else "WSL simulator dependency check is complete and blocks import retry. Configure WSL Python packaging/dependencies manually or through a separate risk-assessed setup; keep render/rollout blocked."
+    if status["wsl_simulator_dependency_report_present"] and not status["wsl_ready_for_simulator_import_retry"]
     else "Bounded simulator import smoke ran but did not pass. Resolve WSL/Linux dependency or import errors before render smoke or rollout."
     if status["bounded_simulator_import_smoke_report_present"]
     else "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded import-smoke branch; keep render/rollout blocked."

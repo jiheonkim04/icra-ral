@@ -147,6 +147,9 @@ function New-BaseReport {
 
 $gateValue = [Environment]::GetEnvironmentVariable("ALLOW_SIMULATOR_IMPORT_SMOKE")
 $report = New-BaseReport
+$runDir = Join-Path $RepoRoot "runs\simulator_import_smoke"
+New-Item -ItemType Directory -Force -Path $runDir | Out-Null
+
 if ($gateValue -ne "1") {
     $report.reason = "ALLOW_SIMULATOR_IMPORT_SMOKE=1 is required after a green risk assessment before simulator imports are attempted."
     $report.recommended_next_step = "Run risk assessment and set ALLOW_SIMULATOR_IMPORT_SMOKE=1 only for a bounded import-smoke task. Do not render or rollout."
@@ -154,8 +157,8 @@ if ($gateValue -ne "1") {
     exit 0
 }
 
-$plannerJson = Join-Path $RepoRoot "reports\simulator_readiness_plan_report.json"
-$plannerMd = Join-Path $RepoRoot "reports\simulator_readiness_plan_report.md"
+$plannerJson = Join-Path $runDir "simulator_readiness_plan_report.json"
+$plannerMd = Join-Path $runDir "simulator_readiness_plan_report.md"
 & powershell -ExecutionPolicy Bypass -File (Join-Path $RepoRoot "scripts\43_plan_simulator_readiness.ps1") -PathsFile $PathsFile -RuntimePlatform $RuntimePlatform -JsonReportPath $plannerJson -MarkdownReportPath $plannerMd | Out-Null
 if ($LASTEXITCODE -ne 0) {
     $report.reason = "simulator readiness planner failed"
@@ -208,8 +211,6 @@ if (-not ($liberoRootWsl.ok -and $robosuiteRootWsl.ok -and $pythonVersion.ok)) {
     exit 0
 }
 
-$runDir = Join-Path $RepoRoot "runs\simulator_import_smoke"
-New-Item -ItemType Directory -Force -Path $runDir | Out-Null
 $probeScriptWin = Join-Path $runDir "probe_imports.py"
 $probeScript = @'
 import importlib
