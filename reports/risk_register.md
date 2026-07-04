@@ -695,3 +695,11 @@ Risk: A bounded gripper-strategy diagnostic can pass execution while still showi
 Impact: The project could mistake a clean wrapper result for improved policy behavior or scale rollout prematurely.
 
 Mitigation: Treat `scripts\83_bounded_adapter_strategy_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows all three gripper strategies execute cleanly but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and move next to action-scale, prompt, camera-source, or state-sufficiency diagnostics.
+
+## Action-Scale Diagnostic Overinterpretation
+
+Risk: A bounded action-scale diagnostic can pass execution and show expected action magnitude changes while still showing zero reward and no task success.
+
+Impact: The project could mistake action-scaling plumbing for improved policy behavior or scale rollout prematurely.
+
+Mitigation: Treat `scripts\85_bounded_action_scale_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows scales `0.25`, `0.5`, and `1.0` execute cleanly and scale action magnitude as expected, but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and move next to prompt-format, camera-source, or state-sufficiency diagnostics.

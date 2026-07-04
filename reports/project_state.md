@@ -929,3 +929,22 @@ Observed local result:
 - no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
 
 Interpretation: explicit gripper-strategy selection is now execution-tested and metadata-visible, but gripper strategy alone does not explain the zero-reward behavior on the selected diagnostic task. Rollout scaling remains blocked. The next safe rung is a bounded action-scale, prompt-format, camera-source, or state-sufficiency diagnostic before any broader learned-policy rollout matrix.
+
+## Action-Scale Diagnostic Runner Result
+
+Current local bounded result: passed as diagnostic execution evidence only.
+
+`scripts\84_plan_action_scale_diagnostic.ps1` reported `decision=proceed`, and `scripts\85_bounded_action_scale_diagnostic.ps1` ran under task-local `ALLOW_ACTION_SCALE_DIAGNOSTIC=1`.
+
+Observed local result:
+
+- action adapter strategy: `policy_6d_delta_pose_plus_gripper_zero_hold`,
+- action scales tested: `0.25`, `0.5`, and `1.0`,
+- variants completed: 3,
+- wrapper/execution passed for all variants,
+- diagnostic success rate: 0.0 for all variants,
+- reward sum: 0.0 for all variants,
+- last action max absolute values scaled as expected: about `0.198`, `0.397`, and `0.793`,
+- no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
+
+Interpretation: action-scale wiring is working, but action magnitude alone does not explain the zero-reward behavior on the selected diagnostic task. Rollout scaling remains blocked. The next safe rung is a bounded prompt-format, camera-source, or state-sufficiency diagnostic before any broader learned-policy rollout matrix.

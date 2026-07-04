@@ -188,6 +188,8 @@ $required = @(
     "scripts/81_plan_rollout_bridge_adapter_wiring.ps1",
     "scripts/82_plan_adapter_strategy_action_scale_diagnostics.ps1",
     "scripts/83_bounded_adapter_strategy_diagnostic.ps1",
+    "scripts/84_plan_action_scale_diagnostic.ps1",
+    "scripts/85_bounded_action_scale_diagnostic.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -285,6 +287,7 @@ $required = @(
     "tests/test_rollout_bridge_adapter_wiring.py",
     "tests/test_adapter_strategy_action_scale_diagnostics_plan.py",
     "tests/test_bounded_adapter_strategy_diagnostic.py",
+    "tests/test_action_scale_diagnostic.py",
     "tests/test_lora_config_guards.py"
 )
 

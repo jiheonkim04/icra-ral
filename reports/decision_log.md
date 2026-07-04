@@ -797,3 +797,11 @@ Decision: Do not scale learned-policy rollout after the first gripper-strategy d
 Reason: `scripts\83_bounded_adapter_strategy_diagnostic.ps1` completed zero-hold, open, and close gripper-strategy variants with explicit adapter metadata, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: Gripper strategy is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test action scale/normalization, prompt format, camera source, and state sufficiency before broader rollout matrices or paper-grade claims.
+
+## Action-Scale Diagnostic Runner Result
+
+Decision: Do not scale learned-policy rollout after the first action-scale diagnostic.
+
+Reason: `scripts\85_bounded_action_scale_diagnostic.ps1` completed action scales `0.25`, `0.5`, and `1.0` with explicit action-scale metadata and expected action magnitude changes, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: Action scale is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test prompt format, camera source, and state sufficiency before broader rollout matrices or paper-grade claims.
