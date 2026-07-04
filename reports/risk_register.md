@@ -486,12 +486,20 @@ Risk: A passing tiny MuJoCo reset/step smoke could be mistaken for LIBERO/RoboSu
 
 Impact: The project could move from physics plumbing into rollout or benchmark claims before LIBERO/RoboSuite env reset, policy control, and success metrics are separately validated.
 
-Mitigation: `scripts\61_bounded_simulator_reset_step_smoke.ps1` uses only a tiny in-memory MuJoCo XML model, caps steps to 5, and reports `libero_robosuite_env_created=false`, `rollouts_performed=false`, `policy_inference_performed=false`, and `ready_for_rollout=false`. Tiny diagnostic rollout requires a separate risk assessment and must not run while rollout is explicitly forbidden.
+Mitigation: `scripts\61_bounded_simulator_reset_step_smoke.ps1` uses only a tiny in-memory MuJoCo XML model, caps steps to 5, and reports `libero_robosuite_env_created=false`, `rollouts_performed=false`, `policy_inference_performed=false`, and `ready_for_rollout=false`. Tiny diagnostic rollout requires a separate green risk assessment and task-local `ALLOW_TINY_ROLLOUT=1`.
 
 ## Rollout Planner Overinterpretation
 
-Risk: A planning-only tiny rollout envelope could be mistaken for permission to execute a rollout or claim benchmark readiness.
+Risk: A green tiny rollout envelope could be mistaken for benchmark rollout readiness or paper-grade evidence.
 
-Impact: The project could cross the current rollout prohibition and produce invalid evidence.
+Impact: The project could overclaim a toy MuJoCo diagnostic as LIBERO/RoboSuite success, standard success, or method evidence.
 
-Mitigation: `scripts\62_plan_tiny_diagnostic_rollout.ps1` refuses execution gates, performs no simulator environment creation, no policy inference, and no rollout, and reports `ready_for_tiny_diagnostic_rollout_execution=false`. Rollout execution remains blocked under the current user instruction.
+Mitigation: `scripts\62_plan_tiny_diagnostic_rollout.ps1` remains planning-only and refuses execution gates. `scripts\63_bounded_tiny_diagnostic_rollout.ps1` requires task-local `ALLOW_TINY_ROLLOUT=1`, caps execution at 5 toy tasks, 1 episode each, 5 steps each, and reports benchmark rollout readiness and paper-claim readiness as false.
+
+## Bounded Tiny Diagnostic Rollout Overinterpretation
+
+Risk: A passing bounded tiny diagnostic rollout could be mistaken for LIBERO/RoboSuite benchmark rollout success.
+
+Impact: Simulator plumbing evidence could be described as standard success, counterfactual success, or paper-grade evidence.
+
+Mitigation: The bounded rollout runner uses only toy in-memory MuJoCo models, no learned policy, no VLA inference, no LIBERO/RoboSuite benchmark environment, no training, no GPU job, no OpenVLA-OFT, no multi-seed run, and no paper claim. Reports must label it as tiny diagnostic simulator plumbing only.

@@ -47,7 +47,7 @@ function Write-Reports {
         "- decision: $($Report.decision)",
         "- risk envelope inside budget: $($Report.risk_envelope_inside_budget)",
         "- reset/step smoke passed: $($Report.reset_step_smoke.bounded_simulator_reset_step_smoke_passed)",
-        "- rollout execution authorized: false",
+        "- bounded tiny diagnostic rollout execution authorized: $($Report.ready_for_tiny_diagnostic_rollout_execution)",
         "- rollouts performed: false",
         "- recommended next step: $($Report.recommended_next_step)",
         "",
@@ -86,8 +86,8 @@ if ($resetRead.present -and -not $resetRead.error -and $null -ne $resetRead.data
 if (-not $resetPassed) {
     $stopReasons.Add("bounded reset/step smoke has not passed")
 }
-if ($TaskCount -lt 1 -or $TaskCount -gt 1) {
-    $stopReasons.Add("tiny diagnostic rollout plan is capped at exactly one task")
+if ($TaskCount -lt 1 -or $TaskCount -gt 5) {
+    $stopReasons.Add("tiny diagnostic rollout plan is capped at 5 tasks")
 }
 if ($MaxEpisodes -lt 1 -or $MaxEpisodes -gt 1) {
     $stopReasons.Add("tiny diagnostic rollout plan is capped at one episode")
@@ -95,17 +95,17 @@ if ($MaxEpisodes -lt 1 -or $MaxEpisodes -gt 1) {
 if ($MaxStepsPerEpisode -lt 1 -or $MaxStepsPerEpisode -gt 5) {
     $stopReasons.Add("tiny diagnostic rollout plan is capped at 5 steps per episode")
 }
-if ($ExpectedRuntimeMinutes -gt 10) {
-    $stopReasons.Add("tiny diagnostic rollout planning envelope exceeds 10 minutes")
+if ($ExpectedRuntimeMinutes -gt 30) {
+    $stopReasons.Add("tiny diagnostic rollout planning envelope exceeds 30 minutes")
 }
-if ($ExpectedVramGb -gt 0) {
-    $stopReasons.Add("tiny diagnostic rollout planning envelope must not require GPU VRAM")
+if ($ExpectedVramGb -gt 14) {
+    $stopReasons.Add("tiny diagnostic rollout planning envelope exceeds 14 GB VRAM")
 }
 
 $riskEnvelopeInsideBudget = [bool]($stopReasons.Count -eq 0)
 $decision = if ($riskEnvelopeInsideBudget) { "proceed" } else { "stop" }
 $reason = if ($riskEnvelopeInsideBudget) {
-    "Planning envelope is bounded, but rollout execution is not authorized by this planner."
+    "Planning envelope is bounded; bounded tiny diagnostic rollout execution is authorized only through a separate task-local ALLOW_TINY_ROLLOUT=1 execution script."
 } else {
     $stopReasons -join "; "
 }
@@ -143,6 +143,7 @@ $report = [ordered]@{
         token_license_payment_needed = $false
         cuda_driver_system_graphics_changes = $false
         rollout_would_run_now = $false
+        bounded_tiny_diagnostic_rollout_allowed_after_green_risk = $true
         decision = $decision
         reason = $reason
     }
@@ -155,14 +156,14 @@ $report = [ordered]@{
     dangerous_execution_gates_set = @($dangerousGatesSet)
     risk_envelope_inside_budget = $riskEnvelopeInsideBudget
     ready_for_tiny_diagnostic_rollout_plan = $riskEnvelopeInsideBudget
-    ready_for_tiny_diagnostic_rollout_execution = $false
+    ready_for_tiny_diagnostic_rollout_execution = $riskEnvelopeInsideBudget
     ready_for_rollout = $false
-    execution_authorized_by_this_planner = $false
+    execution_authorized_by_this_planner = $riskEnvelopeInsideBudget
     warnings = @($warnings)
     stop_reasons = @($stopReasons)
     decision = $decision
     recommended_next_step = if ($riskEnvelopeInsideBudget) {
-        "Stop before rollout execution under the current user instruction. A future rollout execution task must be separate, task-local gated, and explicitly allowed by current policy."
+        "Run scripts\63_bounded_tiny_diagnostic_rollout.ps1 with task-local ALLOW_TINY_ROLLOUT=1. Do not run benchmark rollouts, multi-seed rollouts, OpenVLA-OFT, training, or paper claims."
     } else {
         "Resolve listed blockers before any rollout planning or execution."
     }

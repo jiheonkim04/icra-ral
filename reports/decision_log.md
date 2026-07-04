@@ -556,12 +556,20 @@ Decision: Treat the current local bounded reset/step smoke as passed for tiny Mu
 
 Reason: After import-only and render-only readiness passed, the reset/step smoke ran under task-local `ALLOW_SIMULATOR_RESET_STEP=1` and performed `mj_resetData`, `mj_forward`, and 3 `mj_step` calls on a tiny in-memory MuJoCo model.
 
-Consequence: `scripts\61_bounded_simulator_reset_step_smoke.ps1` is limited to tiny MuJoCo physics plumbing. It did not create LIBERO or RoboSuite environments, run rollouts, run policy inference, use GPU jobs, train, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims. Rollout execution remains blocked by a separate risk gate and the current user instruction.
+Consequence: `scripts\61_bounded_simulator_reset_step_smoke.ps1` is limited to tiny MuJoCo physics plumbing. It did not create LIBERO or RoboSuite environments, run rollouts, run policy inference, use GPU jobs, train, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims. Bounded tiny diagnostic rollout remains a separate risk gate with its own task-local execution guard.
 
-## Tiny Diagnostic Rollout Planning Result
+## Tiny Diagnostic Rollout Policy
 
-Decision: Add a planning-only tiny diagnostic rollout risk planner, but do not authorize rollout execution.
+Decision: Bounded tiny diagnostic rollout is allowed after a green risk assessment.
 
-Reason: Import, render, and tiny reset/step smoke now pass, so the next safe action is to document the minimal future rollout envelope while respecting the current user instruction that forbids rollout execution.
+Reason: Import, render, and tiny reset/step smoke now pass, and the user updated the policy from no rollout to bounded tiny diagnostic rollout allowed inside strict limits.
 
-Consequence: `scripts\62_plan_tiny_diagnostic_rollout.ps1` reports a one-task, one-episode, max-5-step future envelope and keeps `ready_for_tiny_diagnostic_rollout_execution=false`, `ready_for_rollout=false`, and `rollouts_performed=false`. Any actual rollout remains a separate hard-stop gate under current instructions.
+Consequence: `scripts\62_plan_tiny_diagnostic_rollout.ps1` reports a max-5-task, one-episode, max-5-step envelope and authorizes execution only through the separate task-local `ALLOW_TINY_ROLLOUT=1` runner. It still keeps benchmark rollout readiness false.
+
+## Bounded Tiny Diagnostic Rollout Result
+
+Decision: Treat the current local bounded tiny diagnostic rollout as passed.
+
+Reason: `scripts\63_bounded_tiny_diagnostic_rollout.ps1` ran 5 toy MuJoCo diagnostic tasks with 1 episode and 5 steps per task through the selected WSL venv. The run completed 25 total steps and reported no LIBERO/RoboSuite benchmark environment, no learned policy inference, no training, no GPU job, no download, no heavy VLA import, no OpenVLA-OFT execution, no multi-seed evaluation, and no benchmark/SOTA/paper-grade claim.
+
+Consequence: This clears only simulator plumbing for bounded tiny diagnostic rollouts. It is not LIBERO success, not standard success, not benchmark evidence, and not paper-grade evidence. Benchmark rollouts, multi-seed rollouts, OpenVLA-OFT, full training, external uploads, and paper-level claims remain separate stop gates.

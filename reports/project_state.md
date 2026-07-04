@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-0d96684 or newer
+143e2e6 or newer
 ```
 
 Use explicit Python for validation:
@@ -416,7 +416,8 @@ scripts\55_bounded_simulator_import_smoke.ps1 -> import-only smoke passed
 scripts\59_bounded_simulator_render_smoke.ps1 -> tiny MuJoCo OSMesa render smoke passed
 scripts\58_plan_simulator_render_reset.ps1 -> reset/step smoke planning is green; rollout remains false
 scripts\61_bounded_simulator_reset_step_smoke.ps1 -> tiny MuJoCo reset/step smoke passed; rollout remains false
-scripts\62_plan_tiny_diagnostic_rollout.ps1 -> tiny diagnostic rollout planning envelope is bounded; execution remains false
+scripts\62_plan_tiny_diagnostic_rollout.ps1 -> tiny diagnostic rollout planning envelope is bounded; execution is authorized only through task-local ALLOW_TINY_ROLLOUT=1
+scripts\63_bounded_tiny_diagnostic_rollout.ps1 -> bounded toy MuJoCo diagnostic rollout passed; benchmark rollout remains false
 ```
 
 Reasons:
@@ -425,9 +426,9 @@ Reasons:
 - official LIBERO HDF5 demonstration files exist under `LIBERO_DATA_ROOT`,
 - `h5py` is installed and HDF5 offline interface inspection is ready.
 
-Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup, WSL local source linking, import-only smoke, bounded render smoke, reset/step planning, and bounded reset/step smoke have passed. Rollout or real benchmark work must wait for the corresponding green risk assessment inside the current budget.
+Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup, WSL local source linking, import-only smoke, bounded render smoke, reset/step planning, bounded reset/step smoke, and bounded tiny diagnostic rollout have passed. Real benchmark rollouts must still wait for a separate green benchmark-rollout risk assessment and must not be treated as paper-grade evidence automatically.
 
-The next local boundary is rollout execution, which is currently forbidden by user instruction. A tiny 64x64 MuJoCo offscreen render with `MUJOCO_GL=osmesa` now passes in WSL after the user completed the offscreen graphics package step, a tiny in-memory MuJoCo reset plus 3-step physics smoke also passes, and the planning-only tiny diagnostic rollout envelope is bounded. Rollout execution remains blocked until the current user instruction no longer forbids rollout execution.
+The bounded tiny diagnostic rollout boundary is now cleared. A tiny 64x64 MuJoCo offscreen render with `MUJOCO_GL=osmesa` passes in WSL, a tiny in-memory MuJoCo reset plus 3-step physics smoke passes, and the bounded rollout script completed 5 toy MuJoCo diagnostic tasks with 1 episode and 5 steps per task. This is simulator plumbing evidence only. It is not LIBERO/RoboSuite benchmark rollout evidence, not standard success, and not paper-grade evidence.
 
 The LIBERO offline LoRA comparison is implemented as a bounded local proxy diagnostic in `scripts\53_compare_libero_offline_lora.ps1`. It trains only tiny NumPy low-rank adapter matrices over local HDF5 action-prefix snippets, requires `ALLOW_TINY_TRAINING=1`, and does not use GPU, model loading, model inference, simulator execution, rollout, OpenVLA-OFT, token access, or paper-grade claims.
 
@@ -449,7 +450,14 @@ The bounded simulator render-smoke script is implemented in `scripts\59_bounded_
 
 The bounded simulator reset/step smoke script is implemented in `scripts\61_bounded_simulator_reset_step_smoke.ps1`. Current local result: it performed `mj_resetData`, `mj_forward`, and 3 `mj_step` calls on a tiny in-memory MuJoCo XML model through the selected WSL venv. It did not create LIBERO or RoboSuite environments, run rollouts, run policy inference, train, use GPU jobs, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
 
-The tiny diagnostic rollout planner is implemented in `scripts\62_plan_tiny_diagnostic_rollout.ps1`. Current local result: it reads the passed reset/step smoke report and reports a bounded one-task, one-episode, max-5-step planning envelope, but `ready_for_tiny_diagnostic_rollout_execution=false`, `ready_for_rollout=false`, and `rollouts_performed=false`. It does not create simulator environments, rollout, run policy inference, train, use GPU jobs, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
+The tiny diagnostic rollout planner is implemented in `scripts\62_plan_tiny_diagnostic_rollout.ps1`. Current local result: it reads the passed reset/step smoke report and reports a bounded max-5-task, one-episode, max-5-step planning envelope. It authorizes execution only through a separate task-local `ALLOW_TINY_ROLLOUT=1` run and still keeps `ready_for_rollout=false` for benchmark rollouts.
+
+The bounded tiny diagnostic rollout runner is implemented in `scripts\63_bounded_tiny_diagnostic_rollout.ps1`. Current local result: with task-local `ALLOW_TINY_ROLLOUT=1`, it ran 5 toy MuJoCo diagnostic tasks, 1 episode each, 5 steps each, for 25 total steps through `/home/jiheon/.venvs/tca_map_sim/bin/python`. It did not create LIBERO or RoboSuite benchmark environments, run learned policy inference, train, use GPU jobs, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, run multi-seed evaluation, or make benchmark/SOTA/paper-grade claims. Runtime reports are ignored by git:
+
+```text
+reports\bounded_tiny_diagnostic_rollout_report.json
+reports\bounded_tiny_diagnostic_rollout_report.md
+```
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
@@ -582,7 +590,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or paper-level empirical claims. Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment; a sudo password prompt remains a hard stop.
 
-Next autonomous direction: stop at the rollout execution gate. Rollout execution is not authorized by the current user instruction, even though the planning envelope is bounded. No OpenVLA-OFT execution or paper claim is authorized.
+Next autonomous direction: stop before benchmark/paper-grade rollout, multi-seed rollout, OpenVLA-OFT, full training, external upload, or paper-level claims. Bounded tiny diagnostic rollouts are allowed only after a green risk assessment and only inside the documented limits.
 
 The current bounded cached-feature local pilot extension is documented in `reports\bounded_local_pilot_extension.md` and runs through:
 
