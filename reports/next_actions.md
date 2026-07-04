@@ -518,6 +518,16 @@ Current local result: passed. The runner constructed local SmolVLA with `load_vl
 
 45. Next safe step: plan a bounded repeated offline demonstration action-decoding recheck with VLM-enabled loading. The planner should compare against the previous `load_vlm_weights=false` repeated offline diagnostic and authorize at most three local HDF5 timesteps, CPU-only, no simulator, no rollout, no training, no GPU job, no OpenVLA-OFT, and no paper claim.
 
+Planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\115_plan_vlm_enabled_repeated_offline_decoding.ps1
+```
+
+If this reports `decision=proceed`, the next safe implementation is a separately gated runner using `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_REPEATED_OFFLINE_DECODING=1`. The runner may load local SmolVLA with VLM weights on CPU and decode at most three HDF5 timesteps, but must not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current local result: `decision=proceed`, runner-ready true. It selects the same LIBERO HDF5 file and timesteps `0`, `136`, and `271`. The future runner should compare VLM-enabled action L1/MSE, clipping, and alignment signal against the previous `load_vlm_weights=false` repeated offline report.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

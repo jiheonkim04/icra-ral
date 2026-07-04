@@ -1382,3 +1382,30 @@ Current local result:
 - downloads/installs/inference/training/rollout/GPU jobs/OpenVLA-OFT/tokens/paper claims: false.
 
 Interpretation: the local dependency files are sufficient for VLM-enabled SmolVLA construction on CPU within the bounded load-only budget. This still does not prove action alignment; the next safe step is a separately planned repeated offline action-decoding recheck with VLM enabled.
+
+## VLM-Enabled Repeated Offline Decoding Plan
+
+The planning-only VLM-enabled repeated offline recheck gate is implemented by `scripts\115_plan_vlm_enabled_repeated_offline_decoding.ps1`.
+
+Purpose:
+
+- compare the previous repeated offline diagnostic using `load_vlm_weights=false`,
+- require the bounded VLM-enabled load-only smoke to have passed,
+- reuse the existing selected LIBERO HDF5 timesteps,
+- authorize only a future CPU offline diagnostic with at most three policy calls.
+
+This planner does not load models, infer, train, rollout, download, install, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current local result:
+
+- decision: `proceed`,
+- ready for bounded VLM-enabled repeated offline decoding runner: true,
+- baseline to compare: previous `load_vlm_weights=false` repeated offline diagnostic,
+- previous mean action L1/MSE: `0.412322` / `0.286972`,
+- previous alignment signal: `weak`,
+- selected HDF5 timesteps: `0`, `136`, and `271`,
+- future runner expected runtime: 20 minutes,
+- future runner expected RAM: 18GB,
+- expected VRAM: 0GB.
+
+The future runner remains offline diagnostic evidence only. It must not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
