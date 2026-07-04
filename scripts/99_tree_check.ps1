@@ -133,6 +133,7 @@ $required = @(
     "reports/vlm_enabled_loading_risk_plan.md",
     "reports/vlm_required_files_acquisition.md",
     "reports/vlm_enabled_load_smoke_plan.md",
+    "reports/vlm_enabled_load_smoke.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -239,6 +240,7 @@ $required = @(
     "scripts/111_plan_vlm_enabled_loading_risk.ps1",
     "scripts/112_acquire_vlm_required_files.ps1",
     "scripts/113_plan_vlm_enabled_load_smoke.ps1",
+    "scripts/114_bounded_vlm_enabled_load_smoke.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -262,6 +264,7 @@ $required = @(
     "tca_map/smolvla/offline_demo_action_decoding.py",
     "tca_map/smolvla/repeated_offline_demo_action_decoding.py",
     "tca_map/smolvla/vlm_required_files_acquisition.py",
+    "tca_map/smolvla/vlm_enabled_load_smoke.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -364,6 +367,7 @@ $required = @(
     "tests/test_vlm_enabled_loading_risk_plan.py",
     "tests/test_vlm_required_files_acquisition.py",
     "tests/test_vlm_enabled_load_smoke_plan.py",
+    "tests/test_vlm_enabled_load_smoke.py",
     "tests/test_lora_config_guards.py"
 )
 

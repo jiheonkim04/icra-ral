@@ -502,6 +502,22 @@ If this reports `decision=proceed`, the next safe implementation is a separately
 
 Current local result: `decision=proceed` and `ready_for_bounded_vlm_enabled_load_smoke_runner=true`. The next safe task is to implement `scripts\114_bounded_vlm_enabled_load_smoke.ps1` as CPU-first load-only construction with `load_vlm_weights=true`, capped at 15 minutes, no inference, no training, no rollout, no GPU job by default, no OpenVLA-OFT, no token access, and no paper claim.
 
+44. Bounded VLM-enabled load-only smoke command:
+
+```powershell
+$env:ALLOW_HEAVY_IMPORT="1"
+$env:ALLOW_VLM_ENABLED_LOAD_SMOKE="1"
+powershell -ExecutionPolicy Bypass -File scripts\114_bounded_vlm_enabled_load_smoke.ps1
+Remove-Item Env:\ALLOW_VLM_ENABLED_LOAD_SMOKE -ErrorAction SilentlyContinue
+Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
+```
+
+This runner is allowed only after the `113` planner is green. It is load-only and CPU-first. If it passes, the next safe step is a planning-only repeated offline demonstration action-decoding recheck using VLM-enabled loading. Do not run rollout scaling until offline alignment improves.
+
+Current local result: passed. The runner constructed local SmolVLA with `load_vlm_weights=true` on CPU, loaded about `450M` parameters, allocated `0MB` CUDA memory, completed in about `14.5s`, and performed no inference, training, rollout, download, install, GPU job, OpenVLA-OFT execution, token access, or paper claim.
+
+45. Next safe step: plan a bounded repeated offline demonstration action-decoding recheck with VLM-enabled loading. The planner should compare against the previous `load_vlm_weights=false` repeated offline diagnostic and authorize at most three local HDF5 timesteps, CPU-only, no simulator, no rollout, no training, no GPU job, no OpenVLA-OFT, and no paper claim.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

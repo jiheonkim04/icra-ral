@@ -1351,3 +1351,34 @@ Current local result:
 - required future gates: `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`.
 
 The plan performed no model load, inference, training, rollout, GPU job, download, install, OpenVLA-OFT execution, token access, or paper claim.
+
+## Bounded VLM-Enabled Load Smoke
+
+The bounded VLM-enabled load-only runner is implemented by `scripts\114_bounded_vlm_enabled_load_smoke.ps1` and `tca_map.smolvla.vlm_enabled_load_smoke`.
+
+Scope:
+
+- requires `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`,
+- CPU-first,
+- sets `load_vlm_weights=true`,
+- constructs and releases the local SmolVLA policy,
+- does not call `select_action`,
+- does not train, rollout, use GPU jobs, download, install, execute OpenVLA-OFT, access tokens, or make paper-grade claims.
+
+Passing this runner is engineering load-smoke evidence only. It does not prove offline action alignment, simulator success, benchmark success, counterfactual robustness, or paper-grade readiness.
+
+Current local result:
+
+- decision: `load_smoke_complete`,
+- runner passed: true,
+- `load_vlm_weights`: true,
+- device: CPU,
+- parameter count: `450046176`,
+- trainable parameter count as loaded: `99880992`,
+- load elapsed: about `8.484s`,
+- total runner elapsed: about `14.5s`,
+- RSS before/after load: about `646MB` / `1726MB`,
+- CUDA max allocated: `0MB`,
+- downloads/installs/inference/training/rollout/GPU jobs/OpenVLA-OFT/tokens/paper claims: false.
+
+Interpretation: the local dependency files are sufficient for VLM-enabled SmolVLA construction on CPU within the bounded load-only budget. This still does not prove action alignment; the next safe step is a separately planned repeated offline action-decoding recheck with VLM enabled.
