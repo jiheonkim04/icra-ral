@@ -330,7 +330,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 16. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 17. Bounded action-scale diagnostic.
     Done for scales `0.25`, `0.5`, and `1.0` under the zero-hold gripper strategy. All variants passed the wrapper and scaled action magnitude as expected, but diagnostic success rate and reward sum remained 0.0.
-18. Next safe research-engineering step: add a bounded prompt-format, camera-source, or state-sufficiency diagnostic planner and runner. Keep the first rung one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
+18. Bounded prompt-format diagnostic.
+    Done for `stem_spaces`, `bddl_language`, and `bddl_language_period`. All variants passed the wrapper and changed action previews, but diagnostic success rate and reward sum remained 0.0.
+19. Next safe research-engineering step: add a bounded camera-source or state-sufficiency diagnostic planner and runner. Keep the first rung one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

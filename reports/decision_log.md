@@ -805,3 +805,11 @@ Decision: Do not scale learned-policy rollout after the first action-scale diagn
 Reason: `scripts\85_bounded_action_scale_diagnostic.ps1` completed action scales `0.25`, `0.5`, and `1.0` with explicit action-scale metadata and expected action magnitude changes, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: Action scale is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test prompt format, camera source, and state sufficiency before broader rollout matrices or paper-grade claims.
+
+## Prompt-Format Diagnostic Runner Result
+
+Decision: Do not scale learned-policy rollout after the first prompt-format diagnostic.
+
+Reason: `scripts\87_bounded_prompt_format_diagnostic.ps1` completed `stem_spaces`, `bddl_language`, and `bddl_language_period` variants with explicit prompt metadata. The BDDL-language prompts changed the generated action previews but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: Prompt format is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test camera source and state sufficiency before broader rollout matrices or paper-grade claims.
