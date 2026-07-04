@@ -987,3 +987,13 @@ Impact: Zero-reward or weak offline diagnostics could be misreported as SmolVLA/
 Mitigation: `scripts\122_resolve_checkpoint_task_provenance.ps1` is report-only and blocks learned-policy rollout scaling when checkpoint metadata remains incompatible with local LIBERO HDF5 action stats. It routes the project toward offline/head TCA-Map plus required LoRA tracks or a separate LIBERO-aligned checkpoint source plan.
 
 Current status: the audit blocked learned-policy LIBERO rollout scaling for the current checkpoint and marked offline/head TCA-Map plus required LoRA evidence, or a separate LIBERO-aligned checkpoint source plan, as the safe next direction.
+
+## Offline Pivot Overinterpretation Risk
+
+Risk: Pivoting to real-LIBERO offline/head and LoRA proxy evidence could be mistaken for standard success, benchmark rollout success, or paper-grade empirical proof.
+
+Impact: The paper path could overclaim from useful but offline diagnostic evidence while learned-policy rollout scaling remains blocked by checkpoint provenance.
+
+Mitigation: `scripts\123_plan_offline_tca_map_lora_pivot.ps1` is report-only and explicitly selects an evidence table/gap report, not a paper claim. It keeps learned-policy rollout scaling, standard success, benchmark success, SOTA claims, paper claims, OpenVLA-OFT, downloads, GPU jobs, and heavy imports blocked.
+
+Current status: the pivot plan selected an offline evidence table and gap report. Learned-policy rollout scaling remains blocked for the current checkpoint.

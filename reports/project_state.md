@@ -1600,3 +1600,32 @@ Current local result:
 - ready for rollout scaling, benchmark claims, and paper claims: false.
 
 Interpretation: the current `lerobot/smolvla_base` checkpoint should be treated as a base/SO100-like SmolVLA asset for local interface/offline diagnostics, not as a paper-relevant LIBERO learned-policy rollout baseline. The next safe paper path is to continue real-LIBERO offline/head TCA-Map and required LoRA evidence, or separately resolve a LIBERO-action-aligned checkpoint source before any further learned-policy rollout evidence.
+
+## Offline TCA-Map / LoRA Pivot Plan
+
+The report-only pivot gate is implemented by `scripts\123_plan_offline_tca_map_lora_pivot.ps1` and `tca_map.smolvla.offline_tca_map_lora_pivot_plan`.
+
+Scope:
+
+- reads the checkpoint/task provenance report,
+- reads existing LIBERO offline ActionMap/TCA-Map and LoRA comparison reports,
+- decides whether to consolidate an offline evidence table and gap report,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, change policy behavior, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if provenance blocks current-checkpoint learned-policy rollout scaling and offline reports are present, pivot to a report-only offline evidence table and gap report,
+- keep learned-policy rollout scaling blocked until a LIBERO-action-aligned checkpoint source or bounded adaptation path is validated,
+- keep standard success, benchmark success, SOTA, and paper-grade claims blocked.
+
+Current local result:
+
+- plan passed,
+- decision: `pivot_offline_evidence_ladder`,
+- selected next step: `consolidate_offline_tca_lora_evidence_table_and_gap_report`,
+- ready for offline evidence table: true,
+- ready for LoRA scale-up planning: true,
+- ready for learned-policy rollout scaling: false,
+- ready for benchmark or paper claim: false.
+
+Interpretation: the safe low-compute paper path is now to summarize the real-LIBERO offline ActionMap/TCA-Map/TCA-Select/LoRA evidence and its gaps, while keeping current-checkpoint learned-policy rollout evidence blocked.
