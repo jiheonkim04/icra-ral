@@ -1885,3 +1885,23 @@ Current local result:
 - contract checker readiness is true,
 - real candidate-generation smoke execution remains false,
 - next safe task is synthetic-tensor candidate-generation contract checking.
+
+## Candidate-Generation Contract Check
+
+`scripts\131_check_candidate_generation_contract.ps1` validates the synthetic candidate heatmap contract before any real model inference.
+
+Scope:
+
+- synthetic tensors only,
+- no heavy import, model load, model inference, training, rollout, GPU job, simulator execution, OpenVLA-OFT, or paper claim,
+- validates candidate list, low-resolution heatmap, masked heatmap, target heatmap, metadata, and TCA-Select compatibility.
+
+Current local result:
+
+- contract checker passed,
+- candidate count: 4,
+- heatmap grid: 8,
+- selected candidate index: 0,
+- max GPU memory: 0.0 MB,
+- real candidate-generation smoke execution remains false,
+- next safe task is a planning-only real candidate-generation smoke risk gate.

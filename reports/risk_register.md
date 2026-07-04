@@ -1105,3 +1105,13 @@ Impact: The project could cross from report-only attribution into a heavy execut
 Mitigation: `scripts\130_plan_candidate_generation_readiness.ps1` refuses heavy/import/inference/rollout gates, records `ready_for_real_candidate_generation_smoke_execution=false`, and selects a synthetic-tensor contract checker as the next safe task.
 
 Current status: readiness planning passed without model loading, inference, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, or paper claims.
+
+## Candidate Contract Overreach Risk
+
+Risk: A contract checker could accidentally become a real policy inference runner.
+
+Impact: A safe interface validation step could cross into heavy model loading, GPU work, or unapproved rollout-adjacent execution.
+
+Mitigation: `scripts\131_check_candidate_generation_contract.ps1` uses synthetic tensors only, refuses heavy/import/inference/training/rollout gates, validates forbidden metadata keys, and leaves real candidate-generation smoke execution false.
+
+Current status: synthetic contract checking passed and routes to a planning-only real candidate-generation smoke risk gate, not direct model inference.

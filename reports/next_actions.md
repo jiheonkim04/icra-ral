@@ -759,6 +759,18 @@ Current local result: candidate-generation readiness planning passed with `ready
 
 64. Next safe step: implement a synthetic-tensor candidate-generation contract checker. It should validate candidate list, low-resolution heatmap, masked heatmap, metadata, and TCA-Select input/output contracts without loading SmolVLA or running model inference.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\131_check_candidate_generation_contract.ps1
+```
+
+Expected interpretation: if the contract checker passes, plan a separately gated real candidate-generation smoke. Do not run model inference in the contract checker.
+
+Current local result: synthetic contract checker passed with `candidate_generation_contract_check_passed=true`, candidate count `4`, heatmap grid `8`, selected candidate index `0`, max GPU memory `0.0 MB`, and no model load/inference, training, rollout, GPU job, simulator execution, OpenVLA-OFT, external verifier, privileged inference, or paper claim.
+
+65. Next safe step: create a planning-only risk gate for a separately bounded real candidate-generation smoke. It must decide whether a future task may set `ALLOW_HEAVY_IMPORT=1` and `ALLOW_SINGLE_SAMPLE_INFERENCE=1` for a single-sample candidate heatmap smoke, while keeping rollout, training, GPU-heavy execution, OpenVLA-OFT, and paper claims blocked.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
