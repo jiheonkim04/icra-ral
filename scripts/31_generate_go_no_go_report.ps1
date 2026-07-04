@@ -97,6 +97,7 @@ libero_offline_interface = load_json("reports/libero_offline_interface_smoke_rep
 libero_offline_counterfactual_split = load_json("reports/libero_offline_counterfactual_split_report.json")
 libero_offline_head_comparison = load_json("reports/libero_offline_actionmap_tca_comparison_report.json")
 libero_offline_lora_comparison = load_json("reports/libero_offline_lora_comparison_report.json")
+libero_offline_bounded_pilot = load_json("reports/libero_offline_bounded_pilot_report.json")
 
 completed = {
     "smolvla_load_only_smoke": passed(load_only, "result", "passed"),
@@ -122,6 +123,7 @@ runtime_reports_available = {
     "libero_offline_counterfactual_split_report": libero_offline_counterfactual_split is not None,
     "libero_offline_actionmap_tca_comparison_report": libero_offline_head_comparison is not None,
     "libero_offline_lora_comparison_report": libero_offline_lora_comparison is not None,
+    "libero_offline_bounded_pilot_report": libero_offline_bounded_pilot is not None,
 }
 
 tiny_metrics = {}
@@ -182,6 +184,9 @@ libero_data_gates = {
     "offline_lora_report_present": libero_offline_lora_comparison is not None,
     "offline_lora_comparison_passed": bool((libero_offline_lora_comparison or {}).get("libero_offline_lora_comparison_passed")),
     "ready_for_bounded_local_pilot_report": bool((libero_offline_lora_comparison or {}).get("ready_for_bounded_local_pilot_report")),
+    "offline_bounded_pilot_report_present": libero_offline_bounded_pilot is not None,
+    "offline_bounded_pilot_report_passed": bool((libero_offline_bounded_pilot or {}).get("libero_offline_bounded_pilot_report_passed")),
+    "ready_for_simulator_readiness_risk_assessment": bool((libero_offline_bounded_pilot or {}).get("ready_for_simulator_readiness_risk_assessment")),
     "ready_for_rollout": bool((libero_offline_interface or {}).get("ready_for_rollout")),
     "reason": (libero_offline_interface or {}).get("reason"),
 }
@@ -203,11 +208,22 @@ if not libero_data_gates["offline_actionmap_tca_comparison_passed"]:
     blocked_by.append("no tiny local LIBERO offline ActionMap vs TCA-Map comparison has passed")
 if not libero_data_gates["offline_lora_comparison_passed"]:
     blocked_by.append("no tiny local LIBERO offline required LoRA comparison has passed")
+if not libero_data_gates["offline_bounded_pilot_report_passed"]:
+    blocked_by.append("no LIBERO offline bounded pilot report has passed")
 
 decision = (
     "no_go_for_next_larger_experimental_stage"
     if all_safe_smokes_passed
     else "no_go_until_safe_smoke_evidence_is_complete"
+)
+recommended_next_step = (
+    "LIBERO offline bounded pilot report is ready. Run a simulator readiness/import-render risk assessment if installed locally; stop before rollout unless the assessment is green and inside budget."
+    if libero_data_gates["ready_for_simulator_readiness_risk_assessment"]
+    else (
+        "Ready for risk-assessed bounded local SmolVLA pilot work. Proceed automatically if the next task is inside budget: official/documented source, <=80GB download with >=100GB disk remaining by default, official LIBERO data exception <=180GB with >=250GB remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only frozen/LoRA/QLoRA training <=300 steps after stable smoke, no OpenVLA-OFT, no token/license/payment gate, and no paper claim."
+        if all_safe_smokes_passed
+        else "Rerun the missing safe smoke reports before any bounded local pilot or larger experimental stage."
+    )
 )
 go_for = [
     "routine safe checks",
@@ -281,11 +297,7 @@ report = {
         "ready_for_libero_rollout": ((hard_stop or {}).get("assets") or {}).get("ready_for_libero_rollout"),
         "ready_for_openvla_oft_smoke": ((hard_stop or {}).get("assets") or {}).get("ready_for_openvla_oft_smoke"),
     },
-    "recommended_next_step": (
-        "Ready for risk-assessed bounded local SmolVLA pilot work. Proceed automatically if the next task is inside budget: official/documented source, <=80GB download with >=100GB disk remaining by default, official LIBERO data exception <=180GB with >=250GB remaining, <=14GB VRAM, <=30 minutes runtime, batch size 1, SmolVLA-only frozen/LoRA/QLoRA training <=300 steps after stable smoke, no OpenVLA-OFT, no token/license/payment gate, and no paper claim."
-        if all_safe_smokes_passed
-        else "Rerun the missing safe smoke reports before any bounded local pilot or larger experimental stage."
-    ),
+    "recommended_next_step": recommended_next_step,
 }
 
 json_path = Path(os.environ["TCA_MAP_GO_NO_GO_JSON_REPORT"])

@@ -467,3 +467,11 @@ Decision: Add a tiny local LIBERO LoRA proxy comparison over HDF5 action snippet
 Reason: LoRA/QLoRA are required experimental tracks after the head-only path. After the LIBERO offline ActionMap vs TCA-Map gate passes, the next safe local step is comparing ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select using bounded NumPy adapters only.
 
 Consequence: `scripts\53_compare_libero_offline_lora.ps1` requires `ALLOW_TINY_TRAINING=1`, reads local LIBERO HDF5 snippets, trains tiny NumPy low-rank adapter matrices, and writes ignored offline proxy reports. It remains no-GPU, no-rollout, no-heavy-import, no-OpenVLA-OFT, and not paper-grade evidence.
+
+## LIBERO Offline Bounded Pilot Report
+
+Decision: Add a summary-only bounded pilot report for the LIBERO offline proxy ladder.
+
+Reason: After the offline interface, counterfactual split, head-only comparison, and required LoRA comparison gates pass, the repository needs one local artifact that summarizes what is ready and what remains blocked before simulator/rollout work.
+
+Consequence: `scripts\54_generate_libero_offline_bounded_pilot_report.ps1` reads existing ignored runtime reports only and writes an ignored bounded pilot report. It does not train, download, use GPU, import heavy VLA models, load models, infer, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
