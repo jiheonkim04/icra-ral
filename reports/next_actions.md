@@ -580,6 +580,18 @@ Current local result: plan passed with `decision=reduce_scope` and selected `lib
 
 50. Next safe step: implement the report-only LIBERO action-stat subset audit. It should read a bounded number of local HDF5 files under `LIBERO_DATA_ROOT`, compute action mean/std/min/max and action dimension statistics, compare them against checkpoint SO100 processor stats, write ignored runtime reports, and keep rollouts/model loading/training/downloads/GPU/OpenVLA/paper claims false.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\120_audit_libero_action_stats.ps1
+```
+
+If this confirms mismatch, the next autonomous step is a planning-only normalized-action-space probe or checkpoint/task provenance resolution plan.
+
+Current local result: audit passed with `decision=no_go_rollout_scaling`. It sampled 5 files and 2500 actions, confirmed LIBERO action dim `7`, LIBERO max abs `1.0`, checkpoint SO100 action-stat prefixes, checkpoint mean max abs `125.720543`, checkpoint std max `59.359951`, scale mismatch true, and dimension mismatch true.
+
+51. Next safe step: create a planning-only normalized-action-space probe / checkpoint-task provenance resolution plan. It should choose between a bounded normalized action-space diagnostic, a checkpoint source/provenance check, or pivoting learned-policy rollout work away from this checkpoint. Do not run model loading, inference, rollout, training, downloads, GPU jobs, OpenVLA-OFT, or paper claims in the planning step.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

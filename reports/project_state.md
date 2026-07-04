@@ -1514,3 +1514,31 @@ Current local result:
 - rollout scaling, benchmark claims, and paper claims remain blocked.
 
 Interpretation: the next safe task is to compute bounded LIBERO HDF5 action statistics and compare them against checkpoint processor stats before any policy behavior change or rollout.
+
+## LIBERO Action-Stat Subset Audit
+
+The report-only LIBERO action-stat subset audit is implemented by `scripts\120_audit_libero_action_stats.ps1` and `tca_map.smolvla.libero_action_stat_subset_audit`.
+
+Scope:
+
+- reads bounded local LIBERO HDF5 `actions` arrays,
+- samples at most 5 files and 500 actions per file by default,
+- compares local action scale/dimensions against checkpoint processor action stats,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, alter policy behavior, access tokens, or make paper claims.
+
+Expected interpretation: if local LIBERO actions are unit-scale 7D while checkpoint processor stats are SO100/large-scale 6D, learned-policy rollout scaling remains blocked and the next safe step is a normalized-action-space probe or checkpoint/task provenance resolution plan.
+
+Current local result:
+
+- audit passed,
+- decision: `no_go_rollout_scaling`,
+- sampled files/actions: `5` / `2500`,
+- LIBERO action dim: `7`,
+- LIBERO action max abs: `1.0`,
+- checkpoint action stat prefixes: `so100`, `so100-blue`, `so100-red`,
+- checkpoint action mean max abs: `125.720543`,
+- checkpoint action std max: `59.359951`,
+- scale mismatch confirmed: true,
+- dimension mismatch confirmed: true.
+
+Interpretation: learned-policy rollout scaling remains blocked because the current checkpoint action statistics and local LIBERO action convention are mismatched. The next safe task is a normalized-action-space probe or checkpoint/task provenance resolution plan.

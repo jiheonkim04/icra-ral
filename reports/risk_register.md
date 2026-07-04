@@ -957,3 +957,13 @@ Impact: The project could introduce an ad hoc adapter fix without first proving 
 Mitigation: `scripts\119_plan_action_stat_provenance_correction.ps1` is planning-only and selects a report-only LIBERO action-stat subset audit first. It does not authorize model modification, training, rollout, checkpoint downloads, GPU jobs, OpenVLA-OFT, or paper claims.
 
 Current status: the plan selected a report-only LIBERO action-stat subset audit. This keeps policy changes and rollouts blocked until local LIBERO action statistics are measured directly.
+
+## LIBERO Action-Stat Audit Scope Risk
+
+Risk: Computing LIBERO action statistics could be mistaken for a corrected policy or rollout evidence.
+
+Impact: The project could overinterpret dataset-stat confirmation as learned-policy compatibility.
+
+Mitigation: `scripts\120_audit_libero_action_stats.ps1` is report-only and keeps model loading, inference, training, rollouts, GPU jobs, OpenVLA-OFT, policy behavior changes, and paper claims false.
+
+Current status: the audit confirmed 7D unit-scale LIBERO actions and 6D SO100 large-scale checkpoint action statistics. Learned-policy rollout failures under this bridge should not be interpreted as paper-relevant SmolVLA/LIBERO performance until provenance or normalized-action-space handling is resolved.
