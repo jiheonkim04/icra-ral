@@ -476,6 +476,28 @@ scripts\66_plan_libero_policy_rollout_readiness.ps1
 
 It is planning-only. It checks whether the WSL-only topology can host both the LIBERO/RoboSuite simulator and SmolVLA policy runtime from local assets. It does not load SmolVLA, run policy inference, train, use GPU, create simulator environments, rollout, download, execute OpenVLA-OFT, or make paper claims. If it reports `proceed`, the next safe branch is a separately gated tiny learned-policy rollout runner. If it reports `reduce_scope`, the next safe branch is WSL SmolVLA runtime setup/readiness in `/home/jiheon/.venvs/tca_map_sim`.
 
+The WSL SmolVLA runtime setup planner and guard are implemented in:
+
+```text
+scripts\67_plan_wsl_smolvla_runtime_setup.ps1
+scripts\68_setup_wsl_smolvla_runtime_deps.ps1
+```
+
+Current local result: after a green risk assessment, the WSL venv `/home/jiheon/.venvs/tca_map_sim` now has the lightweight SmolVLA runtime modules needed for WSL-only readiness:
+
+```text
+torch==2.10.0+cpu
+torchvision==0.25.0+cpu
+transformers==4.57.6
+lerobot==0.4.4
+safetensors==0.8.0
+huggingface-hub==0.35.3
+accelerate==1.14.0
+num2words==0.5.14
+```
+
+The first task-local setup run reached the 1800 second timeout after venv package downloads/install activity. No residual pip/install process remained, and a follow-up module-spec probe reported all required modules present. A second task-local setup guard run detected `setup_required=false` and reported `setup_passed=true` without further installs or downloads. This is runtime readiness only: no model load, no inference, no training, no rollout, no GPU job, no OpenVLA-OFT execution, no token access, and no paper claim.
+
 WSL simulator compatibility adjustments made after green risk assessments:
 
 ```text
@@ -618,7 +640,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or unsupported paper-level empirical claims. Paper-grade candidate reports are allowed only from verified experiment outputs with explicit evidence labels. Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment; a sudo password prompt remains a hard stop.
 
-Next autonomous direction: run `scripts\66_plan_libero_policy_rollout_readiness.ps1`. If green, create a separately gated tiny learned-policy rollout runner. If it says `reduce_scope`, prepare WSL SmolVLA runtime setup/readiness. Stop before multi-seed rollout, OpenVLA-OFT, full fine-tuning, external upload, or unsupported paper-level claims.
+Next autonomous direction: `scripts\66_plan_libero_policy_rollout_readiness.ps1` now reports the WSL-only simulator plus SmolVLA runtime topology as green. Create a separately gated tiny learned-policy rollout runner. Stop before multi-seed rollout, OpenVLA-OFT, full fine-tuning, external upload, or unsupported paper-level claims.
 
 The current bounded cached-feature local pilot extension is documented in `reports\bounded_local_pilot_extension.md` and runs through:
 

@@ -137,6 +137,7 @@ import sys
 
 required_modules = [
     "torch",
+    "torchvision",
     "transformers",
     "lerobot",
     "safetensors",

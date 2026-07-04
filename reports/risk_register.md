@@ -543,3 +543,19 @@ Risk: A future tiny learned-policy LIBERO rollout could be mistaken for standard
 Impact: A one-task or few-step local pilot could be overstated as general LIBERO performance, counterfactual robustness, or SOTA evidence.
 
 Mitigation: Keep the first learned-policy rollout capped by task count, steps, runtime, and VRAM. Label outputs as bounded benchmark diagnostic or local pilot until a documented benchmark protocol, baselines, ablations, and repeated validation exist. Paper-grade candidate reports may be generated only from verified outputs with explicit evidence labels and limitations.
+
+## WSL SmolVLA Runtime Setup Timeout Risk
+
+Risk: A venv-local package setup can hit the 30 minute timeout after package installation work has mostly completed, leaving the setup report marked failed even though module specs are present.
+
+Impact: The project could either retry unnecessarily or hide a real timeout failure.
+
+Mitigation: After timeout, check for residual pip/install processes, rerun the WSL module-spec planner, and rerun the setup guard. Current local state: no residual pip process remained, all required module specs were present, and the second guard run reported setup complete without further installs.
+
+## WSL SmolVLA Dependency Completeness Risk
+
+Risk: The WSL runtime setup currently verifies module specs and installs `lerobot==0.4.4` with `--no-deps` to avoid broad simulator venv drift. A later WSL model-load or policy-inference smoke may reveal additional runtime dependencies.
+
+Impact: Tiny learned-policy rollout may fail at load time or inference time despite module-spec readiness.
+
+Mitigation: Add a separate WSL SmolVLA load-only or policy-action smoke before long rollouts if the tiny rollout runner cannot safely combine load and rollout. Keep each missing dependency fix venv-local, risk-assessed, and bounded; do not change system CUDA/drivers or OpenVLA-OFT.

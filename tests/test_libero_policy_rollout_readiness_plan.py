@@ -121,6 +121,7 @@ def _run_script(tmp_path, extra_env=None, extra_args=None, runtime_probe=None, m
 def _ready_probe():
     modules = {
         "torch": True,
+        "torchvision": True,
         "transformers": True,
         "lerobot": True,
         "safetensors": True,
