@@ -104,6 +104,7 @@ $required = @(
     "reports/bounded_reduced_scope_learned_policy_rollout.md",
     "reports/reduced_scope_rollout_metric_summary.md",
     "reports/action_interface_diagnostic_plan.md",
+    "reports/action_interface_metadata_audit.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -175,6 +176,7 @@ $required = @(
     "scripts/75_bounded_reduced_scope_learned_policy_rollout.ps1",
     "scripts/76_generate_reduced_scope_rollout_metric_summary.ps1",
     "scripts/77_plan_action_interface_diagnostics.ps1",
+    "scripts/78_audit_action_interface_metadata.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -263,6 +265,7 @@ $required = @(
     "tests/test_bounded_reduced_scope_learned_policy_rollout.py",
     "tests/test_reduced_scope_rollout_metric_summary.py",
     "tests/test_action_interface_diagnostic_plan.py",
+    "tests/test_action_interface_metadata_audit.py",
     "tests/test_lora_config_guards.py"
 )
 
