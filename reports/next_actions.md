@@ -318,8 +318,10 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
    Done; pure helper tests pass and rollout behavior is not wired yet.
 10. Wire adapter metadata into synthetic/single-sample interface smoke without rollout.
     Done; bounded synthetic single-sample smoke passed with `adapter_metadata_recorded=true` and no simulator or rollout.
-11. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-12. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+11. Add a rollout bridge adapter wiring planner.
+    Done; planner passed and keeps rollout execution blocked.
+12. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+13. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
