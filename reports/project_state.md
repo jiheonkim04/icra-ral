@@ -313,7 +313,7 @@ The current executable local path has cleared the LIBERO HDF5 reader boundary:
 - `scripts\48_plan_libero_offline_interface_smoke.ps1` reports `ready_for_offline_interface_smoke=true`,
 - rollout readiness is still false and requires a separate simulator gate.
 
-Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, bounded simulator import-only smoke, and bounded render/reset-step risk planner have passed. The current boundary is the next simulator readiness rung: a separate bounded render-smoke branch. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
+Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, bounded simulator import-only smoke, and bounded render/reset-step risk planner have passed. The bounded render-smoke script now exists, but the local render attempt is blocked by WSL OSMesa/offscreen GL readiness. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
 
 Current planning commands:
 
@@ -421,7 +421,7 @@ Reasons:
 
 Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup and import-only smoke have passed. Simulator render smoke, reset/step smoke, rollout, or real benchmark work must wait for the corresponding green risk assessment inside the current budget.
 
-The next safe local action is a separate bounded render-smoke branch. Do not run environment reset/step or rollout unless that specific later assessment passes and remains inside the bounded simulator policy.
+The next local boundary is not reset/step or rollout. The bounded render-smoke attempt has reached a graphics-stack blocker: `MUJOCO_GL=osmesa` failed with `AttributeError: 'NoneType' object has no attribute 'glGetError'`. Stop before system graphics changes or apt/driver work unless a separate risk assessment clears that gate.
 
 The LIBERO offline LoRA comparison is implemented as a bounded local proxy diagnostic in `scripts\53_compare_libero_offline_lora.ps1`. It trains only tiny NumPy low-rank adapter matrices over local HDF5 action-prefix snippets, requires `ALLOW_TINY_TRAINING=1`, and does not use GPU, model loading, model inference, simulator execution, rollout, OpenVLA-OFT, token access, or paper-grade claims.
 
@@ -436,6 +436,8 @@ Current local bounded simulator import smoke result: the script ran under the ta
 The WSL simulator dependency checker is implemented in `scripts\56_check_wsl_simulator_deps.ps1`. It is check-only and records whether WSL has `python3`, global `pip`/`ensurepip`/`numpy`, the selected venv Python, selected venv `pip`, selected venv `numpy`, and missing modules from the bounded simulator import-smoke report. Current local result: the selected venv is ready for import-only retry, while global WSL Python still lacks pip and numpy. Future dependency additions should stay in the venv and stop before sudo password, token/license/payment, CUDA/driver, graphics-stack, OpenVLA-OFT, render, rollout, or paper-claim gates.
 
 The bounded simulator render/reset-step planner is implemented in `scripts\58_plan_simulator_render_reset.ps1`. Current local result: it reads the passed import-only report and reports `decision=proceed`, `ready_for_bounded_render_smoke_plan=true`, `ready_for_bounded_reset_step_smoke_plan=false`, and `ready_for_rollout=false`. It performs no render, reset/step, rollout, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim.
+
+The bounded simulator render-smoke script is implemented in `scripts\59_bounded_simulator_render_smoke.ps1`. Current local result: it attempted one tiny MuJoCo 64x64 offscreen render with `MUJOCO_GL=osmesa` and failed before producing an image because offscreen GL/OSMesa appears unavailable or misconfigured. It did not create/reset/step LIBERO or RoboSuite environments, rollout, train, use GPU jobs, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
@@ -568,7 +570,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or paper-level empirical claims. Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment; a sudo password prompt remains a hard stop.
 
-Next autonomous direction: create a separate bounded render-smoke branch using the WSL venv import-readiness path. Reset/step smoke and tiny diagnostic rollout remain distinct later gates. No OpenVLA-OFT execution or paper claim is authorized.
+Next autonomous direction: stop at the simulator graphics-stack boundary unless a separate risk assessment authorizes the minimal WSL offscreen-render dependency fix. Reset/step smoke and tiny diagnostic rollout remain blocked. No OpenVLA-OFT execution or paper claim is authorized.
 
 The current bounded cached-feature local pilot extension is documented in `reports\bounded_local_pilot_extension.md` and runs through:
 
