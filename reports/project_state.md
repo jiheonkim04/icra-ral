@@ -700,3 +700,27 @@ Observed local result:
 This clears the first learned-policy LIBERO diagnostic topology only. It is not standard success, not benchmark success, not counterfactual robustness evidence, and not paper-grade evidence.
 
 Next autonomous direction: create a tiny benchmark-metric diagnostic report and, if green, progress to a bounded small learned-policy rollout matrix with explicit evidence labels and no multi-seed or paper-grade claim.
+
+## Tiny Learned-Policy Metric Summary Result
+
+Current local report-only result: passed.
+
+`scripts\73_generate_tiny_learned_policy_metric_summary.ps1` summarized the existing tiny learned-policy rollout report without loading models, running inference, creating simulator environments, rolling out, training, using GPU jobs, downloading, executing OpenVLA-OFT, accessing tokens, or making paper claims.
+
+Observed diagnostic metrics:
+
+- source rollout passed: true,
+- tasks completed: 1,
+- total steps: 3,
+- policy calls: 3,
+- diagnostic success count: 0,
+- diagnostic success rate: 0.0,
+- reward sum: 0.0,
+- mean policy latency from the recorded final step: about 0.157 seconds,
+- policy action shape: `[1, 6]`,
+- environment action dimension: 7,
+- failure mode: `diagnostic_success_check_false`.
+
+Interpretation: the learned-policy simulator-control topology is working, but the current one-task, three-step diagnostic did not solve the task. This remains diagnostic/local-pilot evidence only.
+
+Next autonomous direction: create a bounded small learned-policy rollout matrix planner with explicit task count, step count, runtime, evidence-label, and no-paper-claim guards.

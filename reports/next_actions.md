@@ -299,6 +299,7 @@ After the LoRA/QLoRA go/no-go update, tiny LoRA smoke runner, tiny LoRA comparis
 After WSL SmolVLA runtime readiness and single-action smoke passed, the separately gated tiny learned-policy LIBERO rollout runner has also passed one bounded diagnostic run. Current next actions:
 
 1. Generate a tiny learned-policy benchmark-metric diagnostic summary from the bounded rollout JSON without claiming benchmark success.
+   Done.
 2. Add a small learned-policy rollout matrix planner capped by the current risk budget.
 3. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
 4. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.

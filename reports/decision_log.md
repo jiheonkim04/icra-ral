@@ -629,3 +629,11 @@ Decision: Treat the first bounded tiny learned-policy LIBERO rollout as passed d
 Reason: `scripts\72_bounded_tiny_learned_policy_rollout.ps1` ran under task-local `ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1`, loaded local SmolVLA in the WSL simulator topology on CPU, created one real `libero_10` RoboSuite/LIBERO environment, made 3 policy calls, and stepped the environment 3 times without timeout or wrapper failure.
 
 Consequence: This clears only the first learned-policy simulator-control topology. The observed diagnostic success check was `false` and reward sum was `0.0`, so this is not benchmark success, not standard success, not SOTA evidence, and not paper-grade evidence. The next safe rung is a tiny benchmark-metric diagnostic summary and then a bounded small rollout matrix if risk assessment remains green.
+
+## Tiny Learned-Policy Metric Summary Result
+
+Decision: Treat the tiny learned-policy metric summary as passed report-only diagnostic evidence.
+
+Reason: `scripts\73_generate_tiny_learned_policy_metric_summary.ps1` read the existing rollout JSON, refused execution gates, and summarized the observed one-task, three-step result without any new model load, inference, simulator execution, rollout, training, GPU job, download, OpenVLA-OFT execution, token access, or paper claim.
+
+Consequence: The summary records that the topology passed but task performance did not: diagnostic success count was 0, diagnostic success rate was 0.0, and reward sum was 0.0. The next safe rung is a bounded small learned-policy rollout matrix planner, still with diagnostic/local-pilot evidence labels only.
