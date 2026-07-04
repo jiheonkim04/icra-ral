@@ -949,3 +949,11 @@ Decision: Summarize the one-sample offline action-decoding diagnostic before any
 Reason: The one-sample diagnostic can complete successfully while still producing a large action error to the expert action. That distinction should be explicit before adding rollout variants.
 
 Consequence: `scripts\107_summarize_offline_demo_action_decoding.ps1` keeps rollout scaling blocked when offline alignment is weak and routes the next work toward VLM loading policy, checkpoint provenance, or action normalization analysis.
+
+## VLM Loading Policy and Action-Normalization Audit
+
+Decision: Add a report-only audit for VLM loading policy, action normalization, action clipping, and camera/action adapter conventions.
+
+Reason: The offline action-decoding diagnostic produced finite actions but weak expert alignment. The checkpoint config requests `load_vlm_weights=true`, while the bounded local diagnostic used `load_vlm_weights=false`, and the 6D-to-7D adapter clipped at least one action component.
+
+Consequence: `scripts\108_plan_vlm_loading_policy_action_normalization_audit.ps1` keeps rollout scaling blocked and routes the next safe work toward a tiny repeated offline HDF5 action-decoding diagnostic. It does not load models, run inference, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims.

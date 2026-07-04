@@ -440,6 +440,14 @@ powershell -ExecutionPolicy Bypass -File scripts\107_summarize_offline_demo_acti
 
 If the summary reports `offline_alignment_signal=weak`, keep learned-policy rollout scaling blocked and inspect VLM loading policy, checkpoint provenance, and action normalization before another learned-policy rollout. If it reports moderate or strong alignment, it is still diagnostic-only; plan a tiny repeated offline decoding check before rollout.
 
+37. VLM loading policy and action-normalization audit command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\108_plan_vlm_loading_policy_action_normalization_audit.ps1
+```
+
+Current expected interpretation: if the audit reports `decision=no_go_rollout_scaling` and `ready_for_repeated_offline_decoding_plan=true`, do not run another learned-policy rollout yet. Plan a tiny repeated offline demonstration action-decoding diagnostic over a few HDF5 timesteps, explicitly logging `load_vlm_weights`, action unnormalization, clipping, gripper strategy, and image aliases. Treat VLM-enabled loading or full SmolVLM2 weight acquisition as a separate risk-assessed task.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
