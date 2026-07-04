@@ -1143,3 +1143,13 @@ Reason: The project now has a bounded required-LoRA proxy result that should be 
 Consequence: `scripts\124_generate_offline_evidence_gap_report.ps1` remains report-only, but now records whether bounded LoRA scale-up was included and adds separate bounded offline LoRA proxy rows. It still blocks learned-policy rollout scaling and paper claims.
 
 Current result: The refreshed evidence gap report included the bounded LoRA scale-up rows and kept rollout, benchmark, and paper-claim readiness false. The next decision point should synthesize attribution gaps rather than claim benchmark progress.
+
+## Scale-Up Attribution Gap Synthesis
+
+Decision: Add a report-only synthesis of bounded LoRA scale-up attribution gaps.
+
+Reason: The scale-up-aware evidence table shows useful TCA-Map + LoRA proxy gains, but Distributional TCA-Select has no additional LoRA proxy gain in the current runner. The project needs to record that gap before planning the next offline stress test.
+
+Consequence: `scripts\127_synthesize_scaleup_attribution_gaps.ps1` reads existing reports only and keeps training, rollout, model loading, GPU jobs, OpenVLA-OFT, and paper claims blocked.
+
+Current result: The synthesis passed and recorded that Distributional TCA-Select currently adds no extra LoRA proxy gain in the bounded runner. The next decision is to plan an offline candidate-ambiguity stress test before any selection-specific claim.

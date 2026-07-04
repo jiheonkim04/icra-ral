@@ -678,6 +678,18 @@ Current local result: evidence gap refresh passed with `bounded_lora_scaleup_inc
 
 58. Next safe step: create a report-only scale-up-aware attribution-gap synthesis. It should explain what the bounded offline evidence supports, what it does not support, why Distributional TCA-Select currently shows no additional LoRA proxy gain in this runner, and what must be resolved before paper-grade rollout claims. It must not train, download, load models, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\127_synthesize_scaleup_attribution_gaps.ps1
+```
+
+Expected interpretation: if the synthesis passes, the next safe task is a report-only offline TCA-Select ambiguity/stress-test plan. Do not run rollout scaling or make paper claims from the offline proxy evidence.
+
+Current local result: synthesis passed with `decision=scaleup_attribution_gaps_ready`, `bounded_lora_scaleup_included=true`, bounded TCA-Map + LoRA vs ActionMap + LoRA wrong-target proxy delta `-0.4375`, and bounded TCA-Select + LoRA vs TCA-Map + LoRA deltas `0.0`. The next safe task is a report-only TCA-Select candidate-ambiguity stress-test plan.
+
+59. Next safe step: plan an offline TCA-Select ambiguity/stress test that can isolate inference-time selection gain without training or rollout. It should define candidate diversity, ambiguous target/action pairs, scoring metrics, and pass/fail criteria, but remain planning-only first.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

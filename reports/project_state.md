@@ -1741,3 +1741,31 @@ Current local result:
 - learned-policy rollout scaling, benchmark claims, and paper claims remain false.
 
 Interpretation: the next safe task is a report-only attribution-gap synthesis. The evidence table supports continued low-compute method debugging, not paper-grade claims.
+
+## Scale-Up Attribution Gap Synthesis
+
+The report-only synthesis is implemented by `scripts\127_synthesize_scaleup_attribution_gaps.ps1` and `tca_map.smolvla.scaleup_attribution_gap_synthesis`.
+
+Scope:
+
+- reads the scale-up-aware offline evidence gap runtime report,
+- explains target-conditioning, LoRA, and Distributional TCA-Select attribution gaps,
+- keeps all outputs offline proxy only,
+- does not train, download, install, import heavy VLA models, load models, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if the synthesis passes, the next safe step is a report-only TCA-Select ambiguity/stress-test plan,
+- Distributional TCA-Select needs a stronger candidate-diversity proxy before claiming selection-specific gain,
+- learned-policy rollout scaling and paper claims remain blocked.
+
+Current local result:
+
+- synthesis passed,
+- decision: `scaleup_attribution_gaps_ready`,
+- bounded LoRA scale-up included: true,
+- bounded TCA-Map + LoRA vs ActionMap + LoRA wrong-target proxy delta: -0.4375,
+- bounded TCA-Select + LoRA vs TCA-Map + LoRA deltas: 0.0,
+- ready for learned-policy rollout scaling and paper claims: false.
+
+Interpretation: the next safe task is a report-only TCA-Select candidate-ambiguity stress-test plan.
