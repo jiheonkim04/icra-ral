@@ -427,3 +427,19 @@ Decision: Declare `h5py>=3.11` as the required reader dependency for local LIBER
 Reason: The official LIBERO demonstrations are HDF5 files. Without `h5py`, the repository can confirm file presence but cannot inspect instruction/action-like fields for the offline interface smoke.
 
 Consequence: `requirements.txt` includes `h5py>=3.11`, and `pyproject.toml` exposes a `libero` optional dependency group. Installing it still requires a green dependency risk assessment and must not change CUDA/PyTorch versions, install simulators, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.
+
+## h5py Reader Install And LIBERO Offline Interface Gate
+
+Decision: Install `h5py` as a reader-only dependency after a green risk assessment and run the LIBERO offline interface smoke gate.
+
+Reason: Official LIBERO demonstrations are present locally as HDF5 files. The environment needed a lightweight HDF5 reader to inspect action fields without simulator execution, training, rollout, model loading, or paper claims.
+
+Consequence: `h5py 3.16.0` was installed from a Windows wheel only; no CUDA/PyTorch versions, simulator packages, VLA models, OpenVLA-OFT assets, tokens, or dataset sources were changed. `scripts\50_check_libero_hdf5_reader.ps1` reports ready, and `scripts\48_plan_libero_offline_interface_smoke.ps1` reports `ready_for_offline_interface_smoke=true`.
+
+## Bounded LIBERO HDF5 Report Output
+
+Decision: Keep LIBERO HDF5 interface inspection reports bounded by recording dataset counts and a sample of dataset shapes instead of every HDF5 dataset path.
+
+Reason: Real LIBERO files contain many demonstrations and observation datasets. Dumping every HDF5 dataset shape makes terminal output and runtime reports unnecessarily large while adding no readiness value.
+
+Consequence: `tca_map.datasets.libero_offline_interface.inspect_hdf5` now records `dataset_count`, `dataset_sample_limit`, `datasets_sample`, and `action_dataset_paths_sample`. It still detects action fields for interface readiness, but keeps reports small enough for routine safe-runner use.

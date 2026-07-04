@@ -1,7 +1,7 @@
 param(
     [string]$Python = "C:\Users\jiheo\miniconda3\envs\tca_map\python.exe",
     [string]$PathsFile = "configs\paths.local.yaml",
-    [int]$MaxFiles = 5,
+    [int]$MaxFiles = 1,
     [string]$JsonReportPath = "reports\libero_offline_interface_smoke_report.json",
     [string]$MarkdownReportPath = "reports\libero_offline_interface_smoke_report.md"
 )

@@ -105,7 +105,7 @@ def inspect_npz(path: Path) -> dict:
     return {"reader": "npz", "arrays": arrays, "errors": [], "interface_ready": has_action}
 
 
-def inspect_hdf5(path: Path) -> dict:
+def inspect_hdf5(path: Path, max_dataset_entries: int = 12) -> dict:
     try:
         import h5py  # type: ignore
     except Exception as exc:
@@ -115,20 +115,37 @@ def inspect_hdf5(path: Path) -> dict:
             "interface_ready": False,
             "requires_optional_reader": "h5py",
         }
-    keys: list[str] = []
-    datasets: dict[str, list[int]] = {}
+    keys_sample: list[str] = []
+    datasets_sample: dict[str, list[int]] = {}
+    dataset_count = 0
+    action_dataset_paths: list[str] = []
     try:
         with h5py.File(path, "r") as handle:
             def visitor(name: str, obj: Any) -> None:
-                keys.append(name)
+                nonlocal dataset_count
+                if len(keys_sample) < 12:
+                    keys_sample.append(name)
                 if hasattr(obj, "shape"):
-                    datasets[name] = list(obj.shape)
+                    dataset_count += 1
+                    if len(datasets_sample) < max_dataset_entries:
+                        datasets_sample[name] = list(obj.shape)
+                    if "action" in name.lower():
+                        action_dataset_paths.append(name)
 
             handle.visititems(visitor)
     except Exception as exc:
         return {"reader": "hdf5", "errors": [str(exc)], "interface_ready": False}
-    has_action = any("action" in key.lower() for key in datasets)
-    return {"reader": "hdf5", "keys_sample": keys[:20], "datasets": datasets, "errors": [], "interface_ready": has_action}
+    has_action = bool(action_dataset_paths)
+    return {
+        "reader": "hdf5",
+        "keys_sample": keys_sample,
+        "dataset_count": dataset_count,
+        "dataset_sample_limit": max_dataset_entries,
+        "datasets_sample": datasets_sample,
+        "action_dataset_paths_sample": action_dataset_paths[:5],
+        "errors": [],
+        "interface_ready": has_action,
+    }
 
 
 def inspect_dataset_file(path: Path) -> dict:
@@ -150,7 +167,7 @@ def inspect_dataset_file(path: Path) -> dict:
     }
 
 
-def build_offline_interface_report(data_root: Path, max_files: int = 5) -> dict:
+def build_offline_interface_report(data_root: Path, max_files: int = 1) -> dict:
     files = find_dataset_files(data_root, max_files=max_files)
     inspections = [inspect_dataset_file(path) for path in files]
     ready = bool(inspections and any(item.get("interface_ready") for item in inspections))
@@ -217,7 +234,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--paths-file", default="configs/paths.local.yaml")
     parser.add_argument("--data-root", default="")
-    parser.add_argument("--max-files", type=int, default=5)
+    parser.add_argument("--max-files", type=int, default=1)
     parser.add_argument("--report-json", default="reports/libero_offline_interface_smoke_report.json")
     parser.add_argument("--report-md", default="reports/libero_offline_interface_smoke_report.md")
     args = parser.parse_args()
