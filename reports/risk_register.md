@@ -607,3 +607,11 @@ Risk: PowerShell scripts stored with CRLF line endings can inject carriage retur
 Impact: WSL command execution can fail before the Python runner starts, with bash errors such as `$'\r': command not found` or `ambiguous redirect`.
 
 Mitigation: Strip `\r` from generated bash command strings before `bash -lc` in rollout runners, and keep tests that assert the guard exists.
+
+## Action Interface Diagnosis Gap
+
+Risk: The project could continue rollout scaling without first auditing the action/control interface that likely explains zero reward.
+
+Impact: Additional rollouts would consume runtime while repeating the same interface mismatch.
+
+Mitigation: `scripts\77_plan_action_interface_diagnostics.ps1` prioritizes action dimension/gripper mapping, action normalization/scale, and observation state mapping before larger rollout matrices.

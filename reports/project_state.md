@@ -787,3 +787,30 @@ Observed diagnostic metrics:
 - failure mode: `diagnostic_success_check_false`.
 
 Interpretation: the policy emits finite, nontrivial continuous actions, but the action/observation/control interface likely needs diagnosis before any larger rollout matrix is useful.
+
+## Action-Interface Diagnostic Planner Result
+
+Current local planning result: `proceed`.
+
+`scripts\77_plan_action_interface_diagnostics.ps1` read the reduced-scope rollout metric summary and local SmolVLA `config.json` metadata without downloading, installing, loading models, running inference, creating simulator environments, rolling out, training, using GPU jobs, executing OpenVLA-OFT, accessing tokens, or making paper claims.
+
+Observed signals:
+
+- diagnostic success rate: 0.0,
+- reward sum: 0.0,
+- policy action dimension: 6,
+- environment action dimension: 7,
+- gripper component: 0.0,
+- action max absolute value: about 0.793,
+- action L2 norm: about 1.222.
+
+Priority diagnosis:
+
+- high: action dimension and gripper mapping,
+- high: action normalization and scale,
+- high: observation state mapping,
+- medium: camera mapping,
+- medium: language prompt mapping,
+- medium: zero-action versus SmolVLA-action comparison.
+
+Next autonomous direction: create a bounded action-interface audit that reads metadata and existing reports only, then a zero-action versus SmolVLA-action diagnostic comparison if the audit remains green.

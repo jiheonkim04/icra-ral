@@ -669,3 +669,11 @@ Decision: Strip carriage returns from generated WSL `bash -lc` command strings b
 Reason: Running a PowerShell script with CRLF line endings can pass `$'\r'` tokens into WSL bash heredocs and break redirection with errors such as `ambiguous redirect`.
 
 Consequence: Both `scripts\72_bounded_tiny_learned_policy_rollout.ps1` and `scripts\75_bounded_reduced_scope_learned_policy_rollout.ps1` remove `\r` from generated bash command strings before invoking WSL. This is a robustness fix only and does not change rollout scope or evidence labels.
+
+## Action-Interface Diagnostic Planner Result
+
+Decision: Prioritize action-interface diagnostics before scaling learned-policy rollouts.
+
+Reason: `scripts\77_plan_action_interface_diagnostics.ps1` found that the policy action dimension is 6 while the LIBERO environment action dimension is 7, the gripper component is currently padded to `0.0`, action magnitude is nontrivial, and the task still has diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: The next safe step is a metadata/report-only action-interface audit, followed by a bounded zero-action versus SmolVLA-action diagnostic comparison if the audit remains green. Larger rollout matrices remain premature.
