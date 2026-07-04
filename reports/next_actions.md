@@ -345,6 +345,13 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 24. Report-only offline adapter reproduction check.
     Done. The first demonstration action is best reproduced by `policy_6d_delta_pose_plus_gripper_close`, while the current zero-hold gripper default mismatches the first demonstration gripper value `-1.0`.
 25. Next safe research-engineering step: plan a bounded one-task gripper-close compatibility diagnostic. Run it only as a specific compatibility hypothesis, with no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, no rollout scaling, and no paper claims.
+26. Gripper-close compatibility diagnostic planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\96_plan_gripper_close_compat_diagnostic.ps1
+```
+
+If the planner reports `decision=proceed`, a future runner may test exactly one gripper-close compatibility diagnostic under a task-local gate. If it reports `decision=reduce_scope`, do not rerun an identical close-strategy rollout; instead plan a narrower HDF5-aligned task/initial-state/action-sign compatibility check. In all cases, rollout scaling and paper claims remain blocked.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
