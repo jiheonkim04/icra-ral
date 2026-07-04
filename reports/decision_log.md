@@ -829,3 +829,11 @@ Decision: Do not scale learned-policy rollout after the first state-sufficiency 
 Reason: `scripts\91_bounded_state_sufficiency_diagnostic.ps1` completed `eef_pos_quat_first3`, `eef_pos_quat_last3`, and `eef_pos_zero_rot` variants with explicit state adapter metadata. The variants changed state mappings and action previews, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: State-vector sufficiency is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work is a learned-policy diagnostic synthesis/no-go report or a narrower environment-policy compatibility check, not broader rollout matrices or paper-grade claims.
+
+## Learned-Policy Diagnostic Synthesis Result
+
+Decision: Treat the current learned-policy rollout ladder as no-go for rollout scaling.
+
+Reason: `scripts\92_generate_learned_policy_diagnostic_synthesis.ps1` synthesized zero-action comparison, adapter strategy, action scale, prompt format, camera source, and state sufficiency. All available bounded diagnostics passed wrapper/execution checks, but none produced nonzero reward or diagnostic success, and all keep `ready_for_rollout_scaling=false`.
+
+Consequence: The next safe work is a bounded environment-policy compatibility audit focused on task/checkpoint alignment, action convention, and observation convention. Do not scale learned-policy rollouts or make paper-grade claims from the current evidence.

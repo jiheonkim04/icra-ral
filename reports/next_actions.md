@@ -336,7 +336,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done for `current_aliases`, `camera3_eye_in_hand`, and `all_agentview`. All variants passed the wrapper and changed image-source metadata/action previews, but diagnostic success rate and reward sum remained 0.0.
 20. Bounded state-sufficiency diagnostic.
     Done for `eef_pos_quat_first3`, `eef_pos_quat_last3`, and `eef_pos_zero_rot`. All variants passed the wrapper and changed explicit state metadata/action previews, but diagnostic success rate and reward sum remained 0.0.
-21. Next safe research-engineering step: generate a learned-policy diagnostic synthesis/no-go report. Compare adapter strategy, action scale, prompt format, camera source, and state sufficiency against zero-action and prior learned-policy diagnostics. Keep rollout scaling blocked unless the synthesis identifies a bounded compatibility fix and a new tiny diagnostic risk assessment is green.
+21. Learned-policy diagnostic synthesis/no-go report.
+    Done. The synthesis decision is `no_go_rollout_scaling`: the diagnostic ladder is complete, but no axis produced nonzero reward or diagnostic success, and every source report keeps `ready_for_rollout_scaling=false`.
+22. Next safe research-engineering step: create a bounded environment-policy compatibility audit. Focus on task/checkpoint alignment, action convention, observation convention, and whether the chosen LIBERO task is compatible with the local SmolVLA checkpoint. Keep rollout scaling blocked unless the audit identifies a specific bounded compatibility fix and a new one-task diagnostic risk assessment is green.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
