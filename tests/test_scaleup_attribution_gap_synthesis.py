@@ -9,7 +9,36 @@ def _write_json(path: Path, payload: dict):
     path.write_text(json.dumps(payload), encoding="utf-8")
 
 
-def _args(tmp_path: Path):
+def _write_stress_report(path: Path, passed: bool = True):
+    _write_json(
+        path,
+        {
+            "tca_select_ambiguity_stress_passed": passed,
+            "record_count": 16,
+            "policy": {
+                "offline_proxy_only": True,
+                "model_load_performed": False,
+                "training_performed": False,
+                "rollouts_performed": False,
+                "gpu_jobs_performed": False,
+                "openvla_oft_executed": False,
+                "privileged_inference_used": False,
+                "external_verifier_used": False,
+            },
+            "metrics": {
+                "top_heatmap_wrong_target_proxy_rate": 1.0,
+                "selected_wrong_target_proxy_rate": 0.0,
+                "selection_wrong_target_proxy_delta_vs_top_heatmap": -1.0,
+                "top_heatmap_action_l1": 0.164299,
+                "selected_action_l1": 0.0,
+                "selection_action_l1_delta_vs_top_heatmap": -0.164299,
+                "latency_ms": 0.428231,
+            },
+        },
+    )
+
+
+def _args(tmp_path: Path, include_stress: bool = True):
     evidence = tmp_path / "evidence.json"
     _write_json(
         evidence,
@@ -35,8 +64,12 @@ def _args(tmp_path: Path):
             },
         },
     )
+    stress = tmp_path / "stress.json"
+    if include_stress:
+        _write_stress_report(stress)
     return argparse.Namespace(
         evidence_report=str(evidence),
+        tca_select_stress_report=str(stress),
         report_path=str(tmp_path / "report.json"),
         markdown_report_path=str(tmp_path / "report.md"),
     )
@@ -52,12 +85,29 @@ def test_scaleup_attribution_gap_synthesis_blocks_claims(tmp_path, monkeypatch):
     assert report["scaleup_attribution_gap_synthesis_passed"] is True
     assert report["decision"] == "scaleup_attribution_gaps_ready"
     assert report["bounded_lora_scaleup_included"] is True
+    assert report["tca_select_ambiguity_stress_included"] is True
     assert report["ready_for_learned_policy_rollout_scaling"] is False
     assert report["ready_for_paper_claim"] is False
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert any("Distributional TCA-Select adds no extra LoRA proxy gain" in item for item in report["findings"])
+    assert any("offline ambiguity stress test provides selection-specific proxy evidence" in item for item in report["findings"])
     assert report["input_summary"]["bounded_lora_wrong_target_delta"] == -0.44
+    assert report["input_summary"]["stress_selection_wrong_target_proxy_delta"] == -1.0
+    assert report["input_summary"]["stress_selection_action_l1_delta"] == -0.164299
+
+
+def test_scaleup_attribution_gap_synthesis_handles_missing_stress_report(tmp_path, monkeypatch):
+    for gate in synth.FORBIDDEN_GATES:
+        monkeypatch.delenv(gate, raising=False)
+
+    report, code = synth.build_report(_args(tmp_path, include_stress=False))
+
+    assert code == 0
+    assert report["scaleup_attribution_gap_synthesis_passed"] is True
+    assert report["tca_select_ambiguity_stress_included"] is False
+    assert any("No TCA-Select ambiguity stress report was available" in item for item in report["findings"])
+    assert report["input_summary"]["stress_selection_wrong_target_proxy_delta"] is None
 
 
 def test_scaleup_attribution_gap_synthesis_refuses_forbidden_gate(tmp_path, monkeypatch):

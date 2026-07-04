@@ -714,6 +714,14 @@ Current local result: runner passed with `tca_select_ambiguity_stress_passed=tru
 
 61. Next safe step: refresh the scale-up attribution synthesis and/or offline evidence table so it includes `reports\tca_select_ambiguity_stress_report.json`. This should remain report-only and must not train, download, load models, infer with SmolVLA, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\127_synthesize_scaleup_attribution_gaps.ps1
+```
+
+Expected interpretation: if the refreshed synthesis reports `tca_select_ambiguity_stress_included=true`, the next safe task is a report-only refresh of the consolidated offline evidence table with a dedicated TCA-Select ambiguity-stress row.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

@@ -1834,3 +1834,14 @@ Current local result:
 - model loading, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, and paper claims remained false.
 
 Interpretation: Distributional TCA-Select now has selection-specific offline proxy evidence in an ambiguity stress setting. This still does not unblock standard success, learned-policy rollout claims, or paper-grade claims. The next safe task is to refresh the attribution synthesis/evidence table with the stress-test result.
+
+## Stress-Aware Attribution Synthesis
+
+`scripts\127_synthesize_scaleup_attribution_gaps.ps1` now accepts `reports\tca_select_ambiguity_stress_report.json` as an optional input.
+
+Expected interpretation:
+
+- LoRA scale-up attribution and TCA-Select stress-test attribution are kept separate,
+- zero TCA-Select delta in the bounded LoRA runner is preserved as a gap,
+- positive TCA-Select ambiguity-stress proxy evidence is recorded separately,
+- paper readiness, benchmark readiness, rollout readiness, and learned-policy rollout scaling remain false.

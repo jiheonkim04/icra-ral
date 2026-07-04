@@ -1175,3 +1175,11 @@ Consequence: `scripts\129_run_tca_select_ambiguity_stress_test.ps1` may compare 
 Current result: The runner passed over 16 local offline counterfactual records. Distributional TCA-Select reduced wrong-target proxy rate from 1.0 for the top-heatmap baseline to 0.0, with action L1 delta -0.164299, while keeping model loading, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, and paper claims false.
 
 Next decision: refresh the attribution synthesis/evidence table to include this selection-specific offline proxy evidence, without promoting it to standard success or paper-grade evidence.
+
+## Stress-Aware Attribution Synthesis Refresh
+
+Decision: Extend the scale-up attribution synthesis to read the offline TCA-Select ambiguity stress report when present.
+
+Reason: The project needs to preserve both facts at once: the bounded LoRA runner shows zero additional selection delta, while the ambiguity stress test shows selection-specific proxy gain against a top-heatmap baseline.
+
+Consequence: `scripts\127_synthesize_scaleup_attribution_gaps.ps1` remains report-only and now separates LoRA adaptation attribution from inference-time selection attribution without unlocking rollout, benchmark, or paper claims.

@@ -1077,3 +1077,11 @@ Mitigation: `scripts\129_run_tca_select_ambiguity_stress_test.ps1` labels output
 Current status: the runner scaffolding is added and must be validated before the stress-test evidence can be synthesized.
 
 Current result: the runner passed and produced selection-specific offline proxy evidence: wrong-target proxy delta -1.0 and action L1 delta -0.164299 against a top-heatmap baseline. The mitigation remains active because this is synthetic candidate ambiguity over offline HDF5 snippets, not rollout success or a paper-grade benchmark.
+
+## Stress-Aware Synthesis Overinterpretation Risk
+
+Risk: Combining bounded LoRA scale-up and TCA-Select ambiguity stress evidence in one synthesis could make the method look paper-ready.
+
+Impact: Offline proxy evidence could be overread as standard success or learned-policy rollout evidence.
+
+Mitigation: The refreshed attribution synthesis records `tca_select_ambiguity_stress_included` separately from `bounded_lora_scaleup_included`, keeps rollout and paper readiness false, and routes the next step to report-only evidence-table refresh rather than benchmark rollout.
