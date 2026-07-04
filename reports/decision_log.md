@@ -677,3 +677,11 @@ Decision: Prioritize action-interface diagnostics before scaling learned-policy 
 Reason: `scripts\77_plan_action_interface_diagnostics.ps1` found that the policy action dimension is 6 while the LIBERO environment action dimension is 7, the gripper component is currently padded to `0.0`, action magnitude is nontrivial, and the task still has diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: The next safe step is a metadata/report-only action-interface audit, followed by a bounded zero-action versus SmolVLA-action diagnostic comparison if the audit remains green. Larger rollout matrices remain premature.
+
+## Action-Interface Metadata Audit Result
+
+Decision: Treat the metadata audit as passed and block rollout scaling until interface diagnostics are addressed.
+
+Reason: `scripts\78_audit_action_interface_metadata.ps1` found high-priority action/control risks: 6D policy action versus 7D LIBERO action, gripper zero padding, state truncation in the observation bridge, and nontrivial policy actions with zero reward.
+
+Consequence: The next safe steps are a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan. Larger rollout matrices are not useful until these interface risks are tested or mitigated.

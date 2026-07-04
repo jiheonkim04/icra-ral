@@ -615,3 +615,11 @@ Risk: The project could continue rollout scaling without first auditing the acti
 Impact: Additional rollouts would consume runtime while repeating the same interface mismatch.
 
 Mitigation: `scripts\77_plan_action_interface_diagnostics.ps1` prioritizes action dimension/gripper mapping, action normalization/scale, and observation state mapping before larger rollout matrices.
+
+## Confirmed Action-Interface Metadata Risks
+
+Risk: The current bridge likely does not match SmolVLA's intended deployment interface.
+
+Impact: The policy can emit finite actions and still produce zero reward because action dimensions, gripper control, state mapping, or camera naming are wrong.
+
+Mitigation: `scripts\78_audit_action_interface_metadata.ps1` records the current high-priority risks and blocks larger rollout scaling. Next work should compare zero-action and policy-action behavior, then add an explicit action/state adapter patch plan.

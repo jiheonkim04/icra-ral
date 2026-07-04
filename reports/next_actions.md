@@ -309,9 +309,11 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 5. Inspect likely action-interface causes before scaling: action normalization, gripper dimension, observation/state mapping, language prompt, and camera mapping.
    Planning done; high-priority risks are action dimension/gripper mapping, action normalization/scale, and observation state mapping.
 6. Create a bounded metadata/report-only action-interface audit.
-7. Create a zero-action versus SmolVLA-action diagnostic comparison if the interface audit is green.
-8. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-9. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+   Done; high-priority findings are action dim mismatch, gripper zero padding, state truncation risk, and nontrivial actions with zero reward.
+7. Create a zero-action versus SmolVLA-action diagnostic comparison.
+8. Create an explicit action/state adapter patch plan.
+9. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+10. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

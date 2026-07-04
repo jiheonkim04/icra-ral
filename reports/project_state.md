@@ -814,3 +814,22 @@ Priority diagnosis:
 - medium: zero-action versus SmolVLA-action comparison.
 
 Next autonomous direction: create a bounded action-interface audit that reads metadata and existing reports only, then a zero-action versus SmolVLA-action diagnostic comparison if the audit remains green.
+
+## Action-Interface Metadata Audit Result
+
+Current local audit result: `proceed`.
+
+`scripts\78_audit_action_interface_metadata.ps1` read existing reports plus SmolVLA config/preprocessor/postprocessor metadata and the local rollout bridge source without downloading, installing, loading models, running inference, creating simulator environments, rolling out, training, using GPU jobs, executing OpenVLA-OFT, accessing tokens, or making paper claims.
+
+High-priority findings:
+
+- action dimension mismatch: policy action dim 6 versus env action dim 7,
+- gripper component is padded to 0.0,
+- state truncation risk in the current observation bridge,
+- nontrivial continuous actions still yield diagnostic success rate 0.0 and reward 0.0.
+
+Medium-priority finding:
+
+- camera feature naming mismatch between config and preprocessor metadata.
+
+Next autonomous direction: create a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan before any rollout scaling.
