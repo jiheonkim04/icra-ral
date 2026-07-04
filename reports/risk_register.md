@@ -855,3 +855,19 @@ Risk: The bounded offline decoder can produce finite actions while remaining far
 Impact: More learned-policy rollout variants may keep failing for decoder/checkpoint/VLM-loading reasons unrelated to TCA-Map.
 
 Mitigation: `scripts\107_summarize_offline_demo_action_decoding.ps1` classifies one-sample action alignment and keeps rollout scaling blocked when the offline alignment signal is weak.
+
+## VLM-Disabled Diagnostic Risk
+
+Risk: The local SmolVLA checkpoint config requests VLM weights, but bounded local diagnostics may run with `load_vlm_weights=false` for memory and dependency safety.
+
+Impact: Zero-reward rollout diagnostics and weak offline action decoding may reflect a disabled VLM path rather than the final intended policy behavior.
+
+Mitigation: `scripts\108_plan_vlm_loading_policy_action_normalization_audit.ps1` records the config-vs-observed load policy mismatch and treats any VLM-enabled load or full SmolVLM2 weight acquisition as a separate risk-assessed task.
+
+## Action Unnormalization and Clipping Risk
+
+Risk: The policy uses ACTION `MEAN_STD` unnormalization and the 6D-to-7D adapter may clip continuous values before comparing or stepping the LIBERO environment.
+
+Impact: The learned-policy bridge may distort actions even when policy inference succeeds, causing zero reward or weak expert-action alignment.
+
+Mitigation: Keep rollout scaling blocked and plan a repeated offline HDF5 decoding diagnostic that logs unnormalization, clipping, gripper strategy, and expert-action error before another learned-policy rollout.
