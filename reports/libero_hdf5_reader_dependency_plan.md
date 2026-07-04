@@ -17,3 +17,11 @@ Current semantics:
 - `ready_for_libero_rollout=false`: rollout readiness is never inferred from paths, dataset files, or HDF5 reader availability.
 
 If `h5py` is missing, run a separate dependency risk assessment before any install. Installing `h5py` must not change CUDA/PyTorch versions, must not install simulator stacks, and must not trigger training, rollouts, OpenVLA-OFT, or heavy VLA imports.
+
+The repository declares this reader dependency as:
+
+```text
+h5py>=3.11
+```
+
+It is included in `requirements.txt` and the `libero` optional dependency group in `pyproject.toml`.

@@ -374,7 +374,7 @@ Risk: The official LIBERO data may be present, but HDF5 inspection can fail if `
 
 Impact: Offline real-data interface smoke remains blocked even though the dataset is acquired; ad hoc dependency installation could accidentally change broader environment packages.
 
-Mitigation: Use `scripts\50_check_libero_hdf5_reader.ps1` first. If `h5py` is missing, perform a separate dependency risk assessment before installing it. Do not change CUDA/PyTorch versions, install simulator stacks, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.
+Mitigation: Use `scripts\50_check_libero_hdf5_reader.ps1` first. If `h5py` is missing, perform a separate dependency risk assessment before installing `h5py>=3.11` from the Python package index. Do not change CUDA/PyTorch versions, install simulator stacks, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.
 
 ## LIBERO Rollout Readiness Overstatement
 

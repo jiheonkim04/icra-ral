@@ -13,6 +13,7 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = ["numpy>=1.26", "PyYAML>=6.0", "pytest>=8.0"]
+libero = ["h5py>=3.11"]
 
 [tool.setuptools.packages.find]
 include = ["tca_map*"]
