@@ -1280,3 +1280,13 @@ Reason: Bounded diagnostics covering gripper strategy, action scale, prompt form
 Consequence: Treat the current learned-policy rollout result as a concrete failure diagnosis, not benchmark evidence. The next execution-first milestone should move to fixed-integrity ActionMap vs TCA-Map tiny offline training/evaluation on real LIBERO HDF5 snippets, where loss curves and offline proxy metrics can test the method without depending on the current checkpoint's rollout competence.
 
 Training happened: false. LoRA training happened: false. Loss was computed: false; no loss because this was not a training task. Rollout happened: true, bounded diagnostic only. Paper-grade claim: false.
+
+## Tiny Offline ActionMap vs TCA-Map Training/Eval Result
+
+Decision: Treat the first tiny offline ActionMap vs TCA-Map training/eval as weak evidence for TCA-Map on this exploratory split.
+
+Reason: Both ActionMap and TCA-Map losses decreased under bounded CPU head-only training, so the milestone produced a valid loss/metric result. However, TCA-Map worsened target accuracy, wrong-target proxy rate, and standard proxy score on the deterministic holdout records. TCA-Map improved action L1 and counterfactual margin, but not enough to offset the failed target prediction. Distributional TCA-Select added no measurable gain in this run.
+
+Consequence: Do not claim this supports TCA-Map. The next required LoRA comparison may proceed only as an attribution check, with ActionMap + LoRA vs TCA-Map + LoRA reported directly. If ActionMap + LoRA matches or beats TCA-Map + LoRA, report weak novelty rather than forcing a positive result.
+
+Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.

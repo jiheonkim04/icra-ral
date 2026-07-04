@@ -1,21 +1,29 @@
-libero_offline_actionmap_tca_comparison:
-  description: Tiny offline proxy comparison over local LIBERO HDF5 action snippets.
+﻿libero_offline_actionmap_tca_comparison:
+  description: Tiny exploratory offline proxy training/eval over local LIBERO HDF5 action snippets.
 
 manifest: reports/libero_offline_counterfactual_split_report.json
 max_pairs: 4
 max_action_steps: 16
 grid_size: 8
+max_steps: 64
+batch_size: 1
+learning_rate: 0.05
 offline_proxy_only: true
+exploratory: true
+not_paper_grade: true
 arms:
-  - actionmap_head_only_proxy
-  - tca_map_head_only_proxy
-  - tca_map_distributional_select_proxy
+  - actionmap_head_only
+  - tca_map_head_only
+  - tca_map_distributional_select
+required_gate:
+  - ALLOW_TINY_TRAINING=1
 forbidden:
   - downloads
   - gpu_jobs
-  - training
   - simulator_execution
   - rollouts
   - heavy_vla_imports
   - openvla_oft
+  - full_finetuning
+  - lora_training_for_this_milestone
   - paper_grade_claims

@@ -865,3 +865,15 @@ The task must produce at least one of:
 - or a concrete failure diagnosis that directly unblocks the comparison.
 
 Do not run OpenVLA-OFT, full fine-tuning, multi-seed sweeps, paper-grade rollout, or paper-level claims. Keep the research-integrity policy fixed before inspecting comparison results.
+
+## Next Action After Tiny Head-Only Training/Eval
+
+The ActionMap vs TCA-Map tiny offline training/eval milestone produced valid losses and offline proxy metrics, but the conclusion was `weakens_tca_map` on the held-out tiny split.
+
+Next safe milestone, if continuing execution-first, is the required tiny LoRA comparison only as an attribution check:
+
+```text
+ActionMap + LoRA vs TCA-Map + LoRA tiny offline comparison
+```
+
+Carry forward the weak head-only result. Do not use LoRA to hide it. The LoRA comparison must report whether LoRA rescues both arms equally, whether ActionMap + LoRA matches or beats TCA-Map + LoRA, and whether any apparent gain is due to adaptation rather than TCA-Map. If LoRA comparison is not run next, the smallest useful alternative is a concrete target-head failure diagnosis using the same fixed split, not another broad planner.
