@@ -1542,3 +1542,31 @@ Current local result:
 - dimension mismatch confirmed: true.
 
 Interpretation: learned-policy rollout scaling remains blocked because the current checkpoint action statistics and local LIBERO action convention are mismatched. The next safe task is a normalized-action-space probe or checkpoint/task provenance resolution plan.
+
+## Normalized Action-Space Probe Plan
+
+The planning-only normalized-action/provenance gate is implemented by `scripts\121_plan_normalized_action_space_probe.ps1` and `tca_map.smolvla.normalized_action_space_probe_plan`.
+
+Scope:
+
+- reads the LIBERO action-stat subset audit runtime report,
+- optionally reads the VLM-enabled offline decoding summary runtime report,
+- chooses between checkpoint/task provenance resolution, a future bounded normalized-action-space probe, and an offline head/TCA-Map pivot,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, change policy behavior, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- if SO100-prefixed checkpoint stats and 7D unit-scale LIBERO actions are both confirmed, the selected next step is a report-only checkpoint/task provenance resolution audit,
+- a normalized-action-space probe remains deferred until provenance is resolved and a separate task-local gate exists,
+- learned-policy rollout scaling remains blocked.
+
+Current local result:
+
+- plan passed,
+- decision: `reduce_scope`,
+- selected next step: `checkpoint_task_provenance_resolution`,
+- ready for checkpoint/task provenance resolution: true,
+- ready for bounded normalized-action-space probe runner: false,
+- ready for rollout scaling, benchmark claims, and paper claims: false.
+
+Interpretation: the current checkpoint/action mismatch is strong enough that provenance must be resolved before any postprocessor bypass, normalized-action runner, learned-policy rollout scaling, or paper claim.

@@ -967,3 +967,13 @@ Impact: The project could overinterpret dataset-stat confirmation as learned-pol
 Mitigation: `scripts\120_audit_libero_action_stats.ps1` is report-only and keeps model loading, inference, training, rollouts, GPU jobs, OpenVLA-OFT, policy behavior changes, and paper claims false.
 
 Current status: the audit confirmed 7D unit-scale LIBERO actions and 6D SO100 large-scale checkpoint action statistics. Learned-policy rollout failures under this bridge should not be interpreted as paper-relevant SmolVLA/LIBERO performance until provenance or normalized-action-space handling is resolved.
+
+## Normalized Action-Space Probe Scope Risk
+
+Risk: A normalized-action-space probe plan could be misread as permission to bypass the postprocessor, alter the policy adapter, run another learned-policy rollout, or claim that the checkpoint is LIBERO-compatible.
+
+Impact: The project could hide a checkpoint/task provenance mismatch behind an ad hoc action-space transform and produce misleading rollout diagnostics.
+
+Mitigation: `scripts\121_plan_normalized_action_space_probe.ps1` is planning-only. When SO100-prefixed checkpoint stats and 7D unit-scale LIBERO actions are confirmed, it selects checkpoint/task provenance resolution before any normalized-action runner. It keeps model loading, inference, training, rollouts, downloads, GPU jobs, OpenVLA-OFT, policy behavior changes, and paper claims false.
+
+Current status: the planner selected checkpoint/task provenance resolution and left the future normalized-action runner disabled until a separate gate exists.

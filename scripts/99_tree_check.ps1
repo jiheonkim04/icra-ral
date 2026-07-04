@@ -140,6 +140,7 @@ $required = @(
     "reports/action_normalization_provenance_audit.md",
     "reports/action_stat_provenance_correction_plan.md",
     "reports/libero_action_stat_subset_audit.md",
+    "reports/normalized_action_space_probe_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -253,6 +254,7 @@ $required = @(
     "scripts/118_audit_action_normalization_provenance.ps1",
     "scripts/119_plan_action_stat_provenance_correction.ps1",
     "scripts/120_audit_libero_action_stats.ps1",
+    "scripts/121_plan_normalized_action_space_probe.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -282,6 +284,7 @@ $required = @(
     "tca_map/smolvla/action_normalization_provenance_audit.py",
     "tca_map/smolvla/action_stat_provenance_correction_plan.py",
     "tca_map/smolvla/libero_action_stat_subset_audit.py",
+    "tca_map/smolvla/normalized_action_space_probe_plan.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -391,6 +394,7 @@ $required = @(
     "tests/test_action_normalization_provenance_audit.py",
     "tests/test_action_stat_provenance_correction_plan.py",
     "tests/test_libero_action_stat_subset_audit.py",
+    "tests/test_normalized_action_space_probe_plan.py",
     "tests/test_lora_config_guards.py"
 )
 

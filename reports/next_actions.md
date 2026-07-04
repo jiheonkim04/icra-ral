@@ -592,6 +592,16 @@ Current local result: audit passed with `decision=no_go_rollout_scaling`. It sam
 
 51. Next safe step: create a planning-only normalized-action-space probe / checkpoint-task provenance resolution plan. It should choose between a bounded normalized action-space diagnostic, a checkpoint source/provenance check, or pivoting learned-policy rollout work away from this checkpoint. Do not run model loading, inference, rollout, training, downloads, GPU jobs, OpenVLA-OFT, or paper claims in the planning step.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\121_plan_normalized_action_space_probe.ps1
+```
+
+Expected interpretation: if the plan reports `decision=reduce_scope` and `selected_next_step=checkpoint_task_provenance_resolution`, do not run a normalized-action-space runner yet. First create a report-only checkpoint/task provenance resolution audit. Keep rollout scaling, postprocessor bypass/replacement, model loading, inference, training, downloads, GPU jobs, OpenVLA-OFT, and paper claims blocked.
+
+Current local result: plan passed with `decision=reduce_scope`, `selected_next_step=checkpoint_task_provenance_resolution`, `ready_for_checkpoint_task_provenance_resolution=true`, and `ready_for_bounded_normalized_action_space_probe_runner=false`. The next safe task is a report-only checkpoint/task provenance resolution audit.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
