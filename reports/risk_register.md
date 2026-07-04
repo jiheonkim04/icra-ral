@@ -655,3 +655,11 @@ Risk: Adapter helper wiring could accidentally be interpreted as simulator valid
 Impact: Synthetic single-sample evidence might be over-read as rollout evidence.
 
 Mitigation: The single-sample path remains synthetic-only, records `simulator_executed=false` and `real_rollouts_performed=false`, and uses adapter metadata only for interface validation.
+
+## Rollout Bridge Wiring Scope Risk
+
+Risk: Wiring adapters into rollout code could accidentally trigger execution or expand into rollout evaluation.
+
+Impact: The project could blur code wiring with empirical evidence.
+
+Mitigation: `scripts\81_plan_rollout_bridge_adapter_wiring.ps1` is planning-only and keeps `ready_for_rollout_execution=false`; actual rollout execution remains a separate bounded diagnostic gate.

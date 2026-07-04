@@ -863,3 +863,9 @@ Current local result: pure adapter helper tests passed. Rollout wiring remains i
 Current planned branch: wire pure adapter helpers into the synthetic single-sample interface path so reports include state, image alias, and action adapter metadata without simulator execution or rollout.
 
 Current local result: bounded synthetic single-sample smoke passed with adapter metadata recorded. The report includes explicit state adapter metadata, image alias source keys, and a 6D-to-7D action adapter using the named gripper-zero diagnostic strategy. Simulator execution and rollouts remain false.
+
+## Rollout Bridge Adapter Wiring Plan
+
+Current planned branch: add a planning-only gate for wiring pure adapters into the learned-policy rollout bridge. This planner must not run rollouts, simulators, model loading, inference, downloads, training, or OpenVLA-OFT.
+
+Current local result: `scripts\81_plan_rollout_bridge_adapter_wiring.ps1` passed. It sets `ready_for_rollout_bridge_adapter_wiring=true` and `ready_for_rollout_execution=false`.

@@ -742,6 +742,22 @@ Reason: The bounded single-sample smoke recorded explicit state, image alias, an
 
 Consequence: The next safe step is to plan rollout-bridge adapter wiring separately before rerunning any bounded diagnostic rollout.
 
+## Rollout Bridge Adapter Wiring Planner Scope
+
+Decision: Add a planning-only gate before changing the learned-policy rollout bridge.
+
+Reason: The rollout bridge currently still contains implicit action padding, state truncation, and local image alias fallback logic. A planner can prove the next code patch is scoped to wiring pure helpers, not executing another rollout.
+
+Consequence: The next implementation may wire pure adapters into the rollout bridge only after this planner passes.
+
+## Rollout Bridge Adapter Wiring Planner Result
+
+Decision: Proceed to rollout bridge adapter wiring implementation, but not rollout execution.
+
+Reason: `scripts\81_plan_rollout_bridge_adapter_wiring.ps1` confirmed that single-sample adapter metadata is present, pure helpers exist, and the rollout bridge still needs explicit action/state/image adapter wiring.
+
+Consequence: The next safe implementation may modify rollout bridge code and tests only. A separately gated bounded diagnostic rollout is required before any execution.
+
 ## Pure Adapter Helper Result
 
 Decision: Treat pure adapter helper implementation as passed.
