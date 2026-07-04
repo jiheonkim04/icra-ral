@@ -1029,3 +1029,15 @@ Mitigation: `scripts\126_bounded_lora_offline_scaleup.ps1` requires `ALLOW_TINY_
 Current status: the runner has been added as the next bounded execution gate after the scale-up plan.
 
 Current result: the runner passed under task-local `ALLOW_TINY_TRAINING=1` and reported offline proxy metrics only. It remains unsuitable for standard success, rollout success, or paper-grade claims.
+
+## Scale-Up Evidence Table Overinterpretation Risk
+
+Risk: Adding bounded LoRA scale-up rows to the consolidated evidence table could make the table look closer to a benchmark result than it is.
+
+Impact: Readers could confuse real-LIBERO offline proxy diagnostics with simulator success or learned-policy rollout evidence.
+
+Mitigation: The scale-up-aware evidence gap report labels all rows as `not_standard_success` and `not_paper_grade`, keeps training in the report policy false because the refresh itself is report-only, and leaves rollout, benchmark, and paper-claim readiness false.
+
+Current status: the evidence gap generator can include bounded LoRA scale-up rows only from an existing local runtime report; it does not train or rerun the scale-up.
+
+Current result: the refreshed evidence table included bounded scale-up rows and still reported no rollout or paper-claim readiness. The remaining risk is overattribution: TCA-Map + LoRA improves over ActionMap + LoRA in the proxy, but Distributional TCA-Select adds no extra LoRA proxy gain in this bounded runner.

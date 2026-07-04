@@ -1133,3 +1133,13 @@ Reason: The evidence gap report and scale-up plan show that the safest next info
 Consequence: `scripts\126_bounded_lora_offline_scaleup.ps1` may run only under task-local `ALLOW_TINY_TRAINING=1`, trains tiny NumPy LoRA adapter matrices only, and keeps SmolVLA loading, heavy imports, GPU jobs, rollouts, simulator execution, downloads, OpenVLA-OFT, full fine-tuning, token access, and paper claims blocked.
 
 Current result: The bounded scale-up runner passed over 16 local LIBERO offline records with 64 update steps. It improved TCA-Map + LoRA over ActionMap + LoRA on the offline proxy wrong-target rate and action L1 deltas, while keeping paper and rollout readiness false.
+
+## Scale-Up-Aware Offline Evidence Gap Refresh
+
+Decision: Extend the offline evidence gap generator to include the bounded LoRA scale-up report when present.
+
+Reason: The project now has a bounded required-LoRA proxy result that should be visible next to the earlier tiny LoRA comparison without being mistaken for rollout or paper-grade evidence.
+
+Consequence: `scripts\124_generate_offline_evidence_gap_report.ps1` remains report-only, but now records whether bounded LoRA scale-up was included and adds separate bounded offline LoRA proxy rows. It still blocks learned-policy rollout scaling and paper claims.
+
+Current result: The refreshed evidence gap report included the bounded LoRA scale-up rows and kept rollout, benchmark, and paper-claim readiness false. The next decision point should synthesize attribution gaps rather than claim benchmark progress.

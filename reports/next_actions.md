@@ -666,6 +666,18 @@ Current local result: runner passed with `bounded_lora_offline_scaleup_passed=tr
 
 57. Next safe step: refresh the offline evidence table and gap report so it includes `reports\bounded_lora_offline_scaleup_report.json`. This should be report-only and must not train, download, load models, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\124_generate_offline_evidence_gap_report.ps1
+```
+
+Expected interpretation: if `bounded_lora_scaleup_included=true`, use the refreshed table as scale-up-aware offline proxy evidence only. The next safe task is a report-only attribution-gap synthesis, not rollout scaling or a paper claim.
+
+Current local result: evidence gap refresh passed with `bounded_lora_scaleup_included=true`, `bounded_lora_scaleup_record_count=16`, 9 evidence rows, bounded TCA-Map + LoRA vs ActionMap + LoRA action L1 delta `-0.004018`, wrong-target proxy delta `-0.4375`, and paper/rollout readiness still false.
+
+58. Next safe step: create a report-only scale-up-aware attribution-gap synthesis. It should explain what the bounded offline evidence supports, what it does not support, why Distributional TCA-Select currently shows no additional LoRA proxy gain in this runner, and what must be resolved before paper-grade rollout claims. It must not train, download, load models, infer, use GPU jobs, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

@@ -1718,3 +1718,26 @@ Current local result:
 - GPU jobs, downloads, heavy imports, model loading, inference, rollouts, simulator execution, OpenVLA-OFT, token access, full fine-tuning, and paper claims remained false.
 
 Interpretation: the bounded LoRA scale-up is now ready to be folded into the offline evidence table. It remains offline proxy evidence only.
+
+## Scale-Up-Aware Offline Evidence Gap Refresh
+
+`scripts\124_generate_offline_evidence_gap_report.ps1` now accepts `reports\bounded_lora_offline_scaleup_report.json` through `--bounded-lora-scaleup-report`.
+
+Expected interpretation:
+
+- if the bounded scale-up report exists and passed, the evidence table includes three additional bounded offline LoRA proxy rows,
+- the refreshed report remains report-only and offline proxy only,
+- learned-policy rollout scaling and paper claims remain blocked for the current checkpoint.
+
+Current local result:
+
+- refresh passed,
+- `bounded_lora_scaleup_included=true`,
+- bounded scale-up record count: 16,
+- evidence rows: 9,
+- bounded TCA-Map + LoRA vs ActionMap + LoRA action L1 delta: -0.004018,
+- bounded TCA-Map + LoRA vs ActionMap + LoRA wrong-target proxy delta: -0.4375,
+- bounded TCA-Select + LoRA vs TCA-Map + LoRA deltas: 0.0 in the current proxy,
+- learned-policy rollout scaling, benchmark claims, and paper claims remain false.
+
+Interpretation: the next safe task is a report-only attribution-gap synthesis. The evidence table supports continued low-compute method debugging, not paper-grade claims.

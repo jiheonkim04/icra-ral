@@ -119,6 +119,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     pivot_path = Path(args.pivot_report)
     head_path = Path(args.head_report)
     lora_path = Path(args.lora_report)
+    scaleup_path = Path(args.bounded_lora_scaleup_report)
     provenance_path = Path(args.provenance_report)
     bounded_path = Path(args.bounded_pilot_report)
     forbidden = [name for name in FORBIDDEN_GATES if _env_flag(name)]
@@ -155,9 +156,12 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "pivot_report": str(pivot_path),
             "head_report": str(head_path),
             "lora_report": str(lora_path),
+            "bounded_lora_scaleup_report": str(scaleup_path),
             "provenance_report": str(provenance_path),
             "bounded_pilot_report": str(bounded_path),
         },
+        "bounded_lora_scaleup_included": False,
+        "bounded_lora_scaleup_record_count": 0,
         "evidence_table": [],
         "gap_table": [],
         "deltas": {},
@@ -180,6 +184,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     pivot = _read_json(pivot_path)
     head = _read_json(head_path)
     lora = _read_json(lora_path)
+    scaleup = _read_json(scaleup_path) if scaleup_path.exists() else {}
     provenance = _read_json(provenance_path)
     bounded = _read_json(bounded_path)
     if not pivot.get("ready_for_offline_evidence_table"):
@@ -263,12 +268,74 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             trainable_params=_params_from_list_arms(lora, "tca_map_lora_distributional_select"),
         ),
     ]
+    if scaleup and scaleup.get("bounded_lora_offline_scaleup_passed"):
+        rows.extend(
+            [
+                _row(
+                    arm="ActionMap + LoRA",
+                    evidence_type="real-LIBERO bounded offline LoRA proxy",
+                    action_l1=_metric_from_list_arms(scaleup, "actionmap_lora", "action_l1"),
+                    wrong_target_proxy_rate=_metric_from_list_arms(
+                        scaleup, "actionmap_lora", "wrong_target_proxy_rate"
+                    ),
+                    counterfactual_margin=_metric_from_list_arms(
+                        scaleup, "actionmap_lora", "counterfactual_separation_margin"
+                    ),
+                    offline_proxy_score=_metric_from_list_arms(scaleup, "actionmap_lora", "offline_standard_proxy"),
+                    target_top1=_metric_from_list_arms(scaleup, "actionmap_lora", "target_top1_accuracy"),
+                    trainable_params=_params_from_list_arms(scaleup, "actionmap_lora"),
+                ),
+                _row(
+                    arm="TCA-Map + LoRA",
+                    evidence_type="real-LIBERO bounded offline LoRA proxy",
+                    action_l1=_metric_from_list_arms(scaleup, "tca_map_lora", "action_l1"),
+                    wrong_target_proxy_rate=_metric_from_list_arms(scaleup, "tca_map_lora", "wrong_target_proxy_rate"),
+                    counterfactual_margin=_metric_from_list_arms(
+                        scaleup, "tca_map_lora", "counterfactual_separation_margin"
+                    ),
+                    offline_proxy_score=_metric_from_list_arms(scaleup, "tca_map_lora", "offline_standard_proxy"),
+                    target_top1=_metric_from_list_arms(scaleup, "tca_map_lora", "target_top1_accuracy"),
+                    trainable_params=_params_from_list_arms(scaleup, "tca_map_lora"),
+                ),
+                _row(
+                    arm="TCA-Map + LoRA + Distributional TCA-Select",
+                    evidence_type="real-LIBERO bounded offline LoRA proxy",
+                    action_l1=_metric_from_list_arms(scaleup, "tca_map_lora_distributional_select", "action_l1"),
+                    wrong_target_proxy_rate=_metric_from_list_arms(
+                        scaleup, "tca_map_lora_distributional_select", "wrong_target_proxy_rate"
+                    ),
+                    counterfactual_margin=_metric_from_list_arms(
+                        scaleup, "tca_map_lora_distributional_select", "counterfactual_separation_margin"
+                    ),
+                    offline_proxy_score=_metric_from_list_arms(
+                        scaleup, "tca_map_lora_distributional_select", "offline_standard_proxy"
+                    ),
+                    target_top1=_metric_from_list_arms(
+                        scaleup, "tca_map_lora_distributional_select", "target_top1_accuracy"
+                    ),
+                    trainable_params=_params_from_list_arms(scaleup, "tca_map_lora_distributional_select"),
+                ),
+            ]
+        )
+        report["bounded_lora_scaleup_included"] = True
+        report["bounded_lora_scaleup_record_count"] = int(scaleup.get("record_count") or 0)
+
     report["evidence_table"] = rows
     report["deltas"] = {
         "head_tca_vs_actionmap": (head.get("comparison") or {}).get("tca_map_vs_actionmap"),
         "head_tca_select_vs_tca": (head.get("comparison") or {}).get("tca_select_vs_tca_map"),
         "lora_tca_vs_actionmap_lora": (lora.get("comparison") or {}).get("tca_lora_vs_actionmap_lora"),
         "lora_tca_select_vs_tca_lora": (lora.get("comparison") or {}).get("tca_select_lora_vs_tca_lora"),
+        "bounded_lora_tca_vs_actionmap_lora": (scaleup.get("comparison") or {}).get(
+            "tca_lora_vs_actionmap_lora"
+        )
+        if scaleup
+        else None,
+        "bounded_lora_tca_select_vs_tca_lora": (scaleup.get("comparison") or {}).get(
+            "tca_select_lora_vs_tca_lora"
+        )
+        if scaleup
+        else None,
     }
     report["gap_table"] = [
         {
@@ -288,8 +355,12 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         },
         {
             "id": "required_lora_track",
-            "status": "tiny_proxy_present",
-            "next_step": "Plan bounded LoRA scale-up under the local compute budget; no full fine-tuning.",
+            "status": "bounded_proxy_present" if report["bounded_lora_scaleup_included"] else "tiny_proxy_present",
+            "next_step": (
+                "Use bounded LoRA scale-up as offline proxy only; next evidence step should improve attribution or resolve a LIBERO-aligned learned-policy path."
+                if report["bounded_lora_scaleup_included"]
+                else "Plan bounded LoRA scale-up under the local compute budget; no full fine-tuning."
+            ),
         },
         {
             "id": "paper_claim",
@@ -306,7 +377,9 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     )
     report["ready_for_learned_policy_rollout_scaling"] = False
     report["recommended_next_step"] = (
-        "Plan a bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets, while keeping current-checkpoint learned-policy rollout and paper claims blocked."
+        "Generate a scale-up-aware offline evidence synthesis or attribution-gap report; keep current-checkpoint learned-policy rollout and paper claims blocked."
+        if report["bounded_lora_scaleup_included"]
+        else "Plan a bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets, while keeping current-checkpoint learned-policy rollout and paper claims blocked."
         if bool((bounded or {}).get("libero_offline_bounded_pilot_report_passed"))
         else "Regenerate the bounded pilot report before scaling any offline proxy."
     )
@@ -318,6 +391,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--pivot-report", default="reports/offline_tca_map_lora_pivot_plan_report.json")
     parser.add_argument("--head-report", default="reports/libero_offline_actionmap_tca_comparison_report.json")
     parser.add_argument("--lora-report", default="reports/libero_offline_lora_comparison_report.json")
+    parser.add_argument("--bounded-lora-scaleup-report", default="reports/bounded_lora_offline_scaleup_report.json")
     parser.add_argument("--provenance-report", default="reports/checkpoint_task_provenance_resolution_report.json")
     parser.add_argument("--bounded-pilot-report", default="reports/libero_offline_bounded_pilot_report.json")
     parser.add_argument("--report-path", default="reports/offline_tca_lora_evidence_gap_report_runtime.json")
