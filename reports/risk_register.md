@@ -479,3 +479,11 @@ Risk: A passing tiny MuJoCo OSMesa render smoke could be mistaken for LIBERO/Rob
 Impact: The project could jump from a tiny render-only proof to environment stepping or policy evaluation without the separate simulator safety checks.
 
 Mitigation: `scripts\59_bounded_simulator_render_smoke.ps1` performs only a tiny MuJoCo offscreen render and does not create, reset, or step LIBERO/RoboSuite environments. Reset/step smoke and tiny diagnostic rollout remain separate task-local gated risk assessments, and `ready_for_rollout` remains false until those gates pass.
+
+## Simulator Reset/Step Overinterpretation
+
+Risk: A passing tiny MuJoCo reset/step smoke could be mistaken for LIBERO/RoboSuite environment readiness, policy rollout readiness, benchmark success, or paper-grade evidence.
+
+Impact: The project could move from physics plumbing into rollout or benchmark claims before LIBERO/RoboSuite env reset, policy control, and success metrics are separately validated.
+
+Mitigation: `scripts\61_bounded_simulator_reset_step_smoke.ps1` uses only a tiny in-memory MuJoCo XML model, caps steps to 5, and reports `libero_robosuite_env_created=false`, `rollouts_performed=false`, `policy_inference_performed=false`, and `ready_for_rollout=false`. Tiny diagnostic rollout requires a separate risk assessment and must not run while rollout is explicitly forbidden.
