@@ -1629,3 +1629,32 @@ Current local result:
 - ready for benchmark or paper claim: false.
 
 Interpretation: the safe low-compute paper path is now to summarize the real-LIBERO offline ActionMap/TCA-Map/TCA-Select/LoRA evidence and its gaps, while keeping current-checkpoint learned-policy rollout evidence blocked.
+
+## Offline Evidence Gap Report
+
+The report-only offline evidence table is implemented by `scripts\124_generate_offline_evidence_gap_report.ps1` and `tca_map.smolvla.offline_evidence_gap_report`.
+
+Scope:
+
+- reads the offline pivot plan,
+- reads real-LIBERO offline head-only, TCA-Select, LoRA, provenance, and bounded-pilot reports,
+- produces a consolidated evidence table and gap list,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, change policy behavior, access tokens, or make paper claims.
+
+Expected interpretation:
+
+- useful offline proxy evidence exists for target-conditioned decoding and required LoRA tracks,
+- current-checkpoint learned-policy rollout scaling remains blocked,
+- the next safe task is a bounded LoRA/offline-proxy scale-up plan, not a paper claim.
+
+Current local result:
+
+- report passed,
+- decision: `offline_evidence_table_ready`,
+- evidence arms consolidated: 6,
+- ready for LoRA scale-up planning: true,
+- ready for offline proxy extension planning: true,
+- ready for current-checkpoint learned-policy rollout scaling: false,
+- ready for benchmark or paper claim: false.
+
+Interpretation: the next safe work item is a planning-only bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets, while preserving the no-rollout/no-paper-claim boundary.
