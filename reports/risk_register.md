@@ -1115,3 +1115,13 @@ Impact: A safe interface validation step could cross into heavy model loading, G
 Mitigation: `scripts\131_check_candidate_generation_contract.ps1` uses synthetic tensors only, refuses heavy/import/inference/training/rollout gates, validates forbidden metadata keys, and leaves real candidate-generation smoke execution false.
 
 Current status: synthetic contract checking passed and routes to a planning-only real candidate-generation smoke risk gate, not direct model inference.
+
+## Real Candidate-Generation Smoke Gate Risk
+
+Risk: A green plan for real candidate generation could be mistaken for permission to run unrestricted model inference.
+
+Impact: A bounded interface smoke could drift into long-running GPU inference, rollout, training, or paper claims.
+
+Mitigation: `scripts\132_plan_real_candidate_generation_smoke.ps1` is planning-only, refuses execution gates while planning, caps any future smoke to one sample, max 4 candidates, grid 8, 10 minutes, 14GB VRAM, and requires task-local `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, and `ALLOW_SINGLE_SAMPLE_INFERENCE=1`.
+
+Current status: planning is green for implementation, but execution remains blocked by default and must require all three task-local gates.

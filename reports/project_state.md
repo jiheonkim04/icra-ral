@@ -1905,3 +1905,24 @@ Current local result:
 - max GPU memory: 0.0 MB,
 - real candidate-generation smoke execution remains false,
 - next safe task is a planning-only real candidate-generation smoke risk gate.
+
+## Real Candidate-Generation Smoke Plan
+
+`scripts\132_plan_real_candidate_generation_smoke.ps1` is a planning-only risk gate for a future bounded real candidate-generation smoke.
+
+Scope:
+
+- reads the synthetic contract check, runtime dependencies, load-only smoke, and single-sample interface smoke reports,
+- does not run heavy import or inference,
+- if green, allows only future implementation planning with task-local gates,
+- keeps smoke execution, rollout, training, OpenVLA-OFT, and paper claims false.
+
+Current local result:
+
+- plan passed,
+- decision: `proceed_bounded_real_candidate_generation_smoke_implementation`,
+- implementation readiness: true,
+- execution readiness: false,
+- no blockers,
+- required future gates: `ALLOW_REAL_CANDIDATE_GENERATION_SMOKE=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_SINGLE_SAMPLE_INFERENCE=1`,
+- no model load, inference, training, rollout, GPU job, simulator execution, OpenVLA-OFT, token access, or paper claim occurred.
