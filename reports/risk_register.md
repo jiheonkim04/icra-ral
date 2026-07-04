@@ -925,3 +925,5 @@ Risk: A VLM-enabled repeated offline decoding recheck may improve or worsen acti
 Impact: The project could mistake offline action similarity for standard success or counterfactual robustness.
 
 Mitigation: Plan and run at most three HDF5 timestep decodes, compare directly against the previous `load_vlm_weights=false` metrics, keep rollout scaling blocked until alignment improves, and label results as offline diagnostic evidence only.
+
+Current status: the VLM-enabled recheck passed and improved mean action L1/MSE versus the previous no-VLM repeated offline diagnostic, but the resulting alignment signal is still `weak` and clipped action values remain. Treat this as evidence that VLM loading matters, not as evidence of benchmark success. Continue with VLM-on/off summary and action-normalization/provenance analysis before any rollout scaling.

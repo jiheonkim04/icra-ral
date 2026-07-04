@@ -1023,3 +1023,15 @@ Reason: The prior repeated offline diagnostic was weak with `load_vlm_weights=fa
 Consequence: `scripts\115_plan_vlm_enabled_repeated_offline_decoding.ps1` authorizes only a future separately gated CPU offline diagnostic capped at three local HDF5 timesteps. It does not authorize rollout scaling, simulator execution, training, GPU jobs, OpenVLA-OFT, or paper claims.
 
 Current result: The planner reports `decision=proceed` and selects timesteps `0`, `136`, and `271` for a future VLM-enabled offline recheck against the previous weak no-VLM baseline.
+
+## Bounded VLM-Enabled Repeated Offline Decoding Runner
+
+Decision: Add a separately gated offline runner for the VLM-enabled action-decoding recheck.
+
+Reason: The planner is green and the next uncertainty is whether enabling VLM weights changes expert-action alignment on the same local HDF5 timesteps.
+
+Consequence: `scripts\116_bounded_vlm_enabled_repeated_offline_decoding.ps1` may run only under its task-local gates and remains offline diagnostic evidence. It does not authorize simulator rollout, training, GPU jobs, OpenVLA-OFT, or paper claims.
+
+Current result: The bounded runner passed on CPU with `load_vlm_weights=true` and decoded three local HDF5 timesteps. Mean action L1/MSE improved versus the previous no-VLM repeated diagnostic (`0.301665` / `0.216188` versus `0.412322` / `0.286972`), but the offline alignment signal remains `weak` and clipped values remain present.
+
+Consequence: VLM-enabled loading is behaviorally relevant, but still not enough to justify rollout scaling or paper claims. The next decision should summarize the VLM-on/off delta and inspect action normalization/provenance before any further learned-policy rollout.
