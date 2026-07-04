@@ -448,6 +448,14 @@ powershell -ExecutionPolicy Bypass -File scripts\108_plan_vlm_loading_policy_act
 
 Current expected interpretation: if the audit reports `decision=no_go_rollout_scaling` and `ready_for_repeated_offline_decoding_plan=true`, do not run another learned-policy rollout yet. Plan a tiny repeated offline demonstration action-decoding diagnostic over a few HDF5 timesteps, explicitly logging `load_vlm_weights`, action unnormalization, clipping, gripper strategy, and image aliases. Treat VLM-enabled loading or full SmolVLM2 weight acquisition as a separate risk-assessed task.
 
+38. Repeated offline demonstration action-decoding planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\109_plan_repeated_offline_demo_action_decoding.ps1
+```
+
+If the planner reports `decision=proceed` and `ready_for_bounded_repeated_offline_demo_action_decoding_runner=true`, the next safe implementation is a separately gated runner using `ALLOW_REPEATED_OFFLINE_DEMO_DECODING=1`. It may load local SmolVLA on CPU and run at most three HDF5 timestep action decodes, with no simulator environment, no rollout, no training, no downloads, no GPU job, no OpenVLA-OFT, and no paper claim.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
