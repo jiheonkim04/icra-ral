@@ -573,3 +573,19 @@ Decision: Treat the current local bounded tiny diagnostic rollout as passed.
 Reason: `scripts\63_bounded_tiny_diagnostic_rollout.ps1` ran 5 toy MuJoCo diagnostic tasks with 1 episode and 5 steps per task through the selected WSL venv. The run completed 25 total steps and reported no LIBERO/RoboSuite benchmark environment, no learned policy inference, no training, no GPU job, no download, no heavy VLA import, no OpenVLA-OFT execution, no multi-seed evaluation, and no benchmark/SOTA/paper-grade claim.
 
 Consequence: This clears only simulator plumbing for bounded tiny diagnostic rollouts. It is not LIBERO success, not standard success, not benchmark evidence, and not paper-grade evidence. Benchmark rollouts, multi-seed rollouts, OpenVLA-OFT, full training, external uploads, and paper-level claims remain separate stop gates.
+
+## LIBERO/RoboSuite Compatibility Alignment
+
+Decision: Align the local simulator compatibility path to LIBERO's RoboSuite expectations inside the existing WSL venv.
+
+Reason: LIBERO's `requirements.txt` requires `robosuite==1.4.0`, `bddl==1.0.1`, `future==0.18.2`, `easydict==1.9`, `matplotlib==3.5.3`, `cloudpickle==2.1.0`, and `gym==0.25.2`. The local RoboSuite checkout was newer than LIBERO's expected API, and `mujoco==3.10.0` broke RoboSuite 1.4's `mj_fullM` call during environment creation.
+
+Consequence: The local `C:\assets\repos\robosuite` checkout was moved to the official `v1.4.0` tag, and the WSL venv `/home/jiheon/.venvs/tca_map_sim` was aligned with the bounded diagnostic dependencies, including `numpy==1.22.4` and `mujoco==2.3.7`. These are local environment readiness changes only. They do not authorize benchmark rollout, learned-policy rollout, OpenVLA-OFT, training, GPU jobs, external upload, or paper claims.
+
+## Bounded LIBERO/RoboSuite Diagnostic Rollout Result
+
+Decision: Treat the current bounded LIBERO/RoboSuite zero-action diagnostic rollout as passed.
+
+Reason: `scripts\65_bounded_libero_robosuite_diagnostic_rollout.ps1` ran under task-local `ALLOW_LIBERO_ROBOSUITE_DIAGNOSTIC_ROLLOUT=1`, created one `libero_10` LIBERO/RoboSuite environment, reset it, stepped it 3 times with a zero action, observed a finite 64x64 `agentview_image`, and closed the environment.
+
+Consequence: This clears only real LIBERO/RoboSuite simulator diagnostic plumbing. It is not standard success, not benchmark success, not SOTA evidence, and not paper-grade evidence. Benchmark rollouts, learned-policy rollouts, multi-seed rollouts, OpenVLA-OFT, full training, external uploads, and paper-level claims remain separate stop gates.

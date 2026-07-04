@@ -503,3 +503,27 @@ Risk: A passing bounded tiny diagnostic rollout could be mistaken for LIBERO/Rob
 Impact: Simulator plumbing evidence could be described as standard success, counterfactual success, or paper-grade evidence.
 
 Mitigation: The bounded rollout runner uses only toy in-memory MuJoCo models, no learned policy, no VLA inference, no LIBERO/RoboSuite benchmark environment, no training, no GPU job, no OpenVLA-OFT, no multi-seed run, and no paper claim. Reports must label it as tiny diagnostic simulator plumbing only.
+
+## RoboSuite / MuJoCo API Drift
+
+Risk: LIBERO expects RoboSuite 1.4-era APIs, while a newer local RoboSuite checkout or MuJoCo 3.x wheel can break environment creation.
+
+Impact: LIBERO/RoboSuite diagnostic rollout can fail before reset with errors such as `mj_fullM()` argument mismatch.
+
+Mitigation: Keep the local RoboSuite source checkout aligned to the official `v1.4.0` tag for LIBERO compatibility. In the selected WSL venv, keep the bounded diagnostic path on `mujoco==2.3.7` unless a new risk assessment proves a later version is compatible. Do not change Windows drivers, CUDA, or system packages for this fix.
+
+## WSL Simulator Dependency Drift
+
+Risk: The selected WSL venv may import `robosuite` and `libero` but still miss runtime dependencies needed for actual LIBERO environment creation.
+
+Impact: Diagnostic rollout can fail progressively on small dependencies such as `bddl`, `future`, `easydict`, `matplotlib`, `cloudpickle`, or `gym`, or on NumPy ABI mismatches.
+
+Mitigation: Add only minimal WSL venv packages after green risk assessments, prefer packages listed in official LIBERO/RoboSuite requirements, and validate after each compatibility change. The current bounded diagnostic path uses `bddl==1.0.1`, `future==0.18.2`, `easydict==1.9`, `matplotlib==3.5.3`, `numpy==1.22.4`, `cloudpickle==2.1.0`, `gym==0.25.2`, and `mujoco==2.3.7`.
+
+## LIBERO/RoboSuite Diagnostic Rollout Overinterpretation
+
+Risk: A passing real LIBERO/RoboSuite zero-action diagnostic rollout could be mistaken for benchmark success or policy performance.
+
+Impact: The project could overclaim simulator plumbing as standard success, counterfactual success, or paper-grade evidence.
+
+Mitigation: `scripts\65_bounded_libero_robosuite_diagnostic_rollout.ps1` uses zero actions only, no learned policy, no VLA inference, no training, no GPU job, no multi-seed run, no OpenVLA-OFT, and no benchmark/SOTA/paper claim. It keeps `ready_for_benchmark_rollout=false` and `ready_for_paper_claim=false`. Benchmark rollout and learned-policy rollout require separate risk assessment and policy gates.

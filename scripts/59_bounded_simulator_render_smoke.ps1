@@ -282,7 +282,8 @@ try:
         renderer.update_scene(data, camera="fixed")
         image = renderer.render()
     finally:
-        renderer.close()
+        if hasattr(renderer, "close"):
+            renderer.close()
 
     result["ok"] = True
     result["mujoco_version"] = getattr(mujoco, "__version__", "unknown")

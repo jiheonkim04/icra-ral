@@ -54,6 +54,8 @@ reports/bounded_local_pilot_extension_report.json
 reports/bounded_local_pilot_extension_report.md
 reports/risk_assessment_report.json
 reports/risk_assessment_report.md
+reports/*_risk_report.json
+reports/*_risk_report.md
 reports/libero_dataset_risk_report.json
 reports/libero_dataset_risk_report.md
 reports/simulator_readiness_plan_report.json
@@ -76,6 +78,10 @@ reports/tiny_diagnostic_rollout_plan_report.json
 reports/tiny_diagnostic_rollout_plan_report.md
 reports/bounded_tiny_diagnostic_rollout_report.json
 reports/bounded_tiny_diagnostic_rollout_report.md
+reports/libero_robosuite_diagnostic_rollout_plan_report.json
+reports/libero_robosuite_diagnostic_rollout_plan_report.md
+reports/bounded_libero_robosuite_diagnostic_rollout_report.json
+reports/bounded_libero_robosuite_diagnostic_rollout_report.md
 reports/libero_robosuite_source_resolution_report.json
 reports/libero_robosuite_source_resolution_report.md
 reports/libero_robosuite_setup_report.json

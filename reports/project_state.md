@@ -313,7 +313,7 @@ The current executable local path has cleared the LIBERO HDF5 reader boundary:
 - `scripts\48_plan_libero_offline_interface_smoke.ps1` reports `ready_for_offline_interface_smoke=true`,
 - rollout readiness is still false and requires a separate simulator gate.
 
-Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, bounded simulator import-only smoke, bounded render smoke, bounded reset/step smoke, and bounded render/reset-step risk planner have passed. Rollout remains blocked until a separate rollout risk gate passes. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
+Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, bounded simulator import-only smoke, bounded render smoke, bounded reset/step smoke, bounded render/reset-step risk planner, toy MuJoCo diagnostic rollout, and bounded LIBERO/RoboSuite zero-action diagnostic rollout have passed. Benchmark rollout, learned-policy rollout, and paper-grade rollout claims remain blocked until a separate green risk assessment and policy gate exists. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
 
 Current planning commands:
 
@@ -426,7 +426,7 @@ Reasons:
 - official LIBERO HDF5 demonstration files exist under `LIBERO_DATA_ROOT`,
 - `h5py` is installed and HDF5 offline interface inspection is ready.
 
-Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup, WSL local source linking, import-only smoke, bounded render smoke, reset/step planning, bounded reset/step smoke, and bounded tiny diagnostic rollout have passed. Real benchmark rollouts must still wait for a separate green benchmark-rollout risk assessment and must not be treated as paper-grade evidence automatically.
+Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup, WSL local source linking, import-only smoke, bounded render smoke, reset/step planning, bounded reset/step smoke, toy MuJoCo diagnostic rollout, and bounded LIBERO/RoboSuite zero-action diagnostic rollout have passed. Real benchmark rollouts must still wait for a separate green benchmark-rollout risk assessment and must not be treated as paper-grade evidence automatically.
 
 The bounded tiny diagnostic rollout boundary is now cleared. A tiny 64x64 MuJoCo offscreen render with `MUJOCO_GL=osmesa` passes in WSL, a tiny in-memory MuJoCo reset plus 3-step physics smoke passes, and the bounded rollout script completed 5 toy MuJoCo diagnostic tasks with 1 episode and 5 steps per task. This is simulator plumbing evidence only. It is not LIBERO/RoboSuite benchmark rollout evidence, not standard success, and not paper-grade evidence.
 
@@ -458,6 +458,26 @@ The bounded tiny diagnostic rollout runner is implemented in `scripts\63_bounded
 reports\bounded_tiny_diagnostic_rollout_report.json
 reports\bounded_tiny_diagnostic_rollout_report.md
 ```
+
+The bounded LIBERO/RoboSuite diagnostic rollout planner and runner are implemented in:
+
+```text
+scripts\64_plan_libero_robosuite_diagnostic_rollout.ps1
+scripts\65_bounded_libero_robosuite_diagnostic_rollout.ps1
+```
+
+Current local result: with task-local `ALLOW_LIBERO_ROBOSUITE_DIAGNOSTIC_ROLLOUT=1`, the runner created one real LIBERO/RoboSuite environment from `libero_10`, reset it, stepped it 3 times with a zero action, read a finite 64x64 `agentview_image`, and closed the environment. It used the existing WSL venv at `/home/jiheon/.venvs/tca_map_sim`, the local official LIBERO source/data roots, and the RoboSuite checkout aligned to the official `v1.4.0` tag required by LIBERO. This did not run learned policy inference, train, use GPU, download assets during the diagnostic, execute OpenVLA-OFT, run multi-seed evaluation, or make benchmark/SOTA/paper-grade claims.
+
+WSL simulator compatibility adjustments made after green risk assessments:
+
+```text
+C:\assets\repos\robosuite -> official v1.4.0 checkout
+/home/jiheon/.venvs/tca_map_sim: bddl==1.0.1, future==0.18.2, easydict==1.9,
+matplotlib==3.5.3, numpy==1.22.4, cloudpickle==2.1.0, gym==0.25.2,
+mujoco==2.3.7
+```
+
+These are local environment readiness changes only. They are not committed as assets, not paper evidence, and not a benchmark result. Benchmark rollout, learned-policy rollout, multi-seed rollout, OpenVLA-OFT execution, full training, external upload, and paper-level claims remain separate stop gates.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

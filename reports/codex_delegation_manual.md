@@ -457,6 +457,8 @@ Codex should not stop after each stage just to ask for permission. It should con
 - simulator import/render smoke if safe,
 - bounded rollout only if within the strict rollout budget.
 
+Bounded rollout means diagnostic plumbing only unless a later policy says otherwise. The current autonomous rollout scope covers toy MuJoCo diagnostics and LIBERO/RoboSuite zero-action diagnostic rollouts after green risk assessment. It does not authorize learned-policy rollout, benchmark rollout, multi-seed rollout, standard-success claims, SOTA claims, paper-grade claims, OpenVLA-OFT execution, or external upload.
+
 Codex should stop only if risk assessment fails or a truly irreversible/external action is needed.
 
 ## Bounded local pilot examples
