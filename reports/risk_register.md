@@ -1065,3 +1065,15 @@ Mitigation: `scripts\128_plan_tca_select_ambiguity_stress_test.ps1` requires can
 Current status: the stress test is planning-only and must pass before any offline stress-test runner is implemented.
 
 Current result: the plan passed with explicit forbidden inputs and offline-only metrics. The next runner must preserve those constraints.
+
+## Offline TCA-Select Stress Runner Overinterpretation Risk
+
+Risk: A passing ambiguity stress test could be mistaken for real task success or model policy improvement.
+
+Impact: Offline candidate-selection gains could be overstated as simulator or paper-grade evidence.
+
+Mitigation: `scripts\129_run_tca_select_ambiguity_stress_test.ps1` labels outputs as offline proxy only, reports no model loading/inference/training/rollout/GPU jobs, and leaves paper readiness false.
+
+Current status: the runner scaffolding is added and must be validated before the stress-test evidence can be synthesized.
+
+Current result: the runner passed and produced selection-specific offline proxy evidence: wrong-target proxy delta -1.0 and action L1 delta -0.164299 against a top-heatmap baseline. The mitigation remains active because this is synthetic candidate ambiguity over offline HDF5 snippets, not rollout success or a paper-grade benchmark.

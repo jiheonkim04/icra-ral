@@ -1163,3 +1163,15 @@ Reason: Distributional TCA-Select needs a stress test with ambiguous target/acti
 Consequence: `scripts\128_plan_tca_select_ambiguity_stress_test.ps1` defines CPU-only offline proxy metrics and pass/fail criteria while keeping training, rollout, model loading, GPU jobs, OpenVLA-OFT, privileged inference, external verifiers, and paper claims blocked.
 
 Current result: The plan passed and authorized only a CPU-only offline stress-test runner over existing local counterfactual artifacts.
+
+## Offline TCA-Select Ambiguity Stress-Test Runner
+
+Decision: Add the CPU-only offline ambiguity stress-test runner.
+
+Reason: The planning gate authorized a safe offline proxy runner to isolate Distributional TCA-Select gain without model loading, training, rollout, GPU jobs, or paper claims.
+
+Consequence: `scripts\129_run_tca_select_ambiguity_stress_test.ps1` may compare TCA-Select against a top-heatmap baseline over synthetic ambiguous candidates generated from local HDF5 action snippets only.
+
+Current result: The runner passed over 16 local offline counterfactual records. Distributional TCA-Select reduced wrong-target proxy rate from 1.0 for the top-heatmap baseline to 0.0, with action L1 delta -0.164299, while keeping model loading, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, and paper claims false.
+
+Next decision: refresh the attribution synthesis/evidence table to include this selection-specific offline proxy evidence, without promoting it to standard success or paper-grade evidence.
