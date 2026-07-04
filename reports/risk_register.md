@@ -575,3 +575,11 @@ Risk: A passing one-task, three-step learned-policy LIBERO rollout could be mist
 Impact: The project could overstate a topology/integration result even though the current diagnostic success check is `false` and reward sum is `0.0`.
 
 Mitigation: Label `scripts\72_bounded_tiny_learned_policy_rollout.ps1` outputs as tiny learned-policy diagnostic evidence only. Report success checks, reward, step count, policy latency, action shape, and failure modes honestly. Do not make standard-success, SOTA, or paper-grade claims until a documented benchmark protocol, baselines, ablations, and repeated validation exist.
+
+## Metric Summary Overclaim Risk
+
+Risk: A clean metric summary could make a failed task execution look like positive policy performance because the rollout wrapper passed.
+
+Impact: The project could confuse integration success with manipulation success.
+
+Mitigation: `scripts\73_generate_tiny_learned_policy_metric_summary.ps1` reports wrapper/source pass separately from diagnostic success count, diagnostic success rate, reward sum, and failure modes. Current local result explicitly records diagnostic success rate `0.0` and failure mode `diagnostic_success_check_false`.
