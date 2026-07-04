@@ -1195,3 +1195,13 @@ Consequence: `scripts\124_generate_offline_evidence_gap_report.ps1` remains repo
 Current result: The refreshed evidence table contains 10 rows and includes the `Distributional TCA-Select ambiguity stress` row with wrong-target proxy delta -1.0 and action L1 delta -0.164299 versus the top-heatmap baseline. Learned-policy rollout scaling and paper claims remain blocked.
 
 Next decision: plan a report-only candidate-generation readiness check before any real learned-policy inference or rollout.
+
+## Candidate-Generation Readiness Plan
+
+Decision: Add a report-only readiness plan before attempting learned-policy candidate action heatmap generation.
+
+Reason: The project now has offline TCA-Select ambiguity evidence, but real candidate generation would require a separate model-inference gate. A contract checker can safely validate tensor shapes, metadata, and no-privileged-inference requirements first.
+
+Consequence: `scripts\130_plan_candidate_generation_readiness.ps1` records future gates and routes the next safe task to synthetic-tensor contract checking, not real inference or rollout.
+
+Current result: The plan passed and selected a synthetic-tensor candidate-generation contract checker as the next safe task. Real candidate-generation smoke execution remains blocked until a separate risk-gated model-inference task.

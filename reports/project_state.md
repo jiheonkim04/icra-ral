@@ -1866,3 +1866,22 @@ Current local result:
 - stress action L1 delta vs top heatmap: -0.164299,
 - stress-aware attribution synthesis now routes to report-only learned-policy candidate-generation readiness planning,
 - model inference, heavy imports, training, rollout, GPU jobs, OpenVLA-OFT, and paper claims remain false.
+
+## Candidate-Generation Readiness Planning
+
+`scripts\130_plan_candidate_generation_readiness.ps1` is a report-only gate for the next learned-policy interface step.
+
+Scope:
+
+- reads the stress-aware attribution synthesis and prior smoke reports,
+- defines the future candidate action heatmap contract,
+- keeps real model inference and model loading blocked,
+- routes the next safe task to a synthetic-tensor contract checker.
+
+Current local result:
+
+- candidate-generation readiness plan passed,
+- prior SmolVLA load-only, single-sample interface, and feature-cache reports were green,
+- contract checker readiness is true,
+- real candidate-generation smoke execution remains false,
+- next safe task is synthetic-tensor candidate-generation contract checking.

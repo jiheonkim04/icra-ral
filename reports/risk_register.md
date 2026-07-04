@@ -1095,3 +1095,13 @@ Impact: The project could overstate TCA-Select readiness before learned-policy r
 Mitigation: The row uses evidence type `real-LIBERO offline ambiguity stress proxy`, marks `not_standard_success` and `not_paper_grade`, stores top-heatmap deltas separately, and leaves learned-policy rollout and paper readiness false.
 
 Current status: the evidence row is present, and the refreshed synthesis routes to report-only candidate-generation readiness planning rather than model inference or rollout.
+
+## Candidate-Generation Readiness Scope Risk
+
+Risk: Planning real candidate generation could drift into model loading, inference, rollout, or GPU execution.
+
+Impact: The project could cross from report-only attribution into a heavy execution gate without a separate risk assessment.
+
+Mitigation: `scripts\130_plan_candidate_generation_readiness.ps1` refuses heavy/import/inference/rollout gates, records `ready_for_real_candidate_generation_smoke_execution=false`, and selects a synthetic-tensor contract checker as the next safe task.
+
+Current status: readiness planning passed without model loading, inference, training, rollout, GPU jobs, simulator execution, OpenVLA-OFT, or paper claims.
