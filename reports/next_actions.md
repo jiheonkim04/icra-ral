@@ -528,6 +528,22 @@ If this reports `decision=proceed`, the next safe implementation is a separately
 
 Current local result: `decision=proceed`, runner-ready true. It selects the same LIBERO HDF5 file and timesteps `0`, `136`, and `271`. The future runner should compare VLM-enabled action L1/MSE, clipping, and alignment signal against the previous `load_vlm_weights=false` repeated offline report.
 
+46. Bounded VLM-enabled repeated offline decoding command:
+
+```powershell
+$env:ALLOW_HEAVY_IMPORT="1"
+$env:ALLOW_VLM_ENABLED_REPEATED_OFFLINE_DECODING="1"
+powershell -ExecutionPolicy Bypass -File scripts\116_bounded_vlm_enabled_repeated_offline_decoding.ps1
+Remove-Item Env:\ALLOW_VLM_ENABLED_REPEATED_OFFLINE_DECODING -ErrorAction SilentlyContinue
+Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
+```
+
+If this passes, summarize VLM-enabled versus no-VLM offline metrics before any rollout decision.
+
+Current local result: passed. With `load_vlm_weights=true`, the bounded offline recheck decoded timesteps `0`, `136`, and `271` on CPU. Mean action L1/MSE improved from the previous no-VLM repeated diagnostic (`0.412322` / `0.286972`) to `0.301665` / `0.216188`, but the alignment signal remains `weak`, every adapted action still clipped one value, and rollout scaling remains blocked.
+
+47. Next safe step: generate a report-only VLM-enabled versus no-VLM offline decoding summary and action-normalization/provenance diagnosis. Do not scale learned-policy rollouts until the offline alignment issue is explained or a separate green risk gate identifies a narrower rollout hypothesis.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

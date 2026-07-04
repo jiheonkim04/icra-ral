@@ -135,6 +135,7 @@ $required = @(
     "reports/vlm_enabled_load_smoke_plan.md",
     "reports/vlm_enabled_load_smoke.md",
     "reports/vlm_enabled_repeated_offline_decoding_plan.md",
+    "reports/vlm_enabled_repeated_offline_decoding.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -243,6 +244,7 @@ $required = @(
     "scripts/113_plan_vlm_enabled_load_smoke.ps1",
     "scripts/114_bounded_vlm_enabled_load_smoke.ps1",
     "scripts/115_plan_vlm_enabled_repeated_offline_decoding.ps1",
+    "scripts/116_bounded_vlm_enabled_repeated_offline_decoding.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -267,6 +269,7 @@ $required = @(
     "tca_map/smolvla/repeated_offline_demo_action_decoding.py",
     "tca_map/smolvla/vlm_required_files_acquisition.py",
     "tca_map/smolvla/vlm_enabled_load_smoke.py",
+    "tca_map/smolvla/vlm_enabled_repeated_offline_decoding.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -371,6 +374,7 @@ $required = @(
     "tests/test_vlm_enabled_load_smoke_plan.py",
     "tests/test_vlm_enabled_load_smoke.py",
     "tests/test_vlm_enabled_repeated_offline_decoding_plan.py",
+    "tests/test_vlm_enabled_repeated_offline_decoding.py",
     "tests/test_lora_config_guards.py"
 )
 

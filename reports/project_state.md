@@ -114,7 +114,7 @@ Dependency target:
 C:\assets\hf_home\HuggingFaceTB\SmolVLM2-500M-Video-Instruct
 ```
 
-Only tokenizer/processor/config files are retained for this dependency. Full SmolVLM2 model weights were avoided.
+The first dependency acquisition retained tokenizer/processor/config files only. A later separately risk-assessed VLM required-file acquisition added the root `model.safetensors` under the same `HF_HOME` dependency directory for bounded `load_vlm_weights=true` diagnostics.
 
 The original acquisition decisions were limited to SmolVLA checkpoint acquisition from `lerobot/smolvla_base` and tokenizer/processor/config dependency acquisition from `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`. They did not authorize GPU jobs, model inference, training, rollouts, OpenVLA-OFT execution/download, dataset downloads, token/secret access, or committing checkpoint/cache files. The current risk policy permits bounded SmolVLA load-only heavy import/model construction and tiny smoke steps only when the task risk assessment is green and inside the autonomous pilot budget.
 
@@ -1409,3 +1409,35 @@ Current local result:
 - expected VRAM: 0GB.
 
 The future runner remains offline diagnostic evidence only. It must not create simulator environments, rollout, train, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+## Bounded VLM-Enabled Repeated Offline Decoding
+
+The bounded VLM-enabled repeated offline decoder is implemented by `scripts\116_bounded_vlm_enabled_repeated_offline_decoding.ps1` and `tca_map.smolvla.vlm_enabled_repeated_offline_decoding`.
+
+Scope:
+
+- requires `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_REPEATED_OFFLINE_DECODING=1`,
+- CPU-only,
+- loads local SmolVLA with `load_vlm_weights=true`,
+- decodes at most three local LIBERO HDF5 timesteps,
+- reports action L1/MSE deltas versus the previous no-VLM repeated offline diagnostic,
+- does not create simulator environments, rollout, train, download, install, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Passing this runner is still offline diagnostic evidence only.
+
+Current local result:
+
+- decision: `diagnostic_complete`,
+- runner passed: true,
+- decoded timesteps: `0`, `136`, and `271`,
+- `load_vlm_weights=true`,
+- mean action L1 to expert: `0.301665`,
+- mean action MSE to expert: `0.216188`,
+- mean action L1 delta versus previous no-VLM repeated offline diagnostic: `-0.110657`,
+- mean action MSE delta versus previous no-VLM repeated offline diagnostic: `-0.070784`,
+- clipped action values total: `3`,
+- CUDA max allocated: `0MB`,
+- total policy inference elapsed: about `1.344s`,
+- downloads/installs/training/rollout/GPU jobs/OpenVLA-OFT/token access/paper claims: false.
+
+Interpretation: enabling VLM weights improves the tiny offline action-distance metrics versus the previous no-VLM repeated diagnostic, but the alignment signal is still `weak` and still not rollout, benchmark, standard-success, counterfactual-robustness, or paper-grade evidence. The next safe step is a report-only VLM-enabled versus no-VLM offline decoding summary and action-normalization/provenance analysis before any rollout scaling.
