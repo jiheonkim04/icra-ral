@@ -588,4 +588,20 @@ Decision: Treat the current bounded LIBERO/RoboSuite zero-action diagnostic roll
 
 Reason: `scripts\65_bounded_libero_robosuite_diagnostic_rollout.ps1` ran under task-local `ALLOW_LIBERO_ROBOSUITE_DIAGNOSTIC_ROLLOUT=1`, created one `libero_10` LIBERO/RoboSuite environment, reset it, stepped it 3 times with a zero action, observed a finite 64x64 `agentview_image`, and closed the environment.
 
-Consequence: This clears only real LIBERO/RoboSuite simulator diagnostic plumbing. It is not standard success, not benchmark success, not SOTA evidence, and not paper-grade evidence. Benchmark rollouts, learned-policy rollouts, multi-seed rollouts, OpenVLA-OFT, full training, external uploads, and paper-level claims remain separate stop gates.
+Consequence: This clears only real LIBERO/RoboSuite simulator diagnostic plumbing. It is not standard success, not benchmark success, not SOTA evidence, and not paper-grade evidence. Learned-policy and tiny benchmark rollouts require separate green readiness/risk assessments before execution. Multi-seed rollouts, OpenVLA-OFT, full fine-tuning, external uploads, and unsupported paper-level claims remain stop gates.
+
+## End-to-End Paper-Grade Autopilot Policy
+
+Decision: Move from diagnostic-only autonomy to end-to-end risk-assessed research autopilot.
+
+Reason: The user granted standing approval for local research-engineering actions needed to reach the strongest feasible paper-grade candidate package or a clear kill/pivot decision, as long as each nontrivial action passes automatic risk assessment and avoids human-only gates.
+
+Consequence: Codex should no longer stop merely because the next task is bounded training, learned-policy rollout, benchmark rollout, baseline execution, report generation, visualization, or scale-up from a smaller passed stage. It must still stop for credentials, token/secret/API-key access, paid services, license click-through, external upload/submission/publishing, destructive/system-risk changes, OpenVLA-OFT execution without a separate budget, full fine-tuning outside budget, multi-seed runs before a separate budget, and unsupported empirical claims.
+
+## Learned-Policy LIBERO Rollout Readiness Topology
+
+Decision: Use WSL-only simulator plus policy runtime readiness as the first learned-policy rollout topology.
+
+Reason: LIBERO/RoboSuite simulator readiness is currently established in WSL, while SmolVLA runtime readiness was established in the Windows conda environment. A Windows-policy/WSL-simulator bridge adds IPC, latency, image serialization, and synchronization risk before proving the simpler WSL-only path.
+
+Consequence: `scripts\66_plan_libero_policy_rollout_readiness.ps1` checks whether the WSL venv can see the lightweight SmolVLA runtime modules and local SmolVLA/LIBERO assets without loading models or running rollouts. If it reports `proceed`, create a separately gated tiny learned-policy rollout runner. If it reports `reduce_scope`, prepare WSL SmolVLA runtime setup/readiness first.
