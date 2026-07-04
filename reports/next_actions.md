@@ -352,6 +352,13 @@ powershell -ExecutionPolicy Bypass -File scripts\96_plan_gripper_close_compat_di
 ```
 
 If the planner reports `decision=proceed`, a future runner may test exactly one gripper-close compatibility diagnostic under a task-local gate. If it reports `decision=reduce_scope`, do not rerun an identical close-strategy rollout; instead plan a narrower HDF5-aligned task/initial-state/action-sign compatibility check. In all cases, rollout scaling and paper claims remain blocked.
+27. HDF5-to-rollout alignment audit command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\97_audit_hdf5_rollout_alignment.ps1
+```
+
+If this audit reports `ready_for_hdf5_initial_state_replay_plan=true`, the next safe task is a planning-only HDF5 initial-state or first-action replay diagnostic. Do not run another learned-policy rollout from the same reset-only setup until the HDF5 initial-state convention has been checked.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

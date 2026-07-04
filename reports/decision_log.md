@@ -869,3 +869,11 @@ Decision: Add a planning-only gate before any new gripper-close compatibility ro
 Reason: Offline HDF5 evidence identifies gripper-close as the best first-action reproduction strategy, but previous bounded diagnostics may already have tested an equivalent close strategy without reward or success.
 
 Consequence: `scripts\96_plan_gripper_close_compat_diagnostic.ps1` proceeds only when the close hypothesis is specific and not an already-failed duplicate. If a prior close diagnostic has zero reward and zero diagnostic success, the planner reduces scope toward HDF5-aligned task/initial-state/action-sign checks instead of repeating the same rollout.
+
+## HDF5-to-Rollout Alignment Audit
+
+Decision: Add a report-only audit before any HDF5-aligned replay or repeated learned-policy rollout.
+
+Reason: Offline first-action reproduction evidence is meaningful only if the rollout diagnostic uses the same task and a compatible initial-state convention. The local HDF5 demonstrations include `init_state`/`states`, while the current rollout bridge resets the environment without evidence of setting the demonstration initial state.
+
+Consequence: `scripts\97_audit_hdf5_rollout_alignment.ps1` reduces scope toward an HDF5 initial-state or first-action replay planner when task names match but initial-state alignment is not established. It keeps rollout scaling and paper claims blocked.

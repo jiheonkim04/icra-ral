@@ -265,6 +265,20 @@ Expected interpretation:
 
 Rollout scaling, multi-seed evaluation, paper-grade claims, and OpenVLA-OFT remain blocked by this planning result.
 
+## HDF5-to-Rollout Alignment Audit
+
+The report-only HDF5-to-rollout alignment audit is defined by `scripts\97_audit_hdf5_rollout_alignment.ps1`.
+
+It checks whether the offline LIBERO HDF5 demonstration and previous close-strategy rollout refer to the same task, whether the HDF5 demonstration exposes `init_state`/`states`, and whether the rollout bridge appears to set the HDF5 initial state or only calls `env.reset()`. It reads local reports, one local HDF5 file, and source text only.
+
+Expected interpretation:
+
+- `decision=reduce_scope`: the task appears aligned, but the HDF5 initial-state/replay convention is not established; plan a bounded HDF5 initial-state or first-action replay diagnostic before another learned-policy rollout.
+- `decision=stop`: report inputs are missing or the HDF5 task and rollout task differ.
+- `decision=proceed`: no report-only alignment blocker was found, but rollout scaling still needs a positive diagnostic signal.
+
+This audit does not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
 Observed load-only smoke metrics:
 
 ```text

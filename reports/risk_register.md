@@ -775,3 +775,11 @@ Risk: The project could rerun an identical gripper-close rollout diagnostic even
 Impact: Local runtime is spent repeating a known zero-signal variant, and the evidence ladder may look busier without becoming more informative.
 
 Mitigation: `scripts\96_plan_gripper_close_compat_diagnostic.ps1` checks the previous adapter-strategy diagnostic report before authorizing another close diagnostic. If close already ran cleanly with zero signal, the planner returns `decision=reduce_scope` and recommends an HDF5-aligned task/initial-state/action-sign compatibility check instead.
+
+## HDF5 Initial-State Alignment Risk
+
+Risk: Offline adapter reproduction can match the first demonstration action while learned-policy rollout starts from a different simulator reset state.
+
+Impact: A gripper/action strategy can look correct in HDF5 replay space yet still produce zero rollout reward because the environment state, object placements, or hidden simulator state are not aligned.
+
+Mitigation: `scripts\97_audit_hdf5_rollout_alignment.ps1` checks task-name alignment, HDF5 `init_state`/`states` availability, and whether the rollout bridge appears to set the demonstration initial state. If not, it recommends a bounded HDF5 initial-state or first-action replay planner before another learned-policy rollout.
