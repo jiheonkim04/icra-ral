@@ -130,6 +130,7 @@ $required = @(
     "reports/vlm_loading_policy_action_normalization_audit.md",
     "reports/repeated_offline_demo_action_decoding_plan.md",
     "reports/repeated_offline_demo_action_decoding.md",
+    "reports/vlm_enabled_loading_risk_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -233,6 +234,7 @@ $required = @(
     "scripts/108_plan_vlm_loading_policy_action_normalization_audit.ps1",
     "scripts/109_plan_repeated_offline_demo_action_decoding.ps1",
     "scripts/110_bounded_repeated_offline_demo_action_decoding.ps1",
+    "scripts/111_plan_vlm_enabled_loading_risk.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -354,6 +356,7 @@ $required = @(
     "tests/test_vlm_loading_policy_action_normalization_audit.py",
     "tests/test_repeated_offline_demo_action_decoding_plan.py",
     "tests/test_repeated_offline_demo_action_decoding.py",
+    "tests/test_vlm_enabled_loading_risk_plan.py",
     "tests/test_lora_config_guards.py"
 )
 

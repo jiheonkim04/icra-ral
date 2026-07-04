@@ -975,3 +975,13 @@ Reason: The planner found enough local HDF5 timesteps and the previous VLM/actio
 Consequence: `scripts\110_bounded_repeated_offline_demo_action_decoding.ps1` may load local SmolVLA on CPU under `ALLOW_REPEATED_OFFLINE_DEMO_DECODING=1` and run at most three `select_action` calls. It records diagnostic metrics only and keeps rollout scaling and paper claims blocked.
 
 Current result: The bounded runner passed on three HDF5 timesteps, but alignment stayed weak (`mean_action_l1_to_expert=0.412322`, `mean_action_mse_to_expert=0.286972`, clipped values total `3`, `load_vlm_weights=false`). Rollout scaling remains blocked. The next decision should focus on VLM-enabled loading risk/provenance and action normalization, not another rollout variant.
+
+## VLM-Enabled Loading Risk Plan
+
+Decision: Add a metadata-only VLM-enabled loading risk/provenance planner before any full SmolVLM2 weight acquisition or VLM-enabled load.
+
+Reason: Repeated offline alignment stayed weak while local diagnostics used `load_vlm_weights=false`. The next question is whether enabling the VLM path is official, token-free, size-bounded, disk-safe, and memory-safe.
+
+Consequence: `scripts\111_plan_vlm_enabled_loading_risk.ps1` queries or reads Hugging Face metadata only. It does not download weights, load models, infer, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current result: The planner is green. The official repo is public/ungated with `apache-2.0`, required files are about `1.895GB`, and disk budget remains green. This authorizes only a future separately gated acquisition plan/runner, not immediate model loading.
