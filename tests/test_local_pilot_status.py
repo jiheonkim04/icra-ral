@@ -95,6 +95,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "libero_offline_head_comparison" in report["source_reports"]
     assert "libero_offline_lora_comparison" in report["source_reports"]
     assert "libero_offline_bounded_pilot" in report["source_reports"]
+    assert "simulator_readiness" in report["source_reports"]
     assert "bounded_local_pilot_extension_passed" in report["status"]
     assert "libero_metadata_subset_ready" in report["status"]
     assert "libero_offline_interface_ready" in report["status"]
@@ -106,6 +107,17 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "libero_ready_for_bounded_local_pilot_report" in report["status"]
     assert "libero_offline_bounded_pilot_report_passed" in report["status"]
     assert "libero_ready_for_simulator_readiness_risk_assessment" in report["status"]
+    assert "simulator_readiness_report_present" in report["status"]
+    assert "simulator_readiness_decision" in report["status"]
+    assert "simulator_effective_runtime_platform" in report["status"]
+    assert "simulator_path_ready" in report["status"]
+    assert "simulator_dataset_path_ready" in report["status"]
+    assert "simulator_import_smoke_ready" in report["status"]
+    assert "simulator_render_smoke_ready" in report["status"]
+    assert "simulator_rollout_ready" in report["status"]
+    assert "simulator_stop_reasons" in report["status"]
+    assert report["status"]["simulator_render_smoke_ready"] is False
+    assert report["status"]["simulator_rollout_ready"] is False
     assert "libero_rollout_ready" in report["status"]
     assert json_report.exists()
     assert markdown_report.exists()

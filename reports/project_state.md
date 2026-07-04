@@ -427,6 +427,8 @@ The LIBERO offline LoRA comparison is implemented as a bounded local proxy diagn
 
 The LIBERO offline bounded pilot report is implemented in `scripts\54_generate_libero_offline_bounded_pilot_report.ps1`. It consolidates existing ignored runtime reports only, marks the result as offline proxy evidence, and keeps simulator execution, rollout, OpenVLA-OFT, token access, GPU jobs, model loading, and paper-grade claims blocked.
 
+The simulator readiness planner remains planning-only and is now a first-class input to `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1`. The summaries report path readiness, selected runtime platform, import-smoke readiness, render-smoke readiness, rollout readiness, warnings, and stop reasons without importing simulators, rendering, rolling out, training, using GPU, importing heavy VLA models, executing OpenVLA-OFT, accessing tokens, or making paper claims.
+
 The offline interface smoke gate inspects the acquired LIBERO demonstrations without model loading, training, simulator execution, rollout, OpenVLA-OFT, or paper claims. Its HDF5 report now records bounded samples instead of dumping every dataset path.
 
 The consolidated local pilot and go/no-go summaries now include these LIBERO data gates when their runtime reports are present.

@@ -423,3 +423,11 @@ Risk: Asset checkers could mark `ready_for_libero_rollout=true` merely because L
 Impact: A path/data-ready state could be mistaken for permission to run simulator rollouts.
 
 Mitigation: `scripts\11_check_real_assets.ps1` and hard-stop summaries keep `ready_for_libero_rollout=false` unless a separate simulator import/render/rollout risk gate is implemented and passes. Path/data readiness is reported separately.
+
+## Simulator Readiness Status Blind Spot
+
+Risk: The simulator readiness planner could run and produce a clear stop/proceed decision, but the consolidated local pilot or go/no-go status reports might omit that decision.
+
+Impact: The project could repeat already-cleared planning steps or misread the current blocker before simulator import/render/rollout work.
+
+Mitigation: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` now read `reports\simulator_readiness_plan_report.json` when present. They expose platform, path readiness, import-smoke readiness, render-smoke readiness, rollout readiness, warnings, and stop reasons while remaining summary-only.

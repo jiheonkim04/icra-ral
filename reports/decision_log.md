@@ -475,3 +475,11 @@ Decision: Add a summary-only bounded pilot report for the LIBERO offline proxy l
 Reason: After the offline interface, counterfactual split, head-only comparison, and required LoRA comparison gates pass, the repository needs one local artifact that summarizes what is ready and what remains blocked before simulator/rollout work.
 
 Consequence: `scripts\54_generate_libero_offline_bounded_pilot_report.ps1` reads existing ignored runtime reports only and writes an ignored bounded pilot report. It does not train, download, use GPU, import heavy VLA models, load models, infer, rollout, execute simulators, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+## Simulator Readiness Status Integration
+
+Decision: Treat the simulator readiness planner report as a first-class input to local pilot and go/no-go summaries.
+
+Reason: After the LIBERO offline bounded pilot passes, the current blocker is simulator import/render/rollout readiness. The consolidated status reports should show whether `scripts\43_plan_simulator_readiness.ps1` has run, which platform it selected, and why import/render/rollout remain blocked.
+
+Consequence: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` now read `reports\simulator_readiness_plan_report.json` when present. They still perform no simulator imports, render smoke, rollouts, downloads, GPU jobs, training, heavy VLA imports, OpenVLA-OFT execution, token access, or paper claims.
