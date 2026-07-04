@@ -799,3 +799,11 @@ Risk: A successful first-action HDF5 replay could be mistaken for learned-policy
 Impact: The project could overstate data/simulator compatibility as manipulation success.
 
 Mitigation: `scripts\100_bounded_hdf5_initial_state_replay.ps1` reports `hdf5_replay_diagnostic_performed` separately from learned-policy inference and benchmark rollout flags. It keeps learned-policy inference, training, GPU jobs, OpenVLA-OFT, benchmark rollout, multi-seed evaluation, and paper claims false.
+
+## Init-State Learned-Policy Recheck Scope Risk
+
+Risk: A learned-policy recheck from an HDF5 demonstration initial state could be mistaken for benchmark rollout scaling or paper-grade evidence.
+
+Impact: The project could overclaim a narrow compatibility diagnostic or expand to broader rollout evaluation before a positive, repeated signal exists.
+
+Mitigation: `scripts\101_plan_init_state_learned_policy_recheck.ps1` is planning-only and authorizes only a future separately gated one-task runner with one HDF5 demo initial state and at most five policy-controlled steps. It keeps rollout scaling, multi-seed evaluation, GPU jobs, training, OpenVLA-OFT, and paper claims blocked.

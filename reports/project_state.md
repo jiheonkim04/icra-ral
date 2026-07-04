@@ -295,6 +295,14 @@ It requires task-local `ALLOW_HDF5_REPLAY_DIAGNOSTIC=1`, reruns the HDF5 replay 
 
 This runner is simulator/data compatibility evidence only. It performs no learned-policy loading or inference, no training, no GPU job, no download, no OpenVLA-OFT, no benchmark/multi-seed rollout, and no paper claim.
 
+## Init-State Learned-Policy Recheck Plan
+
+The next planning gate is defined by `scripts\101_plan_init_state_learned_policy_recheck.ps1`.
+
+It reads the bounded HDF5 replay result, learned-policy rollout readiness report, WSL SmolVLA single-action smoke report, and prior reduced-scope learned-policy rollout report. It is planning-only: no model load, no inference, no simulator environment, no rollout, no training, no GPU job, no download, no OpenVLA-OFT, and no paper claim.
+
+If the planner reports `decision=proceed`, a future runner may recheck the learned policy from the validated HDF5 initial-state convention using one task and at most five policy-controlled steps under task-local `ALLOW_INIT_STATE_LEARNED_POLICY_RECHECK=1`. This remains diagnostic/local-pilot evidence only and does not unblock rollout scaling or paper-grade claims.
+
 Observed load-only smoke metrics:
 
 ```text
