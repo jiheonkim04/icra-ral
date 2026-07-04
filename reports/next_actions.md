@@ -747,6 +747,18 @@ Constraints:
 - no OpenVLA-OFT,
 - no paper claim.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\130_plan_candidate_generation_readiness.ps1
+```
+
+Expected interpretation: if the plan passes, implement a synthetic-tensor candidate-generation contract checker before any real model inference.
+
+Current local result: candidate-generation readiness planning passed with `ready_for_candidate_generation_contract_checker=true`, `ready_for_real_candidate_generation_smoke_plan=true`, and `ready_for_real_candidate_generation_smoke_execution=false`. Prior load-only, single-sample interface, and feature-cache reports were green. No model load, model inference, training, rollout, GPU job, simulator execution, OpenVLA-OFT, or paper claim was performed.
+
+64. Next safe step: implement a synthetic-tensor candidate-generation contract checker. It should validate candidate list, low-resolution heatmap, masked heatmap, metadata, and TCA-Select input/output contracts without loading SmolVLA or running model inference.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
