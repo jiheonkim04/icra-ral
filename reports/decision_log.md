@@ -845,3 +845,11 @@ Decision: Keep learned-policy rollout scaling blocked and move to offline demons
 Reason: `scripts\93_audit_environment_policy_compatibility.ps1` found high-severity blockers in task/checkpoint alignment, `load_vlm_weights=false` diagnostic loading, 6D policy action versus 7D environment action convention, and repeated zero-reward diagnostic evidence.
 
 Consequence: The next safe work is a bounded offline LIBERO HDF5 demonstration interface audit. It should inspect action dimensions/ranges, observation keys, camera shapes, and language/task alignment without loading models or running simulator rollout.
+
+## LIBERO HDF5 Interface Audit Result
+
+Decision: Keep rollout scaling blocked and move to offline adapter reproduction checks.
+
+Reason: `scripts\94_audit_libero_hdf5_interface.ps1` confirmed that local LIBERO demonstrations use 7D actions while the SmolVLA policy config exposes 6D actions. It also found a camera-count/resolution preprocessing gap, while confirming that `obs/ee_states` is 6D and compatible with the policy state dimension.
+
+Consequence: The next safe work is report-only adapter reproduction from the first HDF5 timestep. Do not load models or run simulator rollout for that step.
