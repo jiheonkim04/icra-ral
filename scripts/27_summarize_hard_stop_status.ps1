@@ -40,7 +40,21 @@ except Exception:
     yaml = None
 
 REPO_ROOT = Path.cwd()
-REQUIRED_RUNTIME = ["torch", "transformers", "lerobot", "safetensors", "num2words"]
+REQUIRED_RUNTIME = [
+    "torch",
+    "transformers",
+    "lerobot",
+    "safetensors",
+    "num2words",
+    "draccus",
+    "datasets",
+    "imageio",
+    "diffusers",
+    "serial",
+    "deepdiff",
+    "av",
+    "einops",
+]
 OPTIONAL_RUNTIME = ["accelerate", "huggingface_hub"]
 DANGEROUS_GATES = [
     "ALLOW_DOWNLOADS",
@@ -215,7 +229,7 @@ dangerous_gates_set = [name for name, is_set in dangerous_gate_values.items() if
 risk_gate_requests = [
     {
         "gate": "runtime_install",
-        "required_before": "installing torch/transformers/lerobot/safetensors or changing CUDA/PyTorch",
+        "required_before": "installing torch/transformers/lerobot/safetensors/draccus/LeRobot import dependencies or changing CUDA/PyTorch",
         "current_blocker": bool(missing_required_runtime),
         "missing_runtime_packages": missing_required_runtime,
         "safe_planner": "scripts/18_plan_smolvla_runtime_install.ps1",

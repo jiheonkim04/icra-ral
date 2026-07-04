@@ -89,6 +89,54 @@ package_plan = [
         "install_requires_risk_assessment": True,
     },
     {
+        "distribution": "draccus",
+        "module": "draccus",
+        "required_for": "LeRobot configuration parsing used by SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "datasets",
+        "module": "datasets",
+        "required_for": "LeRobot data/config utilities imported during SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "imageio",
+        "module": "imageio",
+        "required_for": "LeRobot video/image utilities imported during SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "diffusers",
+        "module": "diffusers",
+        "required_for": "LeRobot diffusion policy components imported during SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "pyserial",
+        "module": "serial",
+        "required_for": "LeRobot device utilities imported during SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "deepdiff",
+        "module": "deepdiff",
+        "required_for": "LeRobot config comparison utilities imported during SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "av",
+        "module": "av",
+        "required_for": "LeRobot video utilities imported during SmolVLA policy construction",
+        "install_requires_risk_assessment": True,
+    },
+    {
+        "distribution": "einops",
+        "module": "einops",
+        "required_for": "SmolVLA tensor rearrangement layers",
+        "install_requires_risk_assessment": True,
+    },
+    {
         "distribution": "accelerate",
         "module": "accelerate",
         "required_for": "optional memory/device placement support",
@@ -142,7 +190,21 @@ for item in package_plan:
 missing_required = [
     item["distribution"]
     for item in packages
-    if item["distribution"] in {"torch", "transformers", "lerobot", "safetensors", "num2words"}
+    if item["distribution"] in {
+        "torch",
+        "transformers",
+        "lerobot",
+        "safetensors",
+        "num2words",
+        "draccus",
+        "datasets",
+        "imageio",
+        "diffusers",
+        "pyserial",
+        "deepdiff",
+        "av",
+        "einops",
+    }
     and not item["installed"]
 ]
 
@@ -174,7 +236,7 @@ report = {
     "ready_for_install_risk_assessment": bool(missing_required),
     "risk_gate": {
         "install_requires_risk_assessment": True,
-        "reason": "Installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors requires a green package/runtime risk assessment.",
+        "reason": "Installing or changing PyTorch/CUDA/LeRobot/Transformers/Safetensors/Draccus or LeRobot import dependencies requires a green package/runtime risk assessment.",
     },
     "recommended_next_step": (
         "Run a pinned SmolVLA runtime install risk assessment before installing packages."

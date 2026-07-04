@@ -30,11 +30,14 @@ The setup may install packages only into:
 
 It must not create a repo-local `.venv`, use sudo, use apt, change CUDA or drivers, download OpenVLA-OFT, load SmolVLA, run inference, train, rollout, use GPU, access tokens, or make paper claims.
 
-The first package plan uses:
+The package plan uses:
 
 - PyTorch official CPU wheel index for `torch` and `torchvision`,
 - PyPI for `transformers`, `safetensors`, `huggingface_hub`, `accelerate`, and `num2words`,
+- PyPI for the LeRobot import/runtime packages required by the WSL single-action smoke: `draccus`, `datasets`, `imageio[ffmpeg]`, `diffusers`, `pyserial`, `deepdiff`, `av`, and `einops`,
 - `lerobot==0.4.4` with `--no-deps` to avoid broad simulator venv dependency drift before a separate WSL load-only smoke.
+
+The current local WSL venv has passed module-spec readiness and the bounded WSL SmolVLA single-action smoke after these runtime packages were added. This remains engineering readiness only.
 
 ## Evidence Label
 

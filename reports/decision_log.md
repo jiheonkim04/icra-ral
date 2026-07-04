@@ -613,3 +613,11 @@ Decision: Treat the WSL SmolVLA module-spec runtime readiness as passed for the 
 Reason: After a green risk assessment, task-local WSL venv package setup installed CPU torch/torchvision and the lightweight SmolVLA runtime modules into `/home/jiheon/.venvs/tca_map_sim`. The first setup run hit the 1800 second timeout, but no residual install process remained; follow-up probes found all required module specs present, and the setup guard rerun reported `setup_passed=true` without further installs.
 
 Consequence: `scripts\66_plan_libero_policy_rollout_readiness.ps1` now reports the WSL-only simulator plus policy runtime topology as green. This is not model-load, inference, rollout, benchmark, SOTA, or paper-grade evidence. The next safe task is a separately gated tiny learned-policy LIBERO rollout runner.
+
+## WSL SmolVLA Single-Action Smoke Result
+
+Decision: Treat the bounded WSL SmolVLA single-action smoke as passed.
+
+Reason: After green risk assessment and venv-local LeRobot runtime dependency fixes, `scripts\70_bounded_wsl_smolvla_single_action_smoke.ps1` loaded the local SmolVLA policy in WSL on CPU and produced one finite synthetic action with shape `[1, 6]`.
+
+Consequence: This is model-load/action-interface smoke evidence only. It does not establish LIBERO success, benchmark success, standard success, SOTA, or paper-grade evidence. The next safe task is a separately gated tiny learned-policy LIBERO rollout runner capped at one task and a few steps.

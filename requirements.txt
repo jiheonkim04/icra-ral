@@ -5,6 +5,14 @@ numpy>=1.26
 PyYAML>=6.0
 pytest>=8.0
 num2words>=0.5.14
+draccus>=0.10.0
+datasets>=4.0.0,<5.0.0
+imageio[ffmpeg]>=2.34.0,<3.0.0
+diffusers>=0.27.2,<0.36.0
+pyserial>=3.5,<4.0
+deepdiff>=7.0.1,<9.0.0
+av>=15.0.0,<16.0.0
+einops>=0.8.0,<0.9.0
 
 # Required for local LIBERO HDF5 offline interface inspection after official
 # LIBERO data are acquired. This is a reader dependency, not a simulator or

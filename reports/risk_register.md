@@ -558,4 +558,12 @@ Risk: The WSL runtime setup currently verifies module specs and installs `lerobo
 
 Impact: Tiny learned-policy rollout may fail at load time or inference time despite module-spec readiness.
 
-Mitigation: Add a separate WSL SmolVLA load-only or policy-action smoke before long rollouts if the tiny rollout runner cannot safely combine load and rollout. Keep each missing dependency fix venv-local, risk-assessed, and bounded; do not change system CUDA/drivers or OpenVLA-OFT.
+Mitigation: Add a separate WSL SmolVLA load-only or policy-action smoke before long rollouts if the tiny rollout runner cannot safely combine load and rollout. Keep each missing dependency fix venv-local, risk-assessed, and bounded; do not change system CUDA/drivers or OpenVLA-OFT. Current local single-action smoke exposed and fixed the required WSL LeRobot import packages `draccus`, `datasets`, `imageio[ffmpeg]`, `diffusers`, `pyserial`, `deepdiff`, `av`, and `einops`.
+
+## WSL Single-Action Smoke Overinterpretation
+
+Risk: A passing WSL SmolVLA single-action smoke could be mistaken for learned-policy LIBERO rollout success.
+
+Impact: The project could overclaim one synthetic action as benchmark evidence or paper-grade progress.
+
+Mitigation: Label the result as model-load/action-interface smoke only. It used CPU, synthetic input, one action, no simulator rollout, no training, no GPU job, no OpenVLA-OFT, and no paper claim. Learned-policy LIBERO rollout requires a separate task-local runner and risk assessment.

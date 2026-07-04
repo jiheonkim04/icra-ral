@@ -17,7 +17,21 @@ from pathlib import Path
 from typing import Any
 
 
-RUNTIME_DEPENDENCIES = ["torch", "transformers", "lerobot", "safetensors", "num2words"]
+RUNTIME_DEPENDENCIES = [
+    "torch",
+    "transformers",
+    "lerobot",
+    "safetensors",
+    "num2words",
+    "draccus",
+    "datasets",
+    "imageio",
+    "diffusers",
+    "serial",
+    "deepdiff",
+    "av",
+    "einops",
+]
 FORBIDDEN_GATES = ["ALLOW_GPU_TRAINING", "ALLOW_ROLLOUTS", "ALLOW_CLOUD_HANDOFF"]
 MAX_LOAD_ONLY_SECONDS = 600
 

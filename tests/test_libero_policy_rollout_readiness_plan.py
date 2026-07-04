@@ -128,6 +128,14 @@ def _ready_probe():
         "huggingface_hub": True,
         "accelerate": True,
         "num2words": True,
+        "draccus": True,
+        "datasets": True,
+        "imageio": True,
+        "diffusers": True,
+        "serial": True,
+        "deepdiff": True,
+        "av": True,
+        "einops": True,
     }
     return {
         "ok": True,

@@ -24,7 +24,21 @@ import subprocess
 import sys
 from pathlib import Path
 
-required = ["torch", "transformers", "lerobot", "safetensors", "num2words"]
+required = [
+    "torch",
+    "transformers",
+    "lerobot",
+    "safetensors",
+    "num2words",
+    "draccus",
+    "datasets",
+    "imageio",
+    "diffusers",
+    "serial",
+    "deepdiff",
+    "av",
+    "einops",
+]
 optional = ["accelerate", "huggingface_hub", "numpy", "yaml"]
 
 def has_module(name):
