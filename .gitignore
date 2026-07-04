@@ -64,6 +64,8 @@ reports/wsl_simulator_dependency_report.json
 reports/wsl_simulator_dependency_report.md
 reports/wsl_simulator_dependency_setup_report.json
 reports/wsl_simulator_dependency_setup_report.md
+reports/simulator_render_reset_plan_report.json
+reports/simulator_render_reset_plan_report.md
 reports/libero_robosuite_source_resolution_report.json
 reports/libero_robosuite_source_resolution_report.md
 reports/libero_robosuite_setup_report.json

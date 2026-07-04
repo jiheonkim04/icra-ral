@@ -455,3 +455,11 @@ Risk: A minimal WSL dependency bootstrap could drift into broad apt installs, sy
 Impact: The local machine or WSL environment could become unstable, and the project could cross into unapproved benchmark or paper-grade work.
 
 Mitigation: The standing approval is narrow. Allowed apt packages are `python3-pip`, `python3-venv`, `python3-dev` if needed, `build-essential` only for Python package builds, `git` if missing, and `curl` or `wget` only for official setup checks. Every package install, render smoke, reset/step smoke, or tiny diagnostic rollout must print/write a risk assessment with command, WSL distro/version, expected size, target path, disk estimate, runtime, RAM/VRAM, sudo status, token/license/payment status, CUDA/driver/graphics impact, decision, and reason.
+
+## Simulator Render/Reset Planner Overinterpretation
+
+Risk: A green render/reset-step planning report could be mistaken for render readiness, reset/step readiness, rollout readiness, or benchmark evidence.
+
+Impact: The project could move from import-only readiness into simulator execution or paper claims without the separate bounded render and reset/step gates.
+
+Mitigation: `scripts\58_plan_simulator_render_reset.ps1` is planning-only. It refuses execution gates, requires a passed import-only report, keeps `render_smoke_performed=false`, `reset_step_smoke_performed=false`, `rollouts_performed=false`, and keeps `ready_for_rollout=false`. Render smoke, reset/step smoke, and tiny diagnostic rollout must each use a separate risk assessment and task-local gate.

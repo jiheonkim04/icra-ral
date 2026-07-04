@@ -525,3 +525,11 @@ Decision: Treat WSL simulator import-only readiness as passed for the selected v
 Reason: The bounded task-local import smoke selected `~/.venvs/tca_map_sim/bin/python` and imported both `robosuite` and `libero`.
 
 Consequence: This clears only the import-only readiness rung. It is not render evidence, rollout evidence, benchmark success, or paper-grade evidence. Render smoke, reset/step smoke, tiny diagnostic rollout, and all benchmark claims remain separate risk gates.
+
+## Simulator Render/Reset-Step Planner
+
+Decision: Add a planning-only render/reset-step risk gate after import-only readiness.
+
+Reason: Passing `robosuite` and `libero` imports is not enough to justify rendering, resetting an environment, stepping an environment, or running rollouts. The next risk boundary needs to require the passed import-only report and explicitly refuse execution gates during planning.
+
+Consequence: `scripts\58_plan_simulator_render_reset.ps1` reads the readiness/import reports and reports whether a separate bounded render-smoke branch may be created. It performs no render, reset/step, rollout, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim. Current local result is ready for a separate bounded render-smoke branch, while reset/step and rollout remain blocked.
