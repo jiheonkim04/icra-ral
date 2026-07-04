@@ -51,6 +51,7 @@ def _args(tmp_path: Path, include_stress: bool = True):
                 {"id": "standard_success", "status": "blocked"},
                 {"id": "learned_policy_rollout", "status": "blocked_for_current_checkpoint"},
                 {"id": "required_lora_track", "status": "bounded_proxy_present"},
+                {"id": "tca_select_inference_attribution", "status": "offline_ambiguity_stress_proxy_present"},
             ],
             "deltas": {
                 "bounded_lora_tca_vs_actionmap_lora": {
@@ -93,8 +94,10 @@ def test_scaleup_attribution_gap_synthesis_blocks_claims(tmp_path, monkeypatch):
     assert any("Distributional TCA-Select adds no extra LoRA proxy gain" in item for item in report["findings"])
     assert any("offline ambiguity stress test provides selection-specific proxy evidence" in item for item in report["findings"])
     assert report["input_summary"]["bounded_lora_wrong_target_delta"] == -0.44
+    assert report["input_summary"]["tca_select_inference_attribution_gap_status"] == "offline_ambiguity_stress_proxy_present"
     assert report["input_summary"]["stress_selection_wrong_target_proxy_delta"] == -1.0
     assert report["input_summary"]["stress_selection_action_l1_delta"] == -0.164299
+    assert "candidate-generation readiness check" in report["recommended_next_step"]
 
 
 def test_scaleup_attribution_gap_synthesis_handles_missing_stress_report(tmp_path, monkeypatch):

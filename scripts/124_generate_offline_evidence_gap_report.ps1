@@ -4,6 +4,7 @@ param(
     [string]$HeadReportPath = "reports\libero_offline_actionmap_tca_comparison_report.json",
     [string]$LoraReportPath = "reports\libero_offline_lora_comparison_report.json",
     [string]$BoundedLoraScaleupReportPath = "reports\bounded_lora_offline_scaleup_report.json",
+    [string]$TcaSelectStressReportPath = "reports\tca_select_ambiguity_stress_report.json",
     [string]$ProvenanceReportPath = "reports\checkpoint_task_provenance_resolution_report.json",
     [string]$BoundedPilotReportPath = "reports\libero_offline_bounded_pilot_report.json",
     [string]$ReportPath = "reports\offline_tca_lora_evidence_gap_report_runtime.json",
@@ -32,6 +33,7 @@ if (-not (Test-Path -LiteralPath $Python)) {
     --head-report $HeadReportPath `
     --lora-report $LoraReportPath `
     --bounded-lora-scaleup-report $BoundedLoraScaleupReportPath `
+    --tca-select-stress-report $TcaSelectStressReportPath `
     --provenance-report $ProvenanceReportPath `
     --bounded-pilot-report $BoundedPilotReportPath `
     --report-path $ReportPath `

@@ -722,6 +722,31 @@ powershell -ExecutionPolicy Bypass -File scripts\127_synthesize_scaleup_attribut
 
 Expected interpretation: if the refreshed synthesis reports `tca_select_ambiguity_stress_included=true`, the next safe task is a report-only refresh of the consolidated offline evidence table with a dedicated TCA-Select ambiguity-stress row.
 
+62. Next safe step: refresh the consolidated offline evidence table with a dedicated Distributional TCA-Select ambiguity-stress row from `reports\tca_select_ambiguity_stress_report.json`.
+
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\124_generate_offline_evidence_gap_report.ps1
+```
+
+Expected interpretation: the refreshed evidence table should report `tca_select_ambiguity_stress_included=true`, preserve offline-proxy labels, and keep learned-policy rollout scaling and paper claims blocked.
+
+Current local result: evidence refresh passed with `evidence_row_count=10`, `tca_select_ambiguity_stress_included=true`, wrong-target proxy delta `-1.0`, action L1 delta `-0.164299`, and paper/rollout readiness false. The refreshed attribution synthesis now recommends a report-only learned-policy candidate-generation readiness check.
+
+63. Next safe step: plan a report-only learned-policy candidate-generation readiness check. It should determine what would be needed to generate real candidate action heatmaps from the local SmolVLA/TCA-Map stack without running model inference yet.
+
+Constraints:
+
+- no model inference,
+- no heavy VLA import,
+- no training,
+- no rollout,
+- no simulator execution,
+- no GPU job,
+- no OpenVLA-OFT,
+- no paper claim.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

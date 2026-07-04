@@ -153,6 +153,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         "standard_success_gap_status": _status(evidence, "standard_success"),
         "learned_policy_rollout_gap_status": _status(evidence, "learned_policy_rollout"),
         "required_lora_track_status": _status(evidence, "required_lora_track"),
+        "tca_select_inference_attribution_gap_status": _status(evidence, "tca_select_inference_attribution"),
         "bounded_lora_action_l1_delta": _delta(evidence, "bounded_lora_tca_vs_actionmap_lora", "action_l1_delta"),
         "bounded_lora_wrong_target_delta": _delta(
             evidence, "bounded_lora_tca_vs_actionmap_lora", "wrong_target_proxy_rate_delta"
@@ -187,6 +188,10 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         )
     select_action_delta = report["input_summary"]["bounded_select_action_l1_delta"]
     select_wrong_delta = report["input_summary"]["bounded_select_wrong_target_delta"]
+    stress_row_in_evidence = (
+        report["input_summary"]["tca_select_inference_attribution_gap_status"]
+        == "offline_ambiguity_stress_proxy_present"
+    )
     if select_action_delta == 0.0 and select_wrong_delta == 0.0:
         findings.append(
             "Distributional TCA-Select adds no extra LoRA proxy gain in this runner; the current candidate-selection proxy is not yet stressful enough to isolate selection gain."
@@ -221,7 +226,9 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     ]
     report["next_steps"] = [
         (
-            "Refresh the offline evidence table with a dedicated TCA-Select ambiguity-stress row while preserving offline-proxy labels."
+            "Plan a report-only learned-policy candidate-generation readiness check; do not run rollout or model inference."
+            if stress_included and stress_row_in_evidence
+            else "Refresh the offline evidence table with a dedicated TCA-Select ambiguity-stress row while preserving offline-proxy labels."
             if stress_included
             else "Create or repair the offline TCA-Select ambiguity stress-test runner without training or rollout."
         ),

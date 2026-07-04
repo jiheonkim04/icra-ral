@@ -1085,3 +1085,13 @@ Risk: Combining bounded LoRA scale-up and TCA-Select ambiguity stress evidence i
 Impact: Offline proxy evidence could be overread as standard success or learned-policy rollout evidence.
 
 Mitigation: The refreshed attribution synthesis records `tca_select_ambiguity_stress_included` separately from `bounded_lora_scaleup_included`, keeps rollout and paper readiness false, and routes the next step to report-only evidence-table refresh rather than benchmark rollout.
+
+## Stress Row Evidence Table Overinterpretation Risk
+
+Risk: Adding a TCA-Select ambiguity-stress row to the evidence table could make synthetic candidate-selection proxy results look like a real benchmark arm.
+
+Impact: The project could overstate TCA-Select readiness before learned-policy rollout validation.
+
+Mitigation: The row uses evidence type `real-LIBERO offline ambiguity stress proxy`, marks `not_standard_success` and `not_paper_grade`, stores top-heatmap deltas separately, and leaves learned-policy rollout and paper readiness false.
+
+Current status: the evidence row is present, and the refreshed synthesis routes to report-only candidate-generation readiness planning rather than model inference or rollout.
