@@ -340,7 +340,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done. The synthesis decision is `no_go_rollout_scaling`: the diagnostic ladder is complete, but no axis produced nonzero reward or diagnostic success, and every source report keeps `ready_for_rollout_scaling=false`.
 22. Bounded environment-policy compatibility audit.
     Done. The audit decision is `no_go_rollout_scaling` with high-severity blockers in task/checkpoint alignment, `load_vlm_weights=false` diagnostic loading, 6D policy action versus 7D environment action convention, and repeated zero-reward diagnostic evidence.
-23. Next safe research-engineering step: create a bounded offline LIBERO HDF5 demonstration interface audit. Inspect one local HDF5 file for action dimensions, action ranges, observation keys, camera shapes, and language/task alignment without model loading, simulator rollout, training, downloads, GPU jobs, OpenVLA-OFT, or paper claims.
+23. Bounded offline LIBERO HDF5 demonstration interface audit.
+    Done. The audit confirms 7D demonstration actions versus 6D policy actions, 6D `obs/ee_states` matching policy state, two HDF5 RGB streams versus three policy image inputs, and 128x128 HDF5 images versus 256x256 policy image inputs.
+24. Next safe research-engineering step: create a report-only offline adapter reproduction check. Build SmolVLA-compatible state/image/action adapter inputs from the first HDF5 timestep and compare dimensions/ranges without model loading, simulator rollout, training, downloads, GPU jobs, OpenVLA-OFT, or paper claims.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

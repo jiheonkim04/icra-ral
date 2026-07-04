@@ -751,3 +751,11 @@ Risk: The learned-policy diagnostic path may be incompatible with the selected L
 Impact: Additional rollout variants could continue to produce zero reward regardless of TCA-Map method quality, obscuring whether the issue is policy-environment compatibility or the proposed method.
 
 Mitigation: `scripts\93_audit_environment_policy_compatibility.ps1` keeps rollout scaling blocked and recommends a bounded offline LIBERO HDF5 demonstration interface audit before any further learned-policy rollout variant.
+
+## HDF5-To-Policy Adapter Reproduction Risk
+
+Risk: The rollout bridge may adapt simulator observations differently from the local LIBERO HDF5 demonstrations, especially around 7D demonstration actions, 6D policy actions, camera count, image resolution, and state key naming.
+
+Impact: A learned-policy rollout can remain at zero reward because adapter inputs are not faithful to the training/evaluation data convention.
+
+Mitigation: `scripts\94_audit_libero_hdf5_interface.ps1` blocks rollout scaling and recommends a report-only offline adapter reproduction check from the first HDF5 timestep before additional rollout variants.
