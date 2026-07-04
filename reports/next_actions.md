@@ -366,6 +366,15 @@ powershell -ExecutionPolicy Bypass -File scripts\98_plan_hdf5_initial_state_repl
 ```
 
 If this planner reports `ready_for_bounded_hdf5_replay_runner=true`, the next safe implementation is a separately gated replay runner with `ALLOW_HDF5_REPLAY_DIAGNOSTIC=1`. The first runner should set one HDF5 demo initial state and replay only the first demonstration action, with no learned-policy inference, no training, no GPU job, no OpenVLA-OFT, and no paper claim.
+29. Bounded HDF5 first-action replay command:
+
+```powershell
+$env:ALLOW_HDF5_REPLAY_DIAGNOSTIC="1"
+powershell -ExecutionPolicy Bypass -File scripts\100_bounded_hdf5_initial_state_replay.ps1
+Remove-Item Env:\ALLOW_HDF5_REPLAY_DIAGNOSTIC -ErrorAction SilentlyContinue
+```
+
+If this runner passes, it only proves that the HDF5 initial-state/action replay convention is operational. It does not prove learned-policy success. The next safe learned-policy task should be a narrow rollout recheck using a documented initial-state convention, not rollout scaling or paper claims.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

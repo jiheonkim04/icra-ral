@@ -885,3 +885,11 @@ Decision: Add a planning-only gate for a one-demo HDF5 initial-state/first-actio
 Reason: LIBERO/RoboSuite source code exposes initial-state and flattened-state replay paths, and the selected HDF5 demonstration contains the necessary init-state/action data, but executing replay still needs a separate bounded simulator task.
 
 Consequence: `scripts\98_plan_hdf5_initial_state_replay.ps1` can authorize only a separately gated replay runner. It does not authorize learned-policy inference, rollout scaling, training, OpenVLA-OFT, multi-seed evaluation, or paper-grade claims.
+
+## Bounded HDF5 Initial-State Replay Runner
+
+Decision: Add a separately gated one-demo, one-action replay runner.
+
+Reason: The replay planner is green, and the next compatibility question is whether the simulator can be initialized from the local HDF5 demonstration state and step the first demonstration action without involving SmolVLA.
+
+Consequence: `scripts\100_bounded_hdf5_initial_state_replay.ps1` may execute only under `ALLOW_HDF5_REPLAY_DIAGNOSTIC=1`. Passing it supports a later narrow learned-policy rollout recheck with a documented initial-state convention, but does not unblock rollout scaling or paper-grade claims.

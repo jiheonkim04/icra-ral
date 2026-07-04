@@ -791,3 +791,11 @@ Risk: A first-action replay diagnostic could drift into learned-policy rollout, 
 Impact: The project could conflate simulator/data-convention debugging with policy performance evidence.
 
 Mitigation: `scripts\98_plan_hdf5_initial_state_replay.ps1` keeps replay planning separate from execution and defines a first runner capped to one HDF5 demo and one replayed demonstration action, with no learned-policy inference, model loading, training, GPU jobs, OpenVLA-OFT, multi-seed evaluation, or paper claims.
+
+## HDF5 Replay Execution Overinterpretation Risk
+
+Risk: A successful first-action HDF5 replay could be mistaken for learned-policy performance.
+
+Impact: The project could overstate data/simulator compatibility as manipulation success.
+
+Mitigation: `scripts\100_bounded_hdf5_initial_state_replay.ps1` reports `hdf5_replay_diagnostic_performed` separately from learned-policy inference and benchmark rollout flags. It keeps learned-policy inference, training, GPU jobs, OpenVLA-OFT, benchmark rollout, multi-seed evaluation, and paper claims false.

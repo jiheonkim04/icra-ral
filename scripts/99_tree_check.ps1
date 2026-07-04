@@ -119,6 +119,7 @@ $required = @(
     "reports/gripper_close_compat_diagnostic_plan.md",
     "reports/hdf5_rollout_alignment_audit.md",
     "reports/hdf5_initial_state_replay_plan.md",
+    "reports/bounded_hdf5_initial_state_replay.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -211,6 +212,7 @@ $required = @(
     "scripts/96_plan_gripper_close_compat_diagnostic.ps1",
     "scripts/97_audit_hdf5_rollout_alignment.ps1",
     "scripts/98_plan_hdf5_initial_state_replay.ps1",
+    "scripts/100_bounded_hdf5_initial_state_replay.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -319,6 +321,7 @@ $required = @(
     "tests/test_gripper_close_compat_diagnostic_plan.py",
     "tests/test_hdf5_rollout_alignment_audit.py",
     "tests/test_hdf5_initial_state_replay_plan.py",
+    "tests/test_bounded_hdf5_initial_state_replay.py",
     "tests/test_lora_config_guards.py"
 )
 
