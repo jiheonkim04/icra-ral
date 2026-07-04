@@ -492,6 +492,16 @@ Current local result: passed. The runner acquired the bounded required files fro
 
 Next safe step: create a bounded VLM-enabled load-smoke planner. It must estimate CPU RAM/runtime risk before any model load and keep rollout scaling blocked unless offline action-decoding alignment improves.
 
+43. VLM-enabled load-smoke planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\113_plan_vlm_enabled_load_smoke.ps1
+```
+
+If this reports `decision=proceed`, the next safe implementation is a separately gated CPU-first load-only runner for `load_vlm_weights=true`. The future runner must require `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`, perform no inference, no training, no rollout, no GPU job by default, no OpenVLA-OFT, no token access, and no paper claim.
+
+Current local result: `decision=proceed` and `ready_for_bounded_vlm_enabled_load_smoke_runner=true`. The next safe task is to implement `scripts\114_bounded_vlm_enabled_load_smoke.ps1` as CPU-first load-only construction with `load_vlm_weights=true`, capped at 15 minutes, no inference, no training, no rollout, no GPU job by default, no OpenVLA-OFT, no token access, and no paper claim.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

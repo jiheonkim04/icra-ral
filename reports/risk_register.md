@@ -907,3 +907,11 @@ Risk: The required SmolVLM2 files are now present locally, but VLM-enabled SmolV
 Impact: Enabling `load_vlm_weights=true` without a separate bounded load-smoke plan could create a long or memory-heavy model-load task and confuse acquisition readiness with policy capability.
 
 Mitigation: Treat `scripts\112_acquire_vlm_required_files.ps1` as acquisition evidence only. Before any VLM-enabled model load, add or run a separate bounded load-smoke planner that estimates RAM/runtime, refuses rollout/training/GPU/OpenVLA gates, and labels output as engineering load-smoke evidence only.
+
+## VLM-Enabled Load-Smoke Scope Creep Risk
+
+Risk: A `load_vlm_weights=true` smoke can accidentally become inference, rollout, training, GPU execution, or a paper result.
+
+Impact: The project could overrun RAM/runtime budgets or overinterpret a construction test as evidence that policy behavior improved.
+
+Mitigation: Use `scripts\113_plan_vlm_enabled_load_smoke.ps1` first. A future runner must require `ALLOW_HEAVY_IMPORT=1` and `ALLOW_VLM_ENABLED_LOAD_SMOKE=1`, stay CPU-first and load-only, record RAM/runtime, perform no inference/training/rollout/GPU job/OpenVLA-OFT/token access, and label output as engineering load-smoke evidence only.
