@@ -392,6 +392,14 @@ Impact: Offline proxy plumbing could be overinterpreted as standard success, cou
 
 Mitigation: `scripts\51_build_libero_offline_counterfactual_split.ps1` is check-only and manifest-only. It reads local BDDL metadata and HDF5 structure, sets `offline_proxy_only=true`, and keeps training, simulator execution, rollouts, heavy VLA imports, OpenVLA-OFT, token access, and paper claims forbidden.
 
+## LIBERO Offline Head Comparison Overclaim Risk
+
+Risk: A deterministic HDF5 action proxy comparison could be mistaken for a trained ActionMap/TCA-Map result.
+
+Impact: The project could overstate offline plumbing as model performance or paper-grade evidence.
+
+Mitigation: `scripts\52_compare_libero_offline_actionmap_tca.ps1` labels outputs as offline proxy only, not standard success, not paper-grade, and not trained. It refuses execution gates and keeps downloads, GPU jobs, training, simulator execution, rollouts, heavy VLA imports, OpenVLA-OFT, token access, and paper claims forbidden.
+
 ## LIBERO Rollout Readiness Overstatement
 
 Risk: Asset checkers could mark `ready_for_libero_rollout=true` merely because LIBERO, RoboSuite, and data paths exist.

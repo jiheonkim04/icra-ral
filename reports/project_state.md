@@ -421,7 +421,7 @@ Reasons:
 
 Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, and offline proxy comparison scaffolds. Simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 
-The next safe local action is tiny counterfactual split construction from the acquired LIBERO metadata/HDF5 inventory through `scripts\51_build_libero_offline_counterfactual_split.ps1`, followed by a tiny real/offline ActionMap vs TCA-Map comparison scaffold if the split gate passes.
+The next safe local action is a tiny real/offline ActionMap vs TCA-Map comparison through `scripts\52_compare_libero_offline_actionmap_tca.ps1`, followed by the required tiny real/offline LoRA comparison scaffold if the comparison gate passes.
 
 The offline interface smoke gate inspects the acquired LIBERO demonstrations without model loading, training, simulator execution, rollout, OpenVLA-OFT, or paper claims. Its HDF5 report now records bounded samples instead of dumping every dataset path.
 

@@ -451,3 +451,11 @@ Decision: Add a tiny local LIBERO HDF5-backed counterfactual split manifest buil
 Reason: After local LIBERO HDF5 files became readable, the next safe stage is linking BDDL task metadata to acquired demo files and constructing counterfactual target/action pairs without training, simulator execution, rollout, or model loading.
 
 Consequence: `scripts\51_build_libero_offline_counterfactual_split.ps1` writes ignored split reports from local metadata and HDF5 structure only. It marks outputs as offline proxy only and prepares the next tiny real/offline ActionMap vs TCA-Map comparison gate.
+
+## LIBERO Offline ActionMap vs TCA-Map Proxy Comparison
+
+Decision: Add a tiny local LIBERO ActionMap vs TCA-Map proxy comparison over HDF5 action snippets.
+
+Reason: Once counterfactual HDF5 pairs are available, the next safe stage is validating comparison plumbing for ActionMap, TCA-Map, and TCA-Map + Distributional TCA-Select without model loading, training, simulator execution, rollout, or paper claims.
+
+Consequence: `scripts\52_compare_libero_offline_actionmap_tca.ps1` reads the split manifest and a bounded number of HDF5 action rows, then writes ignored offline proxy reports. The report is not a trained baseline and not paper-grade evidence; it only clears the path for the required tiny real/offline LoRA comparison scaffold.
