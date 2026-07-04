@@ -1115,3 +1115,11 @@ Decision: Add a report-only evidence table/gap report for the real-LIBERO offlin
 Reason: The pivot plan selected offline evidence consolidation. The project needs one compact table for ActionMap, TCA-Map, Distributional TCA-Select, required LoRA arms, and remaining blockers before planning any scale-up.
 
 Consequence: `scripts\124_generate_offline_evidence_gap_report.ps1` consolidates existing offline proxy reports and records that standard success, learned-policy rollout scaling, benchmark claims, and paper claims remain blocked. It does not run training, rollout, model loading, inference, GPU jobs, downloads, OpenVLA-OFT, or heavy imports.
+
+## Bounded LoRA / Offline Proxy Scale-Up Plan
+
+Decision: Add a planning-only gate for the next required LoRA/offline-proxy scale-up.
+
+Reason: The evidence gap report says the offline evidence table is ready and LoRA scale-up planning is safe, while current-checkpoint learned-policy rollout scaling remains blocked.
+
+Consequence: `scripts\125_plan_bounded_lora_offline_scaleup.ps1` authorizes only a future separately gated CPU-only offline LoRA runner with at most 16 pairs, 64 samples, 64 steps, LoRA rank 4, frozen base weights, no full fine-tuning, no rollout, no heavy imports, no model load, no GPU job, no OpenVLA-OFT, and no paper claim.
