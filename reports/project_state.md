@@ -313,7 +313,7 @@ The current executable local path has cleared the LIBERO HDF5 reader boundary:
 - `scripts\48_plan_libero_offline_interface_smoke.ps1` reports `ready_for_offline_interface_smoke=true`,
 - rollout readiness is still false and requires a separate simulator gate.
 
-Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, bounded simulator import-only smoke, bounded render smoke, and bounded render/reset-step risk planner have passed. Reset/step smoke is now the next simulator boundary, and rollout remains blocked until a separate rollout risk gate passes. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
+Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, bounded simulator import-only smoke, bounded render smoke, bounded reset/step smoke, and bounded render/reset-step risk planner have passed. Rollout remains blocked until a separate rollout risk gate passes. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
 
 Current planning commands:
 
@@ -415,6 +415,7 @@ scripts\60_link_wsl_simulator_sources.ps1 -> local source-link passed for the se
 scripts\55_bounded_simulator_import_smoke.ps1 -> import-only smoke passed
 scripts\59_bounded_simulator_render_smoke.ps1 -> tiny MuJoCo OSMesa render smoke passed
 scripts\58_plan_simulator_render_reset.ps1 -> reset/step smoke planning is green; rollout remains false
+scripts\61_bounded_simulator_reset_step_smoke.ps1 -> tiny MuJoCo reset/step smoke passed; rollout remains false
 ```
 
 Reasons:
@@ -423,9 +424,9 @@ Reasons:
 - official LIBERO HDF5 demonstration files exist under `LIBERO_DATA_ROOT`,
 - `h5py` is installed and HDF5 offline interface inspection is ready.
 
-Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup, WSL local source linking, import-only smoke, bounded render smoke, and reset/step planning have passed. Simulator reset/step smoke, rollout, or real benchmark work must wait for the corresponding green risk assessment inside the current budget.
+Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup, WSL local source linking, import-only smoke, bounded render smoke, reset/step planning, and bounded reset/step smoke have passed. Rollout or real benchmark work must wait for the corresponding green risk assessment inside the current budget.
 
-The next local boundary is reset/step smoke, not rollout. A tiny 64x64 MuJoCo offscreen render with `MUJOCO_GL=osmesa` now passes in WSL after the user completed the offscreen graphics package step. Reset/step smoke still needs its own task-local gate and risk assessment, and rollout remains blocked.
+The next local boundary is tiny diagnostic rollout risk assessment, not rollout execution. A tiny 64x64 MuJoCo offscreen render with `MUJOCO_GL=osmesa` now passes in WSL after the user completed the offscreen graphics package step, and a tiny in-memory MuJoCo reset plus 3-step physics smoke also passes. Rollout remains blocked until a separate rollout risk assessment is green and the current user instruction no longer forbids rollout execution.
 
 The LIBERO offline LoRA comparison is implemented as a bounded local proxy diagnostic in `scripts\53_compare_libero_offline_lora.ps1`. It trains only tiny NumPy low-rank adapter matrices over local HDF5 action-prefix snippets, requires `ALLOW_TINY_TRAINING=1`, and does not use GPU, model loading, model inference, simulator execution, rollout, OpenVLA-OFT, token access, or paper-grade claims.
 
@@ -444,6 +445,8 @@ The WSL simulator dependency checker is implemented in `scripts\56_check_wsl_sim
 The bounded simulator render/reset-step planner is implemented in `scripts\58_plan_simulator_render_reset.ps1`. Current local result: it reads the passed import-only and render-smoke reports and reports `decision=proceed`, `ready_for_bounded_render_smoke_plan=true`, `ready_for_bounded_reset_step_smoke_plan=true`, and `ready_for_rollout=false`. It performs no render, reset/step, rollout, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim.
 
 The bounded simulator render-smoke script is implemented in `scripts\59_bounded_simulator_render_smoke.ps1`. Current local result: it performed one tiny MuJoCo 64x64 offscreen render with `MUJOCO_GL=osmesa`; the rendered image shape was `[64, 64, 3]` and `image_mean` was nonzero. It did not create/reset/step LIBERO or RoboSuite environments, rollout, train, use GPU jobs, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+The bounded simulator reset/step smoke script is implemented in `scripts\61_bounded_simulator_reset_step_smoke.ps1`. Current local result: it performed `mj_resetData`, `mj_forward`, and 3 `mj_step` calls on a tiny in-memory MuJoCo XML model through the selected WSL venv. It did not create LIBERO or RoboSuite environments, run rollouts, run policy inference, train, use GPU jobs, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
@@ -576,7 +579,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or paper-level empirical claims. Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment; a sudo password prompt remains a hard stop.
 
-Next autonomous direction: create a separate bounded reset/step-smoke risk assessment and implementation branch if it remains inside budget. Tiny diagnostic rollout remains blocked until reset/step passes and a later rollout-specific risk gate passes. No OpenVLA-OFT execution or paper claim is authorized.
+Next autonomous direction: create a separate tiny diagnostic rollout risk-assessment branch if it remains inside budget, but do not execute rollout while the current user instruction forbids rollout. No OpenVLA-OFT execution or paper claim is authorized.
 
 The current bounded cached-feature local pilot extension is documented in `reports\bounded_local_pilot_extension.md` and runs through:
 

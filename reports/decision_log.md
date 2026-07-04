@@ -549,3 +549,11 @@ Decision: Treat the current local bounded render-smoke attempt as passed for tin
 Reason: After the user completed the WSL offscreen graphics package step, the bounded task-local render smoke produced a nonblank 64x64 RGB image under `MUJOCO_GL=osmesa`.
 
 Consequence: `scripts\59_bounded_simulator_render_smoke.ps1` remains a tiny MuJoCo render-only check. It did not create, reset, or step LIBERO/RoboSuite environments, roll out policies, use GPU jobs, train, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims. Reset/step and rollout remain separate risk gates.
+
+## Bounded Simulator Reset/Step Smoke Result
+
+Decision: Treat the current local bounded reset/step smoke as passed for tiny MuJoCo physics reset/step readiness.
+
+Reason: After import-only and render-only readiness passed, the reset/step smoke ran under task-local `ALLOW_SIMULATOR_RESET_STEP=1` and performed `mj_resetData`, `mj_forward`, and 3 `mj_step` calls on a tiny in-memory MuJoCo model.
+
+Consequence: `scripts\61_bounded_simulator_reset_step_smoke.ps1` is limited to tiny MuJoCo physics plumbing. It did not create LIBERO or RoboSuite environments, run rollouts, run policy inference, use GPU jobs, train, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims. Rollout execution remains blocked by a separate risk gate and the current user instruction.
