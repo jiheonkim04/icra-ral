@@ -84,7 +84,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert "tiny real/offline ActionMap vs TCA-Map comparison if the LIBERO counterfactual split report is ready" in report["risk_assessed_next_gates"]
+    assert "required tiny real/offline LoRA comparison after the ActionMap vs TCA-Map offline comparison passes" in report["risk_assessed_next_gates"]
     assert "OpenVLA-OFT execution" in report["hard_stop_boundaries"]
     assert "token or secret access" in report["external_irreversible_stop_gates"]
     assert "local_pilot_status_passed" in report
@@ -92,11 +92,14 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "libero_metadata_subset" in report["source_reports"]
     assert "libero_offline_interface" in report["source_reports"]
     assert "libero_offline_counterfactual_split" in report["source_reports"]
+    assert "libero_offline_head_comparison" in report["source_reports"]
     assert "bounded_local_pilot_extension_passed" in report["status"]
     assert "libero_metadata_subset_ready" in report["status"]
     assert "libero_offline_interface_ready" in report["status"]
     assert "libero_offline_counterfactual_split_ready" in report["status"]
     assert "libero_offline_actionmap_tca_ready" in report["status"]
+    assert "libero_offline_head_comparison_passed" in report["status"]
+    assert "libero_ready_for_required_tiny_lora_comparison" in report["status"]
     assert "libero_rollout_ready" in report["status"]
     assert json_report.exists()
     assert markdown_report.exists()

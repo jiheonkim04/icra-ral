@@ -95,6 +95,7 @@ qlora_feasibility = load_json("reports/qlora_feasibility_report.json")
 libero_metadata_subset = load_json("reports/libero_metadata_subset_report.json")
 libero_offline_interface = load_json("reports/libero_offline_interface_smoke_report.json")
 libero_offline_counterfactual_split = load_json("reports/libero_offline_counterfactual_split_report.json")
+libero_offline_head_comparison = load_json("reports/libero_offline_actionmap_tca_comparison_report.json")
 
 completed = {
     "smolvla_load_only_smoke": passed(load_only, "result", "passed"),
@@ -118,6 +119,7 @@ runtime_reports_available = {
     "libero_metadata_subset_report": libero_metadata_subset is not None,
     "libero_offline_interface_smoke_report": libero_offline_interface is not None,
     "libero_offline_counterfactual_split_report": libero_offline_counterfactual_split is not None,
+    "libero_offline_actionmap_tca_comparison_report": libero_offline_head_comparison is not None,
 }
 
 tiny_metrics = {}
@@ -172,6 +174,9 @@ libero_data_gates = {
     "ready_for_tiny_offline_counterfactual_split": bool((libero_offline_counterfactual_split or {}).get("ready_for_tiny_offline_counterfactual_split")),
     "ready_for_tiny_offline_actionmap_tca_comparison": bool((libero_offline_counterfactual_split or {}).get("ready_for_tiny_offline_actionmap_tca_comparison")),
     "counterfactual_pair_count": (libero_offline_counterfactual_split or {}).get("counterfactual_pair_count"),
+    "offline_actionmap_tca_report_present": libero_offline_head_comparison is not None,
+    "offline_actionmap_tca_comparison_passed": bool((libero_offline_head_comparison or {}).get("libero_offline_head_comparison_passed")),
+    "ready_for_required_tiny_lora_comparison": bool((libero_offline_head_comparison or {}).get("ready_for_required_tiny_lora_comparison")),
     "ready_for_rollout": bool((libero_offline_interface or {}).get("ready_for_rollout")),
     "reason": (libero_offline_interface or {}).get("reason"),
 }
@@ -189,6 +194,8 @@ if not libero_data_gates["ready_for_offline_interface_smoke"]:
     blocked_by.append("no tiny local LIBERO-style demo file is ready for offline interface smoke")
 if not libero_data_gates["ready_for_tiny_offline_counterfactual_split"]:
     blocked_by.append("no tiny local LIBERO HDF5-backed counterfactual split is ready")
+if not libero_data_gates["offline_actionmap_tca_comparison_passed"]:
+    blocked_by.append("no tiny local LIBERO offline ActionMap vs TCA-Map comparison has passed")
 
 decision = (
     "no_go_for_next_larger_experimental_stage"
