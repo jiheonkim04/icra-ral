@@ -947,3 +947,13 @@ Impact: Learned-policy actions can be finite and VLM-sensitive while still being
 Mitigation: `scripts\118_audit_action_normalization_provenance.ps1` inspects processor safetensor action mean/std keys and magnitudes, compares them against local LIBERO action previews, and keeps rollout scaling blocked if provenance or scale mismatch remains.
 
 Current status: the audit found SO100 action-stat prefixes and action-stat magnitudes far outside the local LIBERO expert-action preview range. Learned-policy rollout scaling remains blocked until an action-stat mapping or checkpoint/task-provenance correction plan is created and validated.
+
+## Premature Action-Stat Correction Risk
+
+Risk: A provenance correction plan could be misread as permission to bypass postprocessing, alter model behavior, or run another rollout immediately.
+
+Impact: The project could introduce an ad hoc adapter fix without first proving local LIBERO action statistics differ from checkpoint stats in a controlled report-only audit.
+
+Mitigation: `scripts\119_plan_action_stat_provenance_correction.ps1` is planning-only and selects a report-only LIBERO action-stat subset audit first. It does not authorize model modification, training, rollout, checkpoint downloads, GPU jobs, OpenVLA-OFT, or paper claims.
+
+Current status: the plan selected a report-only LIBERO action-stat subset audit. This keeps policy changes and rollouts blocked until local LIBERO action statistics are measured directly.
