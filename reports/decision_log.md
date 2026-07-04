@@ -605,3 +605,11 @@ Decision: Use WSL-only simulator plus policy runtime readiness as the first lear
 Reason: LIBERO/RoboSuite simulator readiness is currently established in WSL, while SmolVLA runtime readiness was established in the Windows conda environment. A Windows-policy/WSL-simulator bridge adds IPC, latency, image serialization, and synchronization risk before proving the simpler WSL-only path.
 
 Consequence: `scripts\66_plan_libero_policy_rollout_readiness.ps1` checks whether the WSL venv can see the lightweight SmolVLA runtime modules and local SmolVLA/LIBERO assets without loading models or running rollouts. If it reports `proceed`, create a separately gated tiny learned-policy rollout runner. If it reports `reduce_scope`, prepare WSL SmolVLA runtime setup/readiness first.
+
+## WSL SmolVLA Runtime Setup Result
+
+Decision: Treat the WSL SmolVLA module-spec runtime readiness as passed for the selected WSL venv.
+
+Reason: After a green risk assessment, task-local WSL venv package setup installed CPU torch/torchvision and the lightweight SmolVLA runtime modules into `/home/jiheon/.venvs/tca_map_sim`. The first setup run hit the 1800 second timeout, but no residual install process remained; follow-up probes found all required module specs present, and the setup guard rerun reported `setup_passed=true` without further installs.
+
+Consequence: `scripts\66_plan_libero_policy_rollout_readiness.ps1` now reports the WSL-only simulator plus policy runtime topology as green. This is not model-load, inference, rollout, benchmark, SOTA, or paper-grade evidence. The next safe task is a separately gated tiny learned-policy LIBERO rollout runner.
