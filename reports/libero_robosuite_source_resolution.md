@@ -28,6 +28,8 @@ Full LIBERO dataset acquisition is allowed only through the dedicated LIBERO acq
 - no rollout,
 - no paper-grade claim.
 
+Source checkout and dataset readiness do not imply simulator dependency readiness. WSL simulator dependency bootstrap is now a separate standing-approved ladder after risk assessment. It may set up minimal WSL Python packaging tools, create `~/.venvs/tca_map_sim`, install minimal import-readiness dependencies, and rerun bounded import smoke if no sudo password, token/login, license/payment, CUDA/driver, graphics-stack, OpenVLA-OFT, paper-claim, or budget gate appears.
+
 ## Commands
 
 Planning-only source resolution:
@@ -63,4 +65,4 @@ Remove-Item Env:\ALLOW_DOWNLOADS -ErrorAction SilentlyContinue
 
 Continue to tiny real/offline dataset interface smoke only after a real tiny subset or documented metadata-only subset exists under `LIBERO_DATA_ROOT`.
 
-Do not run simulator import, render smoke, rollout, policy evaluation, training on real data, OpenVLA-OFT, or paper-grade claims from this source-resolution step.
+Do not run simulator import, render smoke, rollout, policy evaluation, training on real data, OpenVLA-OFT, or paper-grade claims from this source-resolution step. Simulator dependency setup belongs to the WSL simulator dependency ladder, and render/reset/rollout work requires its own later risk gate.

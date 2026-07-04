@@ -186,7 +186,7 @@ parse_errors = {name: item.get("error") for name, item in loaded.items() if item
 recommended_next_step = (
     "Bounded simulator import smoke passed. Create a separate bounded render-smoke risk gate if needed; keep rollout blocked."
     if status["bounded_simulator_import_smoke_passed"]
-    else "WSL simulator dependency check is complete and blocks import retry. Configure WSL Python packaging/dependencies manually or through a separate risk-assessed setup; keep render/rollout blocked."
+    else "WSL simulator dependency check is complete and blocks import retry. Run the standing-approved WSL simulator dependency ladder risk assessment; if green, set up minimal WSL Python packaging/dependencies, then rerun import smoke. Keep render/rollout blocked."
     if status["wsl_simulator_dependency_report_present"] and not status["wsl_ready_for_simulator_import_retry"]
     else "Bounded simulator import smoke ran but did not pass. Resolve WSL/Linux dependency or import errors before render smoke or rollout."
     if status["bounded_simulator_import_smoke_report_present"]
@@ -197,7 +197,7 @@ recommended_next_step = (
     else "Run a simulator readiness/import-render risk assessment if installed locally; stop before rollout unless the assessment is green and inside budget."
     if status["libero_ready_for_simulator_readiness_risk_assessment"]
     else (
-        "Choose the next concrete stage and run a risk assessment. Proceed automatically if the assessment is inside budget; stop only if risk is ambiguous, outside budget, external/irreversible, OpenVLA-OFT-related, token/license/payment-related, system-level, or paper-claim-related."
+        "Choose the next concrete stage and run a risk assessment. Proceed automatically if the assessment is inside budget; stop only if risk is ambiguous, outside budget, external/irreversible, OpenVLA-OFT-related, token/license/payment-related, credentialed/system-driver/license-gated, or paper-claim-related."
         if all_bounded_smokes_passed
         else "Regenerate the missing or failed bounded local pilot reports before any larger step."
     )
@@ -230,7 +230,7 @@ report = {
     "missing_reports": missing_reports,
     "parse_errors": parse_errors,
     "risk_assessed_next_gates": [
-        "simulator readiness/import-render smoke if already installed locally",
+        "simulator readiness/import-render smoke after WSL dependency/import readiness is green",
         "bounded rollout only after simulator smoke, task_count<=5, runtime<=30 minutes, no paper claim",
         "bounded local training extension beyond the current cached-feature smoke only after a fresh green risk assessment",
         "QLoRA feasibility or tooling only if package/CUDA/PyTorch risk is inside budget",
@@ -242,7 +242,7 @@ report = {
         "license click-through",
         "external upload/submission/publishing",
         "system-wide CUDA/PyTorch/driver changes",
-        "admin/system-level installers",
+        "credentialed/system-driver/license-gated system setup",
         "paper-grade empirical claims",
     ],
     "hard_stop_boundaries": [

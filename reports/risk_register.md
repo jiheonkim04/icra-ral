@@ -446,4 +446,12 @@ Risk: WSL paths and Python can be present while the WSL Python environment lacks
 
 Impact: Simulator import smoke fails before any render or rollout gate, and ad hoc dependency installation could drift into a larger simulator stack install.
 
-Mitigation: Use `scripts\56_check_wsl_simulator_deps.ps1` before any install. Treat missing WSL simulator dependencies as a separate dependency risk-planning task. Small Python dependencies may be considered only after a green risk assessment; simulator packages, MuJoCo setup, CUDA/PyTorch changes, render smoke, and rollout remain separate gates.
+Mitigation: Use `scripts\56_check_wsl_simulator_deps.ps1` before any install. Missing WSL simulator dependencies are handled by the WSL simulator dependency ladder standing approval: after a green risk assessment, Codex may install only minimal WSL Python packaging tools, create `~/.venvs/tca_map_sim`, install minimal import-readiness Python dependencies, and rerun import smoke. Stop for sudo password, token/login, license/payment, CUDA/driver/toolkit, graphics-stack, Windows driver, OpenVLA-OFT, paper-claim, or oversized package/download gates. Render smoke, reset/step smoke, and tiny rollout diagnostics remain separate risk gates.
+
+## WSL Dependency Bootstrap Scope Creep
+
+Risk: A minimal WSL dependency bootstrap could drift into broad apt installs, system graphics changes, MuJoCo license workarounds, CUDA/PyTorch replacements, or simulator rollout attempts.
+
+Impact: The local machine or WSL environment could become unstable, and the project could cross into unapproved benchmark or paper-grade work.
+
+Mitigation: The standing approval is narrow. Allowed apt packages are `python3-pip`, `python3-venv`, `python3-dev` if needed, `build-essential` only for Python package builds, `git` if missing, and `curl` or `wget` only for official setup checks. Every package install, render smoke, reset/step smoke, or tiny diagnostic rollout must print/write a risk assessment with command, WSL distro/version, expected size, target path, disk estimate, runtime, RAM/VRAM, sudo status, token/license/payment status, CUDA/driver/graphics impact, decision, and reason.

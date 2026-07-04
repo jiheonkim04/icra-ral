@@ -89,10 +89,10 @@ if (-not $wslInstalled) { $stopReasons.Add("wsl command is not available") }
 if (-not $pythonVersion.ok) { $stopReasons.Add("WSL python3 is not available") }
 if (-not $numpyProbe.ok) { $stopReasons.Add("WSL python3 cannot import numpy") }
 if (-not $pipVersion.ok -and -not $ensurePip.ok) {
-    $stopReasons.Add("WSL python3 has neither pip nor ensurepip; automatic dependency installation would require a separate system/package-management risk gate")
+    $stopReasons.Add("WSL python3 has neither pip nor ensurepip; run the standing-approved WSL simulator dependency ladder risk assessment before minimal packaging setup")
 }
 if ($aptProbe.ok) {
-    $warnings.Add("apt is available in WSL, but apt-based installs are system-level/admin-adjacent and must not run automatically from this checker")
+    $warnings.Add("apt is available in WSL; this check-only script will not install packages, but minimal WSL Python packaging setup may run later only through the standing-approved dependency ladder after a green risk assessment")
 }
 
 $readyForUserLevelPipInstall = [bool]($wslInstalled -and $pythonVersion.ok -and ($pipVersion.ok -or $ensurePip.ok))
@@ -101,9 +101,9 @@ $decision = if ($readyForSimulatorImportRetry) { "proceed" } else { "stop" }
 $recommendedNextStep = if ($readyForSimulatorImportRetry) {
     "Rerun scripts\55_bounded_simulator_import_smoke.ps1 with task-local ALLOW_SIMULATOR_IMPORT_SMOKE=1."
 } elseif ($readyForUserLevelPipInstall) {
-    "Run a separate dependency risk assessment for user-level WSL Python package installation, then install only the missing small dependencies if green."
+    "Run the standing-approved WSL simulator dependency ladder risk assessment for user-level WSL Python packages, then install only the missing small dependencies if green."
 } else {
-    "Configure WSL Python packaging manually or through a separately approved system-level setup; do not render or rollout."
+    "Run the standing-approved WSL simulator dependency ladder risk assessment for minimal WSL Python packaging setup; stop if sudo password, token/license/payment, CUDA/driver, graphics-stack, OpenVLA-OFT, or budget gates appear. Do not render or rollout."
 }
 
 $report = [ordered]@{

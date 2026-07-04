@@ -501,3 +501,11 @@ Decision: Add a check-only WSL simulator dependency report before any simulator 
 Reason: The bounded simulator import smoke found a concrete WSL dependency blocker, but WSL lacks `pip` and `ensurepip`; jumping directly to `apt` would cross into system/package-management setup.
 
 Consequence: `scripts\56_check_wsl_simulator_deps.ps1` records WSL `python3`, `pip`, `ensurepip`, `numpy`, and missing modules from the import-smoke report. It performs no installs, downloads, render smoke, rollouts, simulator environment steps, GPU jobs, training, heavy VLA imports, OpenVLA-OFT execution, token access, or paper claims.
+
+## WSL Simulator Dependency Ladder Standing Approval
+
+Decision: Minimal WSL simulator dependency bootstrap is standing-approved after risk assessment.
+
+Reason: The simulator blocker is no longer ambiguous: WSL path and `python3` probes pass, LIBERO imports, and RoboSuite is blocked by missing WSL Python packaging/dependencies such as `numpy`. Requiring repeated user approval for each small WSL dependency step stalls the bounded simulator readiness ladder.
+
+Consequence: Codex may autonomously inspect WSL, check `python3`/`pip`/`venv`, install minimal WSL Python packaging tools, create `~/.venvs/tca_map_sim`, install minimal import-readiness Python dependencies, rerun bounded simulator import smoke, and proceed to bounded render/reset-step/tiny diagnostic stages if each stage has a green risk assessment. Codex must still stop for sudo password prompts, credentials, token/secret/login, payment/license click-through, CUDA driver/toolkit or graphics-stack changes, Windows driver changes, OpenVLA-OFT download/import/load/execution, full fine-tuning, training over 30 minutes, VRAM over 14GB, rollout beyond tiny diagnostic limits, benchmark or paper-grade claims, multi-seed experiments, external upload/submission/publishing, or deletion outside approved repo/cache cleanup.

@@ -262,7 +262,7 @@ decision = (
 recommended_next_step = (
     "Bounded simulator import smoke passed. Create a separate bounded render-smoke risk gate if needed; do not rollout or claim standard success."
     if simulator_readiness_gates["bounded_import_smoke_passed"]
-    else "WSL simulator dependency check is complete and blocks import retry. Configure WSL Python packaging/dependencies manually or through a separate risk-assessed setup; do not render or rollout."
+    else "WSL simulator dependency check is complete and blocks import retry. Run the standing-approved WSL simulator dependency ladder risk assessment; if green, set up minimal WSL Python packaging/dependencies, then rerun import smoke. Do not render or rollout yet."
     if simulator_readiness_gates["wsl_dependency_report_present"] and not simulator_readiness_gates["wsl_ready_for_simulator_import_retry"]
     else "Bounded simulator import smoke ran but did not pass. Resolve WSL/Linux simulator dependency/import errors before render smoke or rollout."
     if simulator_readiness_gates["bounded_import_smoke_report_present"]
@@ -329,7 +329,7 @@ report = {
         "external upload/submission/publishing",
         "deleting user files outside approved cache/repo cleanup",
         "system-wide CUDA/PyTorch/driver changes",
-        "admin/system-level installers",
+        "credentialed/system-driver/license-gated system setup",
         "paper-level empirical claims",
     ],
     "completed_safe_smokes": completed,

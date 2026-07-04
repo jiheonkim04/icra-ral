@@ -42,10 +42,10 @@ Default local risk budgets:
 - GPU: SmolVLA/local-pilot related, no OpenVLA-OFT, expected VRAM <=14GB, runtime <=30 minutes, batch size 1 or equivalent, timeout/stop condition, memory/runtime logged when measurable,
 - training: SmolVLA-only, frozen backbone or LoRA/QLoRA adapter only, no full fine-tuning, no rollout, max 300 local pilot steps after smaller smoke is stable, runtime <=30 minutes, VRAM <=14GB, batch size 1, proxy/local-pilot labels only,
 - real datasets: official/documented/unambiguous source, no token/login/payment/license click-through, inside download/disk budget, no simulator rollout triggered automatically, prefer metadata-only or tiny subset first,
-- simulator readiness: installed locally, no large install/download, no token/manual license, runtime <=10 minutes, no policy rollout, no paper claim,
+- simulator readiness: prefer WSL2/Linux, no token/manual license, runtime <=10 minutes for import/render smoke, no policy rollout, no paper claim. Minimal WSL Python packaging setup is standing-approved after risk assessment; credentialed/system-driver/license-gated changes remain hard-stop,
 - bounded rollout: only after simulator import/render smoke passes, task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no external service/token, no unbounded render loop, no paper claim.
 
-Always stop before token/secret/API key access, paid services, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, admin/system-level installers, OpenVLA-OFT execution, or paper-level empirical claims.
+Always stop before token/secret/API key access, paid services, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or paper-level empirical claims. Minimal WSL Python packaging setup may proceed autonomously only after a green WSL simulator dependency-ladder risk assessment.
 
 Before any bounded download/GPU/training/dataset/simulator step, write or print a short risk assessment with task, source, expected size, target path, disk free before/after estimate, expected runtime, expected RAM/VRAM, allowed budget, official/documented source status, token/license/payment status, decision, and reason.
 

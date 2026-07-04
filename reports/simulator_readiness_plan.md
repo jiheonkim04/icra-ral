@@ -27,6 +27,29 @@ Proceed to a separate bounded simulator import-smoke task only if:
 
 Native Windows remains a planning/readiness path. Real simulator work should use WSL2/Linux unless a later risk assessment proves a native path is safe.
 
+## WSL Simulator Dependency Ladder Standing Approval
+
+If WSL path and `python3` probes pass but Python packaging or import dependencies are missing, Codex may continue autonomously through a bounded WSL dependency ladder after a green risk assessment. This does not authorize simulator rollout, benchmark evaluation, OpenVLA-OFT, GPU training, or paper claims.
+
+Allowed autonomous WSL dependency steps:
+
+- inspect WSL distro status and Python packaging status,
+- install minimal WSL Python packaging tools only if safe,
+- create or reuse `~/.venvs/tca_map_sim`,
+- install minimal import-readiness dependencies such as `numpy`, `scipy`, `h5py`, `pyyaml`, `tqdm`, `gymnasium` or `gym` if required, `mujoco` if required for import/render checks, and `robosuite`/LIBERO dependencies only when official docs and budget are green,
+- rerun bounded simulator import smoke.
+
+Allowed apt packages are limited to `python3-pip`, `python3-venv`, `python3-dev` if needed, `build-essential` only if required for Python package builds, `git` if missing, and `curl` or `wget` only for official setup checks.
+
+Stop before sudo password input, token/secret/login, paid service or license click-through, CUDA driver/toolkit install, major graphics-stack changes, Windows driver changes, OpenVLA-OFT download/import/load/execution, full fine-tuning, training over 30 minutes, VRAM over 14GB, downloads beyond approved budget, rollout beyond tiny diagnostic limits, benchmark/paper-grade claims, multi-seed experiments, external upload/submission/publishing, or deletion outside approved repo/cache cleanup.
+
+Readiness progression:
+
+1. Import readiness: import `numpy`, `libero`, `robosuite`, and `mujoco` if installed/needed. No rendering, rollout, policy evaluation, training, or paper claim.
+2. Bounded render smoke: only after import readiness passes and a render risk assessment is green; runtime <=10 minutes, headless/offscreen preferred.
+3. Bounded reset/step smoke: only after import/render readiness passes; at most one environment and at most 5 reset/step attempts, runtime <=10 minutes.
+4. Bounded tiny rollout diagnostic: only after earlier stages pass; task count <=5, runtime <=30 minutes, no OpenVLA-OFT, no training, no multi-seed, no paper claim.
+
 The source-resolution/setup path for code checkouts is:
 
 ```powershell
