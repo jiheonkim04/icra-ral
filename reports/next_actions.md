@@ -787,6 +787,10 @@ Current local result: implementation scaffold added in `scripts\133_bounded_real
 
 67. Next safe step: run a planning-only synthesis for the real candidate-generation smoke scaffold or, if the autonomous risk assessment is green, run the bounded real candidate-generation smoke with all three task-local gates and label it engineering evidence only. Do not treat a passing smoke as standard success, rollout success, or paper-grade evidence.
 
+Current local result: bounded real candidate-generation smoke passed on CPU in about 38.3 seconds with CUDA max allocated `0.0 MB`, candidate count 4, heatmap grid 8, selected candidate index 0, selected target index 0, and wrong-target proxy false. It performed one synthetic local SmolVLA action decode and no downloads, installs, training, rollouts, simulator environment creation, GPU jobs, OpenVLA-OFT execution, external verifier use, privileged inference, token access, or paper claims.
+
+68. Next safe step: run `scripts\134_summarize_real_candidate_generation_smoke.ps1`, then plan a bounded offline candidate-generation comparison that contrasts this learned-seed candidate smoke against the existing offline TCA-Select ambiguity stress proxy. Keep it report-only first and preserve the no-paper-claim boundary.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
