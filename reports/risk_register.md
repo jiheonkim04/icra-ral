@@ -400,6 +400,14 @@ Impact: The project could overstate offline plumbing as model performance or pap
 
 Mitigation: `scripts\52_compare_libero_offline_actionmap_tca.ps1` labels outputs as offline proxy only, not standard success, not paper-grade, and not trained. It refuses execution gates and keeps downloads, GPU jobs, training, simulator execution, rollouts, heavy VLA imports, OpenVLA-OFT, token access, and paper claims forbidden.
 
+## LIBERO Offline LoRA Proxy Overinterpretation Risk
+
+Risk: The required LIBERO offline LoRA comparison may be mistaken for a full SmolVLA LoRA adapter result.
+
+Impact: Tiny NumPy adapter smoke over HDF5 snippets could be overstated as real model adaptation, rollout success, or paper-grade evidence.
+
+Mitigation: `scripts\53_compare_libero_offline_lora.ps1` requires `ALLOW_TINY_TRAINING=1`, trains only tiny NumPy low-rank adapter matrices, sets `offline_proxy_only=true`, and reports `not_standard_success=true` and `not_paper_grade=true`. It keeps GPU jobs, heavy model imports, model loading, model inference, rollouts, simulator execution, OpenVLA-OFT, token access, downloads, and paper claims forbidden.
+
 ## LIBERO Rollout Readiness Overstatement
 
 Risk: Asset checkers could mark `ready_for_libero_rollout=true` merely because LIBERO, RoboSuite, and data paths exist.

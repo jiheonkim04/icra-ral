@@ -1,0 +1,26 @@
+libero_offline_lora_comparison:
+  description: Tiny offline proxy comparison for required LoRA arms over local LIBERO HDF5 action snippets.
+
+manifest: reports/libero_offline_counterfactual_split_report.json
+max_pairs: 4
+max_action_steps: 16
+max_samples: 16
+max_steps: 16
+max_runtime_seconds: 900
+lora_rank: 4
+action_prefix_dim: 4
+offline_proxy_only: true
+requires_allow_tiny_training: true
+arms:
+  - actionmap_lora
+  - tca_map_lora
+  - tca_map_lora_distributional_select
+forbidden:
+  - downloads
+  - gpu_jobs
+  - gpu_training
+  - simulator_execution
+  - rollouts
+  - heavy_vla_imports
+  - openvla_oft
+  - paper_grade_claims

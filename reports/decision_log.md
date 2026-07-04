@@ -459,3 +459,11 @@ Decision: Add a tiny local LIBERO ActionMap vs TCA-Map proxy comparison over HDF
 Reason: Once counterfactual HDF5 pairs are available, the next safe stage is validating comparison plumbing for ActionMap, TCA-Map, and TCA-Map + Distributional TCA-Select without model loading, training, simulator execution, rollout, or paper claims.
 
 Consequence: `scripts\52_compare_libero_offline_actionmap_tca.ps1` reads the split manifest and a bounded number of HDF5 action rows, then writes ignored offline proxy reports. The report is not a trained baseline and not paper-grade evidence; it only clears the path for the required tiny real/offline LoRA comparison scaffold.
+
+## LIBERO Offline Required LoRA Proxy Comparison
+
+Decision: Add a tiny local LIBERO LoRA proxy comparison over HDF5 action snippets.
+
+Reason: LoRA/QLoRA are required experimental tracks after the head-only path. After the LIBERO offline ActionMap vs TCA-Map gate passes, the next safe local step is comparing ActionMap + LoRA, TCA-Map + LoRA, and TCA-Map + LoRA + Distributional TCA-Select using bounded NumPy adapters only.
+
+Consequence: `scripts\53_compare_libero_offline_lora.ps1` requires `ALLOW_TINY_TRAINING=1`, reads local LIBERO HDF5 snippets, trains tiny NumPy low-rank adapter matrices, and writes ignored offline proxy reports. It remains no-GPU, no-rollout, no-heavy-import, no-OpenVLA-OFT, and not paper-grade evidence.
