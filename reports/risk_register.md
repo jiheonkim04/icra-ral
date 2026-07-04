@@ -889,3 +889,13 @@ Impact: Passing execution could be mistaken for task performance, especially if 
 Mitigation: `scripts\110_bounded_repeated_offline_demo_action_decoding.ps1` labels results as tiny repeated offline diagnostic evidence only. It keeps rollout scaling, benchmark claims, SOTA claims, and paper-grade claims false regardless of execution success.
 
 Current status: the runner passed, but repeated offline alignment remained weak and every adapted action clipped one value. This raises the priority of VLM-loading policy and action-normalization diagnosis before any further learned-policy rollout.
+
+## VLM Weight Acquisition and Loading Risk
+
+Risk: Enabling `load_vlm_weights=true` may require full SmolVLM2 weights, extra disk/RAM, or a gated/token/license condition.
+
+Impact: The project could accidentally download a large or gated dependency, overrun local memory, or confuse VLM-disabled diagnostics with intended policy behavior.
+
+Mitigation: `scripts\111_plan_vlm_enabled_loading_risk.ps1` is metadata-only and must pass source/license/size/disk checks before any VLM weight acquisition. VLM-enabled load smoke remains a later separate gate.
+
+Current status: metadata risk is green for acquisition planning. The remaining risk is load behavior and memory once full VLM files are present; that must be tested by a separate bounded load-smoke gate.

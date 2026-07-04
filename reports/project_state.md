@@ -1275,3 +1275,32 @@ Current local result:
 - paper-grade claim ready: false.
 
 Interpretation: the bounded repeated offline diagnostic confirms that weak expert-action alignment is not just a single-timestep artifact. The next safe direction is a report-only VLM-enabled loading risk/provenance plan and action-normalization diagnosis before any further learned-policy rollout.
+
+## VLM-Enabled Loading Risk Plan
+
+The metadata-only VLM-enabled loading risk planner is implemented by `scripts\111_plan_vlm_enabled_loading_risk.ps1`.
+
+Purpose:
+
+- verify the official source `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`,
+- estimate required config/tokenizer/root `model.safetensors` size,
+- verify gated/private/license/token risk,
+- check free-disk-after-acquisition budget,
+- decide whether a later VLM weight acquisition plan is safe.
+
+This planner does not download weights, load models, infer, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current local result:
+
+- source: `HuggingFaceTB/SmolVLM2-500M-Video-Instruct`,
+- source status: official/public/ungated,
+- license: `apache-2.0`,
+- root model weight: `model.safetensors`,
+- estimated required file size: `1.895GB`,
+- free disk after estimate: about `419GB`,
+- token/login/license/payment required: false,
+- decision: `proceed`,
+- ready for VLM weight acquisition plan: true,
+- ready for VLM-enabled load smoke: false.
+
+Next safe direction: create a separately gated VLM weight acquisition plan/runner for required files only. Do not run VLM-enabled loading until acquisition and a bounded load-smoke plan pass.

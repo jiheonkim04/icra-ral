@@ -470,6 +470,16 @@ Current local result: the runner passed on three HDF5 timesteps, but repeated of
 
 40. Next safe step: create a report-only VLM-enabled loading risk/provenance plan. It should estimate whether acquiring/loading the full `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` weights is official, token-free, size-bounded, and memory-safe. Do not download full VLM weights or run VLM-enabled loading until that risk assessment is green.
 
+41. VLM-enabled loading risk/provenance planning command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\111_plan_vlm_enabled_loading_risk.ps1
+```
+
+If this planner reports `decision=proceed` and `ready_for_vlm_weight_acquisition_plan=true`, the next safe step is a separately gated VLM weight acquisition plan/runner for required `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` files only. Do not load VLM weights until acquisition and a bounded load-smoke plan pass.
+
+Current local result: green. Metadata reports `apache-2.0`, public/ungated, required files about `1.895GB`, free disk after estimate about `419GB`, and no token/login/license/payment requirement. Next safe step: create and run a separately gated VLM weight acquisition runner for required files only under `ALLOW_DOWNLOADS=1`; still do not load the model until a later bounded load-smoke plan passes.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
