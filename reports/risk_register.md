@@ -679,3 +679,11 @@ Risk: The bridge can now record clean explicit adapter metadata while still prod
 Impact: Larger rollouts would likely repeat the same failure while consuming runtime and making the evidence ladder look more mature than it is.
 
 Mitigation: Keep rollout scaling blocked. Run small adapter-strategy/action-scale diagnostics first, including gripper strategy comparison, action magnitude checks, language prompt inspection, image source mapping checks, and state adapter sufficiency checks.
+
+## Adapter Diagnostic Combinatorics Risk
+
+Risk: Gripper strategies, action-scale factors, prompt formats, and camera mappings can multiply into a large rollout matrix.
+
+Impact: The project could spend local runtime on many weak diagnostic variants before establishing which axis matters.
+
+Mitigation: `scripts\82_plan_adapter_strategy_action_scale_diagnostics.ps1` limits the first runner to one task, at most 10 steps per variant, and at most three gripper-strategy variants. Action-scale, prompt, and camera variants are planned as later rungs only after the first strategy diagnostic is summarized.

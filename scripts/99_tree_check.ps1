@@ -110,6 +110,7 @@ $required = @(
     "reports/pure_action_state_image_adapters.md",
     "reports/rollout_bridge_adapter_wiring_plan.md",
     "reports/adapter_wired_learned_policy_diagnostic.md",
+    "reports/adapter_strategy_action_scale_diagnostics.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -185,6 +186,7 @@ $required = @(
     "scripts/79_compare_zero_action_policy_diagnostic.ps1",
     "scripts/80_plan_action_state_adapter_patch.ps1",
     "scripts/81_plan_rollout_bridge_adapter_wiring.ps1",
+    "scripts/82_plan_adapter_strategy_action_scale_diagnostics.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -280,6 +282,7 @@ $required = @(
     "tests/test_action_state_adapter_patch_plan.py",
     "tests/test_rollout_bridge_adapter_wiring_plan.py",
     "tests/test_rollout_bridge_adapter_wiring.py",
+    "tests/test_adapter_strategy_action_scale_diagnostics_plan.py",
     "tests/test_lora_config_guards.py"
 )
 

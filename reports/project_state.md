@@ -894,3 +894,17 @@ Observed diagnostic metrics:
 - zero-image fallback: false.
 
 Interpretation: explicit adapter wiring is working as metadata-visible plumbing, but the selected diagnostic task still fails. The next safe task is adapter-strategy/action-scale diagnosis before any rollout scaling.
+
+## Adapter-Strategy/Action-Scale Diagnostics Plan
+
+Current local planning target: `scripts\82_plan_adapter_strategy_action_scale_diagnostics.ps1`.
+
+This planner reads the adapter-aware audit, reduced-scope metric summary, zero-action comparison, and rollout bridge source. It does not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper-grade claims.
+
+The planned first diagnostic runner is one task, at most 10 steps per variant, and at most three gripper-strategy variants:
+
+- `policy_6d_delta_pose_plus_gripper_zero_hold`,
+- `policy_6d_delta_pose_plus_gripper_open`,
+- `policy_6d_delta_pose_plus_gripper_close`.
+
+Rollout scaling remains blocked until the strategy diagnostics explain or improve the zero-reward behavior.
