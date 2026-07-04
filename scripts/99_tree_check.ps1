@@ -145,6 +145,7 @@ $required = @(
     "reports/offline_tca_map_lora_pivot_plan.md",
     "reports/offline_tca_lora_evidence_gap_report.md",
     "reports/bounded_lora_offline_scaleup_plan.md",
+    "reports/bounded_lora_offline_scaleup.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -263,6 +264,7 @@ $required = @(
     "scripts/123_plan_offline_tca_map_lora_pivot.ps1",
     "scripts/124_generate_offline_evidence_gap_report.ps1",
     "scripts/125_plan_bounded_lora_offline_scaleup.ps1",
+    "scripts/126_bounded_lora_offline_scaleup.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -309,6 +311,7 @@ $required = @(
     "tca_map/datasets/libero_offline_counterfactual_split.py",
     "tca_map/datasets/libero_offline_head_comparison.py",
     "tca_map/datasets/libero_offline_lora_comparison.py",
+    "tca_map/datasets/libero_offline_lora_scaleup.py",
     "tca_map/datasets/libero_offline_pilot_report.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
@@ -411,6 +414,7 @@ $required = @(
     "tests/test_offline_tca_map_lora_pivot_plan.py",
     "tests/test_offline_evidence_gap_report.py",
     "tests/test_bounded_lora_offline_scaleup_plan.py",
+    "tests/test_bounded_lora_offline_scaleup.py",
     "tests/test_lora_config_guards.py"
 )
 

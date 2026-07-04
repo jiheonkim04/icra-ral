@@ -1123,3 +1123,13 @@ Decision: Add a planning-only gate for the next required LoRA/offline-proxy scal
 Reason: The evidence gap report says the offline evidence table is ready and LoRA scale-up planning is safe, while current-checkpoint learned-policy rollout scaling remains blocked.
 
 Consequence: `scripts\125_plan_bounded_lora_offline_scaleup.ps1` authorizes only a future separately gated CPU-only offline LoRA runner with at most 16 pairs, 64 samples, 64 steps, LoRA rank 4, frozen base weights, no full fine-tuning, no rollout, no heavy imports, no model load, no GPU job, no OpenVLA-OFT, and no paper claim.
+
+## Bounded LIBERO Offline LoRA Scale-Up Runner
+
+Decision: Add the separately gated CPU-only offline LoRA scale-up runner selected by the planning gate.
+
+Reason: The evidence gap report and scale-up plan show that the safest next informative step is a bounded required-LoRA track over local LIBERO HDF5 snippets, not learned-policy rollout scaling with the current checkpoint.
+
+Consequence: `scripts\126_bounded_lora_offline_scaleup.ps1` may run only under task-local `ALLOW_TINY_TRAINING=1`, trains tiny NumPy LoRA adapter matrices only, and keeps SmolVLA loading, heavy imports, GPU jobs, rollouts, simulator execution, downloads, OpenVLA-OFT, full fine-tuning, token access, and paper claims blocked.
+
+Current result: The bounded scale-up runner passed over 16 local LIBERO offline records with 64 update steps. It improved TCA-Map + LoRA over ActionMap + LoRA on the offline proxy wrong-target rate and action L1 deltas, while keeping paper and rollout readiness false.
