@@ -823,3 +823,11 @@ Risk: After reset-only and HDF5-init-state learned-policy diagnostics all show z
 Impact: The evidence ladder could grow broader but not more informative, and the project could drift toward weak rollout claims.
 
 Mitigation: `scripts\103_generate_init_state_recheck_metric_summary.ps1` records `decision=no_go_rollout_scaling`. The next work should be report-only or offline analysis of checkpoint/task alignment, VLM loading policy, and demonstration-conditioned action decoding before any further learned-policy rollout.
+
+## Checkpoint-Task Alignment Risk
+
+Risk: The local SmolVLA checkpoint may not be task-provenance-aligned with the selected LIBERO diagnostic task, and the local bounded diagnostics may disable VLM weights for memory-safe execution.
+
+Impact: More rollout variants could keep producing zero reward for checkpoint/task or VLM-loading reasons rather than revealing anything about TCA-Map or Distributional TCA-Select.
+
+Mitigation: `scripts\104_audit_smolvla_libero_checkpoint_task_alignment.ps1` records checkpoint provenance fields, selected BDDL language, VLM loading policy, action-dimension convention, HDF5 adapter evidence, and the zero-signal init-state recheck result. If it passes, proceed to a planning-only offline demonstration-conditioned action-decoding gate before any further learned-policy rollout.

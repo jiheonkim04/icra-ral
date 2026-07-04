@@ -406,6 +406,14 @@ Current local result: summary passed with `decision=no_go_rollout_scaling`. Rese
 
 Next safe step: stop rollout scaling and inspect checkpoint/task alignment, VLM loading policy, and offline demonstration-conditioned action decoding before more learned-policy rollouts.
 
+33. SmolVLA/LIBERO checkpoint-task alignment audit command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\104_audit_smolvla_libero_checkpoint_task_alignment.ps1
+```
+
+Expected local result: report-only audit with `decision=no_go_rollout_scaling` and `ready_for_offline_demonstration_conditioned_action_decoding_plan=true`. If this passes, the next safe task is a planning-only offline demonstration-conditioned action-decoding gate. That future gate should use one HDF5 observation and one expert action target, must not create a simulator environment or rollout, and may authorize a later one-sample CPU SmolVLA inference only after a green risk assessment.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

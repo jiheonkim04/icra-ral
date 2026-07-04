@@ -917,3 +917,11 @@ Decision: Keep rollout scaling blocked.
 Reason: `scripts\103_generate_init_state_recheck_metric_summary.ps1` compared reset-only 3-step, reset-only 10-step, and HDF5-init-state 3-step learned-policy diagnostics. All wrappers passed, but every scenario had diagnostic success `false` and reward sum `0.0`.
 
 Consequence: The project should stop adding rollout variants for now and inspect checkpoint/task alignment, VLM loading policy, and offline demonstration-conditioned action decoding before another learned-policy rollout.
+
+## SmolVLA/LIBERO Checkpoint-Task Alignment Audit
+
+Decision: Add a report-only checkpoint/task alignment audit before any further learned-policy rollout.
+
+Reason: The current diagnostics can execute reset-only and HDF5-init-state rollouts, but all reward and success signals remain zero. The next uncertainty is whether the local SmolVLA checkpoint, VLM loading policy, LIBERO task language, observation/action conventions, and demonstration-conditioned decoding are aligned.
+
+Consequence: `scripts\104_audit_smolvla_libero_checkpoint_task_alignment.ps1` reads only local config/preprocessor files, local BDDL names, and existing reports. It keeps rollout scaling blocked and routes the next safe work toward a planning-only offline demonstration-conditioned action decoding gate.
