@@ -25,6 +25,7 @@ from tca_map.smolvla.interface_adapters import (
     ACTION_STRATEGY_GRIPPER_CLOSE,
     ACTION_STRATEGY_GRIPPER_OPEN,
     ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
+    DEFAULT_IMAGE_ALIASES,
     DIAGNOSTIC_EEF_POS_QUAT_XYZ_6D_STATE_FIELDS,
     adapt_observation_state,
     adapt_policy_action_to_env_action,
@@ -60,6 +61,14 @@ PROMPT_STRATEGIES = [
     PROMPT_STRATEGY_STEM_SPACES,
     PROMPT_STRATEGY_BDDL_LANGUAGE,
     PROMPT_STRATEGY_BDDL_LANGUAGE_PERIOD,
+]
+CAMERA_ALIAS_STRATEGY_CURRENT = "current_aliases"
+CAMERA_ALIAS_STRATEGY_CAMERA3_EYE_IN_HAND = "camera3_eye_in_hand"
+CAMERA_ALIAS_STRATEGY_ALL_AGENTVIEW = "all_agentview"
+CAMERA_ALIAS_STRATEGIES = [
+    CAMERA_ALIAS_STRATEGY_CURRENT,
+    CAMERA_ALIAS_STRATEGY_CAMERA3_EYE_IN_HAND,
+    CAMERA_ALIAS_STRATEGY_ALL_AGENTVIEW,
 ]
 
 
@@ -112,6 +121,23 @@ def _task_language(path: Path, strategy: str = PROMPT_STRATEGY_STEM_SPACES) -> s
     raise ValueError(f"unsupported prompt strategy: {strategy}")
 
 
+def _camera_aliases(strategy: str) -> dict[str, tuple[str, ...]]:
+    aliases = {key: tuple(value) for key, value in DEFAULT_IMAGE_ALIASES.items()}
+    if strategy == CAMERA_ALIAS_STRATEGY_CURRENT:
+        return aliases
+    if strategy == CAMERA_ALIAS_STRATEGY_CAMERA3_EYE_IN_HAND:
+        aliases["observation.images.camera3"] = ("robot0_eye_in_hand_image", "agentview_image")
+        aliases["observation.image3"] = ("robot0_eye_in_hand_image", "agentview_image")
+        return aliases
+    if strategy == CAMERA_ALIAS_STRATEGY_ALL_AGENTVIEW:
+        aliases["observation.images.camera2"] = ("agentview_image", "robot0_eye_in_hand_image")
+        aliases["observation.images.camera3"] = ("agentview_image", "robot0_eye_in_hand_image")
+        aliases["observation.image2"] = ("agentview_image", "robot0_eye_in_hand_image")
+        aliases["observation.image3"] = ("agentview_image", "robot0_eye_in_hand_image")
+        return aliases
+    raise ValueError(f"unsupported camera alias strategy: {strategy}")
+
+
 def _state_tensor(obs: dict[str, Any], dim: int, device: str):
     import torch
 
@@ -125,12 +151,18 @@ def _state_tensor(obs: dict[str, Any], dim: int, device: str):
     return tensor, state_adapter.metadata
 
 
-def _image_tensor(obs: dict[str, Any], feature_key: str, feature: Any, device: str):
+def _image_tensor(
+    obs: dict[str, Any],
+    feature_key: str,
+    feature: Any,
+    device: str,
+    aliases: dict[str, tuple[str, ...]] | None = None,
+):
     import torch
     import torch.nn.functional as F
 
     channels, height, width = [int(x) for x in feature.shape]
-    selected = select_image_source(obs, feature_key)
+    selected = select_image_source(obs, feature_key, aliases=aliases)
     array = np.asarray(selected.value)
     source_key = selected.metadata["source_key"]
 
@@ -172,7 +204,14 @@ def _image_tensor(obs: dict[str, Any], feature_key: str, feature: Any, device: s
     return tensor, source_key, metadata
 
 
-def _build_batch(config: Any, tokenizer_root: Path, obs: dict[str, Any], task: str, device: str) -> tuple[dict[str, Any], dict[str, Any]]:
+def _build_batch(
+    config: Any,
+    tokenizer_root: Path,
+    obs: dict[str, Any],
+    task: str,
+    device: str,
+    camera_alias_strategy: str,
+) -> tuple[dict[str, Any], dict[str, Any]]:
     import torch
     from transformers import AutoTokenizer
 
@@ -198,8 +237,9 @@ def _build_batch(config: Any, tokenizer_root: Path, obs: dict[str, Any], task: s
     }
     image_sources: dict[str, str | None] = {}
     image_adapters: dict[str, dict[str, Any]] = {}
+    aliases = _camera_aliases(camera_alias_strategy)
     for key, feature in config.image_features.items():
-        tensor, source, image_metadata = _image_tensor(obs, key, feature, device)
+        tensor, source, image_metadata = _image_tensor(obs, key, feature, device, aliases=aliases)
         batch[key] = tensor
         image_sources[key] = source
         image_adapters[key] = image_metadata
@@ -210,6 +250,7 @@ def _build_batch(config: Any, tokenizer_root: Path, obs: dict[str, Any], task: s
         "image_adapters": image_adapters,
         "state_dim": state_dim,
         "state_adapter": state_metadata,
+        "camera_alias_strategy": camera_alias_strategy,
     }
     return batch, metadata
 
@@ -262,6 +303,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 or _env_flag("ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC")
                 or _env_flag("ALLOW_ACTION_SCALE_DIAGNOSTIC")
                 or _env_flag("ALLOW_PROMPT_FORMAT_DIAGNOSTIC")
+                or _env_flag("ALLOW_CAMERA_SOURCE_DIAGNOSTIC")
             ),
             "task_local_gates_set": [
                 name
@@ -271,6 +313,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                     "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC",
                     "ALLOW_ACTION_SCALE_DIAGNOSTIC",
                     "ALLOW_PROMPT_FORMAT_DIAGNOSTIC",
+                    "ALLOW_CAMERA_SOURCE_DIAGNOSTIC",
                 ]
                 if _env_flag(name)
             ],
@@ -284,6 +327,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "action_adapter_strategy": args.action_adapter_strategy,
             "action_scale": args.action_scale,
             "prompt_strategy": args.prompt_strategy,
+            "camera_alias_strategy": args.camera_alias_strategy,
         },
         "paths": {
             "smolvla_ckpt": str(smolvla_ckpt),
@@ -321,7 +365,8 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1 or "
             "ALLOW_ADAPTER_STRATEGY_DIAGNOSTIC=1 or "
             "ALLOW_ACTION_SCALE_DIAGNOSTIC=1 or "
-            "ALLOW_PROMPT_FORMAT_DIAGNOSTIC=1 is required for this bounded task."
+            "ALLOW_PROMPT_FORMAT_DIAGNOSTIC=1 or "
+            "ALLOW_CAMERA_SOURCE_DIAGNOSTIC=1 is required for this bounded task."
         )
         return report
     if report["policy"]["forbidden_gates_set"]:
@@ -406,7 +451,14 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
                 summary["action_dim"] = action_dim
                 policy.reset()
                 for _step in range(args.max_steps_per_task):
-                    batch, batch_metadata = _build_batch(config, tokenizer_root, obs, task_language, args.device)
+                    batch, batch_metadata = _build_batch(
+                        config,
+                        tokenizer_root,
+                        obs,
+                        task_language,
+                        args.device,
+                        args.camera_alias_strategy,
+                    )
                     noise = torch.zeros((1, config.chunk_size, config.max_action_dim), dtype=torch.float32, device=args.device)
                     infer_started = time.monotonic()
                     with torch.inference_mode():
@@ -515,6 +567,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--camera-size", type=int, default=64)
     parser.add_argument("--device", default="cpu", choices=["cpu"])
     parser.add_argument("--prompt-strategy", default=PROMPT_STRATEGY_STEM_SPACES, choices=PROMPT_STRATEGIES)
+    parser.add_argument(
+        "--camera-alias-strategy",
+        default=CAMERA_ALIAS_STRATEGY_CURRENT,
+        choices=CAMERA_ALIAS_STRATEGIES,
+    )
     parser.add_argument(
         "--action-adapter-strategy",
         default=ACTION_STRATEGY_GRIPPER_ZERO_HOLD,

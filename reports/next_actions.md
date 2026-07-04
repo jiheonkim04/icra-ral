@@ -332,7 +332,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done for scales `0.25`, `0.5`, and `1.0` under the zero-hold gripper strategy. All variants passed the wrapper and scaled action magnitude as expected, but diagnostic success rate and reward sum remained 0.0.
 18. Bounded prompt-format diagnostic.
     Done for `stem_spaces`, `bddl_language`, and `bddl_language_period`. All variants passed the wrapper and changed action previews, but diagnostic success rate and reward sum remained 0.0.
-19. Next safe research-engineering step: add a bounded camera-source or state-sufficiency diagnostic planner and runner. Keep the first rung one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
+19. Bounded camera-source diagnostic.
+    Done for `current_aliases`, `camera3_eye_in_hand`, and `all_agentview`. All variants passed the wrapper and changed image-source metadata/action previews, but diagnostic success rate and reward sum remained 0.0.
+20. Next safe research-engineering step: add a bounded state-sufficiency diagnostic planner. Keep the first rung report-only or one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

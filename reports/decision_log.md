@@ -813,3 +813,11 @@ Decision: Do not scale learned-policy rollout after the first prompt-format diag
 Reason: `scripts\87_bounded_prompt_format_diagnostic.ps1` completed `stem_spaces`, `bddl_language`, and `bddl_language_period` variants with explicit prompt metadata. The BDDL-language prompts changed the generated action previews but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: Prompt format is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test camera source and state sufficiency before broader rollout matrices or paper-grade claims.
+
+## Camera-Source Diagnostic Runner Result
+
+Decision: Do not scale learned-policy rollout after the first camera-source diagnostic.
+
+Reason: `scripts\89_bounded_camera_source_diagnostic.ps1` completed `current_aliases`, `camera3_eye_in_hand`, and `all_agentview` variants with explicit camera source metadata. The variants changed image sources and action previews, but all variants still had diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: Camera source selection is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. The next safe work should test state sufficiency before broader rollout matrices or paper-grade claims.

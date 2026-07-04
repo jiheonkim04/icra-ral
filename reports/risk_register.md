@@ -711,3 +711,11 @@ Risk: A bounded prompt-format diagnostic can pass execution and change policy ac
 Impact: The project could mistake prompt sensitivity for improved policy behavior or scale rollout prematurely.
 
 Mitigation: Treat `scripts\87_bounded_prompt_format_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows stem-derived and BDDL-language prompts execute cleanly and change action previews, but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and move next to camera-source or state-sufficiency diagnostics.
+
+## Camera-Source Diagnostic Overinterpretation
+
+Risk: A bounded camera-source diagnostic can pass execution and change image-source metadata/actions while still showing zero reward and no task success.
+
+Impact: The project could mistake camera-source sensitivity for improved policy behavior or scale rollout prematurely.
+
+Mitigation: Treat `scripts\89_bounded_camera_source_diagnostic.ps1` as diagnostic/local-pilot evidence only. The current result shows camera alias variants execute cleanly and change image sources/action previews, but still produce diagnostic success rate `0.0` and reward sum `0.0`. Keep rollout scaling blocked and move next to state-sufficiency diagnostics.
