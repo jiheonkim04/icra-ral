@@ -637,3 +637,11 @@ Decision: Treat the tiny learned-policy metric summary as passed report-only dia
 Reason: `scripts\73_generate_tiny_learned_policy_metric_summary.ps1` read the existing rollout JSON, refused execution gates, and summarized the observed one-task, three-step result without any new model load, inference, simulator execution, rollout, training, GPU job, download, OpenVLA-OFT execution, token access, or paper claim.
 
 Consequence: The summary records that the topology passed but task performance did not: diagnostic success count was 0, diagnostic success rate was 0.0, and reward sum was 0.0. The next safe rung is a bounded small learned-policy rollout matrix planner, still with diagnostic/local-pilot evidence labels only.
+
+## Bounded Learned-Policy Rollout Matrix Planner Result
+
+Decision: Reduce scope before any bounded small multi-task learned-policy rollout matrix.
+
+Reason: `scripts\74_plan_bounded_learned_policy_rollout_matrix.ps1` found a passed topology summary but diagnostic success rate `0.0` and reward sum `0.0`.
+
+Consequence: The next runnable stage should be a separately gated one-task longer diagnostic with at most 10 steps. The multi-task matrix remains blocked until there is a positive diagnostic success signal or a separate reduced-scope research decision.

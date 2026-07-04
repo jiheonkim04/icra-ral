@@ -583,3 +583,11 @@ Risk: A clean metric summary could make a failed task execution look like positi
 Impact: The project could confuse integration success with manipulation success.
 
 Mitigation: `scripts\73_generate_tiny_learned_policy_metric_summary.ps1` reports wrapper/source pass separately from diagnostic success count, diagnostic success rate, reward sum, and failure modes. Current local result explicitly records diagnostic success rate `0.0` and failure mode `diagnostic_success_check_false`.
+
+## Premature Rollout Matrix Scaling Risk
+
+Risk: After proving learned-policy simulator integration, the project could scale to multiple tasks before the policy shows any diagnostic task-success signal.
+
+Impact: Larger rollouts could spend time measuring obvious failures and make the research state look stronger than it is.
+
+Mitigation: `scripts\74_plan_bounded_learned_policy_rollout_matrix.ps1` reduces scope when diagnostic success rate is `0.0`. Current local decision is `reduce_scope`: run a one-task, 10-step longer diagnostic before any multi-task rollout matrix.

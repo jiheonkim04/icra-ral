@@ -301,8 +301,10 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 1. Generate a tiny learned-policy benchmark-metric diagnostic summary from the bounded rollout JSON without claiming benchmark success.
    Done.
 2. Add a small learned-policy rollout matrix planner capped by the current risk budget.
-3. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-4. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+   Done; current decision is `reduce_scope`, not multi-task proceed.
+3. Create a separately gated one-task longer diagnostic runner with task count 1 and max steps 10.
+4. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+5. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
