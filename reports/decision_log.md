@@ -1,5 +1,30 @@
 # Decision Log
 
+## Research Integrity Before Comparisons
+
+Decision: Fix primary metrics, baselines, ablations, split/sample policy,
+tuning budget, and kill/pivot criteria before any confirmatory ActionMap vs
+TCA-Map, TCA-Select, LoRA, or QLoRA evaluation.
+
+Reason: The project must test whether TCA-Map is actually valuable rather than
+optimize experiments to make it look good.
+
+Consequence: Codex must not cherry-pick tasks, samples, seeds, metrics,
+baselines, visualizations, or rollout episodes. Failed runs and weak results
+must be logged. Exploratory debugging must remain separate from confirmatory
+evaluation. If ActionMap + LoRA or ActionMap + counterfactual augmentation
+matches TCA-Map, the novelty is weak. If TCA-Select adds no measurable gain or
+offline gains disappear in rollout, the report must say so. If TCA-Map fails,
+produce a kill/pivot report.
+
+## Bounded Autopilot Execution
+
+Decision: Replace unbounded end-to-end research autopilot loops with bounded per-execution milestones.
+
+Reason: Long autonomous chains can drift into planner expansion, large diffs, or multiple research milestones without a clear merge checkpoint.
+
+Consequence: Each execution may complete at most one major research milestone, such as real candidate-generation smoke, research-integrity policy update, ActionMap vs TCA-Map tiny training/eval, LoRA tiny training/eval, rollout diagnostic, or paper-grade roadmap update. Codex must stop before commit if more than 50 files or more than 5,000 changed lines would be included, and must report changed-file count, line diff count, training/rollout/loss/scaffolding status, validation results, and merge justification before every merge.
+
 ## SmolVLA-First Local Path
 
 Decision: Use SmolVLA as the first real-adapter smoke target.

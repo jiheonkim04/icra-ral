@@ -1,5 +1,10 @@
 # Publishability Criteria
 
+All ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA claims must first satisfy
+`reports/research_integrity_evaluation_policy.md`. Metrics, baselines,
+ablations, split/sample policy, tuning budget, and kill/pivot criteria must be
+fixed before confirmatory results are inspected.
+
 ## RA-L+ High Target
 
 RA-L+ is high only if all of the following hold:
@@ -60,3 +65,6 @@ Kill or pivot if:
 - Wrong-target rate does not improve meaningfully.
 - TCA-Select adds unacceptable latency or brittle selection behavior.
 - LoRA/QLoRA accounts for the gains while TCA-Select adds little.
+- ActionMap + LoRA matches TCA-Map + LoRA under the fixed primary metrics.
+- The result depends on cherry-picked tasks, samples, seeds, visualizations, or rollout episodes.
+- Primary metrics, splits, or tuning budget had to be changed after seeing results without labeling the change exploratory.

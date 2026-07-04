@@ -1,5 +1,40 @@
 # Next Actions
 
+## Bounded Autopilot Update
+
+Autopilot is now bounded per execution. Do not chain multiple major research milestones in one execution.
+
+Before every merge, report:
+
+- files changed count,
+- line diff count,
+- whether training happened,
+- whether rollout happened,
+- whether loss was computed,
+- whether the work is only planning/scaffolding.
+
+Stop before commit if more than 50 files or more than 5,000 changed lines would be included. If no loss, metric, rollout result, or concrete validation result is being produced, do not keep expanding planners indefinitely.
+
+## Research Integrity Gate Before Comparisons
+
+Before ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA confirmatory
+evaluations, apply `reports/research_integrity_evaluation_policy.md`.
+
+The next comparison milestone must first verify that these are fixed before
+results are inspected:
+
+- primary metrics,
+- baseline list,
+- ablation list,
+- split/sample policy,
+- tuning budget,
+- kill/pivot criteria.
+
+Do not cherry-pick tasks, samples, seeds, metrics, baselines, visualizations, or
+rollout episodes. Log failed runs and weak results. If TCA-Map ties or loses to
+ActionMap + LoRA or ActionMap + counterfactual augmentation, produce a weak
+novelty or kill/pivot report instead of forcing a positive interpretation.
+
 ## Immediate Autonomous Behavior
 
 Codex should self-check current state instead of asking the user to confirm it.

@@ -56,6 +56,8 @@ $required = @(
     "reports/cloud_handoff_manifest.md",
     "reports/cloud_handoff_manifest.json",
     "reports/codex_delegation_manual.md",
+    "reports/autopilot_bounded_execution_policy.md",
+    "reports/research_integrity_evaluation_policy.md",
     "reports/decision_log.md",
     "reports/integration_lowcompute_distributional_stack.md",
     "reports/tca_select_method.md",

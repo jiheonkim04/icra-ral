@@ -17,6 +17,8 @@ Codex acts as:
 
 Codex should move work forward without asking approval for routine safe actions or risk-assessed bounded steps, including bounded training, learned-policy rollout, benchmark rollout, reports, and visualizations when they pass the automatic risk assessment. It must stop only when risk cannot be evaluated, exceeds the documented budget, requires external irreversible action, requires OpenVLA-OFT execution, requires human-only authority, or would make an unsupported empirical claim.
 
+Autonomy is bounded per execution. Codex must not run unbounded end-to-end research loops in one execution. Each execution may complete at most one major research milestone, then stop and report the result and the next recommended milestone.
+
 ## Repo-First Operation
 
 Use these as source of truth:
@@ -36,6 +38,15 @@ Maintain these state files when decisions or status change:
 - `reports/next_actions.md`,
 - `reports/decision_log.md`,
 - `reports/risk_register.md`.
+
+Also follow the bounded execution policy:
+
+- `reports/autopilot_bounded_execution_policy.md`.
+
+Before any confirmatory ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA
+evaluation, also follow the research-integrity policy:
+
+- `reports/research_integrity_evaluation_policy.md`.
 
 ## Self-check gate policy
 
@@ -137,6 +148,47 @@ Then:
 
 If validation fails, do not push or merge failing code. Diagnose, fix minimally, and rerun validation.
 
+Before commit or merge, compute the changed-file count and line diff. Stop before commit and report if more than 50 files or more than 5,000 changed lines would be included. Large diffs must not be merged without an explicit summary and justification.
+
+Before every merge, report:
+
+- files changed count,
+- line diff count,
+- whether training happened,
+- whether rollout happened,
+- whether loss was computed,
+- whether the work is only planning/scaffolding,
+- validation commands and results,
+- concise justification for merging.
+
+## Research Integrity Override
+
+The goal is not to force a positive TCA-Map result. The goal is to rigorously
+test whether TCA-Map is actually valuable.
+
+Before any confirmatory ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA
+evaluation, Codex must verify that `reports/research_integrity_evaluation_policy.md`
+has fixed:
+
+- primary metrics,
+- baseline list,
+- ablation list,
+- split/sample policy,
+- tuning budget,
+- kill/pivot criteria.
+
+Do not cherry-pick tasks, samples, seeds, metrics, baselines, visualizations, or
+rollout episodes. Failed runs and weak results must be logged. Exploratory
+debugging must be labeled separately from confirmatory evaluation. Primary
+metrics or evaluation split must not change after seeing results unless the
+change is logged as exploratory and the previous result is preserved.
+
+If ActionMap + LoRA or ActionMap + counterfactual augmentation matches TCA-Map,
+report that the novelty is weak. If TCA-Select adds no measurable gain, report
+that directly. If offline gains disappear in rollout, report that directly. If
+TCA-Map fails, produce a kill/pivot report rather than forcing a positive
+result.
+
 ## Required Validation Stack
 
 Use explicit Python:
@@ -172,6 +224,12 @@ bash scripts/14_plan_smolvla_download.sh
 ## Risk-assessed autonomous execution policy
 
 Core rule: Codex must not ask the user for routine approval when risk can be checked automatically. Codex should inspect source, disk, RAM, VRAM, runtime, dependency, license/token requirements, and repository safety policy. If all checks pass within the approved risk budget, Codex should proceed autonomously. If checks fail or are ambiguous, Codex should stop and report the exact blocker.
+
+Bounded execution rule: one execution may complete at most one major research milestone. Examples include real candidate-generation smoke, research-integrity policy update, ActionMap vs TCA-Map tiny training/eval, LoRA tiny training/eval, rollout diagnostic, or paper-grade roadmap update. After one milestone, stop and report instead of immediately continuing to another milestone.
+
+Planner expansion rule: if no loss, metric, rollout result, or concrete validation result is being produced, do not keep expanding planners indefinitely. Produce one bounded plan, identify the next executable step, and stop.
+
+Runtime watchdog: stop and report if a task runs longer than 2 hours without actual training or rollout progress.
 
 Before any bounded download, GPU task, training run, dataset setup, simulator readiness check, or rollout, Codex must write or print a short risk assessment:
 
@@ -443,7 +501,9 @@ Minimal WSL Python packaging setup is not a hard stop when the WSL simulator dep
 
 ### Autonomous progression
 
-Codex should not stop after each stage just to ask for permission. It should continue through safe, risk-assessed steps, including:
+Codex should not stop after each small command just to ask for permission. It may continue within the current milestone through safe, risk-assessed substeps, including validation, targeted debugging, and one bounded execution. It must not chain multiple major milestones in one execution.
+
+Examples of separate milestones that should not be chained automatically in one execution:
 
 - real dataset setup,
 - tiny real/offline interface smoke,
@@ -459,7 +519,7 @@ Codex should not stop after each stage just to ask for permission. It should con
 
 Bounded rollout now progresses from diagnostic plumbing to tiny learned-policy or benchmark rollout only after a green task-specific risk assessment. The current autonomous rollout scope covers toy MuJoCo diagnostics, LIBERO/RoboSuite zero-action diagnostic rollouts, and readiness work for tiny learned-policy LIBERO rollouts. It does not authorize multi-seed rollout, SOTA claims, unsupported paper-grade claims, OpenVLA-OFT execution, or external upload.
 
-Codex should stop only if risk assessment fails or a truly irreversible/external action is needed.
+Codex should stop after one major milestone, if risk assessment fails, or if a truly irreversible/external action is needed.
 
 ## Bounded local pilot examples
 
@@ -528,7 +588,7 @@ G. If the LoRA required track is not implemented, create LoRA construction/check
 H. If LoRA smoke passes, run TCA-Map + LoRA + Distributional TCA-Select tiny diagnostic.
 I. Run a QLoRA feasibility check if memory/tooling allows.
 J. Generate a bounded local pilot report.
-K. Stop only when risk assessment fails, is ambiguous, exceeds budget, or reaches an external irreversible/OpenVLA/paper-claim stop gate.
+K. Stop when one major milestone is complete, risk assessment fails, is ambiguous, exceeds budget, or reaches an external irreversible/OpenVLA/paper-claim stop gate.
 
 Do not ask:
 
@@ -641,3 +701,13 @@ Every completed task should report:
 - whether downloads/GPU/training/rollouts/heavy imports/OpenVLA-OFT occurred,
 - final git status,
 - next recommended safe step.
+
+Before every merge, also report:
+
+- files changed count,
+- line diff count,
+- whether training happened,
+- whether rollout happened,
+- whether loss was computed,
+- whether the work is only planning/scaffolding,
+- merge justification.
