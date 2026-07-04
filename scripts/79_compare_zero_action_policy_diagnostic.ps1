@@ -150,6 +150,15 @@ def learned_summary(report):
         "last_env_action_max_abs": metric.get("last_env_action_max_abs"),
         "last_env_action_l2": metric.get("last_env_action_l2") if metric.get("last_env_action_l2") is not None else rounded(math.sqrt(sum(value * value for value in values))) if values else None,
         "last_env_action_gripper_component": metric.get("last_env_action_gripper_component"),
+        "adapter_metadata_present": bool(metric.get("adapter_metadata_present")),
+        "action_adapter_strategies": metric.get("action_adapter_strategies") or [],
+        "state_adapters": metric.get("state_adapters") or [],
+        "image_source_keys": metric.get("image_source_keys") or {},
+        "action_adapter_implicit_padding_performed": bool(metric.get("action_adapter_implicit_padding_performed")),
+        "action_adapter_truncation_performed": bool(metric.get("action_adapter_truncation_performed")),
+        "state_adapter_implicit_padding_performed": bool(metric.get("state_adapter_implicit_padding_performed")),
+        "state_adapter_silent_truncation_performed": bool(metric.get("state_adapter_silent_truncation_performed")),
+        "image_zero_fallback_performed": bool(metric.get("image_zero_fallback_performed")),
         "failure_modes": metric.get("failure_modes") or [],
     }
 
@@ -166,8 +175,10 @@ def write_outputs(report):
         f"- learned-policy success rate: {report['comparison']['learned_policy']['diagnostic_success_rate']}",
         f"- reward delta learned-minus-zero: {report['comparison']['reward_delta_learned_minus_zero']}",
         f"- policy action nontrivial: {report['comparison']['policy_action_nontrivial']}",
+        f"- explicit adapter metadata present: {report['comparison']['explicit_adapter_metadata_present']}",
         f"- learned policy outperformed zero-action: {report['comparison']['learned_policy_outperformed_zero_action']}",
         f"- ready for action/state adapter patch plan: {report['ready_for_action_state_adapter_patch_plan']}",
+        f"- ready for adapter strategy diagnosis: {report['ready_for_adapter_strategy_diagnosis']}",
         f"- ready for rollout scaling: {report['ready_for_rollout_scaling']}",
         f"- standard success claimed: {report['claims']['standard_success_claimed']}",
         f"- paper-grade claim made: {report['claims']['paper_grade_claim_made']}",
@@ -233,6 +244,15 @@ learned_outperformed = (success_delta is not None and success_delta > 0.0) or (r
 both_zero_reward = zero_stats.get("reward_sum_total") == 0.0 and learned_stats.get("reward_sum_total") == 0.0
 both_no_success = zero_stats.get("diagnostic_success_count") == 0 and learned_stats.get("diagnostic_success_count") == 0
 env_plumbing_passed = zero_stats.get("source_runner_passed") and zero_stats.get("simulator_env_created") and zero_stats.get("total_steps", 0) > 0
+adapter_metadata_present = bool(learned_stats.get("adapter_metadata_present"))
+adapter_wiring_clean = bool(
+    adapter_metadata_present
+    and not learned_stats.get("action_adapter_implicit_padding_performed")
+    and not learned_stats.get("action_adapter_truncation_performed")
+    and not learned_stats.get("state_adapter_implicit_padding_performed")
+    and not learned_stats.get("state_adapter_silent_truncation_performed")
+    and not learned_stats.get("image_zero_fallback_performed")
+)
 
 findings = []
 if env_plumbing_passed:
@@ -251,9 +271,25 @@ if policy_action_nontrivial and both_zero_reward and both_no_success:
             "reward_delta_learned_minus_zero": reward_delta,
             "success_delta_learned_minus_zero": success_delta,
         },
-        "recommendation": "Create an explicit action/state adapter patch plan before further rollout scaling.",
+        "recommendation": (
+            "Inspect adapter strategy, action scale, gripper semantics, prompt, and camera mapping before rollout scaling."
+            if adapter_metadata_present
+            else "Create an explicit action/state adapter patch plan before further rollout scaling."
+        ),
     })
-if "action_dim_mismatch" in audit_findings or "gripper_constant_zero" in audit_findings:
+if adapter_metadata_present:
+    findings.append({
+        "name": "explicit_adapter_metadata_present_but_zero_reward",
+        "severity": "high" if both_zero_reward and both_no_success else "medium",
+        "evidence": {
+            "action_adapter_strategies": learned_stats.get("action_adapter_strategies"),
+            "state_adapters": learned_stats.get("state_adapters"),
+            "image_source_keys": learned_stats.get("image_source_keys"),
+            "adapter_wiring_clean": adapter_wiring_clean,
+        },
+        "recommendation": "Treat the next step as adapter-strategy and action-scale diagnosis, not another pure wiring patch.",
+    })
+if (not adapter_metadata_present) and ("action_dim_mismatch" in audit_findings or "gripper_constant_zero" in audit_findings):
     findings.append({
         "name": "audit_supports_action_adapter_work",
         "severity": "high",
@@ -265,7 +301,9 @@ passed = bool(not stop_reasons and zero_stats["source_runner_passed"] and learne
 decision = "proceed" if passed else "stop"
 reason = "Compared existing zero-action and SmolVLA-action diagnostics without executing new rollout." if passed else "Comparison prerequisites are not satisfied."
 ready_for_patch_plan = passed and any(item["severity"] == "high" for item in findings)
-ready_for_rollout_scaling = bool(passed and learned_outperformed and not ready_for_patch_plan)
+ready_for_patch_plan = bool(ready_for_patch_plan and not adapter_metadata_present)
+ready_for_adapter_strategy_diagnosis = bool(passed and adapter_metadata_present and not learned_outperformed)
+ready_for_rollout_scaling = bool(passed and learned_outperformed and not ready_for_patch_plan and not ready_for_adapter_strategy_diagnosis)
 
 comparison = {
     "zero_action": zero_stats,
@@ -274,6 +312,8 @@ comparison = {
     "reward_delta_learned_minus_zero": reward_delta,
     "success_delta_learned_minus_zero": success_delta,
     "policy_action_nontrivial": policy_action_nontrivial,
+    "explicit_adapter_metadata_present": adapter_metadata_present,
+    "adapter_wiring_clean": adapter_wiring_clean,
     "learned_policy_outperformed_zero_action": learned_outperformed,
     "both_zero_reward": both_zero_reward,
     "both_no_success": both_no_success,
@@ -297,11 +337,16 @@ report = {
     "warnings": warnings,
     "stop_reasons": stop_reasons,
     "ready_for_action_state_adapter_patch_plan": ready_for_patch_plan,
+    "ready_for_adapter_strategy_diagnosis": ready_for_adapter_strategy_diagnosis,
     "ready_for_rollout_scaling": ready_for_rollout_scaling,
     "recommended_next_step": (
-        "Create an explicit action/state adapter patch plan before rollout scaling."
-        if ready_for_patch_plan
-        else "Fix missing comparison inputs before planning action/state adapter changes."
+        "Run adapter-strategy/action-scale diagnostics before rollout scaling."
+        if ready_for_adapter_strategy_diagnosis
+        else (
+            "Create an explicit action/state adapter patch plan before rollout scaling."
+            if ready_for_patch_plan
+            else "Fix missing comparison inputs before planning action/state adapter changes."
+        )
     ),
 }
 write_outputs(report)

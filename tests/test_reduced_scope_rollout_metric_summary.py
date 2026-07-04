@@ -54,6 +54,28 @@ def _write_reduced_scope_report(path):
                     "last_policy_action_shape": [1, 6],
                     "action_dim": 7,
                     "last_env_action_preview": [-0.3, 0.1, 0.7, 0.8, 0.4, -0.2, 0.0],
+                    "last_adapter_metadata": {
+                        "action_adapter": {
+                            "strategy": "policy_6d_delta_pose_plus_gripper_zero_hold",
+                            "implicit_padding_performed": False,
+                            "truncation_performed": False,
+                        },
+                        "state_adapter": {
+                            "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+                            "implicit_padding_performed": False,
+                            "silent_truncation_performed": False,
+                        },
+                        "image_adapters": {
+                            "observation.images.camera1": {
+                                "source_key": "agentview_image",
+                                "zero_image_fallback_performed": False,
+                            },
+                            "observation.images.camera2": {
+                                "source_key": "robot0_eye_in_hand_image",
+                                "zero_image_fallback_performed": False,
+                            },
+                        },
+                    },
                     "error": None,
                 }
             ],
@@ -112,6 +134,20 @@ def test_reduced_scope_metric_summary_extracts_action_metrics(tmp_path):
     assert report["metric_summary"]["env_action_dims"] == [7]
     assert report["metric_summary"]["last_env_action_gripper_component"] == 0.0
     assert report["metric_summary"]["last_env_action_max_abs"] == 0.8
+    assert report["metric_summary"]["adapter_metadata_present"] is True
+    assert report["metric_summary"]["action_adapter_strategies"] == [
+        "policy_6d_delta_pose_plus_gripper_zero_hold"
+    ]
+    assert report["metric_summary"]["state_adapters"] == [
+        "diagnostic_eef_pos_quat_xyz_6d_state_adapter"
+    ]
+    assert report["metric_summary"]["image_source_keys"] == {
+        "observation.images.camera1": "agentview_image",
+        "observation.images.camera2": "robot0_eye_in_hand_image",
+    }
+    assert report["metric_summary"]["action_adapter_implicit_padding_performed"] is False
+    assert report["metric_summary"]["state_adapter_silent_truncation_performed"] is False
+    assert report["metric_summary"]["image_zero_fallback_performed"] is False
     assert json_report.exists()
     assert md_report.exists()
 

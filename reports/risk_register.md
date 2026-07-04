@@ -622,7 +622,7 @@ Risk: The current bridge likely does not match SmolVLA's intended deployment int
 
 Impact: The policy can emit finite actions and still produce zero reward because action dimensions, gripper control, state mapping, or camera naming are wrong.
 
-Mitigation: `scripts\78_audit_action_interface_metadata.ps1` records the current high-priority risks and blocks larger rollout scaling. Next work should compare zero-action and policy-action behavior, then add an explicit action/state adapter patch plan.
+Mitigation: `scripts\78_audit_action_interface_metadata.ps1` records the current high-priority risks and blocks larger rollout scaling. If adapter metadata is absent, add an explicit action/state adapter patch plan. If adapter metadata is present and zero reward remains, move to adapter-strategy/action-scale diagnosis before scaling.
 
 ## Zero-Action Comparison Misinterpretation Risk
 
@@ -671,3 +671,11 @@ Risk: A rerun after explicit adapter wiring could improve, degrade, or leave unc
 Impact: The project could over-credit TCA-Map or Distributional TCA-Select for a change caused by action/state/image bridge mechanics.
 
 Mitigation: Treat the next rollout as an interface diagnostic only. Compare against prior zero-action and legacy learned-policy diagnostics, log adapter metadata, and keep all paper-grade claim flags false until method baselines and repeated benchmark protocol exist.
+
+## Adapter-Wired Zero-Reward Risk
+
+Risk: The bridge can now record clean explicit adapter metadata while still producing zero reward and no diagnostic success.
+
+Impact: Larger rollouts would likely repeat the same failure while consuming runtime and making the evidence ladder look more mature than it is.
+
+Mitigation: Keep rollout scaling blocked. Run small adapter-strategy/action-scale diagnostics first, including gripper strategy comparison, action magnitude checks, language prompt inspection, image source mapping checks, and state adapter sufficiency checks.

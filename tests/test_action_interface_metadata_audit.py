@@ -129,6 +129,61 @@ def test_action_interface_metadata_audit_finds_high_priority_mismatches(tmp_path
     assert md_report.exists()
 
 
+def test_action_interface_metadata_audit_recognizes_wired_adapter_strategy_diagnosis(tmp_path):
+    plan, metric, ckpt, source = _make_inputs(tmp_path)
+    source.write_text(
+        "from tca_map.smolvla.interface_adapters import (\n"
+        "    adapt_policy_action_to_env_action,\n"
+        "    adapt_observation_state,\n"
+        "    select_image_source,\n"
+        ")\n"
+        "adapt_policy_action_to_env_action(policy_action, action_dim)\n"
+        "adapt_observation_state(obs, fields, dim)\n"
+        "select_image_source(obs, feature_key)\n",
+        encoding="utf-8",
+    )
+    json_report = tmp_path / "audit.json"
+    md_report = tmp_path / "audit.md"
+    result = subprocess.run(
+        [
+            _powershell(),
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            str(SCRIPT),
+            "-PlanReportPath",
+            str(plan),
+            "-MetricSummaryReportPath",
+            str(metric),
+            "-SmolVlaCkptPath",
+            str(ckpt),
+            "-SourceFilePath",
+            str(source),
+            "-JsonReportPath",
+            str(json_report),
+            "-MarkdownReportPath",
+            str(md_report),
+        ],
+        cwd=REPO_ROOT,
+        env=_clean_env(),
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+        check=False,
+    )
+    start = result.stdout.find("{")
+    assert start >= 0, result.stdout + result.stderr
+    report = json.loads(result.stdout[start:])
+
+    assert result.returncode == 0, result.stderr
+    assert "action_dim_mismatch_explicit_adapter_in_use" in report["high_priority_findings"]
+    assert "gripper_zero_hold_strategy_requires_validation" in report["high_priority_findings"]
+    assert report["ready_for_action_adapter_patch_plan"] is False
+    assert report["ready_for_adapter_strategy_diagnosis"] is True
+    assert "adapter-strategy/action-scale" in report["recommended_next_step"]
+
+
 def test_action_interface_metadata_audit_refuses_execution_gate(tmp_path):
     result, report, _, _ = _run_audit(tmp_path, extra_env={"ALLOW_BOUNDED_LEARNED_POLICY_MATRIX": "1"})
 

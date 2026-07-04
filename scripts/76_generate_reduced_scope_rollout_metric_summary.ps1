@@ -117,6 +117,10 @@ def write_outputs(report):
         f"- action max abs: {s.get('last_env_action_max_abs')}",
         f"- action L2: {s.get('last_env_action_l2')}",
         f"- gripper component: {s.get('last_env_action_gripper_component')}",
+        f"- adapter metadata present: {s.get('adapter_metadata_present')}",
+        f"- action adapter strategies: {s.get('action_adapter_strategies')}",
+        f"- state adapters: {s.get('state_adapters')}",
+        f"- image source keys: {s.get('image_source_keys')}",
         f"- failure modes: {s.get('failure_modes')}",
         f"- standard success claimed: {report['claims']['standard_success_claimed']}",
         f"- paper-grade claim made: {report['claims']['paper_grade_claim_made']}",
@@ -183,6 +187,50 @@ last_action_max_abs = max((abs(value) for value in last_action_values), default=
 last_action_l2 = math.sqrt(sum(value * value for value in last_action_values)) if last_action_values else None
 last_gripper = last_action_values[-1] if last_action_values else None
 
+adapter_records = []
+for task in tasks:
+    if not isinstance(task, dict):
+        continue
+    metadata = task.get("last_adapter_metadata") or {}
+    if metadata:
+        adapter_records.append(metadata)
+
+action_adapters = [
+    record.get("action_adapter") for record in adapter_records if isinstance(record.get("action_adapter"), dict)
+]
+state_adapters = [
+    record.get("state_adapter") for record in adapter_records if isinstance(record.get("state_adapter"), dict)
+]
+image_adapters = [
+    record.get("image_adapters") for record in adapter_records if isinstance(record.get("image_adapters"), dict)
+]
+action_adapter_strategies = sorted(
+    {
+        str(adapter.get("strategy") or adapter.get("adapter_mode"))
+        for adapter in action_adapters
+        if adapter.get("strategy") or adapter.get("adapter_mode")
+    }
+)
+state_adapter_names = sorted(
+    {str(adapter.get("adapter")) for adapter in state_adapters if adapter.get("adapter")}
+)
+image_source_keys = {}
+for image_map in image_adapters:
+    for feature_key, metadata in image_map.items():
+        if isinstance(metadata, dict):
+            image_source_keys[str(feature_key)] = str(metadata.get("source_key"))
+
+action_adapter_implicit_padding = any(bool(adapter.get("implicit_padding_performed")) for adapter in action_adapters)
+action_adapter_truncation = any(bool(adapter.get("truncation_performed")) for adapter in action_adapters)
+state_adapter_implicit_padding = any(bool(adapter.get("implicit_padding_performed")) for adapter in state_adapters)
+state_adapter_truncation = any(bool(adapter.get("silent_truncation_performed")) for adapter in state_adapters)
+image_zero_fallback = any(
+    bool(metadata.get("zero_image_fallback_performed"))
+    for image_map in image_adapters
+    for metadata in image_map.values()
+    if isinstance(metadata, dict)
+)
+
 failure_modes = []
 for task in tasks:
     if not isinstance(task, dict):
@@ -217,6 +265,15 @@ metric_summary = {
     "last_env_action_max_abs": rounded(last_action_max_abs) if last_action_max_abs is not None else None,
     "last_env_action_l2": rounded(last_action_l2) if last_action_l2 is not None else None,
     "last_env_action_gripper_component": rounded(last_gripper) if last_gripper is not None else None,
+    "adapter_metadata_present": bool(adapter_records),
+    "action_adapter_strategies": action_adapter_strategies,
+    "state_adapters": state_adapter_names,
+    "image_source_keys": image_source_keys,
+    "action_adapter_implicit_padding_performed": action_adapter_implicit_padding,
+    "action_adapter_truncation_performed": action_adapter_truncation,
+    "state_adapter_implicit_padding_performed": state_adapter_implicit_padding,
+    "state_adapter_silent_truncation_performed": state_adapter_truncation,
+    "image_zero_fallback_performed": image_zero_fallback,
     "failure_modes": failure_modes,
 }
 

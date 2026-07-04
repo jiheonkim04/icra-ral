@@ -823,16 +823,15 @@ Current local audit result: `proceed`.
 
 High-priority findings:
 
-- action dimension mismatch: policy action dim 6 versus env action dim 7,
-- gripper component is padded to 0.0,
-- state truncation risk in the current observation bridge,
+- action dimension mismatch remains: policy action dim 6 versus env action dim 7, now through an explicit adapter,
+- the current explicit gripper strategy is zero-hold and needs validation,
 - nontrivial continuous actions still yield diagnostic success rate 0.0 and reward 0.0.
 
 Medium-priority finding:
 
 - camera feature naming mismatch between config and preprocessor metadata.
 
-Next autonomous direction: create a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan before any rollout scaling.
+Next autonomous direction: run adapter-strategy/action-scale diagnostics before any rollout scaling.
 
 ## Zero-Action Versus SmolVLA-Action Diagnostic Comparison
 
@@ -840,9 +839,9 @@ Current planned branch: compare the existing zero-action LIBERO/RoboSuite diagno
 
 The comparison is summary-only. It must not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper-grade claims.
 
-Expected interpretation: if zero-action simulator plumbing passed and SmolVLA emits nontrivial actions but does not improve success or reward, the next autonomous step should be an explicit action/state adapter patch plan rather than rollout scaling.
+Expected interpretation: if zero-action simulator plumbing passed and SmolVLA emits nontrivial actions but does not improve success or reward, the next autonomous step is an explicit adapter patch when adapter metadata is absent, or adapter-strategy/action-scale diagnosis when explicit adapter metadata is present.
 
-Current local result: `scripts\79_compare_zero_action_policy_diagnostic.ps1` passed as summary-only. It compared the existing zero-action diagnostic against the existing SmolVLA learned-policy diagnostic on the same `libero_10` task. Both had diagnostic success `false` and reward sum `0.0`; SmolVLA actions were nontrivial with max absolute action about `0.793093`, so the learned policy did not outperform zero-action. The next autonomous direction is an explicit action/state adapter patch plan.
+Current local result: `scripts\79_compare_zero_action_policy_diagnostic.ps1` passed as summary-only. It compared the existing zero-action diagnostic against the latest adapter-wired SmolVLA learned-policy diagnostic on the same `libero_10` task. Both had diagnostic success `false` and reward sum `0.0`; SmolVLA actions were nontrivial with max absolute action about `0.793093`, and explicit adapter metadata was present. The next autonomous direction is adapter-strategy/action-scale diagnosis.
 
 ## Action/State Adapter Patch Plan
 
@@ -875,3 +874,23 @@ Current local result: `scripts\81_plan_rollout_bridge_adapter_wiring.ps1` passed
 Current local result: pure action, state, and image adapters are wired into the learned-policy rollout bridge in code and covered by unit tests. The bridge now records adapter metadata in task summaries.
 
 This remains interface-plumbing validation only. It is not benchmark rollout evidence, standard success, counterfactual robustness evidence, or paper-grade evidence. The next autonomous rung is a separate bounded diagnostic rollout gate that compares explicit-adapter behavior against prior zero-action and legacy learned-policy diagnostics.
+
+## Adapter-Wired Learned-Policy Diagnostic
+
+Current local result: the bounded one-task, 10-step learned-policy diagnostic reran with explicit adapter metadata and passed as an execution wrapper. It did not produce task success or reward.
+
+Observed diagnostic metrics:
+
+- diagnostic success rate: 0.0,
+- reward sum: 0.0,
+- policy calls: 10,
+- last action max abs: about 0.793,
+- gripper component: 0.0,
+- action adapter strategy: `policy_6d_delta_pose_plus_gripper_zero_hold`,
+- state adapter: `diagnostic_eef_pos_quat_xyz_6d_state_adapter`,
+- image sources: `agentview_image` and `robot0_eye_in_hand_image`,
+- implicit action padding/truncation: false,
+- state padding/truncation: false,
+- zero-image fallback: false.
+
+Interpretation: explicit adapter wiring is working as metadata-visible plumbing, but the selected diagnostic task still fails. The next safe task is adapter-strategy/action-scale diagnosis before any rollout scaling.
