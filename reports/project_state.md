@@ -967,3 +967,22 @@ Observed local result:
 - no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
 
 Interpretation: BDDL language prompt parsing is wired and cleaner than stem-derived prompts, but prompt format alone does not explain the zero-reward behavior on the selected diagnostic task. Rollout scaling remains blocked. The next safe rung is a bounded camera-source or state-sufficiency diagnostic before any broader learned-policy rollout matrix.
+
+## Camera-Source Diagnostic Runner Result
+
+Current local bounded result: passed as diagnostic execution evidence only.
+
+`scripts\88_plan_camera_source_diagnostic.ps1` reported `decision=proceed`, and `scripts\89_bounded_camera_source_diagnostic.ps1` ran under task-local `ALLOW_CAMERA_SOURCE_DIAGNOSTIC=1`.
+
+Observed local result:
+
+- camera alias strategies tested: `current_aliases`, `camera3_eye_in_hand`, and `all_agentview`,
+- image sources changed as expected and were recorded in metadata,
+- variants completed: 3,
+- wrapper/execution passed for all variants,
+- diagnostic success rate: 0.0 for all variants,
+- reward sum: 0.0 for all variants,
+- camera changes produced different continuous action previews,
+- no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
+
+Interpretation: camera source selection is now execution-tested as an interface axis, but it did not produce a positive diagnostic signal. Rollout scaling remains blocked. The next safe rung is a bounded state-sufficiency diagnostic before any broader learned-policy rollout matrix.
