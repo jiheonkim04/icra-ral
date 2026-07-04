@@ -125,6 +125,7 @@ $required = @(
     "reports/init_state_recheck_metric_summary.md",
     "reports/smolvla_libero_checkpoint_task_alignment_audit.md",
     "reports/offline_demo_conditioned_action_decoding_plan.md",
+    "reports/offline_demo_action_decoding.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",
@@ -223,6 +224,7 @@ $required = @(
     "scripts/103_generate_init_state_recheck_metric_summary.ps1",
     "scripts/104_audit_smolvla_libero_checkpoint_task_alignment.ps1",
     "scripts/105_plan_offline_demo_conditioned_action_decoding.ps1",
+    "scripts/106_bounded_offline_demo_action_decoding.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -243,6 +245,7 @@ $required = @(
     "tca_map/adapters/tiny_lora_smoke.py",
     "tca_map/smolvla/__init__.py",
     "tca_map/smolvla/interface_adapters.py",
+    "tca_map/smolvla/offline_demo_action_decoding.py",
     "tca_map/smolvla/load_only_smoke.py",
     "tca_map/smolvla/single_sample_interface_smoke.py",
     "tca_map/features/__init__.py",
@@ -337,6 +340,7 @@ $required = @(
     "tests/test_init_state_recheck_metric_summary.py",
     "tests/test_smolvla_libero_checkpoint_task_alignment_audit.py",
     "tests/test_offline_demo_conditioned_action_decoding_plan.py",
+    "tests/test_offline_demo_action_decoding.py",
     "tests/test_lora_config_guards.py"
 )
 

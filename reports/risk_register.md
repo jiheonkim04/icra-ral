@@ -839,3 +839,11 @@ Risk: A useful offline action-decoding check could accidentally become simulator
 Impact: The project could blur a one-sample diagnostic with benchmark evidence or spend local compute before the checkpoint/task alignment issue is understood.
 
 Mitigation: `scripts\105_plan_offline_demo_conditioned_action_decoding.ps1` is planning-only and requires a separate task-local future gate for any one-sample model inference. The future runner must cap itself to one local HDF5 observation/action pair, CPU by default, no simulator environment, no rollout, no training, no downloads, no OpenVLA-OFT, and no paper claims.
+
+## Offline Action-Decoding Overinterpretation Risk
+
+Risk: A one-sample offline action-decoding diagnostic could be mistaken for rollout success, benchmark evidence, or paper-grade action accuracy.
+
+Impact: The project could overclaim from a single HDF5 timestep even if the model action is finite or partially aligned with the expert action.
+
+Mitigation: `scripts\106_bounded_offline_demo_action_decoding.ps1` labels the output as one-sample offline diagnostic evidence only, reports action L1/MSE without success claims, and keeps rollout scaling, benchmark claims, SOTA claims, and paper-grade claims false.
