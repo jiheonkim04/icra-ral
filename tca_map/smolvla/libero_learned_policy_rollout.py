@@ -38,6 +38,7 @@ FORBIDDEN_GATES = [
     "ALLOW_TINY_TRAINING",
     "ALLOW_OPENVLA_OFT",
     "ALLOW_BENCHMARK_ROLLOUT",
+    "ALLOW_ROLLOUT",
     "ALLOW_ROLLOUTS",
 ]
 MAX_RUNTIME_SECONDS = 1800
@@ -238,7 +239,18 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
             "benchmark_claims_made": False,
             "sota_claims_made": False,
             "paper_grade_claims_made": False,
-            "task_local_gate_set": _env_flag("ALLOW_TINY_LEARNED_POLICY_ROLLOUT"),
+            "task_local_gate_set": (
+                _env_flag("ALLOW_TINY_LEARNED_POLICY_ROLLOUT")
+                or _env_flag("ALLOW_BOUNDED_LEARNED_POLICY_MATRIX")
+            ),
+            "task_local_gates_set": [
+                name
+                for name in [
+                    "ALLOW_TINY_LEARNED_POLICY_ROLLOUT",
+                    "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX",
+                ]
+                if _env_flag(name)
+            ],
             "forbidden_gates_set": [name for name in FORBIDDEN_GATES if _env_flag(name)],
         },
         "risk_limits": {
@@ -278,7 +290,10 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
     }
 
     if not report["policy"]["task_local_gate_set"]:
-        report["result"]["blocked_reason"] = "ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1 is required for this bounded task."
+        report["result"]["blocked_reason"] = (
+            "ALLOW_TINY_LEARNED_POLICY_ROLLOUT=1 or "
+            "ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1 is required for this bounded task."
+        )
         return report
     if report["policy"]["forbidden_gates_set"]:
         report["result"]["blocked_reason"] = "Forbidden gate(s) set: " + ", ".join(report["policy"]["forbidden_gates_set"])

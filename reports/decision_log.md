@@ -645,3 +645,11 @@ Decision: Reduce scope before any bounded small multi-task learned-policy rollou
 Reason: `scripts\74_plan_bounded_learned_policy_rollout_matrix.ps1` found a passed topology summary but diagnostic success rate `0.0` and reward sum `0.0`.
 
 Consequence: The next runnable stage should be a separately gated one-task longer diagnostic with at most 10 steps. The multi-task matrix remains blocked until there is a positive diagnostic success signal or a separate reduced-scope research decision.
+
+## Bounded Reduced-Scope Learned-Policy Rollout Result
+
+Decision: Treat the one-task, 10-step learned-policy LIBERO rollout as passed for execution readiness but not for task success.
+
+Reason: `scripts\75_bounded_reduced_scope_learned_policy_rollout.ps1` completed 10 policy-controlled environment steps with local SmolVLA on CPU and no timeout, download, install, training, GPU job, OpenVLA-OFT execution, token access, or paper claim. The task success check remained `false` and reward sum remained `0.0`.
+
+Consequence: The project should not scale directly to a multi-task matrix as performance evidence. The next safe step is a reduced-scope metric summary and then an action-interface/normalization diagnostic before larger rollout claims.

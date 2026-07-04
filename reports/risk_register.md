@@ -591,3 +591,11 @@ Risk: After proving learned-policy simulator integration, the project could scal
 Impact: Larger rollouts could spend time measuring obvious failures and make the research state look stronger than it is.
 
 Mitigation: `scripts\74_plan_bounded_learned_policy_rollout_matrix.ps1` reduces scope when diagnostic success rate is `0.0`. Current local decision is `reduce_scope`: run a one-task, 10-step longer diagnostic before any multi-task rollout matrix.
+
+## Action Interface Misalignment Risk
+
+Risk: The local SmolVLA action output can drive the LIBERO environment without crashing, but its scale, coordinate convention, gripper padding, state inputs, camera mapping, or language prompt may not match the policy's expected deployment interface.
+
+Impact: Rollouts can execute cleanly while reward and success remain at zero, making raw execution stability uninformative about method quality.
+
+Mitigation: After the reduced-scope metric summary, add targeted action-interface diagnostics before scaling: action magnitude/range logs, gripper behavior, observation key audit, language prompt audit, and a small comparison against zero-action or replay-style baselines. Keep all results diagnostic/local-pilot until task success appears under a documented protocol.

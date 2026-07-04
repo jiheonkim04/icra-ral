@@ -745,3 +745,22 @@ Decision details:
 - evidence label: diagnostic/local pilot only.
 
 Interpretation: a broader matrix is premature because the first learned-policy diagnostic did not achieve task success. The next safe rung is a separately gated one-task longer diagnostic runner.
+
+## Bounded Reduced-Scope Learned-Policy Rollout Result
+
+Current local bounded result: passed as diagnostic execution evidence only.
+
+`scripts\75_bounded_reduced_scope_learned_policy_rollout.ps1` ran under task-local `ALLOW_BOUNDED_LEARNED_POLICY_MATRIX=1`, used the WSL simulator topology, loaded local SmolVLA on CPU, created one real `libero_10` RoboSuite/LIBERO environment, made 10 policy calls, and stepped the environment 10 times.
+
+Observed local result:
+
+- completed steps: 10,
+- policy calls: 10,
+- policy action shape: `[1, 6]`,
+- environment action dimension: 7,
+- diagnostic success check: `false`,
+- reward sum: `0.0`,
+- inner runtime: about 35.8 seconds,
+- no downloads, no installs, no training, no GPU job, no OpenVLA-OFT, no multi-seed evaluation, no token access, and no paper claim.
+
+Interpretation: the reduced-scope longer diagnostic is stable but still not successful on the selected task. The next safe rung is a report-only reduced-scope metric summary, followed by a research decision about whether to tune interface/action scaling, inspect action semantics, or continue with a tiny controlled baseline comparison.
