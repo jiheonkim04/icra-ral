@@ -41,9 +41,28 @@ def test_action_adapter_supports_named_gripper_strategy():
     assert result.metadata["adapter_mode"] == ACTION_STRATEGY_GRIPPER_CLOSE
 
 
+def test_action_adapter_applies_explicit_action_scale_before_clipping():
+    result = adapt_policy_action_to_env_action(
+        [0.4, -0.8, 2.0, 0.0, 0.1, -0.1],
+        7,
+        action_scale=0.5,
+        strategy=ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
+    )
+
+    assert result.values == pytest.approx([0.2, -0.4, 1.0, 0.0, 0.05, -0.05, 0.0])
+    assert result.metadata["action_scale"] == 0.5
+    assert result.metadata["scaling_performed"] is True
+    assert result.metadata["clipped_values"] == 0
+
+
 def test_action_adapter_refuses_unsupported_dimension_mapping():
     with pytest.raises(ValueError, match="unsupported action dimension mapping"):
         adapt_policy_action_to_env_action([0.0, 0.1, 0.2], 7)
+
+
+def test_action_adapter_refuses_invalid_action_scale():
+    with pytest.raises(ValueError, match="action_scale"):
+        adapt_policy_action_to_env_action([0.0] * 6, 7, action_scale=0.0)
 
 
 def test_state_adapter_uses_explicit_fields_without_truncation():

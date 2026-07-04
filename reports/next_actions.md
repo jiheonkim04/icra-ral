@@ -328,7 +328,9 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
     Done for the first gripper-strategy runner. `scripts\83_bounded_adapter_strategy_diagnostic.ps1` executed zero-hold, open, and close variants for one task and at most 10 steps each. All variants passed the wrapper but produced diagnostic success rate 0.0 and reward sum 0.0.
 15. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
 16. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
-17. Next safe research-engineering step: add a bounded action-scale or prompt/camera/state diagnostic planner and runner. Keep the first rung one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
+17. Bounded action-scale diagnostic.
+    Done for scales `0.25`, `0.5`, and `1.0` under the zero-hold gripper strategy. All variants passed the wrapper and scaled action magnitude as expected, but diagnostic success rate and reward sum remained 0.0.
+18. Next safe research-engineering step: add a bounded prompt-format, camera-source, or state-sufficiency diagnostic planner and runner. Keep the first rung one task, at most 10 steps per variant, no downloads, no training, no GPU job, no OpenVLA-OFT, no multi-seed, and no paper claim.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

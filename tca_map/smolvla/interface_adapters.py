@@ -80,6 +80,7 @@ def adapt_policy_action_to_env_action(
     env_action_dim: int,
     *,
     strategy: str = ACTION_STRATEGY_GRIPPER_ZERO_HOLD,
+    action_scale: float = 1.0,
     clip_range: tuple[float, float] = (-1.0, 1.0),
 ) -> ActionAdapterResult:
     """Adapt a policy action to a LIBERO/RoboSuite env action with metadata.
@@ -92,6 +93,8 @@ def adapt_policy_action_to_env_action(
         raise ValueError("env_action_dim must be positive")
     if strategy not in GRIPPER_STRATEGY_VALUES:
         raise ValueError(f"unsupported action adapter strategy: {strategy}")
+    if not np.isfinite(action_scale) or action_scale <= 0:
+        raise ValueError("action_scale must be a positive finite value")
 
     raw_values = _as_flat_float_list(policy_action)
     policy_dim = len(raw_values)
@@ -101,8 +104,9 @@ def adapt_policy_action_to_env_action(
     min_clip, max_clip = clip_range
     if min_clip >= max_clip:
         raise ValueError("clip_range must be increasing")
-    clipped_values = [float(np.clip(value, min_clip, max_clip)) for value in raw_values]
-    clipped_count = sum(1 for before, after in zip(raw_values, clipped_values) if before != after)
+    scaled_values = [float(value * action_scale) for value in raw_values]
+    clipped_values = [float(np.clip(value, min_clip, max_clip)) for value in scaled_values]
+    clipped_count = sum(1 for before, after in zip(scaled_values, clipped_values) if before != after)
     gripper_value: float | None = None
 
     if policy_dim == env_action_dim:
@@ -125,6 +129,8 @@ def adapt_policy_action_to_env_action(
             "policy_action_dim": policy_dim,
             "env_action_dim": env_action_dim,
             "strategy": strategy,
+            "action_scale": float(action_scale),
+            "scaling_performed": bool(action_scale != 1.0),
             "gripper_value": gripper_value,
             "clip_range": [min_clip, max_clip],
             "clipped_values": clipped_count,
