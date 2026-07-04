@@ -270,6 +270,7 @@ report = {
     },
     "planned_sample": {
         "hdf5": hdf5_summary,
+        "selected_task_text": (((audit.get("offline_alignment_summary") or {}).get("sample") or {}).get("task")),
         "load_vlm_weights": (audit.get("checkpoint_summary") or {}).get("observed_load_vlm_weights"),
         "config_load_vlm_weights": (audit.get("checkpoint_summary") or {}).get("config_load_vlm_weights"),
         "action_normalization": ((audit.get("checkpoint_summary") or {}).get("config_normalization_mapping") or {}).get("ACTION"),

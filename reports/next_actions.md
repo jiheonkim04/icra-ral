@@ -456,6 +456,20 @@ powershell -ExecutionPolicy Bypass -File scripts\109_plan_repeated_offline_demo_
 
 If the planner reports `decision=proceed` and `ready_for_bounded_repeated_offline_demo_action_decoding_runner=true`, the next safe implementation is a separately gated runner using `ALLOW_REPEATED_OFFLINE_DEMO_DECODING=1`. It may load local SmolVLA on CPU and run at most three HDF5 timestep action decodes, with no simulator environment, no rollout, no training, no downloads, no GPU job, no OpenVLA-OFT, and no paper claim.
 
+39. Bounded repeated offline demonstration action-decoding command:
+
+```powershell
+$env:ALLOW_REPEATED_OFFLINE_DEMO_DECODING="1"
+powershell -ExecutionPolicy Bypass -File scripts\110_bounded_repeated_offline_demo_action_decoding.ps1
+Remove-Item Env:\ALLOW_REPEATED_OFFLINE_DEMO_DECODING -ErrorAction SilentlyContinue
+```
+
+Current expected interpretation: this runner is diagnostic-only even when it passes. If repeated offline alignment remains weak, keep rollout scaling blocked and inspect VLM-enabled loading risk, checkpoint provenance, and action normalization before another learned-policy rollout. If repeated alignment is moderate or strong, plan a tiny offline baseline comparison before rollout scaling.
+
+Current local result: the runner passed on three HDF5 timesteps, but repeated offline alignment remained weak (`mean_action_l1_to_expert=0.412322`, `mean_action_mse_to_expert=0.286972`, clipped action values total `3`, `load_vlm_weights=false`). Keep learned-policy rollout scaling blocked.
+
+40. Next safe step: create a report-only VLM-enabled loading risk/provenance plan. It should estimate whether acquiring/loading the full `HuggingFaceTB/SmolVLM2-500M-Video-Instruct` weights is official, token-free, size-bounded, and memory-safe. Do not download full VLM weights or run VLM-enabled loading until that risk assessment is green.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
