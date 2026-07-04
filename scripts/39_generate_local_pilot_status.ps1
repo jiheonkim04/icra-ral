@@ -83,6 +83,7 @@ REPORTS = {
     "libero_offline_interface": REPO / "reports" / "libero_offline_interface_smoke_report.json",
     "libero_offline_counterfactual_split": REPO / "reports" / "libero_offline_counterfactual_split_report.json",
     "libero_offline_head_comparison": REPO / "reports" / "libero_offline_actionmap_tca_comparison_report.json",
+    "libero_offline_lora_comparison": REPO / "reports" / "libero_offline_lora_comparison_report.json",
     "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
 }
 
@@ -131,6 +132,8 @@ status = {
     "libero_offline_counterfactual_pair_count": data("libero_offline_counterfactual_split").get("counterfactual_pair_count"),
     "libero_offline_head_comparison_passed": bool(data("libero_offline_head_comparison").get("libero_offline_head_comparison_passed")),
     "libero_ready_for_required_tiny_lora_comparison": bool(data("libero_offline_head_comparison").get("ready_for_required_tiny_lora_comparison")),
+    "libero_offline_lora_comparison_passed": bool(data("libero_offline_lora_comparison").get("libero_offline_lora_comparison_passed")),
+    "libero_ready_for_bounded_local_pilot_report": bool(data("libero_offline_lora_comparison").get("ready_for_bounded_local_pilot_report")),
     "libero_rollout_ready": bool(data("libero_offline_interface").get("ready_for_rollout")),
     "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
     "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
@@ -183,7 +186,6 @@ report = {
     "missing_reports": missing_reports,
     "parse_errors": parse_errors,
     "risk_assessed_next_gates": [
-        "required tiny real/offline LoRA comparison after the ActionMap vs TCA-Map offline comparison passes",
         "bounded local pilot report after required head-only and LoRA offline comparisons pass",
         "simulator readiness/import-render smoke if already installed locally",
         "bounded rollout only after simulator smoke, task_count<=5, runtime<=30 minutes, no paper claim",
