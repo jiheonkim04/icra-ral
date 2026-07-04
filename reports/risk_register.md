@@ -1,5 +1,30 @@
 # Risk Register
 
+## P-Hacking And Novelty Overclaim Risk
+
+Risk: ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA comparisons could be
+made to look positive by changing metrics, samples, seeds, baselines, tuning
+budget, or visualizations after seeing results.
+
+Impact: A paper candidate would be untrustworthy, and weak or negative results
+could be hidden instead of driving a correct kill/pivot decision.
+
+Mitigation: `reports/research_integrity_evaluation_policy.md` fixes primary
+metrics, baseline list, ablation list, split/sample policy, tuning budget, and
+kill/pivot criteria before confirmatory evaluation. Failed runs and weak
+results must be logged. Exploratory debugging must be labeled separately. If
+ActionMap + LoRA or ActionMap + counterfactual augmentation matches TCA-Map,
+report weak novelty. If TCA-Select adds no measurable gain or offline gains
+disappear in rollout, report it directly.
+
+## Unbounded Autopilot Loop Risk
+
+Risk: Codex could continue through multiple major research milestones in one execution, producing large diffs or planner chains without a clear evidence checkpoint.
+
+Impact: Harder review, weaker research integrity, accidental scope creep, and unclear distinction between planning/scaffolding and actual loss/metric/rollout evidence.
+
+Mitigation: `reports/autopilot_bounded_execution_policy.md` now caps each execution at one major research milestone. Codex must stop before commit if more than 50 files or more than 5,000 changed lines would be included, and must report changed-file count, line diff count, training/rollout/loss/scaffolding status, validation results, and merge justification before every merge.
+
 ## Missing SmolVLA Checkpoint Files
 
 Risk: `C:\assets\checkpoints\smolvla` exists but lacks config/tokenizer/weights files.

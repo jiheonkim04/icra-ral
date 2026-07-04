@@ -32,6 +32,42 @@ Use explicit Python for validation:
 C:\Users\jiheo\miniconda3\envs\tca_map\python.exe
 ```
 
+## Current Autopilot Policy
+
+Autopilot is bounded per execution. Codex must not run unbounded end-to-end research loops in a single execution.
+
+Current rule:
+
+- at most one major research milestone per execution,
+- stop before commit if more than 50 files or more than 5,000 changed lines would be included,
+- before every merge, report changed-file count, line diff count, whether training happened, whether rollout happened, whether loss was computed, whether the work is only planning/scaffolding, validation results, and merge justification,
+- stop if a task runs longer than 2 hours without actual training or rollout progress,
+- do not keep expanding planners indefinitely when no loss, metric, rollout result, or concrete validation result is being produced.
+
+Canonical policy document:
+
+```text
+reports/autopilot_bounded_execution_policy.md
+```
+
+## Current Research Integrity Policy
+
+Before any confirmatory ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA
+comparison, use:
+
+```text
+reports/research_integrity_evaluation_policy.md
+```
+
+This policy fixes the primary metrics, baseline list, ablation list,
+split/sample policy, tuning budget, and kill/pivot criteria before results are
+inspected. The objective is a trustworthy conclusion, not a positive result.
+
+If ActionMap + LoRA or ActionMap + counterfactual augmentation matches TCA-Map,
+the novelty is weak under that evidence level. If TCA-Select adds no measurable
+gain, report it. If offline gains disappear in rollout, report it. If TCA-Map
+fails, produce a kill/pivot report.
+
 ## Completed Major Features
 
 - scaffold and dummy smoke,

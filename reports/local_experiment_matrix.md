@@ -2,6 +2,11 @@
 
 This matrix is a plan only. It does not authorize downloads, GPU training, heavy model imports, or rollouts.
 
+Before any confirmatory comparison from this matrix runs, apply
+`reports/research_integrity_evaluation_policy.md`. The selected split,
+sample order, primary metrics, baselines, ablations, and tuning budget must be
+fixed before results are inspected.
+
 ## Safety Gates
 
 - Downloads require `ALLOW_DOWNLOADS=1`.
@@ -47,3 +52,5 @@ Stop or pivot if:
 - TCA-Map does not beat ActionMap + counterfactual augmentation.
 - OpenVLA-OFT or SmolVLA cannot be run without downloads or unsupported local dependencies.
 - Simulator setup is not reproducible under WSL2/Linux.
+- ActionMap + LoRA or ActionMap + counterfactual augmentation matches TCA-Map under the fixed metrics.
+- TCA-Select adds no measurable gain over TCA-Map without TCA-Select.

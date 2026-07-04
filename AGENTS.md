@@ -6,6 +6,10 @@ Future Codex sessions should read `reports/codex_delegation_manual.md` first. Th
 
 Self-check routine state before asking the user. Branch, commit, git status, pytest, safe runner, SmolVLA path readiness, checkpoint file completeness, and checker policy fields should be inspected directly with existing scripts. Do not ask for routine approval merely because a task involves downloads, GPU, training, datasets, simulator readiness, learned-policy rollout, or benchmark rollout. Run the repository risk assessment first; proceed autonomously when source, size, disk, RAM/VRAM, runtime, dependency, license/token, and repo-policy checks are inside budget. Stop only when risk cannot be evaluated, exceeds budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make an unsupported empirical claim.
 
+Bounded autopilot rule: do not run unbounded end-to-end research loops in a single execution. Each execution may complete at most one major research milestone, such as real candidate-generation smoke, research-integrity policy update, ActionMap vs TCA-Map tiny training/eval, LoRA tiny training/eval, rollout diagnostic, or paper-grade roadmap update. After one milestone, stop and report the result plus the next recommended milestone.
+
+Research-integrity override: before any confirmatory ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA evaluation, follow `reports/research_integrity_evaluation_policy.md`. Fixed primary metrics, baselines, ablations, split/sample policy, tuning budget, and kill/pivot criteria must be declared before results are inspected.
+
 ## Non-negotiable rules
 
 1. Do not fabricate results.
@@ -25,6 +29,13 @@ Self-check routine state before asking the user. Branch, commit, git status, pyt
 15. Any SOTA claim must be restricted to low-compute target-conditioned action decoding or counterfactual robustness unless full standard baselines are directly reproduced.
 16. Heavy actions must have a short automatic risk assessment before launch. Environment gates such as `ALLOW_DOWNLOADS=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_TINY_TRAINING=1`, `ALLOW_GPU_TRAINING=1`, `ALLOW_ROLLOUTS=1`, or `ALLOW_CLOUD_HANDOFF=1` may be set task-locally only when the risk assessment says proceed.
 17. Run compute-budget enforcement before any new local config or pilot command.
+18. Before commit or merge, stop and report if more than 50 files or more than 5,000 changed lines would be included.
+19. Before every merge, report files changed count, line diff count, whether training happened, whether rollout happened, whether loss was computed, whether the work is only planning/scaffolding, validation results, and merge justification.
+20. If no loss, metric, rollout result, or concrete validation result is being produced, do not keep expanding planners indefinitely.
+21. Do not cherry-pick tasks, samples, seeds, metrics, baselines, visualizations, or rollout episodes.
+22. Log failed runs and weak results. Keep exploratory debugging separate from confirmatory evaluation.
+23. Do not change primary metrics, evaluation split, or tuning budget after seeing results unless the change is logged as exploratory and the previous result is preserved.
+24. If ActionMap + LoRA or ActionMap + counterfactual augmentation matches TCA-Map, report that the novelty is weak. If TCA-Select adds no measurable gain, report it. If offline gains disappear in rollout, report it. If TCA-Map fails, produce a kill/pivot report.
 
 ## Low-compute protocol
 
@@ -35,6 +46,8 @@ Do not plan local OpenVLA-OFT full fine-tuning, full rollout, multi-seed sweep, 
 ## Risk-assessed autonomous execution policy
 
 Codex must not ask the user for routine approval when risk can be checked automatically. Inspect source, disk, RAM, VRAM, runtime, dependency, license/token requirements, and repo safety policy. If all checks pass within budget, proceed autonomously. If any check is ambiguous or outside budget, stop and report the blocker.
+
+Autonomy is bounded by `reports/autopilot_bounded_execution_policy.md`. It permits routine self-checking and one risk-assessed milestone per execution, not an unbounded chain of research tasks.
 
 Default local risk budgets:
 
