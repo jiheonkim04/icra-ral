@@ -62,6 +62,8 @@ reports/bounded_simulator_import_smoke_report.json
 reports/bounded_simulator_import_smoke_report.md
 reports/wsl_simulator_dependency_report.json
 reports/wsl_simulator_dependency_report.md
+reports/wsl_simulator_dependency_setup_report.json
+reports/wsl_simulator_dependency_setup_report.md
 reports/libero_robosuite_source_resolution_report.json
 reports/libero_robosuite_source_resolution_report.md
 reports/libero_robosuite_setup_report.json

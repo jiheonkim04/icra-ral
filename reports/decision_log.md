@@ -509,3 +509,19 @@ Decision: Minimal WSL simulator dependency bootstrap is standing-approved after 
 Reason: The simulator blocker is no longer ambiguous: WSL path and `python3` probes pass, LIBERO imports, and RoboSuite is blocked by missing WSL Python packaging/dependencies such as `numpy`. Requiring repeated user approval for each small WSL dependency step stalls the bounded simulator readiness ladder.
 
 Consequence: Codex may autonomously inspect WSL, check `python3`/`pip`/`venv`, install minimal WSL Python packaging tools, create `~/.venvs/tca_map_sim`, install minimal import-readiness Python dependencies, rerun bounded simulator import smoke, and proceed to bounded render/reset-step/tiny diagnostic stages if each stage has a green risk assessment. Codex must still stop for sudo password prompts, credentials, token/secret/login, payment/license click-through, CUDA driver/toolkit or graphics-stack changes, Windows driver changes, OpenVLA-OFT download/import/load/execution, full fine-tuning, training over 30 minutes, VRAM over 14GB, rollout beyond tiny diagnostic limits, benchmark or paper-grade claims, multi-seed experiments, external upload/submission/publishing, or deletion outside approved repo/cache cleanup.
+
+## WSL Simulator Dependency Setup Result
+
+Decision: Use a WSL-local venv at `~/.venvs/tca_map_sim` for simulator import-readiness dependencies.
+
+Reason: Global WSL Python lacks `pip`, `ensurepip`, and `numpy`, but `python3 -m venv --without-pip` works and `curl` is available for venv-local pip bootstrapping. The setup can avoid sudo, apt, CUDA/driver changes, token access, render, rollout, OpenVLA-OFT, and paper claims.
+
+Consequence: `scripts\57_setup_wsl_simulator_deps.ps1` creates or reuses the venv, bootstraps pip only if missing, and installs only bounded import-readiness Python packages there. It reuses the venv by default and offers `-ClearVenv` only for intentional clean rebuilds.
+
+## Bounded Simulator Import-Only Smoke Result
+
+Decision: Treat WSL simulator import-only readiness as passed for the selected venv.
+
+Reason: The bounded task-local import smoke selected `~/.venvs/tca_map_sim/bin/python` and imported both `robosuite` and `libero`.
+
+Consequence: This clears only the import-only readiness rung. It is not render evidence, rollout evidence, benchmark success, or paper-grade evidence. Render smoke, reset/step smoke, tiny diagnostic rollout, and all benchmark claims remain separate risk gates.

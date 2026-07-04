@@ -313,7 +313,7 @@ The current executable local path has cleared the LIBERO HDF5 reader boundary:
 - `scripts\48_plan_libero_offline_interface_smoke.ps1` reports `ready_for_offline_interface_smoke=true`,
 - rollout readiness is still false and requires a separate simulator gate.
 
-Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, and bounded pilot report path has been scaffolded. The current boundary is WSL simulator dependency setup: WSL has `python3`, but the check-only report shows `pip`, `ensurepip`, and `numpy` are missing. Minimal WSL Python packaging setup is standing-approved after a green WSL simulator dependency-ladder risk assessment. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
+Codex should keep running routine readiness and status checks without asking. The tiny real/offline HDF5 split, comparison, LoRA proxy, bounded pilot report path, WSL simulator dependency setup, and bounded simulator import-only smoke have passed. The current boundary is the next simulator readiness rung: bounded render/reset-step risk planning. Codex must still stop before sudo password entry, token access, license/payment gates, CUDA/driver/graphics-stack changes, OpenVLA-OFT, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, or rollout beyond the bounded tiny diagnostic policy.
 
 Current planning commands:
 
@@ -419,9 +419,9 @@ Reasons:
 - official LIBERO HDF5 demonstration files exist under `LIBERO_DATA_ROOT`,
 - `h5py` is installed and HDF5 offline interface inspection is ready.
 
-Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and WSL simulator dependency setup when its ladder risk assessment is green. Simulator render smoke, rollout, or real benchmark work must wait for the corresponding green risk assessment inside the current budget.
+Safe autonomous work can continue on checkers, docs, reports, tiny local HDF5 interface reads, counterfactual split construction, offline proxy comparison scaffolds, and simulator readiness scaffolds whose risk assessment is green. The WSL simulator dependency setup and import-only smoke have passed. Simulator render smoke, reset/step smoke, rollout, or real benchmark work must wait for the corresponding green risk assessment inside the current budget.
 
-The next safe local action is WSL simulator dependency setup risk assessment. Do not run render smoke until import readiness passes. Do not run rollout unless import/render readiness passes and the bounded tiny diagnostic rollout assessment is green and inside budget.
+The next safe local action is a bounded render/reset-step risk planner or checker. Do not run render, environment reset/step, or rollout unless that specific assessment passes and remains inside the bounded simulator policy.
 
 The LIBERO offline LoRA comparison is implemented as a bounded local proxy diagnostic in `scripts\53_compare_libero_offline_lora.ps1`. It trains only tiny NumPy low-rank adapter matrices over local HDF5 action-prefix snippets, requires `ALLOW_TINY_TRAINING=1`, and does not use GPU, model loading, model inference, simulator execution, rollout, OpenVLA-OFT, token access, or paper-grade claims.
 
@@ -431,9 +431,9 @@ The simulator readiness planner remains planning-only and is now a first-class i
 
 The bounded simulator import smoke scaffold is implemented in `scripts\55_bounded_simulator_import_smoke.ps1`. It requires task-local `ALLOW_SIMULATOR_IMPORT_SMOKE=1`, reruns the planning-only readiness gate, and may attempt only WSL-visible `robosuite` and `libero` Python package imports. It does not render, create or step simulator environments, rollout policies, train, use GPU, download, install packages, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
 
-Current local bounded simulator import smoke result: the script ran under the task-local gate, WSL path and `python3` probes passed, `libero` imported, and `robosuite` import stopped because WSL Python is missing `numpy`. No render, rollout, simulator environment step, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred. The next safe task is a WSL simulator dependency risk planner, not a rollout.
+Current local bounded simulator import smoke result: the script ran under the task-local gate, selected the WSL venv at `$HOME/.venvs/tca_map_sim`, and imported both `robosuite` and `libero`. No render, rollout, simulator environment step, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred. This clears import-only readiness only; it is not render evidence, rollout evidence, or paper-grade evidence.
 
-The WSL simulator dependency checker is implemented in `scripts\56_check_wsl_simulator_deps.ps1`. It is check-only and records whether WSL has `python3`, `pip`, `ensurepip`, `numpy`, and missing modules from the bounded simulator import-smoke report. Current local result: WSL has `python3` but lacks `pip`, `ensurepip`, and `numpy`. Under the WSL simulator dependency ladder standing approval, the next autonomous task is a WSL packaging/setup risk assessment. If the assessment is green and no sudo password is required, Codex may install only the minimal approved WSL Python packaging tools and dependencies, then rerun import readiness.
+The WSL simulator dependency checker is implemented in `scripts\56_check_wsl_simulator_deps.ps1`. It is check-only and records whether WSL has `python3`, global `pip`/`ensurepip`/`numpy`, the selected venv Python, selected venv `pip`, selected venv `numpy`, and missing modules from the bounded simulator import-smoke report. Current local result: the selected venv is ready for import-only retry, while global WSL Python still lacks pip and numpy. Future dependency additions should stay in the venv and stop before sudo password, token/license/payment, CUDA/driver, graphics-stack, OpenVLA-OFT, render, rollout, or paper-claim gates.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 
@@ -566,7 +566,7 @@ Current default budgets:
 
 Codex must still stop before token/secret/API key access, paid service, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or paper-level empirical claims. Minimal WSL Python packaging setup is standing-approved after the WSL simulator dependency ladder risk assessment; a sudo password prompt remains a hard stop.
 
-Next autonomous direction: run the WSL simulator dependency ladder risk assessment instead of asking for approval. If green, Codex may set up the minimal WSL Python packaging path, create `~/.venvs/tca_map_sim`, install only minimal import-readiness dependencies, rerun the bounded simulator import smoke, and continue to render/reset/step/tiny diagnostic gates only when their separate risk assessments pass. No OpenVLA-OFT execution or paper claim is authorized.
+Next autonomous direction: keep the WSL venv import-readiness path as the active simulator runtime and move to the next bounded simulator readiness gate only through a separate risk assessment. Render smoke, reset/step smoke, and tiny diagnostic rollout remain distinct gates. No OpenVLA-OFT execution or paper claim is authorized.
 
 The current bounded cached-feature local pilot extension is documented in `reports\bounded_local_pilot_extension.md` and runs through:
 

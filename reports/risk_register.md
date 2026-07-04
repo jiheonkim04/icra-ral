@@ -446,7 +446,7 @@ Risk: WSL paths and Python can be present while the WSL Python environment lacks
 
 Impact: Simulator import smoke fails before any render or rollout gate, and ad hoc dependency installation could drift into a larger simulator stack install.
 
-Mitigation: Use `scripts\56_check_wsl_simulator_deps.ps1` before any install. Missing WSL simulator dependencies are handled by the WSL simulator dependency ladder standing approval: after a green risk assessment, Codex may install only minimal WSL Python packaging tools, create `~/.venvs/tca_map_sim`, install minimal import-readiness Python dependencies, and rerun import smoke. Stop for sudo password, token/login, license/payment, CUDA/driver/toolkit, graphics-stack, Windows driver, OpenVLA-OFT, paper-claim, or oversized package/download gates. Render smoke, reset/step smoke, and tiny rollout diagnostics remain separate risk gates.
+Mitigation: Use `scripts\56_check_wsl_simulator_deps.ps1` before any install. Missing WSL simulator dependencies are handled by the WSL simulator dependency ladder standing approval: after a green risk assessment, Codex may install only minimal WSL Python packaging tools, create or reuse `~/.venvs/tca_map_sim`, install minimal import-readiness Python dependencies, and rerun import smoke. The current local venv has cleared bounded import-only readiness for `robosuite` and `libero` without sudo or apt. Stop for sudo password, token/login, license/payment, CUDA/driver/toolkit, graphics-stack, Windows driver, OpenVLA-OFT, paper-claim, or oversized package/download gates. Render smoke, reset/step smoke, and tiny rollout diagnostics remain separate risk gates.
 
 ## WSL Dependency Bootstrap Scope Creep
 
