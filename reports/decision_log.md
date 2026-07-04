@@ -533,3 +533,11 @@ Decision: Add a planning-only render/reset-step risk gate after import-only read
 Reason: Passing `robosuite` and `libero` imports is not enough to justify rendering, resetting an environment, stepping an environment, or running rollouts. The next risk boundary needs to require the passed import-only report and explicitly refuse execution gates during planning.
 
 Consequence: `scripts\58_plan_simulator_render_reset.ps1` reads the readiness/import reports and reports whether a separate bounded render-smoke branch may be created. It performs no render, reset/step, rollout, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim. Current local result is ready for a separate bounded render-smoke branch, while reset/step and rollout remain blocked.
+
+## Bounded Simulator Render Smoke Result
+
+Decision: Treat the current local bounded render-smoke attempt as blocked, not failed validation.
+
+Reason: The WSL venv can import `mujoco`, but a tiny 64x64 offscreen render with `MUJOCO_GL=osmesa` fails with `AttributeError: 'NoneType' object has no attribute 'glGetError'`, which indicates the OSMesa/offscreen GL path is unavailable or misconfigured.
+
+Consequence: `scripts\59_bounded_simulator_render_smoke.ps1` records the blocker without installing packages, changing system graphics, resetting/stepping environments, rolling out, using GPU jobs, training, importing heavy VLA models, executing OpenVLA-OFT, accessing tokens, or making paper claims. Reset/step and rollout remain blocked until offscreen rendering is fixed through a separate risk assessment.

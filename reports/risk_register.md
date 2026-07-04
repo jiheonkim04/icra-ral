@@ -463,3 +463,11 @@ Risk: A green render/reset-step planning report could be mistaken for render rea
 Impact: The project could move from import-only readiness into simulator execution or paper claims without the separate bounded render and reset/step gates.
 
 Mitigation: `scripts\58_plan_simulator_render_reset.ps1` is planning-only. It refuses execution gates, requires a passed import-only report, keeps `render_smoke_performed=false`, `reset_step_smoke_performed=false`, `rollouts_performed=false`, and keeps `ready_for_rollout=false`. Render smoke, reset/step smoke, and tiny diagnostic rollout must each use a separate risk assessment and task-local gate.
+
+## WSL Offscreen Render Graphics Blocker
+
+Risk: WSL can import MuJoCo but still fail offscreen rendering because OSMesa/OpenGL context creation is unavailable or misconfigured.
+
+Impact: Simulator reset/step and rollout work remain blocked even though source paths, data paths, WSL venv dependencies, and import-only smoke pass.
+
+Mitigation: `scripts\59_bounded_simulator_render_smoke.ps1` records the render blocker and exits safely. Do not install system graphics packages, change drivers, switch to EGL/GPU rendering, reset/step environments, rollout, or make benchmark claims without a separate risk assessment. Current local error: `AttributeError: 'NoneType' object has no attribute 'glGetError'` under `MUJOCO_GL=osmesa`.
