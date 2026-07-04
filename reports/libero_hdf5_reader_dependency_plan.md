@@ -25,3 +25,9 @@ h5py>=3.11
 ```
 
 It is included in `requirements.txt` and the `libero` optional dependency group in `pyproject.toml`.
+
+Current local status:
+
+- `h5py 3.16.0` is installed in `C:\Users\jiheo\miniconda3\envs\tca_map` after a green dependency risk assessment.
+- `scripts\50_check_libero_hdf5_reader.ps1` reports `ready_for_libero_hdf5_interface_read=true`.
+- `scripts\48_plan_libero_offline_interface_smoke.ps1` can inspect local LIBERO HDF5 action fields without simulator execution, rollout, training, model loading, heavy VLA import, OpenVLA-OFT, token access, or paper claims.

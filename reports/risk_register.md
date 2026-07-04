@@ -374,7 +374,15 @@ Risk: The official LIBERO data may be present, but HDF5 inspection can fail if `
 
 Impact: Offline real-data interface smoke remains blocked even though the dataset is acquired; ad hoc dependency installation could accidentally change broader environment packages.
 
-Mitigation: Use `scripts\50_check_libero_hdf5_reader.ps1` first. If `h5py` is missing, perform a separate dependency risk assessment before installing `h5py>=3.11` from the Python package index. Do not change CUDA/PyTorch versions, install simulator stacks, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.
+Mitigation: Use `scripts\50_check_libero_hdf5_reader.ps1` first. If `h5py` is missing, perform a separate dependency risk assessment before installing `h5py>=3.11` from the Python package index. Locally, `h5py 3.16.0` was installed from a Windows wheel after a green risk assessment without CUDA/PyTorch changes or simulator packages. Future environments must keep the same guard: do not change CUDA/PyTorch versions, install simulator stacks, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.
+
+## LIBERO HDF5 Report Size Risk
+
+Risk: Inspecting real LIBERO HDF5 files can dump thousands of dataset paths and shapes into terminal output and runtime reports.
+
+Impact: Routine safe checks become noisy, slow to review, and harder to diagnose.
+
+Mitigation: `tca_map.datasets.libero_offline_interface.inspect_hdf5` records bounded samples: `dataset_count`, `dataset_sample_limit`, `datasets_sample`, and `action_dataset_paths_sample`. It keeps action-field readiness while avoiding full HDF5 tree dumps.
 
 ## LIBERO Rollout Readiness Overstatement
 
