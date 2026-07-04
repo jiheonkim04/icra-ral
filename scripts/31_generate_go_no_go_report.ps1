@@ -99,6 +99,7 @@ libero_offline_head_comparison = load_json("reports/libero_offline_actionmap_tca
 libero_offline_lora_comparison = load_json("reports/libero_offline_lora_comparison_report.json")
 libero_offline_bounded_pilot = load_json("reports/libero_offline_bounded_pilot_report.json")
 simulator_readiness = load_json("reports/simulator_readiness_plan_report.json")
+bounded_simulator_import_smoke = load_json("reports/bounded_simulator_import_smoke_report.json")
 
 completed = {
     "smolvla_load_only_smoke": passed(load_only, "result", "passed"),
@@ -126,6 +127,7 @@ runtime_reports_available = {
     "libero_offline_lora_comparison_report": libero_offline_lora_comparison is not None,
     "libero_offline_bounded_pilot_report": libero_offline_bounded_pilot is not None,
     "simulator_readiness_plan_report": simulator_readiness is not None,
+    "bounded_simulator_import_smoke_report": bounded_simulator_import_smoke is not None,
 }
 
 tiny_metrics = {}
@@ -205,6 +207,11 @@ simulator_readiness_gates = {
     "simulator_imports_performed": bool(((simulator_readiness or {}).get("policy") or {}).get("simulator_imports_performed")),
     "render_smoke_performed": bool(((simulator_readiness or {}).get("policy") or {}).get("render_smoke_performed")),
     "rollouts_performed": bool(((simulator_readiness or {}).get("policy") or {}).get("rollouts_performed")),
+    "bounded_import_smoke_report_present": bounded_simulator_import_smoke is not None,
+    "bounded_import_smoke_passed": bool((bounded_simulator_import_smoke or {}).get("bounded_simulator_import_smoke_passed")),
+    "bounded_import_smoke_decision": (bounded_simulator_import_smoke or {}).get("decision"),
+    "bounded_import_smoke_imports_attempted": bool(((bounded_simulator_import_smoke or {}).get("policy") or {}).get("simulator_imports_attempted")),
+    "bounded_import_smoke_rollouts_performed": bool(((bounded_simulator_import_smoke or {}).get("policy") or {}).get("rollouts_performed")),
     "stop_reasons": (simulator_readiness or {}).get("stop_reasons", []),
     "warnings": (simulator_readiness or {}).get("warnings", []),
 }
@@ -234,6 +241,8 @@ if libero_data_gates["ready_for_simulator_readiness_risk_assessment"]:
     elif not simulator_readiness_gates["ready_for_simulator_import_smoke"]:
         reason_text = ", ".join(simulator_readiness_gates["stop_reasons"]) or "simulator import smoke is not ready"
         blocked_by.append(f"simulator import/render/rollout remains blocked: {reason_text}")
+    elif simulator_readiness_gates["bounded_import_smoke_report_present"] and not simulator_readiness_gates["bounded_import_smoke_passed"]:
+        blocked_by.append("bounded simulator import smoke report is present but did not pass")
 
 decision = (
     "no_go_for_next_larger_experimental_stage"
@@ -241,7 +250,11 @@ decision = (
     else "no_go_until_safe_smoke_evidence_is_complete"
 )
 recommended_next_step = (
-    "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded simulator import-smoke branch; do not render or rollout."
+    "Bounded simulator import smoke passed. Create a separate bounded render-smoke risk gate if needed; do not rollout or claim standard success."
+    if simulator_readiness_gates["bounded_import_smoke_passed"]
+    else "Bounded simulator import smoke ran but did not pass. Resolve WSL/Linux simulator dependency/import errors before render smoke or rollout."
+    if simulator_readiness_gates["bounded_import_smoke_report_present"]
+    else "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded simulator import-smoke branch; do not render or rollout."
     if simulator_readiness_gates["ready_for_simulator_import_smoke"]
     else "Simulator readiness planner ran and keeps import/render/rollout blocked. Configure WSL2/Linux simulator readiness, then rerun the planner before any simulator import smoke."
     if simulator_readiness_gates["report_present"]

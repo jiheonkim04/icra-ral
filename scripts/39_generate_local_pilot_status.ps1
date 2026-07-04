@@ -86,6 +86,7 @@ REPORTS = {
     "libero_offline_lora_comparison": REPO / "reports" / "libero_offline_lora_comparison_report.json",
     "libero_offline_bounded_pilot": REPO / "reports" / "libero_offline_bounded_pilot_report.json",
     "simulator_readiness": REPO / "reports" / "simulator_readiness_plan_report.json",
+    "bounded_simulator_import_smoke": REPO / "reports" / "bounded_simulator_import_smoke_report.json",
     "go_no_go": REPO / "reports" / "go_no_go_status_report.json",
 }
 
@@ -147,6 +148,11 @@ status = {
     "simulator_render_smoke_ready": bool(data("simulator_readiness").get("ready_for_simulator_render_smoke")),
     "simulator_rollout_ready": bool(data("simulator_readiness").get("ready_for_libero_rollout")),
     "simulator_stop_reasons": data("simulator_readiness").get("stop_reasons", []),
+    "bounded_simulator_import_smoke_report_present": bool(loaded["bounded_simulator_import_smoke"].get("exists")),
+    "bounded_simulator_import_smoke_passed": bool(data("bounded_simulator_import_smoke").get("bounded_simulator_import_smoke_passed")),
+    "bounded_simulator_import_smoke_decision": data("bounded_simulator_import_smoke").get("decision"),
+    "bounded_simulator_import_smoke_imports_attempted": bool((data("bounded_simulator_import_smoke").get("policy") or {}).get("simulator_imports_attempted")),
+    "bounded_simulator_import_smoke_rollouts_performed": bool((data("bounded_simulator_import_smoke").get("policy") or {}).get("rollouts_performed")),
     "libero_rollout_ready": bool(data("libero_offline_interface").get("ready_for_rollout")),
     "ready_for_bounded_local_pilot": bool(data("go_no_go").get("ready_for_bounded_local_pilot")),
     "blocked_for_larger_paper_grade_stage": bool(data("go_no_go").get("blocked_for_larger_paper_grade_stage", True)),
@@ -172,7 +178,11 @@ all_bounded_smokes_passed = all(
 missing_reports = [name for name, item in loaded.items() if not item.get("exists")]
 parse_errors = {name: item.get("error") for name, item in loaded.items() if item.get("error")}
 recommended_next_step = (
-    "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded import-smoke branch; keep render/rollout blocked."
+    "Bounded simulator import smoke passed. Create a separate bounded render-smoke risk gate if needed; keep rollout blocked."
+    if status["bounded_simulator_import_smoke_passed"]
+    else "Bounded simulator import smoke ran but did not pass. Resolve WSL/Linux dependency or import errors before render smoke or rollout."
+    if status["bounded_simulator_import_smoke_report_present"]
+    else "Simulator readiness planner is green for import-smoke planning only. Create a separate bounded import-smoke branch; keep render/rollout blocked."
     if status["simulator_import_smoke_ready"]
     else "Simulator readiness planner ran and keeps import/render/rollout blocked. Resolve the listed stop reasons before any simulator import smoke."
     if status["simulator_readiness_report_present"]

@@ -429,6 +429,10 @@ The LIBERO offline bounded pilot report is implemented in `scripts\54_generate_l
 
 The simulator readiness planner remains planning-only and is now a first-class input to `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1`. The summaries report path readiness, selected runtime platform, import-smoke readiness, render-smoke readiness, rollout readiness, warnings, and stop reasons without importing simulators, rendering, rolling out, training, using GPU, importing heavy VLA models, executing OpenVLA-OFT, accessing tokens, or making paper claims.
 
+The bounded simulator import smoke scaffold is implemented in `scripts\55_bounded_simulator_import_smoke.ps1`. It requires task-local `ALLOW_SIMULATOR_IMPORT_SMOKE=1`, reruns the planning-only readiness gate, and may attempt only WSL-visible `robosuite` and `libero` Python package imports. It does not render, create or step simulator environments, rollout policies, train, use GPU, download, install packages, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current local bounded simulator import smoke result: the script ran under the task-local gate, WSL path and `python3` probes passed, `libero` imported, and `robosuite` import stopped because WSL Python is missing `numpy`. No render, rollout, simulator environment step, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred. The next safe task is a WSL simulator dependency risk planner, not a rollout.
+
 The offline interface smoke gate inspects the acquired LIBERO demonstrations without model loading, training, simulator execution, rollout, OpenVLA-OFT, or paper claims. Its HDF5 report now records bounded samples instead of dumping every dataset path.
 
 The consolidated local pilot and go/no-go summaries now include these LIBERO data gates when their runtime reports are present.

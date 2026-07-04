@@ -483,3 +483,13 @@ Decision: Treat the simulator readiness planner report as a first-class input to
 Reason: After the LIBERO offline bounded pilot passes, the current blocker is simulator import/render/rollout readiness. The consolidated status reports should show whether `scripts\43_plan_simulator_readiness.ps1` has run, which platform it selected, and why import/render/rollout remain blocked.
 
 Consequence: `scripts\39_generate_local_pilot_status.ps1` and `scripts\31_generate_go_no_go_report.ps1` now read `reports\simulator_readiness_plan_report.json` when present. They still perform no simulator imports, render smoke, rollouts, downloads, GPU jobs, training, heavy VLA imports, OpenVLA-OFT execution, token access, or paper claims.
+
+## Bounded Simulator Import Smoke Scaffold
+
+Decision: Add a task-local gated simulator import-only smoke for WSL/Linux readiness.
+
+Reason: The readiness planner can show that paths and WSL are available, but the next safe question is whether local `robosuite` and `libero` packages are import-visible without rendering, stepping environments, rolling out policies, or changing dependencies.
+
+Consequence: `scripts\55_bounded_simulator_import_smoke.ps1` requires `ALLOW_SIMULATOR_IMPORT_SMOKE=1` after a green risk assessment and attempts only package imports in WSL. The output is ignored runtime readiness evidence, not standard success, not rollout success, and not paper-grade evidence.
+
+Follow-up: The first local bounded run found that WSL `libero` imports but `robosuite` needs `numpy` in WSL Python. Dependency installation is not folded into the import-smoke script; it requires a separate risk-planned dependency task.
