@@ -735,3 +735,11 @@ Risk: Multiple bounded diagnostics can pass wrapper execution while all task rew
 Impact: The project could spend local runtime on additional variants that are unlikely to clarify the core compatibility issue.
 
 Mitigation: After adapter strategy, action scale, prompt format, camera source, and state sufficiency all produce zero reward, prefer synthesis, no-go analysis, and environment-policy compatibility inspection over rollout scaling. Any further learned-policy diagnostic should have a specific compatibility hypothesis and remain one-task bounded.
+
+## Rollout Scaling After No-Go Synthesis Risk
+
+Risk: The project could continue to larger learned-policy rollout matrices even after the diagnostic synthesis reports no positive signal.
+
+Impact: Local runtime would be spent on a path that the current evidence says is unlikely to produce useful method evidence, and the boundary between diagnostic evidence and benchmark evidence could blur.
+
+Mitigation: `scripts\92_generate_learned_policy_diagnostic_synthesis.ps1` records `decision=no_go_rollout_scaling`, `positive_diagnostic_signal_found=false`, and `ready_for_rollout_scaling=false`. The next step must be a bounded environment-policy compatibility audit or a narrowly justified one-task compatibility fix, not broader rollout scaling or paper-grade claims.
