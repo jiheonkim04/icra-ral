@@ -1,0 +1,23 @@
+libero_offline_counterfactual_split:
+  description: Tiny local LIBERO HDF5-backed counterfactual split manifest for offline proxy comparison.
+
+suites:
+  - libero_spatial
+  - libero_object
+  - libero_goal
+  - libero_10
+
+max_tasks_per_suite: 4
+max_demo_files: 64
+max_counterfactual_pairs: 8
+requires_h5py: true
+offline_proxy_only: true
+forbidden:
+  - downloads
+  - gpu_jobs
+  - training
+  - simulator_execution
+  - rollouts
+  - heavy_vla_imports
+  - openvla_oft
+  - paper_grade_claims

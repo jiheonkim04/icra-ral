@@ -384,6 +384,14 @@ Impact: Routine safe checks become noisy, slow to review, and harder to diagnose
 
 Mitigation: `tca_map.datasets.libero_offline_interface.inspect_hdf5` records bounded samples: `dataset_count`, `dataset_sample_limit`, `datasets_sample`, and `action_dataset_paths_sample`. It keeps action-field readiness while avoiding full HDF5 tree dumps.
 
+## LIBERO Counterfactual Split Overclaim Risk
+
+Risk: A tiny HDF5-backed counterfactual split could be mistaken for benchmark evaluation or rollout evidence.
+
+Impact: Offline proxy plumbing could be overinterpreted as standard success, counterfactual success, or paper-grade evidence.
+
+Mitigation: `scripts\51_build_libero_offline_counterfactual_split.ps1` is check-only and manifest-only. It reads local BDDL metadata and HDF5 structure, sets `offline_proxy_only=true`, and keeps training, simulator execution, rollouts, heavy VLA imports, OpenVLA-OFT, token access, and paper claims forbidden.
+
 ## LIBERO Rollout Readiness Overstatement
 
 Risk: Asset checkers could mark `ready_for_libero_rollout=true` merely because LIBERO, RoboSuite, and data paths exist.
