@@ -1107,3 +1107,11 @@ Decision: Add a report-only pivot plan after checkpoint/task provenance blocks l
 Reason: The current base checkpoint is not valid LIBERO learned-policy rollout evidence, but the real-LIBERO offline head and LoRA proxy reports are available. The project needs a clean path that keeps paper work moving without overclaiming rollout evidence.
 
 Consequence: `scripts\123_plan_offline_tca_map_lora_pivot.ps1` selects an offline evidence table and gap report when provenance no-go and offline reports are present. It keeps learned-policy rollout scaling, standard success, benchmark success, paper claims, OpenVLA-OFT, downloads, GPU jobs, and heavy imports blocked.
+
+## Offline Evidence Gap Report
+
+Decision: Add a report-only evidence table/gap report for the real-LIBERO offline proxy ladder.
+
+Reason: The pivot plan selected offline evidence consolidation. The project needs one compact table for ActionMap, TCA-Map, Distributional TCA-Select, required LoRA arms, and remaining blockers before planning any scale-up.
+
+Consequence: `scripts\124_generate_offline_evidence_gap_report.ps1` consolidates existing offline proxy reports and records that standard success, learned-policy rollout scaling, benchmark claims, and paper claims remain blocked. It does not run training, rollout, model loading, inference, GPU jobs, downloads, OpenVLA-OFT, or heavy imports.

@@ -628,6 +628,18 @@ Current local result: pivot plan passed with `decision=pivot_offline_evidence_la
 
 54. Next safe step: create a report-only offline evidence table and gap report. It should consolidate ActionMap, TCA-Map, Distributional TCA-Select, required LoRA, and remaining rollout/checkpoint blockers. It must not train, rollout, download, load models, infer, use GPU jobs, execute OpenVLA-OFT, or make paper claims.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\124_generate_offline_evidence_gap_report.ps1
+```
+
+Expected interpretation: if this report passes, the next safe task is a bounded LoRA/offline-proxy scale-up plan on real LIBERO HDF5 subsets. Keep current-checkpoint learned-policy rollout scaling and paper claims blocked.
+
+Current local result: evidence gap report passed with `decision=offline_evidence_table_ready`, `ready_for_lora_scaleup_plan=true`, `ready_for_offline_proxy_extension=true`, and `ready_for_learned_policy_rollout_scaling=false`.
+
+55. Next safe step: plan a bounded LoRA/offline-proxy scale-up on real LIBERO HDF5 subsets. Keep it planning-only first. It should define max files/pairs/samples/steps, CPU-first defaults, no full fine-tuning, no rollout, no model loading unless separately gated, no GPU job unless a later budget is green, no OpenVLA-OFT, and no paper claim.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:

@@ -997,3 +997,13 @@ Impact: The paper path could overclaim from useful but offline diagnostic eviden
 Mitigation: `scripts\123_plan_offline_tca_map_lora_pivot.ps1` is report-only and explicitly selects an evidence table/gap report, not a paper claim. It keeps learned-policy rollout scaling, standard success, benchmark success, SOTA claims, paper claims, OpenVLA-OFT, downloads, GPU jobs, and heavy imports blocked.
 
 Current status: the pivot plan selected an offline evidence table and gap report. Learned-policy rollout scaling remains blocked for the current checkpoint.
+
+## Offline Evidence Table Overinterpretation Risk
+
+Risk: A consolidated evidence table may make offline proxy deltas look paper-grade even though no valid learned-policy rollout success exists.
+
+Impact: The project could overstate TCA-Map or LoRA gains from deterministic/offline proxy scaffolds.
+
+Mitigation: `scripts\124_generate_offline_evidence_gap_report.ps1` labels every arm as offline proxy/not paper-grade and includes explicit gaps for standard success, learned-policy rollout, and paper claims.
+
+Current status: the evidence gap report passed and selected bounded LoRA/offline-proxy scale-up planning as the next safe step. Current-checkpoint learned-policy rollout scaling and paper claims remain blocked.
