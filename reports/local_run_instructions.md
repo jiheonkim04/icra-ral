@@ -108,6 +108,7 @@ Build a metadata-only task/counterfactual manifest from local BDDL files:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\47_build_libero_metadata_subset.ps1
 powershell -ExecutionPolicy Bypass -File scripts\48_plan_libero_offline_interface_smoke.ps1
+powershell -ExecutionPolicy Bypass -File scripts\50_check_libero_hdf5_reader.ps1
 ```
 
 This refuses execution gates such as `ALLOW_DOWNLOADS=1` or `ALLOW_HEAVY_IMPORT=1`. It is not a real dataset smoke, not rollout readiness, and not paper-grade evidence.

@@ -186,6 +186,7 @@ powershell -ExecutionPolicy Bypass -File scripts/45_resolve_libero_robosuite_sou
 powershell -ExecutionPolicy Bypass -File scripts/47_build_libero_metadata_subset.ps1
 powershell -ExecutionPolicy Bypass -File scripts/48_plan_libero_offline_interface_smoke.ps1
 powershell -ExecutionPolicy Bypass -File scripts/49_acquire_libero_data.ps1 -RemoteSizeCheck
+powershell -ExecutionPolicy Bypass -File scripts/50_check_libero_hdf5_reader.ps1
 ```
 
 Publication-oriented tables should separate:

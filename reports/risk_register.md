@@ -367,3 +367,19 @@ Risk: A structural offline file check could drift into real dataset training or 
 Impact: Invalid evidence, accidental training, or premature claims from file-format readiness alone.
 
 Mitigation: `scripts\48_plan_libero_offline_interface_smoke.ps1` is check-only, refuses execution gates, reports rollout readiness as false, and labels its result as not standard success and not paper-grade evidence. It proceeds only when a tiny local file has readable instruction/action-like fields.
+
+## LIBERO HDF5 Reader Dependency Risk
+
+Risk: The official LIBERO data may be present, but HDF5 inspection can fail if `h5py` is missing or incompatible.
+
+Impact: Offline real-data interface smoke remains blocked even though the dataset is acquired; ad hoc dependency installation could accidentally change broader environment packages.
+
+Mitigation: Use `scripts\50_check_libero_hdf5_reader.ps1` first. If `h5py` is missing, perform a separate dependency risk assessment before installing it. Do not change CUDA/PyTorch versions, install simulator stacks, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.
+
+## LIBERO Rollout Readiness Overstatement
+
+Risk: Asset checkers could mark `ready_for_libero_rollout=true` merely because LIBERO, RoboSuite, and data paths exist.
+
+Impact: A path/data-ready state could be mistaken for permission to run simulator rollouts.
+
+Mitigation: `scripts\11_check_real_assets.ps1` and hard-stop summaries keep `ready_for_libero_rollout=false` unless a separate simulator import/render/rollout risk gate is implemented and passes. Path/data readiness is reported separately.

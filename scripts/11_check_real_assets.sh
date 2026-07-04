@@ -94,14 +94,17 @@ if [[ "${ASSET_EXISTS[openvla_oft_ckpt]}" == true && "${ASSET_EXISTS[hf_home]}" 
   ready_for_openvla_oft_smoke=true
 fi
 
-ready_for_libero_rollout=false
+ready_for_libero_rollout_path_check=false
 if [[ "${ASSET_EXISTS[libero_root]}" == true && "${ASSET_EXISTS[libero_data_root]}" == true && "${ASSET_EXISTS[robosuite_root]}" == true ]]; then
-  ready_for_libero_rollout=true
+  ready_for_libero_rollout_path_check=true
 fi
+ready_for_libero_rollout=false
 
 echo "ready_for_smolvla_smoke: $ready_for_smolvla_smoke"
 echo "ready_for_openvla_oft_smoke: $ready_for_openvla_oft_smoke"
+echo "ready_for_libero_rollout_path_check: $ready_for_libero_rollout_path_check"
 echo "ready_for_libero_rollout: $ready_for_libero_rollout"
+echo "ready_for_libero_rollout_reason: Rollout readiness is never inferred from paths alone; run a separate simulator import/render/rollout risk gate."
 echo "missing_assets: ${MISSING_ASSETS[*]:-none}"
 
 if [[ "$ready_for_smolvla_smoke" == true ]]; then

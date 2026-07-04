@@ -75,6 +75,7 @@ $required = @(
     "reports/libero_metadata_subset_plan.md",
     "reports/libero_offline_interface_smoke_plan.md",
     "reports/libero_data_acquisition_plan.md",
+    "reports/libero_hdf5_reader_dependency_plan.md",
     "reports/simulator_readiness_plan.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
@@ -119,6 +120,7 @@ $required = @(
     "scripts/47_build_libero_metadata_subset.ps1",
     "scripts/48_plan_libero_offline_interface_smoke.ps1",
     "scripts/49_acquire_libero_data.ps1",
+    "scripts/50_check_libero_hdf5_reader.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -178,6 +180,7 @@ $required = @(
     "tests/test_libero_metadata_subset.py",
     "tests/test_libero_offline_interface_smoke.py",
     "tests/test_libero_data_acquisition.py",
+    "tests/test_libero_hdf5_reader_check.py",
     "tests/test_simulator_readiness_plan.py",
     "tests/test_lora_config_guards.py"
 )
