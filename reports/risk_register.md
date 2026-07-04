@@ -927,3 +927,13 @@ Impact: The project could mistake offline action similarity for standard success
 Mitigation: Plan and run at most three HDF5 timestep decodes, compare directly against the previous `load_vlm_weights=false` metrics, keep rollout scaling blocked until alignment improves, and label results as offline diagnostic evidence only.
 
 Current status: the VLM-enabled recheck passed and improved mean action L1/MSE versus the previous no-VLM repeated offline diagnostic, but the resulting alignment signal is still `weak` and clipped action values remain. Treat this as evidence that VLM loading matters, not as evidence of benchmark success. Continue with VLM-on/off summary and action-normalization/provenance analysis before any rollout scaling.
+
+## VLM-On/Off Summary Overinterpretation Risk
+
+Risk: A compact VLM-on/off summary may make the improvement look more conclusive than it is.
+
+Impact: The project could move to learned-policy rollout scaling even though the offline alignment signal is still weak and action clipping persists.
+
+Mitigation: `scripts\117_summarize_vlm_enabled_offline_decoding.ps1` labels the comparison as report-only diagnostic evidence, keeps rollout scaling, benchmark claims, and paper claims false, and routes the next step to action-normalization/provenance analysis when weak alignment or clipping remains.
+
+Current status: the summary passed and found meaningful VLM-on improvement, but alignment remained `weak` and clipping persisted. This keeps the overinterpretation risk active and routes the next safe task to action-normalization/provenance audit.

@@ -1441,3 +1441,28 @@ Current local result:
 - downloads/installs/training/rollout/GPU jobs/OpenVLA-OFT/token access/paper claims: false.
 
 Interpretation: enabling VLM weights improves the tiny offline action-distance metrics versus the previous no-VLM repeated diagnostic, but the alignment signal is still `weak` and still not rollout, benchmark, standard-success, counterfactual-robustness, or paper-grade evidence. The next safe step is a report-only VLM-enabled versus no-VLM offline decoding summary and action-normalization/provenance analysis before any rollout scaling.
+
+## VLM-Enabled Offline Decoding Summary
+
+The report-only VLM-on/off comparison is implemented by `scripts\117_summarize_vlm_enabled_offline_decoding.ps1` and `tca_map.smolvla.vlm_enabled_offline_decoding_summary`.
+
+Scope:
+
+- reads the existing no-VLM and VLM-enabled repeated offline decoding runtime reports,
+- reads local SmolVLA config/preprocessor/postprocessor JSON files,
+- computes action-distance deltas and remaining blockers,
+- does not download, install, import heavy VLA models, load models, infer, train, rollout, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
+
+Current local result:
+
+- summary passed,
+- no-VLM mean action L1/MSE: `0.412322` / `0.286972`,
+- VLM-enabled mean action L1/MSE: `0.301665` / `0.216188`,
+- L1/MSE reduction: `26.838%` / `24.666%`,
+- both no-VLM and VLM-enabled alignment signals remain `weak`,
+- both runs have clipped values total `3`,
+- config action normalization is ACTION `MEAN_STD`,
+- policy action shape is `6`, while local LIBERO expert actions are adapted as `7D`,
+- rollout scaling, benchmark claims, and paper claims remain blocked.
+
+Interpretation: VLM-enabled loading is behaviorally relevant, but the current blocker has shifted to action-normalization/provenance and 6D-to-7D adapter interpretation. The next safe step is a report-only action-normalization/provenance audit before any learned-policy rollout scaling.
