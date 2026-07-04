@@ -11,11 +11,15 @@ Included arms:
 - TCA-Map + Distributional TCA-Select,
 - ActionMap + LoRA,
 - TCA-Map + LoRA,
-- TCA-Map + LoRA + Distributional TCA-Select.
+- TCA-Map + LoRA + Distributional TCA-Select,
+- bounded ActionMap + LoRA scale-up, when `reports\bounded_lora_offline_scaleup_report.json` exists,
+- bounded TCA-Map + LoRA scale-up, when that report exists,
+- bounded TCA-Map + LoRA + Distributional TCA-Select scale-up, when that report exists.
 
 Required interpretation:
 
 - offline proxy improvements are useful for method debugging,
+- bounded LoRA scale-up evidence remains offline proxy evidence only,
 - learned-policy rollout with the current base checkpoint remains blocked by checkpoint/action provenance,
 - paper claims require valid simulator rollout evidence, comparable baselines, compute reporting, and no privileged inference.
 

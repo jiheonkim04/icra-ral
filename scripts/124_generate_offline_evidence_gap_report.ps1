@@ -3,6 +3,7 @@ param(
     [string]$PivotReportPath = "reports\offline_tca_map_lora_pivot_plan_report.json",
     [string]$HeadReportPath = "reports\libero_offline_actionmap_tca_comparison_report.json",
     [string]$LoraReportPath = "reports\libero_offline_lora_comparison_report.json",
+    [string]$BoundedLoraScaleupReportPath = "reports\bounded_lora_offline_scaleup_report.json",
     [string]$ProvenanceReportPath = "reports\checkpoint_task_provenance_resolution_report.json",
     [string]$BoundedPilotReportPath = "reports\libero_offline_bounded_pilot_report.json",
     [string]$ReportPath = "reports\offline_tca_lora_evidence_gap_report_runtime.json",
@@ -30,6 +31,7 @@ if (-not (Test-Path -LiteralPath $Python)) {
     --pivot-report $PivotReportPath `
     --head-report $HeadReportPath `
     --lora-report $LoraReportPath `
+    --bounded-lora-scaleup-report $BoundedLoraScaleupReportPath `
     --provenance-report $ProvenanceReportPath `
     --bounded-pilot-report $BoundedPilotReportPath `
     --report-path $ReportPath `
