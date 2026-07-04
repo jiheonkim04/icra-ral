@@ -271,10 +271,11 @@ powershell -ExecutionPolicy Bypass -File scripts\18_plan_smolvla_runtime_install
 
 This planner is check-only. It writes `reports\smolvla_runtime_install_plan_report.json`, refuses dangerous gates such as `ALLOW_DOWNLOADS=1` or `ALLOW_HEAVY_IMPORT=1`, and does not install packages.
 
-Other missing assets currently expected:
+Other missing readiness inputs currently expected:
 
 - OpenVLA-OFT checkpoint,
-- LIBERO demonstration files or a documented tiny subset.
+- `h5py>=3.11` reader dependency for local LIBERO HDF5 inspection,
+- separate simulator import/render/rollout readiness gates before any rollout metric.
 
 The LIBERO and RoboSuite source checkouts are now path-ready after bounded source repo setup:
 
@@ -284,7 +285,7 @@ ROBOSUITE_ROOT=C:\assets\repos\robosuite
 LIBERO_DATA_ROOT=C:\assets\data\libero
 ```
 
-The LIBERO data root is path-ready only. The full official LIBERO demonstrations dataset was not downloaded by source setup, but the policy now allows a dedicated official LIBERO acquisition gate with a 180 GB task budget if at least 250 GB disk remains after acquisition. `reports\libero_robosuite_setup_report.json` records that only source repos were acquired and that no simulator, rollout, training, GPU job, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim occurred.
+The LIBERO data root now contains the official `yifengzhu-hf/LIBERO-datasets` demonstrations acquired under the dedicated 180 GB LIBERO data gate. Dataset files remain outside git under `C:\assets\data\libero`. Offline HDF5 interface inspection is blocked only by the lightweight `h5py>=3.11` reader dependency; rollout readiness remains false until a separate simulator risk gate passes.
 
 ## Current Gate
 
@@ -300,13 +301,13 @@ Ready SmolVLA file groups:
 - external tokenizer/processor/config dependency files,
 - weights file.
 
-The current executable local path is now blocked at the real dataset/simulator boundary:
+The current executable local path is now blocked at the LIBERO HDF5 reader boundary:
 
 - `LIBERO_ROOT` exists,
 - `ROBOSUITE_ROOT` exists,
 - `LIBERO_DATA_ROOT` exists,
-- no real LIBERO demonstration files or documented tiny subset are present under `LIBERO_DATA_ROOT`,
-- the official full LIBERO dataset has been acquired under `C:\assets\data\libero` from `yifengzhu-hf/LIBERO-datasets`; runtime acquisition reports are ignored and dataset files are not committed.
+- official LIBERO HDF5 demonstration files are present under `LIBERO_DATA_ROOT`,
+- the official full LIBERO dataset has been acquired under `C:\assets\data\libero` from `yifengzhu-hf/LIBERO-datasets`; runtime acquisition reports are ignored and dataset files are not committed,
 - offline HDF5 interface inspection is currently gated by the `h5py` reader dependency.
 
 Codex should keep running routine readiness and status checks without asking. The next safe work is planning-only dataset/simulator readiness, status maintenance, or larger-compute handoff planning. It must stop before dataset acquisition, simulator import/render/rollout, real benchmark evaluation, OpenVLA-OFT, token access, paper-grade claims, jobs over 30 minutes, more than 14GB VRAM, major CUDA/PyTorch changes, or unplanned large package installs unless a risk assessment is green and inside policy.
@@ -417,9 +418,9 @@ Reasons:
 
 Safe autonomous work can continue on checkers, docs, reports, and planning-only risk assessment. HDF5 reader dependency setup requires a separate risk assessment. Simulator import/render smoke, rollout, or real benchmark work must wait for a green risk assessment inside the current budget.
 
-The next safe local action is to run the metadata-only LIBERO subset builder. That can validate task/counterfactual split plumbing from BDDL files, but it does not clear real offline dataset interface readiness because no demonstration files are present.
+The next safe local action is a dependency risk assessment for installing `h5py>=3.11` as a reader-only package. If that risk assessment is green and does not require CUDA/PyTorch changes, simulator packages, token access, or large downloads, Codex can proceed to install the reader dependency, rerun `scripts\50_check_libero_hdf5_reader.ps1`, and then run the offline interface smoke gate.
 
-After the metadata-only builder, the offline interface smoke gate can be run safely. In the current local state it should report `stop`, because `LIBERO_DATA_ROOT` contains only the no-full-dataset marker and no demo/data files.
+After the HDF5 reader is available, the offline interface smoke gate can inspect the acquired LIBERO demonstrations without model loading, training, simulator execution, rollout, OpenVLA-OFT, or paper claims.
 
 The consolidated local pilot and go/no-go summaries now include these LIBERO data gates when their runtime reports are present.
 

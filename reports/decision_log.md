@@ -419,3 +419,11 @@ Decision: Separate acquired-data readiness, HDF5 reader readiness, and rollout r
 Reason: After official LIBERO data acquisition, HDF5 files can exist locally while `h5py` is unavailable. Also, path/data readiness must not imply simulator rollout readiness.
 
 Consequence: `scripts\50_check_libero_hdf5_reader.ps1` checks `h5py` availability without installing packages. `scripts\11_check_real_assets.ps1` reports path/data readiness separately and keeps `ready_for_libero_rollout=false` until a separate simulator import/render/rollout risk gate exists and passes.
+
+## h5py As LIBERO Reader Dependency
+
+Decision: Declare `h5py>=3.11` as the required reader dependency for local LIBERO HDF5 offline interface inspection.
+
+Reason: The official LIBERO demonstrations are HDF5 files. Without `h5py`, the repository can confirm file presence but cannot inspect instruction/action-like fields for the offline interface smoke.
+
+Consequence: `requirements.txt` includes `h5py>=3.11`, and `pyproject.toml` exposes a `libero` optional dependency group. Installing it still requires a green dependency risk assessment and must not change CUDA/PyTorch versions, install simulators, train, rollout, import heavy VLA models, execute OpenVLA-OFT, or make paper claims.

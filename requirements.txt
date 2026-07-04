@@ -6,6 +6,11 @@ PyYAML>=6.0
 pytest>=8.0
 num2words>=0.5.14
 
+# Required for local LIBERO HDF5 offline interface inspection after official
+# LIBERO data are acquired. This is a reader dependency, not a simulator or
+# training dependency.
+h5py>=3.11
+
 # Optional later, install manually only when running real VLA pilots:
 # torch
 # transformers
