@@ -158,6 +158,39 @@ def test_zero_action_policy_comparison_prioritizes_adapter_patch(tmp_path):
     assert md_report.exists()
 
 
+def test_zero_action_policy_comparison_recognizes_adapter_wired_zero_reward(tmp_path):
+    zero, learned, audit = _write_inputs(tmp_path)
+    payload = json.loads(learned.read_text(encoding="utf-8"))
+    payload["metric_summary"].update(
+        {
+            "adapter_metadata_present": True,
+            "action_adapter_strategies": ["policy_6d_delta_pose_plus_gripper_zero_hold"],
+            "state_adapters": ["diagnostic_eef_pos_quat_xyz_6d_state_adapter"],
+            "image_source_keys": {
+                "observation.images.camera1": "agentview_image",
+                "observation.images.camera2": "robot0_eye_in_hand_image",
+            },
+            "action_adapter_implicit_padding_performed": False,
+            "action_adapter_truncation_performed": False,
+            "state_adapter_implicit_padding_performed": False,
+            "state_adapter_silent_truncation_performed": False,
+            "image_zero_fallback_performed": False,
+        }
+    )
+    _write_json(learned, payload)
+
+    result, report, _, _ = _run_comparison(tmp_path, zero, learned, audit)
+
+    assert result.returncode == 0, result.stderr
+    assert report["zero_action_policy_diagnostic_comparison_passed"] is True
+    assert report["comparison"]["explicit_adapter_metadata_present"] is True
+    assert report["comparison"]["adapter_wiring_clean"] is True
+    assert report["ready_for_action_state_adapter_patch_plan"] is False
+    assert report["ready_for_adapter_strategy_diagnosis"] is True
+    assert report["ready_for_rollout_scaling"] is False
+    assert "adapter-strategy/action-scale" in report["recommended_next_step"]
+
+
 def test_zero_action_policy_comparison_refuses_execution_gate(tmp_path):
     result, report, _, _ = _run_comparison(
         tmp_path,

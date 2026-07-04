@@ -682,9 +682,9 @@ Consequence: The next safe step is a metadata/report-only action-interface audit
 
 Decision: Treat the metadata audit as passed and block rollout scaling until interface diagnostics are addressed.
 
-Reason: `scripts\78_audit_action_interface_metadata.ps1` found high-priority action/control risks: 6D policy action versus 7D LIBERO action, gripper zero padding, state truncation in the observation bridge, and nontrivial policy actions with zero reward.
+Reason: `scripts\78_audit_action_interface_metadata.ps1` found high-priority action/control risks. After adapter wiring, the remaining risks are 6D policy action versus 7D LIBERO action through an explicit adapter, zero-hold gripper strategy needing validation, and nontrivial policy actions with zero reward.
 
-Consequence: The next safe steps are a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan. Larger rollout matrices are not useful until these interface risks are tested or mitigated.
+Consequence: The next safe steps are adapter-strategy, action-scale, prompt, camera, and state-sufficiency diagnostics. Larger rollout matrices are not useful until these interface risks are tested or mitigated.
 
 ## Zero-Action Versus Learned-Policy Comparison Scope
 
@@ -773,3 +773,11 @@ Decision: Treat rollout bridge adapter wiring as code-level validation only, not
 Reason: The learned-policy rollout bridge now imports and uses the pure action, state, and image adapter helpers. The bridge no longer contains the previous silent action padding helper, state truncation helper, or local image fallback selector, and task summaries include adapter metadata for later diagnostics.
 
 Consequence: The next safe step is a separately gated bounded diagnostic rollout rerun that compares explicit-adapter behavior against the prior zero-action and legacy learned-policy diagnostics. Do not treat this wiring result as benchmark success or paper-grade evidence.
+
+## Adapter-Wired Learned-Policy Diagnostic Result
+
+Decision: Do not scale rollout yet; move to adapter-strategy and action-scale diagnosis.
+
+Reason: The bounded one-task, 10-step learned-policy diagnostic passed execution with explicit adapter metadata recorded, but diagnostic success remained `0.0` and reward sum remained `0.0`. The zero-action comparison still shows no learned-policy improvement.
+
+Consequence: Keep rollout scaling blocked. Next work should compare diagnostic adapter strategies, action scale/normalization, prompt format, and camera/state mapping before larger rollout matrices or paper claims.

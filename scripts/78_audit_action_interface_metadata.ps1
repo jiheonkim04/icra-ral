@@ -193,6 +193,10 @@ expected_state_keys = [
 state_builder_unique = [key for key in expected_state_keys if key in source_text]
 state_truncates = "values = values[:dim]" in source_text
 state_dim = config_state_shape[-1] if config_state_shape else None
+bridge_uses_action_adapter = "adapt_policy_action_to_env_action" in source_text
+bridge_uses_state_adapter = "adapt_observation_state" in source_text
+bridge_uses_image_adapter = "select_image_source" in source_text
+bridge_has_implicit_action_padding = "values.extend([0.0]" in source_text or "return values[:action_dim]" in source_text
 
 findings = []
 def add_finding(name, severity, evidence, recommendation):
@@ -205,19 +209,43 @@ def add_finding(name, severity, evidence, recommendation):
 
 action_dim_mismatch = policy_action_dim is not None and env_action_dim is not None and int(policy_action_dim) != int(env_action_dim)
 if action_dim_mismatch:
-    add_finding(
-        "action_dim_mismatch",
-        "high",
-        {"policy_action_dim": policy_action_dim, "env_action_dim": env_action_dim},
-        "Create an explicit action adapter policy instead of implicit padding/truncation.",
-    )
+    if bridge_uses_action_adapter and not bridge_has_implicit_action_padding:
+        add_finding(
+            "action_dim_mismatch_explicit_adapter_in_use",
+            "high",
+            {
+                "policy_action_dim": policy_action_dim,
+                "env_action_dim": env_action_dim,
+                "bridge_uses_action_adapter": bridge_uses_action_adapter,
+                "bridge_has_implicit_action_padding": bridge_has_implicit_action_padding,
+            },
+            "Diagnose adapter strategy, action scale, and gripper semantics before rollout scaling.",
+        )
+    else:
+        add_finding(
+            "action_dim_mismatch",
+            "high",
+            {"policy_action_dim": policy_action_dim, "env_action_dim": env_action_dim},
+            "Create an explicit action adapter policy instead of implicit padding/truncation.",
+        )
 if action_dim_mismatch and gripper_component == 0.0:
-    add_finding(
-        "gripper_constant_zero",
-        "high",
-        {"gripper_component": gripper_component},
-        "Audit whether gripper should be held, opened, closed, copied from dataset, or controlled by a separate head.",
-    )
+    if bridge_uses_action_adapter and not bridge_has_implicit_action_padding:
+        add_finding(
+            "gripper_zero_hold_strategy_requires_validation",
+            "high",
+            {
+                "gripper_component": gripper_component,
+                "bridge_uses_action_adapter": bridge_uses_action_adapter,
+            },
+            "Compare diagnostic gripper strategies and action scaling before rollout scaling.",
+        )
+    else:
+        add_finding(
+            "gripper_constant_zero",
+            "high",
+            {"gripper_component": gripper_component},
+            "Audit whether gripper should be held, opened, closed, copied from dataset, or controlled by a separate head.",
+        )
 if state_dim == 6 and state_truncates and len(state_builder_unique) > 2:
     add_finding(
         "state_truncation_risk",
@@ -314,15 +342,28 @@ report = {
         "postprocessor_steps": processor_steps(post or {}),
         "state_builder_keys": state_builder_unique,
         "state_builder_truncates_to_dim": state_truncates,
+        "bridge_uses_action_adapter": bridge_uses_action_adapter,
+        "bridge_uses_state_adapter": bridge_uses_state_adapter,
+        "bridge_uses_image_adapter": bridge_uses_image_adapter,
+        "bridge_has_implicit_action_padding": bridge_has_implicit_action_padding,
     },
     "findings": findings,
     "high_priority_findings": [item["name"] for item in high_findings],
     "warnings": warnings,
     "stop_reasons": stop_reasons,
     "ready_for_zero_action_vs_policy_action_diagnostic": decision == "proceed",
-    "ready_for_action_adapter_patch_plan": decision == "proceed" and bool(high_findings),
+    "ready_for_action_adapter_patch_plan": (
+        decision == "proceed" and bool(high_findings) and not (bridge_uses_action_adapter and not bridge_has_implicit_action_padding)
+    ),
+    "ready_for_adapter_strategy_diagnosis": (
+        decision == "proceed" and bool(high_findings) and bridge_uses_action_adapter and not bridge_has_implicit_action_padding
+    ),
     "recommended_next_step": (
-        "Create a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan before rollout scaling."
+        (
+            "Run adapter-strategy/action-scale diagnostics before rollout scaling."
+            if bridge_uses_action_adapter and not bridge_has_implicit_action_padding
+            else "Create a bounded zero-action versus SmolVLA-action diagnostic and an explicit action/state adapter patch plan before rollout scaling."
+        )
         if decision == "proceed"
         else "Fix missing metadata/report inputs before action-interface audit."
     ),
@@ -344,6 +385,7 @@ lines = [
     f"- reward sum: {reward_sum}",
     f"- ready for zero-action vs policy diagnostic: {report['ready_for_zero_action_vs_policy_action_diagnostic']}",
     f"- ready for action adapter patch plan: {report['ready_for_action_adapter_patch_plan']}",
+    f"- ready for adapter strategy diagnosis: {report['ready_for_adapter_strategy_diagnosis']}",
     "",
     report["recommended_next_step"],
     "",

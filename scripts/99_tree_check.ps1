@@ -109,6 +109,7 @@ $required = @(
     "reports/action_state_adapter_patch_plan.md",
     "reports/pure_action_state_image_adapters.md",
     "reports/rollout_bridge_adapter_wiring_plan.md",
+    "reports/adapter_wired_learned_policy_diagnostic.md",
     "reports/publishability_criteria.md",
     "reports/reviewer2_tca_select_lora_risk.md",
     "reports/risk_register.md",

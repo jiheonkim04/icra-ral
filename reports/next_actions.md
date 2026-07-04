@@ -323,8 +323,10 @@ After WSL SmolVLA runtime readiness and single-action smoke passed, the separate
 12. Wire pure action/state/image adapters into the learned-policy rollout bridge.
     Done in code/tests only; rollout execution remains a separate bounded diagnostic gate.
 13. Rerun a bounded learned-policy diagnostic rollout with explicit adapter metadata only after the rollout gate is green.
-14. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
-15. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
+    Done; execution passed, explicit adapter metadata is present, but diagnostic success and reward remain 0.0.
+14. Run adapter-strategy and action-scale diagnostics before rollout scaling.
+15. Keep evidence labels as diagnostic or local pilot until baselines, ablations, and repeated benchmark protocol are implemented.
+16. Stop before multi-seed rollout, paper-grade claims, OpenVLA-OFT, full fine-tuning, external upload, token/secret access, payment/license click-through, or destructive/system-level changes.
 
 ## WSL Simulator Dependency Ladder Standing Approval
 

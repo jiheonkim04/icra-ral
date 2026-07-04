@@ -28,6 +28,17 @@ Tracked metrics:
 
 The output evidence label remains `reduced_scope_learned_policy_diagnostic`. It is not standard LIBERO success, not benchmark success, not counterfactual robustness evidence, not SOTA evidence, and not paper-grade evidence.
 
+After rollout bridge adapter wiring, the generated summary also records adapter metadata:
+
+- action adapter strategy,
+- state adapter name,
+- image source keys,
+- implicit action padding/truncation flags,
+- state padding/truncation flags,
+- zero-image fallback flag.
+
+This metadata is diagnostic only. It does not convert a local rollout into paper-grade evidence.
+
 ## Current Local Result
 
 Latest local summary passed as report-only diagnostic evidence:
