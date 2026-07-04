@@ -877,3 +877,11 @@ Decision: Add a report-only audit before any HDF5-aligned replay or repeated lea
 Reason: Offline first-action reproduction evidence is meaningful only if the rollout diagnostic uses the same task and a compatible initial-state convention. The local HDF5 demonstrations include `init_state`/`states`, while the current rollout bridge resets the environment without evidence of setting the demonstration initial state.
 
 Consequence: `scripts\97_audit_hdf5_rollout_alignment.ps1` reduces scope toward an HDF5 initial-state or first-action replay planner when task names match but initial-state alignment is not established. It keeps rollout scaling and paper claims blocked.
+
+## HDF5 Initial-State Replay Planner
+
+Decision: Add a planning-only gate for a one-demo HDF5 initial-state/first-action replay diagnostic.
+
+Reason: LIBERO/RoboSuite source code exposes initial-state and flattened-state replay paths, and the selected HDF5 demonstration contains the necessary init-state/action data, but executing replay still needs a separate bounded simulator task.
+
+Consequence: `scripts\98_plan_hdf5_initial_state_replay.ps1` can authorize only a separately gated replay runner. It does not authorize learned-policy inference, rollout scaling, training, OpenVLA-OFT, multi-seed evaluation, or paper-grade claims.
