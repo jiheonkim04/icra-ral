@@ -631,3 +631,11 @@ Risk: A zero-action versus learned-policy diagnostic comparison could be mistake
 Impact: The project could over-claim from a single diagnostic task with no repeated benchmark protocol.
 
 Mitigation: `scripts\79_compare_zero_action_policy_diagnostic.ps1` is summary-only, sets all claim flags false, and keeps `ready_for_rollout_scaling=false` when learned-policy actions do not outperform zero-action.
+
+## Direct Adapter Patch Regression Risk
+
+Risk: Changing rollout action/state mapping directly could create a new simulator behavior without a clear adapter contract.
+
+Impact: Later diagnostic results would be hard to attribute to action mapping, gripper strategy, state mapping, or camera alias changes.
+
+Mitigation: `scripts\80_plan_action_state_adapter_patch.ps1` requires pure adapter helpers and unit tests before rollout wiring, and keeps rollout scaling blocked until adapter metadata is reported.

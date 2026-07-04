@@ -701,3 +701,19 @@ Decision: Do not scale learned-policy rollout yet; plan the action/state adapter
 Reason: `scripts\79_compare_zero_action_policy_diagnostic.ps1` found that zero-action simulator plumbing passed and SmolVLA actions are nontrivial, but diagnostic success and reward did not improve over zero-action.
 
 Consequence: The next safe task is an explicit action/state adapter patch plan covering 6D-to-7D action mapping, gripper semantics, state mapping, and camera key aliases.
+
+## Action/State Adapter Patch Plan Scope
+
+Decision: Plan the adapter patch before changing rollout behavior.
+
+Reason: The current bridge has multiple interacting interface risks, and a direct rollout-code patch would be harder to validate safely.
+
+Consequence: The next implementation should add pure adapter helpers and unit tests first, then wire them into single-sample/interface smoke before another bounded diagnostic rollout.
+
+## Action/State Adapter Patch Plan Result
+
+Decision: Proceed to pure adapter implementation, not rollout scaling.
+
+Reason: `scripts\80_plan_action_state_adapter_patch.ps1` confirmed that action, state, and camera alias adapters are required and can be planned without executing models or simulators.
+
+Consequence: Add pure adapter helpers and unit tests next. Keep rollout scaling blocked until adapter metadata appears in single-sample/interface reports.
