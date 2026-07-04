@@ -1035,3 +1035,15 @@ Consequence: `scripts\116_bounded_vlm_enabled_repeated_offline_decoding.ps1` may
 Current result: The bounded runner passed on CPU with `load_vlm_weights=true` and decoded three local HDF5 timesteps. Mean action L1/MSE improved versus the previous no-VLM repeated diagnostic (`0.301665` / `0.216188` versus `0.412322` / `0.286972`), but the offline alignment signal remains `weak` and clipped values remain present.
 
 Consequence: VLM-enabled loading is behaviorally relevant, but still not enough to justify rollout scaling or paper claims. The next decision should summarize the VLM-on/off delta and inspect action normalization/provenance before any further learned-policy rollout.
+
+## VLM-Enabled Offline Decoding Summary
+
+Decision: Add a report-only VLM-on/off summary before any rollout decision.
+
+Reason: The VLM-enabled repeated offline diagnostic improved action L1/MSE but kept the alignment signal weak. The project needs a compact comparison and explicit normalization/provenance blocker list before choosing another learned-policy rollout hypothesis.
+
+Consequence: `scripts\117_summarize_vlm_enabled_offline_decoding.ps1` reads existing runtime reports and local config JSON only. It does not load models, infer, train, rollout, download, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims. If weak alignment and clipping remain, rollout scaling stays blocked.
+
+Current result: The summary passed. VLM-enabled loading reduced mean action L1/MSE by `26.838%` / `24.666%`, but the alignment signal remained `weak`, clipped values persisted, ACTION `MEAN_STD` normalization is active, and the 6D policy action shape still requires provenance analysis against the 7D LIBERO action convention.
+
+Consequence: Do not scale learned-policy rollout yet. The next decision should come from a report-only action-normalization/provenance audit.

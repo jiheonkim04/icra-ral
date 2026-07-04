@@ -544,6 +544,18 @@ Current local result: passed. With `load_vlm_weights=true`, the bounded offline 
 
 47. Next safe step: generate a report-only VLM-enabled versus no-VLM offline decoding summary and action-normalization/provenance diagnosis. Do not scale learned-policy rollouts until the offline alignment issue is explained or a separate green risk gate identifies a narrower rollout hypothesis.
 
+Command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\117_summarize_vlm_enabled_offline_decoding.ps1
+```
+
+If this summary confirms weak alignment and clipping, the next autonomous task is a report-only action-normalization/provenance audit over the SmolVLA processor stats, 6D policy action convention, 7D LIBERO action convention, and adapter clipping behavior.
+
+Current local result: summary passed. VLM-enabled loading reduced mean action L1/MSE by `26.838%` / `24.666%`, but alignment remained `weak`, clipping persisted, ACTION `MEAN_STD` normalization is active, and the 6D policy action convention still needs provenance analysis against the 7D LIBERO action convention.
+
+48. Next safe step: create the report-only action-normalization/provenance audit. It should inspect local processor stats, action unnormalizer metadata, 6D policy action dimensions, 7D LIBERO expert-action dimensions, adapter clipping, and whether the action scale/statistics explain the weak offline alignment. Do not load models, infer, train, rollout, download, use GPU jobs, execute OpenVLA-OFT, or make paper claims for this audit.
+
 ## WSL Simulator Dependency Ladder Standing Approval
 
 Current autonomous simulator-readiness sequence:
