@@ -408,6 +408,14 @@ Impact: Tiny NumPy adapter smoke over HDF5 snippets could be overstated as real 
 
 Mitigation: `scripts\53_compare_libero_offline_lora.ps1` requires `ALLOW_TINY_TRAINING=1`, trains only tiny NumPy low-rank adapter matrices, sets `offline_proxy_only=true`, and reports `not_standard_success=true` and `not_paper_grade=true`. It keeps GPU jobs, heavy model imports, model loading, model inference, rollouts, simulator execution, OpenVLA-OFT, token access, downloads, and paper claims forbidden.
 
+## LIBERO Offline Bounded Pilot Report Overclaim Risk
+
+Risk: A consolidated local pilot report could be mistaken for paper-grade benchmark evidence.
+
+Impact: Offline proxy summaries could be incorrectly described as standard LIBERO success or rollout success.
+
+Mitigation: `scripts\54_generate_libero_offline_bounded_pilot_report.ps1` is summary-only and labels outputs as offline proxy, not standard success, not rollout success, and not paper-grade. The report keeps simulator readiness, rollout, and paper claims behind separate risk gates.
+
 ## LIBERO Rollout Readiness Overstatement
 
 Risk: Asset checkers could mark `ready_for_libero_rollout=true` merely because LIBERO, RoboSuite, and data paths exist.

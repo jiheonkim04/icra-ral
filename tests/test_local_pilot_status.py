@@ -84,7 +84,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert report["policy"]["model_inference_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
-    assert "bounded local pilot report after required head-only and LoRA offline comparisons pass" in report["risk_assessed_next_gates"]
+    assert "simulator readiness/import-render smoke if already installed locally" in report["risk_assessed_next_gates"]
     assert "OpenVLA-OFT execution" in report["hard_stop_boundaries"]
     assert "token or secret access" in report["external_irreversible_stop_gates"]
     assert "local_pilot_status_passed" in report
@@ -94,6 +94,7 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "libero_offline_counterfactual_split" in report["source_reports"]
     assert "libero_offline_head_comparison" in report["source_reports"]
     assert "libero_offline_lora_comparison" in report["source_reports"]
+    assert "libero_offline_bounded_pilot" in report["source_reports"]
     assert "bounded_local_pilot_extension_passed" in report["status"]
     assert "libero_metadata_subset_ready" in report["status"]
     assert "libero_offline_interface_ready" in report["status"]
@@ -103,6 +104,8 @@ def test_local_pilot_status_is_summary_only(tmp_path):
     assert "libero_ready_for_required_tiny_lora_comparison" in report["status"]
     assert "libero_offline_lora_comparison_passed" in report["status"]
     assert "libero_ready_for_bounded_local_pilot_report" in report["status"]
+    assert "libero_offline_bounded_pilot_report_passed" in report["status"]
+    assert "libero_ready_for_simulator_readiness_risk_assessment" in report["status"]
     assert "libero_rollout_ready" in report["status"]
     assert json_report.exists()
     assert markdown_report.exists()
