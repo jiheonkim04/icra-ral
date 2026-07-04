@@ -33,3 +33,15 @@ The planner found:
 - rollout bridge still has local fallback image alias logic,
 - rollout bridge adapter wiring is ready for implementation,
 - rollout execution is not ready and remains blocked.
+
+## Implementation Update
+
+The rollout bridge now uses the pure adapter helpers for:
+
+- explicit policy-action to environment-action adaptation,
+- explicit diagnostic end-effector state construction,
+- explicit image source alias selection.
+
+The wired bridge records adapter metadata in task summaries, including state adapter metadata, image adapter metadata, and action adapter metadata. This remains diagnostic plumbing only. It does not establish benchmark success, standard success, counterfactual robustness, or paper-grade evidence.
+
+Rollout execution still requires a separate bounded diagnostic gate before any runner is invoked.
