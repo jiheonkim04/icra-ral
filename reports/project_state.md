@@ -279,6 +279,14 @@ Expected interpretation:
 
 This audit does not download, install, load models, infer, create simulator environments, rollout, train, use GPU jobs, execute OpenVLA-OFT, access tokens, or make paper claims.
 
+## HDF5 Initial-State Replay Plan
+
+The planning-only HDF5 initial-state replay gate is defined by `scripts\98_plan_hdf5_initial_state_replay.ps1`.
+
+It checks whether the HDF5 alignment audit authorized a replay plan, whether the selected HDF5 demo contains `init_state`, `states`, 7D actions, and a model XML attribute, and whether local LIBERO/RoboSuite source code exposes `set_init_state` or flattened-state replay helpers.
+
+If it reports `decision=proceed`, the next safe task is a separately gated one-demo replay runner. The first runner should set the HDF5 initial state if supported and replay only the first demonstration action. It must not load SmolVLA, perform learned-policy inference, train, use GPU jobs, download assets, execute OpenVLA-OFT, run multi-seed evaluation, or make paper claims.
+
 Observed load-only smoke metrics:
 
 ```text

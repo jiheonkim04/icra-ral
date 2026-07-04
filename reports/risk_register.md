@@ -783,3 +783,11 @@ Risk: Offline adapter reproduction can match the first demonstration action whil
 Impact: A gripper/action strategy can look correct in HDF5 replay space yet still produce zero rollout reward because the environment state, object placements, or hidden simulator state are not aligned.
 
 Mitigation: `scripts\97_audit_hdf5_rollout_alignment.ps1` checks task-name alignment, HDF5 `init_state`/`states` availability, and whether the rollout bridge appears to set the demonstration initial state. If not, it recommends a bounded HDF5 initial-state or first-action replay planner before another learned-policy rollout.
+
+## HDF5 Replay Scope Creep Risk
+
+Risk: A first-action replay diagnostic could drift into learned-policy rollout, benchmark evaluation, or multi-step policy testing.
+
+Impact: The project could conflate simulator/data-convention debugging with policy performance evidence.
+
+Mitigation: `scripts\98_plan_hdf5_initial_state_replay.ps1` keeps replay planning separate from execution and defines a first runner capped to one HDF5 demo and one replayed demonstration action, with no learned-policy inference, model loading, training, GPU jobs, OpenVLA-OFT, multi-seed evaluation, or paper claims.
