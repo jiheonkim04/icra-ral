@@ -526,18 +526,26 @@ Reason: The bounded task-local import smoke selected `~/.venvs/tca_map_sim/bin/p
 
 Consequence: This clears only the import-only readiness rung. It is not render evidence, rollout evidence, benchmark success, or paper-grade evidence. Render smoke, reset/step smoke, tiny diagnostic rollout, and all benchmark claims remain separate risk gates.
 
+## WSL Simulator Source Link Result
+
+Decision: Link local RoboSuite and LIBERO source checkouts into the existing WSL venv instead of creating a repo-local venv.
+
+Reason: The selected WSL venv at `/home/jiheon/.venvs/tca_map_sim` already has Python, pip, NumPy, and MuJoCo. `robosuite` was missing from that venv, and LIBERO's nested source layout plus first-import config prompt needed a bounded local fix.
+
+Consequence: `scripts\60_link_wsl_simulator_sources.ps1` performs offline editable linking with `--no-index --no-deps --no-build-isolation`, writes a `.pth` entry for `LIBERO/libero`, and writes noninteractive WSL `~/.libero/config.yaml` pointing to the local LIBERO source/data roots. It does not create a repo-local `.venv`, download packages, render, reset/step, rollout, train, use GPU, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims.
+
 ## Simulator Render/Reset-Step Planner
 
 Decision: Add a planning-only render/reset-step risk gate after import-only readiness.
 
 Reason: Passing `robosuite` and `libero` imports is not enough to justify rendering, resetting an environment, stepping an environment, or running rollouts. The next risk boundary needs to require the passed import-only report and explicitly refuse execution gates during planning.
 
-Consequence: `scripts\58_plan_simulator_render_reset.ps1` reads the readiness/import reports and reports whether a separate bounded render-smoke branch may be created. It performs no render, reset/step, rollout, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim. Current local result is ready for a separate bounded render-smoke branch, while reset/step and rollout remain blocked.
+Consequence: `scripts\58_plan_simulator_render_reset.ps1` reads the readiness/import/render reports and reports whether separate bounded render-smoke or reset/step-smoke branches may be created. It performs no render, reset/step, rollout, install, download, GPU job, training, heavy VLA import, OpenVLA-OFT execution, token access, or paper claim. Current local result is ready for a separate bounded reset/step-smoke branch, while rollout remains blocked.
 
 ## Bounded Simulator Render Smoke Result
 
-Decision: Treat the current local bounded render-smoke attempt as blocked, not failed validation.
+Decision: Treat the current local bounded render-smoke attempt as passed for tiny MuJoCo offscreen-render readiness.
 
-Reason: The WSL venv can import `mujoco`, but a tiny 64x64 offscreen render with `MUJOCO_GL=osmesa` fails with `AttributeError: 'NoneType' object has no attribute 'glGetError'`, which indicates the OSMesa/offscreen GL path is unavailable or misconfigured.
+Reason: After the user completed the WSL offscreen graphics package step, the bounded task-local render smoke produced a nonblank 64x64 RGB image under `MUJOCO_GL=osmesa`.
 
-Consequence: `scripts\59_bounded_simulator_render_smoke.ps1` records the blocker without installing packages, changing system graphics, resetting/stepping environments, rolling out, using GPU jobs, training, importing heavy VLA models, executing OpenVLA-OFT, accessing tokens, or making paper claims. Reset/step and rollout remain blocked until offscreen rendering is fixed through a separate risk assessment.
+Consequence: `scripts\59_bounded_simulator_render_smoke.ps1` remains a tiny MuJoCo render-only check. It did not create, reset, or step LIBERO/RoboSuite environments, roll out policies, use GPU jobs, train, install packages, download assets, import heavy VLA models, execute OpenVLA-OFT, access tokens, or make paper claims. Reset/step and rollout remain separate risk gates.

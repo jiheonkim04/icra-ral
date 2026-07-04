@@ -11,7 +11,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "58_plan_simulator_render_reset.ps1"
 
 
-def _run_planner(tmp_path, extra_env=None, import_report=None):
+def _run_planner(tmp_path, extra_env=None, import_report=None, render_report=None):
     powershell = shutil.which("powershell")
     if powershell is None:
         pytest.skip("PowerShell is required for the simulator render/reset-step planner")
@@ -19,8 +19,11 @@ def _run_planner(tmp_path, extra_env=None, import_report=None):
     json_report = tmp_path / "simulator_render_reset_plan_report.json"
     md_report = tmp_path / "simulator_render_reset_plan_report.md"
     import_report_path = tmp_path / "bounded_simulator_import_smoke_report.json"
+    render_report_path = tmp_path / "bounded_simulator_render_smoke_report.json"
     if import_report is not None:
         import_report_path.write_text(json.dumps(import_report), encoding="utf-8")
+    if render_report is not None:
+        render_report_path.write_text(json.dumps(render_report), encoding="utf-8")
 
     libero_root = tmp_path / "LIBERO"
     libero_data_root = tmp_path / "libero_data"
@@ -63,6 +66,8 @@ def _run_planner(tmp_path, extra_env=None, import_report=None):
             str(tmp_path / "missing_paths.local.yaml"),
             "-ImportSmokeReportPath",
             str(import_report_path),
+            "-RenderSmokeReportPath",
+            str(render_report_path),
             "-JsonReportPath",
             str(json_report),
             "-MarkdownReportPath",
@@ -113,6 +118,22 @@ def test_render_reset_plan_allows_later_render_plan_after_import_pass(tmp_path):
     assert report["policy"]["simulator_environment_steps_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["risk_assessment"]["expected_vram_gb"] == 0
+
+
+def test_render_reset_plan_allows_later_reset_step_plan_after_render_pass(tmp_path):
+    result, report, _, _ = _run_planner(
+        tmp_path,
+        import_report={"bounded_simulator_import_smoke_passed": True},
+        render_report={"bounded_simulator_render_smoke_passed": True},
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert report["decision"] == "proceed"
+    assert report["ready_for_bounded_render_smoke_plan"] is True
+    assert report["ready_for_bounded_reset_step_smoke_plan"] is True
+    assert report["ready_for_rollout"] is False
+    assert report["policy"]["reset_step_smoke_performed"] is False
+    assert report["policy"]["rollouts_performed"] is False
 
 
 def test_render_reset_plan_refuses_execution_gates(tmp_path):
