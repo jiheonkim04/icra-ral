@@ -950,3 +950,18 @@ But first implement the smallest target-prior fix or variant on the same split:
 - compare ActionMap head-only vs TCA-Map with the target-prior fix,
 - label the run exploratory tiny offline proxy,
 - do not run LoRA, rollout, scaling, or paper claims before this rerun.
+
+## Current Next Action After Target-Prior-Fixed Comparison
+
+The target-prior-fixed head comparison has been executed on the same fixed 8-sample split.
+
+Current diagnostic result:
+- best non-oracle TCA variant: `tca_map_instruction_text_prior`
+- standard proxy: `0.86561`
+- wrong-target proxy: `0.0`
+- gap to oracle-target TCA: `0.0`
+- ActionMap standard proxy: `0.434797`
+- hard learned-target TCA standard proxy: `0.0`
+- TCA-Select delta over best prior: `0.0`
+
+Next milestone: revise Distributional TCA-Select with a non-degenerate selection objective that can add value after a target prior is already correct. Do not scale samples, rerun LoRA, or run rollouts before this revision unless the next task explicitly produces a metric or concrete failure diagnosis. Preserve the same split and report weak results honestly.

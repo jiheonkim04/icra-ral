@@ -1320,3 +1320,13 @@ Reason: The target head fit the training records but inverted both eval targets.
 Consequence: Do not scale sample count, LoRA, or rollout yet. The next execution-first step should implement the smallest target-prior/classifier fix and rerun the exact same head-only ActionMap vs TCA-Map comparison. If the target-prior-fixed TCA still loses to ActionMap, the current TCA target-head formulation should be redesigned or killed.
 
 Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## Target-Prior-Fixed Head Comparison Result
+
+Decision: Keep the current TCA-Map target-conditioned action mechanism alive, but do not treat the learned target head as solved. Revise Distributional TCA-Select before scaling or rerunning LoRA attribution.
+
+Reason: On the fixed 8-sample split, hard learned-target TCA remains weak with `standard_proxy_score=0.0` and `wrong_target_proxy_rate=1.0`, while instruction-text-prior TCA recovers to `standard_proxy_score=0.86561` and `wrong_target_proxy_rate=0.0`, matching the oracle-target upper-bound. ActionMap remains at `standard_proxy_score=0.434797`. Distributional TCA-Select adds no measurable gain over the best non-oracle target prior in this run.
+
+Consequence: the next execution-first task should target TCA-Select redesign or a concrete target-prior/classifier improvement. Do not use this tiny offline proxy as paper-grade evidence.
+
+Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
