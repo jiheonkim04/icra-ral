@@ -5,7 +5,8 @@ param(
     [string]$MarkdownReportPath = "reports\libero_fixed_prior_rollout_readiness_gate_report.md",
     [int]$MaxPairs = 32,
     [int]$MaxActionSteps = 16,
-    [int]$EnvActionDim = 7
+    [int]$EnvActionDim = 7,
+    [int]$RecordActionDim = 0
 )
 
 $ErrorActionPreference = "Stop"
@@ -44,6 +45,11 @@ if ($EnvActionDim -lt 1 -or $EnvActionDim -gt 16) {
     exit 14
 }
 
+if ($RecordActionDim -lt 0 -or $RecordActionDim -gt 16) {
+    Write-Host "Refusing: RecordActionDim must be between 0 and 16. Use 0 to preserve EnvActionDim."
+    exit 15
+}
+
 $forbiddenGates = @(
     "ALLOW_DOWNLOADS",
     "ALLOW_GPU_TRAINING",
@@ -80,6 +86,7 @@ if ($setForbidden.Count -gt 0) {
     --report-md $MarkdownReportPath `
     --max-pairs $MaxPairs `
     --max-action-steps $MaxActionSteps `
-    --env-action-dim $EnvActionDim
+    --env-action-dim $EnvActionDim `
+    --record-action-dim $RecordActionDim
 
 exit $LASTEXITCODE

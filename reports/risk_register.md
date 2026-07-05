@@ -1428,3 +1428,14 @@ Impact: Running a simulator diagnostic now would test an undefined bridge rather
 Mitigation: Do not run the limited fixed-prior rollout diagnostic until a `7D` fixed-prior rollout-action path is implemented and validated against local HDF5. The bridge must report action dimension, scale, clipping, gripper command statistics, rotation/coordinate convention, and whether ActionMap/TCA actions differ before simulator stepping.
 
 Current result: `scripts\138_gate_fixed_prior_rollout_readiness.ps1` reports risk gate `red`, simulator plumbing green, target-prior source green, and action bridge red with `unsupported action dimension mapping: policy_dim=4, env_action_dim=7`.
+
+## Limited Fixed-Prior Rollout Zero-Signal Risk
+
+Risk: The first bounded fixed-prior rollout diagnostic completed with valid `7D` action stepping but zero reward and zero success for ActionMap-style, fixed-prior TCA, and oracle-upper-bound variants.
+
+Impact: Offline fixed-prior proxy gains may not transfer to rollout behavior, or the diagnostic may still be too short, too proxy-like, or insufficiently aligned with demonstration replay to expose task progress.
+
+Mitigation: Treat the result as partial action-bridge support only. Before any larger rollout, run the smallest direct diagnosis that checks whether HDF5 demonstration-aligned replay can produce reward/success or object/EEF target-directed movement under the same task/init-state conditions. Do not make paper-grade rollout claims from the current diagnostic.
+
+Current result: readiness gate green; `30` simulator steps executed; reward `0.0`, success `false`; fixed-prior TCA EEF displacement exceeded the ActionMap-style mean baseline but did not improve reward or success.
+

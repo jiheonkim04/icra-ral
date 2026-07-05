@@ -99,23 +99,40 @@ def _record(
     instruction: str,
     action: list[float],
     candidate_actions: list[list[float]],
+    *,
+    action_dim: int = ACTION_PREFIX_DIM,
 ) -> dict[str, Any]:
+    if action_dim <= 0:
+        raise ValueError("action_dim must be positive")
+    if len(action) < action_dim:
+        raise ValueError(f"expert action has {len(action)} values, expected at least {action_dim}")
+    for index, candidate in enumerate(candidate_actions):
+        if len(candidate) < action_dim:
+            raise ValueError(f"candidate action {index} has {len(candidate)} values, expected at least {action_dim}")
     suffix = "positive" if target_id == 0 else "counterfactual"
     return {
         "sample_id": f"{pair['pair_id']}::{suffix}",
         "pair_id": pair["pair_id"],
         "hidden_tokens": _text_features(instruction),
-        "expert_action": action[:ACTION_PREFIX_DIM],
+        "expert_action": action[:action_dim],
+        "source_action_dim": len(action),
+        "record_action_dim": action_dim,
         "target": {"object_id": target_id, "instruction": instruction},
         "candidate_objects": [
             pair.get("positive_instruction") or "positive target",
             pair.get("counterfactual_instruction") or "counterfactual target",
         ],
-        "candidate_actions": [candidate[:ACTION_PREFIX_DIM] for candidate in candidate_actions],
+        "candidate_actions": [candidate[:action_dim] for candidate in candidate_actions],
     }
 
 
-def build_libero_lora_records(manifest_path: Path, max_pairs: int = 4, max_action_steps: int = 16) -> list[dict[str, Any]]:
+def build_libero_lora_records(
+    manifest_path: Path,
+    max_pairs: int = 4,
+    max_action_steps: int = 16,
+    *,
+    action_dim: int = ACTION_PREFIX_DIM,
+) -> list[dict[str, Any]]:
     manifest = _load_json(manifest_path)
     if not manifest.get("ready_for_tiny_offline_counterfactual_split"):
         raise ValueError("counterfactual split manifest is not ready")
@@ -132,6 +149,7 @@ def build_libero_lora_records(manifest_path: Path, max_pairs: int = 4, max_actio
                 instruction=pair.get("positive_instruction") or "positive target",
                 action=positive_action,
                 candidate_actions=candidates,
+                action_dim=action_dim,
             )
         )
         records.append(
@@ -141,6 +159,7 @@ def build_libero_lora_records(manifest_path: Path, max_pairs: int = 4, max_actio
                 instruction=pair.get("counterfactual_instruction") or "counterfactual target",
                 action=counter_action,
                 candidate_actions=candidates,
+                action_dim=action_dim,
             )
         )
     return records
