@@ -1104,3 +1104,19 @@ Current diagnostic result:
 - training/loss/LoRA training happened: false.
 
 Next milestone: `A. bridge fix and rerun limited rollout readiness gate`. Rebuild or extend the fixed-prior offline rollout record path so ActionMap/TCA rollout candidates preserve all seven LIBERO action dimensions, then validate action scale, clipping, gripper, rotation, and coordinate conventions on HDF5 before any simulator stepping. Do not run the fixed-prior rollout diagnostic until this gate is green.
+
+## Current Next Action After Limited Fixed-Prior Rollout Diagnostic
+
+The `7D` HDF5 action bridge is now validated for fixed-prior rollout candidates. The readiness gate is green and no silent `4D -> 7D` padding is used.
+
+Bounded rollout diagnostic result:
+- task count: `1`
+- variants: ActionMap-style target-agnostic mean, fixed semantic target-prior TCA, oracle-target upper bound
+- steps: `10` per variant, `30` total
+- reward: `0.0` for all variants
+- success: `false` for all variants
+- fixed-prior support label: `partial_action_bridge_support_no_success_gain`
+- EEF displacement: ActionMap-style `0.014683`, fixed-prior TCA `0.023818`, oracle `0.023818`
+
+Next milestone: diagnose whether a shorter or demonstration-aligned HDF5 replay can produce any reward/success or measurable target-directed movement before scaling rollout. Keep this as infrastructure/diagnostic evidence only. Do not claim standard success or paper-grade rollout improvement.
+

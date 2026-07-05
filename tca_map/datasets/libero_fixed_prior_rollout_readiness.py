@@ -22,7 +22,7 @@ from tca_map.datasets.libero_publishability_gate_audit import _prior_source_leak
 from tca_map.smolvla.interface_adapters import adapt_policy_action_to_env_action
 
 
-SCHEMA_VERSION = "2026-07-05.libero_fixed_prior_rollout_readiness.v1"
+SCHEMA_VERSION = "2026-07-06.libero_fixed_prior_rollout_readiness.v2"
 FORBIDDEN_GATES = (
     "ALLOW_DOWNLOADS",
     "ALLOW_GPU_TRAINING",
@@ -113,53 +113,112 @@ def _target_prior_status(records: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _range_stats(values: list[float]) -> dict[str, float | None]:
+    if not values:
+        return {"min": None, "max": None, "mean": None, "max_abs": None}
+    array = np.asarray(values, dtype=np.float64)
+    return {
+        "min": round(float(np.min(array)), 6),
+        "max": round(float(np.max(array)), 6),
+        "mean": round(float(np.mean(array)), 6),
+        "max_abs": round(float(np.max(np.abs(array))), 6),
+    }
+
+
+def _matrix_dim_stats(matrix: np.ndarray, start: int, stop: int) -> dict[str, Any]:
+    if matrix.size == 0 or matrix.shape[1] < stop:
+        return {"available": False, "range": _range_stats([])}
+    return {"available": True, "range": _range_stats([float(value) for value in matrix[:, start:stop].reshape(-1)])}
+
+
+def _mean_l1(left: list[float], right: list[float]) -> float:
+    width = min(len(left), len(right))
+    if width == 0:
+        return 0.0
+    return float(np.mean(np.abs(np.asarray(left[:width], dtype=np.float64) - np.asarray(right[:width], dtype=np.float64))))
+
+
 def _action_bridge_status(records: list[dict[str, Any]], env_action_dim: int) -> dict[str, Any]:
-    action_dims = sorted({len(record.get("expert_action") or []) for record in records})
-    candidate_dims = sorted(
-        {
-            len(candidate)
-            for record in records
-            for candidate in (record.get("candidate_actions") or [])
-            if isinstance(candidate, list)
-        }
+    action_lists = [record.get("expert_action") or [] for record in records]
+    candidate_lists = [
+        candidate
+        for record in records
+        for candidate in (record.get("candidate_actions") or [])
+        if isinstance(candidate, list)
+    ]
+    action_dims = sorted({len(action) for action in action_lists})
+    candidate_dims = sorted({len(candidate) for candidate in candidate_lists})
+    source_action_dims = sorted(
+        {int(record.get("source_action_dim")) for record in records if record.get("source_action_dim") is not None}
     )
-    sample_action = records[0].get("expert_action") or []
+    record_action_dims = sorted(
+        {int(record.get("record_action_dim")) for record in records if record.get("record_action_dim") is not None}
+    )
+    action_matrix = np.asarray(action_lists, dtype=np.float64) if action_lists else np.zeros((0, 0), dtype=np.float64)
+    finite_actions = bool(action_matrix.size == 0 or np.all(np.isfinite(action_matrix)))
+    clipping_counts: list[int] = []
+    adapter_error = None
+    adapter_metadata = None
+    adapted_sample_values: list[float] = []
+    for action in action_lists:
+        try:
+            adapted = adapt_policy_action_to_env_action(action, env_action_dim)
+            clipping_counts.append(int(adapted.metadata.get("clipped_values", 0)))
+            if adapter_metadata is None:
+                adapter_metadata = adapted.metadata
+                adapted_sample_values = adapted.values
+        except Exception as exc:
+            adapter_error = str(exc)
+            break
+    candidate_pair_l1 = [
+        _mean_l1((record.get("candidate_actions") or [[], []])[0], (record.get("candidate_actions") or [[], []])[1])
+        for record in records
+        if len(record.get("candidate_actions") or []) >= 2
+    ]
+    action_dim_label = ", ".join(f"{dim}D" for dim in action_dims) or "no actions"
+    candidate_dim_label = ", ".join(f"{dim}D" for dim in candidate_dims) or "no candidates"
     status: dict[str, Any] = {
         "offline_action_prefix_dim_constant": ACTION_PREFIX_DIM,
         "offline_record_action_dims": action_dims,
         "offline_candidate_action_dims": candidate_dims,
+        "source_hdf5_action_dims": source_action_dims,
+        "record_builder_action_dims": record_action_dims,
         "env_action_dim": env_action_dim,
         "existing_adapter_tested": True,
-        "existing_adapter_supports_current_proxy_action": False,
-        "adapter_error": None,
-        "action_scale_safe": bool(max((abs(float(v)) for v in sample_action), default=0.0) <= 1.0),
-        "clipping_expected_from_sample": False,
-        "gripper_mapping_resolved": False,
-        "rotation_mapping_resolved": False,
-        "coordinate_convention_resolved": False,
+        "existing_adapter_supports_current_proxy_action": adapter_error is None and bool(action_lists),
+        "adapter_error": adapter_error,
+        "adapter_metadata": adapter_metadata,
+        "adapted_sample_action_dim": len(adapted_sample_values),
+        "adapted_sample_max_abs": round(float(np.max(np.abs(adapted_sample_values))), 6) if adapted_sample_values else 0.0,
+        "action_scale_safe": bool(finite_actions and (action_matrix.size == 0 or np.max(np.abs(action_matrix)) <= 1.0)),
+        "clipping_expected_from_records": bool(any(count > 0 for count in clipping_counts)),
+        "total_clipped_values_if_adapter_applied": int(sum(clipping_counts)),
+        "finite_actions": finite_actions,
+        "preserves_full_env_action_dim_from_hdf5": bool(action_dims == [env_action_dim] and candidate_dims == [env_action_dim]),
+        "gripper_mapping_resolved": bool(action_dims == [env_action_dim] and env_action_dim >= 7),
+        "rotation_mapping_resolved": bool(action_dims == [env_action_dim] and env_action_dim >= 6),
+        "coordinate_convention_resolved": bool(action_dims == [env_action_dim]),
+        "translation_dims_0_2": _matrix_dim_stats(action_matrix, 0, min(3, env_action_dim)) if action_matrix.shape[1] >= 3 else {"available": False, "range": _range_stats([])},
+        "rotation_dims_3_5": _matrix_dim_stats(action_matrix, 3, min(6, env_action_dim)) if action_matrix.shape[1] >= 6 else {"available": False, "range": _range_stats([])},
+        "gripper_dim_6": _matrix_dim_stats(action_matrix, 6, 7) if action_matrix.shape[1] >= 7 else {"available": False, "range": _range_stats([])},
+        "candidate_pair_l1_mean": round(float(np.mean(candidate_pair_l1)), 6) if candidate_pair_l1 else 0.0,
+        "candidate_pair_l1_min": round(float(np.min(candidate_pair_l1)), 6) if candidate_pair_l1 else 0.0,
+        "actionmap_tca_candidate_actions_distinct": bool(candidate_pair_l1 and max(candidate_pair_l1) > 1e-9),
+        "mapping_note": "Full 7D HDF5 action vectors are passed through unchanged to the 7D LIBERO env action interface. No 4D-to-7D padding, rotation synthesis, or gripper invention is performed.",
     }
-    try:
-        adapted = adapt_policy_action_to_env_action(sample_action, env_action_dim)
-        values = adapted.values
-        status.update(
-            {
-                "existing_adapter_supports_current_proxy_action": True,
-                "adapter_metadata": adapted.metadata,
-                "adapted_sample_action_dim": len(values),
-                "adapted_sample_max_abs": round(float(np.max(np.abs(values))), 6) if values else 0.0,
-                "clipping_expected_from_sample": bool(adapted.metadata.get("clipped_values", 0) > 0),
-                "gripper_mapping_resolved": bool(adapted.metadata.get("gripper_value") is not None or len(sample_action) == env_action_dim),
-                "rotation_mapping_resolved": len(sample_action) == env_action_dim,
-                "coordinate_convention_resolved": len(sample_action) == env_action_dim,
-            }
-        )
-    except Exception as exc:
-        status["adapter_error"] = str(exc)
     if action_dims != [env_action_dim]:
         status["blocker"] = (
-            f"Current offline proxy records use {action_dims}D actions from ACTION_PREFIX_DIM={ACTION_PREFIX_DIM}, "
-            f"but the LIBERO env action dimension is {env_action_dim}. The validated adapter does not define a 4D->7D rotation/gripper bridge."
+            f"Current rollout records use {action_dim_label} actions while the LIBERO env action dimension is {env_action_dim}D. "
+            f"The offline proxy prefix remains ACTION_PREFIX_DIM={ACTION_PREFIX_DIM}, but rollout candidates must preserve the original 7D HDF5 actions."
         )
+    elif candidate_dims != [env_action_dim]:
+        status["blocker"] = f"Current rollout candidate records use {candidate_dim_label} candidate actions; expected {env_action_dim}D."
+    elif not finite_actions:
+        status["blocker"] = "Rollout action records contain NaN or infinite values."
+    elif status["clipping_expected_from_records"]:
+        status["blocker"] = "Rollout action records would be clipped by the explicit action adapter; action scale is not yet safe."
+    elif not status["actionmap_tca_candidate_actions_distinct"]:
+        status["blocker"] = "ActionMap/TCA candidate actions are not distinct enough for a rollout diagnostic."
     else:
         status["blocker"] = None
     return status
@@ -243,11 +302,18 @@ def run_fixed_prior_rollout_readiness_gate(
     max_pairs: int = 32,
     max_action_steps: int = 16,
     env_action_dim: int = 7,
+    record_action_dim: int | None = None,
     simulator_reports: dict[str, Path] | None = None,
     previous_reports: dict[str, Path] | None = None,
 ) -> dict[str, Any]:
     forbidden = [name for name in FORBIDDEN_GATES if os.environ.get(name)]
-    records = build_libero_lora_records(manifest_path, max_pairs=max_pairs, max_action_steps=max_action_steps)
+    chosen_record_action_dim = record_action_dim or env_action_dim
+    records = build_libero_lora_records(
+        manifest_path,
+        max_pairs=max_pairs,
+        max_action_steps=max_action_steps,
+        action_dim=chosen_record_action_dim,
+    )
     simulator_reports = simulator_reports or {
         "import": Path("reports/bounded_simulator_import_smoke_report.json"),
         "render": Path("reports/bounded_simulator_render_smoke_report.json"),
@@ -278,11 +344,15 @@ def run_fixed_prior_rollout_readiness_gate(
         blockers.append("gripper mapping is unresolved for current offline proxy actions")
     if not action_bridge["rotation_mapping_resolved"]:
         blockers.append("rotation/coordinate mapping is unresolved for current offline proxy actions")
+    if not action_bridge["action_scale_safe"]:
+        blockers.append("action scale is unsafe for unclipped 7D passthrough")
+    if action_bridge["clipping_expected_from_records"]:
+        blockers.append("explicit adapter would clip at least one rollout action value")
+    if not action_bridge["actionmap_tca_candidate_actions_distinct"]:
+        blockers.append("ActionMap/TCA candidate actions are not distinct enough for rollout diagnosis")
     warnings.append("Current offline fixed-prior proxy uses text-derived cached features and mean HDF5 action snippets, not live camera/state-conditioned policy inference.")
     warnings.append("Previous learned-policy no-go issues still block learned SmolVLA rollout scaling; this gate only concerns fixed-prior proxy rollout readiness.")
     status = "green" if not blockers else "red"
-    if status == "green" and warnings:
-        status = "yellow"
     authorized = status == "green"
     recommended = (
         "Run the bounded fixed-prior rollout diagnostic with 1 task, 1 episode, and 10-25 steps."
@@ -297,6 +367,8 @@ def run_fixed_prior_rollout_readiness_gate(
         "max_pairs": max_pairs,
         "max_action_steps": max_action_steps,
         "env_action_dim": env_action_dim,
+        "record_action_dim": chosen_record_action_dim,
+        "record_builder_mode": "preserve_full_env_action_dim" if chosen_record_action_dim == env_action_dim else "legacy_prefix_or_custom_dim",
         "compared_variants_planned_if_green": [
             "ActionMap-style baseline",
             "fixed semantic target-prior TCA",
@@ -336,6 +408,7 @@ def main() -> None:
     parser.add_argument("--max-pairs", type=int, default=32)
     parser.add_argument("--max-action-steps", type=int, default=16)
     parser.add_argument("--env-action-dim", type=int, default=7)
+    parser.add_argument("--record-action-dim", type=int, default=0)
     args = parser.parse_args()
     report = run_fixed_prior_rollout_readiness_gate(
         manifest_path=Path(args.manifest),
@@ -344,6 +417,7 @@ def main() -> None:
         max_pairs=args.max_pairs,
         max_action_steps=args.max_action_steps,
         env_action_dim=args.env_action_dim,
+        record_action_dim=args.record_action_dim or None,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
 
