@@ -2291,3 +2291,38 @@ Key results:
 - TCA-Select fixed-fusion ablation: standard proxy `0.854`, wrong-target proxy `0.0`, delta over fixed-prior TCA + LoRA `0.0`.
 
 Interpretation: the fixed-prior TCA advantage over ActionMap survives this smallest larger split, including under the required LoRA attribution arm. This remains exploratory offline proxy evidence only. The learned target head remains a bottleneck, and TCA-Select should be de-emphasized as a core contribution unless a future scaled selector diagnostic shows nontrivial gain.
+
+## Multi-Seed Fixed-Prior Offline Validation
+
+Status: complete as exploratory offline proxy validation on the same fixed 16-sample split.
+
+Implementation:
+- script: `scripts\135_validate_libero_fixed_prior_multiseed.ps1`
+- module: `tca_map.datasets.libero_fixed_prior_multiseed_validation`
+- report: `reports\libero_fixed_prior_multiseed_validation_report.json` and `.md` are runtime outputs and ignored by git.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, CPU NumPy head-only and LoRA diagnostics.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Seed policy:
+- seeds: `11, 23, 37, 53, 71`
+- split: exactly the same 16 records, `12 / 4` train/eval, unchanged across seeds.
+- seed effect: CPU head-only SGD order and LoRA low-rank initialization only.
+
+Aggregate results:
+- ActionMap head-only standard proxy mean/std: `0.484044 / 0.000571`; wrong-target mean/std: `0.5 / 0.0`; loss mean: `0.031336 -> 0.001617`.
+- fixed-prior TCA head-only standard proxy mean/std: `0.944914 / 0.000893`; wrong-target mean/std: `0.0 / 0.0`; loss mean: `0.724483 -> 0.460224`.
+- ActionMap + LoRA standard proxy mean/std: `0.427817 / 0.001523`; wrong-target mean/std: `0.5 / 0.0`; loss mean: `0.031888 -> 0.031824`.
+- fixed-prior TCA + LoRA standard proxy mean/std: `0.854615 / 0.004512`; wrong-target mean/std: `0.0 / 0.0`; loss mean: `0.726098 -> 0.725057`.
+- hard learned-target TCA + LoRA standard proxy mean/std: `0.470181 / 0.084772`; wrong-target mean/std: `0.45 / 0.1`.
+- fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds.
+- fixed-prior TCA + LoRA improved wrong-target proxy in `5 / 5` seeds.
+- TCA-Select showed nontrivial gain in `0 / 5` seeds.
+- LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `5 / 5` seeds, with mean standard-proxy delta `-0.090299`.
+
+Interpretation: fixed-prior TCA advantage over ActionMap is stable across these five bounded seeds on the 16-sample split. LoRA should be treated as a robustness/attribution ablation, not a performance claim, because it consistently underperforms fixed-prior head-only TCA here. Hard learned-target TCA remains unstable/weaker. TCA-Select should be de-emphasized or killed as a core contribution unless future evidence changes.

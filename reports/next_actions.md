@@ -1008,3 +1008,18 @@ Current diagnostic result:
 - TCA-Select again shows no meaningful gain: standard proxy delta `0.0`, wrong-target delta `0.0`.
 
 Next milestone: choose either `A. larger offline split` if more counterfactual pairs are constructed, or `B. multi-seed validation` on the current scaled split. Keep `C. learned target head redesign` active because the learned target head remains the main bottleneck. Keep `E. de-emphasize/kill TCA-Select` unless a future selector adds nontrivial gain.
+
+## Current Next Action After Multi-Seed Fixed-Prior Offline Validation
+
+The same 16-sample split has been validated across 5 bounded CPU seeds.
+
+Current diagnostic result:
+- fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds.
+- fixed-prior TCA + LoRA wrong-target proxy improved over ActionMap + LoRA in `5 / 5` seeds.
+- fixed-prior TCA + LoRA standard-proxy advantage mean/std: `0.426798 / 0.004095`.
+- fixed-prior TCA head-only standard-proxy advantage mean/std: `0.460869 / 0.000819`.
+- TCA-Select nontrivial gain count: `0 / 5`.
+- LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `5 / 5` seeds.
+- hard learned-target TCA remains weaker/unstable.
+
+Next milestone: `A. larger offline split` if more counterfactual pairs can be constructed. If no larger split is immediately available, prioritize `B. learned target head redesign` while keeping TCA-Select de-emphasized. A limited fixed-prior rollout diagnostic should wait until the offline evidence table is refreshed and the rollout risk gate is explicit.

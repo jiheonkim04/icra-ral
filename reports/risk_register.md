@@ -1288,3 +1288,23 @@ Impact: The method may depend on text-prior availability rather than learning ro
 Mitigation: Keep hard learned-target TCA as a required baseline in scale-up runs. Do not hide hard learned-target failures behind fixed-prior improvements.
 
 Current result: hard learned-target TCA head-only standard proxy `0.0`, wrong-target `1.0`; hard learned-target TCA + LoRA standard proxy `0.642331`, wrong-target `0.25`, still below fixed-prior TCA + LoRA.
+
+## Multi-Seed Offline Proxy Overconfidence Risk
+
+Risk: Fixed-prior TCA advantage is stable across five seeds on the 16-sample split, but the split is still small and offline proxy only.
+
+Impact: Stable seed results could be mistaken for benchmark robustness or paper-grade evidence.
+
+Mitigation: Require a larger offline split or rollout evidence before making stronger claims. Preserve all weak/negative findings: hard learned-target weakness, LoRA underperforming head-only fixed-prior TCA, and TCA-Select null gains.
+
+Current result: fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds, mean advantage `0.426798`, std `0.004095`; rollout and paper claims remain false.
+
+## LoRA Performance-Claim Risk
+
+Risk: Because LoRA is a required experiment track, it could be described as improving the method even when it hurts fixed-prior TCA relative to head-only.
+
+Impact: The paper narrative could overstate LoRA as a performance contributor instead of an attribution/robustness arm.
+
+Mitigation: Report fixed-prior head-only vs fixed-prior LoRA directly. Treat LoRA as required evidence for parameter-efficient adaptation, not as the main novelty or guaranteed performance improvement.
+
+Current result: fixed-prior TCA + LoRA underperformed fixed-prior TCA head-only in `5 / 5` seeds, mean standard-proxy delta `-0.090299`.

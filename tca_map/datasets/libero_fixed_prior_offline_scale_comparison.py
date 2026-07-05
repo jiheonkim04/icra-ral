@@ -97,6 +97,16 @@ def _with_bias(features: np.ndarray) -> np.ndarray:
     return np.concatenate([features, np.ones((features.shape[0], 1), dtype=np.float64)], axis=1)
 
 
+def _training_order(count: int, steps: int, seed: int | None) -> list[int]:
+    if seed is None:
+        return [step % count for step in range(steps)]
+    rng = np.random.default_rng(seed)
+    order: list[int] = []
+    while len(order) < steps:
+        order.extend(int(index) for index in rng.permutation(count).tolist())
+    return order[:steps]
+
+
 def _regression_loss(features: np.ndarray, targets: np.ndarray, weights: np.ndarray) -> float:
     pred = _with_bias(features) @ weights
     return float(np.mean((pred - targets) ** 2))
@@ -115,12 +125,12 @@ def _train_linear_regressor(
     *,
     steps: int,
     lr: float,
+    seed: int | None = None,
 ) -> tuple[np.ndarray, list[float]]:
     x = _with_bias(features)
     weights = np.zeros((x.shape[1], targets.shape[1]), dtype=np.float64)
     losses = [_regression_loss(features, targets, weights)]
-    for step in range(steps):
-        index = step % targets.shape[0]
+    for index in _training_order(targets.shape[0], steps, seed):
         xi = x[index : index + 1]
         yi = targets[index : index + 1]
         diff = xi @ weights - yi
@@ -137,13 +147,13 @@ def _train_linear_classifier(
     num_targets: int,
     steps: int,
     lr: float,
+    seed: int | None = None,
 ) -> tuple[np.ndarray, list[float]]:
     x = _with_bias(features)
     labels = _one_hot(target_ids, num_targets)
     weights = np.zeros((x.shape[1], num_targets), dtype=np.float64)
     losses = [_classifier_loss(features, target_ids, weights, num_targets)]
-    for step in range(steps):
-        index = step % target_ids.shape[0]
+    for index in _training_order(target_ids.shape[0], steps, seed):
         xi = x[index : index + 1]
         yi = labels[index : index + 1]
         probs = _softmax(xi @ weights)
@@ -186,10 +196,16 @@ def _add_gap(metrics: dict[str, Any], oracle_score: float, suffix: str) -> dict[
     return out
 
 
-def _train_actionmap_head(train_records: list[dict[str, Any]], eval_records: list[dict[str, Any]], steps: int, lr: float) -> dict[str, Any]:
+def _train_actionmap_head(
+    train_records: list[dict[str, Any]],
+    eval_records: list[dict[str, Any]],
+    steps: int,
+    lr: float,
+    seed: int | None = None,
+) -> dict[str, Any]:
     train_features = _feature_matrix(train_records)
     eval_features = _feature_matrix(eval_records)
-    weights, losses = _train_linear_regressor(train_features, _expert_actions(train_records), steps=steps, lr=lr)
+    weights, losses = _train_linear_regressor(train_features, _expert_actions(train_records), steps=steps, lr=lr, seed=seed)
     return {
         "weights": weights,
         "losses": losses,
@@ -201,7 +217,13 @@ def _train_actionmap_head(train_records: list[dict[str, Any]], eval_records: lis
     }
 
 
-def _train_tca_head(train_records: list[dict[str, Any]], eval_records: list[dict[str, Any]], steps: int, lr: float) -> dict[str, Any]:
+def _train_tca_head(
+    train_records: list[dict[str, Any]],
+    eval_records: list[dict[str, Any]],
+    steps: int,
+    lr: float,
+    seed: int | None = None,
+) -> dict[str, Any]:
     all_records = train_records + eval_records
     num_targets = _candidate_count(all_records)
     train_features = _feature_matrix(train_records)
@@ -213,6 +235,7 @@ def _train_tca_head(train_records: list[dict[str, Any]], eval_records: list[dict
         num_targets=num_targets,
         steps=steps,
         lr=lr,
+        seed=None if seed is None else seed + 101,
     )
     train_logits = _linear_logits(train_features, target_weights)
     eval_logits = _linear_logits(eval_features, target_weights)
@@ -222,6 +245,7 @@ def _train_tca_head(train_records: list[dict[str, Any]], eval_records: list[dict
         _expert_actions(train_records),
         steps=steps,
         lr=lr,
+        seed=None if seed is None else seed + 202,
     )
     return {
         "num_targets": int(num_targets),
@@ -298,7 +322,14 @@ def _head_arm(
     }
 
 
-def _train_actionmap_lora(train_records: list[dict[str, Any]], eval_records: list[dict[str, Any]], steps: int, lr: float, rank: int) -> dict[str, Any]:
+def _train_actionmap_lora(
+    train_records: list[dict[str, Any]],
+    eval_records: list[dict[str, Any]],
+    steps: int,
+    lr: float,
+    rank: int,
+    seed: int = 53,
+) -> dict[str, Any]:
     train_features = _feature_matrix(train_records)
     eval_features = _feature_matrix(eval_records)
     base, a, b, losses = _train_lora_regressor(
@@ -307,7 +338,7 @@ def _train_actionmap_lora(train_records: list[dict[str, Any]], eval_records: lis
         max_steps=steps,
         lr=lr,
         rank=rank,
-        seed=53,
+        seed=seed,
     )
     return {
         "base": base,
@@ -323,7 +354,14 @@ def _train_actionmap_lora(train_records: list[dict[str, Any]], eval_records: lis
     }
 
 
-def _train_tca_lora(train_records: list[dict[str, Any]], eval_records: list[dict[str, Any]], steps: int, lr: float, rank: int) -> dict[str, Any]:
+def _train_tca_lora(
+    train_records: list[dict[str, Any]],
+    eval_records: list[dict[str, Any]],
+    steps: int,
+    lr: float,
+    rank: int,
+    seed: int = 37,
+) -> dict[str, Any]:
     all_records = train_records + eval_records
     num_targets = _candidate_count(all_records)
     train_features = _feature_matrix(train_records)
@@ -336,7 +374,7 @@ def _train_tca_lora(train_records: list[dict[str, Any]], eval_records: list[dict
         max_steps=steps,
         lr=lr,
         rank=rank,
-        seed=37,
+        seed=seed,
     )
     train_logits = _predict(train_features, target_base, target_a, target_b)
     eval_logits = _predict(eval_features, target_base, target_a, target_b)
@@ -346,7 +384,7 @@ def _train_tca_lora(train_records: list[dict[str, Any]], eval_records: list[dict
         max_steps=steps,
         lr=lr,
         rank=rank,
-        seed=53,
+        seed=seed + 16,
     )
     return {
         "num_targets": int(num_targets),
@@ -421,11 +459,17 @@ def _lora_arm(
     }
 
 
-def _build_head_arms(train_records: list[dict[str, Any]], eval_records: list[dict[str, Any]], steps: int, lr: float) -> list[dict[str, Any]]:
+def _build_head_arms(
+    train_records: list[dict[str, Any]],
+    eval_records: list[dict[str, Any]],
+    steps: int,
+    lr: float,
+    seed: int | None = None,
+) -> list[dict[str, Any]]:
     train_features = _feature_matrix(train_records)
     eval_features = _feature_matrix(eval_records)
-    actionmap = _train_actionmap_head(train_records, eval_records, steps, lr)
-    tca = _train_tca_head(train_records, eval_records, steps, lr)
+    actionmap = _train_actionmap_head(train_records, eval_records, steps, lr, seed=None if seed is None else seed + 11)
+    tca = _train_tca_head(train_records, eval_records, steps, lr, seed=None if seed is None else seed + 29)
     learned_train_probs = _softmax(tca["train_logits"])
     learned_eval_probs = _softmax(tca["eval_logits"])
     text_train_probs = _instruction_text_probs(train_records, tca["num_targets"])
@@ -477,11 +521,18 @@ def _build_head_arms(train_records: list[dict[str, Any]], eval_records: list[dic
     ]
 
 
-def _build_lora_arms(train_records: list[dict[str, Any]], eval_records: list[dict[str, Any]], steps: int, lr: float, rank: int) -> list[dict[str, Any]]:
+def _build_lora_arms(
+    train_records: list[dict[str, Any]],
+    eval_records: list[dict[str, Any]],
+    steps: int,
+    lr: float,
+    rank: int,
+    seed: int = 0,
+) -> list[dict[str, Any]]:
     train_features = _feature_matrix(train_records)
     eval_features = _feature_matrix(eval_records)
-    actionmap = _train_actionmap_lora(train_records, eval_records, steps, lr, rank)
-    tca = _train_tca_lora(train_records, eval_records, steps, lr, rank)
+    actionmap = _train_actionmap_lora(train_records, eval_records, steps, lr, rank, seed=seed + 53)
+    tca = _train_tca_lora(train_records, eval_records, steps, lr, rank, seed=seed + 37)
     learned_train_probs = _softmax(tca["train_logits"])
     learned_eval_probs = _softmax(tca["eval_logits"])
     text_train_probs = _instruction_text_probs(train_records, tca["num_targets"])
@@ -755,6 +806,7 @@ def run_fixed_prior_offline_scale_comparison(
     max_runtime_seconds: int = DEFAULT_MAX_RUNTIME_SECONDS,
     max_samples: int | None = None,
     rank: int = DEFAULT_LORA_RANK,
+    seed: int | None = None,
     require_training_gate: bool = True,
 ) -> dict[str, Any]:
     dangerous = _dangerous_gates()
@@ -775,8 +827,8 @@ def run_fixed_prior_offline_scale_comparison(
     if not train_records or not eval_records:
         raise TinyLoraSmokeError("deterministic scaled split did not produce train/eval records")
     lr = 0.05
-    arms = _build_head_arms(train_records, eval_records, max_steps, lr)
-    arms.extend(_build_lora_arms(train_records, eval_records, max_steps, lr, rank))
+    arms = _build_head_arms(train_records, eval_records, max_steps, lr, seed=seed)
+    arms.extend(_build_lora_arms(train_records, eval_records, max_steps, lr, rank, seed=seed or 0))
     _add_oracle_gaps(arms)
     arm_map = {arm["arm"]: arm for arm in arms}
     comparison = _comparison(arm_map)
@@ -821,6 +873,8 @@ def run_fixed_prior_offline_scale_comparison(
         "max_steps": max_steps,
         "batch_size": 1,
         "lora_rank": rank,
+        "seed": seed,
+        "seed_policy": "fixed split; seed controls only head-only SGD order and LoRA low-rank initialization",
         "action_prefix_dim": ACTION_PREFIX_DIM,
         "elapsed_seconds": round(elapsed, 6),
         "runtime_within_cap": elapsed <= max_runtime_seconds,
@@ -847,6 +901,7 @@ def main() -> None:
     parser.add_argument("--max-runtime-seconds", type=int, default=DEFAULT_MAX_RUNTIME_SECONDS)
     parser.add_argument("--max-samples", type=int, default=None)
     parser.add_argument("--rank", type=int, default=DEFAULT_LORA_RANK)
+    parser.add_argument("--seed", type=int, default=None)
     args = parser.parse_args()
     try:
         report = run_fixed_prior_offline_scale_comparison(
@@ -859,6 +914,7 @@ def main() -> None:
             max_runtime_seconds=args.max_runtime_seconds,
             max_samples=args.max_samples,
             rank=args.rank,
+            seed=args.seed,
             require_training_gate=True,
         )
     except TinyLoraSmokeError as exc:
