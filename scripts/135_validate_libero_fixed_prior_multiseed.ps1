@@ -21,7 +21,7 @@ $env:PYTHONIOENCODING = "utf-8"
 
 Write-Host "Fixed-prior LIBERO offline multi-seed validation"
 Write-Host "Repo root: $RepoRoot"
-Write-Host "This bounded script trains only CPU NumPy head-only and LoRA weights on the fixed 16-sample local LIBERO offline split. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims."
+Write-Host "This bounded script trains only CPU NumPy head-only and LoRA weights on fixed local LIBERO offline splits. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims."
 
 if (-not (Test-Path -LiteralPath $Python)) {
     Write-Error "Python interpreter not found: $Python"
@@ -29,13 +29,18 @@ if (-not (Test-Path -LiteralPath $Python)) {
 }
 
 $seedValues = @($Seeds.Split(",") | ForEach-Object { $_.Trim() } | Where-Object { $_ })
-if ($seedValues.Count -lt 3 -or $seedValues.Count -gt 5) {
-    Write-Host "Refusing: seed count must be between 3 and 5."
+if ($MaxSamples -notin @(16, 32, 64)) {
+    Write-Host "Refusing: MaxSamples must be 16, 32, or 64."
     exit 11
 }
 
-if ($MaxSamples -ne 16) {
-    Write-Host "Refusing: multi-seed validation must keep the exact 16-sample split."
+if ($MaxSamples -in @(16, 32) -and ($seedValues.Count -lt 3 -or $seedValues.Count -gt 5)) {
+    Write-Host "Refusing: 16/32-record seed count must be between 3 and 5."
+    exit 12
+}
+
+if ($MaxSamples -eq 64 -and ($seedValues.Count -lt 1 -or $seedValues.Count -gt 3)) {
+    Write-Host "Refusing: 64-record seed count must be between 1 and 3."
     exit 12
 }
 

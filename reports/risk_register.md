@@ -1308,3 +1308,33 @@ Impact: The paper narrative could overstate LoRA as a performance contributor in
 Mitigation: Report fixed-prior head-only vs fixed-prior LoRA directly. Treat LoRA as required evidence for parameter-efficient adaptation, not as the main novelty or guaranteed performance improvement.
 
 Current result: fixed-prior TCA + LoRA underperformed fixed-prior TCA head-only in `5 / 5` seeds, mean standard-proxy delta `-0.090299`.
+
+## 32-Record Offline Proxy Overconfidence Risk
+
+Risk: Fixed-prior TCA advantage survived a 32-record, 5-seed offline proxy split, but this is still not rollout success or paper-grade evidence.
+
+Impact: The result may look stable enough to overclaim before testing the 64-record capacity, rollout behavior, or the learned target-head bottleneck.
+
+Mitigation: Keep the result labeled exploratory offline proxy. Run the available 64-record split next with the same fixed metrics and baselines. Preserve weak/negative results: LoRA underperforming fixed-prior head-only TCA and TCA-Select null gains.
+
+Current result: fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds with mean advantage `0.429379`, std `0.003737`; wrong-target proxy improved in `5 / 5` seeds; rollout and paper claims remain false.
+
+## 32-Record Task-Imbalance Risk
+
+Risk: The 32-record split uses `10` tasks but is still imbalanced by instruction count, with some tasks appearing once or twice and others appearing more often.
+
+Impact: Fixed-prior TCA advantage could partially reflect task/instruction distribution rather than a broadly robust action-conditioning gain.
+
+Mitigation: Report per-task counts in the runtime report. Do not cherry-pick tasks. Use the deterministic 64-record split next to reduce sensitivity, and inspect per-task breakdown if the advantage shrinks.
+
+Current result: target classes are balanced `{0: 16, 1: 16}`, but instruction/task counts are not uniform. The next 64-record run should preserve deterministic ordering and report the same breakdown.
+
+## TCA-Select Core-Contribution Kill Risk
+
+Risk: TCA-Select again shows no nontrivial gain at 32 records across five seeds.
+
+Impact: Keeping TCA-Select as a central contribution may weaken the research story by adding unsupported complexity.
+
+Mitigation: Treat TCA-Select as secondary. If the 64-record split also shows `0` nontrivial gains, kill it as a core contribution and focus the method claim on target-prior-conditioned action decoding.
+
+Current result: TCA-Select nontrivial gain count was `0 / 5` at 32 records.
