@@ -877,3 +877,15 @@ ActionMap + LoRA vs TCA-Map + LoRA tiny offline comparison
 ```
 
 Carry forward the weak head-only result. Do not use LoRA to hide it. The LoRA comparison must report whether LoRA rescues both arms equally, whether ActionMap + LoRA matches or beats TCA-Map + LoRA, and whether any apparent gain is due to adaptation rather than TCA-Map. If LoRA comparison is not run next, the smallest useful alternative is a concrete target-head failure diagnosis using the same fixed split, not another broad planner.
+
+## Next Action After Tiny LoRA Attribution Comparison
+
+The required tiny LoRA attribution comparison produced valid losses and offline proxy metrics, but the conclusion was `lora_weakens_tca_map` on the same tiny split.
+
+Do not scale the experiment just to search for a positive TCA-Map result. The next safe milestone should be:
+
+```text
+B. debug TCA label/conditioning
+```
+
+Minimum useful next step: a concrete target-label/conditioning failure diagnosis on the same split. It should inspect why TCA target prediction is perfect or strong on train records but fails on the held-out eval pair, and whether the current text/hash target features or target-conditioned action input are a poor formulation. Do not run LoRA scale-up, rollout, or paper-claim work before that diagnosis.

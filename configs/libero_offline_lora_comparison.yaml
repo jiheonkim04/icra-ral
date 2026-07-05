@@ -1,20 +1,28 @@
-libero_offline_lora_comparison:
-  description: Tiny offline proxy comparison for required LoRA arms over local LIBERO HDF5 action snippets.
+﻿libero_offline_lora_comparison:
+  description: Tiny offline attribution comparison for required LoRA arms over the same local LIBERO HDF5 split as the head-only diagnostic.
 
 manifest: reports/libero_offline_counterfactual_split_report.json
+head_only_reference: reports/libero_offline_actionmap_tca_comparison_report.json
 max_pairs: 4
 max_action_steps: 16
-max_samples: 16
-max_steps: 16
+max_samples: 8
+max_steps: 64
 max_runtime_seconds: 900
+batch_size: 1
 lora_rank: 4
 action_prefix_dim: 4
 offline_proxy_only: true
+exploratory: true
 requires_allow_tiny_training: true
 arms:
   - actionmap_lora
   - tca_map_lora
   - tca_map_lora_distributional_select
+required_checks:
+  - tca_target_labels_aligned
+  - wrong_target_proxy_not_inverted
+  - tca_select_candidate_scores_not_degenerate
+  - target_conditioning_non_constant
 forbidden:
   - downloads
   - gpu_jobs
@@ -23,4 +31,5 @@ forbidden:
   - rollouts
   - heavy_vla_imports
   - openvla_oft
+  - full_finetuning
   - paper_grade_claims

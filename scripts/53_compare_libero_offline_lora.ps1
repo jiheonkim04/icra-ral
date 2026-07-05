@@ -1,13 +1,14 @@
-param(
+﻿param(
     [string]$Python = "C:\Users\jiheo\miniconda3\envs\tca_map\python.exe",
     [string]$ManifestPath = "reports\libero_offline_counterfactual_split_report.json",
     [string]$JsonReportPath = "reports\libero_offline_lora_comparison_report.json",
     [string]$MarkdownReportPath = "reports\libero_offline_lora_comparison_report.md",
+    [string]$HeadOnlyReportPath = "reports\libero_offline_actionmap_tca_comparison_report.json",
     [int]$MaxPairs = 4,
     [int]$MaxActionSteps = 16,
-    [int]$MaxSteps = 16,
+    [int]$MaxSteps = 64,
     [int]$MaxRuntimeSeconds = 900,
-    [int]$MaxSamples = 16,
+    [int]$MaxSamples = 8,
     [int]$Rank = 4
 )
 
@@ -18,9 +19,9 @@ Set-Location $RepoRoot
 $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 
-Write-Host "LIBERO offline LoRA comparison"
+Write-Host "LIBERO offline LoRA attribution comparison"
 Write-Host "Repo root: $RepoRoot"
-Write-Host "This bounded script trains only tiny NumPy LoRA adapter weights on local LIBERO HDF5 action snippets. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims."
+Write-Host "This bounded script trains only tiny CPU NumPy LoRA adapter weights on local LIBERO HDF5 action snippets. It does not download assets, run GPU jobs, import heavy VLA models, load models, infer, rollout, execute simulators, access tokens, execute OpenVLA-OFT, or make paper claims."
 
 if (-not (Test-Path -LiteralPath $Python)) {
     Write-Error "Python interpreter not found: $Python"
@@ -79,6 +80,7 @@ if ($env:ALLOW_TINY_TRAINING -ne "1") {
     --manifest $ManifestPath `
     --report-json $JsonReportPath `
     --report-md $MarkdownReportPath `
+    --head-only-report $HeadOnlyReportPath `
     --max-pairs $MaxPairs `
     --max-action-steps $MaxActionSteps `
     --max-steps $MaxSteps `

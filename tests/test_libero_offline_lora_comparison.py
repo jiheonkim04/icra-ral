@@ -1,4 +1,4 @@
-import json
+﻿import json
 import os
 import shutil
 import subprocess
@@ -41,26 +41,47 @@ def _write_demo(path: Path, offset: float) -> None:
             actions[row, :] = offset + row * 0.01
 
 
-def _write_manifest(tmp_path: Path) -> Path:
-    positive = tmp_path / "data" / "libero_10" / "positive_demo.hdf5"
-    counter = tmp_path / "data" / "libero_10" / "counter_demo.hdf5"
-    _write_demo(positive, 0.1)
-    _write_demo(counter, 0.4)
-    manifest = {
-        "ready_for_tiny_offline_counterfactual_split": True,
-        "counterfactual_pairs": [
+def _write_manifest(tmp_path: Path, pair_count: int = 2) -> Path:
+    pairs = []
+    for index in range(pair_count):
+        positive = tmp_path / "data" / "libero_10" / f"positive_{index}_demo.hdf5"
+        counter = tmp_path / "data" / "libero_10" / f"counter_{index}_demo.hdf5"
+        _write_demo(positive, 0.1 + index * 0.05)
+        _write_demo(counter, 0.4 + index * 0.05)
+        pairs.append(
             {
-                "pair_id": "libero_10:positive__vs__counter",
+                "pair_id": f"libero_10:positive_{index}__vs__counter_{index}",
                 "positive_demo_file": str(positive),
                 "counterfactual_demo_file": str(counter),
                 "positive_instruction": "pick the soup can",
                 "counterfactual_instruction": "pick the milk carton",
             }
-        ],
+        )
+    manifest = {
+        "ready_for_tiny_offline_counterfactual_split": True,
+        "counterfactual_pairs": pairs,
     }
     manifest_path = tmp_path / "manifest.json"
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     return manifest_path
+
+
+def _write_head_only_reference(tmp_path: Path, train_pair_ids, eval_pair_ids) -> Path:
+    reference = {
+        "comparison": {"conclusion": "weakens_tca_map"},
+        "split": {
+            "train_pair_ids": train_pair_ids,
+            "eval_pair_ids": eval_pair_ids,
+        },
+        "arms": {
+            "actionmap_head_only": {"evaluation_metrics": {"standard_proxy_score": 0.4, "wrong_target_proxy_rate": 0.5}},
+            "tca_map_head_only": {"evaluation_metrics": {"standard_proxy_score": 0.0, "wrong_target_proxy_rate": 1.0}},
+            "tca_map_distributional_select": {"evaluation_metrics": {"standard_proxy_score": 0.0, "wrong_target_proxy_rate": 1.0}},
+        },
+    }
+    path = tmp_path / "head_only.json"
+    path.write_text(json.dumps(reference), encoding="utf-8")
+    return path
 
 
 def _json_from_stdout(stdout):
@@ -69,25 +90,29 @@ def _json_from_stdout(stdout):
     return json.loads(stdout[start:])
 
 
-def test_libero_offline_lora_comparison_builds_required_arms(tmp_path):
-    manifest = _write_manifest(tmp_path)
+def test_libero_offline_lora_comparison_builds_required_arms_and_checks(tmp_path):
+    manifest = _write_manifest(tmp_path, pair_count=2)
+    train_ids = ["libero_10:positive_0__vs__counter_0"]
+    eval_ids = ["libero_10:positive_1__vs__counter_1"]
+    head_only = _write_head_only_reference(tmp_path, train_ids, eval_ids)
     report = run_libero_offline_lora_comparison(
         manifest_path=manifest,
         report_json=tmp_path / "report.json",
         report_md=tmp_path / "report.md",
-        max_pairs=1,
+        head_only_report_path=head_only,
+        max_pairs=2,
         max_action_steps=4,
-        max_steps=2,
-        max_samples=2,
+        max_steps=4,
+        max_samples=4,
         rank=2,
         require_training_gate=False,
     )
 
     assert report["libero_offline_lora_comparison_passed"] is True
-    assert report["ready_for_bounded_local_pilot_report"] is True
     assert report["ready_for_rollout"] is False
     assert report["policy"]["real_dataset_used"] is True
     assert report["policy"]["training_performed"] is True
+    assert report["policy"]["lora_training_performed"] is True
     assert report["policy"]["gpu_jobs_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
     assert report["policy"]["openvla_oft_executed"] is False
@@ -96,7 +121,17 @@ def test_libero_offline_lora_comparison_builds_required_arms(tmp_path):
         "tca_map_lora",
         "tca_map_lora_distributional_select",
     }
-    assert all(arm["trainable_lora_parameter_count"] > 0 for arm in report["arms"])
+    assert report["sanity_checks"]["target_labels_aligned"] is True
+    assert report["sanity_checks"]["wrong_target_proxy_not_inverted"] is True
+    assert report["sanity_checks"]["target_conditioning_non_constant"] is True
+    assert report["sanity_checks"]["same_split_as_head_only"] is True
+    assert report["sanity_checks"]["tca_select_candidate_scores_degenerate"] is False
+    for arm in report["arms"]:
+        assert arm["trainable_lora_parameter_count"] > 0
+        assert arm["loss_curve"]
+        assert arm["initial_loss"] >= 0.0
+        assert arm["final_loss"] >= 0.0
+        assert "standard_proxy_score" in arm["evaluation_metrics"]
 
 
 def test_libero_offline_lora_script_requires_training_gate(tmp_path):
@@ -139,7 +174,12 @@ def test_libero_offline_lora_script_runs_with_bounded_gate(tmp_path):
     if powershell is None:
         pytest.skip("PowerShell is required for LIBERO offline LoRA comparison script tests")
 
-    manifest = _write_manifest(tmp_path)
+    manifest = _write_manifest(tmp_path, pair_count=2)
+    head_only = _write_head_only_reference(
+        tmp_path,
+        ["libero_10:positive_0__vs__counter_0"],
+        ["libero_10:positive_1__vs__counter_1"],
+    )
     result = subprocess.run(
         [
             powershell,
@@ -151,18 +191,20 @@ def test_libero_offline_lora_script_runs_with_bounded_gate(tmp_path):
             sys.executable,
             "-ManifestPath",
             str(manifest),
+            "-HeadOnlyReportPath",
+            str(head_only),
             "-JsonReportPath",
             str(tmp_path / "report.json"),
             "-MarkdownReportPath",
             str(tmp_path / "report.md"),
             "-MaxPairs",
-            "1",
+            "2",
             "-MaxActionSteps",
             "4",
             "-MaxSteps",
-            "2",
+            "4",
             "-MaxSamples",
-            "2",
+            "4",
             "-Rank",
             "2",
         ],
@@ -182,6 +224,7 @@ def test_libero_offline_lora_script_runs_with_bounded_gate(tmp_path):
     assert report["policy"]["gpu_jobs_performed"] is False
     assert report["policy"]["model_load_performed"] is False
     assert report["policy"]["rollouts_performed"] is False
+    assert report["sanity_checks"]["same_split_as_head_only"] is True
 
 
 def test_libero_offline_lora_script_refuses_dangerous_gate(tmp_path):
