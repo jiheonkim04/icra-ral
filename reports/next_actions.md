@@ -981,3 +981,17 @@ Current diagnostic result:
 - weak selector delta only: `tca_select_topk_uniform_prior` with `+0.005128` standard proxy and no wrong-target improvement.
 
 Next milestone: rerun LoRA attribution with the fixed target prior on the same split before scaling. Keep TCA-Select de-emphasized unless it later shows a nontrivial gain beyond target-prior correctness.
+
+## Current Next Action After Fixed-Prior LoRA Attribution
+
+The fixed-prior LoRA attribution rerun has been executed on the same fixed 8-sample split.
+
+Current diagnostic result:
+- ActionMap + LoRA standard proxy: `0.454351`; wrong-target proxy: `0.5`.
+- TCA-Map + LoRA hard learned target standard proxy: `0.0`; wrong-target proxy: `1.0`.
+- TCA-Map + LoRA instruction-text prior standard proxy: `0.910293`; wrong-target proxy: `0.0`.
+- TCA-Map + LoRA fixed learned+text fusion standard proxy: `0.910293`; wrong-target proxy: `0.0`.
+- Oracle-target TCA + LoRA upper bound standard proxy: `0.910293`.
+- TCA-Select ablation delta over fixed-fusion TCA + LoRA: `0.0`.
+
+Next milestone: cautiously scale the offline split while preserving the fixed primary metrics, the ActionMap + LoRA baseline, the hard learned-target failure arm, the instruction-text/fixed-fusion target-prior arms, and the oracle upper bound. Continue to label results exploratory offline proxy until rollout evidence exists. Keep the learned target head redesign as an active blocker, and de-emphasize TCA-Select unless it shows a nontrivial gain beyond target-prior correctness.

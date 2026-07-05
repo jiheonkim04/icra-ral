@@ -2227,3 +2227,30 @@ TCA-Select uncertainty result:
 - TCA-Select with fixed learned+text fusion: standard proxy `0.86561`, wrong-target proxy `0.0`; delta over non-select fixed fusion was `0.0`.
 
 Interpretation: TCA-Select was revised to marginalize over target uncertainty, but it did not produce a meaningful gain. The only positive selector delta was a weak top-k uniform proxy bump without wrong-target improvement. The next execution milestone should rerun LoRA attribution with the fixed target prior, while de-emphasizing TCA-Select unless a future selector shows a real contribution beyond target-prior correctness.
+
+## Fixed-Prior LoRA Attribution Result
+
+Status: complete as an exploratory tiny offline proxy diagnostic on the same fixed 8-sample split.
+
+Implementation:
+- script: `scripts\130_compare_libero_fixed_prior_lora.ps1`
+- module: `tca_map.datasets.libero_fixed_prior_lora_attribution`
+- report: `reports\libero_fixed_prior_lora_attribution_report.json` and `.md` are runtime outputs and ignored by git.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, tiny CPU NumPy LoRA attribution training.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Result on the fixed 8-sample split:
+- ActionMap + LoRA loss: `0.034182 -> 0.034104`; trainable LoRA params: `84`; standard proxy: `0.454351`; wrong-target proxy: `0.5`; action-target consistency: `0.451948`; counterfactual margin: `0.012553`.
+- TCA-Map + LoRA hard learned target loss: `0.716626 -> 0.656217`; trainable LoRA params: `168`; standard proxy: `0.0`; wrong-target proxy: `1.0`.
+- TCA-Map + LoRA instruction-text prior loss: `0.716626 -> 0.656217`; standard proxy: `0.910293`; wrong-target proxy: `0.0`; action-target consistency: `0.910293`; counterfactual margin: `0.009565`.
+- TCA-Map + LoRA fixed learned+text fusion loss: `0.716626 -> 0.656217`; standard proxy: `0.910293`; wrong-target proxy: `0.0`; gap to oracle: `0.0`.
+- Oracle-target TCA + LoRA upper bound: standard proxy `0.910293`; wrong-target proxy `0.0`.
+- TCA-Select fixed-fusion ablation: standard proxy `0.910293`; wrong-target proxy `0.0`; delta over fixed-fusion non-select TCA: `0.0`.
+
+Interpretation: fixed-prior TCA + LoRA beats ActionMap + LoRA by `+0.455942` standard proxy and `-0.5` wrong-target proxy on this tiny exploratory split. This keeps TCA-Map viable when the target prior is corrected, and improves over the previous hard-learned LoRA result by `+0.910293` standard proxy. The learned target head remains the bottleneck. TCA-Select still has no measurable gain and should be de-emphasized unless a future selector ablation shows nontrivial benefit. This is not paper-grade evidence.

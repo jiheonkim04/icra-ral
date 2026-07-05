@@ -1248,3 +1248,23 @@ Risk: The revised uncertainty-marginalized TCA-Select produced only a weak top-k
 Impact: Keeping TCA-Select central could distract from the stronger target-prior TCA finding.
 
 Mitigation: De-emphasize TCA-Select unless a future execution-first experiment shows nontrivial gains over the corresponding non-select TCA prior. Report weak or null selector results honestly.
+
+## Fixed-Prior LoRA Positive-Result Overinterpretation Risk
+
+Risk: The fixed-prior LoRA rerun strongly beats ActionMap + LoRA on the tiny 8-sample offline proxy split, which could tempt overclaiming after earlier negative head-only and hard-learned LoRA diagnostics.
+
+Impact: The project could present target-prior-corrected TCA as generally solved before showing that the target prior is non-privileged, robust, and transferable to larger offline splits or rollouts.
+
+Mitigation: Keep the result labeled exploratory offline proxy. Preserve the hard learned-target failure, ActionMap + LoRA baseline, instruction-text prior, fixed fusion, oracle upper bound, and TCA-Select ablation in any scaled rerun. Require rollout evidence before paper-grade claims.
+
+Current result: fixed-fusion TCA + LoRA standard proxy `0.910293` vs ActionMap + LoRA `0.454351`; wrong-target proxy `0.0` vs `0.5`; hard learned-target TCA + LoRA remains `0.0` standard proxy and `1.0` wrong-target proxy.
+
+## TCA-Select LoRA Redundancy Risk
+
+Risk: TCA-Select again adds no measurable gain when the target prior is already correct.
+
+Impact: Keeping TCA-Select as the central novelty could add complexity without empirical support.
+
+Mitigation: Treat TCA-Select as a secondary ablation unless a future scaled selector diagnostic shows a nontrivial gain over the corresponding non-select TCA prior.
+
+Current result: fixed-fusion TCA + LoRA and fixed-fusion TCA-Select + LoRA both scored standard proxy `0.910293` and wrong-target proxy `0.0`; selector delta was `0.0`.
