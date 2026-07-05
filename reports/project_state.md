@@ -2126,3 +2126,41 @@ Sanity check result:
 Diagnosis: no concrete label-construction, metric-direction, off-by-one, broadcast, candidate-space, or TCA-Select scoring bug was found. The current failure is the TCA target classifier/generalization or target prior design on the tiny holdout pair: it predicts the wrong target for every eval sample, while the action branch can recover when given the oracle target.
 
 Conclusion: `verified_no_label_or_metric_bug_but_target_classifier_failure`. Do not scale training, LoRA, or rollout to search for a positive result. The next execution-first milestone should revise/debug the TCA target-conditioning design on the same split before any broader experiment.
+
+## TCA Target-Prior Rescue Diagnostic Result
+
+The target-prior rescue milestone has run on the same deterministic 8-sample split.
+
+Scope and safety:
+
+- script: `scripts\56_debug_tca_target_prior_rescue.ps1`,
+- task-local gate: `ALLOW_TINY_TRAINING=1`,
+- samples: 8 records, 6 train / 2 eval,
+- steps: 64,
+- batch size: 1,
+- device: CPU NumPy,
+- training: true, diagnostic tiny heads only,
+- LoRA training: false,
+- rollout: false,
+- downloads/GPU jobs/heavy imports/OpenVLA-OFT/paper claims: false.
+
+Target-head sanity:
+
+- target CE loss: `0.693147 -> 0.121261`, decreased true,
+- train target top1 accuracy: `1.0`,
+- eval target top1 accuracy: `0.0`,
+- eval target top-k accuracy with `k=2`: `1.0`,
+- eval confusion: `true_0__pred_1=1`, `true_1__pred_0=1`.
+
+Variant results:
+
+- learned hard target TCA: standard proxy `0.0`, wrong-target `1.0`, action-target consistency `0.0`.
+- oracle-target TCA upper bound: standard proxy `0.86561`, wrong-target `0.0`, action-target consistency `0.86561`.
+- soft target marginalization: correct target appeared in top-2, but standard proxy stayed `0.0`, wrong-target stayed `1.0`, and action L1 slightly worsened.
+- soft target distributional selection: no improvement over hard target prediction.
+- instruction-text prior TCA: standard proxy `0.86561`, wrong-target `0.0`, action-target consistency `0.86561`, matching the oracle target upper-bound on this tiny eval pair.
+- constant target baseline: standard proxy `0.444499`, wrong-target `0.5`.
+
+Diagnosis: target top-k contains the correct target, but hard top-1 target prediction fails. Soft marginalization over the current learned probabilities does not rescue TCA because the wrong target has too much probability mass. A simple instruction/candidate-text prior rescues the proxy to the oracle upper-bound on this tiny split, so the target-conditioned action mechanism remains viable as a diagnostic. The immediate blocker is the learned target prior/classifier, not the action-conditioning branch.
+
+Conclusion: `target_topk_contains_correct_but_top1_prior_fails`. Next milestone should improve the target prior/classifier and rerun the same head-only ActionMap vs TCA-Map comparison before any scaling, LoRA, or rollout.

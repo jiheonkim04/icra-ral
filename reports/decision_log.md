@@ -1310,3 +1310,13 @@ Reason: The audit used the same deterministic 8-sample split and verified that t
 Consequence: No minimal source-code bug patch was applied. Do not scale training, LoRA, or rollout as a response to this result. The next milestone should revise or debug TCA target-conditioning design on the same split. If a revised target-conditioning design still loses to ActionMap, the current TCA-Map formulation should be killed or pivoted.
 
 Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## TCA Target-Prior Rescue Diagnostic Result
+
+Decision: Keep the TCA target-conditioned action mechanism alive as a diagnostic path, but treat the current learned target head as failed on the tiny holdout split.
+
+Reason: The target head fit the training records but inverted both eval targets. Target CE decreased from `0.693147` to `0.121261`, train target top1 was `1.0`, eval target top1 was `0.0`, and eval target top-k was `1.0`. Oracle-target TCA and instruction-text-prior TCA both reached standard proxy `0.86561` with wrong-target proxy `0.0`. Soft marginalization and soft target distributional selection did not improve over hard target prediction because the learned target probabilities still placed most mass on the wrong target.
+
+Consequence: Do not scale sample count, LoRA, or rollout yet. The next execution-first step should implement the smallest target-prior/classifier fix and rerun the exact same head-only ActionMap vs TCA-Map comparison. If the target-prior-fixed TCA still loses to ActionMap, the current TCA target-head formulation should be redesigned or killed.
+
+Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.

@@ -239,6 +239,8 @@ reports/libero_offline_lora_comparison_report.md
 reports/libero_tca_label_conditioning_audit_report.json
 reports/libero_tca_label_conditioning_audit_report.md
 reports/libero_tca_label_conditioning_audit_table.json
+reports/libero_tca_target_prior_rescue_report.json
+reports/libero_tca_target_prior_rescue_report.md
 reports/libero_offline_bounded_pilot_report.json
 reports/libero_offline_bounded_pilot_report.md
 reports/wsl2_status.md
