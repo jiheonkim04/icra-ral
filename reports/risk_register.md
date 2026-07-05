@@ -1202,3 +1202,13 @@ Impact: The project could waste compute scaling LoRA, rollout, or larger offline
 Mitigation: `scripts\55_debug_tca_label_conditioning.ps1` now audits the fixed 8-sample split at sample level and checks label alignment, target-conditioning variation, metric direction, one-sample overfit, target-shuffle, oracle-target evaluation, constant-target baseline, and TCA-Select score degeneracy. The current audit found no concrete label/metric/candidate-space bug and reported `verified_no_label_or_metric_bug_but_target_classifier_failure`.
 
 Current result: TCA wrong-target proxy `1.0` means both eval target predictions were wrong. Oracle-target TCA standard proxy improved from `0.0` to `0.86561`, while constant-target baseline standard proxy was `0.442708`. The next safe milestone is to revise/debug TCA target-conditioning design on the same split, not to scale LoRA or rollout.
+
+## Target-Prior Rescue Overinterpretation Risk
+
+Risk: The instruction-text prior rescue result could be overstated as TCA-Map evidence even though it is a tiny offline proxy and uses candidate/task text that may not be available in the same form at paper-grade inference time.
+
+Impact: The project could replace a failed learned target head with a metadata-like shortcut and accidentally claim a method improvement that does not transfer to rollout or benchmark evaluation.
+
+Mitigation: `scripts\56_debug_tca_target_prior_rescue.ps1` labels oracle and instruction-text-prior arms as diagnostic, not paper-grade. It keeps the same fixed split, reports constant/majority and soft-marginalization controls, and keeps rollout, LoRA, scaling, and paper claims blocked.
+
+Current result: learned hard target TCA standard proxy `0.0`, oracle-target TCA `0.86561`, instruction-text-prior TCA `0.86561`, soft marginalization `0.0`, and constant target baseline `0.444499`. The immediate next step is a minimal target-prior/classifier fix followed by the same head-only ActionMap vs TCA-Map rerun, not a paper claim.

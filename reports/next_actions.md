@@ -914,3 +914,39 @@ This should be a small executable design/debug step, not broad planning. Allowed
 - keep the same split and metrics first.
 
 Do not scale LoRA, run rollout, tune samples/seeds, or make paper claims before this target-conditioning design issue is addressed.
+
+## Next Action After TCA Target-Prior Rescue Diagnostic
+
+The target-prior rescue diagnostic produced valid losses and offline proxy metrics on the same fixed split.
+
+Result:
+
+```text
+target_topk_contains_correct_but_top1_prior_fails
+```
+
+Key evidence:
+
+- learned target head train top1 accuracy: `1.0`,
+- learned target head eval top1 accuracy: `0.0`,
+- learned target head eval top-k accuracy with `k=2`: `1.0`,
+- hard learned-target TCA standard proxy: `0.0`,
+- oracle-target TCA standard proxy: `0.86561`,
+- soft target marginalization standard proxy: `0.0`,
+- soft target distributional selection standard proxy: `0.0`,
+- instruction-text prior TCA standard proxy: `0.86561`,
+- constant target baseline standard proxy: `0.444499`.
+
+Next safe milestone:
+
+```text
+C. rerun head-only ActionMap vs TCA-Map after target-prior fix
+```
+
+But first implement the smallest target-prior fix or variant on the same split:
+
+- replace the brittle hash-only target head with an instruction/candidate-text target prior or similarly explicit target-prior module,
+- keep the same 8-sample split and metrics,
+- compare ActionMap head-only vs TCA-Map with the target-prior fix,
+- label the run exploratory tiny offline proxy,
+- do not run LoRA, rollout, scaling, or paper claims before this rerun.
