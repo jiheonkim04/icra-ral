@@ -2474,3 +2474,41 @@ Selector headroom audit:
 - correct candidates had slightly higher separation than wrong candidates: mean margin `0.001837`.
 
 Conclusion: the fixed prior is not downgraded as leakage under the explicit test-time candidate-text assumption, but the gain is not broad across every target/task group. The improvement is dominated by target `1` and wrong-target correction. TCA-Select has no oracle-selector headroom in this audit and should be killed as a core contribution unless future targeted selector evidence changes this. The next milestone should be learned target-head or target-prior robustness redesign before limited rollout.
+
+## Representation Sensitivity and Target-Reinjection Audit
+
+Status: complete as a bounded exploratory offline proxy audit on the existing 64-record split.
+
+Implementation:
+- script: `scripts\137_audit_representation_sensitivity.ps1`
+- module: `tca_map.datasets.libero_representation_sensitivity_audit`
+- runtime reports are ignored by git: `reports\libero_representation_sensitivity_audit_report.json` and `.md`
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, CPU NumPy offline audit reconstruction.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- representation extraction happened: proxy only; full VLA hidden-state extraction did not happen.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Representation sensitivity result:
+- evaluated split: `64` records, `48 / 16` train/eval, seeds `11, 23, 37`.
+- full hidden extraction: false; blocked intentionally by the no-heavy-import/model-load policy.
+- proxy representation source: cached `hidden_tokens`, not final SmolVLA/OpenVLA hidden states.
+- target-swapped eval pair count: `8`.
+- target-swap proxy cosine mean/std: `-0.094343 / 0.288315`.
+- target-swap proxy L2 mean/std: `3.071515 / 0.491991`.
+- target-preserving paraphrase pairs were unavailable, so no paraphrase-normalized representation sensitivity ratio is claimed.
+
+Action pathway and target-prior reinjection result:
+- ActionMap + LoRA standard proxy mean: `0.429275`; wrong-target proxy mean: `0.5`.
+- fixed-prior TCA + LoRA standard proxy mean: `0.856612`; wrong-target proxy mean: `0.0`.
+- fixed-prior TCA + LoRA advantage over ActionMap + LoRA: `+0.427337` standard proxy and `-0.5` wrong-target proxy.
+- hard learned-target TCA + LoRA standard proxy mean: `0.464418`; wrong-target proxy mean: `0.458333`, with high seed variance.
+- TCA-Select delta over fixed-prior TCA + LoRA: `0.0`.
+- target `0` diagnosis: `near_saturation_or_metric_noise_not_a_material_failure`; fixed-prior TCA + LoRA delta `-0.003352` mean with wrong-target delta `0.0`.
+- target `1` remains the main wrong-target correction gain.
+
+Conclusion: this audit does not support a representation-collapse claim because full hidden states were not extracted. The supported claim is narrower and cleaner: fixed semantic target-prior reinjection improves wrong-target correction/action-pathway grounding on the offline proxy split without proving hidden collapse. Target-Prior TCA-Map remains the main method under the explicit non-leaking candidate-text assumption. TCA-Select should be killed or de-emphasized as a core contribution unless future evidence changes this. The next milestone may be a limited fixed-prior rollout diagnostic under a separate green rollout risk gate.

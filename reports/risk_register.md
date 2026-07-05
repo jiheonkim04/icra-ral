@@ -1398,3 +1398,23 @@ Impact: Continuing to treat TCA-Select as a central contribution could distract 
 Mitigation: Kill TCA-Select as a core contribution unless a future targeted selector stress test or revised candidate generator shows a meaningful oracle selector upper-bound gap. Keep it as a secondary ablation only.
 
 Current result: current TCA-Select turnover rate was `0.0`, oracle selector delta over non-select fixed-prior TCA was `0.0`, candidate diversity was not collapsed, and score diversity was non-degenerate.
+
+## Representation-Collapse Overclaim Risk
+
+Risk: The representation sensitivity audit did not extract full VLA hidden states, only cached proxy `hidden_tokens`.
+
+Impact: Claiming target-information collapse would overstate the evidence and could undermine research integrity.
+
+Mitigation: State that representation collapse is unsupported by this audit. Frame the current supported result as target-prior reinjection/action-pathway grounding and wrong-target correction. Require a separate safe hidden-state extraction audit before any collapse claim.
+
+Current result: proxy target-swap cosine mean/std was `-0.094343 / 0.288315`, proxy L2 mean/std was `3.071515 / 0.491991`, and full hidden extraction was false.
+
+## Target-Prior Reinjection Validity Risk
+
+Risk: Fixed-prior TCA remains strong only under the assumption that candidate/task natural-language target text is available at test time.
+
+Impact: If rollout inference cannot access equivalent non-privileged candidate text, the method would become metadata-assisted rather than a valid test-time method.
+
+Mitigation: Preserve prior-source audit fields in the next rollout diagnostic. Stop or downgrade the method if BDDL metadata, eval labels, dataset target labels, task IDs, filenames, or manifest target fields become inference-time target proxies.
+
+Current result: fixed-prior TCA + LoRA beat ActionMap + LoRA by `+0.427337` standard proxy and `-0.5` wrong-target proxy, while still depending on explicit non-leaking semantic target prior text.

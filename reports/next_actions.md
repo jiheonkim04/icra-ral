@@ -1072,3 +1072,19 @@ Current diagnostic result:
 - candidate pool diversity is not collapsed, and score diversity is non-degenerate, so the current selector has no headroom rather than merely broken candidate generation.
 
 Next milestone: `B. learned target-head / target-prior robustness redesign`. Do not run limited rollout yet, because the current gain is target-concentrated. Treat TCA-Select as killed as a core contribution unless a future targeted selector stress test shows nontrivial headroom. Preserve the same fixed metrics and include the target `0` weakness explicitly in the next evaluation.
+
+## Current Next Action After Representation Sensitivity Audit
+
+The representation sensitivity and target-reinjection audit has been executed on the existing 64-record split with seeds `11, 23, 37`.
+
+Current diagnostic result:
+- full hidden-state extraction did not happen; only cached proxy `hidden_tokens` were audited.
+- proxy representations changed under target swaps: cosine mean/std `-0.094343 / 0.288315`, L2 mean/std `3.071515 / 0.491991`.
+- ActionMap + LoRA standard proxy mean `0.429275`, wrong-target proxy `0.5`.
+- fixed-prior TCA + LoRA standard proxy mean `0.856612`, wrong-target proxy `0.0`.
+- fixed-prior TCA + LoRA advantage over ActionMap + LoRA: `+0.427337` standard proxy and `-0.5` wrong-target proxy.
+- hard learned-target TCA + LoRA remains unstable: standard proxy mean `0.464418`, wrong-target proxy mean `0.458333`.
+- TCA-Select delta remains `0.0`.
+- target `0` issue is diagnosed as near-saturation/metric noise rather than a material blocker: mean standard-proxy delta `-0.003352`, wrong-target delta `0.0`.
+
+Next milestone: `D. limited fixed-prior rollout diagnostic`, but only after an explicit green rollout risk assessment. Keep the claim narrow: target-prior reinjection/action-pathway grounding, not proven representation collapse. Keep learned target-head redesign as a follow-up bottleneck and keep TCA-Select killed or secondary.
