@@ -1230,3 +1230,21 @@ Risk: Distributional TCA-Select adds `0.0` standard-proxy, wrong-target, action-
 Impact: Keeping TCA-Select unchanged could add complexity without evidence of contribution.
 
 Mitigation: Revise the TCA-Select objective before scaling. The next TCA-Select experiment must show a measurable contribution beyond target-prior correctness or honestly log that TCA-Select is unsupported by the diagnostic.
+
+## Fixed-Fusion Overfitting Risk
+
+Risk: The fixed learned+text fusion recovers the tiny split by downweighting the learned prior when it conflicts with the text prior. This may be a useful calibration rule, but it could also be overfit to a two-sample eval split if treated as a general result too early.
+
+Impact: The project could move from a failed learned target head to a text-prior-dominant shortcut without proving robustness.
+
+Mitigation: Keep the result labeled exploratory offline proxy. Rerun LoRA attribution on the same split first for attribution consistency, then cautiously scale only after logging the fixed rule and preserving ActionMap, hard learned-target, instruction-text, fixed-fusion, and oracle baselines.
+
+Current result: fixed learned+text fusion standard proxy `0.86561`, wrong-target `0.0`, matching instruction-text and oracle-target TCA on the tiny split.
+
+## TCA-Select Weak-Delta Risk
+
+Risk: The revised uncertainty-marginalized TCA-Select produced only a weak top-k-uniform standard-proxy delta of `+0.005128` and did not improve wrong-target proxy. This is not strong evidence that TCA-Select is a publishable contribution.
+
+Impact: Keeping TCA-Select central could distract from the stronger target-prior TCA finding.
+
+Mitigation: De-emphasize TCA-Select unless a future execution-first experiment shows nontrivial gains over the corresponding non-select TCA prior. Report weak or null selector results honestly.

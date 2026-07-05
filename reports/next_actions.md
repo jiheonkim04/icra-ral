@@ -965,3 +965,19 @@ Current diagnostic result:
 - TCA-Select delta over best prior: `0.0`
 
 Next milestone: revise Distributional TCA-Select with a non-degenerate selection objective that can add value after a target prior is already correct. Do not scale samples, rerun LoRA, or run rollouts before this revision unless the next task explicitly produces a metric or concrete failure diagnosis. Preserve the same split and report weak results honestly.
+
+## Current Next Action After TCA-Select Target-Uncertainty Audit
+
+The TCA-Select target-uncertainty audit has been executed on the same fixed 8-sample split.
+
+Current diagnostic result:
+- equal learned+text fusion bug/misalignment found: `false`
+- fusion weighting/calibration issue found: `true`
+- fixed learned+text fusion standard proxy: `0.86561`
+- fixed learned+text fusion wrong-target proxy: `0.0`
+- best non-oracle TCA prior variant: `tca_nonselect_instruction_text_prior`
+- best non-oracle TCA-Select variant: `tca_select_instruction_text_prior`
+- TCA-Select meaningful help: `false`
+- weak selector delta only: `tca_select_topk_uniform_prior` with `+0.005128` standard proxy and no wrong-target improvement.
+
+Next milestone: rerun LoRA attribution with the fixed target prior on the same split before scaling. Keep TCA-Select de-emphasized unless it later shows a nontrivial gain beyond target-prior correctness.
