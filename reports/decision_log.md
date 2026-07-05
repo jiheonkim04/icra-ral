@@ -1330,3 +1330,13 @@ Reason: On the fixed 8-sample split, hard learned-target TCA remains weak with `
 Consequence: the next execution-first task should target TCA-Select redesign or a concrete target-prior/classifier improvement. Do not use this tiny offline proxy as paper-grade evidence.
 
 Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## TCA-Select Target-Uncertainty Audit Result
+
+Decision: Use the fixed learned+text target prior for the next LoRA attribution rerun, and de-emphasize Distributional TCA-Select until it demonstrates a meaningful gain beyond target-prior correctness.
+
+Reason: The audit found no fusion implementation bug or class-index mismatch. Equal learned+text fusion failed because the learned target prior was confidently wrong and overwrote the correct instruction-text prior on both eval records. A temperature-calibrated, conflict-aware fixed fusion recovered standard proxy `0.86561` and wrong-target proxy `0.0`, matching instruction-text prior and oracle-target TCA on this tiny split. The revised uncertainty-marginalized TCA-Select produced only a weak `+0.005128` top-k-uniform standard-proxy delta with no wrong-target improvement, and no gain over instruction-text or fixed-fusion priors.
+
+Consequence: The next execution-first milestone should rerun LoRA attribution with the fixed target prior on the same split. Do not scale or claim paper-grade evidence. Keep TCA-Select as a secondary/uncertain contribution unless a future selector adds measurable value.
+
+Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.

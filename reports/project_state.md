@@ -2194,3 +2194,36 @@ Result on the fixed 8-sample split:
 - Distributional TCA-Select over the best non-oracle prior standard proxy: `0.86561`
 
 Interpretation: the smallest target-prior fix recovers TCA-Map over ActionMap on standard proxy and wrong-target proxy, but only when using the instruction-text prior. The learned target head remains the bottleneck. Distributional TCA-Select adds no measurable gain over the best non-oracle prior in this diagnostic, so it should be revised before scaling or LoRA attribution is rerun.
+
+## TCA-Select Target-Uncertainty Audit
+
+Status: complete as an exploratory tiny offline proxy diagnostic on the same fixed 8-sample split.
+
+Implementation:
+- script: `scripts\58_audit_tca_select_target_uncertainty.ps1`
+- module: `tca_map.datasets.libero_tca_select_uncertainty_audit`
+- report: `reports\libero_tca_select_uncertainty_audit_report.json` and `.md` are runtime outputs and ignored by git.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, same tiny CPU NumPy ActionMap/TCA heads as the prior diagnostics.
+- loss was computed: yes.
+- LoRA training happened: no.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Fusion audit result:
+- no normalization, NaN, all-zero, constant-vector, class-id, or target-index-space bug was found.
+- equal learned+text fusion failed because the learned target prior was confidently wrong and overwrote the correct instruction-text prior on both eval samples.
+- fixed fusion used temperature-calibrated learned logits with a lower learned weight under learned/text conflict.
+- fixed learned+text fusion recovered to standard proxy `0.86561`, wrong-target proxy `0.0`, matching instruction-text prior and oracle-target TCA on this tiny split.
+
+TCA-Select uncertainty result:
+- existing TCA-Select baseline with learned prior: standard proxy `0.0`, wrong-target proxy `1.0`.
+- TCA-Select with learned prior: standard proxy `0.0`, wrong-target proxy `1.0`.
+- TCA-Select with temperature-calibrated learned prior: standard proxy `0.0`, wrong-target proxy `1.0`.
+- TCA-Select with top-k uniform prior: standard proxy `0.444499`, wrong-target proxy `0.5`; delta over non-select top-k uniform was only `+0.005128` standard proxy with no wrong-target improvement.
+- TCA-Select with instruction-text prior: standard proxy `0.86561`, wrong-target proxy `0.0`; delta over non-select instruction-text prior was `0.0`.
+- TCA-Select with fixed learned+text fusion: standard proxy `0.86561`, wrong-target proxy `0.0`; delta over non-select fixed fusion was `0.0`.
+
+Interpretation: TCA-Select was revised to marginalize over target uncertainty, but it did not produce a meaningful gain. The only positive selector delta was a weak top-k uniform proxy bump without wrong-target improvement. The next execution milestone should rerun LoRA attribution with the fixed target prior, while de-emphasizing TCA-Select unless a future selector shows a real contribution beyond target-prior correctness.
