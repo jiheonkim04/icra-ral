@@ -2428,3 +2428,49 @@ Prior-source audit:
 - oracle-target TCA uses ground-truth target labels, is not available at test time, and remains an upper bound only.
 
 Conclusion: fixed-prior TCA advantage survives the 64-record exploratory offline proxy split across three bounded seeds. This remains offline proxy evidence only, not standard success, rollout evidence, or paper-grade evidence. The target-prior mechanism remains central; LoRA remains a required attribution/fairness ablation and still underperforms fixed-prior head-only TCA; TCA-Select should be killed as a core contribution unless a future explicitly targeted selector stress test produces a nontrivial gain.
+
+## Publishability Gate Audit After 64-Record Validation
+
+Status: complete as a bounded exploratory offline proxy audit before learned target-head redesign.
+
+Implementation:
+- script: `scripts\136_audit_publishability_gate.ps1`
+- module: `tca_map.datasets.libero_publishability_gate_audit`
+- runtime reports are ignored by git: `reports\libero_publishability_gate_audit_report.json` and `.md`
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, CPU NumPy offline audit reconstruction.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Prior-source audit:
+- instruction-text prior classification: `A_valid_test_time_semantic_prior`.
+- fixed learned+text fusion classification: `A_valid_test_time_semantic_prior`.
+- inference uses BDDL metadata: false.
+- inference uses dataset target labels: false.
+- inference uses eval labels: false.
+- inference uses task id, filename, or manifest target field as target proxy: false.
+- inference uses information unavailable at test time: false, under the explicit assumption that candidate/task natural-language text is available at test time.
+- fixed fusion does use train-split target labels to train the learned target head, but not eval labels or dataset target labels at inference.
+- oracle target remains `C_oracle_like_upper_bound`.
+
+Per-task/per-target audit:
+- evaluated split: `64` records, `48 / 16` train/eval, `10` total tasks, `9` eval task groups, target balance `{0: 32, 1: 32}`.
+- fixed-prior TCA + LoRA beat ActionMap + LoRA across all seeds on `8 / 9` eval task groups.
+- the task group where fixed-prior TCA did not beat ActionMap across all seeds was `put both moka pots on the stove`, with mean standard-proxy delta `-0.005339` and no wrong-target change.
+- target `0`: fixed-prior TCA + LoRA standard proxy `0.839149` vs ActionMap + LoRA `0.839247`, mean delta `-0.000098`, wrong-target delta `0.0`.
+- target `1`: fixed-prior TCA + LoRA standard proxy `0.878226` vs ActionMap + LoRA `0.0`, mean delta `+0.878226`, wrong-target delta `-1.0`.
+
+Selector headroom audit:
+- current TCA-Select selection turnover rate: `0.0`.
+- oracle selector upper-bound standard proxy: `0.858687 / 0.003971` mean/std.
+- oracle selector delta over non-select fixed-prior TCA: `0.0`.
+- mean unique candidate count: `2.0`.
+- candidate collapse rate: `0.0`.
+- score diversity was non-degenerate: score range mean `0.488254`, score variance mean `0.063864`.
+- correct candidates had slightly higher separation than wrong candidates: mean margin `0.001837`.
+
+Conclusion: the fixed prior is not downgraded as leakage under the explicit test-time candidate-text assumption, but the gain is not broad across every target/task group. The improvement is dominated by target `1` and wrong-target correction. TCA-Select has no oracle-selector headroom in this audit and should be killed as a core contribution unless future targeted selector evidence changes this. The next milestone should be learned target-head or target-prior robustness redesign before limited rollout.
