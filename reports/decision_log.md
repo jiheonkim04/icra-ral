@@ -1400,3 +1400,13 @@ Reason: On the same fixed 8-sample split, fixed learned+text fusion TCA + LoRA r
 Consequence: The next execution-first milestone may cautiously scale the offline split, but must preserve ActionMap + LoRA and hard learned-target TCA + LoRA as baselines. Do not claim paper-grade evidence. TCA-Select should remain an ablation, not the main claim, unless future scaled diagnostics show a measurable contribution.
 
 Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## Representation Sensitivity Audit Result
+
+Decision: Keep Target-Prior TCA-Map as the main method, but do not claim target-information collapse from this audit.
+
+Reason: The audit used the fixed 64-record offline proxy split and did not extract full VLA hidden states. Cached proxy representations were target-sensitive under target swaps, while fixed semantic target-prior reinjection continued to improve ActionMap + LoRA from `0.429275` to `0.856612` standard proxy and reduced wrong-target proxy from `0.5` to `0.0`. This supports target-prior reinjection for action-pathway grounding/wrong-target correction, not a hidden-collapse claim.
+
+Consequence: The next execution-first milestone may be a limited fixed-prior rollout diagnostic after a green rollout risk assessment. Learned target-head redesign remains a bottleneck. TCA-Select should be killed or de-emphasized as a core contribution because it again added `0.0` over fixed-prior TCA.
+
+Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.

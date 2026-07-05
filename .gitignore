@@ -274,3 +274,5 @@ outputs/
 Thumbs.db
 .vscode/
 .idea/
+reports/libero_representation_sensitivity_audit_report.json
+reports/libero_representation_sensitivity_audit_report.md
