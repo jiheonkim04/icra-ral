@@ -285,6 +285,7 @@ $required = @(
     "scripts/134_summarize_real_candidate_generation_smoke.ps1",
     "scripts/136_audit_publishability_gate.ps1",
     "scripts/137_audit_representation_sensitivity.ps1",
+    "scripts/138_gate_fixed_prior_rollout_readiness.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -343,6 +344,7 @@ $required = @(
     "tca_map/datasets/libero_offline_pilot_report.py",
     "tca_map/datasets/libero_publishability_gate_audit.py",
     "tca_map/datasets/libero_representation_sensitivity_audit.py",
+    "tca_map/datasets/libero_fixed_prior_rollout_readiness.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
     "tests/test_smolvla_asset_readiness.py",
@@ -455,6 +457,7 @@ $required = @(
     "tests/test_real_candidate_generation_smoke_summary.py",
     "tests/test_libero_publishability_gate_audit.py",
     "tests/test_libero_representation_sensitivity_audit.py",
+    "tests/test_libero_fixed_prior_rollout_readiness.py",
     "tests/test_lora_config_guards.py"
 )
 

@@ -2512,3 +2512,32 @@ Action pathway and target-prior reinjection result:
 - target `1` remains the main wrong-target correction gain.
 
 Conclusion: this audit does not support a representation-collapse claim because full hidden states were not extracted. The supported claim is narrower and cleaner: fixed semantic target-prior reinjection improves wrong-target correction/action-pathway grounding on the offline proxy split without proving hidden collapse. Target-Prior TCA-Map remains the main method under the explicit non-leaking candidate-text assumption. TCA-Select should be killed or de-emphasized as a core contribution unless future evidence changes this. The next milestone may be a limited fixed-prior rollout diagnostic under a separate green rollout risk gate.
+
+## Fixed-Prior Rollout Readiness Gate
+
+Status: complete as a bounded readiness gate after the representation-sensitivity audit.
+
+Implementation:
+- script: `scripts\138_gate_fixed_prior_rollout_readiness.ps1`
+- module: `tca_map.datasets.libero_fixed_prior_rollout_readiness`
+- runtime reports are ignored by git: `reports\libero_fixed_prior_rollout_readiness_gate_report.json` and `.md`
+
+Execution boundaries:
+- rollout happened: no; the gate was red.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator environment creation, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Gate result:
+- risk gate status: `red`.
+- rollout diagnostic authorized: `false`.
+- simulator plumbing status: green; existing import, render, reset/step, and zero-action LIBERO/RoboSuite diagnostic reports are present/readable and passed.
+- target-prior source status: green under the existing assumption; fixed learned+text fusion remains `A_valid_test_time_semantic_prior`, candidate/task natural-language text is available, and inference uses no BDDL metadata, eval labels, dataset target labels, task IDs, filenames, or manifest target fields as target proxies.
+- action bridge status: red; current offline proxy records use `4D` actions from `ACTION_PREFIX_DIM=4`, while LIBERO env actions are `7D`.
+- existing validated adapter error: `unsupported action dimension mapping: policy_dim=4, env_action_dim=7`.
+- gripper mapping: unresolved.
+- rotation/coordinate mapping: unresolved.
+- camera/state mapping: not a live visual/state policy; the current fixed-prior proxy uses text-derived cached features and mean HDF5 action snippets.
+
+Conclusion: do not run the limited rollout diagnostic yet. The smallest direct unblocker is a 7D rollout-action bridge for fixed-prior proxy outputs, preferably by rebuilding the offline ActionMap/TCA rollout records to preserve all seven LIBERO action dimensions and validating gripper, rotation, action scale, clipping, and coordinate conventions against local HDF5 before simulator stepping.

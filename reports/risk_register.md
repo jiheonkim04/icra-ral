@@ -1418,3 +1418,13 @@ Impact: If rollout inference cannot access equivalent non-privileged candidate t
 Mitigation: Preserve prior-source audit fields in the next rollout diagnostic. Stop or downgrade the method if BDDL metadata, eval labels, dataset target labels, task IDs, filenames, or manifest target fields become inference-time target proxies.
 
 Current result: fixed-prior TCA + LoRA beat ActionMap + LoRA by `+0.427337` standard proxy and `-0.5` wrong-target proxy, while still depending on explicit non-leaking semantic target prior text.
+
+## Fixed-Prior Rollout Action-Bridge Risk
+
+Risk: The current fixed-prior offline ActionMap/TCA proxy records use only `4D` action prefixes, while LIBERO/RoboSuite rollout expects `7D` actions.
+
+Impact: Running a simulator diagnostic now would test an undefined bridge rather than TCA-Map behavior. Any zero reward or wrong-target movement could be caused by missing rotation/gripper/coordinate mapping rather than the method.
+
+Mitigation: Do not run the limited fixed-prior rollout diagnostic until a `7D` fixed-prior rollout-action path is implemented and validated against local HDF5. The bridge must report action dimension, scale, clipping, gripper command statistics, rotation/coordinate convention, and whether ActionMap/TCA actions differ before simulator stepping.
+
+Current result: `scripts\138_gate_fixed_prior_rollout_readiness.ps1` reports risk gate `red`, simulator plumbing green, target-prior source green, and action bridge red with `unsupported action dimension mapping: policy_dim=4, env_action_dim=7`.
