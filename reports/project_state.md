@@ -2164,3 +2164,33 @@ Variant results:
 Diagnosis: target top-k contains the correct target, but hard top-1 target prediction fails. Soft marginalization over the current learned probabilities does not rescue TCA because the wrong target has too much probability mass. A simple instruction/candidate-text prior rescues the proxy to the oracle upper-bound on this tiny split, so the target-conditioned action mechanism remains viable as a diagnostic. The immediate blocker is the learned target prior/classifier, not the action-conditioning branch.
 
 Conclusion: `target_topk_contains_correct_but_top1_prior_fails`. Next milestone should improve the target prior/classifier and rerun the same head-only ActionMap vs TCA-Map comparison before any scaling, LoRA, or rollout.
+
+## Target-Prior-Fixed Head Comparison
+
+Status: complete as an exploratory tiny offline proxy diagnostic on the same fixed 8-sample split.
+
+Implementation:
+- script: `scripts\57_compare_libero_target_prior_fixed_tca.ps1`
+- module: `tca_map.datasets.libero_target_prior_fixed_head_comparison`
+- report: `reports\libero_target_prior_fixed_head_comparison_report.json` and `.md` are runtime outputs and ignored by git.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, tiny CPU NumPy head-only diagnostic training.
+- loss was computed: yes.
+- LoRA training happened: no.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Result on the fixed 8-sample split:
+- ActionMap head-only loss: `0.162408 -> 0.010239`
+- TCA head-only loss: `0.855555 -> 0.126224`
+- ActionMap standard proxy: `0.434797`, wrong-target proxy: `0.5`
+- hard learned-target TCA standard proxy: `0.0`, wrong-target proxy: `1.0`
+- instruction-text-prior TCA standard proxy: `0.86561`, wrong-target proxy: `0.0`
+- learned+text fusion standard proxy: `0.0`
+- top-k uniform marginalization standard proxy: `0.476471`
+- oracle-target TCA standard proxy: `0.86561`
+- Distributional TCA-Select over the best non-oracle prior standard proxy: `0.86561`
+
+Interpretation: the smallest target-prior fix recovers TCA-Map over ActionMap on standard proxy and wrong-target proxy, but only when using the instruction-text prior. The learned target head remains the bottleneck. Distributional TCA-Select adds no measurable gain over the best non-oracle prior in this diagnostic, so it should be revised before scaling or LoRA attribution is rerun.

@@ -1212,3 +1212,21 @@ Impact: The project could replace a failed learned target head with a metadata-l
 Mitigation: `scripts\56_debug_tca_target_prior_rescue.ps1` labels oracle and instruction-text-prior arms as diagnostic, not paper-grade. It keeps the same fixed split, reports constant/majority and soft-marginalization controls, and keeps rollout, LoRA, scaling, and paper claims blocked.
 
 Current result: learned hard target TCA standard proxy `0.0`, oracle-target TCA `0.86561`, instruction-text-prior TCA `0.86561`, soft marginalization `0.0`, and constant target baseline `0.444499`. The immediate next step is a minimal target-prior/classifier fix followed by the same head-only ActionMap vs TCA-Map rerun, not a paper claim.
+
+## Target-Prior-Fixed Comparison Overinterpretation Risk
+
+Risk: The instruction-text-prior TCA arm now beats ActionMap on the tiny fixed split, but this may rely on clean task/candidate text and remains exploratory offline proxy evidence only.
+
+Impact: The project could overstate a target-prior engineering fix as a paper-grade method result before proving that the same information is available without privileged metadata in rollout or larger evaluation.
+
+Mitigation: Keep oracle-target and instruction-text-prior arms explicitly labeled as diagnostic. Preserve the hard learned-target failure in reports. Before scaling, document whether any text prior uses only non-privileged inference-time information.
+
+Current result: ActionMap standard proxy `0.434797`, hard learned-target TCA `0.0`, instruction-text-prior TCA `0.86561`, oracle-target TCA `0.86561`.
+
+## Distributional TCA-Select Redundancy Risk
+
+Risk: Distributional TCA-Select adds `0.0` standard-proxy, wrong-target, action-target-consistency, and counterfactual-margin delta over the best non-oracle target prior in the target-prior-fixed diagnostic.
+
+Impact: Keeping TCA-Select unchanged could add complexity without evidence of contribution.
+
+Mitigation: Revise the TCA-Select objective before scaling. The next TCA-Select experiment must show a measurable contribution beyond target-prior correctness or honestly log that TCA-Select is unsupported by the diagnostic.
