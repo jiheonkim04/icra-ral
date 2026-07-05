@@ -80,6 +80,54 @@ def _dangerous_gates() -> list[str]:
     return [name for name in FORBIDDEN_GATES if os.environ.get(name)]
 
 
+def _prior_source_audit(target_prior_variant: str) -> dict[str, Any]:
+    """Describe inference-time target-prior information sources.
+
+    The learned component is trained with train-split target labels, but eval
+    labels are never used for non-oracle priors.
+    """
+    base = {
+        "target_prior_variant": target_prior_variant,
+        "uses_only_natural_language_instruction_text": False,
+        "uses_bddl_metadata": False,
+        "uses_dataset_target_labels": False,
+        "uses_eval_labels": False,
+        "available_at_test_time": True,
+        "training_uses_dataset_target_labels": False,
+        "note": "",
+    }
+    if target_prior_variant == "none_actionmap_baseline":
+        return {
+            **base,
+            "uses_only_natural_language_instruction_text": True,
+            "note": "ActionMap baseline uses instruction-derived features but no target prior.",
+        }
+    if target_prior_variant == "hard_learned_target":
+        return {
+            **base,
+            "uses_only_natural_language_instruction_text": True,
+            "uses_dataset_target_labels": True,
+            "training_uses_dataset_target_labels": True,
+            "note": "Inference uses learned target logits from instruction-derived features; train-split target labels train the target head.",
+        }
+    if target_prior_variant in {"fixed_learned_text_fusion", "fixed_learned_text_fusion_select_ablation"}:
+        return {
+            **base,
+            "uses_dataset_target_labels": True,
+            "training_uses_dataset_target_labels": True,
+            "note": "Fusion uses instruction-text target prior plus learned target logits; eval labels and BDDL metadata are not used at inference.",
+        }
+    if target_prior_variant == "oracle_target_upper_bound":
+        return {
+            **base,
+            "uses_dataset_target_labels": True,
+            "uses_eval_labels": True,
+            "available_at_test_time": False,
+            "note": "Oracle upper bound uses the ground-truth target label and is not a valid method result.",
+        }
+    return base
+
+
 def _select_scaled_sample_count(available_records: int, requested: int | None = None) -> int:
     if requested is not None:
         if requested <= 8:
@@ -303,6 +351,7 @@ def _head_arm(
         "arm": arm,
         "family": "head_only",
         "target_prior_variant": target_prior_variant,
+        "prior_source_audit": _prior_source_audit(target_prior_variant),
         "oracle": bool(oracle),
         "tca_select_ablation": False,
         "training_performed": True,
@@ -433,6 +482,7 @@ def _lora_arm(
         "arm": arm,
         "family": "lora",
         "target_prior_variant": target_prior_variant,
+        "prior_source_audit": _prior_source_audit(target_prior_variant),
         "oracle": bool(oracle),
         "tca_select_ablation": bool(select_ablation),
         "lora_target_modules": ["action_head_projection"]
@@ -858,6 +908,19 @@ def run_fixed_prior_offline_scale_comparison(
         "schema_version": SCHEMA_VERSION,
         "policy": _policy(),
         "source_manifest": str(manifest_path),
+        "prior_source_audit": {
+            "scope": "inference-time target-prior source audit; training labels are called out separately",
+            "variants": {
+                variant: _prior_source_audit(variant)
+                for variant in [
+                    "none_actionmap_baseline",
+                    "hard_learned_target",
+                    "fixed_learned_text_fusion",
+                    "fixed_learned_text_fusion_select_ablation",
+                    "oracle_target_upper_bound",
+                ]
+            },
+        },
         "sample_selection": {
             "available_record_count": len(available_records),
             "chosen_record_count": selected_count,
