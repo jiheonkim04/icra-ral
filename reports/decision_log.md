@@ -1301,6 +1301,16 @@ Consequence: Do not claim LoRA supports TCA-Map. The next milestone should debug
 
 Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
 
+## 32-Record Multi-Seed Fixed-Prior Offline Validation Result
+
+Decision: Continue fixed-prior TCA-Map cautiously after the 32-record offline proxy scale-up, but do not upgrade the evidence to paper-grade.
+
+Reason: The deterministic scaled manifest contains `32` pairs / `64` records, and the milestone executed the first `32` records with `24 / 8` train/eval records, `10` tasks, balanced target classes, and five fixed seeds. Fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds with mean standard-proxy advantage `0.429379` and std `0.003737`, while improving wrong-target proxy in `5 / 5` seeds. Fixed-prior TCA head-only also beat ActionMap head-only with mean advantage `0.46886`. However, LoRA still hurt fixed-prior TCA relative to fixed-prior head-only, and TCA-Select again had `0 / 5` nontrivial gains.
+
+Consequence: The next execution-first milestone should run the `64`-record split with `1` to `3` seeds if runtime remains bounded. Keep the learned target head as a separate redesign target. Treat LoRA as required attribution/fairness evidence, not a performance-improvement claim. De-emphasize or kill TCA-Select as a central contribution unless future scaled evidence shows a meaningful gain.
+
+Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
 ## Multi-Seed Fixed-Prior Offline Validation Result
 
 Decision: Treat fixed-prior TCA advantage as stable on the bounded 16-sample offline proxy split, but do not elevate the result to paper-grade evidence.

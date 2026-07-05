@@ -2326,3 +2326,52 @@ Aggregate results:
 - LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `5 / 5` seeds, with mean standard-proxy delta `-0.090299`.
 
 Interpretation: fixed-prior TCA advantage over ActionMap is stable across these five bounded seeds on the 16-sample split. LoRA should be treated as a robustness/attribution ablation, not a performance claim, because it consistently underperforms fixed-prior head-only TCA here. Hard learned-target TCA remains unstable/weaker. TCA-Select should be de-emphasized or killed as a core contribution unless future evidence changes.
+
+## 32-Record Multi-Seed Fixed-Prior Offline Validation
+
+Status: complete as exploratory offline proxy validation on a larger deterministic local LIBERO split.
+
+Implementation:
+- split config: `configs\libero_offline_counterfactual_split_scaled.yaml`
+- split builder: `scripts\51_build_libero_offline_counterfactual_split.ps1`
+- validation script: `scripts\135_validate_libero_fixed_prior_multiseed.ps1`
+- module: `tca_map.datasets.libero_fixed_prior_multiseed_validation`
+- runtime reports are ignored by git: `reports\libero_offline_counterfactual_split_scaled_report.json`, `.md`, `reports\libero_fixed_prior_multiseed_validation_report.json`, and `.md`.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, CPU NumPy head-only and LoRA diagnostics.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Scaled split:
+- source: existing local `libero_10` HDF5/counterfactual/offline data only.
+- full scaled manifest capacity: `32` pairs / `64` records.
+- executed split: `32` records, `24 / 8` train/eval.
+- task count: `10`.
+- target class count: `2`.
+- target balance: `{0: 16, 1: 16}`.
+- seed policy: same 32-record split for all seeds; seeds vary only CPU SGD order and LoRA low-rank initialization.
+- seeds: `11, 23, 37, 53, 71`.
+
+Aggregate results:
+- ActionMap head-only: loss mean `0.035916 -> 0.01322`; standard proxy mean/std `0.456326 / 0.00059`; wrong-target mean/std `0.5 / 0.0`.
+- fixed-prior TCA head-only: loss mean `0.729063 -> 0.400294`; standard proxy mean/std `0.925186 / 0.00243`; wrong-target mean/std `0.0 / 0.0`.
+- hard learned-target TCA head-only: standard proxy mean/std `0.901054 / 0.048982`; wrong-target mean/std `0.025 / 0.05`.
+- ActionMap + LoRA: loss mean `0.036285 -> 0.036235`; standard proxy mean/std `0.429068 / 0.001081`; wrong-target mean/std `0.5 / 0.0`.
+- fixed-prior TCA + LoRA: loss mean `0.729591 -> 0.727671`; standard proxy mean/std `0.858448 / 0.004741`; wrong-target mean/std `0.0 / 0.0`.
+- hard learned-target TCA + LoRA: standard proxy mean/std `0.429496 / 0.180547`; wrong-target mean/std `0.5 / 0.209165`.
+- oracle-target TCA + LoRA: standard proxy mean/std `0.858448 / 0.004741`; wrong-target mean/std `0.0 / 0.0`.
+- TCA-Select fixed-fusion LoRA ablation: standard proxy mean/std `0.858448 / 0.004741`; wrong-target mean/std `0.0 / 0.0`.
+
+Aggregate interpretation:
+- fixed-prior TCA head-only advantage over ActionMap head-only mean/std: `0.46886 / 0.002045`.
+- fixed-prior TCA + LoRA advantage over ActionMap + LoRA mean/std: `0.429379 / 0.003737`.
+- fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds.
+- fixed-prior TCA + LoRA improved wrong-target proxy in `5 / 5` seeds.
+- LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `5 / 5` seeds, mean delta `-0.066738`.
+- TCA-Select showed nontrivial gain in `0 / 5` seeds.
+
+Conclusion: fixed-prior TCA advantage survives cautious scaling from 16 to 32 records on this exploratory offline proxy split. This is still not standard success, not rollout evidence, and not paper-grade evidence. The target-prior mechanism remains central; LoRA remains a required attribution/fairness ablation rather than a performance claim; TCA-Select should stay de-emphasized or be killed as a central contribution unless future evidence changes.

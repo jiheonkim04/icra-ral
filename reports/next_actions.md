@@ -1023,3 +1023,19 @@ Current diagnostic result:
 - hard learned-target TCA remains weaker/unstable.
 
 Next milestone: `A. larger offline split` if more counterfactual pairs can be constructed. If no larger split is immediately available, prioritize `B. learned target head redesign` while keeping TCA-Select de-emphasized. A limited fixed-prior rollout diagnostic should wait until the offline evidence table is refreshed and the rollout risk gate is explicit.
+
+## Current Next Action After 32-Record Multi-Seed Fixed-Prior Offline Validation
+
+The larger deterministic local LIBERO offline split has been validated at 32 records across 5 bounded CPU seeds.
+
+Current diagnostic result:
+- executed split: `32` records, `24 / 8` train/eval, `10` tasks, target balance `{0: 16, 1: 16}`.
+- scaled manifest capacity: `32` pairs / `64` records.
+- fixed-prior TCA head-only standard-proxy advantage over ActionMap head-only mean/std: `0.46886 / 0.002045`.
+- fixed-prior TCA + LoRA standard-proxy advantage over ActionMap + LoRA mean/std: `0.429379 / 0.003737`.
+- fixed-prior TCA + LoRA beat ActionMap + LoRA in `5 / 5` seeds.
+- fixed-prior TCA + LoRA wrong-target proxy improved in `5 / 5` seeds.
+- LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `5 / 5` seeds.
+- TCA-Select nontrivial gain count: `0 / 5`.
+
+Next milestone: `A. 64-record split` using the same scaled manifest, fixed baselines, fixed metrics, and no cherry-picking. Use `1` to `3` seeds first for 64 records. Keep learned target head redesign as the next methodological milestone after the offline scaling ladder. Keep TCA-Select secondary or kill it as a core contribution if it again shows no nontrivial gain.

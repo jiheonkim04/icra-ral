@@ -638,6 +638,11 @@ def _task_count(records: list[dict[str, Any]]) -> int:
     return len(instructions)
 
 
+def _task_record_counts(records: list[dict[str, Any]]) -> dict[str, int]:
+    counts = Counter(str(record.get("target", {}).get("instruction", "")) for record in records)
+    return dict(sorted(counts.items()))
+
+
 def _per_pair_breakdown(records: list[dict[str, Any]], arms: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     eval_records = records
@@ -865,6 +870,9 @@ def run_fixed_prior_offline_scale_comparison(
         "train_record_count": len(train_records),
         "eval_record_count": len(eval_records),
         "task_count": _task_count(records),
+        "per_task_record_counts": _task_record_counts(records),
+        "train_per_task_record_counts": _task_record_counts(train_records),
+        "eval_per_task_record_counts": _task_record_counts(eval_records),
         "target_class_count": _candidate_count(records),
         "target_balance": _target_balance(records),
         "train_target_balance": _target_balance(train_records),

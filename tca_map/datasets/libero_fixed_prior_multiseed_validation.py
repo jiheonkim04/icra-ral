@@ -1,8 +1,8 @@
-"""Multi-seed validation for the 16-sample fixed-prior offline split.
+"""Multi-seed validation for fixed-prior offline splits.
 
 This runner keeps the data split, metrics, baselines, and hyperparameters fixed
-while varying only bounded CPU training seeds. It is exploratory offline proxy
-evidence only.
+while varying only bounded CPU training seeds. It supports the fixed 16-record
+diagnostic split and cautious 32/64-record scaled offline proxy splits.
 """
 
 from __future__ import annotations
@@ -21,8 +21,9 @@ from tca_map.datasets.libero_fixed_prior_offline_scale_comparison import (
 )
 
 
-SCHEMA_VERSION = "2026-07-05.fixed_prior_multiseed_validation.v1"
+SCHEMA_VERSION = "2026-07-05.fixed_prior_multiseed_validation.v2"
 DEFAULT_SEEDS = (11, 23, 37, 53, 71)
+ALLOWED_SAMPLE_COUNTS = (16, 32, 64)
 METRICS = (
     "standard_proxy_score",
     "wrong_target_proxy_rate",
@@ -160,6 +161,20 @@ def _split_signature(report: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _manifest_capacity(path: Path) -> dict[str, Any]:
+    try:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {"manifest_readable": False, "manifest_read_error": str(exc), "manifest_pair_count": 0, "manifest_record_capacity": 0}
+    pair_count = len(manifest.get("counterfactual_pairs", []))
+    return {
+        "manifest_readable": True,
+        "manifest_read_error": None,
+        "manifest_pair_count": pair_count,
+        "manifest_record_capacity": pair_count * 2,
+    }
+
+
 def _aggregate_comparison(rows: list[dict[str, Any]]) -> dict[str, Any]:
     seed_count = len(rows)
     fixed_lora_beats = sum(1 for row in rows if row["fixed_prior_tca_lora_beats_actionmap_lora"])
@@ -238,6 +253,12 @@ def _write_reports(report: dict[str, Any], report_json: Path, report_md: Path) -
         f"- passed: `{report['fixed_prior_multiseed_validation_passed']}`",
         f"- seed count: `{report['seed_count']}`",
         f"- seeds: `{report['seeds']}`",
+        f"- records: `{report['record_count']}`",
+        f"- train/eval records: `{report['train_record_count']} / {report['eval_record_count']}`",
+        f"- task count: `{report['task_count']}`",
+        f"- target balance: `{report['target_balance']}`",
+        f"- available records from manifest: `{report.get('available_record_count')}`",
+        f"- full manifest record capacity: `{report.get('manifest_record_capacity')}`",
         f"- split consistent: `{report['split_consistent']}`",
         f"- fixed-prior TCA + LoRA beats ActionMap + LoRA: `{comparison['fixed_prior_tca_lora_beats_actionmap_lora_count']} / {report['seed_count']}`",
         f"- wrong-target proxy improves: `{comparison['fixed_prior_tca_lora_wrong_target_improves_count']} / {report['seed_count']}`",
@@ -274,10 +295,12 @@ def run_fixed_prior_multiseed_validation(
     if dangerous:
         raise TinyLoraSmokeError("dangerous gates are set: " + ", ".join(dangerous))
     seeds = list(seeds or DEFAULT_SEEDS)
-    if len(seeds) < 3 or len(seeds) > 5:
-        raise TinyLoraSmokeError("multi-seed validation requires between 3 and 5 seeds")
-    if max_samples != 16:
-        raise TinyLoraSmokeError("multi-seed validation must keep the exact 16-sample scaled split")
+    if max_samples not in ALLOWED_SAMPLE_COUNTS:
+        raise TinyLoraSmokeError("multi-seed validation max_samples must be one of 16, 32, or 64")
+    if max_samples in {16, 32} and (len(seeds) < 3 or len(seeds) > 5):
+        raise TinyLoraSmokeError("16/32-record multi-seed validation requires between 3 and 5 seeds")
+    if max_samples == 64 and (len(seeds) < 1 or len(seeds) > 3):
+        raise TinyLoraSmokeError("64-record multi-seed validation requires between 1 and 3 seeds")
     if max_steps > 300:
         raise TinyLoraSmokeError("max_steps must not exceed 300")
     started = time.perf_counter()
@@ -303,6 +326,7 @@ def run_fixed_prior_multiseed_validation(
         )
     rows = [_per_seed_row(seed, report) for seed, report in zip(seeds, seed_reports)]
     first_signature = _split_signature(seed_reports[0])
+    manifest_capacity = _manifest_capacity(manifest_path)
     split_consistent = all(_split_signature(report) == first_signature for report in seed_reports)
     aggregate_comparison = _aggregate_comparison(rows)
     elapsed = time.perf_counter() - started
@@ -310,12 +334,12 @@ def run_fixed_prior_multiseed_validation(
         elapsed <= max_runtime_seconds
         and split_consistent
         and len(seed_reports) == len(seeds)
-        and all(report.get("record_count") == 16 for report in seed_reports)
+        and all(report.get("record_count") == max_samples for report in seed_reports)
     )
     if aggregate_comparison["fixed_prior_tca_advantage_stable"]:
-        recommendation = "A_larger_offline_split"
+        recommendation = "A_64_record_split" if max_samples == 32 else "B_multi_seed_on_larger_split"
         interpretation = (
-            "Fixed-prior TCA + LoRA beats ActionMap + LoRA in most or all seeds on the fixed 16-sample split. "
+            f"Fixed-prior TCA + LoRA beats ActionMap + LoRA in most or all seeds on the fixed {max_samples}-record split. "
             "This supports cautious larger-split validation, but remains exploratory offline proxy evidence."
         )
     else:
@@ -331,9 +355,10 @@ def run_fixed_prior_multiseed_validation(
         "schema_version": SCHEMA_VERSION,
         "policy": _policy(),
         "source_manifest": str(manifest_path),
+        **manifest_capacity,
         "seeds": seeds,
         "seed_count": len(seeds),
-        "seed_policy": "same 16-sample split; seeds vary only CPU head-only SGD order and LoRA low-rank initialization",
+        "seed_policy": f"same {max_samples}-record split; seeds vary only CPU head-only SGD order and LoRA low-rank initialization",
         "max_pairs": max_pairs,
         "max_action_steps": max_action_steps,
         "max_samples": max_samples,
@@ -341,11 +366,17 @@ def run_fixed_prior_multiseed_validation(
         "lora_rank": rank,
         "split_signature": first_signature,
         "split_consistent": split_consistent,
+        "sample_selection": seed_reports[0].get("sample_selection", {}),
+        "available_record_count": seed_reports[0].get("sample_selection", {}).get("available_record_count"),
+        "available_pair_count": int(seed_reports[0].get("sample_selection", {}).get("available_record_count", 0) // 2),
         "record_count": seed_reports[0]["record_count"],
         "train_record_count": seed_reports[0]["train_record_count"],
         "eval_record_count": seed_reports[0]["eval_record_count"],
         "target_balance": seed_reports[0]["target_balance"],
         "task_count": seed_reports[0]["task_count"],
+        "per_task_record_counts": seed_reports[0].get("per_task_record_counts", {}),
+        "train_per_task_record_counts": seed_reports[0].get("train_per_task_record_counts", {}),
+        "eval_per_task_record_counts": seed_reports[0].get("eval_per_task_record_counts", {}),
         "per_seed_table": rows,
         "aggregate_arms": _aggregate_arms(seed_reports),
         "aggregate_comparison": aggregate_comparison,

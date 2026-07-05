@@ -105,6 +105,40 @@ def test_multiseed_validation_aggregates_fixed_split(tmp_path):
     assert "mean" in comparison["fixed_prior_tca_lora_advantage"]
 
 
+def test_multiseed_validation_scales_to_32_records(tmp_path):
+    manifest = _write_manifest(tmp_path, pair_count=16)
+    report = run_fixed_prior_multiseed_validation(
+        manifest_path=manifest,
+        report_json=tmp_path / "report.json",
+        report_md=tmp_path / "report.md",
+        seeds=[11, 23, 37],
+        max_pairs=16,
+        max_action_steps=4,
+        max_steps=4,
+        max_runtime_seconds=900,
+        max_samples=32,
+        rank=2,
+        require_training_gate=False,
+    )
+
+    assert report["fixed_prior_multiseed_validation_passed"] is True
+    assert report["seed_count"] == 3
+    assert report["record_count"] == 32
+    assert report["train_record_count"] == 24
+    assert report["eval_record_count"] == 8
+    assert report["available_record_count"] == 32
+    assert report["available_pair_count"] == 16
+    assert report["manifest_pair_count"] == 16
+    assert report["manifest_record_capacity"] == 32
+    assert report["task_count"] == 8
+    assert report["per_task_record_counts"]
+    assert report["split_consistent"] is True
+    assert "same 32-record split" in report["seed_policy"]
+    comparison = report["aggregate_comparison"]
+    assert 0 <= comparison["fixed_prior_tca_lora_beats_actionmap_lora_count"] <= 3
+    assert "mean" in comparison["fixed_prior_tca_head_advantage"]
+
+
 def test_multiseed_script_requires_training_gate(tmp_path):
     powershell = shutil.which("powershell")
     if powershell is None:
