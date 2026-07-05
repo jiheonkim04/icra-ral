@@ -1340,3 +1340,13 @@ Reason: The audit found no fusion implementation bug or class-index mismatch. Eq
 Consequence: The next execution-first milestone should rerun LoRA attribution with the fixed target prior on the same split. Do not scale or claim paper-grade evidence. Keep TCA-Select as a secondary/uncertain contribution unless a future selector adds measurable value.
 
 Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## Fixed-Prior LoRA Attribution Result
+
+Decision: Keep TCA-Map viable under a corrected target prior, but keep the learned target head as an unresolved bottleneck and de-emphasize TCA-Select as a core contribution.
+
+Reason: On the same fixed 8-sample split, fixed learned+text fusion TCA + LoRA reached standard proxy `0.910293` and wrong-target proxy `0.0`, beating ActionMap + LoRA at standard proxy `0.454351` and wrong-target proxy `0.5`. Hard learned-target TCA + LoRA still failed with standard proxy `0.0` and wrong-target proxy `1.0`, so the improvement comes from target-prior correction rather than a solved learned target classifier. TCA-Select added `0.0` standard-proxy and wrong-target delta over fixed-fusion TCA + LoRA.
+
+Consequence: The next execution-first milestone may cautiously scale the offline split, but must preserve ActionMap + LoRA and hard learned-target TCA + LoRA as baselines. Do not claim paper-grade evidence. TCA-Select should remain an ablation, not the main claim, unless future scaled diagnostics show a measurable contribution.
+
+Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
