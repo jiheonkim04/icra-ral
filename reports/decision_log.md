@@ -1301,6 +1301,16 @@ Consequence: Do not claim LoRA supports TCA-Map. The next milestone should debug
 
 Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
 
+## Scaled Fixed-Prior Offline Comparison Result
+
+Decision: Continue TCA-Map cautiously under the corrected target-prior formulation, while keeping learned-target-head redesign and TCA-Select de-emphasis as active conclusions.
+
+Reason: On the smallest larger deterministic split (`16` records, `12 / 4` train/eval), fixed-prior TCA + LoRA reached standard proxy `0.854` and wrong-target proxy `0.0`, beating ActionMap + LoRA at standard proxy `0.427546` and wrong-target proxy `0.5`. Fixed-prior TCA head-only also beat ActionMap head-only. Hard learned-target TCA remained weak relative to fixed-prior TCA, and TCA-Select again added no measurable gain.
+
+Consequence: The next execution-first milestone may be a larger offline split if more pairs are available, or multi-seed validation on the current scaled split. Do not claim paper-grade evidence. Keep TCA-Select secondary unless future results show meaningful selector gain.
+
+Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
 ## TCA Label/Conditioning Debug Audit Result
 
 Decision: Treat the weak TCA-Map result as a target-classifier/generalization failure rather than a confirmed label or metric bug.

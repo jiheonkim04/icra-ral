@@ -2254,3 +2254,40 @@ Result on the fixed 8-sample split:
 - TCA-Select fixed-fusion ablation: standard proxy `0.910293`; wrong-target proxy `0.0`; delta over fixed-fusion non-select TCA: `0.0`.
 
 Interpretation: fixed-prior TCA + LoRA beats ActionMap + LoRA by `+0.455942` standard proxy and `-0.5` wrong-target proxy on this tiny exploratory split. This keeps TCA-Map viable when the target prior is corrected, and improves over the previous hard-learned LoRA result by `+0.910293` standard proxy. The learned target head remains the bottleneck. TCA-Select still has no measurable gain and should be de-emphasized unless a future selector ablation shows nontrivial benefit. This is not paper-grade evidence.
+
+## Scaled Fixed-Prior Offline Comparison
+
+Status: complete as an exploratory offline proxy scale-up from 8 to 16 samples.
+
+Implementation:
+- script: `scripts\134_compare_libero_fixed_prior_offline_scale.ps1`
+- module: `tca_map.datasets.libero_fixed_prior_offline_scale_comparison`
+- report: `reports\libero_fixed_prior_offline_scale_comparison_report.json` and `.md` are runtime outputs and ignored by git.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, CPU NumPy head-only and LoRA diagnostics.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Expanded split:
+- records: `16`
+- train/eval records: `12 / 4`
+- task count: `4`
+- target class count: `2`
+- target balance: `{0: 8, 1: 8}`
+- split: deterministic manifest-order pair holdout, exploratory.
+
+Key results:
+- ActionMap head-only: loss `0.031336 -> 0.001623`, standard proxy `0.484449`, wrong-target proxy `0.5`.
+- fixed-prior TCA head-only: loss `0.724483 -> 0.459717`, standard proxy `0.944121`, wrong-target proxy `0.0`.
+- hard learned-target TCA head-only: standard proxy `0.0`, wrong-target proxy `1.0`.
+- ActionMap + LoRA: loss `0.034701 -> 0.034603`, standard proxy `0.427546`, wrong-target proxy `0.5`.
+- fixed-prior TCA + LoRA: loss `0.727824 -> 0.726609`, standard proxy `0.854`, wrong-target proxy `0.0`.
+- hard learned-target TCA + LoRA: standard proxy `0.642331`, wrong-target proxy `0.25`.
+- oracle-target TCA + LoRA: standard proxy `0.854`, wrong-target proxy `0.0`.
+- TCA-Select fixed-fusion ablation: standard proxy `0.854`, wrong-target proxy `0.0`, delta over fixed-prior TCA + LoRA `0.0`.
+
+Interpretation: the fixed-prior TCA advantage over ActionMap survives this smallest larger split, including under the required LoRA attribution arm. This remains exploratory offline proxy evidence only. The learned target head remains a bottleneck, and TCA-Select should be de-emphasized as a core contribution unless a future scaled selector diagnostic shows nontrivial gain.

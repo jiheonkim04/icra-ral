@@ -995,3 +995,16 @@ Current diagnostic result:
 - TCA-Select ablation delta over fixed-fusion TCA + LoRA: `0.0`.
 
 Next milestone: cautiously scale the offline split while preserving the fixed primary metrics, the ActionMap + LoRA baseline, the hard learned-target failure arm, the instruction-text/fixed-fusion target-prior arms, and the oracle upper bound. Continue to label results exploratory offline proxy until rollout evidence exists. Keep the learned target head redesign as an active blocker, and de-emphasize TCA-Select unless it shows a nontrivial gain beyond target-prior correctness.
+
+## Current Next Action After Scaled Fixed-Prior Offline Comparison
+
+The smallest feasible scale-up has been executed using the local LIBERO counterfactual/offline source.
+
+Current diagnostic result:
+- expanded split: `16` records, `12 / 4` train/eval, `4` tasks, target balance `{0: 8, 1: 8}`.
+- fixed-prior TCA head-only beats ActionMap head-only: standard proxy delta `+0.459672`, wrong-target delta `-0.5`.
+- fixed-prior TCA + LoRA beats ActionMap + LoRA: standard proxy delta `+0.426454`, wrong-target delta `-0.5`.
+- hard learned-target TCA remains worse than fixed-prior TCA.
+- TCA-Select again shows no meaningful gain: standard proxy delta `0.0`, wrong-target delta `0.0`.
+
+Next milestone: choose either `A. larger offline split` if more counterfactual pairs are constructed, or `B. multi-seed validation` on the current scaled split. Keep `C. learned target head redesign` active because the learned target head remains the main bottleneck. Keep `E. de-emphasize/kill TCA-Select` unless a future selector adds nontrivial gain.
