@@ -2083,3 +2083,46 @@ Loss and metric result:
 - TCA-Map + LoRA + Distributional TCA-Select matched TCA-Map + LoRA and added no measured gain.
 
 Conclusion: `lora_weakens_tca_map`. LoRA did not rescue the weak TCA-Map head-only result on this tiny diagnostic. The current evidence points toward debugging target labeling/conditioning or revising the TCA-Map formulation before scaling.
+
+## TCA Label/Conditioning Debug Audit Result
+
+The execution-first TCA label/conditioning milestone has run on the same deterministic 8-sample split as the weak head-only and LoRA diagnostics.
+
+Scope and safety:
+
+- script: `scripts\55_debug_tca_label_conditioning.ps1`,
+- task-local gate: `ALLOW_TINY_TRAINING=1`,
+- audit artifact: `reports\libero_tca_label_conditioning_audit_table.json`,
+- samples: 8 records, 6 train / 2 eval,
+- steps: 64,
+- batch size: 1,
+- device: CPU NumPy,
+- training: true, diagnostic tiny heads only,
+- LoRA training: false,
+- rollout: false,
+- downloads/GPU jobs/heavy imports/OpenVLA-OFT/paper claims: false.
+
+Invariant and metric audit result:
+
+- target labels changed correctly for counterfactual target changes,
+- expert action labels were aligned with intended target candidates,
+- target-conditioning input was non-constant across counterfactual samples,
+- one-hot target conditioning changed with target label,
+- no all-zero, NaN, or identical target distributions were found,
+- no silent shape broadcast or off-by-one label index was found,
+- no train/eval candidate mismatch was found,
+- wrong-target proxy direction was verified as lower-is-better,
+- `wrong_target_proxy_rate=1.0` for TCA really meant both eval target predictions were wrong,
+- recomputed ActionMap/TCA metrics matched the existing head-only report.
+
+Sanity check result:
+
+- one-sample TCA overfit passed: loss `0.849565 -> 0.024294`, standard proxy `0.999963`,
+- TCA-Select scores were finite and non-degenerate, with no external verifier or privileged inference,
+- target-shuffle negative control was inconclusive because baseline TCA eval target accuracy was already `0.0`,
+- constant-target baseline matched or beat current TCA standard proxy: `0.442708` vs `0.0`,
+- oracle-target TCA evaluation improved standard proxy from `0.0` to `0.86561` and wrong-target proxy from `1.0` to `0.0`.
+
+Diagnosis: no concrete label-construction, metric-direction, off-by-one, broadcast, candidate-space, or TCA-Select scoring bug was found. The current failure is the TCA target classifier/generalization or target prior design on the tiny holdout pair: it predicts the wrong target for every eval sample, while the action branch can recover when given the oracle target.
+
+Conclusion: `verified_no_label_or_metric_bug_but_target_classifier_failure`. Do not scale training, LoRA, or rollout to search for a positive result. The next execution-first milestone should revise/debug the TCA target-conditioning design on the same split before any broader experiment.

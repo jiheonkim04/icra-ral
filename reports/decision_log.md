@@ -1300,3 +1300,13 @@ Reason: The LoRA comparison used the same deterministic split as the weak head-o
 Consequence: Do not claim LoRA supports TCA-Map. The next milestone should debug TCA target labels/conditioning or revise the TCA-Map formulation before scaling. If future LoRA or larger-split results keep ActionMap stronger, the novelty claim should be killed or pivoted.
 
 Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## TCA Label/Conditioning Debug Audit Result
+
+Decision: Treat the weak TCA-Map result as a target-classifier/generalization failure rather than a confirmed label or metric bug.
+
+Reason: The audit used the same deterministic 8-sample split and verified that target labels, action labels, candidate IDs, target-conditioned inputs, shape handling, wrong-target direction, and TCA-Select scores are internally consistent. TCA also overfit one sample. However, the learned target classifier predicted the wrong target for both eval records. Oracle-target TCA evaluation improved standard proxy from `0.0` to `0.86561`, showing that the action branch can work when the target is correct.
+
+Consequence: No minimal source-code bug patch was applied. Do not scale training, LoRA, or rollout as a response to this result. The next milestone should revise or debug TCA target-conditioning design on the same split. If a revised target-conditioning design still loses to ActionMap, the current TCA-Map formulation should be killed or pivoted.
+
+Training happened: true, diagnostic tiny heads only. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.

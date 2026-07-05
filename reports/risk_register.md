@@ -1192,3 +1192,13 @@ Impact: Scaling LoRA before diagnosing the target-conditioning failure could was
 Mitigation: Record the conclusion as `lora_weakens_tca_map` for this split. The next milestone should debug TCA target labels/conditioning on the same split, not broaden the split to hunt for a positive result. Distributional TCA-Select should also remain unsupported by this diagnostic because it added no measured gain despite non-degenerate candidate scores.
 
 Current result: ActionMap + LoRA standard proxy `0.454351`, wrong-target `0.5`; TCA-Map + LoRA standard proxy `0.0`, wrong-target `1.0`; TCA-Select + LoRA delta `0.0` on standard proxy and wrong-target proxy.
+
+## TCA Target-Classifier Failure Risk
+
+Risk: The weak TCA-Map result could be misdiagnosed as a label, metric, or TCA-Select implementation bug when the actual blocker is brittle target prediction/generalization on the held-out tiny split.
+
+Impact: The project could waste compute scaling LoRA, rollout, or larger offline training while preserving the same target-conditioning failure.
+
+Mitigation: `scripts\55_debug_tca_label_conditioning.ps1` now audits the fixed 8-sample split at sample level and checks label alignment, target-conditioning variation, metric direction, one-sample overfit, target-shuffle, oracle-target evaluation, constant-target baseline, and TCA-Select score degeneracy. The current audit found no concrete label/metric/candidate-space bug and reported `verified_no_label_or_metric_bug_but_target_classifier_failure`.
+
+Current result: TCA wrong-target proxy `1.0` means both eval target predictions were wrong. Oracle-target TCA standard proxy improved from `0.0` to `0.86561`, while constant-target baseline standard proxy was `0.442708`. The next safe milestone is to revise/debug TCA target-conditioning design on the same split, not to scale LoRA or rollout.

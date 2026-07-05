@@ -889,3 +889,28 @@ B. debug TCA label/conditioning
 ```
 
 Minimum useful next step: a concrete target-label/conditioning failure diagnosis on the same split. It should inspect why TCA target prediction is perfect or strong on train records but fails on the held-out eval pair, and whether the current text/hash target features or target-conditioned action input are a poor formulation. Do not run LoRA scale-up, rollout, or paper-claim work before that diagnosis.
+
+## Next Action After TCA Label/Conditioning Debug Audit
+
+The TCA label/conditioning debug audit produced a concrete diagnosis:
+
+```text
+verified_no_label_or_metric_bug_but_target_classifier_failure
+```
+
+The audit found no label-construction, candidate-alignment, wrong-target metric inversion, off-by-one, silent broadcast, train/eval candidate mismatch, or TCA-Select score degeneracy bug. One-sample TCA overfit passed. Oracle-target TCA evaluation improved standard proxy from `0.0` to `0.86561`, while the current target classifier predicted the wrong target on both eval records.
+
+Next safe milestone:
+
+```text
+revise/debug TCA target-conditioning design on the same tiny split
+```
+
+This should be a small executable design/debug step, not broad planning. Allowed directions are:
+
+- replace brittle hash-only target classification with a split-aware target prior or nearest-instruction target matcher,
+- test TCA as an ActionMap regularizer instead of a separate target-predicted action map,
+- add an oracle/learned target-prior ablation clearly labeled as diagnostic,
+- keep the same split and metrics first.
+
+Do not scale LoRA, run rollout, tune samples/seeds, or make paper claims before this target-conditioning design issue is addressed.
