@@ -23,7 +23,7 @@ main
 Current main commit at this update:
 
 ```text
-143e2e6 or newer
+f337304 or newer
 ```
 
 Use explicit Python for validation:
@@ -2375,3 +2375,56 @@ Aggregate interpretation:
 - TCA-Select showed nontrivial gain in `0 / 5` seeds.
 
 Conclusion: fixed-prior TCA advantage survives cautious scaling from 16 to 32 records on this exploratory offline proxy split. This is still not standard success, not rollout evidence, and not paper-grade evidence. The target-prior mechanism remains central; LoRA remains a required attribution/fairness ablation rather than a performance claim; TCA-Select should stay de-emphasized or be killed as a central contribution unless future evidence changes.
+
+## 64-Record Multi-Seed Fixed-Prior Offline Validation
+
+Status: complete as exploratory offline proxy validation on the full deterministic scaled local LIBERO split.
+
+Implementation:
+- split config: `configs\libero_offline_counterfactual_split_scaled.yaml`
+- split builder: `scripts\51_build_libero_offline_counterfactual_split.ps1`
+- validation script: `scripts\135_validate_libero_fixed_prior_multiseed.ps1`
+- module: `tca_map.datasets.libero_fixed_prior_multiseed_validation`
+- runtime reports are ignored by git: `reports\libero_offline_counterfactual_split_scaled_report.json`, `.md`, `reports\libero_fixed_prior_multiseed_validation_report.json`, and `.md`.
+- task-local gate: `ALLOW_TINY_TRAINING=1`
+
+Execution boundaries:
+- training happened: yes, CPU NumPy head-only and LoRA diagnostics.
+- LoRA training happened: yes.
+- loss was computed: yes.
+- rollout happened: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, simulator execution, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Scaled split:
+- source: existing local `libero_10` HDF5/counterfactual/offline data only.
+- executed split: `64` records, `48 / 16` train/eval.
+- task count: `10`.
+- target class count: `2`.
+- target balance: `{0: 32, 1: 32}`.
+- seed policy: same 64-record split for all seeds; seeds vary only CPU SGD order and LoRA low-rank initialization.
+- seeds: `11, 23, 37`.
+
+Aggregate results:
+- ActionMap head-only: loss mean `0.042488 -> 0.015347`; standard proxy mean/std `0.460175 / 0.000317`; wrong-target mean/std `0.5 / 0.0`.
+- fixed-prior TCA head-only: loss mean `0.735635 -> 0.482645`; standard proxy mean/std `0.921973 / 0.000983`; wrong-target mean/std `0.0 / 0.0`.
+- hard learned-target TCA head-only: standard proxy mean/std `0.460371 / 0.000271`; wrong-target mean/std `0.5 / 0.0`.
+- ActionMap + LoRA: loss mean `0.041479 -> 0.041452`; standard proxy mean/std `0.429293 / 0.001702`; wrong-target mean/std `0.5 / 0.0`.
+- fixed-prior TCA + LoRA: loss mean `0.735888 -> 0.735426`; standard proxy mean/std `0.856646 / 0.002967`; wrong-target mean/std `0.0 / 0.0`.
+- hard learned-target TCA + LoRA: standard proxy mean/std `0.374657 / 0.230835`; wrong-target mean/std `0.5625 / 0.270031`.
+- oracle-target TCA + LoRA: standard proxy mean/std `0.856646 / 0.002967`; wrong-target mean/std `0.0 / 0.0`.
+- TCA-Select fixed-fusion LoRA ablation: standard proxy mean/std `0.856646 / 0.002967`; wrong-target mean/std `0.0 / 0.0`.
+
+Aggregate interpretation:
+- fixed-prior TCA head-only advantage over ActionMap head-only mean/std: `0.461798 / 0.000798`.
+- fixed-prior TCA + LoRA advantage over ActionMap + LoRA mean/std: `0.427353 / 0.002126`.
+- fixed-prior TCA + LoRA beat ActionMap + LoRA in `3 / 3` seeds.
+- fixed-prior TCA + LoRA improved wrong-target proxy in `3 / 3` seeds.
+- LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `3 / 3` seeds, mean delta `-0.065327`.
+- TCA-Select showed nontrivial gain in `0 / 3` seeds.
+
+Prior-source audit:
+- fixed learned+text fusion is available at test time under the current offline proxy interface, does not use BDDL metadata at inference, and does not use eval labels. Its learned component is trained with train-split target labels, while inference uses instruction-text prior plus learned target logits.
+- hard learned-target TCA uses learned target logits from instruction-derived features and train-split target labels for supervision; it does not use eval labels or BDDL metadata at inference.
+- oracle-target TCA uses ground-truth target labels, is not available at test time, and remains an upper bound only.
+
+Conclusion: fixed-prior TCA advantage survives the 64-record exploratory offline proxy split across three bounded seeds. This remains offline proxy evidence only, not standard success, rollout evidence, or paper-grade evidence. The target-prior mechanism remains central; LoRA remains a required attribution/fairness ablation and still underperforms fixed-prior head-only TCA; TCA-Select should be killed as a core contribution unless a future explicitly targeted selector stress test produces a nontrivial gain.

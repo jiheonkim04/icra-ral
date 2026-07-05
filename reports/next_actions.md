@@ -1039,3 +1039,19 @@ Current diagnostic result:
 - TCA-Select nontrivial gain count: `0 / 5`.
 
 Next milestone: `A. 64-record split` using the same scaled manifest, fixed baselines, fixed metrics, and no cherry-picking. Use `1` to `3` seeds first for 64 records. Keep learned target head redesign as the next methodological milestone after the offline scaling ladder. Keep TCA-Select secondary or kill it as a core contribution if it again shows no nontrivial gain.
+
+## Current Next Action After 64-Record Multi-Seed Fixed-Prior Offline Validation
+
+The full deterministic scaled local LIBERO offline split has been validated at 64 records across 3 bounded CPU seeds.
+
+Current diagnostic result:
+- executed split: `64` records, `48 / 16` train/eval, `10` tasks, target balance `{0: 32, 1: 32}`.
+- fixed-prior TCA head-only standard-proxy advantage over ActionMap head-only mean/std: `0.461798 / 0.000798`.
+- fixed-prior TCA + LoRA standard-proxy advantage over ActionMap + LoRA mean/std: `0.427353 / 0.002126`.
+- fixed-prior TCA + LoRA beat ActionMap + LoRA in `3 / 3` seeds.
+- fixed-prior TCA + LoRA wrong-target proxy improved in `3 / 3` seeds.
+- LoRA hurt fixed-prior TCA relative to fixed-prior head-only in `3 / 3` seeds.
+- TCA-Select nontrivial gain count: `0 / 3`.
+- fixed learned+text fusion uses no BDDL metadata and no eval labels at inference in this offline proxy interface; oracle-target TCA remains an unavailable upper bound only.
+
+Next milestone: `B. learned target head redesign` on the same fixed integrity policy. Keep ActionMap, fixed-prior TCA, hard learned-target TCA, LoRA attribution, and oracle upper-bound arms intact when the redesign is evaluated. Treat TCA-Select as non-core or killed as a central contribution unless a future selector-specific stress test shows a nontrivial gain. Do not run rollout or make paper-grade claims until a separate rollout risk gate is green and the offline evidence table is refreshed.

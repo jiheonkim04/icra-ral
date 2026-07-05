@@ -1338,3 +1338,33 @@ Impact: Keeping TCA-Select as a central contribution may weaken the research sto
 Mitigation: Treat TCA-Select as secondary. If the 64-record split also shows `0` nontrivial gains, kill it as a core contribution and focus the method claim on target-prior-conditioned action decoding.
 
 Current result: TCA-Select nontrivial gain count was `0 / 5` at 32 records.
+
+## 64-Record Offline Proxy Overconfidence Risk
+
+Risk: Fixed-prior TCA advantage survived the full 64-record deterministic offline proxy split across three seeds, which may look stable enough to overclaim before rollout evidence exists.
+
+Impact: The result could be mistaken for standard success or paper-grade evidence even though it is still an offline proxy using local LIBERO HDF5/counterfactual snippets.
+
+Mitigation: Keep the result labeled exploratory offline proxy. Preserve ActionMap, fixed-prior TCA, hard learned-target TCA, LoRA attribution, oracle-target upper bound, and TCA-Select ablation in follow-up evaluations. Require a separate green rollout risk gate and simulator benchmark evidence before any paper-grade success claim.
+
+Current result: fixed-prior TCA + LoRA beat ActionMap + LoRA in `3 / 3` seeds with mean advantage `0.427353`, std `0.002126`; wrong-target proxy improved in `3 / 3` seeds. Rollout and paper claims remain false.
+
+## 64-Record Learned Target Head Bottleneck Risk
+
+Risk: Fixed-prior TCA remains strong, but hard learned-target TCA does not match the fixed-prior variant at 64 records.
+
+Impact: The current formulation may rely on a target prior rather than a learned target head that generalizes from instruction-derived features.
+
+Mitigation: Keep hard learned-target TCA as a required baseline, do not hide it behind fixed-prior results, and prioritize learned target-head redesign or calibration as the next method milestone.
+
+Current result: hard learned-target TCA + LoRA standard proxy mean/std was `0.374657 / 0.230835`, with wrong-target proxy mean/std `0.5625 / 0.270031`, while fixed-prior TCA + LoRA reached `0.856646 / 0.002967` and wrong-target `0.0 / 0.0`.
+
+## 64-Record TCA-Select Core-Contribution Kill Risk
+
+Risk: TCA-Select again shows no nontrivial gain at 64 records across three seeds.
+
+Impact: Keeping TCA-Select as the main contribution could weaken the research story by adding an unsupported mechanism on top of the stronger fixed target-prior action-conditioning evidence.
+
+Mitigation: Treat TCA-Select as non-core or killed as a central contribution unless a future targeted selector stress test produces nontrivial gain beyond the corresponding non-select prior. The main next research target should be learned target-head/prior robustness.
+
+Current result: TCA-Select nontrivial gain count was `0 / 3` at 64 records.

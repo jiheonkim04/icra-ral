@@ -132,11 +132,43 @@ def test_multiseed_validation_scales_to_32_records(tmp_path):
     assert report["manifest_record_capacity"] == 32
     assert report["task_count"] == 8
     assert report["per_task_record_counts"]
+    fixed_audit = report["aggregate_arms"]["tca_map_lora_fixed_learned_text_fusion"]["prior_source_audit"]
+    assert fixed_audit["uses_bddl_metadata"] is False
+    assert fixed_audit["uses_eval_labels"] is False
+    assert fixed_audit["available_at_test_time"] is True
     assert report["split_consistent"] is True
     assert "same 32-record split" in report["seed_policy"]
     comparison = report["aggregate_comparison"]
     assert 0 <= comparison["fixed_prior_tca_lora_beats_actionmap_lora_count"] <= 3
     assert "mean" in comparison["fixed_prior_tca_head_advantage"]
+
+
+def test_multiseed_validation_scales_to_64_records_one_seed(tmp_path):
+    manifest = _write_manifest(tmp_path, pair_count=32)
+    report = run_fixed_prior_multiseed_validation(
+        manifest_path=manifest,
+        report_json=tmp_path / "report.json",
+        report_md=tmp_path / "report.md",
+        seeds=[11],
+        max_pairs=32,
+        max_action_steps=4,
+        max_steps=4,
+        max_runtime_seconds=900,
+        max_samples=64,
+        rank=2,
+        require_training_gate=False,
+    )
+
+    assert report["fixed_prior_multiseed_validation_passed"] is True
+    assert report["seed_count"] == 1
+    assert report["record_count"] == 64
+    assert report["train_record_count"] == 48
+    assert report["eval_record_count"] == 16
+    assert report["manifest_pair_count"] == 32
+    assert report["manifest_record_capacity"] == 64
+    assert "same 64-record split" in report["seed_policy"]
+    assert report["prior_source_audit"]["variants"]["oracle_target_upper_bound"]["available_at_test_time"] is False
+    assert report["prior_source_audit"]["variants"]["fixed_learned_text_fusion"]["uses_eval_labels"] is False
 
 
 def test_multiseed_script_requires_training_gate(tmp_path):

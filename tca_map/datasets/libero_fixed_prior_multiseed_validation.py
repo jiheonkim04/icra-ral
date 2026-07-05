@@ -131,6 +131,7 @@ def _aggregate_arms(seed_reports: list[dict[str, Any]]) -> dict[str, Any]:
         aggregate[arm_name] = {
             "family": arms[0]["family"],
             "target_prior_variant": arms[0]["target_prior_variant"],
+            "prior_source_audit": arms[0].get("prior_source_audit", {}),
             "initial_loss": {
                 "mean": _mean([_loss(_arm_map(report), arm_name, "initial_loss") for report in seed_reports]),
                 "std": _std([_loss(_arm_map(report), arm_name, "initial_loss") for report in seed_reports]),
@@ -355,6 +356,7 @@ def run_fixed_prior_multiseed_validation(
         "schema_version": SCHEMA_VERSION,
         "policy": _policy(),
         "source_manifest": str(manifest_path),
+        "prior_source_audit": seed_reports[0].get("prior_source_audit", {}),
         **manifest_capacity,
         "seeds": seeds,
         "seed_count": len(seeds),
