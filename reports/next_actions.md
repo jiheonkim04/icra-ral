@@ -1055,3 +1055,20 @@ Current diagnostic result:
 - fixed learned+text fusion uses no BDDL metadata and no eval labels at inference in this offline proxy interface; oracle-target TCA remains an unavailable upper bound only.
 
 Next milestone: `B. learned target head redesign` on the same fixed integrity policy. Keep ActionMap, fixed-prior TCA, hard learned-target TCA, LoRA attribution, and oracle upper-bound arms intact when the redesign is evaluated. Treat TCA-Select as non-core or killed as a central contribution unless a future selector-specific stress test shows a nontrivial gain. Do not run rollout or make paper-grade claims until a separate rollout risk gate is green and the offline evidence table is refreshed.
+
+## Current Next Action After Publishability Gate Audit
+
+The publishability gate audit has been executed on the existing 64-record split with seeds `11, 23, 37`.
+
+Current diagnostic result:
+- fixed-prior source classification: `A_valid_test_time_semantic_prior`, under the explicit assumption that candidate/task natural-language text is available at test time.
+- instruction-text prior and fixed learned+text fusion do not use BDDL metadata, eval labels, dataset target labels, filenames, task ids, or manifest target fields as inference-time target proxies.
+- fixed fusion does use train-split target labels to train the learned target head.
+- fixed-prior TCA + LoRA beats ActionMap + LoRA across all seeds on `8 / 9` eval task groups.
+- fixed-prior TCA + LoRA does not beat ActionMap + LoRA across all seeds on target `0`; target `0` mean standard-proxy delta is `-0.000098`.
+- target `1` drives most of the gain, with mean standard-proxy delta `+0.878226` and wrong-target delta `-1.0`.
+- current TCA-Select turnover rate is `0.0`.
+- oracle selector upper-bound delta over non-select fixed-prior TCA is `0.0`.
+- candidate pool diversity is not collapsed, and score diversity is non-degenerate, so the current selector has no headroom rather than merely broken candidate generation.
+
+Next milestone: `B. learned target-head / target-prior robustness redesign`. Do not run limited rollout yet, because the current gain is target-concentrated. Treat TCA-Select as killed as a core contribution unless a future targeted selector stress test shows nontrivial headroom. Preserve the same fixed metrics and include the target `0` weakness explicitly in the next evaluation.

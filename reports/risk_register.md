@@ -1368,3 +1368,33 @@ Impact: Keeping TCA-Select as the main contribution could weaken the research st
 Mitigation: Treat TCA-Select as non-core or killed as a central contribution unless a future targeted selector stress test produces nontrivial gain beyond the corresponding non-select prior. The main next research target should be learned target-head/prior robustness.
 
 Current result: TCA-Select nontrivial gain count was `0 / 3` at 64 records.
+
+## Fixed-Prior Target-Concentration Risk
+
+Risk: The 64-record publishability audit shows that fixed-prior TCA gains are not broad across every target group.
+
+Impact: The method could look strong in aggregate because it corrects ActionMap's wrong-target behavior on target `1`, while offering no meaningful gain or slight underperformance on target `0`.
+
+Mitigation: Do not proceed directly to limited rollout as if the fixed-prior gain is uniformly broad. Preserve per-target breakdowns in future reports, and redesign or calibrate the learned target head / target prior robustness while keeping ActionMap and hard learned-target baselines.
+
+Current result: fixed-prior TCA + LoRA beat ActionMap + LoRA across all seeds on `8 / 9` eval task groups, but only `1 / 2` target groups. Target `0` mean standard-proxy delta was `-0.000098`; target `1` mean delta was `+0.878226`.
+
+## Prior-Source Assumption Risk
+
+Risk: The fixed-prior audit is valid only under the assumption that candidate/task natural-language text is available at test time.
+
+Impact: If future rollout or benchmark inference cannot access equivalent non-privileged candidate text, the fixed-prior TCA result would become metadata-assisted rather than a valid method result.
+
+Mitigation: Carry forward the prior-source audit fields in every scaled or rollout evaluation: BDDL metadata, eval labels, dataset target labels, task id/filename/manifest target proxy, and test-time availability. Downgrade the result if any non-oracle prior uses unavailable information.
+
+Current result: instruction-text prior and fixed learned+text fusion are classified as `A_valid_test_time_semantic_prior`; both avoid BDDL metadata, eval labels, dataset target labels, filenames, task ids, and manifest target fields at inference. Fixed fusion still uses train-split target labels for supervised target-head training.
+
+## Selector No-Headroom Risk
+
+Risk: TCA-Select may have no useful headroom on the current fixed-prior candidate pool.
+
+Impact: Continuing to treat TCA-Select as a central contribution could distract from the stronger target-prior-conditioned action decoding result and weaken publishability.
+
+Mitigation: Kill TCA-Select as a core contribution unless a future targeted selector stress test or revised candidate generator shows a meaningful oracle selector upper-bound gap. Keep it as a secondary ablation only.
+
+Current result: current TCA-Select turnover rate was `0.0`, oracle selector delta over non-select fixed-prior TCA was `0.0`, candidate diversity was not collapsed, and score diversity was non-degenerate.

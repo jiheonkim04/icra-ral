@@ -1301,6 +1301,16 @@ Consequence: Do not claim LoRA supports TCA-Map. The next milestone should debug
 
 Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
 
+## Publishability Gate Audit Result
+
+Decision: Do not downgrade fixed-prior TCA as leakage under the current offline proxy interface, but do not proceed directly to limited rollout because the gain is target-concentrated. Kill TCA-Select as a core contribution for now.
+
+Reason: The audit classified both instruction-text prior and fixed learned+text fusion as `A_valid_test_time_semantic_prior` under the explicit assumption that candidate/task natural-language text is available at test time. Neither prior uses BDDL metadata, eval labels, dataset target labels, filenames, task ids, or manifest target fields as inference-time target proxies. However, fixed-prior TCA + LoRA beat ActionMap + LoRA across all seeds on `8 / 9` eval task groups but only `1 / 2` target groups. Target `0` was approximately tied or slightly worse than ActionMap, while target `1` drove most of the standard-proxy and wrong-target improvement. The oracle selector upper bound had `0.0` standard-proxy delta over non-select fixed-prior TCA, and current TCA-Select had `0.0` turnover.
+
+Consequence: The next execution-first milestone should redesign or calibrate the learned target head / target prior robustness while preserving the fixed metrics, ActionMap baseline, fixed-prior TCA, hard learned-target TCA, LoRA attribution, and oracle upper-bound arms. Limited rollout should wait until the target-concentration issue is understood. TCA-Select should be treated as killed as a core contribution unless a future targeted selector stress test demonstrates real headroom.
+
+Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
 ## 64-Record Multi-Seed Fixed-Prior Offline Validation Result
 
 Decision: Continue fixed-prior TCA-Map as viable exploratory offline-proxy evidence after the 64-record scale-up, but move the next method work to learned target-head redesign and demote TCA-Select as a core contribution.
