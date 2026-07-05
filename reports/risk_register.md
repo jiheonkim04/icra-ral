@@ -1182,3 +1182,13 @@ Impact: The project could drift into p-hacking or novelty overclaiming before Lo
 Mitigation: Record the conclusion as `weakens_tca_map` for this exploratory split. Any next LoRA comparison must keep ActionMap + LoRA as the central baseline and must report if LoRA gains dominate the TCA-Map contribution. TCA-Select also must remain separate because it added no measured gain in this run.
 
 Current result: ActionMap loss decreased `0.162408 -> 0.010239`; TCA-Map loss decreased `0.855555 -> 0.126224`; TCA-Map eval action L1 improved by `-0.019147`, but standard proxy delta was `-0.434797`, target top1 delta was `-0.5`, and wrong-target proxy delta was `+0.5`.
+
+## LoRA Negative Attribution Result Risk
+
+Risk: The tiny LoRA attribution comparison could be cherry-picked or reframed as positive because TCA-Map + LoRA improved action L1 and counterfactual margin while losing on target accuracy, wrong-target proxy, standard proxy, and action-target consistency.
+
+Impact: Scaling LoRA before diagnosing the target-conditioning failure could waste compute and encourage p-hacking.
+
+Mitigation: Record the conclusion as `lora_weakens_tca_map` for this split. The next milestone should debug TCA target labels/conditioning on the same split, not broaden the split to hunt for a positive result. Distributional TCA-Select should also remain unsupported by this diagnostic because it added no measured gain despite non-degenerate candidate scores.
+
+Current result: ActionMap + LoRA standard proxy `0.454351`, wrong-target `0.5`; TCA-Map + LoRA standard proxy `0.0`, wrong-target `1.0`; TCA-Select + LoRA delta `0.0` on standard proxy and wrong-target proxy.

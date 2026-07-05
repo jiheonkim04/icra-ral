@@ -2052,3 +2052,34 @@ Loss and metric result:
 - TCA-Map + Distributional TCA-Select eval matched TCA-Map in this run and added no measured gain.
 
 Conclusion: this tiny exploratory offline proxy weakens TCA-Map under the fixed integrity policy. The action regression part improved action L1 slightly, but the target head failed on the holdout pair and worsened wrong-target proxy and standard proxy. Do not present this as support for TCA-Map or as paper-grade evidence.
+
+## Tiny Offline LoRA Attribution Comparison Result
+
+The required tiny LoRA attribution milestone has run on the same deterministic tiny split as the head-only ActionMap vs TCA-Map diagnostic.
+
+Scope and safety:
+
+- script: `scripts\53_compare_libero_offline_lora.ps1`,
+- task-local gate: `ALLOW_TINY_TRAINING=1`,
+- data source: `reports\libero_offline_counterfactual_split_report.json`,
+- same split as head-only: true,
+- samples: 8 records, 6 train / 2 eval,
+- steps: 64,
+- batch size: 1,
+- device: CPU NumPy,
+- training: true,
+- LoRA training: true,
+- rollout: false,
+- downloads/GPU jobs/heavy imports/OpenVLA-OFT/paper claims: false.
+
+Sanity checks passed: target labels aligned, wrong-target proxy range valid, target-conditioning input non-constant, TCA-Select candidate scores non-degenerate, no external verifier, and no privileged inference.
+
+Loss and metric result:
+
+- ActionMap + LoRA loss: `0.034182 -> 0.034104`, decreased true, LoRA params `84`.
+- TCA-Map + LoRA loss: `0.716626 -> 0.656217`, decreased true, LoRA params `168`.
+- ActionMap + LoRA eval: standard proxy `0.454351`, action L1 `0.091298`, target top1 `0.5`, wrong-target proxy `0.5`, counterfactual margin `0.012553`.
+- TCA-Map + LoRA eval: standard proxy `0.0`, action L1 `0.082307`, target top1 `0.0`, wrong-target proxy `1.0`, counterfactual margin `0.019284`.
+- TCA-Map + LoRA + Distributional TCA-Select matched TCA-Map + LoRA and added no measured gain.
+
+Conclusion: `lora_weakens_tca_map`. LoRA did not rescue the weak TCA-Map head-only result on this tiny diagnostic. The current evidence points toward debugging target labeling/conditioning or revising the TCA-Map formulation before scaling.

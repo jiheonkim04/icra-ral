@@ -1290,3 +1290,13 @@ Reason: Both ActionMap and TCA-Map losses decreased under bounded CPU head-only 
 Consequence: Do not claim this supports TCA-Map. The next required LoRA comparison may proceed only as an attribution check, with ActionMap + LoRA vs TCA-Map + LoRA reported directly. If ActionMap + LoRA matches or beats TCA-Map + LoRA, report weak novelty rather than forcing a positive result.
 
 Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## Tiny Offline LoRA Attribution Comparison Result
+
+Decision: Treat the required tiny LoRA attribution comparison as weak evidence for the current TCA-Map formulation.
+
+Reason: The LoRA comparison used the same deterministic split as the weak head-only result and passed the requested sanity checks. Both ActionMap + LoRA and TCA-Map + LoRA losses decreased. However, ActionMap + LoRA beat TCA-Map + LoRA on eval standard proxy, target top1 accuracy, wrong-target proxy, and action-target consistency. TCA-Map + LoRA improved action L1 and counterfactual margin only. Distributional TCA-Select candidate scores were non-degenerate but added no measured gain.
+
+Consequence: Do not claim LoRA supports TCA-Map. The next milestone should debug TCA target labels/conditioning or revise the TCA-Map formulation before scaling. If future LoRA or larger-split results keep ActionMap stronger, the novelty claim should be killed or pivoted.
+
+Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
