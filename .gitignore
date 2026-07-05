@@ -276,3 +276,5 @@ Thumbs.db
 .idea/
 reports/libero_representation_sensitivity_audit_report.json
 reports/libero_representation_sensitivity_audit_report.md
+reports/libero_fixed_prior_rollout_readiness_gate_report.json
+reports/libero_fixed_prior_rollout_readiness_gate_report.md

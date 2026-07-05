@@ -1410,3 +1410,13 @@ Reason: The audit used the fixed 64-record offline proxy split and did not extra
 Consequence: The next execution-first milestone may be a limited fixed-prior rollout diagnostic after a green rollout risk assessment. Learned target-head redesign remains a bottleneck. TCA-Select should be killed or de-emphasized as a core contribution because it again added `0.0` over fixed-prior TCA.
 
 Training happened: true. LoRA training happened: true. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## Fixed-Prior Rollout Readiness Gate Result
+
+Decision: Do not run the limited fixed-prior rollout diagnostic yet.
+
+Reason: The environment plumbing and non-leaking semantic target-prior source are ready, but the current fixed-prior offline proxy action path is not rollout-ready. Offline records use `ACTION_PREFIX_DIM=4`, while LIBERO env actions are `7D`; the validated adapter rejects this with `unsupported action dimension mapping: policy_dim=4, env_action_dim=7`. Gripper, rotation, and coordinate conventions are unresolved.
+
+Consequence: The next execution-first milestone should be a narrow action-bridge/data-path fix that preserves `7D` LIBERO actions for fixed-prior ActionMap/TCA rollout candidates and validates the bridge on HDF5. After that, rerun the same readiness gate; run rollout only if it turns green.
+
+Training happened: false. LoRA training happened: false. Loss was computed: false. Rollout happened: false. Paper-grade claim: false.

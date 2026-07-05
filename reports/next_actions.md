@@ -1088,3 +1088,19 @@ Current diagnostic result:
 - target `0` issue is diagnosed as near-saturation/metric noise rather than a material blocker: mean standard-proxy delta `-0.003352`, wrong-target delta `0.0`.
 
 Next milestone: `D. limited fixed-prior rollout diagnostic`, but only after an explicit green rollout risk assessment. Keep the claim narrow: target-prior reinjection/action-pathway grounding, not proven representation collapse. Keep learned target-head redesign as a follow-up bottleneck and keep TCA-Select killed or secondary.
+
+## Current Next Action After Fixed-Prior Rollout Readiness Gate
+
+The limited fixed-prior rollout readiness gate has run and is red.
+
+Current diagnostic result:
+- simulator import/render/reset-step/zero-action diagnostic evidence: green.
+- non-leaking fixed semantic target-prior source: green under the existing candidate-text assumption.
+- fixed-prior proxy action bridge: red.
+- current offline ActionMap/TCA records preserve only `4D` action prefixes, while LIBERO/RoboSuite expects `7D` env actions.
+- existing explicit adapter supports same-dim and `6D -> 7D`, but not `4D -> 7D`.
+- gripper, rotation, and coordinate conventions are therefore unresolved for rollout.
+- rollout happened: false.
+- training/loss/LoRA training happened: false.
+
+Next milestone: `A. bridge fix and rerun limited rollout readiness gate`. Rebuild or extend the fixed-prior offline rollout record path so ActionMap/TCA rollout candidates preserve all seven LIBERO action dimensions, then validate action scale, clipping, gripper, rotation, and coordinate conventions on HDF5 before any simulator stepping. Do not run the fixed-prior rollout diagnostic until this gate is green.
