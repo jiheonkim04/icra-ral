@@ -30,3 +30,13 @@ Rationale: the earlier 10/25/50-step zero-reward diagnostic was inconclusive bec
 Outcome: exact-init HDF5 expert replay reached reward/done/success at observed index `260`, while the HDF5 reward/done index is `271`. Zero action under the same exact init state stayed at reward `0.0` and success `false`. HDF5 expert actions from default reset also stayed at reward `0.0` and success `false`. The timing mismatch is acceptable for diagnostic purposes and should be documented, but the result shows that raw `7D` HDF5 actions and `env.set_init_state(init_state)` can reproduce task success when replayed long enough.
 
 Integrity note: this was bounded diagnostic rollout evidence only. No training, LoRA training, loss computation, GPU job, download, heavy VLA import, OpenVLA-OFT execution, benchmark rollout, or paper-grade claim occurred.
+
+## 2026-07-06 - Action-Source Audit And Matched-Init Candidate Replay
+
+Decision: classify the current matched-init fixed-prior rollout evidence as candidate-replay / action-bridge evidence only, not closed-loop method rollout support.
+
+Rationale: before running longer-horizon fixed-prior rollout, the action source must be audited to prevent accidental HDF5 expert-action leakage. The audit compared zero action, HDF5 expert replay, ActionMap-style mean actions, fixed-prior TCA candidate replay, and hard learned-target proxy candidate replay against the matching HDF5 expert sequence.
+
+Outcome: fixed-prior TCA candidate replay exactly matched the HDF5 expert action sequence at every compared timestep: near-match rate `1.0`, mean L2 to expert `0.0`. It reached reward/success at index `260`, but this is not valid rollout-level method support because it uses future HDF5 expert actions unavailable at deployment time. ActionMap-style actions were a mean aggregate of future positive/counterfactual HDF5 actions and also invalid as closed-loop method actions; they failed reward/success. Hard learned-target proxy used future counterfactual HDF5 actions and failed reward/success.
+
+Integrity note: this was bounded diagnostic rollout evidence only. No training, LoRA training, loss computation, GPU job, download, heavy VLA import, OpenVLA-OFT execution, benchmark rollout, or paper-grade claim occurred. The correct evidence wording is `candidate-replay diagnostic / action-bridge evidence only; not closed-loop policy rollout success`.

@@ -2613,3 +2613,42 @@ Diagnostic result:
 - object-pose comparison to HDF5 obs: unavailable because the HDF5 `obs` group has no object-position keys, only camera/proprio-style keys.
 
 Conclusion: the action convention/init-state bridge is green for longer-horizon method rollout only under matched HDF5 init-state diagnostic conditions. Default reset is not sufficient for this replay. The next execution-first milestone may be a bounded longer-horizon fixed-prior method rollout using matched init states and a validated horizon around the expert success window. This remains diagnostic rollout evidence only, not standard success or paper-grade evidence.
+
+## Action-Source Audit And Matched-Init Candidate-Replay Diagnostic
+
+Status: complete as a bounded action-source legitimacy audit after full-demo expert replay sanity made the matched-init bridge green.
+
+Implementation:
+- script: `scripts\142_action_source_audit_matched_init_diagnostic.ps1`
+- module: `tca_map.datasets.libero_action_source_audit_matched_init_diagnostic`
+- targeted tests: `tests\test_libero_action_source_audit_matched_init_diagnostic.py`
+- runtime reports are ignored by git: `reports\action_source_audit_matched_init_diagnostic_report.json` and `.md`
+- task-local gate: `ALLOW_ACTION_SOURCE_AUDIT_ROLLOUT=1`
+
+Execution boundaries:
+- rollout happened: yes, bounded diagnostic only.
+- action-source audit happened: yes.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Action-source audit:
+- zero action: programmatic diagnostic control; no future HDF5 action use; mean L2 to expert `1.128492712`.
+- HDF5 expert replay: copied from HDF5 expert action at the same timestep; future expert action use; near-match rate to expert `1.0`; mean L2 to expert `0.0`.
+- ActionMap-style rollout action: mean aggregate of positive and counterfactual HDF5 future action sequences; future HDF5 action use; near-match rate to expert `0.0`; mean L2 to expert `0.716695147`.
+- fixed-prior TCA rollout action: copied from HDF5 expert action at the same timestep; future HDF5 expert action use; near-match rate to expert `1.0`; mean L2 to expert `0.0`.
+- hard learned-target TCA proxy: selected from the offline counterfactual HDF5 candidate set; future HDF5 action use; near-match rate to expert `0.0`; mean L2 to expert `1.433390294`.
+
+Matched-init diagnostic result:
+- task: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`.
+- horizon: requested up to the expert success window, with early stop at reward/done/success.
+- total simulator steps: `1305`.
+- zero action: reward sum `0.0`, success `false`, target-distance change `+0.000429`.
+- HDF5 expert replay: reward sum `1.0`, success `true`, first reward/done index `260`, target-distance change `-0.267427`.
+- ActionMap-style mean: reward sum `0.0`, success `false`, target-distance change `-0.010547`.
+- fixed-prior TCA candidate replay: reward sum `1.0`, success `true`, first reward/done index `260`, target-distance change `-0.267427`.
+- hard learned-target proxy: reward sum `0.0`, success `false`, target-distance change `-0.005729`.
+- wrong-target object movement: unavailable because the counterfactual object is not present in the environment object-position keys.
+
+Conclusion: fixed-prior TCA has no valid closed-loop rollout-level support from this diagnostic because the successful fixed-prior actions are exactly the future HDF5 expert actions. The result is useful as candidate-replay / action-bridge evidence only. A valid rollout method claim now requires an online action-generation bridge or a non-leaking action decoder that does not copy future HDF5 expert actions. Otherwise, paper materials must label rollout evidence with this caveat.

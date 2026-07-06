@@ -1,27 +1,27 @@
 ﻿# Autopilot State
 
-- current main commit at branch start: `652930c add zero-reward rollout diagnosis`
-- branch: `codex/full-demo-expert-replay-sanity`
+- current main commit at branch start: `243d738 add full-demo expert replay sanity`
+- branch: `codex/action-source-audit-matched-init-diagnostic`
 - git status at state update: modified branch files pending validation/commit
-- attempted: bounded full-demo HDF5 expert replay sanity check after the zero-reward rollout diagnosis
-- succeeded: exact-init HDF5 expert replay produced reward/done/success under the current LIBERO/RoboSuite reset/init-state/action bridge path
+- attempted: action-source legitimacy audit plus matched-init bounded candidate-replay diagnostic
+- succeeded: action-source audit ran and matched-init candidate replay executed on one LIBERO/RoboSuite task
 - rollout happened: `true`, bounded diagnostic only
-- full-demo expert replay happened: `true`
+- action-source audit happened: `true`
 - training happened: `false`
 - LoRA training happened: `false`
 - loss computed: `false`
 - GPU/download/heavy import/OpenVLA-OFT happened: `false`
-- simulator environment created: `true` during the bounded full-demo expert replay sanity check
-- rollout result: `1` task, `3` variants, `805` total simulator steps
-- variants: `zero_action_exact_init`, `hdf5_expert_replay_exact_init`, `hdf5_expert_replay_default_reset`
-- HDF5 first reward/done index: `271`
-- observed exact-init expert first reward/done/success index: `260`
-- zero-action exact-init result: reward `0.0`, success `false`
-- expert replay exact-init result: reward `1.0`, success `true`, stopped at step count `261`
-- expert replay default-reset result: reward `0.0`, success `false`
-- init-state compatibility: exact HDF5 init state was applied with `env.set_init_state(init_state)` and simulator state L2 to HDF5 init was `0.0`
-- action convention result: raw `7D` HDF5 actions reached reward/done/success; action range is finite and within `[-1, 1]` with clipping rate `0.0`
-- target-directed movement result: exact-init expert replay reduced distance to `moka_pot_1_pos` by `0.267427` and moved the matched object by `0.217868`; HDF5 obs does not expose object pose keys for exact demo-object comparison
-- blocker classification: `expert_replay_succeeds_but_timing_differs`
-- bridge status: green for longer-horizon method rollout only under matched-init diagnostic conditions; default reset is not green
-- exact next state decision: bounded longer-horizon fixed-prior method rollout is now meaningful, but it must use matched HDF5 init states, the validated 7D action path, and a horizon around the expert success window. It remains diagnostic only, not paper-grade rollout evidence.
+- simulator environment created: `true` during the bounded matched-init candidate-replay diagnostic
+- rollout result: `1` task, `5` variants, `1305` total simulator steps
+- variants: `zero_action_exact_init`, `hdf5_expert_replay_exact_init`, `actionmap_style_target_agnostic_mean`, `fixed_prior_tca_candidate_replay`, `hard_learned_target_tca_candidate_replay`
+- evidence type: `candidate_replay_diagnostic_not_closed_loop_policy`
+- blocker classification: `expert_action_leakage_candidate_replay_only`
+- fixed-prior valid rollout support: `false`
+- fixed-prior action source: copied from HDF5 expert action at the same timestep
+- fixed-prior near-match rate to HDF5 expert: `1.0`; mean L2 to expert `0.0`
+- ActionMap-style action source: mean aggregate of positive and counterfactual HDF5 action sequences; near-match rate to expert `0.0`; mean L2 to expert `0.716695147`
+- hard learned-target proxy action source: counterfactual HDF5 candidate sequence; mean L2 to expert `1.433390294`
+- matched-init reward/success: expert replay and fixed-prior candidate replay both reached reward `1.0` / success `true` at index `260`; zero action, ActionMap-style, and hard learned-target proxy stayed at reward `0.0` / success `false`
+- target movement: fixed-prior/expert reduced distance to `moka_pot_1_pos` by `0.267427`; ActionMap-style reduced it by `0.010547`; hard learned-target proxy reduced it by `0.005729`
+- wrong-target movement: unavailable because the counterfactual object was not present in the current environment observation object-position keys
+- exact next state decision: do not claim fixed-prior rollout-level method support from the current rollout diagnostics. The current rollout evidence is candidate-replay / action-bridge evidence only. Next milestone should be either an online action-generation bridge before method rollout claims, or a paper-readiness package that honestly labels rollout evidence as bridge/candidate replay.
