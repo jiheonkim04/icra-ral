@@ -2818,3 +2818,35 @@ State 2 result:
 - full intervention rate: `0.7`.
 
 Conclusion: CSS-Shield now has bounded diagnostic evidence for semantic wrong-target intervention beyond safety-only and clipping-only. This remains diagnostic-only; the next milestone is State 3 RA-L strength check, not a paper claim.
+
+## CSS-Shield State 3-5 Continuous Autopilot
+
+Status: complete as bounded continuous diagnostic execution.
+
+Execution boundary:
+- rollout/simulator stepping happened: yes.
+- native SmolVLA load/inference happened: yes, CPU-only.
+- training happened: no.
+- LoRA training happened: no.
+- loss computed: no, because this was not a training task.
+- downloads/GPU/OpenVLA-OFT/paper claim: no.
+
+State 3 RA-L strength check:
+- decision: continue.
+- novelty beyond clipping-only: true.
+- novelty beyond safety-only: true.
+- semantic wrong-target value: `0.7`.
+- missing evidence: multi-task evidence, realism audit, longer-horizon utility evidence, related-work comparison, and paper-grade rollout table.
+
+State 4 scaled randomized diagnostic:
+- trials: `50`.
+- full vs safety-only wrong-target delta: `0.58`.
+- full vs clipping-only wrong-target delta: `0.58`.
+- full vs clipping-only unsafe delta: `0.24`.
+- full intervention rate: `0.58`.
+- full false positive rate: `0.0`.
+
+State 5 package:
+- promising diagnostic package created.
+- current evidence remains diagnostic-only and not RA-L ready.
+- next action requires human review of `reports/css_shield_ral_readiness.md` and the first-results package before any broader scaling.

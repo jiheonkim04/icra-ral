@@ -1,52 +1,30 @@
 {
   "continue_kill_decision": "continue",
-  "current_main_commit": "68ae7b824974141cc33cb4407db49915e39728bb",
-  "current_stage": "STATE 3",
+  "current_main_commit": "6532d50cac828d2935e8e8aa1d872929b2ed2cd6",
+  "current_stage": "COMPLETE",
   "download_happened": false,
-  "exact_resume_command": "powershell -ExecutionPolicy Bypass -File scripts\\160_css_shield_autopilot_next.ps1",
+  "exact_resume_command": "powershell -ExecutionPolicy Bypass -File scripts\\160_css_shield_autopilot_next.ps1 -Continuous",
   "gpu_happened": false,
   "hard_blockers": [],
   "heavy_import_happened": true,
-  "last_completed_stage": "STATE 2",
+  "last_completed_stage": "STATE 5",
   "last_result_summary": {
     "diagnostic_only": true,
     "key_metric": {
-      "state2_full_vs_clipping_unsafe_delta": 0.25,
-      "state2_full_vs_clipping_wrong_target_delta": 0.7,
-      "state2_full_vs_safety_wrong_target_delta": 0.7
+      "full_vs_safety_wrong_target_delta": 0.58,
+      "ral_decision": "continue",
+      "scale_decision": "continue"
     },
-    "paper_grade": false,
-    "passed": true,
-    "state1_5_decision": {
-      "continue": true,
-      "full_beats_clipping_on_semantic_or_safety_metric": true,
-      "full_beats_safety_on_semantic_metric": true,
-      "full_stop_all": false,
-      "kill_now": false,
-      "reason": "semantic wrong-target shielding beat safety-only and clipping-only without stop-all behavior",
-      "reframe": false,
-      "semantic_only_catches_wrong_target": true,
-      "state": "STATE 1.5"
-    },
-    "state2_decision": {
-      "continue": true,
-      "full_beats_clipping_on_semantic_or_safety_metric": true,
-      "full_beats_safety_on_semantic_metric": true,
-      "full_stop_all": false,
-      "kill_now": false,
-      "reason": "semantic wrong-target shielding beat safety-only and clipping-only without stop-all behavior",
-      "reframe": false,
-      "semantic_only_catches_wrong_target": true,
-      "state": "STATE 2"
-    }
+    "paper_grade": false
   },
   "lora_training_happened": false,
   "loss_computed": false,
-  "next_milestone": "RA-L strength check",
+  "native_smolvla_inference_happened": true,
+  "next_milestone": "No executable next state",
   "openvla_oft_happened": false,
   "paper_grade_or_diagnostic": "diagnostic_only",
   "rollout_happened": true,
-  "schema_version": "2026-07-07.css_shield_autopilot_state.v1",
+  "schema_version": "2026-07-07.css_shield_autopilot_state.v2",
   "training_happened": false,
-  "why_next": "State 2 randomized semantic/safety batch passed; next check is whether evidence has publishable strength."
+  "why_next": "Paper-readiness package created; human review is next."
 }

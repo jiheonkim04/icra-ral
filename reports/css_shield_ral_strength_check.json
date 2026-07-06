@@ -1,0 +1,28 @@
+{
+  "continue": true,
+  "decision": "continue",
+  "diagnostic_only": true,
+  "intervention_rate": 0.7,
+  "missing_evidence_for_ral_stability": [
+    "multi-task randomized diagnostic evidence",
+    "stronger realism audit for failure proposals",
+    "longer horizon utility/recovery evidence",
+    "comparison to recent VLA safety and semantic grounding baselines",
+    "paper-grade rollout success/safety table"
+  ],
+  "native_smolvla_action_source_used": true,
+  "novelty_beyond_clipping_only": true,
+  "novelty_beyond_safety_only": true,
+  "paper_grade": false,
+  "plausibly_ral_with_more_scaling": true,
+  "real_simulator_diagnostic": true,
+  "reason": "CSS-Shield shows semantic wrong-target value beyond clipping and safety-only in bounded simulator diagnostics.",
+  "rollout_or_simulator_metric_exists": true,
+  "schema_version": "2026-07-07.css_shield_ral_strength_check.v1",
+  "semantic_wrong_target_value": 0.7,
+  "synthetic_or_proposal_based": true,
+  "unsafe_rate_improvement": 0.25,
+  "utility_degradation_acceptable": true,
+  "utility_proxy": 0.00045595,
+  "wrong_target_rate_improvement": 0.7
+}

@@ -87,6 +87,8 @@ $WslPython -m tca_map.css_shield.semantic_observability \
   $runState2Arg
 "@
 
+$cmd = $cmd -replace "`r", ""
+
 $psi = New-Object System.Diagnostics.ProcessStartInfo
 $psi.FileName = "wsl"
 $psi.Arguments = "bash -lc " + '"' + ($cmd.Replace('"', '\"')) + '"'

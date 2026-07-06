@@ -1,4 +1,4 @@
-from tca_map.css_shield.autopilot_next import build_autopilot_state, select_next_milestone
+from tca_map.css_shield.autopilot_next import assess_ral_strength, assess_scale_report, build_autopilot_state, select_next_milestone
 from tca_map.css_shield.semantic_observability import resolve_semantic_targets
 
 
@@ -61,3 +61,47 @@ def test_semantic_resolver_uses_instruction_and_scene_names_only():
     assert resolved["selected_distractor"]["name"] == "chefmate_8_frypan_1_pos"
     assert resolved["uses_bddl_metadata"] is False
     assert resolved["uses_eval_labels"] is False
+
+
+def test_ral_strength_green_when_semantic_delta_and_native_rollout_exist():
+    report = {
+        "policy": {"rollout_happened": True, "model_inference_performed": True},
+        "state2_randomized_diagnostic": {
+            "trial_count": 20,
+            "summary": {
+                "comparison": {
+                    "full_vs_safety_wrong_target_delta": 0.7,
+                    "full_vs_clipping_wrong_target_delta": 0.7,
+                    "full_vs_clipping_unsafe_delta": 0.25,
+                },
+                "by_variant": {"full_css_shield": {"intervention_rate": 0.7}},
+            },
+        },
+    }
+
+    strength = assess_ral_strength(report)
+
+    assert strength["continue"] is True
+    assert strength["paper_grade"] is False
+    assert strength["novelty_beyond_safety_only"] is True
+
+
+def test_scale_report_rejects_stop_all_behavior():
+    report = {
+        "state2_randomized_diagnostic": {
+            "trial_count": 50,
+            "summary": {
+                "comparison": {
+                    "full_vs_safety_wrong_target_delta": 0.7,
+                    "full_vs_clipping_wrong_target_delta": 0.7,
+                    "full_vs_clipping_unsafe_delta": 0.25,
+                },
+                "by_variant": {"full_css_shield": {"intervention_rate": 1.0, "false_positive_intervention_rate": 0.0}},
+            },
+        }
+    }
+
+    scale = assess_scale_report(report)
+
+    assert scale["continue"] is False
+    assert scale["decision"] == "kill_or_reframe"

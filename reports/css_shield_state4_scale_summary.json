@@ -1,0 +1,19 @@
+{
+  "continue": true,
+  "decision": "continue",
+  "diagnostic_only": true,
+  "failure_cases_interpretable": true,
+  "full_false_negative_rate": 0.0,
+  "full_false_positive_rate": 0.0,
+  "full_intervention_rate": 0.58,
+  "full_target_directed_movement_mean": 0.00037704,
+  "full_vs_clipping_unsafe_delta": 0.24,
+  "full_vs_clipping_wrong_target_delta": 0.58,
+  "full_vs_safety_wrong_target_delta": 0.58,
+  "full_wrong_target_movement_mean": 0.00051482,
+  "paper_grade": false,
+  "reason": "Scaled randomized diagnostic preserves semantic wrong-target advantage without stop-all behavior.",
+  "schema_version": "2026-07-07.css_shield_state4_scale_summary.v1",
+  "trial_count": 50,
+  "utility_drop_acceptable": true
+}
