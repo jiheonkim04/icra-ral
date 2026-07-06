@@ -2923,3 +2923,37 @@ Key result:
 - replay degradation reproduced: yes.
 
 Conclusion: continue ExecSpec-Repair. The next state is a bounded exact-init calibrated-repair replay for the strongest degraded mismatch, preserving identity, clipping-only, and naive global-scale baselines.
+
+## ExecSpec-Repair State 2 Result
+
+Status: completed as bounded calibrated repair replay on branch `codex/execspec-repair-state2`.
+
+Implementation:
+- script: `scripts\165_execspec_calibrated_repair.ps1`.
+- module: `tca_map.execspec.repair`.
+- targeted tests: `tests\test_execspec_repair.py`, plus the prior mismatch and exact-init replay tests.
+- runtime reports: `reports\execspec_state2_calibrated_repair.md` and `reports\execspec_state2_calibrated_repair.json`.
+
+Execution boundary:
+- held-out action metrics happened: yes.
+- exact-init replay happened: yes, bounded diagnostic only.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA model loading/inference, OpenVLA-OFT, full fine-tuning, benchmark rollout, token access, and paper-grade claims did not occur.
+
+Key result:
+- calibration split: `5` demos, `1403` action samples.
+- held-out eval split: `1` demo, `272` action samples.
+- eval action leakage detected: `false`.
+- mismatch types tested: `gripper_sign_flip`, `translation_scale_mismatch`, `rotation_scale_mismatch`, `global_action_scale_mismatch`, `per_dimension_scale_mismatch`, `gripper_threshold_0_1_mismatch`, and `range_clipping_mismatch`.
+- best repair method by mean recovery: `diagonal_affine_calibration`.
+- aggregate held-out mean action L2: identity `0.565447642`, clipping-only `0.565447642`, global affine `0.308794194`, full ExecSpec-Repair `0.0`.
+- full ExecSpec-Repair beat identity, clipping-only, and global affine on aggregate held-out action drift.
+- per-mismatch full-repair beat counts: `7 / 7` versus identity, `7 / 7` versus clipping-only, and `5 / 7` versus global affine.
+- full repair mean recovery fraction: `1.0`.
+- exact-init replay happened for `gripper_sign_flip` and `translation_scale_mismatch`.
+- wrong executable spec replay degraded to reward/success `0.0 / false` for both replayed mismatches.
+- full ExecSpec-Repair recovered reward/success to `1.0 / true` for both replayed mismatches.
+
+Conclusion: continue ExecSpec-Repair. The next state is STATE 3 replay/rollout validation, broadening held-out exact-init replay cautiously while preserving non-leaking calibration/eval splits and all repair/control baselines.

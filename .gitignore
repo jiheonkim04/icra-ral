@@ -263,6 +263,7 @@ reports/wsl2_status.md
 runs/
 outputs/
 *.log
+runspytest_tmp_safe/
 
 # Large local assets
 /checkpoints/

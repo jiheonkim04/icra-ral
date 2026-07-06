@@ -1349,3 +1349,24 @@ Current diagnostic result:
 - supervised diagonal calibration beat identity, clipping-only, and naive global affine baselines on seven mismatch variants.
 
 Next execution-first milestone: STATE 2 calibrated repair replay. Replay the strongest degraded mismatch with a minimal calibration layer under the same exact-init boundary, and keep identity, clipping-only, naive global scale, and exact expert replay controls. Do not use future expert actions as method rollout actions, do not run OpenVLA-OFT, do not full fine-tune, and do not make paper-grade claims.
+
+## Current Next Action After ExecSpec-Repair State 2
+
+ExecSpec-Repair STATE 2 has completed bounded calibrated repair replay.
+
+Current diagnostic result:
+- calibration split: `5` demos, `1403` action samples.
+- held-out eval split: `1` demo, `272` action samples.
+- eval action leakage detected: `false`.
+- mismatch types tested: `gripper_sign_flip`, `translation_scale_mismatch`, `rotation_scale_mismatch`, `global_action_scale_mismatch`, `per_dimension_scale_mismatch`, `gripper_threshold_0_1_mismatch`, and `range_clipping_mismatch`.
+- best repair method by mean recovery: `diagonal_affine_calibration`.
+- full ExecSpec-Repair beat identity, clipping-only, and global affine on aggregate held-out action drift.
+- full repair mean recovery fraction: `1.0`.
+- exact-init replay happened for `gripper_sign_flip` and `translation_scale_mismatch`.
+- wrong executable spec replay degraded to reward/success `0.0 / false` for both replayed mismatches.
+- full ExecSpec-Repair recovered reward/success to `1.0 / true` for both replayed mismatches.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next execution-first milestone: STATE 3 replay/rollout validation. Expand from the one held-out exact-init replay demo only if the calibration/eval split remains non-leaking and the exact expert, wrong executable spec, identity, clipping-only, global, diagonal, gripper, split, and full repair controls remain present.
