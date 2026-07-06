@@ -1154,3 +1154,22 @@ Current diagnostic result:
 - default reset is not compatible with this demo replay, so future method rollout diagnostics must use matched init states or a separately validated task-compatible reset.
 
 Next milestone: `A. bounded longer-horizon fixed-prior method rollout`, using matched HDF5 init states, the validated raw `7D` action bridge, and a horizon around the expert success window. Keep it bounded diagnostic evidence only: no full benchmark, no OpenVLA-OFT, no full fine-tuning, no paper-grade claim, no cherry-picking, and preserve the zero-action/expert replay controls.
+
+## Current Next Action After Action-Source Audit
+
+The action-source audit and matched-init bounded diagnostic have been executed.
+
+Current diagnostic result:
+- rollout happened: `true`, bounded diagnostic only.
+- action-source audit happened: `true`.
+- evidence type: `candidate_replay_diagnostic_not_closed_loop_policy`.
+- blocker classification: `expert_action_leakage_candidate_replay_only`.
+- fixed-prior TCA candidate replay succeeded, but it exactly matched future HDF5 expert actions: near-match rate `1.0`, mean L2 `0.0`.
+- ActionMap-style mean and hard learned-target proxy both use future HDF5 action sequences and failed reward/success.
+- fixed-prior valid rollout-level support: `false`.
+
+Next milestone should be one of:
+- `B. online action-generation bridge`, if the goal is valid rollout-level method support.
+- `D. paper-readiness package with honest rollout caveat`, if the current evidence package is being organized now.
+
+Do not run more matched-init rollout variants that copy future HDF5 expert actions and then call them method rollout success. Any future rollout claim must separate closed-loop generated actions from offline candidate-replay diagnostics.

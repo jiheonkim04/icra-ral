@@ -1479,3 +1479,23 @@ Impact: Minor timing differences may affect horizon selection and step-aligned c
 Mitigation: Treat the bridge as green for diagnostic rollout because raw expert actions succeeded, but report the timing mismatch in every follow-up. Use a horizon around the expert success window rather than assuming exact index equality.
 
 Current result: exact-init expert replay reward sum was `1.0`, final success was `true`, and zero-action control stayed at reward `0.0` / success `false`.
+
+## Expert-Action Leakage In Rollout Diagnostics
+
+Risk: A fixed-prior or TCA rollout candidate can appear successful because it copies future HDF5 expert actions at the same timestep, rather than because a deployable policy or decoder generated the action online.
+
+Impact: The project could accidentally claim rollout-level method support from expert/candidate replay, which would be invalid as closed-loop policy evidence.
+
+Mitigation: Every rollout diagnostic must report action source, exact/near match rate to HDF5 expert actions, action L2 to expert, and whether future HDF5 actions unavailable at deployment time are used. Successful candidate replay must be labeled as candidate-replay / action-bridge evidence only.
+
+Current result: fixed-prior TCA candidate replay has near-match rate `1.0` and mean L2 `0.0` to the HDF5 expert sequence. It succeeds in matched-init replay, but fixed-prior valid rollout-level support is `false` because it uses future HDF5 expert actions.
+
+## Offline Candidate-Replay Overclaim Risk
+
+Risk: ActionMap-style and hard learned-target rollout proxies can use future positive/counterfactual HDF5 action sequences or aggregates while being described as method rollouts.
+
+Impact: Even failed or weak rollout results could be misinterpreted, and successful results would not be deployment-valid.
+
+Mitigation: Use the wording `candidate-replay diagnostic / action-bridge evidence only; not closed-loop policy rollout success` unless actions are generated online by a non-leaking policy/head at inference time.
+
+Current result: ActionMap-style actions are a mean aggregate of future positive/counterfactual HDF5 sequences and hard learned-target proxy actions come from future counterfactual HDF5 candidates. Both are invalid for closed-loop method rollout claims.
