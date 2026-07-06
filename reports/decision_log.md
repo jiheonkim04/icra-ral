@@ -1420,3 +1420,13 @@ Reason: The environment plumbing and non-leaking semantic target-prior source ar
 Consequence: The next execution-first milestone should be a narrow action-bridge/data-path fix that preserves `7D` LIBERO actions for fixed-prior ActionMap/TCA rollout candidates and validates the bridge on HDF5. After that, rerun the same readiness gate; run rollout only if it turns green.
 
 Training happened: false. LoRA training happened: false. Loss was computed: false. Rollout happened: false. Paper-grade claim: false.
+
+## Online 7D Diagnostic Head Result
+
+Decision: treat the non-leaking online 7D ActionMap/TCA diagnostic head as implemented, but do not treat its rollout as method success.
+
+Reason: the diagnostic trained CPU 7D linear heads from local LIBERO HDF5 training labels while filtering the rollout demo path out of training. In bounded matched-init rollout, ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D generated actions online from current observation/instruction and did not use same/future HDF5 actions at inference. However, reward and success stayed `0.0 / false` for every method and baseline variant. Fixed-prior TCA showed only a small partial target-movement advantage over ActionMap, not a reward/success improvement.
+
+Consequence: fixed-prior TCA has `fixed_prior_tca_valid_rollout_support=false` and blocker classification `online_7d_head_partial_target_movement_no_success`. The next execution-first milestone should diagnose online action quality/head training before scaling rollout. Do not claim paper-grade success or rollout-level TCA support from this result.
+
+Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: true, bounded diagnostic only. Paper-grade claim: false.

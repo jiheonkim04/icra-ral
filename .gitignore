@@ -288,3 +288,5 @@ reports/action_source_audit_matched_init_diagnostic_report.json
 reports/action_source_audit_matched_init_diagnostic_report.md
 reports/online_action_generation_bridge_report.json
 reports/online_action_generation_bridge_report.md
+reports/online_7d_diagnostic_head_report.json
+reports/online_7d_diagnostic_head_report.md

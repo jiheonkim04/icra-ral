@@ -1185,3 +1185,21 @@ no_nonleaking_online_actionmap_tca_7d_head
 Do not run more candidate-replay rollouts as method evidence. Do not call fixed-prior TCA successful in rollout until it generates actions online without future HDF5 expert actions.
 
 Next execution-first milestone: implement or train the smallest non-leaking 7D online diagnostic head for ActionMap/TCA using training demonstrations only. It must consume current-observation or current-feature inputs, output explicit 7D LIBERO actions, report action dimension/scale/gripper/rotation stats, and compare against the native online baseline, zero action, and HDF5 expert upper bound. If this would require full model training or OpenVLA-OFT, stop with a paper-readiness package that honestly labels the evidence as offline proxy plus bridge diagnostics.
+
+## Current Next Action After Online 7D Diagnostic Head
+
+The smallest non-leaking online 7D diagnostic head milestone has been executed.
+
+Current diagnostic result:
+- training happened: `true`, CPU ridge/linear diagnostic heads only.
+- loss computed: `true`.
+- LoRA training happened: `false`.
+- rollout happened: `true`, bounded matched-init diagnostic only.
+- rollout variants included zero action, HDF5 expert upper bound, native SmolVLA online policy, ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D.
+- HDF5 actions were used only as training labels, expert upper bound, and expert-match reference; ActionMap/TCA method actions were generated online from current observation/instruction.
+- reward/success stayed `0.0 / false` for every variant.
+- fixed-prior TCA valid rollout support: `false`.
+- fixed-prior TCA partial target-movement support: `true`.
+- blocker classification: `online_7d_head_partial_target_movement_no_success`.
+
+Next execution-first milestone: run an action-quality/head-training diagnosis before any rollout scaling. Keep it narrow: inspect online head feature sufficiency, action distribution mismatch, gripper/rotation command quality, and whether the head can overfit or replay a held-out demonstration segment without same/future action leakage. Do not run full benchmark rollout, OpenVLA-OFT, full fine-tuning, or paper-grade claims.
