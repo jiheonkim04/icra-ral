@@ -1120,3 +1120,19 @@ Bounded rollout diagnostic result:
 
 Next milestone: diagnose whether a shorter or demonstration-aligned HDF5 replay can produce any reward/success or measurable target-directed movement before scaling rollout. Keep this as infrastructure/diagnostic evidence only. Do not claim standard success or paper-grade rollout improvement.
 
+
+## Current Next Action After Zero-Reward Rollout Diagnosis
+
+The zero-reward rollout diagnosis has been executed on one LIBERO/RoboSuite task with horizons `10`, `25`, and `50`.
+
+Current diagnostic result:
+- rollout happened: `true`, bounded diagnostic only.
+- total simulator steps: `340`.
+- variants: zero action, ActionMap-style mean, HDF5 expert replay, fixed semantic target-prior TCA proxy.
+- reward and success remained `0.0` / `false` for every variant through 50 steps.
+- HDF5 metadata reports first positive reward / done at step `271`, so the 50-step result is not enough to call the action policy failed.
+- fixed-prior proxy actions were identical to expert replay actions, so the immediate bridge path is valid but not yet success-producing.
+- intended object movement was available for `moka_pot_1_pos`; wrong-target movement was unavailable for the counterfactual object in this environment's observation keys.
+- the naive target-distance metric did not show fixed-prior advantage over ActionMap-style mean movement.
+
+Next milestone: run a separately bounded full-demo expert replay sanity check up to the first positive reward/done index for one task, with no training, no GPU job, no OpenVLA-OFT, no paper claim, and no benchmark-scale rollout. If expert replay succeeds, use that validated horizon/reset path for the next fixed-prior diagnostic. If expert replay fails, the next blocker is init-state/action convention/gripper/rotation/coordinate diagnosis rather than policy scaling.

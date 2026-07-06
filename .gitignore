@@ -280,3 +280,5 @@ reports/libero_fixed_prior_rollout_readiness_gate_report.json
 reports/libero_fixed_prior_rollout_readiness_gate_report.md
 reports/fixed_prior_rollout_diagnostic_report.json
 reports/fixed_prior_rollout_diagnostic_report.md
+reports/zero_reward_rollout_diagnosis_report.json
+reports/zero_reward_rollout_diagnosis_report.md

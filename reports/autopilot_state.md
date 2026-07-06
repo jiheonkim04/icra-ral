@@ -1,18 +1,22 @@
-# Autopilot State
+﻿# Autopilot State
 
-- current main commit at branch start: `5ff7835 add fixed-prior rollout readiness gate`
-- branch: `codex/fixed-prior-7d-action-bridge`
+- current main commit at branch start: `e4fbdd9 add fixed-prior 7d rollout diagnostic`
+- branch: `codex/zero-reward-rollout-diagnosis`
 - git status at state update: modified branch files pending validation/commit
-- attempted: State 1 bridge fix, State 2 readiness gate rerun, and State 3 limited fixed-prior rollout diagnostic
-- succeeded: original HDF5 `7D` LIBERO actions are preserved for rollout candidates without silent padding; readiness gate is `green`
+- attempted: zero-reward rollout diagnosis and HDF5 expert-action sanity check for the fixed-prior rollout path
+- succeeded: bounded LIBERO/RoboSuite rollout diagnosis ran on the same task/init-state with horizons `10`, `25`, and `50`
 - rollout happened: `true`, bounded diagnostic only
 - training happened: `false`
 - LoRA training happened: `false`
 - loss computed: `false`
 - GPU/download/heavy import/OpenVLA-OFT happened: `false`
-- simulator environment created: `true` during the bounded fixed-prior rollout diagnostic
-- rollout result: `1` task, `3` variants, `10` steps each, `30` total steps
-- success/reward: all variants had reward `0.0` and success `false`
-- action bridge result: same-dim `7D` passthrough, no clipping, gripper dimension preserved from HDF5
-- fixed-prior diagnostic result: fixed-prior TCA moved the EEF more than the ActionMap-style mean baseline, but did not improve reward or success
-- exact next state decision: treat this as partial action-bridge support only; do not claim rollout success. Next milestone should diagnose whether short-horizon HDF5 replay can produce reward/success or target-directed movement before scaling rollout.
+- simulator environment created: `true` during the bounded zero-reward rollout diagnosis
+- rollout result: `1` task, `4` variants, horizons `10/25/50`, `340` total simulator steps
+- variants: `zero_action`, `actionmap_style_target_agnostic_mean`, `hdf5_expert_replay`, `fixed_semantic_target_prior_tca_proxy`
+- success/reward: all variants had reward `0.0` and success `false` through 50 steps
+- expert replay result: HDF5 metadata reports first positive reward / done at step `271`, so zero reward through 50 steps is expected for this demo
+- action bridge result: same-dim `7D` passthrough, finite actions, no clipping, gripper dimension preserved from HDF5
+- fixed-prior diagnostic result: fixed-prior proxy actions are identical to HDF5 expert replay actions in this diagnostic; this validates the bridge path but not task success
+- target-directed movement result: intended object metric matched `moka_pot_1_pos`; wrong-target object was unavailable in the current observation keys. At 50 steps, fixed-prior/expert moved slightly closer to the matched object, but the ActionMap-style mean moved closer more under this naive object-distance metric, so this does not support a fixed-prior target-directed movement advantage yet.
+- blocker classification: `sparse_reward_or_short_horizon`
+- exact next state decision: run a separately bounded full-demo expert replay sanity check up to the first positive reward/done index for one task before scaling learned-policy rollouts. If full expert replay succeeds, use that horizon/reset path for the next fixed-prior diagnostic. If it fails, prioritize init-state/action convention/gripper/rotation diagnosis.
