@@ -2758,3 +2758,13 @@ Key diagnosis:
 - dominant bottleneck remains `translation`; gripper classification/calibration is also fragile for some variants.
 
 Conclusion: the bounded redesign improved fixed-prior TCA over ActionMap in offline 7D metrics, but it failed the required rollout gate because no non-mean head beat the train-split mean-action baseline by the documented threshold. Do not run another method rollout from this head. The next milestone should redesign the target-prior conditioning/action features or move to a paper-readiness package that honestly states the rollout caveat.
+
+## CSS-Shield Project Initialization
+
+Status: initialized as the new Option 1 research direction.
+
+The previous low-compute Target-Prior TCA-Map route remains killed for RA-L-stable submission. CSS-Shield is a new rollout-first project focused on runtime semantic/safety intervention for VLA manipulation.
+
+Core claim target: a lightweight counterfactual semantic safety shield can reduce wrong-target and unsafe VLA actions while preserving useful task behavior.
+
+Next state: minimal rollout-first safety diagnostic. It must produce simulator/rollout safety metrics or a concrete blocker, not another offline-only proxy package.

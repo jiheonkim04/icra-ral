@@ -1240,3 +1240,15 @@ Current diagnostic result:
 Next execution-first milestone: do not run another method rollout from the current head. Either:
 - redesign target-prior conditioning/action features with a direct goal of beating the mean-action baseline on the same non-leaking split, or
 - prepare a paper-readiness package with an honest offline-plus-bridge caveat if stronger online rollout now requires heavier training beyond the low-compute scope.
+
+## Current Next Action After CSS-Shield Initialization
+
+The old Target-Prior TCA-Map RA-L route is killed and archived. Do not continue it as the main RA-L route.
+
+Next execution-first milestone: CSS-Shield STATE 1, minimal rollout-first safety diagnostic.
+
+Required immediate output:
+- at least one simulator/rollout safety metric, or
+- a concrete blocker explaining why no simulator/rollout safety metric can be produced.
+
+Do not start with offline-only metrics. Compare no shield, clipping-only, safety-only, semantic-only, and full CSS-Shield in the smallest bounded diagnostic possible.
