@@ -177,6 +177,10 @@ $required = @(
     "reports/css_shield_claims_and_limits.md",
     "reports/css_shield_ral_readiness.md",
     "reports/css_shield_failure_cases.md",
+    "reports/css_shield_phase2_state.md",
+    "reports/css_shield_phase2_state.json",
+    "reports/css_shield_phase2_decision_log.md",
+    "reports/css_shield_phase2_risk_register.md",
     "reports/css_shield_decision_log.md",
     "reports/css_shield_risk_register.md",
     "reports/css_shield_state1_minimal_rollout_result.md",
@@ -499,8 +503,10 @@ $required = @(
     "tests/test_online_7d_head_redesign_gate.py",
     "tests/test_css_shield_minimal_rollout_diagnostic.py",
     "tests/test_css_shield_autopilot_next.py",
+    "tests/test_css_shield_phase2_autopilot.py",
     "tca_map/css_shield/__init__.py",
     "tca_map/css_shield/autopilot_next.py",
+    "tca_map/css_shield/phase2_autopilot.py",
     "tca_map/css_shield/minimal_rollout_diagnostic.py",
     "tca_map/css_shield/semantic_observability.py",
     "tca_map/smolvla/online_action_generation_bridge.py",
@@ -515,6 +521,7 @@ $required = @(
     "scripts/151_css_shield_minimal_rollout_diagnostic_wsl.ps1"
     "scripts/160_css_shield_autopilot_next.ps1"
     "scripts/161_css_shield_state1_5_semantic_observability.ps1"
+    "scripts/162_css_shield_phase2_autopilot.ps1"
 )
 
 $missing = @()

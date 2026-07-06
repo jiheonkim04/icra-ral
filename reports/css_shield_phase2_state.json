@@ -1,0 +1,35 @@
+{
+  "continue_kill_decision": "kill_or_reframe",
+  "current_main_commit": "2d0c9aba9f96aa762c14510de7fcbdd5aea2fbf6",
+  "current_state": "COMPLETE",
+  "diagnostic_only": true,
+  "download_happened": false,
+  "exact_resume_command": "powershell -ExecutionPolicy Bypass -File scripts\\162_css_shield_phase2_autopilot.ps1 -Continuous",
+  "gpu_happened": false,
+  "hard_blockers": [
+    "Full CSS-Shield does not beat safety-only on native-action wrong-target reduction."
+  ],
+  "last_completed_state": "PHASE2_STATE 5",
+  "last_result_summary": {
+    "continue": false,
+    "decision": "kill_or_reframe",
+    "intervention_rate_acceptable": false,
+    "more_than_clipping": true,
+    "more_than_safety_only": false,
+    "multitask_evidence_sufficient": false,
+    "native_action_evidence_sufficient": false,
+    "ral_plausible": false,
+    "reason": "Full CSS-Shield does not beat safety-only on native-action wrong-target reduction.",
+    "schema_version": "2026-07-07.css_shield_phase2_novelty_check.v1",
+    "semantic_component_useful": false
+  },
+  "loss_computed": false,
+  "native_smolvla_inference_happened": true,
+  "next_milestone": "CSS-Shield kill/reframe review",
+  "openvla_oft_happened": false,
+  "paper_grade_claim": false,
+  "rollout_happened": true,
+  "schema_version": "2026-07-07.css_shield_phase2_state.v1",
+  "training_happened": false,
+  "why_next": "Phase 2 kill/reframe package created."
+}
