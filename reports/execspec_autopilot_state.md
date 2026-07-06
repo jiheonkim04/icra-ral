@@ -1,10 +1,10 @@
 # ExecSpec-Repair Autopilot State
 
-- branch: `codex/execspec-repair-state2`
-- current stage: `STATE 2 complete`
-- last completed stage: `STATE 2 calibrated repair replay`
-- continue/kill decision: `continue`
-- next milestone: `STATE 3 replay/rollout validation`
+- branch: `codex/execspec-repair-state3`
+- current stage: `STATE 3 complete`
+- last completed stage: `STATE 3 multi-demo replay validation`
+- continue/kill decision: `kill_or_reframe`
+- next milestone: `reframe ExecSpec-Repair around mismatch-specific value or select a new route`
 - rollout/replay happened: `true`
 - training happened: `false`
 - loss computed: `false`
@@ -15,14 +15,15 @@
 - replay degradation: `true`
 - eval leakage detected: `false`
 - full repair beats identity/clipping/global affine: `true / true / true`
-- calibrated repair replay recovery: `true`
+- multi-demo replay recovery: `17 / 19 degraded cases`
+- simple baseline match count: `4`
 
 ## Resume Command
 
 ```powershell
-$env:ALLOW_EXECSPEC_CALIBRATED_REPAIR_REPLAY="1"
-powershell -ExecutionPolicy Bypass -File scripts\165_execspec_calibrated_repair.ps1
-Remove-Item Env:\ALLOW_EXECSPEC_CALIBRATED_REPAIR_REPLAY -ErrorAction SilentlyContinue
+$env:ALLOW_EXECSPEC_STATE3_REPLAY_VALIDATION="1"
+powershell -ExecutionPolicy Bypass -File scripts\166_execspec_replay_validation.ps1
+Remove-Item Env:\ALLOW_EXECSPEC_STATE3_REPLAY_VALIDATION -ErrorAction SilentlyContinue
 ```
 
 ## Last Result Summary
@@ -30,18 +31,23 @@ Remove-Item Env:\ALLOW_EXECSPEC_CALIBRATED_REPAIR_REPLAY -ErrorAction SilentlyCo
 ```json
 {
   "calibration_demo_count": 5,
-  "eval_demo_count": 1,
+  "eval_demo_count": 3,
   "calibration_action_samples": 1403,
-  "eval_action_samples": 272,
+  "eval_action_samples": 805,
   "leakage_detected": false,
   "best_repair_method": "diagonal_affine_calibration",
   "full_repair_beats_identity": true,
   "full_repair_beats_clipping_only": true,
   "full_repair_beats_global_affine": true,
   "full_repair_mean_recovery_fraction": 1.0,
-  "gripper_sign_flip_full_repair_reward_success": "1.0 / true",
-  "translation_scale_full_repair_reward_success": "1.0 / true",
-  "repair_improves_replay_reward_or_success": true,
+  "exact_init_replay_cases": 21,
+  "degraded_replay_cases": 19,
+  "success_recovered_cases": 17,
+  "success_recovery_rate": 0.894736842,
+  "simple_baseline_match_count": 4,
+  "default_reset_expert_success": false,
+  "default_reset_full_repair_success": false,
+  "decision": "kill_or_reframe",
   "paper_grade": false
 }
 ```

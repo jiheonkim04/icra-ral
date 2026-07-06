@@ -35,3 +35,19 @@ Exact-init replay result: bounded replay was run for `gripper_sign_flip` and `tr
 Consequence: STATE 3 may broaden replay/rollout validation cautiously, while preserving exact-init controls, split discipline, no eval leakage, and no paper-grade claims.
 
 Training happened: false. LoRA training happened: false. Loss was computed: false. Replay/rollout happened: true, bounded exact-init calibrated repair replay only. GPU/download/OpenVLA-OFT happened: false. Paper-grade claim: false.
+
+## STATE 3 Multi-Demo Replay Validation Result
+
+Decision: kill or reframe the broad ExecSpec-Repair RA-L route instead of advancing to STATE 4 as a general method claim.
+
+Reason: STATE 3 expanded to `3` held-out eval demos (`805` eval action samples) with `5` calibration demos (`1403` calibration action samples) and no eval-action leakage. Full repair remained strong on held-out action drift: mean action L2 was identity `0.554723914`, clipping-only `0.554723914`, global affine `0.318936592`, and full ExecSpec-Repair `0.0`; full repair beat identity, clipping-only, and global affine on aggregate action drift.
+
+Replay result: exact-init replay ran `21` demo/mismatch cases across all seven mismatch types. Wrong executable specs degraded `19` cases. Full repair recovered reward/success/done behavior in `17 / 19` degraded cases, for success and reward recovery rates of `0.894736842`. Recovery appeared across all `3` held-out eval demos and all `7` mismatch types where degradation was observed.
+
+Blocker: simple baselines matched full repair in `4` degraded replay cases, especially global/range-scale cases on held-out living-room demos where global affine also reached reward/success. Two rotation-scale cases did not degrade under wrong spec. This violates the predeclared STATE 3 continuation criterion that clipping-only or global affine must not match full repair.
+
+Default reset: a tiny non-primary default-reset sanity check failed for both expert replay and full repair (`0.0 / false`), so the claim remains limited to exact-init executable-spec repair under matched replay conditions.
+
+Consequence: do not advance the broad ExecSpec-Repair claim to STATE 4 as-is. Honest continuations are to reframe around mismatch classes where simple affine repair is insufficient, build a harder executable-spec benchmark with predeclared nontrivial baselines, or select a new rollout-first route.
+
+Training happened: false. LoRA training happened: false. Loss was computed: false. Replay/rollout happened: true, bounded exact-init diagnostic only. GPU/download/OpenVLA-OFT happened: false. Paper-grade claim: false.

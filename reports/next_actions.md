@@ -1370,3 +1370,30 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next execution-first milestone: STATE 3 replay/rollout validation. Expand from the one held-out exact-init replay demo only if the calibration/eval split remains non-leaking and the exact expert, wrong executable spec, identity, clipping-only, global, diagonal, gripper, split, and full repair controls remain present.
+
+## Current Next Action After ExecSpec-Repair State 3
+
+ExecSpec-Repair STATE 3 has completed bounded multi-demo exact-init replay validation and produced a kill/reframe decision for the broad route.
+
+Current diagnostic result:
+- calibration split: `5` demos, `1403` action samples.
+- held-out eval split: `3` demos, `805` action samples.
+- task count: `8` across calibration plus eval metadata, suite coverage `libero_10`.
+- eval action leakage detected: `false`.
+- mismatch types tested: `gripper_sign_flip`, `translation_scale_mismatch`, `rotation_scale_mismatch`, `global_action_scale_mismatch`, `per_dimension_scale_mismatch`, `gripper_threshold_0_1_mismatch`, and `range_clipping_mismatch`.
+- best repair method by mean recovery: `diagonal_affine_calibration`.
+- full ExecSpec-Repair beat identity, clipping-only, and global affine on aggregate held-out action drift.
+- full repair mean recovery fraction: `1.0`.
+- exact-init replay cases: `21`.
+- degraded wrong-spec replay cases: `19`.
+- full repair recovered reward/success/done behavior in `17 / 19` degraded cases.
+- success recovery rate: `0.894736842`.
+- reward recovery rate: `0.894736842`.
+- simple baseline match count: `4`, so the predeclared STATE 3 continuation criterion failed.
+- calibration data-size sensitivity: `1`, `3`, and `5` calibration demos all reached full repair action L2 `0.0` and recovery fraction `1.0`; replay sensitivity by calibration size was not rerun.
+- default-reset sanity: expert and full repair both failed, so evidence is exact-init only.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next action: do not proceed to STATE 4 as a broad ExecSpec-Repair claim. Reframe around mismatch-specific value where simple affine/global repair does not match full repair, build a harder baseline-first executable-spec benchmark, or select a new rollout-first route.

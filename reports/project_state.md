@@ -2957,3 +2957,40 @@ Key result:
 - full ExecSpec-Repair recovered reward/success to `1.0 / true` for both replayed mismatches.
 
 Conclusion: continue ExecSpec-Repair. The next state is STATE 3 replay/rollout validation, broadening held-out exact-init replay cautiously while preserving non-leaking calibration/eval splits and all repair/control baselines.
+
+## ExecSpec-Repair State 3 Result
+
+Status: completed as bounded multi-demo exact-init replay validation on branch `codex/execspec-repair-state3`.
+
+Implementation:
+- script: `scripts\166_execspec_replay_validation.ps1`.
+- module: `tca_map.execspec.replay_validation`.
+- targeted tests: `tests\test_execspec_replay_validation.py`, plus the prior repair and exact-init replay tests.
+- runtime reports: `reports\execspec_state3_replay_validation.md` and `reports\execspec_state3_replay_validation.json`.
+
+Execution boundary:
+- held-out action metrics happened: yes.
+- exact-init replay happened: yes, bounded diagnostic only.
+- default-reset sanity happened: yes, one non-primary two-variant check.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA model loading/inference, OpenVLA-OFT, full fine-tuning, benchmark rollout, token access, and paper-grade claims did not occur.
+
+Key result:
+- calibration split: `5` demos, `1403` action samples.
+- held-out eval split: `3` demos, `805` action samples.
+- eval action leakage detected: `false`.
+- mismatch types tested: `gripper_sign_flip`, `translation_scale_mismatch`, `rotation_scale_mismatch`, `global_action_scale_mismatch`, `per_dimension_scale_mismatch`, `gripper_threshold_0_1_mismatch`, and `range_clipping_mismatch`.
+- best repair method by mean recovery: `diagonal_affine_calibration`.
+- aggregate held-out mean action L2: identity `0.554723914`, clipping-only `0.554723914`, global affine `0.318936592`, full ExecSpec-Repair `0.0`.
+- full ExecSpec-Repair beat identity, clipping-only, and global affine on aggregate held-out action drift.
+- per-mismatch full-repair beat counts: `7 / 7` versus identity, `7 / 7` versus clipping-only, and `5 / 7` versus global affine.
+- exact-init replay cases: `21`; wrong executable spec degraded `19`.
+- full repair recovered success/reward/done behavior in `17 / 19` degraded replay cases.
+- success recovery rate: `0.894736842`; reward recovery rate: `0.894736842`; done-index recovery rate: `0.894736842`.
+- simple baseline match count: `4`.
+- calibration sensitivity: `1`, `3`, and `5` calibration demos all reached full repair action L2 `0.0` and recovery fraction `1.0`; replay sensitivity by calibration size was not rerun.
+- default-reset sanity: expert and full repair both failed, so the claim remains exact-init only.
+
+Conclusion: kill or reframe the broad ExecSpec-Repair RA-L route. The result is scientifically useful but not sufficient for a broad method claim because simple baselines matched full repair in several replay cases. Honest next actions are mismatch-specific reframing, a harder executable-spec benchmark with nontrivial baselines, or selecting a new rollout-first route.
