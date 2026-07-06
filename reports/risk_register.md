@@ -1459,3 +1459,23 @@ Impact: A variant can appear more target-directed by moving the end effector clo
 Mitigation: Treat object-distance movement as a secondary diagnostic only. Preserve reward/success, expert replay, init-state, gripper, rotation, and coordinate checks as primary rollout sanity gates. Report when wrong-target object keys are unavailable rather than inventing a proxy.
 
 Current result: the intended object metric matched `moka_pot_1_pos`, but wrong-target movement was unavailable. At 50 steps, ActionMap-style mean reduced the matched distance more than HDF5 expert/fixed-prior replay under this naive metric, so the metric does not currently support a fixed-prior target-directed movement advantage.
+
+## Default-Reset Replay Misinterpretation Risk
+
+Risk: HDF5 expert actions can succeed from the exact demonstration init state but fail from a default environment reset.
+
+Impact: A learned-policy or fixed-prior rollout run from default reset could fail because the initial state distribution is mismatched, not because the action bridge or method is invalid.
+
+Mitigation: Future longer-horizon method rollout diagnostics must report whether they use matched HDF5 init states. Do not compare method actions against expert replay unless both use the same reset/init-state path. Treat default-reset rollouts as a separate diagnostic gate.
+
+Current result: exact-init HDF5 expert replay reached reward/done/success at observed index `260`; default-reset expert replay stayed at reward `0.0` and success `false`.
+
+## Expert Replay Timing Mismatch Risk
+
+Risk: The simulator replay reached reward/done/success at observed index `260`, while the HDF5 file records first reward/done at index `271`.
+
+Impact: Minor timing differences may affect horizon selection and step-aligned comparisons if treated as exact equality.
+
+Mitigation: Treat the bridge as green for diagnostic rollout because raw expert actions succeeded, but report the timing mismatch in every follow-up. Use a horizon around the expert success window rather than assuming exact index equality.
+
+Current result: exact-init expert replay reward sum was `1.0`, final success was `true`, and zero-action control stayed at reward `0.0` / success `false`.

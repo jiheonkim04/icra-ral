@@ -1136,3 +1136,21 @@ Current diagnostic result:
 - the naive target-distance metric did not show fixed-prior advantage over ActionMap-style mean movement.
 
 Next milestone: run a separately bounded full-demo expert replay sanity check up to the first positive reward/done index for one task, with no training, no GPU job, no OpenVLA-OFT, no paper claim, and no benchmark-scale rollout. If expert replay succeeds, use that validated horizon/reset path for the next fixed-prior diagnostic. If expert replay fails, the next blocker is init-state/action convention/gripper/rotation/coordinate diagnosis rather than policy scaling.
+
+## Current Next Action After Full-Demo Expert Replay Sanity
+
+The full-demo expert replay sanity check has been executed on one LIBERO/RoboSuite task.
+
+Current diagnostic result:
+- rollout happened: `true`, bounded diagnostic only.
+- full-demo expert replay happened: `true`.
+- total simulator steps: `805`.
+- HDF5 first reward/done index: `271`.
+- exact-init expert replay observed first reward/done/success index: `260`.
+- exact-init expert replay succeeded with reward sum `1.0` and final success `true`.
+- exact-init zero action stayed at reward `0.0` and success `false`.
+- default-reset expert replay stayed at reward `0.0` and success `false`.
+- raw `7D` HDF5 actions are compatible with the LIBERO action interface under exact HDF5 init-state replay.
+- default reset is not compatible with this demo replay, so future method rollout diagnostics must use matched init states or a separately validated task-compatible reset.
+
+Next milestone: `A. bounded longer-horizon fixed-prior method rollout`, using matched HDF5 init states, the validated raw `7D` action bridge, and a horizon around the expert success window. Keep it bounded diagnostic evidence only: no full benchmark, no OpenVLA-OFT, no full fine-tuning, no paper-grade claim, no cherry-picking, and preserve the zero-action/expert replay controls.

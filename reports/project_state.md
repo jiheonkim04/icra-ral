@@ -2575,3 +2575,41 @@ Diagnostic result:
 - target movement at 50 steps: zero action moved slightly farther from the matched object; ActionMap-style mean moved closer by `0.140269`; HDF5 expert/fixed-prior moved closer by `0.009014`.
 
 Conclusion: the current blocker is classified as `sparse_reward_or_short_horizon`, with target-directed movement still ambiguous under the naive object-distance metric. This does not support a rollout success claim, and it does not yet show fixed-prior target-directed movement advantage. The next execution-first milestone should be a separately bounded full-demo expert replay sanity check up to the first positive reward/done index for one task. If expert replay succeeds at the expected index, then rerun the fixed-prior diagnostic with a justified horizon. If expert replay fails, investigate init-state, action convention, gripper, rotation, and coordinate mapping before any learned-policy rollout scaling.
+
+## Full-Demo Expert Replay Sanity
+
+Status: complete as a bounded rollout diagnostic after zero-reward diagnosis classified the earlier 50-step result as sparse reward / short horizon.
+
+Implementation:
+- script: `scripts\141_full_demo_expert_replay_sanity.ps1`
+- module: `tca_map.datasets.libero_full_demo_expert_replay_sanity`
+- targeted tests: `tests\test_libero_full_demo_expert_replay_sanity.py`
+- runtime reports are ignored by git: `reports\full_demo_expert_replay_sanity_report.json` and `.md`
+- task-local gate: `ALLOW_FULL_DEMO_EXPERT_REPLAY=1`
+
+Execution boundaries:
+- rollout happened: yes, bounded diagnostic only.
+- full-demo expert replay happened: yes.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Diagnostic result:
+- task count: `1`.
+- task: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`.
+- variants: exact-init zero action, exact-init HDF5 expert replay, default-reset HDF5 expert replay.
+- total simulator steps: `805`.
+- HDF5 first positive reward/done index: `271`.
+- observed exact-init expert first reward/done/success index: `260`.
+- exact-init expert replay reward/success: reward sum `1.0`, final success `true`.
+- exact-init zero action reward/success: reward sum `0.0`, final success `false`.
+- default-reset expert replay reward/success: reward sum `0.0`, final success `false`.
+- exact init-state application: `env.set_init_state(init_state)` with simulator state L2 to HDF5 init `0.0`.
+- action convention: raw `7D` HDF5 actions reached reward/done/success. Actions were finite, in expected range, and clipping rate was `0.0`.
+- controller evidence: controller type reported as `OSC_POSE`; MuJoCo timestep reported as `0.002`.
+- gripper evidence: gripper command range `[-1.0, 1.0]`, mean `-0.220588`, first positive index `62`.
+- target progress: exact-init expert replay reduced EEF distance to `moka_pot_1_pos` by `0.267427` and moved the matched object by `0.217868`.
+- object-pose comparison to HDF5 obs: unavailable because the HDF5 `obs` group has no object-position keys, only camera/proprio-style keys.
+
+Conclusion: the action convention/init-state bridge is green for longer-horizon method rollout only under matched HDF5 init-state diagnostic conditions. Default reset is not sufficient for this replay. The next execution-first milestone may be a bounded longer-horizon fixed-prior method rollout using matched init states and a validated horizon around the expert success window. This remains diagnostic rollout evidence only, not standard success or paper-grade evidence.

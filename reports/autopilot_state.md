@@ -1,22 +1,27 @@
 ﻿# Autopilot State
 
-- current main commit at branch start: `e4fbdd9 add fixed-prior 7d rollout diagnostic`
-- branch: `codex/zero-reward-rollout-diagnosis`
+- current main commit at branch start: `652930c add zero-reward rollout diagnosis`
+- branch: `codex/full-demo-expert-replay-sanity`
 - git status at state update: modified branch files pending validation/commit
-- attempted: zero-reward rollout diagnosis and HDF5 expert-action sanity check for the fixed-prior rollout path
-- succeeded: bounded LIBERO/RoboSuite rollout diagnosis ran on the same task/init-state with horizons `10`, `25`, and `50`
+- attempted: bounded full-demo HDF5 expert replay sanity check after the zero-reward rollout diagnosis
+- succeeded: exact-init HDF5 expert replay produced reward/done/success under the current LIBERO/RoboSuite reset/init-state/action bridge path
 - rollout happened: `true`, bounded diagnostic only
+- full-demo expert replay happened: `true`
 - training happened: `false`
 - LoRA training happened: `false`
 - loss computed: `false`
 - GPU/download/heavy import/OpenVLA-OFT happened: `false`
-- simulator environment created: `true` during the bounded zero-reward rollout diagnosis
-- rollout result: `1` task, `4` variants, horizons `10/25/50`, `340` total simulator steps
-- variants: `zero_action`, `actionmap_style_target_agnostic_mean`, `hdf5_expert_replay`, `fixed_semantic_target_prior_tca_proxy`
-- success/reward: all variants had reward `0.0` and success `false` through 50 steps
-- expert replay result: HDF5 metadata reports first positive reward / done at step `271`, so zero reward through 50 steps is expected for this demo
-- action bridge result: same-dim `7D` passthrough, finite actions, no clipping, gripper dimension preserved from HDF5
-- fixed-prior diagnostic result: fixed-prior proxy actions are identical to HDF5 expert replay actions in this diagnostic; this validates the bridge path but not task success
-- target-directed movement result: intended object metric matched `moka_pot_1_pos`; wrong-target object was unavailable in the current observation keys. At 50 steps, fixed-prior/expert moved slightly closer to the matched object, but the ActionMap-style mean moved closer more under this naive object-distance metric, so this does not support a fixed-prior target-directed movement advantage yet.
-- blocker classification: `sparse_reward_or_short_horizon`
-- exact next state decision: run a separately bounded full-demo expert replay sanity check up to the first positive reward/done index for one task before scaling learned-policy rollouts. If full expert replay succeeds, use that horizon/reset path for the next fixed-prior diagnostic. If it fails, prioritize init-state/action convention/gripper/rotation diagnosis.
+- simulator environment created: `true` during the bounded full-demo expert replay sanity check
+- rollout result: `1` task, `3` variants, `805` total simulator steps
+- variants: `zero_action_exact_init`, `hdf5_expert_replay_exact_init`, `hdf5_expert_replay_default_reset`
+- HDF5 first reward/done index: `271`
+- observed exact-init expert first reward/done/success index: `260`
+- zero-action exact-init result: reward `0.0`, success `false`
+- expert replay exact-init result: reward `1.0`, success `true`, stopped at step count `261`
+- expert replay default-reset result: reward `0.0`, success `false`
+- init-state compatibility: exact HDF5 init state was applied with `env.set_init_state(init_state)` and simulator state L2 to HDF5 init was `0.0`
+- action convention result: raw `7D` HDF5 actions reached reward/done/success; action range is finite and within `[-1, 1]` with clipping rate `0.0`
+- target-directed movement result: exact-init expert replay reduced distance to `moka_pot_1_pos` by `0.267427` and moved the matched object by `0.217868`; HDF5 obs does not expose object pose keys for exact demo-object comparison
+- blocker classification: `expert_replay_succeeds_but_timing_differs`
+- bridge status: green for longer-horizon method rollout only under matched-init diagnostic conditions; default reset is not green
+- exact next state decision: bounded longer-horizon fixed-prior method rollout is now meaningful, but it must use matched HDF5 init states, the validated 7D action path, and a horizon around the expert success window. It remains diagnostic only, not paper-grade rollout evidence.
