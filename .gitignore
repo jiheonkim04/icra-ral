@@ -282,3 +282,5 @@ reports/fixed_prior_rollout_diagnostic_report.json
 reports/fixed_prior_rollout_diagnostic_report.md
 reports/zero_reward_rollout_diagnosis_report.json
 reports/zero_reward_rollout_diagnosis_report.md
+reports/full_demo_expert_replay_sanity_report.json
+reports/full_demo_expert_replay_sanity_report.md
