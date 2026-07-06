@@ -1252,3 +1252,18 @@ Required immediate output:
 - a concrete blocker explaining why no simulator/rollout safety metric can be produced.
 
 Do not start with offline-only metrics. Compare no shield, clipping-only, safety-only, semantic-only, and full CSS-Shield in the smallest bounded diagnostic possible.
+
+## Current Next Action After CSS-Shield State 1
+
+The minimal rollout-first CSS-Shield diagnostic has completed.
+
+Current diagnostic result:
+- rollout happened: `true`.
+- native SmolVLA action source was used on CPU.
+- no training, no loss, no LoRA training, no GPU job, no download, no OpenVLA-OFT, no benchmark rollout, and no paper-grade claim occurred.
+- full CSS-Shield reduced unsafe action rate by `0.8` versus no shield and clipping-only.
+- full CSS-Shield did not beat safety-only in this run.
+- wrong-target semantic reduction was `0.0` because the counterfactual object was missing from the observation object keys.
+- reward/success stayed `0.0 / false` for every variant.
+
+Next execution-first milestone: State 2 semantic-coverage diagnostic. Select or construct the smallest bounded task/proposal setting where both intended and counterfactual target objects are observable. The direct output must be a wrong-target intervention metric or a concrete blocker. Keep no-shield, clipping-only, safety-only, semantic-only, and full CSS-Shield baselines.

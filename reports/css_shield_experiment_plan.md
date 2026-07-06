@@ -30,6 +30,8 @@ Required metrics:
 
 Continue only if the full shield reduces wrong-target or unsafe actions while utility degradation remains bounded and it beats clipping-only or safety-only.
 
+State 1 note: full CSS-Shield beat clipping-only on unsafe action rate but did not beat safety-only and did not exercise wrong-target semantic intervention. The next diagnostic must therefore be a narrow semantic-coverage test, not a scale-up.
+
 ## Kill Criteria
 
 Kill quickly if no simulator/rollout metric can be produced, the shield only stops everything, clipping-only matches the full shield, or realistic failures cannot be generated.

@@ -2768,3 +2768,24 @@ The previous low-compute Target-Prior TCA-Map route remains killed for RA-L-stab
 Core claim target: a lightweight counterfactual semantic safety shield can reduce wrong-target and unsafe VLA actions while preserving useful task behavior.
 
 Next state: minimal rollout-first safety diagnostic. It must produce simulator/rollout safety metrics or a concrete blocker, not another offline-only proxy package.
+
+## CSS-Shield State 1 Minimal Rollout Diagnostic
+
+Status: complete as a bounded rollout-first diagnostic.
+
+Execution boundary:
+- rollout happened: yes.
+- proposal source: native SmolVLA.
+- training happened: no.
+- LoRA training happened: no.
+- loss computed: no, because this was not a training task.
+- downloads/GPU/OpenVLA-OFT/benchmark rollout/paper claim: no.
+
+Key result:
+- full CSS-Shield unsafe-rate reduction versus no shield: `0.8`.
+- full CSS-Shield unsafe-rate reduction versus clipping-only: `0.8`.
+- full CSS-Shield unsafe-rate reduction versus safety-only: `0.0`.
+- wrong-target reduction: `0.0`, because the counterfactual object was not present as an observation object key.
+- reward/success: `0.0 / false` for all variants.
+
+Conclusion: CSS-Shield is not killed at the no-rollout-metric gate, but the State 1 evidence is safety-damping evidence rather than semantic shielding evidence. The next milestone should be a narrow semantic-coverage diagnostic where both intended and counterfactual targets are observable and safety-only is an insufficient baseline.

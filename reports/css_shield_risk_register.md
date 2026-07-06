@@ -24,6 +24,18 @@ Risk: object position keys may be missing or may not reflect task success.
 
 Mitigation: report missing keys explicitly and treat object-distance movement as a diagnostic proxy, not standard success.
 
+Current status: materialized in State 1. The intended object was available, but the counterfactual object was not present as an observation object key, so wrong-target semantic intervention was not exercised.
+
+Next mitigation: choose or construct the smallest bounded diagnostic where both intended and counterfactual object keys are observable, or label semantic shielding blocked.
+
+## Safety-Only Equivalence Risk
+
+Risk: full CSS-Shield may reduce unsafe actions only because of safety damping, not because of semantic counterfactual reasoning.
+
+Current status: active. In State 1, full CSS-Shield beat clipping-only on unsafe rate but did not beat safety-only.
+
+Mitigation: State 2 must include a semantic wrong-target setting where safety-only is insufficient.
+
 ## Old TCA Route Revival Risk
 
 Risk: CSS-Shield could drift back into target-prior TCA-Map claims.

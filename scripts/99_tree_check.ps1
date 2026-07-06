@@ -166,6 +166,7 @@ $required = @(
     "reports/css_shield_autopilot_state.md",
     "reports/css_shield_decision_log.md",
     "reports/css_shield_risk_register.md",
+    "reports/css_shield_state1_minimal_rollout_result.md",
     "reports/risk_register.md",
     "scripts/00_preflight.ps1",
     "scripts/00_preflight.sh",
@@ -483,6 +484,9 @@ $required = @(
     "tests/test_online_7d_diagnostic_head.py",
     "tests/test_online_7d_action_quality_diagnosis.py",
     "tests/test_online_7d_head_redesign_gate.py",
+    "tests/test_css_shield_minimal_rollout_diagnostic.py",
+    "tca_map/css_shield/__init__.py",
+    "tca_map/css_shield/minimal_rollout_diagnostic.py",
     "tca_map/smolvla/online_action_generation_bridge.py",
     "tca_map/smolvla/online_7d_diagnostic_head.py",
     "tca_map/smolvla/online_7d_action_quality_diagnosis.py",
@@ -490,7 +494,9 @@ $required = @(
     "scripts/143_online_action_generation_bridge.ps1",
     "scripts/144_online_7d_diagnostic_head.ps1",
     "scripts/145_online_7d_action_quality_diagnosis.ps1",
-    "scripts/146_online_7d_head_redesign_gate.ps1"
+    "scripts/146_online_7d_head_redesign_gate.ps1",
+    "scripts/150_css_shield_minimal_rollout_diagnostic.ps1"
+    "scripts/151_css_shield_minimal_rollout_diagnostic_wsl.ps1"
 )
 
 $missing = @()
