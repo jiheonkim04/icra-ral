@@ -1322,3 +1322,13 @@ Current diagnostic result:
 - RA-L plausible: `false`.
 
 Next action: do not scale CSS-Shield as a main RA-L route. Review the kill/reframe package. The only honest continuations are to reframe CSS-Shield as a diagnostic/benchmark artifact, redesign the native-action semantic metric, or abandon this route for a more rollout-first topic.
+
+## Current Next Action After Final Research Reset
+
+Both current RA-L-stable routes are killed:
+- Target-Prior TCA-Map is killed for lack of valid online action-quality and rollout-level support.
+- CSS-Shield is killed or reframed because the Phase 2 native-action diagnostic did not beat safety-only on wrong-target behavior and full shield intervened on every step.
+
+Next recommended action: run a short literature-driven topic selection step before creating a new method branch. The selected topic must be rollout-first and baseline-first, with kill criteria defined before implementation.
+
+Do not continue Target-Prior TCA-Map or CSS-Shield as the current main RA-L routes.

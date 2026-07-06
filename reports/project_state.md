@@ -2874,3 +2874,22 @@ Phase 2 result:
 - reward/success under full shield: `0.0 / false`.
 
 Conclusion: CSS-Shield is not RA-L plausible in its current form. It improves unsafe-rate behavior against clipping-only under native actions, but it does not show semantic/wrong-target value beyond safety-only and behaves like a full-intervention shield in the native-action diagnostic. The current route should be killed or reframed rather than scaled.
+
+## Final Research Reset
+
+Status: archive and reset package created.
+
+Execution boundary:
+- experiments happened: no.
+- training happened: no.
+- LoRA training happened: no.
+- rollout happened: no.
+- loss computed: no.
+- downloads/GPU/heavy VLA imports/OpenVLA-OFT: no.
+- paper-grade claim: no.
+
+Final route decisions:
+- Target-Prior TCA-Map: killed for RA-L-stable submission because offline fixed-prior gains did not clear the online 7D action-quality gate and no valid rollout-level support was established.
+- CSS-Shield: killed or reframed because Phase 2 native-action evidence did not show semantic/wrong-target value beyond safety-only and full shield behaved like a full-intervention shield.
+
+Recommendation: do not continue either route as the main RA-L route. Start a fresh topic only after a short literature-driven topic selection step. The next topic should be rollout-first and baseline-first, with a rollout metric within 48 hours and a nontrivial baseline gap within 72 hours.
