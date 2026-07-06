@@ -1203,3 +1203,20 @@ Current diagnostic result:
 - blocker classification: `online_7d_head_partial_target_movement_no_success`.
 
 Next execution-first milestone: run an action-quality/head-training diagnosis before any rollout scaling. Keep it narrow: inspect online head feature sufficiency, action distribution mismatch, gripper/rotation command quality, and whether the head can overfit or replay a held-out demonstration segment without same/future action leakage. Do not run full benchmark rollout, OpenVLA-OFT, full fine-tuning, or paper-grade claims.
+
+## Current Next Action After Online 7D Action-Quality Diagnosis
+
+The action-quality and head-training diagnosis has been executed.
+
+Current diagnostic result:
+- ActionMap-7D and fixed-prior TCA-7D actions are almost identical: mean action L2 `0.00712081`.
+- fixed-prior TCA actions meaningfully different from ActionMap: `false`.
+- supervised 25-step 7D L2: ActionMap `0.992624014`, fixed-prior TCA `0.988163728`, hard learned-target TCA `1.007243003`.
+- mean-action baseline 7D L2: `0.57299313`, better than all current learned 7D heads.
+- teacher-forced full-demo fixed-prior TCA delta vs ActionMap: `-0.001041313`, too small to expect rollout gain.
+- full-demo gripper timing is miscalibrated: expert first open step `62`, fixed-prior TCA predicted first open step `100`.
+- closed-loop reward/success stayed `0.0 / false`.
+- fixed-prior TCA valid rollout-level support: `false`.
+- recommended next milestone from the report: `C. target-prior conditioning redesign`.
+
+Next execution-first milestone: redesign the 7D head conditioning/features on the same split before another method rollout. The smallest useful target is a non-leaking head that beats the mean-action baseline and produces a larger ActionMap-vs-fixed-prior TCA action difference. Do not scale rollout, run OpenVLA-OFT, run full fine-tuning, or make paper-grade claims.
