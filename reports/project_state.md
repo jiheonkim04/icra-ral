@@ -2893,3 +2893,33 @@ Final route decisions:
 - CSS-Shield: killed or reframed because Phase 2 native-action evidence did not show semantic/wrong-target value beyond safety-only and full shield behaved like a full-intervention shield.
 
 Recommendation: do not continue either route as the main RA-L route. Start a fresh topic only after a short literature-driven topic selection step. The next topic should be rollout-first and baseline-first, with a rollout metric within 48 hours and a nontrivial baseline gap within 72 hours.
+
+## ExecSpec-Repair State 0-1 Result
+
+Status: initialized as the fresh research direction after the final reset, then advanced through a bounded STATE 1 executable-mismatch diagnostic.
+
+Implementation:
+- scripts: `scripts\163_execspec_mismatch_diagnostic.ps1` and `scripts\164_execspec_exact_init_mismatch_replay.ps1`.
+- modules: `tca_map.execspec.mismatch_diagnostic` and `tca_map.execspec.exact_init_mismatch_replay`.
+- targeted tests: `tests\test_execspec_mismatch_diagnostic.py` and `tests\test_execspec_exact_init_mismatch_replay.py`.
+- runtime reports are ignored by git: `reports\execspec_mismatch_diagnostic_report.*` and `reports\execspec_exact_init_mismatch_replay_report.*`.
+
+Execution boundary:
+- HDF5 action mismatch metrics happened: yes.
+- exact-init replay happened: yes, bounded diagnostic only.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA model loading/inference, OpenVLA-OFT, full fine-tuning, benchmark rollout, token access, and paper-grade claims did not occur.
+
+Key result:
+- HDF5 demo: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5`, `272` selected steps.
+- strongest HDF5 mismatch: `gripper_sign_flip`, action L2 mean `2.0`, gripper mismatch rate `1.0`.
+- translation-scale mismatch action L2 mean: `0.363970119`.
+- supervised diagonal calibration beat identity, clipping-only, and naive global affine baselines on seven mismatch variants; this is calibration/evaluation evidence only, not rollout policy action generation.
+- exact-init correct expert replay: `261` simulator steps, reward/success `1.0 / true`, first reward/done index `260`.
+- exact-init gripper-sign-flip replay: `272` steps, reward/success `0.0 / false`.
+- exact-init translation-scale mismatch replay: `272` steps, reward/success `0.0 / false`.
+- replay degradation reproduced: yes.
+
+Conclusion: continue ExecSpec-Repair. The next state is a bounded exact-init calibrated-repair replay for the strongest degraded mismatch, preserving identity, clipping-only, and naive global-scale baselines.

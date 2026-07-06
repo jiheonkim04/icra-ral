@@ -1460,3 +1460,15 @@ Reason: the bounded redesign gate evaluated current linear heads, normalized rid
 Consequence: fixed-prior TCA has no valid rollout-level support from this head family. The next step must either redesign target-prior conditioning/action features so a non-leaking head beats the mean baseline, or package the current evidence honestly as offline proxy plus bridge diagnostics with a rollout caveat. Do not revive TCA-Select as a core claim from these results.
 
 Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
+
+## ExecSpec-Repair State 0-1 Result
+
+Decision: continue ExecSpec-Repair after bounded mismatch and exact-init replay diagnostics.
+
+Reason: the first local LIBERO HDF5 demo reproduced substantial executable-spec mismatch, and exact-init replay showed that plausible mismatches degrade execution. Correct expert replay reached reward/success `1.0 / true`; gripper sign flip and translation-scale mismatch both produced reward/success `0.0 / false`.
+
+Key metrics: strongest HDF5 mismatch was `gripper_sign_flip` with action L2 mean `2.0` and gripper mismatch rate `1.0`. Translation-scale mismatch had action L2 mean `0.363970119`. Supervised diagonal calibration beat identity, clipping-only, and naive global affine baselines on seven mismatch variants, but this remains calibration/evaluation evidence only.
+
+Consequence: the next execution-first milestone is STATE 2 calibrated repair replay under the same exact-init boundary. Do not claim deployable repair or paper-grade evidence until a calibrated replay variant beats identity, clipping-only, and naive global-scale controls without future expert actions as method rollout actions.
+
+Training happened: false. LoRA training happened: false. Loss was computed: false. Replay/rollout happened: true, bounded exact-init diagnostic only. GPU/download/OpenVLA-OFT happened: false. Paper-grade claim: false.

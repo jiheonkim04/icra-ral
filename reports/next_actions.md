@@ -1332,3 +1332,20 @@ Both current RA-L-stable routes are killed:
 Next recommended action: run a short literature-driven topic selection step before creating a new method branch. The selected topic must be rollout-first and baseline-first, with kill criteria defined before implementation.
 
 Do not continue Target-Prior TCA-Map or CSS-Shield as the current main RA-L routes.
+
+## Current Next Action After ExecSpec-Repair State 0-1
+
+ExecSpec-Repair is initialized and STATE 1 has produced real mismatch and replay metrics.
+
+Current diagnostic result:
+- HDF5 action mismatch metric happened: `true`.
+- exact-init replay happened: `true`, bounded diagnostic only.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- strongest HDF5 mismatch: `gripper_sign_flip`, action L2 mean `2.0`, gripper mismatch rate `1.0`.
+- exact-init correct expert replay reward/success: `1.0 / true`.
+- exact-init gripper-sign-flip replay reward/success: `0.0 / false`.
+- exact-init translation-scale replay reward/success: `0.0 / false`.
+- supervised diagonal calibration beat identity, clipping-only, and naive global affine baselines on seven mismatch variants.
+
+Next execution-first milestone: STATE 2 calibrated repair replay. Replay the strongest degraded mismatch with a minimal calibration layer under the same exact-init boundary, and keep identity, clipping-only, naive global scale, and exact expert replay controls. Do not use future expert actions as method rollout actions, do not run OpenVLA-OFT, do not full fine-tune, and do not make paper-grade claims.
