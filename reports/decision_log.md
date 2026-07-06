@@ -1291,6 +1291,16 @@ Consequence: Do not claim this supports TCA-Map. The next required LoRA comparis
 
 Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.
 
+## Final Research Reset Decision
+
+Decision: kill both current RA-L-stable routes and reset topic selection.
+
+Reason: Target-Prior TCA-Map produced strong fixed-prior offline proxy evidence, but the online 7D action-quality gate failed and valid rollout-level support was not established. CSS-Shield produced promising controlled diagnostics, but Phase 2 native-action testing showed full vs safety-only wrong-target delta `0.0`, full vs clipping-only wrong-target delta `0.0`, full intervention rate `1.0`, and reward/success `0.0 / false`.
+
+Consequence: neither route should continue as the main RA-L route. The next research topic must be rollout-first, baseline-first, and selected only after a short literature-driven screen with kill criteria defined before implementation.
+
+Training happened: false. LoRA training happened: false. Loss was computed: false. Rollout happened: false for this reset package. Paper-grade claim: false.
+
 ## Tiny Offline LoRA Attribution Comparison Result
 
 Decision: Treat the required tiny LoRA attribution comparison as weak evidence for the current TCA-Map formulation.
