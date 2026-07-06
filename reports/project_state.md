@@ -3027,3 +3027,36 @@ Key result:
 - four STATE 3 simple-baseline matched recovery cases were the living-room `global_action_scale_mismatch` and `range_clipping_mismatch` cases, matched by `global_affine_calibration`.
 
 Conclusion: kill the broad ExecSpec-Repair route as a main RA-L topic. The reframe audit shows useful diagnostics, but diagonal affine calibration alone explains the full repair result under the current evidence. Do not proceed to STATE 4 or paper-readiness from this route without a new, harder predeclared benchmark where diagonal affine is not already sufficient.
+
+## ExecSpec-Repair Archive And Topic Tournament
+
+Status: complete as a documentation-only archive and fresh topic-selection tournament.
+
+Created reports:
+- `reports/execspec_kill_summary.md`
+- `reports/execspec_failure_tree.md`
+- `reports/execspec_reusable_artifacts.md`
+- `reports/all_killed_routes_summary.md`
+- `reports/topic_selection_tournament.md`
+- `reports/next_topic_candidates.md`
+
+Execution boundary:
+- experiments happened: no.
+- new replay or rollout happened: no.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- downloads, GPU jobs, heavy VLA imports, and OpenVLA-OFT execution happened: no.
+- paper-grade claims happened: no.
+
+Final route archive:
+- Target-Prior TCA-Map: killed because offline target-prior evidence failed the online 7D action-quality / mean-action baseline gate.
+- CSS-Shield: killed or reframed because native-action evidence did not beat safety-only on wrong-target behavior and full shield intervention rate reached `1.0`.
+- ExecSpec-Repair: killed because diagonal affine calibration matched full repair at `17 / 19` degraded case recovery, leaving full-minus-best-simple gain `0.0`.
+
+Tournament result:
+- Candidate 1: Active Micro-Probe Goal Disambiguation.
+- Candidate 2: Demonstration-Tube Recovery Library.
+- Candidate 3: Path-Consistent Event-Triggered Chunk Guard.
+
+Recommended next topic: Active Micro-Probe Goal Disambiguation, because it starts from active control evidence, has clear no-probe/random-probe/safety/clipping baselines, does not depend on native VLA competence for the first metric, and is not another calibration, shielding, or offline-proxy route.

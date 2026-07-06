@@ -1472,3 +1472,13 @@ Key metrics: strongest HDF5 mismatch was `gripper_sign_flip` with action L2 mean
 Consequence: the next execution-first milestone is STATE 2 calibrated repair replay under the same exact-init boundary. Do not claim deployable repair or paper-grade evidence until a calibrated replay variant beats identity, clipping-only, and naive global-scale controls without future expert actions as method rollout actions.
 
 Training happened: false. LoRA training happened: false. Loss was computed: false. Replay/rollout happened: true, bounded exact-init diagnostic only. GPU/download/OpenVLA-OFT happened: false. Paper-grade claim: false.
+
+## ExecSpec-Repair Archive And Topic Tournament
+
+Decision: kill and archive ExecSpec-Repair as a main RA-L-stable route, and start a fresh topic-selection tournament.
+
+Reason: STATE 3.5 found that full ExecSpec-Repair recovered `17 / 19` degraded exact-init replay cases, but the best single simple baseline, `diagonal_affine_calibration`, also recovered `17 / 19`. Full-minus-best-simple recovery gain was `0.0`, and the mismatch-aware selector had `0.0` gain over diagonal affine. The broad claim that mismatch-aware executable-spec repair provides nontrivial value beyond simple baselines is therefore unsupported.
+
+Consequence: Target-Prior TCA-Map, CSS-Shield, and ExecSpec-Repair are all archived as killed or reframed routes. The next route must be rollout/replay/control-first and baseline-first, with a metric within 48 hours and a simple-baseline gap within 72 hours. The recommended next candidate is Active Micro-Probe Goal Disambiguation, pending a pre-implementation kill-gated plan.
+
+Execution boundary: this archive/tournament step was documentation-only. Experiments, training, LoRA training, replay, rollout, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.

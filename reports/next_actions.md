@@ -1420,3 +1420,28 @@ Current diagnostic result:
 - repair selector/routing is not meaningful enough to rescue the broad route.
 
 Next action: kill/archive ExecSpec-Repair as a main RA-L route. Select a new rollout-first route, or only revive ExecSpec if a new harder executable-spec benchmark is predeclared where diagonal affine is not already sufficient.
+
+## Current Next Action After ExecSpec-Repair Archive
+
+ExecSpec-Repair is now archived as a killed main RA-L route.
+
+All killed/reframed routes:
+- Target-Prior TCA-Map.
+- CSS-Shield.
+- ExecSpec-Repair.
+
+Current topic tournament recommendation:
+- next topic: Active Micro-Probe Goal Disambiguation.
+- backup: Demonstration-Tube Recovery Library.
+- risky third option: Path-Consistent Event-Triggered Chunk Guard.
+
+Before any implementation, create a small predeclared plan for Candidate 1 with:
+- exact task and scene definition,
+- direct rollout/replay/control metric due within 48 hours,
+- no-probe, random-probe, heuristic-probe, safety-only, clipping-only, and mean-action/hold baselines,
+- diagonal-affine baseline if generated actions are used,
+- 72-hour simple-baseline kill gate,
+- explicit rule that native VLA competence is not assumed unless verified,
+- explicit stop if the first metric requires downloads, GPU, heavy VLA imports, OpenVLA-OFT, or paper claims.
+
+Do not continue Target-Prior TCA-Map, CSS-Shield, or ExecSpec-Repair as the current main RA-L route.
