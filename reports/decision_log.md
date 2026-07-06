@@ -1440,3 +1440,13 @@ Reason: the action-quality diagnosis showed that ActionMap-7D and fixed-prior TC
 Consequence: treat the current result as a concrete failure diagnosis that directly unblocks the next experiment. The next milestone should make the 7D head beat the mean-action baseline and make fixed-prior conditioning produce materially different actions before another method rollout. Fixed-prior TCA valid rollout-level support remains `false`.
 
 Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: true, bounded diagnostic report regenerated only. Paper-grade claim: false.
+
+## Bounded 7D Action-Head Redesign Gate Result
+
+Decision: do not run another method rollout from the current redesigned 7D heads.
+
+Reason: the bounded redesign gate evaluated current linear heads, normalized ridge heads, split translation/rotation/gripper heads, a small CPU MLP fixed-prior TCA head, a mean-residual fixed-prior TCA head, and a phase-aware fixed-prior TCA head on the same non-leaking split. The best redesigned method was `small_cpu_mlp_fixed_prior_tca_7d`, and it improved substantially over ActionMap (`0.669078005` vs `0.992624014` eval 7D L2). However, it still failed to beat the mean-action baseline (`0.57299313`) and teacher-forced evaluation also stayed worse than the mean-action baseline. The rollout gate is therefore red.
+
+Consequence: fixed-prior TCA has no valid rollout-level support from this head family. The next step must either redesign target-prior conditioning/action features so a non-leaking head beats the mean baseline, or package the current evidence honestly as offline proxy plus bridge diagnostics with a rollout caveat. Do not revive TCA-Select as a core claim from these results.
+
+Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: false. Paper-grade claim: false.

@@ -1220,3 +1220,23 @@ Current diagnostic result:
 - recommended next milestone from the report: `C. target-prior conditioning redesign`.
 
 Next execution-first milestone: redesign the 7D head conditioning/features on the same split before another method rollout. The smallest useful target is a non-leaking head that beats the mean-action baseline and produces a larger ActionMap-vs-fixed-prior TCA action difference. Do not scale rollout, run OpenVLA-OFT, run full fine-tuning, or make paper-grade claims.
+
+## Current Next Action After Bounded 7D Head Redesign Gate
+
+The bounded 7D action-head redesign gate has been executed.
+
+Current diagnostic result:
+- training happened: `true`, bounded CPU diagnostic heads only.
+- loss computed: `true`.
+- LoRA training happened: `false`.
+- rollout happened: `false`.
+- best redesigned head: `small_cpu_mlp_fixed_prior_tca_7d`.
+- mean-action baseline eval 7D L2: `0.57299313`.
+- best redesigned eval 7D L2: `0.669078005`.
+- best fixed-prior TCA head beats best ActionMap head (`0.669078005` vs `0.992624014`) and differs meaningfully from ActionMap, but still fails the rollout gate because it does not beat the mean-action baseline by the required margin.
+- teacher-forced best non-mean 7D L2: `1.114676933`, still worse than mean-action baseline `1.091252901`.
+- rollout gate: `red`.
+
+Next execution-first milestone: do not run another method rollout from the current head. Either:
+- redesign target-prior conditioning/action features with a direct goal of beating the mean-action baseline on the same non-leaking split, or
+- prepare a paper-readiness package with an honest offline-plus-bridge caveat if stronger online rollout now requires heavier training beyond the low-compute scope.

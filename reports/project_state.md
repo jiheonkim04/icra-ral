@@ -2730,3 +2730,31 @@ Key diagnosis:
 - dominant bottleneck: `translation`, with gripper timing also problematic over the full demonstration.
 
 Conclusion: the current 7D head does not yet justify rollout scaling. The fixed-prior target signal barely changes the generated 7D actions, and the learned heads underperform a simple mean-action baseline on the held-out 25-step supervised diagnostic. The next milestone should redesign target-prior conditioning and/or head features before another method rollout.
+
+## Bounded 7D Action-Head Redesign Gate
+
+Status: complete as a bounded execution-first diagnostic after the online 7D action-quality diagnosis.
+
+Implementation:
+- script: `scripts\146_online_7d_head_redesign_gate.ps1`
+- module: `tca_map.smolvla.online_7d_head_redesign_gate`
+- targeted tests: `tests\test_online_7d_head_redesign_gate.py`
+- runtime reports are ignored by git: `reports\online_7d_head_redesign_gate_report.json` and `.md`
+
+Execution boundaries:
+- training happened: yes, bounded CPU diagnostic heads only.
+- LoRA training happened: no.
+- loss was computed: yes.
+- rollout happened: no; the offline rollout gate was red.
+- GPU jobs, downloads, heavy VLA imports, model loading/inference, OpenVLA-OFT execution, full fine-tuning, benchmark rollouts, token access, and paper claims did not occur.
+
+Key diagnosis:
+- train/eval/teacher-forced samples: `512 / 25 / 272`.
+- mean-action baseline eval 7D L2: `0.57299313`.
+- best redesigned non-mean head: `small_cpu_mlp_fixed_prior_tca_7d`.
+- best redesigned eval 7D L2: `0.669078005`, so it still does not beat the mean-action baseline.
+- best fixed-prior TCA head beats best ActionMap head on eval 7D L2 (`0.669078005` vs `0.992624014`), and the best TCA/ActionMap action difference is meaningful, but the result is not rollout-ready because the mean baseline remains stronger.
+- teacher-forced best non-mean 7D L2: `1.114676933`, still worse than mean-action baseline `1.091252901`.
+- dominant bottleneck remains `translation`; gripper classification/calibration is also fragile for some variants.
+
+Conclusion: the bounded redesign improved fixed-prior TCA over ActionMap in offline 7D metrics, but it failed the required rollout gate because no non-mean head beat the train-split mean-action baseline by the documented threshold. Do not run another method rollout from this head. The next milestone should redesign the target-prior conditioning/action features or move to a paper-readiness package that honestly states the rollout caveat.

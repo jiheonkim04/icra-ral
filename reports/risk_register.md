@@ -1529,3 +1529,13 @@ Impact: further rollout attempts may mostly test a weak action decoder rather th
 Mitigation: before another method rollout, require a non-leaking 7D head/feature redesign that beats the mean-action baseline, reports translation/rotation/gripper errors separately, and produces a materially larger ActionMap-vs-fixed-prior action difference. Continue to report gripper timing and teacher-forced full-demo error.
 
 Current result: mean-action baseline 7D L2 is `0.57299313`, while ActionMap-7D is `0.992624014`, fixed-prior TCA-7D is `0.988163728`, and hard learned-target TCA-7D is `1.007243003`. Fixed-prior TCA versus ActionMap mean action L2 is only `0.00712081`.
+
+## Redesigned 7D Head Overclaim Risk
+
+Risk: a redesigned fixed-prior TCA head can beat ActionMap on offline 7D L2 while still failing to beat a simple mean-action baseline.
+
+Impact: reporting only the ActionMap comparison would overstate online action-decoder readiness. The method could look improved relative to a weak learned baseline while still being too weak for closed-loop rollout.
+
+Mitigation: keep the mean-action baseline as a required gate for every bounded online 7D head. Do not run or claim method rollout support unless the best non-leaking head beats the mean baseline by the documented threshold, fixed-prior TCA beats ActionMap, and TCA/ActionMap actions differ meaningfully.
+
+Current result: `small_cpu_mlp_fixed_prior_tca_7d` beats ActionMap on eval 7D L2 (`0.669078005` vs `0.992624014`) and differs meaningfully from ActionMap, but it still loses to the mean-action baseline (`0.57299313`). The rollout gate is red and no rollout was run.
