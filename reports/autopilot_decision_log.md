@@ -40,3 +40,13 @@ Rationale: before running longer-horizon fixed-prior rollout, the action source 
 Outcome: fixed-prior TCA candidate replay exactly matched the HDF5 expert action sequence at every compared timestep: near-match rate `1.0`, mean L2 to expert `0.0`. It reached reward/success at index `260`, but this is not valid rollout-level method support because it uses future HDF5 expert actions unavailable at deployment time. ActionMap-style actions were a mean aggregate of future positive/counterfactual HDF5 actions and also invalid as closed-loop method actions; they failed reward/success. Hard learned-target proxy used future counterfactual HDF5 actions and failed reward/success.
 
 Integrity note: this was bounded diagnostic rollout evidence only. No training, LoRA training, loss computation, GPU job, download, heavy VLA import, OpenVLA-OFT execution, benchmark rollout, or paper-grade claim occurred. The correct evidence wording is `candidate-replay diagnostic / action-bridge evidence only; not closed-loop policy rollout success`.
+
+## 2026-07-06 - Online Action-Generation Bridge Diagnostic
+
+Decision: current ActionMap/TCA rollout support remains blocked because no non-leaking online 7D ActionMap/TCA action source exists.
+
+Rationale: the online source inventory found a native SmolVLA online source that emits a 6D action and maps to LIBERO 7D through the explicit gripper-zero adapter, but the existing ActionMapHead and TCAMapHead emit 4D smoke actions. The explicit adapter correctly refuses 4D-to-7D mapping, and offline NumPy heads operate on HDF5-derived proxy records rather than current simulator observations.
+
+Diagnostic result: a bounded 25-step exact-init native SmolVLA baseline rollout ran on CPU. It used online/model-head decoded actions, did not match the HDF5 expert sequence, and obtained reward/success `0.0 / false`. HDF5 expert replay at the same 25-step horizon also obtained `0.0 / false`, so this horizon is diagnostic only and not a success window.
+
+Integrity note: fixed-prior TCA still has no valid rollout-level support because the previous successful fixed-prior candidate replay used future HDF5 expert actions. The next method-support step must implement a non-leaking 7D online ActionMap/TCA head or explicitly stop at the offline + bridge caveat.

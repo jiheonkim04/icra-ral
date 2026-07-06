@@ -1499,3 +1499,13 @@ Impact: Even failed or weak rollout results could be misinterpreted, and success
 Mitigation: Use the wording `candidate-replay diagnostic / action-bridge evidence only; not closed-loop policy rollout success` unless actions are generated online by a non-leaking policy/head at inference time.
 
 Current result: ActionMap-style actions are a mean aggregate of future positive/counterfactual HDF5 sequences and hard learned-target proxy actions come from future counterfactual HDF5 candidates. Both are invalid for closed-loop method rollout claims.
+
+## Online ActionMap/TCA 7D Head Absence Risk
+
+Risk: current ActionMap/TCA rollout variants do not generate deployable 7D LIBERO actions online. The smoke heads emit 4D actions and the offline NumPy heads consume HDF5-derived proxy features rather than current simulator observations.
+
+Impact: any rollout-level method claim would either silently invent missing rotation/gripper dimensions or fall back to future-HDF5 candidate replay, both of which would invalidate the evidence.
+
+Mitigation: require a non-leaking online 7D ActionMap/TCA diagnostic head before any ActionMap/TCA rollout claim. Keep HDF5 actions limited to expert replay upper bound, training data, offline labels, and action-distribution references.
+
+Current result: native SmolVLA produced online actions in a bounded 25-step exact-init diagnostic, but ActionMap/TCA produced no valid online 7D source. Fixed-prior TCA valid rollout-level support remains `false`.

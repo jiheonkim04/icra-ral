@@ -1173,3 +1173,15 @@ Next milestone should be one of:
 - `D. paper-readiness package with honest rollout caveat`, if the current evidence package is being organized now.
 
 Do not run more matched-init rollout variants that copy future HDF5 expert actions and then call them method rollout success. Any future rollout claim must separate closed-loop generated actions from offline candidate-replay diagnostics.
+
+## Current Next Action After Online Action-Generation Bridge
+
+The online action-generation bridge produced a concrete blocker diagnosis:
+
+```text
+no_nonleaking_online_actionmap_tca_7d_head
+```
+
+Do not run more candidate-replay rollouts as method evidence. Do not call fixed-prior TCA successful in rollout until it generates actions online without future HDF5 expert actions.
+
+Next execution-first milestone: implement or train the smallest non-leaking 7D online diagnostic head for ActionMap/TCA using training demonstrations only. It must consume current-observation or current-feature inputs, output explicit 7D LIBERO actions, report action dimension/scale/gripper/rotation stats, and compare against the native online baseline, zero action, and HDF5 expert upper bound. If this would require full model training or OpenVLA-OFT, stop with a paper-readiness package that honestly labels the evidence as offline proxy plus bridge diagnostics.

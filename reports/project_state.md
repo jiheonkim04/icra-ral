@@ -2652,3 +2652,13 @@ Matched-init diagnostic result:
 - wrong-target object movement: unavailable because the counterfactual object is not present in the environment object-position keys.
 
 Conclusion: fixed-prior TCA has no valid closed-loop rollout-level support from this diagnostic because the successful fixed-prior actions are exactly the future HDF5 expert actions. The result is useful as candidate-replay / action-bridge evidence only. A valid rollout method claim now requires an online action-generation bridge or a non-leaking action decoder that does not copy future HDF5 expert actions. Otherwise, paper materials must label rollout evidence with this caveat.
+
+## Online Action-Generation Bridge Diagnostic
+
+Status: completed as a bounded diagnostic.
+
+Key result: source inventory found no deployable online 7D ActionMap/TCA action source. Native SmolVLA can produce an online 6D action and map it explicitly to 7D, but that is a native baseline rather than TCA-Map rollout support.
+
+Bounded rollout result: exact-init native SmolVLA ran for 25 steps on one validated LIBERO/RoboSuite task. Reward and success stayed `0.0 / false`; the action sequence did not match future HDF5 expert actions, so it is valid online baseline evidence but not method success. HDF5 expert replay also stayed at `0.0 / false` at this short horizon.
+
+Current blocker: `no_nonleaking_online_actionmap_tca_7d_head`.

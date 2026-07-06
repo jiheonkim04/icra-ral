@@ -1,27 +1,27 @@
-﻿# Autopilot State
+# Autopilot State
 
-- current main commit at branch start: `243d738 add full-demo expert replay sanity`
-- branch: `codex/action-source-audit-matched-init-diagnostic`
-- git status at state update: modified branch files pending validation/commit
-- attempted: action-source legitimacy audit plus matched-init bounded candidate-replay diagnostic
-- succeeded: action-source audit ran and matched-init candidate replay executed on one LIBERO/RoboSuite task
+- current main commit at branch start: `8934242 add action-source audit matched-init diagnostic`
+- branch: `codex/online-action-generation-bridge`
+- attempted: online action-source inventory plus bounded native online matched-init bridge diagnostic
+- online action-source inventory happened: `true`
+- valid native online action source found: `true` (`native_smolvla_policy_output`, 6D policy action mapped to 7D by explicit gripper-zero adapter)
+- valid ActionMap/TCA online 7D action source found: `false`
 - rollout happened: `true`, bounded diagnostic only
-- action-source audit happened: `true`
+- valid closed-loop online rollout happened: `true` for native SmolVLA baseline only
+- valid ActionMap/TCA method rollout happened: `false`
 - training happened: `false`
 - LoRA training happened: `false`
 - loss computed: `false`
-- GPU/download/heavy import/OpenVLA-OFT happened: `false`
-- simulator environment created: `true` during the bounded matched-init candidate-replay diagnostic
-- rollout result: `1` task, `5` variants, `1305` total simulator steps
-- variants: `zero_action_exact_init`, `hdf5_expert_replay_exact_init`, `actionmap_style_target_agnostic_mean`, `fixed_prior_tca_candidate_replay`, `hard_learned_target_tca_candidate_replay`
-- evidence type: `candidate_replay_diagnostic_not_closed_loop_policy`
-- blocker classification: `expert_action_leakage_candidate_replay_only`
-- fixed-prior valid rollout support: `false`
-- fixed-prior action source: copied from HDF5 expert action at the same timestep
-- fixed-prior near-match rate to HDF5 expert: `1.0`; mean L2 to expert `0.0`
-- ActionMap-style action source: mean aggregate of positive and counterfactual HDF5 action sequences; near-match rate to expert `0.0`; mean L2 to expert `0.716695147`
-- hard learned-target proxy action source: counterfactual HDF5 candidate sequence; mean L2 to expert `1.433390294`
-- matched-init reward/success: expert replay and fixed-prior candidate replay both reached reward `1.0` / success `true` at index `260`; zero action, ActionMap-style, and hard learned-target proxy stayed at reward `0.0` / success `false`
-- target movement: fixed-prior/expert reduced distance to `moka_pot_1_pos` by `0.267427`; ActionMap-style reduced it by `0.010547`; hard learned-target proxy reduced it by `0.005729`
-- wrong-target movement: unavailable because the counterfactual object was not present in the current environment observation object-position keys
-- exact next state decision: do not claim fixed-prior rollout-level method support from the current rollout diagnostics. The current rollout evidence is candidate-replay / action-bridge evidence only. Next milestone should be either an online action-generation bridge before method rollout claims, or a paper-readiness package that honestly labels rollout evidence as bridge/candidate replay.
+- downloads/GPU/OpenVLA-OFT happened: `false`
+- heavy VLA import/model load/model inference happened: `true` for the bounded CPU native SmolVLA diagnostic only
+- task/demo: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`, `demo_0`
+- horizon: `25` matched-init steps per variant
+- variants: `zero_action_exact_init`, `hdf5_expert_replay_exact_init`, `native_smolvla_online_policy`
+- reward/success: zero action `0.0 / false`; HDF5 expert upper bound `0.0 / false`; native online SmolVLA `0.0 / false`
+- expert near-match rates: zero action `0.0`; HDF5 expert upper bound `1.0`; native online SmolVLA `0.0`
+- mean L2 to same-timestep HDF5 expert: zero action `1.104051519`; HDF5 expert upper bound `0.0`; native online SmolVLA `1.802682551`
+- target-directed movement score: zero action `-0.000457`; HDF5 expert upper bound `-0.004024`; native online SmolVLA `-0.244345`
+- evidence type: native closed-loop baseline diagnostic plus ActionMap/TCA source-inventory blocker
+- blocker classification: `no_nonleaking_online_actionmap_tca_7d_head`
+- fixed-prior TCA valid rollout-level support: `false`
+- exact next state decision: do not make rollout-level ActionMap/TCA method claims yet. The next execution milestone should implement or train a minimal non-leaking 7D online diagnostic head for ActionMap/TCA, or package current evidence with an honest offline + bridge caveat.
