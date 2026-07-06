@@ -2994,3 +2994,36 @@ Key result:
 - default-reset sanity: expert and full repair both failed, so the claim remains exact-init only.
 
 Conclusion: kill or reframe the broad ExecSpec-Repair RA-L route. The result is scientifically useful but not sufficient for a broad method claim because simple baselines matched full repair in several replay cases. Honest next actions are mismatch-specific reframing, a harder executable-spec benchmark with nontrivial baselines, or selecting a new rollout-first route.
+
+## ExecSpec-Repair State 3.5 Result
+
+Status: completed as report-only baseline dominance and reframe audit on branch `codex/execspec-repair-state3-5`.
+
+Implementation:
+- script: `scripts\167_execspec_baseline_dominance_audit.ps1`.
+- module: `tca_map.execspec.baseline_dominance_audit`.
+- targeted tests: `tests\test_execspec_baseline_dominance_audit.py`, plus prior replay validation and repair tests.
+- runtime reports: `reports\execspec_state3_5_baseline_dominance_audit.md` and `reports\execspec_state3_5_baseline_dominance_audit.json`.
+
+Execution boundary:
+- new replay happened: no.
+- rollout happened: no.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA model loading/inference, OpenVLA-OFT, full fine-tuning, benchmark rollout, token access, and paper-grade claims did not occur.
+
+Key result:
+- degraded replay cases analyzed: `19`.
+- full ExecSpec-Repair recovered `17 / 19` degraded cases.
+- full repair success recovery rate: `0.894736842`.
+- full repair action-drift recovery: `1.0`.
+- best trivial baseline: `gripper_only_calibration`, success recovery `0.315789474`.
+- best single simple baseline: `diagonal_affine_calibration`, success recovery `0.894736842`, action recovery `1.0`.
+- full minus best single simple baseline: `0.0`.
+- mismatch-aware selector success recovery: `0.894736842`.
+- selector gain over best single simple baseline: `0.0`.
+- oracle best-per-case diagnostic upper bound: `0.894736842`, the same as full repair and diagonal affine.
+- four STATE 3 simple-baseline matched recovery cases were the living-room `global_action_scale_mismatch` and `range_clipping_mismatch` cases, matched by `global_affine_calibration`.
+
+Conclusion: kill the broad ExecSpec-Repair route as a main RA-L topic. The reframe audit shows useful diagnostics, but diagonal affine calibration alone explains the full repair result under the current evidence. Do not proceed to STATE 4 or paper-readiness from this route without a new, harder predeclared benchmark where diagonal affine is not already sufficient.

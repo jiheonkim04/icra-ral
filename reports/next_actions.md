@@ -1397,3 +1397,26 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next action: do not proceed to STATE 4 as a broad ExecSpec-Repair claim. Reframe around mismatch-specific value where simple affine/global repair does not match full repair, build a harder baseline-first executable-spec benchmark, or select a new rollout-first route.
+
+## Current Next Action After ExecSpec-Repair State 3.5
+
+ExecSpec-Repair STATE 3.5 has completed a report-only baseline dominance and reframe audit over the existing STATE 3 replay report.
+
+Current diagnostic result:
+- new replay/rollout happened: no.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- degraded replay cases analyzed: `19`.
+- full ExecSpec-Repair recovered `17 / 19` degraded cases.
+- full repair success recovery rate: `0.894736842`.
+- full repair action-drift recovery: `1.0`.
+- the four STATE 3 simple-baseline matched recovery cases were living-room `global_action_scale_mismatch` and `range_clipping_mismatch` cases, matched by `global_affine_calibration`.
+- best trivial baseline: `gripper_only_calibration`, success recovery `0.315789474`.
+- best single simple baseline: `diagonal_affine_calibration`, success recovery `0.894736842`, action recovery `1.0`.
+- full minus best single simple baseline: `0.0`.
+- mismatch-aware selector success recovery: `0.894736842`.
+- selector gain over best single simple baseline: `0.0`.
+- simple baselines explain the result under the predeclared kill threshold.
+- repair selector/routing is not meaningful enough to rescue the broad route.
+
+Next action: kill/archive ExecSpec-Repair as a main RA-L route. Select a new rollout-first route, or only revive ExecSpec if a new harder executable-spec benchmark is predeclared where diagonal affine is not already sufficient.

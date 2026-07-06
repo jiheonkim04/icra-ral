@@ -1,10 +1,10 @@
 # ExecSpec-Repair Autopilot State
 
-- branch: `codex/execspec-repair-state3`
-- current stage: `STATE 3 complete`
-- last completed stage: `STATE 3 multi-demo replay validation`
-- continue/kill decision: `kill_or_reframe`
-- next milestone: `reframe ExecSpec-Repair around mismatch-specific value or select a new route`
+- branch: `codex/execspec-repair-state3-5`
+- current stage: `STATE 3.5 complete`
+- last completed stage: `STATE 3.5 baseline dominance and reframe audit`
+- continue/kill decision: `kill`
+- next milestone: `archive ExecSpec-Repair or select a new rollout-first route`
 - rollout/replay happened: `true`
 - training happened: `false`
 - loss computed: `false`
@@ -17,13 +17,14 @@
 - full repair beats identity/clipping/global affine: `true / true / true`
 - multi-demo replay recovery: `17 / 19 degraded cases`
 - simple baseline match count: `4`
+- best single simple baseline: `diagonal_affine_calibration`
+- full minus best single simple baseline: `0.0`
+- repair selector/routing meaningful: `false`
 
 ## Resume Command
 
 ```powershell
-$env:ALLOW_EXECSPEC_STATE3_REPLAY_VALIDATION="1"
-powershell -ExecutionPolicy Bypass -File scripts\166_execspec_replay_validation.ps1
-Remove-Item Env:\ALLOW_EXECSPEC_STATE3_REPLAY_VALIDATION -ErrorAction SilentlyContinue
+powershell -ExecutionPolicy Bypass -File scripts\167_execspec_baseline_dominance_audit.ps1
 ```
 
 ## Last Result Summary
@@ -45,9 +46,13 @@ Remove-Item Env:\ALLOW_EXECSPEC_STATE3_REPLAY_VALIDATION -ErrorAction SilentlyCo
   "success_recovered_cases": 17,
   "success_recovery_rate": 0.894736842,
   "simple_baseline_match_count": 4,
-  "default_reset_expert_success": false,
-  "default_reset_full_repair_success": false,
-  "decision": "kill_or_reframe",
+  "best_single_simple_baseline": "diagonal_affine_calibration",
+  "best_single_simple_baseline_success_recovery_rate": 0.894736842,
+  "best_single_simple_baseline_action_recovery": 1.0,
+  "full_gain_over_best_single_simple_baseline": 0.0,
+  "selector_success_recovery_rate": 0.894736842,
+  "selector_gain_over_best_single_simple_baseline": 0.0,
+  "decision": "kill",
   "paper_grade": false
 }
 ```

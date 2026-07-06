@@ -22,6 +22,20 @@ Consequence: STATE 2 should replay a minimal calibrated repair for the strongest
 
 Training happened: false. LoRA training happened: false. Loss was computed: false. Replay/rollout happened: true, bounded exact-init diagnostic only. GPU/download/OpenVLA-OFT happened: false. Paper-grade claim: false.
 
+## STATE 3.5 Baseline Dominance and Reframe Audit
+
+Decision: kill the broad ExecSpec-Repair route as a main RA-L topic.
+
+Reason: the report-only audit over the existing STATE 3 replay results showed that the best single simple baseline, `diagonal_affine_calibration`, exactly matched full ExecSpec-Repair. Both recovered `17 / 19` degraded replay cases, with success recovery `0.894736842` and action-drift recovery `1.0`. The full-minus-best-single-simple-baseline gain was `0.0`, which triggers the predeclared kill threshold.
+
+Matched-case analysis: the four STATE 3 simple-baseline matched recovery cases were the living-room `global_action_scale_mismatch` and `range_clipping_mismatch` cases, where `global_affine_calibration` reached the same `1.0 / true` reward/success as full repair. Global affine did not explain the full result, recovering only `4 / 19` degraded cases; gripper-only recovered `6 / 19`.
+
+Routing audit: a mismatch-aware selector recovered the same `17 / 19` degraded cases as full repair and diagonal affine, but did not beat diagonal affine. The selector/routing gain over the best single simple baseline was `0.0`, so mismatch-aware repair selection is not meaningful enough to rescue the route under the predeclared criteria.
+
+Consequence: archive ExecSpec-Repair as useful negative/diagnostic evidence. Do not proceed to STATE 4, do not package it as paper-ready, and do not claim novelty beyond a diagonal affine repair baseline. The next work should either select a new rollout-first route or explicitly build a harder executable-spec benchmark before reviving this topic.
+
+Training happened: false. LoRA training happened: false. Loss was computed: false. New replay/rollout happened: false. GPU/download/OpenVLA-OFT happened: false. Paper-grade claim: false.
+
 ## STATE 2 Calibrated Repair Replay Result
 
 Decision: continue ExecSpec-Repair to STATE 3 replay/rollout validation.
