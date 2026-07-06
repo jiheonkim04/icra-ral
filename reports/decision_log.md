@@ -1430,3 +1430,13 @@ Reason: the diagnostic trained CPU 7D linear heads from local LIBERO HDF5 traini
 Consequence: fixed-prior TCA has `fixed_prior_tca_valid_rollout_support=false` and blocker classification `online_7d_head_partial_target_movement_no_success`. The next execution-first milestone should diagnose online action quality/head training before scaling rollout. Do not claim paper-grade success or rollout-level TCA support from this result.
 
 Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: true, bounded diagnostic only. Paper-grade claim: false.
+
+## Online 7D Action-Quality Diagnosis Result
+
+Decision: do not scale rollout from the current online 7D heads; redesign target-prior conditioning/head features first.
+
+Reason: the action-quality diagnosis showed that ActionMap-7D and fixed-prior TCA-7D actions are almost identical, with mean action L2 `0.00712081`. Fixed-prior TCA is slightly better than ActionMap on supervised 25-step 7D L2 (`0.988163728` vs `0.992624014`) and teacher-forced full-demo L2 delta (`-0.001041313`), but those gains are too small to expect rollout success. More importantly, the simple mean-action baseline has lower 25-step 7D L2 (`0.57299313`) than all learned heads, so the current head is not yet a strong action decoder. Full-demo gripper timing is also late: expert first open step `62`, fixed-prior TCA predicted step `100`.
+
+Consequence: treat the current result as a concrete failure diagnosis that directly unblocks the next experiment. The next milestone should make the 7D head beat the mean-action baseline and make fixed-prior conditioning produce materially different actions before another method rollout. Fixed-prior TCA valid rollout-level support remains `false`.
+
+Training happened: true. LoRA training happened: false. Loss was computed: true. Rollout happened: true, bounded diagnostic report regenerated only. Paper-grade claim: false.

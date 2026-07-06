@@ -46,3 +46,22 @@
 - fixed-prior TCA partial target-movement support: `true`
 - blocker classification: `online_7d_head_partial_target_movement_no_success`
 - exact next state decision: run action-quality/head-training diagnosis before any rollout scaling; do not claim rollout-level TCA support from partial target movement.
+
+## 2026-07-06 - Online 7D Action-Quality Diagnosis
+
+- branch: `codex/online-7d-action-quality-diagnosis`
+- attempted: action-difference audit, supervised 7D quality breakdown, teacher-forced full-demo trajectory diagnostic, and closed-loop failure diagnosis
+- training happened: `true`, CPU ridge/linear diagnostic heads only
+- LoRA training happened: `false`
+- loss computed: `true`
+- rollout happened: `true`, only because the prior bounded 25-step online 7D diagnostic report was regenerated for closed-loop provenance
+- downloads/GPU/OpenVLA-OFT/full fine-tuning/paper claim happened: `false`
+- heavy model import/model load/model inference happened: `true` only inside the regenerated bounded native SmolVLA baseline report
+- ActionMap-7D vs fixed-prior TCA-7D mean action L2: `0.00712081`
+- fixed-prior TCA actions meaningfully different from ActionMap: `false`
+- supervised 25-step 7D L2: ActionMap `0.992624014`, fixed-prior TCA `0.988163728`, hard learned-target TCA `1.007243003`
+- mean-action baseline 7D L2: `0.57299313`
+- teacher-forced full-demo fixed-prior TCA delta vs ActionMap: `-0.001041313`
+- fixed-prior TCA valid rollout support: `false`
+- dominant bottleneck: `translation`; full-demo gripper timing is late
+- exact next state decision: redesign target-prior conditioning/head features before another method rollout. The next head should beat the mean-action baseline and make fixed-prior TCA actions materially different from ActionMap.

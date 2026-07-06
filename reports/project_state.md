@@ -2700,3 +2700,33 @@ Bounded rollout result:
 - blocker classification: `online_7d_head_partial_target_movement_no_success`.
 
 Conclusion: the non-leaking online 7D ActionMap/TCA diagnostic head path is now implemented and runnable, but it does not support a rollout success claim. The fixed-prior TCA head shows only partial target-movement evidence and no reward/success improvement. The next execution-first milestone should diagnose online action quality/head training before scaling rollout.
+
+## Online 7D Action-Quality Diagnosis
+
+Status: complete as a bounded execution-first diagnostic after the minimal online 7D head milestone.
+
+Implementation:
+- script: `scripts\145_online_7d_action_quality_diagnosis.ps1`
+- module: `tca_map.smolvla.online_7d_action_quality_diagnosis`
+- targeted tests: `tests\test_online_7d_action_quality_diagnosis.py`
+- runtime reports are ignored by git: `reports\online_7d_action_quality_diagnosis_report.json` and `.md`
+
+Execution boundaries:
+- training happened: yes, CPU ridge/linear diagnostic heads only.
+- LoRA training happened: no.
+- loss was computed: yes.
+- rollout happened: yes, only because the prior bounded 25-step online 7D matched-init report was regenerated for closed-loop failure diagnosis.
+- heavy model import/model load/model inference happened: yes, only inside that regenerated native SmolVLA baseline report.
+- GPU jobs, downloads, OpenVLA-OFT execution, full fine-tuning, benchmark rollouts, token access, and paper claims did not occur.
+
+Key diagnosis:
+- ActionMap-7D vs fixed-prior TCA-7D mean action L2: `0.00712081`.
+- fixed-prior TCA actions meaningfully different from ActionMap: `false`.
+- supervised 25-step 7D L2: ActionMap `0.992624014`, fixed-prior TCA `0.988163728`, hard learned-target TCA `1.007243003`.
+- mean-action baseline 7D L2: `0.57299313`, better than all current learned 7D heads.
+- teacher-forced full-demo fixed-prior TCA delta vs ActionMap: `-0.001041313`, a tiny improvement only.
+- gripper open/close timing is poor over the full demo: fixed-prior TCA predicted first open at step `100` while expert first open is step `62`.
+- closed-loop reward/success remains `0.0 / false`; fixed-prior TCA valid rollout-level support remains `false`.
+- dominant bottleneck: `translation`, with gripper timing also problematic over the full demonstration.
+
+Conclusion: the current 7D head does not yet justify rollout scaling. The fixed-prior target signal barely changes the generated 7D actions, and the learned heads underperform a simple mean-action baseline on the held-out 25-step supervised diagnostic. The next milestone should redesign target-prior conditioning and/or head features before another method rollout.

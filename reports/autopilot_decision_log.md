@@ -60,3 +60,13 @@ Rationale: the new heads train from local LIBERO HDF5 training demonstrations an
 Outcome: bounded matched-init rollout ran zero action, HDF5 expert upper bound, native SmolVLA, ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D for 25 steps. Every variant stayed at reward/success `0.0 / false`. Fixed-prior TCA has `fixed_prior_tca_valid_rollout_support=false` and `fixed_prior_tca_partial_target_movement_support=true`.
 
 Integrity note: this was bounded diagnostic evidence only. Training and loss computation happened for tiny CPU linear heads. LoRA training, GPU jobs, downloads, OpenVLA-OFT execution, full fine-tuning, benchmark rollout, and paper-grade claims did not occur. The next step is action-quality/head-training diagnosis, not rollout scaling.
+
+## 2026-07-06 - Online 7D Action-Quality Diagnosis
+
+Decision: pause rollout scaling and move to target-prior conditioning / head-feature redesign.
+
+Rationale: the action-quality diagnosis found that fixed-prior TCA-7D and ActionMap-7D generate almost identical actions, with mean action L2 `0.00712081`. Fixed-prior TCA gives only a tiny supervised and teacher-forced improvement. The current heads also underperform the mean-action baseline on the held-out 25-step supervised diagnostic, which means the action decoder itself is not strong enough for a rollout claim.
+
+Outcome: fixed-prior TCA valid rollout support remains `false`. The next useful milestone is not another rollout but a non-leaking 7D head/conditioning redesign that beats the mean-action baseline and produces materially different fixed-prior TCA actions.
+
+Integrity note: this was bounded diagnostic evidence only. Training and loss computation happened for CPU diagnostic heads. The regenerated closed-loop report performed bounded native SmolVLA model load/inference, but no GPU job, download, LoRA training, full fine-tuning, OpenVLA-OFT execution, benchmark rollout, or paper-grade claim occurred.

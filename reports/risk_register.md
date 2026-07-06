@@ -1519,3 +1519,13 @@ Impact: partial target-directed movement could be overinterpreted as rollout-lev
 Mitigation: classify fixed-prior TCA rollout support as valid only when it improves reward or success over ActionMap under a valid closed-loop online rollout. Track partial target movement separately with `fixed_prior_tca_partial_target_movement_support`; do not use it as a success claim. Continue to report expert-match L2, action distribution, gripper/rotation stats, and action provenance.
 
 Current result: ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D generated online 7D actions without same/future HDF5 action leakage. All rollout variants had reward/success `0.0 / false`; fixed-prior TCA valid rollout support is `false`, partial target-movement support is `true`, and the blocker is `online_7d_head_partial_target_movement_no_success`.
+
+## Online 7D Head Mean-Action Underperformance Risk
+
+Risk: the current online 7D heads reduce training loss but underperform a simple mean-action baseline on the held-out 25-step supervised diagnostic.
+
+Impact: further rollout attempts may mostly test a weak action decoder rather than target-prior TCA. A small fixed-prior improvement over ActionMap could be real but too tiny to matter in closed-loop control.
+
+Mitigation: before another method rollout, require a non-leaking 7D head/feature redesign that beats the mean-action baseline, reports translation/rotation/gripper errors separately, and produces a materially larger ActionMap-vs-fixed-prior action difference. Continue to report gripper timing and teacher-forced full-demo error.
+
+Current result: mean-action baseline 7D L2 is `0.57299313`, while ActionMap-7D is `0.992624014`, fixed-prior TCA-7D is `0.988163728`, and hard learned-target TCA-7D is `1.007243003`. Fixed-prior TCA versus ActionMap mean action L2 is only `0.00712081`.
