@@ -1,37 +1,53 @@
 # CSS-Shield Autopilot State
 
-## Current State
+- current main commit: `68ae7b824974141cc33cb4407db49915e39728bb`
+- current stage: `STATE 3`
+- last completed stage: `STATE 2`
+- continue/kill decision: `continue`
+- next milestone: `RA-L strength check`
+- why next: State 2 randomized semantic/safety batch passed; next check is whether evidence has publishable strength.
+- hard blockers: `[]`
+- rollout happened: `True`
+- training happened: `False`
+- LoRA training happened: `False`
+- loss computed: `False`
+- GPU/download/heavy import/OpenVLA-OFT: `False` / `False` / `True` / `False`
+- evidence level: `diagnostic_only`
+- exact resume command: `powershell -ExecutionPolicy Bypass -File scripts\160_css_shield_autopilot_next.ps1`
 
-STATE 1 completed as a bounded rollout-first diagnostic.
+## Last Result Summary
 
-Previous route: Target-Prior TCA-Map low-compute RA-L route is killed and archived.
-
-Current project: CSS-Shield.
-
-Latest result:
-
-- rollout happened: yes, one bounded LIBERO/RoboSuite exact-init diagnostic task.
-- proposal source: native SmolVLA on CPU.
-- training/loss/LoRA training: no.
-- downloads/GPU/OpenVLA-OFT/benchmark rollout/paper claim: no.
-- full CSS-Shield reduced unsafe actions versus no shield and clipping-only by `0.8`.
-- full CSS-Shield did not beat safety-only in this run.
-- wrong-target semantic reduction was not exercised because the counterfactual object was not present as an observation object key.
-- reward/success remained `0.0 / false`.
-
-## Next State
-
-STATE 2: bounded semantic-coverage diagnostic.
-
-The next diagnostic must directly test wrong-target intervention with both intended and counterfactual targets observable, or produce a concrete blocker explaining why that cannot be done safely. Do not expand into broad planners.
-
-## Bounds
-
-- CPU first.
-- No OpenVLA-OFT.
-- No full fine-tuning.
-- No large downloads without green risk assessment.
-- No paper-grade claim until rollout evidence exists.
-- Max 5 major milestones per execution.
-- Stop if diagnostics produce no metric, concrete blocker, or kill/continue decision.
-
+```json
+{
+  "diagnostic_only": true,
+  "key_metric": {
+    "state2_full_vs_clipping_unsafe_delta": 0.25,
+    "state2_full_vs_clipping_wrong_target_delta": 0.7,
+    "state2_full_vs_safety_wrong_target_delta": 0.7
+  },
+  "paper_grade": false,
+  "passed": true,
+  "state1_5_decision": {
+    "continue": true,
+    "full_beats_clipping_on_semantic_or_safety_metric": true,
+    "full_beats_safety_on_semantic_metric": true,
+    "full_stop_all": false,
+    "kill_now": false,
+    "reason": "semantic wrong-target shielding beat safety-only and clipping-only without stop-all behavior",
+    "reframe": false,
+    "semantic_only_catches_wrong_target": true,
+    "state": "STATE 1.5"
+  },
+  "state2_decision": {
+    "continue": true,
+    "full_beats_clipping_on_semantic_or_safety_metric": true,
+    "full_beats_safety_on_semantic_metric": true,
+    "full_stop_all": false,
+    "kill_now": false,
+    "reason": "semantic wrong-target shielding beat safety-only and clipping-only without stop-all behavior",
+    "reframe": false,
+    "semantic_only_catches_wrong_target": true,
+    "state": "STATE 2"
+  }
+}
+```

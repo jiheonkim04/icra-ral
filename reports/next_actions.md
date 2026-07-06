@@ -1267,3 +1267,21 @@ Current diagnostic result:
 - reward/success stayed `0.0 / false` for every variant.
 
 Next execution-first milestone: State 2 semantic-coverage diagnostic. Select or construct the smallest bounded task/proposal setting where both intended and counterfactual target objects are observable. The direct output must be a wrong-target intervention metric or a concrete blocker. Keep no-shield, clipping-only, safety-only, semantic-only, and full CSS-Shield baselines.
+
+## Current Next Action After CSS-Shield State 1.5 / State 2
+
+The autopilot controller executed State 1.5 and then the 20-trial State 2 randomized diagnostic because State 1.5 was green.
+
+Current diagnostic result:
+- intended target resolved from instruction plus visible scene names: `moka_pot_1_pos`.
+- distractor resolved from visible scene names: `chefmate_8_frypan_1_pos`.
+- wrong-target metric computable: `true`.
+- State 1.5 full-vs-safety wrong-target delta: `0.4`.
+- State 2 full-vs-safety wrong-target delta: `0.7`.
+- State 2 full-vs-clipping wrong-target delta: `0.7`.
+- State 2 full-vs-clipping unsafe delta: `0.25`.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next execution-first milestone: State 3 RA-L strength check. Evaluate whether the diagnostic signal is novel and realistic enough to justify scaling, or whether CSS-Shield should be reframed before more simulator work.

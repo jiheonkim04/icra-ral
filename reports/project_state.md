@@ -2789,3 +2789,32 @@ Key result:
 - reward/success: `0.0 / false` for all variants.
 
 Conclusion: CSS-Shield is not killed at the no-rollout-metric gate, but the State 1 evidence is safety-damping evidence rather than semantic shielding evidence. The next milestone should be a narrow semantic-coverage diagnostic where both intended and counterfactual targets are observable and safety-only is an insufficient baseline.
+
+## CSS-Shield State 1.5 and State 2 Autopilot Diagnostics
+
+Status: complete as bounded diagnostic execution.
+
+Execution boundary:
+- rollout/simulator stepping happened: yes.
+- native SmolVLA load/inference happened: yes, CPU-only.
+- training happened: no.
+- LoRA training happened: no.
+- loss computed: no, because this was not a training task.
+- downloads/GPU/OpenVLA-OFT/benchmark rollout/paper claim: no.
+
+State 1.5 result:
+- intended target resolved: `moka_pot_1_pos`.
+- distractor resolved: `chefmate_8_frypan_1_pos`.
+- wrong-target metric computable: `true`.
+- full vs safety-only wrong-target-rate delta: `0.4`.
+- full vs clipping-only wrong-target-rate delta: `0.4`.
+- full intervention rate: `0.6`.
+
+State 2 result:
+- randomized diagnostic trials: `20`.
+- full vs safety-only wrong-target-rate delta: `0.7`.
+- full vs clipping-only wrong-target-rate delta: `0.7`.
+- full vs clipping-only unsafe-rate delta: `0.25`.
+- full intervention rate: `0.7`.
+
+Conclusion: CSS-Shield now has bounded diagnostic evidence for semantic wrong-target intervention beyond safety-only and clipping-only. This remains diagnostic-only; the next milestone is State 3 RA-L strength check, not a paper claim.
