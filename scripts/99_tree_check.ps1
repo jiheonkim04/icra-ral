@@ -287,6 +287,7 @@ $required = @(
     "scripts/137_audit_representation_sensitivity.ps1",
     "scripts/138_gate_fixed_prior_rollout_readiness.ps1",
     "scripts/139_bounded_fixed_prior_rollout_diagnostic.ps1",
+    "scripts/140_zero_reward_rollout_diagnosis.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -347,6 +348,7 @@ $required = @(
     "tca_map/datasets/libero_representation_sensitivity_audit.py",
     "tca_map/datasets/libero_fixed_prior_rollout_readiness.py",
     "tca_map/datasets/libero_fixed_prior_rollout_diagnostic.py",
+    "tca_map/datasets/libero_zero_reward_rollout_diagnosis.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
     "tests/test_smolvla_asset_readiness.py",
@@ -461,6 +463,7 @@ $required = @(
     "tests/test_libero_representation_sensitivity_audit.py",
     "tests/test_libero_fixed_prior_rollout_readiness.py",
     "tests/test_libero_fixed_prior_rollout_diagnostic.py",
+    "tests/test_libero_zero_reward_rollout_diagnosis.py",
     "tests/test_lora_config_guards.py"
 )
 

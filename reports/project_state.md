@@ -2541,3 +2541,37 @@ Gate result:
 - camera/state mapping: not a live visual/state policy; the current fixed-prior proxy uses text-derived cached features and mean HDF5 action snippets.
 
 Conclusion: do not run the limited rollout diagnostic yet. The smallest direct unblocker is a 7D rollout-action bridge for fixed-prior proxy outputs, preferably by rebuilding the offline ActionMap/TCA rollout records to preserve all seven LIBERO action dimensions and validating gripper, rotation, action scale, clipping, and coordinate conventions against local HDF5 before simulator stepping.
+
+## Zero-Reward Rollout Diagnosis And Expert Replay Sanity
+
+Status: complete as a bounded rollout diagnostic after the fixed-prior 7D action bridge milestone.
+
+Implementation:
+- script: `scripts\140_zero_reward_rollout_diagnosis.ps1`
+- module: `tca_map.datasets.libero_zero_reward_rollout_diagnosis`
+- targeted tests: `tests\test_libero_zero_reward_rollout_diagnosis.py`
+- runtime reports are ignored by git: `reports\zero_reward_rollout_diagnosis_report.json` and `.md`
+- task-local gate: `ALLOW_ZERO_REWARD_ROLLOUT_DIAGNOSIS=1`
+
+Execution boundaries:
+- rollout happened: yes, bounded diagnostic only.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA imports, model loading, model inference, OpenVLA-OFT execution, token access, and paper claims did not occur.
+
+Diagnostic result:
+- task count: `1`.
+- task: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`.
+- horizons: `10`, `25`, `50`.
+- variants: zero action, ActionMap-style target-agnostic mean, HDF5 expert replay, fixed semantic target-prior TCA proxy.
+- total simulator steps: `340`.
+- reward/success: all variants had reward `0.0` and success `false` through 50 steps.
+- HDF5 expert metadata: first positive reward / done index is `271`, so zero reward through 50 steps is expected for this demonstration.
+- action bridge: `7D` env actions, finite, no clipping, gripper command preserved from the HDF5 actions.
+- fixed-prior proxy actions are identical to HDF5 expert replay actions for this diagnostic.
+- intended object metric: available through the matched key `moka_pot_1_pos`.
+- wrong-target object metric: unavailable because the counterfactual black-bowl target was not present in the current environment observation object-position keys.
+- target movement at 50 steps: zero action moved slightly farther from the matched object; ActionMap-style mean moved closer by `0.140269`; HDF5 expert/fixed-prior moved closer by `0.009014`.
+
+Conclusion: the current blocker is classified as `sparse_reward_or_short_horizon`, with target-directed movement still ambiguous under the naive object-distance metric. This does not support a rollout success claim, and it does not yet show fixed-prior target-directed movement advantage. The next execution-first milestone should be a separately bounded full-demo expert replay sanity check up to the first positive reward/done index for one task. If expert replay succeeds at the expected index, then rerun the fixed-prior diagnostic with a justified horizon. If expert replay fails, investigate init-state, action convention, gripper, rotation, and coordinate mapping before any learned-policy rollout scaling.

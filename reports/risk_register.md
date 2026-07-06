@@ -1439,3 +1439,23 @@ Mitigation: Treat the result as partial action-bridge support only. Before any l
 
 Current result: readiness gate green; `30` simulator steps executed; reward `0.0`, success `false`; fixed-prior TCA EEF displacement exceeded the ActionMap-style mean baseline but did not improve reward or success.
 
+
+## Short-Horizon Sparse-Reward Misdiagnosis Risk
+
+Risk: A bounded rollout diagnostic with horizons `10`, `25`, or `50` can return zero reward for all variants even when the HDF5 expert demonstration would only receive reward much later.
+
+Impact: The project could incorrectly classify fixed-prior TCA or the action bridge as failed when the actual issue is sparse reward and insufficient horizon.
+
+Mitigation: Before scaling learned-policy rollout variants, run a separately bounded expert replay sanity check up to the HDF5 first positive reward/done index for one task. Treat any result before that check as diagnostic plumbing evidence only, not standard success or paper-grade evidence.
+
+Current result: zero action, ActionMap-style mean, HDF5 expert replay, and fixed-prior proxy actions all had reward `0.0` and success `false` through 50 steps. The HDF5 first positive reward/done index is `271`, so the current blocker is classified as `sparse_reward_or_short_horizon`.
+
+## Naive Target-Distance Rollout Metric Risk
+
+Risk: Matching an instruction to one object-position key, such as `moka_pot_1_pos`, may not capture the real task objective, gripper phase, contact dynamics, or multi-object goal state.
+
+Impact: A variant can appear more target-directed by moving the end effector closer to the named object while still failing the actual task, or an expert trajectory can look weak early because it first moves toward an intermediate subgoal.
+
+Mitigation: Treat object-distance movement as a secondary diagnostic only. Preserve reward/success, expert replay, init-state, gripper, rotation, and coordinate checks as primary rollout sanity gates. Report when wrong-target object keys are unavailable rather than inventing a proxy.
+
+Current result: the intended object metric matched `moka_pot_1_pos`, but wrong-target movement was unavailable. At 50 steps, ActionMap-style mean reduced the matched distance more than HDF5 expert/fixed-prior replay under this naive metric, so the metric does not currently support a fixed-prior target-directed movement advantage.
