@@ -470,7 +470,10 @@ $required = @(
     "tests/test_libero_zero_reward_rollout_diagnosis.py",
     "tests/test_libero_full_demo_expert_replay_sanity.py",
     "tests/test_libero_action_source_audit_matched_init_diagnostic.py",
-    "tests/test_lora_config_guards.py"
+    "tests/test_lora_config_guards.py",
+    "tests/test_online_action_generation_bridge.py",
+    "tca_map/smolvla/online_action_generation_bridge.py",
+    "scripts/143_online_action_generation_bridge.ps1"
 )
 
 $missing = @()
