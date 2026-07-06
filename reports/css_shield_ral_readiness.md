@@ -1,5 +1,10 @@
 # CSS-Shield RA-L Readiness
 
-Status: promising but not RA-L ready.
+Phase 2 decision: `kill_or_reframe`
 
-Next required evidence: multi-task randomized diagnostics, stronger realism audit, longer-horizon utility evidence, and comparison to recent VLA safety/semantic grounding baselines.
+Status: diagnostic-only, not RA-L ready.
+
+- more than safety-only: `False`
+- more than clipping-only: `True`
+- native-action evidence sufficient: `False`
+- RA-L plausible: `False`

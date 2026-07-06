@@ -1303,3 +1303,22 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next action: human review of the CSS-Shield first-results and RA-L readiness package before any broader scaling. Do not make paper-grade claims from the current diagnostic package.
+
+## Current Next Action After CSS-Shield Phase 2
+
+The Phase 2 native-action diagnostic completed and produced a kill/reframe decision.
+
+Current diagnostic result:
+- package audit was green and justified native-action testing.
+- native SmolVLA CPU inference happened.
+- bounded rollout/simulator stepping happened.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- full vs safety-only wrong-target delta: `0.0`.
+- full vs clipping-only wrong-target delta: `0.0`.
+- full vs clipping-only unsafe delta: `0.85`.
+- full intervention rate: `1.0`.
+- false positive rate: `0.0`.
+- RA-L plausible: `false`.
+
+Next action: do not scale CSS-Shield as a main RA-L route. Review the kill/reframe package. The only honest continuations are to reframe CSS-Shield as a diagnostic/benchmark artifact, redesign the native-action semantic metric, or abandon this route for a more rollout-first topic.

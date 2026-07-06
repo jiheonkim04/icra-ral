@@ -5,6 +5,7 @@ param(
     [string]$MarkdownReportPath = "reports/css_shield_minimal_rollout_diagnostic_report.md",
     [string]$ProposalSource = "native_or_synthetic",
     [int]$MaxSteps = 5,
+    [int]$CaseIndex = 0,
     [int]$CameraSize = 64,
     [double]$MaxTranslationNorm = 0.20,
     [int]$TimeoutSeconds = 900
@@ -85,9 +86,12 @@ $WslPython -m tca_map.css_shield.minimal_rollout_diagnostic \
   --report-md '$mdWsl' \
   --proposal-source '$ProposalSource' \
   --max-steps $MaxSteps \
+  --case-index $CaseIndex \
   --camera-size $CameraSize \
   --max-translation-norm $MaxTranslationNorm
 "@
+
+$cmd = $cmd -replace "`r", ""
 
 $psi = New-Object System.Diagnostics.ProcessStartInfo
 $psi.FileName = "wsl"

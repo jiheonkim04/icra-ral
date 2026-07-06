@@ -1,0 +1,13 @@
+{
+  "continue": false,
+  "decision": "kill_or_reframe",
+  "intervention_rate_acceptable": false,
+  "more_than_clipping": true,
+  "more_than_safety_only": false,
+  "multitask_evidence_sufficient": false,
+  "native_action_evidence_sufficient": false,
+  "ral_plausible": false,
+  "reason": "Full CSS-Shield does not beat safety-only on native-action wrong-target reduction.",
+  "schema_version": "2026-07-07.css_shield_phase2_novelty_check.v1",
+  "semantic_component_useful": false
+}

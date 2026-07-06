@@ -6,6 +6,7 @@ param(
     [string]$InventoryJsonPath = "reports/css_shield_state1_5_object_inventory.json",
     [string]$InventoryMarkdownPath = "reports/css_shield_state1_5_object_inventory.md",
     [int]$CameraSize = 64,
+    [int]$CaseIndex = 0,
     [double]$MaxTranslationNorm = 0.20,
     [int]$State2Trials = 20,
     [switch]$IncludeNative,
@@ -81,6 +82,7 @@ $WslPython -m tca_map.css_shield.semantic_observability \
   --inventory-json '$inventoryJsonWsl' \
   --inventory-md '$inventoryMdWsl' \
   --camera-size $CameraSize \
+  --case-index $CaseIndex \
   --max-translation-norm $MaxTranslationNorm \
   --state2-trials $State2Trials \
   $includeNativeArg \

@@ -48,6 +48,42 @@ def _env_flag(name: str) -> bool:
     return os.environ.get(name) == "1"
 
 
+def _load_case(manifest_path: Path, max_steps: int, case_index: int) -> dict[str, Any]:
+    if case_index == 0:
+        return _load_first_case(manifest_path, max_steps)
+    import h5py  # type: ignore
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+    pairs = manifest.get("counterfactual_pairs") or []
+    if not pairs:
+        raise ValueError("counterfactual split manifest has no pairs")
+    if case_index < 0 or case_index >= len(pairs):
+        raise ValueError(f"case_index {case_index} out of range for {len(pairs)} counterfactual pairs")
+    pair = pairs[case_index]
+    positive_path = _as_path(pair["positive_demo_file"])
+    with h5py.File(positive_path, "r") as handle:
+        demo_name = sorted(handle["data"].keys())[0]
+        demo = handle["data"][demo_name]
+        actions = np.asarray(demo["actions"][:max_steps], dtype=np.float64)
+        init_state = np.asarray(demo.attrs["init_state"], dtype=np.float64)
+    if actions.ndim != 2 or actions.shape[1] != 7:
+        raise ValueError(f"expected HDF5 expert actions [T, 7], got {list(actions.shape)}")
+    if actions.shape[0] < max_steps:
+        raise ValueError(f"demo has only {actions.shape[0]} actions, requested {max_steps}")
+    return {
+        "pair_id": pair.get("pair_id"),
+        "suite": pair.get("suite") or "libero_10",
+        "task_id": pair["positive_task_id"],
+        "instruction": pair["positive_instruction"],
+        "counterfactual_instruction": pair.get("counterfactual_instruction"),
+        "positive_demo_path": str(positive_path),
+        "demo_name": demo_name,
+        "init_state": init_state,
+        "expert_actions": actions[:max_steps],
+        "bddl_file": None,
+    }
+
+
 def _compact_error(exc: BaseException) -> dict[str, Any]:
     return {"type": type(exc).__name__, "message": str(exc), "traceback_tail": traceback.format_exc().splitlines()[-12:]}
 
@@ -487,7 +523,7 @@ def build_report(args: argparse.Namespace) -> dict[str, Any]:
         report["import_path_audit"] = _prepare_libero_import_path(libero_root, robosuite_root)
         from libero.libero.envs import OffScreenRenderEnv
 
-        case = _load_first_case(_as_path(args.manifest), args.max_steps)
+        case = _load_case(_as_path(args.manifest), args.max_steps, args.case_index)
         _ensure_paths(libero_root, robosuite_root)
         bddl_file = _bddl_path(libero_root, case["suite"], case["task_id"])
         native_policy = native_config = None
@@ -518,6 +554,7 @@ def build_report(args: argparse.Namespace) -> dict[str, Any]:
             {
                 "decision": "css_shield_minimal_rollout_diagnostic_completed",
                 "case": {
+                    "case_index": args.case_index,
                     "manifest": str(_as_path(args.manifest)),
                     "suite": case["suite"],
                     "task_id": case["task_id"],
@@ -598,6 +635,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--libero-root", default="C:/assets/repos/LIBERO")
     parser.add_argument("--robosuite-root", default="C:/assets/repos/robosuite")
     parser.add_argument("--max-steps", type=int, default=10)
+    parser.add_argument("--case-index", type=int, default=0)
     parser.add_argument("--camera-size", type=int, default=64)
     parser.add_argument("--max-translation-norm", type=float, default=0.20)
     parser.add_argument("--proposal-source", choices=["native_or_synthetic", "native_smolvla", "synthetic_counterfactual_probe"], default="native_or_synthetic")

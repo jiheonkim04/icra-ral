@@ -1,0 +1,26 @@
+{
+  "continue": true,
+  "controlled_proposal_diagnostic_evidence": true,
+  "decision": "continue",
+  "false_positive_rate_low": true,
+  "full_false_positive_rate": 0.0,
+  "full_intervention_rate": 0.58,
+  "full_shield_beats_clipping_only": true,
+  "full_shield_beats_safety_only": true,
+  "full_vs_clipping_unsafe_delta": 0.24,
+  "full_vs_clipping_wrong_target_delta": 0.58,
+  "full_vs_safety_wrong_target_delta": 0.58,
+  "missing_for_ral": [
+    "native-action diagnostic with enough steps",
+    "multi-task or randomized diagnostic beyond a single scene",
+    "utility preservation under native proposals",
+    "comparison showing semantic component is more than safety-only",
+    "paper-grade rollout benchmark, which is not claimed here"
+  ],
+  "native_smolvla_action_evidence": true,
+  "real_simulator_rollout_evidence": true,
+  "reason": "First diagnostic package shows nontrivial behavior beyond clipping/safety-only, so Phase 2 native-action testing is justified.",
+  "schema_version": "2026-07-07.css_shield_phase2_package_audit.v1",
+  "synthetic_or_oracle_state_diagnostic_evidence": true,
+  "utility_degradation_acceptable": true
+}

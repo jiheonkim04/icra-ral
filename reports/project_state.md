@@ -2850,3 +2850,27 @@ State 5 package:
 - promising diagnostic package created.
 - current evidence remains diagnostic-only and not RA-L ready.
 - next action requires human review of `reports/css_shield_ral_readiness.md` and the first-results package before any broader scaling.
+
+## CSS-Shield Phase 2 RA-L Evidence Strengthening
+
+Status: complete as a bounded diagnostic kill/reframe gate.
+
+Execution boundary:
+- rollout/simulator stepping happened: yes.
+- native SmolVLA load/inference happened: yes, CPU-only.
+- training happened: no.
+- LoRA training happened: no.
+- loss computed: no, because this was not a training task.
+- downloads/GPU/OpenVLA-OFT/paper claim: no.
+
+Phase 2 result:
+- package audit: continue to native-action diagnostic.
+- native-action diagnostic: 20 full-shield native SmolVLA steps, 100 total shield-variant simulator steps.
+- full vs safety-only wrong-target delta: `0.0`.
+- full vs clipping-only wrong-target delta: `0.0`.
+- full vs clipping-only unsafe delta: `0.85`.
+- full intervention rate: `1.0`.
+- false positive rate: `0.0`.
+- reward/success under full shield: `0.0 / false`.
+
+Conclusion: CSS-Shield is not RA-L plausible in its current form. It improves unsafe-rate behavior against clipping-only under native actions, but it does not show semantic/wrong-target value beyond safety-only and behaves like a full-intervention shield in the native-action diagnostic. The current route should be killed or reframed rather than scaled.
