@@ -1509,3 +1509,13 @@ Impact: any rollout-level method claim would either silently invent missing rota
 Mitigation: require a non-leaking online 7D ActionMap/TCA diagnostic head before any ActionMap/TCA rollout claim. Keep HDF5 actions limited to expert replay upper bound, training data, offline labels, and action-distribution references.
 
 Current result: native SmolVLA produced online actions in a bounded 25-step exact-init diagnostic, but ActionMap/TCA produced no valid online 7D source. Fixed-prior TCA valid rollout-level support remains `false`.
+
+## Online 7D Head Partial-Movement Overclaim Risk
+
+Risk: the new non-leaking online 7D ActionMap/TCA diagnostic heads can produce online actions and a small target-movement difference, but still have zero reward and zero success.
+
+Impact: partial target-directed movement could be overinterpreted as rollout-level method support even though the task was not completed and no reward improvement was observed.
+
+Mitigation: classify fixed-prior TCA rollout support as valid only when it improves reward or success over ActionMap under a valid closed-loop online rollout. Track partial target movement separately with `fixed_prior_tca_partial_target_movement_support`; do not use it as a success claim. Continue to report expert-match L2, action distribution, gripper/rotation stats, and action provenance.
+
+Current result: ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D generated online 7D actions without same/future HDF5 action leakage. All rollout variants had reward/success `0.0 / false`; fixed-prior TCA valid rollout support is `false`, partial target-movement support is `true`, and the blocker is `online_7d_head_partial_target_movement_no_success`.

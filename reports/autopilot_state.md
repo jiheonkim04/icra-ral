@@ -25,3 +25,24 @@
 - blocker classification: `no_nonleaking_online_actionmap_tca_7d_head`
 - fixed-prior TCA valid rollout-level support: `false`
 - exact next state decision: do not make rollout-level ActionMap/TCA method claims yet. The next execution milestone should implement or train a minimal non-leaking 7D online diagnostic head for ActionMap/TCA, or package current evidence with an honest offline + bridge caveat.
+
+## 2026-07-06 - Online 7D Diagnostic Head
+
+- branch: `codex/minimal-online-7d-diagnostic-head`
+- attempted: train and evaluate the smallest non-leaking 7D online ActionMap/TCA diagnostic head
+- training happened: `true`, CPU ridge/linear diagnostic heads only
+- LoRA training happened: `false`
+- loss computed: `true`
+- rollout happened: `true`, bounded matched-init diagnostic only
+- downloads/GPU/OpenVLA-OFT/full fine-tuning/paper claim happened: `false`
+- heavy model import/model load/model inference happened: `true` for native SmolVLA baseline only inside the gated rollout
+- HDF5 action provenance: training labels, expert upper bound, and expert-match reference only; method rollout actions are generated online from current observation/instruction
+- rollout demo excluded from training labels: `true`
+- offline ActionMap-7D loss: `0.179330387 -> 0.02388843`; 7D L2 `1.000304358`
+- offline fixed-prior TCA-7D loss: `0.179330387 -> 0.0238874`; 7D L2 `0.995906943`
+- offline hard learned-target TCA-7D loss: `0.179330387 -> 0.023892769`; 7D L2 `1.016720219`
+- bounded rollout reward/success: all variants `0.0 / false`
+- fixed-prior TCA valid rollout support: `false`
+- fixed-prior TCA partial target-movement support: `true`
+- blocker classification: `online_7d_head_partial_target_movement_no_success`
+- exact next state decision: run action-quality/head-training diagnosis before any rollout scaling; do not claim rollout-level TCA support from partial target movement.

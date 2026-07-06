@@ -50,3 +50,13 @@ Rationale: the online source inventory found a native SmolVLA online source that
 Diagnostic result: a bounded 25-step exact-init native SmolVLA baseline rollout ran on CPU. It used online/model-head decoded actions, did not match the HDF5 expert sequence, and obtained reward/success `0.0 / false`. HDF5 expert replay at the same 25-step horizon also obtained `0.0 / false`, so this horizon is diagnostic only and not a success window.
 
 Integrity note: fixed-prior TCA still has no valid rollout-level support because the previous successful fixed-prior candidate replay used future HDF5 expert actions. The next method-support step must implement a non-leaking 7D online ActionMap/TCA head or explicitly stop at the offline + bridge caveat.
+
+## 2026-07-06 - Online 7D Diagnostic Head
+
+Decision: keep the new online 7D ActionMap/TCA diagnostic head as valid infrastructure, but classify the rollout result as partial movement only, not method success.
+
+Rationale: the new heads train from local LIBERO HDF5 training demonstrations and generate explicit 7D actions online from current observation/instruction. The rollout demo path is excluded from training labels, and method actions do not use same/future HDF5 expert actions at inference. This removes the previous candidate-replay leakage blocker for this diagnostic.
+
+Outcome: bounded matched-init rollout ran zero action, HDF5 expert upper bound, native SmolVLA, ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D for 25 steps. Every variant stayed at reward/success `0.0 / false`. Fixed-prior TCA has `fixed_prior_tca_valid_rollout_support=false` and `fixed_prior_tca_partial_target_movement_support=true`.
+
+Integrity note: this was bounded diagnostic evidence only. Training and loss computation happened for tiny CPU linear heads. LoRA training, GPU jobs, downloads, OpenVLA-OFT execution, full fine-tuning, benchmark rollout, and paper-grade claims did not occur. The next step is action-quality/head-training diagnosis, not rollout scaling.

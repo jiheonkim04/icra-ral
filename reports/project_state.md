@@ -2662,3 +2662,41 @@ Key result: source inventory found no deployable online 7D ActionMap/TCA action 
 Bounded rollout result: exact-init native SmolVLA ran for 25 steps on one validated LIBERO/RoboSuite task. Reward and success stayed `0.0 / false`; the action sequence did not match future HDF5 expert actions, so it is valid online baseline evidence but not method success. HDF5 expert replay also stayed at `0.0 / false` at this short horizon.
 
 Current blocker: `no_nonleaking_online_actionmap_tca_7d_head`.
+
+## Online 7D Diagnostic Head Result
+
+Status: complete as a bounded execution-first diagnostic after the online action-generation bridge blocker.
+
+Implementation:
+- script: `scripts\144_online_7d_diagnostic_head.ps1`
+- module: `tca_map.smolvla.online_7d_diagnostic_head`
+- targeted tests: `tests\test_online_7d_diagnostic_head.py`
+- runtime reports are ignored by git: `reports\online_7d_diagnostic_head_report.json` and `.md`
+- task-local gate for rollout: `ALLOW_ONLINE_7D_DIAGNOSTIC_HEAD_ROLLOUT=1`
+
+Execution boundaries:
+- training happened: yes, CPU ridge/linear diagnostic heads only.
+- LoRA training happened: no.
+- loss was computed: yes.
+- rollout happened: yes, bounded matched-init diagnostic only.
+- heavy model import/model load/model inference happened: yes, only for the native SmolVLA baseline inside the gated rollout.
+- GPU jobs, downloads, OpenVLA-OFT execution, full fine-tuning, benchmark rollouts, token access, and paper claims did not occur.
+
+Offline head result:
+- training data source: local LIBERO HDF5 training demos only; the rollout demo path was filtered out of training labels.
+- train/eval: `512 / 25` timestep samples.
+- ActionMap-7D loss: `0.179330387 -> 0.02388843`; offline 7D L2 `1.000304358`; standard offline proxy `0.499923922`.
+- fixed-prior TCA-7D loss: `0.179330387 -> 0.0238874`; offline 7D L2 `0.995906943`; standard offline proxy `0.501025363`.
+- hard learned-target TCA-7D loss: `0.179330387 -> 0.023892769`; offline 7D L2 `1.016720219`; standard offline proxy `0.495854601`.
+
+Bounded rollout result:
+- task: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`.
+- horizon: `25` exact-init steps per variant.
+- variants: zero action, HDF5 expert upper bound, native SmolVLA online policy, ActionMap-7D, fixed-prior TCA-7D, hard learned-target TCA-7D.
+- reward/success: all variants stayed at `0.0 / false`.
+- method action provenance: ActionMap-7D, fixed-prior TCA-7D, and hard learned-target TCA-7D generated online 7D actions from current observation/instruction and did not use same/future HDF5 actions at inference.
+- fixed-prior TCA valid rollout support: `false`.
+- fixed-prior TCA partial target-movement support: `true`.
+- blocker classification: `online_7d_head_partial_target_movement_no_success`.
+
+Conclusion: the non-leaking online 7D ActionMap/TCA diagnostic head path is now implemented and runnable, but it does not support a rollout success claim. The fixed-prior TCA head shows only partial target-movement evidence and no reward/success improvement. The next execution-first milestone should diagnose online action quality/head training before scaling rollout.
