@@ -1285,3 +1285,21 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next execution-first milestone: State 3 RA-L strength check. Evaluate whether the diagnostic signal is novel and realistic enough to justify scaling, or whether CSS-Shield should be reframed before more simulator work.
+
+## Current Next Action After CSS-Shield State 3-5
+
+The bounded continuous autopilot completed State 3, State 4, and State 5.
+
+Current diagnostic result:
+- State 3 RA-L strength check: `continue`.
+- State 4 scaled randomized diagnostic trials: `50`.
+- State 4 full-vs-safety wrong-target delta: `0.58`.
+- State 4 full-vs-clipping wrong-target delta: `0.58`.
+- State 4 full-vs-clipping unsafe delta: `0.24`.
+- State 4 full intervention rate: `0.58`.
+- State 5 promising diagnostic package created.
+- training/loss/LoRA training: no.
+- GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next action: human review of the CSS-Shield first-results and RA-L readiness package before any broader scaling. Do not make paper-grade claims from the current diagnostic package.

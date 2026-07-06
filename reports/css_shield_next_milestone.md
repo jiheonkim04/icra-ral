@@ -1,9 +1,9 @@
 # CSS-Shield Next Milestone
 
-Next state: `STATE 3`
+Next state: `COMPLETE`
 
-Milestone: RA-L strength check
+Milestone: No executable next state
 
-Reason: State 2 randomized semantic/safety batch passed; next check is whether evidence has publishable strength.
+Reason: Paper-readiness package created; human review is next.
 
-Resume command: `powershell -ExecutionPolicy Bypass -File scripts\160_css_shield_autopilot_next.ps1`
+Resume command: `powershell -ExecutionPolicy Bypass -File scripts\160_css_shield_autopilot_next.ps1 -Continuous`
