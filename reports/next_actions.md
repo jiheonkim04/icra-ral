@@ -1488,3 +1488,23 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next action: do not scale AMP-GD as the main RA-L route from current evidence. Either reframe it into a small active-ambiguity benchmark that first proves real probe-revealed hidden state exists, or select a different rollout-first topic. Do not run more toy-only scaling as paper evidence.
+
+## Current Next Action After ResetSpec-Retarget State 1
+
+ResetSpec-Retarget STATE 1 has completed and produced a kill/reframe decision.
+
+Current diagnostic result:
+- replay/control metric happened: `true`.
+- total simulator steps: `1879`.
+- exact-init expert replay reward/success: `1.0 / true`, first done `260`.
+- default-reset raw replay reward/success: `0.0 / false`.
+- object-relative retargeting improved EEF/object progress and greatly reduced shifted-trajectory drift.
+- object-relative retargeting reward/success stayed `0.0 / false`.
+- fixed global-scale replay from default reset succeeded with reward/success `1.0 / true`, first done `257`.
+- diagonal-affine and clipping baselines matched raw replay and failed.
+- perturbed-init raw replay was skipped because no task-generic safe state perturbation helper exists.
+- nearest-demo replay was skipped because no non-leaking object-pose nearest-demo selector/cache exists.
+- training/loss/LoRA training/GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next action: do not scale ResetSpec-Retarget as a main route. Archive it as useful reset-mismatch plumbing and select a new rollout-first topic only if it can predeclare a simple-baseline gap that global scaling or other action-only baselines cannot immediately explain.

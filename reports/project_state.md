@@ -3127,3 +3127,33 @@ Key result:
 - AMP-GD did not beat safety-only; random-probe matched AMP-GD on wrong-target movement.
 
 Conclusion: kill or reframe AMP-GD as the current main RA-L route. The result is useful: object observability is real, but current evidence does not show active micro-probe value beyond simple baselines in LIBERO/RoboSuite.
+
+## ResetSpec-Retarget State 0-1 Result
+
+Status: initialized after AMP-GD was killed, then advanced through the bounded STATE 1 replay/retarget diagnostic on branch `codex/resetspec-retarget-state0-state1`.
+
+Implementation:
+- script: `scripts\170_resetspec_retarget_diagnostic.ps1`.
+- module: `tca_map.resetspec.retarget`.
+- targeted tests: `tests\test_resetspec_retarget.py`.
+- reports: `reports\amp_gd_kill_summary.md`, `reports\resetspec_task_definition.md`, `reports\resetspec_experiment_plan.md`, `reports\resetspec_kill_criteria.md`, `reports\resetspec_autopilot_state.md`, and `reports\resetspec_state1_result.md`.
+
+Execution boundary:
+- replay/control metric happened: yes, bounded LIBERO/RoboSuite diagnostic only.
+- total simulator steps: `1879` across `7` variants.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA model loading/inference, OpenVLA-OFT, benchmark rollouts, token access, and paper-grade claims did not occur.
+
+Key result:
+- exact-init expert replay reward/success: `1.0 / true`, first done `260`.
+- default-reset raw expert replay reward/success: `0.0 / false`.
+- default-reset diagonal-affine replay reward/success: `0.0 / false`.
+- default-reset clipping replay reward/success: `0.0 / false`.
+- default-reset fixed global-scale replay reward/success: `1.0 / true`, first done `257`.
+- object-relative translation retarget reward/success: `0.0 / false`; EEF-object distance improved by `-0.232446`, object movement `0.231257`, trajectory drift mean `0.002036`.
+- object-relative translation plus gripper-phase retarget reward/success: `0.0 / false`; EEF-object distance improved by `-0.247037`, trajectory drift mean `0.00201`.
+- object poses were available through instruction-text plus visible observation object keys, without target-label or task/filename leakage.
+
+Conclusion: kill or reframe ResetSpec-Retarget as the current main RA-L route. It found the desired exact-init versus default-reset gap and object-relative retargeting improved progress, but it did not beat the simple fixed global-scale baseline, which succeeded from default reset.

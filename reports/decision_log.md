@@ -1502,3 +1502,15 @@ Reason: the State 2 audit found no utility-sign bug and no AMP-GD target-label l
 Consequence: do not scale AMP-GD toy diagnostics or present AMP-GD as RA-L-plausible from current evidence. Honest next options are a narrowly scoped active-ambiguity benchmark with demonstrated probe-revealed hidden state, or selecting a different rollout-first route.
 
 Execution boundary: toy and tiny LIBERO/RoboSuite diagnostic metrics happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
+
+## ResetSpec-Retarget State 0-1 Result
+
+Decision: kill or reframe ResetSpec-Retarget as the current main RA-L route.
+
+Reason: STATE 1 found the intended exact-init versus default-reset brittleness, and object-relative retargeting improved progress and shifted-trajectory tracking. However, it did not reach reward/success and did not beat the simple fixed global-scale baseline. The global-scale default-reset replay succeeded with reward/success `1.0 / true` and first done `257`, while both object-relative retarget variants stayed `0.0 / false`.
+
+Key metrics: exact-init expert replay reached reward/success `1.0 / true` with first done `260`; default-reset raw, diagonal-affine, and clipping replay all stayed `0.0 / false`; object-relative translation reached EEF-object distance change `-0.232446` and object movement `0.231257`; object-relative translation plus gripper-phase reached distance change `-0.247037` but still failed success.
+
+Consequence: do not scale ResetSpec-Retarget as a main route. Keep the runner as reusable reset/object-pose mismatch infrastructure, but require any future retargeting route to beat global scaling and other action-only baselines before broader replay or paper-readiness work.
+
+Execution boundary: bounded LIBERO/RoboSuite replay/control metrics happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
