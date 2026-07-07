@@ -1508,3 +1508,25 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next action: do not scale ResetSpec-Retarget as a main route. Archive it as useful reset-mismatch plumbing and select a new rollout-first topic only if it can predeclare a simple-baseline gap that global scaling or other action-only baselines cannot immediately explain.
+
+## Current Next Action After ResetSpec Archive
+
+ResetSpec-Retarget is archived as a killed main RA-L route.
+
+All killed or reframed routes:
+- Target-Prior TCA-Map.
+- CSS-Shield.
+- ExecSpec-Repair.
+- AMP-GD.
+- ResetSpec-Retarget.
+
+Common rule: a method must beat the strongest trivial baseline, not merely no-method or raw replay. The anti-baseline screen in `reports\next_topic_anti_baseline_prescreen.md` must be applied before any new implementation.
+
+Candidate topics are listed in `reports\next_topic_candidates_v2.md`. The current recommendation is Phase-Locked Action Chunk Retiming, but it should not be implemented until the next state is explicitly started.
+
+Before implementation, restate:
+- the task definition,
+- the first 48-hour replay/control metric,
+- the simple baselines that can kill it,
+- exact kill criteria,
+- why no native VLA competence, full VLA training, OpenVLA-OFT, downloads, GPU, or paper claims are needed for the first result.

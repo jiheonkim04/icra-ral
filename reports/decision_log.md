@@ -1514,3 +1514,17 @@ Key metrics: exact-init expert replay reached reward/success `1.0 / true` with f
 Consequence: do not scale ResetSpec-Retarget as a main route. Keep the runner as reusable reset/object-pose mismatch infrastructure, but require any future retargeting route to beat global scaling and other action-only baselines before broader replay or paper-readiness work.
 
 Execution boundary: bounded LIBERO/RoboSuite replay/control metrics happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
+
+## ResetSpec Archive And Next-Topic Pre-Screen
+
+Decision: archive ResetSpec-Retarget and require a strict anti-baseline pre-screen before any new topic implementation.
+
+Reason: five main-route candidates have now failed by the same pattern: they showed some positive evidence, then collapsed against a stronger trivial baseline or an online/replay gate. The next topic must be chosen by first identifying the baseline most likely to kill it.
+
+Killed-route baseline map: Target-Prior TCA-Map by mean-action, CSS-Shield by safety-only, ExecSpec-Repair by diagonal affine, AMP-GD by simple probe/safety baselines, and ResetSpec-Retarget by global scale.
+
+Recommended candidate: Phase-Locked Action Chunk Retiming. It is preferred only at the pre-screen level because it targets temporal phase mismatch, can produce a replay/control metric quickly with existing assets, and has a clear first table against fixed time shift, repeat-last, global scale, diagonal affine, gripper-only phase, and nearest-progress demo baselines.
+
+Consequence: do not implement a new route until the next state explicitly starts and the anti-baseline fields are restated. Any candidate whose first result is offline-only, calibration-solvable, native-VLA-dependent, full-training-dependent, or lacks a 48-hour replay/control metric is invalid.
+
+Execution boundary: documentation-only. Experiments, training, LoRA training, replay, rollout, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.

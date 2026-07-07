@@ -3157,3 +3157,33 @@ Key result:
 - object poses were available through instruction-text plus visible observation object keys, without target-label or task/filename leakage.
 
 Conclusion: kill or reframe ResetSpec-Retarget as the current main RA-L route. It found the desired exact-init versus default-reset gap and object-relative retargeting improved progress, but it did not beat the simple fixed global-scale baseline, which succeeded from default reset.
+
+## ResetSpec Archive And Anti-Baseline Pre-Screen
+
+Status: complete as documentation-only archive and next-topic pre-screen on branch `codex/resetspec-archive-prescreen`.
+
+Created or updated:
+- `reports\resetspec_kill_summary.md`
+- `reports\resetspec_failure_tree.md`
+- `reports\resetspec_reusable_artifacts.md`
+- `reports\all_killed_routes_summary.md`
+- `reports\simple_baseline_failure_patterns.md`
+- `reports\next_topic_anti_baseline_prescreen.md`
+- `reports\next_topic_candidates_v2.md`
+
+Execution boundary:
+- experiments happened: no.
+- replay or rollout happened: no.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+Archive result:
+- Target-Prior TCA-Map killed by the mean-action baseline / online 7D action-quality gate.
+- CSS-Shield killed by safety-only under native-action diagnostics.
+- ExecSpec-Repair killed by diagonal affine calibration.
+- AMP-GD killed by informative-probe, random-probe, and safety-only baselines in the real-simulator port.
+- ResetSpec-Retarget killed by fixed global-scale replay.
+
+Recommended next topic from the pre-screen: Phase-Locked Action Chunk Retiming. It is not implemented yet. It is recommended only because its first metric can use existing replay/control infrastructure, it targets temporal phase mismatch rather than scale or semantic targeting, and it has clear trivial baselines that can kill it early.
