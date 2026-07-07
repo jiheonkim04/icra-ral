@@ -1482,3 +1482,13 @@ Reason: STATE 3.5 found that full ExecSpec-Repair recovered `17 / 19` degraded e
 Consequence: Target-Prior TCA-Map, CSS-Shield, and ExecSpec-Repair are all archived as killed or reframed routes. The next route must be rollout/replay/control-first and baseline-first, with a metric within 48 hours and a simple-baseline gap within 72 hours. The recommended next candidate is Active Micro-Probe Goal Disambiguation, pending a pre-implementation kill-gated plan.
 
 Execution boundary: this archive/tournament step was documentation-only. Experiments, training, LoRA training, replay, rollout, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+## AMP-GD State 0-1 Result
+
+Decision: continue Active Micro-Probe Goal Disambiguation to State 2 scaling after the first diagnostic, while labeling the evidence as toy control evidence only.
+
+Reason: State 1 produced a direct rollout/control metric on 60 seeded point-world trials. AMP-GD wrong-target rate was `0.0`, compared with no-probe `0.5`, random-probe `0.466666667`, safety-only/clipping-only `0.5`, and nearest-target `0.483333333`. AMP-GD success rate was `1.0`, unsafe/collision rate was `0.0`, probe cost was `0.12`, and extra path length versus no-probe was `0.318929988`.
+
+Consequence: the route passed the first simple-baseline gate but is not RA-L-ready. State 2 should scale the diagnostic and begin the LIBERO/RoboSuite object-observable port. If random-probe, safety-only, nearest-target, or no-probe matches AMP-GD under scaling or in LIBERO/RoboSuite, kill or reframe the route immediately.
+
+Execution boundary: toy rollout/control metric happened. LIBERO/RoboSuite rollout, training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.

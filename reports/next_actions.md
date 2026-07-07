@@ -1445,3 +1445,25 @@ Before any implementation, create a small predeclared plan for Candidate 1 with:
 - explicit stop if the first metric requires downloads, GPU, heavy VLA imports, OpenVLA-OFT, or paper claims.
 
 Do not continue Target-Prior TCA-Map, CSS-Shield, or ExecSpec-Repair as the current main RA-L route.
+
+## Current Next Action After AMP-GD State 1
+
+AMP-GD State 1 has produced a first rollout/control metric in a toy 2D point-world diagnostic.
+
+Current diagnostic result:
+- rollout/control metric happened: `true`.
+- simulator used: `toy_2d_point_world_control_diagnostic`.
+- trials/seeds: `60` trials over seeds `11, 23, 37`.
+- target classes / distractor configs: `dotted`, `striped` / `front_back`, `left_right`.
+- no-probe wrong-target rate: `0.5`.
+- random-probe wrong-target rate: `0.466666667`.
+- safety-only wrong-target rate: `0.5`.
+- nearest-target wrong-target rate: `0.483333333`.
+- AMP-GD wrong-target rate: `0.0`.
+- AMP-GD success/unsafe rate: `1.0 / 0.0`.
+- AMP-GD probe cost: `0.12`.
+- extra path length versus no-probe: `0.318929988`.
+- training/loss/LoRA training/GPU/download/OpenVLA-OFT: no.
+- result level: toy diagnostic only, not paper-grade.
+
+Next execution-first milestone: State 2 scale diagnostic. Run a larger fixed-seed point-world batch and start a narrow LIBERO/RoboSuite object-observable port using the existing object-key and EEF-state inventory path. Preserve no-probe, random-probe, safety-only/clipping-only, and nearest-target baselines. Kill immediately if any simple baseline matches AMP-GD, if probe cost destroys utility, or if the route cannot move beyond toy control evidence.

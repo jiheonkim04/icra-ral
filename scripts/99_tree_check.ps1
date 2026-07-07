@@ -203,6 +203,14 @@ $required = @(
     "reports/execspec_autopilot_state.md",
     "reports/execspec_decision_log.md",
     "reports/execspec_risk_register.md",
+    "reports/amp_gd_task_definition.md",
+    "reports/amp_gd_related_work_matrix.md",
+    "reports/amp_gd_experiment_plan.md",
+    "reports/amp_gd_kill_criteria.md",
+    "reports/amp_gd_autopilot_state.md",
+    "reports/amp_gd_decision_log.md",
+    "reports/amp_gd_risk_register.md",
+    "reports/amp_gd_state1_minimal_probe_result.md",
     "reports/risk_register.md",
     "scripts/00_preflight.ps1",
     "scripts/00_preflight.sh",
@@ -340,6 +348,7 @@ $required = @(
     "scripts/165_execspec_calibrated_repair.ps1",
     "scripts/166_execspec_replay_validation.ps1",
     "scripts/167_execspec_baseline_dominance_audit.ps1",
+    "scripts/168_amp_gd_minimal_probe_diagnostic.ps1",
     "scripts/20_system_readiness.ps1",
     "scripts/20_system_readiness.sh",
     "scripts/21_make_asset_dirs.ps1",
@@ -409,6 +418,8 @@ $required = @(
     "tca_map/execspec/repair.py",
     "tca_map/execspec/replay_validation.py",
     "tca_map/execspec/baseline_dominance_audit.py",
+    "tca_map/amp_gd/__init__.py",
+    "tca_map/amp_gd/minimal_probe_diagnostic.py",
     "tests/test_tca_select.py",
     "tests/test_distributional_tca_select.py",
     "tests/test_smolvla_asset_readiness.py",
@@ -539,6 +550,7 @@ $required = @(
     "tests/test_css_shield_minimal_rollout_diagnostic.py",
     "tests/test_css_shield_autopilot_next.py",
     "tests/test_css_shield_phase2_autopilot.py",
+    "tests/test_amp_gd_minimal_probe_diagnostic.py",
     "tca_map/css_shield/__init__.py",
     "tca_map/css_shield/autopilot_next.py",
     "tca_map/css_shield/phase2_autopilot.py",
@@ -554,8 +566,8 @@ $required = @(
     "scripts/146_online_7d_head_redesign_gate.ps1",
     "scripts/150_css_shield_minimal_rollout_diagnostic.ps1"
     "scripts/151_css_shield_minimal_rollout_diagnostic_wsl.ps1"
-    "scripts/160_css_shield_autopilot_next.ps1"
-    "scripts/161_css_shield_state1_5_semantic_observability.ps1"
+    "scripts/160_css_shield_autopilot_next.ps1",
+    "scripts/161_css_shield_state1_5_semantic_observability.ps1",
     "scripts/162_css_shield_phase2_autopilot.ps1"
 )
 

@@ -3060,3 +3060,37 @@ Tournament result:
 - Candidate 3: Path-Consistent Event-Triggered Chunk Guard.
 
 Recommended next topic: Active Micro-Probe Goal Disambiguation, because it starts from active control evidence, has clear no-probe/random-probe/safety/clipping baselines, does not depend on native VLA competence for the first metric, and is not another calibration, shielding, or offline-proxy route.
+
+## AMP-GD State 0-1 Result
+
+Status: initialized and advanced through the first rollout/control diagnostic on branch `codex/active-micro-probe-state0-state1`.
+
+Implementation:
+- reports: `reports\amp_gd_task_definition.md`, `reports\amp_gd_related_work_matrix.md`, `reports\amp_gd_experiment_plan.md`, `reports\amp_gd_kill_criteria.md`, `reports\amp_gd_autopilot_state.md`, `reports\amp_gd_decision_log.md`, `reports\amp_gd_risk_register.md`, and `reports\amp_gd_state1_minimal_probe_result.md`.
+- script: `scripts\168_amp_gd_minimal_probe_diagnostic.ps1`.
+- module: `tca_map.amp_gd.minimal_probe_diagnostic`.
+- targeted tests: `tests\test_amp_gd_minimal_probe_diagnostic.py`.
+
+Execution boundary:
+- rollout/control metric happened: yes, in a toy 2D point-world diagnostic.
+- LIBERO/RoboSuite rollout happened: no.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA imports, OpenVLA-OFT, benchmark rollouts, token access, and paper-grade claims did not occur.
+
+Key result:
+- trials/seeds: `60` trials, seeds `11, 23, 37`.
+- target classes: `dotted`, `striped`.
+- distractor configurations: `front_back`, `left_right`.
+- no-probe wrong-target/success/unsafe: `0.5 / 0.066666667 / 0.816666667`.
+- random-probe wrong-target/success/unsafe: `0.466666667 / 0.533333333 / 0.0`.
+- safety-only wrong-target/success/unsafe: `0.5 / 0.5 / 0.0`.
+- nearest-target wrong-target/success/unsafe: `0.483333333 / 0.066666667 / 0.833333333`.
+- AMP-GD wrong-target/success/unsafe: `0.0 / 1.0 / 0.0`.
+- AMP-GD probe cost: `0.12`.
+- AMP-GD extra path length versus no-probe: `0.318929988`.
+- AMP-GD utility drop versus no-probe: `-1.718107002`.
+- AMP-GD belief entropy reduction: `0.666943387`.
+
+Conclusion: continue to State 2 scale diagnostic. The result is promising but toy-only. The next milestone must either scale the point-world diagnostic and begin a narrow LIBERO/RoboSuite object-observable port, or kill/reframe if random-probe, safety-only, nearest-target, or no-probe catches up.
