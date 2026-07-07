@@ -1,0 +1,2026 @@
+{
+  "cases": [
+    {
+      "augmentation_parameters": {
+        "noise_std": 0.025,
+        "pose_jitter_meters": 0.02,
+        "random_pose_jitter_delta_m": [
+          0.002514604421867866,
+          -0.0026420972658260378,
+          0.0032021132522164104
+        ],
+        "seed": 0
+      },
+      "bddl_file": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "counterfactual_instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "counterfactual_task_id": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "demo_name": "demo_0",
+      "hdf5_contact_tube": {
+        "close_transitions": [
+          62,
+          203
+        ],
+        "contact_window": {
+          "available": true,
+          "end_index": 262,
+          "index_count": 201,
+          "proximity_threshold_m": null,
+          "source": "gripper_surrogate",
+          "start_index": 62
+        },
+        "distance_profile_available": false,
+        "distance_profile_summary": {
+          "available": false,
+          "final": null,
+          "mean": null,
+          "min": null,
+          "min_index": null,
+          "start": null
+        },
+        "eef_available": true,
+        "gripper_close_index": 62,
+        "horizon": 272,
+        "lift_index": 119,
+        "object_motion_onset_index": null,
+        "object_pose_available": false,
+        "observable": true,
+        "place_or_release_index": 262,
+        "relative_profile_available": false,
+        "release_index": 262,
+        "release_transitions": [
+          109,
+          262
+        ],
+        "source": "hdf5_demo"
+      },
+      "hdf5_eef_source": {
+        "available": true,
+        "key": "ee_pos",
+        "obs_keys": [
+          "agentview_rgb",
+          "ee_ori",
+          "ee_pos",
+          "ee_states",
+          "eye_in_hand_rgb",
+          "gripper_states",
+          "joint_states"
+        ]
+      },
+      "hdf5_metadata": {
+        "first_done_index": 271,
+        "first_positive_reward_index": 271,
+        "first_signal_index": 271,
+        "full_action_steps": 272,
+        "hdf5_object_pose_keys_available": [],
+        "model_file_available": true,
+        "num_samples_attr": 272,
+        "states0_l2_to_init_state": 0.0,
+        "target_horizon": 272
+      },
+      "hdf5_object_source": {
+        "audit": {
+          "all_scores": [],
+          "available_object_position_keys": [],
+          "best_key": null,
+          "best_overlap": [],
+          "best_score": 0,
+          "instruction": "turn on the stove and put the moka pot on it",
+          "instruction_tokens": [
+            "moka",
+            "pot",
+            "stove"
+          ]
+        },
+        "available": false,
+        "key": null,
+        "obs_keys": [
+          "agentview_rgb",
+          "ee_ori",
+          "ee_pos",
+          "ee_states",
+          "eye_in_hand_rgb",
+          "gripper_states",
+          "joint_states"
+        ]
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10:KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it__vs__KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "positive_demo_path": "/mnt/c/assets/data/libero/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+      "target_horizon": 272,
+      "task_id": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "translation_unit": {
+        "available": true,
+        "meters_per_action_unit": 0.01286278,
+        "raw_ratio_range": {
+          "max": 0.646025,
+          "max_abs": 0.646025,
+          "mean": 0.015406,
+          "min": 0.002173,
+          "std": 0.040727
+        },
+        "sample_count": 258,
+        "source": "median_hdf5_eef_delta_norm_per_translation_action_norm"
+      },
+      "variants": [
+        {
+          "action_metrics_vs_raw_expert": {
+            "action_dim": 7,
+            "action_l1_mean": 0.0,
+            "action_l2_max": 0.0,
+            "action_l2_mean": 0.0,
+            "clip_rate_element": 0.0,
+            "clip_rate_step": 0.0,
+            "controller_valid_action_rate": 1.0,
+            "effective_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.012533,
+              "min": -1.0,
+              "std": 0.428252
+            },
+            "finite_raw": true,
+            "gripper_drift_max": 0.0,
+            "gripper_drift_mean": 0.0,
+            "gripper_mean_abs_error": 0.0,
+            "gripper_mismatch_rate": 0.0,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.195402,
+              "min": -1.0,
+              "std": 0.980723
+            },
+            "post_clip_controller_valid_action_rate": 1.0,
+            "raw_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.012533,
+              "min": -1.0,
+              "std": 0.428252
+            },
+            "rotation_drift_max": 0.0,
+            "rotation_drift_mean": 0.0,
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.023484,
+              "min": -0.085714,
+              "std": 0.067568
+            },
+            "steps": 261,
+            "trajectory_proxy_rotation_integral_final_l2": 0.0,
+            "trajectory_proxy_translation_integral_final_l2": 0.0,
+            "translation_drift_max": 0.0,
+            "translation_drift_mean": 0.0,
+            "translation_range": {
+              "max": 0.7875,
+              "max_abs": 0.7875,
+              "mean": 0.012408,
+              "min": -0.758036,
+              "std": 0.299491
+            }
+          },
+          "after_set_state_l2_to_hdf5_init": 0.0,
+          "available_obs_keys": [
+            "agentview_image",
+            "chefmate_8_frypan_1_pos",
+            "chefmate_8_frypan_1_quat",
+            "chefmate_8_frypan_1_to_robot0_eef_pos",
+            "chefmate_8_frypan_1_to_robot0_eef_quat",
+            "moka_pot_1_pos",
+            "moka_pot_1_quat",
+            "moka_pot_1_to_robot0_eef_pos",
+            "moka_pot_1_to_robot0_eef_quat",
+            "object-state",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state"
+          ],
+          "claim_role": "noop_original_replay_upper_bound",
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "contact_tube": {
+            "close_transitions": [
+              62,
+              203
+            ],
+            "contact_window": {
+              "available": true,
+              "end_index": 260,
+              "index_count": 52,
+              "proximity_threshold_m": 0.08,
+              "source": "eef_object_distance",
+              "start_index": 209
+            },
+            "distance_profile_available": true,
+            "distance_profile_summary": {
+              "available": true,
+              "final": 0.072596,
+              "mean": 0.231906,
+              "min": 0.072596,
+              "min_index": 260,
+              "start": 0.338958
+            },
+            "eef_available": true,
+            "gripper_close_index": 62,
+            "horizon": 261,
+            "lift_index": 219,
+            "object_motion_onset_index": 208,
+            "object_pose_available": true,
+            "observable": true,
+            "place_or_release_index": 248,
+            "relative_profile_available": true,
+            "release_index": 109,
+            "release_transitions": [
+              109
+            ],
+            "source": "runtime_replay:exact_init_reference"
+          },
+          "contact_tube_metrics": null,
+          "controller": {
+            "control_freq": null,
+            "controller_type": "OSC_POSE",
+            "timestep": 0.002
+          },
+          "controller_valid_action_rate": 1.0,
+          "done_seen": true,
+          "eef_displacement_l2": 0.263431,
+          "eef_final": [
+            -0.026212297870806013,
+            0.1275713294957072,
+            1.0364388495661443
+          ],
+          "eef_object_distance": {
+            "available": true,
+            "change": -0.267427,
+            "final": 0.071531,
+            "start": 0.338958
+          },
+          "eef_start": [
+            -0.1995497381507214,
+            -0.006835829541385498,
+            1.182331552466795
+          ],
+          "env_created": true,
+          "error": null,
+          "executed_action_stats": {
+            "clip_rate_if_env_adapter_applied": 0.0,
+            "finite": true,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.195402,
+              "min": -1.0
+            },
+            "range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.012533,
+              "min": -1.0
+            },
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.023484,
+              "min": -0.085714
+            },
+            "shape": [
+              261,
+              7
+            ],
+            "translation_range": {
+              "max": 0.7875,
+              "max_abs": 0.7875,
+              "mean": 0.012408,
+              "min": -0.758036
+            }
+          },
+          "final_reward": 1.0,
+          "final_success": true,
+          "final_target_pos": [
+            -0.04814072553172503,
+            0.18558313895078613,
+            1.0007943685790675
+          ],
+          "first_done_index": 260,
+          "first_positive_reward_index": 260,
+          "first_success_index": 260,
+          "gripper_timing_error": {
+            "candidate_first_nonnegative_index": 62,
+            "candidate_release_index": 109,
+            "close_absolute_error": 0,
+            "reference_first_nonnegative_index": 62,
+            "reference_release_index": 109,
+            "release_absolute_error": 0
+          },
+          "init_mode": "exact",
+          "object_delta_from_exact_start": null,
+          "object_position_keys_available": true,
+          "passed": true,
+          "reset_ok": true,
+          "retarget_trace_first_8": [],
+          "reward_sum": 1.0,
+          "set_init_state_ok": true,
+          "set_init_state_used": true,
+          "start_target_pos": [
+            0.06137868752456883,
+            0.00046593739053894817,
+            0.9661017023863033
+          ],
+          "steps_performed": 261,
+          "steps_requested": 272,
+          "target_audit": {
+            "available_object_position_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "moka_pot_1_pos",
+              "moka_pot_1_to_robot0_eef_pos"
+            ],
+            "best_key": "moka_pot_1_pos",
+            "best_overlap": [
+              "moka",
+              "pot"
+            ],
+            "best_score": 2,
+            "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+            "uses_bddl_metadata": false,
+            "uses_dataset_target_labels": false,
+            "uses_eval_labels": false,
+            "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+          },
+          "target_key": "moka_pot_1_pos",
+          "target_object_movement_l2": 0.217868,
+          "variant": "exact_init_noop_upper_bound"
+        },
+        {
+          "action_metrics_vs_raw_expert": {
+            "action_dim": 7,
+            "action_l1_mean": 0.0,
+            "action_l2_max": 0.0,
+            "action_l2_mean": 0.0,
+            "clip_rate_element": 0.0,
+            "clip_rate_step": 0.0,
+            "controller_valid_action_rate": 1.0,
+            "effective_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.017976,
+              "min": -1.0,
+              "std": 0.426364
+            },
+            "finite_raw": true,
+            "gripper_drift_max": 0.0,
+            "gripper_drift_mean": 0.0,
+            "gripper_mean_abs_error": 0.0,
+            "gripper_mismatch_rate": 0.0,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0,
+              "std": 0.975367
+            },
+            "post_clip_controller_valid_action_rate": 1.0,
+            "raw_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.017976,
+              "min": -1.0,
+              "std": 0.426364
+            },
+            "rotation_drift_max": 0.0,
+            "rotation_drift_mean": 0.0,
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714,
+              "std": 0.067256
+            },
+            "steps": 272,
+            "trajectory_proxy_rotation_integral_final_l2": 0.0,
+            "trajectory_proxy_translation_integral_final_l2": 0.0,
+            "translation_drift_max": 0.0,
+            "translation_drift_mean": 0.0,
+            "translation_range": {
+              "max": 0.7875,
+              "max_abs": 0.7875,
+              "mean": 0.010274,
+              "min": -0.758036,
+              "std": 0.294117
+            }
+          },
+          "after_set_state_l2_to_hdf5_init": null,
+          "available_obs_keys": [
+            "agentview_image",
+            "chefmate_8_frypan_1_pos",
+            "chefmate_8_frypan_1_quat",
+            "chefmate_8_frypan_1_to_robot0_eef_pos",
+            "chefmate_8_frypan_1_to_robot0_eef_quat",
+            "moka_pot_1_pos",
+            "moka_pot_1_quat",
+            "moka_pot_1_to_robot0_eef_pos",
+            "moka_pot_1_to_robot0_eef_quat",
+            "object-state",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state"
+          ],
+          "claim_role": "simple_baseline",
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "contact_tube": {
+            "close_transitions": [
+              62,
+              203
+            ],
+            "contact_window": {
+              "available": true,
+              "end_index": 262,
+              "index_count": 201,
+              "proximity_threshold_m": 0.08,
+              "source": "eef_object_distance",
+              "start_index": 62
+            },
+            "distance_profile_available": true,
+            "distance_profile_summary": {
+              "available": true,
+              "final": 0.188604,
+              "mean": 0.242271,
+              "min": 0.092184,
+              "min_index": 211,
+              "start": 0.312931
+            },
+            "eef_available": true,
+            "gripper_close_index": 62,
+            "horizon": 272,
+            "lift_index": 120,
+            "object_motion_onset_index": 208,
+            "object_pose_available": true,
+            "observable": true,
+            "place_or_release_index": 262,
+            "relative_profile_available": true,
+            "release_index": 262,
+            "release_transitions": [
+              109,
+              262
+            ],
+            "source": "runtime_replay:raw_demo_replay"
+          },
+          "contact_tube_metrics": {
+            "contact_tube_preservation_error": 0.169342,
+            "contact_window_iou": 0.258706,
+            "eef_object_distance_profile_mae": 0.030056,
+            "eef_object_distance_profile_max": 0.154115,
+            "eef_object_relative_profile_mae": 0.063953,
+            "lift_phase_error": {
+              "absolute_error": 99,
+              "candidate": 120,
+              "reference": 219
+            },
+            "object_motion_onset_error": {
+              "absolute_error": 0,
+              "candidate": 208,
+              "reference": 208
+            },
+            "place_phase_error": {
+              "absolute_error": 14,
+              "candidate": 262,
+              "reference": 248
+            }
+          },
+          "controller": {
+            "control_freq": null,
+            "controller_type": "OSC_POSE",
+            "timestep": 0.002
+          },
+          "controller_valid_action_rate": 1.0,
+          "done_seen": false,
+          "eef_displacement_l2": 0.256842,
+          "eef_final": [
+            -0.009162799725940545,
+            0.1265103673904393,
+            1.072077959228528
+          ],
+          "eef_object_distance": {
+            "available": true,
+            "change": -0.124403,
+            "final": 0.188528,
+            "start": 0.312931
+          },
+          "eef_start": [
+            -0.2084646605658236,
+            0.0,
+            1.1732794757296403
+          ],
+          "env_created": true,
+          "error": null,
+          "executed_action_stats": {
+            "clip_rate_if_env_adapter_applied": 0.0,
+            "finite": true,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0
+            },
+            "range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.017976,
+              "min": -1.0
+            },
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714
+            },
+            "shape": [
+              272,
+              7
+            ],
+            "translation_range": {
+              "max": 0.7875,
+              "max_abs": 0.7875,
+              "mean": 0.010274,
+              "min": -0.758036
+            }
+          },
+          "final_reward": 0.0,
+          "final_success": false,
+          "final_target_pos": [
+            0.02632522314124416,
+            -0.025322369852228327,
+            0.9661058538799803
+          ],
+          "first_done_index": null,
+          "first_positive_reward_index": null,
+          "first_success_index": null,
+          "gripper_timing_error": {
+            "candidate_first_nonnegative_index": 62,
+            "candidate_release_index": 262,
+            "close_absolute_error": 0,
+            "reference_first_nonnegative_index": 62,
+            "reference_release_index": 262,
+            "release_absolute_error": 0
+          },
+          "init_mode": "default_reset",
+          "object_delta_from_exact_start": [
+            -0.03282688461467448,
+            -0.021109472405461915,
+            0.003898297613696644
+          ],
+          "object_position_keys_available": true,
+          "passed": true,
+          "reset_ok": true,
+          "retarget_trace_first_8": [],
+          "reward_sum": 0.0,
+          "set_init_state_ok": false,
+          "set_init_state_used": false,
+          "start_target_pos": [
+            0.02855180290989435,
+            -0.020643535014922967,
+            0.97
+          ],
+          "steps_performed": 272,
+          "steps_requested": 272,
+          "target_audit": {
+            "available_object_position_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "moka_pot_1_pos",
+              "moka_pot_1_to_robot0_eef_pos"
+            ],
+            "best_key": "moka_pot_1_pos",
+            "best_overlap": [
+              "moka",
+              "pot"
+            ],
+            "best_score": 2,
+            "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+            "uses_bddl_metadata": false,
+            "uses_dataset_target_labels": false,
+            "uses_eval_labels": false,
+            "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+          },
+          "target_key": "moka_pot_1_pos",
+          "target_object_movement_l2": 0.006482,
+          "variant": "raw_demo_replay"
+        },
+        {
+          "action_metrics_vs_raw_expert": {
+            "action_dim": 7,
+            "action_l1_mean": 0.000341305,
+            "action_l2_max": 0.015722369,
+            "action_l2_mean": 0.001387268,
+            "clip_rate_element": 0.0,
+            "clip_rate_step": 0.0,
+            "controller_valid_action_rate": 1.0,
+            "effective_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.01785,
+              "min": -1.0,
+              "std": 0.426275
+            },
+            "finite_raw": true,
+            "gripper_drift_max": 0.0,
+            "gripper_drift_mean": 0.0,
+            "gripper_mean_abs_error": 0.0,
+            "gripper_mismatch_rate": 0.0,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0,
+              "std": 0.975367
+            },
+            "post_clip_controller_valid_action_rate": 1.0,
+            "raw_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.01785,
+              "min": -1.0,
+              "std": 0.426275
+            },
+            "rotation_drift_max": 0.0,
+            "rotation_drift_mean": 0.0,
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714,
+              "std": 0.067256
+            },
+            "steps": 272,
+            "trajectory_proxy_rotation_integral_final_l2": 0.0,
+            "trajectory_proxy_translation_integral_final_l2": 0.377336859,
+            "translation_drift_max": 0.015722369,
+            "translation_drift_mean": 0.001387268,
+            "translation_range": {
+              "max": 0.7875,
+              "max_abs": 0.7875,
+              "mean": 0.010567,
+              "min": -0.758036,
+              "std": 0.29379
+            }
+          },
+          "after_set_state_l2_to_hdf5_init": null,
+          "available_obs_keys": [
+            "agentview_image",
+            "chefmate_8_frypan_1_pos",
+            "chefmate_8_frypan_1_quat",
+            "chefmate_8_frypan_1_to_robot0_eef_pos",
+            "chefmate_8_frypan_1_to_robot0_eef_quat",
+            "moka_pot_1_pos",
+            "moka_pot_1_quat",
+            "moka_pot_1_to_robot0_eef_pos",
+            "moka_pot_1_to_robot0_eef_quat",
+            "object-state",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state"
+          ],
+          "claim_role": "simple_baseline",
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "contact_tube": {
+            "close_transitions": [
+              62,
+              203
+            ],
+            "contact_window": {
+              "available": true,
+              "end_index": 262,
+              "index_count": 201,
+              "proximity_threshold_m": 0.08,
+              "source": "eef_object_distance",
+              "start_index": 62
+            },
+            "distance_profile_available": true,
+            "distance_profile_summary": {
+              "available": true,
+              "final": 0.187457,
+              "mean": 0.240735,
+              "min": 0.089119,
+              "min_index": 212,
+              "start": 0.312931
+            },
+            "eef_available": true,
+            "gripper_close_index": 62,
+            "horizon": 272,
+            "lift_index": 120,
+            "object_motion_onset_index": 209,
+            "object_pose_available": true,
+            "observable": true,
+            "place_or_release_index": 262,
+            "relative_profile_available": true,
+            "release_index": 262,
+            "release_transitions": [
+              109,
+              262
+            ],
+            "source": "runtime_replay:random_pose_jitter"
+          },
+          "contact_tube_metrics": {
+            "contact_tube_preservation_error": 0.166599,
+            "contact_window_iou": 0.258706,
+            "eef_object_distance_profile_mae": 0.029383,
+            "eef_object_distance_profile_max": 0.150745,
+            "eef_object_relative_profile_mae": 0.061216,
+            "lift_phase_error": {
+              "absolute_error": 99,
+              "candidate": 120,
+              "reference": 219
+            },
+            "object_motion_onset_error": {
+              "absolute_error": 1,
+              "candidate": 209,
+              "reference": 208
+            },
+            "place_phase_error": {
+              "absolute_error": 14,
+              "candidate": 262,
+              "reference": 248
+            }
+          },
+          "controller": {
+            "control_freq": null,
+            "controller_type": "OSC_POSE",
+            "timestep": 0.002
+          },
+          "controller_valid_action_rate": 1.0,
+          "done_seen": false,
+          "eef_displacement_l2": 0.253492,
+          "eef_final": [
+            -0.01467693194836455,
+            0.12359193976847613,
+            1.066371155002555
+          ],
+          "eef_object_distance": {
+            "available": true,
+            "change": -0.125544,
+            "final": 0.187387,
+            "start": 0.312931
+          },
+          "eef_start": [
+            -0.2084646605658236,
+            0.0,
+            1.1732794757296403
+          ],
+          "env_created": true,
+          "error": null,
+          "executed_action_stats": {
+            "clip_rate_if_env_adapter_applied": 0.0,
+            "finite": true,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0
+            },
+            "range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.01785,
+              "min": -1.0
+            },
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714
+            },
+            "shape": [
+              272,
+              7
+            ],
+            "translation_range": {
+              "max": 0.7875,
+              "max_abs": 0.7875,
+              "mean": 0.010567,
+              "min": -0.758036
+            }
+          },
+          "final_reward": 0.0,
+          "final_success": false,
+          "final_target_pos": [
+            0.027295246655399688,
+            -0.0290486996793974,
+            0.9661058538799803
+          ],
+          "first_done_index": null,
+          "first_positive_reward_index": null,
+          "first_success_index": null,
+          "gripper_timing_error": {
+            "candidate_first_nonnegative_index": 62,
+            "candidate_release_index": 262,
+            "close_absolute_error": 0,
+            "reference_first_nonnegative_index": 62,
+            "reference_release_index": 262,
+            "release_absolute_error": 0
+          },
+          "init_mode": "default_reset",
+          "object_delta_from_exact_start": [
+            -0.03282688461467448,
+            -0.021109472405461915,
+            0.003898297613696644
+          ],
+          "object_position_keys_available": true,
+          "passed": true,
+          "reset_ok": true,
+          "retarget_trace_first_8": [],
+          "reward_sum": 0.0,
+          "set_init_state_ok": false,
+          "set_init_state_used": false,
+          "start_target_pos": [
+            0.02855180290989435,
+            -0.020643535014922967,
+            0.97
+          ],
+          "steps_performed": 272,
+          "steps_requested": 272,
+          "target_audit": {
+            "available_object_position_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "moka_pot_1_pos",
+              "moka_pot_1_to_robot0_eef_pos"
+            ],
+            "best_key": "moka_pot_1_pos",
+            "best_overlap": [
+              "moka",
+              "pot"
+            ],
+            "best_score": 2,
+            "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+            "uses_bddl_metadata": false,
+            "uses_dataset_target_labels": false,
+            "uses_eval_labels": false,
+            "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+          },
+          "target_key": "moka_pot_1_pos",
+          "target_object_movement_l2": 0.009348,
+          "variant": "random_pose_jitter"
+        },
+        {
+          "action_metrics_vs_raw_expert": {
+            "action_dim": 7,
+            "action_l1_mean": 0.0308611,
+            "action_l2_max": 1.702844727,
+            "action_l2_mean": 0.142102849,
+            "clip_rate_element": 0.0,
+            "clip_rate_step": 0.0,
+            "controller_valid_action_rate": 1.0,
+            "effective_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.009409,
+              "min": -1.0,
+              "std": 0.435425
+            },
+            "finite_raw": true,
+            "gripper_drift_max": 0.0,
+            "gripper_drift_mean": 0.0,
+            "gripper_mean_abs_error": 0.0,
+            "gripper_mismatch_rate": 0.0,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0,
+              "std": 0.975367
+            },
+            "post_clip_controller_valid_action_rate": 1.0,
+            "raw_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.009409,
+              "min": -1.0,
+              "std": 0.435425
+            },
+            "rotation_drift_max": 0.0,
+            "rotation_drift_mean": 0.0,
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714,
+              "std": 0.067256
+            },
+            "steps": 272,
+            "trajectory_proxy_rotation_integral_final_l2": 0.0,
+            "trajectory_proxy_translation_integral_final_l2": 17.440381783,
+            "translation_drift_max": 1.702844727,
+            "translation_drift_mean": 0.142102849,
+            "translation_range": {
+              "max": 0.866697,
+              "max_abs": 1.0,
+              "mean": 0.030263,
+              "min": -1.0,
+              "std": 0.32151
+            }
+          },
+          "after_set_state_l2_to_hdf5_init": null,
+          "available_obs_keys": [
+            "agentview_image",
+            "chefmate_8_frypan_1_pos",
+            "chefmate_8_frypan_1_quat",
+            "chefmate_8_frypan_1_to_robot0_eef_pos",
+            "chefmate_8_frypan_1_to_robot0_eef_quat",
+            "moka_pot_1_pos",
+            "moka_pot_1_quat",
+            "moka_pot_1_to_robot0_eef_pos",
+            "moka_pot_1_to_robot0_eef_quat",
+            "object-state",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state"
+          ],
+          "claim_role": "simple_baseline",
+          "clip_rate_element": 0.002626,
+          "clip_rate_step": 0.011029,
+          "contact_tube": {
+            "close_transitions": [
+              62,
+              203
+            ],
+            "contact_window": {
+              "available": true,
+              "end_index": 271,
+              "index_count": 62,
+              "proximity_threshold_m": 0.08,
+              "source": "eef_object_distance",
+              "start_index": 210
+            },
+            "distance_profile_available": true,
+            "distance_profile_summary": {
+              "available": true,
+              "final": 0.07632,
+              "mean": 0.2273,
+              "min": 0.073697,
+              "min_index": 265,
+              "start": 0.312931
+            },
+            "eef_available": true,
+            "gripper_close_index": 62,
+            "horizon": 272,
+            "lift_index": 219,
+            "object_motion_onset_index": 208,
+            "object_pose_available": true,
+            "observable": true,
+            "place_or_release_index": 247,
+            "relative_profile_available": true,
+            "release_index": 262,
+            "release_transitions": [
+              109,
+              262
+            ],
+            "source": "runtime_replay:simple_object_relative_translation_retarget"
+          },
+          "contact_tube_metrics": {
+            "contact_tube_preservation_error": 0.009154,
+            "contact_window_iou": 0.809524,
+            "eef_object_distance_profile_mae": 0.002585,
+            "eef_object_distance_profile_max": 0.026027,
+            "eef_object_relative_profile_mae": 0.005902,
+            "lift_phase_error": {
+              "absolute_error": 0,
+              "candidate": 219,
+              "reference": 219
+            },
+            "object_motion_onset_error": {
+              "absolute_error": 0,
+              "candidate": 208,
+              "reference": 208
+            },
+            "place_phase_error": {
+              "absolute_error": 1,
+              "candidate": 247,
+              "reference": 248
+            }
+          },
+          "controller": {
+            "control_freq": null,
+            "controller_type": "OSC_POSE",
+            "timestep": 0.002
+          },
+          "controller_valid_action_rate": 0.988971,
+          "done_seen": false,
+          "eef_displacement_l2": 0.226571,
+          "eef_final": [
+            -0.058842327936676965,
+            0.10635938212021495,
+            1.0404811565768322
+          ],
+          "eef_object_distance": {
+            "available": true,
+            "change": -0.236733,
+            "final": 0.076198,
+            "start": 0.312931
+          },
+          "eef_start": [
+            -0.2084646605658236,
+            0.0,
+            1.1732794757296403
+          ],
+          "env_created": true,
+          "error": null,
+          "executed_action_stats": {
+            "clip_rate_if_env_adapter_applied": 0.0,
+            "finite": true,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0
+            },
+            "range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.009409,
+              "min": -1.0
+            },
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714
+            },
+            "shape": [
+              272,
+              7
+            ],
+            "translation_range": {
+              "max": 0.866697,
+              "max_abs": 1.0,
+              "mean": 0.030263,
+              "min": -1.0
+            }
+          },
+          "final_reward": 0.0,
+          "final_success": false,
+          "final_target_pos": [
+            -0.0659255369534199,
+            0.16825412453275004,
+            0.9966055633811972
+          ],
+          "first_done_index": null,
+          "first_positive_reward_index": null,
+          "first_success_index": null,
+          "gripper_timing_error": {
+            "candidate_first_nonnegative_index": 62,
+            "candidate_release_index": 262,
+            "close_absolute_error": 0,
+            "reference_first_nonnegative_index": 62,
+            "reference_release_index": 262,
+            "release_absolute_error": 0
+          },
+          "init_mode": "default_reset",
+          "object_delta_from_exact_start": [
+            -0.03282688461467448,
+            -0.021109472405461915,
+            0.003898297613696644
+          ],
+          "object_position_keys_available": true,
+          "passed": true,
+          "reset_ok": true,
+          "retarget_trace_first_8": [
+            {
+              "desired_eef": [
+                -0.23406400076162345,
+                -0.026600231347691947,
+                1.1844276064746406
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 0,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23589528862481407,
+                -0.025026168838249336,
+                1.1825149376393767
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 1,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23681975179274256,
+                -0.023915523894951208,
+                1.18156880174454
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 2,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.2367401543810245,
+                -0.02267540891951944,
+                1.181511133134952
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 3,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23621562673956084,
+                -0.020941045867119378,
+                1.1817803429751197
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 4,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23579935580507164,
+                -0.01860972100447429,
+                1.1819685793026626
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 5,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23554184757651025,
+                -0.01575457755341415,
+                1.1821116576967299
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 6,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23539235172477588,
+                -0.012470982849925163,
+                1.1822184329321725
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 7,
+              "uses_current_object": false
+            }
+          ],
+          "reward_sum": 0.0,
+          "set_init_state_ok": false,
+          "set_init_state_used": false,
+          "start_target_pos": [
+            0.02855180290989435,
+            -0.020643535014922967,
+            0.97
+          ],
+          "steps_performed": 272,
+          "steps_requested": 272,
+          "target_audit": {
+            "available_object_position_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "moka_pot_1_pos",
+              "moka_pot_1_to_robot0_eef_pos"
+            ],
+            "best_key": "moka_pot_1_pos",
+            "best_overlap": [
+              "moka",
+              "pot"
+            ],
+            "best_score": 2,
+            "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+            "uses_bddl_metadata": false,
+            "uses_dataset_target_labels": false,
+            "uses_eval_labels": false,
+            "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+          },
+          "target_key": "moka_pot_1_pos",
+          "target_object_movement_l2": 0.212876,
+          "variant": "simple_object_relative_translation_retarget"
+        },
+        {
+          "action_metrics_vs_raw_expert": {
+            "action_dim": 7,
+            "action_l1_mean": 0.016998819,
+            "action_l2_max": 0.106021921,
+            "action_l2_mean": 0.057962676,
+            "clip_rate_element": 0.0,
+            "clip_rate_step": 0.0,
+            "controller_valid_action_rate": 1.0,
+            "effective_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.018567,
+              "min": -1.0,
+              "std": 0.426891
+            },
+            "finite_raw": true,
+            "gripper_drift_max": 0.0,
+            "gripper_drift_mean": 0.0,
+            "gripper_mean_abs_error": 0.0,
+            "gripper_mismatch_rate": 0.0,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0,
+              "std": 0.975367
+            },
+            "post_clip_controller_valid_action_rate": 1.0,
+            "raw_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.018567,
+              "min": -1.0,
+              "std": 0.426891
+            },
+            "rotation_drift_max": 0.086179843,
+            "rotation_drift_mean": 0.040125635,
+            "rotation_range": {
+              "max": 0.409098,
+              "max_abs": 0.409098,
+              "mean": 0.020502,
+              "min": -0.123376,
+              "std": 0.071127
+            },
+            "steps": 272,
+            "trajectory_proxy_rotation_integral_final_l2": 0.844403602,
+            "trajectory_proxy_translation_integral_final_l2": 0.507998374,
+            "translation_drift_max": 0.076498599,
+            "translation_drift_mean": 0.03904328,
+            "translation_range": {
+              "max": 0.803759,
+              "max_abs": 0.803759,
+              "mean": 0.009704,
+              "min": -0.77759,
+              "std": 0.295153
+            }
+          },
+          "after_set_state_l2_to_hdf5_init": null,
+          "available_obs_keys": [
+            "agentview_image",
+            "chefmate_8_frypan_1_pos",
+            "chefmate_8_frypan_1_quat",
+            "chefmate_8_frypan_1_to_robot0_eef_pos",
+            "chefmate_8_frypan_1_to_robot0_eef_quat",
+            "moka_pot_1_pos",
+            "moka_pot_1_quat",
+            "moka_pot_1_to_robot0_eef_pos",
+            "moka_pot_1_to_robot0_eef_quat",
+            "object-state",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state"
+          ],
+          "claim_role": "simple_baseline",
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "contact_tube": {
+            "close_transitions": [
+              62,
+              203
+            ],
+            "contact_window": {
+              "available": true,
+              "end_index": 262,
+              "index_count": 201,
+              "proximity_threshold_m": 0.08,
+              "source": "eef_object_distance",
+              "start_index": 62
+            },
+            "distance_profile_available": true,
+            "distance_profile_summary": {
+              "available": true,
+              "final": 0.185665,
+              "mean": 0.24113,
+              "min": 0.0921,
+              "min_index": 211,
+              "start": 0.312931
+            },
+            "eef_available": true,
+            "gripper_close_index": 62,
+            "horizon": 272,
+            "lift_index": 120,
+            "object_motion_onset_index": 198,
+            "object_pose_available": true,
+            "observable": true,
+            "place_or_release_index": 262,
+            "relative_profile_available": true,
+            "release_index": 262,
+            "release_transitions": [
+              109,
+              262
+            ],
+            "source": "runtime_replay:random_action_jitter"
+          },
+          "contact_tube_metrics": {
+            "contact_tube_preservation_error": 0.176102,
+            "contact_window_iou": 0.258706,
+            "eef_object_distance_profile_mae": 0.03064,
+            "eef_object_distance_profile_max": 0.152208,
+            "eef_object_relative_profile_mae": 0.063462,
+            "lift_phase_error": {
+              "absolute_error": 99,
+              "candidate": 120,
+              "reference": 219
+            },
+            "object_motion_onset_error": {
+              "absolute_error": 10,
+              "candidate": 198,
+              "reference": 208
+            },
+            "place_phase_error": {
+              "absolute_error": 14,
+              "candidate": 262,
+              "reference": 248
+            }
+          },
+          "controller": {
+            "control_freq": null,
+            "controller_type": "OSC_POSE",
+            "timestep": 0.002
+          },
+          "controller_valid_action_rate": 1.0,
+          "done_seen": false,
+          "eef_displacement_l2": 0.256632,
+          "eef_final": [
+            -0.010483793288746643,
+            0.12415303588348978,
+            1.067216284930415
+          ],
+          "eef_object_distance": {
+            "available": true,
+            "change": -0.127894,
+            "final": 0.185037,
+            "start": 0.312931
+          },
+          "eef_start": [
+            -0.2084646605658236,
+            0.0,
+            1.1732794757296403
+          ],
+          "env_created": true,
+          "error": null,
+          "executed_action_stats": {
+            "clip_rate_if_env_adapter_applied": 0.0,
+            "finite": true,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0
+            },
+            "range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.018567,
+              "min": -1.0
+            },
+            "rotation_range": {
+              "max": 0.409098,
+              "max_abs": 0.409098,
+              "mean": 0.020502,
+              "min": -0.123376
+            },
+            "shape": [
+              272,
+              7
+            ],
+            "translation_range": {
+              "max": 0.803759,
+              "max_abs": 0.803759,
+              "mean": 0.009704,
+              "min": -0.77759
+            }
+          },
+          "final_reward": 0.0,
+          "final_success": false,
+          "final_target_pos": [
+            0.02617112983054187,
+            -0.02641852837817987,
+            0.9661058538799803
+          ],
+          "first_done_index": null,
+          "first_positive_reward_index": null,
+          "first_success_index": null,
+          "gripper_timing_error": {
+            "candidate_first_nonnegative_index": 62,
+            "candidate_release_index": 262,
+            "close_absolute_error": 0,
+            "reference_first_nonnegative_index": 62,
+            "reference_release_index": 262,
+            "release_absolute_error": 0
+          },
+          "init_mode": "default_reset",
+          "object_delta_from_exact_start": [
+            -0.03282688461467448,
+            -0.021109472405461915,
+            0.003898297613696644
+          ],
+          "object_position_keys_available": true,
+          "passed": true,
+          "reset_ok": true,
+          "retarget_trace_first_8": [],
+          "reward_sum": 0.0,
+          "set_init_state_ok": false,
+          "set_init_state_used": false,
+          "start_target_pos": [
+            0.02855180290989435,
+            -0.020643535014922967,
+            0.97
+          ],
+          "steps_performed": 272,
+          "steps_requested": 272,
+          "target_audit": {
+            "available_object_position_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "moka_pot_1_pos",
+              "moka_pot_1_to_robot0_eef_pos"
+            ],
+            "best_key": "moka_pot_1_pos",
+            "best_overlap": [
+              "moka",
+              "pot"
+            ],
+            "best_score": 2,
+            "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+            "uses_bddl_metadata": false,
+            "uses_dataset_target_labels": false,
+            "uses_eval_labels": false,
+            "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+          },
+          "target_key": "moka_pot_1_pos",
+          "target_object_movement_l2": 0.007361,
+          "variant": "random_action_jitter"
+        },
+        {
+          "action_metrics_vs_raw_expert": {
+            "action_dim": 7,
+            "action_l1_mean": 0.095756287,
+            "action_l2_max": 1.980044475,
+            "action_l2_mean": 0.43026731,
+            "clip_rate_element": 0.0,
+            "clip_rate_step": 0.0,
+            "controller_valid_action_rate": 1.0,
+            "effective_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": 0.054281,
+              "min": -1.0,
+              "std": 0.487713
+            },
+            "finite_raw": true,
+            "gripper_drift_max": 0.0,
+            "gripper_drift_mean": 0.0,
+            "gripper_mean_abs_error": 0.0,
+            "gripper_mismatch_rate": 0.0,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0,
+              "std": 0.975367
+            },
+            "post_clip_controller_valid_action_rate": 1.0,
+            "raw_action_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": 0.054281,
+              "min": -1.0,
+              "std": 0.487713
+            },
+            "rotation_drift_max": 0.0,
+            "rotation_drift_mean": 0.0,
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714,
+              "std": 0.067256
+            },
+            "steps": 272,
+            "trajectory_proxy_rotation_integral_final_l2": 0.0,
+            "trajectory_proxy_translation_integral_final_l2": 88.043208442,
+            "translation_drift_max": 1.980044475,
+            "translation_drift_mean": 0.43026731,
+            "translation_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": 0.178873,
+              "min": -1.0,
+              "std": 0.437703
+            }
+          },
+          "after_set_state_l2_to_hdf5_init": null,
+          "available_obs_keys": [
+            "agentview_image",
+            "chefmate_8_frypan_1_pos",
+            "chefmate_8_frypan_1_quat",
+            "chefmate_8_frypan_1_to_robot0_eef_pos",
+            "chefmate_8_frypan_1_to_robot0_eef_quat",
+            "moka_pot_1_pos",
+            "moka_pot_1_quat",
+            "moka_pot_1_to_robot0_eef_pos",
+            "moka_pot_1_to_robot0_eef_quat",
+            "object-state",
+            "robot0_eef_pos",
+            "robot0_eef_quat",
+            "robot0_eye_in_hand_image",
+            "robot0_gripper_qpos",
+            "robot0_gripper_qvel",
+            "robot0_joint_pos",
+            "robot0_joint_pos_cos",
+            "robot0_joint_pos_sin",
+            "robot0_joint_vel",
+            "robot0_proprio-state"
+          ],
+          "claim_role": "contacttube_aug_method",
+          "clip_rate_element": 0.038866,
+          "clip_rate_step": 0.150735,
+          "contact_tube": {
+            "close_transitions": [
+              62,
+              203
+            ],
+            "contact_window": {
+              "available": true,
+              "end_index": 268,
+              "index_count": 58,
+              "proximity_threshold_m": 0.08,
+              "source": "eef_object_distance",
+              "start_index": 209
+            },
+            "distance_profile_available": true,
+            "distance_profile_summary": {
+              "available": true,
+              "final": 0.100077,
+              "mean": 0.227336,
+              "min": 0.072791,
+              "min_index": 210,
+              "start": 0.312931
+            },
+            "eef_available": true,
+            "gripper_close_index": 62,
+            "horizon": 272,
+            "lift_index": 217,
+            "object_motion_onset_index": 208,
+            "object_pose_available": true,
+            "observable": true,
+            "place_or_release_index": 244,
+            "relative_profile_available": true,
+            "release_index": 262,
+            "release_transitions": [
+              109,
+              262
+            ],
+            "source": "runtime_replay:contacttube_aug"
+          },
+          "contact_tube_metrics": {
+            "contact_tube_preservation_error": 0.015226,
+            "contact_window_iou": 0.866667,
+            "eef_object_distance_profile_mae": 0.002393,
+            "eef_object_distance_profile_max": 0.026027,
+            "eef_object_relative_profile_mae": 0.008833,
+            "lift_phase_error": {
+              "absolute_error": 2,
+              "candidate": 217,
+              "reference": 219
+            },
+            "object_motion_onset_error": {
+              "absolute_error": 0,
+              "candidate": 208,
+              "reference": 208
+            },
+            "place_phase_error": {
+              "absolute_error": 4,
+              "candidate": 244,
+              "reference": 248
+            }
+          },
+          "controller": {
+            "control_freq": null,
+            "controller_type": "OSC_POSE",
+            "timestep": 0.002
+          },
+          "controller_valid_action_rate": 0.849265,
+          "done_seen": false,
+          "eef_displacement_l2": 0.520494,
+          "eef_final": [
+            0.20514411032364044,
+            0.2256329663115217,
+            0.9520750263386188
+          ],
+          "eef_object_distance": {
+            "available": true,
+            "change": -0.20657,
+            "final": 0.106361,
+            "start": 0.312931
+          },
+          "eef_start": [
+            -0.2084646605658236,
+            0.0,
+            1.1732794757296403
+          ],
+          "env_created": true,
+          "error": null,
+          "executed_action_stats": {
+            "clip_rate_if_env_adapter_applied": 0.0,
+            "finite": true,
+            "gripper_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": -0.220588,
+              "min": -1.0
+            },
+            "range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": 0.054281,
+              "min": -1.0
+            },
+            "rotation_range": {
+              "max": 0.375,
+              "max_abs": 0.375,
+              "mean": 0.021312,
+              "min": -0.085714
+            },
+            "shape": [
+              272,
+              7
+            ],
+            "translation_range": {
+              "max": 1.0,
+              "max_abs": 1.0,
+              "mean": 0.178873,
+              "min": -1.0
+            }
+          },
+          "final_reward": 0.0,
+          "final_success": false,
+          "final_target_pos": [
+            0.18603786896308458,
+            0.32921578751360925,
+            0.9372996338754049
+          ],
+          "first_done_index": null,
+          "first_positive_reward_index": null,
+          "first_success_index": null,
+          "gripper_timing_error": {
+            "candidate_first_nonnegative_index": 62,
+            "candidate_release_index": 262,
+            "close_absolute_error": 0,
+            "reference_first_nonnegative_index": 62,
+            "reference_release_index": 262,
+            "release_absolute_error": 0
+          },
+          "init_mode": "default_reset",
+          "object_delta_from_exact_start": [
+            -0.03282688461467448,
+            -0.021109472405461915,
+            0.003898297613696644
+          ],
+          "object_position_keys_available": true,
+          "passed": true,
+          "reset_ok": true,
+          "retarget_trace_first_8": [
+            {
+              "desired_eef": [
+                -0.23406400076162345,
+                -0.026600231347691947,
+                1.1844276064746406
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 0,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23589528862481407,
+                -0.025026168838249336,
+                1.1825149376393767
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 1,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23681975179274256,
+                -0.023915523894951208,
+                1.18156880174454
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 2,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.2367401543810245,
+                -0.02267540891951944,
+                1.181511133134952
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 3,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23621562673956084,
+                -0.020941045867119378,
+                1.1817803429751197
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 4,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23579935580507164,
+                -0.01860972100447429,
+                1.1819685793026626
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 5,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23554184757651025,
+                -0.01575457755341415,
+                1.1821116576967299
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 6,
+              "uses_current_object": false
+            },
+            {
+              "desired_eef": [
+                -0.23539235172477588,
+                -0.012470982849925163,
+                1.1822184329321725
+              ],
+              "phase": "free_space_shifted_eef_path",
+              "retarget_available": true,
+              "step": 7,
+              "uses_current_object": false
+            }
+          ],
+          "reward_sum": 0.0,
+          "set_init_state_ok": false,
+          "set_init_state_used": false,
+          "start_target_pos": [
+            0.02855180290989435,
+            -0.020643535014922967,
+            0.97
+          ],
+          "steps_performed": 272,
+          "steps_requested": 272,
+          "target_audit": {
+            "available_object_position_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "moka_pot_1_pos",
+              "moka_pot_1_to_robot0_eef_pos"
+            ],
+            "best_key": "moka_pot_1_pos",
+            "best_overlap": [
+              "moka",
+              "pot"
+            ],
+            "best_score": 2,
+            "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+            "uses_bddl_metadata": false,
+            "uses_dataset_target_labels": false,
+            "uses_eval_labels": false,
+            "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+          },
+          "target_key": "moka_pot_1_pos",
+          "target_object_movement_l2": 0.385062,
+          "variant": "contacttube_aug"
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 286.237073,
+  "evidence_label": "contacttube_aug_state1",
+  "inputs": {
+    "camera_size": 64,
+    "libero_root": "/mnt/c/assets/repos/LIBERO",
+    "manifest": "/mnt/c/Users/jiheo/tca_map/reports/libero_offline_counterfactual_split_scaled_report.json",
+    "max_steps_cap": 300,
+    "noise_std": 0.025,
+    "pose_jitter_meters": 0.02,
+    "post_signal_margin": 20,
+    "readiness_report": "/mnt/c/Users/jiheo/tca_map/reports/libero_fixed_prior_rollout_readiness_gate_report.json",
+    "report_json": "/mnt/c/Users/jiheo/tca_map/reports/contacttube_aug_state1_result.json",
+    "report_md": "/mnt/c/Users/jiheo/tca_map/reports/contacttube_aug_state1_result.md",
+    "robosuite_root": "/mnt/c/assets/repos/robosuite",
+    "seed": 0
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "bounded_contacttube_aug_state1": true,
+    "diagnostic_rollouts_performed": true,
+    "downloads_performed": false,
+    "forbidden_gates_set": [],
+    "gpu_jobs_performed": false,
+    "heavy_model_imports_performed": false,
+    "installs_performed": false,
+    "learned_policy_inference_performed": false,
+    "lora_training_performed": false,
+    "loss_computed": false,
+    "model_inference_performed": false,
+    "model_load_performed": false,
+    "multi_seed_performed": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "replay_or_rollout_performed": true,
+    "simulator_environment_created": true,
+    "task_local_gate_required": "ALLOW_CONTACTTUBE_AUG_STATE1=1",
+    "task_local_gate_set": true,
+    "tokens_read_or_written": false,
+    "training_performed": false
+  },
+  "readiness_gate": {
+    "risk_gate_status": "green",
+    "rollout_diagnostic_authorized": true
+  },
+  "result": {
+    "blocked_reason": null,
+    "passed": true,
+    "total_steps_performed": 1621,
+    "variant_count": 6
+  },
+  "schema_version": "2026-07-08.contacttube_aug_state1.v1",
+  "skipped_conditions": {
+    "distractor_insertion_or_relabeling": "not_feasible_without_task_generic_scene_editor_or_training_image_pipeline",
+    "object_pose_shift": "represented_by_default_reset_object_delta_when_runtime_object_pose_is_available",
+    "reset_pose_shift": "default_reset_vs_exact_hdf5_init",
+    "viewpoint_camera_perturbation": "not_feasible_without render/image augmentation in this replay-only smoke",
+    "visual_object_swap_only": "not_run_no_training_or_image_only_policy_evaluation_in_state1"
+  },
+  "summary": {
+    "baselines_tested": [
+      "raw_demo_replay",
+      "random_pose_jitter",
+      "simple_object_relative_translation_retarget",
+      "random_action_jitter"
+    ],
+    "contact_tube_extractable": true,
+    "contacttube_aug_beats_random_action_jitter": true,
+    "contacttube_aug_beats_random_pose_jitter": true,
+    "contacttube_aug_beats_simple_object_relative": false,
+    "contacttube_aug_controller_valid": false,
+    "contacttube_aug_success": false,
+    "continue_or_kill": "kill",
+    "exact_init_noop_upper_bound_success": true,
+    "hdf5_object_pose_available": false,
+    "method_variant": "contacttube_aug",
+    "next_state": "archive_or_reframe_contacttube_aug_before_training",
+    "object_state_available": true,
+    "reason": "ContactTube-Aug trajectory was not controller-valid/replay-valid.",
+    "replay_metric_produced": true,
+    "runtime_object_pose_available": true,
+    "simple_object_relative_matches_or_beats_contacttube_aug": true,
+    "variant_scores": {
+      "contacttube_aug": {
+        "clip_rate_step": 0.150735,
+        "controller_valid_action_rate": 0.849265,
+        "first_done_index": null,
+        "progress_tuple": [
+          0.0,
+          0.0,
+          0.20657,
+          0.385062
+        ],
+        "reward_sum": 0.0,
+        "success": false,
+        "tube_score": 0.015226
+      },
+      "exact_init_noop_upper_bound": {
+        "clip_rate_step": 0.0,
+        "controller_valid_action_rate": 1.0,
+        "first_done_index": 260,
+        "progress_tuple": [
+          1.0,
+          1.0,
+          0.267427,
+          0.217868
+        ],
+        "reward_sum": 1.0,
+        "success": true,
+        "tube_score": null
+      },
+      "random_action_jitter": {
+        "clip_rate_step": 0.0,
+        "controller_valid_action_rate": 1.0,
+        "first_done_index": null,
+        "progress_tuple": [
+          0.0,
+          0.0,
+          0.127894,
+          0.007361
+        ],
+        "reward_sum": 0.0,
+        "success": false,
+        "tube_score": 0.176102
+      },
+      "random_pose_jitter": {
+        "clip_rate_step": 0.0,
+        "controller_valid_action_rate": 1.0,
+        "first_done_index": null,
+        "progress_tuple": [
+          0.0,
+          0.0,
+          0.125544,
+          0.009348
+        ],
+        "reward_sum": 0.0,
+        "success": false,
+        "tube_score": 0.166599
+      },
+      "raw_demo_replay": {
+        "clip_rate_step": 0.0,
+        "controller_valid_action_rate": 1.0,
+        "first_done_index": null,
+        "progress_tuple": [
+          0.0,
+          0.0,
+          0.124403,
+          0.006482
+        ],
+        "reward_sum": 0.0,
+        "success": false,
+        "tube_score": 0.169342
+      },
+      "simple_object_relative_translation_retarget": {
+        "clip_rate_step": 0.011029,
+        "controller_valid_action_rate": 0.988971,
+        "first_done_index": null,
+        "progress_tuple": [
+          0.0,
+          0.0,
+          0.236733,
+          0.212876
+        ],
+        "reward_sum": 0.0,
+        "success": false,
+        "tube_score": 0.009154
+      }
+    }
+  }
+}

@@ -1582,3 +1582,15 @@ Consequence: do not continue TL-ChunkRepair to STATE 2 or present it as RA-L-sta
 Global rule added: a method is invalid for RA-L-stable continuation if it improves symbolic/proxy constraints but degrades or fails real replay/control utility compared with a simple baseline.
 
 Execution boundary: documentation-only archive. Experiments, training, LoRA training, replay/rollout, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+## ContactTube-Aug State 0-1 Result
+
+Decision: kill or reframe ContactTube-Aug before STATE 2.
+
+Reason: STATE 1 produced a real bounded LIBERO/RoboSuite replay/control metric and extracted contact-tube structure from runtime replay traces, but ContactTube-Aug failed the hard continuation gates. The exact-init no-op upper bound succeeded, runtime object pose was available, and random jitter/pose jitter were worse on tube preservation. However, ContactTube-Aug had controller-valid action rate `0.849265` with clip-step rate `0.150735`, below the predeclared validity gate, and simple object-relative translation retargeting beat it on contact-tube preservation error (`0.009154` versus `0.015226`).
+
+Key metrics: total simulator steps `1621`; variants `6`; exact-init no-op reward/success `1.0 / true`; ContactTube-Aug reward/success `0.0 / false`; simple object-relative reward/success `0.0 / false`; HDF5 object pose available `false`; runtime object pose available `true`; ContactTube-Aug beats random action jitter `true`; ContactTube-Aug beats random pose jitter `true`; ContactTube-Aug beats simple object-relative retargeting `false`.
+
+Consequence: do not run STATE 2 training for this branch. Preserve the ContactTube extraction/replay runner as reusable diagnostic infrastructure only. Any future contact-preserving augmentation route must predeclare a new mechanism that is controller-valid by construction and must beat simple object-relative translation before model training.
+
+Execution boundary: bounded exact/default-reset LIBERO/RoboSuite replay happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
