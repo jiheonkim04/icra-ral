@@ -11,6 +11,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ExecSpec-Repair | executable-spec mismatch | diagonal affine | broad repair collapsed to simple calibration |
 | AMP-GD | active disambiguating probes | informative-probe heuristic, random-probe, safety-only | active probe logic did not beat simple probe/safety behavior |
 | ResetSpec-Retarget | object-pose/reset retargeting | global scale | state-dependent retargeting lost to action-only scaling |
+| Phase-Locked Action Chunk Retiming | temporal phase retiming | gripper-only, fixed shift, repeat-last, linear warp, diagonal affine | event-locked retiming failed to recover over raw and lost to simple timing/action baselines |
 
 ## Mandatory Early Baselines
 

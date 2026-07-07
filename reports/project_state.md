@@ -3187,3 +3187,38 @@ Archive result:
 - ResetSpec-Retarget killed by fixed global-scale replay.
 
 Recommended next topic from the pre-screen: Phase-Locked Action Chunk Retiming. It is not implemented yet. It is recommended only because its first metric can use existing replay/control infrastructure, it targets temporal phase mismatch rather than scale or semantic targeting, and it has clear trivial baselines that can kill it early.
+
+## Phase-Locked Action Chunk Retiming State 0-1 Result
+
+Status: initialized from the anti-baseline pre-screen, implemented, and advanced through bounded STATE 1 replay/control diagnostics on branch `codex/phase-locked-retiming-state0-state1`.
+
+Implementation:
+- script: `scripts\180_phase_locked_retiming_diagnostic.ps1`.
+- module: `tca_map.phase_locked.retiming`.
+- targeted tests: `tests\test_phase_locked_retiming.py`.
+- reports: `reports\phase_locked_retiming_task_definition.md`, `reports\phase_locked_retiming_experiment_plan.md`, `reports\phase_locked_retiming_kill_criteria.md`, `reports\phase_locked_retiming_related_work_matrix.md`, `reports\phase_locked_retiming_autopilot_state.md`, and `reports\phase_locked_retiming_state1_result.md`.
+
+Execution boundary:
+- replay/control metric happened: yes, bounded LIBERO/RoboSuite diagnostic only.
+- demos/tasks: `1 / 1`.
+- perturbations tested: `9`.
+- baselines per perturbation: `9`.
+- total variants: `82`.
+- total simulator steps: `22248`.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA model loading/inference, OpenVLA-OFT, benchmark rollouts, token access, and paper-grade claims did not occur.
+
+Key result:
+- exact-init expert replay reward/success: `1.0 / true`, first done `260`.
+- phase perturbations degraded replay: `9 / 9`.
+- event-locked retiming recovered over raw perturbed replay: `0 / 9`.
+- event-locked retiming beat best simple baseline: `0 / 9`.
+- simple baseline matched or beat event-locked retiming: `3 / 9`.
+- gripper-only timing correction recovered both gripper-close perturbations.
+- fixed time shift recovered chunk-shifted-backward.
+- linear time warp recovered time-compression.
+- the selected HDF5 demo exposed EEF positions but no HDF5 object-position trajectory keys, so object-motion anchors were unavailable from the demo file.
+
+Conclusion: kill or reframe Phase-Locked Action Chunk Retiming as the current main RA-L route. The diagnostic found a real temporal perturbation failure mode, but the proposed event-locked retimer produced no recovery over raw replay and no win over simple timing/action baselines.

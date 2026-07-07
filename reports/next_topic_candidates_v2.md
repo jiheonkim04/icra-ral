@@ -2,6 +2,8 @@
 
 No topic is implemented here. This is a pre-screen only.
 
+Status update: Candidate 1 was later implemented as `Phase-Locked Action Chunk Retiming` STATE 1 and killed/reframed after the bounded replay diagnostic. This file is retained as the original pre-screen record, not as a current recommendation.
+
 Recent literature context checked: VLA safety surveys and benchmarks, action-space design analyses, action-chunking/latency work, diffusion/action policy updates, and target/object guidance work. The gap must survive simple-baseline scrutiny before implementation.
 
 Source pointers:
@@ -24,7 +26,7 @@ Source pointers:
 - rollout/control metric within 48 hours: yes, replay/control metric.
 - why RA-L-stable: clear fault model, fast replay table, direct baselines, low dependence on native VLA quality.
 - why it might fail: nearest-progress demo indexing may be the real solution, or injected lag may not degrade reward.
-- pre-screen status: best next candidate.
+- pre-screen status: originally best next candidate; superseded by STATE 1 kill/reframe result.
 
 ## Candidate 2: Contact-Event Gripper Phase Recovery
 
@@ -84,7 +86,7 @@ Source pointers:
 
 ## Recommendation
 
-Recommended next topic: Candidate 1, Phase-Locked Action Chunk Retiming.
+Historical recommendation: Candidate 1, Phase-Locked Action Chunk Retiming.
 
 Why:
 - fastest real metric using existing exact-init replay,
@@ -93,4 +95,4 @@ Why:
 - has clear simple baselines that can kill it early,
 - can produce a compact RA-L-style table: raw lag, fixed shift, repeat-last, global scale, diagonal affine, gripper-only phase, nearest-progress demo, and phase-locked retiming.
 
-Do not implement it until the user explicitly starts the next state.
+Superseded status: implemented in STATE 1 and killed/reframed. Do not scale it as the main route from current evidence.

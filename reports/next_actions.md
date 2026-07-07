@@ -1530,3 +1530,24 @@ Before implementation, restate:
 - the simple baselines that can kill it,
 - exact kill criteria,
 - why no native VLA competence, full VLA training, OpenVLA-OFT, downloads, GPU, or paper claims are needed for the first result.
+
+## Current Next Action After Phase-Locked Retiming State 1
+
+Phase-Locked Action Chunk Retiming STATE 1 has completed and produced a kill/reframe decision.
+
+Current diagnostic result:
+- replay/control metric happened: `true`.
+- demos/tasks: `1 / 1`.
+- perturbations tested: `9`.
+- baselines per perturbation: `9`.
+- total variants: `82`.
+- total simulator steps: `22248`.
+- exact-init expert replay reward/success: `1.0 / true`, first done `260`.
+- all nine phase perturbations degraded replay.
+- event-locked retiming recovered over raw perturbed replay on `0 / 9` perturbations.
+- event-locked retiming beat the best simple baseline on `0 / 9` perturbations.
+- gripper-only, fixed-shift, linear-warp, repeat-last, and diagonal-affine baselines explained or matched the useful parts of the diagnostic.
+- training/loss/LoRA training/GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next action: do not scale Phase-Locked Retiming as the main route. Archive the runner as phase-mismatch infrastructure. A future topic must first show a positive replay/control recovery signal and a best-simple-baseline gap before any broader experiment.

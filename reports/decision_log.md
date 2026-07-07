@@ -1528,3 +1528,13 @@ Recommended candidate: Phase-Locked Action Chunk Retiming. It is preferred only 
 Consequence: do not implement a new route until the next state explicitly starts and the anti-baseline fields are restated. Any candidate whose first result is offline-only, calibration-solvable, native-VLA-dependent, full-training-dependent, or lacks a 48-hour replay/control metric is invalid.
 
 Execution boundary: documentation-only. Experiments, training, LoRA training, replay, rollout, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+## Phase-Locked Action Chunk Retiming State 0-1 Result
+
+Decision: kill or reframe Phase-Locked Action Chunk Retiming as the current main RA-L route.
+
+Reason: STATE 1 produced real bounded LIBERO/RoboSuite replay/control metrics and successfully created temporal phase failures: all nine perturbations degraded exact-init expert replay. However, event-locked retiming recovered over raw perturbed replay on `0 / 9` perturbations and beat the best simple baseline on `0 / 9`. Simple baselines recovered or matched key perturbations, including gripper-only correction for gripper timing, fixed time shift for chunk shift, linear time warp for time compression, and diagonal-affine/raw-equivalent behavior for boundary offset.
+
+Consequence: do not scale Phase-Locked Retiming as a main route. Keep the perturbation and replay table as reusable phase-mismatch infrastructure, but require any future timing route to show recovery over raw replay and a win over fixed-shift, gripper-only, linear-warp, repeat-last, diagonal-affine, and nearest-progress baselines before broader replay or paper-readiness work.
+
+Execution boundary: bounded LIBERO/RoboSuite replay/control metrics happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.

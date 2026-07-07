@@ -6,6 +6,7 @@ Current killed or reframed main-route candidates:
 - ExecSpec-Repair
 - AMP-GD
 - ResetSpec-Retarget
+- Phase-Locked Action Chunk Retiming
 
 ## Target-Prior TCA-Map
 
@@ -56,6 +57,16 @@ Current killed or reframed main-route candidates:
 - strongest trivial baseline that killed it: fixed global scale.
 - why not RA-L-stable: the novelty is not separable from a trivial action-scale change on the tested task.
 - reusable artifacts: reset-mismatch replay runner, object/EEF state capture, object-shifted trajectory drift metric, baseline-first retarget report.
+
+## Phase-Locked Action Chunk Retiming
+
+- original hypothesis: event-locked timing should recover replay/control success when action chunks are temporally out of phase.
+- strongest positive evidence: exact-init expert replay succeeded, and all nine synthetic phase perturbations degraded replay.
+- decisive negative evidence: event-locked retiming recovered over raw on `0 / 9` perturbations and beat the best simple baseline on `0 / 9`.
+- exact kill criterion triggered: event-locked retiming improved neither replay/progress over raw perturbed replay nor best-simple-baseline performance.
+- strongest trivial baselines that exposed the failure: gripper-only timing correction, fixed time shift, repeat-last/hold, linear time warp, and diagonal affine depending on perturbation.
+- why not RA-L-stable: the method did not produce a positive replay/control recovery signal, and simple timing/action baselines already recovered or matched several perturbation families.
+- reusable artifacts: phase perturbation generator, event-anchor extraction, exact-init phase replay runner, baseline table, and result report.
 
 ## Common Failure Pattern
 
