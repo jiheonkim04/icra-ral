@@ -19,6 +19,7 @@ A topic is invalid if:
 - it has no direct robotics evidence path,
 - it is already solved by calibration, clipping, nearest, mean, random, safety, fixed-shift, gripper-only, linear-warp, or replay-leakage baselines,
 - each targeted failure mode can be solved by a separate obvious simple baseline.
+- it improves symbolic, proxy, monitor, or offline constraint satisfaction while failing direct replay/control utility against a simple baseline.
 
 ## Baseline Gate
 
@@ -28,6 +29,8 @@ A method must beat:
 - and the relevant no-method/raw/negative controls.
 
 Passing only against the weakest baseline is a kill condition, not progress.
+
+Symbolic or proxy improvement is also a kill condition when reward, success, safe-success, done/progress, or direct replay/control utility does not beat simple baselines.
 
 ## Required First Table
 

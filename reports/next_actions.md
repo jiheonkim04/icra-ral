@@ -1578,3 +1578,20 @@ Current diagnostic result:
 - TL beat best per-failure-mode simple baseline: `false`.
 
 Next action: do not proceed to TL-ChunkRepair STATE 2. Archive or reframe only if a future route first predeclares a non-symbolic replay/control recovery mechanism that can beat fixed shift, gripper-only timing, one-step safety filter, abort/hold, repeat-last, and no-repair baselines.
+
+## Current Next Action After TL-ChunkRepair Archive
+
+TL-ChunkRepair is archived as a hard-killed RA-L-stable route.
+
+All killed or reframed routes:
+- Target-Prior TCA-Map.
+- CSS-Shield.
+- ExecSpec-Repair.
+- AMP-GD.
+- ResetSpec-Retarget.
+- Phase-Locked Retiming.
+- TL-ChunkRepair.
+
+Current rule: do not start a new topic until the task explicitly begins one and the anti-baseline pre-screen is restated. Any future method must show a plausible first replay/control metric and a reason it can beat both the best single simple baseline and the best per-failure-mode simple baseline. Symbolic/proxy gains are not enough unless they improve reward, success, safe-success, done/progress, or direct control utility.
+
+Next recommended action: run a topic-selection-only pass that starts from the strongest simple baselines likely to kill each candidate, not from a preferred method.

@@ -7,6 +7,7 @@ Current killed or reframed main-route candidates:
 - AMP-GD
 - ResetSpec-Retarget
 - Phase-Locked Retiming
+- TL-ChunkRepair
 
 ## Target-Prior TCA-Map
 
@@ -68,6 +69,16 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the method did not produce a positive replay/control recovery signal, and simple timing/action baselines already recovered or matched several perturbation families.
 - reusable artifacts: phase perturbation generator, event-anchor extraction, exact-init phase replay runner, baseline table, and result report.
 
+## TL-ChunkRepair
+
+- original hypothesis: a finite-state temporal-logic/event monitor can identify causal violation boundaries inside action chunks and minimally repair them to reduce temporal manipulation violations while preserving utility.
+- strongest positive evidence: real exact-init LIBERO/RoboSuite replay/control metrics were produced; `7 / 8` temporal perturbations degraded replay; TL-ChunkRepair reduced symbolic temporal violations on `8 / 8`; exact-init replay infrastructure, temporal perturbation runner, monitor, metrics, and baseline suite worked.
+- decisive negative evidence: TL safe-success was `0 / 8`; TL reward/success was `0.0 / 0`; the best single simple baseline, `no_repair`, achieved reward/success `1.0 / 1`; TL failed both the best single simple baseline gate and the best per-failure-mode simple baseline gate.
+- exact kill criterion triggered: symbolic/property repair did not translate to replay/control utility and did not beat the required simple baselines.
+- strongest trivial baseline that killed it: `no_repair`, with additional weakening from clipping-only, safety-only one-step filter, repeat-last/hold, and fixed-delay timing baselines.
+- why not RA-L-stable: the route improved monitor satisfaction but not robot execution utility; RA-L-stable continuation requires safe-success, reward, success, done/progress, or comparable replay/control gains beyond simple baselines.
+- reusable artifacts: temporal perturbation runner, exact-init replay diagnostic, temporal property monitor, violation metrics, simple baseline suite, focused tests, and STATE 1 result reports.
+
 ## Common Failure Pattern
 
 The method must not merely beat no-method. It must beat the strongest trivial baseline available for the failure mode:
@@ -85,3 +96,5 @@ The method must not merely beat no-method. It must beat the strongest trivial ba
 Any future route that only beats no-method, raw replay, or a weak ablation should be killed or reframed before implementation scale-up.
 
 New rule from Phase-Locked Retiming: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. A method must beat the best single simple baseline and the best per-failure-mode simple baseline, not only the weakest baseline in the table.
+
+New rule from TL-ChunkRepair: a topic is invalid for RA-L-stable continuation if it improves symbolic, proxy, or constraint-satisfaction metrics but degrades or fails real replay/control utility compared with a simple baseline.

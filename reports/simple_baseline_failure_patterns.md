@@ -12,6 +12,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | AMP-GD | active disambiguating probes | informative-probe heuristic, random-probe, safety-only | active probe logic did not beat simple probe/safety behavior |
 | ResetSpec-Retarget | object-pose/reset retargeting | global scale | state-dependent retargeting lost to action-only scaling |
 | Phase-Locked Retiming | temporal phase retiming | gripper-only, fixed shift, repeat-last, linear warp, diagonal affine | each sub-failure was explained by a separate simple timing/action baseline |
+| TL-ChunkRepair | temporal safety/property action-chunk repair | no-repair, clipping-only, safety-only, repeat-last/hold, fixed delay shift | symbolic violation reduction did not translate into replay/control utility |
 
 ## Mandatory Early Baselines
 
@@ -37,6 +38,10 @@ A topic is invalid if each targeted failure mode can be solved by a separate obv
 - and the relevant raw/no-method controls.
 
 Do not average across failure modes to hide that gripper-only, fixed-shift, linear-warp, nearest, safety-only, or calibration baselines solved their own slice.
+
+## Symbolic/Proxy Utility Rule
+
+A method is invalid for RA-L-stable continuation if it improves symbolic constraints, proxy scores, monitor satisfaction, or offline-only metrics while failing reward, success, safe-success, done/progress, or direct replay/control utility against a simple baseline.
 
 ## Anti-Pattern
 

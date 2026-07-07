@@ -13,6 +13,7 @@ A topic is invalid if:
 - it cannot produce a rollout, replay, or direct control metric within 48 hours,
 - it has no clear novelty against recent VLA/action/safety/deployment literature,
 - it has no clear robotics evidence path.
+- it only improves symbolic/proxy constraints while degrading or failing real replay/control utility versus a simple baseline.
 
 ## Required Pre-Screen Fields
 
@@ -26,6 +27,7 @@ For each candidate:
 - exact kill criteria,
 - expected simulator/data/model assets,
 - whether rollout/control metric appears within 48 hours,
+- what real utility metric must improve if symbolic/proxy metrics improve,
 - why it can be RA-L-stable,
 - why it might fail.
 
@@ -38,6 +40,8 @@ Recommend the topic with:
 - strongest novelty against current literature,
 - lowest dependency on native VLA policy quality,
 - clearest RA-L experiment table.
+
+Reject candidates whose first plausible positive result is monitor satisfaction, symbolic violation reduction, offline proxy gain, or constraint satisfaction without a predeclared path to beat simple baselines on real replay/control utility.
 
 ## Literature Context Checked
 

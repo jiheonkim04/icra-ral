@@ -3291,3 +3291,29 @@ STATE 1 result:
 - decision: kill or reframe.
 
 Execution boundary: bounded exact-init replay happened. No training, loss computation, GPU job, download, OpenVLA-OFT, model loading, benchmark rollout, or paper-grade claim occurred.
+
+## TL-ChunkRepair Archive And Global Killed-Route Update
+
+Status: complete as documentation-only archive of TL-ChunkRepair as a hard-killed RA-L-stable route.
+
+Created or updated:
+- `reports\tl_chunkrepair_kill_summary.md`
+- `reports\tl_chunkrepair_failure_tree.md`
+- `reports\tl_chunkrepair_reusable_artifacts.md`
+- `reports\all_killed_routes_summary.md`
+- `reports\simple_baseline_failure_patterns.md`
+- `reports\next_topic_selection_criteria.md`
+- `reports\next_topic_anti_baseline_prescreen.md`
+
+Archive result:
+- Target-Prior TCA-Map killed by the mean-action baseline / online action-quality gate.
+- CSS-Shield killed by safety-only under native-action diagnostics.
+- ExecSpec-Repair killed by diagonal affine calibration.
+- AMP-GD killed by informative-probe, random-probe, and safety-only baselines.
+- ResetSpec-Retarget killed by fixed global scale.
+- Phase-Locked Retiming killed by gripper-only, fixed-shift, linear-warp, repeat-last, and other simple timing/action baselines.
+- TL-ChunkRepair killed by `no_repair` as the best single simple baseline, with additional weakening from clipping-only, safety-only, repeat-last/hold, and fixed-delay timing baselines.
+
+Global lesson: a method is invalid for RA-L-stable continuation if it improves symbolic/proxy constraints but degrades or fails real replay/control utility compared with a simple baseline.
+
+Execution boundary: documentation-only archive. No experiments, training, rollout/replay, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, or paper-grade claims occurred in this archive step. The preserved STATE 1 replay evidence remains commit `e35a21499f1144eba7fb7b8d6da7df2b098e1228`.

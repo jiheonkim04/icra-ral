@@ -1570,3 +1570,15 @@ Key metrics: exact-init expert replay succeeded; total simulator steps `19803`; 
 Consequence: do not proceed to STATE 2. The route demonstrates observable temporal-property repair, but it fails the hard gate because the improvement is symbolic rather than replay/control recovery and simple baselines remain at least as good on useful metrics.
 
 Execution boundary: bounded exact-init replay happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
+
+## TL-ChunkRepair Archive
+
+Decision: archive TL-ChunkRepair as a hard-killed RA-L-stable route and update global killed-route summaries.
+
+Reason: STATE 1 produced real exact-init LIBERO/RoboSuite replay/control metrics and reduced symbolic temporal violations on `8 / 8`, but TL safe-success was `0 / 8`, TL reward/success was `0.0 / 0`, and the best single simple baseline `no_repair` achieved reward/success `1.0 / 1`. TL failed both the best single simple baseline gate and the best per-failure-mode simple baseline gate.
+
+Consequence: do not continue TL-ChunkRepair to STATE 2 or present it as RA-L-stable. Keep the temporal perturbation runner, exact-init replay diagnostic, temporal property monitor, violation metrics, and baseline suite as reusable diagnostic infrastructure only.
+
+Global rule added: a method is invalid for RA-L-stable continuation if it improves symbolic/proxy constraints but degrades or fails real replay/control utility compared with a simple baseline.
+
+Execution boundary: documentation-only archive. Experiments, training, LoRA training, replay/rollout, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, and paper-grade claims did not occur.
