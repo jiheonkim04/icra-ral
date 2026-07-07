@@ -1492,3 +1492,13 @@ Reason: State 1 produced a direct rollout/control metric on 60 seeded point-worl
 Consequence: the route passed the first simple-baseline gate but is not RA-L-ready. State 2 should scale the diagnostic and begin the LIBERO/RoboSuite object-observable port. If random-probe, safety-only, nearest-target, or no-probe matches AMP-GD under scaling or in LIBERO/RoboSuite, kill or reframe the route immediately.
 
 Execution boundary: toy rollout/control metric happened. LIBERO/RoboSuite rollout, training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+## AMP-GD State 2 Result
+
+Decision: kill or reframe AMP-GD as the current main RA-L route.
+
+Reason: the State 2 audit found no utility-sign bug and no AMP-GD target-label leakage, but the toy result collapsed as main evidence because deterministic informative-probe and entropy-greedy probe heuristics matched AMP-GD. The LIBERO/RoboSuite port found real, non-leaking object observability and a computable wrong-target metric, but the tested scene had no active ambiguity signal. The tiny micro-probe diagnostic ran and AMP-GD did not beat safety-only; random-probe matched AMP-GD on wrong-target movement.
+
+Consequence: do not scale AMP-GD toy diagnostics or present AMP-GD as RA-L-plausible from current evidence. Honest next options are a narrowly scoped active-ambiguity benchmark with demonstrated probe-revealed hidden state, or selecting a different rollout-first route.
+
+Execution boundary: toy and tiny LIBERO/RoboSuite diagnostic metrics happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.

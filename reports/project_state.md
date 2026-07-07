@@ -3094,3 +3094,36 @@ Key result:
 - AMP-GD belief entropy reduction: `0.666943387`.
 
 Conclusion: continue to State 2 scale diagnostic. The result is promising but toy-only. The next milestone must either scale the point-world diagnostic and begin a narrow LIBERO/RoboSuite object-observable port, or kill/reframe if random-probe, safety-only, nearest-target, or no-probe catches up.
+
+## AMP-GD State 2 Result
+
+Status: completed as a toy robustness audit plus narrow LIBERO/RoboSuite object-observable port on branch `codex/amp-gd-state2-libero-port`.
+
+Implementation:
+- script: `scripts\169_amp_gd_state2_libero_port.ps1`.
+- module: `tca_map.amp_gd.state2_libero_port`.
+- targeted tests: `tests\test_amp_gd_state2_libero_port.py`, plus the State 1 AMP-GD tests.
+- concise result: `reports\amp_gd_state2_result.md`.
+
+Execution boundary:
+- toy rollout/control audit happened: yes.
+- LIBERO/RoboSuite object-observable inventory happened: yes.
+- LIBERO/RoboSuite micro-probe diagnostic happened: yes, bounded tiny diagnostic only.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- GPU jobs, downloads, heavy VLA imports, OpenVLA-OFT, benchmark rollouts, token access, and paper-grade claims did not occur.
+
+Key result:
+- utility metric audit: no bug found; negative `utility_drop_vs_no_probe` means AMP-GD utility was higher than no-probe under the State 1 definition.
+- privileged information audit: AMP-GD did not use intended target labels for inference in the toy audit; oracle visual-feature nearest was labeled as an oracle upper bound.
+- toy robustness: AMP-GD beat random-probe and safety-only in all toy profiles, but deterministic informative-probe and entropy-greedy probe heuristics matched AMP-GD, so toy evidence is not enough for a main route.
+- LIBERO object observability: green; object keys, EEF keys, MuJoCo names, intended target, distractor, wrong-target metric, and safe probe action were available without using BDDL target fields, eval labels, dataset target labels, task IDs, or filenames as inference-time target labels.
+- active ambiguity signal in LIBERO: not available in the tested scene.
+- LIBERO micro-probe diagnostic: ran on one task with no-probe, random-probe, safety-only, nearest-target, and AMP-GD.
+- LIBERO no-probe/safety/nearest target movement: `0.000109378`, wrong-target movement rate `0.0`.
+- LIBERO random-probe target movement: `-0.000096021`, wrong-target movement rate `1.0`.
+- LIBERO AMP-GD target movement: `0.000044975`, wrong-target movement rate `1.0`.
+- AMP-GD did not beat safety-only; random-probe matched AMP-GD on wrong-target movement.
+
+Conclusion: kill or reframe AMP-GD as the current main RA-L route. The result is useful: object observability is real, but current evidence does not show active micro-probe value beyond simple baselines in LIBERO/RoboSuite.

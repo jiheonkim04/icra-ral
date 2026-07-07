@@ -317,3 +317,5 @@ reports/execspec_exact_init_mismatch_replay_report.json
 reports/execspec_exact_init_mismatch_replay_report.md
 reports/amp_gd_minimal_probe_diagnostic_report.json
 reports/amp_gd_minimal_probe_diagnostic_report.md
+reports/amp_gd_state2_report.json
+reports/amp_gd_state2_libero_inventory.json

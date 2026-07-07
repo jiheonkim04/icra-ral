@@ -1467,3 +1467,24 @@ Current diagnostic result:
 - result level: toy diagnostic only, not paper-grade.
 
 Next execution-first milestone: State 2 scale diagnostic. Run a larger fixed-seed point-world batch and start a narrow LIBERO/RoboSuite object-observable port using the existing object-key and EEF-state inventory path. Preserve no-probe, random-probe, safety-only/clipping-only, and nearest-target baselines. Kill immediately if any simple baseline matches AMP-GD, if probe cost destroys utility, or if the route cannot move beyond toy control evidence.
+
+## Current Next Action After AMP-GD State 2
+
+AMP-GD State 2 has completed and produced a kill/reframe decision.
+
+Current diagnostic result:
+- toy utility metric audit: no bug; negative State 1 utility drop meant AMP-GD improved utility over no-probe.
+- AMP-GD privileged inference information: no target-label leakage found in the toy audit.
+- toy robustness: AMP-GD beat random-probe and safety-only, but deterministic informative-probe and entropy-greedy probe heuristics matched AMP-GD.
+- LIBERO/RoboSuite object observability: green and non-leaking.
+- wrong-target metric computable: true.
+- safe micro-probe action available: true.
+- active ambiguity signal available in tested LIBERO scene: false.
+- LIBERO/RoboSuite micro-probe diagnostic ran: true.
+- LIBERO no-probe/safety-only/nearest all had wrong-target movement rate `0.0` and target movement `0.000109378`.
+- LIBERO AMP-GD had wrong-target movement rate `1.0`, target movement `0.000044975`, probe cost `0.035`, reward/success `0.0 / false`.
+- AMP-GD did not beat safety-only; random-probe matched AMP-GD on wrong-target movement.
+- training/loss/LoRA training/GPU/download/OpenVLA-OFT: no.
+- result level: diagnostic-only, not paper-grade.
+
+Next action: do not scale AMP-GD as the main RA-L route from current evidence. Either reframe it into a small active-ambiguity benchmark that first proves real probe-revealed hidden state exists, or select a different rollout-first topic. Do not run more toy-only scaling as paper evidence.
