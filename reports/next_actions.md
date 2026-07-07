@@ -1551,3 +1551,11 @@ Current diagnostic result:
 - result level: diagnostic-only, not paper-grade.
 
 Next action: do not scale Phase-Locked Retiming as the main route. Archive the runner as phase-mismatch infrastructure. A future topic must first show a positive replay/control recovery signal and a best-simple-baseline gap before any broader experiment.
+
+## Current Next Action After Phase-Locked Archive
+
+Phase-Locked Retiming is now archived as a killed main RA-L route.
+
+The new global rule is stricter: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. Any next method must beat both the best single simple baseline and the best per-failure-mode simple baseline.
+
+Candidate topics are listed in `reports\next_topic_candidates_v3.md`. The current recommendation is Post-Intervention Resume-Point Selection, but it must not be implemented until the next state explicitly starts and restates its baseline suite, first 24-48 hour replay/control metric, and kill criteria.

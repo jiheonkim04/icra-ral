@@ -3222,3 +3222,36 @@ Key result:
 - the selected HDF5 demo exposed EEF positions but no HDF5 object-position trajectory keys, so object-motion anchors were unavailable from the demo file.
 
 Conclusion: kill or reframe Phase-Locked Action Chunk Retiming as the current main RA-L route. The diagnostic found a real temporal perturbation failure mode, but the proposed event-locked retimer produced no recovery over raw replay and no win over simple timing/action baselines.
+
+## Phase-Locked Retiming Archive And V3 Topic Filter
+
+Status: complete as documentation-only archive and stricter next-topic pre-screen on branch `codex/phase-locked-archive-v3`.
+
+Created or updated:
+- `reports\phase_locked_retiming_kill_summary.md`
+- `reports\phase_locked_retiming_failure_tree.md`
+- `reports\phase_locked_retiming_reusable_artifacts.md`
+- `reports\all_killed_routes_summary.md`
+- `reports\simple_baseline_failure_patterns.md`
+- `reports\next_topic_selection_criteria.md`
+- `reports\next_topic_candidates_v3.md`
+
+Execution boundary:
+- experiments happened: no.
+- replay or rollout happened: no.
+- training happened: no.
+- LoRA training happened: no.
+- loss was computed: no.
+- downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+Archive result:
+- Target-Prior TCA-Map killed by the mean-action baseline / online action-quality gate.
+- CSS-Shield killed by safety-only under native-action diagnostics.
+- ExecSpec-Repair killed by diagonal affine calibration.
+- AMP-GD killed by informative-probe, random-probe, and safety-only baselines.
+- ResetSpec-Retarget killed by fixed global scale.
+- Phase-Locked Retiming killed by gripper-only, fixed-shift, linear-warp, repeat-last, and diagonal-affine/simple timing baselines across failure modes.
+
+New global rule: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. A method must beat both the best single simple baseline and the best per-failure-mode simple baseline.
+
+Recommended next candidate from the v3 filter: Post-Intervention Resume-Point Selection. It is not implemented yet.

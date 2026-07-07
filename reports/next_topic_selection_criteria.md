@@ -1,30 +1,41 @@
 # Next Topic Selection Criteria
 
-Any new topic must pass these gates before it becomes the main RA-L route.
+Any new topic must satisfy all requirements before implementation:
+- real rollout, replay, or direct control metric within 24-48 hours,
+- strong simple-baseline suite specified before method implementation,
+- reason why per-failure-mode simple heuristics cannot solve the target failures,
+- direct robotics metric, not offline proxy only,
+- plausible path to multi-task and multi-model evaluation,
+- novelty against recent VLA/action/safety/deployment papers,
+- kill criteria defined before implementation.
 
-## Required Early Gates
+## Invalid Topic Rules
 
-- Produce a rollout metric within 48 hours.
-- Show a nontrivial baseline gap within 72 hours.
-- Beat a simple baseline, not only no-method or no-shield.
-- Avoid reliance on offline-only proxy metrics.
-- Avoid reliance on native policy competence unless competence is verified first.
-- Define kill criteria before implementation.
+A topic is invalid if:
+- its first result is offline-only,
+- it depends on native VLA competence before verifying that competence,
+- it needs full VLA training, OpenVLA-OFT, downloads, GPU, or heavy imports for the first result,
+- it cannot produce a replay/control metric within 24-48 hours,
+- it has no direct robotics evidence path,
+- it is already solved by calibration, clipping, nearest, mean, random, safety, fixed-shift, gripper-only, linear-warp, or replay-leakage baselines,
+- each targeted failure mode can be solved by a separate obvious simple baseline.
 
-## Novelty Requirements
+## Baseline Gate
 
-- Clear novelty against recent VLA, robot safety, action-decoder, and runtime intervention papers.
-- Clear robotics evidence path for RA-L.
-- A baseline list that includes simple alternatives such as mean-action, clipping-only, safety-only, and native-only where relevant.
+A method must beat:
+- the best single simple baseline,
+- the best per-failure-mode simple baseline,
+- and the relevant no-method/raw/negative controls.
 
-## Execution Requirements
+Passing only against the weakest baseline is a kill condition, not progress.
 
-- Run the smallest simulator or rollout diagnostic first.
-- Keep planner/report work bounded until a metric, loss, rollout result, or concrete blocker exists.
-- Log weak and negative results.
-- Do not change metrics, splits, or baselines after seeing results unless the change is marked exploratory.
+## Required First Table
 
-## Preferred Topic Shape
-
-The next topic should be rollout-first and baseline-first. It should fail quickly if it cannot beat a simple baseline.
-
+Every new topic must predeclare:
+- task and failure modes,
+- method-free controls,
+- strongest single simple baseline,
+- per-failure-mode simple baselines,
+- oracle/replay-leakage upper bounds clearly labeled invalid as method evidence,
+- direct success/reward/done/progress/safety metrics,
+- exact continue and kill criteria.

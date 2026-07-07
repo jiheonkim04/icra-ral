@@ -11,7 +11,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ExecSpec-Repair | executable-spec mismatch | diagonal affine | broad repair collapsed to simple calibration |
 | AMP-GD | active disambiguating probes | informative-probe heuristic, random-probe, safety-only | active probe logic did not beat simple probe/safety behavior |
 | ResetSpec-Retarget | object-pose/reset retargeting | global scale | state-dependent retargeting lost to action-only scaling |
-| Phase-Locked Action Chunk Retiming | temporal phase retiming | gripper-only, fixed shift, repeat-last, linear warp, diagonal affine | event-locked retiming failed to recover over raw and lost to simple timing/action baselines |
+| Phase-Locked Retiming | temporal phase retiming | gripper-only, fixed shift, repeat-last, linear warp, diagonal affine | each sub-failure was explained by a separate simple timing/action baseline |
 
 ## Mandatory Early Baselines
 
@@ -28,6 +28,15 @@ Every new topic must predeclare and test the relevant subset of:
 - nearest-demo,
 - exact-init expert replay upper bound,
 - oracle/replay-leakage upper bound clearly labeled as invalid method evidence.
+
+## Per-Failure-Mode Baseline Rule
+
+A topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. A method must beat:
+- the best single simple baseline,
+- the best per-failure-mode simple baseline,
+- and the relevant raw/no-method controls.
+
+Do not average across failure modes to hide that gripper-only, fixed-shift, linear-warp, nearest, safety-only, or calibration baselines solved their own slice.
 
 ## Anti-Pattern
 

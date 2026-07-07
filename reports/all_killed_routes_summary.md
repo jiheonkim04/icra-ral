@@ -6,7 +6,7 @@ Current killed or reframed main-route candidates:
 - ExecSpec-Repair
 - AMP-GD
 - ResetSpec-Retarget
-- Phase-Locked Action Chunk Retiming
+- Phase-Locked Retiming
 
 ## Target-Prior TCA-Map
 
@@ -58,7 +58,7 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the novelty is not separable from a trivial action-scale change on the tested task.
 - reusable artifacts: reset-mismatch replay runner, object/EEF state capture, object-shifted trajectory drift metric, baseline-first retarget report.
 
-## Phase-Locked Action Chunk Retiming
+## Phase-Locked Retiming
 
 - original hypothesis: event-locked timing should recover replay/control success when action chunks are temporally out of phase.
 - strongest positive evidence: exact-init expert replay succeeded, and all nine synthetic phase perturbations degraded replay.
@@ -83,3 +83,5 @@ The method must not merely beat no-method. It must beat the strongest trivial ba
 - exact-init expert replay upper bound.
 
 Any future route that only beats no-method, raw replay, or a weak ablation should be killed or reframed before implementation scale-up.
+
+New rule from Phase-Locked Retiming: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. A method must beat the best single simple baseline and the best per-failure-mode simple baseline, not only the weakest baseline in the table.

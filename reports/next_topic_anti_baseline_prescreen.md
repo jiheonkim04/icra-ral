@@ -7,6 +7,7 @@ This screen must run before any new topic implementation.
 A topic is invalid if:
 - its first result is offline-only,
 - a simple calibration, clipping, nearest, mean, random, safety, or probe heuristic baseline could plausibly solve it,
+- each targeted failure mode can be solved by a separate obvious simple baseline,
 - it depends on native VLA competence before verifying that competence,
 - it needs full VLA training or OpenVLA-OFT to get the first result,
 - it cannot produce a rollout, replay, or direct control metric within 48 hours,
@@ -32,6 +33,7 @@ For each candidate:
 
 Recommend the topic with:
 - highest chance of beating simple baselines,
+- clearest reason per-failure-mode simple baselines cannot solve the target failures,
 - fastest real rollout/control metric,
 - strongest novelty against current literature,
 - lowest dependency on native VLA policy quality,

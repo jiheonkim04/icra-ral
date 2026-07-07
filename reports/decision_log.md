@@ -1538,3 +1538,13 @@ Reason: STATE 1 produced real bounded LIBERO/RoboSuite replay/control metrics an
 Consequence: do not scale Phase-Locked Retiming as a main route. Keep the perturbation and replay table as reusable phase-mismatch infrastructure, but require any future timing route to show recovery over raw replay and a win over fixed-shift, gripper-only, linear-warp, repeat-last, diagonal-affine, and nearest-progress baselines before broader replay or paper-readiness work.
 
 Execution boundary: bounded LIBERO/RoboSuite replay/control metrics happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
+
+## Phase-Locked Retiming Archive And V3 Topic Filter
+
+Decision: archive Phase-Locked Retiming and require a stricter per-failure-mode simple-baseline screen before any new route implementation.
+
+Reason: Phase-Locked Retiming produced real replay/control evidence and all nine perturbations degraded replay, but the method recovered over raw on `0 / 9` and beat best simple on `0 / 9`. Separate obvious baselines solved or matched their own slices: gripper-only for gripper timing, fixed shift for chunk shift, linear warp for time compression, and simple timing/action baselines for other perturbations.
+
+Consequence: all killed routes are now summarized with the new failure pattern. Future topics must beat the best single simple baseline and the best per-failure-mode simple baseline. Candidate v3 recommends Post-Intervention Resume-Point Selection only as a pre-screened next candidate; it is not implemented.
+
+Execution boundary: documentation-only. Experiments, training, LoRA training, replay, rollout, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
