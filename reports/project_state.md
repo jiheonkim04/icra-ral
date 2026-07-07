@@ -3255,3 +3255,39 @@ Archive result:
 New global rule: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. A method must beat both the best single simple baseline and the best per-failure-mode simple baseline.
 
 Recommended next candidate from the v3 filter: Post-Intervention Resume-Point Selection. It is not implemented yet.
+
+## TL-ChunkRepair State 0 Initialization
+
+Status: initialized and advanced through STATE 1 on branch `codex/tl-chunkrepair-state0-state1` from main commit `1409dd1f737f9e70c4121dc01a1378ce16942a3b`.
+
+Created STATE 0 docs:
+- `reports\tl_chunkrepair_task_definition.md`,
+- `reports\tl_chunkrepair_experiment_plan.md`,
+- `reports\tl_chunkrepair_kill_criteria.md`,
+- `reports\tl_chunkrepair_related_work_matrix.md`,
+- `reports\tl_chunkrepair_autopilot_state.md`.
+
+STATE 1 implementation:
+- finite-state temporal monitor,
+- temporal perturbation builder,
+- TL repair and simple baselines,
+- gated bounded exact-init replay diagnostic,
+- focused tests,
+- honest continue/kill decision.
+
+STATE 1 result:
+- exact-init replay/control metric happened: yes,
+- total simulator steps: `19803`,
+- variants: `73`,
+- exact-init expert replay success: true,
+- perturbations tested: `8`,
+- perturbations that degraded replay: `7 / 8`,
+- TL temporal violation reductions: `8 / 8`,
+- TL safe-success: `0 / 8`,
+- TL reward/success: `0.0 / 0`,
+- best single simple baseline: `no_repair`,
+- TL beat best single simple baseline: false,
+- TL beat best per-failure-mode simple baseline: false,
+- decision: kill or reframe.
+
+Execution boundary: bounded exact-init replay happened. No training, loss computation, GPU job, download, OpenVLA-OFT, model loading, benchmark rollout, or paper-grade claim occurred.

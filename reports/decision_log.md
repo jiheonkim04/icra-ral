@@ -1548,3 +1548,25 @@ Reason: Phase-Locked Retiming produced real replay/control evidence and all nine
 Consequence: all killed routes are now summarized with the new failure pattern. Future topics must beat the best single simple baseline and the best per-failure-mode simple baseline. Candidate v3 recommends Post-Intervention Resume-Point Selection only as a pre-screened next candidate; it is not implemented.
 
 Execution boundary: documentation-only. Experiments, training, LoRA training, replay, rollout, loss computation, downloads, GPU jobs, heavy VLA imports, OpenVLA-OFT execution, and paper-grade claims did not occur.
+
+## TL-ChunkRepair State 0 Start
+
+Decision: start a fresh TL-ChunkRepair route from main commit `1409dd1f737f9e70c4121dc01a1378ce16942a3b` on branch `codex/tl-chunkrepair-state0-state1`.
+
+Reason: the new hypothesis targets temporal safety/property violations inside an already proposed action chunk, while explicitly requiring a win over both the best single simple baseline and per-failure-mode simple baselines.
+
+Consequence: reuse exact-init HDF5 replay and safe runner infrastructure, but do not continue Target-Prior TCA-Map, CSS-Shield, ExecSpec-Repair, AMP-GD, ResetSpec-Retarget, or Phase-Locked Retiming as active routes. STATE 1 must produce a real replay/control metric or kill.
+
+Execution boundary at STATE 0: documentation and implementation setup only. No training, loss computation, GPU job, download, OpenVLA-OFT execution, model loading, or paper-grade claim.
+
+## TL-ChunkRepair State 1 Result
+
+Decision: kill or reframe TL-ChunkRepair as the current main route.
+
+Reason: STATE 1 produced real bounded exact-init LIBERO/RoboSuite replay/control metrics, and the finite-state monitor repaired symbolic temporal violations in all eight perturbations. However, TL-ChunkRepair recovered no reward/success/safe-success, did not beat the best single simple baseline, and did not beat the best per-failure-mode simple baseline.
+
+Key metrics: exact-init expert replay succeeded; total simulator steps `19803`; variants `73`; perturbations tested `8`; perturbations that degraded replay `7 / 8`; TL violation reductions `8 / 8`; TL safe-success `0 / 8`; TL reward/success `0.0 / 0`; best single simple baseline `no_repair` reached reward/success `1.0 / 1`; TL beat best simple baseline on `0` degraded perturbations.
+
+Consequence: do not proceed to STATE 2. The route demonstrates observable temporal-property repair, but it fails the hard gate because the improvement is symbolic rather than replay/control recovery and simple baselines remain at least as good on useful metrics.
+
+Execution boundary: bounded exact-init replay happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.

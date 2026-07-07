@@ -1,0 +1,549 @@
+{
+  "schema_version": "2026-07-07.tl_chunkrepair_state1.compact.v1",
+  "evidence_label": "tl_chunkrepair_state1",
+  "compaction": {
+    "reason": "Committed artifact keeps STATE 1 decision evidence under the requested small diff budget.",
+    "source_schema_version": "2026-07-07.tl_chunkrepair_state1.v1",
+    "source_sha256": "0548da3ec43153a94c23a3663dabc26e0f475285e239be7848a5f2a64df36de5",
+    "source_bytes": 858329,
+    "source_lines": 23840,
+    "dropped_payloads": [
+      "per-variant exact simulator replay traces",
+      "step-level action and observation diagnostics",
+      "full case perturbation payloads"
+    ]
+  },
+  "elapsed_seconds": 3508.502986,
+  "readiness_gate": {
+    "risk_gate_status": "green",
+    "rollout_diagnostic_authorized": true
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "bounded_tl_chunkrepair_state1": true,
+    "diagnostic_rollouts_performed": true,
+    "downloads_performed": false,
+    "forbidden_gates_set": [],
+    "gpu_jobs_performed": false,
+    "heavy_model_imports_performed": false,
+    "installs_performed": false,
+    "learned_policy_inference_performed": false,
+    "lora_training_performed": false,
+    "loss_computed": false,
+    "model_inference_performed": false,
+    "model_load_performed": false,
+    "multi_seed_performed": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "replay_or_rollout_performed": true,
+    "simulator_environment_created": true,
+    "task_local_gate_required": "ALLOW_TL_CHUNKREPAIR_STATE1=1",
+    "task_local_gate_set": true,
+    "tokens_read_or_written": false,
+    "training_performed": false
+  },
+  "inputs": {
+    "camera_size": 64,
+    "libero_root": "/mnt/c/assets/repos/LIBERO",
+    "manifest": "/mnt/c/Users/jiheo/tca_map/reports/libero_offline_counterfactual_split_scaled_report.json",
+    "max_steps_cap": 320,
+    "offset_steps": 18,
+    "post_signal_margin": 20,
+    "readiness_report": "/mnt/c/Users/jiheo/tca_map/reports/libero_fixed_prior_rollout_readiness_gate_report.json",
+    "report_json": "/mnt/c/Users/jiheo/tca_map/reports/tl_chunkrepair_state1_result.json",
+    "report_md": "/mnt/c/Users/jiheo/tca_map/reports/tl_chunkrepair_state1_result.md",
+    "robosuite_root": "/mnt/c/assets/repos/robosuite",
+    "seed": 0,
+    "unsafe_span": 6
+  },
+  "result": {
+    "blocked_reason": null,
+    "passed": true,
+    "total_steps_performed": 19803,
+    "variant_count": 73
+  },
+  "case": {
+    "task_id": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+    "demo_name": "demo_0",
+    "instruction": "turn on the stove and put the moka pot on it",
+    "counterfactual_task_id": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+    "counterfactual_instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+    "positive_demo_path": "/mnt/c/assets/data/libero/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "bddl_file": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+    "target_horizon": 272,
+    "temporal_properties": [
+      "grasp_before_lift",
+      "keep_grasp_until_placement",
+      "do_not_release_before_target_region",
+      "do_not_move_object_while_gripper_open",
+      "avoid_forbidden_contact_before_safe_phase",
+      "mechanism_action_onset_order"
+    ],
+    "event_anchors": {
+      "approach_index": 0,
+      "demo_eef_object_distance": {
+        "available": true,
+        "final": 0.278242,
+        "min": 0.0,
+        "min_index": 0,
+        "start": 0.0
+      },
+      "gripper_close_index": 62,
+      "horizon": 272,
+      "lift_index": 119,
+      "object_motion_onset_index": null,
+      "place_or_contact_index": null,
+      "safe_release_index": 262
+    },
+    "perturbation_parameters": {
+      "compression_factor": 0.85,
+      "offset_steps": 18,
+      "stretch_factor": 1.15,
+      "unsafe_span": 6
+    },
+    "exact_start": {
+      "eef_pos": [
+        -0.1995497381507214,
+        -0.006835829541385498,
+        1.182331552466795
+      ],
+      "env_created": true,
+      "error": null,
+      "object_position_keys_available": true,
+      "reset_ok": true,
+      "set_init_state_ok": true,
+      "set_init_state_used": true,
+      "sim_state_l2_to_hdf5_init": 0.0,
+      "target_audit": {
+        "available_object_position_keys": [
+          "chefmate_8_frypan_1_pos",
+          "chefmate_8_frypan_1_to_robot0_eef_pos",
+          "moka_pot_1_pos",
+          "moka_pot_1_to_robot0_eef_pos"
+        ],
+        "best_key": "moka_pot_1_pos",
+        "best_overlap": [
+          "moka",
+          "pot"
+        ],
+        "best_score": 2,
+        "source": "natural_language_instruction_text_plus_visible_observation_object_keys",
+        "uses_bddl_metadata": false,
+        "uses_dataset_target_labels": false,
+        "uses_eval_labels": false,
+        "uses_task_id_filename_or_manifest_target_field_as_target_proxy": false
+      },
+      "target_key": "moka_pot_1_pos",
+      "target_pos": [
+        0.06137868752456883,
+        0.00046593739053894817,
+        0.9661017023863033
+      ]
+    },
+    "exact_expert_replay_summary": {
+      "baseline": "hdf5_expert_replay_exact_init",
+      "claim_role": "simple_baseline",
+      "passed": true,
+      "env_created": true,
+      "reset_ok": true,
+      "set_init_state_ok": true,
+      "set_init_state_used": true,
+      "after_set_state_l2_to_hdf5_init": 0.0,
+      "done_seen": true,
+      "first_success_index": 260,
+      "first_done_index": 260,
+      "first_positive_reward_index": 260,
+      "final_success": true,
+      "final_reward": 1.0,
+      "reward_sum": 1.0,
+      "steps_requested": 272,
+      "steps_performed": 261,
+      "controller_valid_action_rate": 1.0,
+      "clip_rate_step": 0.0,
+      "clip_rate_element": 0.0,
+      "target_object_movement_l2": 0.217868,
+      "eef_displacement_l2": 0.263431,
+      "error": null
+    }
+  },
+  "summary": {
+    "baselines_tested": [
+      "no_repair",
+      "clipping_only",
+      "safety_only_one_step_filter",
+      "gripper_only_timing_fix",
+      "fixed_delay_shift",
+      "linear_time_warp",
+      "abort_to_stop",
+      "repeat_last_hold",
+      "tl_chunkrepair"
+    ],
+    "best_single_simple_baseline": "no_repair",
+    "best_single_simple_totals": {
+      "count": 8,
+      "mean_edit_l1": 0.0,
+      "reward": 1.0,
+      "safe_success": 0,
+      "success": 1
+    },
+    "continue_or_kill": "kill",
+    "exact_init_expert_replay_success": true,
+    "method_totals": {
+      "abort_to_stop": {
+        "count": 8,
+        "mean_edit_l1": 0.065348034,
+        "reward": 0.0,
+        "safe_success": 0,
+        "success": 0
+      },
+      "clipping_only": {
+        "count": 8,
+        "mean_edit_l1": 0.0,
+        "reward": 1.0,
+        "safe_success": 0,
+        "success": 1
+      },
+      "fixed_delay_shift": {
+        "count": 8,
+        "mean_edit_l1": 0.200974663,
+        "reward": 0.0,
+        "safe_success": 0,
+        "success": 0
+      },
+      "gripper_only_timing_fix": {
+        "count": 8,
+        "mean_edit_l1": 0.074448529,
+        "reward": 0.0,
+        "safe_success": 0,
+        "success": 0
+      },
+      "linear_time_warp": {
+        "count": 8,
+        "mean_edit_l1": 0.156930475,
+        "reward": 0.0,
+        "safe_success": 0,
+        "success": 0
+      },
+      "no_repair": {
+        "count": 8,
+        "mean_edit_l1": 0.0,
+        "reward": 1.0,
+        "safe_success": 0,
+        "success": 1
+      },
+      "repeat_last_hold": {
+        "count": 8,
+        "mean_edit_l1": 0.016177596,
+        "reward": 1.0,
+        "safe_success": 0,
+        "success": 1
+      },
+      "safety_only_one_step_filter": {
+        "count": 8,
+        "mean_edit_l1": 0.000393955,
+        "reward": 1.0,
+        "safe_success": 0,
+        "success": 1
+      },
+      "tl_chunkrepair": {
+        "count": 8,
+        "mean_edit_l1": 0.075253719,
+        "reward": 0.0,
+        "safe_success": 0,
+        "success": 0
+      }
+    },
+    "next_state": "archive_or_reframe_tl_chunkrepair",
+    "perturbation_summaries": [
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": false,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.218371,
+          0.000168
+        ],
+        "best_simple_safe_success": false,
+        "family": "release_too_early",
+        "perturbation": "early_gripper_release",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.18487,
+          0.007405
+        ],
+        "raw_violation_count": 4,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.18418,
+          0.0069
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": false,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.220436,
+          0.004683
+        ],
+        "best_simple_safe_success": false,
+        "family": "delayed_grasp",
+        "perturbation": "delayed_gripper_close",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.199703,
+          0.003387
+        ],
+        "raw_violation_count": 3,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.185293,
+          0.007506
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": true,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.190119,
+          4e-06
+        ],
+        "best_simple_safe_success": false,
+        "family": "lift_before_grasp",
+        "perturbation": "lift_before_grasp",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.161383,
+          4e-06
+        ],
+        "raw_violation_count": 3,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.161346,
+          4e-06
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": false,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.226466,
+          4e-06
+        ],
+        "best_simple_safe_success": false,
+        "family": "open_transport",
+        "perturbation": "transport_with_gripper_open",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.168847,
+          0.00149
+        ],
+        "raw_violation_count": 4,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.18418,
+          0.0069
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": true,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.024144,
+          4e-06
+        ],
+        "best_simple_safe_success": false,
+        "family": "premature_release_and_place",
+        "perturbation": "premature_place_release",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          -0.049493,
+          4e-06
+        ],
+        "raw_violation_count": 4,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          -0.057811,
+          4e-06
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "no_repair",
+        "best_simple_matches_or_beats_tl": false,
+        "best_simple_progress_tuple": [
+          1.0,
+          1.0,
+          -257.0,
+          0.256983,
+          0.197938
+        ],
+        "best_simple_safe_success": false,
+        "family": "truncated_completion",
+        "perturbation": "chunk_truncation",
+        "raw_degraded": false,
+        "raw_progress_tuple": [
+          1.0,
+          1.0,
+          -257.0,
+          0.256983,
+          0.197938
+        ],
+        "raw_violation_count": 4,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.17018,
+          0.0069
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": true,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.215167,
+          0.010639
+        ],
+        "best_simple_safe_success": false,
+        "family": "skip_safe_phase",
+        "perturbation": "phase_skip",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.121956,
+          0.009262
+        ],
+        "raw_violation_count": 4,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.119928,
+          4e-06
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      },
+      {
+        "best_simple_baseline": "fixed_delay_shift",
+        "best_simple_matches_or_beats_tl": true,
+        "best_simple_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.234276,
+          0.004283
+        ],
+        "best_simple_safe_success": false,
+        "family": "unsafe_pregrasp_contact",
+        "perturbation": "inserted_unsafe_contact_action",
+        "raw_degraded": true,
+        "raw_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.212088,
+          0.009053
+        ],
+        "raw_violation_count": 5,
+        "tl_beats_best_simple": false,
+        "tl_progress_tuple": [
+          0.0,
+          0.0,
+          0.0,
+          0.155632,
+          0.00051
+        ],
+        "tl_reduces_violations": true,
+        "tl_safe_success": false,
+        "tl_violation_count": 0
+      }
+    ],
+    "perturbations_degraded_replay_count": 7,
+    "perturbations_tested": 8,
+    "reason": "TL-ChunkRepair did not beat the best single simple baseline.",
+    "simple_baseline_matches_or_beats_tl_count": 4,
+    "temporal_properties_observable": true,
+    "tl_beats_best_per_failure_mode_simple_baseline": false,
+    "tl_beats_best_simple_count": 0,
+    "tl_beats_best_single_simple_baseline": false,
+    "tl_safe_success_count": 0,
+    "tl_totals": {
+      "count": 8,
+      "mean_edit_l1": 0.075253719,
+      "reward": 0.0,
+      "safe_success": 0,
+      "success": 0
+    },
+    "tl_violation_reduction_count": 8
+  }
+}

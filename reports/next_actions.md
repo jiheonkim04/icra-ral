@@ -1559,3 +1559,22 @@ Phase-Locked Retiming is now archived as a killed main RA-L route.
 The new global rule is stricter: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. Any next method must beat both the best single simple baseline and the best per-failure-mode simple baseline.
 
 Candidate topics are listed in `reports\next_topic_candidates_v3.md`. The current recommendation is Post-Intervention Resume-Point Selection, but it must not be implemented until the next state explicitly starts and restates its baseline suite, first 24-48 hour replay/control metric, and kill criteria.
+
+## Current Next Action After TL-ChunkRepair Initialization
+
+TL-ChunkRepair STATE 1 has completed and produced a kill/reframe decision.
+
+Current diagnostic result:
+- real exact-init replay/control metric happened: `true`,
+- total simulator steps: `19803`,
+- variants: `73`,
+- exact-init expert replay succeeded,
+- temporal perturbations tested: `8`,
+- perturbations that degraded replay: `7 / 8`,
+- TL reduced symbolic temporal violations: `8 / 8`,
+- TL safe-success count: `0 / 8`,
+- TL reward/success: `0.0 / 0`,
+- TL beat best single simple baseline: `false`,
+- TL beat best per-failure-mode simple baseline: `false`.
+
+Next action: do not proceed to TL-ChunkRepair STATE 2. Archive or reframe only if a future route first predeclares a non-symbolic replay/control recovery mechanism that can beat fixed shift, gripper-only timing, one-step safety filter, abort/hold, repeat-last, and no-repair baselines.
