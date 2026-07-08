@@ -1,5 +1,17 @@
 # Project State
 
+## SafeTrace-VLA STATE 0-1 Gate
+
+Status: killed at STATE 1 on branch `codex/safetrace-vla-state0-state1`.
+
+Scope: bounded source availability, temporal-safety metric smoke, preference-pair headroom, and tiny baseline comparison only. No large downloads, GPU, OpenVLA-OFT, full VLA fine-tuning, or paper-grade claims.
+
+Final output: `KILL`.
+
+Result: local standard LIBERO HDF5 proxy produced temporal safety metrics and 800 valid preference pairs, but only 10 were nontrivial and safety-only/risk-only plus generic DPO proxy matched SafeTrace accuracy at `1.0`. Task-success labels were unavailable in the sampled local traces. No downloads, GPU, simulator rollout, model load, training, or OpenVLA-OFT occurred.
+
+Next step: do not run STATE 2. Archive/reframe only.
+
 ## Latest Literature-First Topic Selection Memo
 
 Status: switched to literature-first topic selection after the stop steer.

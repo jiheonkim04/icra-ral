@@ -1,5 +1,21 @@
 # Decision Log
 
+## SafeTrace-VLA STATE 0 Initialization
+
+Decision: start `SafeTrace-VLA` only as a bounded STATE 0-1 feasibility gate.
+
+Reason: the route is novel only if temporal safety monitor preferences beat safety-only, stop-on-risk, clipping, reward penalty, and generic preference baselines while preserving utility on real safety metrics.
+
+Consequence: initialize concise docs and run a temporal safety diagnostic immediately; stop if the source path, metric, preference pairs, or baseline separation fail.
+
+## SafeTrace-VLA STATE 1 Result
+
+Decision: `KILL`.
+
+Reason: local LIBERO HDF5 proxy traces produced temporal metrics and preference pairs, but safety-only/risk-only scoring and generic DPO proxy both matched SafeTrace preference accuracy at `1.0`. This fails the baseline robustness gate.
+
+Consequence: do not proceed to STATE 2. No download, GPU, simulator rollout, VLA model load, training, or OpenVLA-OFT occurred.
+
 ## Literature-First Topic Selection
 
 Decision: stop implementation-first topic testing and switch to memo-only literature-first selection.

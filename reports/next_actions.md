@@ -1,5 +1,13 @@
 # Next Actions
 
+## Current Next Action: SafeTrace-VLA Gate
+
+SafeTrace-VLA is killed at STATE 1.
+
+Do not run STATE 2, GPU, OpenVLA-OFT, full VLA fine-tuning, or benchmark scale-up for this route.
+
+Next safe action: archive the route or reframe only if the method has a utility-preserving temporal credit-assignment mechanism that is not matched by safety-only/risk-only or generic preference labels.
+
 ## Current Next Action After Literature-First Steer
 
 Do not run ActionMap diagnostics, new anchor reproductions, experiments, training, rollouts, downloads, GPU jobs, OpenVLA-OFT, or new method code.

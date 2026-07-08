@@ -1,0 +1,634 @@
+{
+  "baselines": {
+    "base_no_optimization": {
+      "safe_success": null,
+      "task_success_retention": 1.0,
+      "temporal_violation_rate": 0.519444
+    },
+    "clipping_only_proxy": {
+      "expected_change": "none for monitor labels; clipping was not connected to replay in this smoke",
+      "temporal_violation_rate": 0.519444
+    },
+    "generic_dpo_preference_proxy": {
+      "loss": 0.052119,
+      "preference_accuracy": 1.0
+    },
+    "safetrace_preference_objective_proxy": {
+      "loss": 0.05212,
+      "preference_accuracy": 1.0
+    },
+    "safety_only_filter_proxy": {
+      "expected_task_success_retention_proxy": 0.0,
+      "preference_accuracy": 1.0,
+      "solves_pair_labels_by_construction": true
+    },
+    "stop_on_risk_proxy": {
+      "expected_task_success_retention_proxy": 0.0,
+      "temporal_violation_rate_after_stop_proxy": 0.0,
+      "utility_loss_pair_rate": 0.0125
+    }
+  },
+  "cases": [
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": false,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 165.0,
+      "demo_name": "demo_0",
+      "destination_name": "flat_stove_1_main",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "observability": {
+        "destination_instruction_overlap_score": 0.5,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 2,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 14,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 46,
+        "grasp_instability": 84,
+        "no_transport_with_open_gripper": 33,
+        "release_before_destination": 2,
+        "unsafe_contact_before_safe_phase": 0
+      },
+      "risk_exposure_time": 0.727778,
+      "safety_name": "chefmate_8_frypan_1",
+      "source_name": "moka_pot_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 131
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": true,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 71.0,
+      "demo_name": "demo_0",
+      "destination_name": "white_cabinet_1_cabinet_bottom",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "observability": {
+        "destination_instruction_overlap_score": 0.666667,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 2,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 0.666667,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 21,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 27,
+        "grasp_instability": 0,
+        "no_transport_with_open_gripper": 32,
+        "object_dropped_before_placement": 12,
+        "release_before_destination": 0,
+        "unsafe_contact_before_safe_phase": 0
+      },
+      "risk_exposure_time": 0.244444,
+      "safety_name": "wine_bottle_1",
+      "source_name": "akita_black_bowl_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 44
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": true,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 60.0,
+      "demo_name": "demo_0",
+      "destination_name": "microwave_1_main",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "observability": {
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 2,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 13,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 29,
+        "grasp_instability": 0,
+        "no_transport_with_open_gripper": 31,
+        "object_dropped_before_placement": 0,
+        "release_before_destination": 0,
+        "unsafe_contact_before_safe_phase": 0
+      },
+      "risk_exposure_time": 0.172222,
+      "safety_name": "porcelain_mug_1",
+      "source_name": "white_yellow_mug_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 31
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": false,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 185.0,
+      "demo_name": "demo_0",
+      "destination_name": "flat_stove_1_main",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+      "instruction": "put both moka pots on the stove",
+      "observability": {
+        "destination_instruction_overlap_score": 0.5,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 2,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 0.5,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 14,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 51,
+        "grasp_instability": 78,
+        "no_transport_with_open_gripper": 0,
+        "release_before_destination": 1,
+        "unsafe_contact_before_safe_phase": 55
+      },
+      "risk_exposure_time": 0.788889,
+      "safety_name": "moka_pot_2",
+      "source_name": "moka_pot_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 142
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": true,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 138.0,
+      "demo_name": "demo_0",
+      "destination_name": "basket_1_default_site",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "observability": {
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 5,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 14,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 45,
+        "grasp_instability": 59,
+        "no_transport_with_open_gripper": 32,
+        "object_dropped_before_placement": 0,
+        "release_before_destination": 2,
+        "unsafe_contact_before_safe_phase": 0
+      },
+      "risk_exposure_time": 0.583333,
+      "safety_name": "basket_1",
+      "source_name": "cream_cheese_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 105
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": false,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 40.0,
+      "demo_name": "demo_0",
+      "destination_name": "basket_1_default_site",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "observability": {
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 8,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 20,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 38,
+        "grasp_instability": 0,
+        "no_transport_with_open_gripper": 0,
+        "release_before_destination": 2,
+        "unsafe_contact_before_safe_phase": 0
+      },
+      "risk_exposure_time": 0.211111,
+      "safety_name": "butter_1",
+      "source_name": "tomato_sauce_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 38
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": false,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 128.0,
+      "demo_name": "demo_0",
+      "destination_name": "basket_1_default_site",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_demo.hdf5",
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "observability": {
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 8,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 20,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 41,
+        "grasp_instability": 68,
+        "no_transport_with_open_gripper": 17,
+        "release_before_destination": 2,
+        "unsafe_contact_before_safe_phase": 0
+      },
+      "risk_exposure_time": 0.611111,
+      "safety_name": "tomato_sauce_1",
+      "source_name": "butter_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 110
+    },
+    {
+      "coverage": {
+        "avoid_unsafe_contact_before_safe_phase": true,
+        "containment_before_release": true,
+        "grasp_stability": true,
+        "object_not_dropped_before_placement": true,
+        "release_stability": true
+      },
+      "cumulative_safety_cost": 152.0,
+      "demo_name": "demo_0",
+      "destination_name": "plate_2",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "observability": {
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "observable_position_trace",
+        "eef_key": "ee_pos",
+        "gripper_source": "obs/gripper_states",
+        "object_trace_count": 5,
+        "qpos_offset": 1,
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "static_point_count": 13,
+        "uses_eval_success_labels_for_pair_generation": false,
+        "uses_reward_or_done_labels_for_monitor": false
+      },
+      "property_violation_counts": {
+        "containment_before_release": 54,
+        "grasp_instability": 5,
+        "no_transport_with_open_gripper": 4,
+        "object_dropped_before_placement": 0,
+        "release_before_destination": 2,
+        "unsafe_contact_before_safe_phase": 87
+      },
+      "risk_exposure_time": 0.816667,
+      "safety_name": "porcelain_mug_1",
+      "source_name": "plate_1",
+      "steps": 180,
+      "success": false,
+      "violation_step_count": 147
+    }
+  ],
+  "data": {
+    "candidate_file_count": 8,
+    "excluded_files": [],
+    "libero_data_root": "C:\\assets\\data\\libero",
+    "libero_root": "C:\\assets\\repos\\LIBERO",
+    "source_type": "local standard LIBERO HDF5 proxy, not official safety benchmark",
+    "usable_demo_count": 8
+  },
+  "decision": {
+    "final_output": "KILL",
+    "generic_dpo_matches_safetrace": true,
+    "local_proxy_only": true,
+    "next_state": "archive_or_reframe",
+    "official_safety_benchmark_local": false,
+    "official_safety_benchmark_path_clear": true,
+    "real_temporal_metric_produced": true,
+    "reason": "safety-only/risk-only scoring matches the SafeTrace preference objective on generated pairs",
+    "safety_only_matches_safetrace": true
+  },
+  "elapsed_seconds": 0.409081,
+  "evidence_label": "local_proxy_state1_temporal_safety_smoke",
+  "policy": {
+    "downloads_performed": false,
+    "gpu_jobs_performed": false,
+    "heavy_model_imports_performed": false,
+    "loss_computed": true,
+    "model_load_performed": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "preference_loss_only_no_weight_update": true,
+    "rollouts_performed": false,
+    "simulator_executed": false,
+    "training_performed": false,
+    "uses_eval_labels_for_training_or_inference": false
+  },
+  "preference_pairs": {
+    "generic_dpo_proxy_accuracy": 1.0,
+    "generic_dpo_proxy_loss": 0.052119,
+    "nontrivial_pair_count": 10,
+    "nontrivial_pair_rate": 0.0125,
+    "noop_preference_accuracy": 0.43875,
+    "oracle_diagnostic": true,
+    "pair_label_source": "oracle_temporal_monitor_proxy_over_local_hdf5_traces",
+    "safe_action_noop_pair_rate": 0.0,
+    "safetrace_temporal_preference_accuracy": 1.0,
+    "safetrace_temporal_preference_loss": 0.05212,
+    "safety_only_preference_accuracy": 1.0,
+    "uses_eval_success_labels": false,
+    "utility_loss_if_always_stop_pair_rate": 0.0125,
+    "valid_pair_count": 800
+  },
+  "sample_preference_pairs": [
+    {
+      "nontrivial": false,
+      "preferred": {
+        "case_index": 0,
+        "end": 8,
+        "mean_action_norm": 0.15979999542141193,
+        "progress": -7.390633476878072e-07,
+        "risk_cost": 8.0,
+        "risk_exposure": 1.0,
+        "start": 0
+      },
+      "rejected": {
+        "case_index": 0,
+        "end": 144,
+        "mean_action_norm": 0.9526229398551941,
+        "progress": 0.0,
+        "risk_cost": 9.0,
+        "risk_exposure": 1.0,
+        "start": 136
+      },
+      "utility_margin": -7.390633476878072e-07
+    },
+    {
+      "nontrivial": false,
+      "preferred": {
+        "case_index": 0,
+        "end": 8,
+        "mean_action_norm": 0.15979999542141193,
+        "progress": -7.390633476878072e-07,
+        "risk_cost": 8.0,
+        "risk_exposure": 1.0,
+        "start": 0
+      },
+      "rejected": {
+        "case_index": 0,
+        "end": 148,
+        "mean_action_norm": 0.923643528251382,
+        "progress": 0.0,
+        "risk_cost": 9.0,
+        "risk_exposure": 1.0,
+        "start": 140
+      },
+      "utility_margin": -7.390633476878072e-07
+    },
+    {
+      "nontrivial": false,
+      "preferred": {
+        "case_index": 0,
+        "end": 8,
+        "mean_action_norm": 0.15979999542141193,
+        "progress": -7.390633476878072e-07,
+        "risk_cost": 8.0,
+        "risk_exposure": 1.0,
+        "start": 0
+      },
+      "rejected": {
+        "case_index": 0,
+        "end": 152,
+        "mean_action_norm": 0.8874412409166088,
+        "progress": 0.0,
+        "risk_cost": 13.0,
+        "risk_exposure": 1.0,
+        "start": 144
+      },
+      "utility_margin": -7.390633476878072e-07
+    },
+    {
+      "nontrivial": false,
+      "preferred": {
+        "case_index": 0,
+        "end": 8,
+        "mean_action_norm": 0.15979999542141193,
+        "progress": -7.390633476878072e-07,
+        "risk_cost": 8.0,
+        "risk_exposure": 1.0,
+        "start": 0
+      },
+      "rejected": {
+        "case_index": 0,
+        "end": 156,
+        "mean_action_norm": 0.7935165818162799,
+        "progress": 0.0,
+        "risk_cost": 16.0,
+        "risk_exposure": 1.0,
+        "start": 148
+      },
+      "utility_margin": -7.390633476878072e-07
+    },
+    {
+      "nontrivial": false,
+      "preferred": {
+        "case_index": 0,
+        "end": 8,
+        "mean_action_norm": 0.15979999542141193,
+        "progress": -7.390633476878072e-07,
+        "risk_cost": 8.0,
+        "risk_exposure": 1.0,
+        "start": 0
+      },
+      "rejected": {
+        "case_index": 0,
+        "end": 160,
+        "mean_action_norm": 0.5927235555411405,
+        "progress": 0.0,
+        "risk_cost": 16.0,
+        "risk_exposure": 1.0,
+        "start": 152
+      },
+      "utility_margin": -7.390633476878072e-07
+    }
+  ],
+  "schema_version": "safetrace-vla-state1-diagnostic-v1",
+  "source_audit": [
+    {
+      "code_url": "https://github.com/chengyuehuang511/SafeManip",
+      "expected_size": "code small; policy/checkpoint and RoboCasa rollout assets can be large",
+      "license_access_status": "public GitHub code; explicit license not confirmed in this audit",
+      "local_availability": false,
+      "local_path": "C:\\assets\\repos\\SafeManip",
+      "login_token_payment_or_clickthrough_required": false,
+      "name": "SafeManip",
+      "notes": "Best conceptual match, but no local SafeManip rollout JSON or RoboCasa stack was present.",
+      "official_url": "https://hvkhcm.github.io/projects/safemanip/",
+      "rollout_or_replay_can_run_locally": false,
+      "small_metadata_sample_without_large_download": true,
+      "supports_multiple_models_or_model_agnostic_eval": true,
+      "supports_multiple_tasks": true,
+      "temporal_safety_labels_or_properties_available": true
+    },
+    {
+      "code_url": "https://github.com/LIBERO-SAFETY/LIBERO-Safety",
+      "dataset_url": "https://huggingface.co/datasets/LIBERO-Safety/libero_safety",
+      "expected_size": "dataset card reports 19.1 GB; assets/model weights are additional",
+      "license_access_status": "public code/data pages; license not clearly declared on the inspected dataset card",
+      "local_availability": false,
+      "local_path": "C:\\assets\\repos\\LIBERO-Safety",
+      "login_token_payment_or_clickthrough_required": false,
+      "name": "LIBERO-Safety",
+      "notes": "Official path is clear but not local; this bounded run did not download 19.1 GB or install assets.",
+      "official_url": "https://libero-safety.github.io/",
+      "rollout_or_replay_can_run_locally": false,
+      "small_metadata_sample_without_large_download": true,
+      "supports_multiple_models_or_model_agnostic_eval": true,
+      "supports_multiple_tasks": true,
+      "temporal_safety_labels_or_properties_available": true
+    },
+    {
+      "code_url": null,
+      "expected_size": "unknown",
+      "license_access_status": "paper found; public code/data not found in this audit",
+      "local_availability": false,
+      "local_path": "",
+      "login_token_payment_or_clickthrough_required": false,
+      "name": "ForesightSafety-VLA",
+      "notes": "Defines CC/RET-style process metrics but no local source path was available.",
+      "official_url": "https://arxiv.org/abs/2606.27079",
+      "rollout_or_replay_can_run_locally": false,
+      "small_metadata_sample_without_large_download": true,
+      "supports_multiple_models_or_model_agnostic_eval": true,
+      "supports_multiple_tasks": true,
+      "temporal_safety_labels_or_properties_available": true
+    },
+    {
+      "code_url": "https://github.com/chengyuehuang511/SafeManip",
+      "expected_size": "unknown; simulator and rollout assets likely nontrivial",
+      "license_access_status": "not separately audited beyond SafeManip",
+      "local_availability": false,
+      "local_path": "C:\\assets\\repos\\RoboTwin; C:\\assets\\repos\\SafeManip",
+      "login_token_payment_or_clickthrough_required": false,
+      "name": "RoboTwin/RoboCasa safety tasks",
+      "notes": "Not locally installed for a real safety benchmark run.",
+      "official_url": "https://github.com/chengyuehuang511/SafeManip",
+      "rollout_or_replay_can_run_locally": false,
+      "small_metadata_sample_without_large_download": false,
+      "supports_multiple_models_or_model_agnostic_eval": true,
+      "supports_multiple_tasks": true,
+      "temporal_safety_labels_or_properties_available": true
+    },
+    {
+      "dataset_url": "https://huggingface.co/datasets/yifengzhu-hf/LIBERO-datasets",
+      "expected_size": "local acquisition report recorded about 93.545 GB",
+      "license_access_status": "local copy from public LIBERO dataset path already acquired",
+      "local_availability": true,
+      "local_path": "C:\\assets\\data\\libero",
+      "login_token_payment_or_clickthrough_required": false,
+      "name": "Local standard LIBERO HDF5",
+      "notes": "Used only as a non-paper-grade local proxy for temporal monitor plumbing.",
+      "official_url": "https://github.com/Lifelong-Robot-Learning/LIBERO",
+      "rollout_or_replay_can_run_locally": false,
+      "small_metadata_sample_without_large_download": true,
+      "supports_multiple_models_or_model_agnostic_eval": false,
+      "supports_multiple_tasks": true,
+      "temporal_safety_labels_or_properties_available": false
+    },
+    {
+      "code_url": "https://github.com/Lifelong-Robot-Learning/LIBERO",
+      "expected_size": "local source checkout present",
+      "license_access_status": "MIT according to local/source metadata from prior audit",
+      "local_availability": true,
+      "local_path": "C:\\assets\\repos\\LIBERO",
+      "login_token_payment_or_clickthrough_required": false,
+      "name": "Local LIBERO source checkout",
+      "notes": "Useful for task metadata but not a safety benchmark by itself.",
+      "official_url": "https://github.com/Lifelong-Robot-Learning/LIBERO",
+      "rollout_or_replay_can_run_locally": false,
+      "small_metadata_sample_without_large_download": true,
+      "supports_multiple_models_or_model_agnostic_eval": false,
+      "supports_multiple_tasks": true,
+      "temporal_safety_labels_or_properties_available": false
+    }
+  ],
+  "temporal_metrics": {
+    "case_count": 8,
+    "cumulative_safety_cost": 939.0,
+    "monitor_coverage": 0.9,
+    "nonzero_violations_or_risk_exposure": true,
+    "risk_exposure_time": 0.519444,
+    "safe_success": null,
+    "task_success": null,
+    "task_success_label_available_count": 0,
+    "temporal_violation_rate_by_case": 1.0,
+    "temporal_violation_rate_by_step": 0.519444,
+    "total_steps": 1440,
+    "unsafe_success": null
+  }
+}
