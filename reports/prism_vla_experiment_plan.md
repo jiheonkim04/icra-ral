@@ -1,5 +1,28 @@
 # PRISM-VLA Experiment Plan
 
+## State 2 Diagnostic
+
+Run the canonicalization dominance gate before any scale-up:
+
+- data: official LIBERO-Para metadata CSV plus local LIBERO HDF5 action chunks,
+- split: deterministic per-task paraphrase-group split, with train groups and held-out groups disjoint,
+- held-out subsets: object lexical rows and syntactic/structural rows tracked separately when present,
+- leakage guard: action chunks are aligned by local LIBERO task id; LIBERO-Para `eval` IDs are recorded as group metadata, not used as success labels.
+
+State 2 variants:
+
+1. `base_no_paraphrase_training`
+2. `simple_paraphrase_augmentation`
+3. `canonicalization_only`
+4. `prism_vla_consistency`
+5. `prism_vla_plus_canonicalization`
+6. `difficulty_weighted_prism`
+7. `counterfactual_sensitive_prism`
+
+State 2 continue gate: PRISM or PRISM+canonicalization must beat canonicalization-only on primary held-out paraphrase proxy or PRIDE/difficulty-weighted robustness, retain clean performance, preserve counterfactual sensitivity, and not owe the result to canonicalization alone.
+
+State 2 result: kill as the main route under the current proxy. Canonicalization-only beat every PRISM variant on primary held-out paraphrase/PRIDE metrics, even though PRISM+canonicalization beat simple augmentation and improved auxiliary consistency/syntactic subset metrics.
+
 ## State 1 Diagnostic
 
 Run the smallest executable paraphrase robustness diagnostic:

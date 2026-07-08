@@ -1,5 +1,15 @@
 # Decision Log
 
+## PRISM-VLA State 2 Result
+
+Decision: kill PRISM-VLA as the current main route under the held-out paraphrase/canonicalization dominance gate.
+
+Reason: the base model still showed measurable held-out paraphrase degradation (`0.062428` clean-to-held-out drop), and PRISM+canonicalization beat simple paraphrase augmentation on primary held-out robustness (`+0.055205`). However, canonicalization-only beat every PRISM variant on the primary held-out paraphrase/PRIDE metrics. Canonicalization-only held-out paraphrase proxy was `0.474066` and PRIDE was `46.686731`; the best PRISM variant, `prism_vla_plus_canonicalization`, reached held-out paraphrase proxy `0.436356`, PRIDE `31.985592`, and primary held-out delta versus canonicalization `-0.030420`.
+
+Consequence: do not scale PRISM-VLA, do not run OpenVLA-OFT, and do not claim paper-grade or RA-L-ready evidence. A later real SmolVLA paraphrase feature/adapter diagnostic may be considered only as a separate risk-assessed milestone that directly compares canonicalization-only, PRISM, and PRISM+canonicalization without full fine-tuning, rollout, GPU, downloads, or paper claims.
+
+Execution boundary: tiny CPU training happened and loss was computed. No real VLA diagnostic, GPU job, simulator rollout, heavy VLA import, download, OpenVLA-OFT execution, token access, or paper-grade claim occurred.
+
 ## PRISM-VLA State 1 Result
 
 Decision: continue PRISM-VLA only to the next bounded diagnostic, not to heavy training or paper claims.

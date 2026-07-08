@@ -1,5 +1,29 @@
 # Next Actions
 
+## Current Next Action After PRISM-VLA State 2
+
+PRISM-VLA State 2 produced a kill decision for PRISM as the current main route.
+
+Current diagnostic result:
+- training happened: yes, tiny CPU NumPy surrogate training,
+- loss computed: yes,
+- real VLA diagnostic happened: no,
+- rollouts/GPU/downloads/OpenVLA-OFT/paper claims: no,
+- dataset/split: official LIBERO-Para metadata plus local LIBERO HDF5 action chunks, deterministic held-out paraphrase group split,
+- group leakage detected: false,
+- base clean proxy: `0.519538`,
+- base held-out paraphrase proxy: `0.457110`,
+- simple augmentation held-out paraphrase proxy: `0.417930`,
+- canonicalization-only held-out paraphrase proxy: `0.474066`,
+- best PRISM variant: `prism_vla_plus_canonicalization`,
+- best PRISM held-out paraphrase proxy: `0.436356`,
+- best PRISM primary held-out delta vs canonicalization: `-0.030420`,
+- best PRISM primary held-out delta vs simple augmentation: `+0.055205`,
+- clean retention for best PRISM: `0.870968`,
+- counterfactual sensitivity preserved versus canonicalization: false.
+
+Next safe action: do not scale PRISM-VLA or claim RA-L readiness. Either archive/reframe PRISM as a failed canonicalization-dominance diagnostic, or run exactly one separately risk-assessed real SmolVLA paraphrase feature/adapter diagnostic only if it directly compares canonicalization-only, PRISM, and PRISM+canonicalization without full fine-tuning, rollout, GPU, downloads, OpenVLA-OFT, or paper-grade claims.
+
 ## Current Next Action After PRISM-VLA State 1
 
 PRISM-VLA State 1 produced a tiny exploratory proxy `continue` decision, not a paper-grade result.

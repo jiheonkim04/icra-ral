@@ -1,5 +1,43 @@
 # Project State
 
+## Latest PRISM-VLA State 2 Result
+
+Status: completed held-out paraphrase split and canonicalization dominance gate on branch `codex/prism-vla-state2`.
+
+Execution boundary:
+- training happened: yes, tiny CPU NumPy surrogate training,
+- loss computed: yes,
+- official LIBERO-Para metadata and local LIBERO HDF5 action chunks used: yes,
+- real VLA checkpoint metric produced: no,
+- GPU jobs, simulator rollouts, heavy VLA imports, downloads, OpenVLA-OFT, token access, and paper-grade claims: no.
+
+Split audit:
+- selected tasks/paraphrases: `5 / 90`,
+- train/held-out paraphrases: `51 / 39`,
+- train/held-out paraphrase groups: `20 / 13`,
+- held-out object/syntactic paraphrases: `30 / 9`,
+- official split used: false; LIBERO-Para `eval` is retained as group metadata,
+- group leakage detected: false,
+- action chunks aligned without eval-label leakage: true.
+
+Key exploratory proxy result:
+- base clean proxy: `0.519538`,
+- base held-out paraphrase proxy: `0.457110`,
+- base held-out paraphrase drop: `0.062428`,
+- simple augmentation held-out paraphrase proxy: `0.417930`,
+- canonicalization-only held-out paraphrase proxy: `0.474066`,
+- canonicalization-only PRIDE: `46.686731`,
+- best PRISM variant: `prism_vla_plus_canonicalization`,
+- best PRISM held-out paraphrase proxy: `0.436356`,
+- best PRISM PRIDE: `31.985592`,
+- best PRISM primary held-out delta vs canonicalization: `-0.030420`,
+- best PRISM primary held-out delta vs simple augmentation: `+0.055205`,
+- clean retention for best PRISM: `0.870968`,
+- counterfactual sensitivity preserved versus canonicalization: false,
+- decision: `kill`.
+
+Interpretation: PRISM-VLA should not continue as the current main route from this evidence. It beats simple augmentation, but canonicalization-only is stronger on the primary held-out paraphrase/PRIDE gate and PRISM weakens counterfactual sensitivity. A later real SmolVLA adapter diagnostic would need a separate risk-assessed milestone and cannot be treated as already supported.
+
 ## Latest PRISM-VLA State 0-1 Result
 
 Status: initialized and advanced through the first CPU paraphrase robustness diagnostic on branch `codex/prism-vla-state1`.
