@@ -1,5 +1,15 @@
 # Risk Register
 
+## PRISM-VLA Surrogate Overclaim Risk
+
+Risk: The State 1 PRISM-VLA result could be mistaken for real VLA paraphrase robustness, even though it used a tiny NumPy surrogate action-distribution policy over local LIBERO HDF5 action chunks.
+
+Impact: The project could overclaim from offline proxy metrics, or scale too quickly into heavy training without confirming that a real VLA model shows the same failure and benefit.
+
+Mitigation: Keep the State 1 report labeled exploratory offline proxy. Preserve base, simple paraphrase augmentation, instruction canonicalization, and PRISM arms in the next diagnostic. Require a held-out paraphrase split or real local VLA adapter metric before broader claims. Do not run OpenVLA-OFT, simulator rollouts, GPU training, or paper-grade evaluations without a separate green risk assessment.
+
+Current result: base clean-to-paraphrase proxy drop was `0.080341`; PRISM beat simple augmentation on PRIDE by `+1.398131` and consistency score by `+0.000743`; real VLA checkpoint metric was not produced.
+
 ## P-Hacking And Novelty Overclaim Risk
 
 Risk: ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA comparisons could be

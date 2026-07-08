@@ -1,5 +1,15 @@
 # Decision Log
 
+## PRISM-VLA State 1 Result
+
+Decision: continue PRISM-VLA only to the next bounded diagnostic, not to heavy training or paper claims.
+
+Reason: the CPU diagnostic produced measurable base paraphrase degradation (`0.080341` clean-to-paraphrase proxy drop) and PRISM beat simple paraphrase augmentation on at least one robustness metric (`+1.398131` PRIDE delta, `+0.000743` consistency-score delta, `+0.000319` paraphrase proxy delta). Clean retention stayed above the predeclared threshold (`0.877609` vs base clean), and counterfactual sensitivity was preserved under the proxy gate.
+
+Consequence: the next milestone should test held-out paraphrases or a real local VLA adapter under a separate risk assessment. The current result is exploratory offline proxy evidence from a tiny NumPy surrogate over local LIBERO action chunks and official LIBERO-Para metadata. It is not standard success, rollout success, a real VLA checkpoint result, or paper-grade evidence.
+
+Execution boundary: tiny CPU training happened and loss was computed. GPU jobs, simulator rollouts, heavy VLA imports, OpenVLA-OFT, token access, external upload, and paper-grade claims did not occur.
+
 ## Research Integrity Before Comparisons
 
 Decision: Fix primary metrics, baselines, ablations, split/sample policy,

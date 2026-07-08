@@ -1,5 +1,37 @@
 # Project State
 
+## Latest PRISM-VLA State 0-1 Result
+
+Status: initialized and advanced through the first CPU paraphrase robustness diagnostic on branch `codex/prism-vla-state1`.
+
+Implementation:
+- docs: `reports/prism_vla_task_definition.md`, `reports/prism_vla_experiment_plan.md`, `reports/prism_vla_kill_criteria.md`, `reports/prism_vla_related_work_matrix.md`, `reports/prism_vla_autopilot_state.md`,
+- runner: `scripts/190_prism_vla_paraphrase_diagnostic.ps1`,
+- module: `tca_map.prism_vla.paraphrase_diagnostic`,
+- tests: `tests/test_prism_vla_paraphrase_diagnostic.py`.
+
+Execution boundary:
+- training happened: yes, tiny CPU NumPy surrogate training,
+- loss computed: yes,
+- local LIBERO HDF5 action chunks used: yes,
+- official LIBERO-Para metadata used: yes,
+- real VLA checkpoint loaded: no,
+- GPU jobs, simulator rollouts, heavy VLA imports, OpenVLA-OFT, token access, and paper-grade claims: no.
+
+Key exploratory proxy result:
+- selected tasks/paraphrases: `5 / 90`,
+- base clean proxy: `0.519538`,
+- base paraphrase proxy: `0.439197`,
+- simple paraphrase augmentation paraphrase proxy: `0.440673`,
+- PRISM paraphrase proxy: `0.440992`,
+- PRISM PRIDE delta over simple augmentation: `+1.398131`,
+- PRISM consistency-score delta over simple augmentation: `+0.000743`,
+- clean retained: true,
+- counterfactual sensitivity preserved: true,
+- decision: `continue`.
+
+Interpretation: PRISM-VLA passes the first tiny exploratory proxy gate, but the evidence is not standard success, not rollout success, and not a real VLA checkpoint result. The next safe milestone is a held-out paraphrase split or a real local VLA adapter diagnostic under a separate risk assessment.
+
 ## Repository State
 
 Canonical repository root:

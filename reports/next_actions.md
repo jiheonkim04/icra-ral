@@ -1,5 +1,24 @@
 # Next Actions
 
+## Current Next Action After PRISM-VLA State 1
+
+PRISM-VLA State 1 produced a tiny exploratory proxy `continue` decision, not a paper-grade result.
+
+Current diagnostic result:
+- training happened: yes, tiny CPU NumPy surrogate training,
+- loss computed: yes,
+- model: `tiny_numpy_semantic_action_distribution_policy`,
+- dataset: official LIBERO-Para metadata plus local LIBERO HDF5 action chunks,
+- selected tasks/paraphrases: `5 / 90`,
+- base clean proxy: `0.519538`,
+- base paraphrase proxy: `0.439197`,
+- simple augmentation paraphrase proxy: `0.440673`,
+- PRISM paraphrase proxy: `0.440992`,
+- PRISM beat simple augmentation on at least one robustness metric: yes,
+- rollouts/GPU/heavy VLA/OpenVLA-OFT/paper claims: no.
+
+Next safe milestone: run a held-out paraphrase split diagnostic or a real local VLA adapter paraphrase diagnostic under a fresh risk assessment. Do not scale to OpenVLA-OFT or simulator rollouts from this proxy. Keep canonicalization and simple paraphrase augmentation as required baselines.
+
 ## Current ContactTube-Aug Status
 
 ContactTube-Aug STATE 1 is killed and archived before training.
