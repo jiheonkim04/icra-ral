@@ -1,5 +1,15 @@
 # Decision Log
 
+## SafeTrace-VLA Archive And RA-L Strategy Reset
+
+Decision: archive SafeTrace-VLA as killed and reset the RA-L route selection process to official benchmark/source reproduction first.
+
+Reason: SafeTrace produced local proxy temporal metrics and preference pairs, but safety-only/risk-only and generic DPO preference proxies matched SafeTrace exactly on the bounded gate. This repeats the broader pattern of proxy-first method invention collapsing under simple baselines.
+
+Consequence: no new custom method topic should start from local proxy diagnostics. The next route should reproduce an official anchor baseline first, preferably SafeManip, with LIBERO-Safety as fallback if SafeManip is source-blocked.
+
+Execution boundary: documentation archive only. No experiment, training, rollout, download, GPU job, OpenVLA-OFT, new method topic, or paper claim occurred.
+
 ## SafeTrace-VLA STATE 0 Initialization
 
 Decision: start `SafeTrace-VLA` only as a bounded STATE 0-1 feasibility gate.

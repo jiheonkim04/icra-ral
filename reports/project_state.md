@@ -1,5 +1,15 @@
 # Project State
 
+## RA-L Strategy Reset After SafeTrace-VLA
+
+Status: SafeTrace-VLA archived and killed as the current main RA-L route.
+
+Final SafeTrace decision: `KILL`. The STATE 0-1 gate produced local proxy temporal metrics and preference pairs, but safety-only/risk-only and generic DPO preference proxies matched SafeTrace, so STATE 2 is blocked.
+
+Current strategy: no new custom method topic should start from local proxy diagnostics. The next route must be official benchmark/source reproduction first.
+
+Recommended official anchor reproduction: SafeManip, with LIBERO-Safety as fallback if SafeManip is source-blocked.
+
 ## SafeTrace-VLA STATE 0-1 Gate
 
 Status: killed at STATE 1 on branch `codex/safetrace-vla-state0-state1`.

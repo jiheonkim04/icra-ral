@@ -1,5 +1,16 @@
 # Next Topic Selection Criteria
 
+Current reset: no new custom method topic should be started from local proxy diagnostics. RA-L-stable work now requires reproducing an official benchmark/source anchor first.
+
+Allowed next anchors:
+- SafeManip official benchmark reproduction,
+- LIBERO-Safety official benchmark reproduction,
+- ForesightSafety-VLA reproduction,
+- ActionMap reproduction,
+- VLA-Corrector reproduction.
+
+Recommended first anchor: SafeManip official benchmark reproduction, with LIBERO-Safety as fallback if SafeManip is source-blocked.
+
 Any new topic must satisfy all requirements before implementation:
 - real rollout, replay, or direct control metric within 24-48 hours,
 - strong simple-baseline suite specified before method implementation,
@@ -8,6 +19,7 @@ Any new topic must satisfy all requirements before implementation:
 - plausible path to multi-task and multi-model evaluation,
 - novelty against recent VLA/action/safety/deployment papers,
 - kill criteria defined before implementation.
+- official anchor baseline reproduced before custom method design.
 
 ## Invalid Topic Rules
 
@@ -27,6 +39,8 @@ A topic is invalid if:
 - it proposes or relies on a heatmap/candidate action head but candidate predictions collapse to trivial bins before replay/control evidence appears.
 - it proposes language or paraphrase robustness but canonicalization-only beats it on held-out paraphrase robustness, PRIDE, or difficulty-weighted robustness.
 - it improves paraphrase consistency by weakening counterfactual object/target sensitivity.
+- it starts from local proxy diagnostics before reproducing an official benchmark/source anchor.
+- it proposes temporal safety preferences while safety-only/risk-only monitor scoring, stop-on-risk, or generic DPO/preference labels match the method signal.
 
 ## Baseline Gate
 
@@ -46,6 +60,8 @@ Action-head geometry topics must additionally beat active single-point injection
 Action-decoder anchor topics must additionally beat mean-action, linear/L1, and cheap MLP baselines and pass a candidate-diversity/collapse check before failure mining or extension work.
 
 Language-robustness topics must additionally beat canonicalization-only on held-out paraphrase robustness and preserve counterfactual object/target sensitivity. Consistency-only gains are not enough.
+
+Temporal safety preference topics must additionally reproduce an official safety benchmark/source first and beat safety-only/risk-only monitor scoring, stop-on-risk, clipping-only, reward-penalty, and generic DPO/preference labels while preserving measurable task utility.
 
 ## Required First Table
 

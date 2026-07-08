@@ -1,5 +1,11 @@
 # Next Actions
 
+## Current Next Action After SafeTrace Archive
+
+Do not start a new custom method topic, experiment, training run, rollout, download, GPU job, OpenVLA-OFT run, or paper claim from local proxy diagnostics.
+
+Next allowed work: reproduce one official anchor baseline first. Recommended first route: SafeManip official benchmark reproduction. Fallback if source-blocked: LIBERO-Safety official benchmark reproduction.
+
 ## Current Next Action: SafeTrace-VLA Gate
 
 SafeTrace-VLA is killed at STATE 1.

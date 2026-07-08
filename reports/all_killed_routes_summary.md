@@ -12,6 +12,7 @@ Current killed or reframed main-route candidates:
 - PRISM-VLA
 - ContactSet-VLA
 - ActionMap Anchor Reproduction
+- SafeTrace-VLA
 
 ## Target-Prior TCA-Map
 
@@ -125,6 +126,17 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the local anchor did not pass the reproduction-first simple-baseline gate; no standard LIBERO success, exact-init replay, VLA metric, GPU training, or full ActionMap reproduction occurred.
 - reusable artifacts: ActionMap anchor task docs, gated tiny CPU diagnostic runner, HDF5 feature/action loader, translation/rotation/gripper candidate heads, top-k/NLL/collapse metrics, oracle nearest-candidate upper bound, and focused tests.
 
+## SafeTrace-VLA
+
+- archive status: complete.
+- original hypothesis: temporal safety monitors can generate preference pairs, such as safer trajectory/action chunk over unsafe trajectory/action chunk, and temporal safety preference optimization can reduce temporal safety violations while preserving task utility better than filters or generic DPO.
+- strongest positive evidence: local standard LIBERO HDF5 proxy traces produced temporal safety metrics with risk exposure time `0.519444`, cumulative safety cost `939.0`, and `800` valid preference pairs including `10` nontrivial pairs; official safety anchors SafeManip, LIBERO-Safety, and ForesightSafety-VLA were identified.
+- decisive negative evidence: safety-only/risk-only preference accuracy was `1.0`; generic DPO proxy accuracy/loss was `1.0 / 0.052119`; SafeTrace proxy accuracy/loss was `1.0 / 0.052120`; task-success labels were unavailable in sampled proxy traces; official safety benchmark assets were not locally reproduced.
+- exact kill criterion triggered: safety-only/risk-only and generic preference/DPO proxy matched the intended SafeTrace preference objective before STATE 2.
+- strongest trivial baselines that killed it: safety-only/risk-only monitor scoring and generic DPO/preference proxy.
+- why not RA-L-stable: the method claim collapsed to generic monitor-derived preference labels, utility retention was not established, and no official safety benchmark reproduction backed the route.
+- reusable artifacts: SafeTrace source-audit table, local HDF5 temporal safety smoke, temporal violation/risk exposure/cumulative-cost metrics, preference-pair headroom diagnostics, safety-only/generic DPO comparison, bounded runner, focused tests, and STATE 1 reports.
+
 ## Common Failure Pattern
 
 The method must not merely beat no-method. It must beat the strongest trivial baseline available for the failure mode:
@@ -150,3 +162,7 @@ New rule from ContactTube-Aug: a data-augmentation method is invalid for continu
 New rule from PRISM-VLA: a language-robustness method is invalid for continuation if canonicalization-only beats it on held-out paraphrase robustness, or if it improves paraphrase consistency by weakening counterfactual/object sensitivity.
 
 New rule from ContactSet-VLA: a richer action-head geometry method is invalid for continuation if active single-point, source-only, destination-only, source+destination, or no-geometry action-head baselines match or beat it on the first held-out action metric.
+
+New rule from ActionMap Anchor Reproduction: an action-decoder anchor or extension is invalid if mean-action, linear/L1, or cheap MLP action heads match or beat it on held-out 7D action quality, or if heatmap/candidate predictions collapse before replay/control evidence.
+
+New rule from SafeTrace-VLA: a temporal safety preference method is invalid if safety-only/risk-only monitor scoring or generic DPO/preference labels match the proposed temporal preference objective, or if utility retention cannot be measured on an official safety benchmark/source.
