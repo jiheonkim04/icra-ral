@@ -8,34 +8,38 @@ Current decision:
 
 ## Immediate Next Action
 
-Stop. Do not proceed to Target-Grounded ActionMap from this mini-anchor result.
+Stop local ActionMap proxy work. Do not proceed to Target-Grounded ActionMap from the mini-anchor result.
+
+## Why
 
 The local ActionMap-style heatmap/candidate substrate failed the hard gate:
 
-- mean action beat ActionMap-style action L2;
-- cheap MLP matched or beat ActionMap-style action L2;
-- the learned heatmap collapsed to too few candidate bins.
+- mean-action action L2 `0.466767673` beat ActionMap-style action L2 `0.529931357`;
+- cheap MLP action L2 `0.501926707` matched or beat ActionMap-style action L2 `0.529931357`;
+- candidate top1 was `0.018518519`;
+- candidate diversity collapsed to unique translation/rotation/gripper bins `5 / 1 / 2`.
 
-## Allowed Future Work
+The oracle nearest-candidate upper bound was strong at action L2 `0.065653208`, but it is invalid as method evidence because the learned selector did not exploit it.
 
-Only two safe future directions remain:
+## Only Allowed Next Steps
 
-1. Archive this as a killed local mini-anchor and choose a different official anchor.
-2. If ActionMap itself must remain the anchor, plan an official-style ActionMap reproduction/source gate. That is a different task and must still avoid Target-Grounded method implementation until the anchor is green.
+A. Official ActionMap reproduction with official code/assets.
+
+B. Official LIBERO-Safety/SafeManip benchmark reproduction.
+
+C. Stop VLA method search under current constraints.
 
 ## Disallowed Next Work
 
 Do not:
 
 - implement Target-Grounded ActionMap;
-- tune the local proxy until it passes by chance;
+- invent a new method;
+- tune another local proxy approximation;
+- create another local proxy topic;
 - treat the oracle candidate upper bound as method evidence;
 - run OpenVLA-OFT;
 - use GPU;
 - download large assets;
 - train a large VLA;
 - run full benchmark or rollout from this result.
-
-## Exact Next Step
-
-Write a short archive/update pass if needed, then select a different official anchor or explicitly request an official-style ActionMap reproduction plan.

@@ -16,7 +16,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ContactTube-Aug | contact-preserving demonstration augmentation | simple object-relative translation retargeting | proposed augmentation was not controller-valid enough and preserved the contact tube worse than simple retargeting |
 | PRISM-VLA | paraphrase-robust language-action consistency | canonicalization-only | stronger lexical normalization beat PRISM on primary held-out paraphrase and PRIDE metrics |
 | ContactSet-VLA | contact-set action-head geometry injection | active single 3D point, destination-only, no-geometry | richer point sets made the offline action head worse than simpler geometry or no geometry |
-| ActionMap Anchor Reproduction | heatmap/candidate action decoding anchor | mean-action, cheap MLP | local ActionMap-style candidate head lost the first reproduction gate and collapsed candidate diversity |
+| ActionMap Mini-Anchor | heatmap/candidate action decoding anchor | mean-action, cheap MLP | local ActionMap-style candidate head lost the first reproduction gate and collapsed candidate diversity despite strong oracle headroom |
 | SafeTrace-VLA | temporal safety preference optimization | safety-only/risk-only monitor scoring, generic DPO/preference proxy | temporal preference labels were solved by simple monitor risk and generic preference optimization |
 
 ## Mandatory Early Baselines
@@ -68,6 +68,10 @@ An action-head geometry method is invalid for continuation if active single-poin
 
 A local action-decoder anchor is invalid for failure mining or extension work if mean-action, linear/L1, or cheap MLP action heads match or beat the anchor-style head on held-out 7D action L2, or if heatmap/candidate predictions collapse to trivial bins. An oracle candidate upper bound can show discretization headroom, but it is invalid as method evidence.
 
+## Official Anchor Rule
+
+After repeated local proxy failures, no new VLA method should start without an official anchor reproduction. The only valid next steps are official ActionMap reproduction, official LIBERO-Safety/SafeManip benchmark reproduction, or stopping VLA method search under current constraints.
+
 ## Temporal Safety Preference Rule
 
 A temporal safety preference method is invalid if safety-only/risk-only monitor scoring, stop-on-risk, or a generic DPO/preference proxy matches the proposed temporal preference objective. The method must also preserve measurable task utility on an official safety benchmark/source; local proxy risk labels alone are not RA-L-stable evidence.
@@ -76,4 +80,4 @@ A temporal safety preference method is invalid if safety-only/risk-only monitor 
 
 Do not start from a clever method and add baselines later. Start from the strongest simple baseline, then ask whether a method can plausibly beat it within 48 to 72 hours.
 
-Additional reset after SafeTrace-VLA: do not start a new custom method from local proxy diagnostics. Reproduce an official benchmark/source anchor first, then consider method design only after the official baseline is working.
+Additional reset after SafeTrace-VLA and ActionMap Mini-Anchor: do not start a new custom method from local proxy diagnostics. Reproduce an official benchmark/source anchor first, then consider method design only after the official baseline is working.

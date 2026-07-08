@@ -11,7 +11,7 @@ Current killed or reframed main-route candidates:
 - ContactTube-Aug
 - PRISM-VLA
 - ContactSet-VLA
-- ActionMap Anchor Reproduction
+- ActionMap Mini-Anchor
 - SafeTrace-VLA
 
 ## Target-Prior TCA-Map
@@ -115,16 +115,17 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the method-level extension did not improve the first bounded local action-head metric; scaling to VLA fine-tuning or replay would violate the baseline-first gate.
 - reusable artifacts: HDF5/XML free-joint geometry extraction, qpos-offset audit, instruction-based source/destination selector, permutation-aware point-set encoder, gated diagnostic runner, and focused tests.
 
-## ActionMap Anchor Reproduction
+## ActionMap Mini-Anchor
 
 - archive status: killed/reframe at STATE 1 anchor gate.
 - original hypothesis: a local ActionMap-style voxel heatmap/candidate action head should beat mean-action, linear/L1, and cheap MLP baselines on held-out LIBERO HDF5 action quality before any extension or failure mining.
-- strongest positive evidence: the diagnostic used `8` local HDF5 demos with `1008 / 432` deterministic train/eval records, computed tiny CPU losses, and showed the candidate grid had strong oracle headroom (`0.065653208` action L2).
-- decisive negative evidence: ActionMap-style action L2 was `0.529931357`, worse than mean-action (`0.466767673`) and matched/beat by cheap MLP (`0.501926707`); the learned heatmap also collapsed to one rotation bin (`unique trans/rot/grip = 5/1/2`).
+- strongest positive evidence: the diagnostic used `8` local HDF5 demos with `1008 / 432` deterministic train/eval records and showed the candidate grid had strong oracle headroom (`0.065653208` action L2).
+- decisive negative evidence: ActionMap-style action L2 was `0.529931357`, worse than mean-action (`0.466767673`) and matched/beat by cheap MLP (`0.501926707`); candidate top1 was `0.018518519`; the learned heatmap also collapsed to one rotation bin (`unique trans/rot/grip = 5/1/2`).
 - exact kill criterion triggered: mean-action and cheap MLP matched or beat the ActionMap-style head, and candidate collapse was detected before replay/control or any new extension.
 - strongest trivial baselines that killed it: mean-action and cheap MLP action heads.
-- why not RA-L-stable: the local anchor did not pass the reproduction-first simple-baseline gate; no standard LIBERO success, exact-init replay, VLA metric, GPU training, or full ActionMap reproduction occurred.
+- why not RA-L-stable: the local anchor did not pass the reproduction-first simple-baseline gate; no standard LIBERO success, exact-init replay, VLA metric, GPU training, or full ActionMap reproduction occurred. Target-Grounded ActionMap cannot proceed from this result.
 - reusable artifacts: ActionMap anchor task docs, gated tiny CPU diagnostic runner, HDF5 feature/action loader, translation/rotation/gripper candidate heads, top-k/NLL/collapse metrics, oracle nearest-candidate upper bound, and focused tests.
+- revival requirement: official ActionMap reproduction with official code/assets, or a stronger non-collapsed heatmap implementation that first beats mean-action, linear/L1, and cheap MLP baselines.
 
 ## SafeTrace-VLA
 
@@ -163,6 +164,8 @@ New rule from PRISM-VLA: a language-robustness method is invalid for continuatio
 
 New rule from ContactSet-VLA: a richer action-head geometry method is invalid for continuation if active single-point, source-only, destination-only, source+destination, or no-geometry action-head baselines match or beat it on the first held-out action metric.
 
-New rule from ActionMap Anchor Reproduction: an action-decoder anchor or extension is invalid if mean-action, linear/L1, or cheap MLP action heads match or beat it on held-out 7D action quality, or if heatmap/candidate predictions collapse before replay/control evidence.
+New rule from ActionMap Mini-Anchor: an action-decoder anchor or extension is invalid if mean-action, linear/L1, or cheap MLP action heads match or beat it on held-out 7D action quality, or if heatmap/candidate predictions collapse before replay/control evidence. Oracle candidate headroom is invalid as method evidence unless the learned head exploits it.
 
 New rule from SafeTrace-VLA: a temporal safety preference method is invalid if safety-only/risk-only monitor scoring or generic DPO/preference labels match the proposed temporal preference objective, or if utility retention cannot be measured on an official safety benchmark/source.
+
+Additional reset after ActionMap Mini-Anchor: no further local proxy approximation should be attempted as the next research route. The only viable next steps are official ActionMap reproduction, official LIBERO-Safety/SafeManip benchmark reproduction, or stopping VLA method search under current constraints.
