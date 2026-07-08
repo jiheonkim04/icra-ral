@@ -10,6 +10,16 @@ Consequence: do not run ContactSet-VLA full VLA fine-tuning, OpenVLA-OFT, GPU tr
 
 Execution boundary: tiny CPU NumPy action-head training happened and loss was computed. Simulator rollout/replay, GPU jobs, downloads, heavy VLA imports/model loading, OpenVLA-OFT execution, token access, and paper-grade claims did not occur.
 
+## ContactSet-VLA Archive
+
+Decision: archive ContactSet-VLA as a hard-killed route and preserve only its diagnostic infrastructure.
+
+Reason: the decisive STATE 1 result already triggered the route-level kill gate. Full contact-set injection lost to active single-point, destination-only, and no-geometry action-head baselines on held-out local LIBERO action L2. Continuing to replay or VLA fine-tuning would violate the baseline-first rule.
+
+Consequence: future action-head geometry topics must beat active single-point, source-only, destination-only, source+destination, and no-geometry baselines before scale-up. ContactSet-VLA artifacts remain useful as a geometry/leakage audit and point-encoding diagnostic harness.
+
+Execution boundary: documentation-only archive. No new experiment, replay, rollout, training, loss computation, GPU job, download, heavy VLA import/model loading, OpenVLA-OFT execution, benchmark rollout, or paper-grade claim occurred.
+
 ## PRISM-VLA Archive
 
 Decision: archive PRISM-VLA as a killed main RA-L route and add canonicalization-only to the global simple-baseline screen for future language robustness topics.

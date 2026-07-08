@@ -104,6 +104,7 @@ Current killed or reframed main-route candidates:
 
 ## ContactSet-VLA
 
+- archive status: complete.
 - original hypothesis: a structured source/destination/support/safety/normal contact set injected into the action head can improve contact-rich and multi-stage manipulation beyond the single 3D point injection result from the anchor paper.
 - strongest positive evidence: the local diagnostic extracted source object, destination/support, safety, and normal proxy points from `6` local LIBERO HDF5 demos without eval-label leakage; all required variants ran; tiny CPU action-head loss was computed.
 - decisive negative evidence: full contact-set action L2 was `1.105028754`, worse than active single-point injection (`0.930495702`), destination-only (`0.86372`), and no-geometry (`0.851451`) on the held-out action metric.

@@ -4,6 +4,13 @@
 
 Status: initialized and killed at the first bounded offline action-head diagnostic on branch `codex/contactset-vla-state1`.
 
+Archive status: complete as documentation-only archive on branch `codex/contactset-vla-archive`.
+
+Created archive reports:
+- `reports/contactset_vla_kill_summary.md`,
+- `reports/contactset_vla_failure_tree.md`,
+- `reports/contactset_vla_reusable_artifacts.md`.
+
 Implementation:
 - docs: `reports/contactset_vla_task_definition.md`, `reports/contactset_vla_experiment_plan.md`, `reports/contactset_vla_kill_criteria.md`, `reports/contactset_vla_related_work_matrix.md`, `reports/contactset_vla_autopilot_state.md`,
 - runner: `scripts/200_contactset_vla_diagnostic.ps1`,

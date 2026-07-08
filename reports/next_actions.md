@@ -2,7 +2,7 @@
 
 ## Current Next Action After ContactSet-VLA State 1
 
-ContactSet-VLA is killed as the current main route at the bounded offline action-head diagnostic.
+ContactSet-VLA is killed and archived as the current main route at the bounded offline action-head diagnostic.
 
 Current diagnostic result:
 - training happened: yes, tiny CPU NumPy ridge action-head training only,
@@ -19,7 +19,7 @@ Current diagnostic result:
 - contact-set beats single-point: false,
 - simple point baselines matched contact-set: true.
 
-Next safe action: do not scale ContactSet-VLA, do not run full VLA fine-tuning, and do not start an exact-init replay milestone for this route. Archive or select a new topic only if it predeclares a direct robotics metric and a simple-baseline gate that cannot be solved by active single-point, destination-only, no-geometry, or other trivial point encodings.
+Next safe action: do not scale ContactSet-VLA, do not run full VLA fine-tuning, and do not start an exact-init replay milestone for this route. The next route should be reproduction-first rather than method-first, with a local anchor metric before any new extension.
 
 ## Current Next Action After PRISM-VLA Archive
 
