@@ -1,5 +1,15 @@
 # Decision Log
 
+## Literature-First Topic Selection
+
+Decision: stop implementation-first topic testing and switch to memo-only literature-first selection.
+
+Reason: recent routes repeatedly failed after local method scaffolds met stronger simple baselines. The new process must select topics from recent-paper gaps, baseline-kill risk, and direct evidence contracts before any code.
+
+Consequence: do not continue ActionMap implementation, diagnostics, reproduction, extension work, or failure mining. The ActionMap mini-gate commit had already been fast-forward merged into local `main` before the stop steer arrived, but it has not been pushed. The current shortlist is `Constraint-Validated Spline VLA Action Interface` and `Early Failure Detection With Evidence-Calibrated Stop/Retry`, with the spline interface recommended only for a pre-implementation evidence contract.
+
+Execution boundary: memo-only. No experiment, training, rollout, download, GPU job, OpenVLA-OFT, new diagnostic, or new method code occurred for this decision.
+
 ## ActionMap Anchor State 1 Result
 
 Decision: kill or reframe the local ActionMap anchor reproduction before failure mining or extension work.

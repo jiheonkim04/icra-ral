@@ -1,5 +1,24 @@
 # Project State
 
+## Latest Literature-First Topic Selection Memo
+
+Status: switched to literature-first topic selection after the stop steer.
+
+Created memo reports:
+- `reports/literature_first_topic_selection.md`,
+- `reports/latest_anchor_paper_matrix.md`,
+- `reports/strong_baseline_risk_matrix.md`,
+- `reports/rejected_topic_patterns.md`,
+- `reports/final_topic_shortlist.md`.
+
+Execution boundary for this memo: no experiment, training, rollout, download, GPU job, OpenVLA-OFT, new diagnostic, or new method code occurred. ActionMap implementation work is stopped. The ActionMap mini-gate commit had already been fast-forward merged into local `main` before the stop steer arrived; it has not been pushed.
+
+Literature-first shortlist:
+- rank 1: `Constraint-Validated Spline VLA Action Interface`,
+- rank 2: `Early Failure Detection With Evidence-Calibrated Stop/Retry`.
+
+Recommended next step: write an evidence contract for the spline interface topic only. Do not implement until the contract names exact tasks, direct replay/control metrics, strong baselines, and kill criteria.
+
 ## Latest ActionMap Anchor State 1 Result
 
 Status: killed/reframe at the reproduction-first anchor gate on branch `codex/actionmap-anchor-reproduction-state0-state1`.

@@ -1,5 +1,30 @@
 # Next Actions
 
+## Current Next Action After Literature-First Steer
+
+Do not run ActionMap diagnostics, new anchor reproductions, experiments, training, rollouts, downloads, GPU jobs, OpenVLA-OFT, or new method code.
+
+Current memo-only shortlist:
+- rank 1: `Constraint-Validated Spline VLA Action Interface`,
+- rank 2: `Early Failure Detection With Evidence-Calibrated Stop/Retry`.
+
+Next safe action: create a one-page evidence contract for the recommended spline-interface topic before any implementation. The contract must name exact tasks, direct replay/control metrics, controller-validity metrics, baselines, and kill criteria.
+
+Required baselines before any implementation approval:
+- mean action,
+- no-repair/raw chunk,
+- clipping,
+- safety-only,
+- diagonal affine,
+- global scale,
+- gripper-only,
+- fixed shift,
+- linear time warp,
+- nearest demo,
+- object-relative retargeting.
+
+Stop if the evidence contract cannot define a direct 24-48 hour replay/control gate.
+
 ## Current Next Action After ActionMap Anchor State 1
 
 ActionMap Anchor Reproduction is killed/reframed at STATE 1.
