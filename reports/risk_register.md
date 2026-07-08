@@ -1,5 +1,15 @@
 # Risk Register
 
+## PRISM-VLA Canonicalization Dominance Risk
+
+Risk: PRISM-style consistency training can appear useful by improving simple augmentation or auxiliary consistency while still losing to canonicalization-only on held-out paraphrase robustness.
+
+Impact: The route could be scaled into heavier VLA training despite a simple lexical canonicalization baseline explaining or exceeding the primary robustness gain.
+
+Mitigation: Treat State 2 as a kill gate for PRISM as the current main route. Preserve canonicalization-only as a required baseline for any future paraphrase robustness work, and require a real SmolVLA feature/adapter diagnostic to beat canonicalization on primary held-out paraphrase or PRIDE/difficulty-weighted robustness before reconsidering PRISM.
+
+Current result: canonicalization-only held-out paraphrase proxy was `0.474066`, while the best PRISM variant reached `0.436356`. Best PRISM primary held-out delta versus canonicalization was `-0.030420`, and counterfactual sensitivity was not preserved versus canonicalization.
+
 ## PRISM-VLA Surrogate Overclaim Risk
 
 Risk: The State 1 PRISM-VLA result could be mistaken for real VLA paraphrase robustness, even though it used a tiny NumPy surrogate action-distribution policy over local LIBERO HDF5 action chunks.

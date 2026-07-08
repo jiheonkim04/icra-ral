@@ -22,7 +22,7 @@ import numpy as np
 
 from tca_map.datasets.libero_metadata_subset import DEFAULT_SUITES, discover_bddl_tasks, read_asset_paths
 
-SCHEMA_VERSION = "prism-vla-paraphrase-diagnostic-v0"
+SCHEMA_VERSION = "prism-vla-paraphrase-diagnostic-v1-heldout"
 DEFAULT_METADATA_CSV = "C:/assets/data/libero_para/libero_para_metadata.csv"
 DEFAULT_MAX_STEPS = 160
 MAX_TRAINING_STEPS = 300
@@ -59,6 +59,9 @@ class TextExample:
     structural_similarity: float = 1.0
     keyword_similarity: float = 1.0
     difficulty: float = 0.0
+    split: str = "clean"
+    group_id: str = ""
+    eval_group: str = ""
 
 
 @dataclass(frozen=True)
@@ -365,22 +368,38 @@ def _parse_metadata_csv(path: Path, alpha: float = 0.5) -> dict[str, list[dict[s
             structural = float(row.get("structural_similarity") or 0.0)
             keyword = float(row.get("keyword_similarity") or 0.0)
             similarity = max(0.0, min(1.0, alpha * keyword + (1.0 - alpha) * structural))
+            high = row.get("high", "")
+            mid = row.get("mid", "")
+            low = row.get("low", "")
+            eval_group = row.get("eval", "")
             grouped.setdefault(original, []).append(
                 {
                     "new_instruction": new_instruction,
                     "original_instruction": row.get("original_instruction", "").strip(),
-                    "high": row.get("high", ""),
-                    "mid": row.get("mid", ""),
-                    "low": row.get("low", ""),
-                    "eval": row.get("eval", ""),
+                    "high": high,
+                    "mid": mid,
+                    "low": low,
+                    "eval": eval_group,
                     "batch_idx": int(row.get("batch_idx") or 0),
                     "structural_similarity": structural,
                     "keyword_similarity": keyword,
                     "difficulty": 1.0 - similarity,
+                    "group_id": _paraphrase_group_id(original, eval_group, high, mid, low),
                     "source": "official_libero_para_metadata",
                 }
             )
     return grouped
+
+
+def _paraphrase_group_id(original_instruction: str, eval_group: str, high: str, mid: str, low: str) -> str:
+    parts = [
+        _normalize_text(original_instruction),
+        str(eval_group or "none").strip(),
+        str(high or "unknown").strip(),
+        str(mid or "unknown").strip(),
+        str(low or "unknown").strip(),
+    ]
+    return "|".join(parts)
 
 
 def _local_paraphrases(instruction: str) -> list[dict[str, Any]]:
@@ -413,6 +432,7 @@ def _local_paraphrases(instruction: str) -> list[dict[str, Any]]:
                 "structural_similarity": 0.82,
                 "keyword_similarity": 0.70 if high == "obj" else 0.78,
                 "difficulty": 0.24 if high == "obj" else 0.20,
+                "group_id": _paraphrase_group_id(normalized, "local", high, "local_rule", f"exploratory_synonym_{index}"),
                 "source": "local_exploratory_paraphrase",
             }
         )
@@ -428,6 +448,7 @@ def _local_paraphrases(instruction: str) -> list[dict[str, Any]]:
             "structural_similarity": 0.9,
             "keyword_similarity": 1.0,
             "difficulty": 0.05,
+            "group_id": _paraphrase_group_id(normalized, "local", "act", "local_rule", "politeness_prefix"),
             "source": "local_exploratory_paraphrase",
         }
     )
@@ -450,6 +471,87 @@ def _select_balanced(rows: list[dict[str, Any]], max_rows: int) -> list[dict[str
     return selected
 
 
+def _is_syntactic_variation(value: TextExample | dict[str, Any]) -> bool:
+    high = str(value.high if isinstance(value, TextExample) else value.get("high", "")).lower()
+    mid = str(value.mid if isinstance(value, TextExample) else value.get("mid", "")).lower()
+    low = str(value.low if isinstance(value, TextExample) else value.get("low", "")).lower()
+    return high == "comp" or "structural" in mid or "structural" in low
+
+
+def _split_selected_rows_by_group(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        group_id = str(row.get("group_id") or _paraphrase_group_id(row.get("original_instruction", ""), row.get("eval", ""), row.get("high", ""), row.get("mid", ""), row.get("low", "")))
+        row["group_id"] = group_id
+        grouped.setdefault(group_id, []).append(row)
+
+    group_ids = sorted(grouped)
+    if len(group_ids) <= 1:
+        return rows, [], {
+            "train_groups": group_ids,
+            "heldout_groups": [],
+            "split_strategy": "single_group_all_train_no_heldout_available",
+        }
+
+    def group_sort_key(group_id: str) -> tuple[int, int, float, str]:
+        items = grouped[group_id]
+        has_obj = any(str(item.get("high")) == "obj" for item in items)
+        has_syntactic = any(_is_syntactic_variation(item) for item in items)
+        mean_difficulty = float(np.mean([float(item.get("difficulty", 0.0)) for item in items]))
+        return (0 if has_obj else 1, 0 if has_syntactic else 1, -mean_difficulty, group_id)
+
+    heldout_groups: set[str] = set()
+    object_groups = sorted([gid for gid in group_ids if any(str(item.get("high")) == "obj" for item in grouped[gid])], key=group_sort_key)
+    syntactic_groups = sorted([gid for gid in group_ids if any(_is_syntactic_variation(item) for item in grouped[gid])], key=group_sort_key)
+    if object_groups:
+        heldout_groups.add(object_groups[0])
+    if syntactic_groups:
+        heldout_groups.add(syntactic_groups[0])
+
+    target_heldout = max(1, int(math.ceil(0.35 * len(group_ids))))
+    for group_id in sorted(group_ids, key=group_sort_key):
+        if len(heldout_groups) >= target_heldout:
+            break
+        heldout_groups.add(group_id)
+    if len(heldout_groups) >= len(group_ids):
+        heldout_groups.remove(sorted(heldout_groups, key=group_sort_key, reverse=True)[0])
+
+    train_groups = set(group_ids) - heldout_groups
+    train_rows = [row for group_id in sorted(train_groups) for row in grouped[group_id]]
+    heldout_rows = [row for group_id in sorted(heldout_groups) for row in grouped[group_id]]
+    return train_rows, heldout_rows, {
+        "train_groups": sorted(train_groups),
+        "heldout_groups": sorted(heldout_groups),
+        "split_strategy": "deterministic_per_task_group_split_obj_and_syntactic_heldout_first",
+    }
+
+
+def _rows_to_examples(rows: list[dict[str, Any]], label: int, instruction: str, split: str) -> list[TextExample]:
+    examples: list[TextExample] = []
+    for row in rows:
+        structural = float(row.get("structural_similarity", 1.0))
+        keyword = float(row.get("keyword_similarity", 1.0))
+        difficulty = float(row.get("difficulty", max(0.0, 1.0 - 0.5 * (structural + keyword))))
+        examples.append(
+            TextExample(
+                text=str(row["new_instruction"]),
+                label=label,
+                source=str(row.get("source", "unknown")),
+                original_instruction=instruction,
+                high=str(row.get("high", "unknown")),
+                mid=str(row.get("mid", "unknown")),
+                low=str(row.get("low", "unknown")),
+                structural_similarity=structural,
+                keyword_similarity=keyword,
+                difficulty=difficulty,
+                split=split,
+                group_id=str(row.get("group_id", "")),
+                eval_group=str(row.get("eval", "")),
+            )
+        )
+    return examples
+
+
 def _build_dataset(
     libero_root: Path,
     libero_data_root: Path,
@@ -457,7 +559,7 @@ def _build_dataset(
     max_tasks: int,
     max_paraphrases_per_task: int,
     max_action_steps: int,
-) -> tuple[list[TaskRecord], list[TextExample], dict[str, Any]]:
+) -> tuple[list[TaskRecord], list[TextExample], list[TextExample], dict[str, Any]]:
     try:
         import h5py  # noqa: F401
 
@@ -491,9 +593,11 @@ def _build_dataset(
         raise PrismDiagnosticError("need at least two local LIBERO tasks with action chunks and paraphrases")
 
     task_records: list[TaskRecord] = []
-    paraphrases: list[TextExample] = []
+    train_paraphrases: list[TextExample] = []
+    heldout_paraphrases: list[TextExample] = []
     width: int | None = None
     skipped: list[dict[str, str]] = []
+    split_records: list[dict[str, Any]] = []
     for label, (task, demo_path, rows) in enumerate(selected_candidates):
         try:
             action_chunk = _read_first_action_chunk(demo_path, max_action_steps=max_action_steps)
@@ -516,29 +620,27 @@ def _build_dataset(
                 canonical_objects=tuple(str(item) for item in task.get("canonical_objects_of_interest", [])),
             )
         )
-        for row in _select_balanced(rows, max_paraphrases_per_task):
-            structural = float(row.get("structural_similarity", 1.0))
-            keyword = float(row.get("keyword_similarity", 1.0))
-            difficulty = float(row.get("difficulty", max(0.0, 1.0 - 0.5 * (structural + keyword))))
-            paraphrases.append(
-                TextExample(
-                    text=str(row["new_instruction"]),
-                    label=len(task_records) - 1,
-                    source=str(row.get("source", "unknown")),
-                    original_instruction=str(task["language"]),
-                    high=str(row.get("high", "unknown")),
-                    mid=str(row.get("mid", "unknown")),
-                    low=str(row.get("low", "unknown")),
-                    structural_similarity=structural,
-                    keyword_similarity=keyword,
-                    difficulty=difficulty,
-                )
-            )
-    if len(task_records) < 2 or not paraphrases:
+        selected_rows = _select_balanced(rows, max_paraphrases_per_task)
+        train_rows, heldout_rows, split_audit = _split_selected_rows_by_group(selected_rows)
+        split_records.append(
+            {
+                "task_id": str(task["task_id"]),
+                "selected_rows": len(selected_rows),
+                "train_rows": len(train_rows),
+                "heldout_rows": len(heldout_rows),
+                **split_audit,
+            }
+        )
+        train_paraphrases.extend(_rows_to_examples(train_rows, len(task_records) - 1, str(task["language"]), "train"))
+        heldout_paraphrases.extend(_rows_to_examples(heldout_rows, len(task_records) - 1, str(task["language"]), "heldout"))
+    if len(task_records) < 2 or not train_paraphrases or not heldout_paraphrases:
         raise PrismDiagnosticError("not enough task/paraphrase records after action inspection")
 
-    metadata_sources = sorted({example.source for example in paraphrases})
-    return task_records, paraphrases, {
+    all_paraphrases = train_paraphrases + heldout_paraphrases
+    train_groups = {example.group_id for example in train_paraphrases}
+    heldout_groups = {example.group_id for example in heldout_paraphrases}
+    metadata_sources = sorted({example.source for example in all_paraphrases})
+    return task_records, train_paraphrases, heldout_paraphrases, {
         "libero_root": str(libero_root),
         "libero_data_root": str(libero_data_root),
         "libero_para_metadata_csv": str(metadata_csv),
@@ -548,11 +650,36 @@ def _build_dataset(
         "metadata_original_count": len(metadata),
         "candidate_task_count": len(candidates),
         "selected_task_count": len(task_records),
-        "selected_paraphrase_count": len(paraphrases),
-        "object_paraphrase_count": sum(1 for example in paraphrases if example.high == "obj"),
+        "selected_paraphrase_count": len(all_paraphrases),
+        "train_paraphrase_count": len(train_paraphrases),
+        "heldout_paraphrase_count": len(heldout_paraphrases),
+        "object_paraphrase_count": sum(1 for example in all_paraphrases if example.high == "obj"),
+        "heldout_object_paraphrase_count": sum(1 for example in heldout_paraphrases if example.high == "obj"),
+        "heldout_syntactic_paraphrase_count": sum(1 for example in heldout_paraphrases if _is_syntactic_variation(example)),
         "skipped_tasks": skipped,
         "task_ids": [record.task_id for record in task_records],
         "suites": sorted({record.suite for record in task_records}),
+        "split_audit": {
+            "official_split_used": False,
+            "official_split_note": "The official metadata CSV provides eval IDs, but no documented train/eval paraphrase split; eval is kept as a group field.",
+            "split_strategy": "deterministic group split before training, preserving whole paraphrase groups",
+            "paraphrase_group_count": len(train_groups | heldout_groups),
+            "train_paraphrase_group_count": len(train_groups),
+            "heldout_paraphrase_group_count": len(heldout_groups),
+            "heldout_object_group_count": len({example.group_id for example in heldout_paraphrases if example.high == "obj"}),
+            "heldout_syntactic_group_count": len({example.group_id for example in heldout_paraphrases if _is_syntactic_variation(example)}),
+            "group_leakage_detected": bool(train_groups & heldout_groups),
+            "group_leakage_count": len(train_groups & heldout_groups),
+            "train_eval_split": {
+                "train_paraphrases": len(train_paraphrases),
+                "heldout_paraphrases": len(heldout_paraphrases),
+                "train_groups": len(train_groups),
+                "heldout_groups": len(heldout_groups),
+            },
+            "action_chunks_aligned_without_eval_label_leakage": True,
+            "action_alignment_note": "Action chunks are loaded by local LIBERO task id and used only as action labels/proxies; LIBERO-Para eval IDs are not used as success labels.",
+            "per_task": split_records,
+        },
         "evidence_label": "exploratory_proxy_local_libero_action_chunks",
     }
 
@@ -690,7 +817,8 @@ def _counterfactual_sensitivity_metrics(
 def _evaluate_variant(
     trained: dict[str, Any],
     clean_examples: tuple[TextExample, ...],
-    paraphrases: list[TextExample],
+    train_paraphrases: list[TextExample],
+    heldout_paraphrases: list[TextExample],
     same_pairs: tuple[tuple[TextExample, TextExample], ...],
     counterfactual_pairs: tuple[tuple[TextExample, TextExample], ...],
     actions: np.ndarray,
@@ -700,10 +828,13 @@ def _evaluate_variant(
     transform = str(trained["feature_transform"])
     feature_width = int(trained["feature_width"])
     success_threshold = max(0.02, 0.55 * _task_distance_scale(actions))
-    object_examples = [example for example in paraphrases if example.high == "obj"]
+    object_examples = [example for example in heldout_paraphrases if example.high == "obj"]
+    syntactic_examples = [example for example in heldout_paraphrases if _is_syntactic_variation(example)]
     clean = _score_examples(weights, clean_examples, actions, transform, feature_width, success_threshold)
-    para = _score_examples(weights, paraphrases, actions, transform, feature_width, success_threshold)
+    train_para = _score_examples(weights, train_paraphrases, actions, transform, feature_width, success_threshold)
+    para = _score_examples(weights, heldout_paraphrases, actions, transform, feature_width, success_threshold)
     obj = _score_examples(weights, object_examples, actions, transform, feature_width, success_threshold)
+    syn = _score_examples(weights, syntactic_examples, actions, transform, feature_width, success_threshold)
     consistency = _consistency_metrics(weights, same_pairs, actions, transform, feature_width)
     counterfactual = _counterfactual_sensitivity_metrics(weights, counterfactual_pairs, actions, transform, feature_width)
     clean_proxy = clean.get("continuous_proxy_score")
@@ -717,63 +848,158 @@ def _evaluate_variant(
         "loss_curve": trained["loss_curve"],
         "elapsed_seconds": trained["elapsed_seconds"],
         "clean": clean,
+        "train_paraphrase": train_para,
         "paraphrase": para,
         "object_lexical_variation": obj,
+        "syntactic_variation": syn,
         "paraphrase_consistency": consistency,
         "counterfactual_sensitivity": counterfactual,
+        "instruction_sensitivity_preserved": bool(
+            counterfactual.get("pair_count", 0)
+            and float(counterfactual.get("same_top_prediction_rate") or 0.0) < 0.80
+        ),
         "clean_retention_vs_base_clean": clean_retention,
     }
+
+
+def _metric(payload: dict[str, Any], section: str, field: str, default: float = 0.0) -> float:
+    value = (payload.get(section) or {}).get(field)
+    if value is None:
+        return default
+    return float(value)
+
+
+def _robustness_delta(candidate: dict[str, Any], baseline: dict[str, Any]) -> dict[str, float]:
+    paraphrase_delta = _metric(candidate, "paraphrase", "continuous_proxy_score") - _metric(baseline, "paraphrase", "continuous_proxy_score")
+    weighted_delta = _metric(candidate, "paraphrase", "difficulty_weighted_robustness") - _metric(
+        baseline, "paraphrase", "difficulty_weighted_robustness"
+    )
+    pride_delta = _metric(candidate, "paraphrase", "pride") - _metric(baseline, "paraphrase", "pride")
+    consistency_delta = _metric(candidate, "paraphrase_consistency", "consistency_score") - _metric(
+        baseline, "paraphrase_consistency", "consistency_score"
+    )
+    action_divergence_delta = _metric(candidate, "paraphrase", "action_trajectory_divergence") - _metric(
+        baseline, "paraphrase", "action_trajectory_divergence"
+    )
+    object_delta = _metric(candidate, "object_lexical_variation", "continuous_proxy_score") - _metric(
+        baseline, "object_lexical_variation", "continuous_proxy_score"
+    )
+    syntactic_delta = _metric(candidate, "syntactic_variation", "continuous_proxy_score") - _metric(
+        baseline, "syntactic_variation", "continuous_proxy_score"
+    )
+    primary_delta = max(paraphrase_delta, weighted_delta, pride_delta / 100.0)
+    subset_delta = max(object_delta, syntactic_delta)
+    auxiliary_delta = max(consistency_delta, -action_divergence_delta)
+    best_delta = max(primary_delta, subset_delta, auxiliary_delta)
+    return {
+        "paraphrase_proxy_delta": round(paraphrase_delta, 6),
+        "difficulty_weighted_robustness_delta": round(weighted_delta, 6),
+        "pride_delta": round(pride_delta, 6),
+        "consistency_score_delta": round(consistency_delta, 6),
+        "action_trajectory_divergence_delta": round(action_divergence_delta, 6),
+        "object_lexical_proxy_delta": round(object_delta, 6),
+        "syntactic_proxy_delta": round(syntactic_delta, 6),
+        "primary_heldout_robustness_delta": round(primary_delta, 6),
+        "subset_robustness_delta": round(subset_delta, 6),
+        "auxiliary_consistency_or_divergence_delta": round(auxiliary_delta, 6),
+        "best_robustness_delta": round(best_delta, 6),
+    }
+
+
+def _counterfactual_preserved(candidate: dict[str, Any], baseline: dict[str, Any]) -> bool:
+    candidate_score = _metric(candidate, "counterfactual_sensitivity", "counterfactual_sensitivity_score")
+    baseline_score = _metric(baseline, "counterfactual_sensitivity", "counterfactual_sensitivity_score")
+    collapse = _metric(candidate, "counterfactual_sensitivity", "same_top_prediction_rate") >= 0.80
+    return bool(candidate_score >= 0.80 * max(1e-9, baseline_score) and not collapse)
 
 
 def _comparison(variants: dict[str, dict[str, Any]]) -> dict[str, Any]:
     base = variants["base_no_paraphrase_training"]
     aug = variants["simple_paraphrase_augmentation"]
-    prism = variants["prism_vla_consistency"]
-    base_clean = float(base["clean"]["continuous_proxy_score"])
-    base_para = float(base["paraphrase"]["continuous_proxy_score"])
+    canon = variants["canonicalization_only"]
+    prism_names = [
+        "prism_vla_consistency",
+        "prism_vla_plus_canonicalization",
+        "difficulty_weighted_prism",
+        "counterfactual_sensitive_prism",
+    ]
+    base_clean = _metric(base, "clean", "continuous_proxy_score")
+    base_para = _metric(base, "paraphrase", "continuous_proxy_score")
     degradation = round(base_clean - base_para, 6)
-    prism_vs_aug = {
-        "paraphrase_proxy_delta": round(float(prism["paraphrase"]["continuous_proxy_score"]) - float(aug["paraphrase"]["continuous_proxy_score"]), 6),
-        "pride_delta": round(float(prism["paraphrase"]["pride"] or 0.0) - float(aug["paraphrase"]["pride"] or 0.0), 6),
-        "consistency_score_delta": round(float(prism["paraphrase_consistency"]["consistency_score"]) - float(aug["paraphrase_consistency"]["consistency_score"]), 6),
-        "action_trajectory_divergence_delta": round(float(prism["paraphrase"]["action_trajectory_divergence"]) - float(aug["paraphrase"]["action_trajectory_divergence"]), 6),
-        "object_lexical_proxy_delta": round(
-            float(prism["object_lexical_variation"]["continuous_proxy_score"] or 0.0)
-            - float(aug["object_lexical_variation"]["continuous_proxy_score"] or 0.0),
-            6,
+
+    candidate_comparisons: dict[str, dict[str, Any]] = {}
+    for name in prism_names:
+        candidate = variants[name]
+        vs_aug = _robustness_delta(candidate, aug)
+        vs_canon = _robustness_delta(candidate, canon)
+        candidate_comparisons[name] = {
+            "vs_simple_augmentation": vs_aug,
+            "vs_canonicalization_only": vs_canon,
+            "clean_retained": bool(float(candidate["clean_retention_vs_base_clean"] or 0.0) >= 0.80),
+            "counterfactual_sensitivity_preserved_vs_canonicalization": _counterfactual_preserved(candidate, canon),
+            "instruction_sensitivity_preserved": bool(candidate.get("instruction_sensitivity_preserved")),
+        }
+
+    best_name = max(
+        prism_names,
+        key=lambda name: (
+            candidate_comparisons[name]["vs_canonicalization_only"]["primary_heldout_robustness_delta"],
+            candidate_comparisons[name]["vs_simple_augmentation"]["primary_heldout_robustness_delta"],
+            candidate_comparisons[name]["vs_canonicalization_only"]["best_robustness_delta"],
+            _metric(variants[name], "paraphrase", "continuous_proxy_score"),
         ),
-    }
-    best_robustness_delta = max(
-        prism_vs_aug["paraphrase_proxy_delta"],
-        prism_vs_aug["pride_delta"] / 100.0,
-        prism_vs_aug["consistency_score_delta"],
-        prism_vs_aug["object_lexical_proxy_delta"],
-        -prism_vs_aug["action_trajectory_divergence_delta"],
     )
-    clean_retained = float(prism["clean_retention_vs_base_clean"] or 0.0) >= 0.80
-    sensitivity = float(prism["counterfactual_sensitivity"]["counterfactual_sensitivity_score"])
-    aug_sensitivity = float(aug["counterfactual_sensitivity"]["counterfactual_sensitivity_score"])
-    cf_preserved = sensitivity >= 0.80 * max(1e-9, aug_sensitivity)
-    collapse = float(prism["counterfactual_sensitivity"]["same_top_prediction_rate"]) >= 0.80
+    best = candidate_comparisons[best_name]
+    raw_names = [name for name in prism_names if name != "prism_vla_plus_canonicalization"]
+    raw_beats_canon = any(candidate_comparisons[name]["vs_canonicalization_only"]["primary_heldout_robustness_delta"] > 1e-4 for name in raw_names)
+    best_beats_canon = best["vs_canonicalization_only"]["primary_heldout_robustness_delta"] > 1e-4
+    best_beats_simple = best["vs_simple_augmentation"]["primary_heldout_robustness_delta"] > 1e-4
+
     reasons: list[str] = []
     if degradation < 0.02:
-        reasons.append("paraphrase degradation is not measurable in the base proxy")
-    if best_robustness_delta <= 1e-4:
-        reasons.append("simple paraphrase augmentation matches PRISM on robustness metrics")
-    if not clean_retained:
-        reasons.append("clean performance drops substantially")
-    if not cf_preserved or collapse:
-        reasons.append("PRISM appears to improve consistency by weakening counterfactual sensitivity")
-    decision = "continue" if not reasons else "kill_or_block"
+        reasons.append("held-out paraphrase degradation is not measurable in the base proxy")
+    if not best_beats_canon:
+        reasons.append("canonicalization-only matches or beats all PRISM variants on primary held-out paraphrase/PRIDE robustness metrics")
+    if not best_beats_simple:
+        reasons.append("simple paraphrase augmentation matches or beats the best PRISM variant on primary held-out paraphrase/PRIDE robustness metrics")
+    if not best["clean_retained"]:
+        reasons.append("best PRISM variant does not retain clean performance")
+    if not best["counterfactual_sensitivity_preserved_vs_canonicalization"] or not best["instruction_sensitivity_preserved"]:
+        reasons.append("best PRISM variant does not preserve counterfactual/instruction sensitivity")
+
+    if reasons:
+        decision = "kill"
+    elif best_name == "prism_vla_plus_canonicalization" and not raw_beats_canon:
+        decision = "continue_reframe_canonicalized_prism"
+    else:
+        decision = "continue"
+
     return {
-        "base_clean_to_paraphrase_proxy_drop": degradation,
-        "prism_vs_simple_augmentation": prism_vs_aug,
-        "best_prism_robustness_delta_over_augmentation": round(best_robustness_delta, 6),
-        "clean_retained": clean_retained,
-        "counterfactual_sensitivity_preserved": bool(cf_preserved and not collapse),
-        "continue_criteria_met": decision == "continue",
+        "base_clean_to_heldout_paraphrase_proxy_drop": degradation,
+        "candidate_comparisons": candidate_comparisons,
+        "best_prism_variant": best_name,
+        "best_prism_metric": variants[best_name]["paraphrase"],
+        "best_prism_delta_vs_canonicalization": best["vs_canonicalization_only"],
+        "best_prism_delta_vs_simple_augmentation": best["vs_simple_augmentation"],
+        "canonicalization_only_metric": canon["paraphrase"],
+        "raw_prism_beats_canonicalization": raw_beats_canon,
+        "prism_or_prism_plus_canonicalization_beats_canonicalization": best_beats_canon,
+        "prism_beats_simple_augmentation": best_beats_simple,
+        "clean_retained": best["clean_retained"],
+        "counterfactual_sensitivity_preserved": best["counterfactual_sensitivity_preserved_vs_canonicalization"],
+        "instruction_sensitivity_preserved": best["instruction_sensitivity_preserved"],
+        "continue_criteria_met": decision in {"continue", "continue_reframe_canonicalized_prism"},
         "decision": decision,
         "kill_or_block_reasons": reasons,
+        "interpretation": (
+            "PRISM+canonicalization is the only winning variant; reframe as canonicalized PRISM and evaluate novelty risk."
+            if decision == "continue_reframe_canonicalized_prism"
+            else (
+                "PRISM beats canonicalization-only and simple augmentation under the held-out proxy gate."
+                if decision == "continue"
+                else "Do not scale PRISM as a main route under this held-out proxy gate."
+            )
+        ),
     }
 
 
@@ -793,11 +1019,15 @@ def _markdown_report(report: dict[str, Any]) -> str:
         f"- rollouts performed: `{report['policy']['rollouts_performed']}`",
         f"- selected tasks: `{report['data']['selected_task_count']}`",
         f"- selected paraphrases: `{report['data']['selected_paraphrase_count']}`",
+        f"- train paraphrases: `{report['data']['train_paraphrase_count']}`",
+        f"- held-out paraphrases: `{report['data']['heldout_paraphrase_count']}`",
+        f"- group leakage detected: `{report['data']['split_audit']['group_leakage_detected']}`",
+        f"- real VLA diagnostic happened: `{report['real_vla_adapter_diagnostic']['happened']}`",
         "",
         "## Variant Metrics",
         "",
-        "| variant | clean proxy | paraphrase proxy | object proxy | PRIDE | consistency | cf sensitivity | final loss |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| variant | clean proxy | held-out paraphrase proxy | object proxy | syntactic proxy | PRIDE | consistency | cf sensitivity | final loss |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for name, payload in variants.items():
         lines.append(
@@ -808,6 +1038,7 @@ def _markdown_report(report: dict[str, Any]) -> str:
                     str(payload["clean"]["continuous_proxy_score"]),
                     str(payload["paraphrase"]["continuous_proxy_score"]),
                     str(payload["object_lexical_variation"]["continuous_proxy_score"]),
+                    str(payload["syntactic_variation"]["continuous_proxy_score"]),
                     str(payload["paraphrase"]["pride"]),
                     str(payload["paraphrase_consistency"].get("consistency_score")),
                     str(payload["counterfactual_sensitivity"].get("counterfactual_sensitivity_score")),
@@ -821,16 +1052,20 @@ def _markdown_report(report: dict[str, Any]) -> str:
             "",
             "## Decision",
             "",
-            f"- base clean-to-paraphrase proxy drop: `{report['decision']['base_clean_to_paraphrase_proxy_drop']}`",
-            f"- PRISM best robustness delta over simple augmentation: `{report['decision']['best_prism_robustness_delta_over_augmentation']}`",
+            f"- base clean-to-held-out-paraphrase proxy drop: `{report['decision']['base_clean_to_heldout_paraphrase_proxy_drop']}`",
+            f"- best PRISM variant: `{report['decision']['best_prism_variant']}`",
+            f"- best PRISM delta vs canonicalization: `{report['decision']['best_prism_delta_vs_canonicalization']}`",
+            f"- best PRISM delta vs simple augmentation: `{report['decision']['best_prism_delta_vs_simple_augmentation']}`",
             f"- clean retained: `{report['decision']['clean_retained']}`",
             f"- counterfactual sensitivity preserved: `{report['decision']['counterfactual_sensitivity_preserved']}`",
+            f"- interpretation: `{report['decision']['interpretation']}`",
             f"- kill/block reasons: `{report['decision']['kill_or_block_reasons']}`",
             "",
             "## Limitations",
             "",
             "- The policy is a tiny NumPy surrogate, not a real VLA checkpoint.",
             "- Metrics are offline action-distribution/action-chunk proxies, not simulator success.",
+            f"- Real VLA/adapter diagnostic blocker: {report['real_vla_adapter_diagnostic']['blocker']}",
             "- If official LIBERO-Para metadata is unavailable, local paraphrases are exploratory and non-paper-grade.",
             "",
         ]
@@ -864,7 +1099,7 @@ def build_prism_vla_diagnostic(
 ) -> dict[str, Any]:
     validate_bounds(max_tasks, max_paraphrases_per_task, max_action_steps, max_steps, learning_rate)
     started = time.perf_counter()
-    tasks, paraphrases, data_metadata = _build_dataset(
+    tasks, train_paraphrases, heldout_paraphrases, data_metadata = _build_dataset(
         libero_root=libero_root,
         libero_data_root=libero_data_root,
         metadata_csv=libero_para_metadata_csv,
@@ -873,18 +1108,47 @@ def build_prism_vla_diagnostic(
         max_action_steps=max_action_steps,
     )
     clean = _clean_examples(tasks)
-    same = _same_pairs(clean, paraphrases)
+    train_same = _same_pairs(clean, train_paraphrases)
+    heldout_same = _same_pairs(clean, heldout_paraphrases)
     counterfactual = _counterfactual_pairs(clean)
     actions = np.asarray([task.action_chunk for task in tasks], dtype=np.float64)
     specs = [
         VariantSpec("base_no_paraphrase_training", "raw", clean),
-        VariantSpec("simple_paraphrase_augmentation", "raw", tuple(list(clean) + paraphrases)),
-        VariantSpec("instruction_canonicalization_baseline", "canonical", clean),
+        VariantSpec("simple_paraphrase_augmentation", "raw", tuple(list(clean) + train_paraphrases)),
+        VariantSpec("canonicalization_only", "canonical", clean),
         VariantSpec(
             "prism_vla_consistency",
             "raw",
-            tuple(list(clean) + paraphrases),
-            same_pairs=same,
+            tuple(list(clean) + train_paraphrases),
+            same_pairs=train_same,
+            lambda_consistency=0.85,
+            lambda_counterfactual=0.0,
+            difficulty_weighting=False,
+        ),
+        VariantSpec(
+            "prism_vla_plus_canonicalization",
+            "canonical",
+            tuple(list(clean) + train_paraphrases),
+            same_pairs=train_same,
+            counterfactual_pairs=counterfactual,
+            lambda_consistency=0.85,
+            lambda_counterfactual=0.30,
+            difficulty_weighting=True,
+        ),
+        VariantSpec(
+            "difficulty_weighted_prism",
+            "raw",
+            tuple(list(clean) + train_paraphrases),
+            same_pairs=train_same,
+            lambda_consistency=0.85,
+            lambda_counterfactual=0.0,
+            difficulty_weighting=True,
+        ),
+        VariantSpec(
+            "counterfactual_sensitive_prism",
+            "raw",
+            tuple(list(clean) + train_paraphrases),
+            same_pairs=train_same,
             counterfactual_pairs=counterfactual,
             lambda_consistency=0.85,
             lambda_counterfactual=0.30,
@@ -904,7 +1168,7 @@ def build_prism_vla_diagnostic(
         max(0.02, 0.55 * _task_distance_scale(actions)),
     )["continuous_proxy_score"]
     variants = {
-        spec.name: _evaluate_variant(trained[spec.name], clean, paraphrases, same, counterfactual, actions, float(base_clean))
+        spec.name: _evaluate_variant(trained[spec.name], clean, train_paraphrases, heldout_paraphrases, heldout_same, counterfactual, actions, float(base_clean))
         for spec in specs
     }
     decision = _comparison(variants)
@@ -948,7 +1212,7 @@ def build_prism_vla_diagnostic(
             "real_vla_model_metric_produced": False,
             "action_chunk_width": int(actions.shape[1]),
             "max_action_steps": max_action_steps,
-            "evaluation_split": "exploratory_same_selected_paraphrases_for_tiny_training_and_eval",
+            "evaluation_split": "deterministic_heldout_paraphrase_group_split",
         },
         "training": {
             "max_steps": max_steps,
@@ -959,14 +1223,28 @@ def build_prism_vla_diagnostic(
                 "same_task_paraphrase_consistency": True,
                 "object_target_counterfactual_pairs_not_forced_close": True,
                 "difficulty_weighting": True,
+                "canonicalized_prism_variant_predeclared": True,
                 "clean_retention_tracked": True,
+                "heldout_paraphrase_groups_excluded_from_training": True,
             },
+        },
+        "real_vla_adapter_diagnostic": {
+            "attempted": False,
+            "happened": False,
+            "feasible_in_this_runner": False,
+            "blocker": (
+                "The repo has SmolVLA load/single-sample and dummy feature-cache paths, but no bounded "
+                "real SmolVLA paraphrase feature/adapter runner that can compare PRISM against canonicalization "
+                "without a separate heavy-import/inference milestone."
+            ),
+            "not_ra_l_evidence": True,
         },
         "metrics": {
             "clean_success_proxy": "continuous proxy and binary action/target proxy on clean local LIBERO instructions",
-            "paraphrase_success_proxy": "continuous proxy and binary action/target proxy on paraphrased instructions",
-            "paraphrase_consistency": "same-task action/distribution divergence between original and paraphrase",
-            "object_lexical_variation_robustness": "same metrics restricted to LIBERO-Para high=obj rows",
+            "paraphrase_success_proxy": "continuous proxy and binary action/target proxy on held-out paraphrased instructions",
+            "paraphrase_consistency": "same-task action/distribution divergence between original and held-out paraphrase",
+            "object_lexical_variation_robustness": "same metrics restricted to held-out LIBERO-Para high=obj rows",
+            "syntactic_variation_robustness": "same metrics restricted to held-out comp/structural rows when available",
             "counterfactual_object_sensitivity": "distribution/action divergence across different local LIBERO tasks",
             "action_trajectory_divergence": "L2 over predicted vs expert local action chunks",
             "clean_retention": "clean proxy divided by base clean proxy",
@@ -976,9 +1254,9 @@ def build_prism_vla_diagnostic(
         "decision": decision,
         "elapsed_seconds": round(time.perf_counter() - started, 6),
         "recommended_next_step": (
-            "Run a held-out and then real-VLA adapter paraphrase diagnostic only after this proxy is reviewed."
+            "Run a separate risk-assessed real SmolVLA paraphrase feature/adapter diagnostic."
             if decision["continue_criteria_met"]
-            else "Do not scale PRISM-VLA yet; inspect the kill/block reasons and baseline parity first."
+            else "Kill or reframe PRISM-VLA as the main route unless a real adapter diagnostic overturns the held-out baseline result."
         ),
     }
     return report

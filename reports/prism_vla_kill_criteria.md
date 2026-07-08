@@ -1,5 +1,18 @@
 # PRISM-VLA Kill Criteria
 
+## State 2 Decision
+
+Decision: kill PRISM-VLA as the current main route unless a later, separately gated real SmolVLA adapter diagnostic overturns the held-out proxy result.
+
+Reasons:
+
+- canonicalization-only matched or beat every PRISM variant on primary held-out paraphrase proxy, PRIDE, and difficulty-weighted robustness,
+- the best PRISM variant, `prism_vla_plus_canonicalization`, improved over simple augmentation but not over canonicalization-only on the primary held-out metrics,
+- counterfactual sensitivity was not preserved versus canonicalization-only under the proxy gate,
+- no real VLA checkpoint PRISM-vs-canonicalization metric was produced in State 2.
+
+Allowed follow-up: one separate risk-assessed real SmolVLA paraphrase feature/adapter diagnostic may be proposed only if it directly compares canonicalization-only, PRISM, and PRISM+canonicalization without full fine-tuning, rollout, GPU, downloads, OpenVLA-OFT, or paper-grade claims.
+
 ## Continue Criteria
 
 Continue past State 1 only if all are true:

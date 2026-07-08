@@ -2,13 +2,44 @@
 
 ## Current State
 
-- Branch: `codex/prism-vla-state1`
-- Base: `main` at `cad512e` before PRISM edits
-- Milestone: State 0 docs plus State 1 CPU diagnostic
+- Branch: `codex/prism-vla-state2`
+- Base: `main` at `141fcea` before State 2 edits
+- Milestone: State 2 held-out paraphrase split and canonicalization dominance gate
 - Heavy training: not allowed
 - OpenVLA-OFT: blocked
 - Simulator rollouts: not part of this milestone
 - Evidence label: exploratory offline proxy
+
+## State 2 Result
+
+- Diagnostic report: `reports/prism_vla_diagnostic_report.md` and `.json` (runtime-generated, gitignored)
+- Decision: `kill`
+- Training happened: yes, tiny CPU NumPy surrogate training only
+- Loss computed: yes
+- Rollout/GPU/heavy VLA/OpenVLA-OFT happened: no
+- Real VLA adapter diagnostic happened: no
+- Model: `tiny_numpy_semantic_action_distribution_policy`
+- Dataset/split: official LIBERO-Para metadata plus local LIBERO HDF5 action chunks; deterministic held-out paraphrase group split
+- Selected tasks/paraphrases: `5 / 90`
+- Train/held-out paraphrases: `51 / 39`
+- Paraphrase groups train/held-out: `20 / 13`
+- Group leakage detected: false
+- Held-out object/syntactic paraphrases: `30 / 9`
+- Base clean proxy: `0.519538`
+- Base held-out paraphrase proxy: `0.457110`
+- Base held-out paraphrase drop: `0.062428`
+- Simple augmentation held-out paraphrase proxy: `0.417930`
+- Canonicalization-only held-out paraphrase proxy: `0.474066`
+- Canonicalization-only PRIDE: `46.686731`
+- Best PRISM variant: `prism_vla_plus_canonicalization`
+- Best PRISM held-out paraphrase proxy: `0.436356`
+- Best PRISM PRIDE: `31.985592`
+- Best PRISM primary held-out delta vs canonicalization: `-0.030420`
+- Best PRISM primary held-out delta vs simple augmentation: `+0.055205`
+- Clean retention for best PRISM: `0.870968`
+- Counterfactual sensitivity preserved versus canonicalization: false
+
+Interpretation: State 2 kills PRISM-VLA as the current main route. The method beats simple augmentation, but canonicalization-only remains stronger on primary held-out paraphrase and PRIDE metrics. The auxiliary consistency/syntactic gains are not enough because counterfactual sensitivity weakens.
 
 ## State 1 Result
 

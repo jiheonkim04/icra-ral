@@ -111,7 +111,7 @@ def test_prism_vla_diagnostic_runs_required_variants(tmp_path):
         feature_width=48,
     )
 
-    assert report["schema_version"] == "prism-vla-paraphrase-diagnostic-v0"
+    assert report["schema_version"] == "prism-vla-paraphrase-diagnostic-v1-heldout"
     assert report["policy"]["training_performed"] is True
     assert report["policy"]["loss_computed"] is True
     assert report["policy"]["rollouts_performed"] is False
@@ -120,15 +120,29 @@ def test_prism_vla_diagnostic_runs_required_variants(tmp_path):
     assert set(report["variants"]) == {
         "base_no_paraphrase_training",
         "simple_paraphrase_augmentation",
-        "instruction_canonicalization_baseline",
+        "canonicalization_only",
         "prism_vla_consistency",
+        "prism_vla_plus_canonicalization",
+        "difficulty_weighted_prism",
+        "counterfactual_sensitive_prism",
     }
+    split_audit = report["data"]["split_audit"]
+    assert split_audit["official_split_used"] is False
+    assert split_audit["group_leakage_detected"] is False
+    assert split_audit["train_paraphrase_group_count"] > 0
+    assert split_audit["heldout_paraphrase_group_count"] > 0
+    assert split_audit["heldout_object_group_count"] > 0
+    assert report["data"]["train_paraphrase_count"] > 0
+    assert report["data"]["heldout_paraphrase_count"] > 0
+    assert report["real_vla_adapter_diagnostic"]["happened"] is False
     for payload in report["variants"].values():
         assert payload["loss_curve"]
         assert payload["clean"]["continuous_proxy_score"] is not None
         assert payload["paraphrase"]["action_trajectory_divergence"] is not None
+        assert payload["syntactic_variation"]["count"] >= 0
         assert payload["counterfactual_sensitivity"]["pair_count"] == 1
-    assert report["decision"]["decision"] in {"continue", "kill_or_block"}
+    assert report["decision"]["decision"] in {"continue", "continue_reframe_canonicalized_prism", "kill"}
+    assert "canonicalization_only_metric" in report["decision"]
 
 
 def test_prism_vla_diagnostic_falls_back_to_local_paraphrases(tmp_path):
@@ -150,6 +164,8 @@ def test_prism_vla_diagnostic_falls_back_to_local_paraphrases(tmp_path):
     assert report["data"]["official_libero_para_metadata_used"] is False
     assert report["data"]["local_exploratory_paraphrases_used"] is True
     assert report["data"]["selected_paraphrase_count"] >= 2
+    assert report["data"]["heldout_paraphrase_count"] >= 1
+    assert report["data"]["split_audit"]["group_leakage_detected"] is False
     assert report["model"]["real_vla_model_metric_produced"] is False
     assert report["data"]["real_dataset_metric_produced"] is True
 
@@ -274,5 +290,6 @@ def test_prism_vla_runner_outputs_json(tmp_path):
     assert start >= 0
     report = json.loads(result.stdout[start:])
     assert report["policy"]["training_performed"] is True
-    assert report["variants"]["prism_vla_consistency"]["loss_curve"]
+    assert report["variants"]["counterfactual_sensitive_prism"]["loss_curve"]
+    assert report["data"]["evaluation_split"] == "deterministic_heldout_paraphrase_group_split"
     assert (tmp_path / "report.md").exists()
