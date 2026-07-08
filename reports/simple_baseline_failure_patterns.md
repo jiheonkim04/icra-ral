@@ -13,6 +13,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ResetSpec-Retarget | object-pose/reset retargeting | global scale | state-dependent retargeting lost to action-only scaling |
 | Phase-Locked Retiming | temporal phase retiming | gripper-only, fixed shift, repeat-last, linear warp, diagonal affine | each sub-failure was explained by a separate simple timing/action baseline |
 | TL-ChunkRepair | temporal safety/property action-chunk repair | no-repair, clipping-only, safety-only, repeat-last/hold, fixed delay shift | symbolic violation reduction did not translate into replay/control utility |
+| ContactTube-Aug | contact-preserving demonstration augmentation | simple object-relative translation retargeting | proposed augmentation was not controller-valid enough and preserved the contact tube worse than simple retargeting |
 
 ## Mandatory Early Baselines
 
@@ -27,6 +28,8 @@ Every new topic must predeclare and test the relevant subset of:
 - diagonal affine,
 - global scale,
 - nearest-demo,
+- simple object-relative retargeting,
+- random action jitter and random pose jitter for augmentation claims,
 - exact-init expert replay upper bound,
 - oracle/replay-leakage upper bound clearly labeled as invalid method evidence.
 
@@ -42,6 +45,10 @@ Do not average across failure modes to hide that gripper-only, fixed-shift, line
 ## Symbolic/Proxy Utility Rule
 
 A method is invalid for RA-L-stable continuation if it improves symbolic constraints, proxy scores, monitor satisfaction, or offline-only metrics while failing reward, success, safe-success, done/progress, or direct replay/control utility against a simple baseline.
+
+## Data-Augmentation Validity Rule
+
+A data-augmentation method is invalid for continuation if generated actions are not controller-valid or if a simple object-relative retargeting baseline preserves trajectory/contact metrics better. Do not train on augmented demonstrations after this failure; training would test learner robustness to invalid supervision, not augmentation value.
 
 ## Anti-Pattern
 

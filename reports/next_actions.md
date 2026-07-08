@@ -2,11 +2,19 @@
 
 ## Current ContactTube-Aug Status
 
-ContactTube-Aug STATE 1 is killed before training.
+ContactTube-Aug STATE 1 is killed and archived before training.
 
 Do not start STATE 2 on this branch. The bounded replay smoke produced a real replay/control metric, but ContactTube-Aug was not controller-valid enough (`0.849265` valid action rate, `0.150735` clip-step rate) and did not beat simple object-relative translation retargeting on tube preservation (`0.015226` versus `0.009154`).
 
 The next route should start from main with a fresh anti-baseline pre-screen. Any future contact-preserving augmentation variant must be controller-valid by construction and must beat simple object-relative retargeting before any BC/action-head or VLA training.
+
+Archive artifacts:
+
+- `reports/contacttube_aug_kill_summary.md`,
+- `reports/contacttube_aug_failure_tree.md`,
+- `reports/contacttube_aug_reusable_artifacts.md`.
+
+Global next-topic rule: data-augmentation routes must demonstrate valid generated actions and a win over simple object-relative retargeting before training.
 
 ## Bounded Autopilot Update
 

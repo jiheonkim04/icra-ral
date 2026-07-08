@@ -14,6 +14,8 @@ A topic is invalid if:
 - it has no clear novelty against recent VLA/action/safety/deployment literature,
 - it has no clear robotics evidence path.
 - it only improves symbolic/proxy constraints while degrading or failing real replay/control utility versus a simple baseline.
+- it is a data-augmentation route whose generated actions are not controller-valid before training.
+- it is a contact/object-retargeting route that does not beat simple object-relative retargeting on trajectory/contact metrics.
 
 ## Required Pre-Screen Fields
 
@@ -28,6 +30,7 @@ For each candidate:
 - expected simulator/data/model assets,
 - whether rollout/control metric appears within 48 hours,
 - what real utility metric must improve if symbolic/proxy metrics improve,
+- for augmentation topics, controller-valid action rate, clip rate, and the simple object-relative retargeting baseline,
 - why it can be RA-L-stable,
 - why it might fail.
 
@@ -42,6 +45,8 @@ Recommend the topic with:
 - clearest RA-L experiment table.
 
 Reject candidates whose first plausible positive result is monitor satisfaction, symbolic violation reduction, offline proxy gain, or constraint satisfaction without a predeclared path to beat simple baselines on real replay/control utility.
+
+Reject data-augmentation candidates whose first plausible positive result requires training before demonstrating valid augmented actions and a win over random jitter plus simple object-relative retargeting.
 
 ## Literature Context Checked
 
