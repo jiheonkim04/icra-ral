@@ -1,0 +1,2 @@
+"""ActionMap anchor reproduction diagnostics."""
+

@@ -11,6 +11,7 @@ Current killed or reframed main-route candidates:
 - ContactTube-Aug
 - PRISM-VLA
 - ContactSet-VLA
+- ActionMap Anchor Reproduction
 
 ## Target-Prior TCA-Map
 
@@ -112,6 +113,17 @@ Current killed or reframed main-route candidates:
 - strongest trivial baselines that killed it: active single 3D point, destination-only point, and no-geometry action-head baseline.
 - why not RA-L-stable: the method-level extension did not improve the first bounded local action-head metric; scaling to VLA fine-tuning or replay would violate the baseline-first gate.
 - reusable artifacts: HDF5/XML free-joint geometry extraction, qpos-offset audit, instruction-based source/destination selector, permutation-aware point-set encoder, gated diagnostic runner, and focused tests.
+
+## ActionMap Anchor Reproduction
+
+- archive status: killed/reframe at STATE 1 anchor gate.
+- original hypothesis: a local ActionMap-style voxel heatmap/candidate action head should beat mean-action, linear/L1, and cheap MLP baselines on held-out LIBERO HDF5 action quality before any extension or failure mining.
+- strongest positive evidence: the diagnostic used `8` local HDF5 demos with `1008 / 432` deterministic train/eval records, computed tiny CPU losses, and showed the candidate grid had strong oracle headroom (`0.065653208` action L2).
+- decisive negative evidence: ActionMap-style action L2 was `0.529931357`, worse than mean-action (`0.466767673`) and matched/beat by cheap MLP (`0.501926707`); the learned heatmap also collapsed to one rotation bin (`unique trans/rot/grip = 5/1/2`).
+- exact kill criterion triggered: mean-action and cheap MLP matched or beat the ActionMap-style head, and candidate collapse was detected before replay/control or any new extension.
+- strongest trivial baselines that killed it: mean-action and cheap MLP action heads.
+- why not RA-L-stable: the local anchor did not pass the reproduction-first simple-baseline gate; no standard LIBERO success, exact-init replay, VLA metric, GPU training, or full ActionMap reproduction occurred.
+- reusable artifacts: ActionMap anchor task docs, gated tiny CPU diagnostic runner, HDF5 feature/action loader, translation/rotation/gripper candidate heads, top-k/NLL/collapse metrics, oracle nearest-candidate upper bound, and focused tests.
 
 ## Common Failure Pattern
 

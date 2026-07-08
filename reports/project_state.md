@@ -1,5 +1,34 @@
 # Project State
 
+## Latest ActionMap Anchor State 1 Result
+
+Status: killed/reframe at the reproduction-first anchor gate on branch `codex/actionmap-anchor-reproduction-state0-state1`.
+
+STATE 0 created concise anchor docs, and STATE 1 ran a bounded local ActionMap-style heatmap/candidate action-head diagnostic. This route did not invent a new method.
+
+Execution boundary:
+- training happened: yes, tiny CPU NumPy action-head training only,
+- loss computed: yes,
+- local LIBERO HDF5 action labels used: yes,
+- replay/control metric happened: no,
+- full VLA fine-tuning, OpenVLA-OFT, GPU job, download, heavy VLA import/model load, simulator rollout, token access, and paper-grade claim: no.
+
+Key exploratory result:
+- usable demos: `8`,
+- train/eval records: `1008 / 432`,
+- split: `deterministic_per_demo_time_holdout`,
+- mean-action action L2: `0.466767673`,
+- linear/L1 action L2: `0.812610317`,
+- simple MLP action L2: `0.501926707`,
+- ActionMap-style action L2: `0.529931357`,
+- oracle nearest-candidate upper bound action L2: `0.065653208`,
+- ActionMap-style beats mean/linear: `false / true`,
+- cheap MLP matches or beats ActionMap-style: true,
+- candidate collapse detected: true, unique translation/rotation/gripper bins `5 / 1 / 2`,
+- decision: `kill`.
+
+Interpretation: do not proceed to STATE 2 failure mining and do not propose an ActionMap extension from this evidence. The local anchor approximation failed the simple-baseline and candidate-collapse gates before replay/control evidence.
+
 ## Latest ContactSet-VLA State 0-1 Result
 
 Status: initialized and killed at the first bounded offline action-head diagnostic on branch `codex/contactset-vla-state1`.

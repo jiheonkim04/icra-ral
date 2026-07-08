@@ -1,5 +1,25 @@
 # Decision Log
 
+## ActionMap Anchor State 1 Result
+
+Decision: kill or reframe the local ActionMap anchor reproduction before failure mining or extension work.
+
+Reason: the bounded diagnostic produced real HDF5-backed action metrics over `8` local LIBERO demos and `1008 / 432` deterministic train/eval records, but the ActionMap-style heatmap/candidate head failed the simple-baseline gate. ActionMap-style action L2 was `0.529931357`, worse than mean-action (`0.466767673`) and matched/beat by cheap MLP (`0.501926707`). It beat the linear/L1 baseline (`0.812610317`) and had oracle candidate headroom (`0.065653208`), but the learned candidate selection collapsed to one rotation bin (`5 / 1 / 2` unique translation/rotation/gripper bins).
+
+Consequence: do not proceed to STATE 2 failure mining and do not propose an ActionMap extension from this result. A reframe must first reproduce an anchor-style head that beats mean-action, linear/L1, and cheap MLP baselines without candidate collapse.
+
+Execution boundary: tiny CPU NumPy training happened and loss was computed. Replay/control, GPU jobs, downloads, heavy VLA imports/model loading, full VLA fine-tuning, OpenVLA-OFT execution, simulator rollout, token access, and paper-grade claims did not occur.
+
+## ActionMap Anchor Reproduction Start
+
+Decision: start a reproduction-first ActionMap anchor route after ContactSet-VLA was archived and pushed.
+
+Reason: recent method-first routes repeatedly failed against simple baselines. The next route must first approximate a strong recent anchor, verify it beats mean and linear/simple heads locally, then mine failures before proposing any extension.
+
+Consequence: no new method or extension is allowed until the ActionMap-style diagnostic produces a real HDF5-backed metric and passes the simple-baseline gate.
+
+Execution boundary: planning and scaffold only at this entry. No rollout, GPU job, download, heavy VLA import, full VLA fine-tuning, OpenVLA-OFT execution, or paper claim.
+
 ## ContactSet-VLA State 1 Result
 
 Decision: kill ContactSet-VLA as the current main route before full VLA fine-tuning or replay scale-up.

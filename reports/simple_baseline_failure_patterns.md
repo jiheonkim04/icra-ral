@@ -16,6 +16,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ContactTube-Aug | contact-preserving demonstration augmentation | simple object-relative translation retargeting | proposed augmentation was not controller-valid enough and preserved the contact tube worse than simple retargeting |
 | PRISM-VLA | paraphrase-robust language-action consistency | canonicalization-only | stronger lexical normalization beat PRISM on primary held-out paraphrase and PRIDE metrics |
 | ContactSet-VLA | contact-set action-head geometry injection | active single 3D point, destination-only, no-geometry | richer point sets made the offline action head worse than simpler geometry or no geometry |
+| ActionMap Anchor Reproduction | heatmap/candidate action decoding anchor | mean-action, cheap MLP | local ActionMap-style candidate head lost the first reproduction gate and collapsed candidate diversity |
 
 ## Mandatory Early Baselines
 
@@ -60,6 +61,10 @@ A language-robustness method is invalid for continuation if canonicalization-onl
 ## Action-Head Geometry Rule
 
 An action-head geometry method is invalid for continuation if active single-point injection, source-only point injection, destination-only point injection, source+destination two-point injection, or no-geometry action-head baselines match or beat the richer geometry encoder on the first held-out action metric. Do not scale to VLA fine-tuning or replay when simpler geometry is already stronger.
+
+## Action-Decoder Anchor Rule
+
+A local action-decoder anchor is invalid for failure mining or extension work if mean-action, linear/L1, or cheap MLP action heads match or beat the anchor-style head on held-out 7D action L2, or if heatmap/candidate predictions collapse to trivial bins. An oracle candidate upper bound can show discretization headroom, but it is invalid as method evidence.
 
 ## Anti-Pattern
 

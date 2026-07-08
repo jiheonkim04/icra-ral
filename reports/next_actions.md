@@ -1,5 +1,29 @@
 # Next Actions
 
+## Current Next Action After ActionMap Anchor State 1
+
+ActionMap Anchor Reproduction is killed/reframed at STATE 1.
+
+Current diagnostic result:
+- training happened: yes, tiny CPU NumPy action-head training only,
+- loss computed: yes,
+- replay/control metric happened: no,
+- GPU/download/OpenVLA-OFT/paper claims: no,
+- local LIBERO HDF5 demos used: `8`,
+- train/eval records: `1008 / 432`,
+- split: `deterministic_per_demo_time_holdout`,
+- mean-action action L2: `0.466767673`,
+- linear/L1 action L2: `0.812610317`,
+- simple MLP action L2: `0.501926707`,
+- ActionMap-style action L2: `0.529931357`,
+- oracle nearest-candidate action L2: `0.065653208`,
+- ActionMap-style beats mean/linear: `false / true`,
+- cheap MLP matches or beats ActionMap-style: true,
+- candidate collapse detected: true, unique translation/rotation/gripper bins `5 / 1 / 2`,
+- decision: `kill`.
+
+Next safe action: do not invent an ActionMap extension and do not start STATE 2 failure mining from this evidence. A future reframe must first produce a stronger bounded anchor reproduction that beats mean-action, linear/L1, and cheap MLP baselines without candidate collapse.
+
 ## Current Next Action After ContactSet-VLA State 1
 
 ContactSet-VLA is killed and archived as the current main route at the bounded offline action-head diagnostic.

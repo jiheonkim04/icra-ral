@@ -23,6 +23,8 @@ A topic is invalid if:
 - it proposes data augmentation but generated actions are not controller-valid before training.
 - it proposes contact/object-pose retargeting but simple object-relative retargeting preserves trajectory/contact metrics better.
 - it proposes richer action-head geometry but active single-point, source-only, destination-only, source+destination, or no-geometry baselines match or beat it on the first held-out action metric.
+- it proposes or relies on an action-decoder anchor but mean-action, linear/L1, or cheap MLP action heads match or beat the anchor-style head on held-out 7D action L2.
+- it proposes or relies on a heatmap/candidate action head but candidate predictions collapse to trivial bins before replay/control evidence appears.
 - it proposes language or paraphrase robustness but canonicalization-only beats it on held-out paraphrase robustness, PRIDE, or difficulty-weighted robustness.
 - it improves paraphrase consistency by weakening counterfactual object/target sensitivity.
 
@@ -40,6 +42,8 @@ Symbolic or proxy improvement is also a kill condition when reward, success, saf
 Data-augmentation topics must additionally beat random action jitter, random pose jitter, image-only/metadata-only augmentation where applicable, and simple object-relative retargeting before training. Invalid augmented actions are a kill condition, not a reason to train a stronger learner.
 
 Action-head geometry topics must additionally beat active single-point injection, source-only, destination-only, source+destination, and no-geometry action-head baselines before replay scale-up or full VLA fine-tuning.
+
+Action-decoder anchor topics must additionally beat mean-action, linear/L1, and cheap MLP baselines and pass a candidate-diversity/collapse check before failure mining or extension work.
 
 Language-robustness topics must additionally beat canonicalization-only on held-out paraphrase robustness and preserve counterfactual object/target sensitivity. Consistency-only gains are not enough.
 
