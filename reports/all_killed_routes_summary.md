@@ -9,6 +9,7 @@ Current killed or reframed main-route candidates:
 - Phase-Locked Retiming
 - TL-ChunkRepair
 - ContactTube-Aug
+- PRISM-VLA
 
 ## Target-Prior TCA-Map
 
@@ -90,6 +91,16 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: a data-augmentation method must first produce physically valid demonstrations and beat simple retargeting before BC/action-head or VLA training; ContactTube-Aug failed that gate.
 - reusable artifacts: contact-tube extraction, runtime object trace collection, augmentation-validity diagnostics, random jitter baselines, simple object-relative retarget baseline, gated replay smoke, and focused tests.
 
+## PRISM-VLA
+
+- original hypothesis: VLA policies should produce consistent action distributions for task-preserving paraphrases while preserving action-distribution differences for true object or target changes.
+- strongest positive evidence: official LIBERO-Para metadata was integrated with local LIBERO HDF5 action chunks; a deterministic held-out paraphrase group split was created with no group leakage; base held-out paraphrase degradation was measurable (`0.062428`); PRISM+canonicalization beat simple augmentation on primary held-out robustness (`+0.055205`).
+- decisive negative evidence: canonicalization-only beat the best PRISM variant on held-out paraphrase proxy (`0.474066` versus `0.436356`) and PRIDE (`46.686731` versus `31.985592`); best PRISM primary held-out delta versus canonicalization was `-0.030420`; counterfactual sensitivity was not preserved.
+- exact kill criterion triggered: canonicalization-only matched or beat every PRISM variant on primary held-out paraphrase/PRIDE metrics, and the best PRISM variant weakened counterfactual/object sensitivity.
+- strongest trivial baseline that killed it: canonicalization-only.
+- why not RA-L-stable: the route targets a real language robustness problem but does not beat a simple lexical normalization baseline on the primary held-out gate; auxiliary consistency gains are not enough when object/target sensitivity weakens.
+- reusable artifacts: LIBERO-Para metadata integration, held-out paraphrase group split, gated paraphrase diagnostic runner, PRIDE/difficulty-weighted robustness metrics, consistency metrics, object/syntactic subset metrics, and counterfactual sensitivity checks.
+
 ## Common Failure Pattern
 
 The method must not merely beat no-method. It must beat the strongest trivial baseline available for the failure mode:
@@ -111,3 +122,5 @@ New rule from Phase-Locked Retiming: a topic is invalid if each targeted failure
 New rule from TL-ChunkRepair: a topic is invalid for RA-L-stable continuation if it improves symbolic, proxy, or constraint-satisfaction metrics but degrades or fails real replay/control utility compared with a simple baseline.
 
 New rule from ContactTube-Aug: a data-augmentation method is invalid for continuation if generated actions are not controller-valid, or if simple object-relative retargeting preserves trajectory/contact metrics better than the proposed augmentation.
+
+New rule from PRISM-VLA: a language-robustness method is invalid for continuation if canonicalization-only beats it on held-out paraphrase robustness, or if it improves paraphrase consistency by weakening counterfactual/object sensitivity.

@@ -1,5 +1,15 @@
 # Next Actions
 
+## Current Next Action After PRISM-VLA Archive
+
+PRISM-VLA is archived as a killed main RA-L route.
+
+Do not scale PRISM-VLA, do not build the real VLA adapter diagnostic from the current evidence, and do not run OpenVLA-OFT or heavy training for this route. The canonicalization-only gate must be passed before any future paraphrase-consistency method is worth real-adapter work.
+
+Current next recommended action: select a new topic only through the updated anti-baseline screen. The next topic must predeclare its strongest simple baseline, produce a direct robotics metric within 24-48 hours, and avoid the killed-route patterns summarized in `reports/all_killed_routes_summary.md` and `reports/simple_baseline_failure_patterns.md`.
+
+For language-robustness candidates specifically, require canonicalization-only, simple paraphrase augmentation, held-out paraphrase groups, PRIDE/difficulty-weighted robustness, and counterfactual object/target sensitivity before considering scale-up.
+
 ## Current Next Action After PRISM-VLA State 2
 
 PRISM-VLA State 2 produced a kill decision for PRISM as the current main route.
