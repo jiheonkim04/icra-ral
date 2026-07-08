@@ -1,0 +1,776 @@
+{
+  "anchor": {
+    "approximation": "local CPU NumPy translation/rotation/gripper heatmap classifiers over HDF5 observations, not a VLA reproduction",
+    "arxiv": "https://arxiv.org/abs/2606.06904",
+    "official_code_preview": "https://github.com/showlab/ActionMap",
+    "paper": "ActionMap: Robot Policy Learning via Voxel Action Heatmap"
+  },
+  "cases": [
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "steps": 180,
+      "task_id": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "steps": 180,
+      "task_id": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "steps": 180,
+      "task_id": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+      "instruction": "put both moka pots on the stove",
+      "steps": 180,
+      "task_id": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "steps": 180,
+      "task_id": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "steps": 180,
+      "task_id": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_demo.hdf5",
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "steps": 180,
+      "task_id": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket"
+    },
+    {
+      "demo_name": "demo_0",
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "steps": 180,
+      "task_id": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate"
+    }
+  ],
+  "data": {
+    "eval_label_leakage_detected": false,
+    "eval_record_count": 432,
+    "excluded_files": [],
+    "libero_data_root": "C:\\assets\\data\\libero",
+    "real_hdf5_metric_produced": true,
+    "split_audit": {
+      "confirmatory": false,
+      "eval_action_label_leakage_detected": false,
+      "exploratory": true,
+      "record_count": 1440,
+      "split_points": [
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+          "task_id": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+          "task_id": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+          "task_id": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+          "task_id": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+          "task_id": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+          "task_id": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_demo.hdf5",
+          "task_id": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+          "train_steps": 126
+        },
+        {
+          "eval_steps": 54,
+          "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+          "task_id": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+          "train_steps": 126
+        }
+      ],
+      "split_type": "deterministic_per_demo_time_holdout"
+    },
+    "train_record_count": 1008,
+    "usable_demo_count": 8
+  },
+  "decision": {
+    "actionmap_action_l2": 0.529931357,
+    "actionmap_beats_linear_l1": true,
+    "actionmap_beats_mean": false,
+    "candidate_collapse_detected": true,
+    "decision": "kill",
+    "linear_l1_action_l2": 0.812610317,
+    "mean_action_l2": 0.466767673,
+    "next_state": "kill_or_reframe_anchor_reproduction",
+    "oracle_candidate_action_l2": 0.065653208,
+    "oracle_candidate_has_headroom": true,
+    "reason": "ActionMap-style head collapsed to too few action candidates; mean-action baseline matches or beats the ActionMap-style heatmap head; cheap MLP action head matches or beats the ActionMap-style heatmap head",
+    "simple_mlp_action_l2": 0.501926707,
+    "simple_mlp_matches_or_beats_actionmap": true,
+    "triggered_kill_criteria": [
+      "ActionMap-style head collapsed to too few action candidates",
+      "mean-action baseline matches or beats the ActionMap-style heatmap head",
+      "cheap MLP action head matches or beats the ActionMap-style heatmap head"
+    ]
+  },
+  "elapsed_seconds": 1.25958,
+  "evidence_label": "mini_actionmap_anchor_feasibility_gate",
+  "exact_next_step": "Stop; do not proceed to Target-Grounded ActionMap from this mini-anchor result.",
+  "final_decision": "KILL_ACTIONMAP_ANCHOR",
+  "model": {
+    "actionmap_head_fit_performed": true,
+    "execution_order": [
+      "load local HDF5 action labels",
+      "compute mean-action baseline",
+      "compute oracle nearest candidate upper bound",
+      "fit linear/L1 baseline for oracle-headroom comparison",
+      "fit tiny ActionMap-style head only if oracle gate passes",
+      "fit cheap MLP baseline only inside the passed oracle gate",
+      "stop after STATE 1 decision"
+    ],
+    "feature_count": 67,
+    "learning_rate": 0.18,
+    "loss_computed": true,
+    "max_steps": 120,
+    "oracle_gate_passed": true,
+    "oracle_gate_rule": "oracle nearest candidate action L2 must beat mean-action and linear/L1 action L2 by at least 5 percent before fitting the tiny ActionMap-style head",
+    "real_vla_model_metric_produced": false,
+    "simple_mlp_fit_performed": true
+  },
+  "policy": {
+    "downloads_performed": false,
+    "failure_mining_performed": false,
+    "gpu_jobs_performed": false,
+    "heavy_model_imports_performed": false,
+    "model_load_performed": false,
+    "new_extension_implemented": false,
+    "official_actionmap_reproduction_attempted": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "rollouts_performed": false,
+    "simulator_executed": false,
+    "tiny_cpu_numpy_training_only": true,
+    "training_performed": true
+  },
+  "replay_progress": {
+    "happened": false,
+    "reason": "STATE 1 first gate is local HDF5 action-head quality; exact-init replay is only considered if reproduction passes"
+  },
+  "schema_version": "actionmap-anchor-diagnostic-v1",
+  "variants": {
+    "actionmap_heatmap_candidate_head": {
+      "candidate_diagnostics": {
+        "candidate_count": 688,
+        "candidate_top1_accuracy": 0.018518519,
+        "gripper_top1_accuracy": 0.699074074,
+        "heatmap_nll": 8.418130166,
+        "rot_grid": [
+          7,
+          7,
+          7
+        ],
+        "rotation_entropy": 0.381704344,
+        "rotation_top1_accuracy": 0.960648148,
+        "rotation_top3_accuracy": 0.981481481,
+        "trans_grid": [
+          7,
+          7,
+          7
+        ],
+        "translation_entropy": 3.204182893,
+        "translation_top1_accuracy": 0.027777778,
+        "translation_top3_accuracy": 0.111111111,
+        "unique_gripper_bins": 2,
+        "unique_rotation_bins": 1,
+        "unique_translation_bins": 5
+      },
+      "final_loss": 3.012501608,
+      "initial_loss": 12.368608074,
+      "loss_curve": [
+        {
+          "loss": 12.368608074,
+          "step": 0
+        },
+        {
+          "loss": 8.940037756,
+          "step": 11
+        },
+        {
+          "loss": 7.018827074,
+          "step": 22
+        },
+        {
+          "loss": 5.658230635,
+          "step": 33
+        },
+        {
+          "loss": 4.703137509,
+          "step": 44
+        },
+        {
+          "loss": 4.13676896,
+          "step": 55
+        },
+        {
+          "loss": 3.812921595,
+          "step": 65
+        },
+        {
+          "loss": 3.564150956,
+          "step": 76
+        },
+        {
+          "loss": 3.378557876,
+          "step": 87
+        },
+        {
+          "loss": 3.232066649,
+          "step": 98
+        },
+        {
+          "loss": 3.112415489,
+          "step": 109
+        },
+        {
+          "loss": 3.012501608,
+          "step": 120
+        }
+      ],
+      "metrics": {
+        "action_l1": 0.253739627,
+        "action_l2": 0.529931357,
+        "gripper_error": 0.601851852,
+        "rotation_l2": 0.047267068,
+        "translation_l2": 0.501791613
+      },
+      "per_phase": {
+        "late": {
+          "action_l1": 0.253739627,
+          "action_l2": 0.529931357,
+          "count": 432,
+          "gripper_error": 0.601851852,
+          "rotation_l2": 0.047267068,
+          "translation_l2": 0.501791613
+        }
+      },
+      "per_task": {
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it": {
+          "action_l1": 0.187167265,
+          "action_l2": 0.319589479,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.049226154,
+          "translation_l2": 0.485692771
+        },
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it": {
+          "action_l1": 0.120468632,
+          "action_l2": 0.287887416,
+          "count": 54,
+          "gripper_error": 0.185185185,
+          "rotation_l2": 0.045922455,
+          "translation_l2": 0.260420918
+        },
+        "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it": {
+          "action_l1": 0.155595238,
+          "action_l2": 0.295340604,
+          "count": 54,
+          "gripper_error": 0.074074074,
+          "rotation_l2": 0.06274442,
+          "translation_l2": 0.387566671
+        },
+        "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove": {
+          "action_l1": 0.459995748,
+          "action_l2": 0.812386128,
+          "count": 54,
+          "gripper_error": 2.0,
+          "rotation_l2": 0.020478267,
+          "translation_l2": 0.454070652
+        },
+        "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket": {
+          "action_l1": 0.202338908,
+          "action_l2": 0.418642797,
+          "count": 54,
+          "gripper_error": 0.222222222,
+          "rotation_l2": 0.074545866,
+          "translation_l2": 0.505211784
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket": {
+          "action_l1": 0.428178068,
+          "action_l2": 0.808986556,
+          "count": 54,
+          "gripper_error": 2.0,
+          "rotation_l2": 0.038574276,
+          "translation_l2": 0.438463533
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket": {
+          "action_l1": 0.33220679,
+          "action_l2": 0.635296515,
+          "count": 54,
+          "gripper_error": 0.333333333,
+          "rotation_l2": 0.038500633,
+          "translation_l2": 0.847368096
+        },
+        "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate": {
+          "action_l1": 0.143966364,
+          "action_l2": 0.284747868,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.021394815,
+          "translation_l2": 0.43443305
+        }
+      },
+      "trainable_params": 46784
+    },
+    "linear_l1_action_head": {
+      "final_loss": 0.051033835,
+      "initial_loss": 0.051033835,
+      "loss_curve": [
+        {
+          "loss": 0.051033835,
+          "step": 0
+        }
+      ],
+      "metrics": {
+        "action_l1": 0.586692465,
+        "action_l2": 0.812610317,
+        "gripper_error": 0.994694787,
+        "rotation_l2": 0.32898537,
+        "translation_l2": 0.965434268
+      },
+      "per_phase": {
+        "late": {
+          "action_l1": 0.586692465,
+          "action_l2": 0.812610317,
+          "count": 432,
+          "gripper_error": 0.994694787,
+          "rotation_l2": 0.32898537,
+          "translation_l2": 0.965434268
+        }
+      },
+      "per_task": {
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it": {
+          "action_l1": 0.492819161,
+          "action_l2": 0.673969096,
+          "count": 54,
+          "gripper_error": 0.003188646,
+          "rotation_l2": 0.445597614,
+          "translation_l2": 0.928045834
+        },
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it": {
+          "action_l1": 0.561395773,
+          "action_l2": 0.740622292,
+          "count": 54,
+          "gripper_error": 0.586672632,
+          "rotation_l2": 0.367068527,
+          "translation_l2": 0.947933825
+        },
+        "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it": {
+          "action_l1": 0.535282629,
+          "action_l2": 0.7626427,
+          "count": 54,
+          "gripper_error": 0.531284149,
+          "rotation_l2": 0.196581617,
+          "translation_l2": 1.079869695
+        },
+        "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove": {
+          "action_l1": 0.624476176,
+          "action_l2": 0.90312935,
+          "count": 54,
+          "gripper_error": 1.911443929,
+          "rotation_l2": 0.389146074,
+          "translation_l2": 0.724203682
+        },
+        "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket": {
+          "action_l1": 0.540827965,
+          "action_l2": 0.728865653,
+          "count": 54,
+          "gripper_error": 0.917923281,
+          "rotation_l2": 0.248166519,
+          "translation_l2": 0.935802406
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket": {
+          "action_l1": 0.68739725,
+          "action_l2": 0.923893532,
+          "count": 54,
+          "gripper_error": 1.537926667,
+          "rotation_l2": 0.310405148,
+          "translation_l2": 1.02753616
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket": {
+          "action_l1": 0.615961215,
+          "action_l2": 0.870602033,
+          "count": 54,
+          "gripper_error": 1.471278259,
+          "rotation_l2": 0.315359381,
+          "translation_l2": 0.935383186
+        },
+        "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate": {
+          "action_l1": 0.635379554,
+          "action_l2": 0.860168408,
+          "count": 54,
+          "gripper_error": 0.997840735,
+          "rotation_l2": 0.291694936,
+          "translation_l2": 1.095249316
+        }
+      },
+      "trainable_params": 476
+    },
+    "mean_action_baseline": {
+      "final_loss": null,
+      "initial_loss": null,
+      "loss_curve": [],
+      "metrics": {
+        "action_l1": 0.289159391,
+        "action_l2": 0.466767673,
+        "gripper_error": 0.998778292,
+        "rotation_l2": 0.050504286,
+        "translation_l2": 0.387409535
+      },
+      "per_phase": {
+        "late": {
+          "action_l1": 0.289159391,
+          "action_l2": 0.466767673,
+          "count": 432,
+          "gripper_error": 0.998778292,
+          "rotation_l2": 0.050504286,
+          "translation_l2": 0.387409535
+        }
+      },
+      "per_task": {
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it": {
+          "action_l1": 0.265380657,
+          "action_l2": 0.38949546,
+          "count": 54,
+          "gripper_error": 0.736111111,
+          "rotation_l2": 0.06010571,
+          "translation_l2": 0.412007012
+        },
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it": {
+          "action_l1": 0.267339963,
+          "action_l2": 0.48218883,
+          "count": 54,
+          "gripper_error": 1.185699588,
+          "rotation_l2": 0.04769044,
+          "translation_l2": 0.244733065
+        },
+        "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it": {
+          "action_l1": 0.336480878,
+          "action_l2": 0.539948835,
+          "count": 54,
+          "gripper_error": 1.244341564,
+          "rotation_l2": 0.058697549,
+          "translation_l2": 0.396718426
+        },
+        "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove": {
+          "action_l1": 0.333960167,
+          "action_l2": 0.535451949,
+          "count": 54,
+          "gripper_error": 1.263888889,
+          "rotation_l2": 0.030008906,
+          "translation_l2": 0.368259331
+        },
+        "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket": {
+          "action_l1": 0.259931686,
+          "action_l2": 0.393742325,
+          "count": 54,
+          "gripper_error": 0.794753086,
+          "rotation_l2": 0.080032393,
+          "translation_l2": 0.368271666
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket": {
+          "action_l1": 0.328411163,
+          "action_l2": 0.56051197,
+          "count": 54,
+          "gripper_error": 1.263888889,
+          "rotation_l2": 0.036634472,
+          "translation_l2": 0.446383356
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket": {
+          "action_l1": 0.269762934,
+          "action_l2": 0.401175222,
+          "count": 54,
+          "gripper_error": 0.765432099,
+          "rotation_l2": 0.043410777,
+          "translation_l2": 0.416507656
+        },
+        "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate": {
+          "action_l1": 0.25200768,
+          "action_l2": 0.387765291,
+          "count": 54,
+          "gripper_error": 0.736111111,
+          "rotation_l2": 0.023252699,
+          "translation_l2": 0.411927103
+        }
+      },
+      "trainable_params": 0
+    },
+    "oracle_nearest_action_candidate_upper_bound": {
+      "candidate_diagnostics": {
+        "candidate_top1_accuracy": 1.0,
+        "invalid_as_method_evidence": true,
+        "oracle_type": "nearest_actionmap_grid_candidate_upper_bound"
+      },
+      "final_loss": null,
+      "initial_loss": null,
+      "loss_curve": [],
+      "metrics": {
+        "action_l1": 0.043003886,
+        "action_l2": 0.065653208,
+        "gripper_error": 0.0,
+        "rotation_l2": 0.041621224,
+        "translation_l2": 0.091242218
+      },
+      "per_phase": {
+        "late": {
+          "action_l1": 0.043003886,
+          "action_l2": 0.065653208,
+          "count": 432,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.041621224,
+          "translation_l2": 0.091242218
+        }
+      },
+      "per_task": {
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it": {
+          "action_l1": 0.043678666,
+          "action_l2": 0.065193275,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.049226154,
+          "translation_l2": 0.086566928
+        },
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it": {
+          "action_l1": 0.041413769,
+          "action_l2": 0.063948235,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.045922455,
+          "translation_l2": 0.08621489
+        },
+        "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it": {
+          "action_l1": 0.042201751,
+          "action_l2": 0.065336693,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.049393357,
+          "translation_l2": 0.08672384
+        },
+        "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove": {
+          "action_l1": 0.038214443,
+          "action_l2": 0.05980258,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.020478267,
+          "translation_l2": 0.089025018
+        },
+        "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket": {
+          "action_l1": 0.052263952,
+          "action_l2": 0.074564273,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.055131202,
+          "translation_l2": 0.09966689
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket": {
+          "action_l1": 0.041800831,
+          "action_l2": 0.064257954,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.038574276,
+          "translation_l2": 0.090258274
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket": {
+          "action_l1": 0.043702129,
+          "action_l2": 0.06464154,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.038500633,
+          "translation_l2": 0.090926352
+        },
+        "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate": {
+          "action_l1": 0.040755543,
+          "action_l2": 0.066562254,
+          "count": 54,
+          "gripper_error": 0.0,
+          "rotation_l2": 0.021394815,
+          "translation_l2": 0.099399063
+        }
+      },
+      "trainable_params": 0
+    },
+    "simple_mlp_action_head": {
+      "final_loss": 0.080339121,
+      "initial_loss": 0.200262349,
+      "loss_curve": [
+        {
+          "loss": 0.200262349,
+          "step": 0
+        },
+        {
+          "loss": 0.165473626,
+          "step": 11
+        },
+        {
+          "loss": 0.143179595,
+          "step": 22
+        },
+        {
+          "loss": 0.124925058,
+          "step": 33
+        },
+        {
+          "loss": 0.11009574,
+          "step": 44
+        },
+        {
+          "loss": 0.100220647,
+          "step": 55
+        },
+        {
+          "loss": 0.094265101,
+          "step": 65
+        },
+        {
+          "loss": 0.089696171,
+          "step": 76
+        },
+        {
+          "loss": 0.086478243,
+          "step": 87
+        },
+        {
+          "loss": 0.08405748,
+          "step": 98
+        },
+        {
+          "loss": 0.081937368,
+          "step": 109
+        },
+        {
+          "loss": 0.080339121,
+          "step": 120
+        }
+      ],
+      "metrics": {
+        "action_l1": 0.30107226,
+        "action_l2": 0.501926707,
+        "gripper_error": 0.93460732,
+        "rotation_l2": 0.079105217,
+        "translation_l2": 0.426865982
+      },
+      "per_phase": {
+        "late": {
+          "action_l1": 0.30107226,
+          "action_l2": 0.501926707,
+          "count": 432,
+          "gripper_error": 0.93460732,
+          "rotation_l2": 0.079105217,
+          "translation_l2": 0.426865982
+        }
+      },
+      "per_task": {
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it": {
+          "action_l1": 0.345776456,
+          "action_l2": 0.487688365,
+          "count": 54,
+          "gripper_error": 1.017675365,
+          "rotation_l2": 0.107431716,
+          "translation_l2": 0.444870214
+        },
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it": {
+          "action_l1": 0.183286393,
+          "action_l2": 0.354659068,
+          "count": 54,
+          "gripper_error": 0.277628706,
+          "rotation_l2": 0.100559466,
+          "translation_l2": 0.329557288
+        },
+        "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it": {
+          "action_l1": 0.157451837,
+          "action_l2": 0.280577387,
+          "count": 54,
+          "gripper_error": 0.119849791,
+          "rotation_l2": 0.087310715,
+          "translation_l2": 0.364578784
+        },
+        "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove": {
+          "action_l1": 0.320672306,
+          "action_l2": 0.523506456,
+          "count": 54,
+          "gripper_error": 1.23249288,
+          "rotation_l2": 0.047663469,
+          "translation_l2": 0.361210631
+        },
+        "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket": {
+          "action_l1": 0.346247213,
+          "action_l2": 0.540445256,
+          "count": 54,
+          "gripper_error": 1.152625972,
+          "rotation_l2": 0.090766245,
+          "translation_l2": 0.452002028
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket": {
+          "action_l1": 0.282316416,
+          "action_l2": 0.417535823,
+          "count": 54,
+          "gripper_error": 0.802811706,
+          "rotation_l2": 0.071974,
+          "translation_l2": 0.427279281
+        },
+        "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket": {
+          "action_l1": 0.418021439,
+          "action_l2": 0.691822763,
+          "count": 54,
+          "gripper_error": 1.531398582,
+          "rotation_l2": 0.057567857,
+          "translation_l2": 0.528114853
+        },
+        "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate": {
+          "action_l1": 0.354806021,
+          "action_l2": 0.594980427,
+          "count": 54,
+          "gripper_error": 1.342375556,
+          "rotation_l2": 0.042184232,
+          "translation_l2": 0.471200059
+        }
+      },
+      "trainable_params": 3607
+    }
+  }
+}

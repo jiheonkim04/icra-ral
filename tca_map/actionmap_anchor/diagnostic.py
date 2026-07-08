@@ -570,6 +570,34 @@ def _decision(report: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _final_decision(report: dict[str, Any]) -> str:
+    """Map the local diagnostic outcome to the user-facing hard gate labels."""
+
+    if not report.get("data", {}).get("real_hdf5_metric_produced"):
+        return "NO_REAL_METRIC"
+    policy = report.get("policy", {})
+    if policy.get("downloads_performed") or policy.get("gpu_jobs_performed") or policy.get("openvla_oft_executed"):
+        return "TOO_HEAVY_LOCAL"
+    if policy.get("official_actionmap_reproduction_attempted"):
+        return "NEED_OFFICIAL_ACTIONMAP_REPRO"
+    decision = report.get("decision", {}).get("decision")
+    if decision == "continue":
+        return "GO_TARGET_GROUNDED_ACTIONMAP_STATE1"
+    return "KILL_ACTIONMAP_ANCHOR"
+
+
+def _exact_next_step(final_decision: str) -> str:
+    if final_decision == "GO_TARGET_GROUNDED_ACTIONMAP_STATE1":
+        return "Start Target-Grounded ActionMap STATE 1 feasibility-only planning; do not train a large VLA."
+    if final_decision == "NEED_OFFICIAL_ACTIONMAP_REPRO":
+        return "Stop local extension work and plan an official ActionMap reproduction/source gate."
+    if final_decision == "TOO_HEAVY_LOCAL":
+        return "Stop; document the local source/compute blocker before any further ActionMap work."
+    if final_decision == "NO_REAL_METRIC":
+        return "Stop; resolve local LIBERO/HDF5 access before any method discussion."
+    return "Stop; do not proceed to Target-Grounded ActionMap from this mini-anchor result."
+
+
 def build_actionmap_anchor_diagnostic(
     *,
     libero_data_root: Path,
@@ -751,6 +779,8 @@ def build_actionmap_anchor_diagnostic(
         "elapsed_seconds": None,
     }
     report["decision"] = _decision(report)
+    report["final_decision"] = _final_decision(report)
+    report["exact_next_step"] = _exact_next_step(str(report["final_decision"]))
     report["elapsed_seconds"] = _round(time.perf_counter() - started, 6)
     return report
 
@@ -773,12 +803,14 @@ def _md(value: Any) -> str:
 def _write_markdown(path: Path, report: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     decision = report.get("decision", {})
+    final_decision = report.get("final_decision")
     lines = [
-        "# ActionMap Anchor STATE 1 Result",
+        "# ActionMap Mini-Anchor STATE 1 Result",
         "",
         "Bounded local HDF5 action-head diagnostic only. This is not a full VLA reproduction, standard LIBERO success, rollout evidence, or a paper-grade claim.",
         "",
         f"- decision: `{decision.get('decision')}`",
+        f"- final decision: `{final_decision}`",
         f"- reason: {decision.get('reason')}",
         f"- training happened: `{report.get('policy', {}).get('training_performed')}`",
         f"- loss computed: `{report.get('model', {}).get('loss_computed')}`",
@@ -795,6 +827,7 @@ def _write_markdown(path: Path, report: dict[str, Any]) -> None:
         f"- ActionMap beats mean/linear: `{decision.get('actionmap_beats_mean')}` / `{decision.get('actionmap_beats_linear_l1')}`",
         f"- simple MLP matches or beats ActionMap: `{decision.get('simple_mlp_matches_or_beats_actionmap')}`",
         f"- next state: `{decision.get('next_state')}`",
+        f"- exact next step: {report.get('exact_next_step')}",
         "",
         "Triggered kill criteria:",
         "",
