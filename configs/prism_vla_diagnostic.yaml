@@ -1,0 +1,6 @@
+max_tasks: 5
+max_paraphrases_per_task: 18
+max_action_steps: 8
+max_steps: 160
+learning_rate: 0.12
+feature_width: 96
