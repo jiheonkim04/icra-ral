@@ -15,6 +15,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | TL-ChunkRepair | temporal safety/property action-chunk repair | no-repair, clipping-only, safety-only, repeat-last/hold, fixed delay shift | symbolic violation reduction did not translate into replay/control utility |
 | ContactTube-Aug | contact-preserving demonstration augmentation | simple object-relative translation retargeting | proposed augmentation was not controller-valid enough and preserved the contact tube worse than simple retargeting |
 | PRISM-VLA | paraphrase-robust language-action consistency | canonicalization-only | stronger lexical normalization beat PRISM on primary held-out paraphrase and PRIDE metrics |
+| ContactSet-VLA | contact-set action-head geometry injection | active single 3D point, destination-only, no-geometry | richer point sets made the offline action head worse than simpler geometry or no geometry |
 
 ## Mandatory Early Baselines
 
@@ -55,6 +56,10 @@ A data-augmentation method is invalid for continuation if generated actions are 
 ## Language Robustness Canonicalization Rule
 
 A language-robustness method is invalid for continuation if canonicalization-only beats it on held-out paraphrase robustness, PRIDE, or difficulty-weighted robustness. A method is also invalid if it improves paraphrase consistency by weakening counterfactual object/target sensitivity.
+
+## Action-Head Geometry Rule
+
+An action-head geometry method is invalid for continuation if active single-point injection, source-only point injection, destination-only point injection, source+destination two-point injection, or no-geometry action-head baselines match or beat the richer geometry encoder on the first held-out action metric. Do not scale to VLA fine-tuning or replay when simpler geometry is already stronger.
 
 ## Anti-Pattern
 

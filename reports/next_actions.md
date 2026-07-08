@@ -1,5 +1,26 @@
 # Next Actions
 
+## Current Next Action After ContactSet-VLA State 1
+
+ContactSet-VLA is killed as the current main route at the bounded offline action-head diagnostic.
+
+Current diagnostic result:
+- training happened: yes, tiny CPU NumPy ridge action-head training only,
+- loss computed: yes,
+- replay/control metric happened: no,
+- GPU/download/OpenVLA-OFT/paper claims: no,
+- local LIBERO HDF5 demos used: `6`,
+- train/eval records: `588 / 252`,
+- source/destination/support observable without eval-label leakage: true,
+- single-point action L2: `0.930495702`,
+- destination-only action L2: `0.86372`,
+- no-geometry action L2: `0.851451`,
+- full contact-set action L2: `1.105028754`,
+- contact-set beats single-point: false,
+- simple point baselines matched contact-set: true.
+
+Next safe action: do not scale ContactSet-VLA, do not run full VLA fine-tuning, and do not start an exact-init replay milestone for this route. Archive or select a new topic only if it predeclares a direct robotics metric and a simple-baseline gate that cannot be solved by active single-point, destination-only, no-geometry, or other trivial point encodings.
+
 ## Current Next Action After PRISM-VLA Archive
 
 PRISM-VLA is archived as a killed main RA-L route.

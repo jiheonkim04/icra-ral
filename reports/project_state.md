@@ -1,5 +1,38 @@
 # Project State
 
+## Latest ContactSet-VLA State 0-1 Result
+
+Status: initialized and killed at the first bounded offline action-head diagnostic on branch `codex/contactset-vla-state1`.
+
+Implementation:
+- docs: `reports/contactset_vla_task_definition.md`, `reports/contactset_vla_experiment_plan.md`, `reports/contactset_vla_kill_criteria.md`, `reports/contactset_vla_related_work_matrix.md`, `reports/contactset_vla_autopilot_state.md`,
+- runner: `scripts/200_contactset_vla_diagnostic.ps1`,
+- module: `tca_map.contactset_vla.diagnostic`,
+- tests: `tests/test_contactset_vla_diagnostic.py`,
+- result: `reports/contactset_vla_diagnostic_report.md` and `.json`.
+
+Execution boundary:
+- training happened: yes, tiny CPU NumPy ridge action-head training only,
+- loss computed: yes,
+- local LIBERO HDF5 action chunks used: yes,
+- source/destination/support points observable: yes,
+- eval-label leakage detected: no,
+- replay/control metric happened: no,
+- GPU jobs, downloads, heavy VLA imports, simulator rollouts, OpenVLA-OFT, token access, and paper-grade claims: no.
+
+Key exploratory proxy result:
+- usable demos: `6`,
+- train/eval records: `588 / 252`,
+- no-geometry action L2: `0.851451`,
+- single-point action L2: `0.930495702`,
+- destination-only action L2: `0.86372`,
+- full contact-set action L2: `1.105028754`,
+- contact-set beats single-point: false,
+- simple point baselines matched contact-set: true,
+- decision: `kill`.
+
+Interpretation: ContactSet-VLA should not proceed to full VLA fine-tuning, OpenVLA-OFT, or replay scale-up from this evidence. The local diagnostic shows that adding the structured contact set made the tiny action head worse than active single-point injection and worse than no-geometry/destination-only baselines on held-out 7D action L2.
+
 ## Latest PRISM-VLA Archive
 
 Status: archived PRISM-VLA as a killed main RA-L route on branch `codex/prism-vla-archive`.

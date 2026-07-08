@@ -22,6 +22,7 @@ A topic is invalid if:
 - it improves symbolic, proxy, monitor, or offline constraint satisfaction while failing direct replay/control utility against a simple baseline.
 - it proposes data augmentation but generated actions are not controller-valid before training.
 - it proposes contact/object-pose retargeting but simple object-relative retargeting preserves trajectory/contact metrics better.
+- it proposes richer action-head geometry but active single-point, source-only, destination-only, source+destination, or no-geometry baselines match or beat it on the first held-out action metric.
 - it proposes language or paraphrase robustness but canonicalization-only beats it on held-out paraphrase robustness, PRIDE, or difficulty-weighted robustness.
 - it improves paraphrase consistency by weakening counterfactual object/target sensitivity.
 
@@ -37,6 +38,8 @@ Passing only against the weakest baseline is a kill condition, not progress.
 Symbolic or proxy improvement is also a kill condition when reward, success, safe-success, done/progress, or direct replay/control utility does not beat simple baselines.
 
 Data-augmentation topics must additionally beat random action jitter, random pose jitter, image-only/metadata-only augmentation where applicable, and simple object-relative retargeting before training. Invalid augmented actions are a kill condition, not a reason to train a stronger learner.
+
+Action-head geometry topics must additionally beat active single-point injection, source-only, destination-only, source+destination, and no-geometry action-head baselines before replay scale-up or full VLA fine-tuning.
 
 Language-robustness topics must additionally beat canonicalization-only on held-out paraphrase robustness and preserve counterfactual object/target sensitivity. Consistency-only gains are not enough.
 

@@ -10,6 +10,7 @@ Current killed or reframed main-route candidates:
 - TL-ChunkRepair
 - ContactTube-Aug
 - PRISM-VLA
+- ContactSet-VLA
 
 ## Target-Prior TCA-Map
 
@@ -101,6 +102,16 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the route targets a real language robustness problem but does not beat a simple lexical normalization baseline on the primary held-out gate; auxiliary consistency gains are not enough when object/target sensitivity weakens.
 - reusable artifacts: LIBERO-Para metadata integration, held-out paraphrase group split, gated paraphrase diagnostic runner, PRIDE/difficulty-weighted robustness metrics, consistency metrics, object/syntactic subset metrics, and counterfactual sensitivity checks.
 
+## ContactSet-VLA
+
+- original hypothesis: a structured source/destination/support/safety/normal contact set injected into the action head can improve contact-rich and multi-stage manipulation beyond the single 3D point injection result from the anchor paper.
+- strongest positive evidence: the local diagnostic extracted source object, destination/support, safety, and normal proxy points from `6` local LIBERO HDF5 demos without eval-label leakage; all required variants ran; tiny CPU action-head loss was computed.
+- decisive negative evidence: full contact-set action L2 was `1.105028754`, worse than active single-point injection (`0.930495702`), destination-only (`0.86372`), and no-geometry (`0.851451`) on the held-out action metric.
+- exact kill criterion triggered: single-point and simple point/no-geometry baselines matched or beat full contact-set injection before any full VLA training.
+- strongest trivial baselines that killed it: active single 3D point, destination-only point, and no-geometry action-head baseline.
+- why not RA-L-stable: the method-level extension did not improve the first bounded local action-head metric; scaling to VLA fine-tuning or replay would violate the baseline-first gate.
+- reusable artifacts: HDF5/XML free-joint geometry extraction, qpos-offset audit, instruction-based source/destination selector, permutation-aware point-set encoder, gated diagnostic runner, and focused tests.
+
 ## Common Failure Pattern
 
 The method must not merely beat no-method. It must beat the strongest trivial baseline available for the failure mode:
@@ -124,3 +135,5 @@ New rule from TL-ChunkRepair: a topic is invalid for RA-L-stable continuation if
 New rule from ContactTube-Aug: a data-augmentation method is invalid for continuation if generated actions are not controller-valid, or if simple object-relative retargeting preserves trajectory/contact metrics better than the proposed augmentation.
 
 New rule from PRISM-VLA: a language-robustness method is invalid for continuation if canonicalization-only beats it on held-out paraphrase robustness, or if it improves paraphrase consistency by weakening counterfactual/object sensitivity.
+
+New rule from ContactSet-VLA: a richer action-head geometry method is invalid for continuation if active single-point, source-only, destination-only, source+destination, or no-geometry action-head baselines match or beat it on the first held-out action metric.

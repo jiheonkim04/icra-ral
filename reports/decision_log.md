@@ -1,5 +1,15 @@
 # Decision Log
 
+## ContactSet-VLA State 1 Result
+
+Decision: kill ContactSet-VLA as the current main route before full VLA fine-tuning or replay scale-up.
+
+Reason: the bounded local HDF5 action-head diagnostic computed real held-out 7D action losses over `6` local LIBERO demos and found that full contact-set injection did not beat active single-3D-point injection. Full contact-set action L2 was `1.105028754`, while active single-point action L2 was `0.930495702`. No-geometry action L2 was `0.851451`, and destination-only action L2 was `0.86372`, so simple baselines matched or beat the proposed contact set.
+
+Consequence: do not run ContactSet-VLA full VLA fine-tuning, OpenVLA-OFT, GPU training, or a replay/progress milestone from this evidence. Preserve the geometry extraction, qpos-offset audit, set encoder, runner, and tests as reusable infrastructure only.
+
+Execution boundary: tiny CPU NumPy action-head training happened and loss was computed. Simulator rollout/replay, GPU jobs, downloads, heavy VLA imports/model loading, OpenVLA-OFT execution, token access, and paper-grade claims did not occur.
+
 ## PRISM-VLA Archive
 
 Decision: archive PRISM-VLA as a killed main RA-L route and add canonicalization-only to the global simple-baseline screen for future language robustness topics.

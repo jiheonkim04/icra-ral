@@ -1,0 +1,416 @@
+{
+  "cases": [
+    {
+      "demo_name": "demo_0",
+      "destination_name": "flat_stove_1_main",
+      "destination_observable": true,
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+      "geometry_sources": {
+        "destination": "xml_static_body_or_site",
+        "eef": "obs/ee_pos",
+        "normal": "destination_plus_z_axis_proxy",
+        "qpos_offset": "1",
+        "safety": "nearest_non_source_object_trace",
+        "source": "instruction_token_overlap",
+        "support": "destination_static_or_trace_copy"
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "leakage_audit": {
+        "destination_instruction_hint": "it",
+        "destination_instruction_overlap_score": 0.5,
+        "destination_selection": "xml_static_body_or_site",
+        "phase_source": "obs_gripper_states_aperture_midpoint",
+        "source_instruction_hint": "turn on the stove and put the moka pot",
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "uses_eval_success_labels": false,
+        "uses_future_actions_as_geometry": false,
+        "uses_hdf5_position_observations": false,
+        "uses_hdf5_state_freejoint_positions": true,
+        "uses_reward_or_done_labels_for_features": false,
+        "uses_task_id_or_filename_as_target_label": false,
+        "uses_xml_static_body_or_site_positions": true
+      },
+      "normal_observable": true,
+      "safety_name": "chefmate_8_frypan_1",
+      "safety_observable": true,
+      "source_name": "moka_pot_1",
+      "source_observable": true,
+      "steps": 140,
+      "support_observable": true
+    },
+    {
+      "demo_name": "demo_0",
+      "destination_name": "white_cabinet_1_cabinet_bottom",
+      "destination_observable": true,
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+      "geometry_sources": {
+        "destination": "xml_static_body_or_site",
+        "eef": "obs/ee_pos",
+        "normal": "destination_plus_z_axis_proxy",
+        "qpos_offset": "1",
+        "safety": "nearest_non_source_object_trace",
+        "source": "instruction_token_overlap",
+        "support": "destination_static_or_trace_copy"
+      },
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "leakage_audit": {
+        "destination_instruction_hint": "the bottom drawer of the cabinet and close it",
+        "destination_instruction_overlap_score": 0.666667,
+        "destination_selection": "xml_static_body_or_site",
+        "phase_source": "obs_gripper_states_aperture_midpoint",
+        "source_instruction_hint": "put the black bowl",
+        "source_instruction_overlap_score": 0.666667,
+        "source_selection": "instruction_token_overlap",
+        "uses_eval_success_labels": false,
+        "uses_future_actions_as_geometry": false,
+        "uses_hdf5_position_observations": false,
+        "uses_hdf5_state_freejoint_positions": true,
+        "uses_reward_or_done_labels_for_features": false,
+        "uses_task_id_or_filename_as_target_label": false,
+        "uses_xml_static_body_or_site_positions": true
+      },
+      "normal_observable": true,
+      "safety_name": "wine_bottle_1",
+      "safety_observable": true,
+      "source_name": "akita_black_bowl_1",
+      "source_observable": true,
+      "steps": 140,
+      "support_observable": true
+    },
+    {
+      "demo_name": "demo_0",
+      "destination_name": "microwave_1_main",
+      "destination_observable": true,
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+      "geometry_sources": {
+        "destination": "xml_static_body_or_site",
+        "eef": "obs/ee_pos",
+        "normal": "destination_plus_z_axis_proxy",
+        "qpos_offset": "1",
+        "safety": "nearest_non_source_object_trace",
+        "source": "instruction_token_overlap",
+        "support": "destination_static_or_trace_copy"
+      },
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "leakage_audit": {
+        "destination_instruction_hint": "the microwave and close it",
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "phase_source": "obs_gripper_states_aperture_midpoint",
+        "source_instruction_hint": "put the yellow and white mug",
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "uses_eval_success_labels": false,
+        "uses_future_actions_as_geometry": false,
+        "uses_hdf5_position_observations": false,
+        "uses_hdf5_state_freejoint_positions": true,
+        "uses_reward_or_done_labels_for_features": false,
+        "uses_task_id_or_filename_as_target_label": false,
+        "uses_xml_static_body_or_site_positions": true
+      },
+      "normal_observable": true,
+      "safety_name": "porcelain_mug_1",
+      "safety_observable": true,
+      "source_name": "white_yellow_mug_1",
+      "source_observable": true,
+      "steps": 140,
+      "support_observable": true
+    },
+    {
+      "demo_name": "demo_0",
+      "destination_name": "flat_stove_1_main",
+      "destination_observable": true,
+      "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+      "geometry_sources": {
+        "destination": "xml_static_body_or_site",
+        "eef": "obs/ee_pos",
+        "normal": "destination_plus_z_axis_proxy",
+        "qpos_offset": "1",
+        "safety": "nearest_non_source_object_trace",
+        "source": "instruction_token_overlap",
+        "support": "destination_static_or_trace_copy"
+      },
+      "instruction": "put both moka pots on the stove",
+      "leakage_audit": {
+        "destination_instruction_hint": "the stove",
+        "destination_instruction_overlap_score": 0.5,
+        "destination_selection": "xml_static_body_or_site",
+        "phase_source": "obs_gripper_states_aperture_midpoint",
+        "source_instruction_hint": "put both moka pots",
+        "source_instruction_overlap_score": 0.5,
+        "source_selection": "instruction_token_overlap",
+        "uses_eval_success_labels": false,
+        "uses_future_actions_as_geometry": false,
+        "uses_hdf5_position_observations": false,
+        "uses_hdf5_state_freejoint_positions": true,
+        "uses_reward_or_done_labels_for_features": false,
+        "uses_task_id_or_filename_as_target_label": false,
+        "uses_xml_static_body_or_site_positions": true
+      },
+      "normal_observable": true,
+      "safety_name": "moka_pot_2",
+      "safety_observable": true,
+      "source_name": "moka_pot_1",
+      "source_observable": true,
+      "steps": 140,
+      "support_observable": true
+    },
+    {
+      "demo_name": "demo_0",
+      "destination_name": "basket_1_default_site",
+      "destination_observable": true,
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+      "geometry_sources": {
+        "destination": "xml_static_body_or_site",
+        "eef": "obs/ee_pos",
+        "normal": "destination_plus_z_axis_proxy",
+        "qpos_offset": "1",
+        "safety": "nearest_non_source_object_trace",
+        "source": "instruction_token_overlap",
+        "support": "destination_static_or_trace_copy"
+      },
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "leakage_audit": {
+        "destination_instruction_hint": "the basket",
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "phase_source": "obs_gripper_states_aperture_midpoint",
+        "source_instruction_hint": "put both the alphabet soup and the cream cheese box",
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "uses_eval_success_labels": false,
+        "uses_future_actions_as_geometry": false,
+        "uses_hdf5_position_observations": false,
+        "uses_hdf5_state_freejoint_positions": true,
+        "uses_reward_or_done_labels_for_features": false,
+        "uses_task_id_or_filename_as_target_label": false,
+        "uses_xml_static_body_or_site_positions": true
+      },
+      "normal_observable": true,
+      "safety_name": "basket_1",
+      "safety_observable": true,
+      "source_name": "cream_cheese_1",
+      "source_observable": true,
+      "steps": 140,
+      "support_observable": true
+    },
+    {
+      "demo_name": "demo_0",
+      "destination_name": "basket_1_default_site",
+      "destination_observable": true,
+      "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "geometry_sources": {
+        "destination": "xml_static_body_or_site",
+        "eef": "obs/ee_pos",
+        "normal": "destination_plus_z_axis_proxy",
+        "qpos_offset": "1",
+        "safety": "nearest_non_source_object_trace",
+        "source": "instruction_token_overlap",
+        "support": "destination_static_or_trace_copy"
+      },
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "leakage_audit": {
+        "destination_instruction_hint": "the basket",
+        "destination_instruction_overlap_score": 1.0,
+        "destination_selection": "xml_static_body_or_site",
+        "phase_source": "obs_gripper_states_aperture_midpoint",
+        "source_instruction_hint": "put both the alphabet soup and the tomato sauce",
+        "source_instruction_overlap_score": 1.0,
+        "source_selection": "instruction_token_overlap",
+        "uses_eval_success_labels": false,
+        "uses_future_actions_as_geometry": false,
+        "uses_hdf5_position_observations": false,
+        "uses_hdf5_state_freejoint_positions": true,
+        "uses_reward_or_done_labels_for_features": false,
+        "uses_task_id_or_filename_as_target_label": false,
+        "uses_xml_static_body_or_site_positions": true
+      },
+      "normal_observable": true,
+      "safety_name": "butter_1",
+      "safety_observable": true,
+      "source_name": "tomato_sauce_1",
+      "source_observable": true,
+      "steps": 140,
+      "support_observable": true
+    }
+  ],
+  "data": {
+    "candidate_file_count": 6,
+    "destination_points_observable": true,
+    "eval_record_count": 252,
+    "excluded_files": [],
+    "full_contact_set_observable": true,
+    "libero_data_root": "C:\\assets\\data\\libero",
+    "normal_cues_observable": true,
+    "source_object_points_observable": true,
+    "split_audit": {
+      "confirmatory": false,
+      "exploratory": true,
+      "split_points": [
+        {
+          "eval_steps": 42,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+          "train_steps": 98
+        },
+        {
+          "eval_steps": 42,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+          "train_steps": 98
+        },
+        {
+          "eval_steps": 42,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+          "train_steps": 98
+        },
+        {
+          "eval_steps": 42,
+          "file": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+          "train_steps": 98
+        },
+        {
+          "eval_steps": 42,
+          "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+          "train_steps": 98
+        },
+        {
+          "eval_steps": 42,
+          "file": "C:\\assets\\data\\libero\\libero_10\\LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+          "train_steps": 98
+        }
+      ],
+      "split_type": "deterministic_per_demo_time_holdout"
+    },
+    "support_points_observable": true,
+    "train_record_count": 588,
+    "usable_demo_count": 6,
+    "uses_eval_label_leakage": false
+  },
+  "decision": {
+    "contact_set_action_l2": 1.105028754,
+    "contact_set_beats_single_point": false,
+    "decision": "kill",
+    "next_state": "archive_or_reframe_contactset_vla",
+    "reason": "full contact-set injection did not beat the active single-3D-point injection baseline",
+    "simple_point_baseline_matches_contact_set": true,
+    "single_point_action_l2": 0.930495702
+  },
+  "elapsed_seconds": 0.418491,
+  "evidence_label": "exploratory_offline_action_head_diagnostic",
+  "model": {
+    "loss_computed": true,
+    "name": "tiny_numpy_ridge_action_head",
+    "real_vla_model_metric_produced": false,
+    "ridge": 0.001
+  },
+  "policy": {
+    "downloads_performed": false,
+    "exact_init_replay_progress_happened": false,
+    "gpu_jobs_performed": false,
+    "heavy_model_imports_performed": false,
+    "model_load_performed": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "rollouts_performed": false,
+    "simulator_executed": false,
+    "tiny_cpu_numpy_training_only": true,
+    "training_performed": true
+  },
+  "replay_progress": {
+    "happened": false,
+    "reason": "STATE 1 is bounded to offline action-head loss; exact-init replay is the next separate risk-assessed milestone if the offline gate continues"
+  },
+  "schema_version": "contactset-vla-diagnostic-v1",
+  "variants": {
+    "destination_placement_point_only": {
+      "feature_count": 108,
+      "metrics": {
+        "action_l2": 0.863720469,
+        "contact_placement_consistency": 0.186237363,
+        "destination_consistency": 0.142291179,
+        "expert_contact_placement_consistency": 0.310770991,
+        "gripper_error": 1.206706725,
+        "rotation_l2": 0.172045422,
+        "source_consistency": 0.230183546,
+        "target_directed_movement_proxy": 0.142291179,
+        "translation_l2": 0.986866461
+      },
+      "train_action_l2": 0.199541452
+    },
+    "full_contact_set_injection": {
+      "feature_count": 108,
+      "metrics": {
+        "action_l2": 1.105028754,
+        "contact_placement_consistency": 0.278231626,
+        "destination_consistency": 0.334108884,
+        "expert_contact_placement_consistency": 0.310770991,
+        "gripper_error": 1.30362017,
+        "rotation_l2": 0.220886258,
+        "source_consistency": 0.222354368,
+        "target_directed_movement_proxy": 0.334108884,
+        "translation_l2": 1.368344007
+      },
+      "train_action_l2": 0.19245971
+    },
+    "no_geometry_injection": {
+      "feature_count": 108,
+      "metrics": {
+        "action_l2": 0.851451051,
+        "contact_placement_consistency": 0.356365897,
+        "destination_consistency": 0.41075475,
+        "expert_contact_placement_consistency": 0.310770991,
+        "gripper_error": 1.179519167,
+        "rotation_l2": 0.118820551,
+        "source_consistency": 0.301977045,
+        "target_directed_movement_proxy": 0.41075475,
+        "translation_l2": 0.981953766
+      },
+      "train_action_l2": 0.200114422
+    },
+    "single_3d_point_injection": {
+      "feature_count": 108,
+      "metrics": {
+        "action_l2": 0.930495702,
+        "contact_placement_consistency": 0.358383476,
+        "destination_consistency": 0.42588501,
+        "expert_contact_placement_consistency": 0.310770991,
+        "gripper_error": 1.340928715,
+        "rotation_l2": 0.139894623,
+        "source_consistency": 0.290881942,
+        "target_directed_movement_proxy": 0.42588501,
+        "translation_l2": 1.062792449
+      },
+      "train_action_l2": 0.184541614
+    },
+    "source_destination_two_point_injection": {
+      "feature_count": 108,
+      "metrics": {
+        "action_l2": 1.360486781,
+        "contact_placement_consistency": 0.292384279,
+        "destination_consistency": 0.289205986,
+        "expert_contact_placement_consistency": 0.310770991,
+        "gripper_error": 1.583944431,
+        "rotation_l2": 0.36887145,
+        "source_consistency": 0.295562572,
+        "target_directed_movement_proxy": 0.289205986,
+        "translation_l2": 1.688783524
+      },
+      "train_action_l2": 0.195775419
+    },
+    "source_object_point_only": {
+      "feature_count": 108,
+      "metrics": {
+        "action_l2": 1.262017222,
+        "contact_placement_consistency": 0.065873456,
+        "destination_consistency": -0.107751251,
+        "expert_contact_placement_consistency": 0.310770991,
+        "gripper_error": 1.441359646,
+        "rotation_l2": 0.504607563,
+        "source_consistency": 0.239498162,
+        "target_directed_movement_proxy": -0.107751251,
+        "translation_l2": 1.531320678
+      },
+      "train_action_l2": 0.196905002
+    }
+  }
+}
