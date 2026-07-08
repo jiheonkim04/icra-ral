@@ -1594,3 +1594,15 @@ Key metrics: total simulator steps `1621`; variants `6`; exact-init no-op reward
 Consequence: do not run STATE 2 training for this branch. Preserve the ContactTube extraction/replay runner as reusable diagnostic infrastructure only. Any future contact-preserving augmentation route must predeclare a new mechanism that is controller-valid by construction and must beat simple object-relative translation before model training.
 
 Execution boundary: bounded exact/default-reset LIBERO/RoboSuite replay happened. Training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, and paper-grade claims did not occur.
+
+## ContactTube-Aug Archive And Global Killed-Route Update
+
+Decision: archive ContactTube-Aug as a hard-killed route before training and update global killed-route summaries.
+
+Reason: the STATE 1 replay/control diagnostic already triggered the hard gates: ContactTube-Aug action validity was too low (`0.849265` controller-valid action rate, `0.150735` clip-step rate), and simple object-relative translation retargeting beat ContactTube-Aug on contact-tube preservation (`0.009154` versus `0.015226`). Training after this would not test useful augmentation; it would train on invalid or inferior generated actions.
+
+Consequence: do not proceed to STATE 2, do not claim ContactTube-Aug as RA-L-stable, and keep only the extraction/replay/validity infrastructure as reusable artifacts. Future data-augmentation topics must demonstrate controller-valid generated actions and beat simple object-relative retargeting before any BC/action-head or VLA training.
+
+Global rule added: a data-augmentation method is invalid for continuation if generated actions are not controller-valid, or if simple object-relative retargeting preserves trajectory/contact metrics better than the proposed augmentation.
+
+Execution boundary: documentation-only archive. No new experiments, replay/rollout, training, LoRA training, loss computation, downloads, GPU jobs, heavy VLA imports/model loading, OpenVLA-OFT execution, benchmark rollouts, or paper-grade claims occurred.

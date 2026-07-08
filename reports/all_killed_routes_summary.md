@@ -8,6 +8,7 @@ Current killed or reframed main-route candidates:
 - ResetSpec-Retarget
 - Phase-Locked Retiming
 - TL-ChunkRepair
+- ContactTube-Aug
 
 ## Target-Prior TCA-Map
 
@@ -79,6 +80,16 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the route improved monitor satisfaction but not robot execution utility; RA-L-stable continuation requires safe-success, reward, success, done/progress, or comparable replay/control gains beyond simple baselines.
 - reusable artifacts: temporal perturbation runner, exact-init replay diagnostic, temporal property monitor, violation metrics, simple baseline suite, focused tests, and STATE 1 result reports.
 
+## ContactTube-Aug
+
+- original hypothesis: successful demonstrations contain contact tubes, including EEF-object relative trajectories, gripper timing, object motion onset, lift/place phases, and contact/proximity windows; preserving those tubes while retargeting object/reset/distractor conditions should create useful training demonstrations without new teleoperation.
+- strongest positive evidence: contact-tube extraction succeeded using HDF5 EEF/gripper traces plus runtime object traces; bounded LIBERO/RoboSuite replay/control diagnostics ran for `1621` simulator steps across `6` variants; exact-init no-op replay succeeded; ContactTube-Aug beat random action jitter and random pose jitter on tube preservation.
+- decisive negative evidence: ContactTube-Aug generated invalid/clipped actions with controller-valid action rate `0.849265` and clip-step rate `0.150735`; simple object-relative translation retargeting beat ContactTube-Aug on tube preservation (`0.009154` versus `0.015226`); HDF5 object pose was unavailable.
+- exact kill criterion triggered: augmented actions were not controller-valid enough, and simple object-relative retargeting matched or beat ContactTube-Aug before training.
+- strongest trivial baseline that killed it: simple object-relative translation retargeting.
+- why not RA-L-stable: a data-augmentation method must first produce physically valid demonstrations and beat simple retargeting before BC/action-head or VLA training; ContactTube-Aug failed that gate.
+- reusable artifacts: contact-tube extraction, runtime object trace collection, augmentation-validity diagnostics, random jitter baselines, simple object-relative retarget baseline, gated replay smoke, and focused tests.
+
 ## Common Failure Pattern
 
 The method must not merely beat no-method. It must beat the strongest trivial baseline available for the failure mode:
@@ -98,3 +109,5 @@ Any future route that only beats no-method, raw replay, or a weak ablation shoul
 New rule from Phase-Locked Retiming: a topic is invalid if each targeted failure mode can be solved by a separate obvious simple baseline. A method must beat the best single simple baseline and the best per-failure-mode simple baseline, not only the weakest baseline in the table.
 
 New rule from TL-ChunkRepair: a topic is invalid for RA-L-stable continuation if it improves symbolic, proxy, or constraint-satisfaction metrics but degrades or fails real replay/control utility compared with a simple baseline.
+
+New rule from ContactTube-Aug: a data-augmentation method is invalid for continuation if generated actions are not controller-valid, or if simple object-relative retargeting preserves trajectory/contact metrics better than the proposed augmentation.

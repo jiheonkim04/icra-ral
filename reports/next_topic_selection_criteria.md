@@ -20,6 +20,8 @@ A topic is invalid if:
 - it is already solved by calibration, clipping, nearest, mean, random, safety, fixed-shift, gripper-only, linear-warp, or replay-leakage baselines,
 - each targeted failure mode can be solved by a separate obvious simple baseline.
 - it improves symbolic, proxy, monitor, or offline constraint satisfaction while failing direct replay/control utility against a simple baseline.
+- it proposes data augmentation but generated actions are not controller-valid before training.
+- it proposes contact/object-pose retargeting but simple object-relative retargeting preserves trajectory/contact metrics better.
 
 ## Baseline Gate
 
@@ -32,6 +34,8 @@ Passing only against the weakest baseline is a kill condition, not progress.
 
 Symbolic or proxy improvement is also a kill condition when reward, success, safe-success, done/progress, or direct replay/control utility does not beat simple baselines.
 
+Data-augmentation topics must additionally beat random action jitter, random pose jitter, image-only/metadata-only augmentation where applicable, and simple object-relative retargeting before training. Invalid augmented actions are a kill condition, not a reason to train a stronger learner.
+
 ## Required First Table
 
 Every new topic must predeclare:
@@ -40,5 +44,6 @@ Every new topic must predeclare:
 - strongest single simple baseline,
 - per-failure-mode simple baselines,
 - oracle/replay-leakage upper bounds clearly labeled invalid as method evidence,
+- action validity, controller-valid action rate, and clip rate for any augmentation method,
 - direct success/reward/done/progress/safety metrics,
 - exact continue and kill criteria.
