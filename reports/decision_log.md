@@ -1,5 +1,15 @@
 # Decision Log
 
+## PRISM-VLA Archive
+
+Decision: archive PRISM-VLA as a killed main RA-L route and add canonicalization-only to the global simple-baseline screen for future language robustness topics.
+
+Reason: State 2 already produced the decisive anti-baseline result. Canonicalization-only beat the best PRISM variant on held-out paraphrase proxy (`0.474066` versus `0.436356`) and PRIDE (`46.686731` versus `31.985592`), best PRISM primary held-out delta versus canonicalization was `-0.030420`, and counterfactual sensitivity was not preserved. Building a real VLA diagnostic before passing this primary canonicalization gate would violate the repository baseline-first rule.
+
+Consequence: do not continue PRISM-VLA as an RA-L-stable route. Preserve the LIBERO-Para metadata integration, held-out paraphrase split, diagnostic runner, PRIDE/consistency metrics, and counterfactual sensitivity checks as reusable artifacts. Future language robustness routes must beat canonicalization-only on held-out robustness and preserve object/target sensitivity before scale-up.
+
+Execution boundary: documentation-only archive. No new experiment, training, rollout, loss computation, GPU job, download, heavy VLA import, OpenVLA-OFT execution, or paper-grade claim occurred.
+
 ## PRISM-VLA State 2 Result
 
 Decision: kill PRISM-VLA as the current main route under the held-out paraphrase/canonicalization dominance gate.

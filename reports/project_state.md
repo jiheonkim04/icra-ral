@@ -1,5 +1,28 @@
 # Project State
 
+## Latest PRISM-VLA Archive
+
+Status: archived PRISM-VLA as a killed main RA-L route on branch `codex/prism-vla-archive`.
+
+Created archive reports:
+- `reports/prism_vla_kill_summary.md`,
+- `reports/prism_vla_failure_tree.md`,
+- `reports/prism_vla_reusable_artifacts.md`.
+
+Updated global summaries:
+- `reports/all_killed_routes_summary.md`,
+- `reports/simple_baseline_failure_patterns.md`,
+- `reports/next_topic_selection_criteria.md`,
+- `reports/decision_log.md`,
+- `reports/next_actions.md`,
+- `reports/project_state.md`.
+
+Archive decision: PRISM-VLA is killed as the current main route because canonicalization-only beat the best PRISM variant on primary held-out paraphrase proxy (`0.474066` versus `0.436356`) and PRIDE (`46.686731` versus `31.985592`), with best PRISM primary held-out delta versus canonicalization `-0.030420` and counterfactual sensitivity not preserved.
+
+Execution boundary: documentation-only archive. No new experiment, PRISM diagnostic, training, rollout, loss computation, GPU job, download, heavy VLA import, OpenVLA-OFT execution, or paper claim occurred.
+
+Global lesson added: a language-robustness method is invalid for continuation if canonicalization-only beats it on held-out paraphrase robustness, or if it improves paraphrase consistency by weakening counterfactual/object sensitivity.
+
 ## Latest PRISM-VLA State 2 Result
 
 Status: completed held-out paraphrase split and canonicalization dominance gate on branch `codex/prism-vla-state2`.
