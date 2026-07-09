@@ -1,0 +1,1950 @@
+{
+  "decision": "KILL_CANONICALIZATION_DOMINATED",
+  "error": null,
+  "feasibility": {
+    "clean_eval_records": 60,
+    "clean_train_records": 120,
+    "counterfactual_generated_without_oracle_eval_labels": true,
+    "counterfactual_records": 30,
+    "heldout_object_lexical_records": 60,
+    "heldout_paraphrase_records": 360,
+    "instruction_action_link_without_inference_leakage": true,
+    "leakage": {
+      "clean_eval_record_overlap": 0,
+      "group_leakage_detected": false,
+      "heldout_object_group_count": 10,
+      "heldout_paraphrase_group_count": 60,
+      "paraphrase_group_overlap": [],
+      "train_paraphrase_group_count": 40
+    },
+    "matched_hdf5_task_count": 10,
+    "metadata_csv": "C:\\assets\\data\\libero_para\\libero_para_metadata.csv",
+    "metadata_exists": true,
+    "metadata_rows": 4092,
+    "original_instruction_count": 10,
+    "selected_task_count": 10,
+    "target_prior_from_instruction_and_visible_names_only": true,
+    "task_reports": [
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "open the middle drawer of the cabinet",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "open the middle drawer of the cabinet",
+          "selected_candidates": [
+            "wooden cabinet cabinet middle",
+            "wooden cabinet middle",
+            "wooden cabinet wooden cabinet middle",
+            "wooden cabinet middle level"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\open_the_top_drawer_and_put_the_bowl_inside_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "open the top drawer and put the bowl inside",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "open the top drawer and put the bowl inside",
+          "selected_candidates": [
+            "akita black bowl",
+            "akita black bowl g"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\push_the_plate_to_the_front_of_the_stove_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "push the plate to the front of the stove",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "push the plate to the front of the stove",
+          "selected_candidates": [
+            "stove front",
+            "flat stove burner plate",
+            "plate",
+            "stove"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\put_the_bowl_on_the_plate_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "put the bowl on the plate",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "put the bowl on the plate",
+          "selected_candidates": [
+            "plate",
+            "plate g",
+            "plate model",
+            "akita black bowl"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\put_the_bowl_on_the_stove_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "put the bowl on the stove",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "put the bowl on the stove",
+          "selected_candidates": [
+            "stove",
+            "flat stove",
+            "stove front",
+            "akita black bowl"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "put the bowl on top of the cabinet",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "put the bowl on top of the cabinet",
+          "selected_candidates": [
+            "cabinet",
+            "wooden cabinet",
+            "wooden cabinet cabinet top",
+            "wooden cabinet top"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\put_the_cream_cheese_in_the_bowl_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "put the cream cheese in the bowl",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "put the cream cheese in the bowl",
+          "selected_candidates": [
+            "cream cheese",
+            "cream cheese cream cheese",
+            "cream cheese g",
+            "akita black bowl"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\put_the_wine_bottle_on_the_rack_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "put the wine bottle on the rack",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "put the wine bottle on the rack",
+          "selected_candidates": [
+            "wine bottle",
+            "wine rack",
+            "wine rack top",
+            "wine bottle g"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\put_the_wine_bottle_on_top_of_the_cabinet_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "put the wine bottle on top of the cabinet",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "put the wine bottle on top of the cabinet",
+          "selected_candidates": [
+            "wine bottle",
+            "wine bottle g",
+            "wine bottle wine bottle red",
+            "cabinet"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      },
+      {
+        "eval_records": 6,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_goal\\turn_on_the_stove_demo.hdf5",
+        "heldout_object_rows": 1,
+        "heldout_paraphrase_rows": 6,
+        "original_instruction": "turn on the stove",
+        "selected_target_prior": {
+          "candidate_count": 46,
+          "instruction": "turn on the stove",
+          "selected_candidates": [
+            "stove",
+            "flat stove",
+            "stove front",
+            "flat stove burner"
+          ],
+          "source": "instruction_text_plus_hdf5_model_xml_visible_candidate_names",
+          "uses_bddl_target_labels": false,
+          "uses_eval_labels": false,
+          "uses_filenames_as_inference_labels": false,
+          "uses_future_actions": false,
+          "uses_reward_or_success_labels": false,
+          "uses_task_ids": false
+        },
+        "train_paraphrase_rows": 4,
+        "train_records": 12,
+        "visible_object_candidate_count": 46,
+        "visible_object_candidate_sample": [
+          "akita black bowl",
+          "akita black bowl g",
+          "cabinet",
+          "cream cheese",
+          "cream cheese cream cheese",
+          "cream cheese g",
+          "flat stove",
+          "flat stove burner",
+          "flat stove burner plate",
+          "flat stove burnerplate",
+          "flat stove cook",
+          "flat stove g"
+        ]
+      }
+    ],
+    "train_paraphrase_records": 480
+  },
+  "method_gate": {
+    "clean_eval_records": 60,
+    "counterfactual_records": 30,
+    "dataset_split_used": "local_libero_goal_libero_para_group_holdout",
+    "heldout_paraphrase_records": 360,
+    "lora_rank": 4,
+    "object_lexical_records": 60,
+    "runtime_sec": 13.265,
+    "train_augmented_records": 600,
+    "train_records": 120,
+    "variants": {
+      "canonicalization_only": {
+        "adapter_schema": "LIBERO_7D",
+        "counterfactual_sensitivity": {
+          "available": true,
+          "cf_prediction_to_counter_expert_l2": 0.924984,
+          "collapse_rate_delta_lt_0_05": 0.633333,
+          "expert_counterfactual_delta_l2": 0.819498,
+          "pair_count": 30,
+          "prediction_delta_l2": 0.042338
+        },
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.588409,
+            "action_l2_first6": 0.355004,
+            "gripper_accuracy": 0.85,
+            "gripper_error": 0.390587,
+            "per_dim_mae": [
+              0.185176,
+              0.12119,
+              0.199332,
+              0.018726,
+              0.055345,
+              0.041226,
+              0.390587
+            ],
+            "rotation_l2": 0.082532,
+            "sample_count": 60,
+            "translation_l2": 0.339112,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.390587
+              },
+              {
+                "dim": 2,
+                "mae": 0.199332
+              },
+              {
+                "dim": 0,
+                "mae": 0.185176
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.587661,
+            "action_l2_first6": 0.354795,
+            "gripper_accuracy": 0.85,
+            "gripper_error": 0.389255,
+            "per_dim_mae": [
+              0.184885,
+              0.121454,
+              0.198728,
+              0.018692,
+              0.055534,
+              0.041326,
+              0.389255
+            ],
+            "rotation_l2": 0.082683,
+            "sample_count": 360,
+            "translation_l2": 0.338821,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.389255
+              },
+              {
+                "dim": 2,
+                "mae": 0.198728
+              },
+              {
+                "dim": 0,
+                "mae": 0.184885
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.587388,
+            "action_l2_first6": 0.354806,
+            "gripper_accuracy": 0.85,
+            "gripper_error": 0.38967,
+            "per_dim_mae": [
+              0.185073,
+              0.121093,
+              0.19913,
+              0.018692,
+              0.055389,
+              0.041164,
+              0.38967
+            ],
+            "rotation_l2": 0.082509,
+            "sample_count": 60,
+            "translation_l2": 0.338919,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.38967
+              },
+              {
+                "dim": 2,
+                "mae": 0.19913
+              },
+              {
+                "dim": 0,
+                "mae": 0.185073
+              }
+            ]
+          }
+        },
+        "feature_schema": "train-normalized observation.state padded to 32, frozen SmolVLA state_proj, timestep, and gated text/target prior features",
+        "lora_rank": 4,
+        "name": "canonicalization_only",
+        "normalization": {
+          "mean": [
+            0.071719,
+            0.036518,
+            0.108862,
+            -0.00175,
+            0.032161,
+            0.001902,
+            -0.5
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.209864,
+            0.213011,
+            0.331543,
+            0.032439,
+            0.071294,
+            0.068634,
+            0.866025
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "oracle_upper_bound": false,
+        "paraphrase_consistency": {
+          "available": true,
+          "pair_count": 360,
+          "same_target_prediction_l2": 0.016246
+        },
+        "prior_mode": "none",
+        "runtime_sec": 1.109,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_conditioning": "none_or_concatenated_text",
+        "target_modules": [
+          "state_proj_lora_rank_4"
+        ],
+        "text_mode": "canonical",
+        "trainable_params": 103143,
+        "training": {
+          "batch_size": 1,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.294378,
+                "loss": 1.096356,
+                "pose_loss": 0.801977,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.66141,
+                "loss": 2.884422,
+                "pose_loss": 2.223012,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.212832,
+                "loss": 3.429535,
+                "pose_loss": 3.216703,
+                "sensitivity_loss": 0.0
+              }
+            ],
+            "last3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.059462,
+                "loss": 0.800306,
+                "pose_loss": 0.740845,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.039176,
+                "loss": 0.20431,
+                "pose_loss": 0.165134,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.335751,
+                "loss": 1.877808,
+                "pose_loss": 1.542057,
+                "sensitivity_loss": 0.0
+              }
+            ]
+          },
+          "loss_decreased": false,
+          "loss_end": 1.877808,
+          "loss_start": 1.096356,
+          "steps": 500
+        },
+        "uses_bddl_target_labels_for_inference": false,
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_ids_or_filenames_for_inference": false
+      },
+      "mean_action": {
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.903848,
+            "action_l2_first6": 0.419078,
+            "gripper_accuracy": 0.75,
+            "gripper_error": 0.75,
+            "per_dim_mae": [
+              0.204955,
+              0.107845,
+              0.272665,
+              0.013426,
+              0.050147,
+              0.032784,
+              0.75
+            ],
+            "rotation_l2": 0.074325,
+            "sample_count": 60,
+            "translation_l2": 0.40424,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.75
+              },
+              {
+                "dim": 2,
+                "mae": 0.272665
+              },
+              {
+                "dim": 0,
+                "mae": 0.204955
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.903848,
+            "action_l2_first6": 0.419078,
+            "gripper_accuracy": 0.75,
+            "gripper_error": 0.75,
+            "per_dim_mae": [
+              0.204955,
+              0.107845,
+              0.272665,
+              0.013426,
+              0.050147,
+              0.032784,
+              0.75
+            ],
+            "rotation_l2": 0.074325,
+            "sample_count": 360,
+            "translation_l2": 0.40424,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.75
+              },
+              {
+                "dim": 2,
+                "mae": 0.272665
+              },
+              {
+                "dim": 0,
+                "mae": 0.204955
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.903848,
+            "action_l2_first6": 0.419078,
+            "gripper_accuracy": 0.75,
+            "gripper_error": 0.75,
+            "per_dim_mae": [
+              0.204955,
+              0.107845,
+              0.272665,
+              0.013426,
+              0.050147,
+              0.032784,
+              0.75
+            ],
+            "rotation_l2": 0.074325,
+            "sample_count": 60,
+            "translation_l2": 0.40424,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.75
+              },
+              {
+                "dim": 2,
+                "mae": 0.272665
+              },
+              {
+                "dim": 0,
+                "mae": 0.204955
+              }
+            ]
+          }
+        },
+        "name": "mean_action"
+      },
+      "oracle_target_upper_bound": {
+        "adapter_schema": "LIBERO_7D",
+        "counterfactual_sensitivity": {
+          "available": true,
+          "cf_prediction_to_counter_expert_l2": 0.933637,
+          "collapse_rate_delta_lt_0_05": 1.0,
+          "expert_counterfactual_delta_l2": 0.819498,
+          "pair_count": 30,
+          "prediction_delta_l2": 0.01042
+        },
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.724476,
+            "action_l2_first6": 0.413059,
+            "gripper_accuracy": 0.766667,
+            "gripper_error": 0.527888,
+            "per_dim_mae": [
+              0.1808,
+              0.190487,
+              0.22981,
+              0.018546,
+              0.053336,
+              0.039205,
+              0.527888
+            ],
+            "rotation_l2": 0.080637,
+            "sample_count": 60,
+            "translation_l2": 0.399237,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.527888
+              },
+              {
+                "dim": 2,
+                "mae": 0.22981
+              },
+              {
+                "dim": 1,
+                "mae": 0.190487
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.724674,
+            "action_l2_first6": 0.413294,
+            "gripper_accuracy": 0.766667,
+            "gripper_error": 0.52794,
+            "per_dim_mae": [
+              0.180846,
+              0.190674,
+              0.23007,
+              0.018571,
+              0.053341,
+              0.039211,
+              0.527941
+            ],
+            "rotation_l2": 0.080665,
+            "sample_count": 360,
+            "translation_l2": 0.399472,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.527941
+              },
+              {
+                "dim": 2,
+                "mae": 0.23007
+              },
+              {
+                "dim": 1,
+                "mae": 0.190674
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.725269,
+            "action_l2_first6": 0.413287,
+            "gripper_accuracy": 0.766667,
+            "gripper_error": 0.52857,
+            "per_dim_mae": [
+              0.180777,
+              0.19071,
+              0.229898,
+              0.018601,
+              0.053311,
+              0.039205,
+              0.52857
+            ],
+            "rotation_l2": 0.080648,
+            "sample_count": 60,
+            "translation_l2": 0.399492,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.52857
+              },
+              {
+                "dim": 2,
+                "mae": 0.229898
+              },
+              {
+                "dim": 1,
+                "mae": 0.19071
+              }
+            ]
+          }
+        },
+        "feature_schema": "train-normalized observation.state padded to 32, frozen SmolVLA state_proj, timestep, and gated text/target prior features",
+        "lora_rank": null,
+        "name": "oracle_target_upper_bound",
+        "normalization": {
+          "mean": [
+            0.071719,
+            0.036518,
+            0.108862,
+            -0.00175,
+            0.032161,
+            0.001902,
+            -0.5
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.209864,
+            0.213011,
+            0.331543,
+            0.032439,
+            0.071294,
+            0.068634,
+            0.866025
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "oracle_upper_bound": true,
+        "paraphrase_consistency": {
+          "available": true,
+          "pair_count": 360,
+          "same_target_prediction_l2": 0.002623
+        },
+        "prior_mode": "target_prior",
+        "runtime_sec": 1.062,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_conditioning": "FiLM-style target-prior gate",
+        "target_modules": [
+          "libero_7d_adapter"
+        ],
+        "text_mode": "oracle",
+        "trainable_params": 291655,
+        "training": {
+          "batch_size": 1,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.405963,
+                "loss": 1.122534,
+                "pose_loss": 0.716571,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.948744,
+                "loss": 2.869672,
+                "pose_loss": 1.920927,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.348131,
+                "loss": 3.716083,
+                "pose_loss": 3.367952,
+                "sensitivity_loss": 0.0
+              }
+            ],
+            "last3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.205221,
+                "loss": 0.626775,
+                "pose_loss": 0.421554,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.063797,
+                "loss": 0.684341,
+                "pose_loss": 0.620544,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.021591,
+                "loss": 0.111032,
+                "pose_loss": 0.089441,
+                "sensitivity_loss": 0.0
+              }
+            ]
+          },
+          "loss_decreased": true,
+          "loss_end": 0.111032,
+          "loss_start": 1.122534,
+          "steps": 250
+        },
+        "uses_bddl_target_labels_for_inference": false,
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_ids_or_filenames_for_inference": false
+      },
+      "ridge": {
+        "eval_metrics": {
+          "action_l2": 0.584541,
+          "action_l2_first6": 0.361315,
+          "gripper_accuracy": 0.933333,
+          "gripper_error": 0.404054,
+          "per_dim_mae": [
+            0.180606,
+            0.126043,
+            0.203828,
+            0.017367,
+            0.051946,
+            0.037752,
+            0.404054
+          ],
+          "rotation_l2": 0.076878,
+          "sample_count": 60,
+          "translation_l2": 0.346178,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.404054
+            },
+            {
+              "dim": 2,
+              "mae": 0.203828
+            },
+            {
+              "dim": 0,
+              "mae": 0.180606
+            }
+          ]
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "name": "state_time_ridge_7d",
+        "train_metrics": {
+          "action_l2": 0.566223,
+          "action_l2_first6": 0.327522,
+          "gripper_accuracy": 0.908333,
+          "gripper_error": 0.418167,
+          "per_dim_mae": [
+            0.133931,
+            0.120906,
+            0.196661,
+            0.017819,
+            0.049493,
+            0.038027,
+            0.418167
+          ],
+          "rotation_l2": 0.076226,
+          "sample_count": 120,
+          "translation_l2": 0.311842,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.418167
+            },
+            {
+              "dim": 2,
+              "mae": 0.196661
+            },
+            {
+              "dim": 0,
+              "mae": 0.133931
+            }
+          ]
+        },
+        "uses_eval_labels_for_training": false
+      },
+      "simple_paraphrase_augmentation": {
+        "adapter_schema": "LIBERO_7D",
+        "counterfactual_sensitivity": {
+          "available": true,
+          "cf_prediction_to_counter_expert_l2": 0.883251,
+          "collapse_rate_delta_lt_0_05": 0.9,
+          "expert_counterfactual_delta_l2": 0.819498,
+          "pair_count": 30,
+          "prediction_delta_l2": 0.029021
+        },
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.738785,
+            "action_l2_first6": 0.379569,
+            "gripper_accuracy": 0.8,
+            "gripper_error": 0.572438,
+            "per_dim_mae": [
+              0.191873,
+              0.121331,
+              0.221115,
+              0.016605,
+              0.054251,
+              0.041001,
+              0.572438
+            ],
+            "rotation_l2": 0.081529,
+            "sample_count": 60,
+            "translation_l2": 0.363148,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.572438
+              },
+              {
+                "dim": 2,
+                "mae": 0.221115
+              },
+              {
+                "dim": 0,
+                "mae": 0.191873
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.739425,
+            "action_l2_first6": 0.379851,
+            "gripper_accuracy": 0.8,
+            "gripper_error": 0.574239,
+            "per_dim_mae": [
+              0.191906,
+              0.121804,
+              0.221458,
+              0.016653,
+              0.054268,
+              0.041017,
+              0.574239
+            ],
+            "rotation_l2": 0.081523,
+            "sample_count": 360,
+            "translation_l2": 0.363415,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.574239
+              },
+              {
+                "dim": 2,
+                "mae": 0.221458
+              },
+              {
+                "dim": 0,
+                "mae": 0.191906
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.740523,
+            "action_l2_first6": 0.379645,
+            "gripper_accuracy": 0.8,
+            "gripper_error": 0.574983,
+            "per_dim_mae": [
+              0.191934,
+              0.121426,
+              0.221097,
+              0.016641,
+              0.054395,
+              0.040967,
+              0.574983
+            ],
+            "rotation_l2": 0.081546,
+            "sample_count": 60,
+            "translation_l2": 0.363236,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.574983
+              },
+              {
+                "dim": 2,
+                "mae": 0.221097
+              },
+              {
+                "dim": 0,
+                "mae": 0.191934
+              }
+            ]
+          }
+        },
+        "feature_schema": "train-normalized observation.state padded to 32, frozen SmolVLA state_proj, timestep, and gated text/target prior features",
+        "lora_rank": 4,
+        "name": "simple_paraphrase_augmentation",
+        "normalization": {
+          "mean": [
+            0.071719,
+            0.036518,
+            0.108862,
+            -0.00175,
+            0.032161,
+            0.001902,
+            -0.5
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.209864,
+            0.213011,
+            0.331543,
+            0.032439,
+            0.071294,
+            0.068634,
+            0.866025
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "oracle_upper_bound": false,
+        "paraphrase_consistency": {
+          "available": true,
+          "pair_count": 360,
+          "same_target_prediction_l2": 0.012214
+        },
+        "prior_mode": "none",
+        "runtime_sec": 1.172,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_conditioning": "none_or_concatenated_text",
+        "target_modules": [
+          "state_proj_lora_rank_4"
+        ],
+        "text_mode": "raw",
+        "trainable_params": 103143,
+        "training": {
+          "batch_size": 1,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.380988,
+                "loss": 0.996796,
+                "pose_loss": 0.615808,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 1.000753,
+                "loss": 3.266769,
+                "pose_loss": 2.266016,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.384788,
+                "loss": 3.665335,
+                "pose_loss": 3.280547,
+                "sensitivity_loss": 0.0
+              }
+            ],
+            "last3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.001396,
+                "loss": 0.027249,
+                "pose_loss": 0.025853,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.001538,
+                "loss": 0.982027,
+                "pose_loss": 0.980489,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.057375,
+                "loss": 0.338363,
+                "pose_loss": 0.280988,
+                "sensitivity_loss": 0.0
+              }
+            ]
+          },
+          "loss_decreased": true,
+          "loss_end": 0.338363,
+          "loss_start": 0.996796,
+          "steps": 500
+        },
+        "uses_bddl_target_labels_for_inference": false,
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_ids_or_filenames_for_inference": false
+      },
+      "small_mlp": {
+        "adapter_schema": "LIBERO_7D",
+        "counterfactual_sensitivity": {
+          "available": true,
+          "cf_prediction_to_counter_expert_l2": 0.840452,
+          "collapse_rate_delta_lt_0_05": 1.0,
+          "expert_counterfactual_delta_l2": 0.819498,
+          "pair_count": 30,
+          "prediction_delta_l2": 0.0
+        },
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.619985,
+            "action_l2_first6": 0.366991,
+            "gripper_accuracy": 0.866667,
+            "gripper_error": 0.430371,
+            "per_dim_mae": [
+              0.179516,
+              0.119234,
+              0.215022,
+              0.020374,
+              0.052676,
+              0.038591,
+              0.430371
+            ],
+            "rotation_l2": 0.078822,
+            "sample_count": 60,
+            "translation_l2": 0.352708,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.430371
+              },
+              {
+                "dim": 2,
+                "mae": 0.215022
+              },
+              {
+                "dim": 0,
+                "mae": 0.179516
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.619985,
+            "action_l2_first6": 0.366991,
+            "gripper_accuracy": 0.866667,
+            "gripper_error": 0.430371,
+            "per_dim_mae": [
+              0.179516,
+              0.119234,
+              0.215022,
+              0.020374,
+              0.052676,
+              0.038591,
+              0.430371
+            ],
+            "rotation_l2": 0.078822,
+            "sample_count": 360,
+            "translation_l2": 0.352708,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.430371
+              },
+              {
+                "dim": 2,
+                "mae": 0.215022
+              },
+              {
+                "dim": 0,
+                "mae": 0.179516
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.619985,
+            "action_l2_first6": 0.366991,
+            "gripper_accuracy": 0.866667,
+            "gripper_error": 0.430371,
+            "per_dim_mae": [
+              0.179516,
+              0.119234,
+              0.215022,
+              0.020374,
+              0.052676,
+              0.038591,
+              0.430371
+            ],
+            "rotation_l2": 0.078822,
+            "sample_count": 60,
+            "translation_l2": 0.352708,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.430371
+              },
+              {
+                "dim": 2,
+                "mae": 0.215022
+              },
+              {
+                "dim": 0,
+                "mae": 0.179516
+              }
+            ]
+          }
+        },
+        "feature_schema": "train-normalized observation.state padded to 32, frozen SmolVLA state_proj, timestep, and gated text/target prior features",
+        "lora_rank": null,
+        "name": "small_state_time_mlp_7d_baseline",
+        "normalization": {
+          "mean": [
+            0.071719,
+            0.036518,
+            0.108862,
+            -0.00175,
+            0.032161,
+            0.001902,
+            -0.5
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.209864,
+            0.213011,
+            0.331543,
+            0.032439,
+            0.071294,
+            0.068634,
+            0.866025
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "oracle_upper_bound": false,
+        "paraphrase_consistency": {
+          "available": true,
+          "pair_count": 360,
+          "same_target_prediction_l2": 0.0
+        },
+        "prior_mode": "none",
+        "runtime_sec": 1.735,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_conditioning": "none_or_concatenated_text",
+        "target_modules": [
+          "libero_7d_adapter"
+        ],
+        "text_mode": "none",
+        "trainable_params": 31015,
+        "training": {
+          "batch_size": 1,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.296528,
+                "loss": 1.14776,
+                "pose_loss": 0.851232,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.583761,
+                "loss": 2.529678,
+                "pose_loss": 1.945917,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.29935,
+                "loss": 3.993007,
+                "pose_loss": 3.693657,
+                "sensitivity_loss": 0.0
+              }
+            ],
+            "last3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.665986,
+                "loss": 2.352598,
+                "pose_loss": 1.686612,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.127838,
+                "loss": 0.373882,
+                "pose_loss": 0.246044,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.002438,
+                "loss": 0.10953,
+                "pose_loss": 0.107092,
+                "sensitivity_loss": 0.0
+              }
+            ]
+          },
+          "loss_decreased": true,
+          "loss_end": 0.10953,
+          "loss_start": 1.14776,
+          "steps": 400
+        },
+        "uses_bddl_target_labels_for_inference": false,
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_ids_or_filenames_for_inference": false
+      },
+      "standard_smolvla_7d_lora_adapter": {
+        "adapter_schema": "LIBERO_7D",
+        "counterfactual_sensitivity": {
+          "available": true,
+          "cf_prediction_to_counter_expert_l2": 0.924279,
+          "collapse_rate_delta_lt_0_05": 1.0,
+          "expert_counterfactual_delta_l2": 0.819498,
+          "pair_count": 30,
+          "prediction_delta_l2": 0.0
+        },
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.600887,
+            "action_l2_first6": 0.364725,
+            "gripper_accuracy": 0.85,
+            "gripper_error": 0.402141,
+            "per_dim_mae": [
+              0.178757,
+              0.13345,
+              0.203413,
+              0.019131,
+              0.051521,
+              0.038298,
+              0.402141
+            ],
+            "rotation_l2": 0.078396,
+            "sample_count": 60,
+            "translation_l2": 0.350954,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.402141
+              },
+              {
+                "dim": 2,
+                "mae": 0.203413
+              },
+              {
+                "dim": 0,
+                "mae": 0.178757
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.600887,
+            "action_l2_first6": 0.364725,
+            "gripper_accuracy": 0.85,
+            "gripper_error": 0.402141,
+            "per_dim_mae": [
+              0.178757,
+              0.13345,
+              0.203413,
+              0.019131,
+              0.051521,
+              0.038298,
+              0.402141
+            ],
+            "rotation_l2": 0.078396,
+            "sample_count": 360,
+            "translation_l2": 0.350954,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.402141
+              },
+              {
+                "dim": 2,
+                "mae": 0.203413
+              },
+              {
+                "dim": 0,
+                "mae": 0.178757
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.600887,
+            "action_l2_first6": 0.364725,
+            "gripper_accuracy": 0.85,
+            "gripper_error": 0.402141,
+            "per_dim_mae": [
+              0.178757,
+              0.13345,
+              0.203413,
+              0.019131,
+              0.051521,
+              0.038298,
+              0.402141
+            ],
+            "rotation_l2": 0.078396,
+            "sample_count": 60,
+            "translation_l2": 0.350954,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.402141
+              },
+              {
+                "dim": 2,
+                "mae": 0.203413
+              },
+              {
+                "dim": 0,
+                "mae": 0.178757
+              }
+            ]
+          }
+        },
+        "feature_schema": "train-normalized observation.state padded to 32, frozen SmolVLA state_proj, timestep, and gated text/target prior features",
+        "lora_rank": 4,
+        "name": "standard_smolvla_7d_lora_adapter",
+        "normalization": {
+          "mean": [
+            0.071719,
+            0.036518,
+            0.108862,
+            -0.00175,
+            0.032161,
+            0.001902,
+            -0.5
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.209864,
+            0.213011,
+            0.331543,
+            0.032439,
+            0.071294,
+            0.068634,
+            0.866025
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "oracle_upper_bound": false,
+        "paraphrase_consistency": {
+          "available": true,
+          "pair_count": 360,
+          "same_target_prediction_l2": 0.0
+        },
+        "prior_mode": "none",
+        "runtime_sec": 1.062,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_conditioning": "none_or_concatenated_text",
+        "target_modules": [
+          "state_proj_lora_rank_4"
+        ],
+        "text_mode": "none",
+        "trainable_params": 96999,
+        "training": {
+          "batch_size": 1,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.436617,
+                "loss": 1.075093,
+                "pose_loss": 0.638475,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 1.045292,
+                "loss": 3.296575,
+                "pose_loss": 2.251282,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.54395,
+                "loss": 3.497563,
+                "pose_loss": 2.953613,
+                "sensitivity_loss": 0.0
+              }
+            ],
+            "last3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.036768,
+                "loss": 0.791796,
+                "pose_loss": 0.755028,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.055272,
+                "loss": 0.168723,
+                "pose_loss": 0.113451,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.432232,
+                "loss": 2.094961,
+                "pose_loss": 1.66273,
+                "sensitivity_loss": 0.0
+              }
+            ]
+          },
+          "loss_decreased": false,
+          "loss_end": 2.094961,
+          "loss_start": 1.075093,
+          "steps": 500
+        },
+        "uses_bddl_target_labels_for_inference": false,
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_ids_or_filenames_for_inference": false
+      },
+      "tg7d_adapter": {
+        "adapter_schema": "LIBERO_7D",
+        "counterfactual_sensitivity": {
+          "available": true,
+          "cf_prediction_to_counter_expert_l2": 0.899556,
+          "collapse_rate_delta_lt_0_05": 0.5,
+          "expert_counterfactual_delta_l2": 0.819498,
+          "pair_count": 30,
+          "prediction_delta_l2": 0.06286
+        },
+        "eval_metrics": {
+          "clean": {
+            "action_l2": 0.735738,
+            "action_l2_first6": 0.378408,
+            "gripper_accuracy": 0.816667,
+            "gripper_error": 0.572981,
+            "per_dim_mae": [
+              0.182124,
+              0.119239,
+              0.223456,
+              0.017877,
+              0.059756,
+              0.044794,
+              0.572981
+            ],
+            "rotation_l2": 0.087954,
+            "sample_count": 60,
+            "translation_l2": 0.358227,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.572981
+              },
+              {
+                "dim": 2,
+                "mae": 0.223456
+              },
+              {
+                "dim": 0,
+                "mae": 0.182124
+              }
+            ]
+          },
+          "heldout_paraphrase": {
+            "action_l2": 0.740922,
+            "action_l2_first6": 0.378356,
+            "gripper_accuracy": 0.816667,
+            "gripper_error": 0.58099,
+            "per_dim_mae": [
+              0.18165,
+              0.119774,
+              0.223436,
+              0.017883,
+              0.059847,
+              0.044786,
+              0.58099
+            ],
+            "rotation_l2": 0.088013,
+            "sample_count": 360,
+            "translation_l2": 0.358191,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.58099
+              },
+              {
+                "dim": 2,
+                "mae": 0.223436
+              },
+              {
+                "dim": 0,
+                "mae": 0.18165
+              }
+            ]
+          },
+          "object_lexical": {
+            "action_l2": 0.744749,
+            "action_l2_first6": 0.378045,
+            "gripper_accuracy": 0.816667,
+            "gripper_error": 0.584648,
+            "per_dim_mae": [
+              0.181575,
+              0.119274,
+              0.222921,
+              0.017822,
+              0.060051,
+              0.045009,
+              0.584648
+            ],
+            "rotation_l2": 0.088292,
+            "sample_count": 60,
+            "translation_l2": 0.3577,
+            "worst_action_dimensions": [
+              {
+                "dim": 6,
+                "mae": 0.584648
+              },
+              {
+                "dim": 2,
+                "mae": 0.222921
+              },
+              {
+                "dim": 0,
+                "mae": 0.181575
+              }
+            ]
+          }
+        },
+        "feature_schema": "train-normalized observation.state padded to 32, frozen SmolVLA state_proj, timestep, and gated text/target prior features",
+        "lora_rank": 4,
+        "name": "tg7d_adapter",
+        "normalization": {
+          "mean": [
+            0.071719,
+            0.036518,
+            0.108862,
+            -0.00175,
+            0.032161,
+            0.001902,
+            -0.5
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.209864,
+            0.213011,
+            0.331543,
+            0.032439,
+            0.071294,
+            0.068634,
+            0.866025
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "oracle_upper_bound": false,
+        "paraphrase_consistency": {
+          "available": true,
+          "pair_count": 360,
+          "same_target_prediction_l2": 0.017795
+        },
+        "prior_mode": "target_prior",
+        "runtime_sec": 5.438,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_conditioning": "FiLM-style target-prior gate",
+        "target_modules": [
+          "state_proj_lora_rank_4"
+        ],
+        "text_mode": "raw",
+        "trainable_params": 295623,
+        "training": {
+          "batch_size": 1,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.364352,
+                "loss": 0.993114,
+                "pose_loss": 0.62837,
+                "sensitivity_loss": 0.019574
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.998587,
+                "loss": 3.077022,
+                "pose_loss": 2.078058,
+                "sensitivity_loss": 0.018805
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.425082,
+                "loss": 3.759301,
+                "pose_loss": 3.333859,
+                "sensitivity_loss": 0.017985
+              }
+            ],
+            "last3": [
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.051926,
+                "loss": 0.099809,
+                "pose_loss": 0.04786,
+                "sensitivity_loss": 0.001114
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.006915,
+                "loss": 0.952853,
+                "pose_loss": 0.945938,
+                "sensitivity_loss": 0.0
+              },
+              {
+                "consistency_loss": 0.0,
+                "gripper_mse_loss": 0.044155,
+                "loss": 0.31224,
+                "pose_loss": 0.268085,
+                "sensitivity_loss": 0.0
+              }
+            ]
+          },
+          "loss_decreased": true,
+          "loss_end": 0.31224,
+          "loss_start": 0.993114,
+          "steps": 500
+        },
+        "uses_bddl_target_labels_for_inference": false,
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_ids_or_filenames_for_inference": false
+      }
+    },
+    "vram_peak_mb": 0.0
+  },
+  "policy": {
+    "downloads_executed": false,
+    "forbidden_gates_set": [],
+    "hard_coded_gripper_fill_used": false,
+    "old_6d_so100_path_used": false,
+    "old_tca_select_used": false,
+    "openvla_oft_executed": false,
+    "rollouts_executed": false,
+    "state_gate_set": true,
+    "training_gate_set": true
+  },
+  "schema_version": "tg7d-adapter-state-gate-v1",
+  "summary": {
+    "current_strong_baseline_l2": 0.494959,
+    "dataset_split_used": "local_libero_goal_libero_para_group_holdout",
+    "downloads_happened": false,
+    "exact_next_step": "Stop: canonicalization-only matched or beat TG-7D on the target/paraphrase metric.",
+    "experiments_happened": true,
+    "final_decision": "KILL_CANONICALIZATION_DOMINATED",
+    "gpu_training_happened": false,
+    "lora_rank": 4,
+    "loss_computed": true,
+    "model_used": "C:\\assets\\checkpoints\\smolvla",
+    "openvla_oft_happened": false,
+    "rollouts_happened": false,
+    "runtime_sec": 14.093,
+    "trainable_params": {
+      "canonicalization_only": 103143,
+      "oracle_target_upper_bound": 291655,
+      "simple_paraphrase_augmentation": 103143,
+      "small_mlp": 31015,
+      "standard_smolvla_7d_lora_adapter": 96999,
+      "tg7d_adapter": 295623
+    },
+    "training_happened": true,
+    "vram_peak_mb": 0.0
+  }
+}

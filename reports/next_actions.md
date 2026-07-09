@@ -4,61 +4,49 @@ Date: 2026-07-09 KST
 
 Current decision:
 
-`READY_FOR_RA_L_METHOD_ON_SMOLVLA_7D`
+`KILL_CANONICALIZATION_DOMINATED`
 
 ## Immediate Next Action
 
-Preserve the fixed-interface baseline table, then plan any future RA-L method only with these baselines predeclared.
+Stop TG-7D Adapter as a scale-up route.
 
 ## Why
 
-The standard fixed-interface 7D baseline reproduction passed the required action metric gate:
+The bounded method gate produced real fixed-interface 7D adapter evidence, and TG-7D did not clear the anti-baseline requirements:
 
-- fixed `LIBERO_7D` labels were used,
-- train-split-only 7D normalization was used,
-- gripper output was learned,
-- no old 6D/SO100 action label path was used,
-- no hard-coded gripper fill was used,
-- rank-8 `state_proj` LoRA + 7D adapter beat mean-action,
-- rank-8 `state_proj` LoRA + 7D adapter beat the best ridge/MLP baseline on held-out action L2.
+- canonicalization-only held-out paraphrase L2: `0.587661`,
+- standard SmolVLA 7D LoRA/adapter held-out paraphrase L2: `0.600887`,
+- MLP held-out paraphrase L2: `0.619985`,
+- TG-7D held-out paraphrase L2: `0.740922`,
+- TG-7D clean L2: `0.735738`,
+- standard LoRA clean L2: `0.600887`.
 
-## Current Metrics
+TG-7D improved same-target consistency, but that is not enough. The method lost clean action quality and was dominated by canonicalization-only and standard LoRA on the claimed target/paraphrase metric.
 
-- primary split: `same_task_demo_holdout`
-- train/eval records: `300 / 100`
-- mean-action action L2: `1.082453`
-- ridge action L2: `0.890603`
-- small MLP action L2: `0.518738`
-- frozen/base SmolVLA 7D adapter action L2: `0.890604`
-- no-LoRA SmolVLA 7D adapter action L2: `0.561651`
-- rank-4 LoRA + 7D adapter action L2: `0.504675`
-- rank-8 LoRA + 7D adapter action L2: `0.494959`
-- rank-8 LoRA gripper accuracy: `0.88`
-- rank-8 LoRA train/eval action-L2 gap: about `0.210549`
+## Reusable Artifacts
 
-## Important Caveat
-
-The previous-action persistence diagnostic reached action L2 `0.181765`, but it uses the previous expert action from the held-out HDF5 sequence. Treat it as a diagnostic persistence oracle, not as a closed-loop learned-action baseline unless an executable persistence policy is constructed.
-
-Optional replay/progress was not run because this runner does not include a bounded executable LIBERO bridge for the learned 7D adapter.
-
-## Allowed Next Work
-
-- Plan a future method only after freezing this baseline table.
-- Keep the rank-8 fixed-interface SmolVLA 7D LoRA/adapter as the standard learned baseline.
-- Include mean-action, ridge/MLP, frozen/base 7D adapter, no-LoRA 7D adapter, and persistence diagnostics in future comparisons.
-- If a replay/progress step is needed, first implement a bounded executable 7D adapter bridge and compare against expert replay and simple executable baselines.
+- LIBERO-Para to local LIBERO-Goal HDF5 linking.
+- Held-out paraphrase group split with no group leakage.
+- Object lexical subset.
+- Counterfactual instruction-swap sensitivity audit.
+- Target prior from instruction text plus visible object-candidate names.
+- Fixed SmolVLA/LIBERO_7D adapter gate with standard LoRA, canonicalization, paraphrase augmentation, TG-7D, and oracle target upper bound arms.
 
 ## Disallowed Next Work
 
 Do not:
 
-- invent a method that lacks this baseline table,
-- continue PatchGuard,
-- start Target-Grounded ActionMap, SafeLoRA, PRISM, ActionMap, or another route without a fresh method-specific baseline plan,
+- continue TG-7D Adapter training,
+- tune TG-7D until it wins by seed/overfitting,
+- make a paper claim,
 - run OpenVLA-OFT,
-- run a full benchmark,
 - download large assets,
-- make paper claims from this local action metric gate,
-- use the old broken 6D/SO100 action path,
-- use hard-coded gripper fill.
+- run a full benchmark,
+- use old TCA-Select,
+- use the old 6D/SO100 action path,
+- use hard-coded gripper fill,
+- use BDDL/eval labels/task IDs/filenames as inference target labels.
+
+## Next Valid Step
+
+Archive TG-7D as canonicalization-dominated. Future method work must start from a new predeclared hypothesis that cannot be explained by canonicalization-only, standard SmolVLA 7D LoRA, or simple MLP/ridge baselines.

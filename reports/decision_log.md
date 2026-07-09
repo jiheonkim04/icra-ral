@@ -345,3 +345,44 @@ Caveats:
 - this is not a paper result or benchmark claim.
 
 Consequence: future method planning may start only after preserving this fixed-interface baseline table and predeclaring comparisons against rank-8 fixed-interface SmolVLA 7D LoRA/adapter, mean-action, ridge/MLP, frozen/base 7D adapter, no-LoRA 7D adapter, and persistence diagnostics where appropriate.
+
+## 2026-07-09: TG-7D Adapter STATE 0-2 Gate
+
+Decision: `KILL_CANONICALIZATION_DOMINATED`
+
+Candidate: Target-Grounded 7D Adapter for SmolVLA-LIBERO.
+
+STATE 1 feasibility was green:
+
+- local LIBERO-Para metadata rows: `4092`;
+- matched local LIBERO-Goal HDF5 tasks: `10`;
+- clean train/eval records: `120 / 60`;
+- train paraphrase records: `480`;
+- held-out paraphrase records: `360`;
+- held-out object lexical records: `60`;
+- counterfactual records: `30`;
+- paraphrase group leakage: no;
+- target prior source: instruction text plus HDF5 model-XML visible object-candidate names;
+- BDDL/eval labels/task IDs/filenames used as inference labels: no.
+
+STATE 2 bounded fixed-7D method gate:
+
+- LoRA rank: `4`;
+- mean-action held-out paraphrase action L2: `0.903848`;
+- MLP held-out paraphrase action L2: `0.619985`;
+- standard SmolVLA 7D LoRA/adapter held-out paraphrase action L2: `0.600887`;
+- canonicalization-only held-out paraphrase action L2: `0.587661`;
+- simple paraphrase augmentation held-out paraphrase action L2: `0.739425`;
+- TG-7D Adapter held-out paraphrase action L2: `0.740922`;
+- oracle target upper bound held-out paraphrase action L2: `0.724674`;
+- TG-7D clean action L2: `0.735738`;
+- standard LoRA clean action L2: `0.600887`;
+- TG-7D counterfactual prediction delta L2: `0.06286`;
+- TG-7D counterfactual collapse rate below `0.05`: `0.5`;
+- TG-7D trainable params: `295623`;
+- VRAM peak: `0.0` MB;
+- runtime: `14.093` sec.
+
+Exact kill criterion triggered: canonicalization-only matched or beat TG-7D on the target/paraphrase metric. Standard LoRA and MLP also beat TG-7D, and clean action quality was worse than standard LoRA.
+
+Consequence: do not scale TG-7D Adapter as formulated. Preserve the leakage-safe LIBERO-Para/fixed-7D split and target-prior audit as reusable artifacts.

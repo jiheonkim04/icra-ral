@@ -4,118 +4,111 @@ Date: 2026-07-09 KST
 
 Branch:
 
-`codex/smolvla-libero-7d-baseline-reproduction`
+`codex/tg7d-adapter-state0-state1`
 
 Current branch base:
 
-`ebcc466 Fix SmolVLA LIBERO 7D action interface`
+`bb0c372 Reproduce SmolVLA LIBERO 7D baseline`
 
 Current decision:
 
-`READY_FOR_RA_L_METHOD_ON_SMOLVLA_7D`
+`KILL_CANONICALIZATION_DOMINATED`
 
-## Current Bounded Run Boundary
+## Baseline Foundation
 
-- Experiments happened: yes, bounded fixed-interface baseline reproduction only.
-- Training happened: yes, small CPU supervised 7D adapters and LoRA-on-`state_proj` baselines only.
+The fixed SmolVLA/LIBERO 7D baseline remains the reusable foundation:
+
+- fixed `LIBERO_7D` labels,
+- train-split-only 7D normalization,
+- learned gripper output,
+- no old 6D/SO100 action label path,
+- no hard-coded gripper fill,
+- best baseline: rank-8 `state_proj` LoRA + 7D adapter action L2 `0.494959`,
+- mean-action action L2 `1.082453`,
+- ridge / MLP action L2 `0.890603 / 0.518738`,
+- frozen/base SmolVLA 7D adapter action L2 `0.890604`.
+
+This baseline still authorizes method planning in general, but each candidate must survive its own strong-baseline gate.
+
+## TG-7D Adapter Gate
+
+Candidate:
+
+`Target-Grounded 7D Adapter for SmolVLA-LIBERO`
+
+Boundary:
+
+- Experiments happened: yes, bounded local method gate only.
+- Training happened: yes, tiny CPU rank-4 fixed-7D adapter variants only.
 - Loss computed: yes.
 - GPU training happened: no.
 - Downloads happened: no.
 - Rollout/replay happened: no.
 - OpenVLA-OFT happened: no.
 - Full benchmark happened: no.
-- PatchGuard continued: no.
-- New method implementation happened: no.
-- Paper claims happened: no.
-- Old broken 6D/SO100 action path used: no.
+- Old TCA-Select used: no.
+- Old broken 6D/SO100 path used: no.
 - Hard-coded gripper fill used: no.
+- Paper claims happened: no.
 
-## Dataset And Split Status
+## STATE 1 Feasibility
 
-Primary split used for the baseline suite:
+STATE 1 found a meaningful local evaluation path:
 
-- split: `same_task_demo_holdout`
-- task: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo`
-- train/eval records: `300 / 100`
-- train demos: `demo_0` through `demo_29`
-- eval demos: `demo_30` through `demo_39`
-- raw timesteps for task: `13298`
-- exact record leakage: no
-- demo leakage: no
-- task overlap: yes, by same-task design
+- local LIBERO-Para metadata rows: `4092`,
+- original instruction count: `10`,
+- matched local LIBERO-Goal HDF5 task count: `10`,
+- selected task count: `10`,
+- clean train/eval records: `120 / 60`,
+- train paraphrase records: `480`,
+- held-out paraphrase records: `360`,
+- held-out object lexical records: `60`,
+- counterfactual records: `30`,
+- paraphrase group leakage: no,
+- clean train/eval exact record overlap: `0`,
+- target prior source: instruction text plus HDF5 model-XML visible object-candidate names,
+- BDDL/eval labels/task IDs/filenames used as inference labels: no.
 
-Additional split audits:
+## STATE 2 Method Gate Results
 
-- `same_task_time_holdout`: `160 / 80` records, exact record leakage no, same-demo overlap yes, 50-step chunk temporal-overlap risk yes
-- `multi_task_demo_holdout`: `150 / 60` records over 3 local tasks, exact record leakage no, demo leakage no
+Dataset/split:
 
-## Baseline Suite
+`local_libero_goal_libero_para_group_holdout`
 
-All learned baselines use the fixed `LIBERO_7D` label path with train-split-only 7D normalization and learned gripper output.
+LoRA rank:
 
-Primary held-out action L2:
+`4`
 
-- global mean-action: `1.082453`
-- per-task mean-action: `1.082453`
-- previous-action persistence diagnostic: `0.181765`
-- ridge: `0.890603`
-- small MLP: `0.518738`
-- frozen/base SmolVLA 7D linear adapter: `0.890604`
-- SmolVLA 7D adapter without LoRA: `0.561651`
-- SmolVLA `state_proj` LoRA rank 4 + 7D adapter: `0.504675`
-- SmolVLA `state_proj` LoRA rank 8 + 7D adapter: `0.494959`
+Held-out paraphrase action L2:
 
-Important persistence caveat:
+- mean-action: `0.903848`,
+- MLP: `0.619985`,
+- standard SmolVLA 7D LoRA/adapter: `0.600887`,
+- canonicalization-only: `0.587661`,
+- simple paraphrase augmentation: `0.739425`,
+- TG-7D Adapter: `0.740922`,
+- oracle target upper bound: `0.724674`.
 
-The previous-action baseline uses the previous expert action from the held-out HDF5 sequence. It is recorded as a diagnostic persistence oracle, not treated as the learned-action decision gate.
+TG-7D details:
 
-## LoRA And Target Module Status
-
-- LoRA ranks tested: `[4, 8]`
-- rank 16: not run; optional and skipped to keep the reproduction bounded
-- executable target modules: `libero_7d_adapter_head_only`, `frozen_state_proj_plus_7d_adapter`, `state_proj_lora_plus_7d_adapter`
-- audited but not executed in fixed 7D path: `action_in_proj`, `action_out_proj`, `action_time_mlp_in`, `action_time_mlp_out`
-- reason: native action projection modules require `max_action_dim` / native flow actions and would re-enter the old 6D/SO100 action path
-
-Trainable params:
-
-- small MLP: `487`
-- frozen/base SmolVLA 7D linear adapter: `6734`
-- SmolVLA 7D adapter without LoRA: `124039`
-- rank 4 `state_proj` LoRA + 7D adapter: `128007`
-- rank 8 `state_proj` LoRA + 7D adapter: `131975`
-
-## Best Fixed-Interface Result
-
-Best learned variant:
-
-`smolvla_state_proj_lora_rank8_7d_adapter`
-
-Metrics:
-
-- train action L2: `0.28441`
-- eval action L2: `0.494959`
-- eval translation L2: `0.230133`
-- eval rotation L2: `0.064995`
-- eval gripper error: `0.365736`
-- eval gripper accuracy: `0.88`
-- eval per-dim MAE: `[0.100928, 0.103205, 0.138828, 0.017847, 0.040066, 0.034002, 0.365735]`
-- train/eval action-L2 gap: about `0.210549`
-- VRAM peak: `0.0` MB
-- total runtime: `9.438` sec
-
-Best LoRA beats:
-
-- mean-action: yes
-- ridge/MLP: yes
-- frozen/base 7D adapter: yes
-
-## Optional Replay/Progress
-
-Optional replay/progress was eligible by action metrics but was not run.
-
-Reason: no bounded executable LIBERO environment bridge for the learned 7D adapter is part of this baseline runner. No rollout or benchmark claim is made.
+- clean action L2: `0.735738`,
+- object lexical action L2: `0.744749`,
+- target consistency same-target prediction L2: `0.017795`,
+- counterfactual prediction delta L2: `0.06286`,
+- counterfactual collapse rate below `0.05`: `0.5`,
+- trainable params: `295623`,
+- VRAM peak: `0.0` MB,
+- runtime: `14.093` sec.
 
 ## Conclusion
 
-The fixed-interface 7D baseline is strong enough to allow future method planning, provided the baseline table is preserved and simple baselines are predeclared. This is not a paper claim. Any future method must compare against the rank-8 fixed-interface SmolVLA 7D LoRA/adapter baseline, mean-action, ridge/MLP, and the diagnostic persistence baseline where appropriate.
+TG-7D Adapter is killed as formulated.
+
+Exact kill criterion triggered:
+
+- canonicalization-only matched or beat TG-7D on the target/paraphrase metric,
+- standard SmolVLA 7D LoRA/adapter also beat TG-7D,
+- MLP beat TG-7D on the same held-out paraphrase metric,
+- clean action quality did not preserve the standard LoRA baseline.
+
+Do not scale TG-7D from this evidence. The reusable artifact is the leakage-safe LIBERO-Para/fixed-7D split and target-prior audit, not the method.
