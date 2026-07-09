@@ -39,10 +39,10 @@ DEFAULT_ADAPTER_ARTIFACT = Path("runs/smolvla_7d_replay_bridge/smolvla_state_pro
 SCHEMA_VERSION = "smolvla-7d-adapter-replay-bridge-v1"
 FINAL_DECISIONS = {
     "READY_FOR_METHOD_AFTER_REPLAY_BRIDGE",
-    "NEEDS_EXECUTABLE_ADAPTER_FIX",
+    "ADAPTER_ACTION_RANGE_ISSUE",
     "OFFLINE_TO_CONTROL_GAP",
-    "MEAN_OR_MLP_REPLAY_DOMINATED",
-    "EXPERT_REPLAY_BLOCKED",
+    "EXPERT_REPLAY_STILL_BLOCKED",
+    "ENV_BLOCKED_INSTALL_FAILED",
     "TOO_HEAVY_LOCAL",
 }
 FORBIDDEN_GATES = [
@@ -67,6 +67,15 @@ def _env_flag(name: str) -> bool:
 
 def _round(value: float | np.floating[Any], digits: int = 6) -> float:
     return round(float(value), digits)
+
+
+def _default_mujoco_gl() -> str:
+    return "glfw" if os.name == "nt" else "osmesa"
+
+
+def _ensure_mujoco_gl_default() -> str:
+    os.environ.setdefault("MUJOCO_GL", _default_mujoco_gl())
+    return os.environ["MUJOCO_GL"]
 
 
 def _compact_error(exc: BaseException | str) -> dict[str, Any]:
@@ -562,7 +571,7 @@ def _write_libero_config(*, libero_root: Path, data_root: Path, output_dir: Path
 
 
 def _load_env_class_noninteractive(*, libero_root: Path, robosuite_root: Path, data_root: Path, output_dir: Path) -> tuple[Any, dict[str, Any]]:
-    os.environ.setdefault("MUJOCO_GL", "osmesa")
+    _ensure_mujoco_gl_default()
     tmp_dir = Path("C:/tmp")
     try:
         tmp_dir.mkdir(parents=True, exist_ok=True)
@@ -727,27 +736,29 @@ def _decide(report: dict[str, Any]) -> tuple[str, str]:
     offline = report.get("state2_offline_to_control_sanity") or {}
     replay = report.get("state3_bounded_exact_init_replay") or {}
     if not state1.get("artifact_reloaded") or not state1.get("output_shape_exactly_7d"):
-        return "NEEDS_EXECUTABLE_ADAPTER_FIX", "Fix adapter export/reload and 7D output shape before replay."
+        return "ADAPTER_ACTION_RANGE_ISSUE", "Fix adapter export/reload and 7D output shape before replay."
     if not state1.get("gripper_output_learned_not_hard_coded") or not state1.get("unnormalize_check", {}).get("zero_normalized_maps_to_train_mean"):
-        return "NEEDS_EXECUTABLE_ADAPTER_FIX", "Fix learned gripper output or LIBERO_7D unnormalization before replay."
+        return "ADAPTER_ACTION_RANGE_ISSUE", "Fix learned gripper output or LIBERO_7D unnormalization before replay."
     adapter_valid = ((offline.get("policies") or {}).get("smolvla_7d_adapter") or {}).get("action_validity") or {}
     if float(adapter_valid.get("controller_valid_rate_proxy") or 0.0) < 0.5:
-        return "OFFLINE_TO_CONTROL_GAP", "Adapter actions are mostly invalid or clipped under the LIBERO 7D action range."
+        return "ADAPTER_ACTION_RANGE_ISSUE", "Adapter actions are mostly invalid or clipped under the LIBERO 7D action range."
     if not replay.get("executed"):
         error = replay.get("error") or {}
-        if error.get("type") == "ModuleNotFoundError" and "mujoco" in str(error.get("message", "")).lower():
+        if error.get("type") == "ModuleNotFoundError" and any(
+            name in str(error.get("message", "")).lower() for name in ["mujoco", "robosuite", "libero"]
+        ):
             return (
-                "EXPERT_REPLAY_BLOCKED",
-                "Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.",
+                "ENV_BLOCKED_INSTALL_FAILED",
+                "Install or activate the local MuJoCo/RoboSuite/LIBERO Python dependency path in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.",
             )
-        return "EXPERT_REPLAY_BLOCKED", replay.get("reason") or "Exact-init replay did not execute."
+        return "EXPERT_REPLAY_STILL_BLOCKED", replay.get("reason") or "Exact-init replay did not execute."
     results = replay.get("results") or {}
     expert = results.get("expert") or {}
     adapter = results.get("smolvla_7d_adapter") or {}
     mean = results.get("mean_action") or {}
     ridge = results.get("ridge") or {}
     if not _success(expert):
-        return "EXPERT_REPLAY_BLOCKED", "Expert exact-init replay failed, so learned replay cannot be interpreted."
+        return "EXPERT_REPLAY_STILL_BLOCKED", "Expert exact-init replay failed, so learned replay cannot be interpreted."
     adapter_success = _success(adapter)
     mean_success = _success(mean)
     ridge_success = _success(ridge)
@@ -762,7 +773,7 @@ def _decide(report: dict[str, Any]) -> tuple[str, str]:
             for value in [mean_progress, ridge_progress]
         )
     if dominated_by_success or dominated_by_progress:
-        return "MEAN_OR_MLP_REPLAY_DOMINATED", "Mean-action or ridge matched/beat the adapter in exact-init replay progress."
+        return "OFFLINE_TO_CONTROL_GAP", "Mean-action or ridge matched/beat the adapter in exact-init replay progress."
     action_l2_ok = bool((offline.get("comparison") or {}).get("adapter_beats_mean_action_l2") and (offline.get("comparison") or {}).get("adapter_beats_ridge_l2"))
     progress_ok = bool(adapter_success or (adapter_progress is not None and all(value is None or float(adapter_progress) > float(value) for value in [mean_progress, ridge_progress])))
     if action_l2_ok and progress_ok:
@@ -816,10 +827,10 @@ def _write_static_reports(report: dict[str, Any]) -> None:
                 "",
                 "Final decision must be one of:",
                 "- `READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`",
-                "- `NEEDS_EXECUTABLE_ADAPTER_FIX`",
+                "- `ADAPTER_ACTION_RANGE_ISSUE`",
                 "- `OFFLINE_TO_CONTROL_GAP`",
-                "- `MEAN_OR_MLP_REPLAY_DOMINATED`",
-                "- `EXPERT_REPLAY_BLOCKED`",
+                "- `EXPERT_REPLAY_STILL_BLOCKED`",
+                "- `ENV_BLOCKED_INSTALL_FAILED`",
                 "- `TOO_HEAVY_LOCAL`",
                 "",
                 "Stop if the learned 7D adapter cannot be executed, the env action interface mismatch returns, expert replay fails, mean-action or ridge/MLP matches or beats learned replay/progress, adapter actions are mostly clipped/invalid, offline L2 improves without replay/progress transfer, or the runner becomes unstable or unbounded.",
@@ -1006,7 +1017,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     report: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
         "evidence_label": "smolvla_7d_adapter_replay_bridge",
-        "decision": "NEEDS_EXECUTABLE_ADAPTER_FIX",
+        "decision": "ENV_BLOCKED_INSTALL_FAILED",
         "policy": {
             "control_validity_gate": True,
             "new_method_created": False,
@@ -1054,14 +1065,14 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         return report, code
 
     if not report["policy"]["bridge_gate_set"]:
-        return finish("NEEDS_EXECUTABLE_ADAPTER_FIX", f"Set {BRIDGE_GATE}=1 for this bounded replay bridge diagnostic.", 2)
+        return finish("ENV_BLOCKED_INSTALL_FAILED", f"Set {BRIDGE_GATE}=1 for this bounded replay bridge diagnostic.", 2)
     if forbidden:
         report["error"] = {"message": "Forbidden gate(s) set: " + ", ".join(forbidden)}
-        return finish("NEEDS_EXECUTABLE_ADAPTER_FIX", "Clear forbidden rollout/download/OpenVLA-OFT/method gates and rerun this bridge.", 3)
+        return finish("ENV_BLOCKED_INSTALL_FAILED", "Clear forbidden rollout/download/OpenVLA-OFT/method gates and rerun this bridge.", 3)
     if not hdf5_path.exists():
-        return finish("NEEDS_EXECUTABLE_ADAPTER_FIX", f"Missing local HDF5 path: {hdf5_path}", 4)
+        return finish("ENV_BLOCKED_INSTALL_FAILED", f"Missing local HDF5 path: {hdf5_path}", 4)
     if not checkpoint.exists():
-        return finish("NEEDS_EXECUTABLE_ADAPTER_FIX", f"Missing local SmolVLA checkpoint: {checkpoint}", 5)
+        return finish("ENV_BLOCKED_INSTALL_FAILED", f"Missing local SmolVLA checkpoint: {checkpoint}", 5)
 
     try:
         split = repro._same_task_demo_holdout(hdf5_path)
@@ -1079,7 +1090,7 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         demo_window = _demo_window(hdf5_path, replay_demo, int(args.max_replay_steps), int(args.post_signal_margin))
         if not artifact_path.exists():
             if not report["policy"]["training_gate_set"]:
-                return finish("NEEDS_EXECUTABLE_ADAPTER_FIX", f"Adapter artifact missing; set {TRAINING_GATE}=1 to reproduce and export the fixed 7D adapter.", 6)
+                return finish("ENV_BLOCKED_INSTALL_FAILED", f"Adapter artifact missing; set {TRAINING_GATE}=1 to reproduce and export the fixed 7D adapter.", 6)
             report["adapter_export"] = _train_and_export_adapter(
                 train_records=train_records,
                 eval_records=eval_records,
@@ -1169,12 +1180,18 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
                 "clip_action_validity_rate": ((compact_offline.get("policies") or {}).get("smolvla_7d_adapter") or {}).get("action_validity"),
             }
         )
-        return finish(decision, next_step, 0 if decision in {"READY_FOR_METHOD_AFTER_REPLAY_BRIDGE", "EXPERT_REPLAY_BLOCKED"} else 10)
+        successful_diagnoses = {
+            "READY_FOR_METHOD_AFTER_REPLAY_BRIDGE",
+            "ADAPTER_ACTION_RANGE_ISSUE",
+            "OFFLINE_TO_CONTROL_GAP",
+            "EXPERT_REPLAY_STILL_BLOCKED",
+        }
+        return finish(decision, next_step, 0 if decision in successful_diagnoses else 10)
     except Exception as exc:  # noqa: BLE001
         report["error"] = _compact_error(exc)
         if "out of memory" in str(exc).lower():
             return finish("TOO_HEAVY_LOCAL", "Stop: replay bridge exceeded local memory.", 20)
-        return finish("NEEDS_EXECUTABLE_ADAPTER_FIX", "Fix the reported replay bridge error and rerun.", 11)
+        return finish("ENV_BLOCKED_INSTALL_FAILED", "Fix the reported replay bridge error and rerun.", 11)
 
 
 def _current_branch() -> str | None:

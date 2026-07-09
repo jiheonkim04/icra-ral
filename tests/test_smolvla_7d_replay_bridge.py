@@ -58,12 +58,24 @@ def _write_demo(path: Path) -> None:
 def test_replay_bridge_decision_set_is_exact():
     assert replay_bridge.FINAL_DECISIONS == {
         "READY_FOR_METHOD_AFTER_REPLAY_BRIDGE",
-        "NEEDS_EXECUTABLE_ADAPTER_FIX",
+        "ADAPTER_ACTION_RANGE_ISSUE",
         "OFFLINE_TO_CONTROL_GAP",
-        "MEAN_OR_MLP_REPLAY_DOMINATED",
-        "EXPERT_REPLAY_BLOCKED",
+        "EXPERT_REPLAY_STILL_BLOCKED",
+        "ENV_BLOCKED_INSTALL_FAILED",
         "TOO_HEAVY_LOCAL",
     }
+
+
+def test_default_mujoco_gl_uses_glfw_on_windows(monkeypatch):
+    monkeypatch.setattr(replay_bridge.os, "name", "nt")
+
+    assert replay_bridge._default_mujoco_gl() == "glfw"
+
+
+def test_ensure_mujoco_gl_default_preserves_existing_value(monkeypatch):
+    monkeypatch.setenv("MUJOCO_GL", "wgl")
+
+    assert replay_bridge._ensure_mujoco_gl_default() == "wgl"
 
 
 def test_replay_bridge_requires_gate(tmp_path, monkeypatch):
@@ -74,7 +86,7 @@ def test_replay_bridge_requires_gate(tmp_path, monkeypatch):
     report, code = replay_bridge.build_report(_args(tmp_path))
 
     assert code != 0
-    assert report["decision"] == "NEEDS_EXECUTABLE_ADAPTER_FIX"
+    assert report["decision"] == "ENV_BLOCKED_INSTALL_FAILED"
     assert replay_bridge.BRIDGE_GATE in report["summary"]["exact_next_step"]
     assert report["policy"]["training_performed"] is False
     assert report["policy"]["replay_control_performed"] is False
@@ -152,5 +164,5 @@ def test_script_runs_blocked_without_gate(tmp_path):
 
     assert result.returncode != 0
     data = json.loads(report_path.read_text(encoding="utf-8-sig"))
-    assert data["decision"] == "NEEDS_EXECUTABLE_ADAPTER_FIX"
+    assert data["decision"] == "ENV_BLOCKED_INSTALL_FAILED"
     assert replay_bridge.BRIDGE_GATE in data["summary"]["exact_next_step"]

@@ -2,10 +2,10 @@
 
 Date: 2026-07-09 KST
 
-Current decision: `EXPERT_REPLAY_BLOCKED`
+Current decision: `READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`
 
 ## Immediate Next Action
 
-Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.
+Run a real SmolVLA LoRA baseline reproduction on an official or standard LIBERO task split using the now-working MuJoCo/RoboSuite/LIBERO replay environment.
 
-Do not start a new method until this replay bridge is green. If exact-init replay is blocked by simulator dependencies, fix the simulator/import stack first and rerun this same bridge; do not switch routes.
+Do not start a new method from this one-demo bridge alone. First understand standard LoRA baseline behavior, action range, and replay transfer on the standard split.

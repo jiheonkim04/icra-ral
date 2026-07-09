@@ -413,13 +413,16 @@ Consequence: stop the local language/target route. Do not start TG-7D v2 or anot
 
 ## 2026-07-09: SmolVLA 7D Adapter Replay Bridge
 
-Decision: `EXPERT_REPLAY_BLOCKED`
+Decision: `READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`
 
 - experiments happened: `True`
-- training happened: `True`
-- loss computed: `True`
-- replay/control happened: `False`
+- training happened: `False`
+- loss computed: `False`
+- replay/control happened: `True`
 - model/adapter used: `smolvla_state_proj_lora_rank8_7d_adapter`
 - dataset/demo used: `C:\assets\data\libero\libero_10\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5::demo_30`
-- env acceptance status: `blocked: ModuleNotFoundError: No module named 'mujoco'`
-- exact next step: Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.
+- env acceptance status: `accepted_by_env_step`
+- expert replay: reward_sum `1.0`, success `True`, first_done_index `250`
+- mean/ridge/adapter progress proxy: `0.106222` / `0.167573` / `0.234297`
+- adapter clip/controller-valid proxy: `0.429119` / `0.570881`
+- exact next step: reproduce a real SmolVLA LoRA baseline on an official or standard task split before starting any new method.

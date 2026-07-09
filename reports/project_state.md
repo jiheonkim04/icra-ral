@@ -2,13 +2,13 @@
 
 Date: 2026-07-09 KST
 
-Branch: `codex/smolvla-7d-adapter-replay-bridge`
+Branch: `codex/smolvla-7d-replay-mujoco-unblock`
 
-Current decision: `EXPERT_REPLAY_BLOCKED`
+Current decision: `READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`
 
 ## Current Route
 
-SmolVLA 7D Adapter Executable Replay Bridge is the active control-validity gate.
+SmolVLA 7D Adapter Replay Bridge is unblocked for one bounded exact-init LIBERO demo.
 
 The local language/target route remains killed: do not continue TG-7D, TCA, PRISM, PatchGuard, SafeLoRA, or canonicalization work from the prior route.
 
@@ -22,14 +22,18 @@ The local language/target route remains killed: do not continue TG-7D, TCA, PRIS
 ## Replay Bridge Status
 
 - adapter artifact reloadable: `True`
-- training happened: `True`
-- loss computed: `True`
-- replay/control happened: `False`
+- training happened: `False`
+- loss computed: `False`
+- replay/control happened: `True`
 - offline held-out replay-demo mean/action/ridge/adapter L2: `1.104166` / `0.893329` / `0.464353`
-- env acceptance status: `blocked: ModuleNotFoundError: No module named 'mujoco'`
+- env acceptance status: `accepted_by_env_step`
+- expert exact-init replay: reward_sum `1.0`, success `True`, first_done_index `250`
+- mean/ridge/adapter progress proxy: `0.106222` / `0.167573` / `0.234297`
+- adapter clip rate element/step: `0.061303` / `0.429119`
+- adapter controller-valid proxy rate: `0.570881`
 
 ## Conclusion
 
-`EXPERT_REPLAY_BLOCKED`
+`READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`
 
-Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.
+The reusable result is an executable real SmolVLA/LIBERO 7D replay path on the local Windows RTX setup. The next valid research step is standard SmolVLA LoRA baseline reproduction on an official or standard task split, not a new method.

@@ -1,16 +1,16 @@
 # SmolVLA 7D Adapter Replay Bridge Result
 
-Final decision: `EXPERT_REPLAY_BLOCKED`
+Final decision: `READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`
 
 This is a bounded control-validity gate for the already-fixed 7D baseline, not a method claim.
 
 ## Summary
 
-- branch: `codex/smolvla-7d-adapter-replay-bridge`
+- branch: `codex/smolvla-7d-replay-mujoco-unblock`
 - experiments happened: `True`
-- training happened: `True`
-- loss computed: `True`
-- replay/control happened: `False`
+- training happened: `False`
+- loss computed: `False`
+- replay/control happened: `True`
 - downloads happened: `False`
 - OpenVLA-OFT happened: `False`
 - model/adapter used: `smolvla_state_proj_lora_rank8_7d_adapter`
@@ -21,7 +21,7 @@ This is a bounded control-validity gate for the already-fixed 7D baseline, not a
 - train-split-only normalization: `True`
 - learned gripper output: `True`
 - unnormalize correct: `True`
-- replay env acceptance: `blocked: ModuleNotFoundError: No module named 'mujoco'`
+- replay env acceptance: `accepted_by_env_step`
 
 ## Offline Replay-Demo Metrics
 
@@ -35,12 +35,12 @@ This is a bounded control-validity gate for the already-fixed 7D baseline, not a
 
 ## Replay
 
-- replay executed: `False`
-- replay reason: `Failed to import or configure LIBERO/RoboSuite exact-init environment.`
-- replay error: `ModuleNotFoundError: No module named 'mujoco'`
-- expert replay reward/success: `None`
-- mean-action replay result: `None`
-- MLP/ridge replay result: `None`
-- SmolVLA 7D adapter replay result: `None`
-- action L2 vs replay progress relationship: not assessed because exact-init replay/control did not execute
-- exact next step: Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.
+- replay executed: `True`
+- replay reason: `bounded exact-init replay attempted`
+- replay error: `None`
+- expert replay reward/success: reward_sum `1.0`, final_success `True`, first_done_index `250`, progress_proxy `0.229161`
+- mean-action replay result: reward_sum `0.0`, final_success `False`, progress_proxy `0.106222`
+- ridge replay result: reward_sum `0.0`, final_success `False`, progress_proxy `0.167573`
+- SmolVLA 7D adapter replay result: reward_sum `0.0`, final_success `False`, progress_proxy `0.234297`
+- action L2 vs replay progress relationship: adapter improves over mean/ridge offline and beats both on the target-distance progress proxy, but it does not yet solve the task.
+- exact next step: reproduce a real SmolVLA LoRA baseline on an official or standard task split before starting any new method.
