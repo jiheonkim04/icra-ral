@@ -88,3 +88,17 @@ The baseline diagnosis selected `ACTION_INTERFACE_BUG`. The environment remains 
 - the SmolVLA action head and normalizer are 6D,
 - checkpoint action normalization is SO100-style,
 - one-sample and one-demo overfit failed in action space.
+
+## Interface Fix Update
+
+The bounded 7D interface fix selected `READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX`.
+
+The reusable environment now has a baseline-safe LIBERO_7D adapter path:
+
+- native SmolVLA 6D SO100 action schema preserved separately,
+- LIBERO labels kept as 7D,
+- train-split-only LIBERO 7D normalization,
+- learned 7th gripper output,
+- one-sample and one-demo overfit passed.
+
+This is still infrastructure. It should be used to reproduce standard fixed-interface baselines, not to launch a new custom method.

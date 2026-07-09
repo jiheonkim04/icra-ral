@@ -1,0 +1,2175 @@
+{
+  "action_schema_audit": {
+    "alignment_audit": {
+      "action_chunks_reduced_to_6d": false,
+      "chunk_first_matches_action_t_7d": true,
+      "chunk_second_matches_action_t_plus_1_7d": true,
+      "chunk_shape": [
+        50,
+        7
+      ],
+      "demo_name": "demo_0",
+      "off_by_one_detected": false,
+      "sampled_records_preserve_temporal_ordering": true,
+      "timestep": 3
+    },
+    "canonical_libero_7d_action_schema": {
+      "action_dim": 7,
+      "action_semantics": {
+        "caveat": "This is an HDF5 numeric audit only; no simulator/controller was instantiated.",
+        "inference": "controller_delta_like_not_absolute_pose",
+        "mean_action_xyz_norm": 0.490377,
+        "mean_l2_action_xyz_to_current_eef_xyz": 1.253746,
+        "mean_l2_action_xyz_to_next_eef_delta": 0.485201,
+        "mean_next_eef_delta_norm": 0.00547
+      },
+      "gripper_convention": {
+        "interpretation": "binary signed gripper command; sign semantics remain controller-defined without rollout",
+        "observed_values": [
+          -1.0,
+          1.0
+        ]
+      },
+      "gripper_dim": 6,
+      "labels_are_7d_throughout_all_demos": true,
+      "name": "LIBERO_7D",
+      "observed_action_dims": [
+        7
+      ],
+      "rotation_dims": [
+        3,
+        4,
+        5
+      ],
+      "stats": {
+        "action_dim": 7,
+        "count": 13298,
+        "gripper_dim": 6,
+        "gripper_std": 0.984017,
+        "gripper_values": [
+          -1.0,
+          1.0
+        ],
+        "gripper_variance": 0.96829,
+        "max": [
+          0.932143,
+          0.875893,
+          0.9375,
+          0.235714,
+          0.290357,
+          0.375,
+          1.0
+        ],
+        "mean": [
+          0.039349,
+          0.056619,
+          -0.091883,
+          0.012416,
+          -0.005815,
+          0.063391,
+          -0.178072
+        ],
+        "min": [
+          -0.774107,
+          -0.886607,
+          -0.9375,
+          -0.147857,
+          -0.233571,
+          -0.110357,
+          -1.0
+        ],
+        "rotation_dims": [
+          3,
+          4,
+          5
+        ],
+        "rotation_variance_mean": 0.005091,
+        "std": [
+          0.262207,
+          0.308574,
+          0.370461,
+          0.035068,
+          0.05897,
+          0.102793,
+          0.984038
+        ],
+        "translation_dims": [
+          0,
+          1,
+          2
+        ],
+        "translation_variance_mean": 0.100404,
+        "variance": [
+          0.068752,
+          0.095218,
+          0.137241,
+          0.00123,
+          0.003477,
+          0.010566,
+          0.968331
+        ]
+      },
+      "translation_dims": [
+        0,
+        1,
+        2
+      ]
+    },
+    "canonical_smolvla_native_action_schema": {
+      "action_output_modules": {
+        "available": true,
+        "key_count": 10,
+        "modules": [
+          "model.action_in_proj",
+          "model.action_out_proj",
+          "model.action_time_mlp_in",
+          "model.action_time_mlp_out",
+          "model.state_proj"
+        ],
+        "sample_keys": [
+          "model.action_in_proj.bias",
+          "model.action_in_proj.weight",
+          "model.action_out_proj.bias",
+          "model.action_out_proj.weight",
+          "model.action_time_mlp_in.bias",
+          "model.action_time_mlp_in.weight",
+          "model.action_time_mlp_out.bias",
+          "model.action_time_mlp_out.weight",
+          "model.state_proj.bias",
+          "model.state_proj.weight"
+        ]
+      },
+      "checkpoint_action_normalizer": {
+        "action_means": {
+          "so100-blue.buffer.action.mean": [
+            1.421193,
+            125.720543,
+            125.419304,
+            63.783165,
+            -106.540123,
+            3.348472
+          ],
+          "so100-red.buffer.action.mean": [
+            2.438708,
+            124.937874,
+            123.5578,
+            66.992615,
+            -103.876831,
+            2.891241
+          ],
+          "so100.buffer.action.mean": [
+            1.595914,
+            119.944237,
+            109.769775,
+            56.705513,
+            -27.422693,
+            12.002786
+          ]
+        },
+        "action_stds": {
+          "so100-blue.buffer.action.std": [
+            14.081991,
+            39.431416,
+            18.238085,
+            23.489754,
+            38.111176,
+            5.048287
+          ],
+          "so100-red.buffer.action.std": [
+            14.299178,
+            42.772209,
+            18.876314,
+            21.651918,
+            33.534065,
+            4.477972
+          ],
+          "so100.buffer.action.std": [
+            26.391779,
+            52.411404,
+            49.853806,
+            36.998302,
+            59.359951,
+            19.039955
+          ]
+        },
+        "postprocessor_keys": [
+          "so100-blue.buffer.action.mean",
+          "so100-blue.buffer.action.std",
+          "so100-red.buffer.action.mean",
+          "so100-red.buffer.action.std",
+          "so100.buffer.action.mean",
+          "so100.buffer.action.std"
+        ],
+        "preprocessor_keys": [
+          "so100-blue.buffer.action.mean",
+          "so100-blue.buffer.action.std",
+          "so100-red.buffer.action.mean",
+          "so100-red.buffer.action.std",
+          "so100.buffer.action.mean",
+          "so100.buffer.action.std"
+        ]
+      },
+      "chunk_size": 50,
+      "embodiment_mismatch": true,
+      "max_action_dim": 32,
+      "model_action_shape": [
+        6
+      ],
+      "model_state_shape": [
+        6
+      ],
+      "native_schema_name": "SMOLVLA_NATIVE_SO100_6D",
+      "normalization_mapping": {
+        "ACTION": "MEAN_STD",
+        "STATE": "MEAN_STD",
+        "VISUAL": "IDENTITY"
+      },
+      "policy_postprocessor_action_shape": [
+        6
+      ],
+      "policy_preprocessor_action_shape": [
+        6
+      ],
+      "so100_specific_assumptions": [
+        "checkpoint action normalizer keys are SO100/SO100-blue/SO100-red",
+        "native policy action feature shape is 6D",
+        "native policy postprocessor unnormalizes 6D action tensors"
+      ]
+    },
+    "libero_env_action_spec": {
+      "action_low_high": null,
+      "available_without_env_instantiation": false,
+      "clipping_behavior": "not audited; no simulator environment was created",
+      "env_expected_action_dim": null,
+      "gripper_convention": "not instantiated; HDF5 labels expose signed binary 7th dimension",
+      "reason": "Runner intentionally avoids rollout or simulator creation in this bounded interface fix."
+    },
+    "mismatch_table": [
+      {
+        "axis": "action_dim",
+        "libero_7d": 7,
+        "smolvla_native": [
+          6
+        ],
+        "status": "mismatch"
+      },
+      {
+        "axis": "normalization",
+        "libero_7d": "train-split-only 7D mean/std required",
+        "smolvla_native": {
+          "ACTION": "MEAN_STD",
+          "STATE": "MEAN_STD",
+          "VISUAL": "IDENTITY"
+        },
+        "status": "mismatch"
+      },
+      {
+        "axis": "gripper",
+        "libero_7d": "learned label dimension 6",
+        "smolvla_native": "no native 7th output; prior bridge hard-coded gripper",
+        "status": "mismatch"
+      }
+    ]
+  },
+  "decision": "READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX",
+  "error": null,
+  "evidence_label": "smolvla_libero_7d_interface_fix",
+  "gripper_interface_fix": {
+    "after": {
+      "dim": 6,
+      "learned": true,
+      "loss": "separate normalized gripper MSE added to pose regression loss",
+      "mode": "learned_output_dimension",
+      "observed_label_values": [
+        -1.0,
+        1.0
+      ]
+    },
+    "before": {
+      "learned": false,
+      "mode": "hard_coded_bridge_fill",
+      "value_source": "ACTION_STRATEGY_GRIPPER_CLOSE or related 6D-to-7D bridge strategy"
+    }
+  },
+  "normalization_fix": {
+    "after": {
+      "action_shape": [
+        7
+      ],
+      "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+      "normalizer": {
+        "mean": [
+          0.038964,
+          0.056473,
+          -0.084839,
+          0.008668,
+          -0.007936,
+          0.053893,
+          -0.246667
+        ],
+        "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+        "shape": [
+          7
+        ],
+        "source": "train_split_only",
+        "std": [
+          0.243194,
+          0.288697,
+          0.345754,
+          0.03478,
+          0.060209,
+          0.10188,
+          0.9691
+        ],
+        "uses_eval_labels": false,
+        "uses_so100_stats": false
+      },
+      "unnormalize_function": "Libero7DNormalizer.unnormalize",
+      "uses_eval_labels": false,
+      "uses_so100_stats": false
+    },
+    "before": {
+      "action_shape": [
+        6
+      ],
+      "name": "SMOLVLA_NATIVE_SO100_6D",
+      "normalizer": {
+        "action_means": {
+          "so100-blue.buffer.action.mean": [
+            1.421193,
+            125.720543,
+            125.419304,
+            63.783165,
+            -106.540123,
+            3.348472
+          ],
+          "so100-red.buffer.action.mean": [
+            2.438708,
+            124.937874,
+            123.5578,
+            66.992615,
+            -103.876831,
+            2.891241
+          ],
+          "so100.buffer.action.mean": [
+            1.595914,
+            119.944237,
+            109.769775,
+            56.705513,
+            -27.422693,
+            12.002786
+          ]
+        },
+        "action_stds": {
+          "so100-blue.buffer.action.std": [
+            14.081991,
+            39.431416,
+            18.238085,
+            23.489754,
+            38.111176,
+            5.048287
+          ],
+          "so100-red.buffer.action.std": [
+            14.299178,
+            42.772209,
+            18.876314,
+            21.651918,
+            33.534065,
+            4.477972
+          ],
+          "so100.buffer.action.std": [
+            26.391779,
+            52.411404,
+            49.853806,
+            36.998302,
+            59.359951,
+            19.039955
+          ]
+        },
+        "postprocessor_keys": [
+          "so100-blue.buffer.action.mean",
+          "so100-blue.buffer.action.std",
+          "so100-red.buffer.action.mean",
+          "so100-red.buffer.action.std",
+          "so100.buffer.action.mean",
+          "so100.buffer.action.std"
+        ],
+        "preprocessor_keys": [
+          "so100-blue.buffer.action.mean",
+          "so100-blue.buffer.action.std",
+          "so100-red.buffer.action.mean",
+          "so100-red.buffer.action.std",
+          "so100.buffer.action.mean",
+          "so100.buffer.action.std"
+        ]
+      },
+      "uses_so100_stats": true
+    }
+  },
+  "overfit_audit": {
+    "frozen_base_smolvla_action_l2": 1.6029,
+    "frozen_base_smolvla_metric_available": true,
+    "larger_demo_holdout": {
+      "best_mlp_or_ridge": {
+        "adapter_schema": "LIBERO_7D",
+        "eval_metrics": {
+          "action_l2": 0.518738,
+          "action_l2_first6": 0.235628,
+          "gripper_accuracy": 0.93,
+          "gripper_error": 0.418294,
+          "per_dim_mae": [
+            0.099941,
+            0.092394,
+            0.130173,
+            0.022564,
+            0.047718,
+            0.036523,
+            0.418294
+          ],
+          "rotation_l2": 0.073613,
+          "sample_count": 100,
+          "translation_l2": 0.219314,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.418294
+            },
+            {
+              "dim": 2,
+              "mae": 0.130173
+            },
+            {
+              "dim": 0,
+              "mae": 0.099941
+            }
+          ]
+        },
+        "feature_normalization": {
+          "mean": [
+            -0.082129,
+            0.077914,
+            1.055216,
+            2.647466,
+            1.449595,
+            0.240851,
+            0.496913
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.113888,
+            0.103745,
+            0.080552,
+            0.457539,
+            1.085643,
+            0.336333,
+            0.31797
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true,
+          "loss": "separate normalized gripper MSE added to pose regression loss"
+        },
+        "input_feature_shape": [
+          7
+        ],
+        "label_action_shape": [
+          7
+        ],
+        "name": "small_state_time_mlp_7d_baseline",
+        "normalization": {
+          "mean": [
+            0.038964,
+            0.056473,
+            -0.084839,
+            0.008668,
+            -0.007936,
+            0.053893,
+            -0.246667
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.243194,
+            0.288697,
+            0.345754,
+            0.03478,
+            0.060209,
+            0.10188,
+            0.9691
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "output_action_shape": [
+          7
+        ],
+        "shape_guards": [
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "input feature",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "output action",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "label action",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              7
+            ],
+            "name": "normalization",
+            "observed": [
+              7
+            ]
+          }
+        ],
+        "train_metrics": {
+          "action_l2": 0.27145,
+          "action_l2_first6": 0.164851,
+          "gripper_accuracy": 0.98,
+          "gripper_error": 0.184256,
+          "per_dim_mae": [
+            0.069426,
+            0.065872,
+            0.093477,
+            0.011032,
+            0.02094,
+            0.0252,
+            0.184256
+          ],
+          "rotation_l2": 0.039889,
+          "sample_count": 300,
+          "translation_l2": 0.156995,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.184256
+            },
+            {
+              "dim": 2,
+              "mae": 0.093477
+            },
+            {
+              "dim": 0,
+              "mae": 0.069426
+            }
+          ]
+        },
+        "training": {
+          "gripper_mse_loss_end": 0.106983,
+          "hidden_dim": 32,
+          "learning_rate": 0.01,
+          "loss_decreased": true,
+          "loss_end": 0.258823,
+          "loss_start": 1.997339,
+          "loss_trace_head": [
+            {
+              "gripper_mse_loss": 0.978711,
+              "loss": 1.997339,
+              "pose_loss": 1.018628
+            },
+            {
+              "gripper_mse_loss": 0.926274,
+              "loss": 1.926642,
+              "pose_loss": 1.000368
+            },
+            {
+              "gripper_mse_loss": 0.880764,
+              "loss": 1.864168,
+              "pose_loss": 0.983404
+            },
+            {
+              "gripper_mse_loss": 0.840027,
+              "loss": 1.807127,
+              "pose_loss": 0.967099
+            },
+            {
+              "gripper_mse_loss": 0.805528,
+              "loss": 1.755978,
+              "pose_loss": 0.95045
+            }
+          ],
+          "loss_trace_tail": [
+            {
+              "gripper_mse_loss": 0.091514,
+              "loss": 0.240566,
+              "pose_loss": 0.149053
+            },
+            {
+              "gripper_mse_loss": 0.100307,
+              "loss": 0.250935,
+              "pose_loss": 0.150628
+            },
+            {
+              "gripper_mse_loss": 0.111393,
+              "loss": 0.263745,
+              "pose_loss": 0.152352
+            },
+            {
+              "gripper_mse_loss": 0.119299,
+              "loss": 0.27304,
+              "pose_loss": 0.15374
+            },
+            {
+              "gripper_mse_loss": 0.106983,
+              "loss": 0.258823,
+              "pose_loss": 0.15184
+            }
+          ],
+          "pose_loss_end": 0.15184,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_id_bddl_or_filename_features": false
+      },
+      "fixed_7d_adapter": {
+        "adapter_schema": "LIBERO_7D",
+        "eval_metrics": {
+          "action_l2": 0.573503,
+          "action_l2_first6": 0.289807,
+          "gripper_accuracy": 0.9,
+          "gripper_error": 0.435579,
+          "per_dim_mae": [
+            0.128575,
+            0.099236,
+            0.171897,
+            0.026936,
+            0.055568,
+            0.038649,
+            0.435579
+          ],
+          "rotation_l2": 0.084126,
+          "sample_count": 100,
+          "translation_l2": 0.272291,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.435579
+            },
+            {
+              "dim": 2,
+              "mae": 0.171897
+            },
+            {
+              "dim": 0,
+              "mae": 0.128575
+            }
+          ]
+        },
+        "feature_normalization": {
+          "mean": [
+            -0.082129,
+            0.077914,
+            1.055216,
+            2.647466,
+            1.449595,
+            0.240851,
+            0.496913
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.113888,
+            0.103745,
+            0.080552,
+            0.457539,
+            1.085643,
+            0.336333,
+            0.31797
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true,
+          "loss": "separate normalized gripper MSE added to pose regression loss"
+        },
+        "input_feature_shape": [
+          7
+        ],
+        "label_action_shape": [
+          7
+        ],
+        "name": "smolvla_observation_state_libero_7d_adapter",
+        "normalization": {
+          "mean": [
+            0.038964,
+            0.056473,
+            -0.084839,
+            0.008668,
+            -0.007936,
+            0.053893,
+            -0.246667
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.243194,
+            0.288697,
+            0.345754,
+            0.03478,
+            0.060209,
+            0.10188,
+            0.9691
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "output_action_shape": [
+          7
+        ],
+        "shape_guards": [
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "input feature",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "output action",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "label action",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              7
+            ],
+            "name": "normalization",
+            "observed": [
+              7
+            ]
+          }
+        ],
+        "train_metrics": {
+          "action_l2": 0.10311,
+          "action_l2_first6": 0.071526,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.063796,
+          "per_dim_mae": [
+            0.027326,
+            0.03287,
+            0.040388,
+            0.004102,
+            0.008966,
+            0.009998,
+            0.063796
+          ],
+          "rotation_l2": 0.016079,
+          "sample_count": 300,
+          "translation_l2": 0.068443,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.063796
+            },
+            {
+              "dim": 2,
+              "mae": 0.040388
+            },
+            {
+              "dim": 1,
+              "mae": 0.03287
+            }
+          ]
+        },
+        "training": {
+          "gripper_mse_loss_end": 0.008624,
+          "hidden_dim": 128,
+          "learning_rate": 0.01,
+          "loss_decreased": true,
+          "loss_end": 0.040926,
+          "loss_start": 2.02452,
+          "loss_trace_head": [
+            {
+              "gripper_mse_loss": 1.029125,
+              "loss": 2.02452,
+              "pose_loss": 0.995396
+            },
+            {
+              "gripper_mse_loss": 0.771077,
+              "loss": 1.70433,
+              "pose_loss": 0.933253
+            },
+            {
+              "gripper_mse_loss": 0.780279,
+              "loss": 1.66153,
+              "pose_loss": 0.88125
+            },
+            {
+              "gripper_mse_loss": 0.760088,
+              "loss": 1.608102,
+              "pose_loss": 0.848014
+            },
+            {
+              "gripper_mse_loss": 0.703395,
+              "loss": 1.518202,
+              "pose_loss": 0.814806
+            }
+          ],
+          "loss_trace_tail": [
+            {
+              "gripper_mse_loss": 0.008589,
+              "loss": 0.040196,
+              "pose_loss": 0.031607
+            },
+            {
+              "gripper_mse_loss": 0.008991,
+              "loss": 0.039757,
+              "pose_loss": 0.030766
+            },
+            {
+              "gripper_mse_loss": 0.00897,
+              "loss": 0.039818,
+              "pose_loss": 0.030848
+            },
+            {
+              "gripper_mse_loss": 0.00872,
+              "loss": 0.040588,
+              "pose_loss": 0.031868
+            },
+            {
+              "gripper_mse_loss": 0.008624,
+              "loss": 0.040926,
+              "pose_loss": 0.032302
+            }
+          ],
+          "pose_loss_end": 0.032302,
+          "steps": 1000
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_id_bddl_or_filename_features": false
+      },
+      "mean_action": {
+        "action_l2": 1.082453,
+        "action_l2_first6": 0.462732,
+        "gripper_accuracy": 0.63,
+        "gripper_error": 0.935867,
+        "per_dim_mae": [
+          0.188132,
+          0.198451,
+          0.260312,
+          0.021445,
+          0.036691,
+          0.070862,
+          0.935867
+        ],
+        "rotation_l2": 0.095738,
+        "sample_count": 100,
+        "translation_l2": 0.437783,
+        "worst_action_dimensions": [
+          {
+            "dim": 6,
+            "mae": 0.935867
+          },
+          {
+            "dim": 2,
+            "mae": 0.260312
+          },
+          {
+            "dim": 1,
+            "mae": 0.198451
+          }
+        ]
+      },
+      "ridge_baseline": {
+        "eval_metrics": {
+          "action_l2": 0.890603,
+          "action_l2_first6": 0.427419,
+          "gripper_accuracy": 0.71,
+          "gripper_error": 0.72262,
+          "per_dim_mae": [
+            0.181517,
+            0.204053,
+            0.238688,
+            0.020829,
+            0.037619,
+            0.062475,
+            0.72262
+          ],
+          "rotation_l2": 0.087062,
+          "sample_count": 100,
+          "translation_l2": 0.412006,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.72262
+            },
+            {
+              "dim": 2,
+              "mae": 0.238688
+            },
+            {
+              "dim": 1,
+              "mae": 0.204053
+            }
+          ]
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "name": "state_time_ridge_7d",
+        "train_metrics": {
+          "action_l2": 0.881811,
+          "action_l2_first6": 0.410278,
+          "gripper_accuracy": 0.713333,
+          "gripper_error": 0.728925,
+          "per_dim_mae": [
+            0.168581,
+            0.185601,
+            0.233829,
+            0.020386,
+            0.03942,
+            0.060956,
+            0.728925
+          ],
+          "rotation_l2": 0.087017,
+          "sample_count": 300,
+          "translation_l2": 0.395321,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.728925
+            },
+            {
+              "dim": 2,
+              "mae": 0.233829
+            },
+            {
+              "dim": 1,
+              "mae": 0.185601
+            }
+          ]
+        },
+        "uses_eval_labels_for_training": false
+      },
+      "small_mlp_baseline": {
+        "adapter_schema": "LIBERO_7D",
+        "eval_metrics": {
+          "action_l2": 0.518738,
+          "action_l2_first6": 0.235628,
+          "gripper_accuracy": 0.93,
+          "gripper_error": 0.418294,
+          "per_dim_mae": [
+            0.099941,
+            0.092394,
+            0.130173,
+            0.022564,
+            0.047718,
+            0.036523,
+            0.418294
+          ],
+          "rotation_l2": 0.073613,
+          "sample_count": 100,
+          "translation_l2": 0.219314,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.418294
+            },
+            {
+              "dim": 2,
+              "mae": 0.130173
+            },
+            {
+              "dim": 0,
+              "mae": 0.099941
+            }
+          ]
+        },
+        "feature_normalization": {
+          "mean": [
+            -0.082129,
+            0.077914,
+            1.055216,
+            2.647466,
+            1.449595,
+            0.240851,
+            0.496913
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.113888,
+            0.103745,
+            0.080552,
+            0.457539,
+            1.085643,
+            0.336333,
+            0.31797
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true,
+          "loss": "separate normalized gripper MSE added to pose regression loss"
+        },
+        "input_feature_shape": [
+          7
+        ],
+        "label_action_shape": [
+          7
+        ],
+        "name": "small_state_time_mlp_7d_baseline",
+        "normalization": {
+          "mean": [
+            0.038964,
+            0.056473,
+            -0.084839,
+            0.008668,
+            -0.007936,
+            0.053893,
+            -0.246667
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.243194,
+            0.288697,
+            0.345754,
+            0.03478,
+            0.060209,
+            0.10188,
+            0.9691
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "output_action_shape": [
+          7
+        ],
+        "shape_guards": [
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "input feature",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "output action",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              300,
+              7
+            ],
+            "name": "label action",
+            "observed": [
+              300,
+              7
+            ]
+          },
+          {
+            "expected": [
+              7
+            ],
+            "name": "normalization",
+            "observed": [
+              7
+            ]
+          }
+        ],
+        "train_metrics": {
+          "action_l2": 0.27145,
+          "action_l2_first6": 0.164851,
+          "gripper_accuracy": 0.98,
+          "gripper_error": 0.184256,
+          "per_dim_mae": [
+            0.069426,
+            0.065872,
+            0.093477,
+            0.011032,
+            0.02094,
+            0.0252,
+            0.184256
+          ],
+          "rotation_l2": 0.039889,
+          "sample_count": 300,
+          "translation_l2": 0.156995,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.184256
+            },
+            {
+              "dim": 2,
+              "mae": 0.093477
+            },
+            {
+              "dim": 0,
+              "mae": 0.069426
+            }
+          ]
+        },
+        "training": {
+          "gripper_mse_loss_end": 0.106983,
+          "hidden_dim": 32,
+          "learning_rate": 0.01,
+          "loss_decreased": true,
+          "loss_end": 0.258823,
+          "loss_start": 1.997339,
+          "loss_trace_head": [
+            {
+              "gripper_mse_loss": 0.978711,
+              "loss": 1.997339,
+              "pose_loss": 1.018628
+            },
+            {
+              "gripper_mse_loss": 0.926274,
+              "loss": 1.926642,
+              "pose_loss": 1.000368
+            },
+            {
+              "gripper_mse_loss": 0.880764,
+              "loss": 1.864168,
+              "pose_loss": 0.983404
+            },
+            {
+              "gripper_mse_loss": 0.840027,
+              "loss": 1.807127,
+              "pose_loss": 0.967099
+            },
+            {
+              "gripper_mse_loss": 0.805528,
+              "loss": 1.755978,
+              "pose_loss": 0.95045
+            }
+          ],
+          "loss_trace_tail": [
+            {
+              "gripper_mse_loss": 0.091514,
+              "loss": 0.240566,
+              "pose_loss": 0.149053
+            },
+            {
+              "gripper_mse_loss": 0.100307,
+              "loss": 0.250935,
+              "pose_loss": 0.150628
+            },
+            {
+              "gripper_mse_loss": 0.111393,
+              "loss": 0.263745,
+              "pose_loss": 0.152352
+            },
+            {
+              "gripper_mse_loss": 0.119299,
+              "loss": 0.27304,
+              "pose_loss": 0.15374
+            },
+            {
+              "gripper_mse_loss": 0.106983,
+              "loss": 0.258823,
+              "pose_loss": 0.15184
+            }
+          ],
+          "pose_loss_end": 0.15184,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_id_bddl_or_filename_features": false
+      }
+    },
+    "one_demo_mean_action": {
+      "action_l2": 0.446697,
+      "action_l2_first6": 0.446697,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.35,
+        0.193452,
+        0.193452,
+        0.0,
+        0.010714,
+        0.032381,
+        0.0
+      ],
+      "rotation_l2": 0.034138,
+      "sample_count": 3,
+      "translation_l2": 0.444851,
+      "worst_action_dimensions": [
+        {
+          "dim": 0,
+          "mae": 0.35
+        },
+        {
+          "dim": 1,
+          "mae": 0.193452
+        },
+        {
+          "dim": 2,
+          "mae": 0.193452
+        }
+      ]
+    },
+    "one_demo_overfit": {
+      "adapter_schema": "LIBERO_7D",
+      "eval_metrics": {
+        "action_l2": 0.002593,
+        "action_l2_first6": 0.002593,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.002045,
+          0.001046,
+          0.001186,
+          0.0,
+          3.1e-05,
+          0.000113,
+          0.0
+        ],
+        "rotation_l2": 0.000118,
+        "sample_count": 3,
+        "translation_l2": 0.002589,
+        "worst_action_dimensions": [
+          {
+            "dim": 0,
+            "mae": 0.002045
+          },
+          {
+            "dim": 2,
+            "mae": 0.001186
+          },
+          {
+            "dim": 1,
+            "mae": 0.001046
+          }
+        ]
+      },
+      "feature_normalization": {
+        "mean": [
+          -0.113064,
+          0.087512,
+          1.09555,
+          2.714716,
+          1.354008,
+          0.148769,
+          0.498155
+        ],
+        "shape": [
+          7
+        ],
+        "source": "train_split_only",
+        "std": [
+          0.075099,
+          0.066657,
+          0.062929,
+          0.37806,
+          1.063905,
+          0.150788,
+          0.406743
+        ],
+        "uses_eval_labels": false
+      },
+      "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+      "gripper_handling": {
+        "hard_coded": false,
+        "learned": true,
+        "loss": "separate normalized gripper MSE added to pose regression loss"
+      },
+      "input_feature_shape": [
+        7
+      ],
+      "label_action_shape": [
+        7
+      ],
+      "name": "smolvla_observation_state_libero_7d_adapter",
+      "normalization": {
+        "mean": [
+          0.2625,
+          -0.116964,
+          0.135714,
+          0.0,
+          -0.009643,
+          -0.024286,
+          -1.0
+        ],
+        "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+        "shape": [
+          7
+        ],
+        "source": "train_split_only",
+        "std": [
+          0.371231,
+          0.206468,
+          0.20533,
+          1e-06,
+          0.01144,
+          0.034345,
+          1e-06
+        ],
+        "uses_eval_labels": false,
+        "uses_so100_stats": false
+      },
+      "output_action_shape": [
+        7
+      ],
+      "shape_guards": [
+        {
+          "expected": [
+            3,
+            7
+          ],
+          "name": "input feature",
+          "observed": [
+            3,
+            7
+          ]
+        },
+        {
+          "expected": [
+            3,
+            7
+          ],
+          "name": "output action",
+          "observed": [
+            3,
+            7
+          ]
+        },
+        {
+          "expected": [
+            3,
+            7
+          ],
+          "name": "label action",
+          "observed": [
+            3,
+            7
+          ]
+        },
+        {
+          "expected": [
+            7
+          ],
+          "name": "normalization",
+          "observed": [
+            7
+          ]
+        }
+      ],
+      "train_metrics": {
+        "action_l2": 0.002593,
+        "action_l2_first6": 0.002593,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.002045,
+          0.001046,
+          0.001186,
+          0.0,
+          3.1e-05,
+          0.000113,
+          0.0
+        ],
+        "rotation_l2": 0.000118,
+        "sample_count": 3,
+        "translation_l2": 0.002589,
+        "worst_action_dimensions": [
+          {
+            "dim": 0,
+            "mae": 0.002045
+          },
+          {
+            "dim": 2,
+            "mae": 0.001186
+          },
+          {
+            "dim": 1,
+            "mae": 0.001046
+          }
+        ]
+      },
+      "training": {
+        "gripper_mse_loss_end": 1e-06,
+        "hidden_dim": 128,
+        "learning_rate": 0.01,
+        "loss_decreased": true,
+        "loss_end": 1.5e-05,
+        "loss_start": 0.835663,
+        "loss_trace_head": [
+          {
+            "gripper_mse_loss": 0.00078,
+            "loss": 0.835663,
+            "pose_loss": 0.834883
+          },
+          {
+            "gripper_mse_loss": 0.018917,
+            "loss": 0.537393,
+            "pose_loss": 0.518477
+          },
+          {
+            "gripper_mse_loss": 0.054019,
+            "loss": 0.393087,
+            "pose_loss": 0.339068
+          },
+          {
+            "gripper_mse_loss": 0.005639,
+            "loss": 0.225995,
+            "pose_loss": 0.220356
+          },
+          {
+            "gripper_mse_loss": 0.02497,
+            "loss": 0.134691,
+            "pose_loss": 0.10972
+          }
+        ],
+        "loss_trace_tail": [
+          {
+            "gripper_mse_loss": 2e-06,
+            "loss": 4.8e-05,
+            "pose_loss": 4.7e-05
+          },
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 3.2e-05,
+            "pose_loss": 3.2e-05
+          },
+          {
+            "gripper_mse_loss": 2e-06,
+            "loss": 2.9e-05,
+            "pose_loss": 2.7e-05
+          },
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 3.6e-05,
+            "pose_loss": 3.6e-05
+          },
+          {
+            "gripper_mse_loss": 1e-06,
+            "loss": 1.5e-05,
+            "pose_loss": 1.5e-05
+          }
+        ],
+        "pose_loss_end": 1.5e-05,
+        "steps": 800
+      },
+      "uses_eval_labels_for_training": false,
+      "uses_so100_action_normalizer": false,
+      "uses_task_id_bddl_or_filename_features": false
+    },
+    "one_demo_overfit_passed": true,
+    "one_demo_pass_rule": "loss decreases and same-demo action L2 beats same-demo mean-action without hard-coded gripper",
+    "one_sample_overfit": {
+      "adapter_schema": "LIBERO_7D",
+      "eval_metrics": {
+        "action_l2": 0.0,
+        "action_l2_first6": 0.0,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_l2": 0.0,
+        "sample_count": 1,
+        "translation_l2": 0.0,
+        "worst_action_dimensions": [
+          {
+            "dim": 0,
+            "mae": 0.0
+          },
+          {
+            "dim": 1,
+            "mae": 0.0
+          },
+          {
+            "dim": 2,
+            "mae": 0.0
+          }
+        ]
+      },
+      "feature_normalization": {
+        "mean": [
+          -0.19947,
+          -0.006307,
+          1.182174,
+          3.131435,
+          0.004867,
+          -0.002939,
+          0.0
+        ],
+        "shape": [
+          7
+        ],
+        "source": "train_split_only",
+        "std": [
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06
+        ],
+        "uses_eval_labels": false
+      },
+      "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+      "gripper_handling": {
+        "hard_coded": false,
+        "learned": true,
+        "loss": "separate normalized gripper MSE added to pose regression loss"
+      },
+      "input_feature_shape": [
+        7
+      ],
+      "label_action_shape": [
+        7
+      ],
+      "name": "smolvla_observation_state_libero_7d_adapter",
+      "normalization": {
+        "mean": [
+          0.0,
+          0.05625,
+          -0.01875,
+          0.0,
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+        "shape": [
+          7
+        ],
+        "source": "train_split_only",
+        "std": [
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06,
+          1e-06
+        ],
+        "uses_eval_labels": false,
+        "uses_so100_stats": false
+      },
+      "output_action_shape": [
+        7
+      ],
+      "shape_guards": [
+        {
+          "expected": [
+            1,
+            7
+          ],
+          "name": "input feature",
+          "observed": [
+            1,
+            7
+          ]
+        },
+        {
+          "expected": [
+            1,
+            7
+          ],
+          "name": "output action",
+          "observed": [
+            1,
+            7
+          ]
+        },
+        {
+          "expected": [
+            1,
+            7
+          ],
+          "name": "label action",
+          "observed": [
+            1,
+            7
+          ]
+        },
+        {
+          "expected": [
+            7
+          ],
+          "name": "normalization",
+          "observed": [
+            7
+          ]
+        }
+      ],
+      "train_metrics": {
+        "action_l2": 0.0,
+        "action_l2_first6": 0.0,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_l2": 0.0,
+        "sample_count": 1,
+        "translation_l2": 0.0,
+        "worst_action_dimensions": [
+          {
+            "dim": 0,
+            "mae": 0.0
+          },
+          {
+            "dim": 1,
+            "mae": 0.0
+          },
+          {
+            "dim": 2,
+            "mae": 0.0
+          }
+        ]
+      },
+      "training": {
+        "gripper_mse_loss_end": 0.0,
+        "hidden_dim": 128,
+        "learning_rate": 0.01,
+        "loss_decreased": true,
+        "loss_end": 0.0,
+        "loss_start": 0.001883,
+        "loss_trace_head": [
+          {
+            "gripper_mse_loss": 1e-06,
+            "loss": 0.001883,
+            "pose_loss": 0.001882
+          },
+          {
+            "gripper_mse_loss": 0.002769,
+            "loss": 0.028374,
+            "pose_loss": 0.025606
+          },
+          {
+            "gripper_mse_loss": 0.022527,
+            "loss": 0.026129,
+            "pose_loss": 0.003602
+          },
+          {
+            "gripper_mse_loss": 2.3e-05,
+            "loss": 0.002728,
+            "pose_loss": 0.002706
+          },
+          {
+            "gripper_mse_loss": 0.010456,
+            "loss": 0.014617,
+            "pose_loss": 0.00416
+          }
+        ],
+        "loss_trace_tail": [
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 0.0,
+            "pose_loss": 0.0
+          },
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 0.0,
+            "pose_loss": 0.0
+          },
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 0.0,
+            "pose_loss": 0.0
+          },
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 0.0,
+            "pose_loss": 0.0
+          },
+          {
+            "gripper_mse_loss": 0.0,
+            "loss": 0.0,
+            "pose_loss": 0.0
+          }
+        ],
+        "pose_loss_end": 0.0,
+        "steps": 500
+      },
+      "uses_eval_labels_for_training": false,
+      "uses_so100_action_normalizer": false,
+      "uses_task_id_bddl_or_filename_features": false
+    },
+    "one_sample_overfit_passed": true,
+    "one_sample_pass_rule": "loss decreases, action L2 < 0.05, gripper accuracy 1.0",
+    "previous_split": {
+      "fixed_7d_adapter": {
+        "adapter_schema": "LIBERO_7D",
+        "eval_metrics": {
+          "action_l2": 0.353069,
+          "action_l2_first6": 0.353069,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.142312,
+            0.221838,
+            0.131228,
+            0.027416,
+            0.122051,
+            0.037593,
+            0.0
+          ],
+          "rotation_l2": 0.138157,
+          "sample_count": 6,
+          "translation_l2": 0.316108,
+          "worst_action_dimensions": [
+            {
+              "dim": 1,
+              "mae": 0.221838
+            },
+            {
+              "dim": 0,
+              "mae": 0.142312
+            },
+            {
+              "dim": 2,
+              "mae": 0.131228
+            }
+          ]
+        },
+        "feature_normalization": {
+          "mean": [
+            -0.099686,
+            0.073043,
+            1.104658,
+            2.682933,
+            1.486147,
+            0.224446,
+            0.498024
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.080701,
+            0.062755,
+            0.058068,
+            0.397676,
+            1.133165,
+            0.377339,
+            0.4068
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true,
+          "loss": "separate normalized gripper MSE added to pose regression loss"
+        },
+        "input_feature_shape": [
+          7
+        ],
+        "label_action_shape": [
+          7
+        ],
+        "name": "smolvla_observation_state_libero_7d_adapter",
+        "normalization": {
+          "mean": [
+            0.219048,
+            -0.128571,
+            0.15506,
+            0.013333,
+            -0.007857,
+            -0.004048,
+            -1.0
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.31331,
+            0.221957,
+            0.207044,
+            0.024949,
+            0.023663,
+            0.034959,
+            1e-06
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "output_action_shape": [
+          7
+        ],
+        "shape_guards": [
+          {
+            "expected": [
+              9,
+              7
+            ],
+            "name": "input feature",
+            "observed": [
+              9,
+              7
+            ]
+          },
+          {
+            "expected": [
+              9,
+              7
+            ],
+            "name": "output action",
+            "observed": [
+              9,
+              7
+            ]
+          },
+          {
+            "expected": [
+              9,
+              7
+            ],
+            "name": "label action",
+            "observed": [
+              9,
+              7
+            ]
+          },
+          {
+            "expected": [
+              7
+            ],
+            "name": "normalization",
+            "observed": [
+              7
+            ]
+          }
+        ],
+        "train_metrics": {
+          "action_l2": 0.001692,
+          "action_l2_first6": 0.001692,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.000919,
+            0.000408,
+            0.000881,
+            6.5e-05,
+            0.000696,
+            0.000244,
+            0.0
+          ],
+          "rotation_l2": 0.000779,
+          "sample_count": 9,
+          "translation_l2": 0.001379,
+          "worst_action_dimensions": [
+            {
+              "dim": 0,
+              "mae": 0.000919
+            },
+            {
+              "dim": 2,
+              "mae": 0.000881
+            },
+            {
+              "dim": 4,
+              "mae": 0.000696
+            }
+          ]
+        },
+        "training": {
+          "gripper_mse_loss_end": 5e-06,
+          "hidden_dim": 128,
+          "learning_rate": 0.01,
+          "loss_decreased": true,
+          "loss_end": 0.000582,
+          "loss_start": 1.02557,
+          "loss_trace_head": [
+            {
+              "gripper_mse_loss": 0.001094,
+              "loss": 1.02557,
+              "pose_loss": 1.024476
+            },
+            {
+              "gripper_mse_loss": 0.026877,
+              "loss": 0.831181,
+              "pose_loss": 0.804304
+            },
+            {
+              "gripper_mse_loss": 0.038935,
+              "loss": 0.700721,
+              "pose_loss": 0.661786
+            },
+            {
+              "gripper_mse_loss": 0.004484,
+              "loss": 0.520242,
+              "pose_loss": 0.515758
+            },
+            {
+              "gripper_mse_loss": 0.013655,
+              "loss": 0.428921,
+              "pose_loss": 0.415266
+            }
+          ],
+          "loss_trace_tail": [
+            {
+              "gripper_mse_loss": 0.0,
+              "loss": 0.000189,
+              "pose_loss": 0.000189
+            },
+            {
+              "gripper_mse_loss": 1e-06,
+              "loss": 0.000449,
+              "pose_loss": 0.000449
+            },
+            {
+              "gripper_mse_loss": 2e-06,
+              "loss": 0.00066,
+              "pose_loss": 0.000657
+            },
+            {
+              "gripper_mse_loss": 4e-06,
+              "loss": 0.000692,
+              "pose_loss": 0.000688
+            },
+            {
+              "gripper_mse_loss": 5e-06,
+              "loss": 0.000582,
+              "pose_loss": 0.000576
+            }
+          ],
+          "pose_loss_end": 0.000576,
+          "steps": 1000
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_so100_action_normalizer": false,
+        "uses_task_id_bddl_or_filename_features": false
+      },
+      "mean_action": {
+        "action_l2": 0.486561,
+        "action_l2_first6": 0.486561,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.232391,
+          0.359821,
+          0.115526,
+          0.042679,
+          0.072024,
+          0.031806,
+          0.0
+        ],
+        "rotation_l2": 0.098626,
+        "sample_count": 6,
+        "translation_l2": 0.474176,
+        "worst_action_dimensions": [
+          {
+            "dim": 1,
+            "mae": 0.359821
+          },
+          {
+            "dim": 0,
+            "mae": 0.232391
+          },
+          {
+            "dim": 2,
+            "mae": 0.115526
+          }
+        ]
+      }
+    },
+    "splits": {
+      "larger_demo_holdout": {
+        "eval_count": 100,
+        "eval_demos": [
+          "demo_30",
+          "demo_31",
+          "demo_32",
+          "demo_33",
+          "demo_34",
+          "demo_35",
+          "demo_36",
+          "demo_37",
+          "demo_38",
+          "demo_39"
+        ],
+        "train_count": 300,
+        "train_demos": [
+          "demo_0",
+          "demo_1",
+          "demo_2",
+          "demo_3",
+          "demo_4",
+          "demo_5",
+          "demo_6",
+          "demo_7",
+          "demo_8",
+          "demo_9",
+          "demo_10",
+          "demo_11",
+          "demo_12",
+          "demo_13",
+          "demo_14",
+          "demo_15",
+          "demo_16",
+          "demo_17",
+          "demo_18",
+          "demo_19",
+          "demo_20",
+          "demo_21",
+          "demo_22",
+          "demo_23",
+          "demo_24",
+          "demo_25",
+          "demo_26",
+          "demo_27",
+          "demo_28",
+          "demo_29"
+        ],
+        "type": "deterministic_demo_holdout"
+      },
+      "previous": {
+        "eval_count": 6,
+        "eval_demos": [
+          "demo_3",
+          "demo_4"
+        ],
+        "train_count": 9,
+        "train_demos": [
+          "demo_0",
+          "demo_1",
+          "demo_2"
+        ],
+        "type": "deterministic_demo_holdout"
+      }
+    }
+  },
+  "paths": {
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "smolvla_ckpt": "C:\\assets\\checkpoints\\smolvla"
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "bounded_interface_fix": true,
+    "downloads_performed": false,
+    "forbidden_gates_set": [],
+    "gpu_training_performed": false,
+    "interface_gate_set": true,
+    "large_model_or_dataset_downloads_performed": false,
+    "loss_computed": true,
+    "new_method_created": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "patchguard_continued": false,
+    "rollouts_performed": false,
+    "training_gate_set": true,
+    "training_performed": true
+  },
+  "schema_version": "smolvla-libero-7d-interface-fix-v1",
+  "summary": {
+    "action_schema_after": "LIBERO_7D adapter path with native SmolVLA 6D schema preserved separately",
+    "action_schema_before": "SMOLVLA_NATIVE_SO100_6D",
+    "adapter_beats_frozen_base": true,
+    "adapter_beats_larger_mean_action": true,
+    "adapter_beats_previous_mean_action": true,
+    "best_adapter_metric": 0.573503,
+    "best_adapter_name": "smolvla_observation_state_libero_7d_adapter",
+    "best_mlp_or_ridge_metric": 0.518738,
+    "best_mlp_or_ridge_name": "small_state_time_mlp_7d_baseline",
+    "exact_next_step": "Run a standard fixed-interface SmolVLA/LIBERO 7D baseline reproduction on an official or standard split before proposing any new method.",
+    "final_decision": "READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX",
+    "frozen_base_metric": 1.6029,
+    "gripper_after": "learned 7th adapter output with separate MSE loss",
+    "gripper_before": "hard-coded 6D-to-7D bridge fill",
+    "libero_7d_interface_fixed": true,
+    "loss_computed": true,
+    "mean_action_metric": 1.082453,
+    "normalization_after": "train-split-only LIBERO 7D mean/std",
+    "normalization_before": "SO100 6D checkpoint action normalizer",
+    "one_demo_overfit_passed": true,
+    "one_sample_overfit_passed": true,
+    "previous_mean_action_metric": 0.486561,
+    "runtime_sec": 6.734,
+    "training_happened": true
+  }
+}

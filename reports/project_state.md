@@ -4,22 +4,22 @@ Date: 2026-07-09 KST
 
 Branch:
 
-`codex/smolvla-lora-baseline-diagnosis`
+`codex/smolvla-libero-7d-action-interface-fix`
 
 Current branch base:
 
-`9faa030 Run SmolVLA LoRA baseline gate`
+`bc6ad03 Diagnose SmolVLA LoRA action interface`
 
 Current decision:
 
-`ACTION_INTERFACE_BUG`
+`READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX`
 
 ## Current Bounded Run Boundary
 
-- Experiments happened: yes, bounded diagnosis only.
-- Training happened: yes, bounded LoRA overfit/capacity sanity checks only.
+- Experiments happened: yes, bounded interface-fix diagnosis only.
+- Training happened: yes, small supervised LIBERO_7D adapter and simple baselines only.
 - Loss computed: yes.
-- GPU happened: yes, RTX 5080 CUDA.
+- GPU training happened: no.
 - Downloads happened: no.
 - Rollout/replay happened: no.
 - OpenVLA-OFT happened: no.
@@ -30,66 +30,75 @@ Current decision:
 
 ## Dataset And Split Status
 
-The previous `9 / 6` split came from sampling three timesteps per demo over three train demos and two eval demos.
+- raw HDF5 demos: `50`
+- raw HDF5 timesteps: `13298`
+- previous deterministic demo-holdout split: `9 / 6`
+- larger deterministic demo-holdout split: `300 / 100`
+- records are sampled observation/action-window records, not full demonstrations
+- task holdout was not trained in this run
 
-Diagnosis found:
+## Action Schema Before And After
 
-- records are sampled observation/action-window records, not full demos,
-- raw HDF5 demos: `50`,
-- raw HDF5 timesteps: `13298`,
-- larger deterministic demo-holdout split possible: `300 / 100`,
-- same-demo time-holdout split possible: `80 / 40`,
-- task holdout is feasible without download within the local suite.
+Before:
 
-## Action Variance And Mean-Action Strength
+- native SmolVLA action schema: `SMOLVLA_NATIVE_SO100_6D`
+- model action shape: `[6]`
+- preprocessor action shape: `[6]`
+- postprocessor action shape: `[6]`
+- native action normalizer: SO100-style `ACTION: MEAN_STD`
+- gripper handling: hard-coded 6D-to-7D bridge fill
 
-Raw action variance:
+After:
 
-- per-dim variance: `[0.068752, 0.095218, 0.137241, 0.00123, 0.003477, 0.010566, 0.968331]`
-- translation variance mean: `0.100404`
-- rotation variance mean: `0.005091`
-- gripper variance: `0.96829`
+- fixed baseline schema: `LIBERO_7D`
+- adapter output action shape: `[7]`
+- label action shape: `[7]`
+- label normalizer: train-split-only LIBERO 7D mean/std
+- unnormalize path: guarded `Libero7DNormalizer.unnormalize`
+- gripper handling: learned 7th output dimension with separate normalized MSE loss
+- SO100 action normalizer used for LIBERO labels: no
+- eval labels used for training/normalization: no
 
-The mean-action baseline is strong on the previous split:
+## Schema Audit Evidence
 
-- mean-action action L2: `0.486561`
-- previous-action action L2: `0.188748`
+- LIBERO labels are 7D throughout all demos.
+- translation dims: `[0, 1, 2]`
+- rotation dims: `[3, 4, 5]`
+- gripper dim: `6`
+- action min: `[-0.774107, -0.886607, -0.9375, -0.147857, -0.233571, -0.110357, -1.0]`
+- action max: `[0.932143, 0.875893, 0.9375, 0.235714, 0.290357, 0.375, 1.0]`
+- action mean: `[0.039349, 0.056619, -0.091883, 0.012416, -0.005815, 0.063391, -0.178072]`
+- action std: `[0.262207, 0.308574, 0.370461, 0.035068, 0.05897, 0.102793, 0.984038]`
+- action variance: `[0.068752, 0.095218, 0.137241, 0.00123, 0.003477, 0.010566, 0.968331]`
+- gripper observed values: `[-1.0, 1.0]`
+- action semantics audit: controller-delta-like, not absolute pose; no simulator/controller was instantiated
 
-## Interface Audit Result
+## Alignment Evidence
 
-The local action interface is not proven correct. It is contradicted by the diagnosis:
-
-- HDF5 action dim: `7`
-- SmolVLA model action shape: `[6]`
-- policy preprocessor action shape: `[6]`
-- policy postprocessor action shape: `[6]`
-- checkpoint action normalization: `ACTION: MEAN_STD`
-- local LIBERO action first-six mean: `[0.039349, 0.056619, -0.091883, 0.012416, -0.005815, 0.063391]`
-- local LIBERO action first-six std: `[0.262207, 0.308574, 0.370461, 0.035068, 0.05897, 0.102793]`
-- checkpoint normalizer is SO100-style and differs by up to `6.881818` mean-std units.
-- gripper is synthesized by `ACTION_STRATEGY_GRIPPER_CLOSE` instead of learned by the 6D action head.
-
-Label reconstruction and chunk alignment passed:
-
-- chunk first action matches HDF5 action at observation timestep,
-- chunk second action matches the next HDF5 action,
-- no off-by-one was detected in the local chunk builder.
+- 7D chunk shape: `[50, 7]`
+- chunk first action matches HDF5 action at observation timestep: yes
+- chunk second action matches HDF5 action at next timestep: yes
+- off-by-one detected: no
+- action chunks reduced to 6D in fixed path: no
 
 ## Overfit And Capacity Status
 
-- one-sample overfit passed: no
-- one-demo overfit passed: no
-- mean-action metric: `0.486561`
-- frozen/base metric: `1.6029`
-- best LoRA metric: `0.912258`
-- best LoRA variant: `current_projection_lora`
-- best small MLP/ridge metric: `0.401848`
-- best small MLP/ridge: `state_time_mlp`
-- LoRA beats mean-action: no
-- LoRA beats small MLP/ridge: no
-- VRAM peak MB: `1189.167`
-- runtime sec: `112.797`
+- one-sample overfit passed: yes
+- one-sample action L2: `0.0`
+- one-sample gripper accuracy: `1.0`
+- one-demo overfit passed: yes
+- one-demo action L2: `0.002593`
+- one-demo gripper accuracy: `1.0`
+- previous split mean-action L2: `0.486561`
+- previous split fixed 7D adapter L2: `0.353069`
+- larger split mean-action L2: `1.082453`
+- larger split fixed 7D adapter L2: `0.573503`
+- larger split best MLP/ridge L2: `0.518738`
+- frozen/base SmolVLA L2 from previous 6D run: `1.6029`
+- fixed 7D adapter beats mean-action on larger split: yes
+- fixed 7D adapter beats frozen/base metric: yes
+- small MLP baseline is still slightly stronger than the 128-hidden adapter on larger held-out L2
 
 ## Conclusion
 
-Do not start a new RA-L method. Fix the SmolVLA/LIBERO action interface first. The current evidence points to an action dimension, normalization, and gripper-interface bug rather than a valid method substrate.
+The 7D action-interface blocker is cleared for baseline work: labels remain 7D, train-only normalization is used, the gripper is learned, and one-sample/one-demo overfit pass. This is not a paper result. The next valid step is standard fixed-interface SmolVLA/LIBERO 7D baseline reproduction on an official or standard split before any new RA-L method is proposed.

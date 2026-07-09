@@ -80,3 +80,18 @@ The next valid step is action-interface repair, not a new method:
 - rerun one-sample and one-demo overfit before any larger baseline.
 
 No new method should start until standard LoRA baseline behavior beats mean-action after the action-interface blocker is resolved. A future method must be predeclared against standard LoRA, generic augmentation, and the relevant simple baselines before implementation.
+
+## Interface Fix Update
+
+The follow-up interface-fix run selected `READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX`.
+
+What changed:
+
+- LIBERO labels now remain `7D`.
+- The native SmolVLA `6D` SO100 action schema is preserved separately.
+- LIBERO labels use train-split-only 7D normalization.
+- The gripper dimension is learned rather than hard-coded.
+- One-sample and one-demo overfit passed.
+- The fixed 7D adapter beat mean-action and frozen/base on action L2.
+
+This still does not authorize a new method claim. The next valid step is standard fixed-interface SmolVLA/LIBERO 7D baseline reproduction on an official or standard split, with mean-action, ridge/MLP, frozen/base, and fixed-interface adapter baselines preserved.

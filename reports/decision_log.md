@@ -204,3 +204,64 @@ Capacity metrics:
 - runtime sec: `112.797`.
 
 Consequence: fix the SmolVLA/LIBERO action interface before any method work. No new paper method is allowed from this state.
+
+## 2026-07-09: SmolVLA-LIBERO 7D Action Interface Fix
+
+Decision: `READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX`
+
+Reason: the local SmolVLA/LIBERO action-interface blocker was repaired for baseline work by adding an explicit LIBERO_7D adapter path with train-split-only 7D normalization and learned gripper output. Native SmolVLA remains a separate SO100-style 6D action schema; the fix does not pretend the native head is 7D.
+
+Execution boundary:
+
+- experiments happened: yes, bounded interface-fix diagnosis only;
+- training happened: yes, small supervised 7D adapter and simple baselines only;
+- loss computed: yes;
+- GPU training happened: no;
+- downloads happened: no;
+- rollout/replay happened: no;
+- OpenVLA-OFT happened: no;
+- full benchmark happened: no;
+- PatchGuard continued: no;
+- new method implementation happened: no;
+- paper claims happened: no.
+
+Schema evidence:
+
+- LIBERO labels are 7D throughout all demos;
+- translation dims: `[0, 1, 2]`;
+- rotation dims: `[3, 4, 5]`;
+- gripper dim: `6`;
+- SmolVLA native model/preprocessor/postprocessor action shape: `[6]`;
+- fixed path output action shape: `[7]`;
+- fixed path label action shape: `[7]`;
+- fixed path normalization: train-split-only LIBERO 7D mean/std;
+- fixed path gripper handling: learned 7th adapter output with separate normalized MSE loss;
+- SO100 action normalizer used for LIBERO labels: no;
+- eval labels used for training/normalization: no.
+
+Alignment evidence:
+
+- 7D chunk shape: `[50, 7]`;
+- chunk first action matches HDF5 action at observation timestep;
+- chunk second action matches HDF5 action at next timestep;
+- off-by-one detected: no;
+- action chunks reduced to 6D in fixed path: no.
+
+Sanity checks:
+
+- one-sample overfit: passed, action L2 `0.0`, gripper accuracy `1.0`;
+- one-demo overfit: passed, action L2 `0.002593`, gripper accuracy `1.0`.
+
+Capacity metrics:
+
+- previous split mean-action action L2: `0.486561`;
+- previous split fixed 7D adapter action L2: `0.353069`;
+- larger split mean-action action L2: `1.082453`;
+- larger split fixed 7D adapter action L2: `0.573503`;
+- larger split best MLP/ridge action L2: `0.518738`;
+- frozen/base SmolVLA action L2 from prior 6D run: `1.6029`;
+- fixed 7D adapter beats larger-split mean-action: yes;
+- fixed 7D adapter beats frozen/base: yes;
+- small MLP baseline remains slightly stronger than the 128-hidden fixed adapter on larger held-out L2.
+
+Consequence: the action interface is fixed enough for standard fixed-interface baseline reproduction. The next valid step is not a new paper method; it is an official or standard split SmolVLA/LIBERO 7D baseline with mean-action, ridge/MLP, frozen/base, and fixed-interface adapter comparisons preserved.

@@ -85,10 +85,12 @@ A physical-patch or visual-robustness defense is invalid if cutout/random-erasin
 
 ## Real LoRA Baseline Rule
 
-When PEFT/bitsandbytes/SmolVLA LoRA are locally available, no new method should start until the action interface is correct and standard LoRA beats mean-action and frozen/base SmolVLA on an official or standard task split. LoRA itself is an implementation tool and a required baseline, not novelty.
+When PEFT/bitsandbytes/SmolVLA LoRA are locally available, no new method should start until the action interface is correct and standard fixed-interface LoRA or adapter baselines beat mean-action and frozen/base SmolVLA on an official or standard task split. LoRA itself is an implementation tool and a required baseline, not novelty.
 
 ## Anti-Pattern
 
 Do not start from a clever method and add baselines later. Start from the strongest simple baseline, then ask whether a method can plausibly beat it within 48 to 72 hours.
 
 Additional reset after PatchGuard-VLA: do not start a new custom method from local proxy diagnostics. The next valid step is real SmolVLA LoRA baseline reproduction on an official or standard task split; method design comes only after standard LoRA behavior is understood.
+
+Interface fix update: the local LIBERO_7D action interface now passes one-sample and one-demo overfit with train-only 7D normalization and learned gripper output. The next step remains standard fixed-interface baseline reproduction; do not treat the interface fix as a method contribution.
