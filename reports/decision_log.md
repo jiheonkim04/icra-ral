@@ -56,3 +56,48 @@ Execution boundary for this archive pass:
 - downloads/GPU/OpenVLA-OFT happened: no / no / no;
 - Target-Grounded ActionMap implementation happened: no;
 - new method implementation happened: no.
+
+## 2026-07-09: PatchGuard-VLA STATE 1B Decision
+
+Decision: `KILL_BASELINE_DOMINATED`
+
+Reason: STATE 1B resolved the prior installable environment blocker and proved that local PEFT/bitsandbytes/CUDA/SmolVLA LoRA can run, but PatchGuard did not beat the predeclared baselines.
+
+Key positive evidence:
+
+- patch effect measured in STATE 1: max attacked policy-action L1 `0.181765`;
+- max attacked translation-action L2 `0.213965`;
+- kinematic/proprioceptive signal available;
+- PEFT `0.19.1` installed and worked;
+- bitsandbytes `0.49.2` installed and 4-bit/8-bit CUDA smokes passed;
+- CUDA/PyTorch on RTX 5080 worked;
+- SmolVLA LoRA injection worked;
+- tiny training smoke ran;
+- loss computed;
+- VRAM peak `2224.845` MB;
+- runtime `57.438` sec.
+
+Decisive negative evidence:
+
+- standard LoRA metric `0.144186`;
+- generic adversarial LoRA metric `0.142803`;
+- PatchGuard metric `0.13356`;
+- cutout/random-erasing metric `0.02973`;
+- PatchGuard did not beat generic adversarial LoRA under the archive decision criterion;
+- PatchGuard did not beat cutout/random-erasing;
+- PatchGuard did not beat both generic adversarial LoRA and cutout/random-erasing.
+
+Consequence: kill PatchGuard-VLA as the current RA-L method route. Do not proceed to PatchGuard STATE 2 or more PatchGuard training.
+
+Interpretation: this kills the PatchGuard method claim, not the LoRA environment. The next valid step is standard SmolVLA LoRA baseline reproduction on an official or standard task split.
+
+Execution boundary for this archive pass:
+
+- experiments happened: no;
+- training happened: no;
+- GPU job happened: no;
+- rollout/replay happened: no;
+- downloads happened: no;
+- OpenVLA-OFT happened: no;
+- new method implementation happened: no;
+- paper claims happened: no.

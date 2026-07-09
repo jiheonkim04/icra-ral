@@ -18,6 +18,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ContactSet-VLA | contact-set action-head geometry injection | active single 3D point, destination-only, no-geometry | richer point sets made the offline action head worse than simpler geometry or no geometry |
 | ActionMap Mini-Anchor | heatmap/candidate action decoding anchor | mean-action, cheap MLP | local ActionMap-style candidate head lost the first reproduction gate and collapsed candidate diversity despite strong oracle headroom |
 | SafeTrace-VLA | temporal safety preference optimization | safety-only/risk-only monitor scoring, generic DPO/preference proxy | temporal preference labels were solved by simple monitor risk and generic preference optimization |
+| PatchGuard-VLA | kinematic-consistent physical patch defense | cutout/random-erasing, generic adversarial LoRA | the defense path worked, but the method did not earn a robust win over cheap image erasing and generic adversarial augmentation |
 
 ## Mandatory Early Baselines
 
@@ -38,6 +39,7 @@ Every new topic must predeclare and test the relevant subset of:
 - exact-init expert replay upper bound,
 - oracle/replay-leakage upper bound clearly labeled as invalid method evidence.
 - safety-only/risk-only monitor scoring and generic DPO/preference labels for safety-preference claims.
+- cutout/random-erasing and generic adversarial LoRA for visual patch robustness claims.
 
 ## Per-Failure-Mode Baseline Rule
 
@@ -76,8 +78,16 @@ After repeated local proxy failures, no new VLA method should start without an o
 
 A temporal safety preference method is invalid if safety-only/risk-only monitor scoring, stop-on-risk, or a generic DPO/preference proxy matches the proposed temporal preference objective. The method must also preserve measurable task utility on an official safety benchmark/source; local proxy risk labels alone are not RA-L-stable evidence.
 
+## Visual Patch Defense Rule
+
+A physical-patch or visual-robustness defense is invalid if cutout/random-erasing or generic adversarial augmentation LoRA matches or beats it after the real adapter path is available. A kinematic signal is useful only if it produces a baseline-resistant gain.
+
+## Real LoRA Baseline Rule
+
+When PEFT/bitsandbytes/SmolVLA LoRA are locally available, no new method should start until standard LoRA baseline behavior is understood on an official or standard task split. LoRA itself is an implementation tool and a required baseline, not novelty.
+
 ## Anti-Pattern
 
 Do not start from a clever method and add baselines later. Start from the strongest simple baseline, then ask whether a method can plausibly beat it within 48 to 72 hours.
 
-Additional reset after SafeTrace-VLA and ActionMap Mini-Anchor: do not start a new custom method from local proxy diagnostics. Reproduce an official benchmark/source anchor first, then consider method design only after the official baseline is working.
+Additional reset after PatchGuard-VLA: do not start a new custom method from local proxy diagnostics. The next valid step is real SmolVLA LoRA baseline reproduction on an official or standard task split; method design comes only after standard LoRA behavior is understood.

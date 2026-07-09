@@ -1,6 +1,6 @@
 # Project State
 
-Date: 2026-07-08
+Date: 2026-07-09 KST
 
 Branch:
 
@@ -8,50 +8,64 @@ Branch:
 
 Current main commit before this archive pass:
 
-`8eabacb Run ActionMap mini-anchor gate`
+`67beb80 Run PatchGuard STATE 1B LoRA gate`
 
 Current decision:
 
-`KILL_ACTIONMAP_ANCHOR`
+`KILL_BASELINE_DOMINATED`
 
 ## Current Archive Pass Boundary
 
-- Experiments happened: no.
-- Training happened: no.
-- Loss computation happened: no.
-- Rollout/replay happened: no.
-- Downloads happened: no.
-- GPU use happened: no.
-- OpenVLA-OFT happened: no.
-- Full official ActionMap reproduction happened: no.
-- Target-Grounded ActionMap implementation happened: no.
-- New method implementation happened: no.
+- Experiments happened in this archive pass: no.
+- Training happened in this archive pass: no.
+- Loss computation happened in this archive pass: no.
+- Rollout/replay happened in this archive pass: no.
+- Downloads happened in this archive pass: no.
+- GPU use happened in this archive pass: no.
+- OpenVLA-OFT happened in this archive pass: no.
+- New defense method implementation happened in this archive pass: no.
+- Paper claims happened in this archive pass: no.
 
-## Prior Mini-Anchor Evidence
+## Current Route Status
 
-The previous committed gate produced the following bounded local LIBERO/HDF5 metrics:
+PatchGuard-VLA is archived as a main RA-L route.
 
-- usable demos: `8`
-- train/eval split: `deterministic_per_demo_time_holdout`
-- train/eval records: `1008 / 432`
-- mean-action action L2: `0.466767673`
-- linear/L1 action L2: `0.812610317`
-- simple MLP action L2: `0.501926707`
-- ActionMap-style action L2: `0.529931357`
-- oracle nearest-candidate action L2: `0.065653208`
-- candidate top1: `0.018518519`
-- candidate collapse: yes, unique translation/rotation/gripper bins `5 / 1 / 2`
+This kills the PatchGuard method claim, not the local LoRA environment.
+
+## Prior PatchGuard Evidence
+
+STATE 1 found the original vulnerability and signal:
+
+- patch effect measured: yes,
+- max attacked policy-action L1 vs clean: `0.181765`,
+- max attacked translation-action L2 vs clean: `0.213965`,
+- kinematic/proprioceptive signal available: yes,
+- cutout did not fully solve the fixed-patch effect in the initial diagnostic.
+
+STATE 1B unblocked the environment and tested the tiny adapter path:
+
+- PEFT installed and worked: `0.19.1`,
+- bitsandbytes installed and worked: `0.49.2`,
+- bitsandbytes 4-bit and 8-bit CUDA smokes passed,
+- PyTorch/CUDA on RTX 5080 worked,
+- SmolVLA LoRA injection worked,
+- tiny batch-size-1 rank-4 training smoke ran,
+- loss was computed,
+- VRAM peak: `2224.845` MB,
+- runtime: `57.438` sec.
+
+## Decisive Negative Evidence
+
+- standard LoRA metric: `0.144186`,
+- generic adversarial LoRA metric: `0.142803`,
+- PatchGuard metric: `0.13356`,
+- cutout/random-erasing metric: `0.02973`,
+- PatchGuard did not beat generic adversarial LoRA under the archive decision criterion,
+- PatchGuard did not beat cutout/random-erasing,
+- PatchGuard did not beat the required baseline set.
 
 ## Conclusion
 
-The local ActionMap-style heatmap/candidate head failed the hard gate. It did not beat mean action or cheap MLP, and it collapsed candidate diversity. The oracle candidate upper bound remains useful evidence of candidate-space headroom but is invalid as learned method evidence.
+PatchGuard should not proceed to STATE 2. The method-specific claim failed after the environment blocker was resolved.
 
-## Current Next-Step Boundary
-
-Only three next steps remain valid:
-
-A. Official ActionMap reproduction with official code/assets.
-
-B. Official LIBERO-Safety/SafeManip benchmark reproduction.
-
-C. Stop VLA method search under current constraints.
+The useful surviving project state is that real SmolVLA LoRA is now locally feasible. The next valid step is standard SmolVLA LoRA baseline reproduction on an official or standard task split, not a new local proxy method.

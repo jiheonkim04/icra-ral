@@ -1,45 +1,61 @@
 # Next Actions
 
-Date: 2026-07-08
+Date: 2026-07-09 KST
 
 Current decision:
 
-`KILL_ACTIONMAP_ANCHOR`
+`KILL_BASELINE_DOMINATED`
 
 ## Immediate Next Action
 
-Stop local ActionMap proxy work. Do not proceed to Target-Grounded ActionMap from the mini-anchor result.
+Archive PatchGuard-VLA as a main RA-L route and preserve the LoRA environment as reusable infrastructure.
 
 ## Why
 
-The local ActionMap-style heatmap/candidate substrate failed the hard gate:
+PatchGuard cleared the environment and adapter gates, so the final blocker is not local tooling:
 
-- mean-action action L2 `0.466767673` beat ActionMap-style action L2 `0.529931357`;
-- cheap MLP action L2 `0.501926707` matched or beat ActionMap-style action L2 `0.529931357`;
-- candidate top1 was `0.018518519`;
-- candidate diversity collapsed to unique translation/rotation/gripper bins `5 / 1 / 2`.
+- PEFT worked.
+- bitsandbytes worked.
+- CUDA on RTX 5080 worked.
+- SmolVLA LoRA injection worked.
+- Tiny training ran and loss was computed.
 
-The oracle nearest-candidate upper bound was strong at action L2 `0.065653208`, but it is invalid as method evidence because the learned selector did not exploit it.
+The method then failed the baseline gate:
 
-## Only Allowed Next Steps
+- generic adversarial LoRA metric: `0.142803`,
+- PatchGuard metric: `0.13356`,
+- cutout/random-erasing metric: `0.02973`,
+- PatchGuard did not beat generic adversarial LoRA under the archive decision criterion,
+- PatchGuard did not beat cutout/random-erasing,
+- PatchGuard did not beat both required baselines.
 
-A. Official ActionMap reproduction with official code/assets.
+## Recommended Next Step
 
-B. Official LIBERO-Safety/SafeManip benchmark reproduction.
+Run a real SmolVLA LoRA baseline reproduction on an official or standard task split.
 
-C. Stop VLA method search under current constraints.
+The goal is to understand standard LoRA behavior before inventing any new method:
+
+- clean retention,
+- perturbation behavior,
+- generic augmentation behavior,
+- memory/runtime scaling,
+- stable metrics for later comparisons.
+
+## Allowed Next Work
+
+- Standard SmolVLA LoRA baseline reproduction.
+- Environment documentation and reproducibility checks.
+- Baseline-first planning that predeclares standard LoRA, generic augmentation, cutout/random-erasing, and no-adaptation controls.
 
 ## Disallowed Next Work
 
 Do not:
 
-- implement Target-Grounded ActionMap;
-- invent a new method;
-- tune another local proxy approximation;
-- create another local proxy topic;
-- treat the oracle candidate upper bound as method evidence;
-- run OpenVLA-OFT;
-- use GPU;
-- download large assets;
-- train a large VLA;
-- run full benchmark or rollout from this result.
+- proceed to PatchGuard STATE 2,
+- run more PatchGuard training,
+- invent a new defense method,
+- start another local proxy idea,
+- run rollout from PatchGuard evidence,
+- run OpenVLA-OFT,
+- download large assets,
+- make paper claims from STATE 1B.

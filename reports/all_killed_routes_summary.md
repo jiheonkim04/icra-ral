@@ -13,6 +13,7 @@ Current killed or reframed main-route candidates:
 - ContactSet-VLA
 - ActionMap Mini-Anchor
 - SafeTrace-VLA
+- PatchGuard-VLA
 
 ## Target-Prior TCA-Map
 
@@ -138,6 +139,17 @@ Current killed or reframed main-route candidates:
 - why not RA-L-stable: the method claim collapsed to generic monitor-derived preference labels, utility retention was not established, and no official safety benchmark reproduction backed the route.
 - reusable artifacts: SafeTrace source-audit table, local HDF5 temporal safety smoke, temporal violation/risk exposure/cumulative-cost metrics, preference-pair headroom diagnostics, safety-only/generic DPO comparison, bounded runner, focused tests, and STATE 1 reports.
 
+## PatchGuard-VLA
+
+- archive status: complete.
+- original hypothesis: kinematic-consistent action-path defense can suppress physical patch induced visual-proprioceptive hijacking in a VLA while preserving clean behavior.
+- strongest positive evidence: local SmolVLA showed a measurable patch effect, with max attacked policy-action L1 `0.181765` and max attacked translation-action L2 `0.213965`; kinematic/proprioceptive signal was available; PEFT `0.19.1`, bitsandbytes `0.49.2`, CUDA on RTX 5080, SmolVLA LoRA injection, and a tiny rank-4 training smoke all worked.
+- decisive negative evidence: PatchGuard metric `0.13356` did not earn a robust win over the predeclared baselines: generic adversarial LoRA `0.142803` and cutout/random-erasing `0.02973`.
+- exact kill criterion triggered: PatchGuard LoRA did not beat both generic adversarial LoRA and cutout/random-erasing in STATE 1B.
+- strongest trivial baselines that killed it: cutout/random-erasing and generic adversarial LoRA.
+- why not RA-L-stable: the route was no longer blocked by the environment; after the adapter path worked, the method-specific defense failed the baseline-first gate. Continuing to STATE 2 would scale a baseline-dominated defense.
+- reusable artifacts: patch diagnostic, dependency smoke, LoRA injection path, tiny training runner, RTX 5080 memory/runtime data, focused tests, and STATE 1/1B reports.
+
 ## Common Failure Pattern
 
 The method must not merely beat no-method. It must beat the strongest trivial baseline available for the failure mode:
@@ -168,4 +180,6 @@ New rule from ActionMap Mini-Anchor: an action-decoder anchor or extension is in
 
 New rule from SafeTrace-VLA: a temporal safety preference method is invalid if safety-only/risk-only monitor scoring or generic DPO/preference labels match the proposed temporal preference objective, or if utility retention cannot be measured on an official safety benchmark/source.
 
-Additional reset after ActionMap Mini-Anchor: no further local proxy approximation should be attempted as the next research route. The only viable next steps are official ActionMap reproduction, official LIBERO-Safety/SafeManip benchmark reproduction, or stopping VLA method search under current constraints.
+New rule from PatchGuard-VLA: a VLA robustness or defense route is invalid if it does not beat both a cheap image-space defense such as cutout/random-erasing and a generic adversarial augmentation LoRA after the real LoRA path is available.
+
+Additional reset after PatchGuard-VLA: local proxy idea generation should remain stopped. The real SmolVLA LoRA path is now available, so the next valid step is standard SmolVLA LoRA baseline reproduction on an official or standard task split, not another custom method.
