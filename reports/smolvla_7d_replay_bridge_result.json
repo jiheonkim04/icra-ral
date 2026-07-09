@@ -1,0 +1,4923 @@
+{
+  "adapter_export": {
+    "adapter_name": "smolvla_state_proj_lora_rank8_7d_adapter",
+    "artifact_created": true,
+    "artifact_path": "runs\\smolvla_7d_replay_bridge\\smolvla_state_proj_lora_rank8_7d_adapter.pt",
+    "eval_metrics": {
+      "action_l2": 0.494959,
+      "action_l2_first6": 0.243897,
+      "gripper_accuracy": 0.88,
+      "gripper_error": 0.365736,
+      "per_dim_mae": [
+        0.100928,
+        0.103205,
+        0.138828,
+        0.017847,
+        0.040066,
+        0.034002,
+        0.365735
+      ],
+      "rotation_l2": 0.064995,
+      "sample_count": 100,
+      "translation_l2": 0.230133,
+      "worst_action_dimensions": [
+        {
+          "dim": 6,
+          "mae": 0.365735
+        },
+        {
+          "dim": 2,
+          "mae": 0.138828
+        },
+        {
+          "dim": 1,
+          "mae": 0.103205
+        }
+      ]
+    },
+    "feature_normalization": {
+      "mean": [
+        -0.08212893456220627,
+        0.0779142901301384,
+        1.0552163124084473,
+        2.6474664211273193,
+        1.4495947360992432,
+        0.2408512681722641,
+        0.49691319465637207
+      ],
+      "shape": [
+        7
+      ],
+      "source": "train_split_only",
+      "std": [
+        0.11388792097568512,
+        0.10374503582715988,
+        0.08055177330970764,
+        0.457539439201355,
+        1.0856434106826782,
+        0.3363332748413086,
+        0.317970335483551
+      ],
+      "uses_eval_labels": false
+    },
+    "gripper_handling": {
+      "hard_coded": false,
+      "learned": true,
+      "loss": "separate normalized gripper MSE added to pose regression loss"
+    },
+    "normalization": {
+      "mean": [
+        0.038964,
+        0.056473,
+        -0.084839,
+        0.008668,
+        -0.007936,
+        0.053893,
+        -0.246667
+      ],
+      "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+      "shape": [
+        7
+      ],
+      "source": "train_split_only",
+      "std": [
+        0.243194,
+        0.288697,
+        0.345754,
+        0.03478,
+        0.060209,
+        0.10188,
+        0.9691
+      ],
+      "uses_eval_labels": false,
+      "uses_so100_stats": false
+    },
+    "runtime_sec": 2.328,
+    "train_metrics": {
+      "action_l2": 0.28441,
+      "action_l2_first6": 0.162016,
+      "gripper_accuracy": 0.973333,
+      "gripper_error": 0.200834,
+      "per_dim_mae": [
+        0.068468,
+        0.063595,
+        0.091773,
+        0.012522,
+        0.024903,
+        0.026993,
+        0.200834
+      ],
+      "rotation_l2": 0.044874,
+      "sample_count": 300,
+      "translation_l2": 0.152485,
+      "worst_action_dimensions": [
+        {
+          "dim": 6,
+          "mae": 0.200834
+        },
+        {
+          "dim": 2,
+          "mae": 0.091773
+        },
+        {
+          "dim": 0,
+          "mae": 0.068468
+        }
+      ]
+    },
+    "training": {
+      "gripper_mse_loss_end": 0.112427,
+      "loss_curve": [
+        {
+          "gripper_mse_loss": 1.00862,
+          "loss": 2.011749,
+          "pose_loss": 1.003129
+        },
+        {
+          "gripper_mse_loss": 0.805069,
+          "loss": 1.778094,
+          "pose_loss": 0.973024
+        },
+        {
+          "gripper_mse_loss": 0.763301,
+          "loss": 1.707829,
+          "pose_loss": 0.944529
+        },
+        {
+          "gripper_mse_loss": 0.793573,
+          "loss": 1.712208,
+          "pose_loss": 0.918634
+        },
+        {
+          "gripper_mse_loss": 0.805647,
+          "loss": 1.704147,
+          "pose_loss": 0.898499
+        },
+        {
+          "gripper_mse_loss": 0.784627,
+          "loss": 1.668032,
+          "pose_loss": 0.883406
+        },
+        {
+          "gripper_mse_loss": 0.753269,
+          "loss": 1.62431,
+          "pose_loss": 0.871041
+        },
+        {
+          "gripper_mse_loss": 0.729594,
+          "loss": 1.589325,
+          "pose_loss": 0.859731
+        },
+        {
+          "gripper_mse_loss": 0.717738,
+          "loss": 1.566406,
+          "pose_loss": 0.848668
+        },
+        {
+          "gripper_mse_loss": 0.712799,
+          "loss": 1.550268,
+          "pose_loss": 0.837469
+        },
+        {
+          "gripper_mse_loss": 0.708087,
+          "loss": 1.533987,
+          "pose_loss": 0.8259
+        },
+        {
+          "gripper_mse_loss": 0.699621,
+          "loss": 1.5135,
+          "pose_loss": 0.81388
+        },
+        {
+          "gripper_mse_loss": 0.686918,
+          "loss": 1.488475,
+          "pose_loss": 0.801557
+        },
+        {
+          "gripper_mse_loss": 0.671788,
+          "loss": 1.461114,
+          "pose_loss": 0.789326
+        },
+        {
+          "gripper_mse_loss": 0.656779,
+          "loss": 1.434474,
+          "pose_loss": 0.777696
+        },
+        {
+          "gripper_mse_loss": 0.643965,
+          "loss": 1.41104,
+          "pose_loss": 0.767075
+        },
+        {
+          "gripper_mse_loss": 0.634224,
+          "loss": 1.391784,
+          "pose_loss": 0.75756
+        },
+        {
+          "gripper_mse_loss": 0.627006,
+          "loss": 1.375904,
+          "pose_loss": 0.748898
+        },
+        {
+          "gripper_mse_loss": 0.62072,
+          "loss": 1.361418,
+          "pose_loss": 0.740697
+        },
+        {
+          "gripper_mse_loss": 0.613698,
+          "loss": 1.346429,
+          "pose_loss": 0.732731
+        },
+        {
+          "gripper_mse_loss": 0.605205,
+          "loss": 1.330287,
+          "pose_loss": 0.725081
+        },
+        {
+          "gripper_mse_loss": 0.595642,
+          "loss": 1.313654,
+          "pose_loss": 0.718013
+        },
+        {
+          "gripper_mse_loss": 0.585861,
+          "loss": 1.297551,
+          "pose_loss": 0.71169
+        },
+        {
+          "gripper_mse_loss": 0.576496,
+          "loss": 1.28248,
+          "pose_loss": 0.705984
+        },
+        {
+          "gripper_mse_loss": 0.56768,
+          "loss": 1.268212,
+          "pose_loss": 0.700532
+        },
+        {
+          "gripper_mse_loss": 0.559044,
+          "loss": 1.253988,
+          "pose_loss": 0.694944
+        },
+        {
+          "gripper_mse_loss": 0.550055,
+          "loss": 1.239056,
+          "pose_loss": 0.689001
+        },
+        {
+          "gripper_mse_loss": 0.540433,
+          "loss": 1.223179,
+          "pose_loss": 0.682746
+        },
+        {
+          "gripper_mse_loss": 0.530223,
+          "loss": 1.206614,
+          "pose_loss": 0.676391
+        },
+        {
+          "gripper_mse_loss": 0.519584,
+          "loss": 1.189708,
+          "pose_loss": 0.670124
+        },
+        {
+          "gripper_mse_loss": 0.508401,
+          "loss": 1.172388,
+          "pose_loss": 0.663987
+        },
+        {
+          "gripper_mse_loss": 0.496266,
+          "loss": 1.154174,
+          "pose_loss": 0.657909
+        },
+        {
+          "gripper_mse_loss": 0.483042,
+          "loss": 1.134846,
+          "pose_loss": 0.651804
+        },
+        {
+          "gripper_mse_loss": 0.469152,
+          "loss": 1.114751,
+          "pose_loss": 0.645599
+        },
+        {
+          "gripper_mse_loss": 0.455362,
+          "loss": 1.094628,
+          "pose_loss": 0.639266
+        },
+        {
+          "gripper_mse_loss": 0.442382,
+          "loss": 1.075216,
+          "pose_loss": 0.632834
+        },
+        {
+          "gripper_mse_loss": 0.430513,
+          "loss": 1.056887,
+          "pose_loss": 0.626374
+        },
+        {
+          "gripper_mse_loss": 0.419677,
+          "loss": 1.039682,
+          "pose_loss": 0.620005
+        },
+        {
+          "gripper_mse_loss": 0.409696,
+          "loss": 1.023525,
+          "pose_loss": 0.613829
+        },
+        {
+          "gripper_mse_loss": 0.400703,
+          "loss": 1.008541,
+          "pose_loss": 0.607838
+        },
+        {
+          "gripper_mse_loss": 0.393106,
+          "loss": 0.99502,
+          "pose_loss": 0.601914
+        },
+        {
+          "gripper_mse_loss": 0.387147,
+          "loss": 0.983111,
+          "pose_loss": 0.595964
+        },
+        {
+          "gripper_mse_loss": 0.382728,
+          "loss": 0.972726,
+          "pose_loss": 0.589998
+        },
+        {
+          "gripper_mse_loss": 0.379606,
+          "loss": 0.963682,
+          "pose_loss": 0.584076
+        },
+        {
+          "gripper_mse_loss": 0.37758,
+          "loss": 0.955867,
+          "pose_loss": 0.578287
+        },
+        {
+          "gripper_mse_loss": 0.376383,
+          "loss": 0.949068,
+          "pose_loss": 0.572685
+        },
+        {
+          "gripper_mse_loss": 0.375683,
+          "loss": 0.942961,
+          "pose_loss": 0.567277
+        },
+        {
+          "gripper_mse_loss": 0.375089,
+          "loss": 0.937219,
+          "pose_loss": 0.56213
+        },
+        {
+          "gripper_mse_loss": 0.374346,
+          "loss": 0.931568,
+          "pose_loss": 0.557221
+        },
+        {
+          "gripper_mse_loss": 0.373376,
+          "loss": 0.925816,
+          "pose_loss": 0.552439
+        },
+        {
+          "gripper_mse_loss": 0.372176,
+          "loss": 0.919999,
+          "pose_loss": 0.547823
+        },
+        {
+          "gripper_mse_loss": 0.370804,
+          "loss": 0.914278,
+          "pose_loss": 0.543473
+        },
+        {
+          "gripper_mse_loss": 0.369222,
+          "loss": 0.90854,
+          "pose_loss": 0.539318
+        },
+        {
+          "gripper_mse_loss": 0.367412,
+          "loss": 0.902544,
+          "pose_loss": 0.535132
+        },
+        {
+          "gripper_mse_loss": 0.365462,
+          "loss": 0.896414,
+          "pose_loss": 0.530951
+        },
+        {
+          "gripper_mse_loss": 0.363553,
+          "loss": 0.890503,
+          "pose_loss": 0.52695
+        },
+        {
+          "gripper_mse_loss": 0.361793,
+          "loss": 0.884939,
+          "pose_loss": 0.523146
+        },
+        {
+          "gripper_mse_loss": 0.360238,
+          "loss": 0.879756,
+          "pose_loss": 0.519518
+        },
+        {
+          "gripper_mse_loss": 0.358931,
+          "loss": 0.875062,
+          "pose_loss": 0.516131
+        },
+        {
+          "gripper_mse_loss": 0.357817,
+          "loss": 0.870838,
+          "pose_loss": 0.513021
+        },
+        {
+          "gripper_mse_loss": 0.356828,
+          "loss": 0.866947,
+          "pose_loss": 0.510118
+        },
+        {
+          "gripper_mse_loss": 0.355897,
+          "loss": 0.863205,
+          "pose_loss": 0.507308
+        },
+        {
+          "gripper_mse_loss": 0.354892,
+          "loss": 0.859444,
+          "pose_loss": 0.504551
+        },
+        {
+          "gripper_mse_loss": 0.35379,
+          "loss": 0.855692,
+          "pose_loss": 0.501902
+        },
+        {
+          "gripper_mse_loss": 0.352599,
+          "loss": 0.851983,
+          "pose_loss": 0.499384
+        },
+        {
+          "gripper_mse_loss": 0.351299,
+          "loss": 0.848246,
+          "pose_loss": 0.496947
+        },
+        {
+          "gripper_mse_loss": 0.349912,
+          "loss": 0.844493,
+          "pose_loss": 0.494581
+        },
+        {
+          "gripper_mse_loss": 0.348463,
+          "loss": 0.84073,
+          "pose_loss": 0.492266
+        },
+        {
+          "gripper_mse_loss": 0.346955,
+          "loss": 0.836945,
+          "pose_loss": 0.48999
+        },
+        {
+          "gripper_mse_loss": 0.345425,
+          "loss": 0.833129,
+          "pose_loss": 0.487704
+        },
+        {
+          "gripper_mse_loss": 0.343879,
+          "loss": 0.82926,
+          "pose_loss": 0.485381
+        },
+        {
+          "gripper_mse_loss": 0.342343,
+          "loss": 0.825408,
+          "pose_loss": 0.483066
+        },
+        {
+          "gripper_mse_loss": 0.340835,
+          "loss": 0.821591,
+          "pose_loss": 0.480756
+        },
+        {
+          "gripper_mse_loss": 0.339367,
+          "loss": 0.817775,
+          "pose_loss": 0.478407
+        },
+        {
+          "gripper_mse_loss": 0.33796,
+          "loss": 0.813964,
+          "pose_loss": 0.476004
+        },
+        {
+          "gripper_mse_loss": 0.336612,
+          "loss": 0.810195,
+          "pose_loss": 0.473583
+        },
+        {
+          "gripper_mse_loss": 0.335319,
+          "loss": 0.806481,
+          "pose_loss": 0.471162
+        },
+        {
+          "gripper_mse_loss": 0.334053,
+          "loss": 0.802771,
+          "pose_loss": 0.468718
+        },
+        {
+          "gripper_mse_loss": 0.332787,
+          "loss": 0.799035,
+          "pose_loss": 0.466247
+        },
+        {
+          "gripper_mse_loss": 0.331505,
+          "loss": 0.795237,
+          "pose_loss": 0.463732
+        },
+        {
+          "gripper_mse_loss": 0.3302,
+          "loss": 0.79139,
+          "pose_loss": 0.46119
+        },
+        {
+          "gripper_mse_loss": 0.328858,
+          "loss": 0.787515,
+          "pose_loss": 0.458656
+        },
+        {
+          "gripper_mse_loss": 0.327485,
+          "loss": 0.783639,
+          "pose_loss": 0.456154
+        },
+        {
+          "gripper_mse_loss": 0.326098,
+          "loss": 0.779758,
+          "pose_loss": 0.45366
+        },
+        {
+          "gripper_mse_loss": 0.324707,
+          "loss": 0.77589,
+          "pose_loss": 0.451184
+        },
+        {
+          "gripper_mse_loss": 0.323297,
+          "loss": 0.772035,
+          "pose_loss": 0.448738
+        },
+        {
+          "gripper_mse_loss": 0.321881,
+          "loss": 0.768197,
+          "pose_loss": 0.446316
+        },
+        {
+          "gripper_mse_loss": 0.320458,
+          "loss": 0.764375,
+          "pose_loss": 0.443917
+        },
+        {
+          "gripper_mse_loss": 0.319039,
+          "loss": 0.760566,
+          "pose_loss": 0.441527
+        },
+        {
+          "gripper_mse_loss": 0.31763,
+          "loss": 0.756773,
+          "pose_loss": 0.439143
+        },
+        {
+          "gripper_mse_loss": 0.316263,
+          "loss": 0.753041,
+          "pose_loss": 0.436777
+        },
+        {
+          "gripper_mse_loss": 0.315005,
+          "loss": 0.749465,
+          "pose_loss": 0.43446
+        },
+        {
+          "gripper_mse_loss": 0.314078,
+          "loss": 0.746405,
+          "pose_loss": 0.432327
+        },
+        {
+          "gripper_mse_loss": 0.314047,
+          "loss": 0.744502,
+          "pose_loss": 0.430455
+        },
+        {
+          "gripper_mse_loss": 0.313695,
+          "loss": 0.74224,
+          "pose_loss": 0.428545
+        },
+        {
+          "gripper_mse_loss": 0.311021,
+          "loss": 0.737019,
+          "pose_loss": 0.425999
+        },
+        {
+          "gripper_mse_loss": 0.308233,
+          "loss": 0.731713,
+          "pose_loss": 0.42348
+        },
+        {
+          "gripper_mse_loss": 0.30821,
+          "loss": 0.730086,
+          "pose_loss": 0.421876
+        },
+        {
+          "gripper_mse_loss": 0.307685,
+          "loss": 0.727706,
+          "pose_loss": 0.420021
+        },
+        {
+          "gripper_mse_loss": 0.304944,
+          "loss": 0.722544,
+          "pose_loss": 0.417601
+        },
+        {
+          "gripper_mse_loss": 0.30382,
+          "loss": 0.719491,
+          "pose_loss": 0.415671
+        },
+        {
+          "gripper_mse_loss": 0.303829,
+          "loss": 0.717912,
+          "pose_loss": 0.414083
+        },
+        {
+          "gripper_mse_loss": 0.301951,
+          "loss": 0.713977,
+          "pose_loss": 0.412026
+        },
+        {
+          "gripper_mse_loss": 0.300221,
+          "loss": 0.710165,
+          "pose_loss": 0.409944
+        },
+        {
+          "gripper_mse_loss": 0.300026,
+          "loss": 0.708416,
+          "pose_loss": 0.40839
+        },
+        {
+          "gripper_mse_loss": 0.299016,
+          "loss": 0.705735,
+          "pose_loss": 0.406719
+        },
+        {
+          "gripper_mse_loss": 0.29722,
+          "loss": 0.701893,
+          "pose_loss": 0.404673
+        },
+        {
+          "gripper_mse_loss": 0.296393,
+          "loss": 0.699436,
+          "pose_loss": 0.403043
+        },
+        {
+          "gripper_mse_loss": 0.295934,
+          "loss": 0.697579,
+          "pose_loss": 0.401645
+        },
+        {
+          "gripper_mse_loss": 0.294657,
+          "loss": 0.69453,
+          "pose_loss": 0.399873
+        },
+        {
+          "gripper_mse_loss": 0.293219,
+          "loss": 0.691388,
+          "pose_loss": 0.398169
+        },
+        {
+          "gripper_mse_loss": 0.292575,
+          "loss": 0.689346,
+          "pose_loss": 0.396771
+        },
+        {
+          "gripper_mse_loss": 0.292039,
+          "loss": 0.687388,
+          "pose_loss": 0.395349
+        },
+        {
+          "gripper_mse_loss": 0.290813,
+          "loss": 0.684653,
+          "pose_loss": 0.39384
+        },
+        {
+          "gripper_mse_loss": 0.28963,
+          "loss": 0.681866,
+          "pose_loss": 0.392236
+        },
+        {
+          "gripper_mse_loss": 0.288914,
+          "loss": 0.679768,
+          "pose_loss": 0.390855
+        },
+        {
+          "gripper_mse_loss": 0.28834,
+          "loss": 0.677974,
+          "pose_loss": 0.389634
+        },
+        {
+          "gripper_mse_loss": 0.287603,
+          "loss": 0.675847,
+          "pose_loss": 0.388244
+        },
+        {
+          "gripper_mse_loss": 0.286512,
+          "loss": 0.673382,
+          "pose_loss": 0.38687
+        },
+        {
+          "gripper_mse_loss": 0.285562,
+          "loss": 0.671001,
+          "pose_loss": 0.385438
+        },
+        {
+          "gripper_mse_loss": 0.284824,
+          "loss": 0.66898,
+          "pose_loss": 0.384156
+        },
+        {
+          "gripper_mse_loss": 0.284228,
+          "loss": 0.667234,
+          "pose_loss": 0.383006
+        },
+        {
+          "gripper_mse_loss": 0.283736,
+          "loss": 0.665551,
+          "pose_loss": 0.381815
+        },
+        {
+          "gripper_mse_loss": 0.283068,
+          "loss": 0.663798,
+          "pose_loss": 0.38073
+        },
+        {
+          "gripper_mse_loss": 0.282434,
+          "loss": 0.661908,
+          "pose_loss": 0.379473
+        },
+        {
+          "gripper_mse_loss": 0.281598,
+          "loss": 0.659923,
+          "pose_loss": 0.378325
+        },
+        {
+          "gripper_mse_loss": 0.280847,
+          "loss": 0.657912,
+          "pose_loss": 0.377065
+        },
+        {
+          "gripper_mse_loss": 0.280006,
+          "loss": 0.655948,
+          "pose_loss": 0.375942
+        },
+        {
+          "gripper_mse_loss": 0.279307,
+          "loss": 0.654055,
+          "pose_loss": 0.374748
+        },
+        {
+          "gripper_mse_loss": 0.278582,
+          "loss": 0.652234,
+          "pose_loss": 0.373653
+        },
+        {
+          "gripper_mse_loss": 0.277943,
+          "loss": 0.650476,
+          "pose_loss": 0.372533
+        },
+        {
+          "gripper_mse_loss": 0.277299,
+          "loss": 0.648766,
+          "pose_loss": 0.371468
+        },
+        {
+          "gripper_mse_loss": 0.27671,
+          "loss": 0.647102,
+          "pose_loss": 0.370392
+        },
+        {
+          "gripper_mse_loss": 0.276131,
+          "loss": 0.645502,
+          "pose_loss": 0.36937
+        },
+        {
+          "gripper_mse_loss": 0.275689,
+          "loss": 0.644055,
+          "pose_loss": 0.368366
+        },
+        {
+          "gripper_mse_loss": 0.275492,
+          "loss": 0.643087,
+          "pose_loss": 0.367595
+        },
+        {
+          "gripper_mse_loss": 0.276427,
+          "loss": 0.643599,
+          "pose_loss": 0.367172
+        },
+        {
+          "gripper_mse_loss": 0.27971,
+          "loss": 0.647722,
+          "pose_loss": 0.368012
+        },
+        {
+          "gripper_mse_loss": 0.285213,
+          "loss": 0.654108,
+          "pose_loss": 0.368895
+        },
+        {
+          "gripper_mse_loss": 0.283562,
+          "loss": 0.651216,
+          "pose_loss": 0.367653
+        },
+        {
+          "gripper_mse_loss": 0.275181,
+          "loss": 0.639405,
+          "pose_loss": 0.364224
+        },
+        {
+          "gripper_mse_loss": 0.274285,
+          "loss": 0.637398,
+          "pose_loss": 0.363112
+        },
+        {
+          "gripper_mse_loss": 0.278378,
+          "loss": 0.6421,
+          "pose_loss": 0.363722
+        },
+        {
+          "gripper_mse_loss": 0.275028,
+          "loss": 0.637139,
+          "pose_loss": 0.362111
+        },
+        {
+          "gripper_mse_loss": 0.27152,
+          "loss": 0.631628,
+          "pose_loss": 0.360108
+        },
+        {
+          "gripper_mse_loss": 0.27517,
+          "loss": 0.635777,
+          "pose_loss": 0.360608
+        },
+        {
+          "gripper_mse_loss": 0.27287,
+          "loss": 0.632168,
+          "pose_loss": 0.359298
+        },
+        {
+          "gripper_mse_loss": 0.269911,
+          "loss": 0.627319,
+          "pose_loss": 0.357408
+        },
+        {
+          "gripper_mse_loss": 0.27322,
+          "loss": 0.631398,
+          "pose_loss": 0.358179
+        },
+        {
+          "gripper_mse_loss": 0.270174,
+          "loss": 0.6265,
+          "pose_loss": 0.356326
+        },
+        {
+          "gripper_mse_loss": 0.268997,
+          "loss": 0.624198,
+          "pose_loss": 0.3552
+        },
+        {
+          "gripper_mse_loss": 0.271203,
+          "loss": 0.62684,
+          "pose_loss": 0.355637
+        },
+        {
+          "gripper_mse_loss": 0.267865,
+          "loss": 0.621427,
+          "pose_loss": 0.353562
+        },
+        {
+          "gripper_mse_loss": 0.268334,
+          "loss": 0.621608,
+          "pose_loss": 0.353274
+        },
+        {
+          "gripper_mse_loss": 0.268768,
+          "loss": 0.621579,
+          "pose_loss": 0.352811
+        },
+        {
+          "gripper_mse_loss": 0.266373,
+          "loss": 0.617804,
+          "pose_loss": 0.351431
+        },
+        {
+          "gripper_mse_loss": 0.267215,
+          "loss": 0.618407,
+          "pose_loss": 0.351192
+        },
+        {
+          "gripper_mse_loss": 0.266381,
+          "loss": 0.616572,
+          "pose_loss": 0.350191
+        },
+        {
+          "gripper_mse_loss": 0.265445,
+          "loss": 0.615096,
+          "pose_loss": 0.349652
+        },
+        {
+          "gripper_mse_loss": 0.265565,
+          "loss": 0.614469,
+          "pose_loss": 0.348903
+        },
+        {
+          "gripper_mse_loss": 0.26457,
+          "loss": 0.612442,
+          "pose_loss": 0.347871
+        },
+        {
+          "gripper_mse_loss": 0.264506,
+          "loss": 0.612247,
+          "pose_loss": 0.347741
+        },
+        {
+          "gripper_mse_loss": 0.263924,
+          "loss": 0.610501,
+          "pose_loss": 0.346577
+        },
+        {
+          "gripper_mse_loss": 0.26317,
+          "loss": 0.608902,
+          "pose_loss": 0.345732
+        },
+        {
+          "gripper_mse_loss": 0.263304,
+          "loss": 0.608861,
+          "pose_loss": 0.345557
+        },
+        {
+          "gripper_mse_loss": 0.262564,
+          "loss": 0.606935,
+          "pose_loss": 0.344372
+        },
+        {
+          "gripper_mse_loss": 0.262002,
+          "loss": 0.605612,
+          "pose_loss": 0.343609
+        },
+        {
+          "gripper_mse_loss": 0.261945,
+          "loss": 0.60511,
+          "pose_loss": 0.343165
+        },
+        {
+          "gripper_mse_loss": 0.261344,
+          "loss": 0.603579,
+          "pose_loss": 0.342234
+        },
+        {
+          "gripper_mse_loss": 0.260977,
+          "loss": 0.602506,
+          "pose_loss": 0.341528
+        },
+        {
+          "gripper_mse_loss": 0.260577,
+          "loss": 0.601415,
+          "pose_loss": 0.340837
+        },
+        {
+          "gripper_mse_loss": 0.259978,
+          "loss": 0.600058,
+          "pose_loss": 0.34008
+        },
+        {
+          "gripper_mse_loss": 0.259846,
+          "loss": 0.599296,
+          "pose_loss": 0.33945
+        },
+        {
+          "gripper_mse_loss": 0.259425,
+          "loss": 0.598127,
+          "pose_loss": 0.338701
+        },
+        {
+          "gripper_mse_loss": 0.258699,
+          "loss": 0.596664,
+          "pose_loss": 0.337965
+        },
+        {
+          "gripper_mse_loss": 0.258402,
+          "loss": 0.59572,
+          "pose_loss": 0.337318
+        },
+        {
+          "gripper_mse_loss": 0.258095,
+          "loss": 0.594678,
+          "pose_loss": 0.336583
+        },
+        {
+          "gripper_mse_loss": 0.257557,
+          "loss": 0.593497,
+          "pose_loss": 0.335939
+        },
+        {
+          "gripper_mse_loss": 0.257177,
+          "loss": 0.592502,
+          "pose_loss": 0.335325
+        },
+        {
+          "gripper_mse_loss": 0.256789,
+          "loss": 0.591336,
+          "pose_loss": 0.334547
+        },
+        {
+          "gripper_mse_loss": 0.256237,
+          "loss": 0.590067,
+          "pose_loss": 0.33383
+        },
+        {
+          "gripper_mse_loss": 0.255841,
+          "loss": 0.588974,
+          "pose_loss": 0.333133
+        },
+        {
+          "gripper_mse_loss": 0.255478,
+          "loss": 0.587896,
+          "pose_loss": 0.332418
+        },
+        {
+          "gripper_mse_loss": 0.255021,
+          "loss": 0.586783,
+          "pose_loss": 0.331762
+        },
+        {
+          "gripper_mse_loss": 0.254659,
+          "loss": 0.585734,
+          "pose_loss": 0.331074
+        },
+        {
+          "gripper_mse_loss": 0.25435,
+          "loss": 0.584726,
+          "pose_loss": 0.330377
+        },
+        {
+          "gripper_mse_loss": 0.254007,
+          "loss": 0.583754,
+          "pose_loss": 0.329747
+        },
+        {
+          "gripper_mse_loss": 0.253673,
+          "loss": 0.582877,
+          "pose_loss": 0.329204
+        },
+        {
+          "gripper_mse_loss": 0.253559,
+          "loss": 0.582226,
+          "pose_loss": 0.328668
+        },
+        {
+          "gripper_mse_loss": 0.253768,
+          "loss": 0.582083,
+          "pose_loss": 0.328316
+        },
+        {
+          "gripper_mse_loss": 0.254649,
+          "loss": 0.582865,
+          "pose_loss": 0.328215
+        },
+        {
+          "gripper_mse_loss": 0.256381,
+          "loss": 0.58485,
+          "pose_loss": 0.32847
+        },
+        {
+          "gripper_mse_loss": 0.258517,
+          "loss": 0.587179,
+          "pose_loss": 0.328662
+        },
+        {
+          "gripper_mse_loss": 0.258315,
+          "loss": 0.586239,
+          "pose_loss": 0.327924
+        },
+        {
+          "gripper_mse_loss": 0.254307,
+          "loss": 0.57998,
+          "pose_loss": 0.325673
+        },
+        {
+          "gripper_mse_loss": 0.25052,
+          "loss": 0.574356,
+          "pose_loss": 0.323836
+        },
+        {
+          "gripper_mse_loss": 0.251073,
+          "loss": 0.574849,
+          "pose_loss": 0.323776
+        },
+        {
+          "gripper_mse_loss": 0.253616,
+          "loss": 0.577678,
+          "pose_loss": 0.324062
+        },
+        {
+          "gripper_mse_loss": 0.253188,
+          "loss": 0.576445,
+          "pose_loss": 0.323257
+        },
+        {
+          "gripper_mse_loss": 0.249952,
+          "loss": 0.571648,
+          "pose_loss": 0.321697
+        },
+        {
+          "gripper_mse_loss": 0.248623,
+          "loss": 0.569504,
+          "pose_loss": 0.32088
+        },
+        {
+          "gripper_mse_loss": 0.250206,
+          "loss": 0.571102,
+          "pose_loss": 0.320896
+        },
+        {
+          "gripper_mse_loss": 0.25088,
+          "loss": 0.571374,
+          "pose_loss": 0.320493
+        },
+        {
+          "gripper_mse_loss": 0.248823,
+          "loss": 0.568232,
+          "pose_loss": 0.319409
+        },
+        {
+          "gripper_mse_loss": 0.247105,
+          "loss": 0.565534,
+          "pose_loss": 0.318428
+        },
+        {
+          "gripper_mse_loss": 0.247726,
+          "loss": 0.565825,
+          "pose_loss": 0.318098
+        },
+        {
+          "gripper_mse_loss": 0.248538,
+          "loss": 0.566442,
+          "pose_loss": 0.317904
+        },
+        {
+          "gripper_mse_loss": 0.247529,
+          "loss": 0.564681,
+          "pose_loss": 0.317152
+        },
+        {
+          "gripper_mse_loss": 0.245905,
+          "loss": 0.562079,
+          "pose_loss": 0.316174
+        },
+        {
+          "gripper_mse_loss": 0.245613,
+          "loss": 0.561206,
+          "pose_loss": 0.315593
+        },
+        {
+          "gripper_mse_loss": 0.246197,
+          "loss": 0.561504,
+          "pose_loss": 0.315307
+        },
+        {
+          "gripper_mse_loss": 0.246074,
+          "loss": 0.56093,
+          "pose_loss": 0.314857
+        },
+        {
+          "gripper_mse_loss": 0.245024,
+          "loss": 0.559123,
+          "pose_loss": 0.314098
+        },
+        {
+          "gripper_mse_loss": 0.244072,
+          "loss": 0.557382,
+          "pose_loss": 0.31331
+        },
+        {
+          "gripper_mse_loss": 0.243872,
+          "loss": 0.556654,
+          "pose_loss": 0.312782
+        },
+        {
+          "gripper_mse_loss": 0.244082,
+          "loss": 0.556495,
+          "pose_loss": 0.312413
+        },
+        {
+          "gripper_mse_loss": 0.243957,
+          "loss": 0.555906,
+          "pose_loss": 0.311949
+        },
+        {
+          "gripper_mse_loss": 0.243257,
+          "loss": 0.554569,
+          "pose_loss": 0.311311
+        },
+        {
+          "gripper_mse_loss": 0.242448,
+          "loss": 0.553029,
+          "pose_loss": 0.310581
+        },
+        {
+          "gripper_mse_loss": 0.241952,
+          "loss": 0.551917,
+          "pose_loss": 0.309965
+        },
+        {
+          "gripper_mse_loss": 0.241821,
+          "loss": 0.551326,
+          "pose_loss": 0.309505
+        },
+        {
+          "gripper_mse_loss": 0.241803,
+          "loss": 0.550894,
+          "pose_loss": 0.309091
+        },
+        {
+          "gripper_mse_loss": 0.241618,
+          "loss": 0.550232,
+          "pose_loss": 0.308614
+        },
+        {
+          "gripper_mse_loss": 0.241228,
+          "loss": 0.549235,
+          "pose_loss": 0.308007
+        },
+        {
+          "gripper_mse_loss": 0.240661,
+          "loss": 0.548049,
+          "pose_loss": 0.307388
+        },
+        {
+          "gripper_mse_loss": 0.240075,
+          "loss": 0.546863,
+          "pose_loss": 0.306788
+        },
+        {
+          "gripper_mse_loss": 0.239556,
+          "loss": 0.545784,
+          "pose_loss": 0.306228
+        },
+        {
+          "gripper_mse_loss": 0.239165,
+          "loss": 0.544857,
+          "pose_loss": 0.305691
+        },
+        {
+          "gripper_mse_loss": 0.238892,
+          "loss": 0.544074,
+          "pose_loss": 0.305182
+        },
+        {
+          "gripper_mse_loss": 0.238692,
+          "loss": 0.543398,
+          "pose_loss": 0.304706
+        },
+        {
+          "gripper_mse_loss": 0.238568,
+          "loss": 0.542804,
+          "pose_loss": 0.304236
+        },
+        {
+          "gripper_mse_loss": 0.238511,
+          "loss": 0.542325,
+          "pose_loss": 0.303814
+        },
+        {
+          "gripper_mse_loss": 0.238629,
+          "loss": 0.542064,
+          "pose_loss": 0.303434
+        },
+        {
+          "gripper_mse_loss": 0.239002,
+          "loss": 0.542215,
+          "pose_loss": 0.303213
+        },
+        {
+          "gripper_mse_loss": 0.23995,
+          "loss": 0.543076,
+          "pose_loss": 0.303127
+        },
+        {
+          "gripper_mse_loss": 0.241569,
+          "loss": 0.544905,
+          "pose_loss": 0.303336
+        },
+        {
+          "gripper_mse_loss": 0.243793,
+          "loss": 0.547395,
+          "pose_loss": 0.303601
+        },
+        {
+          "gripper_mse_loss": 0.245066,
+          "loss": 0.54871,
+          "pose_loss": 0.303644
+        },
+        {
+          "gripper_mse_loss": 0.243556,
+          "loss": 0.546124,
+          "pose_loss": 0.302568
+        },
+        {
+          "gripper_mse_loss": 0.238974,
+          "loss": 0.539815,
+          "pose_loss": 0.300841
+        },
+        {
+          "gripper_mse_loss": 0.235232,
+          "loss": 0.534777,
+          "pose_loss": 0.299545
+        },
+        {
+          "gripper_mse_loss": 0.235112,
+          "loss": 0.534486,
+          "pose_loss": 0.299374
+        },
+        {
+          "gripper_mse_loss": 0.23722,
+          "loss": 0.536765,
+          "pose_loss": 0.299545
+        },
+        {
+          "gripper_mse_loss": 0.238265,
+          "loss": 0.537374,
+          "pose_loss": 0.299109
+        },
+        {
+          "gripper_mse_loss": 0.236561,
+          "loss": 0.534861,
+          "pose_loss": 0.2983
+        },
+        {
+          "gripper_mse_loss": 0.234091,
+          "loss": 0.531671,
+          "pose_loss": 0.29758
+        },
+        {
+          "gripper_mse_loss": 0.233189,
+          "loss": 0.530384,
+          "pose_loss": 0.297195
+        },
+        {
+          "gripper_mse_loss": 0.23383,
+          "loss": 0.530585,
+          "pose_loss": 0.296755
+        },
+        {
+          "gripper_mse_loss": 0.234339,
+          "loss": 0.530525,
+          "pose_loss": 0.296186
+        },
+        {
+          "gripper_mse_loss": 0.23368,
+          "loss": 0.529428,
+          "pose_loss": 0.295749
+        },
+        {
+          "gripper_mse_loss": 0.232469,
+          "loss": 0.527855,
+          "pose_loss": 0.295387
+        },
+        {
+          "gripper_mse_loss": 0.231588,
+          "loss": 0.526523,
+          "pose_loss": 0.294936
+        },
+        {
+          "gripper_mse_loss": 0.231303,
+          "loss": 0.525521,
+          "pose_loss": 0.294218
+        },
+        {
+          "gripper_mse_loss": 0.231322,
+          "loss": 0.524932,
+          "pose_loss": 0.29361
+        },
+        {
+          "gripper_mse_loss": 0.231249,
+          "loss": 0.524595,
+          "pose_loss": 0.293347
+        },
+        {
+          "gripper_mse_loss": 0.230888,
+          "loss": 0.524002,
+          "pose_loss": 0.293114
+        },
+        {
+          "gripper_mse_loss": 0.230121,
+          "loss": 0.522789,
+          "pose_loss": 0.292668
+        },
+        {
+          "gripper_mse_loss": 0.229273,
+          "loss": 0.521156,
+          "pose_loss": 0.291883
+        },
+        {
+          "gripper_mse_loss": 0.228766,
+          "loss": 0.519969,
+          "pose_loss": 0.291204
+        },
+        {
+          "gripper_mse_loss": 0.228692,
+          "loss": 0.519586,
+          "pose_loss": 0.290894
+        },
+        {
+          "gripper_mse_loss": 0.228775,
+          "loss": 0.519484,
+          "pose_loss": 0.290709
+        },
+        {
+          "gripper_mse_loss": 0.228558,
+          "loss": 0.518969,
+          "pose_loss": 0.290411
+        },
+        {
+          "gripper_mse_loss": 0.22802,
+          "loss": 0.51785,
+          "pose_loss": 0.289831
+        },
+        {
+          "gripper_mse_loss": 0.227372,
+          "loss": 0.516608,
+          "pose_loss": 0.289236
+        },
+        {
+          "gripper_mse_loss": 0.226862,
+          "loss": 0.515645,
+          "pose_loss": 0.288782
+        },
+        {
+          "gripper_mse_loss": 0.226466,
+          "loss": 0.514911,
+          "pose_loss": 0.288445
+        },
+        {
+          "gripper_mse_loss": 0.226056,
+          "loss": 0.514108,
+          "pose_loss": 0.288052
+        },
+        {
+          "gripper_mse_loss": 0.22558,
+          "loss": 0.513102,
+          "pose_loss": 0.287523
+        },
+        {
+          "gripper_mse_loss": 0.22512,
+          "loss": 0.512058,
+          "pose_loss": 0.286938
+        },
+        {
+          "gripper_mse_loss": 0.224731,
+          "loss": 0.511183,
+          "pose_loss": 0.286452
+        },
+        {
+          "gripper_mse_loss": 0.224423,
+          "loss": 0.510517,
+          "pose_loss": 0.286094
+        },
+        {
+          "gripper_mse_loss": 0.224135,
+          "loss": 0.509925,
+          "pose_loss": 0.28579
+        },
+        {
+          "gripper_mse_loss": 0.223824,
+          "loss": 0.509263,
+          "pose_loss": 0.285439
+        },
+        {
+          "gripper_mse_loss": 0.223509,
+          "loss": 0.50852,
+          "pose_loss": 0.285011
+        },
+        {
+          "gripper_mse_loss": 0.223266,
+          "loss": 0.507838,
+          "pose_loss": 0.284572
+        },
+        {
+          "gripper_mse_loss": 0.223289,
+          "loss": 0.507501,
+          "pose_loss": 0.284212
+        },
+        {
+          "gripper_mse_loss": 0.223929,
+          "loss": 0.508021,
+          "pose_loss": 0.284092
+        },
+        {
+          "gripper_mse_loss": 0.226107,
+          "loss": 0.510489,
+          "pose_loss": 0.284382
+        },
+        {
+          "gripper_mse_loss": 0.2315,
+          "loss": 0.517137,
+          "pose_loss": 0.285638
+        },
+        {
+          "gripper_mse_loss": 0.242521,
+          "loss": 0.530672,
+          "pose_loss": 0.288151
+        },
+        {
+          "gripper_mse_loss": 0.254555,
+          "loss": 0.54559,
+          "pose_loss": 0.291035
+        },
+        {
+          "gripper_mse_loss": 0.250289,
+          "loss": 0.539312,
+          "pose_loss": 0.289023
+        },
+        {
+          "gripper_mse_loss": 0.226551,
+          "loss": 0.509381,
+          "pose_loss": 0.282831
+        },
+        {
+          "gripper_mse_loss": 0.222446,
+          "loss": 0.504246,
+          "pose_loss": 0.2818
+        },
+        {
+          "gripper_mse_loss": 0.237076,
+          "loss": 0.522687,
+          "pose_loss": 0.285612
+        },
+        {
+          "gripper_mse_loss": 0.231818,
+          "loss": 0.515521,
+          "pose_loss": 0.283703
+        },
+        {
+          "gripper_mse_loss": 0.219494,
+          "loss": 0.499794,
+          "pose_loss": 0.2803
+        },
+        {
+          "gripper_mse_loss": 0.227184,
+          "loss": 0.509818,
+          "pose_loss": 0.282635
+        },
+        {
+          "gripper_mse_loss": 0.228065,
+          "loss": 0.510577,
+          "pose_loss": 0.282512
+        },
+        {
+          "gripper_mse_loss": 0.218593,
+          "loss": 0.497694,
+          "pose_loss": 0.279102
+        },
+        {
+          "gripper_mse_loss": 0.222921,
+          "loss": 0.503468,
+          "pose_loss": 0.280548
+        },
+        {
+          "gripper_mse_loss": 0.224144,
+          "loss": 0.505457,
+          "pose_loss": 0.281313
+        },
+        {
+          "gripper_mse_loss": 0.217537,
+          "loss": 0.495744,
+          "pose_loss": 0.278208
+        },
+        {
+          "gripper_mse_loss": 0.220493,
+          "loss": 0.498992,
+          "pose_loss": 0.2785
+        },
+        {
+          "gripper_mse_loss": 0.220946,
+          "loss": 0.500319,
+          "pose_loss": 0.279373
+        },
+        {
+          "gripper_mse_loss": 0.216825,
+          "loss": 0.494088,
+          "pose_loss": 0.277264
+        },
+        {
+          "gripper_mse_loss": 0.218916,
+          "loss": 0.495901,
+          "pose_loss": 0.276985
+        },
+        {
+          "gripper_mse_loss": 0.218463,
+          "loss": 0.495771,
+          "pose_loss": 0.277308
+        },
+        {
+          "gripper_mse_loss": 0.215965,
+          "loss": 0.492018,
+          "pose_loss": 0.276053
+        },
+        {
+          "gripper_mse_loss": 0.217342,
+          "loss": 0.49311,
+          "pose_loss": 0.275769
+        },
+        {
+          "gripper_mse_loss": 0.216607,
+          "loss": 0.492304,
+          "pose_loss": 0.275698
+        },
+        {
+          "gripper_mse_loss": 0.215087,
+          "loss": 0.49002,
+          "pose_loss": 0.274933
+        },
+        {
+          "gripper_mse_loss": 0.215594,
+          "loss": 0.490167,
+          "pose_loss": 0.274573
+        },
+        {
+          "gripper_mse_loss": 0.214869,
+          "loss": 0.489223,
+          "pose_loss": 0.274354
+        },
+        {
+          "gripper_mse_loss": 0.2142,
+          "loss": 0.488136,
+          "pose_loss": 0.273935
+        },
+        {
+          "gripper_mse_loss": 0.214073,
+          "loss": 0.487601,
+          "pose_loss": 0.273528
+        },
+        {
+          "gripper_mse_loss": 0.213294,
+          "loss": 0.486438,
+          "pose_loss": 0.273144
+        },
+        {
+          "gripper_mse_loss": 0.213114,
+          "loss": 0.485943,
+          "pose_loss": 0.272829
+        },
+        {
+          "gripper_mse_loss": 0.212806,
+          "loss": 0.485176,
+          "pose_loss": 0.27237
+        },
+        {
+          "gripper_mse_loss": 0.212,
+          "loss": 0.484008,
+          "pose_loss": 0.272008
+        },
+        {
+          "gripper_mse_loss": 0.212019,
+          "loss": 0.483771,
+          "pose_loss": 0.271752
+        },
+        {
+          "gripper_mse_loss": 0.211664,
+          "loss": 0.482897,
+          "pose_loss": 0.271233
+        },
+        {
+          "gripper_mse_loss": 0.2108,
+          "loss": 0.481586,
+          "pose_loss": 0.270785
+        },
+        {
+          "gripper_mse_loss": 0.210817,
+          "loss": 0.481425,
+          "pose_loss": 0.270608
+        },
+        {
+          "gripper_mse_loss": 0.210622,
+          "loss": 0.480816,
+          "pose_loss": 0.270194
+        },
+        {
+          "gripper_mse_loss": 0.209757,
+          "loss": 0.479433,
+          "pose_loss": 0.269676
+        },
+        {
+          "gripper_mse_loss": 0.209602,
+          "loss": 0.479015,
+          "pose_loss": 0.269413
+        },
+        {
+          "gripper_mse_loss": 0.209529,
+          "loss": 0.478652,
+          "pose_loss": 0.269124
+        },
+        {
+          "gripper_mse_loss": 0.208766,
+          "loss": 0.477381,
+          "pose_loss": 0.268616
+        },
+        {
+          "gripper_mse_loss": 0.208378,
+          "loss": 0.476612,
+          "pose_loss": 0.268235
+        },
+        {
+          "gripper_mse_loss": 0.208395,
+          "loss": 0.476394,
+          "pose_loss": 0.267999
+        },
+        {
+          "gripper_mse_loss": 0.207884,
+          "loss": 0.475486,
+          "pose_loss": 0.267601
+        },
+        {
+          "gripper_mse_loss": 0.207288,
+          "loss": 0.474432,
+          "pose_loss": 0.267144
+        },
+        {
+          "gripper_mse_loss": 0.207156,
+          "loss": 0.473993,
+          "pose_loss": 0.266837
+        },
+        {
+          "gripper_mse_loss": 0.206905,
+          "loss": 0.473421,
+          "pose_loss": 0.266515
+        },
+        {
+          "gripper_mse_loss": 0.206337,
+          "loss": 0.472418,
+          "pose_loss": 0.266081
+        },
+        {
+          "gripper_mse_loss": 0.205965,
+          "loss": 0.471657,
+          "pose_loss": 0.265692
+        },
+        {
+          "gripper_mse_loss": 0.205776,
+          "loss": 0.471148,
+          "pose_loss": 0.265372
+        },
+        {
+          "gripper_mse_loss": 0.205391,
+          "loss": 0.470415,
+          "pose_loss": 0.265024
+        },
+        {
+          "gripper_mse_loss": 0.204934,
+          "loss": 0.469569,
+          "pose_loss": 0.264635
+        },
+        {
+          "gripper_mse_loss": 0.204638,
+          "loss": 0.468889,
+          "pose_loss": 0.26425
+        },
+        {
+          "gripper_mse_loss": 0.204334,
+          "loss": 0.468248,
+          "pose_loss": 0.263914
+        },
+        {
+          "gripper_mse_loss": 0.203938,
+          "loss": 0.467505,
+          "pose_loss": 0.263567
+        },
+        {
+          "gripper_mse_loss": 0.203565,
+          "loss": 0.466763,
+          "pose_loss": 0.263198
+        },
+        {
+          "gripper_mse_loss": 0.203261,
+          "loss": 0.466085,
+          "pose_loss": 0.262824
+        },
+        {
+          "gripper_mse_loss": 0.202935,
+          "loss": 0.465391,
+          "pose_loss": 0.262456
+        },
+        {
+          "gripper_mse_loss": 0.202555,
+          "loss": 0.464666,
+          "pose_loss": 0.262111
+        },
+        {
+          "gripper_mse_loss": 0.202209,
+          "loss": 0.463991,
+          "pose_loss": 0.261782
+        },
+        {
+          "gripper_mse_loss": 0.201946,
+          "loss": 0.463397,
+          "pose_loss": 0.26145
+        },
+        {
+          "gripper_mse_loss": 0.201656,
+          "loss": 0.462859,
+          "pose_loss": 0.261203
+        },
+        {
+          "gripper_mse_loss": 0.201414,
+          "loss": 0.462409,
+          "pose_loss": 0.260995
+        },
+        {
+          "gripper_mse_loss": 0.201313,
+          "loss": 0.462246,
+          "pose_loss": 0.260933
+        },
+        {
+          "gripper_mse_loss": 0.201591,
+          "loss": 0.462593,
+          "pose_loss": 0.261002
+        },
+        {
+          "gripper_mse_loss": 0.202381,
+          "loss": 0.463812,
+          "pose_loss": 0.261431
+        },
+        {
+          "gripper_mse_loss": 0.203596,
+          "loss": 0.46555,
+          "pose_loss": 0.261954
+        },
+        {
+          "gripper_mse_loss": 0.204729,
+          "loss": 0.467307,
+          "pose_loss": 0.262578
+        },
+        {
+          "gripper_mse_loss": 0.204172,
+          "loss": 0.465864,
+          "pose_loss": 0.261693
+        },
+        {
+          "gripper_mse_loss": 0.201775,
+          "loss": 0.461793,
+          "pose_loss": 0.260018
+        },
+        {
+          "gripper_mse_loss": 0.199442,
+          "loss": 0.457771,
+          "pose_loss": 0.258329
+        },
+        {
+          "gripper_mse_loss": 0.198961,
+          "loss": 0.457013,
+          "pose_loss": 0.258052
+        },
+        {
+          "gripper_mse_loss": 0.19938,
+          "loss": 0.458026,
+          "pose_loss": 0.258645
+        },
+        {
+          "gripper_mse_loss": 0.198934,
+          "loss": 0.457465,
+          "pose_loss": 0.258531
+        },
+        {
+          "gripper_mse_loss": 0.197807,
+          "loss": 0.455187,
+          "pose_loss": 0.25738
+        },
+        {
+          "gripper_mse_loss": 0.197233,
+          "loss": 0.45362,
+          "pose_loss": 0.256387
+        },
+        {
+          "gripper_mse_loss": 0.197616,
+          "loss": 0.454202,
+          "pose_loss": 0.256586
+        },
+        {
+          "gripper_mse_loss": 0.197966,
+          "loss": 0.455059,
+          "pose_loss": 0.257093
+        },
+        {
+          "gripper_mse_loss": 0.197453,
+          "loss": 0.454004,
+          "pose_loss": 0.256551
+        },
+        {
+          "gripper_mse_loss": 0.196359,
+          "loss": 0.45169,
+          "pose_loss": 0.255331
+        },
+        {
+          "gripper_mse_loss": 0.195613,
+          "loss": 0.45026,
+          "pose_loss": 0.254647
+        },
+        {
+          "gripper_mse_loss": 0.195451,
+          "loss": 0.450164,
+          "pose_loss": 0.254714
+        },
+        {
+          "gripper_mse_loss": 0.195308,
+          "loss": 0.44996,
+          "pose_loss": 0.254651
+        },
+        {
+          "gripper_mse_loss": 0.19465,
+          "loss": 0.448636,
+          "pose_loss": 0.253986
+        },
+        {
+          "gripper_mse_loss": 0.193813,
+          "loss": 0.447059,
+          "pose_loss": 0.253245
+        },
+        {
+          "gripper_mse_loss": 0.193379,
+          "loss": 0.44631,
+          "pose_loss": 0.252932
+        },
+        {
+          "gripper_mse_loss": 0.193388,
+          "loss": 0.446266,
+          "pose_loss": 0.252879
+        },
+        {
+          "gripper_mse_loss": 0.193282,
+          "loss": 0.44598,
+          "pose_loss": 0.252698
+        },
+        {
+          "gripper_mse_loss": 0.192843,
+          "loss": 0.445021,
+          "pose_loss": 0.252178
+        },
+        {
+          "gripper_mse_loss": 0.192359,
+          "loss": 0.444014,
+          "pose_loss": 0.251655
+        },
+        {
+          "gripper_mse_loss": 0.192208,
+          "loss": 0.443623,
+          "pose_loss": 0.251414
+        },
+        {
+          "gripper_mse_loss": 0.192489,
+          "loss": 0.443871,
+          "pose_loss": 0.251382
+        },
+        {
+          "gripper_mse_loss": 0.193025,
+          "loss": 0.44447,
+          "pose_loss": 0.251444
+        },
+        {
+          "gripper_mse_loss": 0.194221,
+          "loss": 0.445632,
+          "pose_loss": 0.251411
+        },
+        {
+          "gripper_mse_loss": 0.196828,
+          "loss": 0.448458,
+          "pose_loss": 0.25163
+        },
+        {
+          "gripper_mse_loss": 0.202201,
+          "loss": 0.454522,
+          "pose_loss": 0.252321
+        },
+        {
+          "gripper_mse_loss": 0.210606,
+          "loss": 0.464603,
+          "pose_loss": 0.253997
+        },
+        {
+          "gripper_mse_loss": 0.21842,
+          "loss": 0.474158,
+          "pose_loss": 0.255739
+        },
+        {
+          "gripper_mse_loss": 0.216854,
+          "loss": 0.472422,
+          "pose_loss": 0.255568
+        },
+        {
+          "gripper_mse_loss": 0.201953,
+          "loss": 0.454023,
+          "pose_loss": 0.25207
+        },
+        {
+          "gripper_mse_loss": 0.189354,
+          "loss": 0.437984,
+          "pose_loss": 0.248631
+        },
+        {
+          "gripper_mse_loss": 0.192725,
+          "loss": 0.441733,
+          "pose_loss": 0.249008
+        },
+        {
+          "gripper_mse_loss": 0.202103,
+          "loss": 0.45328,
+          "pose_loss": 0.251177
+        },
+        {
+          "gripper_mse_loss": 0.200269,
+          "loss": 0.451135,
+          "pose_loss": 0.250865
+        },
+        {
+          "gripper_mse_loss": 0.190159,
+          "loss": 0.438237,
+          "pose_loss": 0.248078
+        },
+        {
+          "gripper_mse_loss": 0.188434,
+          "loss": 0.435671,
+          "pose_loss": 0.247237
+        },
+        {
+          "gripper_mse_loss": 0.194712,
+          "loss": 0.443496,
+          "pose_loss": 0.248785
+        },
+        {
+          "gripper_mse_loss": 0.195044,
+          "loss": 0.443665,
+          "pose_loss": 0.248622
+        },
+        {
+          "gripper_mse_loss": 0.188436,
+          "loss": 0.435202,
+          "pose_loss": 0.246766
+        },
+        {
+          "gripper_mse_loss": 0.186923,
+          "loss": 0.433192,
+          "pose_loss": 0.246269
+        },
+        {
+          "gripper_mse_loss": 0.191012,
+          "loss": 0.438076,
+          "pose_loss": 0.247065
+        },
+        {
+          "gripper_mse_loss": 0.190884,
+          "loss": 0.437581,
+          "pose_loss": 0.246697
+        },
+        {
+          "gripper_mse_loss": 0.18653,
+          "loss": 0.431956,
+          "pose_loss": 0.245426
+        },
+        {
+          "gripper_mse_loss": 0.185852,
+          "loss": 0.431132,
+          "pose_loss": 0.245279
+        },
+        {
+          "gripper_mse_loss": 0.188363,
+          "loss": 0.434018,
+          "pose_loss": 0.245656
+        },
+        {
+          "gripper_mse_loss": 0.187822,
+          "loss": 0.432849,
+          "pose_loss": 0.245027
+        },
+        {
+          "gripper_mse_loss": 0.184921,
+          "loss": 0.429162,
+          "pose_loss": 0.244242
+        },
+        {
+          "gripper_mse_loss": 0.184666,
+          "loss": 0.428906,
+          "pose_loss": 0.24424
+        },
+        {
+          "gripper_mse_loss": 0.186159,
+          "loss": 0.430454,
+          "pose_loss": 0.244295
+        },
+        {
+          "gripper_mse_loss": 0.185526,
+          "loss": 0.429269,
+          "pose_loss": 0.243743
+        },
+        {
+          "gripper_mse_loss": 0.183673,
+          "loss": 0.426751,
+          "pose_loss": 0.243079
+        },
+        {
+          "gripper_mse_loss": 0.183382,
+          "loss": 0.426424,
+          "pose_loss": 0.243042
+        },
+        {
+          "gripper_mse_loss": 0.18416,
+          "loss": 0.427226,
+          "pose_loss": 0.243066
+        },
+        {
+          "gripper_mse_loss": 0.183847,
+          "loss": 0.426393,
+          "pose_loss": 0.242546
+        },
+        {
+          "gripper_mse_loss": 0.182574,
+          "loss": 0.424556,
+          "pose_loss": 0.241982
+        },
+        {
+          "gripper_mse_loss": 0.182102,
+          "loss": 0.423904,
+          "pose_loss": 0.241803
+        },
+        {
+          "gripper_mse_loss": 0.1824,
+          "loss": 0.424197,
+          "pose_loss": 0.241797
+        },
+        {
+          "gripper_mse_loss": 0.182283,
+          "loss": 0.423747,
+          "pose_loss": 0.241464
+        },
+        {
+          "gripper_mse_loss": 0.181588,
+          "loss": 0.422494,
+          "pose_loss": 0.240905
+        },
+        {
+          "gripper_mse_loss": 0.180975,
+          "loss": 0.421633,
+          "pose_loss": 0.240658
+        },
+        {
+          "gripper_mse_loss": 0.18086,
+          "loss": 0.421406,
+          "pose_loss": 0.240546
+        },
+        {
+          "gripper_mse_loss": 0.180765,
+          "loss": 0.421054,
+          "pose_loss": 0.240289
+        },
+        {
+          "gripper_mse_loss": 0.180381,
+          "loss": 0.420283,
+          "pose_loss": 0.239902
+        },
+        {
+          "gripper_mse_loss": 0.179969,
+          "loss": 0.419524,
+          "pose_loss": 0.239555
+        },
+        {
+          "gripper_mse_loss": 0.179649,
+          "loss": 0.419032,
+          "pose_loss": 0.239384
+        },
+        {
+          "gripper_mse_loss": 0.179418,
+          "loss": 0.418564,
+          "pose_loss": 0.239146
+        },
+        {
+          "gripper_mse_loss": 0.179074,
+          "loss": 0.417904,
+          "pose_loss": 0.23883
+        },
+        {
+          "gripper_mse_loss": 0.178707,
+          "loss": 0.417203,
+          "pose_loss": 0.238496
+        },
+        {
+          "gripper_mse_loss": 0.178466,
+          "loss": 0.416684,
+          "pose_loss": 0.238218
+        },
+        {
+          "gripper_mse_loss": 0.17824,
+          "loss": 0.416285,
+          "pose_loss": 0.238044
+        },
+        {
+          "gripper_mse_loss": 0.177979,
+          "loss": 0.415767,
+          "pose_loss": 0.237788
+        },
+        {
+          "gripper_mse_loss": 0.177563,
+          "loss": 0.415059,
+          "pose_loss": 0.237496
+        },
+        {
+          "gripper_mse_loss": 0.177168,
+          "loss": 0.414333,
+          "pose_loss": 0.237165
+        },
+        {
+          "gripper_mse_loss": 0.176878,
+          "loss": 0.41377,
+          "pose_loss": 0.236893
+        },
+        {
+          "gripper_mse_loss": 0.176658,
+          "loss": 0.413356,
+          "pose_loss": 0.236698
+        },
+        {
+          "gripper_mse_loss": 0.176465,
+          "loss": 0.412929,
+          "pose_loss": 0.236464
+        },
+        {
+          "gripper_mse_loss": 0.17615,
+          "loss": 0.412365,
+          "pose_loss": 0.236215
+        },
+        {
+          "gripper_mse_loss": 0.175802,
+          "loss": 0.411685,
+          "pose_loss": 0.235883
+        },
+        {
+          "gripper_mse_loss": 0.175412,
+          "loss": 0.411003,
+          "pose_loss": 0.235591
+        },
+        {
+          "gripper_mse_loss": 0.175089,
+          "loss": 0.410408,
+          "pose_loss": 0.235319
+        },
+        {
+          "gripper_mse_loss": 0.174813,
+          "loss": 0.409904,
+          "pose_loss": 0.235091
+        },
+        {
+          "gripper_mse_loss": 0.174563,
+          "loss": 0.409433,
+          "pose_loss": 0.234869
+        },
+        {
+          "gripper_mse_loss": 0.174316,
+          "loss": 0.408941,
+          "pose_loss": 0.234625
+        },
+        {
+          "gripper_mse_loss": 0.174031,
+          "loss": 0.408411,
+          "pose_loss": 0.234381
+        },
+        {
+          "gripper_mse_loss": 0.173757,
+          "loss": 0.407872,
+          "pose_loss": 0.234115
+        },
+        {
+          "gripper_mse_loss": 0.173492,
+          "loss": 0.407374,
+          "pose_loss": 0.233882
+        },
+        {
+          "gripper_mse_loss": 0.173307,
+          "loss": 0.406985,
+          "pose_loss": 0.233678
+        },
+        {
+          "gripper_mse_loss": 0.173229,
+          "loss": 0.406777,
+          "pose_loss": 0.233549
+        },
+        {
+          "gripper_mse_loss": 0.173364,
+          "loss": 0.406911,
+          "pose_loss": 0.233547
+        },
+        {
+          "gripper_mse_loss": 0.173837,
+          "loss": 0.407607,
+          "pose_loss": 0.23377
+        },
+        {
+          "gripper_mse_loss": 0.174973,
+          "loss": 0.409429,
+          "pose_loss": 0.234456
+        },
+        {
+          "gripper_mse_loss": 0.176934,
+          "loss": 0.412578,
+          "pose_loss": 0.235644
+        },
+        {
+          "gripper_mse_loss": 0.179901,
+          "loss": 0.417424,
+          "pose_loss": 0.237523
+        },
+        {
+          "gripper_mse_loss": 0.181673,
+          "loss": 0.419857,
+          "pose_loss": 0.238184
+        },
+        {
+          "gripper_mse_loss": 0.18075,
+          "loss": 0.417703,
+          "pose_loss": 0.236954
+        },
+        {
+          "gripper_mse_loss": 0.176823,
+          "loss": 0.410304,
+          "pose_loss": 0.233481
+        },
+        {
+          "gripper_mse_loss": 0.175237,
+          "loss": 0.407226,
+          "pose_loss": 0.231989
+        },
+        {
+          "gripper_mse_loss": 0.178458,
+          "loss": 0.412621,
+          "pose_loss": 0.234163
+        },
+        {
+          "gripper_mse_loss": 0.183898,
+          "loss": 0.420875,
+          "pose_loss": 0.236977
+        },
+        {
+          "gripper_mse_loss": 0.18771,
+          "loss": 0.42425,
+          "pose_loss": 0.23654
+        },
+        {
+          "gripper_mse_loss": 0.187533,
+          "loss": 0.420709,
+          "pose_loss": 0.233176
+        },
+        {
+          "gripper_mse_loss": 0.182067,
+          "loss": 0.414377,
+          "pose_loss": 0.23231
+        },
+        {
+          "gripper_mse_loss": 0.175101,
+          "loss": 0.408068,
+          "pose_loss": 0.232968
+        },
+        {
+          "gripper_mse_loss": 0.17211,
+          "loss": 0.404338,
+          "pose_loss": 0.232229
+        },
+        {
+          "gripper_mse_loss": 0.174235,
+          "loss": 0.404994,
+          "pose_loss": 0.230759
+        },
+        {
+          "gripper_mse_loss": 0.176366,
+          "loss": 0.406906,
+          "pose_loss": 0.23054
+        },
+        {
+          "gripper_mse_loss": 0.174026,
+          "loss": 0.405271,
+          "pose_loss": 0.231246
+        },
+        {
+          "gripper_mse_loss": 0.170684,
+          "loss": 0.401015,
+          "pose_loss": 0.230331
+        },
+        {
+          "gripper_mse_loss": 0.170725,
+          "loss": 0.399903,
+          "pose_loss": 0.229179
+        },
+        {
+          "gripper_mse_loss": 0.17208,
+          "loss": 0.402421,
+          "pose_loss": 0.230341
+        },
+        {
+          "gripper_mse_loss": 0.170335,
+          "loss": 0.400899,
+          "pose_loss": 0.230565
+        },
+        {
+          "gripper_mse_loss": 0.167369,
+          "loss": 0.396014,
+          "pose_loss": 0.228645
+        },
+        {
+          "gripper_mse_loss": 0.16819,
+          "loss": 0.396296,
+          "pose_loss": 0.228106
+        },
+        {
+          "gripper_mse_loss": 0.169732,
+          "loss": 0.399192,
+          "pose_loss": 0.22946
+        },
+        {
+          "gripper_mse_loss": 0.167721,
+          "loss": 0.397002,
+          "pose_loss": 0.229281
+        },
+        {
+          "gripper_mse_loss": 0.165958,
+          "loss": 0.393301,
+          "pose_loss": 0.227343
+        },
+        {
+          "gripper_mse_loss": 0.167192,
+          "loss": 0.394315,
+          "pose_loss": 0.227123
+        },
+        {
+          "gripper_mse_loss": 0.167907,
+          "loss": 0.395865,
+          "pose_loss": 0.227958
+        },
+        {
+          "gripper_mse_loss": 0.166154,
+          "loss": 0.393193,
+          "pose_loss": 0.227039
+        },
+        {
+          "gripper_mse_loss": 0.164732,
+          "loss": 0.390823,
+          "pose_loss": 0.226091
+        },
+        {
+          "gripper_mse_loss": 0.165514,
+          "loss": 0.392093,
+          "pose_loss": 0.226579
+        },
+        {
+          "gripper_mse_loss": 0.166184,
+          "loss": 0.392694,
+          "pose_loss": 0.22651
+        },
+        {
+          "gripper_mse_loss": 0.16496,
+          "loss": 0.390612,
+          "pose_loss": 0.225652
+        },
+        {
+          "gripper_mse_loss": 0.163901,
+          "loss": 0.389334,
+          "pose_loss": 0.225434
+        },
+        {
+          "gripper_mse_loss": 0.16422,
+          "loss": 0.389969,
+          "pose_loss": 0.225749
+        },
+        {
+          "gripper_mse_loss": 0.164523,
+          "loss": 0.389938,
+          "pose_loss": 0.225416
+        },
+        {
+          "gripper_mse_loss": 0.163866,
+          "loss": 0.388533,
+          "pose_loss": 0.224667
+        },
+        {
+          "gripper_mse_loss": 0.163084,
+          "loss": 0.387537,
+          "pose_loss": 0.224453
+        },
+        {
+          "gripper_mse_loss": 0.163098,
+          "loss": 0.387475,
+          "pose_loss": 0.224377
+        },
+        {
+          "gripper_mse_loss": 0.16323,
+          "loss": 0.387298,
+          "pose_loss": 0.224068
+        },
+        {
+          "gripper_mse_loss": 0.162723,
+          "loss": 0.386544,
+          "pose_loss": 0.223821
+        },
+        {
+          "gripper_mse_loss": 0.162106,
+          "loss": 0.385688,
+          "pose_loss": 0.223581
+        },
+        {
+          "gripper_mse_loss": 0.161827,
+          "loss": 0.385206,
+          "pose_loss": 0.223378
+        },
+        {
+          "gripper_mse_loss": 0.16179,
+          "loss": 0.384977,
+          "pose_loss": 0.223187
+        },
+        {
+          "gripper_mse_loss": 0.161636,
+          "loss": 0.384543,
+          "pose_loss": 0.222906
+        },
+        {
+          "gripper_mse_loss": 0.161205,
+          "loss": 0.383854,
+          "pose_loss": 0.222648
+        },
+        {
+          "gripper_mse_loss": 0.160846,
+          "loss": 0.383271,
+          "pose_loss": 0.222424
+        },
+        {
+          "gripper_mse_loss": 0.160614,
+          "loss": 0.382883,
+          "pose_loss": 0.22227
+        },
+        {
+          "gripper_mse_loss": 0.160416,
+          "loss": 0.382473,
+          "pose_loss": 0.222057
+        },
+        {
+          "gripper_mse_loss": 0.160209,
+          "loss": 0.381961,
+          "pose_loss": 0.221752
+        },
+        {
+          "gripper_mse_loss": 0.159905,
+          "loss": 0.381451,
+          "pose_loss": 0.221546
+        },
+        {
+          "gripper_mse_loss": 0.15961,
+          "loss": 0.380998,
+          "pose_loss": 0.221387
+        },
+        {
+          "gripper_mse_loss": 0.159329,
+          "loss": 0.380544,
+          "pose_loss": 0.221215
+        },
+        {
+          "gripper_mse_loss": 0.159093,
+          "loss": 0.380049,
+          "pose_loss": 0.220956
+        },
+        {
+          "gripper_mse_loss": 0.158911,
+          "loss": 0.379602,
+          "pose_loss": 0.220692
+        },
+        {
+          "gripper_mse_loss": 0.158718,
+          "loss": 0.379299,
+          "pose_loss": 0.220582
+        },
+        {
+          "gripper_mse_loss": 0.158631,
+          "loss": 0.379152,
+          "pose_loss": 0.220521
+        },
+        {
+          "gripper_mse_loss": 0.158844,
+          "loss": 0.379276,
+          "pose_loss": 0.220431
+        },
+        {
+          "gripper_mse_loss": 0.159784,
+          "loss": 0.380167,
+          "pose_loss": 0.220383
+        },
+        {
+          "gripper_mse_loss": 0.162459,
+          "loss": 0.383081,
+          "pose_loss": 0.220622
+        },
+        {
+          "gripper_mse_loss": 0.16877,
+          "loss": 0.390676,
+          "pose_loss": 0.221906
+        },
+        {
+          "gripper_mse_loss": 0.182115,
+          "loss": 0.407226,
+          "pose_loss": 0.225111
+        },
+        {
+          "gripper_mse_loss": 0.202861,
+          "loss": 0.433468,
+          "pose_loss": 0.230607
+        },
+        {
+          "gripper_mse_loss": 0.216385,
+          "loss": 0.450849,
+          "pose_loss": 0.234464
+        },
+        {
+          "gripper_mse_loss": 0.199416,
+          "loss": 0.429176,
+          "pose_loss": 0.229761
+        },
+        {
+          "gripper_mse_loss": 0.169657,
+          "loss": 0.391093,
+          "pose_loss": 0.221436
+        },
+        {
+          "gripper_mse_loss": 0.165034,
+          "loss": 0.386846,
+          "pose_loss": 0.221812
+        },
+        {
+          "gripper_mse_loss": 0.175091,
+          "loss": 0.400866,
+          "pose_loss": 0.225775
+        },
+        {
+          "gripper_mse_loss": 0.175823,
+          "loss": 0.399234,
+          "pose_loss": 0.223411
+        },
+        {
+          "gripper_mse_loss": 0.169332,
+          "loss": 0.39015,
+          "pose_loss": 0.220819
+        },
+        {
+          "gripper_mse_loss": 0.162121,
+          "loss": 0.384543,
+          "pose_loss": 0.222422
+        },
+        {
+          "gripper_mse_loss": 0.163131,
+          "loss": 0.384471,
+          "pose_loss": 0.22134
+        },
+        {
+          "gripper_mse_loss": 0.168898,
+          "loss": 0.388859,
+          "pose_loss": 0.219961
+        },
+        {
+          "gripper_mse_loss": 0.162306,
+          "loss": 0.383688,
+          "pose_loss": 0.221383
+        },
+        {
+          "gripper_mse_loss": 0.156339,
+          "loss": 0.376184,
+          "pose_loss": 0.219845
+        },
+        {
+          "gripper_mse_loss": 0.163645,
+          "loss": 0.381934,
+          "pose_loss": 0.21829
+        },
+        {
+          "gripper_mse_loss": 0.161679,
+          "loss": 0.382102,
+          "pose_loss": 0.220423
+        },
+        {
+          "gripper_mse_loss": 0.154627,
+          "loss": 0.373316,
+          "pose_loss": 0.218689
+        },
+        {
+          "gripper_mse_loss": 0.15907,
+          "loss": 0.376328,
+          "pose_loss": 0.217258
+        },
+        {
+          "gripper_mse_loss": 0.15951,
+          "loss": 0.37864,
+          "pose_loss": 0.21913
+        },
+        {
+          "gripper_mse_loss": 0.154189,
+          "loss": 0.371544,
+          "pose_loss": 0.217355
+        },
+        {
+          "gripper_mse_loss": 0.156402,
+          "loss": 0.373131,
+          "pose_loss": 0.216729
+        },
+        {
+          "gripper_mse_loss": 0.157229,
+          "loss": 0.375177,
+          "pose_loss": 0.217948
+        },
+        {
+          "gripper_mse_loss": 0.153562,
+          "loss": 0.369565,
+          "pose_loss": 0.216003
+        },
+        {
+          "gripper_mse_loss": 0.154621,
+          "loss": 0.371022,
+          "pose_loss": 0.216401
+        },
+        {
+          "gripper_mse_loss": 0.15547,
+          "loss": 0.372452,
+          "pose_loss": 0.216982
+        },
+        {
+          "gripper_mse_loss": 0.152783,
+          "loss": 0.367866,
+          "pose_loss": 0.215083
+        },
+        {
+          "gripper_mse_loss": 0.153055,
+          "loss": 0.368946,
+          "pose_loss": 0.215891
+        },
+        {
+          "gripper_mse_loss": 0.15397,
+          "loss": 0.369969,
+          "pose_loss": 0.215999
+        },
+        {
+          "gripper_mse_loss": 0.15222,
+          "loss": 0.366823,
+          "pose_loss": 0.214603
+        },
+        {
+          "gripper_mse_loss": 0.151832,
+          "loss": 0.367077,
+          "pose_loss": 0.215245
+        },
+        {
+          "gripper_mse_loss": 0.152474,
+          "loss": 0.367378,
+          "pose_loss": 0.214904
+        },
+        {
+          "gripper_mse_loss": 0.151638,
+          "loss": 0.365835,
+          "pose_loss": 0.214197
+        },
+        {
+          "gripper_mse_loss": 0.151138,
+          "loss": 0.36577,
+          "pose_loss": 0.214632
+        },
+        {
+          "gripper_mse_loss": 0.151224,
+          "loss": 0.365161,
+          "pose_loss": 0.213937
+        },
+        {
+          "gripper_mse_loss": 0.150759,
+          "loss": 0.364333,
+          "pose_loss": 0.213574
+        },
+        {
+          "gripper_mse_loss": 0.150593,
+          "loss": 0.364552,
+          "pose_loss": 0.213959
+        },
+        {
+          "gripper_mse_loss": 0.150446,
+          "loss": 0.363712,
+          "pose_loss": 0.213265
+        },
+        {
+          "gripper_mse_loss": 0.149861,
+          "loss": 0.362765,
+          "pose_loss": 0.212903
+        },
+        {
+          "gripper_mse_loss": 0.149848,
+          "loss": 0.362979,
+          "pose_loss": 0.213131
+        },
+        {
+          "gripper_mse_loss": 0.149832,
+          "loss": 0.36252,
+          "pose_loss": 0.212688
+        },
+        {
+          "gripper_mse_loss": 0.149185,
+          "loss": 0.361534,
+          "pose_loss": 0.212349
+        },
+        {
+          "gripper_mse_loss": 0.149052,
+          "loss": 0.361389,
+          "pose_loss": 0.212337
+        },
+        {
+          "gripper_mse_loss": 0.149145,
+          "loss": 0.361199,
+          "pose_loss": 0.212054
+        },
+        {
+          "gripper_mse_loss": 0.14857,
+          "loss": 0.36036,
+          "pose_loss": 0.21179
+        },
+        {
+          "gripper_mse_loss": 0.148293,
+          "loss": 0.35995,
+          "pose_loss": 0.211657
+        },
+        {
+          "gripper_mse_loss": 0.148453,
+          "loss": 0.359905,
+          "pose_loss": 0.211452
+        },
+        {
+          "gripper_mse_loss": 0.148025,
+          "loss": 0.359239,
+          "pose_loss": 0.211214
+        },
+        {
+          "gripper_mse_loss": 0.147556,
+          "loss": 0.358575,
+          "pose_loss": 0.211018
+        },
+        {
+          "gripper_mse_loss": 0.147618,
+          "loss": 0.358479,
+          "pose_loss": 0.210862
+        },
+        {
+          "gripper_mse_loss": 0.147434,
+          "loss": 0.35811,
+          "pose_loss": 0.210677
+        },
+        {
+          "gripper_mse_loss": 0.146997,
+          "loss": 0.357461,
+          "pose_loss": 0.210464
+        },
+        {
+          "gripper_mse_loss": 0.146834,
+          "loss": 0.357131,
+          "pose_loss": 0.210297
+        },
+        {
+          "gripper_mse_loss": 0.146639,
+          "loss": 0.356772,
+          "pose_loss": 0.210133
+        },
+        {
+          "gripper_mse_loss": 0.146329,
+          "loss": 0.356261,
+          "pose_loss": 0.209932
+        },
+        {
+          "gripper_mse_loss": 0.146176,
+          "loss": 0.35594,
+          "pose_loss": 0.209764
+        },
+        {
+          "gripper_mse_loss": 0.145966,
+          "loss": 0.355578,
+          "pose_loss": 0.209612
+        },
+        {
+          "gripper_mse_loss": 0.145632,
+          "loss": 0.355041,
+          "pose_loss": 0.209409
+        },
+        {
+          "gripper_mse_loss": 0.145423,
+          "loss": 0.354645,
+          "pose_loss": 0.209221
+        },
+        {
+          "gripper_mse_loss": 0.145281,
+          "loss": 0.354341,
+          "pose_loss": 0.20906
+        },
+        {
+          "gripper_mse_loss": 0.145014,
+          "loss": 0.353887,
+          "pose_loss": 0.208874
+        },
+        {
+          "gripper_mse_loss": 0.144722,
+          "loss": 0.353418,
+          "pose_loss": 0.208696
+        },
+        {
+          "gripper_mse_loss": 0.144551,
+          "loss": 0.353073,
+          "pose_loss": 0.208522
+        },
+        {
+          "gripper_mse_loss": 0.144369,
+          "loss": 0.352713,
+          "pose_loss": 0.208344
+        },
+        {
+          "gripper_mse_loss": 0.144081,
+          "loss": 0.352258,
+          "pose_loss": 0.208177
+        },
+        {
+          "gripper_mse_loss": 0.143831,
+          "loss": 0.351816,
+          "pose_loss": 0.207985
+        },
+        {
+          "gripper_mse_loss": 0.143628,
+          "loss": 0.351436,
+          "pose_loss": 0.207808
+        },
+        {
+          "gripper_mse_loss": 0.143406,
+          "loss": 0.351049,
+          "pose_loss": 0.207643
+        },
+        {
+          "gripper_mse_loss": 0.143176,
+          "loss": 0.35063,
+          "pose_loss": 0.207454
+        },
+        {
+          "gripper_mse_loss": 0.142945,
+          "loss": 0.350229,
+          "pose_loss": 0.207285
+        },
+        {
+          "gripper_mse_loss": 0.142724,
+          "loss": 0.349841,
+          "pose_loss": 0.207117
+        },
+        {
+          "gripper_mse_loss": 0.142492,
+          "loss": 0.34942,
+          "pose_loss": 0.206927
+        },
+        {
+          "gripper_mse_loss": 0.14226,
+          "loss": 0.348993,
+          "pose_loss": 0.206732
+        },
+        {
+          "gripper_mse_loss": 0.142043,
+          "loss": 0.348603,
+          "pose_loss": 0.206559
+        },
+        {
+          "gripper_mse_loss": 0.14182,
+          "loss": 0.348212,
+          "pose_loss": 0.206392
+        },
+        {
+          "gripper_mse_loss": 0.14158,
+          "loss": 0.347783,
+          "pose_loss": 0.206203
+        },
+        {
+          "gripper_mse_loss": 0.14134,
+          "loss": 0.347352,
+          "pose_loss": 0.206012
+        },
+        {
+          "gripper_mse_loss": 0.141113,
+          "loss": 0.34695,
+          "pose_loss": 0.205838
+        },
+        {
+          "gripper_mse_loss": 0.140886,
+          "loss": 0.34655,
+          "pose_loss": 0.205665
+        },
+        {
+          "gripper_mse_loss": 0.140655,
+          "loss": 0.346132,
+          "pose_loss": 0.205477
+        },
+        {
+          "gripper_mse_loss": 0.140424,
+          "loss": 0.345714,
+          "pose_loss": 0.205291
+        },
+        {
+          "gripper_mse_loss": 0.140191,
+          "loss": 0.345306,
+          "pose_loss": 0.205115
+        },
+        {
+          "gripper_mse_loss": 0.139964,
+          "loss": 0.344894,
+          "pose_loss": 0.20493
+        },
+        {
+          "gripper_mse_loss": 0.139722,
+          "loss": 0.344471,
+          "pose_loss": 0.204749
+        },
+        {
+          "gripper_mse_loss": 0.139482,
+          "loss": 0.344048,
+          "pose_loss": 0.204566
+        },
+        {
+          "gripper_mse_loss": 0.13925,
+          "loss": 0.343634,
+          "pose_loss": 0.204384
+        },
+        {
+          "gripper_mse_loss": 0.139018,
+          "loss": 0.343224,
+          "pose_loss": 0.204205
+        },
+        {
+          "gripper_mse_loss": 0.13879,
+          "loss": 0.34281,
+          "pose_loss": 0.20402
+        },
+        {
+          "gripper_mse_loss": 0.138552,
+          "loss": 0.342396,
+          "pose_loss": 0.203845
+        },
+        {
+          "gripper_mse_loss": 0.138329,
+          "loss": 0.341992,
+          "pose_loss": 0.203663
+        },
+        {
+          "gripper_mse_loss": 0.138115,
+          "loss": 0.341612,
+          "pose_loss": 0.203498
+        },
+        {
+          "gripper_mse_loss": 0.137944,
+          "loss": 0.341281,
+          "pose_loss": 0.203336
+        },
+        {
+          "gripper_mse_loss": 0.137836,
+          "loss": 0.341061,
+          "pose_loss": 0.203224
+        },
+        {
+          "gripper_mse_loss": 0.137934,
+          "loss": 0.341101,
+          "pose_loss": 0.203167
+        },
+        {
+          "gripper_mse_loss": 0.138468,
+          "loss": 0.341804,
+          "pose_loss": 0.203336
+        },
+        {
+          "gripper_mse_loss": 0.14006,
+          "loss": 0.343918,
+          "pose_loss": 0.203858
+        },
+        {
+          "gripper_mse_loss": 0.144005,
+          "loss": 0.349488,
+          "pose_loss": 0.205483
+        },
+        {
+          "gripper_mse_loss": 0.151415,
+          "loss": 0.359737,
+          "pose_loss": 0.208323
+        },
+        {
+          "gripper_mse_loss": 0.163119,
+          "loss": 0.376581,
+          "pose_loss": 0.213462
+        },
+        {
+          "gripper_mse_loss": 0.166303,
+          "loss": 0.38043,
+          "pose_loss": 0.214127
+        },
+        {
+          "gripper_mse_loss": 0.1588,
+          "loss": 0.369211,
+          "pose_loss": 0.210411
+        },
+        {
+          "gripper_mse_loss": 0.150529,
+          "loss": 0.355236,
+          "pose_loss": 0.204707
+        },
+        {
+          "gripper_mse_loss": 0.15463,
+          "loss": 0.360878,
+          "pose_loss": 0.206248
+        },
+        {
+          "gripper_mse_loss": 0.156963,
+          "loss": 0.367879,
+          "pose_loss": 0.210915
+        },
+        {
+          "gripper_mse_loss": 0.146409,
+          "loss": 0.354905,
+          "pose_loss": 0.208495
+        },
+        {
+          "gripper_mse_loss": 0.139069,
+          "loss": 0.341782,
+          "pose_loss": 0.202713
+        },
+        {
+          "gripper_mse_loss": 0.140537,
+          "loss": 0.344607,
+          "pose_loss": 0.20407
+        },
+        {
+          "gripper_mse_loss": 0.141625,
+          "loss": 0.348501,
+          "pose_loss": 0.206876
+        },
+        {
+          "gripper_mse_loss": 0.141579,
+          "loss": 0.345671,
+          "pose_loss": 0.204092
+        },
+        {
+          "gripper_mse_loss": 0.141128,
+          "loss": 0.344071,
+          "pose_loss": 0.202943
+        },
+        {
+          "gripper_mse_loss": 0.138499,
+          "loss": 0.34264,
+          "pose_loss": 0.204141
+        },
+        {
+          "gripper_mse_loss": 0.136413,
+          "loss": 0.338785,
+          "pose_loss": 0.202372
+        },
+        {
+          "gripper_mse_loss": 0.136885,
+          "loss": 0.338305,
+          "pose_loss": 0.20142
+        },
+        {
+          "gripper_mse_loss": 0.137452,
+          "loss": 0.339765,
+          "pose_loss": 0.202313
+        },
+        {
+          "gripper_mse_loss": 0.136707,
+          "loss": 0.338083,
+          "pose_loss": 0.201375
+        },
+        {
+          "gripper_mse_loss": 0.136302,
+          "loss": 0.336659,
+          "pose_loss": 0.200357
+        },
+        {
+          "gripper_mse_loss": 0.135773,
+          "loss": 0.336768,
+          "pose_loss": 0.200995
+        },
+        {
+          "gripper_mse_loss": 0.133942,
+          "loss": 0.334938,
+          "pose_loss": 0.200996
+        },
+        {
+          "gripper_mse_loss": 0.133171,
+          "loss": 0.332891,
+          "pose_loss": 0.199721
+        },
+        {
+          "gripper_mse_loss": 0.134365,
+          "loss": 0.333968,
+          "pose_loss": 0.199603
+        },
+        {
+          "gripper_mse_loss": 0.13423,
+          "loss": 0.334952,
+          "pose_loss": 0.200722
+        },
+        {
+          "gripper_mse_loss": 0.132322,
+          "loss": 0.332398,
+          "pose_loss": 0.200076
+        },
+        {
+          "gripper_mse_loss": 0.131836,
+          "loss": 0.330432,
+          "pose_loss": 0.198595
+        },
+        {
+          "gripper_mse_loss": 0.132574,
+          "loss": 0.331535,
+          "pose_loss": 0.198961
+        },
+        {
+          "gripper_mse_loss": 0.131956,
+          "loss": 0.331367,
+          "pose_loss": 0.199411
+        },
+        {
+          "gripper_mse_loss": 0.131095,
+          "loss": 0.329429,
+          "pose_loss": 0.198334
+        },
+        {
+          "gripper_mse_loss": 0.131639,
+          "loss": 0.329412,
+          "pose_loss": 0.197773
+        },
+        {
+          "gripper_mse_loss": 0.131918,
+          "loss": 0.330159,
+          "pose_loss": 0.198241
+        },
+        {
+          "gripper_mse_loss": 0.130846,
+          "loss": 0.328721,
+          "pose_loss": 0.197875
+        },
+        {
+          "gripper_mse_loss": 0.130018,
+          "loss": 0.32711,
+          "pose_loss": 0.197092
+        },
+        {
+          "gripper_mse_loss": 0.130204,
+          "loss": 0.327548,
+          "pose_loss": 0.197343
+        },
+        {
+          "gripper_mse_loss": 0.130319,
+          "loss": 0.327745,
+          "pose_loss": 0.197426
+        },
+        {
+          "gripper_mse_loss": 0.129878,
+          "loss": 0.326578,
+          "pose_loss": 0.1967
+        },
+        {
+          "gripper_mse_loss": 0.129508,
+          "loss": 0.326126,
+          "pose_loss": 0.196617
+        },
+        {
+          "gripper_mse_loss": 0.129335,
+          "loss": 0.326262,
+          "pose_loss": 0.196926
+        },
+        {
+          "gripper_mse_loss": 0.129095,
+          "loss": 0.325511,
+          "pose_loss": 0.196416
+        },
+        {
+          "gripper_mse_loss": 0.128728,
+          "loss": 0.32468,
+          "pose_loss": 0.195951
+        },
+        {
+          "gripper_mse_loss": 0.128459,
+          "loss": 0.324481,
+          "pose_loss": 0.196021
+        },
+        {
+          "gripper_mse_loss": 0.128304,
+          "loss": 0.324188,
+          "pose_loss": 0.195884
+        },
+        {
+          "gripper_mse_loss": 0.128113,
+          "loss": 0.323647,
+          "pose_loss": 0.195533
+        },
+        {
+          "gripper_mse_loss": 0.12797,
+          "loss": 0.3233,
+          "pose_loss": 0.195331
+        },
+        {
+          "gripper_mse_loss": 0.127889,
+          "loss": 0.323131,
+          "pose_loss": 0.195242
+        },
+        {
+          "gripper_mse_loss": 0.127691,
+          "loss": 0.322758,
+          "pose_loss": 0.195067
+        },
+        {
+          "gripper_mse_loss": 0.127386,
+          "loss": 0.322167,
+          "pose_loss": 0.194781
+        },
+        {
+          "gripper_mse_loss": 0.127117,
+          "loss": 0.321786,
+          "pose_loss": 0.194669
+        },
+        {
+          "gripper_mse_loss": 0.126938,
+          "loss": 0.321572,
+          "pose_loss": 0.194634
+        },
+        {
+          "gripper_mse_loss": 0.126757,
+          "loss": 0.321121,
+          "pose_loss": 0.194364
+        },
+        {
+          "gripper_mse_loss": 0.126448,
+          "loss": 0.320551,
+          "pose_loss": 0.194103
+        },
+        {
+          "gripper_mse_loss": 0.12621,
+          "loss": 0.320173,
+          "pose_loss": 0.193964
+        },
+        {
+          "gripper_mse_loss": 0.126068,
+          "loss": 0.319899,
+          "pose_loss": 0.193831
+        },
+        {
+          "gripper_mse_loss": 0.125877,
+          "loss": 0.319542,
+          "pose_loss": 0.193665
+        },
+        {
+          "gripper_mse_loss": 0.12562,
+          "loss": 0.319097,
+          "pose_loss": 0.193477
+        },
+        {
+          "gripper_mse_loss": 0.125344,
+          "loss": 0.318666,
+          "pose_loss": 0.193322
+        },
+        {
+          "gripper_mse_loss": 0.125167,
+          "loss": 0.318333,
+          "pose_loss": 0.193167
+        },
+        {
+          "gripper_mse_loss": 0.125044,
+          "loss": 0.318045,
+          "pose_loss": 0.193001
+        },
+        {
+          "gripper_mse_loss": 0.124843,
+          "loss": 0.317685,
+          "pose_loss": 0.192842
+        },
+        {
+          "gripper_mse_loss": 0.124643,
+          "loss": 0.31729,
+          "pose_loss": 0.192647
+        },
+        {
+          "gripper_mse_loss": 0.124468,
+          "loss": 0.316966,
+          "pose_loss": 0.192498
+        },
+        {
+          "gripper_mse_loss": 0.124362,
+          "loss": 0.316721,
+          "pose_loss": 0.192359
+        },
+        {
+          "gripper_mse_loss": 0.124317,
+          "loss": 0.316532,
+          "pose_loss": 0.192215
+        },
+        {
+          "gripper_mse_loss": 0.124369,
+          "loss": 0.31648,
+          "pose_loss": 0.192111
+        },
+        {
+          "gripper_mse_loss": 0.124742,
+          "loss": 0.316781,
+          "pose_loss": 0.192039
+        },
+        {
+          "gripper_mse_loss": 0.125785,
+          "loss": 0.31784,
+          "pose_loss": 0.192054
+        },
+        {
+          "gripper_mse_loss": 0.128195,
+          "loss": 0.320473,
+          "pose_loss": 0.192278
+        },
+        {
+          "gripper_mse_loss": 0.133502,
+          "loss": 0.326386,
+          "pose_loss": 0.192884
+        },
+        {
+          "gripper_mse_loss": 0.144442,
+          "loss": 0.3388,
+          "pose_loss": 0.194359
+        },
+        {
+          "gripper_mse_loss": 0.163933,
+          "loss": 0.36113,
+          "pose_loss": 0.197197
+        },
+        {
+          "gripper_mse_loss": 0.189516,
+          "loss": 0.390506,
+          "pose_loss": 0.20099
+        },
+        {
+          "gripper_mse_loss": 0.199591,
+          "loss": 0.402612,
+          "pose_loss": 0.203021
+        },
+        {
+          "gripper_mse_loss": 0.172056,
+          "loss": 0.371713,
+          "pose_loss": 0.199657
+        },
+        {
+          "gripper_mse_loss": 0.131548,
+          "loss": 0.325573,
+          "pose_loss": 0.194024
+        },
+        {
+          "gripper_mse_loss": 0.129255,
+          "loss": 0.321457,
+          "pose_loss": 0.192202
+        },
+        {
+          "gripper_mse_loss": 0.152326,
+          "loss": 0.347778,
+          "pose_loss": 0.195452
+        },
+        {
+          "gripper_mse_loss": 0.150804,
+          "loss": 0.348303,
+          "pose_loss": 0.197499
+        },
+        {
+          "gripper_mse_loss": 0.129039,
+          "loss": 0.323493,
+          "pose_loss": 0.194454
+        },
+        {
+          "gripper_mse_loss": 0.127933,
+          "loss": 0.319702,
+          "pose_loss": 0.191768
+        },
+        {
+          "gripper_mse_loss": 0.139051,
+          "loss": 0.333211,
+          "pose_loss": 0.19416
+        },
+        {
+          "gripper_mse_loss": 0.133792,
+          "loss": 0.329264,
+          "pose_loss": 0.195472
+        },
+        {
+          "gripper_mse_loss": 0.125245,
+          "loss": 0.317455,
+          "pose_loss": 0.19221
+        },
+        {
+          "gripper_mse_loss": 0.128599,
+          "loss": 0.320329,
+          "pose_loss": 0.19173
+        },
+        {
+          "gripper_mse_loss": 0.130196,
+          "loss": 0.323999,
+          "pose_loss": 0.193803
+        },
+        {
+          "gripper_mse_loss": 0.125533,
+          "loss": 0.317602,
+          "pose_loss": 0.192068
+        },
+        {
+          "gripper_mse_loss": 0.124885,
+          "loss": 0.31566,
+          "pose_loss": 0.190774
+        },
+        {
+          "gripper_mse_loss": 0.125956,
+          "loss": 0.318313,
+          "pose_loss": 0.192357
+        },
+        {
+          "gripper_mse_loss": 0.123782,
+          "loss": 0.314992,
+          "pose_loss": 0.19121
+        },
+        {
+          "gripper_mse_loss": 0.123188,
+          "loss": 0.313193,
+          "pose_loss": 0.190005
+        },
+        {
+          "gripper_mse_loss": 0.123885,
+          "loss": 0.315351,
+          "pose_loss": 0.191466
+        },
+        {
+          "gripper_mse_loss": 0.122157,
+          "loss": 0.312654,
+          "pose_loss": 0.190497
+        },
+        {
+          "gripper_mse_loss": 0.121427,
+          "loss": 0.310537,
+          "pose_loss": 0.189111
+        },
+        {
+          "gripper_mse_loss": 0.122573,
+          "loss": 0.312933,
+          "pose_loss": 0.19036
+        },
+        {
+          "gripper_mse_loss": 0.121493,
+          "loss": 0.311517,
+          "pose_loss": 0.190024
+        },
+        {
+          "gripper_mse_loss": 0.119955,
+          "loss": 0.308479,
+          "pose_loss": 0.188524
+        },
+        {
+          "gripper_mse_loss": 0.120804,
+          "loss": 0.309865,
+          "pose_loss": 0.189061
+        },
+        {
+          "gripper_mse_loss": 0.120943,
+          "loss": 0.310375,
+          "pose_loss": 0.189433
+        },
+        {
+          "gripper_mse_loss": 0.119272,
+          "loss": 0.307659,
+          "pose_loss": 0.188387
+        },
+        {
+          "gripper_mse_loss": 0.119117,
+          "loss": 0.307044,
+          "pose_loss": 0.187928
+        },
+        {
+          "gripper_mse_loss": 0.11995,
+          "loss": 0.308413,
+          "pose_loss": 0.188463
+        },
+        {
+          "gripper_mse_loss": 0.119161,
+          "loss": 0.307442,
+          "pose_loss": 0.188281
+        },
+        {
+          "gripper_mse_loss": 0.118223,
+          "loss": 0.305518,
+          "pose_loss": 0.187295
+        },
+        {
+          "gripper_mse_loss": 0.118643,
+          "loss": 0.305984,
+          "pose_loss": 0.187342
+        },
+        {
+          "gripper_mse_loss": 0.118801,
+          "loss": 0.306611,
+          "pose_loss": 0.187809
+        },
+        {
+          "gripper_mse_loss": 0.118047,
+          "loss": 0.305102,
+          "pose_loss": 0.187055
+        },
+        {
+          "gripper_mse_loss": 0.117631,
+          "loss": 0.304141,
+          "pose_loss": 0.18651
+        },
+        {
+          "gripper_mse_loss": 0.117877,
+          "loss": 0.304821,
+          "pose_loss": 0.186944
+        },
+        {
+          "gripper_mse_loss": 0.117857,
+          "loss": 0.304623,
+          "pose_loss": 0.186766
+        },
+        {
+          "gripper_mse_loss": 0.11726,
+          "loss": 0.303377,
+          "pose_loss": 0.186118
+        },
+        {
+          "gripper_mse_loss": 0.116963,
+          "loss": 0.303027,
+          "pose_loss": 0.186063
+        },
+        {
+          "gripper_mse_loss": 0.117152,
+          "loss": 0.303331,
+          "pose_loss": 0.186179
+        },
+        {
+          "gripper_mse_loss": 0.11704,
+          "loss": 0.302925,
+          "pose_loss": 0.185884
+        },
+        {
+          "gripper_mse_loss": 0.116555,
+          "loss": 0.302076,
+          "pose_loss": 0.185521
+        },
+        {
+          "gripper_mse_loss": 0.116299,
+          "loss": 0.301788,
+          "pose_loss": 0.185489
+        },
+        {
+          "gripper_mse_loss": 0.116423,
+          "loss": 0.301877,
+          "pose_loss": 0.185454
+        },
+        {
+          "gripper_mse_loss": 0.116325,
+          "loss": 0.301511,
+          "pose_loss": 0.185186
+        },
+        {
+          "gripper_mse_loss": 0.11584,
+          "loss": 0.300821,
+          "pose_loss": 0.184981
+        },
+        {
+          "gripper_mse_loss": 0.11567,
+          "loss": 0.300545,
+          "pose_loss": 0.184875
+        },
+        {
+          "gripper_mse_loss": 0.115781,
+          "loss": 0.300539,
+          "pose_loss": 0.184758
+        },
+        {
+          "gripper_mse_loss": 0.115569,
+          "loss": 0.300169,
+          "pose_loss": 0.1846
+        },
+        {
+          "gripper_mse_loss": 0.115218,
+          "loss": 0.29961,
+          "pose_loss": 0.184392
+        },
+        {
+          "gripper_mse_loss": 0.115087,
+          "loss": 0.299358,
+          "pose_loss": 0.18427
+        },
+        {
+          "gripper_mse_loss": 0.115077,
+          "loss": 0.299239,
+          "pose_loss": 0.184162
+        },
+        {
+          "gripper_mse_loss": 0.114893,
+          "loss": 0.29889,
+          "pose_loss": 0.183996
+        },
+        {
+          "gripper_mse_loss": 0.114588,
+          "loss": 0.298444,
+          "pose_loss": 0.183856
+        },
+        {
+          "gripper_mse_loss": 0.114473,
+          "loss": 0.298172,
+          "pose_loss": 0.183699
+        },
+        {
+          "gripper_mse_loss": 0.114414,
+          "loss": 0.297988,
+          "pose_loss": 0.183574
+        },
+        {
+          "gripper_mse_loss": 0.114216,
+          "loss": 0.297676,
+          "pose_loss": 0.18346
+        },
+        {
+          "gripper_mse_loss": 0.113993,
+          "loss": 0.297283,
+          "pose_loss": 0.183289
+        },
+        {
+          "gripper_mse_loss": 0.113834,
+          "loss": 0.296989,
+          "pose_loss": 0.183155
+        },
+        {
+          "gripper_mse_loss": 0.113744,
+          "loss": 0.296777,
+          "pose_loss": 0.183033
+        },
+        {
+          "gripper_mse_loss": 0.113602,
+          "loss": 0.296497,
+          "pose_loss": 0.182895
+        },
+        {
+          "gripper_mse_loss": 0.11338,
+          "loss": 0.296141,
+          "pose_loss": 0.182761
+        },
+        {
+          "gripper_mse_loss": 0.113208,
+          "loss": 0.295824,
+          "pose_loss": 0.182616
+        },
+        {
+          "gripper_mse_loss": 0.113084,
+          "loss": 0.295573,
+          "pose_loss": 0.182488
+        },
+        {
+          "gripper_mse_loss": 0.112963,
+          "loss": 0.295317,
+          "pose_loss": 0.182355
+        },
+        {
+          "gripper_mse_loss": 0.112804,
+          "loss": 0.29502,
+          "pose_loss": 0.182216
+        },
+        {
+          "gripper_mse_loss": 0.112607,
+          "loss": 0.294701,
+          "pose_loss": 0.182094
+        },
+        {
+          "gripper_mse_loss": 0.112447,
+          "loss": 0.294395,
+          "pose_loss": 0.181948
+        },
+        {
+          "gripper_mse_loss": 0.112317,
+          "loss": 0.294122,
+          "pose_loss": 0.181805
+        },
+        {
+          "gripper_mse_loss": 0.112185,
+          "loss": 0.293867,
+          "pose_loss": 0.181682
+        },
+        {
+          "gripper_mse_loss": 0.112037,
+          "loss": 0.29359,
+          "pose_loss": 0.181553
+        },
+        {
+          "gripper_mse_loss": 0.111864,
+          "loss": 0.29328,
+          "pose_loss": 0.181415
+        },
+        {
+          "gripper_mse_loss": 0.111703,
+          "loss": 0.29297,
+          "pose_loss": 0.181268
+        },
+        {
+          "gripper_mse_loss": 0.111561,
+          "loss": 0.292691,
+          "pose_loss": 0.18113
+        },
+        {
+          "gripper_mse_loss": 0.11142,
+          "loss": 0.29243,
+          "pose_loss": 0.18101
+        },
+        {
+          "gripper_mse_loss": 0.111282,
+          "loss": 0.292157,
+          "pose_loss": 0.180875
+        },
+        {
+          "gripper_mse_loss": 0.111125,
+          "loss": 0.291863,
+          "pose_loss": 0.180738
+        },
+        {
+          "gripper_mse_loss": 0.110968,
+          "loss": 0.291566,
+          "pose_loss": 0.180598
+        },
+        {
+          "gripper_mse_loss": 0.11082,
+          "loss": 0.291281,
+          "pose_loss": 0.180461
+        },
+        {
+          "gripper_mse_loss": 0.110668,
+          "loss": 0.291006,
+          "pose_loss": 0.180337
+        },
+        {
+          "gripper_mse_loss": 0.110529,
+          "loss": 0.290729,
+          "pose_loss": 0.1802
+        },
+        {
+          "gripper_mse_loss": 0.110376,
+          "loss": 0.290446,
+          "pose_loss": 0.180069
+        },
+        {
+          "gripper_mse_loss": 0.110231,
+          "loss": 0.290159,
+          "pose_loss": 0.179928
+        },
+        {
+          "gripper_mse_loss": 0.110081,
+          "loss": 0.289875,
+          "pose_loss": 0.179794
+        },
+        {
+          "gripper_mse_loss": 0.10993,
+          "loss": 0.289593,
+          "pose_loss": 0.179663
+        },
+        {
+          "gripper_mse_loss": 0.109787,
+          "loss": 0.289314,
+          "pose_loss": 0.179527
+        },
+        {
+          "gripper_mse_loss": 0.109637,
+          "loss": 0.289036,
+          "pose_loss": 0.179399
+        },
+        {
+          "gripper_mse_loss": 0.109499,
+          "loss": 0.288758,
+          "pose_loss": 0.179259
+        },
+        {
+          "gripper_mse_loss": 0.109346,
+          "loss": 0.288478,
+          "pose_loss": 0.179131
+        },
+        {
+          "gripper_mse_loss": 0.109202,
+          "loss": 0.288193,
+          "pose_loss": 0.178991
+        },
+        {
+          "gripper_mse_loss": 0.109047,
+          "loss": 0.287907,
+          "pose_loss": 0.178861
+        },
+        {
+          "gripper_mse_loss": 0.1089,
+          "loss": 0.287624,
+          "pose_loss": 0.178724
+        },
+        {
+          "gripper_mse_loss": 0.108753,
+          "loss": 0.287345,
+          "pose_loss": 0.178591
+        },
+        {
+          "gripper_mse_loss": 0.108608,
+          "loss": 0.287067,
+          "pose_loss": 0.178459
+        },
+        {
+          "gripper_mse_loss": 0.108465,
+          "loss": 0.286789,
+          "pose_loss": 0.178324
+        },
+        {
+          "gripper_mse_loss": 0.108316,
+          "loss": 0.28651,
+          "pose_loss": 0.178194
+        },
+        {
+          "gripper_mse_loss": 0.108172,
+          "loss": 0.286229,
+          "pose_loss": 0.178057
+        },
+        {
+          "gripper_mse_loss": 0.108021,
+          "loss": 0.285949,
+          "pose_loss": 0.177928
+        },
+        {
+          "gripper_mse_loss": 0.107878,
+          "loss": 0.285669,
+          "pose_loss": 0.177791
+        },
+        {
+          "gripper_mse_loss": 0.107728,
+          "loss": 0.285388,
+          "pose_loss": 0.17766
+        },
+        {
+          "gripper_mse_loss": 0.107584,
+          "loss": 0.285108,
+          "pose_loss": 0.177524
+        },
+        {
+          "gripper_mse_loss": 0.107435,
+          "loss": 0.284828,
+          "pose_loss": 0.177392
+        },
+        {
+          "gripper_mse_loss": 0.107291,
+          "loss": 0.284548,
+          "pose_loss": 0.177257
+        },
+        {
+          "gripper_mse_loss": 0.107145,
+          "loss": 0.284271,
+          "pose_loss": 0.177126
+        },
+        {
+          "gripper_mse_loss": 0.107003,
+          "loss": 0.283994,
+          "pose_loss": 0.176991
+        },
+        {
+          "gripper_mse_loss": 0.106859,
+          "loss": 0.28372,
+          "pose_loss": 0.176861
+        },
+        {
+          "gripper_mse_loss": 0.106725,
+          "loss": 0.28345,
+          "pose_loss": 0.176725
+        },
+        {
+          "gripper_mse_loss": 0.106589,
+          "loss": 0.283189,
+          "pose_loss": 0.1766
+        },
+        {
+          "gripper_mse_loss": 0.106483,
+          "loss": 0.282946,
+          "pose_loss": 0.176464
+        },
+        {
+          "gripper_mse_loss": 0.106391,
+          "loss": 0.282744,
+          "pose_loss": 0.176354
+        },
+        {
+          "gripper_mse_loss": 0.106403,
+          "loss": 0.282631,
+          "pose_loss": 0.176228
+        },
+        {
+          "gripper_mse_loss": 0.106541,
+          "loss": 0.282718,
+          "pose_loss": 0.176177
+        },
+        {
+          "gripper_mse_loss": 0.107133,
+          "loss": 0.283261,
+          "pose_loss": 0.176129
+        },
+        {
+          "gripper_mse_loss": 0.10853,
+          "loss": 0.284885,
+          "pose_loss": 0.176354
+        },
+        {
+          "gripper_mse_loss": 0.112161,
+          "loss": 0.288962,
+          "pose_loss": 0.176802
+        },
+        {
+          "gripper_mse_loss": 0.120422,
+          "loss": 0.298847,
+          "pose_loss": 0.178425
+        },
+        {
+          "gripper_mse_loss": 0.13857,
+          "loss": 0.32001,
+          "pose_loss": 0.18144
+        },
+        {
+          "gripper_mse_loss": 0.17304,
+          "loss": 0.361456,
+          "pose_loss": 0.188416
+        },
+        {
+          "gripper_mse_loss": 0.21379,
+          "loss": 0.409288,
+          "pose_loss": 0.195498
+        },
+        {
+          "gripper_mse_loss": 0.224742,
+          "loss": 0.423442,
+          "pose_loss": 0.1987
+        },
+        {
+          "gripper_mse_loss": 0.169508,
+          "loss": 0.357177,
+          "pose_loss": 0.187669
+        },
+        {
+          "gripper_mse_loss": 0.116743,
+          "loss": 0.296211,
+          "pose_loss": 0.179468
+        },
+        {
+          "gripper_mse_loss": 0.133414,
+          "loss": 0.319142,
+          "pose_loss": 0.185728
+        },
+        {
+          "gripper_mse_loss": 0.155367,
+          "loss": 0.343796,
+          "pose_loss": 0.188429
+        },
+        {
+          "gripper_mse_loss": 0.131665,
+          "loss": 0.312943,
+          "pose_loss": 0.181277
+        },
+        {
+          "gripper_mse_loss": 0.114222,
+          "loss": 0.296387,
+          "pose_loss": 0.182166
+        },
+        {
+          "gripper_mse_loss": 0.127866,
+          "loss": 0.314455,
+          "pose_loss": 0.18659
+        },
+        {
+          "gripper_mse_loss": 0.126027,
+          "loss": 0.306727,
+          "pose_loss": 0.1807
+        },
+        {
+          "gripper_mse_loss": 0.112246,
+          "loss": 0.29115,
+          "pose_loss": 0.178904
+        },
+        {
+          "gripper_mse_loss": 0.116609,
+          "loss": 0.301893,
+          "pose_loss": 0.185284
+        },
+        {
+          "gripper_mse_loss": 0.117716,
+          "loss": 0.298272,
+          "pose_loss": 0.180556
+        },
+        {
+          "gripper_mse_loss": 0.109895,
+          "loss": 0.286587,
+          "pose_loss": 0.176692
+        },
+        {
+          "gripper_mse_loss": 0.112566,
+          "loss": 0.295982,
+          "pose_loss": 0.183416
+        },
+        {
+          "gripper_mse_loss": 0.112427,
+          "loss": 0.292504,
+          "pose_loss": 0.180076
+        }
+      ],
+      "loss_decreased": true,
+      "loss_end": 0.292504,
+      "loss_start": 2.011749,
+      "pose_loss_end": 0.180076,
+      "steps": 800
+    }
+  },
+  "decision": "EXPERT_REPLAY_BLOCKED",
+  "error": null,
+  "evidence_label": "smolvla_7d_adapter_replay_bridge",
+  "paths": {
+    "adapter_artifact": "runs\\smolvla_7d_replay_bridge\\smolvla_state_proj_lora_rank8_7d_adapter.pt",
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "output_dir": "runs\\smolvla_7d_replay_bridge",
+    "smolvla_ckpt": "C:\\assets\\checkpoints\\smolvla"
+  },
+  "policy": {
+    "bridge_gate_set": true,
+    "control_validity_gate": true,
+    "downloads_performed": false,
+    "fixed_libero_7d_path_only": true,
+    "forbidden_gates_set": [],
+    "full_benchmark_executed": false,
+    "large_asset_downloads_performed": false,
+    "loss_computed": true,
+    "new_method_created": false,
+    "openvla_oft_executed": false,
+    "paper_claims_made": false,
+    "replay_control_performed": false,
+    "replay_gate_set": true,
+    "tg7d_tca_prism_patchguard_safelora_executed": false,
+    "training_gate_set": true,
+    "training_performed": true
+  },
+  "schema_version": "smolvla-7d-adapter-replay-bridge-v1",
+  "split": {
+    "eval_count": 100,
+    "eval_demos": [
+      "demo_30",
+      "demo_31",
+      "demo_32",
+      "demo_33",
+      "demo_34",
+      "demo_35",
+      "demo_36",
+      "demo_37",
+      "demo_38",
+      "demo_39"
+    ],
+    "leakage": {
+      "demo_overlap": 0,
+      "exact_record_overlap": 0,
+      "has_demo_overlap": false,
+      "has_exact_record_leakage": false,
+      "has_task_overlap": true,
+      "note": "Task/demo overlap can be intentional for same-task or same-demo time holdout; exact record overlap must remain zero.",
+      "task_overlap": 1
+    },
+    "name": "same_task_demo_holdout",
+    "train_count": 300,
+    "train_demos": [
+      "demo_0",
+      "demo_1",
+      "demo_2",
+      "demo_3",
+      "demo_4",
+      "demo_5",
+      "demo_6",
+      "demo_7",
+      "demo_8",
+      "demo_9",
+      "demo_10",
+      "demo_11",
+      "demo_12",
+      "demo_13",
+      "demo_14",
+      "demo_15",
+      "demo_16",
+      "demo_17",
+      "demo_18",
+      "demo_19",
+      "demo_20",
+      "demo_21",
+      "demo_22",
+      "demo_23",
+      "demo_24",
+      "demo_25",
+      "demo_26",
+      "demo_27",
+      "demo_28",
+      "demo_29"
+    ]
+  },
+  "state1_executable_adapter_audit": {
+    "action_validity": {
+      "action_low_high": {
+        "high": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "low": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ],
+        "max": [
+          0.674881,
+          0.565409,
+          0.81342,
+          0.118979,
+          0.07273,
+          0.366171,
+          1.437852
+        ],
+        "min": [
+          -0.237094,
+          -0.873533,
+          -0.85714,
+          -0.017659,
+          -0.119339,
+          -0.071639,
+          -1.752106
+        ]
+      },
+      "action_shape": [
+        261,
+        7
+      ],
+      "clip_rate_element": 0.061303,
+      "clip_rate_step": 0.429119,
+      "controller_valid_rate_proxy": 0.570881,
+      "expected_action_shape": [
+        "T",
+        7
+      ],
+      "finite": true,
+      "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+      "shape_exactly_7d": true,
+      "silent_broadcast_or_truncation_detected": false
+    },
+    "adapter_name": "smolvla_state_proj_lora_rank8_7d_adapter",
+    "artifact_path": "runs\\smolvla_7d_replay_bridge\\smolvla_state_proj_lora_rank8_7d_adapter.pt",
+    "artifact_reloaded": true,
+    "can_produce_online_action_from_observation_state_features": true,
+    "gripper_output_learned_not_hard_coded": true,
+    "gripper_output_range_on_replay_demo": {
+      "max": 1.437852,
+      "min": -1.752106,
+      "std": 0.910107
+    },
+    "online_action_shape": [
+      7
+    ],
+    "online_observation_metadata": {
+      "feature_shape": [
+        7
+      ],
+      "source": "ee_states",
+      "uses_bddl_or_task_id_label": false,
+      "uses_eval_action_label": false
+    },
+    "output_shape_exactly_7d": true,
+    "train_split_only_action_normalization_used": true,
+    "train_split_only_feature_normalization_used": true,
+    "unnormalize_check": {
+      "mean": [
+        0.038964,
+        0.056473,
+        -0.084839,
+        0.008668,
+        -0.007936,
+        0.053893,
+        -0.246667
+      ],
+      "std_positive": true,
+      "zero_normalized_maps_to_train_mean": true
+    }
+  },
+  "state2_offline_to_control_sanity": {
+    "comparison": {
+      "adapter_beats_mean_action_l2": true,
+      "adapter_beats_ridge_l2": true,
+      "mlp_executable_baseline_run": false,
+      "mlp_skip_reason": "No persisted executable MLP artifact was part of the fixed 7D baseline; executable ridge baseline is used as the simple MLP/ridge comparator."
+    },
+    "full_action_steps": 261,
+    "hdf5_first_signal_index": 260,
+    "policies": {
+      "expert": {
+        "action_metrics": {
+          "action_l2": 0.0,
+          "action_l2_first6": 0.0,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_l2": 0.0,
+          "sample_count": 261,
+          "translation_l2": 0.0,
+          "worst_action_dimensions": [
+            {
+              "dim": 0,
+              "mae": 0.0
+            },
+            {
+              "dim": 1,
+              "mae": 0.0
+            },
+            {
+              "dim": 2,
+              "mae": 0.0
+            }
+          ]
+        },
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.645536,
+              0.80625,
+              0.685714,
+              0.109286,
+              0.170357,
+              0.375,
+              1.0
+            ],
+            "min": [
+              -0.399107,
+              -0.632143,
+              -0.835714,
+              -0.047143,
+              -0.12,
+              -0.068571,
+              -1.0
+            ]
+          },
+          "action_shape": [
+            261,
+            7
+          ],
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "controller_valid_rate_proxy": 1.0,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "raw_action_preview_first3": [
+          [
+            0.0,
+            0.0,
+            -0.061607,
+            0.0,
+            -0.071786,
+            -0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.016071,
+            -0.061607,
+            0.0,
+            -0.066429,
+            -0.004286,
+            -1.0
+          ],
+          [
+            0.0,
+            0.032143,
+            -0.058929,
+            0.0,
+            -0.064286,
+            -0.010714,
+            -1.0
+          ]
+        ],
+        "raw_action_shape": [
+          261,
+          7
+        ]
+      },
+      "mean_action": {
+        "action_metrics": {
+          "action_l2": 1.104166,
+          "action_l2_first6": 0.467094,
+          "gripper_accuracy": 0.570881,
+          "gripper_error": 0.965032,
+          "per_dim_mae": [
+            0.158155,
+            0.197586,
+            0.287793,
+            0.021429,
+            0.038436,
+            0.076409,
+            0.965032
+          ],
+          "rotation_l2": 0.10286,
+          "sample_count": 261,
+          "translation_l2": 0.442839,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.965032
+            },
+            {
+              "dim": 2,
+              "mae": 0.287793
+            },
+            {
+              "dim": 1,
+              "mae": 0.197586
+            }
+          ]
+        },
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.038964,
+              0.056473,
+              -0.084839,
+              0.008668,
+              -0.007936,
+              0.053893,
+              -0.246667
+            ],
+            "min": [
+              0.038964,
+              0.056473,
+              -0.084839,
+              0.008668,
+              -0.007936,
+              0.053893,
+              -0.246667
+            ]
+          },
+          "action_shape": [
+            261,
+            7
+          ],
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "controller_valid_rate_proxy": 1.0,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "raw_action_preview_first3": [
+          [
+            0.038964,
+            0.056473,
+            -0.084839,
+            0.008668,
+            -0.007936,
+            0.053893,
+            -0.246667
+          ],
+          [
+            0.038964,
+            0.056473,
+            -0.084839,
+            0.008668,
+            -0.007936,
+            0.053893,
+            -0.246667
+          ],
+          [
+            0.038964,
+            0.056473,
+            -0.084839,
+            0.008668,
+            -0.007936,
+            0.053893,
+            -0.246667
+          ]
+        ],
+        "raw_action_shape": [
+          261,
+          7
+        ]
+      },
+      "ridge": {
+        "action_metrics": {
+          "action_l2": 0.893329,
+          "action_l2_first6": 0.424231,
+          "gripper_accuracy": 0.716475,
+          "gripper_error": 0.729167,
+          "per_dim_mae": [
+            0.150016,
+            0.175669,
+            0.2728,
+            0.022985,
+            0.039116,
+            0.071154,
+            0.729167
+          ],
+          "rotation_l2": 0.094357,
+          "sample_count": 261,
+          "translation_l2": 0.406915,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.729167
+            },
+            {
+              "dim": 2,
+              "mae": 0.2728
+            },
+            {
+              "dim": 1,
+              "mae": 0.175669
+            }
+          ]
+        },
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.191129,
+              0.218486,
+              0.167629,
+              0.039383,
+              0.030042,
+              0.177195,
+              0.41237
+            ],
+            "min": [
+              -0.074524,
+              -0.154558,
+              -0.396979,
+              -0.021459,
+              -0.056631,
+              -0.012945,
+              -1.086074
+            ]
+          },
+          "action_shape": [
+            261,
+            7
+          ],
+          "clip_rate_element": 0.006021,
+          "clip_rate_step": 0.042146,
+          "controller_valid_rate_proxy": 0.957854,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "raw_action_preview_first3": [
+          [
+            0.130768,
+            0.083257,
+            -0.053811,
+            0.007836,
+            -0.009295,
+            0.00347,
+            -1.086074
+          ],
+          [
+            0.127029,
+            0.086957,
+            -0.055213,
+            0.00746,
+            -0.008508,
+            0.00239,
+            -1.078519
+          ],
+          [
+            0.123151,
+            0.090896,
+            -0.056701,
+            0.007054,
+            -0.007688,
+            0.001269,
+            -1.070565
+          ]
+        ],
+        "raw_action_shape": [
+          261,
+          7
+        ]
+      },
+      "smolvla_7d_adapter": {
+        "action_metrics": {
+          "action_l2": 0.464353,
+          "action_l2_first6": 0.266363,
+          "gripper_accuracy": 0.965517,
+          "gripper_error": 0.33562,
+          "per_dim_mae": [
+            0.109337,
+            0.116322,
+            0.149923,
+            0.023849,
+            0.038493,
+            0.03884,
+            0.33562
+          ],
+          "rotation_l2": 0.068959,
+          "sample_count": 261,
+          "translation_l2": 0.252312,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.33562
+            },
+            {
+              "dim": 2,
+              "mae": 0.149923
+            },
+            {
+              "dim": 1,
+              "mae": 0.116322
+            }
+          ]
+        },
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.674881,
+              0.565409,
+              0.81342,
+              0.118979,
+              0.07273,
+              0.366171,
+              1.437852
+            ],
+            "min": [
+              -0.237094,
+              -0.873533,
+              -0.85714,
+              -0.017659,
+              -0.119339,
+              -0.071639,
+              -1.752106
+            ]
+          },
+          "action_shape": [
+            261,
+            7
+          ],
+          "clip_rate_element": 0.061303,
+          "clip_rate_step": 0.429119,
+          "controller_valid_rate_proxy": 0.570881,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "raw_action_preview_first3": [
+          [
+            0.044683,
+            0.16012,
+            -0.034193,
+            -0.006237,
+            -0.00418,
+            -0.021108,
+            -0.954363
+          ],
+          [
+            0.045334,
+            0.149515,
+            -0.035084,
+            -0.004211,
+            -0.007763,
+            -0.024758,
+            -0.94327
+          ],
+          [
+            0.046091,
+            0.140676,
+            -0.036508,
+            -0.002193,
+            -0.011206,
+            -0.028575,
+            -0.931528
+          ]
+        ],
+        "raw_action_shape": [
+          261,
+          7
+        ]
+      }
+    },
+    "replay_demo_name": "demo_30",
+    "replay_demo_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "target_horizon": 261
+  },
+  "state3_bounded_exact_init_replay": {
+    "error": {
+      "message": "No module named 'mujoco'",
+      "traceback_tail": [
+        "    from .bddl_base_domain import TASK_MAPPING",
+        "  File \"C:\\assets\\repos\\LIBERO\\libero\\libero\\envs\\bddl_base_domain.py\", line 3, in <module>",
+        "    import robosuite.utils.transform_utils as T",
+        "  File \"C:\\assets\\repos\\robosuite\\robosuite\\__init__.py\", line 11, in <module>",
+        "    from robosuite.environments.base import make",
+        "  File \"C:\\assets\\repos\\robosuite\\robosuite\\environments\\__init__.py\", line 1, in <module>",
+        "    from .base import REGISTERED_ENVS, MujocoEnv",
+        "  File \"C:\\assets\\repos\\robosuite\\robosuite\\environments\\base.py\", line 12, in <module>",
+        "    from robosuite.utils.binding_utils import MjRenderContextOffscreen, MjSim",
+        "  File \"C:\\assets\\repos\\robosuite\\robosuite\\utils\\binding_utils.py\", line 12, in <module>",
+        "    import mujoco",
+        "ModuleNotFoundError: No module named 'mujoco'"
+      ],
+      "type": "ModuleNotFoundError"
+    },
+    "executed": false,
+    "reason": "Failed to import or configure LIBERO/RoboSuite exact-init environment.",
+    "results": {},
+    "runtime_sec": 0.078
+  },
+  "summary": {
+    "action_l2_vs_replay_progress_relationship": "not assessed because exact-init replay/control did not execute",
+    "adapter_reloadable": true,
+    "adapter_replay_result": null,
+    "branch": "codex/smolvla-7d-adapter-replay-bridge",
+    "clip_action_validity_rate": {
+      "action_low_high": {
+        "high": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "low": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ],
+        "max": [
+          0.674881,
+          0.565409,
+          0.81342,
+          0.118979,
+          0.07273,
+          0.366171,
+          1.437852
+        ],
+        "min": [
+          -0.237094,
+          -0.873533,
+          -0.85714,
+          -0.017659,
+          -0.119339,
+          -0.071639,
+          -1.752106
+        ]
+      },
+      "action_shape": [
+        261,
+        7
+      ],
+      "clip_rate_element": 0.061303,
+      "clip_rate_step": 0.429119,
+      "controller_valid_rate_proxy": 0.570881,
+      "expected_action_shape": [
+        "T",
+        7
+      ],
+      "finite": true,
+      "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+      "shape_exactly_7d": true,
+      "silent_broadcast_or_truncation_detected": false
+    },
+    "dataset_demo_used": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5::demo_30",
+    "downloads_happened": false,
+    "env_acceptance_status": "blocked: ModuleNotFoundError: No module named 'mujoco'",
+    "exact_next_step": "Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.",
+    "experiments_happened": true,
+    "expert_replay_reward_success": null,
+    "final_decision": "EXPERT_REPLAY_BLOCKED",
+    "full_benchmark_happened": false,
+    "loss_computed": true,
+    "mean_action_replay_result": null,
+    "model_adapter_used": "smolvla_state_proj_lora_rank8_7d_adapter",
+    "openvla_oft_happened": false,
+    "replay_control_happened": false,
+    "ridge_replay_result": null,
+    "runtime_sec": 5.328,
+    "training_happened": true
+  }
+}

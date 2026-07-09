@@ -410,3 +410,16 @@ Residual findings:
 - oracle/headroom evidence: no (`oracle_headroom_l2 = -0.137013`).
 
 Consequence: stop the local language/target route. Do not start TG-7D v2 or another language-target method without a new official or clearly named benchmark slice where canonicalization-only still has a large structured residual, simple baselines do not solve it, and oracle/headroom evidence is positive.
+
+## 2026-07-09: SmolVLA 7D Adapter Replay Bridge
+
+Decision: `EXPERT_REPLAY_BLOCKED`
+
+- experiments happened: `True`
+- training happened: `True`
+- loss computed: `True`
+- replay/control happened: `False`
+- model/adapter used: `smolvla_state_proj_lora_rank8_7d_adapter`
+- dataset/demo used: `C:\assets\data\libero\libero_10\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5::demo_30`
+- env acceptance status: `blocked: ModuleNotFoundError: No module named 'mujoco'`
+- exact next step: Install or activate the local `mujoco` Python dependency for LIBERO/RoboSuite in the `tca_map` environment, then rerun this same replay bridge; do not start a new method.
