@@ -853,3 +853,71 @@ Exact next step:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\248_official_smolvla_prediction_artifact_from_manifest.ps1 -SplitManifest reports\official_smolvla_split_manifest.json -Output reports\official_smolvla_stable_prediction_artifact.json
 ```
+
+## 2026-07-10: Official SmolVLA Stable Artifact Evaluation
+
+Decision: `NEEDS_LONGER_LORA_BASELINE_REPRO`
+
+- experiments happened: `True`
+- training happened: `True`
+- trained components: standard rank-4 LoRA baseline only
+- SmolVLA backbone trained: `False`
+- GPU/download/OpenVLA-OFT happened: `True` / `False` / `False`
+- full benchmark / simulator rollout happened: `False`
+- official model/dataset used: `True`
+- custom `LIBERO_7D` route used: `False`
+- new method implemented: `False`
+- FCAR tuned: `False`
+- paper claim made: `False`
+- result reports: `reports/official_smolvla_stable_prediction_artifact_status.md`, `reports/official_smolvla_stable_artifact_eval_result.json`, `reports/official_smolvla_stable_artifact_eval_result.md`, `reports/official_smolvla_stable_baseline_table.md`, `reports/official_smolvla_stable_artifact_decision.md`
+- generated artifact: `reports/official_smolvla_stable_prediction_artifact.json`
+- artifact size bytes: `7,219,361`
+- artifact records: `2800`
+
+Manifest:
+
+- tasks: `40`
+- train: `80` episodes / `1200` frames
+- validation: `40` episodes / `400` frames
+- test: `80` episodes / `1200` frames
+- leakage checks: train/validation/test episode-disjoint checks passed
+
+CUDA and training:
+
+- model parameter device: `cuda:0`
+- input tensor devices: `cuda:0`
+- model dtype: `torch.bfloat16`
+- peak CUDA allocation: `1104.506 MB`
+- autocast cpu/cuda: `False` / `False`
+- rank-4 LoRA steps: `100`
+- trainable params: `185,664`
+- train loss before/after: `0.008257858` / `0.002369085`
+- final nonzero grad tensors: `74`
+- training elapsed: `17.953 sec`
+
+Stable test metrics, raw 7D action L2:
+
+- frozen/base: `0.085558433`
+- rank-4 LoRA: `0.091230140`
+- mean-action prior: `1.197255124`
+- frame oracle: `0.068470215`
+- task oracle: `0.079386015`
+- MoIRA-style task/instruction router: `0.092209764`
+- validation-selected static mix: `0.081135060`, selected alpha `0.5` on validation only
+
+Additional evidence:
+
+- frozen/base eval loss mean: `0.009544804`
+- rank-4 LoRA eval loss mean: `0.009790267`
+- realistic task win counts: static mix `29`, frozen/base `7`, rank-4 LoRA `4`
+- rank-4 LoRA helped `599` frames and hurt `601` frames versus frozen/base
+- static mix helped `769` frames and hurt `431` frames versus frozen/base
+- frame oracle headroom over frozen/base: `0.017088218`
+- frame oracle headroom after static mix: `0.012664845`
+- task oracle headroom over frozen/base: `0.006172418`
+- MoIRA-style task router remains weak
+- task oracle no longer looks weak under the larger stable artifact
+
+Consequence: the larger artifact resolved the previous split/coverage blocker enough to move the blocker to rank-4 LoRA seed robustness. Do not design a method yet, and do not revive FCAR. The next step is independent standard rank-4 LoRA seeds under the fixed manifest.
+
+Exact next step: run independent standard rank-4 LoRA seeds under `reports/official_smolvla_split_manifest.json`, with the same metric protocol and full CUDA/device/VRAM logging.

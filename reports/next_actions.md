@@ -2,49 +2,63 @@
 
 Date: 2026-07-10 KST
 
-Current decision: `NEEDS_LARGER_PREDICTION_ARTIFACT`
+Current decision: `NEEDS_LONGER_LORA_BASELINE_REPRO`
 
 ## Immediate Next Action
 
-Generate the larger official SmolVLA prediction artifact under the fixed task-stratified, episode-disjoint manifest.
+Run independent standard rank-4 LoRA baseline seeds under the fixed stable manifest. Do not design a new method yet.
 
-Exact next command:
+Required setup:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\248_official_smolvla_prediction_artifact_from_manifest.ps1 -SplitManifest reports\official_smolvla_split_manifest.json -Output reports\official_smolvla_stable_prediction_artifact.json
-```
+- fixed manifest: `reports/official_smolvla_split_manifest.json`
+- generated artifact: `reports/official_smolvla_stable_prediction_artifact.json`
+- stable artifact result: `reports/official_smolvla_stable_artifact_eval_result.json`
+- metric protocol: `reports/official_smolvla_metric_protocol.md`
+- official checkpoint: `C:\assets\checkpoints\smolvla_libero`
+- official dataset: `C:\assets\datasets\lerobot_libero`
+
+## Why This Is Next
+
+- The larger stable artifact was generated successfully with `2800` prediction records.
+- The previous `NEEDS_LARGER_PREDICTION_ARTIFACT` blocker is closed.
+- Frozen/base test action L2 is `0.085558433`.
+- Single-seed rank-4 LoRA test action L2 is worse at `0.091230140`.
+- Validation-selected static mix is strongest realistic baseline at `0.081135060`, selected on validation with alpha `0.5`.
+- Frame oracle remains better at `0.068470215`, leaving `0.012664845` action-L2 headroom after static mix.
+- Task oracle is no longer weak under the larger artifact: `0.079386015`, headroom `0.006172418` over frozen/base.
+- Because the rank-4 LoRA artifact is still one regenerated seed, LoRA seed robustness is now the main unresolved blocker.
 
 ## Required Boundaries
 
-- Use official assets only: `C:\assets\checkpoints\smolvla_libero` and `C:\assets\datasets\lerobot_libero`.
-- Use the fixed manifest at `reports/official_smolvla_split_manifest.json`.
-- Do not change the split after seeing prediction metrics.
-- Do not tune FCAR, implement FCAR v2, or design a new method before the stable artifact report exists.
+- Use official assets only.
+- Use the fixed manifest without changing train/val/test membership.
+- Do not tune static alpha on test.
+- Do not run FCAR, FCAR v2, or any routing method.
 - Do not use the archived custom `LIBERO_7D` adapter route.
 - Do not run OpenVLA-OFT.
-- Do not run simulator rollout or full benchmark as a substitute for the fixed offline artifact report.
+- Do not run simulator rollout or full benchmark as a substitute for this offline baseline seed audit.
 - Do not download additional assets unless explicitly approved.
+- If CUDA is available but model parameters or tensors are on CPU, stop and report `CPU_FALLBACK_BUG`.
 
-## What Must Be Reported Next
+## Seed Audit Must Report
 
-- frozen/base official SmolVLA predictions
-- standard rank-4 LoRA predictions or a clearly labeled existing rank-4 LoRA source
-- mean-action prior
-- MoIRA-style task/instruction router
-- validation-selected static mixture, with alpha frozen before test
-- frame oracle and task oracle diagnostics
-- raw 7D action L2
-- translation, rotation, and gripper breakdowns
-- task-balanced and frame-weighted aggregates
-- episode and task bootstrap intervals
-- action-range validity
-- help/hurt counts and per-task failure table
+- seed list and fixed training budget
+- rank-4 LoRA train loss before/after for each seed
+- trainable parameter count
+- CUDA device, input tensor devices, peak VRAM, autocast status
+- frozen/base reused or regenerated status
+- per-seed rank-4 LoRA test action L2
+- per-seed static mix selected on validation only
+- mean/std across seeds for LoRA and static mix
+- whether LoRA remains worse than frozen/base
+- whether static mix remains strongest realistic baseline
+- whether task oracle/frame oracle conclusions remain stable
 
 ## Current Evidence To Preserve
 
-- FCAR is killed by static/LoRA baselines and must not be scaled from the tiny-gate result.
-- Post-FCAR robust sweep found split-dependent ranking: frozen/base won `2` folds, val-selected static mix won `3`, rank-4 LoRA beat frozen/base in `2` / `5` folds but won no realistic fold.
-- Frame oracle still has headroom: mean action L2 `0.084582167` versus frozen/base `0.106514933`.
-- Task oracle has tiny headroom: mean action L2 `0.106079936`.
-- The stable manifest now covers all `40` eligible official tasks with train `1200`, validation `400`, and test `1200` frames.
-- Final current decision remains `NEEDS_LARGER_PREDICTION_ARTIFACT` until that artifact is generated and scored under the fixed metric protocol.
+- FCAR remains killed and must not be revived or tuned.
+- Stable test realistic rank order: static mix, frozen/base, rank-4 LoRA, MoIRA-style task router, mean-action prior.
+- Realistic task win counts: static mix `29`, frozen/base `7`, rank-4 LoRA `4`.
+- MoIRA-style task/instruction router remains weak at action L2 `0.092209764`.
+- Mean-action prior remains much worse at action L2 `1.197255124`.
+- Final current decision is `NEEDS_LONGER_LORA_BASELINE_REPRO`.
