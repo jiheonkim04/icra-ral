@@ -2,24 +2,30 @@
 
 Date: 2026-07-09 KST
 
-Branch: `codex/smolvla-7d-action-range-fix`
+Branch: `codex/archive-smolvla-custom-adapter-stop-pivot`
 
-Current decision: `CLIP_ONLY_BASELINE_DOMINATES`
+Current decision: `OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
 
 ## Current Route
 
-SmolVLA 7D action range and controller-validity fix is the active infrastructure gate.
+The custom SmolVLA 7D adapter route is archived as stopped. The project should not continue custom adapter tuning, range/gripper variants, PatchGuard, TG-7D, SafeLoRA, PRISM, or ActionMap as a main RA-L path.
 
-## Range Fix
+## Evidence Summary
 
-- clip rate before/after: `0.15625` / `0.0`
-- controller-valid proxy before/after: `0.84375` / `1.0`
-- offline metrics before/after: `{'sample_count': 32, 'action_l2': 0.795274, 'action_l2_first6': 0.493013, 'translation_l2': 0.479167, 'rotation_l2': 0.098805, 'gripper_error': 0.567381, 'gripper_accuracy': 0.84375, 'per_dim_mae': [0.165448, 0.224278, 0.319078, 0.032909, 0.051444, 0.053925, 0.567381], 'worst_action_dimensions': [{'dim': 6, 'mae': 0.567381}, {'dim': 2, 'mae': 0.319078}, {'dim': 1, 'mae': 0.224278}]}` / `{'sample_count': 32, 'action_l2': 0.976681, 'action_l2_first6': 0.608732, 'translation_l2': 0.550087, 'rotation_l2': 0.229188, 'gripper_error': 0.560213, 'gripper_accuracy': 0.71875, 'per_dim_mae': [0.213978, 0.244234, 0.352273, 0.099675, 0.119066, 0.126034, 0.560213], 'worst_action_dimensions': [{'dim': 6, 'mae': 0.560213}, {'dim': 2, 'mae': 0.352273}, {'dim': 1, 'mae': 0.244234}]}`
-- offline baseline comparison: `{'mean_action': {'action_l2': 0.972739, 'translation_l2': 0.442767, 'rotation_l2': 0.098776, 'gripper_error': 0.814062, 'gripper_accuracy': 0.71875, 'clip_rate_step': 0.0, 'controller_valid_rate_proxy': 1.0, 'train_eval_gap': None}, 'ridge': {'action_l2': 0.854115, 'translation_l2': 0.417876, 'rotation_l2': 0.106551, 'gripper_error': 0.680647, 'gripper_accuracy': 0.84375, 'clip_rate_step': 0.125, 'controller_valid_rate_proxy': 0.875, 'train_eval_gap': None}, 'small_mlp': {'action_l2': 0.792409, 'translation_l2': 0.449542, 'rotation_l2': 0.104076, 'gripper_error': 0.580501, 'gripper_accuracy': 0.78125, 'clip_rate_step': 0.1875, 'controller_valid_rate_proxy': 0.8125, 'train_eval_gap': 0.164114}, 'previous_unfixed_adapter': {'action_l2': 0.795274, 'translation_l2': 0.479167, 'rotation_l2': 0.098805, 'gripper_error': 0.567381, 'gripper_accuracy': 0.84375, 'clip_rate_step': 0.15625, 'controller_valid_rate_proxy': 0.84375, 'train_eval_gap': 0.206301}, 'previous_unfixed_adapter_clip_only': {'action_l2': 0.785721, 'translation_l2': 0.479167, 'rotation_l2': 0.098805, 'gripper_error': 0.5381, 'gripper_accuracy': 0.84375, 'clip_rate_step': 0.0, 'controller_valid_rate_proxy': 1.0, 'train_eval_gap': 0.214859}, 'train_split_affine_range_calibrated_adapter_diagnostic': {'action_l2': 0.80622, 'translation_l2': 0.474716, 'rotation_l2': 0.100196, 'gripper_error': 0.5569, 'gripper_accuracy': 0.84375, 'clip_rate_step': 0.0, 'controller_valid_rate_proxy': 1.0, 'train_eval_gap': 0.254521}, 'range_fixed_smolvla_7d_adapter': {'action_l2': 0.976681, 'translation_l2': 0.550087, 'rotation_l2': 0.229188, 'gripper_error': 0.560213, 'gripper_accuracy': 0.71875, 'clip_rate_step': 0.0, 'controller_valid_rate_proxy': 1.0, 'train_eval_gap': 0.844643}}`
-- replay metrics before/after: `{'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': -0.041091, 'object_movement_mean': 0.022539, 'runtime_case_steps': [275, 261, 228, 237, 234, 258], 'clip_rate_step_mean': 0.523375, 'controller_valid_rate_proxy_mean': 0.476625}` / `{'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': -0.902509, 'object_movement_mean': 0.018666, 'runtime_case_steps': [275, 261, 228, 237, 234, 258], 'clip_rate_step_mean': 0.0, 'controller_valid_rate_proxy_mean': 1.0}`
+- PEFT/bitsandbytes/CUDA/RTX 5080 SmolVLA LoRA path works.
+- LIBERO 7D interface was fixed.
+- Expert replay stable set exists with 6 expert-success eligible cases.
+- Live/HDF5 feature schema mismatch was fixed: feature L2 `2.248343 -> 0.033195`.
+- Learned adapter still failed replay/progress after feature fix: adapter success `0/6`, progress `-0.041091`.
+- Action range fix improved validity but degraded quality/control:
+  - clip rate `0.15625 -> 0.0`,
+  - controller-valid proxy `0.84375 -> 1.0`,
+  - offline action L2 `0.795274 -> 0.976681`,
+  - replay progress `-0.041091 -> -0.902509`.
+- Clip-only baseline matched or beat the range-fixed adapter: `-0.041091` vs `-0.902509`.
 
 ## Conclusion
 
-`CLIP_ONLY_BASELINE_DOMINATES`
+`OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
 
-Clip-only postprocessing matched or beat the range-fixed adapter; do not count the range fix as method success.
+Next valid step: reproduce an official SmolVLA/LeRobot/OpenVLA-style baseline recipe with official preprocessing, normalization, action/gripper conventions, and eval/replay stack before any method work.

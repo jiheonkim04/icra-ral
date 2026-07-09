@@ -2,10 +2,10 @@
 
 Date: 2026-07-09 KST
 
-Current decision: `CLIP_ONLY_BASELINE_DOMINATES`
+Current decision: `OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
 
 ## Immediate Next Action
 
-Clip-only postprocessing matched or beat the range-fixed adapter; do not count the range fix as method success.
+Stop custom SmolVLA 7D adapter iteration. The next valid VLA step is official SmolVLA/LeRobot/OpenVLA-style baseline reproduction with official preprocessing, normalization, action/gripper conventions, and eval/replay stack.
 
-Do not start a new method unless the range-fix decision is `READY_FOR_METHOD_AFTER_RANGE_FIX`.
+Do not start a new RA-L method unless an official baseline succeeds first. If official reproduction is not feasible under local constraints, use `STOP_VLA_METHOD_SEARCH_UNDER_CURRENT_SETUP`.
