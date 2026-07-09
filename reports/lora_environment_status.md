@@ -57,19 +57,25 @@ This is a small feasibility envelope, not a capacity claim for full training or 
 
 ## Reuse Guidance
 
-Use this environment next for standard SmolVLA LoRA baseline reproduction on an official or standard task split. Do not use it to launch a new custom method yet.
+Use this environment for baseline-only SmolVLA LoRA work. Do not use it to launch a new custom method yet.
 
-Before any new method is considered, the project needs to understand:
+The first standard LoRA baseline reproduction ran after PatchGuard archive. It showed:
+
+- loss decreased meaningfully,
+- standard LoRA beat frozen/base SmolVLA,
+- standard LoRA did not beat mean-action on the held-out split.
+
+Before any new method is considered, the project still needs to understand:
 
 - clean retention under standard LoRA,
 - patched/perturbed behavior under standard LoRA,
 - whether generic adversarial augmentation already explains gains,
 - memory and runtime scaling beyond the one-sample smoke,
-- evaluation behavior on a standard task split.
+- why a trivial mean-action baseline dominates this local standard LoRA eval.
 
 ## Forbidden Interpretation
 
 - LoRA working locally is not a paper claim.
 - LoRA working locally does not rescue PatchGuard.
 - bitsandbytes passing CUDA smokes does not authorize full QLoRA training.
-- The next step is standard baseline reproduction, not method invention.
+- The next step is baseline/interface diagnosis, not method invention.

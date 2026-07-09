@@ -1,0 +1,564 @@
+{
+  "adapter_probe": {
+    "base_model_params": {
+      "total_params": 450046176,
+      "trainable_params": 99880992
+    },
+    "external_dependency": {
+      "candidate_roots": [
+        "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct",
+        "C:\\assets\\hf_home\\models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct",
+        "C:\\assets\\checkpoints\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct",
+        "C:\\assets\\checkpoints\\models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct"
+      ],
+      "files_found": [
+        "chat_template.json",
+        "config.json",
+        "merges.txt",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.json"
+      ],
+      "found": true,
+      "name": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+      "root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+    },
+    "lora_injection_happened": true,
+    "lora_rank": 4,
+    "target_modules": [
+      "state_proj",
+      "action_in_proj",
+      "action_out_proj"
+    ],
+    "total_params": 450056160,
+    "trainable_params": 9984
+  },
+  "dataset_split": {
+    "all_demo_count": 50,
+    "eval_count": 6,
+    "eval_demos": [
+      "demo_3",
+      "demo_4"
+    ],
+    "eval_records": [
+      {
+        "action_dim": 7,
+        "action_length": 285,
+        "demo_name": "demo_3",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 0
+      },
+      {
+        "action_dim": 7,
+        "action_length": 285,
+        "demo_name": "demo_3",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 141
+      },
+      {
+        "action_dim": 7,
+        "action_length": 285,
+        "demo_name": "demo_3",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 283
+      },
+      {
+        "action_dim": 7,
+        "action_length": 245,
+        "demo_name": "demo_4",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 0
+      },
+      {
+        "action_dim": 7,
+        "action_length": 245,
+        "demo_name": "demo_4",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 121
+      },
+      {
+        "action_dim": 7,
+        "action_length": 245,
+        "demo_name": "demo_4",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 243
+      }
+    ],
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "records_per_demo": 3,
+    "split": "deterministic_demo_holdout",
+    "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+    "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+    "train_count": 9,
+    "train_demos": [
+      "demo_0",
+      "demo_1",
+      "demo_2"
+    ],
+    "train_records": [
+      {
+        "action_dim": 7,
+        "action_length": 272,
+        "demo_name": "demo_0",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 0
+      },
+      {
+        "action_dim": 7,
+        "action_length": 272,
+        "demo_name": "demo_0",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 135
+      },
+      {
+        "action_dim": 7,
+        "action_length": 272,
+        "demo_name": "demo_0",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 270
+      },
+      {
+        "action_dim": 7,
+        "action_length": 279,
+        "demo_name": "demo_1",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 0
+      },
+      {
+        "action_dim": 7,
+        "action_length": 279,
+        "demo_name": "demo_1",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 138
+      },
+      {
+        "action_dim": 7,
+        "action_length": 279,
+        "demo_name": "demo_1",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 277
+      },
+      {
+        "action_dim": 7,
+        "action_length": 298,
+        "demo_name": "demo_2",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 0
+      },
+      {
+        "action_dim": 7,
+        "action_length": 298,
+        "demo_name": "demo_2",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 148
+      },
+      {
+        "action_dim": 7,
+        "action_length": 298,
+        "demo_name": "demo_2",
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "task_text": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "timestep": 296
+      }
+    ]
+  },
+  "decision": "KILL_MEAN_BASELINE_DOMINATED",
+  "dependency_check": {
+    "modules": {
+      "accelerate": {
+        "available": true,
+        "import_ok": true,
+        "version": "1.14.0"
+      },
+      "bitsandbytes": {
+        "available": true,
+        "import_ok": true,
+        "version": "0.49.2"
+      },
+      "h5py": {
+        "available": true,
+        "import_ok": true,
+        "version": "3.16.0"
+      },
+      "lerobot": {
+        "available": true,
+        "import_ok": true,
+        "version": "0.4.4"
+      },
+      "peft": {
+        "available": true,
+        "import_ok": true,
+        "version": "0.19.1"
+      },
+      "torch": {
+        "available": true,
+        "import_ok": true,
+        "version": "2.10.0+cu128"
+      },
+      "transformers": {
+        "available": true,
+        "import_ok": true,
+        "version": "4.57.6"
+      }
+    },
+    "nvidia_smi": {
+      "available": true,
+      "gpu_name": "NVIDIA GeForce RTX 5080",
+      "memory_total_mb": 16303,
+      "memory_used_mb": 3861
+    },
+    "python_version": "3.10.20",
+    "runtime_dependencies": {
+      "av": true,
+      "datasets": true,
+      "deepdiff": true,
+      "diffusers": true,
+      "draccus": true,
+      "einops": true,
+      "imageio": true,
+      "lerobot": true,
+      "num2words": true,
+      "safetensors": true,
+      "serial": true,
+      "torch": true,
+      "transformers": true
+    },
+    "smokes": {
+      "bitsandbytes_8bit_linear": {
+        "ok": true
+      },
+      "peft_dummy_lora": {
+        "ok": true
+      },
+      "tiny_cuda_tensor": {
+        "ok": true,
+        "value": 512.0
+      }
+    },
+    "torch_cuda": {
+      "cuda_available": true,
+      "device_count": 1,
+      "device_name": "NVIDIA GeForce RTX 5080",
+      "torch_cuda_runtime": "12.8",
+      "torch_version": "2.10.0+cu128",
+      "total_vram_mb": 16302.5625
+    }
+  },
+  "error": null,
+  "evidence_label": "smolvla_lora_baseline_state1",
+  "files": {
+    "smolvla_config_files": [
+      "config.json"
+    ],
+    "smolvla_weight_files": [
+      "model.safetensors",
+      "policy_postprocessor_step_0_unnormalizer_processor.safetensors",
+      "policy_preprocessor_step_5_normalizer_processor.safetensors"
+    ]
+  },
+  "metrics": {
+    "frozen_base_smolvla": {
+      "action_l2": 1.6029,
+      "action_l2_first6": 1.6029,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.210606,
+        0.356763,
+        0.521336,
+        0.976964,
+        0.860634,
+        0.43457,
+        0.0
+      ],
+      "rotation_l2": 1.429045,
+      "sample_count": 6,
+      "translation_l2": 0.7074,
+      "worst_action_dimensions": [
+        {
+          "dim": 3,
+          "mae": 0.976964
+        },
+        {
+          "dim": 4,
+          "mae": 0.860634
+        },
+        {
+          "dim": 2,
+          "mae": 0.521336
+        }
+      ]
+    },
+    "mean_action": {
+      "action_l2": 0.486561,
+      "action_l2_first6": 0.486561,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.232391,
+        0.359821,
+        0.115526,
+        0.042679,
+        0.072024,
+        0.031806,
+        0.0
+      ],
+      "rotation_l2": 0.098626,
+      "sample_count": 6,
+      "translation_l2": 0.474176,
+      "worst_action_dimensions": [
+        {
+          "dim": 1,
+          "mae": 0.359821
+        },
+        {
+          "dim": 0,
+          "mae": 0.232391
+        },
+        {
+          "dim": 2,
+          "mae": 0.115526
+        }
+      ]
+    },
+    "standard_lora": {
+      "action_l2": 0.940196,
+      "action_l2_first6": 0.940196,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.160687,
+        0.53076,
+        0.19455,
+        0.316476,
+        0.482776,
+        0.192811,
+        0.0
+      ],
+      "rotation_l2": 0.638062,
+      "sample_count": 6,
+      "translation_l2": 0.648108,
+      "worst_action_dimensions": [
+        {
+          "dim": 1,
+          "mae": 0.53076
+        },
+        {
+          "dim": 4,
+          "mae": 0.482776
+        },
+        {
+          "dim": 3,
+          "mae": 0.316476
+        }
+      ]
+    },
+    "standard_lora_train": {
+      "action_l2": 0.903262,
+      "action_l2_first6": 0.903262,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.231653,
+        0.427407,
+        0.293876,
+        0.304992,
+        0.431935,
+        0.21484,
+        0.0
+      ],
+      "rotation_l2": 0.599955,
+      "sample_count": 9,
+      "translation_l2": 0.651887,
+      "worst_action_dimensions": [
+        {
+          "dim": 4,
+          "mae": 0.431935
+        },
+        {
+          "dim": 1,
+          "mae": 0.427407
+        },
+        {
+          "dim": 3,
+          "mae": 0.304992
+        }
+      ]
+    }
+  },
+  "paths": {
+    "checkpoint_root": "C:\\assets\\checkpoints",
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "hf_home": "C:\\assets\\hf_home",
+    "smolvla_ckpt": "C:\\assets\\checkpoints\\smolvla"
+  },
+  "policy": {
+    "baseline_gate_set": true,
+    "benchmark_rollouts_performed": false,
+    "bounded_standard_lora_baseline": true,
+    "downloads_performed": false,
+    "forbidden_gates_set": [],
+    "full_vla_finetuning_performed": false,
+    "heavy_import_gate_set": true,
+    "large_model_or_dataset_downloads_performed": false,
+    "loss_computed": true,
+    "model_load_performed": true,
+    "new_method_created": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "patchguard_continued": false,
+    "rollouts_performed": false,
+    "training_gate_set": true,
+    "training_performed": true
+  },
+  "risk_limits": {
+    "batch_size": 1,
+    "device": "cuda",
+    "lora_rank": 4,
+    "max_runtime_seconds": 14400,
+    "max_steps": 60,
+    "max_vram_mb": 15360
+  },
+  "schema_version": "smolvla-lora-baseline-state1-v1",
+  "summary": {
+    "dataset_used": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "exact_next_step": "Standard LoRA did not beat the mean-action baseline.",
+    "failure_cases_by_action_dimension": [
+      {
+        "dim": 1,
+        "mae": 0.53076
+      },
+      {
+        "dim": 4,
+        "mae": 0.482776
+      },
+      {
+        "dim": 3,
+        "mae": 0.316476
+      }
+    ],
+    "final_decision": "KILL_MEAN_BASELINE_DOMINATED",
+    "frozen_base_metric": 1.6029,
+    "lora_beats_frozen_base": true,
+    "lora_beats_mean_action": false,
+    "lora_learns": true,
+    "lora_rank": 4,
+    "loss_computed": true,
+    "mean_action_metric": 0.486561,
+    "model_used": "C:\\assets\\checkpoints\\smolvla",
+    "previous_simple_mlp_linear_comparable": false,
+    "previous_simple_mlp_linear_note": "Previous simple MLP/linear action-head metrics used different local proxy heads and are not directly comparable to real SmolVLA select_action.",
+    "runtime_sec": 43.765,
+    "standard_lora_metric": 0.940196,
+    "standard_lora_train_metric": 0.903262,
+    "train_eval_gap": 0.036934,
+    "trainable_params": 9984,
+    "training_happened": true,
+    "vram_peak_mb": 1190.228
+  },
+  "training": {
+    "learning_rate": 0.001,
+    "loss_decreased_meaningfully": true,
+    "loss_delta": -0.054847,
+    "loss_end": 0.008743,
+    "loss_first_window_mean": 0.073963,
+    "loss_last_window_mean": 0.012031,
+    "loss_start": 0.06359,
+    "loss_trace": [
+      0.06359,
+      0.085805,
+      0.090661,
+      0.057993,
+      0.071766,
+      0.078216,
+      0.056238,
+      0.070712,
+      0.089496,
+      0.046664,
+      0.064916,
+      0.060525,
+      0.045772,
+      0.047251,
+      0.054409,
+      0.047638,
+      0.04766,
+      0.055818,
+      0.041824,
+      0.049778,
+      0.038687,
+      0.043971,
+      0.033676,
+      0.037596,
+      0.042826,
+      0.034778,
+      0.037291,
+      0.032982,
+      0.039256,
+      0.025386,
+      0.03326,
+      0.024976,
+      0.024741,
+      0.031349,
+      0.024991,
+      0.027323,
+      0.022961,
+      0.029989,
+      0.016236,
+      0.023652,
+      0.017716,
+      0.016945,
+      0.021672,
+      0.017107,
+      0.017786,
+      0.014985,
+      0.023675,
+      0.009401,
+      0.016989,
+      0.013463,
+      0.011554,
+      0.016377,
+      0.01239,
+      0.012793,
+      0.01145,
+      0.019755,
+      0.006208,
+      0.013957,
+      0.011493,
+      0.008743
+    ],
+    "max_steps": 60,
+    "optimizer_steps": 60
+  }
+}

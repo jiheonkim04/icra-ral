@@ -4,68 +4,61 @@ Date: 2026-07-09 KST
 
 Branch:
 
-`main`
+`codex/archive-patchguard-and-smolvla-lora-baseline`
 
-Current main commit before this archive pass:
+Current branch base:
 
-`67beb80 Run PatchGuard STATE 1B LoRA gate`
+`5ff597c Archive PatchGuard route and record LoRA status`
 
 Current decision:
 
-`KILL_BASELINE_DOMINATED`
+`KILL_MEAN_BASELINE_DOMINATED`
 
-## Current Archive Pass Boundary
+## Current Bounded Run Boundary
 
-- Experiments happened in this archive pass: no.
-- Training happened in this archive pass: no.
-- Loss computation happened in this archive pass: no.
-- Rollout/replay happened in this archive pass: no.
-- Downloads happened in this archive pass: no.
-- GPU use happened in this archive pass: no.
-- OpenVLA-OFT happened in this archive pass: no.
-- New defense method implementation happened in this archive pass: no.
-- Paper claims happened in this archive pass: no.
+- PatchGuard archived: yes.
+- LoRA environment status recorded: yes.
+- Experiments happened: yes, one bounded standard SmolVLA LoRA baseline.
+- Training happened: yes, rank-4 PEFT LoRA only.
+- Loss computation happened: yes.
+- GPU happened: yes, RTX 5080 CUDA.
+- Downloads happened: no.
+- Rollout/replay happened: no.
+- OpenVLA-OFT happened: no.
+- Full VLA fine-tuning happened: no.
+- New method implementation happened: no.
+- Paper claims happened: no.
 
-## Current Route Status
+## PatchGuard Status
 
-PatchGuard-VLA is archived as a main RA-L route.
+PatchGuard-VLA remains archived as `KILL_BASELINE_DOMINATED`. This kills the PatchGuard method claim, not the LoRA environment.
 
-This kills the PatchGuard method claim, not the local LoRA environment.
+## SmolVLA LoRA Baseline Status
 
-## Prior PatchGuard Evidence
+STATE 1 standard LoRA baseline ran on:
 
-STATE 1 found the original vulnerability and signal:
+- model: `C:\assets\checkpoints\smolvla`
+- dataset: `C:\assets\data\libero\libero_10\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5`
+- split: `deterministic_demo_holdout`
+- train demos: `demo_0`, `demo_1`, `demo_2`
+- eval demos: `demo_3`, `demo_4`
+- train/eval records: `9 / 6`
 
-- patch effect measured: yes,
-- max attacked policy-action L1 vs clean: `0.181765`,
-- max attacked translation-action L2 vs clean: `0.213965`,
-- kinematic/proprioceptive signal available: yes,
-- cutout did not fully solve the fixed-patch effect in the initial diagnostic.
+Result:
 
-STATE 1B unblocked the environment and tested the tiny adapter path:
-
-- PEFT installed and worked: `0.19.1`,
-- bitsandbytes installed and worked: `0.49.2`,
-- bitsandbytes 4-bit and 8-bit CUDA smokes passed,
-- PyTorch/CUDA on RTX 5080 worked,
-- SmolVLA LoRA injection worked,
-- tiny batch-size-1 rank-4 training smoke ran,
-- loss was computed,
-- VRAM peak: `2224.845` MB,
-- runtime: `57.438` sec.
-
-## Decisive Negative Evidence
-
-- standard LoRA metric: `0.144186`,
-- generic adversarial LoRA metric: `0.142803`,
-- PatchGuard metric: `0.13356`,
-- cutout/random-erasing metric: `0.02973`,
-- PatchGuard did not beat generic adversarial LoRA under the archive decision criterion,
-- PatchGuard did not beat cutout/random-erasing,
-- PatchGuard did not beat the required baseline set.
+- LoRA rank: `4`
+- trainable params: `9984`
+- optimizer steps: `60`
+- loss start/end: `0.06359 / 0.008743`
+- loss decreased meaningfully: yes
+- VRAM peak MB: `1190.228`
+- runtime sec: `43.765`
+- mean-action eval action L2: `0.486561`
+- frozen/base SmolVLA eval action L2: `1.6029`
+- standard LoRA eval action L2: `0.940196`
+- LoRA beats frozen/base: yes
+- LoRA beats mean-action: no
 
 ## Conclusion
 
-PatchGuard should not proceed to STATE 2. The method-specific claim failed after the environment blocker was resolved.
-
-The useful surviving project state is that real SmolVLA LoRA is now locally feasible. The next valid step is standard SmolVLA LoRA baseline reproduction on an official or standard task split, not a new local proxy method.
+Standard LoRA can train and improve over frozen/base SmolVLA in this bounded local setup, but it does not beat the mean-action baseline. This blocks any method on top of SmolVLA LoRA until the baseline/action-interface issue is resolved.

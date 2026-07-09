@@ -101,3 +101,45 @@ Execution boundary for this archive pass:
 - OpenVLA-OFT happened: no;
 - new method implementation happened: no;
 - paper claims happened: no.
+
+## 2026-07-09: SmolVLA LoRA Baseline STATE 1
+
+Decision: `KILL_MEAN_BASELINE_DOMINATED`
+
+Reason: standard PEFT LoRA training ran and loss decreased, but held-out eval action L2 did not beat the mean-action baseline.
+
+Execution boundary:
+
+- experiments happened: yes, one bounded standard LoRA baseline;
+- training happened: yes, rank-4 LoRA only;
+- GPU happened: yes, RTX 5080 CUDA;
+- downloads happened: no;
+- rollout/replay happened: no;
+- OpenVLA-OFT happened: no;
+- new method implementation happened: no;
+- paper claims happened: no.
+
+Dataset and split:
+
+- model: `C:\assets\checkpoints\smolvla`;
+- HDF5: `C:\assets\data\libero\libero_10\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5`;
+- split: `deterministic_demo_holdout`;
+- train demos: `demo_0`, `demo_1`, `demo_2`;
+- eval demos: `demo_3`, `demo_4`;
+- train/eval records: `9 / 6`.
+
+Key metrics:
+
+- LoRA rank: `4`;
+- trainable params: `9984`;
+- loss start/end: `0.06359 / 0.008743`;
+- loss decreased meaningfully: yes;
+- VRAM peak MB: `1190.228`;
+- runtime sec: `43.765`;
+- mean-action eval action L2: `0.486561`;
+- frozen/base SmolVLA eval action L2: `1.6029`;
+- standard LoRA eval action L2: `0.940196`;
+- LoRA beats frozen/base: yes;
+- LoRA beats mean-action: no.
+
+Consequence: do not start a method on top of this LoRA setup. First diagnose the baseline/action-interface issue or reproduce a stronger official-style standard LoRA baseline.

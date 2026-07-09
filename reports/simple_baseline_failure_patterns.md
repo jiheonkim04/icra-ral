@@ -19,6 +19,7 @@ Lesson: a method that only beats no-method is not enough. The route must beat th
 | ActionMap Mini-Anchor | heatmap/candidate action decoding anchor | mean-action, cheap MLP | local ActionMap-style candidate head lost the first reproduction gate and collapsed candidate diversity despite strong oracle headroom |
 | SafeTrace-VLA | temporal safety preference optimization | safety-only/risk-only monitor scoring, generic DPO/preference proxy | temporal preference labels were solved by simple monitor risk and generic preference optimization |
 | PatchGuard-VLA | kinematic-consistent physical patch defense | cutout/random-erasing, generic adversarial LoRA | the defense path worked, but the method did not earn a robust win over cheap image erasing and generic adversarial augmentation |
+| SmolVLA LoRA Baseline | baseline foundation for future VLA methods | mean-action | standard LoRA learned train loss and beat frozen/base SmolVLA, but held-out action L2 was worse than the trivial mean-action prior |
 
 ## Mandatory Early Baselines
 
@@ -84,7 +85,7 @@ A physical-patch or visual-robustness defense is invalid if cutout/random-erasin
 
 ## Real LoRA Baseline Rule
 
-When PEFT/bitsandbytes/SmolVLA LoRA are locally available, no new method should start until standard LoRA baseline behavior is understood on an official or standard task split. LoRA itself is an implementation tool and a required baseline, not novelty.
+When PEFT/bitsandbytes/SmolVLA LoRA are locally available, no new method should start until standard LoRA beats mean-action and frozen/base SmolVLA on an official or standard task split. LoRA itself is an implementation tool and a required baseline, not novelty.
 
 ## Anti-Pattern
 

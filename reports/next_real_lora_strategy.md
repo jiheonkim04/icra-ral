@@ -6,7 +6,7 @@ Date: 2026-07-09 KST
 
 Local proxy idea generation should remain stopped.
 
-The real SmolVLA LoRA path is now available, but the next valid research step is not a new method yet.
+The real SmolVLA LoRA path is available, but the first standard LoRA baseline is mean-action dominated. The next valid research step is still not a new method.
 
 ## Current Boundary
 
@@ -20,17 +20,29 @@ PatchGuard-VLA is archived as `KILL_BASELINE_DOMINATED`. The reusable result is 
 
 This does not create a new contribution. It creates the missing baseline capability.
 
+## Baseline Result
+
+STATE 1 standard LoRA baseline result:
+
+- decision: `KILL_MEAN_BASELINE_DOMINATED`
+- loss start/end: `0.06359 / 0.008743`
+- LoRA learned loss: yes
+- mean-action eval action L2: `0.486561`
+- frozen/base eval action L2: `1.6029`
+- standard LoRA eval action L2: `0.940196`
+- LoRA beat frozen/base: yes
+- LoRA beat mean-action: no
+
 ## Next Valid Step
 
-Run a real SmolVLA LoRA baseline reproduction on an official or standard task split.
+Do not start a method. First diagnose why standard LoRA loses to mean-action on the local held-out split.
 
-The first LoRA baseline should answer plain baseline questions before any method design:
+The next baseline-only questions are:
 
-- Can standard SmolVLA LoRA preserve clean behavior?
-- Can standard SmolVLA LoRA train without collapse on a standard split?
-- What is the true memory/runtime envelope beyond one sample?
-- What is the baseline patched or perturbed behavior?
-- Does generic adversarial augmentation already explain robustness gains?
+- Is the action interface or normalization mismatched?
+- Is the train/eval split too small or too distribution-shifted?
+- Does the official SmolVLA training recipe require different sampling, action normalization, or target construction?
+- Can standard LoRA beat mean-action on a credible official or standard split without method additions?
 - Which metrics are stable enough to support future method comparisons?
 
 ## Required Baselines Before Any New Method
@@ -56,4 +68,4 @@ Do not:
 
 ## Promotion Rule
 
-No new method should start until standard LoRA baseline behavior is understood on a standard split. A future method must be predeclared against standard LoRA, generic augmentation, and the relevant simple baselines before implementation.
+No new method should start until standard LoRA baseline behavior beats mean-action or the action-interface blocker is resolved. A future method must be predeclared against standard LoRA, generic augmentation, and the relevant simple baselines before implementation.

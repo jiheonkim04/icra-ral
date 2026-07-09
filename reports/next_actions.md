@@ -4,58 +4,46 @@ Date: 2026-07-09 KST
 
 Current decision:
 
-`KILL_BASELINE_DOMINATED`
+`KILL_MEAN_BASELINE_DOMINATED`
 
 ## Immediate Next Action
 
-Archive PatchGuard-VLA as a main RA-L route and preserve the LoRA environment as reusable infrastructure.
+Stop method work. Diagnose why standard SmolVLA LoRA loses to mean-action on the held-out local split.
 
 ## Why
 
-PatchGuard cleared the environment and adapter gates, so the final blocker is not local tooling:
+The baseline did learn the training objective:
 
-- PEFT worked.
-- bitsandbytes worked.
-- CUDA on RTX 5080 worked.
-- SmolVLA LoRA injection worked.
-- Tiny training ran and loss was computed.
+- loss start/end: `0.06359 / 0.008743`
+- loss decreased meaningfully: yes
+- trainable params: `9984`
+- VRAM peak MB: `1190.228`
+- runtime sec: `43.765`
 
-The method then failed the baseline gate:
+But it failed the required mean-action gate:
 
-- generic adversarial LoRA metric: `0.142803`,
-- PatchGuard metric: `0.13356`,
-- cutout/random-erasing metric: `0.02973`,
-- PatchGuard did not beat generic adversarial LoRA under the archive decision criterion,
-- PatchGuard did not beat cutout/random-erasing,
-- PatchGuard did not beat both required baselines.
+- mean-action eval action L2: `0.486561`
+- standard LoRA eval action L2: `0.940196`
+- frozen/base SmolVLA eval action L2: `1.6029`
 
-## Recommended Next Step
-
-Run a real SmolVLA LoRA baseline reproduction on an official or standard task split.
-
-The goal is to understand standard LoRA behavior before inventing any new method:
-
-- clean retention,
-- perturbation behavior,
-- generic augmentation behavior,
-- memory/runtime scaling,
-- stable metrics for later comparisons.
+LoRA beat frozen/base SmolVLA, but it did not beat the trivial action prior.
 
 ## Allowed Next Work
 
-- Standard SmolVLA LoRA baseline reproduction.
-- Environment documentation and reproducibility checks.
-- Baseline-first planning that predeclares standard LoRA, generic augmentation, cutout/random-erasing, and no-adaptation controls.
+- Baseline-only action normalization/provenance audit.
+- Baseline-only split/sampling audit.
+- Official SmolVLA training-recipe comparison if it can be done without large downloads or OpenVLA-OFT.
+- A rerun of standard LoRA only if it changes the baseline protocol, not the method.
 
 ## Disallowed Next Work
 
 Do not:
 
-- proceed to PatchGuard STATE 2,
-- run more PatchGuard training,
-- invent a new defense method,
-- start another local proxy idea,
-- run rollout from PatchGuard evidence,
+- invent a new method,
+- continue PatchGuard,
+- start Target-Grounded ActionMap, SafeLoRA, PRISM, ActionMap, or another route,
 - run OpenVLA-OFT,
+- run rollout from this evidence,
 - download large assets,
-- make paper claims from STATE 1B.
+- make paper claims,
+- treat local proxy evidence as final paper evidence.
