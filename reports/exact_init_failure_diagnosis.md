@@ -1,0 +1,10 @@
+# Exact-Init Failure Diagnosis
+
+Diagnosed only expert-failed cases; learned adapter performance was not used for failure diagnosis.
+
+- diagnostic scope: `['exact-init state loading mismatch', 'wrong initial state / reset problem', 'HDF5 action dimension/range issue', 'env/task mismatch', 'off-by-one action alignment', 'gripper convention mismatch', 'max step too short', 'object already displaced / unstable init', 'controller mismatch', 'missing object/body/site names', 'known LIBERO/RoboSuite nondeterminism']`
+- bounded fixes attempted: `['used exact HDF5 demo init_state', 'verified action sequence length and 7D shape', 'used bounded max steps and post-signal margin', 'matched BDDL task file from the HDF5 task stem', 'kept learned adapter performance out of expert-failure diagnosis']`
+
+## Expert-Failed Cases
+
+`[{'task_name': 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo', 'demo_name': 'demo_7', 'hdf5_path': 'C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5', 'failure_reason': 'controller_or_action_convention_mismatch_suspected', 'eligibility_reasons': ['expert replay did not reach reward, done, or final success', 'reward did not reach 1.0 and final success was not true', 'finite done index missing'], 'hdf5_first_signal_index': 271, 'steps_performed': 272, 'reward_sum': 0.0, 'first_done_index': None}, {'task_name': 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo', 'demo_name': 'demo_6', 'hdf5_path': 'C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5', 'failure_reason': 'controller_or_action_convention_mismatch_suspected', 'eligibility_reasons': ['expert replay did not reach reward, done, or final success', 'reward did not reach 1.0 and final success was not true', 'finite done index missing'], 'hdf5_first_signal_index': 240, 'steps_performed': 241, 'reward_sum': 0.0, 'first_done_index': None}]`
