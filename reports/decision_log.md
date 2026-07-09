@@ -542,3 +542,31 @@ Key evidence:
 Consequence: SmolVLA is locally feasible as an official base loader/processor backbone, but the target LIBERO baseline still needs official-compatible data/checkpoint alignment. Do not start method work yet.
 
 Exact next step: produce a bounded official-compatible LIBERO alignment plan using either official `lerobot/smolvla_libero` plus `lerobot/libero`, or a tiny local HDF5-to-LeRobot conversion that preserves the 8D state / 7D action convention.
+
+## 2026-07-09: Official SmolVLA / LIBERO Dataset Alignment
+
+Decision: `READY_FOR_OFFICIAL_ASSET_APPROVAL`
+
+- experiments happened: `False`
+- training happened: `False`
+- loss computed: `False`
+- downloads/GPU/OpenVLA-OFT happened: `False` / `False` / `False`
+- custom LIBERO 7D adapter route used: `False`
+- official model asset: `lerobot/smolvla_libero`, public/not gated, Apache-2.0, `0.844 GiB`
+- official dataset asset: `lerobot/libero`, public/not gated, Apache-2.0, `1.803 GiB`
+- selected official asset size: `2.647 GiB`, above the objective's `2GB` no-approval threshold
+- alternate official docs dataset: `HuggingFaceVLA/libero`, public/not gated, Apache-2.0, `32.528 GiB`
+- official LIBERO dataset schema: 8D `observation.state`, 7D `action`, two `256x256` image/video keys, fps `10.0`, robot type `panda`
+- `smolvla_libero` action schema: 7D action with LIBERO action normalizer stats
+- unresolved official checkpoint wrinkle: config lists 6D state and three cameras, while official dataset/stats are 8D state and two image keys
+- local conversion feasibility: 1-demo conversion is feasible in principle using `obs/ee_pos`, `obs/ee_ori`, `obs/gripper_states`, two RGB streams, and 7D `actions`
+
+Consequence: do not train. Official asset acquisition is ready for explicit approval; otherwise implement the no-download tiny HDF5-to-LeRobot conversion as the next milestone.
+
+Exact next command after explicit approval:
+
+```powershell
+$env:HF_HOME='C:\assets\hf_home'
+huggingface-cli download lerobot/smolvla_libero --local-dir C:\assets\checkpoints\smolvla_libero
+huggingface-cli download lerobot/libero --repo-type dataset --local-dir C:\assets\datasets\lerobot_libero
+```
