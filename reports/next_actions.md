@@ -2,33 +2,49 @@
 
 Date: 2026-07-10 KST
 
-Current decision: `METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD`
+Current decision: `NEEDS_LARGER_PREDICTION_ARTIFACT`
 
 ## Immediate Next Action
 
-Build a more stable official split/metric protocol before any new method design.
+Generate the larger official SmolVLA prediction artifact under the fixed task-stratified, episode-disjoint manifest.
 
-Result boundary:
+Exact next command:
 
-- official assets only: `C:\assets\checkpoints\smolvla_libero` and `C:\assets\datasets\lerobot_libero`;
-- compact official per-frame base/LoRA predictions were regenerated and saved at `reports/fcar_prediction_artifact.json`;
-- FCAR tiny gate was implemented and trained only as a small CPU gate;
-- no SmolVLA backbone training happened;
-- fixed rank-4 LoRA was regenerated only as the required baseline artifact source;
-- FCAR gate-test action L2 was `0.100144625`;
-- frozen/base gate-test action L2 was `0.123998278`;
-- rank-4 LoRA gate-test action L2 was `0.076191123`;
-- val-selected static mixture `w=0.5` gate-test action L2 was `0.091179973`;
-- final decision is `FCAR_KILLED_BY_STATIC_BASELINE`;
-- post-FCAR robust baseline sweep used `5` deterministic episode-disjoint folds from the official prediction artifact;
-- no new training, GPU work, downloads, OpenVLA-OFT, simulator rollout, full benchmark, FCAR tuning, or new method implementation happened in the sweep;
-- robust sweep mean/std action L2: frozen/base `0.106514933` / `0.030256808`, rank-4 LoRA `0.118024225` / `0.023707422`, mean-action `1.144859705` / `0.018515874`, frame oracle `0.084582167` / `0.027591676`, task oracle `0.106079936` / `0.029986441`, MoIRA-style router `0.106514933` / `0.030256808`, val-selected static mix `0.105142674` / `0.026514373`;
-- realistic win counts were frozen/base `2` and val-selected static mix `3`;
-- rank-4 LoRA beat frozen/base in `2` / `5` folds but won no realistic fold, so LoRA behavior is split-dependent;
-- frame oracle won all `5` folds and still has mean headroom `0.021932766`, while task oracle remains weak with mean headroom `0.000434997`;
-- final post-FCAR decision is `METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD`;
-- no archived custom `LIBERO_7D` adapter route;
-- no OpenVLA-OFT;
-- no full benchmark or simulator rollout until WSL/Linux/MuJoCo readiness is handled separately.
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\248_official_smolvla_prediction_artifact_from_manifest.ps1 -SplitManifest reports\official_smolvla_split_manifest.json -Output reports\official_smolvla_stable_prediction_artifact.json
+```
 
-Preserve the FCAR and robust-sweep artifacts for audit. Do not continue FCAR scaleup, tune FCAR, or design a new method until the official split/metric protocol is made stable. Official simulator eval remains a separate WSL/Linux/MuJoCo readiness milestone. Do not substitute the archived custom replay bridge as official eval.
+## Required Boundaries
+
+- Use official assets only: `C:\assets\checkpoints\smolvla_libero` and `C:\assets\datasets\lerobot_libero`.
+- Use the fixed manifest at `reports/official_smolvla_split_manifest.json`.
+- Do not change the split after seeing prediction metrics.
+- Do not tune FCAR, implement FCAR v2, or design a new method before the stable artifact report exists.
+- Do not use the archived custom `LIBERO_7D` adapter route.
+- Do not run OpenVLA-OFT.
+- Do not run simulator rollout or full benchmark as a substitute for the fixed offline artifact report.
+- Do not download additional assets unless explicitly approved.
+
+## What Must Be Reported Next
+
+- frozen/base official SmolVLA predictions
+- standard rank-4 LoRA predictions or a clearly labeled existing rank-4 LoRA source
+- mean-action prior
+- MoIRA-style task/instruction router
+- validation-selected static mixture, with alpha frozen before test
+- frame oracle and task oracle diagnostics
+- raw 7D action L2
+- translation, rotation, and gripper breakdowns
+- task-balanced and frame-weighted aggregates
+- episode and task bootstrap intervals
+- action-range validity
+- help/hurt counts and per-task failure table
+
+## Current Evidence To Preserve
+
+- FCAR is killed by static/LoRA baselines and must not be scaled from the tiny-gate result.
+- Post-FCAR robust sweep found split-dependent ranking: frozen/base won `2` folds, val-selected static mix won `3`, rank-4 LoRA beat frozen/base in `2` / `5` folds but won no realistic fold.
+- Frame oracle still has headroom: mean action L2 `0.084582167` versus frozen/base `0.106514933`.
+- Task oracle has tiny headroom: mean action L2 `0.106079936`.
+- The stable manifest now covers all `40` eligible official tasks with train `1200`, validation `400`, and test `1200` frames.
+- Final current decision remains `NEEDS_LARGER_PREDICTION_ARTIFACT` until that artifact is generated and scored under the fixed metric protocol.

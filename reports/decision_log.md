@@ -803,3 +803,53 @@ Decision: `METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD`
 Consequence: FCAR remains killed and must not be tuned. Frame-oracle headroom remains, but base/static/LoRA ranking is too split-dependent for a stable new method design under this current offline protocol.
 
 Exact next step: do not design a method yet; first build a more stable official split/metric protocol.
+
+## 2026-07-10: Official SmolVLA Stable Split/Metric Protocol
+
+Decision: `NEEDS_LARGER_PREDICTION_ARTIFACT`
+
+- experiments happened: `False`
+- training happened: `False`
+- trained components: none
+- GPU/download/OpenVLA-OFT happened: `False` / `False` / `False`
+- full benchmark / simulator rollout happened: `False`
+- official route used: `True`
+- official dataset metadata used: `True`, from `C:\assets\datasets\lerobot_libero`
+- official model execution happened: `False`
+- custom `LIBERO_7D` route used: `False`
+- new method implemented: `False`
+- FCAR tuned: `False`
+- paper claim made: `False`
+- result reports: `reports/official_smolvla_stable_protocol_plan.md`, `reports/official_smolvla_split_manifest.md`, `reports/official_smolvla_split_manifest.json`, `reports/official_smolvla_metric_protocol.md`, `reports/official_smolvla_prediction_artifact_plan.md`, `reports/official_smolvla_stable_protocol_result.json`, `reports/official_smolvla_stable_protocol_result.md`, `reports/official_smolvla_stable_protocol_decision.md`
+
+Split manifest:
+
+- status: created
+- task coverage: `40` official tasks
+- train: `80` episodes / `1200` frames
+- validation: `40` episodes / `400` frames
+- test: `80` episodes / `1200` frames
+- leakage checks: train/validation, train/test, and validation/test episode sets are disjoint
+- planned prediction records: `2800`
+
+Metric protocol:
+
+- primary metric: aggregate raw 7D action L2 after official SmolVLA postprocessing
+- component reporting: translation dims `0-2`, rotation dims `3-5`, gripper dim `6`
+- aggregate reporting: frame-weighted and task-balanced means
+- uncertainty reporting: episode and task bootstrap intervals
+- static mixture policy: select alpha on validation only, then freeze before test
+
+Instability diagnosis:
+
+- FCAR remains killed by rank-4 LoRA and static merge baselines on the tiny-gate split.
+- The post-FCAR robust sweep shows base/static/LoRA ranking instability from too-small held-out prediction coverage, task imbalance, tiny validation slices, missing bootstrap intervals, and missing task-balanced reporting.
+- Frame-oracle headroom remains meaningful, but task-oracle headroom remains tiny; this is not enough to justify a new method until the fixed protocol is populated.
+
+Consequence: do not design or tune a method yet. The fixed manifest and metric protocol are ready, but the larger official prediction artifact has not been generated.
+
+Exact next step:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\248_official_smolvla_prediction_artifact_from_manifest.ps1 -SplitManifest reports\official_smolvla_split_manifest.json -Output reports\official_smolvla_stable_prediction_artifact.json
+```
