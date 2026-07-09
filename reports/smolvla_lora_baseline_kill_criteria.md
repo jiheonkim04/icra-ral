@@ -39,3 +39,9 @@ The LoRA loss decreased meaningfully and standard LoRA beat frozen/base SmolVLA,
 - frozen/base SmolVLA: `1.6029`
 
 This blocks method work until the standard LoRA baseline can beat the trivial action prior.
+
+## Diagnosis Update
+
+The follow-up diagnosis selected `ACTION_INTERFACE_BUG`, not `KILL_SMOLVLA_LORA_BASELINE`.
+
+Reason: the local data and split were not the only issue. The checkpoint action interface is 6D and SO100-normalized while local LIBERO labels are 7D small-scale actions, the gripper is synthesized externally, and one-sample/one-demo overfit failed in action space.

@@ -79,3 +79,12 @@ Before any new method is considered, the project still needs to understand:
 - LoRA working locally does not rescue PatchGuard.
 - bitsandbytes passing CUDA smokes does not authorize full QLoRA training.
 - The next step is baseline/interface diagnosis, not method invention.
+
+## Diagnosis Update
+
+The baseline diagnosis selected `ACTION_INTERFACE_BUG`. The environment remains usable, but the SmolVLA/LIBERO action interface is not correct enough for method work:
+
+- local HDF5 labels are 7D,
+- the SmolVLA action head and normalizer are 6D,
+- checkpoint action normalization is SO100-style,
+- one-sample and one-demo overfit failed in action space.

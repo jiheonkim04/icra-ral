@@ -1,0 +1,1905 @@
+{
+  "action_interface_audit": {
+    "action_chunk_horizon_alignment": {
+      "chunk_second_step_is_next_hdf5_action": true,
+      "chunk_size": 50,
+      "chunk_starts_at_observation_timestep": true,
+      "off_by_one_detected_in_chunk_builder": false
+    },
+    "audit_result": "ACTION_INTERFACE_BUG",
+    "checkpoint_action_normalizer": {
+      "action_means": {
+        "so100-blue.buffer.action.mean": [
+          1.421193,
+          125.720543,
+          125.419304,
+          63.783165,
+          -106.540123,
+          3.348472
+        ],
+        "so100-red.buffer.action.mean": [
+          2.438708,
+          124.937874,
+          123.5578,
+          66.992615,
+          -103.876831,
+          2.891241
+        ],
+        "so100.buffer.action.mean": [
+          1.595914,
+          119.944237,
+          109.769775,
+          56.705513,
+          -27.422693,
+          12.002786
+        ]
+      },
+      "action_stds": {
+        "so100-blue.buffer.action.std": [
+          14.081991,
+          39.431416,
+          18.238085,
+          23.489754,
+          38.111176,
+          5.048287
+        ],
+        "so100-red.buffer.action.std": [
+          14.299178,
+          42.772209,
+          18.876314,
+          21.651918,
+          33.534065,
+          4.477972
+        ],
+        "so100.buffer.action.std": [
+          26.391779,
+          52.411404,
+          49.853806,
+          36.998302,
+          59.359951,
+          19.039955
+        ]
+      },
+      "postprocessor_keys": [
+        "so100-blue.buffer.action.mean",
+        "so100-blue.buffer.action.std",
+        "so100-red.buffer.action.mean",
+        "so100-red.buffer.action.std",
+        "so100.buffer.action.mean",
+        "so100.buffer.action.std"
+      ],
+      "preprocessor_keys": [
+        "so100-blue.buffer.action.mean",
+        "so100-blue.buffer.action.std",
+        "so100-red.buffer.action.mean",
+        "so100-red.buffer.action.std",
+        "so100.buffer.action.mean",
+        "so100.buffer.action.std"
+      ]
+    },
+    "chunk_size": 50,
+    "gripper_convention": {
+      "current_adapter": "ACTION_STRATEGY_GRIPPER_CLOSE fills the 7th action dimension outside the 6D model head",
+      "hdf5_gripper_unique_values": [
+        -1.0,
+        1.0
+      ]
+    },
+    "hdf5_action_dim": 7,
+    "interface_bug_indicators": {
+      "action_dimension_mismatch_6d_model_7d_hdf5": true,
+      "checkpoint_action_normalization_mismatch": true,
+      "gripper_dimension_synthesized_not_learned": true
+    },
+    "label_reconstruction_sanity": {
+      "chunk_first_matches_action_t_first6": true,
+      "chunk_second_matches_action_t_plus_1_first6": true,
+      "chunk_shape": [
+        50,
+        6
+      ],
+      "demo_name": "demo_0",
+      "expert_action_t_shape": [
+        7
+      ],
+      "timestep": 3
+    },
+    "local_action_first6_mean": [
+      0.039349,
+      0.056619,
+      -0.091883,
+      0.012416,
+      -0.005815,
+      0.063391
+    ],
+    "local_action_first6_std": [
+      0.262207,
+      0.308574,
+      0.370461,
+      0.035068,
+      0.05897,
+      0.102793
+    ],
+    "local_action_max": [
+      0.932143,
+      0.875893,
+      0.9375,
+      0.235714,
+      0.290357,
+      0.375,
+      1.0
+    ],
+    "local_action_min": [
+      -0.774107,
+      -0.886607,
+      -0.9375,
+      -0.147857,
+      -0.233571,
+      -0.110357,
+      -1.0
+    ],
+    "local_vs_checkpoint_action_mean_abs_z": {
+      "so100-blue.buffer.action.mean": [
+        0.098128,
+        3.186899,
+        6.881818,
+        2.714833,
+        2.795356,
+        0.650732
+      ],
+      "so100-red.buffer.action.mean": [
+        0.167797,
+        2.919682,
+        6.55052,
+        3.0935,
+        3.097478,
+        0.631502
+      ],
+      "so100.buffer.action.mean": [
+        0.058979,
+        2.287434,
+        2.203676,
+        1.532316,
+        0.461875,
+        0.627071
+      ]
+    },
+    "model_action_shape": [
+      6
+    ],
+    "model_state_shape": [
+      6
+    ],
+    "normalization_mapping": {
+      "ACTION": "MEAN_STD",
+      "STATE": "MEAN_STD",
+      "VISUAL": "IDENTITY"
+    },
+    "policy_postprocessor_action_shape": [
+      6
+    ],
+    "policy_preprocessor_action_shape": [
+      6
+    ],
+    "rotation_scale": {
+      "local_rotation_max": [
+        0.235714,
+        0.290357,
+        0.375
+      ],
+      "local_rotation_min": [
+        -0.147857,
+        -0.233571,
+        -0.110357
+      ],
+      "local_rotation_std": [
+        0.035068,
+        0.05897,
+        0.102793
+      ]
+    },
+    "translation_scale": {
+      "local_translation_max": [
+        0.932143,
+        0.875893,
+        0.9375
+      ],
+      "local_translation_min": [
+        -0.774107,
+        -0.886607,
+        -0.9375
+      ],
+      "local_translation_std": [
+        0.262207,
+        0.308574,
+        0.370461
+      ]
+    }
+  },
+  "capacity_audit": {
+    "best_lora": {
+      "eval_metrics": {
+        "action_l2": 0.912258,
+        "action_l2_first6": 0.912258,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.205597,
+          0.46348,
+          0.183665,
+          0.194572,
+          0.603922,
+          0.162997,
+          0.0
+        ],
+        "rotation_l2": 0.695514,
+        "sample_count": 6,
+        "translation_l2": 0.581478,
+        "worst_action_dimensions": [
+          {
+            "dim": 4,
+            "mae": 0.603922
+          },
+          {
+            "dim": 1,
+            "mae": 0.46348
+          },
+          {
+            "dim": 0,
+            "mae": 0.205597
+          }
+        ]
+      },
+      "name": "current_projection_lora"
+    },
+    "best_small_mlp_or_ridge": {
+      "eval_metrics": {
+        "action_l2": 0.401848,
+        "action_l2_first6": 0.394648,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.064771,
+        "per_dim_mae": [
+          0.19739,
+          0.206432,
+          0.18908,
+          0.043752,
+          0.081978,
+          0.029857,
+          0.064771
+        ],
+        "rotation_l2": 0.113232,
+        "sample_count": 6,
+        "translation_l2": 0.372773,
+        "worst_action_dimensions": [
+          {
+            "dim": 1,
+            "mae": 0.206432
+          },
+          {
+            "dim": 0,
+            "mae": 0.19739
+          },
+          {
+            "dim": 2,
+            "mae": 0.18908
+          }
+        ]
+      },
+      "name": "state_time_mlp"
+    },
+    "lora_beats_mean_action": false,
+    "lora_beats_small_mlp_or_ridge": false,
+    "lora_variants": {
+      "action_head_only_lora": {
+        "eval_metrics": {
+          "action_l2": 1.078629,
+          "action_l2_first6": 1.078629,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.25712,
+            0.439663,
+            0.117687,
+            0.059964,
+            0.830663,
+            0.331479,
+            0.0
+          ],
+          "rotation_l2": 0.912097,
+          "sample_count": 6,
+          "translation_l2": 0.546073,
+          "worst_action_dimensions": [
+            {
+              "dim": 4,
+              "mae": 0.830663
+            },
+            {
+              "dim": 1,
+              "mae": 0.439663
+            },
+            {
+              "dim": 5,
+              "mae": 0.331479
+            }
+          ]
+        },
+        "external_dependency_found": true,
+        "lora_rank": 4,
+        "name": "action_head_only_lora",
+        "target_modules": [
+          "action_out_proj"
+        ],
+        "total_params": 450049184,
+        "train_metrics": {
+          "action_l2": 1.035633,
+          "action_l2_first6": 1.035633,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.283193,
+            0.322953,
+            0.165682,
+            0.11198,
+            0.776489,
+            0.336576,
+            0.0
+          ],
+          "rotation_l2": 0.885432,
+          "sample_count": 9,
+          "translation_l2": 0.520292,
+          "worst_action_dimensions": [
+            {
+              "dim": 4,
+              "mae": 0.776489
+            },
+            {
+              "dim": 5,
+              "mae": 0.336576
+            },
+            {
+              "dim": 1,
+              "mae": 0.322953
+            }
+          ]
+        },
+        "trainable_params": 3008,
+        "training": {
+          "learning_rate": 0.001,
+          "loss_decreased_meaningfully": true,
+          "loss_delta": -0.041543,
+          "loss_end": 0.022047,
+          "loss_first_window_mean": 0.076276,
+          "loss_last_window_mean": 0.027106,
+          "loss_start": 0.06359,
+          "loss_trace": [
+            0.06359,
+            0.086718,
+            0.09195,
+            0.06135,
+            0.077771,
+            0.082351,
+            0.063018,
+            0.081647,
+            0.099673,
+            0.054896,
+            0.077565,
+            0.07398,
+            0.054429,
+            0.062024,
+            0.066006,
+            0.058821,
+            0.0639,
+            0.070895,
+            0.054982,
+            0.06686,
+            0.056838,
+            0.058571,
+            0.051341,
+            0.054646,
+            0.061969,
+            0.053996,
+            0.056485,
+            0.051392,
+            0.056769,
+            0.046513,
+            0.049038,
+            0.042094,
+            0.044042,
+            0.050239,
+            0.041933,
+            0.048981,
+            0.039148,
+            0.043097,
+            0.035354,
+            0.037371,
+            0.030988,
+            0.032374,
+            0.039214,
+            0.02738,
+            0.036562,
+            0.029815,
+            0.030998,
+            0.022505,
+            0.030167,
+            0.022047
+          ],
+          "max_steps": 50,
+          "optimizer_steps": 50
+        },
+        "vram_peak_mb": 937.822
+      },
+      "current_projection_lora": {
+        "eval_metrics": {
+          "action_l2": 0.912258,
+          "action_l2_first6": 0.912258,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.205597,
+            0.46348,
+            0.183665,
+            0.194572,
+            0.603922,
+            0.162997,
+            0.0
+          ],
+          "rotation_l2": 0.695514,
+          "sample_count": 6,
+          "translation_l2": 0.581478,
+          "worst_action_dimensions": [
+            {
+              "dim": 4,
+              "mae": 0.603922
+            },
+            {
+              "dim": 1,
+              "mae": 0.46348
+            },
+            {
+              "dim": 0,
+              "mae": 0.205597
+            }
+          ]
+        },
+        "external_dependency_found": true,
+        "lora_rank": 4,
+        "name": "current_projection_lora",
+        "target_modules": [
+          "state_proj",
+          "action_in_proj",
+          "action_out_proj"
+        ],
+        "total_params": 450056160,
+        "train_metrics": {
+          "action_l2": 0.856091,
+          "action_l2_first6": 0.856091,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.22567,
+            0.29551,
+            0.281904,
+            0.196379,
+            0.556436,
+            0.164352,
+            0.0
+          ],
+          "rotation_l2": 0.643134,
+          "sample_count": 9,
+          "translation_l2": 0.528049,
+          "worst_action_dimensions": [
+            {
+              "dim": 4,
+              "mae": 0.556436
+            },
+            {
+              "dim": 1,
+              "mae": 0.29551
+            },
+            {
+              "dim": 2,
+              "mae": 0.281904
+            }
+          ]
+        },
+        "trainable_params": 9984,
+        "training": {
+          "learning_rate": 0.001,
+          "loss_decreased_meaningfully": true,
+          "loss_delta": -0.050237,
+          "loss_end": 0.013353,
+          "loss_first_window_mean": 0.075263,
+          "loss_last_window_mean": 0.017567,
+          "loss_start": 0.06359,
+          "loss_trace": [
+            0.06359,
+            0.086707,
+            0.091197,
+            0.060213,
+            0.074607,
+            0.076768,
+            0.060605,
+            0.073843,
+            0.086698,
+            0.052054,
+            0.069184,
+            0.060184,
+            0.050322,
+            0.05153,
+            0.050816,
+            0.053481,
+            0.050507,
+            0.05121,
+            0.047624,
+            0.053914,
+            0.037685,
+            0.049051,
+            0.037643,
+            0.034477,
+            0.050645,
+            0.036029,
+            0.033447,
+            0.04081,
+            0.040852,
+            0.023662,
+            0.038678,
+            0.026806,
+            0.021251,
+            0.039424,
+            0.025155,
+            0.025326,
+            0.03038,
+            0.029858,
+            0.014877,
+            0.028827,
+            0.017978,
+            0.015205,
+            0.030135,
+            0.015719,
+            0.017077,
+            0.022107,
+            0.022001,
+            0.00856,
+            0.021815,
+            0.013353
+          ],
+          "max_steps": 50,
+          "optimizer_steps": 50
+        },
+        "vram_peak_mb": 1189.213
+      },
+      "projection_action_head_lora": {
+        "eval_metrics": {
+          "action_l2": 1.236556,
+          "action_l2_first6": 1.236556,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.209747,
+            0.439101,
+            0.125317,
+            0.594002,
+            0.830861,
+            0.332291,
+            0.0
+          ],
+          "rotation_l2": 1.102019,
+          "sample_count": 6,
+          "translation_l2": 0.545242,
+          "worst_action_dimensions": [
+            {
+              "dim": 4,
+              "mae": 0.830861
+            },
+            {
+              "dim": 3,
+              "mae": 0.594002
+            },
+            {
+              "dim": 1,
+              "mae": 0.439101
+            }
+          ]
+        },
+        "external_dependency_found": true,
+        "lora_rank": 4,
+        "name": "projection_action_head_lora",
+        "target_modules": [
+          "action_in_proj",
+          "action_out_proj"
+        ],
+        "total_params": 450052192,
+        "train_metrics": {
+          "action_l2": 1.23618,
+          "action_l2_first6": 1.23618,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.260582,
+            0.32079,
+            0.163207,
+            0.680553,
+            0.776255,
+            0.34243,
+            0.0
+          ],
+          "rotation_l2": 1.123821,
+          "sample_count": 9,
+          "translation_l2": 0.50609,
+          "worst_action_dimensions": [
+            {
+              "dim": 4,
+              "mae": 0.776255
+            },
+            {
+              "dim": 3,
+              "mae": 0.680553
+            },
+            {
+              "dim": 5,
+              "mae": 0.34243
+            }
+          ]
+        },
+        "trainable_params": 6016,
+        "training": {
+          "learning_rate": 0.001,
+          "loss_decreased_meaningfully": true,
+          "loss_delta": -0.041143,
+          "loss_end": 0.022447,
+          "loss_first_window_mean": 0.076376,
+          "loss_last_window_mean": 0.029022,
+          "loss_start": 0.06359,
+          "loss_trace": [
+            0.06359,
+            0.086884,
+            0.091942,
+            0.06176,
+            0.077703,
+            0.082192,
+            0.063257,
+            0.081227,
+            0.099158,
+            0.05562,
+            0.077047,
+            0.073871,
+            0.055028,
+            0.061187,
+            0.066332,
+            0.059438,
+            0.064052,
+            0.070614,
+            0.055894,
+            0.067019,
+            0.057773,
+            0.059214,
+            0.051894,
+            0.056085,
+            0.062673,
+            0.05565,
+            0.057821,
+            0.052506,
+            0.058533,
+            0.048855,
+            0.050721,
+            0.044152,
+            0.046596,
+            0.052237,
+            0.045328,
+            0.05161,
+            0.041887,
+            0.046121,
+            0.03886,
+            0.040095,
+            0.033318,
+            0.035711,
+            0.041922,
+            0.030722,
+            0.038587,
+            0.032567,
+            0.033013,
+            0.025249,
+            0.031832,
+            0.022447
+          ],
+          "max_steps": 50,
+          "optimizer_steps": 50
+        },
+        "vram_peak_mb": 1189.167
+      }
+    },
+    "mean_action": {
+      "action_l2": 0.486561,
+      "action_l2_first6": 0.486561,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.232391,
+        0.359821,
+        0.115526,
+        0.042679,
+        0.072024,
+        0.031806,
+        0.0
+      ],
+      "rotation_l2": 0.098626,
+      "sample_count": 6,
+      "translation_l2": 0.474176,
+      "worst_action_dimensions": [
+        {
+          "dim": 1,
+          "mae": 0.359821
+        },
+        {
+          "dim": 0,
+          "mae": 0.232391
+        },
+        {
+          "dim": 2,
+          "mae": 0.115526
+        }
+      ]
+    },
+    "runtime_sec": 56.109,
+    "split": {
+      "eval_count": 6,
+      "eval_demos": [
+        "demo_3",
+        "demo_4"
+      ],
+      "train_count": 9,
+      "train_demos": [
+        "demo_0",
+        "demo_1",
+        "demo_2"
+      ]
+    },
+    "state_time_mlp": {
+      "eval": {
+        "action_l2": 0.401848,
+        "action_l2_first6": 0.394648,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.064771,
+        "per_dim_mae": [
+          0.19739,
+          0.206432,
+          0.18908,
+          0.043752,
+          0.081978,
+          0.029857,
+          0.064771
+        ],
+        "rotation_l2": 0.113232,
+        "sample_count": 6,
+        "translation_l2": 0.372773,
+        "worst_action_dimensions": [
+          {
+            "dim": 1,
+            "mae": 0.206432
+          },
+          {
+            "dim": 0,
+            "mae": 0.19739
+          },
+          {
+            "dim": 2,
+            "mae": 0.18908
+          }
+        ]
+      },
+      "feature_name": "eef_state6_plus_time_fraction",
+      "loss_end": 6.2e-05,
+      "loss_start": 0.296296,
+      "steps": 400,
+      "train": {
+        "action_l2": 0.012472,
+        "action_l2_first6": 0.012406,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.001102,
+        "per_dim_mae": [
+          0.001347,
+          0.003604,
+          0.001446,
+          0.001758,
+          0.010552,
+          0.003278,
+          0.001102
+        ],
+        "rotation_l2": 0.011439,
+        "sample_count": 9,
+        "translation_l2": 0.004175,
+        "worst_action_dimensions": [
+          {
+            "dim": 4,
+            "mae": 0.010552
+          },
+          {
+            "dim": 1,
+            "mae": 0.003604
+          },
+          {
+            "dim": 5,
+            "mae": 0.003278
+          }
+        ]
+      }
+    },
+    "state_time_ridge": {
+      "eval": {
+        "action_l2": 0.412162,
+        "action_l2_first6": 0.412162,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.000111,
+        "per_dim_mae": [
+          0.196039,
+          0.191565,
+          0.209046,
+          0.030265,
+          0.094939,
+          0.054465,
+          0.000111
+        ],
+        "rotation_l2": 0.128695,
+        "sample_count": 6,
+        "translation_l2": 0.389053,
+        "worst_action_dimensions": [
+          {
+            "dim": 2,
+            "mae": 0.209046
+          },
+          {
+            "dim": 0,
+            "mae": 0.196039
+          },
+          {
+            "dim": 1,
+            "mae": 0.191565
+          }
+        ]
+      },
+      "feature_name": "eef_state6_plus_time_fraction",
+      "train": {
+        "action_l2": 0.020832,
+        "action_l2_first6": 0.020831,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.000111,
+        "per_dim_mae": [
+          0.010738,
+          0.008497,
+          0.00678,
+          0.000393,
+          0.009208,
+          0.00384,
+          0.000111
+        ],
+        "rotation_l2": 0.010186,
+        "sample_count": 9,
+        "translation_l2": 0.015918,
+        "worst_action_dimensions": [
+          {
+            "dim": 0,
+            "mae": 0.010738
+          },
+          {
+            "dim": 4,
+            "mae": 0.009208
+          },
+          {
+            "dim": 1,
+            "mae": 0.008497
+          }
+        ]
+      }
+    }
+  },
+  "data_split_audit": {
+    "larger_demo_holdout_split": {
+      "eval_action_stats": {
+        "action_dim": 7,
+        "count": 100,
+        "gripper_unique_values": [
+          -1.0,
+          1.0
+        ],
+        "gripper_variance": 0.9324,
+        "max": [
+          0.776786,
+          0.717857,
+          0.9375,
+          0.1425,
+          0.146786,
+          0.375,
+          1.0
+        ],
+        "mean": [
+          0.041277,
+          0.055687,
+          -0.07117,
+          0.009525,
+          -0.006761,
+          0.064821,
+          -0.26
+        ],
+        "min": [
+          -0.46875,
+          -0.808929,
+          -0.782143,
+          -0.057857,
+          -0.184286,
+          -0.053571,
+          -1.0
+        ],
+        "rotation_variance_mean": 0.005103,
+        "std": [
+          0.263023,
+          0.301258,
+          0.34977,
+          0.033281,
+          0.053125,
+          0.106676,
+          0.965609
+        ],
+        "translation_variance_mean": 0.094092,
+        "variance": [
+          0.069181,
+          0.090757,
+          0.122339,
+          0.001108,
+          0.002822,
+          0.01138,
+          0.9324
+        ]
+      },
+      "eval_count": 100,
+      "eval_demos": [
+        "demo_30",
+        "demo_31",
+        "demo_32",
+        "demo_33",
+        "demo_34",
+        "demo_35",
+        "demo_36",
+        "demo_37",
+        "demo_38",
+        "demo_39"
+      ],
+      "mean_baselines": {
+        "global_mean_action": {
+          "action_l2": 1.082453,
+          "action_l2_first6": 0.462732,
+          "gripper_accuracy": 0.63,
+          "gripper_error": 0.935867,
+          "per_dim_mae": [
+            0.188132,
+            0.198451,
+            0.260312,
+            0.021445,
+            0.036691,
+            0.070862,
+            0.935867
+          ],
+          "rotation_l2": 0.095738,
+          "sample_count": 100,
+          "translation_l2": 0.437783,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.935867
+            },
+            {
+              "dim": 2,
+              "mae": 0.260312
+            },
+            {
+              "dim": 1,
+              "mae": 0.198451
+            }
+          ]
+        },
+        "per_demo_mean_oracle_leaky": {
+          "action_l2": 1.096935,
+          "action_l2_first6": 0.462818,
+          "gripper_accuracy": 0.63,
+          "gripper_error": 0.958095,
+          "per_dim_mae": [
+            0.189951,
+            0.197868,
+            0.258194,
+            0.023407,
+            0.036722,
+            0.075316,
+            0.958094
+          ],
+          "rotation_l2": 0.0999,
+          "sample_count": 100,
+          "translation_l2": 0.436792,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.958094
+            },
+            {
+              "dim": 2,
+              "mae": 0.258194
+            },
+            {
+              "dim": 1,
+              "mae": 0.197868
+            }
+          ]
+        },
+        "previous_action": {
+          "action_l2": 0.181765,
+          "action_l2_first6": 0.062283,
+          "gripper_accuracy": 0.97,
+          "gripper_error": 0.135333,
+          "per_dim_mae": [
+            0.020976,
+            0.027571,
+            0.035377,
+            0.003586,
+            0.008415,
+            0.009139,
+            0.135333
+          ],
+          "rotation_l2": 0.015913,
+          "sample_count": 100,
+          "translation_l2": 0.058877,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.135333
+            },
+            {
+              "dim": 2,
+              "mae": 0.035377
+            },
+            {
+              "dim": 1,
+              "mae": 0.027571
+            }
+          ]
+        }
+      },
+      "train_action_stats": {
+        "action_dim": 7,
+        "count": 300,
+        "gripper_unique_values": [
+          -1.0,
+          1.0
+        ],
+        "gripper_variance": 0.939155,
+        "max": [
+          0.798214,
+          0.752679,
+          0.875893,
+          0.235714,
+          0.259286,
+          0.375,
+          1.0
+        ],
+        "mean": [
+          0.038964,
+          0.056473,
+          -0.084839,
+          0.008668,
+          -0.007936,
+          0.053893,
+          -0.246667
+        ],
+        "min": [
+          -0.538393,
+          -0.838393,
+          -0.811607,
+          -0.144643,
+          -0.205714,
+          -0.072857,
+          -1.0
+        ],
+        "rotation_variance_mean": 0.005071,
+        "std": [
+          0.243194,
+          0.288697,
+          0.345754,
+          0.03478,
+          0.060209,
+          0.10188,
+          0.9691
+        ],
+        "translation_variance_mean": 0.087345,
+        "variance": [
+          0.059143,
+          0.083346,
+          0.119546,
+          0.00121,
+          0.003625,
+          0.01038,
+          0.939154
+        ]
+      },
+      "train_count": 300,
+      "train_demos": [
+        "demo_0",
+        "demo_1",
+        "demo_2",
+        "demo_3",
+        "demo_4",
+        "demo_5",
+        "demo_6",
+        "demo_7",
+        "demo_8",
+        "demo_9",
+        "demo_10",
+        "demo_11",
+        "demo_12",
+        "demo_13",
+        "demo_14",
+        "demo_15",
+        "demo_16",
+        "demo_17",
+        "demo_18",
+        "demo_19",
+        "demo_20",
+        "demo_21",
+        "demo_22",
+        "demo_23",
+        "demo_24",
+        "demo_25",
+        "demo_26",
+        "demo_27",
+        "demo_28",
+        "demo_29"
+      ]
+    },
+    "low_variance_indicators": {
+      "global_action_l2_std_first6": 0.56257,
+      "gripper_variance": 0.96829,
+      "mean_action_is_strong_on_previous_split": true
+    },
+    "previous_sampled_split": {
+      "eval_count": 6,
+      "eval_demos": [
+        "demo_3",
+        "demo_4"
+      ],
+      "mean_baselines": {
+        "global_mean_action": {
+          "action_l2": 0.486561,
+          "action_l2_first6": 0.486561,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.232391,
+            0.359821,
+            0.115526,
+            0.042679,
+            0.072024,
+            0.031806,
+            0.0
+          ],
+          "rotation_l2": 0.098626,
+          "sample_count": 6,
+          "translation_l2": 0.474176,
+          "worst_action_dimensions": [
+            {
+              "dim": 1,
+              "mae": 0.359821
+            },
+            {
+              "dim": 0,
+              "mae": 0.232391
+            },
+            {
+              "dim": 2,
+              "mae": 0.115526
+            }
+          ]
+        },
+        "per_demo_mean_oracle_leaky": {
+          "action_l2": 0.952017,
+          "action_l2_first6": 0.465745,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.790691,
+          "per_dim_mae": [
+            0.176989,
+            0.320805,
+            0.15991,
+            0.040891,
+            0.07435,
+            0.056512,
+            0.790691
+          ],
+          "rotation_l2": 0.114116,
+          "sample_count": 6,
+          "translation_l2": 0.440345,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.790691
+            },
+            {
+              "dim": 1,
+              "mae": 0.320805
+            },
+            {
+              "dim": 0,
+              "mae": 0.176989
+            }
+          ]
+        },
+        "previous_action": {
+          "action_l2": 0.188748,
+          "action_l2_first6": 0.188748,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.085069,
+            0.112946,
+            0.091419,
+            0.012679,
+            0.021964,
+            0.004643,
+            0.0
+          ],
+          "rotation_l2": 0.030108,
+          "sample_count": 6,
+          "translation_l2": 0.184894,
+          "worst_action_dimensions": [
+            {
+              "dim": 1,
+              "mae": 0.112946
+            },
+            {
+              "dim": 2,
+              "mae": 0.091419
+            },
+            {
+              "dim": 0,
+              "mae": 0.085069
+            }
+          ]
+        }
+      },
+      "train_count": 9,
+      "train_demos": [
+        "demo_0",
+        "demo_1",
+        "demo_2"
+      ]
+    },
+    "previous_split_why_9_train_6_eval": "The prior runner sampled 3 train demos and 2 eval demos with 3 timesteps per demo, so records were sampled timestep/action-window records: 3*3 train and 2*3 eval.",
+    "raw_action_stats": {
+      "action_dim": 7,
+      "count": 13298,
+      "gripper_unique_values": [
+        -1.0,
+        1.0
+      ],
+      "gripper_variance": 0.96829,
+      "max": [
+        0.932143,
+        0.875893,
+        0.9375,
+        0.235714,
+        0.290357,
+        0.375,
+        1.0
+      ],
+      "mean": [
+        0.039349,
+        0.056619,
+        -0.091883,
+        0.012416,
+        -0.005815,
+        0.063391,
+        -0.178072
+      ],
+      "min": [
+        -0.774107,
+        -0.886607,
+        -0.9375,
+        -0.147857,
+        -0.233571,
+        -0.110357,
+        -1.0
+      ],
+      "rotation_variance_mean": 0.005091,
+      "std": [
+        0.262207,
+        0.308574,
+        0.370461,
+        0.035068,
+        0.05897,
+        0.102793,
+        0.984038
+      ],
+      "translation_variance_mean": 0.100404,
+      "variance": [
+        0.068752,
+        0.095218,
+        0.137241,
+        0.00123,
+        0.003477,
+        0.010566,
+        0.968331
+      ]
+    },
+    "raw_demo_count": 50,
+    "raw_timestep_count": 13298,
+    "raw_timestep_count_by_demo_first10": {
+      "demo_0": 272,
+      "demo_1": 279,
+      "demo_2": 298,
+      "demo_3": 285,
+      "demo_4": 245,
+      "demo_5": 299,
+      "demo_6": 306,
+      "demo_7": 272,
+      "demo_8": 275,
+      "demo_9": 308
+    },
+    "records_are": "sampled observation/action-chunk windows; each record is one demo/timestep plus a 50-step action chunk target",
+    "same_demo_time_holdout_split": {
+      "demos": [
+        "demo_0",
+        "demo_1",
+        "demo_2",
+        "demo_3",
+        "demo_4",
+        "demo_5",
+        "demo_6",
+        "demo_7",
+        "demo_8",
+        "demo_9"
+      ],
+      "eval_count": 40,
+      "mean_baselines": {
+        "global_mean_action": {
+          "action_l2": 1.155173,
+          "action_l2_first6": 0.44244,
+          "gripper_accuracy": 0.45,
+          "gripper_error": 1.05,
+          "per_dim_mae": [
+            0.18046,
+            0.177958,
+            0.257248,
+            0.015619,
+            0.033583,
+            0.057529,
+            1.05
+          ],
+          "rotation_l2": 0.077013,
+          "sample_count": 40,
+          "translation_l2": 0.430468,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 1.05
+            },
+            {
+              "dim": 2,
+              "mae": 0.257248
+            },
+            {
+              "dim": 0,
+              "mae": 0.18046
+            }
+          ]
+        },
+        "per_demo_mean_oracle_leaky": {
+          "action_l2": 1.106793,
+          "action_l2_first6": 0.406027,
+          "gripper_accuracy": 0.45,
+          "gripper_error": 1.017016,
+          "per_dim_mae": [
+            0.140358,
+            0.165055,
+            0.250672,
+            0.015185,
+            0.034356,
+            0.049634,
+            1.017016
+          ],
+          "rotation_l2": 0.070455,
+          "sample_count": 40,
+          "translation_l2": 0.39426,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 1.017016
+            },
+            {
+              "dim": 2,
+              "mae": 0.250672
+            },
+            {
+              "dim": 1,
+              "mae": 0.165055
+            }
+          ]
+        },
+        "previous_action": {
+          "action_l2": 0.152844,
+          "action_l2_first6": 0.053275,
+          "gripper_accuracy": 0.95,
+          "gripper_error": 0.1,
+          "per_dim_mae": [
+            0.017344,
+            0.019286,
+            0.035893,
+            0.001982,
+            0.006616,
+            0.003,
+            0.1
+          ],
+          "rotation_l2": 0.008831,
+          "sample_count": 40,
+          "translation_l2": 0.051875,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.1
+            },
+            {
+              "dim": 2,
+              "mae": 0.035893
+            },
+            {
+              "dim": 1,
+              "mae": 0.019286
+            }
+          ]
+        }
+      },
+      "train_count": 80
+    },
+    "task_holdout_audit": {
+      "available_task_count_in_suite": 10,
+      "example_holdout_tasks": [
+        "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo",
+        "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo",
+        "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo"
+      ],
+      "example_train_tasks": [
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo",
+        "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo"
+      ],
+      "executed_training": false,
+      "feasible_without_download": true
+    }
+  },
+  "decision": "ACTION_INTERFACE_BUG",
+  "error": null,
+  "evidence_label": "smolvla_lora_baseline_diagnosis",
+  "overfit_audit": {
+    "one_demo_mean_action": {
+      "action_l2": 0.446697,
+      "action_l2_first6": 0.446697,
+      "gripper_accuracy": 1.0,
+      "gripper_error": 0.0,
+      "per_dim_mae": [
+        0.35,
+        0.193452,
+        0.193452,
+        0.0,
+        0.010714,
+        0.032381,
+        0.0
+      ],
+      "rotation_l2": 0.034138,
+      "sample_count": 3,
+      "translation_l2": 0.444851,
+      "worst_action_dimensions": [
+        {
+          "dim": 0,
+          "mae": 0.35
+        },
+        {
+          "dim": 1,
+          "mae": 0.193452
+        },
+        {
+          "dim": 2,
+          "mae": 0.193452
+        }
+      ]
+    },
+    "one_demo_overfit": {
+      "eval_metrics": {
+        "action_l2": 0.821807,
+        "action_l2_first6": 0.821807,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.311112,
+          0.348095,
+          0.34541,
+          0.34048,
+          0.234837,
+          0.189651,
+          0.0
+        ],
+        "rotation_l2": 0.482203,
+        "sample_count": 3,
+        "translation_l2": 0.65394,
+        "worst_action_dimensions": [
+          {
+            "dim": 1,
+            "mae": 0.348095
+          },
+          {
+            "dim": 2,
+            "mae": 0.34541
+          },
+          {
+            "dim": 3,
+            "mae": 0.34048
+          }
+        ]
+      },
+      "external_dependency_found": true,
+      "lora_rank": 4,
+      "name": "one_demo_overfit_current_lora",
+      "target_modules": [
+        "state_proj",
+        "action_in_proj",
+        "action_out_proj"
+      ],
+      "total_params": 450056160,
+      "train_metrics": {
+        "action_l2": 0.821807,
+        "action_l2_first6": 0.821807,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.311112,
+          0.348095,
+          0.34541,
+          0.34048,
+          0.234837,
+          0.189651,
+          0.0
+        ],
+        "rotation_l2": 0.482203,
+        "sample_count": 3,
+        "translation_l2": 0.65394,
+        "worst_action_dimensions": [
+          {
+            "dim": 1,
+            "mae": 0.348095
+          },
+          {
+            "dim": 2,
+            "mae": 0.34541
+          },
+          {
+            "dim": 3,
+            "mae": 0.34048
+          }
+        ]
+      },
+      "trainable_params": 9984,
+      "training": {
+        "learning_rate": 0.001,
+        "loss_decreased_meaningfully": true,
+        "loss_delta": -0.050068,
+        "loss_end": 0.013522,
+        "loss_first_window_mean": 0.073314,
+        "loss_last_window_mean": 0.009578,
+        "loss_start": 0.06359,
+        "loss_trace": [
+          0.06359,
+          0.084774,
+          0.087332,
+          0.056174,
+          0.074698,
+          0.074428,
+          0.049544,
+          0.066436,
+          0.062614,
+          0.044576,
+          0.059022,
+          0.051637,
+          0.040405,
+          0.0523,
+          0.042245,
+          0.038647,
+          0.047034,
+          0.035773,
+          0.037534,
+          0.042766,
+          0.030901,
+          0.035708,
+          0.039221,
+          0.026973,
+          0.032696,
+          0.035916,
+          0.02393,
+          0.029644,
+          0.032939,
+          0.021159,
+          0.026902,
+          0.030351,
+          0.018915,
+          0.024389,
+          0.028209,
+          0.016754,
+          0.021789,
+          0.026138,
+          0.014602,
+          0.019469,
+          0.024583,
+          0.012699,
+          0.017448,
+          0.022945,
+          0.01086,
+          0.016219,
+          0.02149,
+          0.009271,
+          0.015138,
+          0.020098,
+          0.007963,
+          0.013972,
+          0.018945,
+          0.007048,
+          0.013097,
+          0.017996,
+          0.006331,
+          0.012238,
+          0.017199,
+          0.00576,
+          0.011456,
+          0.016601,
+          0.005207,
+          0.011006,
+          0.015916,
+          0.004806,
+          0.010307,
+          0.015415,
+          0.004426,
+          0.009671,
+          0.014846,
+          0.004107,
+          0.009156,
+          0.01437,
+          0.003835,
+          0.008654,
+          0.01391,
+          0.003617,
+          0.008187,
+          0.013522
+        ],
+        "max_steps": 80,
+        "optimizer_steps": 80
+      },
+      "vram_peak_mb": 1189.213
+    },
+    "one_demo_overfit_passed": false,
+    "one_demo_pass_rule": "loss decreases and same-demo select_action action L2 beats same-demo mean action",
+    "one_sample_overfit": {
+      "eval_metrics": {
+        "action_l2": 0.471232,
+        "action_l2_first6": 0.471232,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.050709,
+          0.224191,
+          0.395786,
+          0.04169,
+          0.08521,
+          0.059847,
+          0.0
+        ],
+        "rotation_l2": 0.112163,
+        "sample_count": 1,
+        "translation_l2": 0.457689,
+        "worst_action_dimensions": [
+          {
+            "dim": 2,
+            "mae": 0.395786
+          },
+          {
+            "dim": 1,
+            "mae": 0.224191
+          },
+          {
+            "dim": 4,
+            "mae": 0.08521
+          }
+        ]
+      },
+      "external_dependency_found": true,
+      "lora_rank": 4,
+      "name": "one_sample_overfit_current_lora",
+      "target_modules": [
+        "state_proj",
+        "action_in_proj",
+        "action_out_proj"
+      ],
+      "total_params": 450056160,
+      "train_metrics": {
+        "action_l2": 0.471232,
+        "action_l2_first6": 0.471232,
+        "gripper_accuracy": 1.0,
+        "gripper_error": 0.0,
+        "per_dim_mae": [
+          0.050709,
+          0.224191,
+          0.395786,
+          0.04169,
+          0.08521,
+          0.059847,
+          0.0
+        ],
+        "rotation_l2": 0.112163,
+        "sample_count": 1,
+        "translation_l2": 0.457689,
+        "worst_action_dimensions": [
+          {
+            "dim": 2,
+            "mae": 0.395786
+          },
+          {
+            "dim": 1,
+            "mae": 0.224191
+          },
+          {
+            "dim": 4,
+            "mae": 0.08521
+          }
+        ]
+      },
+      "trainable_params": 9984,
+      "training": {
+        "learning_rate": 0.001,
+        "loss_decreased_meaningfully": true,
+        "loss_delta": -0.083527,
+        "loss_end": 0.003522,
+        "loss_first_window_mean": 0.078102,
+        "loss_last_window_mean": 0.003693,
+        "loss_start": 0.087049,
+        "loss_trace": [
+          0.087049,
+          0.082729,
+          0.077991,
+          0.07357,
+          0.069173,
+          0.065376,
+          0.061508,
+          0.057917,
+          0.054511,
+          0.051015,
+          0.047961,
+          0.045341,
+          0.043035,
+          0.041259,
+          0.039517,
+          0.037931,
+          0.03638,
+          0.034512,
+          0.032634,
+          0.030542,
+          0.028587,
+          0.026758,
+          0.025038,
+          0.023398,
+          0.021963,
+          0.020539,
+          0.019269,
+          0.017952,
+          0.016675,
+          0.015396,
+          0.014298,
+          0.013219,
+          0.012369,
+          0.011537,
+          0.010897,
+          0.010252,
+          0.009758,
+          0.009426,
+          0.0092,
+          0.008944,
+          0.008747,
+          0.00861,
+          0.008371,
+          0.008193,
+          0.007923,
+          0.00763,
+          0.007329,
+          0.007108,
+          0.006877,
+          0.006697,
+          0.006534,
+          0.006382,
+          0.006266,
+          0.00609,
+          0.005983,
+          0.005895,
+          0.005768,
+          0.005595,
+          0.005477,
+          0.005341,
+          0.005232,
+          0.005067,
+          0.005026,
+          0.004908,
+          0.004811,
+          0.004736,
+          0.004632,
+          0.004546,
+          0.004444,
+          0.00439,
+          0.004272,
+          0.004184,
+          0.004097,
+          0.004007,
+          0.003936,
+          0.003865,
+          0.003786,
+          0.003684,
+          0.00361,
+          0.003522
+        ],
+        "max_steps": 80,
+        "optimizer_steps": 80
+      },
+      "vram_peak_mb": 1188.228
+    },
+    "one_sample_overfit_passed": false,
+    "one_sample_pass_rule": "loss decreases and same-record select_action action L2 < 0.25"
+  },
+  "paths": {
+    "checkpoint_root": "C:\\assets\\checkpoints",
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "hf_home": "C:\\assets\\hf_home",
+    "smolvla_ckpt": "C:\\assets\\checkpoints\\smolvla"
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "bounded_baseline_diagnosis": true,
+    "diagnosis_gate_set": true,
+    "downloads_performed": false,
+    "forbidden_gates_set": [],
+    "heavy_import_gate_set": true,
+    "large_model_or_dataset_downloads_performed": false,
+    "loss_computed": true,
+    "new_method_created": false,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "patchguard_continued": false,
+    "rollouts_performed": false,
+    "training_gate_set": true,
+    "training_performed": true
+  },
+  "schema_version": "smolvla-lora-baseline-diagnosis-v1",
+  "summary": {
+    "action_interface_bug": true,
+    "best_lora_metric": 0.912258,
+    "best_lora_name": "current_projection_lora",
+    "best_small_mlp_or_ridge_metric": 0.401848,
+    "best_small_mlp_or_ridge_name": "state_time_mlp",
+    "dataset_used": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "exact_next_step": "Fix the SmolVLA/LIBERO action interface before any method work: the local data is 7D LIBERO action space while the checkpoint action head and normalizer are 6D SO100-style, and overfit sanity did not clear the action metric gate.",
+    "final_decision": "ACTION_INTERFACE_BUG",
+    "frozen_base_metric": 1.6029,
+    "interface_audit_result": "ACTION_INTERFACE_BUG",
+    "larger_split_train_eval_count": "300 / 100",
+    "lora_beats_mean_action": false,
+    "lora_beats_small_mlp_or_ridge": false,
+    "lora_rank": 4,
+    "loss_computed": true,
+    "low_variance_indicator": true,
+    "mean_action_metric": 0.486561,
+    "model_used": "C:\\assets\\checkpoints\\smolvla",
+    "one_demo_overfit_passed": false,
+    "one_sample_overfit_passed": false,
+    "overfit_failed": true,
+    "previous_train_eval_count": "9 / 6",
+    "raw_timestep_count": 13298,
+    "runtime_sec": 112.797,
+    "training_happened": true,
+    "vram_peak_mb": 1189.167
+  }
+}

@@ -68,4 +68,15 @@ Do not:
 
 ## Promotion Rule
 
-No new method should start until standard LoRA baseline behavior beats mean-action or the action-interface blocker is resolved. A future method must be predeclared against standard LoRA, generic augmentation, and the relevant simple baselines before implementation.
+## Diagnosis Update
+
+The follow-up diagnosis selected `ACTION_INTERFACE_BUG`.
+
+The next valid step is action-interface repair, not a new method:
+
+- resolve the 6D SmolVLA action head versus 7D LIBERO action label mismatch,
+- resolve SO100-style checkpoint normalization versus local LIBERO action scale,
+- remove or justify the hard-coded gripper-close adapter,
+- rerun one-sample and one-demo overfit before any larger baseline.
+
+No new method should start until standard LoRA baseline behavior beats mean-action after the action-interface blocker is resolved. A future method must be predeclared against standard LoRA, generic augmentation, and the relevant simple baselines before implementation.

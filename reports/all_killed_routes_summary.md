@@ -184,4 +184,6 @@ New rule from PatchGuard-VLA: a VLA robustness or defense route is invalid if it
 
 Additional reset after PatchGuard-VLA: local proxy idea generation should remain stopped. The real SmolVLA LoRA path is now available, so the next valid step is standard SmolVLA LoRA baseline reproduction on an official or standard task split, not another custom method.
 
-Update from SmolVLA LoRA Baseline STATE 1: the baseline reproduction ran and standard LoRA learned the training loss, but it was mean-action dominated on held-out local demos. Standard LoRA eval action L2 was `0.940196`, mean-action eval action L2 was `0.486561`, and frozen/base SmolVLA eval action L2 was `1.6029`. No new method should start until this baseline/action-interface issue is resolved.
+Update from SmolVLA LoRA Baseline STATE 1: the baseline reproduction ran and standard LoRA learned the training loss, but it was mean-action dominated on held-out local demos. Standard LoRA eval action L2 was `0.940196`, mean-action eval action L2 was `0.486561`, and frozen/base SmolVLA eval action L2 was `1.6029`.
+
+Follow-up diagnosis: final decision `ACTION_INTERFACE_BUG`. The local data has enough raw timesteps (`13298`) and a larger deterministic split is possible (`300 / 100`), but local LIBERO labels are 7D while the SmolVLA action head and normalizer are 6D SO100-style. One-sample and one-demo overfit failed in action space. No new method should start until this action-interface issue is fixed.

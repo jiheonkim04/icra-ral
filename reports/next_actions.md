@@ -4,36 +4,47 @@ Date: 2026-07-09 KST
 
 Current decision:
 
-`KILL_MEAN_BASELINE_DOMINATED`
+`ACTION_INTERFACE_BUG`
 
 ## Immediate Next Action
 
-Stop method work. Diagnose why standard SmolVLA LoRA loses to mean-action on the held-out local split.
+Fix or replace the SmolVLA/LIBERO action interface before any method work.
 
 ## Why
 
-The baseline did learn the training objective:
+The diagnosis found enough local data for a larger split, but the action interface is not correct:
 
-- loss start/end: `0.06359 / 0.008743`
-- loss decreased meaningfully: yes
-- trainable params: `9984`
-- VRAM peak MB: `1190.228`
-- runtime sec: `43.765`
+- HDF5 actions are `7D`.
+- Local SmolVLA action head is `6D`.
+- SmolVLA pre/postprocessor action shape is `6D`.
+- Checkpoint action normalizer is SO100-style `MEAN_STD`, while local LIBERO actions are small roughly `[-1, 1]` actions.
+- The gripper dimension is synthesized by an adapter rather than produced by the model.
+- One-sample overfit failed in select-action action L2.
+- One-demo overfit failed against the same-demo mean-action baseline.
 
-But it failed the required mean-action gate:
+## What Worked
 
-- mean-action eval action L2: `0.486561`
-- standard LoRA eval action L2: `0.940196`
-- frozen/base SmolVLA eval action L2: `1.6029`
+- Label reconstruction sanity passed.
+- Action chunk horizon alignment passed.
+- No off-by-one was detected in the chunk builder.
+- Bounded LoRA training ran and loss was computed.
+- RTX 5080 VRAM stayed low: `1189.167` MB peak.
 
-LoRA beat frozen/base SmolVLA, but it did not beat the trivial action prior.
+## Current Metrics
+
+- mean-action action L2: `0.486561`
+- frozen/base action L2: `1.6029`
+- best LoRA action L2: `0.912258`
+- best small MLP/ridge action L2: `0.401848`
+- LoRA beats mean-action: no
+- LoRA beats small MLP/ridge: no
 
 ## Allowed Next Work
 
-- Baseline-only action normalization/provenance audit.
-- Baseline-only split/sampling audit.
-- Official SmolVLA training-recipe comparison if it can be done without large downloads or OpenVLA-OFT.
-- A rerun of standard LoRA only if it changes the baseline protocol, not the method.
+- Action dimension adapter audit: decide whether the correct baseline target is 6D first-six action, 7D with learned gripper, or a true SmolVLA-compatible action space.
+- Normalization audit: apply or reproduce the correct SmolVLA action normalization/unnormalization path for local LIBERO labels.
+- Gripper convention audit: remove hard-coded close if it is invalid for the target baseline.
+- Standard LoRA rerun only after the action interface is corrected.
 
 ## Disallowed Next Work
 
@@ -46,4 +57,4 @@ Do not:
 - run rollout from this evidence,
 - download large assets,
 - make paper claims,
-- treat local proxy evidence as final paper evidence.
+- treat this local proxy evidence as final paper evidence.

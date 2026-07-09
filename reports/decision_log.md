@@ -143,3 +143,64 @@ Key metrics:
 - LoRA beats mean-action: no.
 
 Consequence: do not start a method on top of this LoRA setup. First diagnose the baseline/action-interface issue or reproduce a stronger official-style standard LoRA baseline.
+
+## 2026-07-09: SmolVLA LoRA Baseline Diagnosis
+
+Decision: `ACTION_INTERFACE_BUG`
+
+Reason: the mean-action dominance is not yet a valid LoRA-capacity conclusion. The diagnosis found an action-interface mismatch between local LIBERO labels and the SmolVLA checkpoint interface, and overfit sanity checks failed in action space.
+
+Execution boundary:
+
+- experiments happened: yes, bounded diagnosis only;
+- training happened: yes, bounded LoRA overfit/capacity sanity checks only;
+- loss computed: yes;
+- GPU happened: yes, RTX 5080 CUDA;
+- downloads happened: no;
+- rollout/replay happened: no;
+- OpenVLA-OFT happened: no;
+- full benchmark happened: no;
+- PatchGuard continued: no;
+- new method implementation happened: no;
+- paper claims happened: no.
+
+Dataset and split evidence:
+
+- previous split was `9 / 6` because it sampled three timesteps per demo over three train demos and two eval demos;
+- records are sampled observation/action-window records;
+- raw HDF5 demos: `50`;
+- raw HDF5 timesteps: `13298`;
+- larger deterministic demo-holdout split possible: `300 / 100`;
+- same-demo time-holdout split possible: `80 / 40`;
+- task holdout is feasible locally.
+
+Action-interface evidence:
+
+- HDF5 action dim: `7`;
+- SmolVLA model action shape: `[6]`;
+- policy preprocessor/postprocessor action shape: `[6]`;
+- checkpoint action normalizer is SO100-style `MEAN_STD`;
+- local LIBERO first-six action mean/std are small, roughly centered near zero;
+- local/checkpoint mean mismatch reaches `6.881818` checkpoint standard deviations;
+- gripper is synthesized by `ACTION_STRATEGY_GRIPPER_CLOSE`.
+
+Sanity checks:
+
+- label reconstruction sanity: passed;
+- action chunk horizon alignment: passed;
+- off-by-one in chunk builder: not detected;
+- one-sample overfit: failed;
+- one-demo overfit: failed.
+
+Capacity metrics:
+
+- mean-action action L2: `0.486561`;
+- frozen/base action L2: `1.6029`;
+- best LoRA action L2: `0.912258`;
+- best small MLP/ridge action L2: `0.401848`;
+- LoRA beats mean-action: no;
+- LoRA beats small MLP/ridge: no;
+- VRAM peak MB: `1189.167`;
+- runtime sec: `112.797`.
+
+Consequence: fix the SmolVLA/LIBERO action interface before any method work. No new paper method is allowed from this state.

@@ -4,61 +4,92 @@ Date: 2026-07-09 KST
 
 Branch:
 
-`codex/archive-patchguard-and-smolvla-lora-baseline`
+`codex/smolvla-lora-baseline-diagnosis`
 
 Current branch base:
 
-`5ff597c Archive PatchGuard route and record LoRA status`
+`9faa030 Run SmolVLA LoRA baseline gate`
 
 Current decision:
 
-`KILL_MEAN_BASELINE_DOMINATED`
+`ACTION_INTERFACE_BUG`
 
 ## Current Bounded Run Boundary
 
-- PatchGuard archived: yes.
-- LoRA environment status recorded: yes.
-- Experiments happened: yes, one bounded standard SmolVLA LoRA baseline.
-- Training happened: yes, rank-4 PEFT LoRA only.
-- Loss computation happened: yes.
+- Experiments happened: yes, bounded diagnosis only.
+- Training happened: yes, bounded LoRA overfit/capacity sanity checks only.
+- Loss computed: yes.
 - GPU happened: yes, RTX 5080 CUDA.
 - Downloads happened: no.
 - Rollout/replay happened: no.
 - OpenVLA-OFT happened: no.
-- Full VLA fine-tuning happened: no.
+- Full benchmark happened: no.
+- PatchGuard continued: no.
 - New method implementation happened: no.
 - Paper claims happened: no.
 
-## PatchGuard Status
+## Dataset And Split Status
 
-PatchGuard-VLA remains archived as `KILL_BASELINE_DOMINATED`. This kills the PatchGuard method claim, not the LoRA environment.
+The previous `9 / 6` split came from sampling three timesteps per demo over three train demos and two eval demos.
 
-## SmolVLA LoRA Baseline Status
+Diagnosis found:
 
-STATE 1 standard LoRA baseline ran on:
+- records are sampled observation/action-window records, not full demos,
+- raw HDF5 demos: `50`,
+- raw HDF5 timesteps: `13298`,
+- larger deterministic demo-holdout split possible: `300 / 100`,
+- same-demo time-holdout split possible: `80 / 40`,
+- task holdout is feasible without download within the local suite.
 
-- model: `C:\assets\checkpoints\smolvla`
-- dataset: `C:\assets\data\libero\libero_10\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5`
-- split: `deterministic_demo_holdout`
-- train demos: `demo_0`, `demo_1`, `demo_2`
-- eval demos: `demo_3`, `demo_4`
-- train/eval records: `9 / 6`
+## Action Variance And Mean-Action Strength
 
-Result:
+Raw action variance:
 
-- LoRA rank: `4`
-- trainable params: `9984`
-- optimizer steps: `60`
-- loss start/end: `0.06359 / 0.008743`
-- loss decreased meaningfully: yes
-- VRAM peak MB: `1190.228`
-- runtime sec: `43.765`
-- mean-action eval action L2: `0.486561`
-- frozen/base SmolVLA eval action L2: `1.6029`
-- standard LoRA eval action L2: `0.940196`
-- LoRA beats frozen/base: yes
+- per-dim variance: `[0.068752, 0.095218, 0.137241, 0.00123, 0.003477, 0.010566, 0.968331]`
+- translation variance mean: `0.100404`
+- rotation variance mean: `0.005091`
+- gripper variance: `0.96829`
+
+The mean-action baseline is strong on the previous split:
+
+- mean-action action L2: `0.486561`
+- previous-action action L2: `0.188748`
+
+## Interface Audit Result
+
+The local action interface is not proven correct. It is contradicted by the diagnosis:
+
+- HDF5 action dim: `7`
+- SmolVLA model action shape: `[6]`
+- policy preprocessor action shape: `[6]`
+- policy postprocessor action shape: `[6]`
+- checkpoint action normalization: `ACTION: MEAN_STD`
+- local LIBERO action first-six mean: `[0.039349, 0.056619, -0.091883, 0.012416, -0.005815, 0.063391]`
+- local LIBERO action first-six std: `[0.262207, 0.308574, 0.370461, 0.035068, 0.05897, 0.102793]`
+- checkpoint normalizer is SO100-style and differs by up to `6.881818` mean-std units.
+- gripper is synthesized by `ACTION_STRATEGY_GRIPPER_CLOSE` instead of learned by the 6D action head.
+
+Label reconstruction and chunk alignment passed:
+
+- chunk first action matches HDF5 action at observation timestep,
+- chunk second action matches the next HDF5 action,
+- no off-by-one was detected in the local chunk builder.
+
+## Overfit And Capacity Status
+
+- one-sample overfit passed: no
+- one-demo overfit passed: no
+- mean-action metric: `0.486561`
+- frozen/base metric: `1.6029`
+- best LoRA metric: `0.912258`
+- best LoRA variant: `current_projection_lora`
+- best small MLP/ridge metric: `0.401848`
+- best small MLP/ridge: `state_time_mlp`
 - LoRA beats mean-action: no
+- LoRA beats small MLP/ridge: no
+- VRAM peak MB: `1189.167`
+- runtime sec: `112.797`
 
 ## Conclusion
 
-Standard LoRA can train and improve over frozen/base SmolVLA in this bounded local setup, but it does not beat the mean-action baseline. This blocks any method on top of SmolVLA LoRA until the baseline/action-interface issue is resolved.
+Do not start a new RA-L method. Fix the SmolVLA/LIBERO action interface first. The current evidence points to an action dimension, normalization, and gripper-interface bug rather than a valid method substrate.

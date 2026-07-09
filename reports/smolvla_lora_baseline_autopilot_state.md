@@ -75,3 +75,22 @@ Key evidence:
 - LoRA beats mean-action: no
 
 Interpretation: standard LoRA learned the small training objective but did not clear the held-out mean-action gate. Do not start a method on top of this local baseline yet.
+
+## Diagnosis Result
+
+Decision: `ACTION_INTERFACE_BUG`
+
+The follow-up diagnosis found:
+
+- raw HDF5 timesteps: `13298`
+- larger deterministic demo-holdout split possible: `300 / 100`
+- HDF5 action dim: `7`
+- SmolVLA model action shape: `[6]`
+- SO100-style checkpoint action normalizer mismatched local LIBERO action scale
+- label reconstruction and chunk alignment passed
+- one-sample overfit failed
+- one-demo overfit failed
+- best LoRA action L2: `0.912258`
+- best small MLP/ridge action L2: `0.401848`
+
+Conclusion: fix the action interface before any method work.

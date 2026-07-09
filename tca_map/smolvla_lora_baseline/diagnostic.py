@@ -225,6 +225,7 @@ def _load_policy(
     checkpoint_root: Path,
     device: str,
     lora_rank: int | None = None,
+    target_modules: list[str] | None = None,
 ) -> tuple[Any, Any, Path, dict[str, Any]]:
     dependency_name = _read_tokenizer_dependency(smolvla_ckpt)
     external_dependency = _external_tokenizer_files(dependency_name, [hf_home, checkpoint_root])
@@ -237,7 +238,7 @@ def _load_policy(
         lora_config = LoraConfig(
             r=int(lora_rank),
             lora_alpha=int(lora_rank) * 2,
-            target_modules=LORA_TARGET_MODULES,
+            target_modules=target_modules or LORA_TARGET_MODULES,
             lora_dropout=0.0,
             bias="none",
         )
