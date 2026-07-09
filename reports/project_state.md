@@ -4,7 +4,7 @@ Date: 2026-07-09 KST
 
 Branch: `codex/official-smolvla-routing-design-gate`
 
-Current decision: `GO_DESIGN_FRAME_CONDITIONAL_ROUTING`
+Current decision: `READY_TO_IMPLEMENT_FCAR_TINY_GATE`
 
 ## Current Route
 
@@ -28,11 +28,13 @@ The archived custom SmolVLA 7D adapter route remains stopped. The valid route is
 - Strongest method-worthy gap is task/frame-level adapter interference, but kill risk is high because frozen/base is strong and MoIRA-style modular routing is a close recent-paper baseline.
 - Routing oracle design gate found meaningful frame-level headroom but tiny task-level headroom: frame oracle action L2 `0.084582188` improves over frozen/base by `0.021932772` / `20.5912597%`, while task oracle action L2 `0.106079976` improves by only `0.000434984` / `0.4083783%`.
 - Pure task/instruction routing is killed by MoIRA-style routing and by tiny task-oracle headroom. The surviving design direction is frame-conditional adapter retention with frozen/base as an explicit expert.
+- FCAR first-experiment plan is fixed: tiny gate only, no VLA retraining, frozen/base and rank-4 LoRA experts, frame-level gate, retention objective, official data only, and mandatory comparisons against frozen/base, LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style router, and adapter soup/static merge.
+- Saved per-frame base/LoRA prediction artifacts are not present yet. The next implementation run must regenerate and save compact official predictions before training the tiny gate.
 - Official simulator eval was not run; `lerobot-eval --env.type=libero` still requires WSL/Linux/MuJoCo readiness.
 - OpenVLA-OFT, full benchmark, long training, and custom `LIBERO_7D` adapter route were not used.
 
 ## Conclusion
 
-`GO_DESIGN_FRAME_CONDITIONAL_ROUTING`
+`READY_TO_IMPLEMENT_FCAR_TINY_GATE`
 
-Next valid step: create the first Frame-Conditional Adapter Retention experiment plan on the official SmolVLA-LIBERO path. Do not run it until frozen/base, rank-4 LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style instruction router, adapter soup/merge, and kill criteria are predeclared.
+Next valid step: implement the FCAR tiny-gate experiment exactly as specified in `reports/fcar_implementation_todo.md`. Do not change baselines, metrics, split policy, or kill criteria after seeing results.

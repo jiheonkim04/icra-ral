@@ -698,3 +698,37 @@ Decision: `GO_DESIGN_FRAME_CONDITIONAL_ROUTING`
 Consequence: pure task/instruction adapter routing is not enough. Task-oracle headroom is below the predeclared `0.005` absolute / `5%` relative gate and is also close to MoIRA-style routing. The only surviving design direction is frame/state/action-disagreement-aware routing with explicit frozen/base retention.
 
 Exact next step: create a Frame-Conditional Adapter Retention first-experiment plan, including frozen/base, standard rank-4 LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style instruction router, task-specific LoRA experts, adapter soup/weighted merge, metrics, ablations, tuning budget, and kill criteria. Do not implement the method until that plan is fixed.
+
+## 2026-07-09: FCAR First-Experiment Plan
+
+Decision: `READY_TO_IMPLEMENT_FCAR_TINY_GATE`
+
+- experiments happened: `False`
+- training happened: `False`
+- loss computed: `False`
+- GPU/download/OpenVLA-OFT happened: `False` / `False` / `False`
+- full benchmark / simulator rollout happened: `False`
+- official dataset/model route retained: `True`
+- custom `LIBERO_7D` route used: `False`
+- method implemented: `False`
+- paper claim made: `False`
+
+Problem fixed: official SmolVLA-LIBERO low-data rank-4 LoRA creates frame-level negative transfer; frozen/base is stronger on aggregate, task oracle has tiny headroom, and frame oracle has meaningful headroom.
+
+FCAR spec fixed:
+
+- frozen/base expert plus rank-4 LoRA expert;
+- frame-level gate with alpha in `[0, 1]`;
+- mixed action `a_mix = alpha * a_lora + (1 - alpha) * a_base`;
+- retention objective to preserve base when LoRA is harmful;
+- no ground-truth action, reward, future frame, simulator success, or custom metadata at inference.
+
+Baselines fixed: frozen/base, standard rank-4 LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style instruction/task router, adapter soup/static merge, optional rank-8 LoRA, and action-dim oracle as diagnostic only.
+
+Metrics fixed: action L2 primary, normalized eval loss secondary, translation/rotation/gripper breakdown, per-task/per-phase breakdown, help/hurt counts, route fraction, calibration, action range validity, train/eval gap, and runtime.
+
+Kill criteria fixed: FCAR must beat frozen/base by `0.005` absolute or `5%` relative action L2 and must beat standard LoRA, MoIRA-style router, adapter soup/static merge, and mean-action prior. It should recover at least `30%` of frame-oracle gain.
+
+Known caveat: saved per-frame base/LoRA prediction artifacts are missing, so the implementation run must regenerate and save compact official predictions before tiny-gate training.
+
+Exact next step: implement the FCAR tiny-gate experiment exactly as specified in `reports/fcar_implementation_todo.md`, without changing baselines, metrics, split policy, or kill criteria after seeing results.
