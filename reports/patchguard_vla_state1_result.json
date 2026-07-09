@@ -1,0 +1,3990 @@
+{
+  "claims": {
+    "benchmark_success_claimed": false,
+    "counterfactual_robustness_claimed": false,
+    "paper_grade_claim_made": false,
+    "sota_claimed": false,
+    "standard_success_claimed": false
+  },
+  "decision": "TOO_HEAVY_LOCAL",
+  "error": null,
+  "evidence_label": "patchguard_vla_state1_diagnostic",
+  "files": {
+    "config_found": [
+      "config.json"
+    ],
+    "external_tokenizer_dependency": {
+      "candidate_roots": [
+        "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct",
+        "C:\\assets\\hf_home\\models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct",
+        "C:\\assets\\checkpoints\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct",
+        "C:\\assets\\checkpoints\\models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct"
+      ],
+      "files_found": [
+        "chat_template.json",
+        "config.json",
+        "merges.txt",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.json"
+      ],
+      "found": true,
+      "name": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+      "root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+    },
+    "weights_found": [
+      "model.safetensors",
+      "policy_postprocessor_step_0_unnormalizer_processor.safetensors",
+      "policy_preprocessor_step_5_normalizer_processor.safetensors"
+    ]
+  },
+  "gpu": {
+    "available": true,
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "memory_total_mb": 16303,
+    "memory_used_mb": 3529
+  },
+  "inputs": {
+    "demo_name": null,
+    "policy_call_count": 15,
+    "task_text": "turn on the stove and put the moka pot on it",
+    "timesteps": [
+      0,
+      136,
+      271
+    ],
+    "variant_count": 5
+  },
+  "module_availability": {
+    "bitsandbytes": false,
+    "h5py": true,
+    "lerobot": true,
+    "peft": false,
+    "torch": true,
+    "transformers": true
+  },
+  "patchguard_vla_state1_diagnostic_passed": true,
+  "paths": {
+    "checkpoint_root": "C:\\assets\\checkpoints",
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+    "hf_home": "C:\\assets\\hf_home",
+    "plan_report": "reports\\vlm_enabled_repeated_offline_decoding_plan_report.json",
+    "smolvla_ckpt": "C:\\assets\\checkpoints\\smolvla"
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "bounded_patchguard_vla_state1": true,
+    "downloads_performed": false,
+    "forbidden_gates_set": [],
+    "gpu_jobs_performed": false,
+    "heavy_import_gate_set": true,
+    "heavy_model_imports_performed": true,
+    "installs_performed": false,
+    "model_inference_performed": true,
+    "model_load_performed": true,
+    "openvla_oft_executed": false,
+    "paper_grade_claims_made": false,
+    "patchguard_gate_set": true,
+    "rollouts_performed": false,
+    "simulator_environment_created": false,
+    "task_local_gates_required": [
+      "ALLOW_HEAVY_IMPORT=1",
+      "ALLOW_PATCHGUARD_VLA_STATE1=1"
+    ],
+    "tokens_read_or_written": false,
+    "training_performed": false
+  },
+  "ready_for_benchmark_claim": false,
+  "ready_for_paper_claim": false,
+  "ready_for_rollout_scaling": false,
+  "recommended_next_step": "Do not train in this run. Resolve real local LoRA/adapter tooling without unapproved installs or move the adapter smoke to approved WSL/Linux/cloud before STATE 2.",
+  "risk_limits": {
+    "device": "cpu",
+    "max_policy_calls": 15,
+    "max_runtime_seconds": 1200,
+    "max_timesteps": 3,
+    "max_vram_mb": 14336,
+    "rollout_allowed": false,
+    "simulator_allowed": false,
+    "training_allowed": false
+  },
+  "runtime": {
+    "cuda_max_allocated_mb": 0.0,
+    "elapsed_sec": 33.015,
+    "rss_after_mb": 1581.59,
+    "rss_before_mb": 29.773
+  },
+  "runtime_dependencies": {
+    "av": true,
+    "datasets": true,
+    "deepdiff": true,
+    "diffusers": true,
+    "draccus": true,
+    "einops": true,
+    "imageio": true,
+    "lerobot": true,
+    "num2words": true,
+    "safetensors": true,
+    "serial": true,
+    "torch": true,
+    "transformers": true
+  },
+  "samples": [
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 1,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.372983,
+      "action_mse_to_expert": 0.234366,
+      "adapted_action_preview": [
+        -0.189054,
+        -0.181384,
+        0.525599,
+        1.0,
+        0.47376,
+        0.166087,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.19947,
+        -0.006307,
+        1.182174
+      ],
+      "eef_quat_proxy_preview": [
+        3.131435,
+        0.004867,
+        -0.002939
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.05625,
+        -0.01875,
+        0.0,
+        0.0,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.235,
+      "patch_metadata": {
+        "agentview_modified": false,
+        "attack": null,
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": null,
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "clean"
+      },
+      "policy6_l1_to_expert_first6": 0.597194,
+      "policy_action_preview": [
+        -0.189054,
+        -0.181384,
+        0.525599,
+        1.97228,
+        0.47376,
+        0.166087
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 0
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 0,
+      "translation_action_preview": [
+        -0.189054,
+        -0.181384,
+        0.525599
+      ],
+      "variant": "clean"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 1,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.374358,
+      "action_mse_to_expert": 0.258149,
+      "adapted_action_preview": [
+        -0.240886,
+        -0.14151,
+        0.729326,
+        1.0,
+        0.384534,
+        -0.049249,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.19947,
+        -0.006307,
+        1.182174
+      ],
+      "eef_quat_proxy_preview": [
+        3.131435,
+        0.004867,
+        -0.002939
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.05625,
+        -0.01875,
+        0.0,
+        0.0,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.187,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "random_visible_square",
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "random_patch"
+      },
+      "policy6_l1_to_expert_first6": 0.587203,
+      "policy_action_preview": [
+        -0.240886,
+        -0.14151,
+        0.729326,
+        1.902715,
+        0.384534,
+        -0.049249
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 0
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 0,
+      "translation_action_preview": [
+        -0.240886,
+        -0.14151,
+        0.729326
+      ],
+      "variant": "random_patch"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 1,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.394158,
+      "action_mse_to_expert": 0.23724,
+      "adapted_action_preview": [
+        -0.268991,
+        -0.335295,
+        0.487794,
+        1.0,
+        0.335875,
+        -0.256153,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.19947,
+        -0.006307,
+        1.182174
+      ],
+      "eef_quat_proxy_preview": [
+        3.131435,
+        0.004867,
+        -0.002939
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.05625,
+        -0.01875,
+        0.0,
+        0.0,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.234,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_visible_patch"
+      },
+      "policy6_l1_to_expert_first6": 0.601527,
+      "policy_action_preview": [
+        -0.268991,
+        -0.335295,
+        0.487794,
+        1.850055,
+        0.335875,
+        -0.256153
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 0
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 0,
+      "translation_action_preview": [
+        -0.268991,
+        -0.335295,
+        0.487794
+      ],
+      "variant": "fixed_visible_patch"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 1,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.378584,
+      "action_mse_to_expert": 0.234282,
+      "adapted_action_preview": [
+        -0.228858,
+        -0.239762,
+        0.502942,
+        1.0,
+        0.452903,
+        0.150624,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.19947,
+        -0.006307,
+        1.182174
+      ],
+      "eef_quat_proxy_preview": [
+        3.131435,
+        0.004867,
+        -0.002939
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.05625,
+        -0.01875,
+        0.0,
+        0.0,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.203,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": "mean_color_cutout_over_patch_region",
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_patch_cutout_defense"
+      },
+      "policy6_l1_to_expert_first6": 0.598666,
+      "policy_action_preview": [
+        -0.228858,
+        -0.239762,
+        0.502942,
+        1.941905,
+        0.452903,
+        0.150624
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 0
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 0,
+      "translation_action_preview": [
+        -0.228858,
+        -0.239762,
+        0.502942
+      ],
+      "variant": "fixed_patch_cutout_defense"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 1,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.423135,
+      "action_mse_to_expert": 0.258776,
+      "adapted_action_preview": [
+        -0.414986,
+        -0.288894,
+        0.541817,
+        1.0,
+        0.309186,
+        -0.332058,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.19947,
+        -0.006307,
+        1.182174
+      ],
+      "eef_quat_proxy_preview": [
+        3.131435,
+        0.004867,
+        -0.002939
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.05625,
+        -0.01875,
+        0.0,
+        0.0,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.234,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": "cheap_blocky_smoothing_and_brightness_proxy",
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_patch_visual_aug_proxy"
+      },
+      "policy6_l1_to_expert_first6": 0.604725,
+      "policy_action_preview": [
+        -0.414986,
+        -0.288894,
+        0.541817,
+        1.666411,
+        0.309186,
+        -0.332058
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 0
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 0,
+      "translation_action_preview": [
+        -0.414986,
+        -0.288894,
+        0.541817
+      ],
+      "variant": "fixed_patch_visual_aug_proxy"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.514259,
+      "action_mse_to_expert": 0.426524,
+      "adapted_action_preview": [
+        -0.084807,
+        -0.187942,
+        0.537873,
+        1.0,
+        1.0,
+        0.363648,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.113475,
+        0.120705,
+        1.075308
+      ],
+      "eef_quat_proxy_preview": [
+        2.795501,
+        1.451479,
+        0.099077
+      ],
+      "expert_action_preview": [
+        0.784821,
+        -0.423214,
+        0.420536,
+        0.0,
+        -0.013929,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.25,
+      "patch_metadata": {
+        "agentview_modified": false,
+        "attack": null,
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": null,
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "clean"
+      },
+      "policy6_l1_to_expert_first6": 0.891505,
+      "policy_action_preview": [
+        -0.084807,
+        -0.187942,
+        0.537873,
+        2.162327,
+        1.586887,
+        0.363648
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 136
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 136,
+      "translation_action_preview": [
+        -0.084807,
+        -0.187942,
+        0.537873
+      ],
+      "variant": "clean"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.465498,
+      "action_mse_to_expert": 0.403419,
+      "adapted_action_preview": [
+        -0.064717,
+        -0.187581,
+        0.554731,
+        1.0,
+        1.0,
+        0.025188,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.113475,
+        0.120705,
+        1.075308
+      ],
+      "eef_quat_proxy_preview": [
+        2.795501,
+        1.451479,
+        0.099077
+      ],
+      "expert_action_preview": [
+        0.784821,
+        -0.423214,
+        0.420536,
+        0.0,
+        -0.013929,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.234,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "random_visible_square",
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "random_patch"
+      },
+      "policy6_l1_to_expert_first6": 0.825408,
+      "policy_action_preview": [
+        -0.064717,
+        -0.187581,
+        0.554731,
+        2.092628,
+        1.601336,
+        0.025188
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 136
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 136,
+      "translation_action_preview": [
+        -0.064717,
+        -0.187581,
+        0.554731
+      ],
+      "variant": "random_patch"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.46409,
+      "action_mse_to_expert": 0.42328,
+      "adapted_action_preview": [
+        -0.167012,
+        -0.312882,
+        0.537332,
+        1.0,
+        1.0,
+        -0.055738,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.113475,
+        0.120705,
+        1.075308
+      ],
+      "eef_quat_proxy_preview": [
+        2.795501,
+        1.451479,
+        0.099077
+      ],
+      "expert_action_preview": [
+        0.784821,
+        -0.423214,
+        0.420536,
+        0.0,
+        -0.013929,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.203,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_visible_patch"
+      },
+      "policy6_l1_to_expert_first6": 0.805133,
+      "policy_action_preview": [
+        -0.167012,
+        -0.312882,
+        0.537332,
+        2.056196,
+        1.525975,
+        -0.055738
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 136
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 136,
+      "translation_action_preview": [
+        -0.167012,
+        -0.312882,
+        0.537332
+      ],
+      "variant": "fixed_visible_patch"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.497931,
+      "action_mse_to_expert": 0.440635,
+      "adapted_action_preview": [
+        -0.180468,
+        -0.260407,
+        0.452442,
+        1.0,
+        1.0,
+        0.311584,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.113475,
+        0.120705,
+        1.075308
+      ],
+      "eef_quat_proxy_preview": [
+        2.795501,
+        1.451479,
+        0.099077
+      ],
+      "expert_action_preview": [
+        0.784821,
+        -0.423214,
+        0.420536,
+        0.0,
+        -0.013929,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.234,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": "mean_color_cutout_over_patch_region",
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_patch_cutout_defense"
+      },
+      "policy6_l1_to_expert_first6": 0.867792,
+      "policy_action_preview": [
+        -0.180468,
+        -0.260407,
+        0.452442,
+        2.175883,
+        1.545354,
+        0.311584
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 136
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 136,
+      "translation_action_preview": [
+        -0.180468,
+        -0.260407,
+        0.452442
+      ],
+      "variant": "fixed_patch_cutout_defense"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.481318,
+      "action_mse_to_expert": 0.460155,
+      "adapted_action_preview": [
+        -0.28599,
+        -0.364506,
+        0.439973,
+        1.0,
+        1.0,
+        -0.206336,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.113475,
+        0.120705,
+        1.075308
+      ],
+      "eef_quat_proxy_preview": [
+        2.795501,
+        1.451479,
+        0.099077
+      ],
+      "expert_action_preview": [
+        0.784821,
+        -0.423214,
+        0.420536,
+        0.0,
+        -0.013929,
+        -0.0,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.219,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": "cheap_blocky_smoothing_and_brightness_proxy",
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_patch_visual_aug_proxy"
+      },
+      "policy6_l1_to_expert_first6": 0.800216,
+      "policy_action_preview": [
+        -0.28599,
+        -0.364506,
+        0.439973,
+        1.995723,
+        1.436347,
+        -0.206336
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 136
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 136,
+      "translation_action_preview": [
+        -0.28599,
+        -0.364506,
+        0.439973
+      ],
+      "variant": "fixed_patch_visual_aug_proxy"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.474076,
+      "action_mse_to_expert": 0.363646,
+      "adapted_action_preview": [
+        -0.129029,
+        -0.250279,
+        0.474733,
+        1.0,
+        1.0,
+        0.370204,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.016166,
+        0.142269,
+        1.034718
+      ],
+      "eef_quat_proxy_preview": [
+        2.22484,
+        2.593648,
+        0.359178
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.0,
+        -0.0,
+        0.0,
+        -0.0225,
+        -0.071786,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.203,
+      "patch_metadata": {
+        "agentview_modified": false,
+        "attack": null,
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": null,
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "clean"
+      },
+      "policy6_l1_to_expert_first6": 0.984367,
+      "policy_action_preview": [
+        -0.129029,
+        -0.250279,
+        0.474733,
+        2.07345,
+        2.514224,
+        0.370204
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 271
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 271,
+      "translation_action_preview": [
+        -0.129029,
+        -0.250279,
+        0.474733
+      ],
+      "variant": "clean"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.407814,
+      "action_mse_to_expert": 0.348347,
+      "adapted_action_preview": [
+        -0.027075,
+        -0.148088,
+        0.60638,
+        1.0,
+        1.0,
+        -0.021133,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.016166,
+        0.142269,
+        1.034718
+      ],
+      "eef_quat_proxy_preview": [
+        2.22484,
+        2.593648,
+        0.359178
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.0,
+        -0.0,
+        0.0,
+        -0.0225,
+        -0.071786,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.188,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "random_visible_square",
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "random_patch"
+      },
+      "policy6_l1_to_expert_first6": 0.864312,
+      "policy_action_preview": [
+        -0.027075,
+        -0.148088,
+        0.60638,
+        1.907645,
+        2.423527,
+        -0.021133
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 271
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 271,
+      "translation_action_preview": [
+        -0.027075,
+        -0.148088,
+        0.60638
+      ],
+      "variant": "random_patch"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.434259,
+      "action_mse_to_expert": 0.34323,
+      "adapted_action_preview": [
+        -0.19385,
+        -0.357743,
+        0.436699,
+        1.0,
+        1.0,
+        -0.100811,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.016166,
+        0.142269,
+        1.034718
+      ],
+      "eef_quat_proxy_preview": [
+        2.22484,
+        2.593648,
+        0.359178
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.0,
+        -0.0,
+        0.0,
+        -0.0225,
+        -0.071786,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.219,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": null,
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_visible_patch"
+      },
+      "policy6_l1_to_expert_first6": 0.869705,
+      "policy_action_preview": [
+        -0.19385,
+        -0.357743,
+        0.436699,
+        1.885367,
+        2.29305,
+        -0.100811
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 271
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 271,
+      "translation_action_preview": [
+        -0.19385,
+        -0.357743,
+        0.436699
+      ],
+      "variant": "fixed_visible_patch"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.460691,
+      "action_mse_to_expert": 0.346975,
+      "adapted_action_preview": [
+        -0.201756,
+        -0.271485,
+        0.404054,
+        1.0,
+        1.0,
+        0.253255,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.016166,
+        0.142269,
+        1.034718
+      ],
+      "eef_quat_proxy_preview": [
+        2.22484,
+        2.593648,
+        0.359178
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.0,
+        -0.0,
+        0.0,
+        -0.0225,
+        -0.071786,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.234,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": "mean_color_cutout_over_patch_region",
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_patch_cutout_defense"
+      },
+      "policy6_l1_to_expert_first6": 0.959042,
+      "policy_action_preview": [
+        -0.201756,
+        -0.271485,
+        0.404054,
+        2.05584,
+        2.473576,
+        0.253255
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 271
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 271,
+      "translation_action_preview": [
+        -0.201756,
+        -0.271485,
+        0.404054
+      ],
+      "variant": "fixed_patch_cutout_defense"
+    },
+    {
+      "action_adapter_metadata": {
+        "action_scale": 1.0,
+        "adapter": "explicit_action_adapter",
+        "adapter_mode": "policy_6d_delta_pose_plus_gripper_close",
+        "clip_range": [
+          -1.0,
+          1.0
+        ],
+        "clipped_values": 2,
+        "env_action_dim": 7,
+        "gripper_value": -1.0,
+        "implicit_padding_performed": false,
+        "policy_action_dim": 6,
+        "scaling_performed": false,
+        "strategy": "policy_6d_delta_pose_plus_gripper_close",
+        "truncation_performed": false
+      },
+      "action_finite": true,
+      "action_l1_to_expert": 0.468903,
+      "action_mse_to_expert": 0.358895,
+      "adapted_action_preview": [
+        -0.404432,
+        -0.346291,
+        0.418385,
+        1.0,
+        1.0,
+        -0.162499,
+        -1.0
+      ],
+      "batch_metadata": {
+        "batch_keys": [
+          "observation.images.camera1",
+          "observation.images.camera2",
+          "observation.images.camera3",
+          "observation.language.attention_mask",
+          "observation.language.tokens",
+          "observation.state"
+        ],
+        "camera_alias_strategy": "current_aliases",
+        "image_adapters": {
+          "observation.images.camera1": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "agentview_rgb"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera1",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera2": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "robot0_eye_in_hand_image",
+              "eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera2",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "robot0_eye_in_hand_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          },
+          "observation.images.camera3": {
+            "adapter": "explicit_image_alias_adapter",
+            "candidates": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "channel_padding_performed": false,
+            "channel_truncation_performed": false,
+            "feature_key": "observation.images.camera3",
+            "input_shape": [
+              128,
+              128,
+              3
+            ],
+            "missing": false,
+            "resized": true,
+            "source_key": "agentview_image",
+            "target_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "tensor_shape": [
+              1,
+              3,
+              256,
+              256
+            ],
+            "zero_image_fallback_performed": false
+          }
+        },
+        "image_sources": {
+          "observation.images.camera1": "agentview_image",
+          "observation.images.camera2": "robot0_eye_in_hand_image",
+          "observation.images.camera3": "agentview_image"
+        },
+        "state_adapter": {
+          "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+          "fields": [
+            {
+              "key": "robot0_eef_pos",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": null
+            },
+            {
+              "key": "robot0_eef_quat",
+              "selected_length": 3,
+              "source_length": 3,
+              "start": 0,
+              "stop": 3
+            }
+          ],
+          "implicit_padding_performed": false,
+          "output_dim": 6,
+          "silent_truncation_performed": false,
+          "state_adapter_strategy": "eef_pos_quat_first3",
+          "uses_privileged_state": false
+        },
+        "state_adapter_strategy": "eef_pos_quat_first3",
+        "state_dim": 6
+      },
+      "demo_name": "demo_0",
+      "eef_pos_preview": [
+        -0.016166,
+        0.142269,
+        1.034718
+      ],
+      "eef_quat_proxy_preview": [
+        2.22484,
+        2.593648,
+        0.359178
+      ],
+      "expert_action_preview": [
+        0.0,
+        0.0,
+        -0.0,
+        0.0,
+        -0.0225,
+        -0.071786,
+        -1.0
+      ],
+      "expert_action_shape": [
+        7
+      ],
+      "inference_elapsed_sec": 1.203,
+      "patch_metadata": {
+        "agentview_modified": true,
+        "attack": "fixed_magenta_green_checkerboard",
+        "defense": "cheap_blocky_smoothing_and_brightness_proxy",
+        "eye_in_hand_modified": false,
+        "patch_bounds": [
+          86,
+          86,
+          118,
+          118
+        ],
+        "patch_fraction": 0.25,
+        "state_modified": false,
+        "variant": "fixed_patch_visual_aug_proxy"
+      },
+      "policy6_l1_to_expert_first6": 0.884249,
+      "policy_action_preview": [
+        -0.404432,
+        -0.346291,
+        0.418385,
+        1.7771,
+        2.246072,
+        -0.162499
+      ],
+      "policy_action_shape": [
+        6
+      ],
+      "sample_metadata": {
+        "agentview_shape": [
+          128,
+          128,
+          3
+        ],
+        "demo_name": "demo_0",
+        "ee_states_shape": [
+          6
+        ],
+        "expert_action_shape": [
+          7
+        ],
+        "eye_in_hand_shape": [
+          128,
+          128,
+          3
+        ],
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "init_state_attr_present": true,
+        "states_present": true,
+        "timestep": 271
+      },
+      "task": "turn on the stove and put the moka pot on it",
+      "timestep": 271,
+      "translation_action_preview": [
+        -0.404432,
+        -0.346291,
+        0.418385
+      ],
+      "variant": "fixed_patch_visual_aug_proxy"
+    }
+  ],
+  "schema_version": "patchguard-vla-state1-diagnostic-v1",
+  "signal_inventory": {
+    "approximate_arm_mask_available_in_this_diagnostic": false,
+    "bitsandbytes_missing_blocks_qlora_now": true,
+    "clean_vs_patched_action_divergence_measurable": true,
+    "eef_or_joint_or_proprio_available": true,
+    "local_libero_visual_observations_available": true,
+    "local_smolvla_runtime_available": true,
+    "lora_adapter_training_path_feasible_later": true,
+    "lora_adapter_training_path_feasible_now_without_installs": false,
+    "non_leaking_patchguard_signal": "Compare image-induced action divergence against unchanged observation.state/EEF proxy; no success labels, BDDL labels, or simulator privileged state are used.",
+    "patched_observations_generated_without_downloads": true,
+    "peft_missing_blocks_standard_local_lora_now": true,
+    "simulator_segmentation_or_mask_available_in_this_diagnostic": false,
+    "state_adapter": {
+      "adapter": "diagnostic_eef_pos_quat_xyz_6d_state_adapter",
+      "fields": [
+        {
+          "key": "robot0_eef_pos",
+          "selected_length": 3,
+          "source_length": 3,
+          "start": 0,
+          "stop": null
+        },
+        {
+          "key": "robot0_eef_quat",
+          "selected_length": 3,
+          "source_length": 3,
+          "start": 0,
+          "stop": 3
+        }
+      ],
+      "implicit_padding_performed": false,
+      "output_dim": 6,
+      "silent_truncation_performed": false,
+      "state_adapter_strategy": "eef_pos_quat_first3",
+      "uses_privileged_state": false
+    }
+  },
+  "state1_summary": {
+    "cutout_defense_dominated_fixed_patch": false,
+    "cutout_mean_policy6_l1_vs_clean": 0.049337,
+    "decision": "TOO_HEAVY_LOCAL",
+    "fixed_patch_mean_policy6_l1_vs_clean": 0.157706,
+    "kinematic_signal_available": true,
+    "local_adapter_path_feasible_now": false,
+    "max_attacked_policy6_l1_vs_clean": 0.181765,
+    "max_attacked_translation_l2_vs_clean": 0.213965,
+    "patch_effect_nontrivial": true,
+    "real_vla_used": true
+  },
+  "variant_metrics": {
+    "clean": {
+      "all_actions_finite": true,
+      "max_policy6_l1_vs_clean": 0.0,
+      "max_translation_l2_vs_clean": 0.0,
+      "mean_action_l1_to_expert": 0.453773,
+      "mean_action_mse_to_expert": 0.341512,
+      "mean_expert_alignment_delta_vs_clean": 0.0,
+      "mean_policy6_l1_vs_clean": 0.0,
+      "mean_policy6_mse_vs_clean": 0.0,
+      "mean_proprio_state_delta_l2_vs_clean": 0.0,
+      "mean_translation_l2_vs_clean": 0.0,
+      "sample_count": 3
+    },
+    "fixed_patch_cutout_defense": {
+      "all_actions_finite": true,
+      "max_policy6_l1_vs_clean": 0.060118,
+      "max_translation_l2_vs_clean": 0.147311,
+      "mean_action_l1_to_expert": 0.445735,
+      "mean_action_mse_to_expert": 0.340631,
+      "mean_expert_alignment_delta_vs_clean": -0.008038,
+      "mean_policy6_l1_vs_clean": 0.049337,
+      "mean_policy6_mse_vs_clean": 0.003322,
+      "mean_proprio_state_delta_l2_vs_clean": 0.0,
+      "mean_translation_l2_vs_clean": 0.108373,
+      "sample_count": 3
+    },
+    "fixed_patch_visual_aug_proxy": {
+      "all_actions_finite": true,
+      "max_policy6_l1_vs_clean": 0.254161,
+      "max_translation_l2_vs_clean": 0.297053,
+      "mean_action_l1_to_expert": 0.457785,
+      "mean_action_mse_to_expert": 0.359275,
+      "mean_expert_alignment_delta_vs_clean": 0.004012,
+      "mean_policy6_l1_vs_clean": 0.233666,
+      "mean_policy6_mse_vs_clean": 0.078885,
+      "mean_proprio_state_delta_l2_vs_clean": 0.0,
+      "mean_translation_l2_vs_clean": 0.2776,
+      "sample_count": 3
+    },
+    "fixed_visible_patch": {
+      "all_actions_finite": true,
+      "max_policy6_l1_vs_clean": 0.181765,
+      "max_translation_l2_vs_clean": 0.177504,
+      "mean_action_l1_to_expert": 0.430836,
+      "mean_action_mse_to_expert": 0.334583,
+      "mean_expert_alignment_delta_vs_clean": -0.022937,
+      "mean_policy6_l1_vs_clean": 0.157706,
+      "mean_policy6_mse_vs_clean": 0.043351,
+      "mean_proprio_state_delta_l2_vs_clean": 0.0,
+      "mean_translation_l2_vs_clean": 0.152733,
+      "sample_count": 3
+    },
+    "random_patch": {
+      "all_actions_finite": true,
+      "max_policy6_l1_vs_clean": 0.163939,
+      "max_translation_l2_vs_clean": 0.213965,
+      "mean_action_l1_to_expert": 0.41589,
+      "mean_action_mse_to_expert": 0.336638,
+      "mean_expert_alignment_delta_vs_clean": -0.037883,
+      "mean_policy6_l1_vs_clean": 0.117395,
+      "mean_policy6_mse_vs_clean": 0.025127,
+      "mean_proprio_state_delta_l2_vs_clean": 0.0,
+      "mean_translation_l2_vs_clean": 0.145187,
+      "sample_count": 3
+    }
+  }
+}
