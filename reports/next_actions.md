@@ -2,10 +2,10 @@
 
 Date: 2026-07-09 KST
 
-Current decision: `FEATURE_PATH_MISMATCH`
+Current decision: `ACTION_VALIDITY_RANGE_FAILURE`
 
 ## Immediate Next Action
 
-Fix the live closed-loop feature schema so replay uses HDF5-compatible ee_states features, then rerun teacher-forced and replay diagnostics before any method work.
+Feature fix works, but adapter action clipping/controller-validity remains too weak.
 
-Do not start a new method unless the control diagnosis decision is `READY_FOR_METHOD_AFTER_CONTROL_DIAGNOSIS`.
+Do not start a new method unless the feature-fix decision is `READY_FOR_METHOD_AFTER_FEATURE_FIX`.

@@ -18,6 +18,7 @@ from typing import Any
 import numpy as np
 
 from tca_map.smolvla_lora_baseline import diagnostic as base
+from tca_map.smolvla_lora_baseline import libero_ee_state_features as ee_features
 
 
 HEAVY_IMPORT_GATE = "ALLOW_HEAVY_IMPORT"
@@ -144,9 +145,8 @@ def _feature_matrix(records: list[dict[str, Any]]) -> tuple[np.ndarray, np.ndarr
             timestep = int(record["timestep"])
             actions = np.asarray(demo["actions"], dtype=np.float32)
             obs = demo["obs"]
-            ee = np.asarray(obs["ee_states"][timestep], dtype=np.float32).reshape(-1)[:6]
-            frac = np.asarray([timestep / max(1, actions.shape[0] - 1)], dtype=np.float32)
-            features.append(np.concatenate([ee, frac], axis=0))
+            feature, _meta = ee_features.build_hdf5_feature(obs, timestep, int(actions.shape[0]))
+            features.append(feature)
             labels.append(actions[timestep, :7])
     finally:
         for handle in cache.values():

@@ -29,6 +29,7 @@ from tca_map.datasets.libero_zero_reward_rollout_diagnosis import (
 from tca_map.smolvla_lora_baseline import diagnostic as base
 from tca_map.smolvla_lora_baseline import libero_7d_baseline_reproduction as repro
 from tca_map.smolvla_lora_baseline import libero_7d_interface_fix as fix
+from tca_map.smolvla_lora_baseline import libero_ee_state_features as ee_features
 
 
 BRIDGE_GATE = "ALLOW_SMOLVLA_7D_REPLAY_BRIDGE"
@@ -172,9 +173,7 @@ def _feature_for_demo_timestep(path: Path, demo_name: str, timestep: int) -> np.
     with h5py.File(path, "r") as handle:
         demo = handle["data"][demo_name]
         actions = np.asarray(demo["actions"], dtype=np.float32)
-        ee = np.asarray(demo["obs"]["ee_states"][timestep], dtype=np.float32).reshape(-1)[:6]
-    frac = np.asarray([float(timestep) / max(1, actions.shape[0] - 1)], dtype=np.float32)
-    feature = np.concatenate([ee, frac], axis=0).astype(np.float32)
+        feature, _meta = ee_features.build_hdf5_feature(demo["obs"], int(timestep), int(actions.shape[0]))
     if feature.shape != (7,):
         raise ValueError(f"expected 7D replay feature, got {feature.shape}")
     return feature
@@ -185,25 +184,14 @@ def _features_for_demo(path: Path, demo_name: str, horizon: int) -> np.ndarray:
 
 
 def _observation_feature(obs: dict[str, Any], timestep_fraction: float) -> tuple[np.ndarray, dict[str, Any]]:
-    if "ee_states" in obs:
-        ee = np.asarray(obs["ee_states"], dtype=np.float32).reshape(-1)[:6]
-        source = "ee_states"
-    elif "robot0_eef_pos" in obs and "robot0_eef_quat" in obs:
-        pos = np.asarray(obs["robot0_eef_pos"], dtype=np.float32).reshape(-1)
-        quat = np.asarray(obs["robot0_eef_quat"], dtype=np.float32).reshape(-1)
-        ee = np.concatenate([pos[:3], quat[:3]], axis=0).astype(np.float32)
-        source = "robot0_eef_pos_plus_first3_robot0_eef_quat"
-    else:
-        raise ValueError("observation lacks ee_states or robot0_eef_pos/robot0_eef_quat")
-    if ee.shape[0] != 6:
-        raise ValueError(f"online observation state feature must provide 6 values, got {ee.shape[0]}")
-    feature = np.concatenate([ee, np.asarray([timestep_fraction], dtype=np.float32)], axis=0).astype(np.float32)
-    return feature, {
-        "source": source,
-        "feature_shape": list(feature.shape),
-        "uses_bddl_or_task_id_label": False,
-        "uses_eval_action_label": False,
-    }
+    feature, metadata = ee_features.build_live_feature(obs, float(timestep_fraction))
+    metadata.update(
+        {
+            "uses_bddl_or_task_id_label": False,
+            "uses_eval_action_label": False,
+        }
+    )
+    return feature, metadata
 
 
 def _demo_window(path: Path, demo_name: str, max_steps_cap: int, post_signal_margin: int) -> dict[str, Any]:

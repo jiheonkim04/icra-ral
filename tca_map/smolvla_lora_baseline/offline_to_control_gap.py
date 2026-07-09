@@ -484,7 +484,7 @@ def _feature_path_audit(
         {
             "check": "offline_train_vs_live_closed_loop_replay",
             "result": "mismatch" if live_probe.get("feature_path_mismatch_found") else "match",
-            "evidence": "Live env observations do not expose ee_states; current fallback uses robot0_eef_pos plus first three robot0_eef_quat values.",
+            "evidence": "Live env observations are converted by replay_bridge._observation_feature through the canonical LIBERO ee_states feature builder.",
         },
         {
             "check": "normalization_train_to_replay",
@@ -508,7 +508,7 @@ def _feature_path_audit(
         "offline_training_input_source": "libero_7d_interface_fix._feature_matrix(train_records)",
         "offline_evaluation_input_source": "libero_7d_interface_fix._feature_matrix(eval_records)",
         "prior_open_loop_replay_input_source": "replay_bridge._demo_window(...)[features] from HDF5 obs/ee_states[:6]",
-        "live_closed_loop_replay_input_source": "replay_bridge._observation_feature(obs, tfrac), currently robot0_eef_pos + robot0_eef_quat[:3] when ee_states is absent",
+        "live_closed_loop_replay_input_source": "replay_bridge._observation_feature(obs, tfrac), using canonical LIBERO ee_states feature builder",
         "adapter_checkpoint_and_weights": {
             "artifact_path": str(artifact_path),
             "artifact_sha256_16": _sha256_short(artifact_path),

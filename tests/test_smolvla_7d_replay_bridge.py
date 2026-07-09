@@ -9,6 +9,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from tca_map.smolvla_lora_baseline import libero_ee_state_features as ee_features
 from tca_map.smolvla_lora_baseline import replay_bridge
 
 
@@ -119,7 +120,10 @@ def test_observation_feature_accepts_env_style_obs():
 
     feature, metadata = replay_bridge._observation_feature(obs, 0.25)
 
-    assert feature.tolist() == pytest.approx([1.0, 2.0, 3.0, 0.4, 0.5, 0.6, 0.25])
+    expected_ori = ee_features.quat_xyzw_to_hdf5_axis_angle(obs["robot0_eef_quat"])
+    assert feature.tolist() == pytest.approx([1.0, 2.0, 3.0, *expected_ori.tolist(), 0.25])
+    assert metadata["orientation_convention"] == ee_features.ORIENTATION_CONVENTION
+    assert metadata["uses_quat_first3_fallback"] is False
     assert metadata["uses_eval_action_label"] is False
 
 

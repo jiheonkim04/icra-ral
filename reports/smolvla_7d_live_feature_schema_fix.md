@@ -1,24 +1,15 @@
-# Project State
+# SmolVLA 7D Live Feature Schema Fix
 
-Date: 2026-07-09 KST
+Final decision: `ACTION_VALIDITY_RANGE_FAILURE`
 
-Branch: `codex/smolvla-7d-live-feature-schema-fix`
+This is infrastructure and evaluation repair, not a new method.
 
-Current decision: `ACTION_VALIDITY_RANGE_FAILURE`
-
-## Current Route
-
-SmolVLA 7D live feature schema fix is the active infrastructure gate.
-
-## Feature Fix
-
+- eligible demos used: `['KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo::demo_8', 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo::demo_30', 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo::demo_31', 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo::demo_5', 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo::demo_7', 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo::demo_8']`
+- HDF5 ee_states schema: `{'shape': [1493, 6], 'dtype': 'float32', 'min': [-0.224941, -0.099564, 0.91078, 1.888824, -2.365477, -0.898788], 'max': [0.076491, 0.211847, 1.19037, 3.200753, 2.93656, 0.904732], 'mean': [-0.054923, 0.058219, 1.035186, 2.681505, -0.049357, 0.079758], 'std': [0.09422, 0.101422, 0.085733, 0.327709, 1.776099, 0.392607]}`
+- live feature schema before fix: `robot0_eef_pos + robot0_eef_quat[:3]`
 - selected orientation conversion: `xyzw_quaternion_axis_angle_0_to_2pi`
 - feature L2 before/after: `2.248343` / `0.033195`
 - teacher-forced before/after: `{'case_count': 6, 'action_l2_mean': 2.285072, 'translation_l2_mean': 0.943406, 'rotation_l2_mean': 0.24099, 'gripper_error_mean': 1.95543, 'first20_action_l2_mean': 1.505044, 'phase_critical_error_ratio_mean': 1.557651, 'top_error_timestep_examples': [{'timestep': 87, 'action_l2': 4.844927, 'translation_l2': 2.068367, 'rotation_l2': 0.663889, 'gripper_abs_error': 4.330638, 'pred_gripper': -3.330638, 'expert_gripper': 1.0}, {'timestep': 88, 'action_l2': 4.796395, 'translation_l2': 1.964477, 'rotation_l2': 0.683836, 'gripper_abs_error': 4.321875, 'pred_gripper': -3.321875, 'expert_gripper': 1.0}, {'timestep': 97, 'action_l2': 4.811155, 'translation_l2': 1.776217, 'rotation_l2': 0.675985, 'gripper_abs_error': 4.419877, 'pred_gripper': -3.419877, 'expert_gripper': 1.0}, {'timestep': 135, 'action_l2': 3.994623, 'translation_l2': 1.141749, 'rotation_l2': 0.303345, 'gripper_abs_error': 3.81594, 'pred_gripper': -2.81594, 'expert_gripper': 1.0}, {'timestep': 144, 'action_l2': 3.911969, 'translation_l2': 0.931691, 'rotation_l2': 0.285715, 'gripper_abs_error': 3.788644, 'pred_gripper': -2.788644, 'expert_gripper': 1.0}, {'timestep': 157, 'action_l2': 4.115587, 'translation_l2': 1.05012, 'rotation_l2': 0.324395, 'gripper_abs_error': 3.966115, 'pred_gripper': -2.966115, 'expert_gripper': 1.0}], 'per_dim_mae_mean': [0.222851, 0.355751, 0.749697, 0.046065, 0.118613, 0.190425, 1.95543]}` / `{'case_count': 6, 'action_l2_mean': 0.843733, 'translation_l2_mean': 0.48049, 'rotation_l2_mean': 0.086464, 'gripper_error_mean': 0.616686, 'first20_action_l2_mean': 0.409785, 'phase_critical_error_ratio_mean': 1.42216, 'top_error_timestep_examples': [{'timestep': 89, 'action_l2': 1.893353, 'translation_l2': 1.199903, 'rotation_l2': 0.272044, 'gripper_abs_error': 1.439101, 'pred_gripper': -0.439101, 'expert_gripper': 1.0}, {'timestep': 251, 'action_l2': 2.113338, 'translation_l2': 0.496581, 'rotation_l2': 0.031235, 'gripper_abs_error': 2.05393, 'pred_gripper': -1.05393, 'expert_gripper': 1.0}, {'timestep': 216, 'action_l2': 2.456689, 'translation_l2': 1.047604, 'rotation_l2': 0.104703, 'gripper_abs_error': 2.219658, 'pred_gripper': -1.219658, 'expert_gripper': 1.0}, {'timestep': 53, 'action_l2': 1.36209, 'translation_l2': 0.610235, 'rotation_l2': 0.061259, 'gripper_abs_error': 1.216202, 'pred_gripper': 0.216202, 'expert_gripper': -1.0}, {'timestep': 70, 'action_l2': 1.314397, 'translation_l2': 0.270466, 'rotation_l2': 0.006591, 'gripper_abs_error': 1.286251, 'pred_gripper': -0.286251, 'expert_gripper': 1.0}, {'timestep': 154, 'action_l2': 1.573364, 'translation_l2': 0.665714, 'rotation_l2': 0.054659, 'gripper_abs_error': 1.424539, 'pred_gripper': -0.424539, 'expert_gripper': 1.0}], 'per_dim_mae_mean': [0.178238, 0.2239, 0.294855, 0.027278, 0.043426, 0.051627, 0.616686]}`
-- replay result after fix: `{'expert': {'case_count': 6, 'success_count': 6, 'success_rate': 1.0, 'reward_sum_mean': 1.0, 'first_done_indices': [259, 250, 215, 225, 222, 245], 'progress_proxy_mean': 0.246324, 'object_movement_mean': 0.272579, 'runtime_case_steps': [260, 251, 216, 226, 223, 246]}, 'mean_action': {'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': 0.038336, 'object_movement_mean': 0.000125, 'runtime_case_steps': [275, 261, 228, 237, 234, 258]}, 'ridge': {'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': -0.173863, 'object_movement_mean': 0.000125, 'runtime_case_steps': [275, 261, 228, 237, 234, 258]}, 'smolvla_7d_adapter_fixed_live': {'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': -0.041091, 'object_movement_mean': 0.022539, 'runtime_case_steps': [275, 261, 228, 237, 234, 258]}}`
+- mean/ridge/adapter replay: `{'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': 0.038336, 'object_movement_mean': 0.000125, 'runtime_case_steps': [275, 261, 228, 237, 234, 258]}` / `{'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': -0.173863, 'object_movement_mean': 0.000125, 'runtime_case_steps': [275, 261, 228, 237, 234, 258]}` / `{'case_count': 6, 'success_count': 0, 'success_rate': 0.0, 'reward_sum_mean': 0.0, 'first_done_indices': [None, None, None, None, None, None], 'progress_proxy_mean': -0.041091, 'object_movement_mean': 0.022539, 'runtime_case_steps': [275, 261, 228, 237, 234, 258]}`
 
-## Conclusion
-
-`ACTION_VALIDITY_RANGE_FAILURE`
-
-Feature fix works, but adapter action clipping/controller-validity remains too weak.
+Exact next step: Feature fix works, but adapter action clipping/controller-validity remains too weak.
