@@ -23,6 +23,7 @@ Existing local reports show:
 - VLM-enabled repeated offline action decoding over three local LIBERO HDF5 timesteps passed as diagnostic evidence.
 - Local OpenVLA/OpenVLA-OFT assets were not found under `C:\assets\checkpoints` or `C:\assets\hf_home`; OpenVLA-OFT was not executed because it is outside the local bounded run.
 - Local LIBERO HDF5 exposes `agentview_rgb`, `eye_in_hand_rgb`, `ee_states`, `joint_states`, and 7D expert actions.
+- Prior bounded RoboSuite/LIBERO visual checks are present: MuJoCo offscreen render smoke passed with a 64x64 RGB image, and camera-source diagnostics recorded `agentview_image` and `robot0_eye_in_hand_image` sources.
 - Existing audits block rollout scaling because action-stat provenance and 6D-to-7D action adaptation remain unresolved.
 - QLoRA tooling is not locally available without installs because `peft` and `bitsandbytes` are absent.
 
