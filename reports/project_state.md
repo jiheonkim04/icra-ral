@@ -2,9 +2,9 @@
 
 Date: 2026-07-10 KST
 
-Branch: `codex/implement-fcar-tiny-gate`
+Branch: `codex/official-smolvla-robust-baseline-sweep`
 
-Current decision: `FCAR_KILLED_BY_STATIC_BASELINE`
+Current decision: `METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD`
 
 ## Current Route
 
@@ -34,11 +34,16 @@ The archived custom SmolVLA 7D adapter route remains stopped. The valid route is
 - FCAR did not beat rank-4 LoRA test action L2 `0.076191123`.
 - FCAR did not beat the predeclared adapter-soup/static-merge baseline: val-selected static mixture `w=0.5` reached test action L2 `0.091179973`.
 - MoIRA-style task/instruction router routed all gate-test tasks to frozen/base from train evidence and reached test action L2 `0.123998278`, so it did not kill FCAR; the static baseline did.
+- Post-FCAR robust baseline sweep over `5` deterministic episode-disjoint folds used the saved official prediction artifact. No new training, downloads, GPU work, rollouts, OpenVLA-OFT, or FCAR tuning happened in the sweep.
+- Robust sweep mean/std action L2: frozen/base `0.106514933` / `0.030256808`, rank-4 LoRA `0.118024225` / `0.023707422`, mean-action `1.144859705` / `0.018515874`, frame oracle `0.084582167` / `0.027591676`, task oracle `0.106079936` / `0.029986441`, MoIRA-style task router `0.106514933` / `0.030256808`, val-selected static mix `0.105142674` / `0.026514373`.
+- Realistic baseline win counts across the five folds were frozen/base `2` and val-selected static mix `3`; rank-4 LoRA won `0` folds but beat frozen/base in `2` folds, so LoRA behavior is split-dependent.
+- Frame oracle won all `5` folds and still had mean headroom `0.021932766` over frozen/base, while task oracle headroom remained tiny at `0.000434997`.
+- Static mix remained a reviewer-killer for FCAR, but the base/static/LoRA rank order is too split-dependent to design a stable new method from this evidence.
 - Official simulator eval was not run; `lerobot-eval --env.type=libero` still requires WSL/Linux/MuJoCo readiness.
 - OpenVLA-OFT, full benchmark, long training, and custom `LIBERO_7D` adapter route were not used.
 
 ## Conclusion
 
-`FCAR_KILLED_BY_STATIC_BASELINE`
+`METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD`
 
-Do not scale FCAR from this result. The first tiny-gate method is killed by the predeclared static mixture baseline and also loses to rank-4 LoRA on the gate-test split. Keep the saved official per-frame prediction artifact and result reports as reusable evidence, but do not claim an FCAR method contribution from this run.
+Do not scale or tune FCAR. Do not design a new method yet. First build a more stable official split/metric protocol because the current baseline ranking changes across episode-disjoint folds even though frame-oracle headroom remains.

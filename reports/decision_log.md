@@ -768,3 +768,38 @@ Decision: `FCAR_KILLED_BY_STATIC_BASELINE`
 Consequence: FCAR should not be scaled from this result. It beats frozen/base on the gate-test split but fails the fixed success gate because it loses to rank-4 LoRA and to the adapter-soup/static-merge baseline.
 
 Exact next step: none, because `GO_FCAR_SCALEUP` was not reached.
+
+## 2026-07-10: Official SmolVLA Robust Baseline Sweep After FCAR Kill
+
+Decision: `METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD`
+
+- experiments happened: `True`
+- training happened: `False`
+- trained components: none
+- GPU/download/OpenVLA-OFT happened: `False` / `False` / `False`
+- full benchmark / simulator rollout happened: `False`
+- official dataset/model used: `True`, via the saved official prediction artifact
+- custom `LIBERO_7D` route used: `False`
+- new method implemented: `False`
+- FCAR tuned: `False`
+- paper claim made: `False`
+- prediction artifact used: `reports/fcar_prediction_artifact.json`
+- result reports: `reports/fcar_tiny_gate_postmortem.md`, `reports/official_smolvla_robust_baseline_sweep_plan.md`, `reports/official_smolvla_robust_baseline_sweep_result.json`, `reports/official_smolvla_robust_baseline_sweep_result.md`, `reports/official_smolvla_post_fcar_decision.md`
+- sweep scope: `5` deterministic episode-disjoint folds, `40` test frames per fold
+- frozen/base action L2 mean/std: `0.106514933` / `0.030256808`
+- rank-4 LoRA action L2 mean/std: `0.118024225` / `0.023707422`
+- mean-action prior action L2 mean/std: `1.144859705` / `0.018515874`
+- frame oracle action L2 mean/std: `0.084582167` / `0.027591676`
+- task oracle action L2 mean/std: `0.106079936` / `0.029986441`
+- MoIRA-style task/instruction router action L2 mean/std: `0.106514933` / `0.030256808`
+- val-selected static mix action L2 mean/std: `0.105142674` / `0.026514373`
+- realistic win counts: frozen/base `2`, val-selected static mix `3`
+- frame oracle win count with oracles: `5`
+- rank-4 LoRA wins over frozen/base: `2` / `5`
+- frame oracle mean headroom over frozen/base: `0.021932766`
+- task oracle mean headroom over frozen/base: `0.000434997`
+- static gap to frame oracle mean: `0.020560507`
+
+Consequence: FCAR remains killed and must not be tuned. Frame-oracle headroom remains, but base/static/LoRA ranking is too split-dependent for a stable new method design under this current offline protocol.
+
+Exact next step: do not design a method yet; first build a more stable official split/metric protocol.
