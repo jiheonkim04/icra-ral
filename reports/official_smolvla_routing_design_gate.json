@@ -1,0 +1,1102 @@
+{
+  "aggregate_metrics": {
+    "action_dim_oracle": {
+      "action_l2_max": 2.004428387,
+      "action_l2_mean": 0.075210683,
+      "eval_loss_max": 0.04199462,
+      "eval_loss_mean": 0.006147801,
+      "finite_all": true,
+      "gripper_abs_mean": 0.027040264,
+      "gripper_sign_accuracy": 0.99,
+      "per_dim_abs_mean": [
+        0.024024645,
+        0.02467932,
+        0.03019314,
+        0.0031409,
+        0.005746305,
+        0.004477875,
+        0.027040264
+      ],
+      "range_violation_rate": 0.41,
+      "rotation_l2_mean": 0.00945968,
+      "sample_count": 200,
+      "translation_l2_mean": 0.053520119
+    },
+    "eval_loss_oracle": {
+      "action_l2_max": 2.006454706,
+      "action_l2_mean": 0.117064321,
+      "eval_loss_max": 0.04199462,
+      "eval_loss_mean": 0.006147801,
+      "finite_all": true,
+      "gripper_abs_mean": 0.049766632,
+      "gripper_sign_accuracy": 0.98,
+      "per_dim_abs_mean": [
+        0.03474797,
+        0.03670168,
+        0.043693755,
+        0.004895705,
+        0.009618635,
+        0.006611155,
+        0.04976665
+      ],
+      "range_violation_rate": 0.545,
+      "rotation_l2_mean": 0.014781846,
+      "sample_count": 200,
+      "translation_l2_mean": 0.076791049
+    },
+    "frame_oracle": {
+      "action_l2_max": 2.006454706,
+      "action_l2_mean": 0.084582188,
+      "eval_loss_max": 0.175197944,
+      "eval_loss_mean": 0.012969294,
+      "finite_all": true,
+      "gripper_abs_mean": 0.029592019,
+      "gripper_sign_accuracy": 0.99,
+      "per_dim_abs_mean": [
+        0.028916065,
+        0.02970469,
+        0.03564361,
+        0.00456792,
+        0.008171305,
+        0.00659854,
+        0.02959204
+      ],
+      "range_violation_rate": 0.54,
+      "rotation_l2_mean": 0.013420008,
+      "sample_count": 200,
+      "translation_l2_mean": 0.062440094
+    },
+    "frozen_base": {
+      "action_l2_max": 2.012344599,
+      "action_l2_mean": 0.10651496,
+      "eval_loss_max": 0.139352649,
+      "eval_loss_mean": 0.01197837,
+      "finite_all": true,
+      "gripper_abs_mean": 0.039751591,
+      "gripper_sign_accuracy": 0.985,
+      "per_dim_abs_mean": [
+        0.033745615,
+        0.037118165,
+        0.043534335,
+        0.005062995,
+        0.00837664,
+        0.0068652,
+        0.03975157
+      ],
+      "range_violation_rate": 0.54,
+      "rotation_l2_mean": 0.014086517,
+      "sample_count": 200,
+      "translation_l2_mean": 0.075728161
+    },
+    "instruction_task_id_oracle": {
+      "action_l2_max": 2.012344599,
+      "action_l2_mean": 0.106079976,
+      "eval_loss_max": 0.098385274,
+      "eval_loss_mean": 0.011028373,
+      "finite_all": true,
+      "gripper_abs_mean": 0.039627159,
+      "gripper_sign_accuracy": 0.985,
+      "per_dim_abs_mean": [
+        0.03416373,
+        0.035960455,
+        0.04155002,
+        0.00512615,
+        0.008879335,
+        0.00683772,
+        0.039627145
+      ],
+      "range_violation_rate": 0.535,
+      "rotation_l2_mean": 0.014470935,
+      "sample_count": 200,
+      "translation_l2_mean": 0.074262319
+    },
+    "mean_action_prior": {
+      "action_l2_max": 1.688645601,
+      "action_l2_mean": 1.144859722,
+      "eval_loss_max": null,
+      "eval_loss_mean": null,
+      "finite_all": true,
+      "gripper_abs_mean": 0.988086157,
+      "gripper_sign_accuracy": 0.62,
+      "per_dim_abs_mean": [
+        0.23221478,
+        0.27009203,
+        0.251011295,
+        0.0257321,
+        0.03873003,
+        0.046931265,
+        0.98808616
+      ],
+      "range_violation_rate": 0.0,
+      "rotation_l2_mean": 0.082277143,
+      "sample_count": 200,
+      "translation_l2_mean": 0.515473497
+    },
+    "rank4_lora": {
+      "action_l2_max": 2.007616758,
+      "action_l2_mean": 0.118024259,
+      "eval_loss_max": 0.175197944,
+      "eval_loss_mean": 0.01214829,
+      "finite_all": true,
+      "gripper_abs_mean": 0.050169439,
+      "gripper_sign_accuracy": 0.98,
+      "per_dim_abs_mean": [
+        0.035980945,
+        0.03589962,
+        0.041945745,
+        0.00482541,
+        0.009851505,
+        0.007215055,
+        0.050169465
+      ],
+      "range_violation_rate": 0.545,
+      "rotation_l2_mean": 0.015253659,
+      "sample_count": 200,
+      "translation_l2_mean": 0.076366197
+    },
+    "task_oracle": {
+      "action_l2_max": 2.012344599,
+      "action_l2_mean": 0.106079976,
+      "eval_loss_max": 0.098385274,
+      "eval_loss_mean": 0.011028373,
+      "finite_all": true,
+      "gripper_abs_mean": 0.039627159,
+      "gripper_sign_accuracy": 0.985,
+      "per_dim_abs_mean": [
+        0.03416373,
+        0.035960455,
+        0.04155002,
+        0.00512615,
+        0.008879335,
+        0.00683772,
+        0.039627145
+      ],
+      "range_violation_rate": 0.535,
+      "rotation_l2_mean": 0.014470935,
+      "sample_count": 200,
+      "translation_l2_mean": 0.074262319
+    }
+  },
+  "dataset": {
+    "heldout_sample_count": 200,
+    "selected_episode_count": 10,
+    "selected_episodes": [
+      1,
+      4,
+      2,
+      3,
+      7,
+      9,
+      8,
+      13,
+      14,
+      15
+    ],
+    "selected_task_count": 5,
+    "selected_tasks": [
+      {
+        "episodes": [
+          1,
+          4
+        ],
+        "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "task_index": 1
+      },
+      {
+        "episodes": [
+          2,
+          3
+        ],
+        "task": "put the yellow and white mug in the microwave and close it",
+        "task_index": 2
+      },
+      {
+        "episodes": [
+          7,
+          9
+        ],
+        "task": "put both the alphabet soup and the cream cheese box in the basket",
+        "task_index": 4
+      },
+      {
+        "episodes": [
+          8,
+          13
+        ],
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "episodes": [
+          14,
+          15
+        ],
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      }
+    ],
+    "task_examples": [
+      "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "put the yellow and white mug in the microwave and close it",
+      "put both the alphabet soup and the cream cheese box in the basket",
+      "put both the alphabet soup and the tomato sauce in the basket",
+      "put the black bowl in the bottom drawer of the cabinet and close it"
+    ],
+    "total_episodes": 1693,
+    "total_frames": 273465,
+    "total_tasks": 40,
+    "train_episode": 0
+  },
+  "date": "2026-07-09 KST",
+  "decision_reason": "Frame oracle clears the routing headroom gate, while task/instruction oracle headroom is tiny. A viable design therefore needs frame/state/action-disagreement signals and an explicit frozen/base fallback, not text-only task routing.",
+  "errors": [],
+  "estimated_kill_risk": "high",
+  "exact_next_prompt": "Design a Frame-Conditional Adapter Retention method plan for official SmolVLA-LIBERO. Do not implement it; predeclare frozen/base, rank-4 LoRA, mean-action prior, frame oracle, task oracle, and MoIRA-style instruction router baselines.",
+  "final_decision": "GO_DESIGN_FRAME_CONDITIONAL_ROUTING",
+  "headroom": {
+    "eval_loss_oracle_over_base": {
+      "absolute": -0.010549361,
+      "relative": -0.099041121
+    },
+    "frame_oracle_over_base": {
+      "absolute": 0.021932772,
+      "relative": 0.205912597
+    },
+    "frame_oracle_over_lora": {
+      "absolute": 0.033442071,
+      "relative": 0.283349129
+    },
+    "task_oracle_over_base": {
+      "absolute": 0.000434984,
+      "relative": 0.004083783
+    },
+    "task_oracle_over_lora": {
+      "absolute": 0.011944283,
+      "relative": 0.101201932
+    }
+  },
+  "kill_risks": [
+    "Frozen/base is already stronger than standard rank-4 LoRA on aggregate.",
+    "Task oracle may be too weak even when frame oracle is useful.",
+    "Instruction/task routing alone is killed by MoIRA-style routing.",
+    "A learned gate may fail to approach frame-oracle headroom.",
+    "Offline action L2 may not translate to simulator success without WSL/Linux LIBERO rollout.",
+    "Adapter soup or weighted LoRA merge may match a proposed router."
+  ],
+  "method_spec": {
+    "ablations": [
+      "no frozen/base expert",
+      "instruction-only router",
+      "frame-state-only router",
+      "no retention loss",
+      "weighted adapter merge/soup"
+    ],
+    "expected_kill_risk": "high",
+    "expected_ral_strength": "low-medium until official rollout exists",
+    "first_experiment": "planning-only next; then, if approved, train a tiny gate on the same official diagnostic split with frozen/base fallback and compare to oracle bounds.",
+    "frozen_base_explicit_expert": true,
+    "kill_criteria": [
+      "frame oracle below 5%/0.005 headroom",
+      "gate fails to beat frozen/base",
+      "MoIRA-style instruction router matches it",
+      "mean-action or trivial prior explains gains"
+    ],
+    "method_name": "Frame-Conditional Adapter Retention",
+    "metrics": [
+      "held-out action L2",
+      "translation L2",
+      "rotation L2",
+      "gripper error/sign",
+      "normalized chunk eval loss",
+      "negative-transfer frame rate"
+    ],
+    "model_components": [
+      "frozen/base SmolVLA expert",
+      "rank-4 LoRA adapted expert",
+      "small router/gate",
+      "retention regularizer"
+    ],
+    "novelty_vs_aac": "not an action-chunk length scheduler; AAC is an adjacent temporal-stability baseline, not the routing mechanism.",
+    "novelty_vs_moira": "must be frame/state/action-disagreement aware and base-retentive; instruction-to-adapter routing alone is killed by MoIRA.",
+    "novelty_vs_standard_lora": "explicitly avoids LoRA negative-transfer frames instead of always applying the adapter.",
+    "precise_failure_gap": "Routing oracle can avoid LoRA-hurt frames, but task-only routing has weak or MoIRA-covered headroom.",
+    "problem_statement": "Low-data rank-4 LoRA on official SmolVLA-LIBERO creates negative transfer: some frames improve while others are worse than frozen/base.",
+    "required_baselines": [
+      "frozen/base SmolVLA",
+      "standard rank-4 LoRA",
+      "mean-action prior",
+      "task oracle",
+      "frame oracle",
+      "MoIRA-style instruction routing"
+    ],
+    "retention_loss": "penalize selecting LoRA when frozen/base has lower action L2 or lower normalized chunk loss on diagnostic supervision.",
+    "router_input_signals": [
+      "instruction/task embedding",
+      "current state",
+      "visual embeddings if cached",
+      "base-vs-LoRA action disagreement",
+      "chunk/eval-loss proxy or uncertainty"
+    ],
+    "router_level": "frame-level or hybrid",
+    "training_objective": "supervise gate to select LoRA only when it improves held-out action proxy while retaining base otherwise; no method training should start before a fixed protocol."
+  },
+  "moira_comparison": {
+    "moira_external_text_router": true,
+    "moira_libero_eval": true,
+    "moira_lora_experts": true,
+    "moira_modular_instruction_routing": true,
+    "rejected_novelty_claims": [
+      "use LoRA",
+      "route by task",
+      "route by instruction",
+      "use multiple adapters",
+      "external LLM router",
+      "generic MoE for robotics"
+    ],
+    "required_comparison_baselines": [
+      "frozen/base fallback",
+      "standard rank-4 LoRA",
+      "task-specific LoRA experts",
+      "task oracle",
+      "simple instruction embedding router",
+      "MoIRA-style text router",
+      "adapter soup / weighted LoRA merge",
+      "AAC as adjacent temporal-stability baseline"
+    ],
+    "surviving_differentiator": "Base-retentive frame/state/action-disagreement-aware gating that can select frozen/base per frame to avoid negative transfer.",
+    "task_or_instruction_only_killed": true
+  },
+  "oracle_bounds": {
+    "action_dim_oracle": {
+      "diagnostic_only": true,
+      "selector_counts": {
+        "per_action_dimension_oracle": 200
+      }
+    },
+    "eval_loss_oracle": {
+      "selector_counts": {
+        "frozen_base": 101,
+        "rank4_lora": 99
+      }
+    },
+    "frame_oracle": {
+      "selector_counts": {
+        "frozen_base": 102,
+        "rank4_lora": 98
+      }
+    },
+    "instruction_task_id_oracle": {
+      "equivalent_to": "task_oracle",
+      "selector_counts": {
+        "frozen_base": 120,
+        "rank4_lora": 80
+      }
+    },
+    "task_oracle": {
+      "per_task_headroom": {
+        "1": {
+          "base_action_l2": 0.140706462,
+          "candidate_action_l2": 0.140706462,
+          "improvement": {
+            "absolute": 0.0,
+            "relative": 0.0
+          }
+        },
+        "2": {
+          "base_action_l2": 0.071951801,
+          "candidate_action_l2": 0.071951801,
+          "improvement": {
+            "absolute": 0.0,
+            "relative": 0.0
+          }
+        },
+        "4": {
+          "base_action_l2": 0.068254358,
+          "candidate_action_l2": 0.068254358,
+          "improvement": {
+            "absolute": 0.0,
+            "relative": 0.0
+          }
+        },
+        "5": {
+          "base_action_l2": 0.127170722,
+          "candidate_action_l2": 0.126285626,
+          "improvement": {
+            "absolute": 0.000885096,
+            "relative": 0.006959904
+          }
+        },
+        "8": {
+          "base_action_l2": 0.124491459,
+          "candidate_action_l2": 0.123201633,
+          "improvement": {
+            "absolute": 0.001289826,
+            "relative": 0.010360762
+          }
+        }
+      },
+      "selector_counts": {
+        "frozen_base": 120,
+        "rank4_lora": 80
+      },
+      "task_routing": {
+        "1": "frozen_base",
+        "2": "frozen_base",
+        "4": "frozen_base",
+        "5": "rank4_lora",
+        "8": "rank4_lora"
+      }
+    }
+  },
+  "paths": {
+    "checkpoint": "C:\\assets\\checkpoints\\smolvla_libero",
+    "dataset": "C:\\assets\\datasets\\lerobot_libero",
+    "hf_home": "C:\\assets\\hf_home",
+    "vlm_root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+  },
+  "policy": {
+    "downloads_performed": false,
+    "experiments_performed": true,
+    "gpu_used": true,
+    "loss_computed": true,
+    "method_implemented": false,
+    "official_model_dataset_used": true,
+    "old_custom_route_used": false,
+    "openvla_oft_executed": false,
+    "paper_claims_made": false,
+    "rollouts_performed": false,
+    "training_performed": true
+  },
+  "regenerated_lora_for_oracle": true,
+  "routing_headroom_verdict": "frame_headroom_only",
+  "runtime": {
+    "cuda": {
+      "allocated_mb": 906.523,
+      "available": true,
+      "device_name": "NVIDIA GeForce RTX 5080",
+      "max_allocated_mb": 1104.506
+    },
+    "rss_final_mb": 2149.898,
+    "total_elapsed_sec": 221.187
+  },
+  "status": "completed",
+  "training": {
+    "autocast_status": {
+      "cpu": false,
+      "cuda": false
+    },
+    "batch_size": 1,
+    "last_grad_norm": 0.051543493,
+    "last_nonzero_grad_tensors": 74,
+    "loss_after": 0.011093494,
+    "loss_before": 0.008108919,
+    "loss_curve": [
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008108919,
+        "max_allocated_mb": 1093.396,
+        "step": 0
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003143461,
+        "max_allocated_mb": 1104.506,
+        "step": 1
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004814546,
+        "max_allocated_mb": 1104.506,
+        "step": 2
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008595025,
+        "max_allocated_mb": 1104.506,
+        "step": 3
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00179662,
+        "max_allocated_mb": 1104.506,
+        "step": 4
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00355187,
+        "max_allocated_mb": 1104.506,
+        "step": 5
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003602543,
+        "max_allocated_mb": 1104.506,
+        "step": 6
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.043433651,
+        "max_allocated_mb": 1104.506,
+        "step": 7
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00280221,
+        "max_allocated_mb": 1104.506,
+        "step": 8
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003734866,
+        "max_allocated_mb": 1104.506,
+        "step": 9
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.013139114,
+        "max_allocated_mb": 1104.506,
+        "step": 10
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003705454,
+        "max_allocated_mb": 1104.506,
+        "step": 11
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001943061,
+        "max_allocated_mb": 1104.506,
+        "step": 12
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001799045,
+        "max_allocated_mb": 1104.506,
+        "step": 13
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.015384275,
+        "max_allocated_mb": 1104.506,
+        "step": 14
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004213743,
+        "max_allocated_mb": 1104.506,
+        "step": 15
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010493827,
+        "max_allocated_mb": 1104.506,
+        "step": 16
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002789131,
+        "max_allocated_mb": 1104.506,
+        "step": 17
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002461829,
+        "max_allocated_mb": 1104.506,
+        "step": 18
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008911989,
+        "max_allocated_mb": 1104.506,
+        "step": 19
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.006455181,
+        "max_allocated_mb": 1104.506,
+        "step": 20
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002011558,
+        "max_allocated_mb": 1104.506,
+        "step": 21
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001735728,
+        "max_allocated_mb": 1104.506,
+        "step": 22
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010545475,
+        "max_allocated_mb": 1104.506,
+        "step": 23
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001987104,
+        "max_allocated_mb": 1104.506,
+        "step": 24
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002876987,
+        "max_allocated_mb": 1104.506,
+        "step": 25
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002471325,
+        "max_allocated_mb": 1104.506,
+        "step": 26
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003790191,
+        "max_allocated_mb": 1104.506,
+        "step": 27
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.065785177,
+        "max_allocated_mb": 1104.506,
+        "step": 28
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003543275,
+        "max_allocated_mb": 1104.506,
+        "step": 29
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002529175,
+        "max_allocated_mb": 1104.506,
+        "step": 30
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002226746,
+        "max_allocated_mb": 1104.506,
+        "step": 31
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00959047,
+        "max_allocated_mb": 1104.506,
+        "step": 32
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00414424,
+        "max_allocated_mb": 1104.506,
+        "step": 33
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.036109723,
+        "max_allocated_mb": 1104.506,
+        "step": 34
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010825405,
+        "max_allocated_mb": 1104.506,
+        "step": 35
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003669924,
+        "max_allocated_mb": 1104.506,
+        "step": 36
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003846846,
+        "max_allocated_mb": 1104.506,
+        "step": 37
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.0054755,
+        "max_allocated_mb": 1104.506,
+        "step": 38
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.007092147,
+        "max_allocated_mb": 1104.506,
+        "step": 39
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002530829,
+        "max_allocated_mb": 1104.506,
+        "step": 40
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009163439,
+        "max_allocated_mb": 1104.506,
+        "step": 41
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009140621,
+        "max_allocated_mb": 1104.506,
+        "step": 42
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001664878,
+        "max_allocated_mb": 1104.506,
+        "step": 43
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001897567,
+        "max_allocated_mb": 1104.506,
+        "step": 44
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002792685,
+        "max_allocated_mb": 1104.506,
+        "step": 45
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002850517,
+        "max_allocated_mb": 1104.506,
+        "step": 46
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003274636,
+        "max_allocated_mb": 1104.506,
+        "step": 47
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005284338,
+        "max_allocated_mb": 1104.506,
+        "step": 48
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.077115379,
+        "max_allocated_mb": 1104.506,
+        "step": 49
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002441485,
+        "max_allocated_mb": 1104.506,
+        "step": 50
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00245071,
+        "max_allocated_mb": 1104.506,
+        "step": 51
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003058281,
+        "max_allocated_mb": 1104.506,
+        "step": 52
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005440522,
+        "max_allocated_mb": 1104.506,
+        "step": 53
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003244994,
+        "max_allocated_mb": 1104.506,
+        "step": 54
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002805182,
+        "max_allocated_mb": 1104.506,
+        "step": 55
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003977505,
+        "max_allocated_mb": 1104.506,
+        "step": 56
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003498768,
+        "max_allocated_mb": 1104.506,
+        "step": 57
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.011758523,
+        "max_allocated_mb": 1104.506,
+        "step": 58
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003527709,
+        "max_allocated_mb": 1104.506,
+        "step": 59
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004578763,
+        "max_allocated_mb": 1104.506,
+        "step": 60
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002146423,
+        "max_allocated_mb": 1104.506,
+        "step": 61
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003412664,
+        "max_allocated_mb": 1104.506,
+        "step": 62
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003668397,
+        "max_allocated_mb": 1104.506,
+        "step": 63
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005000956,
+        "max_allocated_mb": 1104.506,
+        "step": 64
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002584652,
+        "max_allocated_mb": 1104.506,
+        "step": 65
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004321631,
+        "max_allocated_mb": 1104.506,
+        "step": 66
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.016366575,
+        "max_allocated_mb": 1104.506,
+        "step": 67
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005694154,
+        "max_allocated_mb": 1104.506,
+        "step": 68
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004067726,
+        "max_allocated_mb": 1104.506,
+        "step": 69
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002902672,
+        "max_allocated_mb": 1104.506,
+        "step": 70
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.034512516,
+        "max_allocated_mb": 1104.506,
+        "step": 71
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009179593,
+        "max_allocated_mb": 1104.506,
+        "step": 72
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002209811,
+        "max_allocated_mb": 1104.506,
+        "step": 73
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.193854466,
+        "max_allocated_mb": 1104.506,
+        "step": 74
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004731905,
+        "max_allocated_mb": 1104.506,
+        "step": 75
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00292509,
+        "max_allocated_mb": 1104.506,
+        "step": 76
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002758334,
+        "max_allocated_mb": 1104.506,
+        "step": 77
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002639329,
+        "max_allocated_mb": 1104.506,
+        "step": 78
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003094763,
+        "max_allocated_mb": 1104.506,
+        "step": 79
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002048056,
+        "max_allocated_mb": 1104.506,
+        "step": 80
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002570657,
+        "max_allocated_mb": 1104.506,
+        "step": 81
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005336641,
+        "max_allocated_mb": 1104.506,
+        "step": 82
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.032929871,
+        "max_allocated_mb": 1104.506,
+        "step": 83
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002229692,
+        "max_allocated_mb": 1104.506,
+        "step": 84
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003737324,
+        "max_allocated_mb": 1104.506,
+        "step": 85
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003013619,
+        "max_allocated_mb": 1104.506,
+        "step": 86
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.032773312,
+        "max_allocated_mb": 1104.506,
+        "step": 87
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003007269,
+        "max_allocated_mb": 1104.506,
+        "step": 88
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003508834,
+        "max_allocated_mb": 1104.506,
+        "step": 89
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.012028724,
+        "max_allocated_mb": 1104.506,
+        "step": 90
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001933312,
+        "max_allocated_mb": 1104.506,
+        "step": 91
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001820092,
+        "max_allocated_mb": 1104.506,
+        "step": 92
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001662834,
+        "max_allocated_mb": 1104.506,
+        "step": 93
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001817464,
+        "max_allocated_mb": 1104.506,
+        "step": 94
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002660793,
+        "max_allocated_mb": 1104.506,
+        "step": 95
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008096478,
+        "max_allocated_mb": 1104.506,
+        "step": 96
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004065927,
+        "max_allocated_mb": 1104.506,
+        "step": 97
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002709637,
+        "max_allocated_mb": 1104.506,
+        "step": 98
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.011093494,
+        "max_allocated_mb": 1104.506,
+        "step": 99
+      }
+    ],
+    "steps": 100,
+    "steps_per_sec": 5.245764,
+    "total_params": 450231840,
+    "trainable_params": 185664,
+    "training_elapsed_sec": 19.063,
+    "variant": "standard_rank4_lora_recreated_for_oracle"
+  }
+}

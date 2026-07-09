@@ -2,9 +2,9 @@
 
 Date: 2026-07-09 KST
 
-Branch: `codex/official-smolvla-libero-failure-mining`
+Branch: `codex/official-smolvla-routing-design-gate`
 
-Current decision: `GO_METHOD_DESIGN_TASK_ADAPTER_ROUTING`
+Current decision: `GO_DESIGN_FRAME_CONDITIONAL_ROUTING`
 
 ## Current Route
 
@@ -26,11 +26,13 @@ The archived custom SmolVLA 7D adapter route remains stopped. The valid route is
 - Official failure mining over 200 held-out frames across 5 task groups found that rank-4 LoRA worsened aggregate action L2 (`0.106514960 -> 0.118024259`) and eval loss (`0.011978370 -> 0.012148290`) versus frozen/base.
 - The same run found mixed task/frame interference: LoRA helped `98` frames and hurt `102`, with task-mean help/hurt count `2` / `3`. Mean-action prior was much worse (`1.144859722` action L2), so the pattern is not explained by a trivial prior.
 - Strongest method-worthy gap is task/frame-level adapter interference, but kill risk is high because frozen/base is strong and MoIRA-style modular routing is a close recent-paper baseline.
+- Routing oracle design gate found meaningful frame-level headroom but tiny task-level headroom: frame oracle action L2 `0.084582188` improves over frozen/base by `0.021932772` / `20.5912597%`, while task oracle action L2 `0.106079976` improves by only `0.000434984` / `0.4083783%`.
+- Pure task/instruction routing is killed by MoIRA-style routing and by tiny task-oracle headroom. The surviving design direction is frame-conditional adapter retention with frozen/base as an explicit expert.
 - Official simulator eval was not run; `lerobot-eval --env.type=libero` still requires WSL/Linux/MuJoCo readiness.
 - OpenVLA-OFT, full benchmark, long training, and custom `LIBERO_7D` adapter route were not used.
 
 ## Conclusion
 
-`GO_METHOD_DESIGN_TASK_ADAPTER_ROUTING`
+`GO_DESIGN_FRAME_CONDITIONAL_ROUTING`
 
-Next valid step: design, but do not implement, a task-conditional adapter-routing plan on the official SmolVLA-LIBERO path. The plan must explicitly compare against frozen/base, standard rank-4 LoRA, mean-action prior, and MoIRA-style routing, and must keep the high kill risk visible.
+Next valid step: create the first Frame-Conditional Adapter Retention experiment plan on the official SmolVLA-LIBERO path. Do not run it until frozen/base, rank-4 LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style instruction router, adapter soup/merge, and kill criteria are predeclared.

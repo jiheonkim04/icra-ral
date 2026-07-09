@@ -666,3 +666,35 @@ Decision: `GO_METHOD_DESIGN_TASK_ADAPTER_ROUTING`
 Consequence: do not implement a method yet. A task-conditional adapter-routing design plan is now allowed, but it must explicitly compare against frozen/base official SmolVLA, standard rank-4 LoRA, mean-action prior, and MoIRA-style routing.
 
 Exact next step: design a task-conditional adapter-routing plan only; predeclare metrics, baselines, ablations, split/sample policy, tuning budget, and kill/pivot criteria before any method run.
+
+## 2026-07-09: Official SmolVLA-LIBERO Routing Design Gate
+
+Decision: `GO_DESIGN_FRAME_CONDITIONAL_ROUTING`
+
+- experiments happened: `True`
+- training happened: `True`, only standard rank-4 LoRA regenerated because saved adapter/per-frame rows were unavailable
+- loss computed: `True`
+- GPU used: `True`
+- downloads happened: `False`
+- OpenVLA-OFT happened: `False`
+- full benchmark / simulator rollout happened: `False`
+- official dataset/model used: `True`
+- custom `LIBERO_7D` route used: `False`
+- method implemented: `False`
+- held-out diagnostic scope: `200` frames, `5` task groups, `10` episodes
+- frozen/base action L2: `0.106514960`
+- rank-4 LoRA action L2: `0.118024259`
+- mean-action prior action L2: `1.144859722`
+- frame oracle action L2: `0.084582188`
+- task oracle action L2: `0.106079976`
+- instruction/task-id oracle action L2: `0.106079976`
+- eval-loss oracle action L2 / eval loss: `0.117064321` / `0.006147801`
+- action-dimension oracle action L2: `0.075210683` diagnostic only
+- frame oracle headroom over frozen/base: `0.021932772` absolute, `0.205912597` relative
+- task oracle headroom over frozen/base: `0.000434984` absolute, `0.004083783` relative
+- frame oracle selector counts: frozen/base `102`, rank-4 LoRA `98`
+- task oracle selector counts: frozen/base `120`, rank-4 LoRA `80`
+
+Consequence: pure task/instruction adapter routing is not enough. Task-oracle headroom is below the predeclared `0.005` absolute / `5%` relative gate and is also close to MoIRA-style routing. The only surviving design direction is frame/state/action-disagreement-aware routing with explicit frozen/base retention.
+
+Exact next step: create a Frame-Conditional Adapter Retention first-experiment plan, including frozen/base, standard rank-4 LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style instruction router, task-specific LoRA experts, adapter soup/weighted merge, metrics, ablations, tuning budget, and kill criteria. Do not implement the method until that plan is fixed.
