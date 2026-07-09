@@ -635,3 +635,34 @@ Failed attempt log: the first runner version failed before optimizer step with e
 Consequence: official SmolVLA/LeRobot baseline path is stable enough for method-design planning. Future method work must keep frozen/base official SmolVLA and this rank-4 LoRA baseline as anchors, and must retain the mixed signal that LoRA improved action L2 but worsened mini-holdout eval loss.
 
 Exact next step: create the first official-path method-design plan with predeclared metrics, baselines, ablations, split/sample policy, tuning budget, and kill/pivot criteria before running any new method.
+
+## 2026-07-09: Official SmolVLA-LIBERO Failure Mining
+
+Decision: `GO_METHOD_DESIGN_TASK_ADAPTER_ROUTING`
+
+- experiments happened: `True`
+- training happened: `True`, standard rank-4 LoRA only
+- loss computed: `True`
+- GPU used: `True`
+- downloads happened: `False`
+- OpenVLA-OFT happened: `False`
+- full benchmark / simulator rollout happened: `False`
+- official dataset/model used: `True`
+- custom `LIBERO_7D` route used: `False`
+- method implemented: `False`
+- model path: `C:\assets\checkpoints\smolvla_libero`
+- dataset path: `C:\assets\datasets\lerobot_libero`
+- held-out diagnostic scope: `200` frames, `5` task groups, `10` episodes, train episode excluded
+- rank-4 LoRA train loss before/after: `0.008108919` / `0.011093494`
+- frozen/base held-out action L2 / eval loss: `0.106514960` / `0.011978370`
+- rank-4 LoRA held-out action L2 / eval loss: `0.118024259` / `0.012148290`
+- mean-action prior held-out action L2: `1.144859722`
+- LoRA help/hurt count: `98` / `102`
+- task-mean LoRA help/hurt count: `2` / `3`
+- mean prior better than LoRA: `4` / `200`
+- strongest method-worthy gap: task/frame-level adapter interference
+- estimated kill risk: high, because frozen/base is strong and MoIRA-style low-rank adapter routing is a close recent-paper baseline
+
+Consequence: do not implement a method yet. A task-conditional adapter-routing design plan is now allowed, but it must explicitly compare against frozen/base official SmolVLA, standard rank-4 LoRA, mean-action prior, and MoIRA-style routing.
+
+Exact next step: design a task-conditional adapter-routing plan only; predeclare metrics, baselines, ablations, split/sample policy, tuning budget, and kill/pivot criteria before any method run.

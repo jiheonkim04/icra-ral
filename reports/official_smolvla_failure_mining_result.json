@@ -1,0 +1,1801 @@
+{
+  "aggregate_metrics": {
+    "frozen_base": {
+      "action_l2_max": 2.012344599,
+      "action_l2_mean": 0.10651496,
+      "eval_loss_max": 0.139352649,
+      "eval_loss_mean": 0.01197837,
+      "finite_all": true,
+      "gripper_abs_mean": 0.039751591,
+      "gripper_sign_accuracy": 0.985,
+      "per_dim_abs_mean": [
+        0.033745615,
+        0.037118165,
+        0.043534335,
+        0.005062995,
+        0.00837664,
+        0.0068652,
+        0.03975157
+      ],
+      "range_violation_rate": 0.54,
+      "rotation_l2_mean": 0.014086517,
+      "sample_count": 200,
+      "translation_l2_mean": 0.075728161
+    },
+    "mean_action_prior": {
+      "action_l2_max": 1.688645601,
+      "action_l2_mean": 1.144859722,
+      "eval_loss_max": null,
+      "eval_loss_mean": null,
+      "finite_all": true,
+      "gripper_abs_mean": 0.988086157,
+      "gripper_sign_accuracy": 0.62,
+      "per_dim_abs_mean": [
+        0.23221478,
+        0.27009203,
+        0.251011295,
+        0.0257321,
+        0.03873003,
+        0.046931265,
+        0.98808616
+      ],
+      "range_violation_rate": 0.0,
+      "rotation_l2_mean": 0.082277143,
+      "sample_count": 200,
+      "translation_l2_mean": 0.515473497
+    },
+    "rank4_lora": {
+      "action_l2_max": 2.007616758,
+      "action_l2_mean": 0.118024259,
+      "eval_loss_max": 0.175197944,
+      "eval_loss_mean": 0.01214829,
+      "finite_all": true,
+      "gripper_abs_mean": 0.050169439,
+      "gripper_sign_accuracy": 0.98,
+      "per_dim_abs_mean": [
+        0.035980945,
+        0.03589962,
+        0.041945745,
+        0.00482541,
+        0.009851505,
+        0.007215055,
+        0.050169465
+      ],
+      "range_violation_rate": 0.545,
+      "rotation_l2_mean": 0.015253659,
+      "sample_count": 200,
+      "translation_l2_mean": 0.076366197
+    },
+    "rank4_lora_train_episode": {
+      "action_l2_max": 0.125972927,
+      "action_l2_mean": 0.062521894,
+      "eval_loss_max": 0.024310894,
+      "eval_loss_mean": 0.004519369,
+      "finite_all": true,
+      "gripper_abs_mean": 0.00774765,
+      "gripper_sign_accuracy": 1.0,
+      "per_dim_abs_mean": [
+        0.021249,
+        0.02138215,
+        0.04450705,
+        0.00409265,
+        0.0052493,
+        0.0042857,
+        0.00774745
+      ],
+      "range_violation_rate": 0.65,
+      "rotation_l2_mean": 0.009017435,
+      "sample_count": 20,
+      "translation_l2_mean": 0.060378201
+    }
+  },
+  "comparison": {
+    "examples_lora_helps": [
+      {
+        "action_l2_gain_base_minus_lora": 1.811505109,
+        "base_action_l2": 1.960363746,
+        "base_eval_loss": 0.006592039,
+        "base_gripper_abs": 1.949118614,
+        "base_range_violation_count": 0,
+        "episode_index": 15,
+        "frame_index": 139,
+        "lora_action_l2": 0.148858637,
+        "lora_eval_loss": 0.007726549,
+        "lora_eval_loss_delta": 0.00113451,
+        "lora_gripper_abs": 0.00057745,
+        "lora_range_violation_count": 1,
+        "mean_action_l2": 1.08155942,
+        "phase": "mid",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      },
+      {
+        "action_l2_gain_base_minus_lora": 0.182999537,
+        "base_action_l2": 0.384019375,
+        "base_eval_loss": 0.036816161,
+        "base_gripper_abs": 0.016751409,
+        "base_range_violation_count": 1,
+        "episode_index": 15,
+        "frame_index": 202,
+        "lora_action_l2": 0.201019838,
+        "lora_eval_loss": 0.034778547,
+        "lora_eval_loss_delta": -0.002037614,
+        "lora_gripper_abs": 0.020150065,
+        "lora_range_violation_count": 1,
+        "mean_action_l2": 1.02969718,
+        "phase": "late",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      },
+      {
+        "action_l2_gain_base_minus_lora": 0.091801897,
+        "base_action_l2": 0.128021702,
+        "base_eval_loss": 0.004403523,
+        "base_gripper_abs": 0.00391984,
+        "base_range_violation_count": 1,
+        "episode_index": 8,
+        "frame_index": 135,
+        "lora_action_l2": 0.036219805,
+        "lora_eval_loss": 0.006144944,
+        "lora_eval_loss_delta": 0.001741421,
+        "lora_gripper_abs": 0.006153405,
+        "lora_range_violation_count": 0,
+        "mean_action_l2": 1.32850647,
+        "phase": "mid",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "action_l2_gain_base_minus_lora": 0.089782633,
+        "base_action_l2": 0.159949899,
+        "base_eval_loss": 0.029535722,
+        "base_gripper_abs": 0.004566789,
+        "base_range_violation_count": 0,
+        "episode_index": 4,
+        "frame_index": 247,
+        "lora_action_l2": 0.070167266,
+        "lora_eval_loss": 0.010397175,
+        "lora_eval_loss_delta": -0.019138547,
+        "lora_gripper_abs": 0.008676171,
+        "lora_range_violation_count": 1,
+        "mean_action_l2": 1.177803874,
+        "phase": "late",
+        "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "task_index": 1
+      },
+      {
+        "action_l2_gain_base_minus_lora": 0.088563856,
+        "base_action_l2": 0.145518482,
+        "base_eval_loss": 0.009323088,
+        "base_gripper_abs": 0.027745605,
+        "base_range_violation_count": 1,
+        "episode_index": 8,
+        "frame_index": 40,
+        "lora_action_l2": 0.056954626,
+        "lora_eval_loss": 0.004426106,
+        "lora_eval_loss_delta": -0.004896982,
+        "lora_gripper_abs": 0.030320764,
+        "lora_range_violation_count": 1,
+        "mean_action_l2": 0.990746379,
+        "phase": "early",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      }
+    ],
+    "examples_lora_hurts": [
+      {
+        "action_l2_gain_base_minus_lora": -1.943729092,
+        "base_action_l2": 0.052807759,
+        "base_eval_loss": 0.002492941,
+        "base_gripper_abs": 0.020007312,
+        "base_range_violation_count": 0,
+        "episode_index": 2,
+        "frame_index": 162,
+        "lora_action_l2": 1.996536851,
+        "lora_eval_loss": 0.002498015,
+        "lora_eval_loss_delta": 5.074e-06,
+        "lora_gripper_abs": 1.995538473,
+        "lora_range_violation_count": 0,
+        "mean_action_l2": 1.056891561,
+        "phase": "mid",
+        "task": "put the yellow and white mug in the microwave and close it",
+        "task_index": 2
+      },
+      {
+        "action_l2_gain_base_minus_lora": -1.858378798,
+        "base_action_l2": 0.131079048,
+        "base_eval_loss": 0.032456342,
+        "base_gripper_abs": 0.027410984,
+        "base_range_violation_count": 0,
+        "episode_index": 14,
+        "frame_index": 161,
+        "lora_action_l2": 1.989457846,
+        "lora_eval_loss": 0.009059523,
+        "lora_eval_loss_delta": -0.023396819,
+        "lora_gripper_abs": 1.987707615,
+        "lora_range_violation_count": 0,
+        "mean_action_l2": 0.966295302,
+        "phase": "mid",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      },
+      {
+        "action_l2_gain_base_minus_lora": -0.128070593,
+        "base_action_l2": 0.144319832,
+        "base_eval_loss": 0.014749598,
+        "base_gripper_abs": 0.009960711,
+        "base_range_violation_count": 0,
+        "episode_index": 4,
+        "frame_index": 160,
+        "lora_action_l2": 0.272390425,
+        "lora_eval_loss": 0.016014971,
+        "lora_eval_loss_delta": 0.001265373,
+        "lora_gripper_abs": 0.037365615,
+        "lora_range_violation_count": 0,
+        "mean_action_l2": 1.062570453,
+        "phase": "mid",
+        "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "task_index": 1
+      },
+      {
+        "action_l2_gain_base_minus_lora": -0.102854095,
+        "base_action_l2": 0.046333738,
+        "base_eval_loss": 0.01059113,
+        "base_gripper_abs": 0.014897406,
+        "base_range_violation_count": 0,
+        "episode_index": 4,
+        "frame_index": 262,
+        "lora_action_l2": 0.149187833,
+        "lora_eval_loss": 0.012237882,
+        "lora_eval_loss_delta": 0.001646752,
+        "lora_gripper_abs": 0.003953815,
+        "lora_range_violation_count": 1,
+        "mean_action_l2": 1.421386719,
+        "phase": "late",
+        "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "task_index": 1
+      },
+      {
+        "action_l2_gain_base_minus_lora": -0.097048357,
+        "base_action_l2": 0.111985922,
+        "base_eval_loss": 0.022347987,
+        "base_gripper_abs": 0.012353599,
+        "base_range_violation_count": 0,
+        "episode_index": 4,
+        "frame_index": 174,
+        "lora_action_l2": 0.209034279,
+        "lora_eval_loss": 0.060857285,
+        "lora_eval_loss_delta": 0.038509298,
+        "lora_gripper_abs": 0.001309335,
+        "lora_range_violation_count": 0,
+        "mean_action_l2": 1.058295727,
+        "phase": "mid",
+        "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "task_index": 1
+      }
+    ],
+    "lora_eval_loss_worse_count": 101,
+    "lora_help_count": 98,
+    "lora_hurt_count": 102,
+    "mean_prior_better_than_lora_count": 4,
+    "per_phase_delta": {
+      "early": {
+        "lora_action_l2_gain_max": 0.088563856,
+        "lora_action_l2_gain_mean": 5.391e-05,
+        "lora_action_l2_gain_min": -0.063759283,
+        "lora_eval_loss_delta_mean": -0.000395997,
+        "lora_help_fraction": 0.5,
+        "mean_prior_better_than_lora_fraction": 0.028571429,
+        "sample_count": 70
+      },
+      "late": {
+        "lora_action_l2_gain_max": 0.182999537,
+        "lora_action_l2_gain_mean": -0.003095174,
+        "lora_action_l2_gain_min": -0.102854095,
+        "lora_eval_loss_delta_mean": -0.001194275,
+        "lora_help_fraction": 0.457142857,
+        "mean_prior_better_than_lora_fraction": 0.0,
+        "sample_count": 70
+      },
+      "mid": {
+        "lora_action_l2_gain_max": 1.811505109,
+        "lora_action_l2_gain_mean": -0.034816186,
+        "lora_action_l2_gain_min": -1.943729092,
+        "lora_eval_loss_delta_mean": 0.00242172,
+        "lora_help_fraction": 0.516666667,
+        "mean_prior_better_than_lora_fraction": 0.033333333,
+        "sample_count": 60
+      }
+    },
+    "per_task_delta": {
+      "1": {
+        "lora_action_l2_gain_max": 0.089782633,
+        "lora_action_l2_gain_mean": -0.00210266,
+        "lora_action_l2_gain_min": -0.128070593,
+        "lora_eval_loss_delta_mean": 0.002842181,
+        "lora_help_fraction": 0.575,
+        "mean_prior_better_than_lora_fraction": 0.025,
+        "sample_count": 40
+      },
+      "2": {
+        "lora_action_l2_gain_max": 0.071061984,
+        "lora_action_l2_gain_mean": -0.053136368,
+        "lora_action_l2_gain_min": -1.943729092,
+        "lora_eval_loss_delta_mean": -0.003744569,
+        "lora_help_fraction": 0.375,
+        "mean_prior_better_than_lora_fraction": 0.025,
+        "sample_count": 40
+      },
+      "4": {
+        "lora_action_l2_gain_max": 0.046353966,
+        "lora_action_l2_gain_mean": -0.004482386,
+        "lora_action_l2_gain_min": -0.072476566,
+        "lora_eval_loss_delta_mean": 0.006501973,
+        "lora_help_fraction": 0.45,
+        "mean_prior_better_than_lora_fraction": 0.0,
+        "sample_count": 40
+      },
+      "5": {
+        "lora_action_l2_gain_max": 0.091801897,
+        "lora_action_l2_gain_mean": 0.000885096,
+        "lora_action_l2_gain_min": -0.062944012,
+        "lora_eval_loss_delta_mean": -0.003822969,
+        "lora_help_fraction": 0.5,
+        "mean_prior_better_than_lora_fraction": 0.025,
+        "sample_count": 40
+      },
+      "8": {
+        "lora_action_l2_gain_max": 1.811505109,
+        "lora_action_l2_gain_mean": 0.001289826,
+        "lora_action_l2_gain_min": -1.858378798,
+        "lora_eval_loss_delta_mean": -0.000927014,
+        "lora_help_fraction": 0.55,
+        "mean_prior_better_than_lora_fraction": 0.025,
+        "sample_count": 40
+      }
+    },
+    "task_mean_help_count": 2,
+    "task_mean_hurt_count": 3
+  },
+  "dataset_audit": {
+    "heldout_sample_count": 200,
+    "model_parameter_device": "cuda:0",
+    "official_splits": {
+      "train": "0:1693"
+    },
+    "processor_probe_devices": {
+      "action": "cuda:0",
+      "action_is_pad": "cuda:0",
+      "actions_id_pad": "cuda:0",
+      "episode_index": "cuda:0",
+      "index": "cuda:0",
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0",
+      "task_index": "cuda:0"
+    },
+    "processor_probe_shapes": {
+      "action": [
+        1,
+        50,
+        7
+      ],
+      "action_is_pad": [
+        1,
+        50
+      ],
+      "actions_id_pad": [
+        1,
+        50
+      ],
+      "episode_index": [],
+      "index": [
+        1
+      ],
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ],
+      "task_index": [
+        1
+      ]
+    },
+    "selected_episode_count": 10,
+    "selected_episodes": [
+      1,
+      4,
+      2,
+      3,
+      7,
+      9,
+      8,
+      13,
+      14,
+      15
+    ],
+    "selected_task_count": 5,
+    "selected_tasks": [
+      {
+        "episodes": [
+          1,
+          4
+        ],
+        "task": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "task_index": 1
+      },
+      {
+        "episodes": [
+          2,
+          3
+        ],
+        "task": "put the yellow and white mug in the microwave and close it",
+        "task_index": 2
+      },
+      {
+        "episodes": [
+          7,
+          9
+        ],
+        "task": "put both the alphabet soup and the cream cheese box in the basket",
+        "task_index": 4
+      },
+      {
+        "episodes": [
+          8,
+          13
+        ],
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "episodes": [
+          14,
+          15
+        ],
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      }
+    ],
+    "task_examples": [
+      "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "put the yellow and white mug in the microwave and close it",
+      "put both the alphabet soup and the cream cheese box in the basket",
+      "put both the alphabet soup and the tomato sauce in the basket",
+      "put the black bowl in the bottom drawer of the cabinet and close it"
+    ],
+    "total_episodes": 1693,
+    "total_frames": 273465,
+    "total_tasks": 40,
+    "train_episode": 0
+  },
+  "errors": [],
+  "exact_next_prompt": "Design a task-conditional adapter-routing plan only after explicitly comparing against MoIRA-style routing and standard LoRA anchors.",
+  "final_decision": "GO_METHOD_DESIGN_TASK_ADAPTER_ROUTING",
+  "gap_analysis": {
+    "candidate_gaps": {
+      "control_stability_retention": {
+        "baseline_failure_severity": {
+          "action_l2_gain": -0.011509299,
+          "eval_loss_delta": 0.00016992
+        },
+        "mean_prior_explains": false,
+        "method_worthy": false,
+        "recent_paper_risk": "RTC/AAC already cover inference-time chunk consistency, so novelty must focus on low-data LoRA retention/stability in the official SmolVLA flow objective.",
+        "standard_lora_helps_or_hurts": "rank-4 LoRA does not improve aggregate one-step action L2 and worsens normalized chunk eval loss",
+        "subgroup_size": 200
+      },
+      "gripper_contact_phase": {
+        "baseline_failure_severity": 0.050169439,
+        "mean_prior_explains": false,
+        "method_worthy": false,
+        "rejection_reason": "gripper sign accuracy is high and gripper absolute error is small",
+        "standard_lora_solves": true,
+        "subgroup_size": 200
+      },
+      "task_adapter_interference": {
+        "baseline_failure_severity": {
+          "lora_help_count": 98,
+          "lora_hurt_count": 102,
+          "task_mean_help_count": 2,
+          "task_mean_hurt_count": 3
+        },
+        "method_worthy": true,
+        "recent_paper_risk": "MoIRA is a close task/instruction-routing baseline with low-rank adapters, including LIBERO-like evaluations.",
+        "standard_lora_helps_or_hurts": "mixed by task/frame",
+        "subgroup_size": 200
+      }
+    },
+    "estimated_kill_risk": "high",
+    "recommended_method_direction": "Task-Conditional Adapter Routing",
+    "strongest_method_worthy_gap": "task_adapter_interference"
+  },
+  "method_shortlist": [
+    {
+      "expected_improvement_axis": "retain or improve action L2 without increasing normalized chunk eval loss",
+      "expected_kill_risk": "medium-high",
+      "first_experiment": "add a planning-only method spec with predeclared retention penalty and rerun the same failure-mining subset",
+      "latest_paper_comparison": "RTC and AAC already address action chunk consistency at inference time; novelty must be a training/adapter retention objective, not generic chunk smoothing.",
+      "method_name": "Control-Stable LoRA Adapter",
+      "method_novelty": "penalize LoRA drift in official flow/chunk objective while preserving one-step action gains",
+      "precise_gap": "rank-4 LoRA improves postprocessed action L2 while worsening normalized action-chunk flow eval loss",
+      "ral_stability_estimate": "medium if official rollout becomes available; weak without rollout",
+      "required_baselines": [
+        "frozen/base official SmolVLA",
+        "standard rank-4 LoRA",
+        "mean-action prior",
+        "RTC/AAC-style inference-only ablation if rollout exists"
+      ]
+    },
+    {
+      "expected_improvement_axis": "reduce task-specific negative transfer",
+      "expected_kill_risk": "high",
+      "first_experiment": "planning-only comparison matrix; do not implement until routing novelty is sharpened",
+      "latest_paper_comparison": "MoIRA is a close architecture-agnostic routing baseline with low-rank adapters on LIBERO-like benchmarks",
+      "method_name": "Task-Conditional Adapter Routing",
+      "method_novelty": "only plausible if routing is simpler, lower-compute, and specifically protects official SmolVLA retention",
+      "precise_gap": "LoRA helps some task groups and hurts others",
+      "ral_stability_estimate": "low-medium",
+      "required_baselines": [
+        "standard LoRA",
+        "task-specific LoRA",
+        "MoIRA-style routing baseline"
+      ]
+    },
+    {
+      "expected_improvement_axis": "gripper error and contact-phase action quality",
+      "expected_kill_risk": "high under current evidence",
+      "first_experiment": "only run if gripper subgroup failure is observed",
+      "latest_paper_comparison": "current failure mining must prove gripper phase severity first",
+      "method_name": "Phase/Gripper-Aware Action Adapter",
+      "method_novelty": "not supported unless gripper/contact subgroup is large and unsolved by LoRA",
+      "precise_gap": "gripper/contact phase errors if a future official audit finds them",
+      "ral_stability_estimate": "low under current evidence",
+      "required_baselines": [
+        "frozen/base",
+        "standard LoRA",
+        "mean gripper prior"
+      ]
+    }
+  ],
+  "metric_reconciliation": {
+    "action_l2_measures": "Official postprocessor output for select_action compared with raw 7D action label at the current frame.",
+    "both_should_be_reported": true,
+    "eval_loss_does_not_measure": [
+      "postprocessed one-step raw action L2",
+      "simulator success",
+      "language/token prediction loss"
+    ],
+    "eval_loss_includes": [
+      "normalized action chunk flow objective",
+      "future action chunk timesteps",
+      "padding mask when action_is_pad/actions_id_pad exists"
+    ],
+    "eval_loss_measures": "SmolVLAPolicy.forward returns a scalar flow/action-chunk loss over normalized action chunks, with padding removed and action dimensions capped to max_action_dim.",
+    "primary_metric_recommendation": "postprocessed held-out action L2 with translation/rotation/gripper breakdown and mean-action prior comparison",
+    "secondary_metric_recommendation": "normalized chunk flow eval loss as a stability/retention warning metric",
+    "split_alignment": "LoRA trains on episode 0 only; failure mining excludes that episode and uses deterministic held-out official episodes from multiple task indices inside the official train split because no official eval split is present.",
+    "warning": "If action L2 improves while eval loss worsens, treat it as a control-stability/retention warning, not as a paper-grade success."
+  },
+  "paths": {
+    "checkpoint": "C:\\assets\\checkpoints\\smolvla_libero",
+    "dataset": "C:\\assets\\datasets\\lerobot_libero",
+    "hf_home": "C:\\assets\\hf_home",
+    "vlm_root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+  },
+  "phase_breakdown": {
+    "frozen_base": {
+      "early": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.11966965,
+        "eval_loss_max": 0.09752737,
+        "eval_loss_mean": 0.010066759,
+        "finite_all": true,
+        "gripper_abs_mean": 0.065619735,
+        "gripper_sign_accuracy": 0.971428571,
+        "per_dim_abs_mean": [
+          0.032311186,
+          0.028729157,
+          0.033740186,
+          0.003908343,
+          0.006125486,
+          0.006320071,
+          0.065619714
+        ],
+        "range_violation_rate": 0.614285714,
+        "rotation_l2_mean": 0.011192178,
+        "sample_count": 70,
+        "translation_l2_mean": 0.062741357
+      },
+      "late": {
+        "action_l2_max": 0.384019375,
+        "action_l2_mean": 0.091014937,
+        "eval_loss_max": 0.139352649,
+        "eval_loss_mean": 0.014762942,
+        "finite_all": true,
+        "gripper_abs_mean": 0.011837027,
+        "gripper_sign_accuracy": 1.0,
+        "per_dim_abs_mean": [
+          0.033775086,
+          0.043030886,
+          0.054807357,
+          0.006004071,
+          0.008473129,
+          0.007646686,
+          0.011837
+        ],
+        "range_violation_rate": 0.514285714,
+        "rotation_l2_mean": 0.015370791,
+        "sample_count": 70,
+        "translation_l2_mean": 0.087768649
+      },
+      "mid": {
+        "action_l2_max": 1.960363746,
+        "action_l2_mean": 0.109251183,
+        "eval_loss_max": 0.066173553,
+        "eval_loss_mean": 0.010959915,
+        "finite_all": true,
+        "gripper_abs_mean": 0.04213908,
+        "gripper_sign_accuracy": 0.983333333,
+        "per_dim_abs_mean": [
+          0.035384733,
+          0.040007167,
+          0.041808983,
+          0.005312167,
+          0.010890417,
+          0.00658945,
+          0.042139067
+        ],
+        "range_violation_rate": 0.483333333,
+        "rotation_l2_mean": 0.015964927,
+        "sample_count": 60,
+        "translation_l2_mean": 0.076832198
+      }
+    },
+    "mean_action_prior": {
+      "early": {
+        "action_l2_max": 1.514486432,
+        "action_l2_mean": 1.110943233,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.975888651,
+        "gripper_sign_accuracy": 0.742857143,
+        "per_dim_abs_mean": [
+          0.207771929,
+          0.225599471,
+          0.238274757,
+          0.022578486,
+          0.038277543,
+          0.066571314,
+          0.975888657
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.093130292,
+        "sample_count": 70,
+        "translation_l2_mean": 0.463232856
+      },
+      "late": {
+        "action_l2_max": 1.688645601,
+        "action_l2_mean": 1.171990545,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.985816853,
+        "gripper_sign_accuracy": 0.642857143,
+        "per_dim_abs_mean": [
+          0.270842514,
+          0.295740371,
+          0.282294871,
+          0.028930386,
+          0.0401072,
+          0.040906657,
+          0.985816857
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.081921676,
+        "sample_count": 70,
+        "translation_l2_mean": 0.572479932
+      },
+      "mid": {
+        "action_l2_max": 1.411418319,
+        "action_l2_mean": 1.152776333,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 1.004964101,
+        "gripper_sign_accuracy": 0.45,
+        "per_dim_abs_mean": [
+          0.21566575,
+          0.29207695,
+          0.229373083,
+          0.025679983,
+          0.037651233,
+          0.031046583,
+          1.0049641
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.070029847,
+        "sample_count": 60,
+        "translation_l2_mean": 0.509913402
+      }
+    },
+    "rank4_lora": {
+      "early": {
+        "action_l2_max": 2.007616758,
+        "action_l2_mean": 0.11961574,
+        "eval_loss_max": 0.175197944,
+        "eval_loss_mean": 0.009670762,
+        "finite_all": true,
+        "gripper_abs_mean": 0.067101242,
+        "gripper_sign_accuracy": 0.971428571,
+        "per_dim_abs_mean": [
+          0.031766143,
+          0.029870114,
+          0.032409786,
+          0.003835357,
+          0.006903771,
+          0.0068602,
+          0.067101257
+        ],
+        "range_violation_rate": 0.614285714,
+        "rotation_l2_mean": 0.011764103,
+        "sample_count": 70,
+        "translation_l2_mean": 0.062646003
+      },
+      "late": {
+        "action_l2_max": 0.232355386,
+        "action_l2_mean": 0.094110112,
+        "eval_loss_max": 0.084928393,
+        "eval_loss_mean": 0.013568666,
+        "finite_all": true,
+        "gripper_abs_mean": 0.012175604,
+        "gripper_sign_accuracy": 1.0,
+        "per_dim_abs_mean": [
+          0.041623914,
+          0.041912257,
+          0.047980129,
+          0.006025157,
+          0.011906443,
+          0.008236386,
+          0.012175614
+        ],
+        "range_violation_rate": 0.514285714,
+        "rotation_l2_mean": 0.018525992,
+        "sample_count": 70,
+        "translation_l2_mean": 0.089673769
+      },
+      "mid": {
+        "action_l2_max": 1.996536851,
+        "action_l2_mean": 0.144067369,
+        "eval_loss_max": 0.129418939,
+        "eval_loss_mean": 0.013381635,
+        "finite_all": true,
+        "gripper_abs_mean": 0.074741811,
+        "gripper_sign_accuracy": 0.966666667,
+        "per_dim_abs_mean": [
+          0.03431475,
+          0.0359193,
+          0.046030917,
+          0.004580767,
+          0.0108931,
+          0.0064375,
+          0.074741867
+        ],
+        "range_violation_rate": 0.5,
+        "rotation_l2_mean": 0.015507086,
+        "sample_count": 60,
+        "translation_l2_mean": 0.076847589
+      }
+    }
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "custom_libero_7d_route_used": false,
+    "downloads_performed": false,
+    "experiments_performed": true,
+    "method_implemented": false,
+    "official_model_dataset_used": true,
+    "openvla_oft_executed": false,
+    "paper_claims_made": false,
+    "rollouts_performed": false,
+    "training_performed": true
+  },
+  "risk_assessment": {
+    "decision": "proceed inside bounded local GPU budget",
+    "max_eval_samples": 200,
+    "new_download_expected_bytes": 0,
+    "task": "bounded official SmolVLA-LIBERO failure mining",
+    "training_steps": 100
+  },
+  "runtime": {
+    "cuda": {
+      "allocated_mb": 906.523,
+      "available": true,
+      "device_name": "NVIDIA GeForce RTX 5080",
+      "max_allocated_mb": 1104.506
+    },
+    "rss_final_mb": 2797.918,
+    "total_elapsed_sec": 218.812
+  },
+  "status": "completed",
+  "task_breakdown": {
+    "frozen_base": {
+      "1": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.140706462,
+        "eval_loss_max": 0.09752737,
+        "eval_loss_mean": 0.013347042,
+        "finite_all": true,
+        "gripper_abs_mean": 0.061213775,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.03292705,
+          0.0473218,
+          0.051529825,
+          0.0072751,
+          0.00857555,
+          0.00531565,
+          0.06121375
+        ],
+        "range_violation_rate": 0.575,
+        "rotation_l2_mean": 0.014867441,
+        "sample_count": 40,
+        "translation_l2_mean": 0.088592357
+      },
+      "2": {
+        "action_l2_max": 0.153691277,
+        "action_l2_mean": 0.071951801,
+        "eval_loss_max": 0.098385274,
+        "eval_loss_mean": 0.014901496,
+        "finite_all": true,
+        "gripper_abs_mean": 0.011308493,
+        "gripper_sign_accuracy": 1.0,
+        "per_dim_abs_mean": [
+          0.033885725,
+          0.03189535,
+          0.03825385,
+          0.0049851,
+          0.00863925,
+          0.00758055,
+          0.01130845
+        ],
+        "range_violation_rate": 0.45,
+        "rotation_l2_mean": 0.014209542,
+        "sample_count": 40,
+        "translation_l2_mean": 0.06826848
+      },
+      "4": {
+        "action_l2_max": 0.18272686,
+        "action_l2_mean": 0.068254358,
+        "eval_loss_max": 0.044657443,
+        "eval_loss_mean": 0.007745066,
+        "finite_all": true,
+        "gripper_abs_mean": 0.007497167,
+        "gripper_sign_accuracy": 1.0,
+        "per_dim_abs_mean": [
+          0.031367725,
+          0.0317151,
+          0.038807225,
+          0.004055625,
+          0.007808,
+          0.00588315,
+          0.007497125
+        ],
+        "range_violation_rate": 0.65,
+        "rotation_l2_mean": 0.01210062,
+        "sample_count": 40,
+        "translation_l2_mean": 0.06604528
+      },
+      "5": {
+        "action_l2_max": 1.998554945,
+        "action_l2_mean": 0.127170722,
+        "eval_loss_max": 0.139352649,
+        "eval_loss_mean": 0.01063281,
+        "finite_all": true,
+        "gripper_abs_mean": 0.057434464,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.04034275,
+          0.033174525,
+          0.045729175,
+          0.00430865,
+          0.006549375,
+          0.00565065,
+          0.057434425
+        ],
+        "range_violation_rate": 0.575,
+        "rotation_l2_mean": 0.01146963,
+        "sample_count": 40,
+        "translation_l2_mean": 0.079501653
+      },
+      "8": {
+        "action_l2_max": 1.960363746,
+        "action_l2_mean": 0.124491459,
+        "eval_loss_max": 0.062875144,
+        "eval_loss_mean": 0.013265436,
+        "finite_all": true,
+        "gripper_abs_mean": 0.061304055,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.030204825,
+          0.04148405,
+          0.0433516,
+          0.0046905,
+          0.010311025,
+          0.009896,
+          0.0613041
+        ],
+        "range_violation_rate": 0.45,
+        "rotation_l2_mean": 0.017785352,
+        "sample_count": 40,
+        "translation_l2_mean": 0.076233037
+      }
+    },
+    "mean_action_prior": {
+      "1": {
+        "action_l2_max": 1.528622031,
+        "action_l2_mean": 1.136228448,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.992553848,
+        "gripper_sign_accuracy": 0.575,
+        "per_dim_abs_mean": [
+          0.286624775,
+          0.216755875,
+          0.214416775,
+          0.0370728,
+          0.040896425,
+          0.0496759,
+          0.99255385
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.086264586,
+        "sample_count": 40,
+        "translation_l2_mean": 0.485208749
+      },
+      "2": {
+        "action_l2_max": 1.451078415,
+        "action_l2_mean": 1.129058793,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.980143595,
+        "gripper_sign_accuracy": 0.7,
+        "per_dim_abs_mean": [
+          0.317821925,
+          0.1837851,
+          0.227142875,
+          0.025822475,
+          0.043664325,
+          0.062238325,
+          0.9801436
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.097209652,
+        "sample_count": 40,
+        "translation_l2_mean": 0.488136626
+      },
+      "4": {
+        "action_l2_max": 1.624905705,
+        "action_l2_mean": 1.159404522,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.990071797,
+        "gripper_sign_accuracy": 0.6,
+        "per_dim_abs_mean": [
+          0.21154955,
+          0.3066114,
+          0.289413925,
+          0.010824575,
+          0.041910675,
+          0.034441225,
+          0.9900718
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.066326171,
+        "sample_count": 40,
+        "translation_l2_mean": 0.545610667
+      },
+      "5": {
+        "action_l2_max": 1.688645601,
+        "action_l2_mean": 1.173568854,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 1.0,
+        "gripper_sign_accuracy": 0.5,
+        "per_dim_abs_mean": [
+          0.179926025,
+          0.312948525,
+          0.308463725,
+          0.0171717,
+          0.029364325,
+          0.0247127,
+          1.0
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.053891982,
+        "sample_count": 40,
+        "translation_l2_mean": 0.551722232
+      },
+      "8": {
+        "action_l2_max": 1.346655726,
+        "action_l2_mean": 1.126037994,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.977661544,
+        "gripper_sign_accuracy": 0.725,
+        "per_dim_abs_mean": [
+          0.165151625,
+          0.33035925,
+          0.215619175,
+          0.03776895,
+          0.0378144,
+          0.063588175,
+          0.97766155
+        ],
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.107693322,
+        "sample_count": 40,
+        "translation_l2_mean": 0.506689209
+      }
+    },
+    "rank4_lora": {
+      "1": {
+        "action_l2_max": 2.006454706,
+        "action_l2_mean": 0.142809121,
+        "eval_loss_max": 0.084928393,
+        "eval_loss_mean": 0.016189223,
+        "finite_all": true,
+        "gripper_abs_mean": 0.060680716,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.038076075,
+          0.0468406,
+          0.0522826,
+          0.00588925,
+          0.0118552,
+          0.006337675,
+          0.06068085
+        ],
+        "range_violation_rate": 0.625,
+        "rotation_l2_mean": 0.016877651,
+        "sample_count": 40,
+        "translation_l2_mean": 0.091608646
+      },
+      "2": {
+        "action_l2_max": 1.996536851,
+        "action_l2_mean": 0.12508817,
+        "eval_loss_max": 0.106447786,
+        "eval_loss_mean": 0.011156927,
+        "finite_all": true,
+        "gripper_abs_mean": 0.061174577,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.0368118,
+          0.03358735,
+          0.036988625,
+          0.00569545,
+          0.0099884,
+          0.00786355,
+          0.0611746
+        ],
+        "range_violation_rate": 0.5,
+        "rotation_l2_mean": 0.016026151,
+        "sample_count": 40,
+        "translation_l2_mean": 0.072180604
+      },
+      "4": {
+        "action_l2_max": 0.167328387,
+        "action_l2_mean": 0.072736744,
+        "eval_loss_max": 0.175197944,
+        "eval_loss_mean": 0.014247039,
+        "finite_all": true,
+        "gripper_abs_mean": 0.010875544,
+        "gripper_sign_accuracy": 1.0,
+        "per_dim_abs_mean": [
+          0.0323787,
+          0.030200125,
+          0.0412983,
+          0.003227425,
+          0.00804005,
+          0.0064648,
+          0.010875475
+        ],
+        "range_violation_rate": 0.6,
+        "rotation_l2_mean": 0.012187424,
+        "sample_count": 40,
+        "translation_l2_mean": 0.069636257
+      },
+      "5": {
+        "action_l2_max": 2.007616758,
+        "action_l2_mean": 0.126285626,
+        "eval_loss_max": 0.030725438,
+        "eval_loss_mean": 0.006809841,
+        "finite_all": true,
+        "gripper_abs_mean": 0.057625289,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.041394075,
+          0.032450325,
+          0.043478275,
+          0.003973125,
+          0.0066275,
+          0.005987025,
+          0.0576253
+        ],
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.011546059,
+        "sample_count": 40,
+        "translation_l2_mean": 0.077795942
+      },
+      "8": {
+        "action_l2_max": 1.989457846,
+        "action_l2_mean": 0.123201633,
+        "eval_loss_max": 0.058558207,
+        "eval_loss_mean": 0.012338422,
+        "finite_all": true,
+        "gripper_abs_mean": 0.06049107,
+        "gripper_sign_accuracy": 0.975,
+        "per_dim_abs_mean": [
+          0.031244075,
+          0.0364197,
+          0.035680925,
+          0.0053418,
+          0.012746375,
+          0.009422225,
+          0.0604911
+        ],
+        "range_violation_rate": 0.525,
+        "rotation_l2_mean": 0.01963101,
+        "sample_count": 40,
+        "translation_l2_mean": 0.070609536
+      }
+    }
+  },
+  "training": {
+    "autocast_initial_final": {
+      "cpu": false,
+      "cuda": false
+    },
+    "batch_size": 1,
+    "last_grad_norm": 0.051543493,
+    "last_nonzero_grad_tensors": 74,
+    "loss_after": 0.011093494,
+    "loss_before": 0.008108919,
+    "loss_curve": [
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008108919,
+        "max_allocated_mb": 1093.396,
+        "step": 0
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003143461,
+        "max_allocated_mb": 1104.506,
+        "step": 1
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004814546,
+        "max_allocated_mb": 1104.506,
+        "step": 2
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008595025,
+        "max_allocated_mb": 1104.506,
+        "step": 3
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00179662,
+        "max_allocated_mb": 1104.506,
+        "step": 4
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00355187,
+        "max_allocated_mb": 1104.506,
+        "step": 5
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003602543,
+        "max_allocated_mb": 1104.506,
+        "step": 6
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.043433651,
+        "max_allocated_mb": 1104.506,
+        "step": 7
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00280221,
+        "max_allocated_mb": 1104.506,
+        "step": 8
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003734866,
+        "max_allocated_mb": 1104.506,
+        "step": 9
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.013139114,
+        "max_allocated_mb": 1104.506,
+        "step": 10
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003705454,
+        "max_allocated_mb": 1104.506,
+        "step": 11
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001943061,
+        "max_allocated_mb": 1104.506,
+        "step": 12
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001799045,
+        "max_allocated_mb": 1104.506,
+        "step": 13
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.015384275,
+        "max_allocated_mb": 1104.506,
+        "step": 14
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004213743,
+        "max_allocated_mb": 1104.506,
+        "step": 15
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010493827,
+        "max_allocated_mb": 1104.506,
+        "step": 16
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002789131,
+        "max_allocated_mb": 1104.506,
+        "step": 17
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002461829,
+        "max_allocated_mb": 1104.506,
+        "step": 18
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008911989,
+        "max_allocated_mb": 1104.506,
+        "step": 19
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.006455181,
+        "max_allocated_mb": 1104.506,
+        "step": 20
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002011558,
+        "max_allocated_mb": 1104.506,
+        "step": 21
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001735728,
+        "max_allocated_mb": 1104.506,
+        "step": 22
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010545475,
+        "max_allocated_mb": 1104.506,
+        "step": 23
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001987104,
+        "max_allocated_mb": 1104.506,
+        "step": 24
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002876987,
+        "max_allocated_mb": 1104.506,
+        "step": 25
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002471325,
+        "max_allocated_mb": 1104.506,
+        "step": 26
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003790191,
+        "max_allocated_mb": 1104.506,
+        "step": 27
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.065785177,
+        "max_allocated_mb": 1104.506,
+        "step": 28
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003543275,
+        "max_allocated_mb": 1104.506,
+        "step": 29
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002529175,
+        "max_allocated_mb": 1104.506,
+        "step": 30
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002226746,
+        "max_allocated_mb": 1104.506,
+        "step": 31
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00959047,
+        "max_allocated_mb": 1104.506,
+        "step": 32
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00414424,
+        "max_allocated_mb": 1104.506,
+        "step": 33
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.036109723,
+        "max_allocated_mb": 1104.506,
+        "step": 34
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010825405,
+        "max_allocated_mb": 1104.506,
+        "step": 35
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003669924,
+        "max_allocated_mb": 1104.506,
+        "step": 36
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003846846,
+        "max_allocated_mb": 1104.506,
+        "step": 37
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.0054755,
+        "max_allocated_mb": 1104.506,
+        "step": 38
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.007092147,
+        "max_allocated_mb": 1104.506,
+        "step": 39
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002530829,
+        "max_allocated_mb": 1104.506,
+        "step": 40
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009163439,
+        "max_allocated_mb": 1104.506,
+        "step": 41
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009140621,
+        "max_allocated_mb": 1104.506,
+        "step": 42
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001664878,
+        "max_allocated_mb": 1104.506,
+        "step": 43
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001897567,
+        "max_allocated_mb": 1104.506,
+        "step": 44
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002792685,
+        "max_allocated_mb": 1104.506,
+        "step": 45
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002850517,
+        "max_allocated_mb": 1104.506,
+        "step": 46
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003274636,
+        "max_allocated_mb": 1104.506,
+        "step": 47
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005284338,
+        "max_allocated_mb": 1104.506,
+        "step": 48
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.077115379,
+        "max_allocated_mb": 1104.506,
+        "step": 49
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002441485,
+        "max_allocated_mb": 1104.506,
+        "step": 50
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00245071,
+        "max_allocated_mb": 1104.506,
+        "step": 51
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003058281,
+        "max_allocated_mb": 1104.506,
+        "step": 52
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005440522,
+        "max_allocated_mb": 1104.506,
+        "step": 53
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003244994,
+        "max_allocated_mb": 1104.506,
+        "step": 54
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002805182,
+        "max_allocated_mb": 1104.506,
+        "step": 55
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003977505,
+        "max_allocated_mb": 1104.506,
+        "step": 56
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003498768,
+        "max_allocated_mb": 1104.506,
+        "step": 57
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.011758523,
+        "max_allocated_mb": 1104.506,
+        "step": 58
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003527709,
+        "max_allocated_mb": 1104.506,
+        "step": 59
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004578763,
+        "max_allocated_mb": 1104.506,
+        "step": 60
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002146423,
+        "max_allocated_mb": 1104.506,
+        "step": 61
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003412664,
+        "max_allocated_mb": 1104.506,
+        "step": 62
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003668397,
+        "max_allocated_mb": 1104.506,
+        "step": 63
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005000956,
+        "max_allocated_mb": 1104.506,
+        "step": 64
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002584652,
+        "max_allocated_mb": 1104.506,
+        "step": 65
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004321631,
+        "max_allocated_mb": 1104.506,
+        "step": 66
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.016366575,
+        "max_allocated_mb": 1104.506,
+        "step": 67
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005694154,
+        "max_allocated_mb": 1104.506,
+        "step": 68
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004067726,
+        "max_allocated_mb": 1104.506,
+        "step": 69
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002902672,
+        "max_allocated_mb": 1104.506,
+        "step": 70
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.034512516,
+        "max_allocated_mb": 1104.506,
+        "step": 71
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009179593,
+        "max_allocated_mb": 1104.506,
+        "step": 72
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002209811,
+        "max_allocated_mb": 1104.506,
+        "step": 73
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.193854466,
+        "max_allocated_mb": 1104.506,
+        "step": 74
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004731905,
+        "max_allocated_mb": 1104.506,
+        "step": 75
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00292509,
+        "max_allocated_mb": 1104.506,
+        "step": 76
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002758334,
+        "max_allocated_mb": 1104.506,
+        "step": 77
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002639329,
+        "max_allocated_mb": 1104.506,
+        "step": 78
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003094763,
+        "max_allocated_mb": 1104.506,
+        "step": 79
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002048056,
+        "max_allocated_mb": 1104.506,
+        "step": 80
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002570657,
+        "max_allocated_mb": 1104.506,
+        "step": 81
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005336641,
+        "max_allocated_mb": 1104.506,
+        "step": 82
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.032929871,
+        "max_allocated_mb": 1104.506,
+        "step": 83
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002229692,
+        "max_allocated_mb": 1104.506,
+        "step": 84
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003737324,
+        "max_allocated_mb": 1104.506,
+        "step": 85
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003013619,
+        "max_allocated_mb": 1104.506,
+        "step": 86
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.032773312,
+        "max_allocated_mb": 1104.506,
+        "step": 87
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003007269,
+        "max_allocated_mb": 1104.506,
+        "step": 88
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003508834,
+        "max_allocated_mb": 1104.506,
+        "step": 89
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.012028724,
+        "max_allocated_mb": 1104.506,
+        "step": 90
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001933312,
+        "max_allocated_mb": 1104.506,
+        "step": 91
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001820092,
+        "max_allocated_mb": 1104.506,
+        "step": 92
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001662834,
+        "max_allocated_mb": 1104.506,
+        "step": 93
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001817464,
+        "max_allocated_mb": 1104.506,
+        "step": 94
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002660793,
+        "max_allocated_mb": 1104.506,
+        "step": 95
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008096478,
+        "max_allocated_mb": 1104.506,
+        "step": 96
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004065927,
+        "max_allocated_mb": 1104.506,
+        "step": 97
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002709637,
+        "max_allocated_mb": 1104.506,
+        "step": 98
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.011093494,
+        "max_allocated_mb": 1104.506,
+        "step": 99
+      }
+    ],
+    "loss_decrease_fraction": -0.368060774,
+    "steps": 100,
+    "steps_per_sec": 5.451374,
+    "total_params": 450231840,
+    "trainable_params": 185664,
+    "training_elapsed_sec": 18.344,
+    "variant": "standard_rank4_lora"
+  }
+}
