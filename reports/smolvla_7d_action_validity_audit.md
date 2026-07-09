@@ -1,0 +1,10 @@
+# SmolVLA 7D Action Validity Audit
+
+- best LoRA policy: `smolvla_state_proj_lora_rank4_7d_adapter`
+- offline eval action validity: `{'action_shape': [32, 7], 'expected_action_shape': ['T', 7], 'shape_exactly_7d': True, 'finite': True, 'action_low_high': {'low': [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0], 'high': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], 'min': [-0.451046, -0.205794, -0.466078, -0.035002, -0.07305, -0.255751, -1.161312], 'max': [0.317361, 0.439485, 0.508266, 0.061366, 0.062319, 0.171873, 1.099052]}, 'clip_rate_element': 0.026786, 'clip_rate_step': 0.1875, 'controller_valid_rate_proxy': 0.8125, 'silent_broadcast_or_truncation_detected': False, 'note': 'Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.', 'per_dim_clip_rate': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1875], 'dominant_clip_dim': 6, 'gripper_clip_rate': 0.1875}`
+- replay case rows: `[{'task_name': 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo', 'demo_name': 'demo_7', 'expert_ok_for_judging': False, 'clip_rate_element': 0.010504, 'clip_rate_step': 0.073529, 'controller_valid_rate_proxy': 0.926471, 'per_dim_clip_rate': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.073529], 'dominant_clip_dim': 6, 'gripper_clip_rate': 0.073529, 'adapter_success': None, 'adapter_progress_proxy': None}, {'task_name': 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo', 'demo_name': 'demo_5', 'expert_ok_for_judging': True, 'clip_rate_element': 0.030139, 'clip_rate_step': 0.21097, 'controller_valid_rate_proxy': 0.78903, 'per_dim_clip_rate': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.21097], 'dominant_clip_dim': 6, 'gripper_clip_rate': 0.21097, 'adapter_success': False, 'adapter_progress_proxy': -0.055137}]`
+- dimensions clip most: `6`
+- gripper dominates clipping: `True`
+- unnormalized action range correct: `True`
+- adapter progress improves despite clipping: `False`
+- action range / normalization fix needed: `False`

@@ -1,0 +1,4760 @@
+{
+  "decision": "EXPERT_REPLAY_UNSTABLE",
+  "error": null,
+  "paths": {
+    "data_root": "C:\\assets\\data\\libero\\libero_10",
+    "output_dir": "runs\\smolvla_7d_standard_replay_baseline",
+    "smolvla_ckpt": "C:\\assets\\checkpoints\\smolvla"
+  },
+  "policy": {
+    "downloads_performed": false,
+    "fixed_libero_7d_path_only": true,
+    "forbidden_gates_set": [],
+    "full_benchmark_executed": false,
+    "loss_computed": true,
+    "new_method_created": false,
+    "openvla_oft_executed": false,
+    "paper_claims_made": false,
+    "replay_control_performed": true,
+    "replay_gate_set": true,
+    "run_gate_set": true,
+    "training_gate_set": true,
+    "training_performed": true
+  },
+  "schema_version": "smolvla-7d-standard-replay-baseline-v1",
+  "state1_split": {
+    "report": {
+      "eval_action_stats": {
+        "action_dim": 7,
+        "count": 32,
+        "gripper_dim": 6,
+        "gripper_std": 0.899218,
+        "gripper_values": [
+          -1.0,
+          1.0
+        ],
+        "gripper_variance": 0.808594,
+        "max": [
+          0.701786,
+          0.752679,
+          0.811607,
+          0.175714,
+          0.183214,
+          0.375,
+          1.0
+        ],
+        "mean": [
+          0.012891,
+          0.108733,
+          -0.118443,
+          0.022801,
+          -0.002344,
+          0.008337,
+          -0.4375
+        ],
+        "min": [
+          -0.570536,
+          -0.741964,
+          -0.763393,
+          -0.012857,
+          -0.1575,
+          -0.2775,
+          -1.0
+        ],
+        "rotation_dims": [
+          3,
+          4,
+          5
+        ],
+        "rotation_variance_mean": 0.006507,
+        "std": [
+          0.239739,
+          0.319532,
+          0.380516,
+          0.044657,
+          0.064679,
+          0.115512,
+          0.899218
+        ],
+        "translation_dims": [
+          0,
+          1,
+          2
+        ],
+        "translation_variance_mean": 0.101456,
+        "variance": [
+          0.057475,
+          0.102101,
+          0.144792,
+          0.001994,
+          0.004183,
+          0.013343,
+          0.808594
+        ]
+      },
+      "eval_demo_count": 4,
+      "eval_gripper_distribution": {
+        "max": 1.0,
+        "mean": -0.4375,
+        "min": -1.0,
+        "negative": 23,
+        "positive": 9,
+        "zero": 0
+      },
+      "leakage": {
+        "demo_overlap": 0,
+        "exact_record_overlap": 0,
+        "has_demo_overlap": false,
+        "has_exact_record_leakage": false,
+        "has_task_overlap": true,
+        "note": "Task/demo overlap can be intentional for same-task or same-demo time holdout; exact record overlap must remain zero.",
+        "task_overlap": 2
+      },
+      "mean_action_metric": {
+        "action_l2": 0.995239,
+        "action_l2_first6": 0.508025,
+        "gripper_accuracy": 0.71875,
+        "gripper_error": 0.814062,
+        "per_dim_mae": [
+          0.181038,
+          0.231228,
+          0.31243,
+          0.026836,
+          0.046513,
+          0.05648,
+          0.814063
+        ],
+        "rotation_l2": 0.099001,
+        "sample_count": 32,
+        "translation_l2": 0.489242,
+        "worst_action_dimensions": [
+          {
+            "dim": 6,
+            "mae": 0.814063
+          },
+          {
+            "dim": 2,
+            "mae": 0.31243
+          },
+          {
+            "dim": 1,
+            "mae": 0.231228
+          }
+        ]
+      },
+      "name": "bounded_libero10_standard_demo_holdout",
+      "raw_timestep_count": 25732,
+      "records_per_demo": 8,
+      "replay_case_count": 2,
+      "sampled_eval_records": 32,
+      "sampled_train_records": 80,
+      "task_count": 2,
+      "task_names": [
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo"
+      ],
+      "task_variance_enough_to_make_mean_nontrivial": true,
+      "tasks": [
+        {
+          "demo_count": 50,
+          "eval_demos": [
+            "demo_7",
+            "demo_8"
+          ],
+          "first_signal_by_replay_demo": {
+            "demo_7": 271
+          },
+          "path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+          "raw_timesteps": 13298,
+          "replay_demos": [
+            "demo_7"
+          ],
+          "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+          "train_demos": [
+            "demo_0",
+            "demo_1",
+            "demo_2",
+            "demo_3",
+            "demo_4"
+          ]
+        },
+        {
+          "demo_count": 50,
+          "eval_demos": [
+            "demo_5",
+            "demo_6"
+          ],
+          "first_signal_by_replay_demo": {
+            "demo_5": 236
+          },
+          "path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+          "raw_timesteps": 12434,
+          "replay_demos": [
+            "demo_5"
+          ],
+          "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo",
+          "train_demos": [
+            "demo_0",
+            "demo_1",
+            "demo_2",
+            "demo_3",
+            "demo_4"
+          ]
+        }
+      ],
+      "train_action_stats": {
+        "action_dim": 7,
+        "count": 80,
+        "gripper_dim": 6,
+        "gripper_std": 0.905193,
+        "gripper_values": [
+          -1.0,
+          1.0
+        ],
+        "gripper_variance": 0.819375,
+        "max": [
+          0.709821,
+          0.728571,
+          0.9375,
+          0.110357,
+          0.184286,
+          0.375,
+          1.0
+        ],
+        "mean": [
+          0.051964,
+          0.086652,
+          -0.041853,
+          0.009268,
+          -0.000161,
+          0.006201,
+          -0.425
+        ],
+        "min": [
+          -0.366964,
+          -0.653571,
+          -0.725893,
+          -0.101786,
+          -0.264643,
+          -0.288214,
+          -1.0
+        ],
+        "rotation_dims": [
+          3,
+          4,
+          5
+        ],
+        "rotation_variance_mean": 0.005419,
+        "std": [
+          0.184965,
+          0.257352,
+          0.385768,
+          0.036154,
+          0.067986,
+          0.101625,
+          0.905193
+        ],
+        "translation_dims": [
+          0,
+          1,
+          2
+        ],
+        "translation_variance_mean": 0.083086,
+        "variance": [
+          0.034212,
+          0.06623,
+          0.148817,
+          0.001307,
+          0.004622,
+          0.010328,
+          0.819375
+        ]
+      },
+      "train_demo_count": 10,
+      "train_gripper_distribution": {
+        "max": 1.0,
+        "mean": -0.425,
+        "min": -1.0,
+        "negative": 57,
+        "positive": 23,
+        "zero": 0
+      }
+    }
+  },
+  "state2_baselines": {
+    "baselines": {
+      "expert": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.701786,
+              0.752679,
+              0.811607,
+              0.175714,
+              0.183214,
+              0.375,
+              1.0
+            ],
+            "min": [
+              -0.570536,
+              -0.741964,
+              -0.763393,
+              -0.012857,
+              -0.1575,
+              -0.2775,
+              -1.0
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "controller_valid_rate_proxy": 1.0,
+          "dominant_clip_dim": 0,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.0,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "eval_metrics": {
+          "action_l2": 0.0,
+          "action_l2_first6": 0.0,
+          "gripper_accuracy": 1.0,
+          "gripper_error": 0.0,
+          "per_dim_mae": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_l2": 0.0,
+          "sample_count": 32,
+          "translation_l2": 0.0,
+          "worst_action_dimensions": [
+            {
+              "dim": 0,
+              "mae": 0.0
+            },
+            {
+              "dim": 1,
+              "mae": 0.0
+            },
+            {
+              "dim": 2,
+              "mae": 0.0
+            }
+          ]
+        },
+        "name": "expert"
+      },
+      "frozen_base_smolvla_7d_adapter": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.362639,
+              0.592337,
+              1.244752,
+              0.045476,
+              0.173575,
+              0.225956,
+              1.267817
+            ],
+            "min": [
+              -0.323487,
+              -0.076542,
+              -0.650653,
+              -0.091938,
+              -0.055365,
+              -0.259876,
+              -1.619397
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.040179,
+          "clip_rate_step": 0.25,
+          "controller_valid_rate_proxy": 0.75,
+          "dominant_clip_dim": 6,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.21875,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0625,
+            0.0,
+            0.0,
+            0.0,
+            0.21875
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "adapter_schema": "LIBERO_7D",
+        "batch_size": 1,
+        "eval_metrics": {
+          "action_l2": 1.105272,
+          "action_l2_first6": 0.677174,
+          "gripper_accuracy": 0.75,
+          "gripper_error": 0.800004,
+          "per_dim_mae": [
+            0.223481,
+            0.274124,
+            0.441991,
+            0.046007,
+            0.069431,
+            0.131927,
+            0.800004
+          ],
+          "rotation_l2": 0.169899,
+          "sample_count": 32,
+          "translation_l2": 0.646902,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.800004
+            },
+            {
+              "dim": 2,
+              "mae": 0.441991
+            },
+            {
+              "dim": 1,
+              "mae": 0.274124
+            }
+          ]
+        },
+        "excluded_native_6d_modules": [
+          "action_in_proj",
+          "action_out_proj",
+          "action_time_mlp_in",
+          "action_time_mlp_out"
+        ],
+        "feature_normalization": {
+          "mean": [
+            -0.058924,
+            0.059458,
+            1.045498,
+            2.700212,
+            -0.03541,
+            0.077184,
+            0.498511
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.096006,
+            0.097966,
+            0.084964,
+            0.352843,
+            1.724615,
+            0.435391,
+            0.327329
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "train-normalized SmolVLA observation.state padded to 32, checkpoint state_proj, timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true
+        },
+        "lora_alpha": null,
+        "lora_rank": null,
+        "name": "frozen_base_smolvla_7d_adapter",
+        "normalization": {
+          "mean": [
+            0.051964,
+            0.086652,
+            -0.041853,
+            0.009268,
+            -0.000161,
+            0.006201,
+            -0.425
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.184965,
+            0.257352,
+            0.385768,
+            0.036154,
+            0.067986,
+            0.101625,
+            0.905193
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "runtime_sec": 0.453,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_modules": [
+          "libero_7d_adapter"
+        ],
+        "train_eval_gap": 0.080893,
+        "train_metrics": {
+          "action_l2": 1.024379,
+          "action_l2_first6": 0.629447,
+          "gripper_accuracy": 0.75,
+          "gripper_error": 0.73499,
+          "per_dim_mae": [
+            0.183475,
+            0.232594,
+            0.452314,
+            0.043937,
+            0.062425,
+            0.117419,
+            0.73499
+          ],
+          "rotation_l2": 0.155681,
+          "sample_count": 80,
+          "translation_l2": 0.602037,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.73499
+            },
+            {
+              "dim": 2,
+              "mae": 0.452314
+            },
+            {
+              "dim": 1,
+              "mae": 0.232594
+            }
+          ]
+        },
+        "trainable_params": 6734,
+        "training": {
+          "batch_size": 1,
+          "gripper_mse_loss_end": 0.129693,
+          "hidden_dim": null,
+          "learning_rate": 0.005,
+          "loss_curve_sample": {
+            "first5": [
+              {
+                "gripper_mse_loss": 0.558063,
+                "loss": 0.607916,
+                "pose_loss": 0.049853
+              },
+              {
+                "gripper_mse_loss": 0.008784,
+                "loss": 0.916318,
+                "pose_loss": 0.907534
+              },
+              {
+                "gripper_mse_loss": 5.030591,
+                "loss": 6.904346,
+                "pose_loss": 1.873756
+              },
+              {
+                "gripper_mse_loss": 0.838733,
+                "loss": 1.56841,
+                "pose_loss": 0.729677
+              },
+              {
+                "gripper_mse_loss": 0.099602,
+                "loss": 2.776405,
+                "pose_loss": 2.676803
+              }
+            ],
+            "last5": [
+              {
+                "gripper_mse_loss": 1.175483,
+                "loss": 1.753722,
+                "pose_loss": 0.578239
+              },
+              {
+                "gripper_mse_loss": 2.054168,
+                "loss": 2.678291,
+                "pose_loss": 0.624123
+              },
+              {
+                "gripper_mse_loss": 1.419796,
+                "loss": 7.642176,
+                "pose_loss": 6.22238
+              },
+              {
+                "gripper_mse_loss": 0.045111,
+                "loss": 0.481855,
+                "pose_loss": 0.436744
+              },
+              {
+                "gripper_mse_loss": 0.129693,
+                "loss": 1.002783,
+                "pose_loss": 0.873089
+              }
+            ],
+            "length": 800
+          },
+          "loss_decreased": false,
+          "loss_end": 1.002783,
+          "loss_start": 0.607916,
+          "pose_loss_end": 0.873089,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false
+      },
+      "mean_action": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.051964,
+              0.086652,
+              -0.041853,
+              0.009268,
+              -0.000161,
+              0.006201,
+              -0.425
+            ],
+            "min": [
+              0.051964,
+              0.086652,
+              -0.041853,
+              0.009268,
+              -0.000161,
+              0.006201,
+              -0.425
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.0,
+          "clip_rate_step": 0.0,
+          "controller_valid_rate_proxy": 1.0,
+          "dominant_clip_dim": 0,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.0,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "eval_metrics": {
+          "action_l2": 0.995239,
+          "action_l2_first6": 0.508025,
+          "gripper_accuracy": 0.71875,
+          "gripper_error": 0.814062,
+          "per_dim_mae": [
+            0.181038,
+            0.231228,
+            0.31243,
+            0.026836,
+            0.046513,
+            0.05648,
+            0.814063
+          ],
+          "rotation_l2": 0.099001,
+          "sample_count": 32,
+          "translation_l2": 0.489242,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.814063
+            },
+            {
+              "dim": 2,
+              "mae": 0.31243
+            },
+            {
+              "dim": 1,
+              "mae": 0.231228
+            }
+          ]
+        },
+        "name": "mean_action"
+      },
+      "ridge": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.125205,
+              0.345981,
+              0.276555,
+              0.046899,
+              0.056608,
+              0.139196,
+              0.587833
+            ],
+            "min": [
+              -0.14824,
+              -0.075702,
+              -0.478587,
+              -0.024135,
+              -0.073428,
+              -0.108978,
+              -1.088747
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.022321,
+          "clip_rate_step": 0.15625,
+          "controller_valid_rate_proxy": 0.84375,
+          "dominant_clip_dim": 6,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.15625,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.15625
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "eval_metrics": {
+          "action_l2": 0.889572,
+          "action_l2_first6": 0.470037,
+          "gripper_accuracy": 0.8125,
+          "gripper_error": 0.682265,
+          "per_dim_mae": [
+            0.168015,
+            0.214341,
+            0.289326,
+            0.029919,
+            0.044116,
+            0.064113,
+            0.682265
+          ],
+          "rotation_l2": 0.095941,
+          "sample_count": 32,
+          "translation_l2": 0.451487,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.682265
+            },
+            {
+              "dim": 2,
+              "mae": 0.289326
+            },
+            {
+              "dim": 1,
+              "mae": 0.214341
+            }
+          ]
+        },
+        "name": "ridge",
+        "training": {
+          "batch_size": null,
+          "loss_curve_sample": {
+            "first5": [],
+            "last5": [],
+            "length": 0
+          },
+          "trainable_params": 56
+        }
+      },
+      "small_mlp": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.285305,
+              0.447496,
+              0.36223,
+              0.049359,
+              0.05141,
+              0.156253,
+              0.890928
+            ],
+            "min": [
+              -0.213017,
+              -0.160238,
+              -0.572805,
+              -0.036042,
+              -0.060956,
+              -0.19442,
+              -1.224875
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.026786,
+          "clip_rate_step": 0.1875,
+          "controller_valid_rate_proxy": 0.8125,
+          "dominant_clip_dim": 6,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.1875,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.1875
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "batch_size": 1,
+        "eval_metrics": {
+          "action_l2": 0.799645,
+          "action_l2_first6": 0.453229,
+          "gripper_accuracy": 0.78125,
+          "gripper_error": 0.595578,
+          "per_dim_mae": [
+            0.153975,
+            0.190645,
+            0.298505,
+            0.028702,
+            0.045817,
+            0.057082,
+            0.595578
+          ],
+          "rotation_l2": 0.09357,
+          "sample_count": 32,
+          "translation_l2": 0.438851,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.595578
+            },
+            {
+              "dim": 2,
+              "mae": 0.298505
+            },
+            {
+              "dim": 1,
+              "mae": 0.190645
+            }
+          ]
+        },
+        "feature_schema": "SmolVLA observation.state 6D plus timestep fraction",
+        "name": "small_mlp",
+        "runtime_sec": 1.375,
+        "train_eval_gap": 0.17135,
+        "train_metrics": {
+          "action_l2": 0.628295,
+          "action_l2_first6": 0.338822,
+          "gripper_accuracy": 0.9,
+          "gripper_error": 0.490344,
+          "per_dim_mae": [
+            0.108203,
+            0.125394,
+            0.224091,
+            0.021763,
+            0.041391,
+            0.057475,
+            0.490344
+          ],
+          "rotation_l2": 0.083411,
+          "sample_count": 80,
+          "translation_l2": 0.321929,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.490344
+            },
+            {
+              "dim": 2,
+              "mae": 0.224091
+            },
+            {
+              "dim": 1,
+              "mae": 0.125394
+            }
+          ]
+        },
+        "trainable_params": 487,
+        "training": {
+          "batch_size": 1,
+          "gripper_mse_loss_end": 0.056974,
+          "hidden_dim": 32,
+          "learning_rate": 0.005,
+          "loss_curve_sample": {
+            "first5": [
+              {
+                "gripper_mse_loss": 0.638848,
+                "loss": 0.730815,
+                "pose_loss": 0.091967
+              },
+              {
+                "gripper_mse_loss": 0.642532,
+                "loss": 1.284564,
+                "pose_loss": 0.642032
+              },
+              {
+                "gripper_mse_loss": 2.481456,
+                "loss": 3.35371,
+                "pose_loss": 0.872254
+              },
+              {
+                "gripper_mse_loss": 0.254663,
+                "loss": 0.622281,
+                "pose_loss": 0.367617
+              },
+              {
+                "gripper_mse_loss": 0.347633,
+                "loss": 2.744124,
+                "pose_loss": 2.396492
+              }
+            ],
+            "last5": [
+              {
+                "gripper_mse_loss": 0.285326,
+                "loss": 0.592066,
+                "pose_loss": 0.30674
+              },
+              {
+                "gripper_mse_loss": 1.858198,
+                "loss": 2.540563,
+                "pose_loss": 0.682364
+              },
+              {
+                "gripper_mse_loss": 1.7431,
+                "loss": 5.53029,
+                "pose_loss": 3.787189
+              },
+              {
+                "gripper_mse_loss": 0.074204,
+                "loss": 0.478123,
+                "pose_loss": 0.403919
+              },
+              {
+                "gripper_mse_loss": 0.056974,
+                "loss": 0.129459,
+                "pose_loss": 0.072485
+              }
+            ],
+            "length": 800
+          },
+          "loss_decreased": true,
+          "loss_end": 0.129459,
+          "loss_start": 0.730815,
+          "pose_loss_end": 0.072485,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false
+      },
+      "smolvla_7d_adapter_no_lora": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.331482,
+              0.486803,
+              0.55877,
+              0.051385,
+              0.043256,
+              0.132052,
+              0.840416
+            ],
+            "min": [
+              -0.296958,
+              -0.121685,
+              -0.572982,
+              -0.026352,
+              -0.100922,
+              -0.288077,
+              -1.32668
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.026786,
+          "clip_rate_step": 0.1875,
+          "controller_valid_rate_proxy": 0.8125,
+          "dominant_clip_dim": 6,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.1875,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.1875
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "adapter_schema": "LIBERO_7D",
+        "batch_size": 1,
+        "eval_metrics": {
+          "action_l2": 0.79289,
+          "action_l2_first6": 0.486784,
+          "gripper_accuracy": 0.78125,
+          "gripper_error": 0.568126,
+          "per_dim_mae": [
+            0.172271,
+            0.201773,
+            0.321189,
+            0.028911,
+            0.043777,
+            0.066658,
+            0.568126
+          ],
+          "rotation_l2": 0.102925,
+          "sample_count": 32,
+          "translation_l2": 0.471411,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.568126
+            },
+            {
+              "dim": 2,
+              "mae": 0.321189
+            },
+            {
+              "dim": 1,
+              "mae": 0.201773
+            }
+          ]
+        },
+        "excluded_native_6d_modules": [
+          "action_in_proj",
+          "action_out_proj",
+          "action_time_mlp_in",
+          "action_time_mlp_out"
+        ],
+        "feature_normalization": {
+          "mean": [
+            -0.058924,
+            0.059458,
+            1.045498,
+            2.700212,
+            -0.03541,
+            0.077184,
+            0.498511
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.096006,
+            0.097966,
+            0.084964,
+            0.352843,
+            1.724615,
+            0.435391,
+            0.327329
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "train-normalized SmolVLA observation.state padded to 32, checkpoint state_proj, timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true
+        },
+        "lora_alpha": null,
+        "lora_rank": null,
+        "name": "smolvla_7d_adapter_no_lora",
+        "normalization": {
+          "mean": [
+            0.051964,
+            0.086652,
+            -0.041853,
+            0.009268,
+            -0.000161,
+            0.006201,
+            -0.425
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.184965,
+            0.257352,
+            0.385768,
+            0.036154,
+            0.067986,
+            0.101625,
+            0.905193
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "runtime_sec": 0.625,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_modules": [
+          "libero_7d_adapter"
+        ],
+        "train_eval_gap": 0.115523,
+        "train_metrics": {
+          "action_l2": 0.677367,
+          "action_l2_first6": 0.357476,
+          "gripper_accuracy": 0.8375,
+          "gripper_error": 0.532658,
+          "per_dim_mae": [
+            0.11566,
+            0.135207,
+            0.252405,
+            0.022258,
+            0.041112,
+            0.047785,
+            0.532658
+          ],
+          "rotation_l2": 0.077459,
+          "sample_count": 80,
+          "translation_l2": 0.344009,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.532658
+            },
+            {
+              "dim": 2,
+              "mae": 0.252405
+            },
+            {
+              "dim": 1,
+              "mae": 0.135207
+            }
+          ]
+        },
+        "trainable_params": 124039,
+        "training": {
+          "batch_size": 1,
+          "gripper_mse_loss_end": 0.002511,
+          "hidden_dim": 128,
+          "learning_rate": 0.005,
+          "loss_curve_sample": {
+            "first5": [
+              {
+                "gripper_mse_loss": 0.446005,
+                "loss": 0.464839,
+                "pose_loss": 0.018834
+              },
+              {
+                "gripper_mse_loss": 0.842372,
+                "loss": 1.492152,
+                "pose_loss": 0.649781
+              },
+              {
+                "gripper_mse_loss": 0.254406,
+                "loss": 1.044501,
+                "pose_loss": 0.790094
+              },
+              {
+                "gripper_mse_loss": 10.372272,
+                "loss": 11.13553,
+                "pose_loss": 0.763259
+              },
+              {
+                "gripper_mse_loss": 3.77695,
+                "loss": 6.910433,
+                "pose_loss": 3.133483
+              }
+            ],
+            "last5": [
+              {
+                "gripper_mse_loss": 0.430003,
+                "loss": 0.712423,
+                "pose_loss": 0.28242
+              },
+              {
+                "gripper_mse_loss": 2.02125,
+                "loss": 2.64254,
+                "pose_loss": 0.621291
+              },
+              {
+                "gripper_mse_loss": 1.739671,
+                "loss": 5.237572,
+                "pose_loss": 3.497901
+              },
+              {
+                "gripper_mse_loss": 0.125011,
+                "loss": 0.413457,
+                "pose_loss": 0.288446
+              },
+              {
+                "gripper_mse_loss": 0.002511,
+                "loss": 0.08093,
+                "pose_loss": 0.078419
+              }
+            ],
+            "length": 800
+          },
+          "loss_decreased": true,
+          "loss_end": 0.08093,
+          "loss_start": 0.464839,
+          "pose_loss_end": 0.078419,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false
+      },
+      "smolvla_state_proj_lora_rank4_7d_adapter": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.317361,
+              0.439485,
+              0.508266,
+              0.061366,
+              0.062319,
+              0.171873,
+              1.099052
+            ],
+            "min": [
+              -0.451046,
+              -0.205794,
+              -0.466078,
+              -0.035002,
+              -0.07305,
+              -0.255751,
+              -1.161312
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.026786,
+          "clip_rate_step": 0.1875,
+          "controller_valid_rate_proxy": 0.8125,
+          "dominant_clip_dim": 6,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.1875,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.1875
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "adapter_schema": "LIBERO_7D",
+        "artifact_path": "runs\\smolvla_7d_standard_replay_baseline\\smolvla_state_proj_lora_rank4_7d_adapter.pt",
+        "batch_size": 1,
+        "eval_metrics": {
+          "action_l2": 0.769789,
+          "action_l2_first6": 0.472663,
+          "gripper_accuracy": 0.78125,
+          "gripper_error": 0.540287,
+          "per_dim_mae": [
+            0.172142,
+            0.207086,
+            0.298352,
+            0.028878,
+            0.042477,
+            0.050907,
+            0.540287
+          ],
+          "rotation_l2": 0.087832,
+          "sample_count": 32,
+          "translation_l2": 0.460595,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.540287
+            },
+            {
+              "dim": 2,
+              "mae": 0.298352
+            },
+            {
+              "dim": 1,
+              "mae": 0.207086
+            }
+          ]
+        },
+        "excluded_native_6d_modules": [
+          "action_in_proj",
+          "action_out_proj",
+          "action_time_mlp_in",
+          "action_time_mlp_out"
+        ],
+        "feature_normalization": {
+          "mean": [
+            -0.058924,
+            0.059458,
+            1.045498,
+            2.700212,
+            -0.03541,
+            0.077184,
+            0.498511
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.096006,
+            0.097966,
+            0.084964,
+            0.352843,
+            1.724615,
+            0.435391,
+            0.327329
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "train-normalized SmolVLA observation.state padded to 32, checkpoint state_proj, timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true
+        },
+        "lora_alpha": 8,
+        "lora_rank": 4,
+        "name": "smolvla_state_proj_lora_rank4_7d_adapter",
+        "normalization": {
+          "mean": [
+            0.051964,
+            0.086652,
+            -0.041853,
+            0.009268,
+            -0.000161,
+            0.006201,
+            -0.425
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.184965,
+            0.257352,
+            0.385768,
+            0.036154,
+            0.067986,
+            0.101625,
+            0.905193
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "runtime_sec": 0.813,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_modules": [
+          "state_proj",
+          "libero_7d_adapter"
+        ],
+        "train_eval_gap": 0.180816,
+        "train_metrics": {
+          "action_l2": 0.588973,
+          "action_l2_first6": 0.31486,
+          "gripper_accuracy": 0.8625,
+          "gripper_error": 0.455367,
+          "per_dim_mae": [
+            0.108993,
+            0.116598,
+            0.212254,
+            0.020122,
+            0.039524,
+            0.042874,
+            0.455367
+          ],
+          "rotation_l2": 0.070185,
+          "sample_count": 80,
+          "translation_l2": 0.302517,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.455367
+            },
+            {
+              "dim": 2,
+              "mae": 0.212254
+            },
+            {
+              "dim": 1,
+              "mae": 0.116598
+            }
+          ]
+        },
+        "trainable_params": 128007,
+        "training": {
+          "batch_size": 1,
+          "gripper_mse_loss_end": 0.06524,
+          "hidden_dim": 128,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first5": [
+              {
+                "gripper_mse_loss": 0.418954,
+                "loss": 0.450094,
+                "pose_loss": 0.03114
+              },
+              {
+                "gripper_mse_loss": 0.091497,
+                "loss": 0.6499,
+                "pose_loss": 0.558403
+              },
+              {
+                "gripper_mse_loss": 4.025983,
+                "loss": 4.753866,
+                "pose_loss": 0.727883
+              },
+              {
+                "gripper_mse_loss": 0.545229,
+                "loss": 0.997616,
+                "pose_loss": 0.452387
+              },
+              {
+                "gripper_mse_loss": 0.003261,
+                "loss": 1.907819,
+                "pose_loss": 1.904557
+              }
+            ],
+            "last5": [
+              {
+                "gripper_mse_loss": 0.064853,
+                "loss": 0.234283,
+                "pose_loss": 0.16943
+              },
+              {
+                "gripper_mse_loss": 2.523266,
+                "loss": 3.326578,
+                "pose_loss": 0.803312
+              },
+              {
+                "gripper_mse_loss": 2.701787,
+                "loss": 5.820626,
+                "pose_loss": 3.118839
+              },
+              {
+                "gripper_mse_loss": 0.001805,
+                "loss": 0.261751,
+                "pose_loss": 0.259946
+              },
+              {
+                "gripper_mse_loss": 0.06524,
+                "loss": 0.342489,
+                "pose_loss": 0.277249
+              }
+            ],
+            "length": 800
+          },
+          "loss_decreased": true,
+          "loss_end": 0.342489,
+          "loss_start": 0.450094,
+          "pose_loss_end": 0.277249,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false
+      },
+      "smolvla_state_proj_lora_rank8_7d_adapter": {
+        "action_validity": {
+          "action_low_high": {
+            "high": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "low": [
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              -1.0
+            ],
+            "max": [
+              0.306618,
+              0.438573,
+              0.444825,
+              0.065981,
+              0.062775,
+              0.173149,
+              1.062196
+            ],
+            "min": [
+              -0.376002,
+              -0.222763,
+              -0.378921,
+              -0.03354,
+              -0.091672,
+              -0.270214,
+              -1.137326
+            ]
+          },
+          "action_shape": [
+            32,
+            7
+          ],
+          "clip_rate_element": 0.026786,
+          "clip_rate_step": 0.1875,
+          "controller_valid_rate_proxy": 0.8125,
+          "dominant_clip_dim": 6,
+          "expected_action_shape": [
+            "T",
+            7
+          ],
+          "finite": true,
+          "gripper_clip_rate": 0.1875,
+          "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.1875
+          ],
+          "shape_exactly_7d": true,
+          "silent_broadcast_or_truncation_detected": false
+        },
+        "adapter_schema": "LIBERO_7D",
+        "artifact_path": "runs\\smolvla_7d_standard_replay_baseline\\smolvla_state_proj_lora_rank8_7d_adapter.pt",
+        "batch_size": 1,
+        "eval_metrics": {
+          "action_l2": 0.775132,
+          "action_l2_first6": 0.481969,
+          "gripper_accuracy": 0.8125,
+          "gripper_error": 0.539364,
+          "per_dim_mae": [
+            0.177242,
+            0.213727,
+            0.302331,
+            0.029306,
+            0.043329,
+            0.052319,
+            0.539364
+          ],
+          "rotation_l2": 0.089615,
+          "sample_count": 32,
+          "translation_l2": 0.469288,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.539364
+            },
+            {
+              "dim": 2,
+              "mae": 0.302331
+            },
+            {
+              "dim": 1,
+              "mae": 0.213727
+            }
+          ]
+        },
+        "excluded_native_6d_modules": [
+          "action_in_proj",
+          "action_out_proj",
+          "action_time_mlp_in",
+          "action_time_mlp_out"
+        ],
+        "feature_normalization": {
+          "mean": [
+            -0.058924,
+            0.059458,
+            1.045498,
+            2.700212,
+            -0.03541,
+            0.077184,
+            0.498511
+          ],
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.096006,
+            0.097966,
+            0.084964,
+            0.352843,
+            1.724615,
+            0.435391,
+            0.327329
+          ],
+          "uses_eval_labels": false
+        },
+        "feature_schema": "train-normalized SmolVLA observation.state padded to 32, checkpoint state_proj, timestep fraction",
+        "gripper_handling": {
+          "hard_coded": false,
+          "learned": true
+        },
+        "lora_alpha": 16,
+        "lora_rank": 8,
+        "name": "smolvla_state_proj_lora_rank8_7d_adapter",
+        "normalization": {
+          "mean": [
+            0.051964,
+            0.086652,
+            -0.041853,
+            0.009268,
+            -0.000161,
+            0.006201,
+            -0.425
+          ],
+          "name": "LIBERO_7D_TRAIN_SPLIT_MEAN_STD",
+          "shape": [
+            7
+          ],
+          "source": "train_split_only",
+          "std": [
+            0.184965,
+            0.257352,
+            0.385768,
+            0.036154,
+            0.067986,
+            0.101625,
+            0.905193
+          ],
+          "uses_eval_labels": false,
+          "uses_so100_stats": false
+        },
+        "runtime_sec": 0.812,
+        "state_proj_weight_file": "C:\\assets\\checkpoints\\smolvla\\model.safetensors",
+        "target_modules": [
+          "state_proj",
+          "libero_7d_adapter"
+        ],
+        "train_eval_gap": 0.180874,
+        "train_metrics": {
+          "action_l2": 0.594258,
+          "action_l2_first6": 0.317689,
+          "gripper_accuracy": 0.875,
+          "gripper_error": 0.460585,
+          "per_dim_mae": [
+            0.106905,
+            0.115123,
+            0.217094,
+            0.020337,
+            0.038606,
+            0.045107,
+            0.460585
+          ],
+          "rotation_l2": 0.071571,
+          "sample_count": 80,
+          "translation_l2": 0.304728,
+          "worst_action_dimensions": [
+            {
+              "dim": 6,
+              "mae": 0.460585
+            },
+            {
+              "dim": 2,
+              "mae": 0.217094
+            },
+            {
+              "dim": 1,
+              "mae": 0.115123
+            }
+          ]
+        },
+        "trainable_params": 131975,
+        "training": {
+          "batch_size": 1,
+          "gripper_mse_loss_end": 0.104594,
+          "hidden_dim": 128,
+          "learning_rate": 0.001,
+          "loss_curve_sample": {
+            "first5": [
+              {
+                "gripper_mse_loss": 0.446914,
+                "loss": 0.47516,
+                "pose_loss": 0.028246
+              },
+              {
+                "gripper_mse_loss": 0.162608,
+                "loss": 0.655355,
+                "pose_loss": 0.492747
+              },
+              {
+                "gripper_mse_loss": 3.524285,
+                "loss": 4.245101,
+                "pose_loss": 0.720816
+              },
+              {
+                "gripper_mse_loss": 0.794935,
+                "loss": 1.315798,
+                "pose_loss": 0.520864
+              },
+              {
+                "gripper_mse_loss": 0.004804,
+                "loss": 1.800288,
+                "pose_loss": 1.795484
+              }
+            ],
+            "last5": [
+              {
+                "gripper_mse_loss": 0.073006,
+                "loss": 0.236709,
+                "pose_loss": 0.163702
+              },
+              {
+                "gripper_mse_loss": 2.564256,
+                "loss": 3.327729,
+                "pose_loss": 0.763473
+              },
+              {
+                "gripper_mse_loss": 2.720167,
+                "loss": 5.816876,
+                "pose_loss": 3.096709
+              },
+              {
+                "gripper_mse_loss": 1.7e-05,
+                "loss": 0.289387,
+                "pose_loss": 0.28937
+              },
+              {
+                "gripper_mse_loss": 0.104594,
+                "loss": 0.364817,
+                "pose_loss": 0.260223
+              }
+            ],
+            "length": 800
+          },
+          "loss_decreased": true,
+          "loss_end": 0.364817,
+          "loss_start": 0.47516,
+          "pose_loss_end": 0.260223,
+          "steps": 800
+        },
+        "uses_eval_labels_for_training": false,
+        "uses_hard_coded_gripper_fill": false,
+        "uses_so100_action_normalizer": false
+      }
+    },
+    "best_lora_name": "smolvla_state_proj_lora_rank4_7d_adapter",
+    "best_simple_name": "small_mlp",
+    "lora_ranks_tested": [
+      4,
+      8
+    ],
+    "rank16_skip_reason": "Skipped to keep this standard replay reproduction bounded; rank 8 was the largest required rank.",
+    "rank16_tested": false,
+    "runtime_sec": 4.172,
+    "vram_peak_mb": 0.0
+  },
+  "state3_replay": {
+    "aggregate": {
+      "expert": {
+        "case_count": 2,
+        "first_done_indices": [
+          null,
+          225
+        ],
+        "object_movement_mean": 0.170842,
+        "progress_proxy_mean": 0.21065,
+        "reward_sum_mean": 0.5,
+        "runtime_case_steps": [
+          272,
+          226
+        ],
+        "success_count": 1,
+        "success_rate": 0.5
+      },
+      "expert_all_succeeded": false,
+      "judgeable_case_count": 1,
+      "mean_action": {
+        "case_count": 1,
+        "first_done_indices": [
+          null
+        ],
+        "object_movement_mean": 0.000246,
+        "progress_proxy_mean": 0.068504,
+        "reward_sum_mean": 0.0,
+        "runtime_case_steps": [
+          237
+        ],
+        "success_count": 0,
+        "success_rate": 0.0
+      },
+      "ridge": {
+        "case_count": 1,
+        "first_done_indices": [
+          null
+        ],
+        "object_movement_mean": 0.000246,
+        "progress_proxy_mean": 0.154496,
+        "reward_sum_mean": 0.0,
+        "runtime_case_steps": [
+          237
+        ],
+        "success_count": 0,
+        "success_rate": 0.0
+      },
+      "small_mlp": {
+        "case_count": 1,
+        "first_done_indices": [
+          null
+        ],
+        "object_movement_mean": 0.000246,
+        "progress_proxy_mean": 0.060931,
+        "reward_sum_mean": 0.0,
+        "runtime_case_steps": [
+          237
+        ],
+        "success_count": 0,
+        "success_rate": 0.0
+      },
+      "smolvla_7d_adapter": {
+        "case_count": 1,
+        "first_done_indices": [
+          null
+        ],
+        "object_movement_mean": 0.000246,
+        "progress_proxy_mean": -0.055137,
+        "reward_sum_mean": 0.0,
+        "runtime_case_steps": [
+          237
+        ],
+        "success_count": 0,
+        "success_rate": 0.0
+      }
+    },
+    "best_lora_policy": "smolvla_state_proj_lora_rank4_7d_adapter",
+    "cases": [
+      {
+        "bddl_file": "C:\\assets\\repos\\LIBERO\\libero\\libero\\bddl_files\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+        "demo_name": "demo_7",
+        "expert_ok_for_judging": false,
+        "hdf5_first_signal_index": 271,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+        "instruction": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+        "offline_case_metrics": {
+          "expert": {
+            "action_metrics": {
+              "action_l2": 0.0,
+              "action_l2_first6": 0.0,
+              "gripper_accuracy": 1.0,
+              "gripper_error": 0.0,
+              "per_dim_mae": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rotation_l2": 0.0,
+              "sample_count": 272,
+              "translation_l2": 0.0,
+              "worst_action_dimensions": [
+                {
+                  "dim": 0,
+                  "mae": 0.0
+                },
+                {
+                  "dim": 1,
+                  "mae": 0.0
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.0
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.701786,
+                  0.634821,
+                  0.9375,
+                  0.125357,
+                  0.085714,
+                  0.375,
+                  1.0
+                ],
+                "min": [
+                  -0.6,
+                  -0.733929,
+                  -0.80625,
+                  -0.048214,
+                  -0.1425,
+                  -0.050357,
+                  -1.0
+                ]
+              },
+              "action_shape": [
+                272,
+                7
+              ],
+              "clip_rate_element": 0.0,
+              "clip_rate_step": 0.0,
+              "controller_valid_rate_proxy": 1.0,
+              "dominant_clip_dim": 0,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.0,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "mean_action": {
+            "action_metrics": {
+              "action_l2": 1.073546,
+              "action_l2_first6": 0.538105,
+              "gripper_accuracy": 0.654412,
+              "gripper_error": 0.86875,
+              "per_dim_mae": [
+                0.263443,
+                0.18474,
+                0.318982,
+                0.019684,
+                0.040898,
+                0.053402,
+                0.868749
+              ],
+              "rotation_l2": 0.092462,
+              "sample_count": 272,
+              "translation_l2": 0.520472,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.868749
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.318982
+                },
+                {
+                  "dim": 0,
+                  "mae": 0.263443
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.051964,
+                  0.086652,
+                  -0.041853,
+                  0.009268,
+                  -0.000161,
+                  0.006201,
+                  -0.425
+                ],
+                "min": [
+                  0.051964,
+                  0.086652,
+                  -0.041853,
+                  0.009268,
+                  -0.000161,
+                  0.006201,
+                  -0.425
+                ]
+              },
+              "action_shape": [
+                272,
+                7
+              ],
+              "clip_rate_element": 0.0,
+              "clip_rate_step": 0.0,
+              "controller_valid_rate_proxy": 1.0,
+              "dominant_clip_dim": 0,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.0,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "ridge": {
+            "action_metrics": {
+              "action_l2": 0.962509,
+              "action_l2_first6": 0.538479,
+              "gripper_accuracy": 0.669118,
+              "gripper_error": 0.694528,
+              "per_dim_mae": [
+                0.260681,
+                0.194844,
+                0.317473,
+                0.02672,
+                0.041369,
+                0.057543,
+                0.694529
+              ],
+              "rotation_l2": 0.086195,
+              "sample_count": 272,
+              "translation_l2": 0.527437,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.694529
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.317473
+                },
+                {
+                  "dim": 0,
+                  "mae": 0.260681
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.123643,
+                  0.088489,
+                  0.353861,
+                  0.04743,
+                  0.039768,
+                  0.135754,
+                  0.471526
+                ],
+                "min": [
+                  0.007426,
+                  -0.056066,
+                  -0.482772,
+                  -0.024663,
+                  -0.073914,
+                  -0.036417,
+                  -1.168232
+                ]
+              },
+              "action_shape": [
+                272,
+                7
+              ],
+              "clip_rate_element": 0.015756,
+              "clip_rate_step": 0.110294,
+              "controller_valid_rate_proxy": 0.889706,
+              "dominant_clip_dim": 6,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.110294,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.110294
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "small_mlp": {
+            "action_metrics": {
+              "action_l2": 0.897577,
+              "action_l2_first6": 0.502523,
+              "gripper_accuracy": 0.742647,
+              "gripper_error": 0.656741,
+              "per_dim_mae": [
+                0.22009,
+                0.167829,
+                0.322577,
+                0.0222,
+                0.045827,
+                0.067978,
+                0.656741
+              ],
+              "rotation_l2": 0.096397,
+              "sample_count": 272,
+              "translation_l2": 0.487376,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.656741
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.322577
+                },
+                {
+                  "dim": 0,
+                  "mae": 0.22009
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.320318,
+                  0.374591,
+                  0.579857,
+                  0.049618,
+                  0.056138,
+                  0.175651,
+                  0.993701
+                ],
+                "min": [
+                  -0.226881,
+                  -0.268575,
+                  -0.574033,
+                  -0.014608,
+                  -0.060966,
+                  -0.044309,
+                  -1.197812
+                ]
+              },
+              "action_shape": [
+                272,
+                7
+              ],
+              "clip_rate_element": 0.022059,
+              "clip_rate_step": 0.154412,
+              "controller_valid_rate_proxy": 0.845588,
+              "dominant_clip_dim": 6,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.154412,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.154412
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "smolvla_7d_adapter": {
+            "action_metrics": {
+              "action_l2": 0.890557,
+              "action_l2_first6": 0.507503,
+              "gripper_accuracy": 0.757353,
+              "gripper_error": 0.650056,
+              "per_dim_mae": [
+                0.238685,
+                0.17081,
+                0.309046,
+                0.02466,
+                0.048939,
+                0.069317,
+                0.650056
+              ],
+              "rotation_l2": 0.098869,
+              "sample_count": 272,
+              "translation_l2": 0.492506,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.650056
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.309046
+                },
+                {
+                  "dim": 0,
+                  "mae": 0.238685
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.35481,
+                  0.377399,
+                  0.74249,
+                  0.061374,
+                  0.062527,
+                  0.206216,
+                  0.90807
+                ],
+                "min": [
+                  -0.187208,
+                  -0.171066,
+                  -0.366303,
+                  -0.023439,
+                  -0.072868,
+                  -0.062806,
+                  -1.166992
+                ]
+              },
+              "action_shape": [
+                272,
+                7
+              ],
+              "clip_rate_element": 0.010504,
+              "clip_rate_step": 0.073529,
+              "controller_valid_rate_proxy": 0.926471,
+              "dominant_clip_dim": 6,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.073529,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.073529
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          }
+        },
+        "results": {
+          "expert": {
+            "action_shape": [
+              272,
+              7
+            ],
+            "action_stats": {
+              "clip_rate_if_env_adapter_applied": 0.0,
+              "finite": true,
+              "gripper_range": {
+                "max": 1.0,
+                "max_abs": 1.0,
+                "mean": -0.308824,
+                "min": -1.0
+              },
+              "range": {
+                "max": 1.0,
+                "max_abs": 1.0,
+                "mean": -0.041828,
+                "min": -1.0
+              },
+              "rotation_range": {
+                "max": 0.375,
+                "max_abs": 0.375,
+                "mean": 0.011972,
+                "min": -0.1425
+              },
+              "shape": [
+                272,
+                7
+              ],
+              "translation_range": {
+                "max": 0.9375,
+                "max_abs": 0.9375,
+                "mean": -0.006631,
+                "min": -0.80625
+              }
+            },
+            "after_set_state_l2_to_hdf5_init": 0.0,
+            "available_obs_keys": [
+              "agentview_image",
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_quat",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_quat",
+              "moka_pot_1_pos",
+              "moka_pot_1_quat",
+              "moka_pot_1_to_robot0_eef_pos",
+              "moka_pot_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_eye_in_hand_image",
+              "robot0_gripper_qpos",
+              "robot0_gripper_qvel",
+              "robot0_joint_pos",
+              "robot0_joint_pos_cos",
+              "robot0_joint_pos_sin",
+              "robot0_joint_vel",
+              "robot0_proprio-state"
+            ],
+            "camera_keys": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "claim_role": "expert_replay_upper_bound",
+            "controller": {
+              "control_freq": null,
+              "controller_type": "OSC_POSE",
+              "timestep": 0.002
+            },
+            "delta_vs_absolute_action_convention_evidence": "not_established_until_replay_succeeds",
+            "done_indices": [],
+            "done_seen": false,
+            "eef_displacement_l2": 0.311293,
+            "eef_final": [
+              0.07286720740590988,
+              0.14067017035646948,
+              1.1206437663450688
+            ],
+            "eef_start": [
+              -0.2091377059986276,
+              0.017447378591641517,
+              1.167471610856849
+            ],
+            "env_action_shape": 7,
+            "env_created": true,
+            "error": null,
+            "final_reward": 0.0,
+            "final_success": false,
+            "first_done_index": null,
+            "first_positive_reward_index": null,
+            "first_success_index": null,
+            "gripper_timing": {
+              "available": true,
+              "first_nonnegative_index": 59,
+              "first_positive_index": 59,
+              "max": 1.0,
+              "mean": -0.308824,
+              "min": -1.0,
+              "sign_change_indices_first_10": [
+                59,
+                97,
+                198,
+                254
+              ]
+            },
+            "object_movement": {
+              "available": true,
+              "object_position_keys_missing": false,
+              "target_object_displacement_l2": 4e-06,
+              "target_object_key": "moka_pot_1_pos"
+            },
+            "passed": true,
+            "reset_ok": true,
+            "reward_sum": 0.0,
+            "reward_trajectory_summary": {
+              "first_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "last_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "length": 272,
+              "nonzero_indices": []
+            },
+            "reward_trajectory_summary_only": true,
+            "set_init_state_ok": true,
+            "set_init_state_used": true,
+            "state_keys": [
+              "chefmate_8_frypan_1_pos",
+              "chefmate_8_frypan_1_quat",
+              "chefmate_8_frypan_1_to_robot0_eef_pos",
+              "chefmate_8_frypan_1_to_robot0_eef_quat",
+              "moka_pot_1_pos",
+              "moka_pot_1_quat",
+              "moka_pot_1_to_robot0_eef_pos",
+              "moka_pot_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_joint_pos",
+              "robot0_proprio-state"
+            ],
+            "steps_performed": 272,
+            "steps_requested": 272,
+            "success_indices": [],
+            "target_directed_movement": {
+              "available": true,
+              "distance_change": -0.143654,
+              "final_distance": 0.200701,
+              "start_distance": 0.344355
+            },
+            "target_key_audit": {
+              "all_scores": [
+                {
+                  "key": "moka_pot_1_pos",
+                  "overlap": [
+                    "moka",
+                    "pot"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "moka_pot_1_to_robot0_eef_pos",
+                  "overlap": [
+                    "moka",
+                    "pot"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "chefmate_8_frypan_1_pos",
+                  "overlap": [],
+                  "score": 0
+                },
+                {
+                  "key": "chefmate_8_frypan_1_to_robot0_eef_pos",
+                  "overlap": [],
+                  "score": 0
+                }
+              ],
+              "available_object_position_keys": [
+                "chefmate_8_frypan_1_pos",
+                "chefmate_8_frypan_1_to_robot0_eef_pos",
+                "moka_pot_1_pos",
+                "moka_pot_1_to_robot0_eef_pos"
+              ],
+              "best_key": "moka_pot_1_pos",
+              "best_overlap": [
+                "moka",
+                "pot"
+              ],
+              "best_score": 2,
+              "instruction": "KITCHEN SCENE3 turn on the stove and put the moka pot on it",
+              "instruction_tokens": [
+                "kitchen",
+                "moka",
+                "pot",
+                "scene3",
+                "stove"
+              ]
+            },
+            "use_exact_init_state": true,
+            "variant": "expert"
+          }
+        },
+        "target_horizon": 272,
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo"
+      },
+      {
+        "bddl_file": "C:\\assets\\repos\\LIBERO\\libero\\libero\\bddl_files\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+        "demo_name": "demo_5",
+        "expert_ok_for_judging": true,
+        "hdf5_first_signal_index": 236,
+        "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+        "instruction": "KITCHEN SCENE4 put the black bowl in the bottom drawer of the cabinet and close it",
+        "offline_case_metrics": {
+          "expert": {
+            "action_metrics": {
+              "action_l2": 0.0,
+              "action_l2_first6": 0.0,
+              "gripper_accuracy": 1.0,
+              "gripper_error": 0.0,
+              "per_dim_mae": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "rotation_l2": 0.0,
+              "sample_count": 237,
+              "translation_l2": 0.0,
+              "worst_action_dimensions": [
+                {
+                  "dim": 0,
+                  "mae": 0.0
+                },
+                {
+                  "dim": 1,
+                  "mae": 0.0
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.0
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.527679,
+                  0.827679,
+                  0.672321,
+                  0.137143,
+                  0.206786,
+                  0.066429,
+                  1.0
+                ],
+                "min": [
+                  -0.383036,
+                  -0.683036,
+                  -0.616071,
+                  -0.075,
+                  -0.163929,
+                  -0.331071,
+                  -1.0
+                ]
+              },
+              "action_shape": [
+                237,
+                7
+              ],
+              "clip_rate_element": 0.0,
+              "clip_rate_step": 0.0,
+              "controller_valid_rate_proxy": 1.0,
+              "dominant_clip_dim": 0,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.0,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "mean_action": {
+            "action_metrics": {
+              "action_l2": 1.061472,
+              "action_l2_first6": 0.573266,
+              "gripper_accuracy": 0.675105,
+              "gripper_error": 0.85116,
+              "per_dim_mae": [
+                0.203727,
+                0.305828,
+                0.310363,
+                0.041487,
+                0.04929,
+                0.061579,
+                0.85116
+              ],
+              "rotation_l2": 0.111761,
+              "sample_count": 237,
+              "translation_l2": 0.55042,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.85116
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.310363
+                },
+                {
+                  "dim": 1,
+                  "mae": 0.305828
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.051964,
+                  0.086652,
+                  -0.041853,
+                  0.009268,
+                  -0.000161,
+                  0.006201,
+                  -0.425
+                ],
+                "min": [
+                  0.051964,
+                  0.086652,
+                  -0.041853,
+                  0.009268,
+                  -0.000161,
+                  0.006201,
+                  -0.425
+                ]
+              },
+              "action_shape": [
+                237,
+                7
+              ],
+              "clip_rate_element": 0.0,
+              "clip_rate_step": 0.0,
+              "controller_valid_rate_proxy": 1.0,
+              "dominant_clip_dim": 0,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.0,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "ridge": {
+            "action_metrics": {
+              "action_l2": 0.918534,
+              "action_l2_first6": 0.51286,
+              "gripper_accuracy": 0.907173,
+              "gripper_error": 0.714705,
+              "per_dim_mae": [
+                0.179492,
+                0.247698,
+                0.288191,
+                0.040871,
+                0.048693,
+                0.062754,
+                0.714705
+              ],
+              "rotation_l2": 0.103501,
+              "sample_count": 237,
+              "translation_l2": 0.495127,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.714705
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.288191
+                },
+                {
+                  "dim": 1,
+                  "mae": 0.247698
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.107861,
+                  0.345981,
+                  0.157177,
+                  0.029084,
+                  0.057177,
+                  0.048949,
+                  0.59496
+                ],
+                "min": [
+                  -0.034405,
+                  -0.006773,
+                  -0.273581,
+                  -0.013612,
+                  -0.036393,
+                  -0.104239,
+                  -1.088207
+                ]
+              },
+              "action_shape": [
+                237,
+                7
+              ],
+              "clip_rate_element": 0.006631,
+              "clip_rate_step": 0.046414,
+              "controller_valid_rate_proxy": 0.953586,
+              "dominant_clip_dim": 6,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.046414,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.046414
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "small_mlp": {
+            "action_metrics": {
+              "action_l2": 0.86096,
+              "action_l2_first6": 0.506392,
+              "gripper_accuracy": 0.780591,
+              "gripper_error": 0.64089,
+              "per_dim_mae": [
+                0.171329,
+                0.224955,
+                0.318627,
+                0.042686,
+                0.052337,
+                0.058669,
+                0.64089
+              ],
+              "rotation_l2": 0.104917,
+              "sample_count": 237,
+              "translation_l2": 0.491039,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.64089
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.318627
+                },
+                {
+                  "dim": 1,
+                  "mae": 0.224955
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.141938,
+                  0.322447,
+                  0.15234,
+                  0.038825,
+                  0.046706,
+                  0.032064,
+                  0.870425
+                ],
+                "min": [
+                  -0.045119,
+                  -0.109752,
+                  -0.202309,
+                  -0.026863,
+                  -0.055254,
+                  -0.196202,
+                  -1.375427
+                ]
+              },
+              "action_shape": [
+                237,
+                7
+              ],
+              "clip_rate_element": 0.015672,
+              "clip_rate_step": 0.109705,
+              "controller_valid_rate_proxy": 0.890295,
+              "dominant_clip_dim": 6,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.109705,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.109705
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          },
+          "smolvla_7d_adapter": {
+            "action_metrics": {
+              "action_l2": 0.843149,
+              "action_l2_first6": 0.519516,
+              "gripper_accuracy": 0.810127,
+              "gripper_error": 0.603446,
+              "per_dim_mae": [
+                0.153383,
+                0.255161,
+                0.336802,
+                0.04122,
+                0.058449,
+                0.040596,
+                0.603445
+              ],
+              "rotation_l2": 0.091697,
+              "sample_count": 237,
+              "translation_l2": 0.509177,
+              "worst_action_dimensions": [
+                {
+                  "dim": 6,
+                  "mae": 0.603445
+                },
+                {
+                  "dim": 2,
+                  "mae": 0.336802
+                },
+                {
+                  "dim": 1,
+                  "mae": 0.255161
+                }
+              ]
+            },
+            "action_validity": {
+              "action_low_high": {
+                "high": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "low": [
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0,
+                  -1.0
+                ],
+                "max": [
+                  0.194248,
+                  0.280017,
+                  0.268108,
+                  0.042908,
+                  0.077525,
+                  0.054114,
+                  1.164083
+                ],
+                "min": [
+                  -0.092547,
+                  -0.185052,
+                  -0.271666,
+                  -0.032986,
+                  -0.065407,
+                  -0.27054,
+                  -1.351148
+                ]
+              },
+              "action_shape": [
+                237,
+                7
+              ],
+              "clip_rate_element": 0.030139,
+              "clip_rate_step": 0.21097,
+              "controller_valid_rate_proxy": 0.78903,
+              "dominant_clip_dim": 6,
+              "expected_action_shape": [
+                "T",
+                7
+              ],
+              "finite": true,
+              "gripper_clip_rate": 0.21097,
+              "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+              "per_dim_clip_rate": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.21097
+              ],
+              "shape_exactly_7d": true,
+              "silent_broadcast_or_truncation_detected": false
+            }
+          }
+        },
+        "results": {
+          "expert": {
+            "action_shape": [
+              237,
+              7
+            ],
+            "action_stats": {
+              "clip_rate_if_env_adapter_applied": 0.0,
+              "finite": true,
+              "gripper_range": {
+                "max": 1.0,
+                "max_abs": 1.0,
+                "mean": -0.350211,
+                "min": -1.0
+              },
+              "range": {
+                "max": 1.0,
+                "max_abs": 1.0,
+                "mean": -0.041387,
+                "min": -1.0
+              },
+              "rotation_range": {
+                "max": 0.206786,
+                "max_abs": 0.331071,
+                "mean": -0.000124,
+                "min": -0.331071
+              },
+              "shape": [
+                237,
+                7
+              ],
+              "translation_range": {
+                "max": 0.827679,
+                "max_abs": 0.827679,
+                "mean": 0.020291,
+                "min": -0.683036
+              }
+            },
+            "after_set_state_l2_to_hdf5_init": 0.0,
+            "available_obs_keys": [
+              "agentview_image",
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_eye_in_hand_image",
+              "robot0_gripper_qpos",
+              "robot0_gripper_qvel",
+              "robot0_joint_pos",
+              "robot0_joint_pos_cos",
+              "robot0_joint_pos_sin",
+              "robot0_joint_vel",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "camera_keys": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "claim_role": "expert_replay_upper_bound",
+            "controller": {
+              "control_freq": null,
+              "controller_type": "OSC_POSE",
+              "timestep": 0.002
+            },
+            "delta_vs_absolute_action_convention_evidence": "raw_hdf5_actions_reached_reward_done_or_success",
+            "done_indices": [
+              225
+            ],
+            "done_seen": true,
+            "eef_displacement_l2": 0.402626,
+            "eef_final": [
+              0.0200160645660135,
+              0.20373535534301132,
+              0.9213342870762486
+            ],
+            "eef_start": [
+              -0.19782464089980495,
+              -0.017136501566515205,
+              1.1779835661186948
+            ],
+            "env_action_shape": 7,
+            "env_created": true,
+            "error": null,
+            "final_reward": 1.0,
+            "final_success": true,
+            "first_done_index": 225,
+            "first_positive_reward_index": 225,
+            "first_success_index": 225,
+            "gripper_timing": {
+              "available": true,
+              "first_nonnegative_index": 65,
+              "first_positive_index": 65,
+              "max": 1.0,
+              "mean": -0.350211,
+              "min": -1.0,
+              "sign_change_indices_first_10": [
+                65,
+                142
+              ]
+            },
+            "object_movement": {
+              "available": true,
+              "object_position_keys_missing": false,
+              "target_object_displacement_l2": 0.341679,
+              "target_object_key": "akita_black_bowl_1_pos"
+            },
+            "passed": true,
+            "reset_ok": true,
+            "reward_sum": 1.0,
+            "reward_trajectory_summary": {
+              "first_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "last_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "length": 226,
+              "nonzero_indices": [
+                225
+              ]
+            },
+            "reward_trajectory_summary_only": true,
+            "set_init_state_ok": true,
+            "set_init_state_used": true,
+            "state_keys": [
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_joint_pos",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "steps_performed": 226,
+            "steps_requested": 237,
+            "success_indices": [
+              225
+            ],
+            "target_directed_movement": {
+              "available": true,
+              "distance_change": -0.277647,
+              "final_distance": 0.099942,
+              "start_distance": 0.377589
+            },
+            "target_key_audit": {
+              "all_scores": [
+                {
+                  "key": "akita_black_bowl_1_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "akita_black_bowl_1_to_robot0_eef_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "wine_bottle_1_pos",
+                  "overlap": [],
+                  "score": 0
+                },
+                {
+                  "key": "wine_bottle_1_to_robot0_eef_pos",
+                  "overlap": [],
+                  "score": 0
+                }
+              ],
+              "available_object_position_keys": [
+                "akita_black_bowl_1_pos",
+                "akita_black_bowl_1_to_robot0_eef_pos",
+                "wine_bottle_1_pos",
+                "wine_bottle_1_to_robot0_eef_pos"
+              ],
+              "best_key": "akita_black_bowl_1_pos",
+              "best_overlap": [
+                "black",
+                "bowl"
+              ],
+              "best_score": 2,
+              "instruction": "KITCHEN SCENE4 put the black bowl in the bottom drawer of the cabinet and close it",
+              "instruction_tokens": [
+                "black",
+                "bottom",
+                "bowl",
+                "cabinet",
+                "drawer",
+                "kitchen",
+                "scene4"
+              ]
+            },
+            "use_exact_init_state": true,
+            "variant": "expert"
+          },
+          "mean_action": {
+            "action_shape": [
+              237,
+              7
+            ],
+            "action_stats": {
+              "clip_rate_if_env_adapter_applied": 0.0,
+              "finite": true,
+              "gripper_range": {
+                "max": -0.425,
+                "max_abs": 0.425,
+                "mean": -0.425,
+                "min": -0.425
+              },
+              "range": {
+                "max": 0.086652,
+                "max_abs": 0.425,
+                "mean": -0.044704,
+                "min": -0.425
+              },
+              "rotation_range": {
+                "max": 0.009268,
+                "max_abs": 0.009268,
+                "mean": 0.005103,
+                "min": -0.000161
+              },
+              "shape": [
+                237,
+                7
+              ],
+              "translation_range": {
+                "max": 0.086652,
+                "max_abs": 0.086652,
+                "mean": 0.032254,
+                "min": -0.041853
+              }
+            },
+            "after_set_state_l2_to_hdf5_init": 0.0,
+            "available_obs_keys": [
+              "agentview_image",
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_eye_in_hand_image",
+              "robot0_gripper_qpos",
+              "robot0_gripper_qvel",
+              "robot0_joint_pos",
+              "robot0_joint_pos_cos",
+              "robot0_joint_pos_sin",
+              "robot0_joint_vel",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "camera_keys": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "claim_role": "mean_action_baseline",
+            "controller": {
+              "control_freq": null,
+              "controller_type": "OSC_POSE",
+              "timestep": 0.002
+            },
+            "delta_vs_absolute_action_convention_evidence": "not_established_until_replay_succeeds",
+            "done_indices": [],
+            "done_seen": false,
+            "eef_displacement_l2": 0.247116,
+            "eef_final": [
+              -0.07780685211747311,
+              0.17516714598093044,
+              1.0795886059219821
+            ],
+            "eef_start": [
+              -0.19782464089980495,
+              -0.017136501566515205,
+              1.1779835661186948
+            ],
+            "env_action_shape": 7,
+            "env_created": true,
+            "error": null,
+            "final_reward": 0.0,
+            "final_success": false,
+            "first_done_index": null,
+            "first_positive_reward_index": null,
+            "first_success_index": null,
+            "gripper_timing": {
+              "available": true,
+              "first_nonnegative_index": null,
+              "first_positive_index": null,
+              "max": -0.425,
+              "mean": -0.425,
+              "min": -0.425,
+              "sign_change_indices_first_10": []
+            },
+            "object_movement": {
+              "available": true,
+              "object_position_keys_missing": false,
+              "target_object_displacement_l2": 0.000246,
+              "target_object_key": "akita_black_bowl_1_pos"
+            },
+            "passed": true,
+            "reset_ok": true,
+            "reward_sum": 0.0,
+            "reward_trajectory_summary": {
+              "first_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "last_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "length": 237,
+              "nonzero_indices": []
+            },
+            "reward_trajectory_summary_only": true,
+            "set_init_state_ok": true,
+            "set_init_state_used": true,
+            "state_keys": [
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_joint_pos",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "steps_performed": 237,
+            "steps_requested": 237,
+            "success_indices": [],
+            "target_directed_movement": {
+              "available": true,
+              "distance_change": -0.068504,
+              "final_distance": 0.309085,
+              "start_distance": 0.377589
+            },
+            "target_key_audit": {
+              "all_scores": [
+                {
+                  "key": "akita_black_bowl_1_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "akita_black_bowl_1_to_robot0_eef_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "wine_bottle_1_pos",
+                  "overlap": [],
+                  "score": 0
+                },
+                {
+                  "key": "wine_bottle_1_to_robot0_eef_pos",
+                  "overlap": [],
+                  "score": 0
+                }
+              ],
+              "available_object_position_keys": [
+                "akita_black_bowl_1_pos",
+                "akita_black_bowl_1_to_robot0_eef_pos",
+                "wine_bottle_1_pos",
+                "wine_bottle_1_to_robot0_eef_pos"
+              ],
+              "best_key": "akita_black_bowl_1_pos",
+              "best_overlap": [
+                "black",
+                "bowl"
+              ],
+              "best_score": 2,
+              "instruction": "KITCHEN SCENE4 put the black bowl in the bottom drawer of the cabinet and close it",
+              "instruction_tokens": [
+                "black",
+                "bottom",
+                "bowl",
+                "cabinet",
+                "drawer",
+                "kitchen",
+                "scene4"
+              ]
+            },
+            "use_exact_init_state": true,
+            "variant": "mean_action"
+          },
+          "ridge": {
+            "action_shape": [
+              237,
+              7
+            ],
+            "action_stats": {
+              "clip_rate_if_env_adapter_applied": 0.006631,
+              "finite": true,
+              "gripper_range": {
+                "max": 0.59496,
+                "max_abs": 1.088207,
+                "mean": -0.108614,
+                "min": -1.088207
+              },
+              "range": {
+                "max": 0.59496,
+                "max_abs": 1.088207,
+                "mean": -0.013205,
+                "min": -1.088207
+              },
+              "rotation_range": {
+                "max": 0.057177,
+                "max_abs": 0.104239,
+                "mean": -0.004016,
+                "min": -0.104239
+              },
+              "shape": [
+                237,
+                7
+              ],
+              "translation_range": {
+                "max": 0.345981,
+                "max_abs": 0.345981,
+                "mean": 0.009409,
+                "min": -0.273581
+              }
+            },
+            "after_set_state_l2_to_hdf5_init": 0.0,
+            "available_obs_keys": [
+              "agentview_image",
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_eye_in_hand_image",
+              "robot0_gripper_qpos",
+              "robot0_gripper_qvel",
+              "robot0_joint_pos",
+              "robot0_joint_pos_cos",
+              "robot0_joint_pos_sin",
+              "robot0_joint_vel",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "camera_keys": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "claim_role": "ridge_baseline",
+            "controller": {
+              "control_freq": null,
+              "controller_type": "OSC_POSE",
+              "timestep": 0.002
+            },
+            "delta_vs_absolute_action_convention_evidence": "not_established_until_replay_succeeds",
+            "done_indices": [],
+            "done_seen": false,
+            "eef_displacement_l2": 0.336196,
+            "eef_final": [
+              -0.04802102013074003,
+              0.1576993981049341,
+              0.9329956574862319
+            ],
+            "eef_start": [
+              -0.19782464089980495,
+              -0.017136501566515205,
+              1.1779835661186948
+            ],
+            "env_action_shape": 7,
+            "env_created": true,
+            "error": null,
+            "final_reward": 0.0,
+            "final_success": false,
+            "first_done_index": null,
+            "first_positive_reward_index": null,
+            "first_success_index": null,
+            "gripper_timing": {
+              "available": true,
+              "first_nonnegative_index": 67,
+              "first_positive_index": 67,
+              "max": 0.59496,
+              "mean": -0.108614,
+              "min": -1.088207,
+              "sign_change_indices_first_10": [
+                67,
+                162
+              ]
+            },
+            "object_movement": {
+              "available": true,
+              "object_position_keys_missing": false,
+              "target_object_displacement_l2": 0.000246,
+              "target_object_key": "akita_black_bowl_1_pos"
+            },
+            "passed": true,
+            "reset_ok": true,
+            "reward_sum": 0.0,
+            "reward_trajectory_summary": {
+              "first_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "last_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "length": 237,
+              "nonzero_indices": []
+            },
+            "reward_trajectory_summary_only": true,
+            "set_init_state_ok": true,
+            "set_init_state_used": true,
+            "state_keys": [
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_joint_pos",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "steps_performed": 237,
+            "steps_requested": 237,
+            "success_indices": [],
+            "target_directed_movement": {
+              "available": true,
+              "distance_change": -0.154496,
+              "final_distance": 0.223093,
+              "start_distance": 0.377589
+            },
+            "target_key_audit": {
+              "all_scores": [
+                {
+                  "key": "akita_black_bowl_1_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "akita_black_bowl_1_to_robot0_eef_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "wine_bottle_1_pos",
+                  "overlap": [],
+                  "score": 0
+                },
+                {
+                  "key": "wine_bottle_1_to_robot0_eef_pos",
+                  "overlap": [],
+                  "score": 0
+                }
+              ],
+              "available_object_position_keys": [
+                "akita_black_bowl_1_pos",
+                "akita_black_bowl_1_to_robot0_eef_pos",
+                "wine_bottle_1_pos",
+                "wine_bottle_1_to_robot0_eef_pos"
+              ],
+              "best_key": "akita_black_bowl_1_pos",
+              "best_overlap": [
+                "black",
+                "bowl"
+              ],
+              "best_score": 2,
+              "instruction": "KITCHEN SCENE4 put the black bowl in the bottom drawer of the cabinet and close it",
+              "instruction_tokens": [
+                "black",
+                "bottom",
+                "bowl",
+                "cabinet",
+                "drawer",
+                "kitchen",
+                "scene4"
+              ]
+            },
+            "use_exact_init_state": true,
+            "variant": "ridge"
+          },
+          "small_mlp": {
+            "action_shape": [
+              237,
+              7
+            ],
+            "action_stats": {
+              "clip_rate_if_env_adapter_applied": 0.015672,
+              "finite": true,
+              "gripper_range": {
+                "max": 0.870425,
+                "max_abs": 1.375427,
+                "mean": -0.202401,
+                "min": -1.375427
+              },
+              "range": {
+                "max": 0.870425,
+                "max_abs": 1.375427,
+                "mean": -0.014737,
+                "min": -1.375427
+              },
+              "rotation_range": {
+                "max": 0.046706,
+                "max_abs": 0.196202,
+                "mean": -0.014667,
+                "min": -0.196202
+              },
+              "shape": [
+                237,
+                7
+              ],
+              "translation_range": {
+                "max": 0.322447,
+                "max_abs": 0.322447,
+                "mean": 0.047749,
+                "min": -0.202309
+              }
+            },
+            "after_set_state_l2_to_hdf5_init": 0.0,
+            "available_obs_keys": [
+              "agentview_image",
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_eye_in_hand_image",
+              "robot0_gripper_qpos",
+              "robot0_gripper_qvel",
+              "robot0_joint_pos",
+              "robot0_joint_pos_cos",
+              "robot0_joint_pos_sin",
+              "robot0_joint_vel",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "camera_keys": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "claim_role": "small_mlp_baseline",
+            "controller": {
+              "control_freq": null,
+              "controller_type": "OSC_POSE",
+              "timestep": 0.002
+            },
+            "delta_vs_absolute_action_convention_evidence": "not_established_until_replay_succeeds",
+            "done_indices": [],
+            "done_seen": false,
+            "eef_displacement_l2": 0.314897,
+            "eef_final": [
+              0.007021856417738864,
+              0.20692084758770712,
+              1.0943392548877575
+            ],
+            "eef_start": [
+              -0.19782464089980495,
+              -0.017136501566515205,
+              1.1779835661186948
+            ],
+            "env_action_shape": 7,
+            "env_created": true,
+            "error": null,
+            "final_reward": 0.0,
+            "final_success": false,
+            "first_done_index": null,
+            "first_positive_reward_index": null,
+            "first_success_index": null,
+            "gripper_timing": {
+              "available": true,
+              "first_nonnegative_index": 83,
+              "first_positive_index": 83,
+              "max": 0.870425,
+              "mean": -0.202401,
+              "min": -1.375427,
+              "sign_change_indices_first_10": [
+                83,
+                176
+              ]
+            },
+            "object_movement": {
+              "available": true,
+              "object_position_keys_missing": false,
+              "target_object_displacement_l2": 0.000246,
+              "target_object_key": "akita_black_bowl_1_pos"
+            },
+            "passed": true,
+            "reset_ok": true,
+            "reward_sum": 0.0,
+            "reward_trajectory_summary": {
+              "first_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "last_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "length": 237,
+              "nonzero_indices": []
+            },
+            "reward_trajectory_summary_only": true,
+            "set_init_state_ok": true,
+            "set_init_state_used": true,
+            "state_keys": [
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_joint_pos",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "steps_performed": 237,
+            "steps_requested": 237,
+            "success_indices": [],
+            "target_directed_movement": {
+              "available": true,
+              "distance_change": -0.060931,
+              "final_distance": 0.316658,
+              "start_distance": 0.377589
+            },
+            "target_key_audit": {
+              "all_scores": [
+                {
+                  "key": "akita_black_bowl_1_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "akita_black_bowl_1_to_robot0_eef_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "wine_bottle_1_pos",
+                  "overlap": [],
+                  "score": 0
+                },
+                {
+                  "key": "wine_bottle_1_to_robot0_eef_pos",
+                  "overlap": [],
+                  "score": 0
+                }
+              ],
+              "available_object_position_keys": [
+                "akita_black_bowl_1_pos",
+                "akita_black_bowl_1_to_robot0_eef_pos",
+                "wine_bottle_1_pos",
+                "wine_bottle_1_to_robot0_eef_pos"
+              ],
+              "best_key": "akita_black_bowl_1_pos",
+              "best_overlap": [
+                "black",
+                "bowl"
+              ],
+              "best_score": 2,
+              "instruction": "KITCHEN SCENE4 put the black bowl in the bottom drawer of the cabinet and close it",
+              "instruction_tokens": [
+                "black",
+                "bottom",
+                "bowl",
+                "cabinet",
+                "drawer",
+                "kitchen",
+                "scene4"
+              ]
+            },
+            "use_exact_init_state": true,
+            "variant": "small_mlp"
+          },
+          "smolvla_7d_adapter": {
+            "action_shape": [
+              237,
+              7
+            ],
+            "action_stats": {
+              "clip_rate_if_env_adapter_applied": 0.030139,
+              "finite": true,
+              "gripper_range": {
+                "max": 1.164083,
+                "max_abs": 1.351148,
+                "mean": -0.086776,
+                "min": -1.351148
+              },
+              "range": {
+                "max": 1.164083,
+                "max_abs": 1.351148,
+                "mean": 0.006742,
+                "min": -1.351148
+              },
+              "rotation_range": {
+                "max": 0.077525,
+                "max_abs": 0.27054,
+                "mean": -0.010976,
+                "min": -0.27054
+              },
+              "shape": [
+                237,
+                7
+              ],
+              "translation_range": {
+                "max": 0.280017,
+                "max_abs": 0.280017,
+                "mean": 0.055633,
+                "min": -0.271666
+              }
+            },
+            "after_set_state_l2_to_hdf5_init": 0.0,
+            "available_obs_keys": [
+              "agentview_image",
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_eye_in_hand_image",
+              "robot0_gripper_qpos",
+              "robot0_gripper_qvel",
+              "robot0_joint_pos",
+              "robot0_joint_pos_cos",
+              "robot0_joint_pos_sin",
+              "robot0_joint_vel",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "camera_keys": [
+              "agentview_image",
+              "robot0_eye_in_hand_image"
+            ],
+            "claim_role": "best_standard_smolvla_7d_lora_adapter",
+            "controller": {
+              "control_freq": null,
+              "controller_type": "OSC_POSE",
+              "timestep": 0.002
+            },
+            "delta_vs_absolute_action_convention_evidence": "not_established_until_replay_succeeds",
+            "done_indices": [],
+            "done_seen": false,
+            "eef_displacement_l2": 0.30323,
+            "eef_final": [
+              -0.02478977573481038,
+              0.22579366367427373,
+              1.232682919415192
+            ],
+            "eef_start": [
+              -0.19782464089980495,
+              -0.017136501566515205,
+              1.1779835661186948
+            ],
+            "env_action_shape": 7,
+            "env_created": true,
+            "error": null,
+            "final_reward": 0.0,
+            "final_success": false,
+            "first_done_index": null,
+            "first_positive_reward_index": null,
+            "first_success_index": null,
+            "gripper_timing": {
+              "available": true,
+              "first_nonnegative_index": 44,
+              "first_positive_index": 44,
+              "max": 1.164083,
+              "mean": -0.086776,
+              "min": -1.351148,
+              "sign_change_indices_first_10": [
+                44,
+                166
+              ]
+            },
+            "object_movement": {
+              "available": true,
+              "object_position_keys_missing": false,
+              "target_object_displacement_l2": 0.000246,
+              "target_object_key": "akita_black_bowl_1_pos"
+            },
+            "passed": true,
+            "reset_ok": true,
+            "reward_sum": 0.0,
+            "reward_trajectory_summary": {
+              "first_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "last_10": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "length": 237,
+              "nonzero_indices": []
+            },
+            "reward_trajectory_summary_only": true,
+            "set_init_state_ok": true,
+            "set_init_state_used": true,
+            "state_keys": [
+              "akita_black_bowl_1_pos",
+              "akita_black_bowl_1_quat",
+              "akita_black_bowl_1_to_robot0_eef_pos",
+              "akita_black_bowl_1_to_robot0_eef_quat",
+              "object-state",
+              "robot0_eef_pos",
+              "robot0_eef_quat",
+              "robot0_joint_pos",
+              "robot0_proprio-state",
+              "wine_bottle_1_pos",
+              "wine_bottle_1_quat",
+              "wine_bottle_1_to_robot0_eef_pos",
+              "wine_bottle_1_to_robot0_eef_quat"
+            ],
+            "steps_performed": 237,
+            "steps_requested": 237,
+            "success_indices": [],
+            "target_directed_movement": {
+              "available": true,
+              "distance_change": 0.055137,
+              "final_distance": 0.432726,
+              "start_distance": 0.377589
+            },
+            "target_key_audit": {
+              "all_scores": [
+                {
+                  "key": "akita_black_bowl_1_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "akita_black_bowl_1_to_robot0_eef_pos",
+                  "overlap": [
+                    "black",
+                    "bowl"
+                  ],
+                  "score": 2
+                },
+                {
+                  "key": "wine_bottle_1_pos",
+                  "overlap": [],
+                  "score": 0
+                },
+                {
+                  "key": "wine_bottle_1_to_robot0_eef_pos",
+                  "overlap": [],
+                  "score": 0
+                }
+              ],
+              "available_object_position_keys": [
+                "akita_black_bowl_1_pos",
+                "akita_black_bowl_1_to_robot0_eef_pos",
+                "wine_bottle_1_pos",
+                "wine_bottle_1_to_robot0_eef_pos"
+              ],
+              "best_key": "akita_black_bowl_1_pos",
+              "best_overlap": [
+                "black",
+                "bowl"
+              ],
+              "best_score": 2,
+              "instruction": "KITCHEN SCENE4 put the black bowl in the bottom drawer of the cabinet and close it",
+              "instruction_tokens": [
+                "black",
+                "bottom",
+                "bowl",
+                "cabinet",
+                "drawer",
+                "kitchen",
+                "scene4"
+              ]
+            },
+            "use_exact_init_state": true,
+            "variant": "smolvla_7d_adapter"
+          }
+        },
+        "target_horizon": 237,
+        "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo"
+      }
+    ],
+    "env": {
+      "libero_config_path": "runs\\smolvla_7d_standard_replay_baseline\\libero_config\\config.yaml",
+      "mujoco_gl": "glfw",
+      "tmp_dir": "C:\\tmp"
+    },
+    "executed": true,
+    "reason": "bounded exact-init standard replay attempted",
+    "runtime_sec": 36.313
+  },
+  "state4_action_validity": {
+    "action_range_or_normalization_fix_needed": false,
+    "adapter_progress_improves_despite_clipping": false,
+    "best_lora_policy": "smolvla_state_proj_lora_rank4_7d_adapter",
+    "case_rows": [
+      {
+        "adapter_progress_proxy": null,
+        "adapter_success": null,
+        "clip_rate_element": 0.010504,
+        "clip_rate_step": 0.073529,
+        "controller_valid_rate_proxy": 0.926471,
+        "demo_name": "demo_7",
+        "dominant_clip_dim": 6,
+        "expert_ok_for_judging": false,
+        "gripper_clip_rate": 0.073529,
+        "per_dim_clip_rate": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.073529
+        ],
+        "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo"
+      },
+      {
+        "adapter_progress_proxy": -0.055137,
+        "adapter_success": false,
+        "clip_rate_element": 0.030139,
+        "clip_rate_step": 0.21097,
+        "controller_valid_rate_proxy": 0.78903,
+        "demo_name": "demo_5",
+        "dominant_clip_dim": 6,
+        "expert_ok_for_judging": true,
+        "gripper_clip_rate": 0.21097,
+        "per_dim_clip_rate": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.21097
+        ],
+        "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo"
+      }
+    ],
+    "dimensions_clip_most": 6,
+    "gripper_dominates_clipping": true,
+    "offline_eval_action_validity": {
+      "action_low_high": {
+        "high": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "low": [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ],
+        "max": [
+          0.317361,
+          0.439485,
+          0.508266,
+          0.061366,
+          0.062319,
+          0.171873,
+          1.099052
+        ],
+        "min": [
+          -0.451046,
+          -0.205794,
+          -0.466078,
+          -0.035002,
+          -0.07305,
+          -0.255751,
+          -1.161312
+        ]
+      },
+      "action_shape": [
+        32,
+        7
+      ],
+      "clip_rate_element": 0.026786,
+      "clip_rate_step": 0.1875,
+      "controller_valid_rate_proxy": 0.8125,
+      "dominant_clip_dim": 6,
+      "expected_action_shape": [
+        "T",
+        7
+      ],
+      "finite": true,
+      "gripper_clip_rate": 0.1875,
+      "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+      "per_dim_clip_rate": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875
+      ],
+      "shape_exactly_7d": true,
+      "silent_broadcast_or_truncation_detected": false
+    },
+    "unnormalized_action_range_correct": true
+  },
+  "summary": {
+    "adapter_replay_aggregate": {
+      "case_count": 1,
+      "first_done_indices": [
+        null
+      ],
+      "object_movement_mean": 0.000246,
+      "progress_proxy_mean": -0.055137,
+      "reward_sum_mean": 0.0,
+      "runtime_case_steps": [
+        237
+      ],
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "best_lora_name": "smolvla_state_proj_lora_rank4_7d_adapter",
+    "best_simple_name": "small_mlp",
+    "branch": "codex/smolvla-7d-standard-replay-baseline",
+    "clip_action_validity_audit": {
+      "action_range_or_normalization_fix_needed": false,
+      "adapter_progress_improves_despite_clipping": false,
+      "best_lora_policy": "smolvla_state_proj_lora_rank4_7d_adapter",
+      "case_rows": [
+        {
+          "adapter_progress_proxy": null,
+          "adapter_success": null,
+          "clip_rate_element": 0.010504,
+          "clip_rate_step": 0.073529,
+          "controller_valid_rate_proxy": 0.926471,
+          "demo_name": "demo_7",
+          "dominant_clip_dim": 6,
+          "expert_ok_for_judging": false,
+          "gripper_clip_rate": 0.073529,
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.073529
+          ],
+          "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo"
+        },
+        {
+          "adapter_progress_proxy": -0.055137,
+          "adapter_success": false,
+          "clip_rate_element": 0.030139,
+          "clip_rate_step": 0.21097,
+          "controller_valid_rate_proxy": 0.78903,
+          "demo_name": "demo_5",
+          "dominant_clip_dim": 6,
+          "expert_ok_for_judging": true,
+          "gripper_clip_rate": 0.21097,
+          "per_dim_clip_rate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.21097
+          ],
+          "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo"
+        }
+      ],
+      "dimensions_clip_most": 6,
+      "gripper_dominates_clipping": true,
+      "offline_eval_action_validity": {
+        "action_low_high": {
+          "high": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "low": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "max": [
+            0.317361,
+            0.439485,
+            0.508266,
+            0.061366,
+            0.062319,
+            0.171873,
+            1.099052
+          ],
+          "min": [
+            -0.451046,
+            -0.205794,
+            -0.466078,
+            -0.035002,
+            -0.07305,
+            -0.255751,
+            -1.161312
+          ]
+        },
+        "action_shape": [
+          32,
+          7
+        ],
+        "clip_rate_element": 0.026786,
+        "clip_rate_step": 0.1875,
+        "controller_valid_rate_proxy": 0.8125,
+        "dominant_clip_dim": 6,
+        "expected_action_shape": [
+          "T",
+          7
+        ],
+        "finite": true,
+        "gripper_clip_rate": 0.1875,
+        "note": "Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.",
+        "per_dim_clip_rate": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1875
+        ],
+        "shape_exactly_7d": true,
+        "silent_broadcast_or_truncation_detected": false
+      },
+      "unnormalized_action_range_correct": true
+    },
+    "downloads_happened": false,
+    "exact_next_step": "Fix or narrow exact-init replay until expert succeeds on every evaluated replay case.",
+    "experiments_happened": true,
+    "expert_replay_aggregate": {
+      "case_count": 2,
+      "first_done_indices": [
+        null,
+        225
+      ],
+      "object_movement_mean": 0.170842,
+      "progress_proxy_mean": 0.21065,
+      "reward_sum_mean": 0.5,
+      "runtime_case_steps": [
+        272,
+        226
+      ],
+      "success_count": 1,
+      "success_rate": 0.5
+    },
+    "final_decision": "EXPERT_REPLAY_UNSTABLE",
+    "loss_computed": true,
+    "mean_replay_aggregate": {
+      "case_count": 1,
+      "first_done_indices": [
+        null
+      ],
+      "object_movement_mean": 0.000246,
+      "progress_proxy_mean": 0.068504,
+      "reward_sum_mean": 0.0,
+      "runtime_case_steps": [
+        237
+      ],
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "mlp_replay_aggregate": {
+      "case_count": 1,
+      "first_done_indices": [
+        null
+      ],
+      "object_movement_mean": 0.000246,
+      "progress_proxy_mean": 0.060931,
+      "reward_sum_mean": 0.0,
+      "runtime_case_steps": [
+        237
+      ],
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "model_adapter_used": "smolvla_state_proj_lora_rank4_7d_adapter",
+    "offline_runtime_sec": 4.172,
+    "offline_to_control_transfer_summary": {
+      "adapter_beats_offline_baselines": true,
+      "adapter_beats_replay_baselines": false
+    },
+    "openvla_oft_happened": false,
+    "replay_control_happened": true,
+    "replay_progress_summary": {
+      "mean_action": 0.068504,
+      "ridge": 0.154496,
+      "small_mlp": 0.060931,
+      "smolvla_7d_adapter": -0.055137
+    },
+    "replay_runtime_sec": 36.313,
+    "ridge_replay_aggregate": {
+      "case_count": 1,
+      "first_done_indices": [
+        null
+      ],
+      "object_movement_mean": 0.000246,
+      "progress_proxy_mean": 0.154496,
+      "reward_sum_mean": 0.0,
+      "runtime_case_steps": [
+        237
+      ],
+      "success_count": 0,
+      "success_rate": 0.0
+    },
+    "runtime_sec": 43.203,
+    "tasks_demos_used": {
+      "replay_cases": [
+        {
+          "demo_name": "demo_7",
+          "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+          "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo"
+        },
+        {
+          "demo_name": "demo_5",
+          "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+          "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo"
+        }
+      ],
+      "tasks": [
+        "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo",
+        "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo"
+      ]
+    },
+    "train_eval_split": {
+      "eval_demo_count": 4,
+      "leakage": {
+        "demo_overlap": 0,
+        "exact_record_overlap": 0,
+        "has_demo_overlap": false,
+        "has_exact_record_leakage": false,
+        "has_task_overlap": true,
+        "note": "Task/demo overlap can be intentional for same-task or same-demo time holdout; exact record overlap must remain zero.",
+        "task_overlap": 2
+      },
+      "sampled_eval_records": 32,
+      "sampled_train_records": 80,
+      "train_demo_count": 10
+    },
+    "training_happened": true,
+    "vram_peak_mb": 0.0
+  }
+}

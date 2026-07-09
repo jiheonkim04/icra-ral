@@ -426,3 +426,17 @@ Decision: `READY_FOR_METHOD_AFTER_REPLAY_BRIDGE`
 - mean/ridge/adapter progress proxy: `0.106222` / `0.167573` / `0.234297`
 - adapter clip/controller-valid proxy: `0.429119` / `0.570881`
 - exact next step: reproduce a real SmolVLA LoRA baseline on an official or standard task split before starting any new method.
+## 2026-07-09: SmolVLA 7D Standard Replay Baseline
+
+Decision: `EXPERT_REPLAY_UNSTABLE`
+
+- experiments happened: `True`
+- training happened: `True`
+- loss computed: `True`
+- replay/control happened: `True`
+- model/adapter used: `smolvla_state_proj_lora_rank4_7d_adapter`
+- tasks/demos used: `{'tasks': ['KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo', 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo'], 'replay_cases': [{'hdf5_path': 'C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5', 'demo_name': 'demo_7', 'task_name': 'KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo'}, {'hdf5_path': 'C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5', 'demo_name': 'demo_5', 'task_name': 'KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo'}]}`
+- expert aggregate: `{'case_count': 2, 'success_count': 1, 'success_rate': 0.5, 'reward_sum_mean': 0.5, 'first_done_indices': [None, 225], 'progress_proxy_mean': 0.21065, 'object_movement_mean': 0.170842, 'runtime_case_steps': [272, 226]}`
+- mean/ridge/MLP/adapter progress: `{'mean_action': 0.068504, 'ridge': 0.154496, 'small_mlp': 0.060931, 'smolvla_7d_adapter': -0.055137}`
+- action validity: `{'action_shape': [32, 7], 'expected_action_shape': ['T', 7], 'shape_exactly_7d': True, 'finite': True, 'action_low_high': {'low': [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0], 'high': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], 'min': [-0.451046, -0.205794, -0.466078, -0.035002, -0.07305, -0.255751, -1.161312], 'max': [0.317361, 0.439485, 0.508266, 0.061366, 0.062319, 0.171873, 1.099052]}, 'clip_rate_element': 0.026786, 'clip_rate_step': 0.1875, 'controller_valid_rate_proxy': 0.8125, 'silent_broadcast_or_truncation_detected': False, 'note': 'Proxy validity uses LIBERO HDF5/controller action convention [-1, 1]; env acceptance is reported separately when replay runs.', 'per_dim_clip_rate': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1875], 'dominant_clip_dim': 6, 'gripper_clip_rate': 0.1875}`
+- exact next step: Fix or narrow exact-init replay until expert succeeds on every evaluated replay case.
