@@ -1,0 +1,31 @@
+# SmolVLA 7D Baseline Results
+
+- primary split: `same_task_demo_holdout`
+- global mean-action L2: `1.082453`
+- per-task mean-action L2: `1.082453`
+- previous-action L2: `0.181765`
+- previous-action caveat: `This uses the previous expert action from the held-out HDF5 sequence; it is not treated as the learned-action decision gate.`
+- ridge L2: `0.890603`
+- small MLP L2: `0.518738`
+- frozen/base SmolVLA 7D adapter L2: `0.890604`
+- no-LoRA SmolVLA 7D adapter L2: `0.561651`
+- rank-4 LoRA 7D adapter L2: `0.504675`
+- rank-8 LoRA 7D adapter L2: `0.494959`
+- rank-16 LoRA status: `tested=False, reason=Rank 8 was stable and cheap, but rank 16 was optional; skipped to keep this reproduction bounded.`
+- best LoRA/adapter name: `smolvla_state_proj_lora_rank8_7d_adapter`
+- best LoRA train action L2: `0.28441`
+- best LoRA eval action L2: `0.494959`
+- best LoRA eval translation L2: `0.230133`
+- best LoRA eval rotation L2: `0.064995`
+- best LoRA eval gripper error: `0.365736`
+- best LoRA eval gripper accuracy: `0.88`
+- best LoRA per-dim MAE: `[0.100928, 0.103205, 0.138828, 0.017847, 0.040066, 0.034002, 0.365735]`
+- best LoRA train/eval action-L2 gap: `0.210549`
+- best LoRA loss start/end: `2.011749 -> 0.292504`
+- best LoRA loss decreased: `True`
+- best LoRA loss curve sample: `{'first3': [{'loss': 2.011749, 'pose_loss': 1.003129, 'gripper_mse_loss': 1.00862}, {'loss': 1.778094, 'pose_loss': 0.973024, 'gripper_mse_loss': 0.805069}, {'loss': 1.707829, 'pose_loss': 0.944529, 'gripper_mse_loss': 0.763301}], 'last3': [{'loss': 0.286587, 'pose_loss': 0.176692, 'gripper_mse_loss': 0.109895}, {'loss': 0.295982, 'pose_loss': 0.183416, 'gripper_mse_loss': 0.112566}, {'loss': 0.292504, 'pose_loss': 0.180076, 'gripper_mse_loss': 0.112427}]}`
+- trainable params: `{'small_mlp': 487, 'frozen_base_smolvla_7d_linear_adapter': 6734, 'smolvla_7d_adapter_no_lora': 124039, 'smolvla_state_proj_lora_rank4_7d_adapter': 128007, 'smolvla_state_proj_lora_rank8_7d_adapter': 131975}`
+- VRAM peak MB: `0.0`
+- suite runtime sec: `7.188`
+- total runtime sec: `9.438`
+- optional replay/progress: `{'executed': False, 'eligible': True, 'reason': 'Optional replay/progress was not run in this baseline reproduction because no bounded executable LIBERO environment bridge for the learned 7D adapter is part of this runner.', 'metrics': None}`

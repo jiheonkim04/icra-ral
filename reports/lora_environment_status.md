@@ -102,3 +102,17 @@ The reusable environment now has a baseline-safe LIBERO_7D adapter path:
 - one-sample and one-demo overfit passed.
 
 This is still infrastructure. It should be used to reproduce standard fixed-interface baselines, not to launch a new custom method.
+
+## 7D Baseline Reproduction Update
+
+The bounded fixed-interface baseline reproduction selected `READY_FOR_RA_L_METHOD_ON_SMOLVLA_7D`.
+
+- LoRA ranks tested: `4`, `8`.
+- Best learned variant: rank-8 `state_proj` LoRA + LIBERO_7D adapter.
+- Held-out action L2: `0.494959`.
+- Mean-action action L2: `1.082453`.
+- Best ridge/MLP action L2: `0.518738`.
+- GPU training: no.
+- Downloads/rollouts/OpenVLA-OFT: no.
+
+This remains local action-metric evidence. It authorizes future method planning only with the fixed-interface baseline table preserved.

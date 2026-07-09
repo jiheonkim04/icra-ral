@@ -4,55 +4,61 @@ Date: 2026-07-09 KST
 
 Current decision:
 
-`READY_FOR_REAL_METHOD_AFTER_INTERFACE_FIX`
+`READY_FOR_RA_L_METHOD_ON_SMOLVLA_7D`
 
 ## Immediate Next Action
 
-Run a standard fixed-interface SmolVLA/LIBERO 7D baseline reproduction on an official or standard split.
+Preserve the fixed-interface baseline table, then plan any future RA-L method only with these baselines predeclared.
 
 ## Why
 
-The local 7D interface blocker is cleared for baseline work:
+The standard fixed-interface 7D baseline reproduction passed the required action metric gate:
 
-- LIBERO labels remain `7D`.
-- SmolVLA native `6D` SO100 schema is preserved separately instead of being forced onto LIBERO labels.
-- LIBERO 7D labels use train-split-only normalization.
-- The gripper is learned as output dimension `6`, not hard-coded.
-- One-sample overfit passed.
-- One-demo overfit passed.
-- The fixed 7D adapter beat mean-action and frozen/base on action L2.
+- fixed `LIBERO_7D` labels were used,
+- train-split-only 7D normalization was used,
+- gripper output was learned,
+- no old 6D/SO100 action label path was used,
+- no hard-coded gripper fill was used,
+- rank-8 `state_proj` LoRA + 7D adapter beat mean-action,
+- rank-8 `state_proj` LoRA + 7D adapter beat the best ridge/MLP baseline on held-out action L2.
 
 ## Current Metrics
 
-- one-sample fixed adapter action L2: `0.0`
-- one-demo fixed adapter action L2: `0.002593`
-- previous split mean-action action L2: `0.486561`
-- previous split fixed adapter action L2: `0.353069`
-- larger split mean-action action L2: `1.082453`
-- larger split fixed adapter action L2: `0.573503`
-- larger split best MLP/ridge action L2: `0.518738`
-- frozen/base SmolVLA action L2 from previous 6D run: `1.6029`
+- primary split: `same_task_demo_holdout`
+- train/eval records: `300 / 100`
+- mean-action action L2: `1.082453`
+- ridge action L2: `0.890603`
+- small MLP action L2: `0.518738`
+- frozen/base SmolVLA 7D adapter action L2: `0.890604`
+- no-LoRA SmolVLA 7D adapter action L2: `0.561651`
+- rank-4 LoRA + 7D adapter action L2: `0.504675`
+- rank-8 LoRA + 7D adapter action L2: `0.494959`
+- rank-8 LoRA gripper accuracy: `0.88`
+- rank-8 LoRA train/eval action-L2 gap: about `0.210549`
 
 ## Important Caveat
 
-This was a bounded infrastructure repair, not a full SmolVLA LoRA result. The small state/time MLP baseline is still slightly stronger than the fixed 7D adapter on the larger held-out split, so the next step is baseline reproduction and target-module design, not a new method claim.
+The previous-action persistence diagnostic reached action L2 `0.181765`, but it uses the previous expert action from the held-out HDF5 sequence. Treat it as a diagnostic persistence oracle, not as a closed-loop learned-action baseline unless an executable persistence policy is constructed.
+
+Optional replay/progress was not run because this runner does not include a bounded executable LIBERO bridge for the learned 7D adapter.
 
 ## Allowed Next Work
 
-- Reproduce a standard fixed-interface SmolVLA/LIBERO 7D baseline on an official or standard split.
-- Decide whether the next baseline should use a 7D adapter on frozen SmolVLA features, LoRA plus a 7D adapter, or an action-head replacement with the same train-only normalization.
-- Keep mean-action, ridge/MLP, frozen/base, and standard fixed-interface adapter baselines in the table.
-- Audit target modules only as baseline engineering.
+- Plan a future method only after freezing this baseline table.
+- Keep the rank-8 fixed-interface SmolVLA 7D LoRA/adapter as the standard learned baseline.
+- Include mean-action, ridge/MLP, frozen/base 7D adapter, no-LoRA 7D adapter, and persistence diagnostics in future comparisons.
+- If a replay/progress step is needed, first implement a bounded executable 7D adapter bridge and compare against expert replay and simple executable baselines.
 
 ## Disallowed Next Work
 
 Do not:
 
-- invent a new method,
+- invent a method that lacks this baseline table,
 - continue PatchGuard,
-- start Target-Grounded ActionMap, SafeLoRA, PRISM, ActionMap, or another route,
+- start Target-Grounded ActionMap, SafeLoRA, PRISM, ActionMap, or another route without a fresh method-specific baseline plan,
 - run OpenVLA-OFT,
-- run rollout from this evidence,
+- run a full benchmark,
 - download large assets,
-- make paper claims,
-- treat the local 7D interface fix as a paper contribution.
+- make paper claims from this local action metric gate,
+- use the old broken 6D/SO100 action path,
+- use hard-coded gripper fill.

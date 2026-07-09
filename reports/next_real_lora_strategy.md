@@ -95,3 +95,19 @@ What changed:
 - The fixed 7D adapter beat mean-action and frozen/base on action L2.
 
 This still does not authorize a new method claim. The next valid step is standard fixed-interface SmolVLA/LIBERO 7D baseline reproduction on an official or standard split, with mean-action, ridge/MLP, frozen/base, and fixed-interface adapter baselines preserved.
+
+## Baseline Reproduction Update
+
+The standard fixed-interface 7D baseline reproduction selected `READY_FOR_RA_L_METHOD_ON_SMOLVLA_7D`.
+
+The current baseline table to preserve before any method planning is:
+
+- mean-action action L2: `1.082453`,
+- ridge action L2: `0.890603`,
+- small MLP action L2: `0.518738`,
+- frozen/base SmolVLA 7D adapter action L2: `0.890604`,
+- no-LoRA SmolVLA 7D adapter action L2: `0.561651`,
+- rank-4 `state_proj` LoRA + 7D adapter action L2: `0.504675`,
+- rank-8 `state_proj` LoRA + 7D adapter action L2: `0.494959`.
+
+Future method planning may start only if it keeps these baselines and does not treat the local action metric as rollout or paper evidence.

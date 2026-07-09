@@ -265,3 +265,83 @@ Capacity metrics:
 - small MLP baseline remains slightly stronger than the 128-hidden fixed adapter on larger held-out L2.
 
 Consequence: the action interface is fixed enough for standard fixed-interface baseline reproduction. The next valid step is not a new paper method; it is an official or standard split SmolVLA/LIBERO 7D baseline with mean-action, ridge/MLP, frozen/base, and fixed-interface adapter comparisons preserved.
+
+## 2026-07-09: SmolVLA-LIBERO 7D Standard Baseline Reproduction
+
+Decision: `READY_FOR_RA_L_METHOD_ON_SMOLVLA_7D`
+
+Reason: the fixed-interface rank-8 SmolVLA `state_proj` LoRA + learned LIBERO_7D adapter beat mean-action and the best ridge/MLP baseline on the primary held-out same-task demo split.
+
+Execution boundary:
+
+- experiments happened: yes, bounded fixed-interface baseline reproduction only;
+- training happened: yes, small CPU supervised 7D adapters and LoRA-on-`state_proj` baselines only;
+- loss computed: yes;
+- GPU training happened: no;
+- downloads happened: no;
+- rollout/replay happened: no;
+- OpenVLA-OFT happened: no;
+- full benchmark happened: no;
+- PatchGuard continued: no;
+- new method implementation happened: no;
+- paper claims happened: no;
+- old broken 6D/SO100 action path used: no;
+- hard-coded gripper fill used: no.
+
+Split evidence:
+
+- primary split: `same_task_demo_holdout`;
+- task: `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo`;
+- train/eval records: `300 / 100`;
+- train demos: `demo_0` through `demo_29`;
+- eval demos: `demo_30` through `demo_39`;
+- raw timesteps: `13298`;
+- exact record leakage: no;
+- demo leakage: no;
+- task overlap: yes, by same-task design.
+
+Additional split audits:
+
+- same-task time holdout: `160 / 80`, no exact record leakage, same-demo temporal overlap risk from 50-step chunks;
+- multi-task demo holdout: `150 / 60` across 3 local tasks, no exact record leakage, no demo leakage.
+
+Baseline metrics on primary held-out split:
+
+- global mean-action action L2: `1.082453`;
+- per-task mean-action action L2: `1.082453`;
+- previous-action persistence diagnostic action L2: `0.181765`;
+- ridge action L2: `0.890603`;
+- small MLP action L2: `0.518738`;
+- frozen/base SmolVLA 7D linear adapter action L2: `0.890604`;
+- SmolVLA 7D adapter without LoRA action L2: `0.561651`;
+- SmolVLA `state_proj` LoRA rank 4 + 7D adapter action L2: `0.504675`;
+- SmolVLA `state_proj` LoRA rank 8 + 7D adapter action L2: `0.494959`.
+
+Best learned variant:
+
+- name: `smolvla_state_proj_lora_rank8_7d_adapter`;
+- train action L2: `0.28441`;
+- eval action L2: `0.494959`;
+- eval translation L2: `0.230133`;
+- eval rotation L2: `0.064995`;
+- eval gripper error: `0.365736`;
+- eval gripper accuracy: `0.88`;
+- eval per-dim MAE: `[0.100928, 0.103205, 0.138828, 0.017847, 0.040066, 0.034002, 0.365735]`;
+- trainable params: `131975`;
+- LoRA rank: `8`;
+- VRAM peak: `0.0` MB;
+- runtime sec: `9.438`.
+
+Target-module audit:
+
+- executable fixed-7D target modules: `libero_7d_adapter_head_only`, `frozen_state_proj_plus_7d_adapter`, `state_proj_lora_plus_7d_adapter`;
+- audited but not executed: `action_in_proj`, `action_out_proj`, `action_time_mlp_in`, `action_time_mlp_out`;
+- reason: native action projection modules require `max_action_dim` / native flow actions and would re-enter the old 6D/SO100 action path.
+
+Caveats:
+
+- previous-action persistence is a diagnostic oracle because it uses the previous expert action from the held-out HDF5 sequence;
+- optional replay/progress was eligible by action metrics but not run because no bounded executable LIBERO bridge for the learned 7D adapter is part of this runner;
+- this is not a paper result or benchmark claim.
+
+Consequence: future method planning may start only after preserving this fixed-interface baseline table and predeclaring comparisons against rank-8 fixed-interface SmolVLA 7D LoRA/adapter, mean-action, ridge/MLP, frozen/base 7D adapter, no-LoRA 7D adapter, and persistence diagnostics where appropriate.
