@@ -598,3 +598,40 @@ Decision: `READY_FOR_OFFICIAL_BASELINE_SCALEUP`
 Consequence: official SmolVLA-LIBERO baseline infrastructure is green for bounded scaleup. Official simulator eval remains a separate WSL/Linux/MuJoCo readiness milestone.
 
 Exact next step: create a bounded official baseline scaleup run using the downloaded assets, standard rank-4 LoRA, batch size 1, fixed small step count, runtime under 30 minutes, and full CUDA/device/autocast/action-validity logging.
+
+## 2026-07-09: Official SmolVLA-LIBERO Baseline Scaleup
+
+Decision: `READY_FOR_METHOD_DESIGN_ON_OFFICIAL_SMOLVLA`
+
+- experiments happened: `True`
+- training happened: `True`
+- loss computed: `True`
+- GPU used: `True`
+- CPU fallback: `False`
+- downloads happened: `False`
+- OpenVLA-OFT happened: `False`
+- full benchmark / simulator rollout happened: `False`
+- custom `LIBERO_7D` route used: `False`
+- model path: `C:\assets\checkpoints\smolvla_libero`
+- dataset path: `C:\assets\datasets\lerobot_libero`
+- official split/sample count: train split `0:1693`, `273465` frames
+- schema: 8D state, 7D action, two 256x256 image streams
+- data loading deterministic: `True`
+- labels/action stats loaded: `True`
+- LoRA rank: `4`
+- batch size: `1`
+- requested/completed steps: `100` / `100`
+- trainable params: `185,664`
+- train loss before/after: `0.005532921` / `0.003888785`
+- frozen/base mini-holdout action L2: `0.081655363`
+- rank-4 LoRA mini-holdout action L2: `0.072837438`
+- frozen/base mini-holdout eval loss: `0.008015549`
+- rank-4 LoRA mini-holdout eval loss: `0.020719278`
+- peak CUDA allocation: `1104.506 MB`
+- total runtime: `40.813 sec`
+
+Failed attempt log: the first runner version failed before optimizer step with exit code `31` because `policy.forward()` returned a tuple-shaped loss field. The runner was fixed to extract scalar loss from tuple/list outputs, then the same bounded rank-4 LoRA run completed successfully.
+
+Consequence: official SmolVLA/LeRobot baseline path is stable enough for method-design planning. Future method work must keep frozen/base official SmolVLA and this rank-4 LoRA baseline as anchors, and must retain the mixed signal that LoRA improved action L2 but worsened mini-holdout eval loss.
+
+Exact next step: create the first official-path method-design plan with predeclared metrics, baselines, ablations, split/sample policy, tuning budget, and kill/pivot criteria before running any new method.

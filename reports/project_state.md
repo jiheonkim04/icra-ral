@@ -2,9 +2,9 @@
 
 Date: 2026-07-09 KST
 
-Branch: `codex/official-smolvla-libero-mini-repro`
+Branch: `codex/official-smolvla-libero-baseline-scaleup`
 
-Current decision: `READY_FOR_OFFICIAL_BASELINE_SCALEUP`
+Current decision: `READY_FOR_METHOD_DESIGN_ON_OFFICIAL_SMOLVLA`
 
 ## Current Route
 
@@ -20,11 +20,14 @@ The archived custom SmolVLA 7D adapter route remains stopped. The valid route is
 - LeRobot dataset sample loading works locally with `video_backend='pyav'`.
 - One-sample and five-sample official offline action-prediction smokes worked on CUDA.
 - Tiny standard LoRA smoke worked: rank 4, batch size 1, 5 steps, loss `0.003114 -> 0.003007`, peak VRAM about `1.103 GiB`.
+- Bounded official rank-4 LoRA baseline scaleup worked on CUDA: batch size 1, 100 steps, train loss `0.005532921 -> 0.003888785`, trainable params `185,664`, peak CUDA allocation `1104.506 MB`, total runtime `40.813 sec`.
+- Frozen/base mini-holdout action L2 was `0.081655363`; rank-4 LoRA mini-holdout action L2 was `0.072837438`.
+- Frozen/base mini-holdout eval loss was `0.008015549`; rank-4 LoRA mini-holdout eval loss was worse at `0.020719278`. Keep this mixed signal in future comparisons.
 - Official simulator eval was not run; `lerobot-eval --env.type=libero` still requires WSL/Linux/MuJoCo readiness.
 - OpenVLA-OFT, full benchmark, long training, and custom `LIBERO_7D` adapter route were not used.
 
 ## Conclusion
 
-`READY_FOR_OFFICIAL_BASELINE_SCALEUP`
+`READY_FOR_METHOD_DESIGN_ON_OFFICIAL_SMOLVLA`
 
-Next valid step: create a bounded official baseline scaleup run using the downloaded `smolvla_libero` + `lerobot/libero` assets, rank-4 LoRA, batch size 1, fixed small step count, full CUDA device/memory/autocast logging, and no simulator benchmark until WSL/Linux eval readiness is checked.
+Next valid step: start method design only on the official SmolVLA-LIBERO path, using frozen/base official SmolVLA and the standard rank-4 LoRA baseline as mandatory anchors. Do not use the archived custom `LIBERO_7D` route, OpenVLA-OFT, full benchmark, or simulator rollout until their separate readiness gates are satisfied.

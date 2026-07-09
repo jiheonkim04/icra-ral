@@ -1,0 +1,2084 @@
+{
+  "cpu_fallback_occurred": false,
+  "debug_attempts": [
+    {
+      "exit_code": 31,
+      "reason": "Initial runner version failed before optimizer step because this LeRobot policy.forward loss field was tuple-shaped and the runner only handled scalar/dict loss.",
+      "status": "failed_before_training",
+      "training_performed": false
+    },
+    {
+      "exit_code": 0,
+      "reason": "Loss extraction was fixed to select scalar loss from tuple/list outputs; the same bounded rank-4 LoRA run then completed.",
+      "status": "completed_after_runner_fix",
+      "training_performed": true
+    }
+  ],
+  "dataset_audit": {
+    "action_dim": 7,
+    "action_max_stats": [
+      0.9375,
+      0.9375,
+      0.9375,
+      0.355714,
+      0.375,
+      0.375,
+      1.0
+    ],
+    "action_min_stats": [
+      -0.9375,
+      -0.9375,
+      -0.9375,
+      -0.258214,
+      -0.375,
+      -0.3675,
+      -1.0
+    ],
+    "available_episode_rows": 1693,
+    "available_task_rows": 40,
+    "data_loading_deterministic": true,
+    "determinism_max_abs_diff": {
+      "action": 0.0,
+      "observation.images.image": 0.0,
+      "observation.images.image2": 0.0,
+      "observation.state": 0.0
+    },
+    "episode_0_sample_count": 214,
+    "eval_episode_sample_count": 284,
+    "image_streams": {
+      "observation.images.image": [
+        256,
+        256,
+        3
+      ],
+      "observation.images.image2": [
+        256,
+        256,
+        3
+      ]
+    },
+    "labels_and_action_stats_loaded": true,
+    "metadata_loaded": true,
+    "mini_holdout_episode": 1,
+    "official_eval_split_present": false,
+    "processor_output_devices": {
+      "action": "cuda:0",
+      "action_is_pad": "cuda:0",
+      "actions_id_pad": "cuda:0",
+      "episode_index": "cuda:0",
+      "index": "cuda:0",
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0",
+      "task_index": "cuda:0"
+    },
+    "processor_output_shapes": {
+      "action": [
+        1,
+        50,
+        7
+      ],
+      "action_is_pad": [
+        1,
+        50
+      ],
+      "actions_id_pad": [
+        1,
+        50
+      ],
+      "episode_index": [],
+      "index": [
+        1
+      ],
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ],
+      "task_index": [
+        1
+      ]
+    },
+    "schema_mismatch_signs": {
+      "checkpoint_config_action_shape": [
+        7
+      ],
+      "checkpoint_config_state_shape": [
+        6
+      ],
+      "dataset_action_not_7d": false,
+      "dataset_state_not_8d": false,
+      "processor_action_not_7d": false
+    },
+    "splits": {
+      "train": "0:1693"
+    },
+    "state_dim": 8,
+    "state_max_stats": [
+      0.210318,
+      0.391286,
+      1.366011,
+      3.671426,
+      3.560651,
+      1.38634,
+      0.04234,
+      0.001363
+    ],
+    "state_min_stats": [
+      -0.48282,
+      -0.325505,
+      0.008128,
+      0.352773,
+      -3.64143,
+      -1.842738,
+      -0.001359,
+      -0.042041
+    ],
+    "task_examples": [
+      "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "put the yellow and white mug in the microwave and close it",
+      "turn on the stove and put the moka pot on it",
+      "put both the alphabet soup and the cream cheese box in the basket"
+    ],
+    "total_episodes": 1693,
+    "total_frames": 273465,
+    "total_tasks": 40,
+    "train_episode": 0
+  },
+  "errors": [],
+  "evaluation": {
+    "eval_episode": 1,
+    "eval_indices": [
+      0,
+      10,
+      20,
+      30,
+      40
+    ],
+    "eval_label": "offline_mini_holdout_from_official_train_split_not_simulator_success",
+    "frozen_base": {
+      "action_l2_mean": 0.081655363,
+      "action_range": [
+        -1.008845806,
+        0.180931509
+      ],
+      "eval_loss_before_after_available": true,
+      "eval_loss_mean": 0.008015549,
+      "finite_all": true,
+      "gripper_abs_mean": 0.003841186,
+      "gripper_sign_accuracy": 1.0,
+      "indices": [
+        0,
+        10,
+        20,
+        30,
+        40
+      ],
+      "label": "frozen_base",
+      "rotation_l2_mean": 0.015266377,
+      "rows": [
+        {
+          "action_l2": 0.072133832,
+          "finite": true,
+          "gripper_abs": 0.001978874,
+          "gripper_sign_match": true,
+          "index": 0,
+          "loss": 0.004147329,
+          "pred_preview": [
+            0.031054,
+            -0.022607,
+            0.054457,
+            -0.000265,
+            0.029246,
+            -0.004875,
+            -1.001979
+          ],
+          "rotation_l2": 0.027539462,
+          "target_preview": [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.002143,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.066640466
+        },
+        {
+          "action_l2": 0.14488855,
+          "finite": true,
+          "gripper_abs": 0.008845806,
+          "gripper_sign_match": true,
+          "index": 10,
+          "loss": 0.003440443,
+          "pred_preview": [
+            0.180932,
+            -0.315111,
+            -0.010047,
+            0.026824,
+            0.05983,
+            4.1e-05,
+            -1.008846
+          ],
+          "rotation_l2": 0.011542803,
+          "target_preview": [
+            0.152679,
+            -0.174107,
+            -0.0,
+            0.019286,
+            0.068571,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.144156873
+        },
+        {
+          "action_l2": 0.056699503,
+          "finite": true,
+          "gripper_abs": 0.000960588,
+          "gripper_sign_match": true,
+          "index": 20,
+          "loss": 0.003420464,
+          "pred_preview": [
+            0.041178,
+            -0.446062,
+            -0.218641,
+            0.034061,
+            0.018743,
+            0.006662,
+            -1.000961
+          ],
+          "rotation_l2": 0.008251509,
+          "target_preview": [
+            0.0,
+            -0.423214,
+            -0.249107,
+            0.03,
+            0.021429,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.056087643
+        },
+        {
+          "action_l2": 0.067522354,
+          "finite": true,
+          "gripper_abs": 0.002055407,
+          "gripper_sign_match": true,
+          "index": 30,
+          "loss": 0.008717891,
+          "pred_preview": [
+            -0.169306,
+            -0.004039,
+            -0.648092,
+            0.000595,
+            -0.007723,
+            -1.5e-05,
+            -0.997945
+          ],
+          "rotation_l2": 0.007746359,
+          "target_preview": [
+            -0.144643,
+            0.032143,
+            -0.597321,
+            0.0,
+            0.0,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.06704504
+        },
+        {
+          "action_l2": 0.067032576,
+          "finite": true,
+          "gripper_abs": 0.005365252,
+          "gripper_sign_match": true,
+          "index": 40,
+          "loss": 0.020351617,
+          "pred_preview": [
+            -0.426004,
+            -0.016814,
+            -0.358162,
+            -0.00325,
+            -0.010933,
+            -0.008034,
+            -0.994635
+          ],
+          "rotation_l2": 0.021251755,
+          "target_preview": [
+            -0.444643,
+            0.0,
+            -0.3,
+            -0.0225,
+            -0.015,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.063347794
+        }
+      ],
+      "sample_count": 5,
+      "translation_l2_mean": 0.079455563
+    },
+    "lora_after_training": {
+      "action_l2_mean": 0.072837438,
+      "action_range": [
+        -1.007751584,
+        0.144551635
+      ],
+      "eval_loss_before_after_available": true,
+      "eval_loss_mean": 0.020719278,
+      "finite_all": true,
+      "gripper_abs_mean": 0.004226804,
+      "gripper_sign_accuracy": 1.0,
+      "indices": [
+        0,
+        10,
+        20,
+        30,
+        40
+      ],
+      "label": "lora_after_training",
+      "rotation_l2_mean": 0.011711556,
+      "rows": [
+        {
+          "action_l2": 0.066427305,
+          "finite": true,
+          "gripper_abs": 6.3717e-05,
+          "gripper_sign_match": true,
+          "index": 0,
+          "loss": 0.010114597,
+          "pred_preview": [
+            0.012973,
+            0.018703,
+            0.05958,
+            0.000675,
+            0.019345,
+            -0.006952,
+            -0.999936
+          ],
+          "rotation_l2": 0.018566001,
+          "target_preview": [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.002143,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.06377998
+        },
+        {
+          "action_l2": 0.136177465,
+          "finite": true,
+          "gripper_abs": 0.001982212,
+          "gripper_sign_match": true,
+          "index": 10,
+          "loss": 0.004615496,
+          "pred_preview": [
+            0.144552,
+            -0.30597,
+            0.029152,
+            0.020283,
+            0.053853,
+            -0.004359,
+            -1.001982
+          ],
+          "rotation_l2": 0.015383053,
+          "target_preview": [
+            0.152679,
+            -0.174107,
+            -0.0,
+            0.019286,
+            0.068571,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.135291293
+        },
+        {
+          "action_l2": 0.05751884,
+          "finite": true,
+          "gripper_abs": 0.007751584,
+          "gripper_sign_match": true,
+          "index": 20,
+          "loss": 0.078200154,
+          "pred_preview": [
+            0.034521,
+            -0.442035,
+            -0.208321,
+            0.032884,
+            0.025977,
+            0.003137,
+            -1.007752
+          ],
+          "rotation_l2": 0.006232927,
+          "target_preview": [
+            0.0,
+            -0.423214,
+            -0.249107,
+            0.03,
+            0.021429,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.056652278
+        },
+        {
+          "action_l2": 0.058647659,
+          "finite": true,
+          "gripper_abs": 0.006161451,
+          "gripper_sign_match": true,
+          "index": 30,
+          "loss": 0.004750209,
+          "pred_preview": [
+            -0.169313,
+            -0.010147,
+            -0.62837,
+            -0.000373,
+            -0.000189,
+            0.006351,
+            -1.006161
+          ],
+          "rotation_l2": 0.006364743,
+          "target_preview": [
+            -0.144643,
+            0.032143,
+            -0.597321,
+            0.0,
+            0.0,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.057974774
+        },
+        {
+          "action_l2": 0.045415919,
+          "finite": true,
+          "gripper_abs": 0.005175054,
+          "gripper_sign_match": true,
+          "index": 40,
+          "loss": 0.005915934,
+          "pred_preview": [
+            -0.468787,
+            0.014029,
+            -0.333344,
+            -0.010541,
+            -0.01603,
+            0.00043,
+            -0.994825
+          ],
+          "rotation_l2": 0.012011059,
+          "target_preview": [
+            -0.444643,
+            0.0,
+            -0.3,
+            -0.0225,
+            -0.015,
+            -0.0,
+            -1.0
+          ],
+          "translation_l2": 0.043492056
+        }
+      ],
+      "sample_count": 5,
+      "translation_l2_mean": 0.071438076
+    }
+  },
+  "exact_next_step": "Start method design only on the official SmolVLA-LIBERO path, using this rank-4 baseline as the minimum frozen/base and LoRA comparison anchor.",
+  "final_decision": "READY_FOR_METHOD_DESIGN_ON_OFFICIAL_SMOLVLA",
+  "model": {
+    "config_device": "cuda",
+    "frozen_base_parameter_summary": {
+      "first_parameter_device": "cuda:0",
+      "first_parameter_dtype": "torch.bfloat16",
+      "total_params": 450046176,
+      "trainable_params": 402737376,
+      "trainable_percent": 89.488012
+    },
+    "load_vlm_weights": true,
+    "lora_parameter_summary": {
+      "first_parameter_device": "cuda:0",
+      "first_parameter_dtype": "torch.bfloat16",
+      "total_params": 450231840,
+      "trainable_params": 185664,
+      "trainable_percent": 0.041237
+    },
+    "vlm_model_name": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+  },
+  "paths": {
+    "checkpoint": "C:\\assets\\checkpoints\\smolvla_libero",
+    "dataset": "C:\\assets\\datasets\\lerobot_libero",
+    "hf_home": "C:\\assets\\hf_home",
+    "vlm_root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+  },
+  "policy": {
+    "benchmark_rollouts_performed": false,
+    "custom_libero_7d_route_used": false,
+    "downloads_performed": false,
+    "installs_performed": false,
+    "method_variant_run": false,
+    "openvla_oft_executed": false,
+    "paper_claims_made": false,
+    "rollouts_performed": false,
+    "training_performed": true
+  },
+  "risk_assessment": {
+    "batch_size": 1,
+    "decision": "proceed if gates, CUDA, paths, and offline assets are present",
+    "expected_runtime_minutes": "under 30 preferred, 45 hard cap",
+    "expected_vram_mb": "under 14336",
+    "new_download_expected_bytes": 0,
+    "rank": 4,
+    "requested_steps": 100,
+    "source": "already downloaded official Hugging Face assets only",
+    "target_paths": [
+      "C:\\assets\\checkpoints\\smolvla_libero",
+      "C:\\assets\\datasets\\lerobot_libero"
+    ],
+    "task": "bounded official SmolVLA-LIBERO rank-4 LoRA baseline scaleup"
+  },
+  "runtime": {
+    "cuda": {
+      "allocated_mb": 906.523,
+      "available": true,
+      "device_name": "NVIDIA GeForce RTX 5080",
+      "max_allocated_mb": 1104.506
+    },
+    "rss_final_mb": 2862.723,
+    "total_elapsed_sec": 40.813
+  },
+  "schema_mismatch": false,
+  "status": "completed",
+  "too_heavy_local": false,
+  "training": {
+    "autocast_final": {
+      "cpu": false,
+      "cuda": false
+    },
+    "autocast_initial": {
+      "cpu": false,
+      "cuda": false
+    },
+    "batch_size": 1,
+    "completed_steps": 100,
+    "gradient_curve": [
+      {
+        "grad_norm": 0.021273851,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004055162,
+        "nonzero_grad_tensors": 37,
+        "step": 0,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.017678927,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006141129,
+        "nonzero_grad_tensors": 74,
+        "step": 1,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.009411903,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.002368169,
+        "nonzero_grad_tensors": 74,
+        "step": 2,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.029684165,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004766265,
+        "nonzero_grad_tensors": 74,
+        "step": 3,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.012885435,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003072669,
+        "nonzero_grad_tensors": 74,
+        "step": 4,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.047562431,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.013955405,
+        "nonzero_grad_tensors": 74,
+        "step": 5,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.025314977,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006513778,
+        "nonzero_grad_tensors": 74,
+        "step": 6,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.011634337,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003520062,
+        "nonzero_grad_tensors": 74,
+        "step": 7,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013731839,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003774934,
+        "nonzero_grad_tensors": 74,
+        "step": 8,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.034425478,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.009524899,
+        "nonzero_grad_tensors": 74,
+        "step": 9,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.03103981,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004917642,
+        "nonzero_grad_tensors": 74,
+        "step": 10,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.019536371,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007966724,
+        "nonzero_grad_tensors": 74,
+        "step": 11,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.010822892,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004219518,
+        "nonzero_grad_tensors": 74,
+        "step": 12,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013362739,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004159049,
+        "nonzero_grad_tensors": 74,
+        "step": 13,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.012706537,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005161642,
+        "nonzero_grad_tensors": 74,
+        "step": 14,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.051929451,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.014491453,
+        "nonzero_grad_tensors": 74,
+        "step": 15,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.031042693,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004851494,
+        "nonzero_grad_tensors": 74,
+        "step": 16,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.059737711,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.011442691,
+        "nonzero_grad_tensors": 74,
+        "step": 17,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.038129392,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008141059,
+        "nonzero_grad_tensors": 74,
+        "step": 18,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.071279439,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.020907398,
+        "nonzero_grad_tensors": 74,
+        "step": 19,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.021821689,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00433134,
+        "nonzero_grad_tensors": 74,
+        "step": 20,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.024621425,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008912983,
+        "nonzero_grad_tensors": 74,
+        "step": 21,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.014938263,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007017525,
+        "nonzero_grad_tensors": 74,
+        "step": 22,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.015418613,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005463422,
+        "nonzero_grad_tensors": 74,
+        "step": 23,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.050674247,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.012931166,
+        "nonzero_grad_tensors": 74,
+        "step": 24,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.019536746,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005206449,
+        "nonzero_grad_tensors": 74,
+        "step": 25,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.019564575,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006558387,
+        "nonzero_grad_tensors": 74,
+        "step": 26,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.173108801,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.037222169,
+        "nonzero_grad_tensors": 74,
+        "step": 27,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.04986831,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.010303897,
+        "nonzero_grad_tensors": 74,
+        "step": 28,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.019771714,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006202789,
+        "nonzero_grad_tensors": 74,
+        "step": 29,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.014795631,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00477758,
+        "nonzero_grad_tensors": 74,
+        "step": 30,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.030893668,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007121219,
+        "nonzero_grad_tensors": 74,
+        "step": 31,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.011860912,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004830293,
+        "nonzero_grad_tensors": 74,
+        "step": 32,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.011441255,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00365495,
+        "nonzero_grad_tensors": 74,
+        "step": 33,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013001407,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004944479,
+        "nonzero_grad_tensors": 74,
+        "step": 34,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.020211948,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00697518,
+        "nonzero_grad_tensors": 74,
+        "step": 35,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.020649594,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005497865,
+        "nonzero_grad_tensors": 74,
+        "step": 36,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.034429512,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006810474,
+        "nonzero_grad_tensors": 74,
+        "step": 37,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.279678346,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.026422014,
+        "nonzero_grad_tensors": 74,
+        "step": 38,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.016532042,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00367614,
+        "nonzero_grad_tensors": 74,
+        "step": 39,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.097471059,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.011207839,
+        "nonzero_grad_tensors": 74,
+        "step": 40,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.020156751,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005130399,
+        "nonzero_grad_tensors": 74,
+        "step": 41,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.035972942,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007677019,
+        "nonzero_grad_tensors": 74,
+        "step": 42,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.019261336,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005287051,
+        "nonzero_grad_tensors": 74,
+        "step": 43,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.015357447,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005398836,
+        "nonzero_grad_tensors": 74,
+        "step": 44,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.022175182,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006356834,
+        "nonzero_grad_tensors": 74,
+        "step": 45,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.058921907,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.016888425,
+        "nonzero_grad_tensors": 74,
+        "step": 46,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.108435682,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.023267029,
+        "nonzero_grad_tensors": 74,
+        "step": 47,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.061030682,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.014232125,
+        "nonzero_grad_tensors": 74,
+        "step": 48,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.028343825,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005431231,
+        "nonzero_grad_tensors": 74,
+        "step": 49,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.027669269,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007678438,
+        "nonzero_grad_tensors": 74,
+        "step": 50,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.02245026,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006657082,
+        "nonzero_grad_tensors": 74,
+        "step": 51,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.011920944,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005185607,
+        "nonzero_grad_tensors": 74,
+        "step": 52,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.012583558,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004669403,
+        "nonzero_grad_tensors": 74,
+        "step": 53,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013412787,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004955946,
+        "nonzero_grad_tensors": 74,
+        "step": 54,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.042090934,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008401753,
+        "nonzero_grad_tensors": 74,
+        "step": 55,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.037798988,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.010254632,
+        "nonzero_grad_tensors": 74,
+        "step": 56,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.039609703,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007162279,
+        "nonzero_grad_tensors": 74,
+        "step": 57,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.032881356,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.009818867,
+        "nonzero_grad_tensors": 74,
+        "step": 58,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.014243247,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00422178,
+        "nonzero_grad_tensors": 74,
+        "step": 59,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.027068766,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005053915,
+        "nonzero_grad_tensors": 74,
+        "step": 60,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.019783589,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004938693,
+        "nonzero_grad_tensors": 74,
+        "step": 61,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.012555295,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005864535,
+        "nonzero_grad_tensors": 74,
+        "step": 62,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.010523697,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.002486794,
+        "nonzero_grad_tensors": 74,
+        "step": 63,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.020831174,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008271315,
+        "nonzero_grad_tensors": 74,
+        "step": 64,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.034434291,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008798066,
+        "nonzero_grad_tensors": 74,
+        "step": 65,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.17386685,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.048677899,
+        "nonzero_grad_tensors": 74,
+        "step": 66,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.009147079,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.002402682,
+        "nonzero_grad_tensors": 74,
+        "step": 67,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.011805582,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004218505,
+        "nonzero_grad_tensors": 74,
+        "step": 68,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.016377491,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003396564,
+        "nonzero_grad_tensors": 74,
+        "step": 69,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.033434187,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006333626,
+        "nonzero_grad_tensors": 74,
+        "step": 70,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.025931307,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00840815,
+        "nonzero_grad_tensors": 74,
+        "step": 71,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.01596742,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004834146,
+        "nonzero_grad_tensors": 74,
+        "step": 72,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.037651391,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007335578,
+        "nonzero_grad_tensors": 74,
+        "step": 73,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.018356991,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005820198,
+        "nonzero_grad_tensors": 74,
+        "step": 74,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.018038057,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004888007,
+        "nonzero_grad_tensors": 74,
+        "step": 75,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.159918228,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.042990848,
+        "nonzero_grad_tensors": 74,
+        "step": 76,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.022189014,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003916055,
+        "nonzero_grad_tensors": 74,
+        "step": 77,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013477181,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004601058,
+        "nonzero_grad_tensors": 74,
+        "step": 78,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.015080831,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005908248,
+        "nonzero_grad_tensors": 74,
+        "step": 79,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.00989573,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.002485431,
+        "nonzero_grad_tensors": 74,
+        "step": 80,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013993445,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004742144,
+        "nonzero_grad_tensors": 74,
+        "step": 81,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013288216,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004488904,
+        "nonzero_grad_tensors": 74,
+        "step": 82,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.015322414,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005304864,
+        "nonzero_grad_tensors": 74,
+        "step": 83,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.015111106,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008084093,
+        "nonzero_grad_tensors": 74,
+        "step": 84,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.052210598,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.015668754,
+        "nonzero_grad_tensors": 74,
+        "step": 85,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.017735437,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004129787,
+        "nonzero_grad_tensors": 74,
+        "step": 86,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.040560914,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.008758805,
+        "nonzero_grad_tensors": 74,
+        "step": 87,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.01295697,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003731776,
+        "nonzero_grad_tensors": 74,
+        "step": 88,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.05200546,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.009726133,
+        "nonzero_grad_tensors": 74,
+        "step": 89,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.010402539,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003153464,
+        "nonzero_grad_tensors": 74,
+        "step": 90,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.017109338,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004537242,
+        "nonzero_grad_tensors": 74,
+        "step": 91,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.009912316,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003587861,
+        "nonzero_grad_tensors": 74,
+        "step": 92,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.016740853,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006457705,
+        "nonzero_grad_tensors": 74,
+        "step": 93,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.071601902,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.022619555,
+        "nonzero_grad_tensors": 74,
+        "step": 94,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.052633318,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.016546315,
+        "nonzero_grad_tensors": 74,
+        "step": 95,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.013320689,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005813774,
+        "nonzero_grad_tensors": 74,
+        "step": 96,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.033933473,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.007774129,
+        "nonzero_grad_tensors": 74,
+        "step": 97,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.011471751,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.003063813,
+        "nonzero_grad_tensors": 74,
+        "step": 98,
+        "trainable_tensors": 74
+      },
+      {
+        "grad_norm": 0.015808909,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.004599372,
+        "nonzero_grad_tensors": 74,
+        "step": 99,
+        "trainable_tensors": 74
+      }
+    ],
+    "input_tensor_devices_first_batch": {
+      "action": "cuda:0",
+      "action_is_pad": "cuda:0",
+      "actions_id_pad": "cuda:0",
+      "episode_index": "cuda:0",
+      "index": "cuda:0",
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0",
+      "task_index": "cuda:0"
+    },
+    "input_tensor_shapes_first_batch": {
+      "action": [
+        1,
+        50,
+        7
+      ],
+      "action_is_pad": [
+        1,
+        50
+      ],
+      "actions_id_pad": [
+        1,
+        50
+      ],
+      "episode_index": [],
+      "index": [
+        1
+      ],
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ],
+      "task_index": [
+        1
+      ]
+    },
+    "last_grad_norm": 0.015808909,
+    "last_nonzero_grad_tensors": 74,
+    "learning_rate": 0.0001,
+    "lora_rank": 4,
+    "loss_after": 0.003888785,
+    "loss_before": 0.005532921,
+    "loss_curve": [
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1093.396,
+        "loss": 0.005532921,
+        "step": 0
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002958362,
+        "step": 1
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001736019,
+        "step": 2
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005124285,
+        "step": 3
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002571464,
+        "step": 4
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004261109,
+        "step": 5
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00322203,
+        "step": 6
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002818459,
+        "step": 7
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00316371,
+        "step": 8
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.008100658,
+        "step": 9
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005255027,
+        "step": 10
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005045625,
+        "step": 11
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001793143,
+        "step": 12
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00199781,
+        "step": 13
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001834057,
+        "step": 14
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.011337945,
+        "step": 15
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.010035131,
+        "step": 16
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.014721739,
+        "step": 17
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005291726,
+        "step": 18
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.030186348,
+        "step": 19
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004600575,
+        "step": 20
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004142125,
+        "step": 21
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002142062,
+        "step": 22
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001879839,
+        "step": 23
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.010842709,
+        "step": 24
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00267261,
+        "step": 25
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002553835,
+        "step": 26
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.111225873,
+        "step": 27
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005373512,
+        "step": 28
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003656742,
+        "step": 29
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002348306,
+        "step": 30
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005639969,
+        "step": 31
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001704731,
+        "step": 32
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001502565,
+        "step": 33
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001763268,
+        "step": 34
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002661445,
+        "step": 35
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.0025267,
+        "step": 36
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.010500989,
+        "step": 37
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.203002125,
+        "step": 38
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004767957,
+        "step": 39
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.006696749,
+        "step": 40
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003558215,
+        "step": 41
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.009614041,
+        "step": 42
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004406719,
+        "step": 43
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002063905,
+        "step": 44
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005936672,
+        "step": 45
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003655101,
+        "step": 46
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004787812,
+        "step": 47
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005923819,
+        "step": 48
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003735804,
+        "step": 49
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.006244928,
+        "step": 50
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002688412,
+        "step": 51
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001658623,
+        "step": 52
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001681016,
+        "step": 53
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00187658,
+        "step": 54
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.011261486,
+        "step": 55
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003187258,
+        "step": 56
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005496788,
+        "step": 57
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005170161,
+        "step": 58
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003503393,
+        "step": 59
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.006180773,
+        "step": 60
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003204716,
+        "step": 61
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001676076,
+        "step": 62
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001699874,
+        "step": 63
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00306434,
+        "step": 64
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.006838354,
+        "step": 65
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005608766,
+        "step": 66
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002480976,
+        "step": 67
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003302525,
+        "step": 68
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004319395,
+        "step": 69
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.005876616,
+        "step": 70
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.00385016,
+        "step": 71
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001883509,
+        "step": 72
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.007325748,
+        "step": 73
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002212403,
+        "step": 74
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002401372,
+        "step": 75
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.022946598,
+        "step": 76
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004051487,
+        "step": 77
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002866623,
+        "step": 78
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.0031864,
+        "step": 79
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002115437,
+        "step": 80
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001634824,
+        "step": 81
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001668046,
+        "step": 82
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001775675,
+        "step": 83
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001938851,
+        "step": 84
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004749469,
+        "step": 85
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002407859,
+        "step": 86
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.004024602,
+        "step": 87
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002849598,
+        "step": 88
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.010150634,
+        "step": 89
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001976755,
+        "step": 90
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002526471,
+        "step": 91
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001531947,
+        "step": 92
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.001832423,
+        "step": 93
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.027528681,
+        "step": 94
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.017334959,
+        "step": 95
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002900411,
+        "step": 96
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003526541,
+        "step": 97
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.002682525,
+        "step": 98
+      },
+      {
+        "cuda_allocated_mb": 906.523,
+        "cuda_max_allocated_mb": 1104.506,
+        "loss": 0.003888785,
+        "step": 99
+      }
+    ],
+    "loss_decrease_fraction": 0.297155155,
+    "optimizer": "AdamW",
+    "parameter_device": "cuda:0",
+    "parameter_dtype": "torch.bfloat16",
+    "requested_steps": 100,
+    "steps_per_sec": 5.531585,
+    "total_params": 450231840,
+    "train_episode": 0,
+    "train_indices": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "trainable_params": 185664,
+    "trainable_percent": 0.041237,
+    "training_completed": true,
+    "training_elapsed_sec": 18.078
+  },
+  "training_unstable": false
+}
