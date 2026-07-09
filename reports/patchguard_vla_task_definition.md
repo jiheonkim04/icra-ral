@@ -54,5 +54,5 @@ PatchGuard-VLA remains novel only if it shows all of the following:
 
 ## Current Boundary
 
-This run is STATE 0-1 only. It may run bounded CPU offline SmolVLA inference on local assets. It may not train, run a full benchmark, download large assets, execute OpenVLA-OFT, optimize a full adversarial patch, or make paper claims.
+This sequence is STATE 0-1B only. It may run bounded offline SmolVLA inference on local assets and, after explicit STATE 1B gates, a tiny batch-size-1 rank-4 LoRA smoke on one local LIBERO HDF5 sample. It may not run full research training, run a full benchmark, download large assets, execute OpenVLA-OFT, optimize a full adversarial patch, or make paper claims.
 

@@ -30,6 +30,8 @@ STATE 1 treats cutout as baseline-dominating when:
 
 These thresholds are feasibility thresholds only, not paper metrics.
 
+STATE 1B treats the prior adapter-tooling `TOO_HEAVY_LOCAL` as an installable environment blocker. If `peft` and `bitsandbytes` install and their CUDA smokes pass, the route is no longer blocked by adapter availability.
+
 ## Decision Mapping
 
 | Condition | Exact decision |
@@ -41,7 +43,18 @@ These thresholds are feasibility thresholds only, not paper metrics.
 | attack/signal exists but real adapter path is not locally feasible under constraints | `TOO_HEAVY_LOCAL` |
 | all continue criteria pass | `READY_FOR_PATCHGUARD_LORA_SMOKE` |
 
+## STATE 1B Decision Mapping
+
+| Condition | Exact decision |
+| --- | --- |
+| PEFT cannot be installed/imported after the approved minimal install | `ENV_BLOCKED_INSTALL_FAILED` |
+| bitsandbytes/QLoRA is blocked but ordinary PEFT LoRA works | `QLORA_BLOCKED_BUT_LORA_POSSIBLE` |
+| no trainable LoRA adapter path can be attached to local SmolVLA | `KILL_NO_ADAPTER_PATH` |
+| bounded rank-4, batch-size-1 smoke exceeds the local VRAM/runtime budget | `TOO_HEAVY_LOCAL` |
+| PatchGuard LoRA does not beat both generic adversarial LoRA and cutout/random-erasing | `KILL_BASELINE_DOMINATED` |
+| environment, adapter injection, tiny training, and baseline gates pass | `READY_FOR_PATCHGUARD_LORA_STATE2` |
+
 ## READY Means
 
-`READY_FOR_PATCHGUARD_LORA_SMOKE` authorizes only a future separately approved adapter smoke. It does not authorize STATE 2, full training, full benchmark, OpenVLA-OFT, or paper claims.
+`READY_FOR_PATCHGUARD_LORA_SMOKE` authorizes only a future separately approved adapter smoke. `READY_FOR_PATCHGUARD_LORA_STATE2` authorizes only a future explicitly approved STATE 2 pilot. Neither authorizes full training, full benchmark, OpenVLA-OFT, or paper claims.
 

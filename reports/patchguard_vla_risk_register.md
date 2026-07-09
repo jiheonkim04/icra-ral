@@ -10,7 +10,8 @@ Date: 2026-07-09 KST
 | No segmentation or arm mask is available | Medium | HDF5 observation keys and simulator rendering support | Use EEF/proprio state as first non-leaking signal; treat arm mask as future work unless verified. |
 | Kinematic signal leaks eval labels or privileged state | High | state adapter metadata and source keys | Use only observation.state/EEF/joint/gripper fields available at inference. |
 | PatchGuard collapses to generic augmentation | High | comparison against cutout and visual augmentation proxy | Require improvement over generic baselines before any adapter smoke. |
-| Real LoRA/adapter path is unavailable locally | High | `peft`/`bitsandbytes` availability and LeRobot adapter wiring | Return `TOO_HEAVY_LOCAL` unless tooling is approved or moved to WSL/Linux/cloud. |
+| Real LoRA/adapter path is unavailable locally | High | `peft`/`bitsandbytes` availability and LeRobot adapter wiring | Resolved for STATE 1B: PEFT and bitsandbytes installed, CUDA smokes passed, and local SmolVLA LoRA injection worked. |
+| PatchGuard tiny LoRA is dominated by simple baselines | High | STATE 1B generic adversarial LoRA and cutout/random-erasing metrics | Return `KILL_BASELINE_DOMINATED`; do not proceed to STATE 2 unless a redesigned PatchGuard objective gets a separately approved rerun. |
 | RAM pressure during local SmolVLA CPU inference | Medium | runtime RSS in state1 JSON | Keep policy calls bounded to 15 and use CPU-only execution. |
 | Accidental training or rollout | High | runner gates and policy flags | Refuse training/rollout/OpenVLA-OFT/download gates in the runner. |
 | Overclaiming offline proxy evidence | High | final report language | Label all outputs as diagnostic only; no benchmark, SOTA, or paper-grade claims. |

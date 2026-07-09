@@ -96,3 +96,48 @@ Continue only if:
 - random erasing/cutout does not trivially solve it,
 - real LoRA/adapter training path is feasible.
 
+## STATE 1B: Environment Unblock and Tiny Adapter Feasibility Gate
+
+STATE 1B reclassifies the prior STATE 1 `TOO_HEAVY_LOCAL` as an installable environment blocker, not a method kill. It may install only missing or incompatible adapter/runtime packages needed for the gate: `peft`, `accelerate`, `bitsandbytes`, and `transformers`.
+
+Runner:
+
+```powershell
+$env:ALLOW_HEAVY_IMPORT="1"
+$env:ALLOW_PATCHGUARD_VLA_STATE1B="1"
+$env:ALLOW_PATCHGUARD_TINY_LORA_TRAINING="1"
+powershell -ExecutionPolicy Bypass -File scripts\231_patchguard_vla_state1b_probe.ps1 -MaxSteps 10 -DependencyInstallHappened
+Remove-Item Env:\ALLOW_HEAVY_IMPORT -ErrorAction SilentlyContinue
+Remove-Item Env:\ALLOW_PATCHGUARD_VLA_STATE1B -ErrorAction SilentlyContinue
+Remove-Item Env:\ALLOW_PATCHGUARD_TINY_LORA_TRAINING -ErrorAction SilentlyContinue
+```
+
+Allowed in STATE 1B:
+
+- Python, PyTorch, CUDA, GPU, `transformers`, `accelerate`, `peft`, and `bitsandbytes` checks,
+- bitsandbytes CUDA 4-bit and 8-bit kernel smokes,
+- PEFT dummy LoRA smoke,
+- local SmolVLA LoRA injection dry run,
+- one local LIBERO HDF5 sample,
+- batch size 1, rank 4, at most 10-30 tiny optimization steps,
+- clean, patched, cutout/random-erasing, generic adversarial LoRA, and PatchGuard kinematic-consistency LoRA metrics.
+
+Forbidden in STATE 1B:
+
+- full research training,
+- full benchmark or simulator rollout,
+- large model or dataset downloads,
+- OpenVLA-OFT,
+- paper-grade claims.
+
+The STATE 1B decision must be exactly one of:
+
+- `READY_FOR_PATCHGUARD_LORA_STATE2`
+- `QLORA_BLOCKED_BUT_LORA_POSSIBLE`
+- `ENV_BLOCKED_INSTALL_FAILED`
+- `KILL_NO_ADAPTER_PATH`
+- `KILL_BASELINE_DOMINATED`
+- `TOO_HEAVY_LOCAL`
+
+Current STATE 1B result: `KILL_BASELINE_DOMINATED`. PEFT, bitsandbytes, CUDA, local SmolVLA LoRA injection, and tiny training all worked, but PatchGuard did not beat both generic adversarial augmentation and cutout/random-erasing in the tiny smoke.
+
