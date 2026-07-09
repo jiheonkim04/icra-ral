@@ -4,43 +4,46 @@ Date: 2026-07-10 KST
 
 Target branch: `main`
 
-Implementation branch: `codex/official-smolvla-stable-artifact-eval`
+Implementation branch: `codex/official-smolvla-lora-seed-repro`
 
-Current decision: `NEEDS_LONGER_LORA_BASELINE_REPRO`
+Current decision: `STATIC_MERGE_ROBUST_BASELINE_READY`
 
 ## Current Route
 
 The archived custom SmolVLA 7D adapter route remains stopped. The valid route is official SmolVLA/LeRobot reproduction first, using official preprocessing, normalization, action conventions, dataset format, and evaluation stack.
 
-This state update executed the fixed official split/metric protocol. It did not design a new method, revive FCAR, tune FCAR, run simulator rollout, run a full benchmark, run OpenVLA-OFT, download new assets, use the old custom `LIBERO_7D` route, or make paper claims.
+This state update executed official rank-4 LoRA seed reproduction under the fixed stable protocol. It did not design a new method, revive FCAR, tune FCAR, train a routing model, run simulator rollout, run a full benchmark, run OpenVLA-OFT, download new assets, use the old custom `LIBERO_7D` route, or make paper claims.
 
-## Stable Artifact Status
+## Fixed Protocol
 
-- Stable prediction artifact generated: `reports/official_smolvla_stable_prediction_artifact.json`
-- Artifact size: `7,219,361` bytes
-- Artifact records: `2800`
-- Fixed manifest: `reports/official_smolvla_split_manifest.json`
-- Metric protocol: `reports/official_smolvla_metric_protocol.md`
-- Result reports:
-  - `reports/official_smolvla_stable_prediction_artifact_status.md`
-  - `reports/official_smolvla_stable_artifact_eval_result.md`
-  - `reports/official_smolvla_stable_artifact_eval_result.json`
-  - `reports/official_smolvla_stable_baseline_table.md`
-  - `reports/official_smolvla_stable_artifact_decision.md`
-
-Manifest scope:
-
-- tasks: `40`
+- split manifest: `reports/official_smolvla_split_manifest.json`
+- metric protocol: `reports/official_smolvla_metric_protocol.md`
+- stable base artifact: `reports/official_smolvla_stable_prediction_artifact.json`
 - train: `80` episodes / `1200` frames
 - validation: `40` episodes / `400` frames
 - test: `80` episodes / `1200` frames
-- train/validation/test episode leakage checks: passed
+- tasks: `40`
+- leakage checks: passed
+
+## Seed Reproduction Status
+
+- seeds run: `11`, `22`, `33`
+- per-seed artifacts:
+  - `reports/official_smolvla_lora_seed_11_prediction_artifact.json`
+  - `reports/official_smolvla_lora_seed_22_prediction_artifact.json`
+  - `reports/official_smolvla_lora_seed_33_prediction_artifact.json`
+- result reports:
+  - `reports/official_smolvla_lora_seed_repro_plan.md`
+  - `reports/official_smolvla_lora_seed_repro_result.md`
+  - `reports/official_smolvla_lora_seed_repro_result.json`
+  - `reports/official_smolvla_lora_seed_repro_table.md`
+  - `reports/official_smolvla_lora_seed_repro_decision.md`
 
 ## Execution Boundary
 
 - experiments happened: `True`
 - training happened: `True`
-- trained components: standard rank-4 LoRA baseline only
+- trained components: standard rank-4 LoRA baseline seeds only
 - SmolVLA backbone trained: `False`
 - GPU used: `True`, RTX 5080 CUDA
 - downloads happened: `False`
@@ -51,64 +54,49 @@ Manifest scope:
 - new method implemented: `False`
 - FCAR tuned: `False`
 - paper claims made: `False`
+- CPU fallback: `False`
 
 CUDA/device audit:
 
 - model parameter device: `cuda:0`
 - input tensor devices: `cuda:0`
-- model parameter dtype: `torch.bfloat16`
-- peak CUDA allocation: `1104.506 MB`
+- peak CUDA allocation: about `1105.569 MB`
 - autocast cpu/cuda: `False` / `False`
-- CPU fallback: `False`
 
-Rank-4 LoRA regeneration:
-
-- train split: fixed manifest train split
-- train frames available: `1200`
-- steps: `100`
-- trainable params: `185,664`
-- loss before/after: `0.008257858` / `0.002369085`
-- nonzero grad tensors at final step: `74`
-- training elapsed: `17.953 sec`
-
-## Stable Test Metrics
+## Seed Metrics
 
 Primary metric is raw 7D action L2 after official SmolVLA postprocessing.
 
-| baseline | action L2 | task-balanced L2 | translation L2 | rotation L2 | gripper abs | gripper sign acc |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| frozen/base | `0.085558433` | `0.085558433` | `0.069736605` | `0.013744150` | `0.022632962` | `0.993333333` |
-| rank-4 LoRA | `0.091230140` | `0.091230140` | `0.070690943` | `0.013045764` | `0.027685609` | `0.990833333` |
-| mean-action prior | `1.197255124` | `1.197255124` | `0.606959130` | `0.077452536` | `0.995449574` | `0.545833333` |
-| frame oracle | `0.068470215` | `0.068470215` | `0.056971588` | `0.012921991` | `0.017395659` | `0.995833333` |
-| task oracle | `0.079386015` | `0.079386015` | `0.068160808` | `0.013377581` | `0.017816481` | `0.995833333` |
-| MoIRA-style task router | `0.092209764` | `0.092209764` | `0.070046466` | `0.013393855` | `0.029344422` | `0.990000000` |
-| val-selected static mix | `0.081135060` | `0.081135060` | `0.063464903` | `0.011991432` | `0.024354280` | `0.994166667` |
+| seed | frozen/base | rank-4 LoRA | static mix | frame oracle | task oracle | MoIRA router | realistic winner |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| `11` | `0.085558433` | `0.084128699` | `0.077354597` | `0.066234143` | `0.078372683` | `0.085719423` | static mix |
+| `22` | `0.085558433` | `0.090162398` | `0.080789904` | `0.070815707` | `0.082495298` | `0.089507871` | static mix |
+| `33` | `0.085558433` | `0.090426934` | `0.083704791` | `0.070301761` | `0.082546947` | `0.089208622` | static mix |
 
-Static mixture:
+Mean/std across seeds:
 
-- alpha grid: `[0.0, 0.25, 0.5, 0.75, 1.0]`
-- selected alpha: `0.5`
-- selection split: validation
-- test-set tuning: `False`
+- frozen/base: `0.085558433` / `0.0`
+- rank-4 LoRA: `0.088239344` / `0.002908670`
+- mean-action prior: `1.197255124` / `0.0`
+- static mix: `0.080616431` / `0.002595356`
+- task oracle: `0.081138309` / `0.001955707`
+- frame oracle: `0.069117204` / `0.002049401`
+- MoIRA-style task router: `0.088145305` / `0.001719703`
 
-## Stability Analysis
+## Seed Robustness Analysis
 
-- Frozen/base is still competitive: `True`
-- Rank-4 LoRA is robustly better than frozen/base: `False`
-- Rank-4 LoRA is worse than frozen/base on aggregate: `True`
-- Rank-4 LoRA beats frozen/base on `16` / `40` tasks, but not overall.
-- Static mix beats both frozen/base and rank-4 LoRA on aggregate: `True`
-- Realistic task win counts: static mix `29`, frozen/base `7`, rank-4 LoRA `4`
-- MoIRA-style task router remains weak: `True`
-- Frame oracle headroom over frozen/base: `0.017088218`
-- Frame oracle headroom after static mix: `0.012664845`
-- Task oracle headroom over frozen/base: `0.006172418`
-- Task oracle no longer looks weak under the larger stable artifact.
-- The larger artifact resolves the previous split-instability blocker enough to move the blocker to LoRA seed robustness.
+- static mix is the realistic winner in `3` / `3` seeds.
+- rank-4 LoRA beats frozen/base in only seed `11`.
+- rank-4 LoRA does not beat static mix in any seed.
+- realistic task win counts summed over seeds: static mix `93`, frozen/base `20`, rank-4 LoRA `7`.
+- LoRA seed variance action L2 std: `0.002908670`, range `0.006298235`.
+- frame oracle headroom after static remains in all seeds: mean `0.011499227`, min `0.009974197`, max `0.013403030`.
+- task oracle headroom is not consistently meaningful: mean `0.004420124`, values `[0.007185750, 0.003063135, 0.003011486]`.
+- MoIRA-style task/instruction router remains weak.
+- FCAR remains killed and must not be revived from this evidence.
 
 ## Conclusion
 
-`NEEDS_LONGER_LORA_BASELINE_REPRO`
+`STATIC_MERGE_ROBUST_BASELINE_READY`
 
-The stable artifact and baseline table now exist. The next blocker is not split construction; it is single-seed rank-4 LoRA robustness under the fixed manifest. Do not design a new method yet. Run independent standard rank-4 LoRA seeds under the fixed manifest first.
+Validation-selected static merge is now the main realistic baseline for any later planning gate. A future method-design run, if allowed later, must explicitly beat static merge under this fixed protocol and must not use frame oracle as realistic performance.

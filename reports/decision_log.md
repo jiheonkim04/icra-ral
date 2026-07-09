@@ -921,3 +921,66 @@ Additional evidence:
 Consequence: the larger artifact resolved the previous split/coverage blocker enough to move the blocker to rank-4 LoRA seed robustness. Do not design a method yet, and do not revive FCAR. The next step is independent standard rank-4 LoRA seeds under the fixed manifest.
 
 Exact next step: run independent standard rank-4 LoRA seeds under `reports/official_smolvla_split_manifest.json`, with the same metric protocol and full CUDA/device/VRAM logging.
+
+## 2026-07-10: Official SmolVLA Rank-4 LoRA Seed Reproduction
+
+Decision: `STATIC_MERGE_ROBUST_BASELINE_READY`
+
+- experiments happened: `True`
+- training happened: `True`
+- trained components: standard rank-4 LoRA baseline seeds only
+- SmolVLA backbone trained: `False`
+- GPU/download/OpenVLA-OFT happened: `True` / `False` / `False`
+- full benchmark / simulator rollout happened: `False`
+- official model/dataset used: `True`
+- custom `LIBERO_7D` route used: `False`
+- new method implemented: `False`
+- FCAR tuned: `False`
+- paper claim made: `False`
+- seeds run: `11`, `22`, `33`
+- stable artifact reused: `reports/official_smolvla_stable_prediction_artifact.json`
+- seed artifacts: `reports/official_smolvla_lora_seed_11_prediction_artifact.json`, `reports/official_smolvla_lora_seed_22_prediction_artifact.json`, `reports/official_smolvla_lora_seed_33_prediction_artifact.json`
+- result reports: `reports/official_smolvla_lora_seed_repro_plan.md`, `reports/official_smolvla_lora_seed_repro_result.json`, `reports/official_smolvla_lora_seed_repro_result.md`, `reports/official_smolvla_lora_seed_repro_table.md`, `reports/official_smolvla_lora_seed_repro_decision.md`
+
+CUDA and training:
+
+- model parameter device: `cuda:0`
+- input tensors: `cuda:0`
+- peak CUDA allocation: about `1105.569 MB`
+- CPU fallback: `False`
+- rank-4 trainable params: `185,664`
+- seed `11` loss before/after: `0.000215661` / `0.004648810`
+- seed `22` loss before/after: `0.005131230` / `0.005719855`
+- seed `33` loss before/after: `0.003007774` / `0.002006668`
+
+Mean/std action L2 across seeds:
+
+- frozen/base: `0.085558433` / `0.0`
+- rank-4 LoRA: `0.088239344` / `0.002908670`
+- mean-action prior: `1.197255124` / `0.0`
+- validation-selected static mix: `0.080616431` / `0.002595356`
+- task oracle: `0.081138309` / `0.001955707`
+- frame oracle: `0.069117204` / `0.002049401`
+- MoIRA-style task/instruction router: `0.088145305` / `0.001719703`
+
+Per-seed primary action L2:
+
+- seed `11`: frozen/base `0.085558433`, rank-4 LoRA `0.084128699`, static mix `0.077354597`, frame oracle `0.066234143`, task oracle `0.078372683`, MoIRA-style router `0.085719423`
+- seed `22`: frozen/base `0.085558433`, rank-4 LoRA `0.090162398`, static mix `0.080789904`, frame oracle `0.070815707`, task oracle `0.082495298`, MoIRA-style router `0.089507871`
+- seed `33`: frozen/base `0.085558433`, rank-4 LoRA `0.090426934`, static mix `0.083704791`, frame oracle `0.070301761`, task oracle `0.082546947`, MoIRA-style router `0.089208622`
+
+Robustness answers:
+
+- rank-4 LoRA robustly beats frozen/base: `False`
+- rank-4 LoRA robustly beats static merge: `False`
+- static merge remains strongest realistic baseline: `True`
+- static merge seed win count: `3` / `3`
+- realistic task win counts summed over seeds: static mix `93`, frozen/base `20`, rank-4 LoRA `7`
+- LoRA seed variance action L2 std/range: `0.002908670` / `0.006298235`
+- frame oracle headroom after static remains: mean `0.011499227`
+- task oracle is not consistently meaningful across seeds
+- MoIRA-style task router remains weak
+
+Consequence: validation-selected static merge is now the main realistic baseline for any later planning gate. Any future method plan must beat static merge under the fixed manifest and metric protocol. FCAR remains killed and must not be revived.
+
+Exact next step: treat validation-selected static merge as the main realistic baseline for any later planning gate; do not implement a method until a new explicit planning objective is given.
