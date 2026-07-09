@@ -21,6 +21,7 @@ Existing local reports show:
 - SmolVLA runtime dependencies are present.
 - VLM-enabled local SmolVLA load-only smoke passed on CPU.
 - VLM-enabled repeated offline action decoding over three local LIBERO HDF5 timesteps passed as diagnostic evidence.
+- Local OpenVLA/OpenVLA-OFT assets were not found under `C:\assets\checkpoints` or `C:\assets\hf_home`; OpenVLA-OFT was not executed because it is outside the local bounded run.
 - Local LIBERO HDF5 exposes `agentview_rgb`, `eye_in_hand_rgb`, `ee_states`, `joint_states`, and 7D expert actions.
 - Existing audits block rollout scaling because action-stat provenance and 6D-to-7D action adaptation remain unresolved.
 - QLoRA tooling is not locally available without installs because `peft` and `bitsandbytes` are absent.
