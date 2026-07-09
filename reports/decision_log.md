@@ -570,3 +570,31 @@ $env:HF_HOME='C:\assets\hf_home'
 huggingface-cli download lerobot/smolvla_libero --local-dir C:\assets\checkpoints\smolvla_libero
 huggingface-cli download lerobot/libero --repo-type dataset --local-dir C:\assets\datasets\lerobot_libero
 ```
+
+## 2026-07-09: Official SmolVLA-LIBERO Asset Download And Mini-Repro
+
+Decision: `READY_FOR_OFFICIAL_BASELINE_SCALEUP`
+
+- downloads happened: `True`
+- downloaded assets: `lerobot/smolvla_libero`, `lerobot/libero`
+- visible downloaded size: `2,842,253,889` bytes, about `2.647 GiB`
+- model loaded: `True`
+- dataset loaded: `True`
+- processor/preprocessor loaded: `True`
+- GPU used: `True`
+- OpenVLA-OFT happened: `False`
+- custom `LIBERO_7D` adapter route used: `False`
+- full benchmark / simulator rollout happened: `False`
+- official dataset schema: 8D state, 7D action, two 256x256 video image keys
+- official checkpoint output action schema: 7D
+- video backend used locally: `pyav`
+- one-sample forward: action shape `[1, 7]`, finite
+- five-sample offline smoke: action L2 mean `0.072885`, translation L2 mean `0.071989`, rotation L2 mean `0.006936`, gripper abs mean `0.007376`, gripper sign accuracy `1.0`
+- tiny LoRA smoke: rank `4`, batch size `1`, steps `5`, trainable params `185,664`
+- LoRA loss before/after: `0.003114` / `0.003007`
+- LoRA peak VRAM: `1102.960 MB`
+- LoRA gradients flowed: `74` trainable grad tensors, nonzero for all `74` after step 1
+
+Consequence: official SmolVLA-LIBERO baseline infrastructure is green for bounded scaleup. Official simulator eval remains a separate WSL/Linux/MuJoCo readiness milestone.
+
+Exact next step: create a bounded official baseline scaleup run using the downloaded assets, standard rank-4 LoRA, batch size 1, fixed small step count, runtime under 30 minutes, and full CUDA/device/autocast/action-validity logging.

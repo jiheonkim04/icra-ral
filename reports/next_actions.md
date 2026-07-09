@@ -2,18 +2,20 @@
 
 Date: 2026-07-09 KST
 
-Current decision: `READY_FOR_OFFICIAL_ASSET_APPROVAL`
+Current decision: `READY_FOR_OFFICIAL_BASELINE_SCALEUP`
 
 ## Immediate Next Action
 
-Await explicit approval before the official asset route:
+Create a bounded official baseline scaleup script/run.
 
-```powershell
-$env:HF_HOME='C:\assets\hf_home'
-huggingface-cli download lerobot/smolvla_libero --local-dir C:\assets\checkpoints\smolvla_libero
-huggingface-cli download lerobot/libero --repo-type dataset --local-dir C:\assets\datasets\lerobot_libero
-```
+Required boundary:
 
-If approval is not granted, the next no-download milestone is to implement a tiny local HDF5-to-LeRobot conversion utility using the plan in `reports/local_hdf5_to_lerobot_conversion_plan.md`.
+- official assets only: `C:\assets\checkpoints\smolvla_libero` and `C:\assets\datasets\lerobot_libero`;
+- standard LoRA only, rank `4`;
+- batch size `1`;
+- fixed small step count under the repo training budget;
+- runtime under 30 minutes;
+- log model/input devices, CUDA allocated/max memory, autocast/fp16/bf16 status, loss before/after, gradients, and output action validity;
+- no RA-L method, no OpenVLA-OFT, no full benchmark, no simulator rollout.
 
-Do not use the archived custom LIBERO 7D adapter route as evidence. Do not run LoRA/training until the official asset sample or tiny converted sample passes a shape/processor smoke.
+Official simulator eval remains a separate WSL/Linux/MuJoCo readiness milestone. Do not substitute the archived custom replay bridge as official eval.
