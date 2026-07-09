@@ -1045,3 +1045,63 @@ Protocol gaps before official rollout:
 Consequence: the current offline result remains valid, and `validation_selected_action_space_static_mix` remains the strongest realistic offline baseline. The audit blocks immediate rollout only until revision pinning, naming, and checkpoint-persistence policy are fixed in a no-experiment protocol step.
 
 Exact next step: before official rollout, create a no-experiment protocol-fix branch that records Hugging Face model/dataset revision pins, enforces the future baseline naming glossary, and decides whether LoRA adapter checkpoints must be persisted alongside prediction artifacts.
+
+## 2026-07-10: Official SmolVLA Rollout Protocol Fix
+
+Decision: `LORA_CHECKPOINTS_MISSING_REGENERATION_REQUIRED`
+
+- protocol-fix type: repository metadata and source inspection only
+- experiments/training/GPU/download happened in this pass: `False` / `False` / `False` / `False`
+- model inference/simulator rollout happened in this pass: `False` / `False`
+- historical metrics modified: `False`
+- LoRA seeds regenerated: `False`
+
+Fixed:
+
+- model revision locked: `lerobot/smolvla_libero` at `31d453f7edd78c839a8bbc39744a292686daf0de`
+- dataset revision locked: `lerobot/libero` at `a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4`
+- package versions recorded, with package source commits marked unavailable from local wheel metadata
+- canonical baseline names frozen
+- LoRA adapter checkpoint persistence policy frozen
+- official rollout action semantics frozen
+- static-mix compute accounting requirement frozen
+- Stage A and Stage B closed-loop rollout protocol frozen
+- official eval readiness classified as `MISSING_OFFICIAL_EVAL_DEPENDENCY`
+
+Canonical future names:
+
+- `frozen_base`
+- `rank4_lora`
+- `validation_selected_action_space_static_mix`
+- `task_or_instruction_router_proxy`
+- `frame_oracle_upper_bound`
+- `task_oracle_upper_bound`
+
+Seed checkpoint audit:
+
+- seed `11`: `CHECKPOINT_MISSING`
+- seed `22`: `CHECKPOINT_MISSING`
+- seed `33`: `CHECKPOINT_MISSING`
+
+Official eval readiness:
+
+- `lerobot-eval` entrypoint exists and lists `--env.type=libero`
+- local source imports official LIBERO env code
+- local env lacks `libero`
+- local env lacks `robosuite`
+- native Windows official rollout remains unproven; WSL/Linux or dependency repair is required before rollout
+
+Reports:
+
+- `configs/official_smolvla_repro_lock.yaml`
+- `reports/official_smolvla_revision_lock.md`
+- `reports/official_smolvla_baseline_naming_policy.md`
+- `reports/official_smolvla_lora_checkpoint_policy.md`
+- `reports/official_smolvla_rollout_action_semantics.md`
+- `reports/official_smolvla_rollout_protocol.md`
+- `reports/official_smolvla_rollout_readiness.md`
+- `reports/official_smolvla_protocol_fix_decision.md`
+
+Consequence: model/dataset revision gaps and protocol ambiguity are closed, but official rollout remains blocked. Prediction JSON artifacts cannot replace persisted adapter checkpoints, so any official LoRA rollout or final LoRA result requires a future explicit training/regeneration pass.
+
+Exact next step: no training, regeneration, GPU, download, or rollout command is safe under the current no-experiment boundary. Future adapter regeneration must be separately approved.

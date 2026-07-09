@@ -1,0 +1,277 @@
+schema_version: 1
+lock_name: official_smolvla_libero_reproducibility_lock
+date_kst: "2026-07-10"
+source_audit_commit: "38d77a4"
+protocol_fix_branch: codex/fix-official-smolvla-rollout-protocol
+final_decision: LORA_CHECKPOINTS_MISSING_REGENERATION_REQUIRED
+decision_reason: >
+  Exact local Hugging Face revisions are locked for the official SmolVLA-LIBERO
+  model and LeRobot LIBERO dataset, and the rollout protocol is defined, but
+  seed-specific official LoRA adapter checkpoints for seeds 11, 22, and 33 are
+  not persisted. The local official LIBERO eval stack is also missing the libero
+  and robosuite Python dependencies, so rollout execution remains blocked.
+
+audit_boundary:
+  no_experiment_protocol_fix: true
+  experiments_run: false
+  training_run: false
+  gpu_used: false
+  simulator_rollout_run: false
+  downloads_run: false
+  openvla_oft_run: false
+  fcar_run: false
+  lora_seeds_regenerated: false
+  historical_metrics_modified: false
+  prediction_artifacts_overwritten: false
+
+model:
+  repo_id: lerobot/smolvla_libero
+  local_path: 'C:\assets\checkpoints\smolvla_libero'
+  hf_revision: 31d453f7edd78c839a8bbc39744a292686daf0de
+  revision_status: REVISION_LOCKED
+  revision_proof:
+    local_hf_download_metadata_files: 9
+    unique_metadata_revisions:
+      - 31d453f7edd78c839a8bbc39744a292686daf0de
+    local_hf_ref_main: 31d453f7edd78c839a8bbc39744a292686daf0de
+  visible_file_count_excluding_cache: 9
+  visible_bytes_excluding_cache: 906741829
+  license: apache-2.0
+  config_summary:
+    policy_type: smolvla
+    action_dim: 7
+    chunk_size: 50
+    n_action_steps: 50
+    config_device: cuda
+    use_amp: false
+    use_peft: false
+    vlm_model_name: HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+    pretrained_path: lerobot/smolvla_base
+    internal_config_repo_id: pepijn223/smolvla_libero
+    internal_config_repo_id_note: >
+      The model config contains this internal repo_id, but the local Hugging Face
+      cache path and download metadata lock the artifact consumed here to
+      lerobot/smolvla_libero at the revision above.
+  hf_download_metadata_etags_or_lfs_sha256:
+    .gitattributes: a6344aac8c09253b3b630fb776ae94478aa0275b
+    config.json: 3558454eb6a96ae2d7d581b2550e6bd9ca53944f
+    model.safetensors: 9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8
+    policy_postprocessor.json: 0ec8146a07f9b92bc5a3c02e2d6b7d49ba6d26e8
+    policy_postprocessor_step_0_unnormalizer_processor.safetensors: b0cdde6e8a6f49a8e19eefb376728e47c09d3b3cc20ce3a97c45619fe7a732d9
+    policy_preprocessor.json: bfc5d95567d6ec89532f0542789378109a04b619
+    policy_preprocessor_step_5_normalizer_processor.safetensors: b0cdde6e8a6f49a8e19eefb376728e47c09d3b3cc20ce3a97c45619fe7a732d9
+    README.md: 87293179763b567d75a6c22e2cff007c2ce406eb
+    train_config.json: 0da59331eae316b7c377b8ab8703a43f73f20b78
+
+dataset:
+  repo_id: lerobot/libero
+  local_path: 'C:\assets\datasets\lerobot_libero'
+  hf_revision: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+  revision_status: REVISION_LOCKED
+  revision_proof:
+    local_hf_download_metadata_files: 457
+    unique_metadata_revisions:
+      - a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+    local_hf_ref_main: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+    local_hf_ref_v3_0: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+  visible_file_count_excluding_cache: 457
+  visible_bytes_excluding_cache: 1935512060
+  license: apache-2.0
+  info_summary:
+    codebase_version: v3.0
+    robot_type: panda
+    total_episodes: 1693
+    total_frames: 273465
+    total_tasks: 40
+    fps: 10.0
+    action_shape:
+      - 7
+    observation_state_shape:
+      - 8
+    image_shape:
+      - 256
+      - 256
+      - 3
+  train_config_dataset_revision: null
+  train_config_dataset_revision_note: >
+    The checkpoint's train_config.json does not pin a dataset revision, so this
+    lock uses the local Hugging Face download metadata and refs above as the
+    rollout/reproduction dataset source of truth.
+
+environment:
+  os: Windows-10-10.0.26200-SP0
+  intended_official_rollout_os: WSL_OR_LINUX_RECOMMENDED
+  python_executable: 'C:\Users\jiheo\miniconda3\envs\tca_map\python.exe'
+  python_version: '3.10.20'
+  package_env_lock_status: VERSION_LOCKED_SOURCE_COMMIT_UNAVAILABLE
+  packages:
+    torch: 2.10.0+cu128
+    torch_compiled_cuda: "12.8"
+    lerobot: 0.4.4
+    transformers: 4.57.6
+    peft: 0.19.1
+    bitsandbytes: 0.49.2
+    accelerate: 1.14.0
+    huggingface_hub: 0.35.3
+    mujoco: 2.3.7
+    robosuite: NOT_INSTALLED
+    libero: NOT_INSTALLED
+  package_source_revisions:
+    lerobot: UNKNOWN_LOCAL_WHEEL_ONLY
+    transformers: UNKNOWN_LOCAL_WHEEL_ONLY
+    peft: UNKNOWN_LOCAL_WHEEL_ONLY
+    accelerate: UNKNOWN_LOCAL_WHEEL_ONLY
+  official_eval_entrypoint:
+    console_script: lerobot-eval
+    import_target: lerobot.scripts.lerobot_eval:main
+    script_path: 'C:\Users\jiheo\miniconda3\envs\tca_map\Scripts\lerobot-eval.exe'
+
+locked_artifacts:
+  split_manifest:
+    path: reports/official_smolvla_split_manifest.json
+    sha256: 1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B
+  metric_protocol:
+    path: reports/official_smolvla_metric_protocol.md
+    sha256: 64430225940C5168B3734BB40F9F48AD02877E0BA04DC804367AFBB214AE486E
+  stable_prediction_artifact:
+    path: reports/official_smolvla_stable_prediction_artifact.json
+    sha256: 88DCA06AA05D69E8BC4FB3F1C5A7C7D22B1DC4438C65103EFD2389F24D35D59C
+  lora_seed_repro_result:
+    path: reports/official_smolvla_lora_seed_repro_result.json
+    sha256: BAA9BD61DA4631F8CF7020198147A52F66435DBFCDDF02717BE2188CC8E79505
+
+baseline_names:
+  frozen_base:
+    canonical_label: Frozen SmolVLA-LIBERO Base Policy
+    rollout_required: true
+  rank4_lora:
+    canonical_label: Standard Rank-4 LoRA
+    rollout_required: true
+  validation_selected_action_space_static_mix:
+    canonical_label: Validation-Selected Base-LoRA Action-Space Static Mix
+    formula: a_mix = alpha * a_lora + (1 - alpha) * a_base
+    alpha_source: validation_only
+    adapter_weight_merge: false
+    adapter_soup: false
+    rollout_required: true
+  task_or_instruction_router_proxy:
+    canonical_label: Task/Instruction Router Proxy
+    official_moira: false
+    rollout_required: false
+  frame_oracle_upper_bound:
+    canonical_label: Frame Oracle Upper Bound
+    realistic_or_deployable: false
+    rollout_required: false
+  task_oracle_upper_bound:
+    canonical_label: Task Oracle Upper Bound
+    realistic_or_deployable: false
+    rollout_required: false
+  legacy_mapping:
+    adapter_soup: validation_selected_action_space_static_mix
+    static_merge: validation_selected_action_space_static_mix
+    moira_proxy: task_or_instruction_router_proxy
+    oracle_router: frame_oracle_upper_bound
+  historical_metric_policy: PRESERVE_WITH_LEGACY_MAPPING_DO_NOT_REWRITE
+
+lora_checkpoint_policy:
+  required_for_official_rollout_or_final_report: true
+  required_seeds:
+    - 11
+    - 22
+    - 33
+  prediction_json_can_replace_adapter_checkpoint: false
+  expected_bundle_files:
+    - adapter_config.json
+    - adapter_model.safetensors
+    - training_manifest.json
+    - eval_preprocessor_postprocessor_refs.json
+    - source_repro_lock.yaml
+    - sha256_manifest.json
+  seed_statuses:
+    seed_11:
+      status: CHECKPOINT_MISSING
+      prediction_artifact: reports/official_smolvla_lora_seed_11_prediction_artifact.json
+      identity_proven_by_adapter_checkpoint: false
+    seed_22:
+      status: CHECKPOINT_MISSING
+      prediction_artifact: reports/official_smolvla_lora_seed_22_prediction_artifact.json
+      identity_proven_by_adapter_checkpoint: false
+    seed_33:
+      status: CHECKPOINT_MISSING
+      prediction_artifact: reports/official_smolvla_lora_seed_33_prediction_artifact.json
+      identity_proven_by_adapter_checkpoint: false
+  required_future_regeneration_command_unsafe_until_explicit_training_approval: |
+    powershell -ExecutionPolicy Bypass -File scripts\250_official_smolvla_lora_adapter_checkpoint_regen.ps1 -Seeds 11,22,33 -CheckpointPath C:\assets\checkpoints\smolvla_libero -DatasetRoot C:\assets\datasets\lerobot_libero -SplitManifest reports\official_smolvla_split_manifest.json -MetricProtocol reports\official_smolvla_metric_protocol.md -OutputRoot reports\official_smolvla_lora_checkpoints
+
+rollout_action_semantics:
+  official_entrypoint_required: lerobot-eval --env.type=libero
+  exact_import_target: lerobot.scripts.lerobot_eval:main
+  action_dim: 7
+  chunk_size: 50
+  n_action_steps: 50
+  forbidden_rollout_paths:
+    - old_exact_init_replay_bridge
+    - custom_LIBERO_7D_adapter
+    - local_normalization
+    - hard_coded_gripper_conversion
+    - adapter_weight_soup
+  lerobot_eval_observed_order:
+    - env_preprocessor
+    - policy_preprocessor
+    - policy.select_action
+    - policy_postprocessor
+    - env_postprocessor
+    - env.step
+  static_mix_semantics: >
+    At each queue refill, evaluate frozen_base and rank4_lora on the identical
+    official preprocessed observation, obtain corresponding action chunks,
+    apply the official policy postprocessor to both corresponding chunks, mix
+    them elementwise with the validation-selected alpha, then serve the mixed
+    action queue to the official env postprocessor and env.step path.
+  static_mix_single_action_after_independent_queues_allowed: false
+  static_mix_compute_cost:
+    model_forward_passes_per_queue_refill: 2
+    model_forward_passes_per_env_step_at_refill: 2
+    model_forward_passes_per_env_step_while_queue_nonempty: 0
+    report_latency_and_vram_required: true
+
+official_eval_readiness:
+  env_status: MISSING_OFFICIAL_EVAL_DEPENDENCY
+  env_type_libero_listed_by_help: true
+  source_imports_libero_package: true
+  missing_python_packages:
+    - libero
+    - robosuite
+  native_windows_rollout_status: NEEDS_WSL_OR_LINUX_OR_DEPENDENCY_FIX
+  official_eval_env_ready: false
+
+closed_loop_rollout_protocol:
+  status: FROZEN_NOT_EXECUTABLE_YET
+  stage_a:
+    name: bounded_readiness_pilot
+    policies:
+      - frozen_base
+      - rank4_lora
+      - validation_selected_action_space_static_mix
+    lora_checkpoints_required: true
+    seeds:
+      - 11
+      - 22
+      - 33
+    validation_seed_override_allowed_only_if_predeclared: true
+    fixed_tasks_and_reset_seeds_required: true
+    primary_metric: official_libero_success_rate
+    required_logging:
+      - episodes
+      - steps
+      - success_rate
+      - exceptions
+      - forward_passes_per_env_step
+      - latency_per_action_or_chunk
+      - peak_vram
+      - wall_clock
+  stage_b:
+    name: scaleup_after_stage_a_passes
+    requires_stage_a_pass: true
+    add_confidence_intervals: true
+    expand_tasks_and_reset_seeds: true
