@@ -511,3 +511,34 @@ Decision: `OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
 - decisive negative evidence: learned adapter failed replay/progress; offline improvement did not transfer to control; range fix worsened replay; clip-only baseline dominated range fix.
 - final strategic decision: `OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
 - exact next step: Reproduce an official SmolVLA/LeRobot/OpenVLA-style baseline recipe before any method work; otherwise stop VLA method search under this setup.
+
+## 2026-07-09: Official SmolVLA / LeRobot Feasibility And Mini-Repro
+
+Decision: `NEEDS_OFFICIAL_DATASET_CONVERSION`
+
+- experiments happened: `True`
+- training happened: `False`
+- loss computed: `False`
+- GPU model execution happened: `False`
+- CPU-only diagnostic happened: `True`
+- downloads/GPU training/OpenVLA-OFT happened: `False` / `False` / `False`
+- custom LIBERO 7D adapter route used: `False`
+- model loaded: `True`
+- processor/preprocessor loaded: `True`
+- action normalizer status: SO100 6D normalizer tensors present
+- official recipe status: SmolVLA base loader/processor mini-repro passed; official LIBERO baseline not reproduced
+- LoRA feasibility status: official PEFT target regex exists; rank-4 count-only wrap has `185,664` trainable params; rank-16 has `742,656`; no LoRA training ran
+- VRAM peak: `0.0 MB` for the CPU-only mini-repro
+- runtime: `30.922 sec` end-to-end, `1.735 sec` single-sample inference
+
+Key evidence:
+
+- local checkpoint `C:\assets\checkpoints\smolvla` declares 6D state and 6D action;
+- LeRobot LIBERO docs and installed `LiberoEnv` use 8D state and 7D action;
+- official LeRobot `SmolVLAPolicy.from_pretrained` and `make_pre_post_processors` loaded the local checkpoint with a local tokenizer override;
+- one synthetic forward returned finite action shape `[1, 6]`;
+- CUDA is available on `NVIDIA GeForce RTX 5080`, and bitsandbytes CUDA smoke passed.
+
+Consequence: SmolVLA is locally feasible as an official base loader/processor backbone, but the target LIBERO baseline still needs official-compatible data/checkpoint alignment. Do not start method work yet.
+
+Exact next step: produce a bounded official-compatible LIBERO alignment plan using either official `lerobot/smolvla_libero` plus `lerobot/libero`, or a tiny local HDF5-to-LeRobot conversion that preserves the 8D state / 7D action convention.

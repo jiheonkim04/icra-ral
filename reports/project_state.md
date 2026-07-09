@@ -2,30 +2,27 @@
 
 Date: 2026-07-09 KST
 
-Branch: `codex/archive-smolvla-custom-adapter-stop-pivot`
+Branch: `codex/official-smolvla-lerobot-baseline`
 
-Current decision: `OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
+Current decision: `NEEDS_OFFICIAL_DATASET_CONVERSION`
 
 ## Current Route
 
-The custom SmolVLA 7D adapter route is archived as stopped. The project should not continue custom adapter tuning, range/gripper variants, PatchGuard, TG-7D, SafeLoRA, PRISM, or ActionMap as a main RA-L path.
+The archived custom SmolVLA 7D adapter route remains stopped. The valid route is official SmolVLA/LeRobot reproduction first, with official preprocessing, normalization, action conventions, and evaluation stack.
 
 ## Evidence Summary
 
-- PEFT/bitsandbytes/CUDA/RTX 5080 SmolVLA LoRA path works.
-- LIBERO 7D interface was fixed.
-- Expert replay stable set exists with 6 expert-success eligible cases.
-- Live/HDF5 feature schema mismatch was fixed: feature L2 `2.248343 -> 0.033195`.
-- Learned adapter still failed replay/progress after feature fix: adapter success `0/6`, progress `-0.041091`.
-- Action range fix improved validity but degraded quality/control:
-  - clip rate `0.15625 -> 0.0`,
-  - controller-valid proxy `0.84375 -> 1.0`,
-  - offline action L2 `0.795274 -> 0.976681`,
-  - replay progress `-0.041091 -> -0.902509`.
-- Clip-only baseline matched or beat the range-fixed adapter: `-0.041091` vs `-0.902509`.
+- The local checkpoint at `C:\assets\checkpoints\smolvla` is a SmolVLA base-style checkpoint.
+- Official LeRobot loader and processor factory load the local checkpoint successfully.
+- One synthetic CPU-only official-loader forward pass produced a finite `[1, 6]` action.
+- CUDA is available on the RTX 5080; bitsandbytes CUDA smoke passed.
+- The mini-repro was intentionally CPU-only and did not train.
+- The local checkpoint uses SO100 6D action normalizer tensors.
+- LeRobot LIBERO expects 8D state and 7D continuous actions.
+- Therefore the local checkpoint is not an official LIBERO baseline as-is.
 
 ## Conclusion
 
-`OFFICIAL_VLA_RECIPE_REPRODUCTION_REQUIRED`
+`NEEDS_OFFICIAL_DATASET_CONVERSION`
 
-Next valid step: reproduce an official SmolVLA/LeRobot/OpenVLA-style baseline recipe with official preprocessing, normalization, action/gripper conventions, and eval/replay stack before any method work.
+Next valid step: align the target LIBERO data/checkpoint path with LeRobot's official LIBERO 8D state / 7D action convention, either by acquiring official small assets or by converting a tiny local subset cleanly. Do not start method work until an official-compatible baseline is reproduced.
