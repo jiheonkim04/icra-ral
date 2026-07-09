@@ -732,3 +732,39 @@ Kill criteria fixed: FCAR must beat frozen/base by `0.005` absolute or `5%` rela
 Known caveat: saved per-frame base/LoRA prediction artifacts are missing, so the implementation run must regenerate and save compact official predictions before tiny-gate training.
 
 Exact next step: implement the FCAR tiny-gate experiment exactly as specified in `reports/fcar_implementation_todo.md`, without changing baselines, metrics, split policy, or kill criteria after seeing results.
+
+## 2026-07-10: FCAR Tiny-Gate Implementation
+
+Decision: `FCAR_KILLED_BY_STATIC_BASELINE`
+
+- experiments happened: `True`
+- training happened: `True`
+- trained components: fixed rank-4 LoRA baseline regenerated for prediction artifact, and FCAR tiny CPU gate
+- SmolVLA backbone training happened: `False`
+- GPU/download/OpenVLA-OFT happened: `True` / `False` / `False`
+- full benchmark / simulator rollout happened: `False`
+- official dataset/model used: `True`
+- custom `LIBERO_7D` route used: `False`
+- method implemented: `True`
+- paper claim made: `False`
+- prediction artifact saved: `reports/fcar_prediction_artifact.json`
+- result reports: `reports/fcar_tiny_gate_result.json`, `reports/fcar_tiny_gate_result.md`, `reports/fcar_tiny_gate_decision.md`
+- split: train `120` frames, val `40` frames, test `40` frames; episode-disjoint leakage checks passed
+- frozen/base test action L2: `0.123998278`
+- rank-4 LoRA test action L2: `0.076191123`
+- mean-action prior test action L2: `1.148631734`
+- frame oracle test action L2: `0.066124022`
+- task oracle test action L2: `0.076191123`
+- MoIRA-style task/instruction router test action L2: `0.123998278`
+- adapter soup/static merge test action L2: `0.091179973` with val-selected `w=0.5`
+- FCAR tiny-gate test action L2: `0.100144625`
+- FCAR gain over frozen/base: `0.023853653` absolute, `0.192370841` relative
+- FCAR recovered frame-oracle headroom fraction: `0.41216345`
+- alpha mean/std/min/max on test: `0.443432957` / `0.02648654` / `0.320281953` / `0.493465692`
+- routed-to-LoRA fraction at alpha >= 0.5: `0.0`
+- train/eval gap test minus train: `-0.014645646`
+- CUDA audit: model parameter device `cuda:0`, input tensors on `cuda:0`, peak CUDA allocation `1104.506 MB`, autocast cpu/cuda `False` / `False`
+
+Consequence: FCAR should not be scaled from this result. It beats frozen/base on the gate-test split but fails the fixed success gate because it loses to rank-4 LoRA and to the adapter-soup/static-merge baseline.
+
+Exact next step: none, because `GO_FCAR_SCALEUP` was not reached.

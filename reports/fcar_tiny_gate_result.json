@@ -1,0 +1,5427 @@
+{
+  "alpha_routing_statistics": {
+    "test": {
+      "fraction_routed_to_base_alpha_lt_0_5": 1.0,
+      "fraction_routed_to_lora_alpha_ge_0_5": 0.0,
+      "max": 0.493465692,
+      "mean": 0.443432957,
+      "min": 0.320281953,
+      "std": 0.02648654
+    },
+    "test_alpha_preview": [
+      0.435015082,
+      0.426535964,
+      0.457824767,
+      0.457620263,
+      0.42351374,
+      0.427932173,
+      0.451000661,
+      0.448952615,
+      0.450571656,
+      0.460057735
+    ],
+    "train": {
+      "fraction_routed_to_base_alpha_lt_0_5": 1.0,
+      "fraction_routed_to_lora_alpha_ge_0_5": 0.0,
+      "max": 0.492775261,
+      "mean": 0.442875177,
+      "min": 0.238096878,
+      "std": 0.031797629
+    },
+    "val": {
+      "fraction_routed_to_base_alpha_lt_0_5": 1.0,
+      "fraction_routed_to_lora_alpha_ge_0_5": 0.0,
+      "max": 0.466197789,
+      "mean": 0.44392848,
+      "min": 0.404175222,
+      "std": 0.012846371
+    }
+  },
+  "anchor_reconciliation": {
+    "available": true,
+    "deltas": {
+      "frame_oracle": {
+        "absolute_delta": -2.1e-08,
+        "anchor": 0.084582188,
+        "current": 0.084582167
+      },
+      "frozen_base": {
+        "absolute_delta": -2.7e-08,
+        "anchor": 0.10651496,
+        "current": 0.106514933
+      },
+      "mean_action_prior": {
+        "absolute_delta": -1.7e-08,
+        "anchor": 1.144859722,
+        "current": 1.144859705
+      },
+      "rank4_lora": {
+        "absolute_delta": -3.4e-08,
+        "anchor": 0.118024259,
+        "current": 0.118024225
+      },
+      "task_oracle": {
+        "absolute_delta": -3.9e-08,
+        "anchor": 0.106079976,
+        "current": 0.106079937
+      }
+    },
+    "path": "reports\\official_smolvla_routing_design_gate.json"
+  },
+  "artifact": {
+    "path": "reports\\fcar_prediction_artifact.json",
+    "rank4_lora_regenerated": true,
+    "record_count": 200,
+    "source": "regenerated"
+  },
+  "baselines": {
+    "fixed": [
+      "frozen_base",
+      "rank4_lora",
+      "mean_action_prior",
+      "frame_oracle",
+      "task_oracle",
+      "moira_style_instruction_task_router",
+      "adapter_soup_static_merge",
+      "action_dim_oracle_diagnostic"
+    ],
+    "moira_routing_from_train": {
+      "1": "frozen_base",
+      "2": "frozen_base",
+      "4": "frozen_base",
+      "5": "frozen_base",
+      "8": "frozen_base"
+    },
+    "static_grid": {
+      "0.0": {
+        "test": {
+          "action_l2_max": 1.960363984,
+          "action_l2_mean": 0.123998278,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.058697024,
+          "gripper_sign_accuracy": 0.975,
+          "per_dim_abs_mean": [
+            0.032864375,
+            0.0382653,
+            0.044149425,
+            0.00383985,
+            0.009128525,
+            0.007277325,
+            0.058697025
+          ],
+          "range_violation_rate": 0.55,
+          "rotation_l2_mean": 0.014495393,
+          "sample_count": 40,
+          "translation_l2_mean": 0.077212497
+        },
+        "train": {
+          "action_l2_max": 2.012344599,
+          "action_l2_mean": 0.114901279,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.043678756,
+          "gripper_sign_accuracy": 0.983333333,
+          "per_dim_abs_mean": [
+            0.036311708,
+            0.040013767,
+            0.044787675,
+            0.006130942,
+            0.008426267,
+            0.007383158,
+            0.043678758
+          ],
+          "range_violation_rate": 0.55,
+          "rotation_l2_mean": 0.01509224,
+          "sample_count": 120,
+          "translation_l2_mean": 0.079934922
+        },
+        "val": {
+          "action_l2_max": 0.140106723,
+          "action_l2_mean": 0.063872548,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.009024552,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.02692855,
+            0.027284,
+            0.039159175,
+            0.00308265,
+            0.007476025,
+            0.004899325,
+            0.00902455
+          ],
+          "range_violation_rate": 0.5,
+          "rotation_l2_mean": 0.010660679,
+          "sample_count": 40,
+          "translation_l2_mean": 0.061623367
+        }
+      },
+      "0.25": {
+        "test": {
+          "action_l2_max": 1.469170332,
+          "action_l2_mean": 0.10572001,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.045600647,
+          "gripper_sign_accuracy": 0.975,
+          "per_dim_abs_mean": [
+            0.0301529,
+            0.032165925,
+            0.03981655,
+            0.003689075,
+            0.00873705,
+            0.0068658,
+            0.04560075
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.013592214,
+          "sample_count": 40,
+          "translation_l2_mean": 0.069735283
+        },
+        "train": {
+          "action_l2_max": 2.010164976,
+          "action_l2_mean": 0.116469854,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.051371092,
+          "gripper_sign_accuracy": 0.983333333,
+          "per_dim_abs_mean": [
+            0.034523283,
+            0.036180942,
+            0.040161433,
+            0.005452575,
+            0.008007125,
+            0.006902558,
+            0.051371167
+          ],
+          "range_violation_rate": 0.55,
+          "rotation_l2_mean": 0.01394427,
+          "sample_count": 120,
+          "translation_l2_mean": 0.073874389
+        },
+        "val": {
+          "action_l2_max": 0.139790609,
+          "action_l2_mean": 0.059168082,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.008963796,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.023384875,
+            0.02490525,
+            0.036753325,
+            0.002783525,
+            0.0072348,
+            0.0049746,
+            0.00896375
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.010292413,
+          "sample_count": 40,
+          "translation_l2_mean": 0.05681687
+        }
+      },
+      "0.5": {
+        "test": {
+          "action_l2_max": 0.979861438,
+          "action_l2_mean": 0.091179973,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.032959476,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.02894535,
+            0.030159425,
+            0.036442325,
+            0.0040296,
+            0.00836885,
+            0.006971725,
+            0.03295945
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.013442673,
+          "sample_count": 40,
+          "translation_l2_mean": 0.066174662
+        },
+        "train": {
+          "action_l2_max": 2.00845623,
+          "action_l2_mean": 0.122917336,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.059620098,
+          "gripper_sign_accuracy": 0.966666667,
+          "per_dim_abs_mean": [
+            0.034219567,
+            0.035023992,
+            0.038233392,
+            0.005063625,
+            0.00842015,
+            0.006622975,
+            0.059620058
+          ],
+          "range_violation_rate": 0.541666667,
+          "rotation_l2_mean": 0.013685209,
+          "sample_count": 120,
+          "translation_l2_mean": 0.071938527
+        },
+        "val": {
+          "action_l2_max": 0.143187717,
+          "action_l2_mean": 0.058415218,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.009202304,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.0230285,
+            0.025613125,
+            0.0352286,
+            0.00273745,
+            0.007273875,
+            0.0052537,
+            0.00920225
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.010575549,
+          "sample_count": 40,
+          "translation_l2_mean": 0.05582658
+        }
+      },
+      "0.75": {
+        "test": {
+          "action_l2_max": 0.498023689,
+          "action_l2_mean": 0.080477154,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.020798002,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.029438325,
+            0.032556725,
+            0.03693645,
+            0.004489025,
+            0.0087072,
+            0.007101075,
+            0.020797975
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.014222252,
+          "sample_count": 40,
+          "translation_l2_mean": 0.067253929
+        },
+        "train": {
+          "action_l2_max": 2.007218838,
+          "action_l2_mean": 0.13407479,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.068273484,
+          "gripper_sign_accuracy": 0.966666667,
+          "per_dim_abs_mean": [
+            0.036444125,
+            0.035512067,
+            0.0398098,
+            0.004993225,
+            0.009207825,
+            0.006741817,
+            0.068273475
+          ],
+          "range_violation_rate": 0.566666667,
+          "rotation_l2_mean": 0.014425604,
+          "sample_count": 120,
+          "translation_l2_mean": 0.075069768
+        },
+        "val": {
+          "action_l2_max": 0.146635562,
+          "action_l2_mean": 0.061755696,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.009564829,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.0246989,
+            0.02773945,
+            0.0352724,
+            0.0027715,
+            0.00794455,
+            0.00562165,
+            0.00956475
+          ],
+          "range_violation_rate": 0.45,
+          "rotation_l2_mean": 0.011454764,
+          "sample_count": 40,
+          "translation_l2_mean": 0.058794911
+        }
+      },
+      "1.0": {
+        "test": {
+          "action_l2_max": 0.201020613,
+          "action_l2_mean": 0.076191123,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.009318775,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.031497175,
+            0.036693925,
+            0.040335175,
+            0.005159625,
+            0.00951985,
+            0.00755465,
+            0.009318775
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.015669167,
+          "sample_count": 40,
+          "translation_l2_mean": 0.072429293
+        },
+        "train": {
+          "action_l2_max": 2.007616758,
+          "action_l2_mean": 0.148594371,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.077188536,
+          "gripper_sign_accuracy": 0.966666667,
+          "per_dim_abs_mean": [
+            0.04003335,
+            0.037261708,
+            0.044142492,
+            0.005347308,
+            0.010299925,
+            0.007399958,
+            0.077188533
+          ],
+          "range_violation_rate": 0.591666667,
+          "rotation_l2_mean": 0.015927189,
+          "sample_count": 120,
+          "translation_l2_mean": 0.08159379
+        },
+        "val": {
+          "action_l2_max": 0.162845224,
+          "action_l2_mean": 0.06814689,
+          "eval_loss_max": null,
+          "eval_loss_mean": null,
+          "finite_all": true,
+          "gripper_abs_mean": 0.009962952,
+          "gripper_sign_accuracy": 1.0,
+          "per_dim_abs_mean": [
+            0.02830745,
+            0.031018825,
+            0.03696605,
+            0.00292555,
+            0.008837825,
+            0.00632095,
+            0.00996295
+          ],
+          "range_violation_rate": 0.475,
+          "rotation_l2_mean": 0.012817687,
+          "sample_count": 40,
+          "translation_l2_mean": 0.064620099
+        }
+      }
+    },
+    "static_selected_weight": 0.5,
+    "static_selection_split": "val"
+  },
+  "calibration": {
+    "bins": [
+      {
+        "alpha_mean": null,
+        "count": 0,
+        "oracle_lora_help_rate": null,
+        "range": [
+          0.0,
+          0.2
+        ]
+      },
+      {
+        "alpha_mean": 0.320281953,
+        "count": 1,
+        "oracle_lora_help_rate": 1.0,
+        "range": [
+          0.2,
+          0.4
+        ]
+      },
+      {
+        "alpha_mean": 0.446590662,
+        "count": 39,
+        "oracle_lora_help_rate": 0.538461538,
+        "range": [
+          0.4,
+          0.6
+        ]
+      },
+      {
+        "alpha_mean": null,
+        "count": 0,
+        "oracle_lora_help_rate": null,
+        "range": [
+          0.6,
+          0.8
+        ]
+      },
+      {
+        "alpha_mean": null,
+        "count": 0,
+        "oracle_lora_help_rate": null,
+        "range": [
+          0.8,
+          1.0
+        ]
+      }
+    ],
+    "confusion_at_alpha_0_5": {
+      "false_negative": 22,
+      "false_positive": 0,
+      "true_negative": 18,
+      "true_positive": 0
+    }
+  },
+  "date": "2026-07-10 KST",
+  "decision_reason": "Static merge or MoIRA-style task/instruction routing matches or beats FCAR.",
+  "errors": [],
+  "exact_next_prompt": null,
+  "failure_cases": {
+    "top_helps_vs_base": [
+      {
+        "base_action_l2": 1.960363984,
+        "base_minus_fcar_gain": 0.629032254,
+        "episode_index": 15,
+        "fcar_action_l2": 1.33133173,
+        "frame_index": 139,
+        "phase": "mid",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      },
+      {
+        "base_action_l2": 0.384019345,
+        "base_minus_fcar_gain": 0.082864374,
+        "episode_index": 15,
+        "fcar_action_l2": 0.301154971,
+        "frame_index": 202,
+        "phase": "late",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      },
+      {
+        "base_action_l2": 0.066861071,
+        "base_minus_fcar_gain": 0.029318791,
+        "episode_index": 13,
+        "fcar_action_l2": 0.03754228,
+        "frame_index": 0,
+        "phase": "early",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "base_action_l2": 0.104345769,
+        "base_minus_fcar_gain": 0.025743053,
+        "episode_index": 13,
+        "fcar_action_l2": 0.078602716,
+        "frame_index": 179,
+        "phase": "mid",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "base_action_l2": 0.19118534,
+        "base_minus_fcar_gain": 0.024211496,
+        "episode_index": 13,
+        "fcar_action_l2": 0.166973844,
+        "frame_index": 254,
+        "phase": "late",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      }
+    ],
+    "top_hurts_vs_base": [
+      {
+        "base_action_l2": 0.043397024,
+        "base_minus_fcar_gain": -0.023320899,
+        "episode_index": 13,
+        "fcar_action_l2": 0.066717923,
+        "frame_index": 239,
+        "phase": "late",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "base_action_l2": 0.053059462,
+        "base_minus_fcar_gain": -0.016936075,
+        "episode_index": 13,
+        "fcar_action_l2": 0.069995537,
+        "frame_index": 14,
+        "phase": "early",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "base_action_l2": 0.055783395,
+        "base_minus_fcar_gain": -0.013798188,
+        "episode_index": 13,
+        "fcar_action_l2": 0.069581583,
+        "frame_index": 224,
+        "phase": "late",
+        "task": "put both the alphabet soup and the tomato sauce in the basket",
+        "task_index": 5
+      },
+      {
+        "base_action_l2": 0.054197349,
+        "base_minus_fcar_gain": -0.012520373,
+        "episode_index": 15,
+        "fcar_action_l2": 0.066717722,
+        "frame_index": 190,
+        "phase": "late",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      },
+      {
+        "base_action_l2": 0.068704993,
+        "base_minus_fcar_gain": -0.007205188,
+        "episode_index": 15,
+        "fcar_action_l2": 0.075910181,
+        "frame_index": 126,
+        "phase": "mid",
+        "task": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "task_index": 8
+      }
+    ]
+  },
+  "fcar_config": {
+    "best_epoch": 4,
+    "best_val_action_l2": 0.05831204,
+    "config": {
+      "activation": "ReLU",
+      "device": "cpu",
+      "early_stop_patience": 15,
+      "hidden_sizes": [
+        64,
+        32
+      ],
+      "inference_inputs_use_ground_truth": false,
+      "inference_inputs_use_oracle_label": false,
+      "lambda_oracle_bce": 0.01,
+      "lambda_retention": 0.01,
+      "lambda_sparse": 0.001,
+      "lr": 0.001,
+      "max_epochs": 100,
+      "model": "tiny_mlp",
+      "optimizer": "AdamW",
+      "seed": 0,
+      "weight_decay": 0.0001
+    },
+    "history": [
+      {
+        "epoch": 0,
+        "loss": 0.129484341,
+        "train_action_l2": 0.118655428,
+        "train_alpha_mean": 0.464736044,
+        "val_action_l2": 0.058325302,
+        "val_alpha_mean": 0.462025642
+      },
+      {
+        "epoch": 1,
+        "loss": 0.128320441,
+        "train_action_l2": 0.117603183,
+        "train_alpha_mean": 0.459050447,
+        "val_action_l2": 0.058320187,
+        "val_alpha_mean": 0.457396179
+      },
+      {
+        "epoch": 2,
+        "loss": 0.127217546,
+        "train_action_l2": 0.116611339,
+        "train_alpha_mean": 0.453499973,
+        "val_action_l2": 0.058316417,
+        "val_alpha_mean": 0.452776581
+      },
+      {
+        "epoch": 3,
+        "loss": 0.126177698,
+        "train_action_l2": 0.115674108,
+        "train_alpha_mean": 0.44810608,
+        "val_action_l2": 0.05831378,
+        "val_alpha_mean": 0.44827193
+      },
+      {
+        "epoch": 4,
+        "loss": 0.125194848,
+        "train_action_l2": 0.114790276,
+        "train_alpha_mean": 0.442875177,
+        "val_action_l2": 0.05831204,
+        "val_alpha_mean": 0.44392848
+      },
+      {
+        "epoch": 5,
+        "loss": 0.12426839,
+        "train_action_l2": 0.113968544,
+        "train_alpha_mean": 0.437801063,
+        "val_action_l2": 0.058312576,
+        "val_alpha_mean": 0.43970114
+      },
+      {
+        "epoch": 6,
+        "loss": 0.12340688,
+        "train_action_l2": 0.113225415,
+        "train_alpha_mean": 0.432886064,
+        "val_action_l2": 0.058313884,
+        "val_alpha_mean": 0.435547888
+      },
+      {
+        "epoch": 7,
+        "loss": 0.122626834,
+        "train_action_l2": 0.112531543,
+        "train_alpha_mean": 0.428000391,
+        "val_action_l2": 0.058315478,
+        "val_alpha_mean": 0.43137297
+      },
+      {
+        "epoch": 8,
+        "loss": 0.121898457,
+        "train_action_l2": 0.111892417,
+        "train_alpha_mean": 0.423237622,
+        "val_action_l2": 0.058318693,
+        "val_alpha_mean": 0.427249193
+      },
+      {
+        "epoch": 9,
+        "loss": 0.121226683,
+        "train_action_l2": 0.11131312,
+        "train_alpha_mean": 0.418618381,
+        "val_action_l2": 0.058323674,
+        "val_alpha_mean": 0.423234701
+      },
+      {
+        "epoch": 10,
+        "loss": 0.120616302,
+        "train_action_l2": 0.110796459,
+        "train_alpha_mean": 0.414160281,
+        "val_action_l2": 0.058329545,
+        "val_alpha_mean": 0.419301659
+      },
+      {
+        "epoch": 11,
+        "loss": 0.120069675,
+        "train_action_l2": 0.110336766,
+        "train_alpha_mean": 0.409927309,
+        "val_action_l2": 0.058336984,
+        "val_alpha_mean": 0.415533721
+      },
+      {
+        "epoch": 12,
+        "loss": 0.119581603,
+        "train_action_l2": 0.10992372,
+        "train_alpha_mean": 0.405906081,
+        "val_action_l2": 0.058344532,
+        "val_alpha_mean": 0.41189909
+      },
+      {
+        "epoch": 13,
+        "loss": 0.119141005,
+        "train_action_l2": 0.109557085,
+        "train_alpha_mean": 0.402115047,
+        "val_action_l2": 0.05835278,
+        "val_alpha_mean": 0.408443928
+      },
+      {
+        "epoch": 14,
+        "loss": 0.118747979,
+        "train_action_l2": 0.109244443,
+        "train_alpha_mean": 0.398577005,
+        "val_action_l2": 0.058361948,
+        "val_alpha_mean": 0.405166775
+      },
+      {
+        "epoch": 15,
+        "loss": 0.118410215,
+        "train_action_l2": 0.108971737,
+        "train_alpha_mean": 0.395292789,
+        "val_action_l2": 0.058372878,
+        "val_alpha_mean": 0.402068228
+      },
+      {
+        "epoch": 16,
+        "loss": 0.118113279,
+        "train_action_l2": 0.108736113,
+        "train_alpha_mean": 0.392241418,
+        "val_action_l2": 0.058384012,
+        "val_alpha_mean": 0.399151176
+      },
+      {
+        "epoch": 17,
+        "loss": 0.117853835,
+        "train_action_l2": 0.108528264,
+        "train_alpha_mean": 0.389460295,
+        "val_action_l2": 0.05839479,
+        "val_alpha_mean": 0.396402299
+      },
+      {
+        "epoch": 18,
+        "loss": 0.117622778,
+        "train_action_l2": 0.108344227,
+        "train_alpha_mean": 0.386932641,
+        "val_action_l2": 0.058406226,
+        "val_alpha_mean": 0.393817186
+      },
+      {
+        "epoch": 19,
+        "loss": 0.117415749,
+        "train_action_l2": 0.10818091,
+        "train_alpha_mean": 0.384714007,
+        "val_action_l2": 0.058417678,
+        "val_alpha_mean": 0.391453117
+      }
+    ],
+    "parameter_count": 4929,
+    "training_elapsed_sec": 0.063
+  },
+  "feature_schema": {
+    "feature_count": 43,
+    "feature_names": [
+      "base_action_0",
+      "base_action_1",
+      "base_action_2",
+      "base_action_3",
+      "base_action_4",
+      "base_action_5",
+      "base_action_6",
+      "lora_action_0",
+      "lora_action_1",
+      "lora_action_2",
+      "lora_action_3",
+      "lora_action_4",
+      "lora_action_5",
+      "lora_action_6",
+      "action_delta_0",
+      "action_delta_1",
+      "action_delta_2",
+      "action_delta_3",
+      "action_delta_4",
+      "action_delta_5",
+      "action_delta_6",
+      "abs_action_delta_0",
+      "abs_action_delta_1",
+      "abs_action_delta_2",
+      "abs_action_delta_3",
+      "abs_action_delta_4",
+      "abs_action_delta_5",
+      "abs_action_delta_6",
+      "base_action_norm",
+      "lora_action_norm",
+      "action_delta_norm",
+      "base_gripper",
+      "lora_gripper",
+      "gripper_delta",
+      "normalized_phase",
+      "state_0",
+      "state_1",
+      "state_2",
+      "state_3",
+      "state_4",
+      "state_5",
+      "state_6",
+      "state_7"
+    ],
+    "instruction_embedding_used": false,
+    "primary_signals": [
+      "base_action",
+      "rank4_lora_action",
+      "action_disagreement",
+      "current_8d_state",
+      "normalized_phase"
+    ],
+    "uses_custom_libero_metadata": false,
+    "uses_future_frames": false,
+    "uses_ground_truth_action_at_inference": false,
+    "uses_oracle_label_at_inference": false,
+    "uses_rollout_reward": false
+  },
+  "final_decision": "FCAR_KILLED_BY_STATIC_BASELINE",
+  "kill_criteria": {
+    "fcar_beats_frozen_base": true,
+    "fcar_beats_mean_action_prior": true,
+    "fcar_beats_moira_style_router": true,
+    "fcar_beats_rank4_lora": false,
+    "fcar_beats_static_merge": false,
+    "fcar_gain_over_frozen_base": {
+      "absolute": 0.023853653,
+      "relative": 0.192370841
+    },
+    "fcar_uses_oracle_inference_inputs": false,
+    "hard_abs_threshold": 0.005,
+    "hard_rel_threshold": 0.05,
+    "task_oracle_test_action_l2": 0.076191123
+  },
+  "metrics": {
+    "all_200": {
+      "action_dim_oracle_diagnostic": {
+        "action_l2_max": 2.004428387,
+        "action_l2_mean": 0.07521063,
+        "eval_loss_max": 0.04199462,
+        "eval_loss_mean": 0.006147801,
+        "finite_all": true,
+        "gripper_abs_mean": 0.027040264,
+        "gripper_sign_accuracy": 0.99,
+        "help_hurt_vs_frozen_base": {
+          "help": 198,
+          "hurt": 2,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 200,
+          "hurt": 0,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.02402461,
+          0.02467925,
+          0.030193135,
+          0.00314093,
+          0.005746325,
+          0.00447789,
+          0.027040264
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.004428387,
+            "action_l2_mean": 0.114453058,
+            "eval_loss_max": 0.022347987,
+            "eval_loss_mean": 0.00723214,
+            "finite_all": true,
+            "gripper_abs_mean": 0.057603648,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.0244275,
+              0.0298184,
+              0.0369573,
+              0.00388015,
+              0.0060501,
+              0.003685475,
+              0.057603648
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.009735637,
+            "sample_count": 40,
+            "translation_l2_mean": 0.063167082
+          },
+          "2": {
+            "action_l2_max": 0.096220031,
+            "action_l2_mean": 0.049897094,
+            "eval_loss_max": 0.02225887,
+            "eval_loss_mean": 0.006081267,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00805185,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.021571975,
+              0.022232475,
+              0.025927425,
+              0.003509175,
+              0.005844675,
+              0.00471435,
+              0.00805185
+            ],
+            "range_violation_rate": 0.375,
+            "rotation_l2_mean": 0.009514994,
+            "sample_count": 40,
+            "translation_l2_mean": 0.047030623
+          },
+          "4": {
+            "action_l2_max": 0.142817646,
+            "action_l2_mean": 0.050356242,
+            "eval_loss_max": 0.033089999,
+            "eval_loss_mean": 0.004995096,
+            "finite_all": true,
+            "gripper_abs_mean": 0.0063022,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0235155,
+              0.02081335,
+              0.02849055,
+              0.002399175,
+              0.0053545,
+              0.004094125,
+              0.0063022
+            ],
+            "range_violation_rate": 0.525,
+            "rotation_l2_mean": 0.008272886,
+            "sample_count": 40,
+            "translation_l2_mean": 0.048238976
+          },
+          "5": {
+            "action_l2_max": 1.993861318,
+            "action_l2_mean": 0.105176012,
+            "eval_loss_max": 0.01754467,
+            "eval_loss_mean": 0.004846012,
+            "finite_all": true,
+            "gripper_abs_mean": 0.054792124,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.029059575,
+              0.023401625,
+              0.0312953,
+              0.0025396,
+              0.004200475,
+              0.0035338,
+              0.054792124
+            ],
+            "range_violation_rate": 0.35,
+            "rotation_l2_mean": 0.007342905,
+            "sample_count": 40,
+            "translation_l2_mean": 0.05628831
+          },
+          "8": {
+            "action_l2_max": 0.200081423,
+            "action_l2_mean": 0.056170745,
+            "eval_loss_max": 0.04199462,
+            "eval_loss_mean": 0.007584487,
+            "finite_all": true,
+            "gripper_abs_mean": 0.0084515,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0215485,
+              0.0271304,
+              0.0282951,
+              0.00337655,
+              0.007281875,
+              0.0063617,
+              0.0084515
+            ],
+            "range_violation_rate": 0.3,
+            "rotation_l2_mean": 0.012432275,
+            "sample_count": 40,
+            "translation_l2_mean": 0.052875261
+          }
+        },
+        "range_violation_rate": 0.41,
+        "rotation_l2_mean": 0.009459739,
+        "sample_count": 200,
+        "translation_l2_mean": 0.05352005
+      },
+      "frame_oracle": {
+        "action_l2_max": 2.006454706,
+        "action_l2_mean": 0.084582167,
+        "eval_loss_max": 0.175197944,
+        "eval_loss_mean": 0.012969294,
+        "finite_all": true,
+        "gripper_abs_mean": 0.029592043,
+        "gripper_sign_accuracy": 0.99,
+        "help_hurt_vs_frozen_base": {
+          "help": 98,
+          "hurt": 0,
+          "tie": 102
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 102,
+          "hurt": 0,
+          "tie": 98
+        },
+        "per_dim_abs_mean": [
+          0.028916035,
+          0.02970463,
+          0.035643605,
+          0.004567975,
+          0.008171275,
+          0.006598575,
+          0.02959204
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.006454706,
+            "action_l2_mean": 0.124051527,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.01754908,
+            "finite_all": true,
+            "gripper_abs_mean": 0.059813006,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.030195525,
+              0.036148975,
+              0.042249025,
+              0.00609315,
+              0.00912865,
+              0.00578455,
+              0.059813
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.014683342,
+            "sample_count": 40,
+            "translation_l2_mean": 0.073206687
+          },
+          "2": {
+            "action_l2_max": 0.110305876,
+            "action_l2_mean": 0.059649888,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.011760965,
+            "finite_all": true,
+            "gripper_abs_mean": 0.010390426,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.026271,
+              0.0261602,
+              0.031253275,
+              0.0046181,
+              0.009056325,
+              0.006928175,
+              0.010390425
+            ],
+            "range_violation_rate": 0.475,
+            "rotation_l2_mean": 0.014205654,
+            "sample_count": 40,
+            "translation_l2_mean": 0.055542665
+          },
+          "4": {
+            "action_l2_max": 0.167328224,
+            "action_l2_mean": 0.059901447,
+            "eval_loss_max": 0.175197944,
+            "eval_loss_mean": 0.012023438,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00832475,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.030078725,
+              0.0246824,
+              0.03307555,
+              0.00355615,
+              0.0064864,
+              0.00559115,
+              0.00832475
+            ],
+            "range_violation_rate": 0.7,
+            "rotation_l2_mean": 0.010462794,
+            "sample_count": 40,
+            "translation_l2_mean": 0.05728797
+          },
+          "5": {
+            "action_l2_max": 1.998554468,
+            "action_l2_mean": 0.111636585,
+            "eval_loss_max": 0.139352649,
+            "eval_loss_mean": 0.010934683,
+            "finite_all": true,
+            "gripper_abs_mean": 0.056433405,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.032168375,
+              0.026726025,
+              0.0376208,
+              0.0038179,
+              0.006041125,
+              0.005454725,
+              0.0564334
+            ],
+            "range_violation_rate": 0.475,
+            "rotation_l2_mean": 0.010501748,
+            "sample_count": 40,
+            "translation_l2_mean": 0.063732349
+          },
+          "8": {
+            "action_l2_max": 0.201020613,
+            "action_l2_mean": 0.067671386,
+            "eval_loss_max": 0.062875144,
+            "eval_loss_mean": 0.012578301,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012998627,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02586655,
+              0.03480555,
+              0.034019375,
+              0.004754575,
+              0.010143875,
+              0.009234275,
+              0.012998625
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.017246608,
+            "sample_count": 40,
+            "translation_l2_mean": 0.062430637
+          }
+        },
+        "range_violation_rate": 0.54,
+        "rotation_l2_mean": 0.013420029,
+        "sample_count": 200,
+        "translation_l2_mean": 0.062440062
+      },
+      "frozen_base": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.106514933,
+        "eval_loss_max": 0.139352649,
+        "eval_loss_mean": 0.01197837,
+        "finite_all": true,
+        "gripper_abs_mean": 0.039751568,
+        "gripper_sign_accuracy": 0.985,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 200
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 102,
+          "hurt": 98,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.03374561,
+          0.03711812,
+          0.043534325,
+          0.005063065,
+          0.00837667,
+          0.006865225,
+          0.03975157
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.012344599,
+            "action_l2_mean": 0.140706452,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.013347042,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061213748,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.032927075,
+              0.0473218,
+              0.051529925,
+              0.0072752,
+              0.00857555,
+              0.00531565,
+              0.06121375
+            ],
+            "range_violation_rate": 0.575,
+            "rotation_l2_mean": 0.014867492,
+            "sample_count": 40,
+            "translation_l2_mean": 0.088592329
+          },
+          "2": {
+            "action_l2_max": 0.15369083,
+            "action_l2_mean": 0.071951753,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.014901496,
+            "finite_all": true,
+            "gripper_abs_mean": 0.01130845,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03388575,
+              0.031895325,
+              0.038253875,
+              0.0049851,
+              0.00863925,
+              0.00758055,
+              0.01130845
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.014209637,
+            "sample_count": 40,
+            "translation_l2_mean": 0.068268428
+          },
+          "4": {
+            "action_l2_max": 0.182727084,
+            "action_l2_mean": 0.068254242,
+            "eval_loss_max": 0.044657443,
+            "eval_loss_mean": 0.007745066,
+            "finite_all": true,
+            "gripper_abs_mean": 0.007497127,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03136765,
+              0.031715025,
+              0.0388072,
+              0.004055725,
+              0.007808,
+              0.005883225,
+              0.007497125
+            ],
+            "range_violation_rate": 0.65,
+            "rotation_l2_mean": 0.012100611,
+            "sample_count": 40,
+            "translation_l2_mean": 0.066045161
+          },
+          "5": {
+            "action_l2_max": 1.998554468,
+            "action_l2_mean": 0.127170723,
+            "eval_loss_max": 0.139352649,
+            "eval_loss_mean": 0.01063281,
+            "finite_all": true,
+            "gripper_abs_mean": 0.05743442,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.0403428,
+              0.03317445,
+              0.0457291,
+              0.004308725,
+              0.006549375,
+              0.005650675,
+              0.057434425
+            ],
+            "range_violation_rate": 0.575,
+            "rotation_l2_mean": 0.011469659,
+            "sample_count": 40,
+            "translation_l2_mean": 0.079501672
+          },
+          "8": {
+            "action_l2_max": 1.960363984,
+            "action_l2_mean": 0.124491494,
+            "eval_loss_max": 0.062875144,
+            "eval_loss_mean": 0.013265436,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061304097,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.030204775,
+              0.041484,
+              0.043351525,
+              0.004690575,
+              0.010311175,
+              0.009896025,
+              0.0613041
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.017785391,
+            "sample_count": 40,
+            "translation_l2_mean": 0.076233041
+          }
+        },
+        "range_violation_rate": 0.54,
+        "rotation_l2_mean": 0.014086558,
+        "sample_count": 200,
+        "translation_l2_mean": 0.075728126
+      },
+      "mean_action_prior": {
+        "action_l2_max": 1.688645482,
+        "action_l2_mean": 1.144859705,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.988086157,
+        "gripper_sign_accuracy": 0.62,
+        "help_hurt_vs_frozen_base": {
+          "help": 3,
+          "hurt": 197,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 4,
+          "hurt": 196,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.23221478,
+          0.27009203,
+          0.251011295,
+          0.0257321,
+          0.03873003,
+          0.046931265,
+          0.98808616
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 1.52862215,
+            "action_l2_mean": 1.136228429,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.992553848,
+            "gripper_sign_accuracy": 0.575,
+            "per_dim_abs_mean": [
+              0.286624775,
+              0.216755875,
+              0.214416775,
+              0.0370728,
+              0.040896425,
+              0.0496759,
+              0.99255385
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.086264595,
+            "sample_count": 40,
+            "translation_l2_mean": 0.485208687
+          },
+          "2": {
+            "action_l2_max": 1.451078296,
+            "action_l2_mean": 1.129058814,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.980143595,
+            "gripper_sign_accuracy": 0.7,
+            "per_dim_abs_mean": [
+              0.317821925,
+              0.1837851,
+              0.227142875,
+              0.025822475,
+              0.043664325,
+              0.062238325,
+              0.9801436
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.097209628,
+            "sample_count": 40,
+            "translation_l2_mean": 0.488136661
+          },
+          "4": {
+            "action_l2_max": 1.624905705,
+            "action_l2_mean": 1.159404512,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.990071797,
+            "gripper_sign_accuracy": 0.6,
+            "per_dim_abs_mean": [
+              0.21154955,
+              0.3066114,
+              0.289413925,
+              0.010824575,
+              0.041910675,
+              0.034441225,
+              0.9900718
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.06632616,
+            "sample_count": 40,
+            "translation_l2_mean": 0.545610657
+          },
+          "5": {
+            "action_l2_max": 1.688645482,
+            "action_l2_mean": 1.173568796,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 1.0,
+            "gripper_sign_accuracy": 0.5,
+            "per_dim_abs_mean": [
+              0.179926025,
+              0.312948525,
+              0.308463725,
+              0.0171717,
+              0.029364325,
+              0.0247127,
+              1.0
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.053891925,
+            "sample_count": 40,
+            "translation_l2_mean": 0.551722142
+          },
+          "8": {
+            "action_l2_max": 1.346655607,
+            "action_l2_mean": 1.126037973,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.977661544,
+            "gripper_sign_accuracy": 0.725,
+            "per_dim_abs_mean": [
+              0.165151625,
+              0.33035925,
+              0.215619175,
+              0.03776895,
+              0.0378144,
+              0.063588175,
+              0.97766155
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.107693385,
+            "sample_count": 40,
+            "translation_l2_mean": 0.506689161
+          }
+        },
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.082277139,
+        "sample_count": 200,
+        "translation_l2_mean": 0.515473462
+      },
+      "rank4_lora": {
+        "action_l2_max": 2.007616758,
+        "action_l2_mean": 0.118024225,
+        "eval_loss_max": 0.175197944,
+        "eval_loss_mean": 0.01214829,
+        "finite_all": true,
+        "gripper_abs_mean": 0.050169467,
+        "gripper_sign_accuracy": 0.98,
+        "help_hurt_vs_frozen_base": {
+          "help": 98,
+          "hurt": 102,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 200
+        },
+        "per_dim_abs_mean": [
+          0.035980935,
+          0.035899575,
+          0.04194574,
+          0.00482542,
+          0.00985149,
+          0.007215095,
+          0.050169465
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.006454706,
+            "action_l2_mean": 0.142809041,
+            "eval_loss_max": 0.084928393,
+            "eval_loss_mean": 0.016189223,
+            "finite_all": true,
+            "gripper_abs_mean": 0.060680856,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.038076,
+              0.046840525,
+              0.052282625,
+              0.005889325,
+              0.011855225,
+              0.0063378,
+              0.06068085
+            ],
+            "range_violation_rate": 0.625,
+            "rotation_l2_mean": 0.016877734,
+            "sample_count": 40,
+            "translation_l2_mean": 0.091608524
+          },
+          "2": {
+            "action_l2_max": 1.996536493,
+            "action_l2_mean": 0.125088216,
+            "eval_loss_max": 0.106447786,
+            "eval_loss_mean": 0.011156927,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061174594,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.0368118,
+              0.0335873,
+              0.036988675,
+              0.0056954,
+              0.009988275,
+              0.007863625,
+              0.0611746
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016026165,
+            "sample_count": 40,
+            "translation_l2_mean": 0.072180648
+          },
+          "4": {
+            "action_l2_max": 0.167328224,
+            "action_l2_mean": 0.072736632,
+            "eval_loss_max": 0.175197944,
+            "eval_loss_mean": 0.014247039,
+            "finite_all": true,
+            "gripper_abs_mean": 0.01087548,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03237865,
+              0.03020015,
+              0.0412982,
+              0.003227325,
+              0.0080401,
+              0.0064648,
+              0.010875475
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.012187457,
+            "sample_count": 40,
+            "translation_l2_mean": 0.069636174
+          },
+          "5": {
+            "action_l2_max": 2.007616758,
+            "action_l2_mean": 0.126285636,
+            "eval_loss_max": 0.030725438,
+            "eval_loss_mean": 0.006809841,
+            "finite_all": true,
+            "gripper_abs_mean": 0.057625304,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.04139415,
+              0.032450275,
+              0.04347835,
+              0.0039732,
+              0.006627425,
+              0.005987,
+              0.0576253
+            ],
+            "range_violation_rate": 0.475,
+            "rotation_l2_mean": 0.011546,
+            "sample_count": 40,
+            "translation_l2_mean": 0.07779595
+          },
+          "8": {
+            "action_l2_max": 1.989458084,
+            "action_l2_mean": 0.123201599,
+            "eval_loss_max": 0.058558207,
+            "eval_loss_mean": 0.012338422,
+            "finite_all": true,
+            "gripper_abs_mean": 0.0604911,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.031244075,
+              0.036419625,
+              0.03568085,
+              0.00534185,
+              0.012746425,
+              0.00942225,
+              0.0604911
+            ],
+            "range_violation_rate": 0.525,
+            "rotation_l2_mean": 0.019631064,
+            "sample_count": 40,
+            "translation_l2_mean": 0.070609465
+          }
+        },
+        "range_violation_rate": 0.545,
+        "rotation_l2_mean": 0.015253684,
+        "sample_count": 200,
+        "translation_l2_mean": 0.076366152
+      },
+      "task_oracle": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.106079937,
+        "eval_loss_max": 0.098385274,
+        "eval_loss_mean": 0.011028373,
+        "finite_all": true,
+        "gripper_abs_mean": 0.039627146,
+        "gripper_sign_accuracy": 0.985,
+        "help_hurt_vs_frozen_base": {
+          "help": 42,
+          "hurt": 38,
+          "tie": 120
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 64,
+          "hurt": 56,
+          "tie": 80
+        },
+        "per_dim_abs_mean": [
+          0.03416374,
+          0.03596041,
+          0.04155004,
+          0.005126215,
+          0.00887933,
+          0.006837735,
+          0.039627145
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.012344599,
+            "action_l2_mean": 0.140706452,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.013347042,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061213748,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.032927075,
+              0.0473218,
+              0.051529925,
+              0.0072752,
+              0.00857555,
+              0.00531565,
+              0.06121375
+            ],
+            "range_violation_rate": 0.575,
+            "rotation_l2_mean": 0.014867492,
+            "sample_count": 40,
+            "translation_l2_mean": 0.088592329
+          },
+          "2": {
+            "action_l2_max": 0.15369083,
+            "action_l2_mean": 0.071951753,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.014901496,
+            "finite_all": true,
+            "gripper_abs_mean": 0.01130845,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03388575,
+              0.031895325,
+              0.038253875,
+              0.0049851,
+              0.00863925,
+              0.00758055,
+              0.01130845
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.014209637,
+            "sample_count": 40,
+            "translation_l2_mean": 0.068268428
+          },
+          "4": {
+            "action_l2_max": 0.182727084,
+            "action_l2_mean": 0.068254242,
+            "eval_loss_max": 0.044657443,
+            "eval_loss_mean": 0.007745066,
+            "finite_all": true,
+            "gripper_abs_mean": 0.007497127,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03136765,
+              0.031715025,
+              0.0388072,
+              0.004055725,
+              0.007808,
+              0.005883225,
+              0.007497125
+            ],
+            "range_violation_rate": 0.65,
+            "rotation_l2_mean": 0.012100611,
+            "sample_count": 40,
+            "translation_l2_mean": 0.066045161
+          },
+          "5": {
+            "action_l2_max": 2.007616758,
+            "action_l2_mean": 0.126285636,
+            "eval_loss_max": 0.030725438,
+            "eval_loss_mean": 0.006809841,
+            "finite_all": true,
+            "gripper_abs_mean": 0.057625304,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.04139415,
+              0.032450275,
+              0.04347835,
+              0.0039732,
+              0.006627425,
+              0.005987,
+              0.0576253
+            ],
+            "range_violation_rate": 0.475,
+            "rotation_l2_mean": 0.011546,
+            "sample_count": 40,
+            "translation_l2_mean": 0.07779595
+          },
+          "8": {
+            "action_l2_max": 1.989458084,
+            "action_l2_mean": 0.123201599,
+            "eval_loss_max": 0.058558207,
+            "eval_loss_mean": 0.012338422,
+            "finite_all": true,
+            "gripper_abs_mean": 0.0604911,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.031244075,
+              0.036419625,
+              0.03568085,
+              0.00534185,
+              0.012746425,
+              0.00942225,
+              0.0604911
+            ],
+            "range_violation_rate": 0.525,
+            "rotation_l2_mean": 0.019631064,
+            "sample_count": 40,
+            "translation_l2_mean": 0.070609465
+          }
+        },
+        "range_violation_rate": 0.535,
+        "rotation_l2_mean": 0.014470961,
+        "sample_count": 200,
+        "task_routing": {
+          "1": "frozen_base",
+          "2": "frozen_base",
+          "4": "frozen_base",
+          "5": "rank4_lora",
+          "8": "rank4_lora"
+        },
+        "translation_l2_mean": 0.074262267
+      }
+    },
+    "test": {
+      "action_dim_oracle_diagnostic": {
+        "action_l2_max": 0.200081423,
+        "action_l2_mean": 0.05582145,
+        "eval_loss_max": 0.034778547,
+        "eval_loss_mean": 0.005304443,
+        "finite_all": true,
+        "gripper_abs_mean": 0.006731175,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 40,
+          "hurt": 0,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 40,
+          "hurt": 0,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.022054125,
+          0.0261849,
+          0.030541825,
+          0.002575025,
+          0.00658515,
+          0.00479835,
+          0.006731175
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.137330949,
+            "action_l2_mean": 0.050234876,
+            "eval_loss_max": 0.008560767,
+            "eval_loss_mean": 0.00391204,
+            "finite_all": true,
+            "gripper_abs_mean": 0.0041015,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0210756,
+              0.0232775,
+              0.0283471,
+              0.0024682,
+              0.003716,
+              0.00253955,
+              0.0041015
+            ],
+            "range_violation_rate": 0.35,
+            "rotation_l2_mean": 0.006384016,
+            "sample_count": 20,
+            "translation_l2_mean": 0.049120367
+          },
+          "8": {
+            "action_l2_max": 0.200081423,
+            "action_l2_mean": 0.061408025,
+            "eval_loss_max": 0.034778547,
+            "eval_loss_mean": 0.006696846,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00936085,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02303265,
+              0.0290923,
+              0.03273655,
+              0.00268185,
+              0.0094543,
+              0.00705715,
+              0.00936085
+            ],
+            "range_violation_rate": 0.25,
+            "rotation_l2_mean": 0.014244871,
+            "sample_count": 20,
+            "translation_l2_mean": 0.057874606
+          }
+        },
+        "range_violation_rate": 0.3,
+        "rotation_l2_mean": 0.010314444,
+        "sample_count": 40,
+        "translation_l2_mean": 0.053497486
+      },
+      "adapter_soup_static_merge": {
+        "action_l2_max": 0.979861438,
+        "action_l2_mean": 0.091179973,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.032959476,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 30,
+          "hurt": 10,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 28,
+          "hurt": 12,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.02894535,
+          0.030159425,
+          0.036442325,
+          0.0040296,
+          0.00836885,
+          0.006971725,
+          0.03295945
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.164012685,
+            "action_l2_mean": 0.064489628,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.005421904,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0274184,
+              0.02726935,
+              0.03902715,
+              0.00380745,
+              0.0049769,
+              0.0043668,
+              0.00542195
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.009155475,
+            "sample_count": 20,
+            "translation_l2_mean": 0.062985012
+          },
+          "8": {
+            "action_l2_max": 0.979861438,
+            "action_l2_mean": 0.117870317,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.060497049,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0304723,
+              0.0330495,
+              0.0338575,
+              0.00425175,
+              0.0117608,
+              0.00957665,
+              0.06049695
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.017729872,
+            "sample_count": 20,
+            "translation_l2_mean": 0.069364313
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.013442673,
+        "sample_count": 40,
+        "selected_weight": 0.5,
+        "selection_split": "val",
+        "translation_l2_mean": 0.066174662
+      },
+      "fcar_tiny_gate": {
+        "action_l2_max": 1.33133173,
+        "action_l2_mean": 0.100144625,
+        "alpha_stats": {
+          "fraction_routed_to_base_alpha_lt_0_5": 1.0,
+          "fraction_routed_to_lora_alpha_ge_0_5": 0.0,
+          "max": 0.493465692,
+          "mean": 0.443432957,
+          "min": 0.320281953,
+          "std": 0.02648654
+        },
+        "calibration": {
+          "bins": [
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.0,
+                0.2
+              ]
+            },
+            {
+              "alpha_mean": 0.320281953,
+              "count": 1,
+              "oracle_lora_help_rate": 1.0,
+              "range": [
+                0.2,
+                0.4
+              ]
+            },
+            {
+              "alpha_mean": 0.446590662,
+              "count": 39,
+              "oracle_lora_help_rate": 0.538461538,
+              "range": [
+                0.4,
+                0.6
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.6,
+                0.8
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.8,
+                1.0
+              ]
+            }
+          ],
+          "confusion_at_alpha_0_5": {
+            "false_negative": 22,
+            "false_positive": 0,
+            "true_negative": 18,
+            "true_positive": 0
+          }
+        },
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.041781114,
+        "gripper_sign_accuracy": 0.975,
+        "help_hurt_vs_frozen_base": {
+          "help": 31,
+          "hurt": 9,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 27,
+          "hurt": 13,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.028971025,
+          0.030050925,
+          0.03781435,
+          0.0039128,
+          0.00866595,
+          0.00691055,
+          0.041781175
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.166973844,
+            "action_l2_mean": 0.064657987,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.005586895,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0273059,
+              0.02719135,
+              0.0390897,
+              0.00374845,
+              0.0050866,
+              0.0043121,
+              0.005587
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.009172057,
+            "sample_count": 20,
+            "translation_l2_mean": 0.063168102
+          },
+          "8": {
+            "action_l2_max": 1.33133173,
+            "action_l2_mean": 0.135631263,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.077975333,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.03063615,
+              0.0329105,
+              0.036539,
+              0.00407715,
+              0.0122453,
+              0.009509,
+              0.07797535
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.018046274,
+            "sample_count": 20,
+            "translation_l2_mean": 0.070997284
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.013609166,
+        "sample_count": 40,
+        "translation_l2_mean": 0.067082693
+      },
+      "frame_oracle": {
+        "action_l2_max": 0.201020613,
+        "action_l2_mean": 0.066124022,
+        "eval_loss_max": 0.058287323,
+        "eval_loss_mean": 0.009852785,
+        "finite_all": true,
+        "gripper_abs_mean": 0.010473554,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 22,
+          "hurt": 0,
+          "tie": 18
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 18,
+          "hurt": 0,
+          "tie": 22
+        },
+        "per_dim_abs_mean": [
+          0.02584135,
+          0.032164225,
+          0.03722305,
+          0.003716975,
+          0.008978825,
+          0.00657205,
+          0.01047355
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.150534883,
+            "action_l2_mean": 0.060303596,
+            "eval_loss_max": 0.019502429,
+            "eval_loss_mean": 0.007783828,
+            "finite_all": true,
+            "gripper_abs_mean": 0.005372658,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0264716,
+              0.0279427,
+              0.0341277,
+              0.0035731,
+              0.0059647,
+              0.004459,
+              0.00537265
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.009744346,
+            "sample_count": 20,
+            "translation_l2_mean": 0.058654793
+          },
+          "8": {
+            "action_l2_max": 0.201020613,
+            "action_l2_mean": 0.071944448,
+            "eval_loss_max": 0.058287323,
+            "eval_loss_mean": 0.011921742,
+            "finite_all": true,
+            "gripper_abs_mean": 0.015574449,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0252111,
+              0.03638575,
+              0.0403184,
+              0.00386085,
+              0.01199295,
+              0.0086851,
+              0.01557445
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.017881013,
+            "sample_count": 20,
+            "translation_l2_mean": 0.065972259
+          }
+        },
+        "range_violation_rate": 0.525,
+        "rotation_l2_mean": 0.013812679,
+        "sample_count": 40,
+        "translation_l2_mean": 0.062313526
+      },
+      "frozen_base": {
+        "action_l2_max": 1.960363984,
+        "action_l2_mean": 0.123998278,
+        "eval_loss_max": 0.036816161,
+        "eval_loss_mean": 0.007830483,
+        "finite_all": true,
+        "gripper_abs_mean": 0.058697024,
+        "gripper_sign_accuracy": 0.975,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 18,
+          "hurt": 22,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.032864375,
+          0.0382653,
+          0.044149425,
+          0.00383985,
+          0.009128525,
+          0.007277325,
+          0.058697025
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.19118534,
+            "action_l2_mean": 0.071464608,
+            "eval_loss_max": 0.018443502,
+            "eval_loss_mean": 0.005887409,
+            "finite_all": true,
+            "gripper_abs_mean": 0.007635248,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03134205,
+              0.0320988,
+              0.0410206,
+              0.00382395,
+              0.00589575,
+              0.00426545,
+              0.00763525
+            ],
+            "range_violation_rate": 0.7,
+            "rotation_l2_mean": 0.009947813,
+            "sample_count": 20,
+            "translation_l2_mean": 0.069879061
+          },
+          "8": {
+            "action_l2_max": 1.960363984,
+            "action_l2_mean": 0.176531948,
+            "eval_loss_max": 0.036816161,
+            "eval_loss_mean": 0.009773557,
+            "finite_all": true,
+            "gripper_abs_mean": 0.1097588,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0343867,
+              0.0444318,
+              0.04727825,
+              0.00385575,
+              0.0123613,
+              0.0102892,
+              0.1097588
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.019042973,
+            "sample_count": 20,
+            "translation_l2_mean": 0.084545933
+          }
+        },
+        "range_violation_rate": 0.55,
+        "rotation_l2_mean": 0.014495393,
+        "sample_count": 40,
+        "translation_l2_mean": 0.077212497
+      },
+      "mean_action_prior": {
+        "action_l2_max": 1.549811482,
+        "action_l2_mean": 1.148631734,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.990071797,
+        "gripper_sign_accuracy": 0.6,
+        "help_hurt_vs_frozen_base": {
+          "help": 1,
+          "hurt": 39,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 40,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.16207125,
+          0.3334502,
+          0.257570825,
+          0.03501025,
+          0.0292447,
+          0.0403521,
+          0.9900718
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 1.549811482,
+            "action_l2_mean": 1.155589455,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 1.0,
+            "gripper_sign_accuracy": 0.5,
+            "per_dim_abs_mean": [
+              0.1352021,
+              0.3252699,
+              0.2881386,
+              0.02019795,
+              0.0237429,
+              0.0210687,
+              1.0
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.047329292,
+            "sample_count": 20,
+            "translation_l2_mean": 0.518223475
+          },
+          "8": {
+            "action_l2_max": 1.346655607,
+            "action_l2_mean": 1.141674012,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.980143595,
+            "gripper_sign_accuracy": 0.7,
+            "per_dim_abs_mean": [
+              0.1889404,
+              0.3416305,
+              0.22700305,
+              0.04982255,
+              0.0347465,
+              0.0596355,
+              0.9801436
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.112320563,
+            "sample_count": 20,
+            "translation_l2_mean": 0.539613277
+          }
+        },
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.079824928,
+        "sample_count": 40,
+        "translation_l2_mean": 0.528918376
+      },
+      "moira_style_instruction_task_router": {
+        "action_l2_max": 1.960363984,
+        "action_l2_mean": 0.123998278,
+        "eval_loss_max": 0.036816161,
+        "eval_loss_mean": 0.007830483,
+        "finite_all": true,
+        "gripper_abs_mean": 0.058697024,
+        "gripper_sign_accuracy": 0.975,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 18,
+          "hurt": 22,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.032864375,
+          0.0382653,
+          0.044149425,
+          0.00383985,
+          0.009128525,
+          0.007277325,
+          0.058697025
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.19118534,
+            "action_l2_mean": 0.071464608,
+            "eval_loss_max": 0.018443502,
+            "eval_loss_mean": 0.005887409,
+            "finite_all": true,
+            "gripper_abs_mean": 0.007635248,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03134205,
+              0.0320988,
+              0.0410206,
+              0.00382395,
+              0.00589575,
+              0.00426545,
+              0.00763525
+            ],
+            "range_violation_rate": 0.7,
+            "rotation_l2_mean": 0.009947813,
+            "sample_count": 20,
+            "translation_l2_mean": 0.069879061
+          },
+          "8": {
+            "action_l2_max": 1.960363984,
+            "action_l2_mean": 0.176531948,
+            "eval_loss_max": 0.036816161,
+            "eval_loss_mean": 0.009773557,
+            "finite_all": true,
+            "gripper_abs_mean": 0.1097588,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0343867,
+              0.0444318,
+              0.04727825,
+              0.00385575,
+              0.0123613,
+              0.0102892,
+              0.1097588
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.019042973,
+            "sample_count": 20,
+            "translation_l2_mean": 0.084545933
+          }
+        },
+        "range_violation_rate": 0.55,
+        "rotation_l2_mean": 0.014495393,
+        "sample_count": 40,
+        "task_routing_from_train": {
+          "1": "frozen_base",
+          "2": "frozen_base",
+          "4": "frozen_base",
+          "5": "frozen_base",
+          "8": "frozen_base"
+        },
+        "translation_l2_mean": 0.077212497
+      },
+      "rank4_lora": {
+        "action_l2_max": 0.201020613,
+        "action_l2_mean": 0.076191123,
+        "eval_loss_max": 0.058287323,
+        "eval_loss_mean": 0.008283809,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009318775,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 22,
+          "hurt": 18,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "per_dim_abs_mean": [
+          0.031497175,
+          0.036693925,
+          0.040335175,
+          0.005159625,
+          0.00951985,
+          0.00755465,
+          0.009318775
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.15276204,
+            "action_l2_mean": 0.06941217,
+            "eval_loss_max": 0.019502429,
+            "eval_loss_mean": 0.006167884,
+            "finite_all": true,
+            "gripper_abs_mean": 0.005350751,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02946455,
+              0.0333327,
+              0.03909385,
+              0.00466555,
+              0.0048985,
+              0.0047072,
+              0.00535075
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.009785703,
+            "sample_count": 20,
+            "translation_l2_mean": 0.067797602
+          },
+          "8": {
+            "action_l2_max": 0.201020613,
+            "action_l2_mean": 0.082970076,
+            "eval_loss_max": 0.058287323,
+            "eval_loss_mean": 0.010399735,
+            "finite_all": true,
+            "gripper_abs_mean": 0.013286799,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0335298,
+              0.04005515,
+              0.0415765,
+              0.0056537,
+              0.0141412,
+              0.0104021,
+              0.0132868
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.02155263,
+            "sample_count": 20,
+            "translation_l2_mean": 0.077060985
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.015669167,
+        "sample_count": 40,
+        "translation_l2_mean": 0.072429293
+      },
+      "task_oracle": {
+        "action_l2_max": 0.201020613,
+        "action_l2_mean": 0.076191123,
+        "eval_loss_max": 0.058287323,
+        "eval_loss_mean": 0.008283809,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009318775,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 22,
+          "hurt": 18,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "per_dim_abs_mean": [
+          0.031497175,
+          0.036693925,
+          0.040335175,
+          0.005159625,
+          0.00951985,
+          0.00755465,
+          0.009318775
+        ],
+        "per_task": {
+          "5": {
+            "action_l2_max": 0.15276204,
+            "action_l2_mean": 0.06941217,
+            "eval_loss_max": 0.019502429,
+            "eval_loss_mean": 0.006167884,
+            "finite_all": true,
+            "gripper_abs_mean": 0.005350751,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02946455,
+              0.0333327,
+              0.03909385,
+              0.00466555,
+              0.0048985,
+              0.0047072,
+              0.00535075
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.009785703,
+            "sample_count": 20,
+            "translation_l2_mean": 0.067797602
+          },
+          "8": {
+            "action_l2_max": 0.201020613,
+            "action_l2_mean": 0.082970076,
+            "eval_loss_max": 0.058287323,
+            "eval_loss_mean": 0.010399735,
+            "finite_all": true,
+            "gripper_abs_mean": 0.013286799,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0335298,
+              0.04005515,
+              0.0415765,
+              0.0056537,
+              0.0141412,
+              0.0104021,
+              0.0132868
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.02155263,
+            "sample_count": 20,
+            "translation_l2_mean": 0.077060985
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.015669167,
+        "sample_count": 40,
+        "task_routing": {
+          "5": "rank4_lora",
+          "8": "rank4_lora"
+        },
+        "translation_l2_mean": 0.072429293
+      }
+    },
+    "train": {
+      "action_dim_oracle_diagnostic": {
+        "action_l2_max": 2.004428387,
+        "action_l2_mean": 0.091657951,
+        "eval_loss_max": 0.04199462,
+        "eval_loss_mean": 0.006703827,
+        "finite_all": true,
+        "gripper_abs_mean": 0.040390266,
+        "gripper_sign_accuracy": 0.983333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 119,
+          "hurt": 1,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 120,
+          "hurt": 0,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.0267115,
+          0.026006425,
+          0.031323583,
+          0.003771392,
+          0.005662917,
+          0.00466095,
+          0.040390266
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.004428387,
+            "action_l2_mean": 0.114453058,
+            "eval_loss_max": 0.022347987,
+            "eval_loss_mean": 0.00723214,
+            "finite_all": true,
+            "gripper_abs_mean": 0.057603648,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.0244275,
+              0.0298184,
+              0.0369573,
+              0.00388015,
+              0.0060501,
+              0.003685475,
+              0.057603648
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.009735637,
+            "sample_count": 40,
+            "translation_l2_mean": 0.063167082
+          },
+          "2": {
+            "action_l2_max": 0.096220031,
+            "action_l2_mean": 0.056484908,
+            "eval_loss_max": 0.013476509,
+            "eval_loss_mean": 0.00601714,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00929575,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0245265,
+              0.0243262,
+              0.02801645,
+              0.00571265,
+              0.00592545,
+              0.00694575,
+              0.00929575
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.012060129,
+            "sample_count": 20,
+            "translation_l2_mean": 0.053103066
+          },
+          "4": {
+            "action_l2_max": 0.142817646,
+            "action_l2_mean": 0.053506066,
+            "eval_loss_max": 0.033089999,
+            "eval_loss_mean": 0.00548943,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00481365,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0297796,
+              0.0233813,
+              0.0279133,
+              0.00247315,
+              0.00615745,
+              0.0034547,
+              0.00481365
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.008554541,
+            "sample_count": 20,
+            "translation_l2_mean": 0.051762405
+          },
+          "5": {
+            "action_l2_max": 1.993861318,
+            "action_l2_mean": 0.160117149,
+            "eval_loss_max": 0.01754467,
+            "eval_loss_mean": 0.005779984,
+            "finite_all": true,
+            "gripper_abs_mean": 0.105482748,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.03704355,
+              0.02352575,
+              0.0342435,
+              0.002611,
+              0.00468495,
+              0.00452805,
+              0.105482748
+            ],
+            "range_violation_rate": 0.35,
+            "rotation_l2_mean": 0.008301794,
+            "sample_count": 20,
+            "translation_l2_mean": 0.063456253
+          },
+          "8": {
+            "action_l2_max": 0.143113822,
+            "action_l2_mean": 0.050933466,
+            "eval_loss_max": 0.04199462,
+            "eval_loss_mean": 0.008472129,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00754215,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02006435,
+              0.0251685,
+              0.02385365,
+              0.00407125,
+              0.00510945,
+              0.00566625,
+              0.00754215
+            ],
+            "range_violation_rate": 0.35,
+            "rotation_l2_mean": 0.010619678,
+            "sample_count": 20,
+            "translation_l2_mean": 0.047875915
+          }
+        },
+        "range_violation_rate": 0.441666667,
+        "rotation_l2_mean": 0.009834569,
+        "sample_count": 120,
+        "translation_l2_mean": 0.057088634
+      },
+      "adapter_soup_static_merge": {
+        "action_l2_max": 2.00845623,
+        "action_l2_mean": 0.122917336,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.059620098,
+        "gripper_sign_accuracy": 0.966666667,
+        "help_hurt_vs_frozen_base": {
+          "help": 73,
+          "hurt": 47,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 81,
+          "hurt": 39,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.034219567,
+          0.035023992,
+          0.038233392,
+          0.005063625,
+          0.00842015,
+          0.006622975,
+          0.059620058
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.00845623,
+            "action_l2_mean": 0.133340278,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.060132778,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.0322191,
+              0.043055525,
+              0.045639025,
+              0.00587905,
+              0.0098471,
+              0.005495675,
+              0.06013275
+            ],
+            "range_violation_rate": 0.625,
+            "rotation_l2_mean": 0.01464724,
+            "sample_count": 40,
+            "translation_l2_mean": 0.081312559
+          },
+          "2": {
+            "action_l2_max": 1.008538008,
+            "action_l2_mean": 0.123481243,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.062520605,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0384056,
+              0.03351,
+              0.03225415,
+              0.00677205,
+              0.00918355,
+              0.0096789,
+              0.0625204
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016438222,
+            "sample_count": 20,
+            "translation_l2_mean": 0.070528129
+          },
+          "4": {
+            "action_l2_max": 0.170881718,
+            "action_l2_mean": 0.06522608,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008080465,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0334641,
+              0.02730705,
+              0.0370878,
+              0.00309765,
+              0.0069251,
+              0.004687,
+              0.00808035
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.010299667,
+            "sample_count": 20,
+            "translation_l2_mean": 0.062549777
+          },
+          "5": {
+            "action_l2_max": 2.002276182,
+            "action_l2_mean": 0.174319312,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.108071118,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0465404,
+              0.03020795,
+              0.04311415,
+              0.0039933,
+              0.00609365,
+              0.0065716,
+              0.1080712
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.011238406,
+            "sample_count": 20,
+            "translation_l2_mean": 0.07933154
+          },
+          "8": {
+            "action_l2_max": 1.009191036,
+            "action_l2_mean": 0.107796825,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.058782846,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0224691,
+              0.0330079,
+              0.0256662,
+              0.00476065,
+              0.0086244,
+              0.007809,
+              0.0587829
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.014840479,
+            "sample_count": 20,
+            "translation_l2_mean": 0.0565966
+          }
+        },
+        "range_violation_rate": 0.541666667,
+        "rotation_l2_mean": 0.013685209,
+        "sample_count": 120,
+        "selected_weight": 0.5,
+        "selection_split": "val",
+        "translation_l2_mean": 0.071938527
+      },
+      "fcar_tiny_gate": {
+        "action_l2_max": 2.008682251,
+        "action_l2_mean": 0.114790271,
+        "alpha_stats": {
+          "fraction_routed_to_base_alpha_lt_0_5": 1.0,
+          "fraction_routed_to_lora_alpha_ge_0_5": 0.0,
+          "max": 0.492775261,
+          "mean": 0.442875177,
+          "min": 0.238096878,
+          "std": 0.031797629
+        },
+        "calibration": {
+          "bins": [
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.0,
+                0.2
+              ]
+            },
+            {
+              "alpha_mean": 0.326963395,
+              "count": 5,
+              "oracle_lora_help_rate": 0.0,
+              "range": [
+                0.2,
+                0.4
+              ]
+            },
+            {
+              "alpha_mean": 0.447914779,
+              "count": 115,
+              "oracle_lora_help_rate": 0.52173913,
+              "range": [
+                0.4,
+                0.6
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.6,
+                0.8
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.8,
+                1.0
+              ]
+            }
+          ],
+          "confusion_at_alpha_0_5": {
+            "false_negative": 60,
+            "false_positive": 0,
+            "true_negative": 60,
+            "true_positive": 0
+          }
+        },
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.051524054,
+        "gripper_sign_accuracy": 0.983333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 76,
+          "hurt": 44,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 81,
+          "hurt": 39,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.034246275,
+          0.0350493,
+          0.038549217,
+          0.005110117,
+          0.008135975,
+          0.006771558,
+          0.051524092
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.008682251,
+            "action_l2_mean": 0.133150935,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.060187316,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.03208615,
+              0.04262465,
+              0.045924675,
+              0.00599625,
+              0.009597275,
+              0.005417,
+              0.06018735
+            ],
+            "range_violation_rate": 0.625,
+            "rotation_l2_mean": 0.014492877,
+            "sample_count": 40,
+            "translation_l2_mean": 0.081061498
+          },
+          "2": {
+            "action_l2_max": 0.562526941,
+            "action_l2_mean": 0.100917935,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.039923891,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03872795,
+              0.03362905,
+              0.0316529,
+              0.006636,
+              0.00920855,
+              0.00983705,
+              0.039924
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016475172,
+            "sample_count": 20,
+            "translation_l2_mean": 0.070376877
+          },
+          "4": {
+            "action_l2_max": 0.171397761,
+            "action_l2_mean": 0.065021794,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.007871178,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0335987,
+              0.0279241,
+              0.0367482,
+              0.0031933,
+              0.0067953,
+              0.00480405,
+              0.00787125
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.010354792,
+            "sample_count": 20,
+            "translation_l2_mean": 0.062391529
+          },
+          "5": {
+            "action_l2_max": 2.00178194,
+            "action_l2_mean": 0.174055405,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.107825512,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0463833,
+              0.02982125,
+              0.0430211,
+              0.0041306,
+              0.0056622,
+              0.0066206,
+              0.1078255
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.011147422,
+            "sample_count": 20,
+            "translation_l2_mean": 0.079106212
+          },
+          "8": {
+            "action_l2_max": 0.502257347,
+            "action_l2_mean": 0.08244462,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.033149108,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0225954,
+              0.0336721,
+              0.02802375,
+              0.0047083,
+              0.00795525,
+              0.00853365,
+              0.0331491
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.015183897,
+            "sample_count": 20,
+            "translation_l2_mean": 0.058116726
+          }
+        },
+        "range_violation_rate": 0.541666667,
+        "rotation_l2_mean": 0.013691173,
+        "sample_count": 120,
+        "translation_l2_mean": 0.072019057
+      },
+      "frame_oracle": {
+        "action_l2_max": 2.006454706,
+        "action_l2_mean": 0.101329464,
+        "eval_loss_max": 0.175197944,
+        "eval_loss_mean": 0.015648881,
+        "finite_all": true,
+        "gripper_abs_mean": 0.042931844,
+        "gripper_sign_accuracy": 0.983333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 60,
+          "hurt": 0,
+          "tie": 60
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 60,
+          "hurt": 0,
+          "tie": 60
+        },
+        "per_dim_abs_mean": [
+          0.031937358,
+          0.031113633,
+          0.037328083,
+          0.005457683,
+          0.008211725,
+          0.007025483,
+          0.042931842
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.006454706,
+            "action_l2_mean": 0.124051527,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.01754908,
+            "finite_all": true,
+            "gripper_abs_mean": 0.059813006,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.030195525,
+              0.036148975,
+              0.042249025,
+              0.00609315,
+              0.00912865,
+              0.00578455,
+              0.059813
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.014683342,
+            "sample_count": 40,
+            "translation_l2_mean": 0.073206687
+          },
+          "2": {
+            "action_l2_max": 0.110305876,
+            "action_l2_mean": 0.068765539,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.013402361,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012324399,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.03103355,
+              0.02987745,
+              0.0358092,
+              0.00716195,
+              0.00937505,
+              0.01006605,
+              0.0123244
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.017339487,
+            "sample_count": 20,
+            "translation_l2_mean": 0.064193719
+          },
+          "4": {
+            "action_l2_max": 0.167328224,
+            "action_l2_mean": 0.064740292,
+            "eval_loss_max": 0.175197944,
+            "eval_loss_mean": 0.018072364,
+            "finite_all": true,
+            "gripper_abs_mean": 0.007723698,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0358124,
+              0.0257717,
+              0.034827,
+              0.00368685,
+              0.00722565,
+              0.00428385,
+              0.0077237
+            ],
+            "range_violation_rate": 0.75,
+            "rotation_l2_mean": 0.010373178,
+            "sample_count": 20,
+            "translation_l2_mean": 0.062362286
+          },
+          "5": {
+            "action_l2_max": 1.998554468,
+            "action_l2_mean": 0.162969573,
+            "eval_loss_max": 0.139352649,
+            "eval_loss_mean": 0.014085538,
+            "finite_all": true,
+            "gripper_abs_mean": 0.107494152,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.03786515,
+              0.02550935,
+              0.0411139,
+              0.0040627,
+              0.00611755,
+              0.00645045,
+              0.10749415
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.011259151,
+            "sample_count": 20,
+            "translation_l2_mean": 0.068809905
+          },
+          "8": {
+            "action_l2_max": 0.160489962,
+            "action_l2_mean": 0.063398325,
+            "eval_loss_max": 0.062875144,
+            "eval_loss_mean": 0.01323486,
+            "finite_all": true,
+            "gripper_abs_mean": 0.010422805,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.026522,
+              0.03322535,
+              0.02772035,
+              0.0056483,
+              0.0082948,
+              0.00978345,
+              0.0104228
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016612204,
+            "sample_count": 20,
+            "translation_l2_mean": 0.058889015
+          }
+        },
+        "range_violation_rate": 0.55,
+        "rotation_l2_mean": 0.01415845,
+        "sample_count": 120,
+        "translation_l2_mean": 0.06677805
+      },
+      "frozen_base": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.114901279,
+        "eval_loss_max": 0.139352649,
+        "eval_loss_mean": 0.013651172,
+        "finite_all": true,
+        "gripper_abs_mean": 0.043678756,
+        "gripper_sign_accuracy": 0.983333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 120
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 60,
+          "hurt": 60,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.036311708,
+          0.040013767,
+          0.044787675,
+          0.006130942,
+          0.008426267,
+          0.007383158,
+          0.043678758
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.012344599,
+            "action_l2_mean": 0.140706452,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.013347042,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061213748,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.032927075,
+              0.0473218,
+              0.051529925,
+              0.0072752,
+              0.00857555,
+              0.00531565,
+              0.06121375
+            ],
+            "range_violation_rate": 0.575,
+            "rotation_l2_mean": 0.014867492,
+            "sample_count": 40,
+            "translation_l2_mean": 0.088592329
+          },
+          "2": {
+            "action_l2_max": 0.15369083,
+            "action_l2_mean": 0.080049188,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.016464917,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012992945,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0396045,
+              0.0352612,
+              0.038169,
+              0.007273,
+              0.009646,
+              0.0112203,
+              0.01299295
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.018327243,
+            "sample_count": 20,
+            "translation_l2_mean": 0.074980208
+          },
+          "4": {
+            "action_l2_max": 0.182727084,
+            "action_l2_mean": 0.072617706,
+            "eval_loss_max": 0.033089999,
+            "eval_loss_mean": 0.006612504,
+            "finite_all": true,
+            "gripper_abs_mean": 0.006569105,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0370452,
+              0.0373915,
+              0.0376348,
+              0.00464335,
+              0.00829645,
+              0.0059086,
+              0.0065691
+            ],
+            "range_violation_rate": 0.7,
+            "rotation_l2_mean": 0.012971896,
+            "sample_count": 20,
+            "translation_l2_mean": 0.070400236
+          },
+          "5": {
+            "action_l2_max": 1.998554468,
+            "action_l2_mean": 0.182876838,
+            "eval_loss_max": 0.139352649,
+            "eval_loss_mean": 0.015378211,
+            "finite_all": true,
+            "gripper_abs_mean": 0.107233593,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.04934355,
+              0.0342501,
+              0.0504376,
+              0.0047935,
+              0.007203,
+              0.0070359,
+              0.1072336
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.012991506,
+            "sample_count": 20,
+            "translation_l2_mean": 0.089124284
+          },
+          "8": {
+            "action_l2_max": 0.160489962,
+            "action_l2_mean": 0.07245104,
+            "eval_loss_max": 0.062875144,
+            "eval_loss_mean": 0.016757316,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012849394,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02602285,
+              0.0385362,
+              0.0394248,
+              0.0055254,
+              0.00826105,
+              0.00950285,
+              0.0128494
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016527809,
+            "sample_count": 20,
+            "translation_l2_mean": 0.067920149
+          }
+        },
+        "range_violation_rate": 0.55,
+        "rotation_l2_mean": 0.01509224,
+        "sample_count": 120,
+        "translation_l2_mean": 0.079934922
+      },
+      "mean_action_prior": {
+        "action_l2_max": 1.688645482,
+        "action_l2_mean": 1.150367283,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.986762397,
+        "gripper_sign_accuracy": 0.633333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 2,
+          "hurt": 118,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 4,
+          "hurt": 116,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.251393342,
+          0.26548255,
+          0.249171233,
+          0.027028475,
+          0.040064917,
+          0.056354842,
+          0.9867624
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 1.52862215,
+            "action_l2_mean": 1.136228429,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.992553848,
+            "gripper_sign_accuracy": 0.575,
+            "per_dim_abs_mean": [
+              0.286624775,
+              0.216755875,
+              0.214416775,
+              0.0370728,
+              0.040896425,
+              0.0496759,
+              0.99255385
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.086264595,
+            "sample_count": 40,
+            "translation_l2_mean": 0.485208687
+          },
+          "2": {
+            "action_l2_max": 1.451078296,
+            "action_l2_mean": 1.155077302,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.970215392,
+            "gripper_sign_accuracy": 0.8,
+            "per_dim_abs_mean": [
+              0.33825425,
+              0.23667305,
+              0.2254716,
+              0.0401786,
+              0.0505786,
+              0.10608655,
+              0.9702154
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.144527649,
+            "sample_count": 20,
+            "translation_l2_mean": 0.538697376
+          },
+          "4": {
+            "action_l2_max": 1.624905705,
+            "action_l2_mean": 1.172719467,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.990071797,
+            "gripper_sign_accuracy": 0.6,
+            "per_dim_abs_mean": [
+              0.23084345,
+              0.30299535,
+              0.3076981,
+              0.00798585,
+              0.03215,
+              0.03679315,
+              0.9900718
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.063613208,
+            "sample_count": 20,
+            "translation_l2_mean": 0.56615259
+          },
+          "5": {
+            "action_l2_max": 1.688645482,
+            "action_l2_mean": 1.191548136,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 1.0,
+            "gripper_sign_accuracy": 0.5,
+            "per_dim_abs_mean": [
+              0.22464995,
+              0.30062715,
+              0.32878885,
+              0.01414545,
+              0.03498575,
+              0.0283567,
+              1.0
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.060454559,
+            "sample_count": 20,
+            "translation_l2_mean": 0.585220808
+          },
+          "8": {
+            "action_l2_max": 1.322120547,
+            "action_l2_mean": 1.110401934,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.975179494,
+            "gripper_sign_accuracy": 0.75,
+            "per_dim_abs_mean": [
+              0.14136285,
+              0.319088,
+              0.2042353,
+              0.02571535,
+              0.0408823,
+              0.06754085,
+              0.9751795
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.103066206,
+            "sample_count": 20,
+            "translation_l2_mean": 0.473765046
+          }
+        },
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.090698469,
+        "sample_count": 120,
+        "translation_l2_mean": 0.522375532
+      },
+      "moira_style_instruction_task_router": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.114901279,
+        "eval_loss_max": 0.139352649,
+        "eval_loss_mean": 0.013651172,
+        "finite_all": true,
+        "gripper_abs_mean": 0.043678756,
+        "gripper_sign_accuracy": 0.983333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 120
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 60,
+          "hurt": 60,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.036311708,
+          0.040013767,
+          0.044787675,
+          0.006130942,
+          0.008426267,
+          0.007383158,
+          0.043678758
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.012344599,
+            "action_l2_mean": 0.140706452,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.013347042,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061213748,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.032927075,
+              0.0473218,
+              0.051529925,
+              0.0072752,
+              0.00857555,
+              0.00531565,
+              0.06121375
+            ],
+            "range_violation_rate": 0.575,
+            "rotation_l2_mean": 0.014867492,
+            "sample_count": 40,
+            "translation_l2_mean": 0.088592329
+          },
+          "2": {
+            "action_l2_max": 0.15369083,
+            "action_l2_mean": 0.080049188,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.016464917,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012992945,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0396045,
+              0.0352612,
+              0.038169,
+              0.007273,
+              0.009646,
+              0.0112203,
+              0.01299295
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.018327243,
+            "sample_count": 20,
+            "translation_l2_mean": 0.074980208
+          },
+          "4": {
+            "action_l2_max": 0.182727084,
+            "action_l2_mean": 0.072617706,
+            "eval_loss_max": 0.033089999,
+            "eval_loss_mean": 0.006612504,
+            "finite_all": true,
+            "gripper_abs_mean": 0.006569105,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0370452,
+              0.0373915,
+              0.0376348,
+              0.00464335,
+              0.00829645,
+              0.0059086,
+              0.0065691
+            ],
+            "range_violation_rate": 0.7,
+            "rotation_l2_mean": 0.012971896,
+            "sample_count": 20,
+            "translation_l2_mean": 0.070400236
+          },
+          "5": {
+            "action_l2_max": 1.998554468,
+            "action_l2_mean": 0.182876838,
+            "eval_loss_max": 0.139352649,
+            "eval_loss_mean": 0.015378211,
+            "finite_all": true,
+            "gripper_abs_mean": 0.107233593,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.04934355,
+              0.0342501,
+              0.0504376,
+              0.0047935,
+              0.007203,
+              0.0070359,
+              0.1072336
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.012991506,
+            "sample_count": 20,
+            "translation_l2_mean": 0.089124284
+          },
+          "8": {
+            "action_l2_max": 0.160489962,
+            "action_l2_mean": 0.07245104,
+            "eval_loss_max": 0.062875144,
+            "eval_loss_mean": 0.016757316,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012849394,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02602285,
+              0.0385362,
+              0.0394248,
+              0.0055254,
+              0.00826105,
+              0.00950285,
+              0.0128494
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016527809,
+            "sample_count": 20,
+            "translation_l2_mean": 0.067920149
+          }
+        },
+        "range_violation_rate": 0.55,
+        "rotation_l2_mean": 0.01509224,
+        "sample_count": 120,
+        "task_routing_from_train": {
+          "1": "frozen_base",
+          "2": "frozen_base",
+          "4": "frozen_base",
+          "5": "frozen_base",
+          "8": "frozen_base"
+        },
+        "translation_l2_mean": 0.079934922
+      },
+      "rank4_lora": {
+        "action_l2_max": 2.007616758,
+        "action_l2_mean": 0.148594371,
+        "eval_loss_max": 0.175197944,
+        "eval_loss_mean": 0.014485806,
+        "finite_all": true,
+        "gripper_abs_mean": 0.077188536,
+        "gripper_sign_accuracy": 0.966666667,
+        "help_hurt_vs_frozen_base": {
+          "help": 60,
+          "hurt": 60,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 120
+        },
+        "per_dim_abs_mean": [
+          0.04003335,
+          0.037261708,
+          0.044142492,
+          0.005347308,
+          0.010299925,
+          0.007399958,
+          0.077188533
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.006454706,
+            "action_l2_mean": 0.142809041,
+            "eval_loss_max": 0.084928393,
+            "eval_loss_mean": 0.016189223,
+            "finite_all": true,
+            "gripper_abs_mean": 0.060680856,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.038076,
+              0.046840525,
+              0.052282625,
+              0.005889325,
+              0.011855225,
+              0.0063378,
+              0.06068085
+            ],
+            "range_violation_rate": 0.625,
+            "rotation_l2_mean": 0.016877734,
+            "sample_count": 40,
+            "translation_l2_mean": 0.091608524
+          },
+          "2": {
+            "action_l2_max": 1.996536493,
+            "action_l2_mean": 0.183953162,
+            "eval_loss_max": 0.029704027,
+            "eval_loss_mean": 0.009305984,
+            "finite_all": true,
+            "gripper_abs_mean": 0.113740888,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.0441015,
+              0.03630805,
+              0.039288,
+              0.0090565,
+              0.00956015,
+              0.0104204,
+              0.1137409
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.018831766,
+            "sample_count": 20,
+            "translation_l2_mean": 0.082009617
+          },
+          "4": {
+            "action_l2_max": 0.167328224,
+            "action_l2_mean": 0.075402755,
+            "eval_loss_max": 0.175197944,
+            "eval_loss_mean": 0.023501498,
+            "finite_all": true,
+            "gripper_abs_mean": 0.010433355,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0376645,
+              0.0292292,
+              0.04335365,
+              0.00293785,
+              0.00882095,
+              0.00559455,
+              0.01043335
+            ],
+            "range_violation_rate": 0.65,
+            "rotation_l2_mean": 0.011960104,
+            "sample_count": 20,
+            "translation_l2_mean": 0.07238383
+          },
+          "5": {
+            "action_l2_max": 2.007616758,
+            "action_l2_mean": 0.183159103,
+            "eval_loss_max": 0.030725438,
+            "eval_loss_mean": 0.007451799,
+            "finite_all": true,
+            "gripper_abs_mean": 0.109899858,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.05332375,
+              0.03156785,
+              0.04786285,
+              0.00328085,
+              0.00835635,
+              0.0072668,
+              0.10989985
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.013306298,
+            "sample_count": 20,
+            "translation_l2_mean": 0.087794298
+          },
+          "8": {
+            "action_l2_max": 1.989458084,
+            "action_l2_mean": 0.163433123,
+            "eval_loss_max": 0.058558207,
+            "eval_loss_mean": 0.01427711,
+            "finite_all": true,
+            "gripper_abs_mean": 0.107695401,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.02895835,
+              0.0327841,
+              0.0297852,
+              0.00503,
+              0.01135165,
+              0.0084424,
+              0.1076954
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.017709498,
+            "sample_count": 20,
+            "translation_l2_mean": 0.064157946
+          }
+        },
+        "range_violation_rate": 0.591666667,
+        "rotation_l2_mean": 0.015927189,
+        "sample_count": 120,
+        "translation_l2_mean": 0.08159379
+      },
+      "task_oracle": {
+        "action_l2_max": 2.012344599,
+        "action_l2_mean": 0.114901279,
+        "eval_loss_max": 0.139352649,
+        "eval_loss_mean": 0.013651172,
+        "finite_all": true,
+        "gripper_abs_mean": 0.043678756,
+        "gripper_sign_accuracy": 0.983333333,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 120
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 60,
+          "hurt": 60,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.036311708,
+          0.040013767,
+          0.044787675,
+          0.006130942,
+          0.008426267,
+          0.007383158,
+          0.043678758
+        ],
+        "per_task": {
+          "1": {
+            "action_l2_max": 2.012344599,
+            "action_l2_mean": 0.140706452,
+            "eval_loss_max": 0.09752737,
+            "eval_loss_mean": 0.013347042,
+            "finite_all": true,
+            "gripper_abs_mean": 0.061213748,
+            "gripper_sign_accuracy": 0.975,
+            "per_dim_abs_mean": [
+              0.032927075,
+              0.0473218,
+              0.051529925,
+              0.0072752,
+              0.00857555,
+              0.00531565,
+              0.06121375
+            ],
+            "range_violation_rate": 0.575,
+            "rotation_l2_mean": 0.014867492,
+            "sample_count": 40,
+            "translation_l2_mean": 0.088592329
+          },
+          "2": {
+            "action_l2_max": 0.15369083,
+            "action_l2_mean": 0.080049188,
+            "eval_loss_max": 0.098385274,
+            "eval_loss_mean": 0.016464917,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012992945,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0396045,
+              0.0352612,
+              0.038169,
+              0.007273,
+              0.009646,
+              0.0112203,
+              0.01299295
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.018327243,
+            "sample_count": 20,
+            "translation_l2_mean": 0.074980208
+          },
+          "4": {
+            "action_l2_max": 0.182727084,
+            "action_l2_mean": 0.072617706,
+            "eval_loss_max": 0.033089999,
+            "eval_loss_mean": 0.006612504,
+            "finite_all": true,
+            "gripper_abs_mean": 0.006569105,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0370452,
+              0.0373915,
+              0.0376348,
+              0.00464335,
+              0.00829645,
+              0.0059086,
+              0.0065691
+            ],
+            "range_violation_rate": 0.7,
+            "rotation_l2_mean": 0.012971896,
+            "sample_count": 20,
+            "translation_l2_mean": 0.070400236
+          },
+          "5": {
+            "action_l2_max": 1.998554468,
+            "action_l2_mean": 0.182876838,
+            "eval_loss_max": 0.139352649,
+            "eval_loss_mean": 0.015378211,
+            "finite_all": true,
+            "gripper_abs_mean": 0.107233593,
+            "gripper_sign_accuracy": 0.95,
+            "per_dim_abs_mean": [
+              0.04934355,
+              0.0342501,
+              0.0504376,
+              0.0047935,
+              0.007203,
+              0.0070359,
+              0.1072336
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.012991506,
+            "sample_count": 20,
+            "translation_l2_mean": 0.089124284
+          },
+          "8": {
+            "action_l2_max": 0.160489962,
+            "action_l2_mean": 0.07245104,
+            "eval_loss_max": 0.062875144,
+            "eval_loss_mean": 0.016757316,
+            "finite_all": true,
+            "gripper_abs_mean": 0.012849394,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02602285,
+              0.0385362,
+              0.0394248,
+              0.0055254,
+              0.00826105,
+              0.00950285,
+              0.0128494
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.016527809,
+            "sample_count": 20,
+            "translation_l2_mean": 0.067920149
+          }
+        },
+        "range_violation_rate": 0.55,
+        "rotation_l2_mean": 0.01509224,
+        "sample_count": 120,
+        "task_routing": {
+          "1": "frozen_base",
+          "2": "frozen_base",
+          "4": "frozen_base",
+          "5": "frozen_base",
+          "8": "frozen_base"
+        },
+        "translation_l2_mean": 0.079934922
+      }
+    },
+    "val": {
+      "action_dim_oracle_diagnostic": {
+        "action_l2_max": 0.135236904,
+        "action_l2_mean": 0.045257848,
+        "eval_loss_max": 0.02225887,
+        "eval_loss_mean": 0.005323078,
+        "finite_all": true,
+        "gripper_abs_mean": 0.00729935,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 39,
+          "hurt": 1,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 40,
+          "hurt": 0,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.017934425,
+          0.019192075,
+          0.0264531,
+          0.00181545,
+          0.005157725,
+          0.00360825,
+          0.00729935
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.079913363,
+            "action_l2_mean": 0.043309279,
+            "eval_loss_max": 0.02225887,
+            "eval_loss_mean": 0.006145395,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00680795,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.01861745,
+              0.02013875,
+              0.0238384,
+              0.0013057,
+              0.0057639,
+              0.00248295,
+              0.00680795
+            ],
+            "range_violation_rate": 0.35,
+            "rotation_l2_mean": 0.006969859,
+            "sample_count": 20,
+            "translation_l2_mean": 0.040958179
+          },
+          "4": {
+            "action_l2_max": 0.135236904,
+            "action_l2_mean": 0.047206417,
+            "eval_loss_max": 0.013622954,
+            "eval_loss_mean": 0.004500762,
+            "finite_all": true,
+            "gripper_abs_mean": 0.00779075,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0172514,
+              0.0182454,
+              0.0290678,
+              0.0023252,
+              0.00455155,
+              0.00473355,
+              0.00779075
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.007991231,
+            "sample_count": 20,
+            "translation_l2_mean": 0.044715548
+          }
+        },
+        "range_violation_rate": 0.425,
+        "rotation_l2_mean": 0.007480545,
+        "sample_count": 40,
+        "translation_l2_mean": 0.042836863
+      },
+      "adapter_soup_static_merge": {
+        "action_l2_max": 0.143187717,
+        "action_l2_mean": 0.058415218,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009202304,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 23,
+          "hurt": 17,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 29,
+          "hurt": 11,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.0230285,
+          0.025613125,
+          0.0352286,
+          0.00273745,
+          0.007273875,
+          0.0052537,
+          0.00920225
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.102405332,
+            "action_l2_mean": 0.055120047,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008892873,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0224885,
+              0.0249929,
+              0.0319479,
+              0.0024145,
+              0.00797645,
+              0.0042585,
+              0.00889275
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.010507559,
+            "sample_count": 20,
+            "translation_l2_mean": 0.052304612
+          },
+          "4": {
+            "action_l2_max": 0.143187717,
+            "action_l2_mean": 0.061710388,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.009511736,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0235685,
+              0.02623335,
+              0.0385093,
+              0.0030604,
+              0.0065713,
+              0.0062489,
+              0.00951175
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.01064354,
+            "sample_count": 20,
+            "translation_l2_mean": 0.059348549
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.010575549,
+        "sample_count": 40,
+        "selected_weight": 0.5,
+        "selection_split": "val",
+        "translation_l2_mean": 0.05582658
+      },
+      "fcar_tiny_gate": {
+        "action_l2_max": 0.142322645,
+        "action_l2_mean": 0.058312041,
+        "alpha_stats": {
+          "fraction_routed_to_base_alpha_lt_0_5": 1.0,
+          "fraction_routed_to_lora_alpha_ge_0_5": 0.0,
+          "max": 0.466197789,
+          "mean": 0.44392848,
+          "min": 0.404175222,
+          "std": 0.012846371
+        },
+        "calibration": {
+          "bins": [
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.0,
+                0.2
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.2,
+                0.4
+              ]
+            },
+            {
+              "alpha_mean": 0.44392848,
+              "count": 40,
+              "oracle_lora_help_rate": 0.4,
+              "range": [
+                0.4,
+                0.6
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.6,
+                0.8
+              ]
+            },
+            {
+              "alpha_mean": null,
+              "count": 0,
+              "oracle_lora_help_rate": null,
+              "range": [
+                0.8,
+                1.0
+              ]
+            }
+          ],
+          "confusion_at_alpha_0_5": {
+            "false_negative": 16,
+            "false_positive": 0,
+            "true_negative": 24,
+            "true_positive": 0
+          }
+        },
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009174621,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 23,
+          "hurt": 17,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 28,
+          "hurt": 12,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.02303485,
+          0.025292125,
+          0.035447525,
+          0.002750575,
+          0.00715005,
+          0.005201475,
+          0.0091746
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.105808482,
+            "action_l2_mean": 0.055107536,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.009005511,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0224086,
+              0.0246819,
+              0.0322524,
+              0.00245565,
+              0.00777325,
+              0.0042635,
+              0.0090055
+            ],
+            "range_violation_rate": 0.45,
+            "rotation_l2_mean": 0.010280587,
+            "sample_count": 20,
+            "translation_l2_mean": 0.052416756
+          },
+          "4": {
+            "action_l2_max": 0.142322645,
+            "action_l2_mean": 0.061516545,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.009343731,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0236611,
+              0.02590235,
+              0.03864265,
+              0.0030455,
+              0.00652685,
+              0.00613945,
+              0.0093437
+            ],
+            "range_violation_rate": 0.5,
+            "rotation_l2_mean": 0.010557081,
+            "sample_count": 20,
+            "translation_l2_mean": 0.059219531
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.010418834,
+        "sample_count": 40,
+        "translation_l2_mean": 0.055818143
+      },
+      "frame_oracle": {
+        "action_l2_max": 0.13644807,
+        "action_l2_mean": 0.052798419,
+        "eval_loss_max": 0.049994696,
+        "eval_loss_mean": 0.008047041,
+        "finite_all": true,
+        "gripper_abs_mean": 0.008691128,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 16,
+          "hurt": 0,
+          "tie": 24
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 24,
+          "hurt": 0,
+          "tie": 16
+        },
+        "per_dim_abs_mean": [
+          0.02292675,
+          0.023018025,
+          0.029010725,
+          0.00274985,
+          0.007242375,
+          0.005344375,
+          0.008691125
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.094465703,
+            "action_l2_mean": 0.050534237,
+            "eval_loss_max": 0.049994696,
+            "eval_loss_mean": 0.01011957,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008456454,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02150845,
+              0.02244295,
+              0.02669735,
+              0.00207425,
+              0.0087376,
+              0.0037903,
+              0.00845645
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.011071821,
+            "sample_count": 20,
+            "translation_l2_mean": 0.046891611
+          },
+          "4": {
+            "action_l2_max": 0.13644807,
+            "action_l2_mean": 0.055062602,
+            "eval_loss_max": 0.020093851,
+            "eval_loss_mean": 0.005974513,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008925802,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.02434505,
+              0.0235931,
+              0.0313241,
+              0.00342545,
+              0.00574715,
+              0.00689845,
+              0.0089258
+            ],
+            "range_violation_rate": 0.65,
+            "rotation_l2_mean": 0.01055241,
+            "sample_count": 20,
+            "translation_l2_mean": 0.052213654
+          }
+        },
+        "range_violation_rate": 0.525,
+        "rotation_l2_mean": 0.010812116,
+        "sample_count": 40,
+        "translation_l2_mean": 0.049552633
+      },
+      "frozen_base": {
+        "action_l2_max": 0.140106723,
+        "action_l2_mean": 0.063872548,
+        "eval_loss_max": 0.049994696,
+        "eval_loss_mean": 0.011107851,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009024552,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 24,
+          "hurt": 16,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.02692855,
+          0.027284,
+          0.039159175,
+          0.00308265,
+          0.007476025,
+          0.004899325,
+          0.00902455
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.140106723,
+            "action_l2_mean": 0.063854318,
+            "eval_loss_max": 0.049994696,
+            "eval_loss_mean": 0.013338075,
+            "finite_all": true,
+            "gripper_abs_mean": 0.009623954,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.028167,
+              0.02852945,
+              0.03833875,
+              0.0026972,
+              0.0076325,
+              0.0039408,
+              0.00962395
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.010092031,
+            "sample_count": 20,
+            "translation_l2_mean": 0.061556648
+          },
+          "4": {
+            "action_l2_max": 0.13644807,
+            "action_l2_mean": 0.063890778,
+            "eval_loss_max": 0.044657443,
+            "eval_loss_mean": 0.008877627,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008425149,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0256901,
+              0.02603855,
+              0.0399796,
+              0.0034681,
+              0.00731955,
+              0.00585785,
+              0.00842515
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.011229327,
+            "sample_count": 20,
+            "translation_l2_mean": 0.061690087
+          }
+        },
+        "range_violation_rate": 0.5,
+        "rotation_l2_mean": 0.010660679,
+        "sample_count": 40,
+        "translation_l2_mean": 0.061623367
+      },
+      "mean_action_prior": {
+        "action_l2_max": 1.535832405,
+        "action_l2_mean": 1.124564941,
+        "eval_loss_max": null,
+        "eval_loss_mean": null,
+        "finite_all": true,
+        "gripper_abs_mean": 0.990071797,
+        "gripper_sign_accuracy": 0.6,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 40,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 40,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.244822625,
+          0.2205623,
+          0.24997195,
+          0.012564825,
+          0.0442107,
+          0.0252397,
+          0.9900718
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 1.312628984,
+            "action_l2_mean": 1.103040326,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.990071797,
+            "gripper_sign_accuracy": 0.6,
+            "per_dim_abs_mean": [
+              0.2973896,
+              0.13089715,
+              0.22881415,
+              0.01146635,
+              0.03675005,
+              0.0183901,
+              0.9900718
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.049891607,
+            "sample_count": 20,
+            "translation_l2_mean": 0.437575946
+          },
+          "4": {
+            "action_l2_max": 1.535832405,
+            "action_l2_mean": 1.146089557,
+            "eval_loss_max": null,
+            "eval_loss_mean": null,
+            "finite_all": true,
+            "gripper_abs_mean": 0.990071797,
+            "gripper_sign_accuracy": 0.6,
+            "per_dim_abs_mean": [
+              0.19225565,
+              0.31022745,
+              0.27112975,
+              0.0136633,
+              0.05167135,
+              0.0320893,
+              0.9900718
+            ],
+            "range_violation_rate": 0.0,
+            "rotation_l2_mean": 0.069039112,
+            "sample_count": 20,
+            "translation_l2_mean": 0.525068723
+          }
+        },
+        "range_violation_rate": 0.0,
+        "rotation_l2_mean": 0.05946536,
+        "sample_count": 40,
+        "translation_l2_mean": 0.481322335
+      },
+      "moira_style_instruction_task_router": {
+        "action_l2_max": 0.140106723,
+        "action_l2_mean": 0.063872548,
+        "eval_loss_max": 0.049994696,
+        "eval_loss_mean": 0.011107851,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009024552,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 24,
+          "hurt": 16,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.02692855,
+          0.027284,
+          0.039159175,
+          0.00308265,
+          0.007476025,
+          0.004899325,
+          0.00902455
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.140106723,
+            "action_l2_mean": 0.063854318,
+            "eval_loss_max": 0.049994696,
+            "eval_loss_mean": 0.013338075,
+            "finite_all": true,
+            "gripper_abs_mean": 0.009623954,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.028167,
+              0.02852945,
+              0.03833875,
+              0.0026972,
+              0.0076325,
+              0.0039408,
+              0.00962395
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.010092031,
+            "sample_count": 20,
+            "translation_l2_mean": 0.061556648
+          },
+          "4": {
+            "action_l2_max": 0.13644807,
+            "action_l2_mean": 0.063890778,
+            "eval_loss_max": 0.044657443,
+            "eval_loss_mean": 0.008877627,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008425149,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0256901,
+              0.02603855,
+              0.0399796,
+              0.0034681,
+              0.00731955,
+              0.00585785,
+              0.00842515
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.011229327,
+            "sample_count": 20,
+            "translation_l2_mean": 0.061690087
+          }
+        },
+        "range_violation_rate": 0.5,
+        "rotation_l2_mean": 0.010660679,
+        "sample_count": 40,
+        "task_routing_from_train": {
+          "1": "frozen_base",
+          "2": "frozen_base",
+          "4": "frozen_base",
+          "5": "frozen_base",
+          "8": "frozen_base"
+        },
+        "translation_l2_mean": 0.061623367
+      },
+      "rank4_lora": {
+        "action_l2_max": 0.162845224,
+        "action_l2_mean": 0.06814689,
+        "eval_loss_max": 0.106447786,
+        "eval_loss_mean": 0.009000225,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009962952,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 16,
+          "hurt": 24,
+          "tie": 0
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "per_dim_abs_mean": [
+          0.02830745,
+          0.031018825,
+          0.03696605,
+          0.00292555,
+          0.008837825,
+          0.00632095,
+          0.00996295
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.12347018,
+            "action_l2_mean": 0.066223271,
+            "eval_loss_max": 0.106447786,
+            "eval_loss_mean": 0.013007871,
+            "finite_all": true,
+            "gripper_abs_mean": 0.0086083,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0295221,
+              0.03086655,
+              0.03468935,
+              0.0023343,
+              0.0104164,
+              0.00530685,
+              0.0086083
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.013220564,
+            "sample_count": 20,
+            "translation_l2_mean": 0.06235168
+          },
+          "4": {
+            "action_l2_max": 0.162845224,
+            "action_l2_mean": 0.070070509,
+            "eval_loss_max": 0.013622954,
+            "eval_loss_mean": 0.004992579,
+            "finite_all": true,
+            "gripper_abs_mean": 0.011317605,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0270928,
+              0.0311711,
+              0.03924275,
+              0.0035168,
+              0.00725925,
+              0.00733505,
+              0.0113176
+            ],
+            "range_violation_rate": 0.55,
+            "rotation_l2_mean": 0.01241481,
+            "sample_count": 20,
+            "translation_l2_mean": 0.066888517
+          }
+        },
+        "range_violation_rate": 0.475,
+        "rotation_l2_mean": 0.012817687,
+        "sample_count": 40,
+        "translation_l2_mean": 0.064620099
+      },
+      "task_oracle": {
+        "action_l2_max": 0.140106723,
+        "action_l2_mean": 0.063872548,
+        "eval_loss_max": 0.049994696,
+        "eval_loss_mean": 0.011107851,
+        "finite_all": true,
+        "gripper_abs_mean": 0.009024552,
+        "gripper_sign_accuracy": 1.0,
+        "help_hurt_vs_frozen_base": {
+          "help": 0,
+          "hurt": 0,
+          "tie": 40
+        },
+        "help_hurt_vs_rank4_lora": {
+          "help": 24,
+          "hurt": 16,
+          "tie": 0
+        },
+        "per_dim_abs_mean": [
+          0.02692855,
+          0.027284,
+          0.039159175,
+          0.00308265,
+          0.007476025,
+          0.004899325,
+          0.00902455
+        ],
+        "per_task": {
+          "2": {
+            "action_l2_max": 0.140106723,
+            "action_l2_mean": 0.063854318,
+            "eval_loss_max": 0.049994696,
+            "eval_loss_mean": 0.013338075,
+            "finite_all": true,
+            "gripper_abs_mean": 0.009623954,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.028167,
+              0.02852945,
+              0.03833875,
+              0.0026972,
+              0.0076325,
+              0.0039408,
+              0.00962395
+            ],
+            "range_violation_rate": 0.4,
+            "rotation_l2_mean": 0.010092031,
+            "sample_count": 20,
+            "translation_l2_mean": 0.061556648
+          },
+          "4": {
+            "action_l2_max": 0.13644807,
+            "action_l2_mean": 0.063890778,
+            "eval_loss_max": 0.044657443,
+            "eval_loss_mean": 0.008877627,
+            "finite_all": true,
+            "gripper_abs_mean": 0.008425149,
+            "gripper_sign_accuracy": 1.0,
+            "per_dim_abs_mean": [
+              0.0256901,
+              0.02603855,
+              0.0399796,
+              0.0034681,
+              0.00731955,
+              0.00585785,
+              0.00842515
+            ],
+            "range_violation_rate": 0.6,
+            "rotation_l2_mean": 0.011229327,
+            "sample_count": 20,
+            "translation_l2_mean": 0.061690087
+          }
+        },
+        "range_violation_rate": 0.5,
+        "rotation_l2_mean": 0.010660679,
+        "sample_count": 40,
+        "task_routing": {
+          "2": "frozen_base",
+          "4": "frozen_base"
+        },
+        "translation_l2_mean": 0.061623367
+      }
+    }
+  },
+  "oracle_recovery": {
+    "base_test_action_l2": 0.123998278,
+    "fcar_gain": 0.023853653,
+    "fcar_test_action_l2": 0.100144625,
+    "fraction_of_frame_oracle_headroom": 0.41216345,
+    "frame_oracle_gain": 0.057874256,
+    "frame_oracle_test_action_l2": 0.066124022
+  },
+  "paths": {
+    "checkpoint": "C:\\assets\\checkpoints\\smolvla_libero",
+    "dataset": "C:\\assets\\datasets\\lerobot_libero",
+    "hf_home": "C:\\assets\\hf_home",
+    "prediction_artifact": "reports\\fcar_prediction_artifact.json",
+    "vlm_root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+  },
+  "policy": {
+    "cpu_fallback_bug": false,
+    "downloads_performed": false,
+    "experiments_performed": true,
+    "fcar_method_implemented": true,
+    "full_benchmark_performed": false,
+    "gpu_used": true,
+    "official_model_dataset_used": true,
+    "old_custom_route_used": false,
+    "openvla_oft_executed": false,
+    "paper_claims_made": false,
+    "rollouts_performed": false,
+    "smolvla_backbone_trained": false,
+    "trained_components": [
+      "fixed rank-4 LoRA baseline regenerated for predictions",
+      "FCAR tiny CPU gate"
+    ],
+    "training_performed": true
+  },
+  "rank4_lora_regeneration": {
+    "autocast_status": {
+      "cpu": false,
+      "cuda": false
+    },
+    "batch_size": 1,
+    "last_grad_norm": 0.051543493,
+    "last_nonzero_grad_tensors": 74,
+    "loss_after": 0.011093494,
+    "loss_before": 0.008108919,
+    "loss_curve": [
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008108919,
+        "max_allocated_mb": 1093.396,
+        "step": 0
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003143461,
+        "max_allocated_mb": 1104.506,
+        "step": 1
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004814546,
+        "max_allocated_mb": 1104.506,
+        "step": 2
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008595025,
+        "max_allocated_mb": 1104.506,
+        "step": 3
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00179662,
+        "max_allocated_mb": 1104.506,
+        "step": 4
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00355187,
+        "max_allocated_mb": 1104.506,
+        "step": 5
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003602543,
+        "max_allocated_mb": 1104.506,
+        "step": 6
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.043433651,
+        "max_allocated_mb": 1104.506,
+        "step": 7
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00280221,
+        "max_allocated_mb": 1104.506,
+        "step": 8
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003734866,
+        "max_allocated_mb": 1104.506,
+        "step": 9
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.013139114,
+        "max_allocated_mb": 1104.506,
+        "step": 10
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003705454,
+        "max_allocated_mb": 1104.506,
+        "step": 11
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001943061,
+        "max_allocated_mb": 1104.506,
+        "step": 12
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001799045,
+        "max_allocated_mb": 1104.506,
+        "step": 13
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.015384275,
+        "max_allocated_mb": 1104.506,
+        "step": 14
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004213743,
+        "max_allocated_mb": 1104.506,
+        "step": 15
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010493827,
+        "max_allocated_mb": 1104.506,
+        "step": 16
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002789131,
+        "max_allocated_mb": 1104.506,
+        "step": 17
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002461829,
+        "max_allocated_mb": 1104.506,
+        "step": 18
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008911989,
+        "max_allocated_mb": 1104.506,
+        "step": 19
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.006455181,
+        "max_allocated_mb": 1104.506,
+        "step": 20
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002011558,
+        "max_allocated_mb": 1104.506,
+        "step": 21
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001735728,
+        "max_allocated_mb": 1104.506,
+        "step": 22
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010545475,
+        "max_allocated_mb": 1104.506,
+        "step": 23
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001987104,
+        "max_allocated_mb": 1104.506,
+        "step": 24
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002876987,
+        "max_allocated_mb": 1104.506,
+        "step": 25
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002471325,
+        "max_allocated_mb": 1104.506,
+        "step": 26
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003790191,
+        "max_allocated_mb": 1104.506,
+        "step": 27
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.065785177,
+        "max_allocated_mb": 1104.506,
+        "step": 28
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003543275,
+        "max_allocated_mb": 1104.506,
+        "step": 29
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002529175,
+        "max_allocated_mb": 1104.506,
+        "step": 30
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002226746,
+        "max_allocated_mb": 1104.506,
+        "step": 31
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00959047,
+        "max_allocated_mb": 1104.506,
+        "step": 32
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00414424,
+        "max_allocated_mb": 1104.506,
+        "step": 33
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.036109723,
+        "max_allocated_mb": 1104.506,
+        "step": 34
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.010825405,
+        "max_allocated_mb": 1104.506,
+        "step": 35
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003669924,
+        "max_allocated_mb": 1104.506,
+        "step": 36
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003846846,
+        "max_allocated_mb": 1104.506,
+        "step": 37
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.0054755,
+        "max_allocated_mb": 1104.506,
+        "step": 38
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.007092147,
+        "max_allocated_mb": 1104.506,
+        "step": 39
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002530829,
+        "max_allocated_mb": 1104.506,
+        "step": 40
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009163439,
+        "max_allocated_mb": 1104.506,
+        "step": 41
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009140621,
+        "max_allocated_mb": 1104.506,
+        "step": 42
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001664878,
+        "max_allocated_mb": 1104.506,
+        "step": 43
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001897567,
+        "max_allocated_mb": 1104.506,
+        "step": 44
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002792685,
+        "max_allocated_mb": 1104.506,
+        "step": 45
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002850517,
+        "max_allocated_mb": 1104.506,
+        "step": 46
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003274636,
+        "max_allocated_mb": 1104.506,
+        "step": 47
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005284338,
+        "max_allocated_mb": 1104.506,
+        "step": 48
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.077115379,
+        "max_allocated_mb": 1104.506,
+        "step": 49
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002441485,
+        "max_allocated_mb": 1104.506,
+        "step": 50
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00245071,
+        "max_allocated_mb": 1104.506,
+        "step": 51
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003058281,
+        "max_allocated_mb": 1104.506,
+        "step": 52
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005440522,
+        "max_allocated_mb": 1104.506,
+        "step": 53
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003244994,
+        "max_allocated_mb": 1104.506,
+        "step": 54
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002805182,
+        "max_allocated_mb": 1104.506,
+        "step": 55
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003977505,
+        "max_allocated_mb": 1104.506,
+        "step": 56
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003498768,
+        "max_allocated_mb": 1104.506,
+        "step": 57
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.011758523,
+        "max_allocated_mb": 1104.506,
+        "step": 58
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003527709,
+        "max_allocated_mb": 1104.506,
+        "step": 59
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004578763,
+        "max_allocated_mb": 1104.506,
+        "step": 60
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002146423,
+        "max_allocated_mb": 1104.506,
+        "step": 61
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003412664,
+        "max_allocated_mb": 1104.506,
+        "step": 62
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003668397,
+        "max_allocated_mb": 1104.506,
+        "step": 63
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005000956,
+        "max_allocated_mb": 1104.506,
+        "step": 64
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002584652,
+        "max_allocated_mb": 1104.506,
+        "step": 65
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004321631,
+        "max_allocated_mb": 1104.506,
+        "step": 66
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.016366575,
+        "max_allocated_mb": 1104.506,
+        "step": 67
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005694154,
+        "max_allocated_mb": 1104.506,
+        "step": 68
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004067726,
+        "max_allocated_mb": 1104.506,
+        "step": 69
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002902672,
+        "max_allocated_mb": 1104.506,
+        "step": 70
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.034512516,
+        "max_allocated_mb": 1104.506,
+        "step": 71
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.009179593,
+        "max_allocated_mb": 1104.506,
+        "step": 72
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002209811,
+        "max_allocated_mb": 1104.506,
+        "step": 73
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.193854466,
+        "max_allocated_mb": 1104.506,
+        "step": 74
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004731905,
+        "max_allocated_mb": 1104.506,
+        "step": 75
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.00292509,
+        "max_allocated_mb": 1104.506,
+        "step": 76
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002758334,
+        "max_allocated_mb": 1104.506,
+        "step": 77
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002639329,
+        "max_allocated_mb": 1104.506,
+        "step": 78
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003094763,
+        "max_allocated_mb": 1104.506,
+        "step": 79
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002048056,
+        "max_allocated_mb": 1104.506,
+        "step": 80
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002570657,
+        "max_allocated_mb": 1104.506,
+        "step": 81
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.005336641,
+        "max_allocated_mb": 1104.506,
+        "step": 82
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.032929871,
+        "max_allocated_mb": 1104.506,
+        "step": 83
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002229692,
+        "max_allocated_mb": 1104.506,
+        "step": 84
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003737324,
+        "max_allocated_mb": 1104.506,
+        "step": 85
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003013619,
+        "max_allocated_mb": 1104.506,
+        "step": 86
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.032773312,
+        "max_allocated_mb": 1104.506,
+        "step": 87
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003007269,
+        "max_allocated_mb": 1104.506,
+        "step": 88
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.003508834,
+        "max_allocated_mb": 1104.506,
+        "step": 89
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.012028724,
+        "max_allocated_mb": 1104.506,
+        "step": 90
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001933312,
+        "max_allocated_mb": 1104.506,
+        "step": 91
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001820092,
+        "max_allocated_mb": 1104.506,
+        "step": 92
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001662834,
+        "max_allocated_mb": 1104.506,
+        "step": 93
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.001817464,
+        "max_allocated_mb": 1104.506,
+        "step": 94
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002660793,
+        "max_allocated_mb": 1104.506,
+        "step": 95
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.008096478,
+        "max_allocated_mb": 1104.506,
+        "step": 96
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.004065927,
+        "max_allocated_mb": 1104.506,
+        "step": 97
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.002709637,
+        "max_allocated_mb": 1104.506,
+        "step": 98
+      },
+      {
+        "allocated_mb": 906.523,
+        "loss": 0.011093494,
+        "max_allocated_mb": 1104.506,
+        "step": 99
+      }
+    ],
+    "steps": 100,
+    "steps_per_sec": 5.140595,
+    "total_params": 450231840,
+    "trainable_params": 185664,
+    "training_elapsed_sec": 19.453
+  },
+  "runtime": {
+    "device_audit": {
+      "autocast_status_initial_final": {
+        "cpu": false,
+        "cuda": false
+      },
+      "cuda_available": true,
+      "cuda_device_name": "NVIDIA GeForce RTX 5080",
+      "cuda_memory": {
+        "allocated_mb": 906.523,
+        "max_allocated_mb": 1104.506
+      },
+      "input_tensor_devices": {
+        "action": "cuda:0",
+        "action_is_pad": "cuda:0",
+        "actions_id_pad": "cuda:0",
+        "episode_index": "cuda:0",
+        "index": "cuda:0",
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0",
+        "task_index": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "model_parameter_dtype": "torch.bfloat16"
+    },
+    "prediction_artifact_source": "regenerated",
+    "rss_final_mb": 2804.973,
+    "tiny_gate_training_elapsed_sec": 0.063,
+    "total_elapsed_sec": 227.906
+  },
+  "split": {
+    "counts": {
+      "test": {
+        "episode_distribution": {
+          "13": 20,
+          "15": 20
+        },
+        "frame_count": 40,
+        "task_distribution": {
+          "5": 20,
+          "8": 20
+        }
+      },
+      "train": {
+        "episode_distribution": {
+          "1": 20,
+          "14": 20,
+          "2": 20,
+          "4": 20,
+          "7": 20,
+          "8": 20
+        },
+        "frame_count": 120,
+        "task_distribution": {
+          "1": 40,
+          "2": 20,
+          "4": 20,
+          "5": 20,
+          "8": 20
+        }
+      },
+      "val": {
+        "episode_distribution": {
+          "3": 20,
+          "9": 20
+        },
+        "frame_count": 40,
+        "task_distribution": {
+          "2": 20,
+          "4": 20
+        }
+      }
+    },
+    "leakage_checks": {
+      "episode_disjoint_train_test": true,
+      "episode_disjoint_train_val": true,
+      "episode_disjoint_val_test": true,
+      "no_ground_truth_or_oracle_in_inference_features": true,
+      "old_custom_route_used": false
+    },
+    "policy": "deterministic episode-grouped split, approximately 60/20/20 over the 200-frame failure-mining selection",
+    "seed": 0
+  },
+  "status": "completed",
+  "train_eval_gap": {
+    "absolute_gap_test_minus_train": -0.014645646,
+    "relative_gap": -0.127586126,
+    "test_action_l2": 0.100144625,
+    "train_action_l2": 0.114790271
+  }
+}

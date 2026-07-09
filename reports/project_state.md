@@ -1,10 +1,10 @@
 # Project State
 
-Date: 2026-07-09 KST
+Date: 2026-07-10 KST
 
-Branch: `codex/official-smolvla-routing-design-gate`
+Branch: `codex/implement-fcar-tiny-gate`
 
-Current decision: `READY_TO_IMPLEMENT_FCAR_TINY_GATE`
+Current decision: `FCAR_KILLED_BY_STATIC_BASELINE`
 
 ## Current Route
 
@@ -28,13 +28,17 @@ The archived custom SmolVLA 7D adapter route remains stopped. The valid route is
 - Strongest method-worthy gap is task/frame-level adapter interference, but kill risk is high because frozen/base is strong and MoIRA-style modular routing is a close recent-paper baseline.
 - Routing oracle design gate found meaningful frame-level headroom but tiny task-level headroom: frame oracle action L2 `0.084582188` improves over frozen/base by `0.021932772` / `20.5912597%`, while task oracle action L2 `0.106079976` improves by only `0.000434984` / `0.4083783%`.
 - Pure task/instruction routing is killed by MoIRA-style routing and by tiny task-oracle headroom. The surviving design direction is frame-conditional adapter retention with frozen/base as an explicit expert.
-- FCAR first-experiment plan is fixed: tiny gate only, no VLA retraining, frozen/base and rank-4 LoRA experts, frame-level gate, retention objective, official data only, and mandatory comparisons against frozen/base, LoRA, mean-action prior, frame oracle, task oracle, MoIRA-style router, and adapter soup/static merge.
-- Saved per-frame base/LoRA prediction artifacts are not present yet. The next implementation run must regenerate and save compact official predictions before training the tiny gate.
+- FCAR first-experiment implementation completed: the script saved compact official per-frame base/LoRA predictions to `reports/fcar_prediction_artifact.json`, regenerated the fixed rank-4 LoRA baseline only because the artifact was missing, and trained only the FCAR tiny CPU gate.
+- FCAR gate-test split was episode-disjoint: train `120` frames, val `40` frames, test `40` frames. Test tasks were task `5` and task `8`.
+- FCAR test action L2 was `0.100144625`, improving over frozen/base test action L2 `0.123998278` by `0.023853653` / `19.2370841%` and recovering `41.216345%` of frame-oracle headroom on the gate-test split.
+- FCAR did not beat rank-4 LoRA test action L2 `0.076191123`.
+- FCAR did not beat the predeclared adapter-soup/static-merge baseline: val-selected static mixture `w=0.5` reached test action L2 `0.091179973`.
+- MoIRA-style task/instruction router routed all gate-test tasks to frozen/base from train evidence and reached test action L2 `0.123998278`, so it did not kill FCAR; the static baseline did.
 - Official simulator eval was not run; `lerobot-eval --env.type=libero` still requires WSL/Linux/MuJoCo readiness.
 - OpenVLA-OFT, full benchmark, long training, and custom `LIBERO_7D` adapter route were not used.
 
 ## Conclusion
 
-`READY_TO_IMPLEMENT_FCAR_TINY_GATE`
+`FCAR_KILLED_BY_STATIC_BASELINE`
 
-Next valid step: implement the FCAR tiny-gate experiment exactly as specified in `reports/fcar_implementation_todo.md`. Do not change baselines, metrics, split policy, or kill criteria after seeing results.
+Do not scale FCAR from this result. The first tiny-gate method is killed by the predeclared static mixture baseline and also loses to rank-4 LoRA on the gate-test split. Keep the saved official per-frame prediction artifact and result reports as reusable evidence, but do not claim an FCAR method contribution from this run.
