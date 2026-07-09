@@ -1,0 +1,288 @@
+{
+  "date": "2026-07-10 KST",
+  "audit_branch": "codex/audit-official-smolvla-execution-ledger",
+  "audited_range": {
+    "from_commit": "72ed23e",
+    "from_subject": "Archive custom SmolVLA adapter route",
+    "through_commit": "5d48b1e",
+    "through_subject": "Reproduce official SmolVLA LoRA seeds"
+  },
+  "audit_boundary": {
+    "experiments_performed": false,
+    "training_performed": false,
+    "gpu_used": false,
+    "downloads_performed": false,
+    "simulator_rollouts_performed": false,
+    "openvla_oft_executed": false,
+    "lora_seeds_rerun": false,
+    "historical_artifacts_modified": false
+  },
+  "audited_entries_count": 13,
+  "runner_backed_execution_count": 8,
+  "evidence_hashes": {
+    "split_manifest_sha256": "1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B",
+    "stable_prediction_artifact_sha256": "88DCA06AA05D69E8BC4FB3F1C5A7C7D22B1DC4438C65103EFD2389F24D35D59C",
+    "lora_seed_11_artifact_sha256": "F40298ACB449FFCBB8FBDFA341B65FDB6120259F7986559E644BB7771CD5A331",
+    "lora_seed_22_artifact_sha256": "913CB7A3D228002BB73D059D23F5112AC537B5A560CEED19DFB8A2C976A5EF86",
+    "lora_seed_33_artifact_sha256": "14568E506D0D5FCC9FABA8EDF7C5D3CDE628F9321AE3CC071CBC4537F41D9363",
+    "runner_242_sha256": "03889F29E6D64A5D2B579E84E36AAE5930FC83CABA9FEAA02C91E4A3E9AE9AA6",
+    "runner_243_sha256": "45B9F7BF397A9342068519FFCE1BDCBBB50787D66A51C3695F7191C3DC9022CE",
+    "runner_244_sha256": "EC604C09A1012929257298EA8231114ACF0CE0B6083D267303BB42A796AD19A7",
+    "runner_245_sha256": "D0E0AC46F6D0D12B212922958D0BD3E4C843F2EC261D0404C49EBF9B722EB55D",
+    "runner_246_sha256": "B6CC95CBCC23202B6DC4FB106F0C4EFD4D3331A3E9A9096D0BD07E1ACC1A267D",
+    "runner_247_sha256": "4011663CAE13557CE9776CE6AAC7CF375C07786C6B6828A24887C03CF9F68EA1",
+    "runner_248_sha256": "327BC08CCA6F695ACA70830C43CA172C31E1516B5A0FB789A5CB069787CFCAF1",
+    "runner_249_sha256": "DC46C095E15EB0929EA7AD7CB0C38DBA0EFB054AA21BF4D9B0CBE0FE75D45498"
+  },
+  "fixed_manifest": {
+    "path": "reports/official_smolvla_split_manifest.json",
+    "dataset_root": "C:/assets/datasets/lerobot_libero",
+    "frame_counts": {
+      "train": 1200,
+      "val": 400,
+      "test": 1200,
+      "total": 2800
+    },
+    "episode_counts": {
+      "train": 80,
+      "val": 40,
+      "test": 80
+    },
+    "episode_intersections": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    }
+  },
+  "final_offline_result": {
+    "source_commit": "5d48b1e",
+    "decision": "STATIC_MERGE_ROBUST_BASELINE_READY",
+    "offline_results_remain_valid": true,
+    "seed_win_counts_realistic": {
+      "static_mix_val_selected": 3
+    },
+    "task_win_counts_realistic_sum": {
+      "frozen_base": 20,
+      "rank4_lora": 7,
+      "static_mix_val_selected": 93
+    },
+    "action_l2_mean_std": {
+      "frozen_base": {
+        "mean": 0.085558433,
+        "std": 0.0
+      },
+      "rank4_lora": {
+        "mean": 0.088239344,
+        "std": 0.00290867
+      },
+      "validation_selected_action_space_static_mix": {
+        "mean": 0.080616431,
+        "std": 0.002595356
+      },
+      "frame_oracle_upper_bound": {
+        "mean": 0.069117204,
+        "std": 0.002049401
+      }
+    }
+  },
+  "ledger": [
+    {
+      "commit": "72ed23e",
+      "branch": "codex/archive-smolvla-custom-adapter-stop-pivot",
+      "objective": "Archive custom SmolVLA adapter route",
+      "command_or_runner": "documentation only",
+      "training_happened": false,
+      "gpu_used": false,
+      "final_decision": "stop old custom route",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "83e88a7",
+      "branch": "codex/official-smolvla-lerobot-baseline",
+      "objective": "Official recipe feasibility",
+      "command_or_runner": "CPU loader smoke evidence; no final runner preserved in scoped commit",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla",
+      "dataset": "synthetic input only",
+      "training_happened": false,
+      "gpu_used": false,
+      "final_decision": "NEEDS_OFFICIAL_DATASET_CONVERSION",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "2efdd9e",
+      "branch": "codex/official-smolvla-libero-dataset-alignment",
+      "objective": "Dataset alignment",
+      "command_or_runner": "documentation and asset approval plan",
+      "training_happened": false,
+      "gpu_used": false,
+      "final_decision": "READY_FOR_OFFICIAL_ASSET_APPROVAL",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "2a4cad2",
+      "branch": "codex/official-smolvla-libero-mini-repro",
+      "objective": "Official asset mini repro",
+      "command_or_runner": "bounded local mini repro; command not preserved as final runner in scoped commit",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "training_happened": true,
+      "trained_component": "rank-4 LoRA smoke, 5 steps",
+      "gpu_used": true,
+      "final_decision": "READY_FOR_OFFICIAL_BASELINE_SCALEUP",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "0a15424",
+      "branch": "codex/official-smolvla-libero-baseline-scaleup",
+      "objective": "Baseline scaleup",
+      "command_or_runner": "scripts/242_official_smolvla_libero_baseline_scaleup.ps1",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "ad hoc episode 0 train, episode 1 holdout",
+      "training_happened": true,
+      "trained_component": "standard rank-4 LoRA, 100 steps",
+      "gpu_used": true,
+      "final_decision": "READY_FOR_METHOD_DESIGN_ON_OFFICIAL_SMOLVLA",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "b0f464c",
+      "branch": "codex/official-smolvla-libero-failure-mining",
+      "objective": "Failure mining",
+      "command_or_runner": "scripts/243_official_smolvla_libero_failure_mining.ps1",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "10 selected held-out episodes, 200 samples",
+      "training_happened": true,
+      "trained_component": "standard rank-4 LoRA, 100 steps",
+      "gpu_used": true,
+      "final_decision": "GO_METHOD_DESIGN_TASK_ADAPTER_ROUTING",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "4e19ffa",
+      "branch": "codex/official-smolvla-routing-design-gate",
+      "objective": "Routing design gate",
+      "command_or_runner": "scripts/244_official_smolvla_routing_design_gate.ps1",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "same 200-sample diagnostic family as failure mining",
+      "training_happened": true,
+      "trained_component": "standard rank-4 LoRA recreated for oracle analysis, 100 steps",
+      "gpu_used": true,
+      "final_decision": "GO_DESIGN_FRAME_CONDITIONAL_ROUTING",
+      "repetition_classification": "AVOIDABLE_REGENERATION",
+      "reason": "The run had a different oracle objective, but the full base/LoRA prediction artifact from the previous diagnostic was not persisted, forcing regeneration."
+    },
+    {
+      "commit": "c71eeb9",
+      "branch": "codex/frame-conditional-adapter-retention-plan",
+      "objective": "FCAR plan",
+      "command_or_runner": "documentation only",
+      "training_happened": false,
+      "gpu_used": false,
+      "final_decision": "READY_TO_IMPLEMENT_FCAR_TINY_GATE",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "18b3e4b",
+      "branch": "codex/implement-fcar-tiny-gate",
+      "objective": "FCAR tiny gate",
+      "command_or_runner": "scripts/245_fcar_tiny_gate.ps1",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "FCAR tiny split over 200 prediction records",
+      "training_happened": true,
+      "trained_component": "fixed rank-4 LoRA prediction baseline regenerated; FCAR CPU gate",
+      "gpu_used": true,
+      "artifact_paths": [
+        "reports/fcar_prediction_artifact.json",
+        "reports/fcar_tiny_gate_result.json"
+      ],
+      "final_decision": "FCAR_KILLED_BY_STATIC_BASELINE",
+      "repetition_classification": "AVOIDABLE_REGENERATION",
+      "reason": "The prediction baseline was regenerated because the earlier routing/failure-mining records were not available as a reusable artifact."
+    },
+    {
+      "commit": "f74889e",
+      "branch": "codex/official-smolvla-robust-baseline-sweep",
+      "objective": "Robust baseline sweep",
+      "command_or_runner": "scripts/246_official_smolvla_robust_baseline_sweep.ps1",
+      "training_happened": false,
+      "gpu_used": false,
+      "artifact_paths": [
+        "reports/fcar_prediction_artifact.json",
+        "reports/official_smolvla_robust_baseline_sweep_result.json"
+      ],
+      "final_decision": "METRIC_OR_SPLIT_INSTABILITY_BLOCKS_METHOD",
+      "repetition_classification": "NECESSARY_REPRODUCTION"
+    },
+    {
+      "commit": "bc454e3",
+      "branch": "codex/official-smolvla-stable-protocol",
+      "objective": "Stable protocol",
+      "command_or_runner": "scripts/247_official_smolvla_stable_protocol.ps1",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "reports/official_smolvla_split_manifest.json",
+      "metric_protocol": "reports/official_smolvla_metric_protocol.md",
+      "seed": 0,
+      "training_happened": false,
+      "gpu_used": false,
+      "final_decision": "NEEDS_LARGER_PREDICTION_ARTIFACT",
+      "repetition_classification": "NOT_DUPLICATE_DIFFERENT_OBJECTIVE"
+    },
+    {
+      "commit": "6597d6c",
+      "branch": "codex/official-smolvla-stable-artifact-eval",
+      "objective": "Stable artifact evaluation",
+      "command_or_runner": "scripts/248_official_smolvla_prediction_artifact_from_manifest.ps1",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "reports/official_smolvla_split_manifest.json",
+      "metric_protocol": "reports/official_smolvla_metric_protocol.md",
+      "seed": 0,
+      "training_happened": true,
+      "trained_component": "standard rank-4 LoRA, 100 steps",
+      "gpu_used": true,
+      "artifact_paths": [
+        "reports/official_smolvla_stable_prediction_artifact.json"
+      ],
+      "final_decision": "NEEDS_LONGER_LORA_BASELINE_REPRO",
+      "repetition_classification": "NECESSARY_REPRODUCTION"
+    },
+    {
+      "commit": "5d48b1e",
+      "branch": "codex/official-smolvla-lora-seed-repro",
+      "objective": "LoRA seed reproduction",
+      "command_or_runner": "scripts/249_official_smolvla_lora_seed_repro.ps1",
+      "model_checkpoint": "C:/assets/checkpoints/smolvla_libero",
+      "dataset": "C:/assets/datasets/lerobot_libero",
+      "split_manifest": "reports/official_smolvla_split_manifest.json",
+      "metric_protocol": "reports/official_smolvla_metric_protocol.md",
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "training_happened": true,
+      "trained_component": "standard rank-4 LoRA, 100 steps per seed",
+      "gpu_used": true,
+      "artifact_paths": [
+        "reports/official_smolvla_lora_seed_11_prediction_artifact.json",
+        "reports/official_smolvla_lora_seed_22_prediction_artifact.json",
+        "reports/official_smolvla_lora_seed_33_prediction_artifact.json"
+      ],
+      "final_decision": "STATIC_MERGE_ROBUST_BASELINE_READY",
+      "repetition_classification": "NECESSARY_REPRODUCTION"
+    }
+  ],
+  "duplicate_summary": {
+    "exact_duplicate_runs_found": 0,
+    "possible_exact_duplicate_runs_found": 0,
+    "avoidable_regenerations_found": 2,
+    "necessary_reproductions_found": 3,
+    "not_duplicate_different_objective_found": 8
+  },
+  "final_audit_decision": "AUDIT_FOUND_PROTOCOL_GAPS_FIX_BEFORE_ROLLOUT",
+  "exact_next_step": "Before official rollout, add a no-experiment protocol-fix branch that records Hugging Face model/dataset revision pins, enforces future baseline names, and decides whether LoRA adapter checkpoints must be persisted alongside prediction artifacts."
+}

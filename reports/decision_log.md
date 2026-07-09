@@ -984,3 +984,64 @@ Robustness answers:
 Consequence: validation-selected static merge is now the main realistic baseline for any later planning gate. Any future method plan must beat static merge under the fixed manifest and metric protocol. FCAR remains killed and must not be revived.
 
 Exact next step: treat validation-selected static merge as the main realistic baseline for any later planning gate; do not implement a method until a new explicit planning objective is given.
+
+## 2026-07-10: Official SmolVLA Execution Ledger Audit
+
+Decision: `AUDIT_FOUND_PROTOCOL_GAPS_FIX_BEFORE_ROLLOUT`
+
+- audit type: repository audit only
+- experiments/training/GPU/download happened in this audit: `False` / `False` / `False` / `False`
+- audited commit range: `72ed23e` through `5d48b1e`
+- audited ledger entries: `13`
+- runner-backed historical executions in scope: `8`
+- exact duplicate runs found: `0`
+- possible exact duplicates found: `0`
+- avoidable regenerations found: `2`
+- artifact inconsistencies found: `0`
+- test leakage found: `0`
+- old custom `LIBERO_7D` route used in final official runs: `False`
+- current offline results remain valid: `True`
+
+Reports:
+
+- `reports/official_smolvla_execution_ledger.md`
+- `reports/official_smolvla_execution_ledger.json`
+- `reports/official_smolvla_duplicate_run_audit.md`
+- `reports/official_smolvla_skipped_stage_audit.md`
+- `reports/official_smolvla_artifact_integrity_audit.md`
+- `reports/official_smolvla_baseline_naming_audit.md`
+- `reports/official_smolvla_protocol_compliance_audit.md`
+- `reports/official_smolvla_audit_decision.md`
+
+Artifact integrity:
+
+- fixed manifest SHA256: `1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B`
+- stable prediction artifact SHA256: `88DCA06AA05D69E8BC4FB3F1C5A7C7D22B1DC4438C65103EFD2389F24D35D59C`
+- seed `11` artifact SHA256: `F40298ACB449FFCBB8FBDFA341B65FDB6120259F7986559E644BB7771CD5A331`
+- seed `22` artifact SHA256: `913CB7A3D228002BB73D059D23F5112AC537B5A560CEED19DFB8A2C976A5EF86`
+- seed `33` artifact SHA256: `14568E506D0D5FCC9FABA8EDF7C5D3CDE628F9321AE3CC071CBC4537F41D9363`
+- manifest split counts: train `1200`, validation `400`, test `1200`
+- episode intersections: train/validation `0`, train/test `0`, validation/test `0`
+
+Duplicate/regeneration finding:
+
+- No exact duplicate was confirmed.
+- Routing design gate and FCAR tiny gate both regenerated rank-4 LoRA prediction evidence because earlier per-frame artifacts were not reusable.
+- These regenerations were avoidable compute/protocol gaps, not result invalidators.
+
+Naming corrections:
+
+- use `task_or_instruction_router_proxy`, not official MoIRA, for the current local task/instruction router proxy
+- use `validation_selected_action_space_static_mix`, not adapter soup or adapter-weight merge, for current static base/LoRA action interpolation
+- use `frame_oracle_upper_bound` and `task_oracle_upper_bound` for oracle results
+
+Protocol gaps before official rollout:
+
+- Hugging Face model/dataset revisions are not pinned.
+- Seed-specific LoRA adapter checkpoint persistence policy is not settled.
+- Future baseline naming must be corrected before paper-facing summaries.
+- Official closed-loop LIBERO rollout and task success-rate evaluation are still not done.
+
+Consequence: the current offline result remains valid, and `validation_selected_action_space_static_mix` remains the strongest realistic offline baseline. The audit blocks immediate rollout only until revision pinning, naming, and checkpoint-persistence policy are fixed in a no-experiment protocol step.
+
+Exact next step: before official rollout, create a no-experiment protocol-fix branch that records Hugging Face model/dataset revision pins, enforces the future baseline naming glossary, and decides whether LoRA adapter checkpoints must be persisted alongside prediction artifacts.
