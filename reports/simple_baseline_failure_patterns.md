@@ -98,3 +98,5 @@ Interface fix update: the local LIBERO_7D action interface now passes one-sample
 7D baseline reproduction update: the rank-8 fixed-interface SmolVLA `state_proj` LoRA + LIBERO_7D adapter now beats mean-action and the best ridge/MLP baseline on the bounded same-task demo-holdout action metric. Future routes must preserve that baseline, and must still treat previous-action persistence as a diagnostic oracle unless made executable without held-out expert-action leakage.
 
 TG-7D Adapter update: canonicalization-only, standard SmolVLA 7D LoRA, and MLP all beat TG-7D on the held-out paraphrase action metric. Same-target consistency is not enough when clean action quality worsens and canonicalization explains the claimed language robustness.
+
+Post-canonicalization residual update: do not keep mining language-target methods after canonicalization wins unless a residual is large, structured, target/language-specific, unsolved by standard LoRA/MLP, and supported by positive oracle/headroom evidence. The current residual is gripper-dominated and not method-worthy.

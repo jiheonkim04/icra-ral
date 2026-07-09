@@ -386,3 +386,27 @@ STATE 2 bounded fixed-7D method gate:
 Exact kill criterion triggered: canonicalization-only matched or beat TG-7D on the target/paraphrase metric. Standard LoRA and MLP also beat TG-7D, and clean action quality was worse than standard LoRA.
 
 Consequence: do not scale TG-7D Adapter as formulated. Preserve the leakage-safe LIBERO-Para/fixed-7D split and target-prior audit as reusable artifacts.
+
+## 2026-07-09: Post-Canonicalization Residual Mining
+
+Decision: `KILL_CANONICALIZATION_DOMINATED`
+
+Scope:
+
+- used existing TG-7D gate metrics and reconstructed split/group metadata only;
+- experiments happened: no new experiment;
+- training happened: no;
+- downloads/GPU/OpenVLA-OFT/rollout happened: no / no / no / no.
+
+Residual findings:
+
+- canonicalization held-out paraphrase L2: `0.587661`;
+- canonicalization residual versus best non-oracle target/language arm: `-0.013226`;
+- canonicalization clean-to-paraphrase delta: `-0.000748`;
+- object lexical canonicalization L2: `0.587388`;
+- largest absolute residual subgroup: gripper error `0.389255`;
+- residual structured as method-worthy target/language failure: no;
+- standard LoRA/MLP already solve within margin: yes;
+- oracle/headroom evidence: no (`oracle_headroom_l2 = -0.137013`).
+
+Consequence: stop the local language/target route. Do not start TG-7D v2 or another language-target method without a new official or clearly named benchmark slice where canonicalization-only still has a large structured residual, simple baselines do not solve it, and oracle/headroom evidence is positive.

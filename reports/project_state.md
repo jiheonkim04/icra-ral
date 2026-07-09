@@ -100,15 +100,26 @@ TG-7D details:
 - VRAM peak: `0.0` MB,
 - runtime: `14.093` sec.
 
+## Post-Canonicalization Residual Mining
+
+The residual mining run used the archived TG-7D metrics and reconstructed only split/group metadata. It did not train, download, run GPU, run OpenVLA-OFT, or run rollout.
+
+Residual findings:
+
+- canonicalization residual size: `0.587661`,
+- canonicalization residual versus best non-oracle target/language arm: `-0.013226`,
+- canonicalization clean-to-paraphrase delta: `-0.000748`,
+- largest absolute residual subgroup: gripper error `0.389255`,
+- residual structured as method-worthy target/language failure: no,
+- standard LoRA or MLP already solves the residual within margin: yes,
+- oracle/headroom exists: no (`oracle_headroom_l2 = -0.137013`).
+
 ## Conclusion
 
-TG-7D Adapter is killed as formulated.
+TG-7D Adapter is killed as formulated, and the local language/target robustness family has no method-worthy post-canonicalization residual in this artifact.
 
-Exact kill criterion triggered:
+Exact route-level decision:
 
-- canonicalization-only matched or beat TG-7D on the target/paraphrase metric,
-- standard SmolVLA 7D LoRA/adapter also beat TG-7D,
-- MLP beat TG-7D on the same held-out paraphrase metric,
-- clean action quality did not preserve the standard LoRA baseline.
+`KILL_CANONICALIZATION_DOMINATED`
 
-Do not scale TG-7D from this evidence. The reusable artifact is the leakage-safe LIBERO-Para/fixed-7D split and target-prior audit, not the method.
+Do not scale TG-7D or start another language-target method from this evidence. The reusable artifact is the leakage-safe LIBERO-Para/fixed-7D split and target-prior audit, not the method.

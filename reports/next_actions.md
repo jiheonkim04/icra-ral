@@ -8,7 +8,7 @@ Current decision:
 
 ## Immediate Next Action
 
-Stop TG-7D Adapter as a scale-up route.
+Stop the local language/target robustness route after TG-7D and post-canonicalization residual mining.
 
 ## Why
 
@@ -22,6 +22,13 @@ The bounded method gate produced real fixed-interface 7D adapter evidence, and T
 - standard LoRA clean L2: `0.600887`.
 
 TG-7D improved same-target consistency, but that is not enough. The method lost clean action quality and was dominated by canonicalization-only and standard LoRA on the claimed target/paraphrase metric.
+
+Post-canonicalization residual mining found no method-worthy remaining gap:
+
+- canonicalization clean-to-paraphrase delta: `-0.000748`,
+- object lexical L2 under canonicalization: `0.587388`,
+- largest residual subgroup: gripper error `0.389255`, not a target/language-specific slice,
+- oracle/headroom evidence: no.
 
 ## Reusable Artifacts
 

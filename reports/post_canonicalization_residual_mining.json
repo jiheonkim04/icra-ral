@@ -1,0 +1,511 @@
+{
+  "action_dimension_breakdown": {
+    "groups": {
+      "gripper": {
+        "canonical_minus_standard": -0.012886,
+        "canonicalization_error": 0.389255,
+        "standard_lora_error": 0.402141,
+        "tg7d_error": 0.58099
+      },
+      "rotation": {
+        "canonical_minus_standard": 0.004287,
+        "canonicalization_l2": 0.082683,
+        "standard_lora_l2": 0.078396,
+        "tg7d_l2": 0.088013
+      },
+      "translation": {
+        "canonical_minus_standard": -0.012133,
+        "canonicalization_l2": 0.338821,
+        "standard_lora_l2": 0.350954,
+        "tg7d_l2": 0.358191
+      }
+    },
+    "largest_absolute_canonicalization_residual": {
+      "name": "gripper",
+      "value": 0.389255
+    }
+  },
+  "counterfactual_sensitivity": {
+    "canonicalization_only": {
+      "available": true,
+      "cf_prediction_to_counter_expert_l2": 0.924984,
+      "collapse_rate_delta_lt_0_05": 0.633333,
+      "expert_counterfactual_delta_l2": 0.819498,
+      "pair_count": 30,
+      "prediction_delta_l2": 0.042338
+    },
+    "standard_lora": {
+      "available": true,
+      "cf_prediction_to_counter_expert_l2": 0.924279,
+      "collapse_rate_delta_lt_0_05": 1.0,
+      "expert_counterfactual_delta_l2": 0.819498,
+      "pair_count": 30,
+      "prediction_delta_l2": 0.0
+    },
+    "tg7d_failed_reference": {
+      "available": true,
+      "cf_prediction_to_counter_expert_l2": 0.899556,
+      "collapse_rate_delta_lt_0_05": 0.5,
+      "expert_counterfactual_delta_l2": 0.819498,
+      "pair_count": 30,
+      "prediction_delta_l2": 0.06286
+    }
+  },
+  "decision": "KILL_CANONICALIZATION_DOMINATED",
+  "error": null,
+  "evidence_limits": {
+    "per_example_predictions_available": false,
+    "per_paraphrase_group_prediction_metrics_available": false,
+    "reason": "The archived TG-7D gate preserved aggregate split metrics and action-dimension metrics, not trained weights or per-example predictions. This residual mining run does not retrain."
+  },
+  "exact_next_step": "Stop the language-target route: canonicalization dominates the meaningful local target/language metrics.",
+  "group_breakdowns": {
+    "clean_instruction_count": 60,
+    "counterfactual_pair_count": 30,
+    "counterfactual_record_count": 30,
+    "heldout_paraphrase_group_count": 60,
+    "heldout_paraphrase_record_count": 360,
+    "object_lexical_group_count": 10,
+    "object_lexical_record_count": 60,
+    "paraphrase_groups_by_high": {
+      "act": 15,
+      "comp": 35,
+      "obj": 10
+    },
+    "syntactic_paraphrase_group_count": 9,
+    "task_level_groups": {
+      "open the middle drawer of the cabinet": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "open the top drawer and put the bowl inside": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "push the plate to the front of the stove": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "put the bowl on the plate": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "put the bowl on the stove": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "put the bowl on top of the cabinet": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "put the cream cheese in the bowl": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "put the wine bottle on the rack": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "put the wine bottle on top of the cabinet": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      },
+      "turn on the stove": {
+        "heldout_groups": 6,
+        "heldout_records": 36,
+        "object_records": 6
+      }
+    }
+  },
+  "policy": {
+    "downloads_happened": false,
+    "experiments_happened": false,
+    "gpu_happened": false,
+    "loss_computed": false,
+    "no_training_artifact_only": true,
+    "openvla_oft_happened": false,
+    "rollouts_happened": false,
+    "source_report": "reports\\tg7d_adapter_state_gate.json",
+    "training_happened": false
+  },
+  "residual_summary": {
+    "canonicalization_clean_to_paraphrase_delta": -0.000748,
+    "canonicalization_object_lexical_l2": 0.587388,
+    "canonicalization_residual_size": 0.587661,
+    "canonicalization_residual_vs_best_non_oracle": -0.013226,
+    "largest_residual_subgroup": {
+      "name": "gripper",
+      "value": 0.389255
+    },
+    "method_worthy_residual": false,
+    "oracle_headroom_exists": false,
+    "oracle_headroom_l2": -0.137013,
+    "raw_metrics": {
+      "canonicalization_heldout_paraphrase_l2": 0.587661,
+      "mlp_heldout_paraphrase_l2": 0.619985,
+      "oracle_heldout_paraphrase_l2": 0.724674,
+      "standard_lora_heldout_paraphrase_l2": 0.600887,
+      "tg7d_heldout_paraphrase_l2": 0.740922
+    },
+    "residual_is_structured": false,
+    "residual_structure_interpretation": [
+      "canonicalization-only is the best non-ridge target/language arm on held-out paraphrase action L2",
+      "clean-to-paraphrase delta under canonicalization is near zero",
+      "object lexical subset does not expose a worse residual than the full held-out paraphrase split",
+      "oracle target upper bound is worse than canonicalization-only, so it does not show positive headroom",
+      "largest absolute residual is gripper error, not a language/target-specific slice"
+    ],
+    "standard_lora_or_mlp_already_solves": true
+  },
+  "runtime_sec": 0.719,
+  "schema_version": "post-canonicalization-residual-mining-v1",
+  "tg7d_archived": true,
+  "variant_split_table": {
+    "canonicalization_only": {
+      "clean": {
+        "action_l2": 0.588409,
+        "gripper_accuracy": 0.85,
+        "gripper_error": 0.390587,
+        "per_dim_mae": [
+          0.185176,
+          0.12119,
+          0.199332,
+          0.018726,
+          0.055345,
+          0.041226,
+          0.390587
+        ],
+        "rotation_l2": 0.082532,
+        "sample_count": 60,
+        "translation_l2": 0.339112
+      },
+      "heldout_paraphrase": {
+        "action_l2": 0.587661,
+        "gripper_accuracy": 0.85,
+        "gripper_error": 0.389255,
+        "per_dim_mae": [
+          0.184885,
+          0.121454,
+          0.198728,
+          0.018692,
+          0.055534,
+          0.041326,
+          0.389255
+        ],
+        "rotation_l2": 0.082683,
+        "sample_count": 360,
+        "translation_l2": 0.338821
+      },
+      "object_lexical": {
+        "action_l2": 0.587388,
+        "gripper_accuracy": 0.85,
+        "gripper_error": 0.38967,
+        "per_dim_mae": [
+          0.185073,
+          0.121093,
+          0.19913,
+          0.018692,
+          0.055389,
+          0.041164,
+          0.38967
+        ],
+        "rotation_l2": 0.082509,
+        "sample_count": 60,
+        "translation_l2": 0.338919
+      }
+    },
+    "mean_action": {
+      "clean": {
+        "action_l2": 0.903848,
+        "gripper_accuracy": 0.75,
+        "gripper_error": 0.75,
+        "per_dim_mae": [
+          0.204955,
+          0.107845,
+          0.272665,
+          0.013426,
+          0.050147,
+          0.032784,
+          0.75
+        ],
+        "rotation_l2": 0.074325,
+        "sample_count": 60,
+        "translation_l2": 0.40424
+      },
+      "heldout_paraphrase": {
+        "action_l2": 0.903848,
+        "gripper_accuracy": 0.75,
+        "gripper_error": 0.75,
+        "per_dim_mae": [
+          0.204955,
+          0.107845,
+          0.272665,
+          0.013426,
+          0.050147,
+          0.032784,
+          0.75
+        ],
+        "rotation_l2": 0.074325,
+        "sample_count": 360,
+        "translation_l2": 0.40424
+      },
+      "object_lexical": {
+        "action_l2": 0.903848,
+        "gripper_accuracy": 0.75,
+        "gripper_error": 0.75,
+        "per_dim_mae": [
+          0.204955,
+          0.107845,
+          0.272665,
+          0.013426,
+          0.050147,
+          0.032784,
+          0.75
+        ],
+        "rotation_l2": 0.074325,
+        "sample_count": 60,
+        "translation_l2": 0.40424
+      }
+    },
+    "oracle_target_upper_bound": {
+      "clean": {
+        "action_l2": 0.724476,
+        "gripper_accuracy": 0.766667,
+        "gripper_error": 0.527888,
+        "per_dim_mae": [
+          0.1808,
+          0.190487,
+          0.22981,
+          0.018546,
+          0.053336,
+          0.039205,
+          0.527888
+        ],
+        "rotation_l2": 0.080637,
+        "sample_count": 60,
+        "translation_l2": 0.399237
+      },
+      "heldout_paraphrase": {
+        "action_l2": 0.724674,
+        "gripper_accuracy": 0.766667,
+        "gripper_error": 0.52794,
+        "per_dim_mae": [
+          0.180846,
+          0.190674,
+          0.23007,
+          0.018571,
+          0.053341,
+          0.039211,
+          0.527941
+        ],
+        "rotation_l2": 0.080665,
+        "sample_count": 360,
+        "translation_l2": 0.399472
+      },
+      "object_lexical": {
+        "action_l2": 0.725269,
+        "gripper_accuracy": 0.766667,
+        "gripper_error": 0.52857,
+        "per_dim_mae": [
+          0.180777,
+          0.19071,
+          0.229898,
+          0.018601,
+          0.053311,
+          0.039205,
+          0.52857
+        ],
+        "rotation_l2": 0.080648,
+        "sample_count": 60,
+        "translation_l2": 0.399492
+      }
+    },
+    "ridge": {
+      "clean": {
+        "action_l2": 0.584541,
+        "gripper_accuracy": 0.933333,
+        "gripper_error": 0.404054,
+        "per_dim_mae": [
+          0.180606,
+          0.126043,
+          0.203828,
+          0.017367,
+          0.051946,
+          0.037752,
+          0.404054
+        ],
+        "rotation_l2": 0.076878,
+        "sample_count": 60,
+        "translation_l2": 0.346178
+      }
+    },
+    "small_mlp": {
+      "clean": {
+        "action_l2": 0.619985,
+        "gripper_accuracy": 0.866667,
+        "gripper_error": 0.430371,
+        "per_dim_mae": [
+          0.179516,
+          0.119234,
+          0.215022,
+          0.020374,
+          0.052676,
+          0.038591,
+          0.430371
+        ],
+        "rotation_l2": 0.078822,
+        "sample_count": 60,
+        "translation_l2": 0.352708
+      },
+      "heldout_paraphrase": {
+        "action_l2": 0.619985,
+        "gripper_accuracy": 0.866667,
+        "gripper_error": 0.430371,
+        "per_dim_mae": [
+          0.179516,
+          0.119234,
+          0.215022,
+          0.020374,
+          0.052676,
+          0.038591,
+          0.430371
+        ],
+        "rotation_l2": 0.078822,
+        "sample_count": 360,
+        "translation_l2": 0.352708
+      },
+      "object_lexical": {
+        "action_l2": 0.619985,
+        "gripper_accuracy": 0.866667,
+        "gripper_error": 0.430371,
+        "per_dim_mae": [
+          0.179516,
+          0.119234,
+          0.215022,
+          0.020374,
+          0.052676,
+          0.038591,
+          0.430371
+        ],
+        "rotation_l2": 0.078822,
+        "sample_count": 60,
+        "translation_l2": 0.352708
+      }
+    },
+    "standard_smolvla_7d_lora_adapter": {
+      "clean": {
+        "action_l2": 0.600887,
+        "gripper_accuracy": 0.85,
+        "gripper_error": 0.402141,
+        "per_dim_mae": [
+          0.178757,
+          0.13345,
+          0.203413,
+          0.019131,
+          0.051521,
+          0.038298,
+          0.402141
+        ],
+        "rotation_l2": 0.078396,
+        "sample_count": 60,
+        "translation_l2": 0.350954
+      },
+      "heldout_paraphrase": {
+        "action_l2": 0.600887,
+        "gripper_accuracy": 0.85,
+        "gripper_error": 0.402141,
+        "per_dim_mae": [
+          0.178757,
+          0.13345,
+          0.203413,
+          0.019131,
+          0.051521,
+          0.038298,
+          0.402141
+        ],
+        "rotation_l2": 0.078396,
+        "sample_count": 360,
+        "translation_l2": 0.350954
+      },
+      "object_lexical": {
+        "action_l2": 0.600887,
+        "gripper_accuracy": 0.85,
+        "gripper_error": 0.402141,
+        "per_dim_mae": [
+          0.178757,
+          0.13345,
+          0.203413,
+          0.019131,
+          0.051521,
+          0.038298,
+          0.402141
+        ],
+        "rotation_l2": 0.078396,
+        "sample_count": 60,
+        "translation_l2": 0.350954
+      }
+    },
+    "tg7d_adapter": {
+      "clean": {
+        "action_l2": 0.735738,
+        "gripper_accuracy": 0.816667,
+        "gripper_error": 0.572981,
+        "per_dim_mae": [
+          0.182124,
+          0.119239,
+          0.223456,
+          0.017877,
+          0.059756,
+          0.044794,
+          0.572981
+        ],
+        "rotation_l2": 0.087954,
+        "sample_count": 60,
+        "translation_l2": 0.358227
+      },
+      "heldout_paraphrase": {
+        "action_l2": 0.740922,
+        "gripper_accuracy": 0.816667,
+        "gripper_error": 0.58099,
+        "per_dim_mae": [
+          0.18165,
+          0.119774,
+          0.223436,
+          0.017883,
+          0.059847,
+          0.044786,
+          0.58099
+        ],
+        "rotation_l2": 0.088013,
+        "sample_count": 360,
+        "translation_l2": 0.358191
+      },
+      "object_lexical": {
+        "action_l2": 0.744749,
+        "gripper_accuracy": 0.816667,
+        "gripper_error": 0.584648,
+        "per_dim_mae": [
+          0.181575,
+          0.119274,
+          0.222921,
+          0.017822,
+          0.060051,
+          0.045009,
+          0.584648
+        ],
+        "rotation_l2": 0.088292,
+        "sample_count": 60,
+        "translation_l2": 0.3577
+      }
+    }
+  }
+}
