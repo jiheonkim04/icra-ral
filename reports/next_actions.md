@@ -2,10 +2,10 @@
 
 Date: 2026-07-09 KST
 
-Current decision: `ACTION_VALIDITY_RANGE_FAILURE`
+Current decision: `CLIP_ONLY_BASELINE_DOMINATES`
 
 ## Immediate Next Action
 
-Feature fix works, but adapter action clipping/controller-validity remains too weak.
+Clip-only postprocessing matched or beat the range-fixed adapter; do not count the range fix as method success.
 
-Do not start a new method unless the feature-fix decision is `READY_FOR_METHOD_AFTER_FEATURE_FIX`.
+Do not start a new method unless the range-fix decision is `READY_FOR_METHOD_AFTER_RANGE_FIX`.
