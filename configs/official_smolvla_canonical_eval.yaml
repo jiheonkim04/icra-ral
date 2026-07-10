@@ -1,0 +1,70 @@
+schema_version: 1
+date_kst: "2026-07-10"
+name: official_smolvla_canonical_eval
+
+scope:
+  persisted_disk_reloaded_policies_only: true
+  training_performed: false
+  checkpoint_regeneration_performed: false
+  old_custom_libero_7d_route_used: false
+  fcar_revived: false
+  openvla_oft_executed: false
+  rollout_execution_allowed_only_after_canonicalization: true
+
+locked_assets:
+  base_model:
+    repo_id: lerobot/smolvla_libero
+    local_path: "C:/assets/checkpoints/smolvla_libero"
+    hf_revision: 31d453f7edd78c839a8bbc39744a292686daf0de
+  dataset:
+    repo_id: lerobot/libero
+    local_path: "C:/assets/datasets/lerobot_libero"
+    hf_revision: a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4
+  lora_checkpoints:
+    - seed: 11
+      path: "C:/assets/checkpoints/smolvla_libero_lora/rank4/seed_11"
+    - seed: 22
+      path: "C:/assets/checkpoints/smolvla_libero_lora/rank4/seed_22"
+    - seed: 33
+      path: "C:/assets/checkpoints/smolvla_libero_lora/rank4/seed_33"
+
+rng_policy:
+  namespace: official_smolvla_canonical_eval.v1
+  action_generation_eval_seeds: [101, 202, 303, 404, 505]
+  seed_derivation: "seed64 = int(sha256(json({namespace, eval_seed, immutable_frame_identity}, sort_keys=True, compact)).hexdigest()[:16], 16) & ((1 << 63) - 1)"
+  immutable_frame_identity_fields:
+    - split
+    - sample_id
+    - dataset_local_index
+    - dataset_global_index
+    - episode_index
+    - frame_index
+    - episode_length
+    - task_index
+  labels_excluded_from_rng:
+    - target_action
+    - action_l2
+    - eval_loss
+    - success
+    - reward
+  common_random_numbers: "same seed64 regenerates the same CUDA flow-noise tensor for base and matching LoRA frame/eval_seed"
+
+metrics:
+  split_manifest: reports/official_smolvla_split_manifest.json
+  checkpoint_manifest: reports/official_smolvla_lora_checkpoint_manifest.json
+  evaluated_splits: [val, test]
+  static_mix_alpha_grid: [0.0, 0.25, 0.5, 0.75, 1.0]
+  static_mix_selection_split: val
+  aggregate: "mean/std over the five predeclared action-generation eval seeds"
+  task_or_instruction_router_proxy: "validation split proxy only; not an executable method"
+  oracles: "test label upper bounds only; not executable methods"
+
+outputs:
+  base_artifact: reports/canonical_frozen_base_prediction_artifact.json
+  lora_artifacts:
+    - reports/canonical_seed_11_prediction_artifact.json
+    - reports/canonical_seed_22_prediction_artifact.json
+    - reports/canonical_seed_33_prediction_artifact.json
+  prediction_manifest: reports/official_smolvla_canonical_prediction_manifest.json
+  result_json: reports/official_smolvla_canonical_baseline_result.json
+  result_md: reports/official_smolvla_canonical_baseline_result.md

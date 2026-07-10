@@ -50,3 +50,9 @@ The regenerated persisted LoRA checkpoints are complete and deterministic under 
 ## Exact Next Step
 
 Create a no-rollout protocol-adjudication branch that either fixes the PEFT in-memory vs persisted-reload mismatch and pins evaluation RNG state, or explicitly records a re-baselining decision before any canonical rollout baseline is used.
+
+## 2026-07-10 Canonical Next Action
+
+Current decision: `NEEDS_WSL_OR_LINUX_OFFICIAL_ROLLOUT`
+
+Move the same canonical artifacts/checkpoints into the verified WSL/Linux LeRobot LIBERO environment, install only official `lerobot[libero]` dependencies, then run the official smoke before any bounded pilot. Do not retrain, select a LoRA seed from rollout outcomes, revive FCAR, or use the old custom LIBERO_7D route.

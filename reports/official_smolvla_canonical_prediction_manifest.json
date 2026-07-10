@@ -1,0 +1,669 @@
+{
+  "artifact_status": "loaded_existing",
+  "artifacts": {
+    "frozen_base": {
+      "path": "reports\\canonical_frozen_base_prediction_artifact.json",
+      "prediction_digest": "7768C27F3BCF2CED6E897AB660BE2EFBFD028A734EA94CD2D3C00F56A7B76C9E",
+      "record_count": 8000,
+      "sha256": "26297B56850269849CB51B8B6E21A8D53748F69EC249AA2C03CEB77221BBC6A4"
+    },
+    "rank4_lora_seed_11": {
+      "path": "reports\\canonical_seed_11_prediction_artifact.json",
+      "prediction_digest": "DFB50EBD2531B0F05B9312C9085DCF958BEE590C87F088F7CE837D1A45A00BC8",
+      "record_count": 8000,
+      "sha256": "4B558998F4A0495D66FEEAE2C94F2AC6739C5425C42084B279E299A33F6819F2"
+    },
+    "rank4_lora_seed_22": {
+      "path": "reports\\canonical_seed_22_prediction_artifact.json",
+      "prediction_digest": "9C06BFD0DD8B9D3E46CBD41C0AD7A80A2A6AC8B1E8368DCD927234D558ACF22D",
+      "record_count": 8000,
+      "sha256": "C06B4BA9C9FEB356A59495F5AC214B6F4D825B9D4F07E978457039DE5AC8995E"
+    },
+    "rank4_lora_seed_33": {
+      "path": "reports\\canonical_seed_33_prediction_artifact.json",
+      "prediction_digest": "B4DADC23AE0AC9162AFAD614A8D029343DBD0D5D83A1BD1593F5E03BA5A490B3",
+      "record_count": 8000,
+      "sha256": "78D000B1C68D2F627D3F5A22D5058D08404324F7C708011CFF54E55DD03B765D"
+    }
+  },
+  "checkpoint_manifest": {
+    "audit": {
+      "all_complete_verified": true,
+      "checksum_status": "RECORDED",
+      "locked_revision_check": {
+        "dataset_expected_revision": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4",
+        "dataset_local_metadata_revisions": [
+          "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4"
+        ],
+        "model_expected_revision": "31d453f7edd78c839a8bbc39744a292686daf0de",
+        "model_local_metadata_revisions": [
+          "31d453f7edd78c839a8bbc39744a292686daf0de"
+        ]
+      },
+      "manifest_path": "reports\\official_smolvla_lora_checkpoint_manifest.json",
+      "per_seed": {
+        "11": {
+          "adapter_config_sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+          "adapter_model_sha256": "AF73FA2BE701AA3681E76A2520FE1ACC367A44DC5168947571FC5D48CB88DB89",
+          "bundle_checksum_ok": true,
+          "central_checksum_ok": true,
+          "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_11",
+          "disk_reload": {
+            "custom_action_adapter_involved": false,
+            "custom_normalizer_involved": false,
+            "input_tensor_devices": {
+              "action": "cuda:0",
+              "action_is_pad": "cuda:0",
+              "actions_id_pad": "cuda:0",
+              "episode_index": "cuda:0",
+              "index": "cuda:0",
+              "observation.images.camera1": "cuda:0",
+              "observation.images.camera2": "cuda:0",
+              "observation.language.attention_mask": "cuda:0",
+              "observation.language.tokens": "cuda:0",
+              "observation.state": "cuda:0",
+              "task_index": "cuda:0"
+            },
+            "input_tensor_shapes": {
+              "action": [
+                1,
+                50,
+                7
+              ],
+              "action_is_pad": [
+                1,
+                50
+              ],
+              "actions_id_pad": [
+                1,
+                50
+              ],
+              "episode_index": [],
+              "index": [
+                1
+              ],
+              "observation.images.camera1": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "observation.images.camera2": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "observation.language.attention_mask": [
+                1,
+                48
+              ],
+              "observation.language.tokens": [
+                1,
+                48
+              ],
+              "observation.state": [
+                1,
+                8
+              ],
+              "task_index": [
+                1
+              ]
+            },
+            "loaded_from_disk": true,
+            "loaded_policy_type": "PeftModel",
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "peft_config_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero"
+          },
+          "file_hashes": {
+            "README.md": {
+              "actual": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+              "expected": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+              "ok": true
+            },
+            "adapter_config.json": {
+              "actual": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+              "expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+              "ok": true
+            },
+            "adapter_model.safetensors": {
+              "actual": "AF73FA2BE701AA3681E76A2520FE1ACC367A44DC5168947571FC5D48CB88DB89",
+              "expected": "AF73FA2BE701AA3681E76A2520FE1ACC367A44DC5168947571FC5D48CB88DB89",
+              "ok": true
+            },
+            "config.json": {
+              "actual": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+              "expected": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+              "ok": true
+            },
+            "eval_preprocessor_postprocessor_refs.json": {
+              "actual": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+              "expected": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+              "ok": true
+            },
+            "optimizer_state.pt": {
+              "actual": "6E0911C759797B7A4D99D9F4320BA84BE8B4AC5BEDBA511170E771C69C9961CD",
+              "expected": "6E0911C759797B7A4D99D9F4320BA84BE8B4AC5BEDBA511170E771C69C9961CD",
+              "ok": true
+            },
+            "policy_postprocessor.json": {
+              "actual": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+              "expected": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+              "ok": true
+            },
+            "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+              "actual": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+              "expected": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+              "ok": true
+            },
+            "policy_preprocessor.json": {
+              "actual": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+              "expected": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+              "ok": true
+            },
+            "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+              "actual": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+              "expected": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+              "ok": true
+            },
+            "rng_state.pt": {
+              "actual": "72B26D75C2F3E6A27AD41D9909FC855CB354794999FCC6F6554C5B672779B5EF",
+              "expected": "72B26D75C2F3E6A27AD41D9909FC855CB354794999FCC6F6554C5B672779B5EF",
+              "ok": true
+            },
+            "source_repro_lock.yaml": {
+              "actual": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+              "expected": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+              "ok": true
+            },
+            "training_manifest.json": {
+              "actual": "B7FC911AFD193BE9506E5FFE2850D0ECB480615B9D1E007A0F0B032DDC6C80F7",
+              "expected": "B7FC911AFD193BE9506E5FFE2850D0ECB480615B9D1E007A0F0B032DDC6C80F7",
+              "ok": true
+            }
+          },
+          "missing_required_files": [],
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        "22": {
+          "adapter_config_sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+          "adapter_model_sha256": "4CD5432572C38191944F17D270183AB8DBA72201F60DC5CDF3C9528F9461C0E9",
+          "bundle_checksum_ok": true,
+          "central_checksum_ok": true,
+          "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_22",
+          "disk_reload": {
+            "custom_action_adapter_involved": false,
+            "custom_normalizer_involved": false,
+            "input_tensor_devices": {
+              "action": "cuda:0",
+              "action_is_pad": "cuda:0",
+              "actions_id_pad": "cuda:0",
+              "episode_index": "cuda:0",
+              "index": "cuda:0",
+              "observation.images.camera1": "cuda:0",
+              "observation.images.camera2": "cuda:0",
+              "observation.language.attention_mask": "cuda:0",
+              "observation.language.tokens": "cuda:0",
+              "observation.state": "cuda:0",
+              "task_index": "cuda:0"
+            },
+            "input_tensor_shapes": {
+              "action": [
+                1,
+                50,
+                7
+              ],
+              "action_is_pad": [
+                1,
+                50
+              ],
+              "actions_id_pad": [
+                1,
+                50
+              ],
+              "episode_index": [],
+              "index": [
+                1
+              ],
+              "observation.images.camera1": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "observation.images.camera2": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "observation.language.attention_mask": [
+                1,
+                48
+              ],
+              "observation.language.tokens": [
+                1,
+                48
+              ],
+              "observation.state": [
+                1,
+                8
+              ],
+              "task_index": [
+                1
+              ]
+            },
+            "loaded_from_disk": true,
+            "loaded_policy_type": "PeftModel",
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "peft_config_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero"
+          },
+          "file_hashes": {
+            "README.md": {
+              "actual": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+              "expected": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+              "ok": true
+            },
+            "adapter_config.json": {
+              "actual": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+              "expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+              "ok": true
+            },
+            "adapter_model.safetensors": {
+              "actual": "4CD5432572C38191944F17D270183AB8DBA72201F60DC5CDF3C9528F9461C0E9",
+              "expected": "4CD5432572C38191944F17D270183AB8DBA72201F60DC5CDF3C9528F9461C0E9",
+              "ok": true
+            },
+            "config.json": {
+              "actual": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+              "expected": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+              "ok": true
+            },
+            "eval_preprocessor_postprocessor_refs.json": {
+              "actual": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+              "expected": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+              "ok": true
+            },
+            "optimizer_state.pt": {
+              "actual": "DD935AB174AC4DF7274A8B106D34E7EF0E62A31FA5F397F4077C2B5CFEDC814A",
+              "expected": "DD935AB174AC4DF7274A8B106D34E7EF0E62A31FA5F397F4077C2B5CFEDC814A",
+              "ok": true
+            },
+            "policy_postprocessor.json": {
+              "actual": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+              "expected": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+              "ok": true
+            },
+            "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+              "actual": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+              "expected": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+              "ok": true
+            },
+            "policy_preprocessor.json": {
+              "actual": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+              "expected": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+              "ok": true
+            },
+            "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+              "actual": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+              "expected": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+              "ok": true
+            },
+            "rng_state.pt": {
+              "actual": "CAB7F3DFF1C5594A0D0048D38FD0C4361D83132EECDBE0F821249449BF107B01",
+              "expected": "CAB7F3DFF1C5594A0D0048D38FD0C4361D83132EECDBE0F821249449BF107B01",
+              "ok": true
+            },
+            "source_repro_lock.yaml": {
+              "actual": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+              "expected": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+              "ok": true
+            },
+            "training_manifest.json": {
+              "actual": "2131096F3C718D5533577A729D201518B10584EE7A87461F0B19C70644F75763",
+              "expected": "2131096F3C718D5533577A729D201518B10584EE7A87461F0B19C70644F75763",
+              "ok": true
+            }
+          },
+          "missing_required_files": [],
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        "33": {
+          "adapter_config_sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+          "adapter_model_sha256": "5D46EB6A78DF0BE8BF02A260711AEC006AD1B8756FF138ABD490F905712F2D6B",
+          "bundle_checksum_ok": true,
+          "central_checksum_ok": true,
+          "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_33",
+          "disk_reload": {
+            "custom_action_adapter_involved": false,
+            "custom_normalizer_involved": false,
+            "input_tensor_devices": {
+              "action": "cuda:0",
+              "action_is_pad": "cuda:0",
+              "actions_id_pad": "cuda:0",
+              "episode_index": "cuda:0",
+              "index": "cuda:0",
+              "observation.images.camera1": "cuda:0",
+              "observation.images.camera2": "cuda:0",
+              "observation.language.attention_mask": "cuda:0",
+              "observation.language.tokens": "cuda:0",
+              "observation.state": "cuda:0",
+              "task_index": "cuda:0"
+            },
+            "input_tensor_shapes": {
+              "action": [
+                1,
+                50,
+                7
+              ],
+              "action_is_pad": [
+                1,
+                50
+              ],
+              "actions_id_pad": [
+                1,
+                50
+              ],
+              "episode_index": [],
+              "index": [
+                1
+              ],
+              "observation.images.camera1": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "observation.images.camera2": [
+                1,
+                3,
+                256,
+                256
+              ],
+              "observation.language.attention_mask": [
+                1,
+                48
+              ],
+              "observation.language.tokens": [
+                1,
+                48
+              ],
+              "observation.state": [
+                1,
+                8
+              ],
+              "task_index": [
+                1
+              ]
+            },
+            "loaded_from_disk": true,
+            "loaded_policy_type": "PeftModel",
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "peft_config_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero"
+          },
+          "file_hashes": {
+            "README.md": {
+              "actual": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+              "expected": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+              "ok": true
+            },
+            "adapter_config.json": {
+              "actual": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+              "expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+              "ok": true
+            },
+            "adapter_model.safetensors": {
+              "actual": "5D46EB6A78DF0BE8BF02A260711AEC006AD1B8756FF138ABD490F905712F2D6B",
+              "expected": "5D46EB6A78DF0BE8BF02A260711AEC006AD1B8756FF138ABD490F905712F2D6B",
+              "ok": true
+            },
+            "config.json": {
+              "actual": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+              "expected": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+              "ok": true
+            },
+            "eval_preprocessor_postprocessor_refs.json": {
+              "actual": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+              "expected": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+              "ok": true
+            },
+            "optimizer_state.pt": {
+              "actual": "26CC3E6A8AF691705C628440D5B35203A7700E2230DF838214C46A7C596C6FC5",
+              "expected": "26CC3E6A8AF691705C628440D5B35203A7700E2230DF838214C46A7C596C6FC5",
+              "ok": true
+            },
+            "policy_postprocessor.json": {
+              "actual": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+              "expected": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+              "ok": true
+            },
+            "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+              "actual": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+              "expected": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+              "ok": true
+            },
+            "policy_preprocessor.json": {
+              "actual": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+              "expected": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+              "ok": true
+            },
+            "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+              "actual": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+              "expected": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+              "ok": true
+            },
+            "rng_state.pt": {
+              "actual": "4FB7BDEE5D673F3A99C901F7314BFDA0592BB275917ADE51EE6A40749BE10849",
+              "expected": "4FB7BDEE5D673F3A99C901F7314BFDA0592BB275917ADE51EE6A40749BE10849",
+              "ok": true
+            },
+            "source_repro_lock.yaml": {
+              "actual": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+              "expected": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+              "ok": true
+            },
+            "training_manifest.json": {
+              "actual": "82CCA5989101EA9B50A94D995F0007B490017EECB0BE6E84F0FF73004D8E9134",
+              "expected": "82CCA5989101EA9B50A94D995F0007B490017EECB0BE6E84F0FF73004D8E9134",
+              "ok": true
+            }
+          },
+          "missing_required_files": [],
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        }
+      }
+    },
+    "path": "reports\\official_smolvla_lora_checkpoint_manifest.json",
+    "sha256": "2AB95103795C005A33C5B6658035D1DFFAAE58ED5B525F6B5F5D1C679FFF3933"
+  },
+  "date": "2026-07-10 KST",
+  "rng_policy": {
+    "action_generation_eval_seeds": [
+      101,
+      202,
+      303,
+      404,
+      505
+    ],
+    "common_random_numbers": "Base and LoRA predictions for the same eval_seed/frame regenerate the same torch CUDA noise tensor from seed64.",
+    "derivation_formula": "seed64 = int(sha256(json({namespace, eval_seed, immutable_frame_identity}, sort_keys=True, compact)).hexdigest()[:16], 16) & ((1 << 63) - 1)",
+    "immutable_frame_identity_fields": [
+      "split",
+      "sample_id",
+      "dataset_local_index",
+      "dataset_global_index",
+      "episode_index",
+      "frame_index",
+      "episode_length",
+      "task_index"
+    ],
+    "labels_excluded_from_rng": [
+      "target_action",
+      "action_l2",
+      "eval_loss",
+      "success",
+      "reward"
+    ],
+    "namespace": "official_smolvla_canonical_eval.v1",
+    "noise_scope": "postprocessed official SmolVLA action chunk; offline action-L2 uses the current/first action vector.",
+    "test_outcomes_used_for_rng_or_alpha": false
+  },
+  "schema_version": 1,
+  "split_manifest": {
+    "path": "reports\\official_smolvla_split_manifest.json",
+    "sha256": "1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B",
+    "summary": {
+      "episode_counts": {
+        "test": 80,
+        "train": 80,
+        "val": 40
+      },
+      "frame_counts": {
+        "test": 1200,
+        "train": 1200,
+        "val": 400
+      },
+      "leakage_checks": {
+        "episode_disjoint_train_test": true,
+        "episode_disjoint_train_val": true,
+        "episode_disjoint_val_test": true
+      },
+      "task_counts": {
+        "test": 40,
+        "train": 40,
+        "val": 40
+      },
+      "task_frame_counts": {
+        "test": {
+          "0": 30,
+          "1": 30,
+          "10": 30,
+          "11": 30,
+          "12": 30,
+          "13": 30,
+          "14": 30,
+          "15": 30,
+          "16": 30,
+          "17": 30,
+          "18": 30,
+          "19": 30,
+          "2": 30,
+          "20": 30,
+          "21": 30,
+          "22": 30,
+          "23": 30,
+          "24": 30,
+          "25": 30,
+          "26": 30,
+          "27": 30,
+          "28": 30,
+          "29": 30,
+          "3": 30,
+          "30": 30,
+          "31": 30,
+          "32": 30,
+          "33": 30,
+          "34": 30,
+          "35": 30,
+          "36": 30,
+          "37": 30,
+          "38": 30,
+          "39": 30,
+          "4": 30,
+          "5": 30,
+          "6": 30,
+          "7": 30,
+          "8": 30,
+          "9": 30
+        },
+        "train": {
+          "0": 30,
+          "1": 30,
+          "10": 30,
+          "11": 30,
+          "12": 30,
+          "13": 30,
+          "14": 30,
+          "15": 30,
+          "16": 30,
+          "17": 30,
+          "18": 30,
+          "19": 30,
+          "2": 30,
+          "20": 30,
+          "21": 30,
+          "22": 30,
+          "23": 30,
+          "24": 30,
+          "25": 30,
+          "26": 30,
+          "27": 30,
+          "28": 30,
+          "29": 30,
+          "3": 30,
+          "30": 30,
+          "31": 30,
+          "32": 30,
+          "33": 30,
+          "34": 30,
+          "35": 30,
+          "36": 30,
+          "37": 30,
+          "38": 30,
+          "39": 30,
+          "4": 30,
+          "5": 30,
+          "6": 30,
+          "7": 30,
+          "8": 30,
+          "9": 30
+        },
+        "val": {
+          "0": 10,
+          "1": 10,
+          "10": 10,
+          "11": 10,
+          "12": 10,
+          "13": 10,
+          "14": 10,
+          "15": 10,
+          "16": 10,
+          "17": 10,
+          "18": 10,
+          "19": 10,
+          "2": 10,
+          "20": 10,
+          "21": 10,
+          "22": 10,
+          "23": 10,
+          "24": 10,
+          "25": 10,
+          "26": 10,
+          "27": 10,
+          "28": 10,
+          "29": 10,
+          "3": 10,
+          "30": 10,
+          "31": 10,
+          "32": 10,
+          "33": 10,
+          "34": 10,
+          "35": 10,
+          "36": 10,
+          "37": 10,
+          "38": 10,
+          "39": 10,
+          "4": 10,
+          "5": 10,
+          "6": 10,
+          "7": 10,
+          "8": 10,
+          "9": 10
+        }
+      }
+    }
+  }
+}

@@ -1207,3 +1207,18 @@ Root cause:
 Consequence: the regenerated persisted checkpoints are internally valid under fixed-seed disk evaluation but not accepted as canonical in this audit because real LoRA prediction-protocol and evaluation RNG-state differences were found.
 
 Exact next step: fix or explicitly adjudicate the PEFT in-memory versus persisted-reload protocol difference and evaluation RNG-state policy before canonicalizing or rolling out.
+
+## 2026-07-10: Canonical Persisted SmolVLA-LoRA Baseline Evaluation
+
+Decision: `NEEDS_WSL_OR_LINUX_OFFICIAL_ROLLOUT`
+
+Intermediate decision: `CANONICAL_BASELINES_READY_FOR_ROLLOUT`
+
+Reason: persisted disk-reloaded official SmolVLA base and rank-4 LoRA seeds 11/22/33 produced canonical val/test metrics under the fixed action-generation RNG policy, but the active native Windows environment is missing `hf-libero`, `libero`, and `robosuite`, so official LeRobot LIBERO rollout execution must move to the verified WSL/Linux stack.
+
+Key evidence:
+
+- canonical result: `reports/official_smolvla_canonical_baseline_result.md`
+- canonical prediction manifest: `reports/official_smolvla_canonical_prediction_manifest.json`
+- canonical artifacts: `reports/canonical_frozen_base_prediction_artifact.json`, `reports/canonical_seed_11_prediction_artifact.json`, `reports/canonical_seed_22_prediction_artifact.json`, `reports/canonical_seed_33_prediction_artifact.json`
+- historical status: `SUPERSEDED_NONCANONICAL_PROTOCOL`

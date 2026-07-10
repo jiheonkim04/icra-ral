@@ -1,0 +1,10 @@
+{
+  "episodes_per_policy": 0,
+  "latency_vram_forward_passes": {},
+  "pilot_ran": false,
+  "policies_evaluated": [],
+  "reason": "Official LIBERO rollout dependencies are missing in the active native environment: ['hf-libero', 'libero', 'robosuite']",
+  "smoke_ran": false,
+  "success_rates": {},
+  "tasks_evaluated": []
+}
