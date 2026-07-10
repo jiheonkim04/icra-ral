@@ -4,15 +4,15 @@ Date: 2026-07-10 KST
 
 Target branch: `main`
 
-Implementation branch: `codex/regenerate-official-smolvla-lora-checkpoints`
+Implementation branch: `codex/audit-smolvla-lora-regen-drift`
 
-Current decision: `LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT`
+Current decision: `PROTOCOL_DRIFT_FOUND`
 
 ## Current Route
 
-The archived custom SmolVLA 7D adapter route remains stopped. The valid route is official SmolVLA/LeRobot reproduction first, using official preprocessing, normalization, action conventions, dataset format, and evaluation stack.
+The valid route remains official SmolVLA/LeRobot reproduction first. No closed-loop rollout is safe from the current evidence.
 
-This update regenerated the required standard rank-4 LoRA adapter checkpoints for seeds `11`, `22`, and `33`. It did not install `libero` or `robosuite`, initialize a simulator, run closed-loop rollout, download assets, run OpenVLA-OFT, revive FCAR, design a method, change the model/dataset revisions, change the split manifest, change the metric protocol, tune static alpha on test, or rewrite historical metrics.
+This audit diagnosed the old-vs-regenerated LoRA metric drift after commit `15649d6`. It did not retrain any seed, install simulator dependencies, run rollout, download assets, run OpenVLA-OFT, revive FCAR, design a new method, relax the frozen `0.002` tolerance, or overwrite historical metrics.
 
 ## Locked Inputs
 
@@ -22,13 +22,12 @@ This update regenerated the required standard rank-4 LoRA adapter checkpoints fo
 - dataset: `lerobot/libero`
   - revision: `a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4`
   - local path: `C:\assets\datasets\lerobot_libero`
-- split manifest SHA256: `1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B`
-- metric protocol SHA256: `64430225940C5168B3734BB40F9F48AD02877E0BA04DC804367AFBB214AE486E`
-- prior seed result SHA256: `BAA9BD61DA4631F8CF7020198147A52F66435DBFCDDF02717BE2188CC8E79505`
+- split manifest: unchanged across `5d48b1e` and `15649d6`
+- metric protocol: unchanged across `5d48b1e` and `15649d6`
 
-## Checkpoint Regeneration Status
+## Checkpoint Status
 
-All three required seed adapter bundles now exist and were disk-reload verified:
+All three regenerated persisted adapter bundles remain complete and checksum verified:
 
 | Seed | Checkpoint path | Status |
 | ---: | --- | --- |
@@ -36,58 +35,50 @@ All three required seed adapter bundles now exist and were disk-reload verified:
 | `22` | `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_22` | `CHECKPOINT_COMPLETE_VERIFIED` |
 | `33` | `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_33` | `CHECKPOINT_COMPLETE_VERIFIED` |
 
-Central manifest:
+## Drift Audit Result
 
-- `reports/official_smolvla_lora_checkpoint_manifest.json`
+Frame/label/protocol alignment:
 
-Seed-specific prediction artifacts generated from disk-reloaded adapters:
+- test frame IDs: identical
+- task and episode IDs: identical
+- ground-truth actions: identical
+- split membership: identical
+- frozen/base predictions: identical
+- metric protocol file: identical
+- static-alpha grid: identical, validation-only selection
 
-- `reports/official_smolvla_seed_11_prediction_artifact.json`
-- `reports/official_smolvla_seed_22_prediction_artifact.json`
-- `reports/official_smolvla_seed_33_prediction_artifact.json`
+Repeated disk evaluation:
 
-## Reproduction Result
+| Seed | max action L2 repeat diff | rank4 metric diff | static metric diff | selected alpha identical |
+| ---: | ---: | ---: | ---: | --- |
+| `11` | `0.0` | `0.0` | `0.0` | `True` |
+| `22` | `0.0` | `0.0` | `0.0` | `True` |
+| `33` | `0.0` | `0.0` | `0.0` | `True` |
 
-Frozen tolerance:
+The current persisted checkpoints are internally stable under disk re-evaluation. The drift is not evaluation nondeterminism.
 
-- per-seed rank-4 LoRA action L2 diff must be `<= 0.002`
-- per-seed static-mix action L2 diff must be `<= 0.002`
-- aggregate mean diffs must be `<= 0.002`
-- static mix must remain stronger than standalone LoRA
+However, the saved regenerated artifact metrics do not exactly match the fixed-seed disk re-evaluation metrics. This shows that the evaluation RNG state was also an unpinned part of the protocol identity.
 
-Outcome:
+## Root Cause
 
-- checkpoint bundle completeness: passed
-- checksum recording: passed
-- disk reload verification: passed
-- CUDA device placement: passed
-- static-mix qualitative conclusion preserved: yes
-- frozen metric tolerance: failed
+The old `5d48b1e` run evaluated the trained in-memory policy and did not persist/reload adapter weights. The regenerated `15649d6` run assigns the PEFT wrapper return, saves adapter bundles, reloads them with `PeftModel.from_pretrained`, and evaluates that disk identity. The audit's fixed-seed disk re-evaluation is repeatable but differs from the saved regenerated artifact metrics, so evaluation RNG state must also be pinned in any future protocol.
 
-Per-seed tolerance failures:
+Historical adapter weights, complete RNG state, and exact training sample order were not preserved, so the historical learned policy identity cannot be reconstructed exactly. The regenerated persisted checkpoints must not be described as identical historical models.
 
-- seed `11` rank-4 LoRA action L2 diff: `0.003085157`
-- seed `33` rank-4 LoRA action L2 diff: `0.004492506`
-- seed `33` static-mix action L2 diff: `0.004988174`
+## Canonical Baseline Status
 
-Aggregate regenerated metrics:
+Current regenerated checkpoints are **not accepted as canonical** in this audit because real LoRA prediction-protocol differences were found. They can only become canonical after the PEFT in-memory vs persisted-reload difference and the evaluation RNG-state policy are fixed or explicitly adjudicated as a new re-baselining decision that preserves old metrics as historical.
 
-- rank-4 LoRA mean/std: `0.087287222` / `0.001135689`
-- validation-selected action-space static mix mean/std: `0.079536743` / `0.001025200`
-- frame oracle upper-bound mean/std: `0.069590253` / `0.001577148`
-- task oracle upper-bound mean/std: `0.080959383` / `0.001502216`
+## Key Reports
 
-## Runtime And Device
+- `reports/official_smolvla_lora_drift_audit.md`
+- `reports/official_smolvla_old_vs_regen_config_diff.md`
+- `reports/official_smolvla_artifact_alignment_audit.md`
+- `reports/official_smolvla_eval_determinism_check.md`
+- `reports/official_smolvla_training_determinism_status.md`
+- `reports/official_smolvla_canonical_checkpoint_proposal.md`
+- `reports/official_smolvla_lora_drift_decision.md`
 
-- CUDA available: yes
-- GPU: `NVIDIA GeForce RTX 5080`
-- CPU fallback: no
-- model/input devices recorded as `cuda:0`
-- torch CUDA peak memory recorded in artifacts: about `1105 MB`
-- seed elapsed times: seed `11` `1119.422s`, seed `22` `1114.5s`, seed `33` `1121.218s`
+## Exact Next Step
 
-## Conclusion
-
-`LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT`
-
-The checkpoint persistence gap is fixed, but rollout remains blocked because regenerated metrics exceeded the predeclared tolerance. Do not proceed to official rollout until the configuration drift is diagnosed under a new explicit objective.
+Fix or explicitly adjudicate the PEFT in-memory versus persisted-reload protocol difference and evaluation RNG-state policy before canonicalizing or rolling out.

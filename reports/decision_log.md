@@ -1163,3 +1163,47 @@ Generated artifacts:
 Consequence: the checkpoint persistence blocker is fixed, but official rollout remains blocked by metric drift. Do not proceed to rollout until configuration drift is diagnosed under a new explicit objective.
 
 Exact next step: bounded configuration-drift diagnosis only; no rollout.
+
+## 2026-07-10: Official SmolVLA LoRA Regeneration Drift Audit
+
+Decision: `PROTOCOL_DRIFT_FOUND`
+
+- objective: diagnose whether regenerated seed `11`/`22`/`33` persisted LoRA checkpoints can become the canonical rollout baseline set
+- experiments happened: `True`
+- training happened: `False`
+- optional single-seed probe ran: `False`
+- GPU evaluation happened: `True`
+- downloads/OpenVLA-OFT/FCAR/rollout happened: `False` / `False` / `False` / `False`
+- simulator dependency installation happened: `False`
+- historical tolerance relaxed: `False`
+- historical metrics overwritten: `False`
+
+Alignment findings:
+
+- split manifest: identical across `5d48b1e` and `15649d6`
+- metric protocol: identical across `5d48b1e` and `15649d6`
+- test frame IDs, task IDs, episode IDs, labels, split membership: identical
+- frozen/base predictions: identical
+- static-alpha grid and validation-only selection: identical
+
+Checkpoint findings:
+
+- all three persisted checkpoints remain complete and checksum verified
+- disk evaluation repeatability passed for seeds `11`, `22`, and `33`
+- max per-action repeat diff: `0.0` for all seeds
+- rank-4 LoRA metric repeat diff: `0.0` for all seeds
+- static-mix metric repeat diff: `0.0` for all seeds
+- selected validation alpha identical: `True` for all seeds
+- saved regenerated artifact metrics did not exactly match fixed-seed disk re-evaluation metrics, so evaluation RNG state was also unpinned protocol identity
+
+Root cause:
+
+- the historical `5d48b1e` run evaluated the trained in-memory policy and did not save/reload adapter weights
+- the regenerated `15649d6` run assigns the PEFT wrapper return, saves adapter bundles, reloads with `PeftModel.from_pretrained`, and evaluates that disk identity
+- the audit's fixed-seed disk re-evaluation is internally repeatable, but it differs from saved regenerated artifact metrics because the prior evaluation RNG state was not separately pinned
+- old adapter weights, complete historical RNG state, and exact historical training sample order were not persisted
+- therefore the old learned policy identity is not exactly reconstructable and the regenerated checkpoints must not be described as identical historical models
+
+Consequence: the regenerated persisted checkpoints are internally valid under fixed-seed disk evaluation but not accepted as canonical in this audit because real LoRA prediction-protocol and evaluation RNG-state differences were found.
+
+Exact next step: fix or explicitly adjudicate the PEFT in-memory versus persisted-reload protocol difference and evaluation RNG-state policy before canonicalizing or rolling out.
