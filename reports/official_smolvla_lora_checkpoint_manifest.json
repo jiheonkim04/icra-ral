@@ -1,0 +1,420 @@
+{
+  "checkpoint_output_root": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4",
+  "checksum_status": "RECORDED",
+  "date": "2026-07-10 KST",
+  "final_decision": "LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT",
+  "frozen_hashes": {
+    "configs\\official_smolvla_repro_lock.yaml": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+    "reports\\official_smolvla_lora_seed_repro_result.json": "BAA9BD61DA4631F8CF7020198147A52F66435DBFCDDF02717BE2188CC8E79505",
+    "reports\\official_smolvla_metric_protocol.md": "64430225940C5168B3734BB40F9F48AD02877E0BA04DC804367AFBB214AE486E",
+    "reports\\official_smolvla_split_manifest.json": "1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B"
+  },
+  "locked_revision_check": {
+    "dataset_expected_revision": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4",
+    "dataset_local_metadata_revisions": [
+      "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4"
+    ],
+    "model_expected_revision": "31d453f7edd78c839a8bbc39744a292686daf0de",
+    "model_local_metadata_revisions": [
+      "31d453f7edd78c839a8bbc39744a292686daf0de"
+    ]
+  },
+  "required_bundle_files": [
+    "adapter_config.json",
+    "adapter_model.safetensors",
+    "training_manifest.json",
+    "eval_preprocessor_postprocessor_refs.json",
+    "source_repro_lock.yaml",
+    "sha256_manifest.json"
+  ],
+  "schema_version": 1,
+  "seeds": [
+    {
+      "adapter_config_sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_model_sha256": "AF73FA2BE701AA3681E76A2520FE1ACC367A44DC5168947571FC5D48CB88DB89",
+      "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_11",
+      "disk_reload": {
+        "custom_action_adapter_involved": false,
+        "custom_normalizer_involved": false,
+        "input_tensor_devices": {
+          "action": "cuda:0",
+          "action_is_pad": "cuda:0",
+          "actions_id_pad": "cuda:0",
+          "episode_index": "cuda:0",
+          "index": "cuda:0",
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0",
+          "task_index": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "action": [
+            1,
+            50,
+            7
+          ],
+          "action_is_pad": [
+            1,
+            50
+          ],
+          "actions_id_pad": [
+            1,
+            50
+          ],
+          "episode_index": [],
+          "index": [
+            1
+          ],
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ],
+          "task_index": [
+            1
+          ]
+        },
+        "loaded_from_disk": true,
+        "loaded_policy_type": "PeftModel",
+        "model_parameter_device": "cuda:0",
+        "model_parameter_dtype": "torch.bfloat16",
+        "peft_config_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero"
+      },
+      "file_hashes": {
+        "README.md": {
+          "sha256": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+          "size_bytes": 5116
+        },
+        "adapter_config.json": {
+          "sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+          "size_bytes": 1295
+        },
+        "adapter_model.safetensors": {
+          "sha256": "AF73FA2BE701AA3681E76A2520FE1ACC367A44DC5168947571FC5D48CB88DB89",
+          "size_bytes": 753728
+        },
+        "config.json": {
+          "sha256": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+          "size_bytes": 2606
+        },
+        "eval_preprocessor_postprocessor_refs.json": {
+          "sha256": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+          "size_bytes": 302
+        },
+        "optimizer_state.pt": {
+          "sha256": "6E0911C759797B7A4D99D9F4320BA84BE8B4AC5BEDBA511170E771C69C9961CD",
+          "size_bytes": 1549411
+        },
+        "policy_postprocessor.json": {
+          "sha256": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+          "size_bytes": 692
+        },
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+          "sha256": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+          "size_bytes": 5676
+        },
+        "policy_preprocessor.json": {
+          "sha256": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+          "size_bytes": 2153
+        },
+        "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+          "sha256": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+          "size_bytes": 5628
+        },
+        "rng_state.pt": {
+          "sha256": "72B26D75C2F3E6A27AD41D9909FC855CB354794999FCC6F6554C5B672779B5EF",
+          "size_bytes": 18421
+        },
+        "source_repro_lock.yaml": {
+          "sha256": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+          "size_bytes": 10853
+        },
+        "training_manifest.json": {
+          "sha256": "B7FC911AFD193BE9506E5FFE2850D0ECB480615B9D1E007A0F0B032DDC6C80F7",
+          "size_bytes": 20005
+        }
+      },
+      "seed": 11,
+      "status": "CHECKPOINT_COMPLETE_VERIFIED"
+    },
+    {
+      "adapter_config_sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_model_sha256": "4CD5432572C38191944F17D270183AB8DBA72201F60DC5CDF3C9528F9461C0E9",
+      "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_22",
+      "disk_reload": {
+        "custom_action_adapter_involved": false,
+        "custom_normalizer_involved": false,
+        "input_tensor_devices": {
+          "action": "cuda:0",
+          "action_is_pad": "cuda:0",
+          "actions_id_pad": "cuda:0",
+          "episode_index": "cuda:0",
+          "index": "cuda:0",
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0",
+          "task_index": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "action": [
+            1,
+            50,
+            7
+          ],
+          "action_is_pad": [
+            1,
+            50
+          ],
+          "actions_id_pad": [
+            1,
+            50
+          ],
+          "episode_index": [],
+          "index": [
+            1
+          ],
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ],
+          "task_index": [
+            1
+          ]
+        },
+        "loaded_from_disk": true,
+        "loaded_policy_type": "PeftModel",
+        "model_parameter_device": "cuda:0",
+        "model_parameter_dtype": "torch.bfloat16",
+        "peft_config_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero"
+      },
+      "file_hashes": {
+        "README.md": {
+          "sha256": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+          "size_bytes": 5116
+        },
+        "adapter_config.json": {
+          "sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+          "size_bytes": 1295
+        },
+        "adapter_model.safetensors": {
+          "sha256": "4CD5432572C38191944F17D270183AB8DBA72201F60DC5CDF3C9528F9461C0E9",
+          "size_bytes": 753728
+        },
+        "config.json": {
+          "sha256": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+          "size_bytes": 2606
+        },
+        "eval_preprocessor_postprocessor_refs.json": {
+          "sha256": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+          "size_bytes": 302
+        },
+        "optimizer_state.pt": {
+          "sha256": "DD935AB174AC4DF7274A8B106D34E7EF0E62A31FA5F397F4077C2B5CFEDC814A",
+          "size_bytes": 1549411
+        },
+        "policy_postprocessor.json": {
+          "sha256": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+          "size_bytes": 692
+        },
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+          "sha256": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+          "size_bytes": 5676
+        },
+        "policy_preprocessor.json": {
+          "sha256": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+          "size_bytes": 2153
+        },
+        "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+          "sha256": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+          "size_bytes": 5628
+        },
+        "rng_state.pt": {
+          "sha256": "CAB7F3DFF1C5594A0D0048D38FD0C4361D83132EECDBE0F821249449BF107B01",
+          "size_bytes": 18485
+        },
+        "source_repro_lock.yaml": {
+          "sha256": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+          "size_bytes": 10853
+        },
+        "training_manifest.json": {
+          "sha256": "2131096F3C718D5533577A729D201518B10584EE7A87461F0B19C70644F75763",
+          "size_bytes": 20001
+        }
+      },
+      "seed": 22,
+      "status": "CHECKPOINT_COMPLETE_VERIFIED"
+    },
+    {
+      "adapter_config_sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_model_sha256": "5D46EB6A78DF0BE8BF02A260711AEC006AD1B8756FF138ABD490F905712F2D6B",
+      "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_33",
+      "disk_reload": {
+        "custom_action_adapter_involved": false,
+        "custom_normalizer_involved": false,
+        "input_tensor_devices": {
+          "action": "cuda:0",
+          "action_is_pad": "cuda:0",
+          "actions_id_pad": "cuda:0",
+          "episode_index": "cuda:0",
+          "index": "cuda:0",
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0",
+          "task_index": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "action": [
+            1,
+            50,
+            7
+          ],
+          "action_is_pad": [
+            1,
+            50
+          ],
+          "actions_id_pad": [
+            1,
+            50
+          ],
+          "episode_index": [],
+          "index": [
+            1
+          ],
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ],
+          "task_index": [
+            1
+          ]
+        },
+        "loaded_from_disk": true,
+        "loaded_policy_type": "PeftModel",
+        "model_parameter_device": "cuda:0",
+        "model_parameter_dtype": "torch.bfloat16",
+        "peft_config_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero"
+      },
+      "file_hashes": {
+        "README.md": {
+          "sha256": "F1C44B7EEB9E3FF6B7597DB2426027085FD6D6C8A424D473B0F02EF1D7DF4D87",
+          "size_bytes": 5116
+        },
+        "adapter_config.json": {
+          "sha256": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+          "size_bytes": 1295
+        },
+        "adapter_model.safetensors": {
+          "sha256": "5D46EB6A78DF0BE8BF02A260711AEC006AD1B8756FF138ABD490F905712F2D6B",
+          "size_bytes": 753728
+        },
+        "config.json": {
+          "sha256": "428BB0B88B4805560757265D68F428BED772A45B157049EA569FF5939D677584",
+          "size_bytes": 2606
+        },
+        "eval_preprocessor_postprocessor_refs.json": {
+          "sha256": "E3F35C0798C72DFD169228662F3A28400FA52DA7855FA395BA7B4714D1C1A2F8",
+          "size_bytes": 302
+        },
+        "optimizer_state.pt": {
+          "sha256": "26CC3E6A8AF691705C628440D5B35203A7700E2230DF838214C46A7C596C6FC5",
+          "size_bytes": 1549411
+        },
+        "policy_postprocessor.json": {
+          "sha256": "0D58E0DDA73402607D8226150AF3AC75C6BD11ED89D561D013C62CDA84CEE108",
+          "size_bytes": 692
+        },
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+          "sha256": "B0CDDE6E8A6F49A8E19EEFB376728E47C09D3B3CC20CE3A97C45619FE7A732D9",
+          "size_bytes": 5676
+        },
+        "policy_preprocessor.json": {
+          "sha256": "C0138CEFC0C4CAA2D5499F5ECD4E0D84CA3AEB70EA30240AB362C26D1D8D7A98",
+          "size_bytes": 2153
+        },
+        "policy_preprocessor_step_5_normalizer_processor.safetensors": {
+          "sha256": "A7B141CF673A162019226F35CF1A65E348307762526F28F7E4AB3A147E6D2BC7",
+          "size_bytes": 5628
+        },
+        "rng_state.pt": {
+          "sha256": "4FB7BDEE5D673F3A99C901F7314BFDA0592BB275917ADE51EE6A40749BE10849",
+          "size_bytes": 18485
+        },
+        "source_repro_lock.yaml": {
+          "sha256": "C603D36B02E59505C2699F3BEA15C64807468B188E862C0E33F275DE04F351A5",
+          "size_bytes": 10853
+        },
+        "training_manifest.json": {
+          "sha256": "82CCA5989101EA9B50A94D995F0007B490017EECB0BE6E84F0FF73004D8E9134",
+          "size_bytes": 20008
+        }
+      },
+      "seed": 33,
+      "status": "CHECKPOINT_COMPLETE_VERIFIED"
+    }
+  ]
+}

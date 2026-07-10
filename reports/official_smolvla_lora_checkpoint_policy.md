@@ -46,3 +46,21 @@ powershell -ExecutionPolicy Bypass -File scripts\250_official_smolvla_lora_adapt
 ```
 
 Until that future run is explicitly approved and produces complete immutable bundles, the correct decision remains `LORA_CHECKPOINTS_MISSING_REGENERATION_REQUIRED`.
+
+## Post-Regeneration Update
+
+Date: 2026-07-10 KST
+
+The approved checkpoint regeneration pass later produced complete, disk-reload-verified bundles for seeds `11`, `22`, and `33`:
+
+- `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_11`
+- `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_22`
+- `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_33`
+
+Current checkpoint status is therefore no longer missing. The current blocker is metric reproduction drift, recorded as `LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT` in:
+
+- `reports/official_smolvla_lora_checkpoint_regen_result.json`
+- `reports/official_smolvla_lora_reproduction_comparison.md`
+- `reports/official_smolvla_lora_checkpoint_regen_decision.md`
+
+The policy requirement remains unchanged: prediction JSON cannot replace adapter checkpoints, and official rollout remains blocked until the metric drift is diagnosed.

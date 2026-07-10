@@ -14,13 +14,18 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import math
 import os
+import random
+import shutil
+import subprocess
 import sys
 import time
 import traceback
 from collections import Counter, defaultdict
+from importlib import metadata
 from pathlib import Path
 from typing import Any
 
@@ -57,6 +62,7 @@ SEED_ARTIFACT_VERSION = 3
 DEFAULT_SEEDS = [11, 22, 33]
 MAX_RUNTIME_SECONDS = 3 * 60 * 60
 MAX_STEPS = 100
+REGEN_TOLERANCE = 0.002
 STATIC_GRID = [0.0, 0.25, 0.5, 0.75, 1.0]
 REPORT_BASELINES = [
     "frozen_base",
@@ -84,6 +90,40 @@ FINAL_DECISIONS = {
     "TOO_HEAVY_LOCAL",
     "TRAINING_FAILURE",
     "CPU_FALLBACK_BUG",
+    "LORA_CHECKPOINTS_REGENERATED_AND_VERIFIED",
+    "LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT",
+    "CHECKPOINT_BUNDLE_INCOMPLETE",
+    "CHECKPOINT_LOAD_FAILED",
+    "CHECKPOINT_IDENTITY_UNPROVEN",
+    "REVISION_LOCK_MISMATCH",
+}
+CHECKPOINT_FINAL_DECISIONS = {
+    "LORA_CHECKPOINTS_REGENERATED_AND_VERIFIED",
+    "LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT",
+    "CHECKPOINT_BUNDLE_INCOMPLETE",
+    "CHECKPOINT_LOAD_FAILED",
+    "CHECKPOINT_IDENTITY_UNPROVEN",
+    "REVISION_LOCK_MISMATCH",
+    "CPU_FALLBACK_BUG",
+    "TRAINING_FAILURE",
+    "TOO_HEAVY_LOCAL",
+}
+REQUIRED_BUNDLE_FILES = [
+    "adapter_config.json",
+    "adapter_model.safetensors",
+    "training_manifest.json",
+    "eval_preprocessor_postprocessor_refs.json",
+    "source_repro_lock.yaml",
+    "sha256_manifest.json",
+]
+CANONICAL_METRIC_NAMES = {
+    "frozen_base": "frozen_base",
+    "rank4_lora": "rank4_lora",
+    "mean_action_prior": "mean_action_prior",
+    "static_mix_val_selected": "validation_selected_action_space_static_mix",
+    "frame_oracle": "frame_oracle_upper_bound",
+    "task_oracle": "task_oracle_upper_bound",
+    "moira_style_instruction_task_router": "task_or_instruction_router_proxy",
 }
 FORBIDDEN_GATES = [
     "ALLOW_DOWNLOADS",
@@ -172,6 +212,275 @@ def _artifact_path(pattern: str, seed: int) -> Path:
     return Path(pattern.format(seed=seed))
 
 
+def _checkpoint_dir_for_seed(root: str | Path, seed: int) -> Path:
+    return Path(root) / f"seed_{int(seed)}"
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest().upper()
+
+
+def _hash_paths(paths: list[str | Path]) -> dict[str, str | None]:
+    hashes: dict[str, str | None] = {}
+    for raw_path in paths:
+        path = Path(raw_path)
+        hashes[str(path)] = _sha256_file(path) if path.exists() and path.is_file() else None
+    return hashes
+
+
+def _hf_download_metadata_revisions(root: Path) -> list[str]:
+    metadata_dir = root / ".cache" / "huggingface" / "download"
+    revisions: set[str] = set()
+    if metadata_dir.exists():
+        for metadata_file in metadata_dir.rglob("*.metadata"):
+            try:
+                first_line = metadata_file.read_text(encoding="utf-8").splitlines()[0].strip()
+            except Exception:
+                continue
+            if first_line:
+                revisions.add(first_line)
+    return sorted(revisions)
+
+
+def _assert_locked_revisions(args: argparse.Namespace) -> dict[str, Any]:
+    model_revisions = _hf_download_metadata_revisions(Path(args.checkpoint_path))
+    dataset_revisions = _hf_download_metadata_revisions(Path(args.dataset_root))
+    expected_model = str(args.expected_model_revision)
+    expected_dataset = str(args.expected_dataset_revision)
+    status = {
+        "model_expected_revision": expected_model,
+        "model_local_metadata_revisions": model_revisions,
+        "dataset_expected_revision": expected_dataset,
+        "dataset_local_metadata_revisions": dataset_revisions,
+    }
+    if model_revisions != [expected_model]:
+        raise SeedReproError("REVISION_LOCK_MISMATCH", f"Model revision mismatch: {status}")
+    if dataset_revisions != [expected_dataset]:
+        raise SeedReproError("REVISION_LOCK_MISMATCH", f"Dataset revision mismatch: {status}")
+    return status
+
+
+def _package_versions() -> dict[str, str]:
+    versions: dict[str, str] = {}
+    for name in ["torch", "lerobot", "transformers", "peft", "accelerate", "huggingface_hub", "safetensors"]:
+        try:
+            versions[name] = metadata.version(name)
+        except metadata.PackageNotFoundError:
+            versions[name] = "NOT_INSTALLED"
+    return versions
+
+
+def _git_head() -> str | None:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        return result.stdout.strip()
+    except Exception:
+        return None
+
+
+def _inventory_dir(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {"exists": False, "files": []}
+    files = []
+    for child in sorted(path.rglob("*")):
+        if child.is_file():
+            files.append({"relative_path": child.relative_to(path).as_posix(), "size_bytes": child.stat().st_size})
+    return {"exists": True, "files": files}
+
+
+def _is_complete_bundle(path: Path) -> bool:
+    return all((path / name).is_file() and (path / name).stat().st_size > 0 for name in REQUIRED_BUNDLE_FILES)
+
+
+def _bundle_file_hashes(path: Path) -> dict[str, dict[str, Any]]:
+    files: dict[str, dict[str, Any]] = {}
+    for child in sorted(path.rglob("*")):
+        if child.is_file() and child.name != "sha256_manifest.json":
+            relative = child.relative_to(path).as_posix()
+            files[relative] = {"sha256": _sha256_file(child), "size_bytes": child.stat().st_size}
+    return files
+
+
+def _write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True, default=_json_default) + "\n", encoding="utf-8")
+
+
+def _save_checkpoint_bundle(
+    *,
+    args: argparse.Namespace,
+    policy: Any,
+    preprocessor: Any,
+    postprocessor: Any,
+    optimizer: Any,
+    seed: int,
+    checkpoint_path: Path,
+    dataset_root: Path,
+    lora_param_summary: dict[str, Any],
+    loss_curve: list[dict[str, Any]],
+    grad_curve: list[dict[str, Any]],
+    train_order: list[int],
+    training_elapsed: float,
+    device_audit: dict[str, Any],
+) -> dict[str, Any]:
+    seed_dir = _checkpoint_dir_for_seed(args.checkpoint_output_root, seed)
+    pre_inventory = _inventory_dir(seed_dir)
+    if seed_dir.exists():
+        if _is_complete_bundle(seed_dir):
+            raise SeedReproError(
+                "CHECKPOINT_IDENTITY_UNPROVEN",
+                f"Refusing to overwrite existing complete checkpoint bundle: {seed_dir}",
+            )
+        raise SeedReproError(
+            "CHECKPOINT_BUNDLE_INCOMPLETE",
+            f"Target checkpoint directory already exists and is incomplete; inventory={pre_inventory}",
+        )
+
+    seed_dir.parent.mkdir(parents=True, exist_ok=True)
+    tmp_dir = seed_dir.with_name(f"{seed_dir.name}.tmp_{os.getpid()}_{time.time_ns()}")
+    if tmp_dir.exists():
+        raise SeedReproError("CHECKPOINT_BUNDLE_INCOMPLETE", f"Temporary checkpoint directory already exists: {tmp_dir}")
+    tmp_dir.mkdir(parents=True)
+
+    try:
+        if hasattr(policy, "peft_config"):
+            for peft_config in policy.peft_config.values():
+                peft_config.base_model_name_or_path = str(checkpoint_path)
+        policy.save_pretrained(tmp_dir)
+        if hasattr(policy, "config") and hasattr(policy.config, "save_pretrained"):
+            policy.config.save_pretrained(tmp_dir)
+
+        if hasattr(preprocessor, "save_pretrained"):
+            preprocessor.save_pretrained(tmp_dir)
+        if hasattr(postprocessor, "save_pretrained"):
+            postprocessor.save_pretrained(tmp_dir)
+
+        source_lock = Path(args.source_repro_lock)
+        if source_lock.exists():
+            shutil.copy2(source_lock, tmp_dir / "source_repro_lock.yaml")
+
+        torch_rng_state_path = tmp_dir / "rng_state.pt"
+        optimizer_state_path = tmp_dir / "optimizer_state.pt"
+        try:
+            import torch
+
+            torch.save(
+                {
+                    "python_random_state_repr": repr(random.getstate()),
+                    "numpy_random_state": np.random.get_state(),
+                    "torch_cpu_rng_state": torch.get_rng_state(),
+                    "torch_cuda_rng_state_all": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else [],
+                    "data_order_seed": int(seed),
+                    "train_order_first_20": train_order[:20],
+                },
+                torch_rng_state_path,
+            )
+            torch.save(optimizer.state_dict(), optimizer_state_path)
+        except Exception as exc:  # pragma: no cover - depends on torch serialization availability
+            (tmp_dir / "state_save_warning.txt").write_text(str(exc), encoding="utf-8")
+
+        training_manifest = {
+            "schema_version": 1,
+            "status": "CHECKPOINT_TRAINED_SAVED_PENDING_RELOAD",
+            "seed": int(seed),
+            "lora_rank": 4,
+            "peft_method": "LORA",
+            "target_modules": [
+                r"model\.vlm_with_expert\.lm_expert\..*\.(q|v)_proj",
+                r"model\.(state_proj|action_in_proj|action_out_proj|action_time_mlp_in|action_time_mlp_out)",
+            ],
+            "trainable_parameter_count": lora_param_summary.get("trainable_params"),
+            "total_parameter_count": lora_param_summary.get("total_params"),
+            "training_step_count": int(args.steps),
+            "batch_size": 1,
+            "learning_rate": float(args.lr),
+            "optimizer": "torch.optim.AdamW",
+            "scheduler": None,
+            "precision_autocast": "none",
+            "gradient_settings": {"zero_grad_set_to_none": True, "trainable_lora_only": True},
+            "base_model": {
+                "repo_id": "lerobot/smolvla_libero",
+                "revision": args.expected_model_revision,
+                "local_path": str(checkpoint_path),
+            },
+            "dataset": {
+                "repo_id": "lerobot/libero",
+                "revision": args.expected_dataset_revision,
+                "local_path": str(dataset_root),
+            },
+            "locked_artifact_hashes": _hash_paths(
+                [args.source_repro_lock, args.split_manifest, args.metric_protocol, args.prior_result_json]
+            ),
+            "split_manifest": str(Path(args.split_manifest)),
+            "metric_protocol": str(Path(args.metric_protocol)),
+            "source_repro_lock": str(source_lock),
+            "git_commit_used_for_regeneration": _git_head(),
+            "exact_training_command": " ".join([sys.executable, "-m", "tca_map.smolvla.official_libero_lora_seed_repro", *sys.argv[1:]]),
+            "package_versions": _package_versions(),
+            "loss_before": loss_curve[0]["loss"] if loss_curve else None,
+            "loss_after": loss_curve[-1]["loss"] if loss_curve else None,
+            "loss_curve": loss_curve,
+            "last_gradient_summary": grad_curve[-1] if grad_curve else None,
+            "training_elapsed_sec": _round(training_elapsed, 3),
+            "device_audit": device_audit,
+            "cpu_fallback_status": False,
+            "exceptions": [],
+            "warnings": [],
+        }
+        _write_json(tmp_dir / "training_manifest.json", training_manifest)
+        _write_json(
+            tmp_dir / "eval_preprocessor_postprocessor_refs.json",
+            {
+                "preprocessor_saved": hasattr(preprocessor, "save_pretrained"),
+                "postprocessor_saved": hasattr(postprocessor, "save_pretrained"),
+                "preprocessor_config": "policy_preprocessor.json",
+                "postprocessor_config": "policy_postprocessor.json",
+                "official_device_processor": "cuda",
+                "custom_normalizer_involved": False,
+                "custom_action_adapter_involved": False,
+            },
+        )
+
+        file_hashes = _bundle_file_hashes(tmp_dir)
+        sha_manifest = {
+            "schema_version": 1,
+            "seed": int(seed),
+            "bundle_root": str(seed_dir),
+            "files": file_hashes,
+        }
+        _write_json(tmp_dir / "sha256_manifest.json", sha_manifest)
+        missing = [name for name in REQUIRED_BUNDLE_FILES if not (tmp_dir / name).is_file()]
+        if missing:
+            raise SeedReproError("CHECKPOINT_BUNDLE_INCOMPLETE", f"Missing required bundle files for seed {seed}: {missing}")
+        tmp_dir.rename(seed_dir)
+    except Exception:
+        if tmp_dir.exists():
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+        raise
+
+    return {
+        "seed": int(seed),
+        "status": "CHECKPOINT_SAVED_PENDING_RELOAD",
+        "checkpoint_path": str(seed_dir),
+        "preexisting_inventory": pre_inventory,
+        "required_files": REQUIRED_BUNDLE_FILES,
+        "file_hashes": _bundle_file_hashes(seed_dir),
+        "adapter_model_sha256": _sha256_file(seed_dir / "adapter_model.safetensors"),
+        "adapter_config_sha256": _sha256_file(seed_dir / "adapter_config.json"),
+    }
+
+
 def _seed_record_from_base(base_record: dict[str, Any], lora_row: dict[str, Any]) -> dict[str, Any]:
     record = copy.deepcopy(base_record)
     base_l2 = float(record["base_action_l2"])
@@ -208,6 +517,7 @@ def _train_one_seed(
     from lerobot.datasets.lerobot_dataset import LeRobotDataset
     from lerobot.policies.factory import make_pre_post_processors
     from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+    from peft import PeftConfig, PeftModel
 
     if not torch.cuda.is_available():
         raise SeedReproError("CPU_FALLBACK_BUG", "CUDA unavailable; refusing LoRA seed training on CPU.")
@@ -270,7 +580,7 @@ def _train_one_seed(
     ):
         raise SeedReproError("CPU_FALLBACK_BUG", f"CUDA available but params/inputs are not CUDA: params={param_summary}, inputs={input_devices}")
 
-    policy.wrap_with_peft(peft_cli_overrides={"method_type": "LORA", "r": 4})
+    policy = policy.wrap_with_peft(peft_cli_overrides={"method_type": "LORA", "r": 4})
     policy.to("cuda")
     policy.train()
     lora_param_summary = _parameter_summary(policy)
@@ -315,11 +625,104 @@ def _train_one_seed(
         grad_curve.append({"step": int(step), **grad_summary})
     training_elapsed = time.monotonic() - training_started
 
-    print(f"[seed-repro] seed {seed}: evaluating rank-4 LoRA on {len(all_samples)} records", flush=True)
-    lora_rows = _evaluate_policy_rows(
+    checkpoint_device_audit = {
+        "cuda_available": True,
+        "cuda_device_name": torch.cuda.get_device_name(0),
+        "model_parameter_device_before_peft": param_summary["first_parameter_device"],
+        "model_parameter_dtype_before_peft": param_summary["first_parameter_dtype"],
+        "model_parameter_device_after_peft": lora_param_summary["first_parameter_device"],
+        "model_parameter_dtype_after_peft": lora_param_summary["first_parameter_dtype"],
+        "input_tensor_devices": input_devices,
+        "input_tensor_shapes": _tensor_shapes(probe),
+        "first_training_batch_devices": first_batch_devices,
+        "first_training_batch_shapes": first_batch_shapes,
+        "autocast_status_initial_final": _safe_autocast_status(torch),
+        "cuda_memory": _cuda_memory(torch),
+    }
+    checkpoint_bundle = _save_checkpoint_bundle(
+        args=args,
         policy=policy,
         preprocessor=preprocessor,
         postprocessor=postprocessor,
+        optimizer=optimizer,
+        seed=seed,
+        checkpoint_path=checkpoint_path,
+        dataset_root=dataset_root,
+        lora_param_summary=lora_param_summary,
+        loss_curve=loss_curve,
+        grad_curve=grad_curve,
+        train_order=train_order,
+        training_elapsed=training_elapsed,
+        device_audit=checkpoint_device_audit,
+    )
+
+    del policy
+    torch.cuda.empty_cache()
+
+    print(f"[seed-repro] seed {seed}: reloading persisted adapter from {checkpoint_bundle['checkpoint_path']}", flush=True)
+    reload_cfg = PreTrainedConfig.from_pretrained(checkpoint_path, local_files_only=True, cache_dir=hf_home)
+    reload_cfg.device = "cuda"
+    reload_cfg.load_vlm_weights = True
+    reload_cfg.compile_model = False
+    reload_cfg.push_to_hub = False
+    reload_cfg.vlm_model_name = str(vlm_root)
+    if hasattr(reload_cfg, "chunk_size"):
+        reload_cfg.chunk_size = int(args.chunk_size)
+    base_policy = SmolVLAPolicy.from_pretrained(
+        checkpoint_path,
+        config=reload_cfg,
+        local_files_only=True,
+        cache_dir=hf_home,
+        token=False,
+        strict=False,
+    )
+    peft_config = PeftConfig.from_pretrained(checkpoint_bundle["checkpoint_path"])
+    loaded_policy = PeftModel.from_pretrained(
+        base_policy,
+        checkpoint_bundle["checkpoint_path"],
+        config=peft_config,
+        is_trainable=False,
+        local_files_only=True,
+    )
+    loaded_policy.to("cuda")
+    loaded_policy.eval()
+    reload_preprocessor, reload_postprocessor = make_pre_post_processors(
+        reload_cfg,
+        pretrained_path=str(checkpoint_path),
+        preprocessor_overrides={
+            "tokenizer_processor": {"tokenizer_name": str(vlm_root)},
+            "device_processor": {"device": "cuda"},
+        },
+        postprocessor_overrides={"device_processor": {"device": "cuda"}},
+    )
+    reload_probe = _add_training_batch_dims(reload_preprocessor(dataset[int(split_samples["train"][0]["dataset_local_index"])]))
+    reload_devices = _tensor_devices(reload_probe)
+    reload_param_summary = _parameter_summary(loaded_policy)
+    if not str(reload_param_summary["first_parameter_device"]).startswith("cuda") or not all(
+        value.startswith("cuda") for value in reload_devices.values()
+    ):
+        raise SeedReproError(
+            "CPU_FALLBACK_BUG",
+            f"Reloaded adapter path fell back to CPU: params={reload_param_summary}, inputs={reload_devices}",
+        )
+    checkpoint_bundle["status"] = "CHECKPOINT_COMPLETE_VERIFIED"
+    checkpoint_bundle["disk_reload"] = {
+        "loaded_from_disk": True,
+        "peft_config_base_model_name_or_path": getattr(peft_config, "base_model_name_or_path", None),
+        "loaded_policy_type": type(loaded_policy).__name__,
+        "model_parameter_device": reload_param_summary["first_parameter_device"],
+        "model_parameter_dtype": reload_param_summary["first_parameter_dtype"],
+        "input_tensor_devices": reload_devices,
+        "input_tensor_shapes": _tensor_shapes(reload_probe),
+        "custom_action_adapter_involved": False,
+        "custom_normalizer_involved": False,
+    }
+
+    print(f"[seed-repro] seed {seed}: evaluating disk-reloaded rank-4 LoRA on {len(all_samples)} records", flush=True)
+    lora_rows = _evaluate_policy_rows(
+        policy=loaded_policy,
+        preprocessor=reload_preprocessor,
+        postprocessor=reload_postprocessor,
         dataset=dataset,
         samples=all_samples,
         action_min=action_min,
@@ -329,6 +732,9 @@ def _train_one_seed(
         started=started,
         progress_every=int(args.progress_every),
     )
+    bad_schema = [row for row in lora_rows if len(row.get("pred_preview") or []) != 7]
+    if bad_schema:
+        raise SeedReproError("CHECKPOINT_LOAD_FAILED", f"Reloaded adapter produced non-7D action rows for seed {seed}.")
 
     base_records = stable_artifact.get("records") or []
     base_by_key = {_record_key(record): record for record in base_records}
@@ -358,6 +764,7 @@ def _train_one_seed(
         },
         "paths": {
             "checkpoint": str(checkpoint_path),
+            "adapter_checkpoint": checkpoint_bundle["checkpoint_path"],
             "dataset": str(dataset_root),
             "hf_home": str(hf_home),
             "vlm_root": str(vlm_root),
@@ -375,13 +782,14 @@ def _train_one_seed(
         "device_audit": {
             "cuda_available": True,
             "cuda_device_name": torch.cuda.get_device_name(0),
-            "model_parameter_device": param_summary["first_parameter_device"],
-            "model_parameter_dtype": param_summary["first_parameter_dtype"],
-            "input_tensor_devices": input_devices,
-            "input_tensor_shapes": _tensor_shapes(probe),
+            "model_parameter_device": reload_param_summary["first_parameter_device"],
+            "model_parameter_dtype": reload_param_summary["first_parameter_dtype"],
+            "input_tensor_devices": reload_devices,
+            "input_tensor_shapes": _tensor_shapes(reload_probe),
             "autocast_status_initial_final": _safe_autocast_status(torch),
             "cuda_memory": _cuda_memory(torch),
         },
+        "checkpoint_bundle": checkpoint_bundle,
         "rank4_lora_regeneration": {
             "seed": int(seed),
             "steps": int(args.steps),
@@ -428,6 +836,7 @@ def _seed_summary(seed: int, artifact: dict[str, Any], *, seed_offset: int, arti
         "artifact_status": artifact.get("artifact_status"),
         "artifact_size_bytes": artifact_path.stat().st_size if artifact_path.exists() else None,
         "record_count": len(artifact.get("records") or []),
+        "checkpoint_bundle": artifact.get("checkpoint_bundle"),
         "rank4_lora_regeneration": artifact.get("rank4_lora_regeneration"),
         "device_audit": artifact.get("device_audit"),
         "metrics": {name: metrics[name] for name in REPORT_BASELINES},
@@ -518,6 +927,125 @@ def _choose_decision(aggregate: dict[str, Any]) -> str:
     return "METHOD_DESIGN_STILL_BLOCKED"
 
 
+def _prior_seed_summary_by_seed(prior_result: dict[str, Any]) -> dict[int, dict[str, Any]]:
+    return {int(seed["seed"]): seed for seed in prior_result.get("seed_summaries") or []}
+
+
+def _compare_against_prior(
+    *,
+    prior_result: dict[str, Any],
+    seed_summaries: list[dict[str, Any]],
+    tolerance: float,
+) -> dict[str, Any]:
+    prior_by_seed = _prior_seed_summary_by_seed(prior_result)
+    per_seed = []
+    all_pass = True
+    static_conclusion_preserved = True
+    for summary in seed_summaries:
+        seed = int(summary["seed"])
+        prior = prior_by_seed.get(seed)
+        if prior is None:
+            all_pass = False
+            per_seed.append({"seed": seed, "status": "MISSING_PRIOR_SEED"})
+            continue
+        seed_row: dict[str, Any] = {"seed": seed, "metrics": {}}
+        for baseline in ["rank4_lora", "static_mix_val_selected"]:
+            old_value = float(prior["metrics"][baseline]["action_l2_mean"])
+            new_value = float(summary["metrics"][baseline]["action_l2_mean"])
+            abs_diff = abs(new_value - old_value)
+            metric_pass = abs_diff <= float(tolerance)
+            if not metric_pass:
+                all_pass = False
+            seed_row["metrics"][CANONICAL_METRIC_NAMES[baseline]] = {
+                "old_action_l2": _round(old_value),
+                "regenerated_action_l2": _round(new_value),
+                "absolute_difference": _round(abs_diff),
+                "tolerance": float(tolerance),
+                "tolerance_pass": metric_pass,
+            }
+        old_static = float(prior["metrics"]["static_mix_val_selected"]["action_l2_mean"])
+        old_lora = float(prior["metrics"]["rank4_lora"]["action_l2_mean"])
+        new_static = float(summary["metrics"]["static_mix_val_selected"]["action_l2_mean"])
+        new_lora = float(summary["metrics"]["rank4_lora"]["action_l2_mean"])
+        ranking_preserved = old_static < old_lora and new_static < new_lora
+        static_best = bool(summary["analysis"]["static_is_best_realistic"])
+        if not ranking_preserved or not static_best:
+            static_conclusion_preserved = False
+            all_pass = False
+        seed_row["ranking"] = {
+            "old_static_beats_lora": old_static < old_lora,
+            "regenerated_static_beats_lora": new_static < new_lora,
+            "regenerated_static_best_realistic": static_best,
+            "preserved": ranking_preserved and static_best,
+        }
+        per_seed.append(seed_row)
+
+    prior_aggregate = prior_result.get("aggregate", {}).get("baseline_summary", {})
+    regenerated_values = {
+        "rank4_lora": [float(seed["metrics"]["rank4_lora"]["action_l2_mean"]) for seed in seed_summaries],
+        "static_mix_val_selected": [
+            float(seed["metrics"]["static_mix_val_selected"]["action_l2_mean"]) for seed in seed_summaries
+        ],
+        "frame_oracle": [float(seed["metrics"]["frame_oracle"]["action_l2_mean"]) for seed in seed_summaries],
+        "task_oracle": [float(seed["metrics"]["task_oracle"]["action_l2_mean"]) for seed in seed_summaries],
+    }
+    aggregate = {}
+    for baseline, values in regenerated_values.items():
+        old_mean = float(prior_aggregate[baseline]["action_l2"]["mean"])
+        old_std = float(prior_aggregate[baseline]["action_l2"]["std"])
+        new_stat = _stat(values)
+        mean_abs_diff = abs(float(new_stat["mean"]) - old_mean)
+        aggregate[CANONICAL_METRIC_NAMES[baseline]] = {
+            "old_mean": _round(old_mean),
+            "old_std": _round(old_std),
+            "regenerated_mean": new_stat["mean"],
+            "regenerated_std": new_stat["std"],
+            "mean_absolute_difference": _round(mean_abs_diff),
+            "tolerance": float(tolerance),
+            "tolerance_pass": mean_abs_diff <= float(tolerance),
+        }
+        if baseline in {"rank4_lora", "static_mix_val_selected"} and mean_abs_diff > float(tolerance):
+            all_pass = False
+
+    return {
+        "tolerance": float(tolerance),
+        "per_seed": per_seed,
+        "aggregate": aggregate,
+        "tolerance_pass": all_pass,
+        "static_mix_conclusion_preserved": static_conclusion_preserved,
+    }
+
+
+def _choose_checkpoint_regen_decision(report: dict[str, Any]) -> str:
+    if report.get("final_decision") in {"CPU_FALLBACK_BUG", "TRAINING_FAILURE", "TOO_HEAVY_LOCAL"}:
+        return str(report["final_decision"])
+    seed_summaries = report.get("seed_summaries") or []
+    if len(seed_summaries) != 3:
+        return "CHECKPOINT_BUNDLE_INCOMPLETE"
+    statuses = []
+    for summary in seed_summaries:
+        bundle = summary.get("checkpoint_bundle") or {}
+        statuses.append(bundle.get("status"))
+        if bundle.get("status") != "CHECKPOINT_COMPLETE_VERIFIED":
+            if bundle.get("status") == "CHECKPOINT_LOAD_FAILED":
+                return "CHECKPOINT_LOAD_FAILED"
+            return "CHECKPOINT_BUNDLE_INCOMPLETE"
+        for required_file in REQUIRED_BUNDLE_FILES:
+            if required_file == "sha256_manifest.json":
+                if not (Path(bundle.get("checkpoint_path", "")) / required_file).is_file():
+                    return "CHECKPOINT_BUNDLE_INCOMPLETE"
+                continue
+            if required_file not in (bundle.get("file_hashes") or {}):
+                return "CHECKPOINT_BUNDLE_INCOMPLETE"
+        disk_reload = bundle.get("disk_reload") or {}
+        if not disk_reload.get("loaded_from_disk"):
+            return "CHECKPOINT_LOAD_FAILED"
+    comparison = report.get("reproduction_comparison") or {}
+    if not comparison.get("tolerance_pass") or not comparison.get("static_mix_conclusion_preserved"):
+        return "LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT"
+    return "LORA_CHECKPOINTS_REGENERATED_AND_VERIFIED"
+
+
 def _decision_reason(decision: str) -> str:
     return {
         "STANDARD_LORA_ROBUST_BASELINE_READY": "Rank-4 LoRA consistently beats frozen/base and static merge across reproduced seeds.",
@@ -529,6 +1057,12 @@ def _decision_reason(decision: str) -> str:
         "TOO_HEAVY_LOCAL": "The bounded local RTX/RAM/runtime budget could not support seed reproduction.",
         "TRAINING_FAILURE": "Rank-4 LoRA training failed, OOMed, produced NaNs, or could not produce fair artifacts.",
         "CPU_FALLBACK_BUG": "CUDA was available but the intended CUDA training path fell back to CPU.",
+        "LORA_CHECKPOINTS_REGENERATED_AND_VERIFIED": "All required seed LoRA adapter checkpoint bundles were saved, reloaded from disk, verified, and reproduced prior metrics within the frozen tolerance.",
+        "LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT": "Checkpoint bundles load, but regenerated metrics drifted outside the predeclared tolerance or failed to preserve the static-mix conclusion.",
+        "CHECKPOINT_BUNDLE_INCOMPLETE": "One or more seed checkpoint bundles lacked required files, metadata, or checksums.",
+        "CHECKPOINT_LOAD_FAILED": "One or more persisted adapters could not be reloaded into the locked official base policy.",
+        "CHECKPOINT_IDENTITY_UNPROVEN": "One or more checkpoint bundles could not be tied to the required seed, config, revisions, and split.",
+        "REVISION_LOCK_MISMATCH": "A local model, dataset, split, or metric identity differed from the reproducibility lock.",
     }[decision]
 
 
@@ -543,6 +1077,12 @@ def _next_step(decision: str) -> str:
         "TOO_HEAVY_LOCAL": "Reduce seed count through a predeclared smaller audit or move the same command to a larger GPU host.",
         "TRAINING_FAILURE": "Fix the exact training blocker and rerun the same fixed seed audit.",
         "CPU_FALLBACK_BUG": "Fix CUDA device placement before rerunning seed reproduction.",
+        "LORA_CHECKPOINTS_REGENERATED_AND_VERIFIED": "Proceed only to the separately approved official LIBERO closed-loop rollout readiness gate; do not run rollout in this regeneration pass.",
+        "LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT": "Do not proceed toward rollout; diagnose configuration drift against the frozen regeneration plan.",
+        "CHECKPOINT_BUNDLE_INCOMPLETE": "Fix checkpoint persistence and rerun the same fixed regeneration command.",
+        "CHECKPOINT_LOAD_FAILED": "Fix adapter disk reload against the locked official base policy before any rollout planning.",
+        "CHECKPOINT_IDENTITY_UNPROVEN": "Fix checkpoint identity metadata and checksum linkage before accepting the bundle.",
+        "REVISION_LOCK_MISMATCH": "Restore locked source identities before rerunning regeneration.",
     }[decision]
 
 
@@ -556,7 +1096,12 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     seeds = _parse_seeds(args.seeds)
     stable_artifact = _read_json(Path(args.stable_artifact))
     manifest = _read_json(Path(args.split_manifest))
+    prior_result = _read_json(Path(args.prior_result_json))
     preflight = _preflight(args, seeds, stable_artifact)
+    preflight["locked_revision_check"] = None
+    preflight["frozen_hashes"] = _hash_paths(
+        [args.source_repro_lock, args.split_manifest, args.metric_protocol, args.prior_result_json]
+    )
     report: dict[str, Any] = {
         "date": DATE,
         "status": "started",
@@ -583,10 +1128,14 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "split_manifest": str(Path(args.split_manifest)),
             "metric_protocol": str(Path(args.metric_protocol)),
             "stable_artifact": str(Path(args.stable_artifact)),
+            "prior_result_json": str(Path(args.prior_result_json)),
+            "checkpoint_output_root": str(Path(args.checkpoint_output_root)),
         },
+        "reproduction_tolerance": float(args.reproduction_tolerance),
         "errors": [],
     }
     try:
+        preflight["locked_revision_check"] = _assert_locked_revisions(args)
         forbidden = [name for name in FORBIDDEN_GATES if _env_flag(name)]
         if forbidden:
             raise SeedReproError("TRAINING_FAILURE", "Forbidden gate(s) set: " + ", ".join(forbidden))
@@ -613,17 +1162,27 @@ def build_report(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
                 )
             )
         aggregate = _aggregate_seed_summaries(seed_summaries)
-        final_decision = _choose_decision(aggregate)
+        reproduction_comparison = _compare_against_prior(
+            prior_result=prior_result,
+            seed_summaries=seed_summaries,
+            tolerance=float(args.reproduction_tolerance),
+        )
+        report.update(
+            {
+                "seeds": seeds,
+                "seed_count": len(seeds),
+                "seed_summaries": seed_summaries,
+                "aggregate": aggregate,
+                "reproduction_comparison": reproduction_comparison,
+            }
+        )
+        final_decision = _choose_checkpoint_regen_decision(report)
         report.update(
             {
                 "status": "completed",
                 "final_decision": final_decision,
                 "decision_reason": _decision_reason(final_decision),
                 "exact_next_step": _next_step(final_decision),
-                "seeds": seeds,
-                "seed_count": len(seeds),
-                "seed_summaries": seed_summaries,
-                "aggregate": aggregate,
                 "manifest_summary": (manifest.get("summary") or {}),
                 "runtime": {
                     "total_elapsed_sec": _round(time.monotonic() - started, 3),
@@ -717,7 +1276,7 @@ def _write_result(report: dict[str, Any], path: Path) -> None:
     for baseline in REPORT_BASELINES:
         item = summary.get(baseline) or {}
         lines.append(
-            f"| {baseline} | {(item.get('action_l2') or {}).get('mean')} | {(item.get('action_l2') or {}).get('std')} | "
+            f"| {CANONICAL_METRIC_NAMES.get(baseline, baseline)} | {(item.get('action_l2') or {}).get('mean')} | {(item.get('action_l2') or {}).get('std')} | "
             f"{(item.get('task_balanced_action_l2') or {}).get('mean')} | {(item.get('translation_l2') or {}).get('mean')} | "
             f"{(item.get('rotation_l2') or {}).get('mean')} | {(item.get('gripper_abs') or {}).get('mean')} |"
         )
@@ -750,7 +1309,7 @@ def _write_table(report: dict[str, Any], path: Path) -> None:
         "",
         f"Final decision: `{report.get('final_decision')}`",
         "",
-        "| seed | frozen/base | rank-4 LoRA | static mix | frame oracle | task oracle | MoIRA router | realistic winner | LoRA-base | frame-static |",
+        "| seed | frozen_base | rank4_lora | validation_selected_action_space_static_mix | frame_oracle_upper_bound | task_oracle_upper_bound | task_or_instruction_router_proxy | realistic winner | LoRA-base | frame-static |",
         "| ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: |",
     ]
     for seed in report.get("seed_summaries") or []:
@@ -759,7 +1318,7 @@ def _write_table(report: dict[str, Any], path: Path) -> None:
             f"| {seed['seed']} | {metrics['frozen_base']['action_l2_mean']} | {metrics['rank4_lora']['action_l2_mean']} | "
             f"{metrics['static_mix_val_selected']['action_l2_mean']} | {metrics['frame_oracle']['action_l2_mean']} | "
             f"{metrics['task_oracle']['action_l2_mean']} | {metrics['moira_style_instruction_task_router']['action_l2_mean']} | "
-            f"{seed['rank_order_realistic'][0]['baseline']} | {seed['analysis']['lora_minus_frozen_base']} | "
+            f"{CANONICAL_METRIC_NAMES.get(seed['rank_order_realistic'][0]['baseline'], seed['rank_order_realistic'][0]['baseline'])} | {seed['analysis']['lora_minus_frozen_base']} | "
             f"{seed['analysis']['frame_oracle_headroom_after_static']} |"
         )
     _write_lines(path, lines)
@@ -780,6 +1339,111 @@ def _write_decision(report: dict[str, Any], path: Path) -> None:
     _write_lines(path, lines)
 
 
+def _checkpoint_manifest(report: dict[str, Any]) -> dict[str, Any]:
+    seeds = []
+    for summary in report.get("seed_summaries") or []:
+        bundle = summary.get("checkpoint_bundle") or {}
+        seeds.append(
+            {
+                "seed": int(summary["seed"]),
+                "status": bundle.get("status"),
+                "checkpoint_path": bundle.get("checkpoint_path"),
+                "adapter_model_sha256": bundle.get("adapter_model_sha256"),
+                "adapter_config_sha256": bundle.get("adapter_config_sha256"),
+                "disk_reload": bundle.get("disk_reload"),
+                "file_hashes": bundle.get("file_hashes"),
+            }
+        )
+    return {
+        "schema_version": 1,
+        "date": report.get("date"),
+        "final_decision": report.get("final_decision"),
+        "checkpoint_output_root": (report.get("paths") or {}).get("checkpoint_output_root"),
+        "required_bundle_files": REQUIRED_BUNDLE_FILES,
+        "seeds": seeds,
+        "checksum_status": "RECORDED" if all(seed.get("file_hashes") for seed in seeds) else "INCOMPLETE",
+        "locked_revision_check": (report.get("preflight") or {}).get("locked_revision_check"),
+        "frozen_hashes": (report.get("preflight") or {}).get("frozen_hashes"),
+    }
+
+
+def _write_checkpoint_manifest(report: dict[str, Any], path: Path) -> None:
+    _write_json(path, _checkpoint_manifest(report))
+
+
+def _write_verification(report: dict[str, Any], path: Path) -> None:
+    lines = [
+        "# Official SmolVLA LoRA Checkpoint Verification",
+        "",
+        f"Date: {report.get('date')}",
+        "",
+        f"Final decision: `{report.get('final_decision')}`",
+        "",
+        "## Seed Verification",
+        "",
+        "| seed | status | path | adapter checksum recorded | disk reload | action schema | CPU fallback |",
+        "| ---: | --- | --- | --- | --- | --- | --- |",
+    ]
+    for summary in report.get("seed_summaries") or []:
+        bundle = summary.get("checkpoint_bundle") or {}
+        disk_reload = bundle.get("disk_reload") or {}
+        adapter_checksum = bool(bundle.get("adapter_model_sha256"))
+        action_schema = "7D" if summary.get("record_count") else "UNKNOWN"
+        cpu_fallback = not str(disk_reload.get("model_parameter_device", "")).startswith("cuda")
+        lines.append(
+            f"| {summary['seed']} | `{bundle.get('status')}` | `{bundle.get('checkpoint_path')}` | "
+            f"`{adapter_checksum}` | `{disk_reload.get('loaded_from_disk')}` | `{action_schema}` | `{cpu_fallback}` |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Locked Revision Check",
+            "",
+            f"`{(report.get('preflight') or {}).get('locked_revision_check')}`",
+            "",
+            "## Required Files",
+            "",
+            f"`{REQUIRED_BUNDLE_FILES}`",
+        ]
+    )
+    _write_lines(path, lines)
+
+
+def _write_comparison(report: dict[str, Any], path: Path) -> None:
+    comparison = report.get("reproduction_comparison") or {}
+    lines = [
+        "# Official SmolVLA LoRA Reproduction Comparison",
+        "",
+        f"Date: {report.get('date')}",
+        "",
+        f"Final decision: `{report.get('final_decision')}`",
+        f"Tolerance: `{comparison.get('tolerance')}`",
+        f"Tolerance pass: `{comparison.get('tolerance_pass')}`",
+        f"Static-mix conclusion preserved: `{comparison.get('static_mix_conclusion_preserved')}`",
+        "",
+        "## Per-Seed Comparison",
+        "",
+        "| seed | metric | old action L2 | regenerated action L2 | abs diff | pass | static ranking preserved |",
+        "| ---: | --- | ---: | ---: | ---: | --- | --- |",
+    ]
+    for row in comparison.get("per_seed") or []:
+        ranking = (row.get("ranking") or {}).get("preserved")
+        for metric_name, metric in (row.get("metrics") or {}).items():
+            lines.append(
+                f"| {row.get('seed')} | `{metric_name}` | {metric.get('old_action_l2')} | "
+                f"{metric.get('regenerated_action_l2')} | {metric.get('absolute_difference')} | "
+                f"`{metric.get('tolerance_pass')}` | `{ranking}` |"
+            )
+    lines.extend(["", "## Aggregate Comparison", "", "| metric | old mean | old std | regenerated mean | regenerated std | mean abs diff | pass |", "| --- | ---: | ---: | ---: | ---: | ---: | --- |"])
+    for metric_name, metric in (comparison.get("aggregate") or {}).items():
+        lines.append(
+            f"| `{metric_name}` | {metric.get('old_mean')} | {metric.get('old_std')} | "
+            f"{metric.get('regenerated_mean')} | {metric.get('regenerated_std')} | "
+            f"{metric.get('mean_absolute_difference')} | `{metric.get('tolerance_pass')}` |"
+        )
+    _write_lines(path, lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint-path", default="C:/assets/checkpoints/smolvla_libero")
@@ -790,6 +1454,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--metric-protocol", default="reports/official_smolvla_metric_protocol.md")
     parser.add_argument("--stable-artifact", default="reports/official_smolvla_stable_prediction_artifact.json")
     parser.add_argument("--seed-artifact-pattern", default="reports/official_smolvla_lora_seed_{seed}_prediction_artifact.json")
+    parser.add_argument("--prior-result-json", default="reports/official_smolvla_lora_seed_repro_result.json")
+    parser.add_argument("--source-repro-lock", default="configs/official_smolvla_repro_lock.yaml")
+    parser.add_argument("--checkpoint-output-root", default="C:/assets/checkpoints/smolvla_libero_lora/rank4")
+    parser.add_argument("--checkpoint-manifest", default="reports/official_smolvla_lora_checkpoint_manifest.json")
+    parser.add_argument("--verification-md", default="reports/official_smolvla_lora_checkpoint_verification.md")
+    parser.add_argument("--comparison-md", default="reports/official_smolvla_lora_reproduction_comparison.md")
     parser.add_argument("--report-json", default="reports/official_smolvla_lora_seed_repro_result.json")
     parser.add_argument("--result-md", default="reports/official_smolvla_lora_seed_repro_result.md")
     parser.add_argument("--plan-md", default="reports/official_smolvla_lora_seed_repro_plan.md")
@@ -798,6 +1468,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--seeds", default=",".join(str(seed) for seed in DEFAULT_SEEDS))
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--lr", type=float, default=2e-4)
+    parser.add_argument("--reproduction-tolerance", type=float, default=REGEN_TOLERANCE)
+    parser.add_argument("--expected-model-revision", default="31d453f7edd78c839a8bbc39744a292686daf0de")
+    parser.add_argument("--expected-dataset-revision", default="a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--chunk-size", type=int, default=50)
     parser.add_argument("--video-backend", default="pyav")
@@ -814,6 +1487,9 @@ def main(argv: list[str] | None = None) -> int:
     _write_result(report, Path(args.result_md))
     _write_table(report, Path(args.table_md))
     _write_decision(report, Path(args.decision_md))
+    _write_checkpoint_manifest(report, Path(args.checkpoint_manifest))
+    _write_verification(report, Path(args.verification_md))
+    _write_comparison(report, Path(args.comparison_md))
     summary = {
         "status": report.get("status"),
         "final_decision": report.get("final_decision"),

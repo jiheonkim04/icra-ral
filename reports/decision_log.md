@@ -1105,3 +1105,61 @@ Reports:
 Consequence: model/dataset revision gaps and protocol ambiguity are closed, but official rollout remains blocked. Prediction JSON artifacts cannot replace persisted adapter checkpoints, so any official LoRA rollout or final LoRA result requires a future explicit training/regeneration pass.
 
 Exact next step: no training, regeneration, GPU, download, or rollout command is safe under the current no-experiment boundary. Future adapter regeneration must be separately approved.
+
+## 2026-07-10: Official SmolVLA LoRA Checkpoint Regeneration
+
+Decision: `LORA_REGEN_METRIC_DRIFT_BLOCKS_ROLLOUT`
+
+- objective: regenerate immutable official SmolVLA-LIBERO rank-4 LoRA adapter checkpoints for seeds `11`, `22`, and `33`
+- experiments/training/GPU happened: `True` / `True` / `True`
+- downloads/OpenVLA-OFT/FCAR/rollout happened: `False` / `False` / `False` / `False`
+- simulator dependency installation happened: `False`
+- model revision changed: `False`
+- dataset revision changed: `False`
+- split manifest changed: `False`
+- metric protocol changed: `False`
+- historical metrics rewritten: `False`
+
+Locked inputs:
+
+- model: `lerobot/smolvla_libero` at `31d453f7edd78c839a8bbc39744a292686daf0de`
+- dataset: `lerobot/libero` at `a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4`
+- split manifest SHA256: `1279F939648CF13E2F599084E42631681E1DFA5606B5D9B0851FFEB32710934B`
+- metric protocol SHA256: `64430225940C5168B3734BB40F9F48AD02877E0BA04DC804367AFBB214AE486E`
+
+Checkpoint results:
+
+- seed `11`: `CHECKPOINT_COMPLETE_VERIFIED`, `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_11`
+- seed `22`: `CHECKPOINT_COMPLETE_VERIFIED`, `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_22`
+- seed `33`: `CHECKPOINT_COMPLETE_VERIFIED`, `C:\assets\checkpoints\smolvla_libero_lora\rank4\seed_33`
+- disk reload verification: passed for all three seeds
+- checksum manifest: recorded for all three seeds
+- CPU fallback: no
+
+Reproduction comparison:
+
+- frozen tolerance: per-seed action L2 absolute difference `<= 0.002`
+- static-mix qualitative conclusion preserved: `True`
+- tolerance pass: `False`
+- seed `11` rank-4 LoRA diff: `0.003085157`
+- seed `22` rank-4 LoRA diff: `0.001449016`
+- seed `33` rank-4 LoRA diff: `0.004492506`
+- seed `11` static-mix diff: `0.001556788`
+- seed `22` static-mix diff: `0.000192324`
+- seed `33` static-mix diff: `0.004988174`
+
+Generated artifacts:
+
+- `reports/official_smolvla_lora_checkpoint_regen_result.json`
+- `reports/official_smolvla_lora_checkpoint_regen_result.md`
+- `reports/official_smolvla_lora_checkpoint_manifest.json`
+- `reports/official_smolvla_lora_checkpoint_verification.md`
+- `reports/official_smolvla_lora_reproduction_comparison.md`
+- `reports/official_smolvla_lora_checkpoint_regen_decision.md`
+- `reports/official_smolvla_seed_11_prediction_artifact.json`
+- `reports/official_smolvla_seed_22_prediction_artifact.json`
+- `reports/official_smolvla_seed_33_prediction_artifact.json`
+
+Consequence: the checkpoint persistence blocker is fixed, but official rollout remains blocked by metric drift. Do not proceed to rollout until configuration drift is diagnosed under a new explicit objective.
+
+Exact next step: bounded configuration-drift diagnosis only; no rollout.

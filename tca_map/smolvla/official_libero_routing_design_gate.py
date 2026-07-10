@@ -157,7 +157,8 @@ def action_dim_oracle_rows(base_rows: list[dict[str, Any]], lora_rows: list[dict
         row["rotation_l2"] = round(float(np.linalg.norm(per_dim[3:6])), 9)
         row["gripper_abs"] = round(float(per_dim[6]), 9)
         row["gripper_sign_match"] = bool(base["gripper_sign_match"] or lora["gripper_sign_match"])
-        row["eval_loss"] = round(float(min(base["eval_loss"], lora["eval_loss"])), 9)
+        eval_losses = [value for value in (base.get("eval_loss"), lora.get("eval_loss")) if value is not None]
+        row["eval_loss"] = round(float(min(eval_losses)), 9) if eval_losses else None
         row["range_violation_count"] = min(int(base["range_violation_count"]), int(lora["range_violation_count"]))
         rows.append(row)
     return rows
