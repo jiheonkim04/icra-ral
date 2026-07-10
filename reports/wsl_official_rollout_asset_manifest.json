@@ -1,0 +1,83 @@
+{
+  "date": "2026-07-10",
+  "locked_revisions": {
+    "model": {
+      "repo": "lerobot/smolvla_libero",
+      "revision": "31d453f7edd78c839a8bbc39744a292686daf0de"
+    },
+    "dataset": {
+      "repo": "lerobot/libero",
+      "revision": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4"
+    },
+    "libero_source_copy": {
+      "path": "/home/jiheon/assets/repos/LIBERO",
+      "revision": "8f1084e"
+    }
+  },
+  "assets": [
+    {
+      "name": "frozen_base",
+      "source_path": "C:\\assets\\checkpoints\\smolvla_libero",
+      "wsl_path": "/home/jiheon/assets/checkpoints/smolvla_libero",
+      "file_count": 19,
+      "size": "865M",
+      "checksums": {
+        "model.safetensors": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+        "config.json": "5c9f3ba9f5f37ea7024c9501b0b20b1941f232989c2167853cb46d9071a70dd7"
+      }
+    },
+    {
+      "name": "rank4_lora_seed_11",
+      "source_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_11",
+      "wsl_path": "/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4/seed_11",
+      "file_count": 14,
+      "size": "2.4M",
+      "checksums": {
+        "adapter_model.safetensors": "af73fa2be701aa3681e76a2520fe1acc367a44dc5168947571fc5d48cb88db89",
+        "adapter_config.json": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e"
+      }
+    },
+    {
+      "name": "rank4_lora_seed_22",
+      "source_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_22",
+      "wsl_path": "/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4/seed_22",
+      "file_count": 14,
+      "size": "2.4M",
+      "checksums": {
+        "adapter_model.safetensors": "4cd5432572c38191944f17d270183ab8dba72201f60dc5cdf3c9528f9461c0e9",
+        "adapter_config.json": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e"
+      }
+    },
+    {
+      "name": "rank4_lora_seed_33",
+      "source_path": "C:\\assets\\checkpoints\\smolvla_libero_lora\\rank4\\seed_33",
+      "wsl_path": "/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4/seed_33",
+      "file_count": 14,
+      "size": "2.4M",
+      "checksums": {
+        "adapter_model.safetensors": "5d46eb6a78df0be8bf02a260711aec006ad1b8756ff138abd490f905712f2d6b",
+        "adapter_config.json": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e"
+      }
+    },
+    {
+      "name": "LIBERO source and assets",
+      "wsl_path": "/home/jiheon/assets/repos/LIBERO",
+      "file_count": 1186,
+      "size": "643M"
+    }
+  ],
+  "download_policy": {
+    "model_redownloaded": false,
+    "dataset_redownloaded": false,
+    "checkpoint_redownloaded": false,
+    "deviation": "During an early official environment one-step smoke, hf-libero auto-downloaded missing package-local LIBERO assets before the package-local asset path was symlinked. This did not redownload the model, dataset demos, or checkpoint artifacts. The mitigation was to symlink the package-local LIBERO assets path to /home/jiheon/assets/repos/LIBERO/libero/libero/assets before the bounded pilot."
+  },
+  "libero_config": {
+    "LIBERO_CONFIG_PATH": "/home/jiheon/.libero",
+    "benchmark_root": "/home/jiheon/assets/repos/LIBERO/libero/libero",
+    "bddl_files": "/home/jiheon/assets/repos/LIBERO/libero/libero/bddl_files",
+    "init_states": "/home/jiheon/assets/repos/LIBERO/libero/libero/init_files",
+    "datasets": "/mnt/c/assets/data/libero",
+    "assets": "/home/jiheon/assets/repos/LIBERO/libero/libero/assets"
+  }
+}

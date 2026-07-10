@@ -90,3 +90,18 @@ Current decision: `NEEDS_WSL_OR_LINUX_OFFICIAL_ROLLOUT`
 Canonical persisted-checkpoint offline evaluation passed with intermediate decision `CANONICAL_BASELINES_READY_FOR_ROLLOUT`. The run evaluated frozen base plus rank-4 LoRA seeds 11/22/33 on the fixed val/test manifest under action-generation eval seeds `[101, 202, 303, 404, 505]`; it did not train, regenerate checkpoints, download dependencies, run rollout, revive FCAR, or use the old custom LIBERO_7D route.
 
 Native Windows rollout remains blocked because `hf-libero`, `libero`, and `robosuite` are not installed in the active env. The next step is WSL/Linux official LeRobot LIBERO smoke using the canonical artifacts.
+
+## 2026-07-10 WSL Official Rollout Pilot
+
+Current decision: `OFFICIAL_ROLLOUT_BASELINE_READY`
+
+The official WSL/LeRobot/LIBERO path is now working. Smoke completed `4/4` episodes and the bounded pilot completed `48/48` episodes across frozen base plus rank-4 LoRA seeds 11/22/33. All policy audits showed parameters and inputs on `cuda:0`; no CPU fallback, schema/action mismatch, or old custom `LIBERO_7D` route was used.
+
+Pilot overall success:
+
+- `frozen_base`: `75.0%`
+- `rank4_lora_seed_11`: `83.3%`
+- `rank4_lora_seed_22`: `66.7%`
+- `rank4_lora_seed_33`: `75.0%`
+
+Lower offline action L2 did not predict higher closed-loop success in the pilot. This result is enough to unlock larger official baseline rollout/failure mining, but not enough for method selection or best-seed selection.

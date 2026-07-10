@@ -56,3 +56,9 @@ Create a no-rollout protocol-adjudication branch that either fixes the PEFT in-m
 Current decision: `NEEDS_WSL_OR_LINUX_OFFICIAL_ROLLOUT`
 
 Move the same canonical artifacts/checkpoints into the verified WSL/Linux LeRobot LIBERO environment, install only official `lerobot[libero]` dependencies, then run the official smoke before any bounded pilot. Do not retrain, select a LoRA seed from rollout outcomes, revive FCAR, or use the old custom LIBERO_7D route.
+
+## 2026-07-10 WSL Official Rollout Next Action
+
+Current decision: `OFFICIAL_ROLLOUT_BASELINE_READY`
+
+Exact next step: run a larger predeclared official baseline rollout/failure-mining pass with frozen base and all three LoRA seeds, using official videos for failed episodes. Keep static mixes skipped at alpha `0.0`, keep all seeds reported, and do not select a winning LoRA seed or design a new method from the 48-episode pilot alone.

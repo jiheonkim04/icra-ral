@@ -1,0 +1,556 @@
+# Official LIBERO Rollout Smoke Result
+
+- final decision: `CANONICAL_BASELINES_READY_NEEDS_MORE_ROLLOUT`
+- mode: `smoke`
+- static mix duplicate runs skipped: `True`
+- old custom LIBERO_7D route used: `False`
+
+```json
+{
+  "all_policies_executed": true,
+  "completed_episodes": 4,
+  "elapsed_seconds": 303.923,
+  "episodes_per_policy": 1,
+  "errors": [],
+  "executed": true,
+  "planned_episodes": 4,
+  "results": [
+    {
+      "completed_episodes": 1,
+      "cuda_memory_after_rollout": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "env_creation_seconds": 12.366,
+      "episodes_per_task": 1,
+      "metrics": {
+        "overall": {
+          "avg_max_reward": 1.0,
+          "avg_sum_reward": 1.0,
+          "eval_ep_s": 18.720130920410156,
+          "eval_s": 18.720130681991577,
+          "n_episodes": 1,
+          "pc_success": 100.0,
+          "video_paths": []
+        },
+        "per_group": {
+          "libero_spatial": {
+            "avg_max_reward": 1.0,
+            "avg_sum_reward": 1.0,
+            "n_episodes": 1,
+            "pc_success": 100.0,
+            "video_paths": []
+          }
+        },
+        "per_task": [
+          {
+            "metrics": {
+              "max_rewards": [
+                1.0
+              ],
+              "successes": [
+                true
+              ],
+              "sum_rewards": [
+                1.0
+              ],
+              "video_paths": []
+            },
+            "task_group": "libero_spatial",
+            "task_id": 0
+          }
+        ]
+      },
+      "policy": "frozen_base",
+      "policy_load_audit": {
+        "action_chunk_device": "cuda:0",
+        "action_chunk_dtype": "torch.float32",
+        "action_chunk_finite": true,
+        "action_chunk_shape": [
+          1,
+          50,
+          7
+        ],
+        "amp_fp16_or_bf16_active": false,
+        "autocast": {
+          "cpu": false,
+          "cuda": false
+        },
+        "control_mode": "relative",
+        "cuda_memory": {
+          "allocated_bytes": 937419264,
+          "allocated_mb": 893.993,
+          "max_allocated_bytes": 970964480,
+          "max_allocated_mb": 925.984
+        },
+        "empty_cameras": 1,
+        "input_tensor_devices": {
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ]
+        },
+        "load_seconds": 33.588,
+        "old_custom_libero_7d_route_used": false,
+        "parameter": {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "numel": 589824
+        },
+        "peft": {
+          "used": false
+        },
+        "policy_class": "SmolVLAPolicy",
+        "policy_name": "frozen_base",
+        "rename_map": {
+          "observation.images.image": "observation.images.camera1",
+          "observation.images.image2": "observation.images.camera2"
+        }
+      },
+      "rollout_seconds": 21.676,
+      "start_seed": 20260710,
+      "suites": [
+        "libero_spatial"
+      ],
+      "task_ids": [
+        0
+      ]
+    },
+    {
+      "completed_episodes": 1,
+      "cuda_memory_after_rollout": {
+        "allocated_bytes": 938084864,
+        "allocated_mb": 894.627,
+        "max_allocated_bytes": 973461504,
+        "max_allocated_mb": 928.365
+      },
+      "env_creation_seconds": 16.607,
+      "episodes_per_task": 1,
+      "metrics": {
+        "overall": {
+          "avg_max_reward": 1.0,
+          "avg_sum_reward": 1.0,
+          "eval_ep_s": 15.233064413070679,
+          "eval_s": 15.23306393623352,
+          "n_episodes": 1,
+          "pc_success": 100.0,
+          "video_paths": []
+        },
+        "per_group": {
+          "libero_spatial": {
+            "avg_max_reward": 1.0,
+            "avg_sum_reward": 1.0,
+            "n_episodes": 1,
+            "pc_success": 100.0,
+            "video_paths": []
+          }
+        },
+        "per_task": [
+          {
+            "metrics": {
+              "max_rewards": [
+                1.0
+              ],
+              "successes": [
+                true
+              ],
+              "sum_rewards": [
+                1.0
+              ],
+              "video_paths": []
+            },
+            "task_group": "libero_spatial",
+            "task_id": 0
+          }
+        ]
+      },
+      "policy": "rank4_lora_seed_11",
+      "policy_load_audit": {
+        "action_chunk_device": "cuda:0",
+        "action_chunk_dtype": "torch.float32",
+        "action_chunk_finite": true,
+        "action_chunk_shape": [
+          1,
+          50,
+          7
+        ],
+        "amp_fp16_or_bf16_active": false,
+        "autocast": {
+          "cpu": false,
+          "cuda": false
+        },
+        "control_mode": "relative",
+        "cuda_memory": {
+          "allocated_bytes": 939623424,
+          "allocated_mb": 896.095,
+          "max_allocated_bytes": 973425664,
+          "max_allocated_mb": 928.331
+        },
+        "empty_cameras": 1,
+        "input_tensor_devices": {
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ]
+        },
+        "load_seconds": 31.207,
+        "old_custom_libero_7d_route_used": false,
+        "parameter": {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "numel": 589824
+        },
+        "peft": {
+          "adapter_path": "/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4/seed_11",
+          "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+          "resolved_base_model_name_or_path": "/home/jiheon/assets/checkpoints/smolvla_libero",
+          "used": true
+        },
+        "policy_class": "PeftModel",
+        "policy_name": "rank4_lora_seed_11",
+        "rename_map": {
+          "observation.images.image": "observation.images.camera1",
+          "observation.images.image2": "observation.images.camera2"
+        }
+      },
+      "rollout_seconds": 15.233,
+      "start_seed": 20260710,
+      "suites": [
+        "libero_spatial"
+      ],
+      "task_ids": [
+        0
+      ]
+    },
+    {
+      "completed_episodes": 1,
+      "cuda_memory_after_rollout": {
+        "allocated_bytes": 938084864,
+        "allocated_mb": 894.627,
+        "max_allocated_bytes": 973461504,
+        "max_allocated_mb": 928.365
+      },
+      "env_creation_seconds": 17.169,
+      "episodes_per_task": 1,
+      "metrics": {
+        "overall": {
+          "avg_max_reward": 1.0,
+          "avg_sum_reward": 1.0,
+          "eval_ep_s": 16.009533643722534,
+          "eval_s": 16.009533405303955,
+          "n_episodes": 1,
+          "pc_success": 100.0,
+          "video_paths": []
+        },
+        "per_group": {
+          "libero_spatial": {
+            "avg_max_reward": 1.0,
+            "avg_sum_reward": 1.0,
+            "n_episodes": 1,
+            "pc_success": 100.0,
+            "video_paths": []
+          }
+        },
+        "per_task": [
+          {
+            "metrics": {
+              "max_rewards": [
+                1.0
+              ],
+              "successes": [
+                true
+              ],
+              "sum_rewards": [
+                1.0
+              ],
+              "video_paths": []
+            },
+            "task_group": "libero_spatial",
+            "task_id": 0
+          }
+        ]
+      },
+      "policy": "rank4_lora_seed_22",
+      "policy_load_audit": {
+        "action_chunk_device": "cuda:0",
+        "action_chunk_dtype": "torch.float32",
+        "action_chunk_finite": true,
+        "action_chunk_shape": [
+          1,
+          50,
+          7
+        ],
+        "amp_fp16_or_bf16_active": false,
+        "autocast": {
+          "cpu": false,
+          "cuda": false
+        },
+        "control_mode": "relative",
+        "cuda_memory": {
+          "allocated_bytes": 939623424,
+          "allocated_mb": 896.095,
+          "max_allocated_bytes": 973425664,
+          "max_allocated_mb": 928.331
+        },
+        "empty_cameras": 1,
+        "input_tensor_devices": {
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ]
+        },
+        "load_seconds": 29.151,
+        "old_custom_libero_7d_route_used": false,
+        "parameter": {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "numel": 589824
+        },
+        "peft": {
+          "adapter_path": "/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4/seed_22",
+          "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+          "resolved_base_model_name_or_path": "/home/jiheon/assets/checkpoints/smolvla_libero",
+          "used": true
+        },
+        "policy_class": "PeftModel",
+        "policy_name": "rank4_lora_seed_22",
+        "rename_map": {
+          "observation.images.image": "observation.images.camera1",
+          "observation.images.image2": "observation.images.camera2"
+        }
+      },
+      "rollout_seconds": 16.01,
+      "start_seed": 20260710,
+      "suites": [
+        "libero_spatial"
+      ],
+      "task_ids": [
+        0
+      ]
+    },
+    {
+      "completed_episodes": 1,
+      "cuda_memory_after_rollout": {
+        "allocated_bytes": 938084864,
+        "allocated_mb": 894.627,
+        "max_allocated_bytes": 973461504,
+        "max_allocated_mb": 928.365
+      },
+      "env_creation_seconds": 17.09,
+      "episodes_per_task": 1,
+      "metrics": {
+        "overall": {
+          "avg_max_reward": 1.0,
+          "avg_sum_reward": 1.0,
+          "eval_ep_s": 15.844512462615967,
+          "eval_s": 15.844512224197388,
+          "n_episodes": 1,
+          "pc_success": 100.0,
+          "video_paths": []
+        },
+        "per_group": {
+          "libero_spatial": {
+            "avg_max_reward": 1.0,
+            "avg_sum_reward": 1.0,
+            "n_episodes": 1,
+            "pc_success": 100.0,
+            "video_paths": []
+          }
+        },
+        "per_task": [
+          {
+            "metrics": {
+              "max_rewards": [
+                1.0
+              ],
+              "successes": [
+                true
+              ],
+              "sum_rewards": [
+                1.0
+              ],
+              "video_paths": []
+            },
+            "task_group": "libero_spatial",
+            "task_id": 0
+          }
+        ]
+      },
+      "policy": "rank4_lora_seed_33",
+      "policy_load_audit": {
+        "action_chunk_device": "cuda:0",
+        "action_chunk_dtype": "torch.float32",
+        "action_chunk_finite": true,
+        "action_chunk_shape": [
+          1,
+          50,
+          7
+        ],
+        "amp_fp16_or_bf16_active": false,
+        "autocast": {
+          "cpu": false,
+          "cuda": false
+        },
+        "control_mode": "relative",
+        "cuda_memory": {
+          "allocated_bytes": 939623424,
+          "allocated_mb": 896.095,
+          "max_allocated_bytes": 973425664,
+          "max_allocated_mb": 928.331
+        },
+        "empty_cameras": 1,
+        "input_tensor_devices": {
+          "observation.images.camera1": "cuda:0",
+          "observation.images.camera2": "cuda:0",
+          "observation.language.attention_mask": "cuda:0",
+          "observation.language.tokens": "cuda:0",
+          "observation.state": "cuda:0"
+        },
+        "input_tensor_shapes": {
+          "observation.images.camera1": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.images.camera2": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "observation.language.attention_mask": [
+            1,
+            48
+          ],
+          "observation.language.tokens": [
+            1,
+            48
+          ],
+          "observation.state": [
+            1,
+            8
+          ]
+        },
+        "load_seconds": 66.692,
+        "old_custom_libero_7d_route_used": false,
+        "parameter": {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "numel": 589824
+        },
+        "peft": {
+          "adapter_path": "/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4/seed_33",
+          "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+          "resolved_base_model_name_or_path": "/home/jiheon/assets/checkpoints/smolvla_libero",
+          "used": true
+        },
+        "policy_class": "PeftModel",
+        "policy_name": "rank4_lora_seed_33",
+        "rename_map": {
+          "observation.images.image": "observation.images.camera1",
+          "observation.images.image2": "observation.images.camera2"
+        }
+      },
+      "rollout_seconds": 17.17,
+      "start_seed": 20260710,
+      "suites": [
+        "libero_spatial"
+      ],
+      "task_ids": [
+        0
+      ]
+    }
+  ],
+  "same_reset_seed_for_all_policies": 20260710,
+  "suites": [
+    "libero_spatial"
+  ],
+  "task_ids": [
+    0
+  ]
+}
+```

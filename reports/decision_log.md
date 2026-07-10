@@ -1222,3 +1222,24 @@ Key evidence:
 - canonical prediction manifest: `reports/official_smolvla_canonical_prediction_manifest.json`
 - canonical artifacts: `reports/canonical_frozen_base_prediction_artifact.json`, `reports/canonical_seed_11_prediction_artifact.json`, `reports/canonical_seed_22_prediction_artifact.json`, `reports/canonical_seed_33_prediction_artifact.json`
 - historical status: `SUPERSEDED_NONCANONICAL_PROTOCOL`
+
+## 2026-07-10: Official WSL LeRobot LIBERO Rollout Pilot
+
+Decision: `OFFICIAL_ROLLOUT_BASELINE_READY`
+
+- branch: `codex/wsl-official-smolvla-libero-rollout-pilot`
+- smoke: `4/4` completed, all four persisted policies executed on official `libero_spatial/task_0`
+- pilot: `48/48` completed, suites `libero_spatial`, `libero_object`, `libero_goal`, `libero_10`, task `0`, three episodes per task per policy
+- CUDA status: RTX 5080 visible in WSL, policy parameters and input tensors on `cuda:0`, no CPU fallback
+- policy loading: frozen base through official factory; LoRA seeds 11/22/33 through minimal PEFT wrapper around the official base policy
+- static mixes: skipped and classified `DEGENERATE_EQUIVALENT_TO_FROZEN_BASE`
+- old custom `LIBERO_7D` route: not used
+
+Pilot overall success:
+
+- `frozen_base`: `75.0%`
+- `rank4_lora_seed_11`: `83.3%`
+- `rank4_lora_seed_22`: `66.7%`
+- `rank4_lora_seed_33`: `75.0%`
+
+Scientific consequence: lower offline action L2 did not correspond to higher closed-loop success. Seed 11 improved this bounded pilot, but the pilot is not large enough for best-seed selection or method design. The next step is larger official baseline rollout/failure mining with failed-episode videos enabled.
