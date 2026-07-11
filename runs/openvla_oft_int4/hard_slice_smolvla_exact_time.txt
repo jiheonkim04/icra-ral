@@ -1,0 +1,31 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+WARNING:robosuite_logs:No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+WARNING:robosuite_logs:It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+WARNING:robosuite_logs:To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+Dropped Escape call with ulEscapeCode : 0x03007703
+	Command being timed: "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.smolvla.exact_hard_slice_rollout rollout --out runs/openvla_oft_int4/hard_slice_smolvla_exact.json"
+	User time (seconds): 380.01
+	System time (seconds): 112.99
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:21.20
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 5285048
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 26398
+	Minor (reclaiming a frame) page faults: 12475565
+	Voluntary context switches: 2701483
+	Involuntary context switches: 887
+	Swaps: 0
+	File system inputs: 8599840
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

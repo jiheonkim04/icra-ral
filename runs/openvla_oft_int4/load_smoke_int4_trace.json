@@ -1,0 +1,69 @@
+{
+  "config": {
+    "center_crop": true,
+    "env_img_res": 256,
+    "initial_states_path": "DEFAULT",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "local_log_dir": "./experiments/logs",
+    "lora_rank": 32,
+    "model_family": "openvla",
+    "num_diffusion_steps_inference": 50,
+    "num_diffusion_steps_train": 50,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "num_steps_wait": 10,
+    "num_trials_per_task": 1,
+    "pretrained_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "run_id_note": null,
+    "seed": 20260712,
+    "task_suite_name": "libero_spatial",
+    "unnorm_key": "",
+    "use_diffusion": false,
+    "use_film": false,
+    "use_l1_regression": true,
+    "use_proprio": true,
+    "use_wandb": false,
+    "wandb_entity": "your-wandb-entity",
+    "wandb_project": "your-wandb-project"
+  },
+  "cuda_memory": {
+    "allocated_bytes": 4098143232,
+    "allocated_mib": 3908.294,
+    "max_allocated_bytes": 4624012288,
+    "max_allocated_mib": 4409.802
+  },
+  "elapsed_seconds": 95.507,
+  "exception": {
+    "message": "`.to` is not supported for `4-bit` or `8-bit` bitsandbytes models. Please use the model as it is, since the model has already been set to the correct devices and casted to the correct `dtype`.",
+    "traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/mnt/c/Users/jiheo/tca_map/tca_map/openvla_oft_int4_gate.py\", line 415, in load_smoke",
+      "    model, action_head, proprio_projector, noisy_action_projector, processor = initialize_model(cfg)",
+      "  File \"/mnt/c/assets/repos/openvla-oft/experiments/robot/libero/run_libero_eval.py\", line 149, in initialize_model",
+      "    model = get_model(cfg)",
+      "  File \"/mnt/c/assets/repos/openvla-oft/experiments/robot/robot_utils.py\", line 69, in get_model",
+      "    model = get_vla(cfg)",
+      "  File \"/mnt/c/assets/repos/openvla-oft/experiments/robot/openvla_utils.py\", line 282, in get_vla",
+      "    vla = AutoModelForVision2Seq.from_pretrained(",
+      "  File \"/home/jiheon/venvs/openvla-oft-int4-rtx5080/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py\", line 558, in from_pretrained",
+      "    return model_class.from_pretrained(",
+      "  File \"/home/jiheon/venvs/openvla-oft-int4-rtx5080/lib/python3.10/site-packages/transformers/modeling_utils.py\", line 3735, in from_pretrained",
+      "    dispatch_model(model, **device_map_kwargs)",
+      "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/accelerate/big_modeling.py\", line 512, in dispatch_model",
+      "    model.to(device)",
+      "  File \"/home/jiheon/venvs/openvla-oft-int4-rtx5080/lib/python3.10/site-packages/transformers/modeling_utils.py\", line 2670, in to",
+      "    raise ValueError(",
+      "ValueError: `.to` is not supported for `4-bit` or `8-bit` bitsandbytes models. Please use the model as it is, since the model has already been set to the correct devices and casted to the correct `dtype`."
+    ],
+    "type": "ValueError"
+  },
+  "hard_rules": {
+    "cpu_offload_allowed": false,
+    "disk_offload_allowed": false,
+    "full_bf16_attempt_allowed": false
+  },
+  "schema_version": 1,
+  "success": false,
+  "variant": "int4"
+}

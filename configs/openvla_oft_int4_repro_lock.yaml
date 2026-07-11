@@ -1,0 +1,63 @@
+
+schema_version: 1
+date_kst: '2026-07-11'
+branch: codex/rtx5080-int4-openvla-cross-backbone
+objective: rtx5080_only_official_quantized_openvla_oft_cross_backbone_gate
+hardware:
+  gpu: NVIDIA GeForce RTX 5080
+  gpu_count: 1
+  lab_gpu_used: false
+  remote_gpu_used: false
+  full_bf16_allowed: false
+checkpoint:
+  repo_id: moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+  requested_revision: 638918f3d1c2e43a39a8a20772bdb8b91835e4b7
+  resolved_sha: 638918f3d1c2e43a39a8a20772bdb8b91835e4b7
+  visible_size_bytes: 15939168050
+  visible_size_gib: 14.845
+  local_dir: /home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+openvla_oft_source:
+  path: /mnt/c/assets/repos/openvla-oft
+  head: e4287e94541f459edc4feabc4e181f537cd569a8
+transformers_openvla_oft:
+  pinned_commit: bc339d9ad707454c0c115970db43c260067c61ab
+dlimp_openvla:
+  pinned_commit: 040105d256bd28866cc6620621a3d5f7b6b91b46
+libero_source:
+  path: /home/jiheon/assets/repos/LIBERO
+  head: 8f1084e3132a39270c3a13ebe37270a43ece2a01
+python:
+  executable: /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python
+packages:
+  torch: 2.10.0+cu128
+  cuda_compiled: 12.8
+  transformers: 4.40.1
+  bitsandbytes: 0.49.2
+  accelerate: 1.14.0
+  robosuite: 1.4.0
+  mujoco: 3.8.1
+official_eval_config:
+  load_in_4bit: true
+  load_in_8bit: false
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  num_images_in_input: 2
+  use_proprio: true
+  center_crop: true
+  num_open_loop_steps: 8
+  official_action_head: true
+  official_proprio_projector: true
+  official_processor: true
+  official_gripper_normalization_and_sign_inversion: true
+hard_slice_manifest:
+  reset_identities: [20260711, 20260712, 20260713, 20260714, 20260715]
+  identity_mapping_rule: official_LIBERO_initial_state_indices_0_to_4_per_task
+  tasks: [libero_spatial/task_4, libero_10/task_4, libero_spatial/task_2, libero_10/task_2]
+forbidden:
+  full_bf16_attempted: false
+  cpu_offload_used: false
+  disk_offload_used: false
+  training_or_finetuning: false
+  rlds_download: false
+  libero_pro_download: false

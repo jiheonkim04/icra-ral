@@ -1,0 +1,174 @@
+{
+  "approved_download_scope": "exact_selected_checkpoint_only",
+  "download": {
+    "completed": true,
+    "elapsed_seconds": 365.92,
+    "local_path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10"
+  },
+  "gated": false,
+  "license": null,
+  "local_dir": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+  "repo_id": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+  "requested_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+  "resolved_sha": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+  "siblings": [
+    {
+      "lfs": null,
+      "rfilename": ".gitattributes",
+      "size": 549
+    },
+    {
+      "lfs": null,
+      "rfilename": "README.md",
+      "size": 2953
+    },
+    {
+      "lfs": {
+        "pointer_size": 134,
+        "sha256": "f9647226ca9a1ee64ff8ed1ec380c89110afc6fc2bf6d0ae463cc4023165b4dc",
+        "size": 302242674
+      },
+      "rfilename": "action_head--300000_checkpoint.pt",
+      "size": 302242674
+    },
+    {
+      "lfs": null,
+      "rfilename": "added_tokens.json",
+      "size": 21
+    },
+    {
+      "lfs": null,
+      "rfilename": "config.json",
+      "size": 60712
+    },
+    {
+      "lfs": null,
+      "rfilename": "configuration_prismatic.py",
+      "size": 5865
+    },
+    {
+      "lfs": null,
+      "rfilename": "dataset_statistics.json",
+      "size": 11871
+    },
+    {
+      "lfs": null,
+      "rfilename": "generation_config.json",
+      "size": 136
+    },
+    {
+      "lfs": null,
+      "rfilename": "lora_adapter/README.md",
+      "size": 5034
+    },
+    {
+      "lfs": null,
+      "rfilename": "lora_adapter/adapter_config.json",
+      "size": 813
+    },
+    {
+      "lfs": {
+        "pointer_size": 134,
+        "sha256": "2e895d13475d45fa79b9d8a71c952b526fa1ba23dfe15c73b8c0518351d660e7",
+        "size": 484458600
+      },
+      "rfilename": "lora_adapter/adapter_model.safetensors",
+      "size": 484458600
+    },
+    {
+      "lfs": {
+        "pointer_size": 135,
+        "sha256": "8b30a7951e68703e1731957190d9f1d6e1eaa82f05b53909608eb0510875b11d",
+        "size": 4925122448
+      },
+      "rfilename": "model-00001-of-00004.safetensors",
+      "size": 4925122448
+    },
+    {
+      "lfs": {
+        "pointer_size": 135,
+        "sha256": "af4773166950ddda1da6b3c5367796a52e7d5e7216f97041d9ad0721a25e53fe",
+        "size": 4947392496
+      },
+      "rfilename": "model-00002-of-00004.safetensors",
+      "size": 4947392496
+    },
+    {
+      "lfs": {
+        "pointer_size": 135,
+        "sha256": "5a62791dd46ec4a85b353920aa07eff3582ceb5e9b6b853ad0f38de36fcab75d",
+        "size": 4947417456
+      },
+      "rfilename": "model-00003-of-00004.safetensors",
+      "size": 4947417456
+    },
+    {
+      "lfs": {
+        "pointer_size": 134,
+        "sha256": "a877e3fece1feafb80f59f91585ce04379ee39e2bf9a25cb7b4acf237e896e60",
+        "size": 262668432
+      },
+      "rfilename": "model-00004-of-00004.safetensors",
+      "size": 262668432
+    },
+    {
+      "lfs": null,
+      "rfilename": "model.safetensors.index.json",
+      "size": 94764
+    },
+    {
+      "lfs": null,
+      "rfilename": "modeling_prismatic.py",
+      "size": 49029
+    },
+    {
+      "lfs": null,
+      "rfilename": "preprocessor_config.json",
+      "size": 1650
+    },
+    {
+      "lfs": null,
+      "rfilename": "processing_prismatic.py",
+      "size": 12718
+    },
+    {
+      "lfs": null,
+      "rfilename": "processor_config.json",
+      "size": 130
+    },
+    {
+      "lfs": {
+        "pointer_size": 133,
+        "sha256": "1792c6e19381d3c7c814e2d49836a855d3a38b0693919416f52b3c5af39505c8",
+        "size": 67275256
+      },
+      "rfilename": "proprio_projector--300000_checkpoint.pt",
+      "size": 67275256
+    },
+    {
+      "lfs": null,
+      "rfilename": "special_tokens_map.json",
+      "size": 552
+    },
+    {
+      "lfs": null,
+      "rfilename": "tokenizer.json",
+      "size": 1842976
+    },
+    {
+      "lfs": {
+        "pointer_size": 131,
+        "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+        "size": 499723
+      },
+      "rfilename": "tokenizer.model",
+      "size": 499723
+    },
+    {
+      "lfs": null,
+      "rfilename": "tokenizer_config.json",
+      "size": 1192
+    }
+  ],
+  "visible_size_bytes": 15939168050
+}

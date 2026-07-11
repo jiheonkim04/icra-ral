@@ -1,0 +1,77 @@
+{
+  "branch": "codex/rtx5080-int4-openvla-cross-backbone",
+  "checkpoint": {
+    "local_dir": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "repo_id": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "visible_size_bytes": 15939168050,
+    "visible_size_gib": 14.845
+  },
+  "date_kst": "2026-07-11",
+  "decision": "FAILURE_NOT_REPRODUCED_IN_SECOND_ARCHITECTURE",
+  "full_bf16_attempted": false,
+  "libero_pro_justified": false,
+  "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+  "quantization_limitation": "INT4 OpenVLA-OFT is quantized and is not claimed numerically identical to full-precision OpenVLA-OFT.",
+  "quantized_openvla_oft_int4": {
+    "result_path": "runs/openvla_oft_int4/hard_slice_openvla_int4.json",
+    "summary": {
+      "completed": 20,
+      "errors": 0,
+      "peak_rss_mib": 4637.605,
+      "peak_vram_mib": 5539.458,
+      "per_task": {
+        "libero_10/task_2": {
+          "successes": 5,
+          "total": 5
+        },
+        "libero_10/task_4": {
+          "successes": 5,
+          "total": 5
+        },
+        "libero_spatial/task_2": {
+          "successes": 5,
+          "total": 5
+        },
+        "libero_spatial/task_4": {
+          "successes": 5,
+          "total": 5
+        }
+      },
+      "successful": 20,
+      "videos": 20
+    }
+  },
+  "reason": "OpenVLA-OFT INT4 succeeded on every exact hard-slice and matched-control episode where SmolVLA frozen-base still failed on hard slices.",
+  "schema_version": 1,
+  "smolvla_frozen_base_exact_init": {
+    "result_path": "runs/openvla_oft_int4/hard_slice_smolvla_exact.json",
+    "summary": {
+      "completed": 20,
+      "errors": 0,
+      "peak_rss_mib": 4883.641,
+      "peak_vram_mib": 926.638,
+      "per_task": {
+        "libero_10/task_2": {
+          "successes": 4,
+          "total": 5
+        },
+        "libero_10/task_4": {
+          "successes": 1,
+          "total": 5
+        },
+        "libero_spatial/task_2": {
+          "successes": 5,
+          "total": 5
+        },
+        "libero_spatial/task_4": {
+          "successes": 1,
+          "total": 5
+        }
+      },
+      "successful": 11,
+      "videos": 20
+    }
+  },
+  "training_happened": false
+}

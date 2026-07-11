@@ -1,0 +1,82 @@
+{
+  "action_chunk_shape": [
+    8,
+    7
+  ],
+  "action_dtype": "float64",
+  "action_head_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "model.layer_norm1.weight"
+  },
+  "action_range": {
+    "finite": true,
+    "max": 1.0078125,
+    "min": -0.034351629460085104
+  },
+  "autocast": {
+    "cpu": false,
+    "cuda": false
+  },
+  "config": {
+    "center_crop": true,
+    "env_img_res": 256,
+    "initial_states_path": "DEFAULT",
+    "load_in_4bit": false,
+    "load_in_8bit": true,
+    "local_log_dir": "./experiments/logs",
+    "lora_rank": 32,
+    "model_family": "openvla",
+    "num_diffusion_steps_inference": 50,
+    "num_diffusion_steps_train": 50,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "num_steps_wait": 10,
+    "num_trials_per_task": 1,
+    "pretrained_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "run_id_note": null,
+    "seed": 20260712,
+    "task_suite_name": "libero_spatial",
+    "unnorm_key": "",
+    "use_diffusion": false,
+    "use_film": false,
+    "use_l1_regression": true,
+    "use_proprio": true,
+    "use_wandb": false,
+    "wandb_entity": "your-wandb-entity",
+    "wandb_project": "your-wandb-project"
+  },
+  "cuda_memory": {
+    "allocated_bytes": 8193618432,
+    "allocated_mib": 7814.043,
+    "max_allocated_bytes": 8799145984,
+    "max_allocated_mib": 8391.52
+  },
+  "elapsed_seconds": 107.705,
+  "exception": null,
+  "hard_rules": {
+    "cpu_offload_allowed": false,
+    "disk_offload_allowed": false,
+    "full_bf16_attempt_allowed": false
+  },
+  "load_seconds": 100.666,
+  "model_hf_device_map": {
+    "": 0
+  },
+  "model_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "vision_backbone.featurizer.cls_token"
+  },
+  "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+  "one_chunk_seconds": 7.031,
+  "proprio_projector_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "fc1.weight"
+  },
+  "schema_version": 1,
+  "success": true,
+  "unnormalization_key": "libero_spatial_no_noops",
+  "variant": "int8"
+}

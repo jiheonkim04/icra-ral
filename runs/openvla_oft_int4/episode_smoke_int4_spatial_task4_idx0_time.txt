@@ -1,0 +1,39 @@
+2026-07-11 13:19:39.707011: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-11 13:19:39.707364: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-11 13:19:39.749292: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/torch/jit/_script.py:362: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:11<00:34, 11.54s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:29<00:31, 15.55s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:35<00:38, 38.57s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:38<00:00, 24.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:38<00:00, 24.61s/it]
+Dropped Escape call with ulEscapeCode : 0x03007703
+	Command being timed: "python -m tca_map.openvla_oft_int4_gate episode-smoke --load-in-4bit --task-suite-name libero_spatial --task-id 4 --initial-state-index 0 --video-index 9001 --out runs/openvla_oft_int4/episode_smoke_int4_spatial_task4_idx0.json"
+	User time (seconds): 50.94
+	System time (seconds): 124.76
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:58.41
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6505968
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 74210
+	Minor (reclaiming a frame) page faults: 1581983
+	Voluntary context switches: 175020
+	Involuntary context switches: 467
+	Swaps: 0
+	File system inputs: 33577232
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,5623 @@
+{
+  "action_head_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "model.layer_norm1.weight"
+  },
+  "autocast": {
+    "cpu": false,
+    "cuda": false,
+    "fp16_or_bf16_active": false
+  },
+  "completed_episode_count": 20,
+  "config": {
+    "center_crop": true,
+    "env_img_res": 256,
+    "initial_states_path": "DEFAULT",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "local_log_dir": "./experiments/logs",
+    "lora_rank": 32,
+    "model_family": "openvla",
+    "num_diffusion_steps_inference": 50,
+    "num_diffusion_steps_train": 50,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "num_steps_wait": 10,
+    "num_trials_per_task": 1,
+    "pretrained_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "run_id_note": null,
+    "seed": 20260712,
+    "task_suite_name": "libero_spatial",
+    "unnorm_key": "",
+    "use_diffusion": false,
+    "use_film": false,
+    "use_l1_regression": true,
+    "use_proprio": true,
+    "use_wandb": false,
+    "wandb_entity": "your-wandb-entity",
+    "wandb_project": "your-wandb-project"
+  },
+  "cuda_memory": {
+    "allocated_bytes": 5003023872,
+    "allocated_mib": 4771.255,
+    "max_allocated_bytes": 5808542208,
+    "max_allocated_mib": 5539.458
+  },
+  "elapsed_seconds": 692.414,
+  "episodes": [
+    {
+      "action_chunk_count": 15,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.16161934228915903
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.2742292080490607
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.33729073287460565
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4773925765022528
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7841308588340843
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8425571983258617
+        },
+        {
+          "finite": true,
+          "max": 0.22726006080170147,
+          "min": -0.6271100714499325
+        },
+        {
+          "finite": true,
+          "max": 0.961356033482766,
+          "min": -0.07539969217981488
+        },
+        {
+          "finite": true,
+          "max": 0.9321428637368774,
+          "min": -0.018921591585590244
+        },
+        {
+          "finite": true,
+          "max": 0.8008196437388009,
+          "min": -0.015237249101622219
+        },
+        {
+          "finite": true,
+          "max": 0.8398577305355668,
+          "min": -0.5175606849028498
+        },
+        {
+          "finite": true,
+          "max": 0.7828020652172165,
+          "min": -0.8279506134529173
+        },
+        {
+          "finite": true,
+          "max": 0.3338640670544084,
+          "min": -0.9082868302541113
+        },
+        {
+          "finite": true,
+          "max": 0.31134209390242806,
+          "min": -0.7549176890881956
+        },
+        {
+          "finite": true,
+          "max": 0.053840867531452896,
+          "min": -0.5358189159940303
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 41.866,
+      "env_creation_seconds": 9.84,
+      "environment_latency_seconds": {
+        "count": 130,
+        "max": 7.932985,
+        "mean": 0.194027
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260711",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "2e3f91b350eaef1b23c2d4ee14c513b2158a106bff7ed6c249b58e2cf89367f4",
+      "initial_state_sha256_runtime": "2e3f91b350eaef1b23c2d4ee14c513b2158a106bff7ed6c249b58e2cf89367f4",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 0,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 15,
+        "max": 7.271567,
+        "mean": 0.982884
+      },
+      "reset_identity": 20260711,
+      "role": "hard_slice_stable_grasp",
+      "rss_mib": 3811.457,
+      "steps": 129,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110000--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4"
+    },
+    {
+      "action_chunk_count": 16,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.04283202833351016
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.20215889396272363
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.34930245188899517
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.39134346843935847
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.8717703680717503
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.9155901226905835
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8754220142899864
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.8169956747982091
+        },
+        {
+          "finite": true,
+          "max": 0.6290562276232821,
+          "min": -0.07457519436092108
+        },
+        {
+          "finite": true,
+          "max": 0.9284912175186413,
+          "min": -0.07210170090423972
+        },
+        {
+          "finite": true,
+          "max": 0.8098284329995931,
+          "min": -0.036648294691806735
+        },
+        {
+          "finite": true,
+          "max": 0.8758928875787353,
+          "min": -0.46643763784754455
+        },
+        {
+          "finite": true,
+          "max": 0.8638811685643457,
+          "min": -0.9301967075635278
+        },
+        {
+          "finite": true,
+          "max": 0.39692559187995347,
+          "min": -0.9521065848729443
+        },
+        {
+          "finite": true,
+          "max": 0.2640459502832694,
+          "min": -0.7439627504334874
+        },
+        {
+          "finite": true,
+          "max": 0.04858574046265751,
+          "min": -0.6599748874140572
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 26.859,
+      "env_creation_seconds": 4.28,
+      "environment_latency_seconds": {
+        "count": 136,
+        "max": 0.654184,
+        "mean": 0.135326
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260712",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "d1f552d41794709fdcdccf886e4be6384f15a50c1d0e6227a99e08d86e19e23e",
+      "initial_state_sha256_runtime": "d1f552d41794709fdcdccf886e4be6384f15a50c1d0e6227a99e08d86e19e23e",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 1,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 16,
+        "max": 0.579787,
+        "mean": 0.513778
+      },
+      "reset_identity": 20260712,
+      "role": "hard_slice_stable_grasp",
+      "rss_mib": 4159.621,
+      "steps": 135,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110001--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4"
+    },
+    {
+      "action_chunk_count": 15,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.25771309440427514
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3282819436138135
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.3342878031210083
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4116629445740032
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.8352539058893895
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8169956747982091
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.6563232411958212
+        },
+        {
+          "finite": true,
+          "max": 0.9394461561733496,
+          "min": -0.08034667909317761
+        },
+        {
+          "finite": true,
+          "max": 0.9321428637368774,
+          "min": -0.0078125
+        },
+        {
+          "finite": true,
+          "max": 0.8278460115211772,
+          "min": -0.05354769752814437
+        },
+        {
+          "finite": true,
+          "max": 0.8728899578251379,
+          "min": -0.5102573924663776
+        },
+        {
+          "finite": true,
+          "max": 0.8548723793035535,
+          "min": -0.9521065848729443
+        },
+        {
+          "finite": true,
+          "max": 0.24677910420008442,
+          "min": -0.9594098773094165
+        },
+        {
+          "finite": true,
+          "max": 0.08555931305382525,
+          "min": -0.8096923823617369
+        },
+        {
+          "finite": true,
+          "max": 0.03582328900986864,
+          "min": -0.5759870243946272
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 22.104,
+      "env_creation_seconds": 2.183,
+      "environment_latency_seconds": {
+        "count": 128,
+        "max": 0.610251,
+        "mean": 0.135538
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260713",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "d5a2a728be37ce588fd1326df08b48cb9e1913b333c6719bb7059308783d4731",
+      "initial_state_sha256_runtime": "d5a2a728be37ce588fd1326df08b48cb9e1913b333c6719bb7059308783d4731",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 2,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 15,
+        "max": 0.531106,
+        "mean": 0.509686
+      },
+      "reset_identity": 20260713,
+      "role": "hard_slice_stable_grasp",
+      "rss_mib": 4253.961,
+      "steps": 127,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110002--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4"
+    },
+    {
+      "action_chunk_count": 17,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.10456367697080882
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.20366035883952233
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4063581172073454
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4993024538116694
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.893680245381167
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8973318915994031
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7877825050523204
+        },
+        {
+          "finite": true,
+          "max": 0.6838309208968234,
+          "min": -0.16517682484306728
+        },
+        {
+          "finite": true,
+          "max": 0.9394461561733496,
+          "min": -0.06797921180977076
+        },
+        {
+          "finite": true,
+          "max": 0.9394461561733496,
+          "min": -0.011470769515708051
+        },
+        {
+          "finite": true,
+          "max": 0.8368548007819694,
+          "min": -0.06521300961885435
+        },
+        {
+          "finite": true,
+          "max": 0.8638811685643457,
+          "min": -0.484695868938725
+        },
+        {
+          "finite": true,
+          "max": 0.7918108544780087,
+          "min": -0.8498604907623338
+        },
+        {
+          "finite": true,
+          "max": 0.36089043483678496,
+          "min": -0.9265450613452917
+        },
+        {
+          "finite": true,
+          "max": 0.27530693685925955,
+          "min": -0.8242989672346812
+        },
+        {
+          "finite": true,
+          "max": 0.09118980634182028,
+          "min": -0.5358189159940303
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2929844424813304
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 25.474,
+      "env_creation_seconds": 2.693,
+      "environment_latency_seconds": {
+        "count": 139,
+        "max": 0.630691,
+        "mean": 0.144497
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260714",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "7e950b4903eb62f247605b60952d62aca17222446e05c299de3d8b615756a2fb",
+      "initial_state_sha256_runtime": "7e950b4903eb62f247605b60952d62aca17222446e05c299de3d8b615756a2fb",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 3,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 17,
+        "max": 0.547451,
+        "mean": 0.529547
+      },
+      "reset_identity": 20260714,
+      "role": "hard_slice_stable_grasp",
+      "rss_mib": 4266.043,
+      "steps": 138,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110003--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4"
+    },
+    {
+      "action_chunk_count": 16,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.1105695364780036
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.1946515695787302
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.39434639819295586
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.3824497748281145
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7804792126158482
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8169956747982091
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7439627504334874
+        },
+        {
+          "finite": true,
+          "max": 0.7933803074439061,
+          "min": -0.0741629454514742
+        },
+        {
+          "finite": true,
+          "max": 0.9394461561733496,
+          "min": -0.03314417896150813
+        },
+        {
+          "finite": true,
+          "max": 0.8408517082809752,
+          "min": -0.004944890447065281
+        },
+        {
+          "finite": true,
+          "max": 0.8758928875787353,
+          "min": -0.3331525508819273
+        },
+        {
+          "finite": true,
+          "max": 0.8458635900427616,
+          "min": -0.8242989672346812
+        },
+        {
+          "finite": true,
+          "max": 0.4149431704015376,
+          "min": -0.9594098773094165
+        },
+        {
+          "finite": true,
+          "max": 0.23626885006249365,
+          "min": -0.8389055521076256
+        },
+        {
+          "finite": true,
+          "max": 0.11089653284980305,
+          "min": -0.7001429958146542
+        },
+        {
+          "finite": true,
+          "max": 0.11108421595940288,
+          "min": -0.5540771470852107
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 23.583,
+      "env_creation_seconds": 1.766,
+      "environment_latency_seconds": {
+        "count": 132,
+        "max": 0.635759,
+        "mean": 0.144024
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260715",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "eacc257cf75be38a89bdf75e5300cded0aee0ec1d0a2ac4b91d4c4cdb11c763b",
+      "initial_state_sha256_runtime": "eacc257cf75be38a89bdf75e5300cded0aee0ec1d0a2ac4b91d4c4cdb11c763b",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 4,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 16,
+        "max": 0.554855,
+        "mean": 0.529157
+      },
+      "reset_identity": 20260715,
+      "role": "hard_slice_stable_grasp",
+      "rss_mib": 4281.34,
+      "steps": 131,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110004--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4"
+    },
+    {
+      "action_chunk_count": 28,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.43227540025028943
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5303937752127582
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5840018201782722
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.560747425393888
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.48434012824519757
+        },
+        {
+          "finite": true,
+          "max": 0.07226232744316835,
+          "min": -0.11709069837524422
+        },
+        {
+          "finite": true,
+          "max": 0.5454973550632398,
+          "min": -0.10073024614323778
+        },
+        {
+          "finite": true,
+          "max": 0.7182442877472359,
+          "min": -0.3009233821553716
+        },
+        {
+          "finite": true,
+          "max": 0.5820399754387007,
+          "min": -0.6506679122635264
+        },
+        {
+          "finite": true,
+          "max": 0.19327307336303712,
+          "min": -0.685484109830854
+        },
+        {
+          "finite": true,
+          "max": 0.0583531043421498,
+          "min": -0.3946446055054304
+        },
+        {
+          "finite": true,
+          "max": 0.003701592131379716,
+          "min": -0.3016270263678941
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.18203299604820466
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.01685486109467582
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.036453678022845985
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.033447609313711976
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.049112792618408174
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.03367884536826074
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.19033813704262748
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5109165794273507
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.6537650045314244
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.47769601544965923
+        },
+        {
+          "finite": true,
+          "max": 0.5654296934498548,
+          "min": -0.06493050802684197
+        },
+        {
+          "finite": true,
+          "max": 0.7913295284981572,
+          "min": -0.060215527575660344
+        },
+        {
+          "finite": true,
+          "max": 0.7609706436481207,
+          "min": -0.031709944049150396
+        },
+        {
+          "finite": true,
+          "max": 0.7483102081690924,
+          "min": -0.4245431130853528
+        },
+        {
+          "finite": true,
+          "max": 0.4175563312794801,
+          "min": -0.6072562149626561
+        },
+        {
+          "finite": true,
+          "max": 0.16118251282915852,
+          "min": -0.5707135945871955
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 35.953,
+      "env_creation_seconds": 7.448,
+      "environment_latency_seconds": {
+        "count": 229,
+        "max": 0.782031,
+        "mean": 0.105115
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260711",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "4365b3c5a82da7f8818c11ef5fd494c4890c17c4c3e27948dc290a9ac2f08131",
+      "initial_state_sha256_runtime": "4365b3c5a82da7f8818c11ef5fd494c4890c17c4c3e27948dc290a9ac2f08131",
+      "initial_state_shape": [
+        84
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 5,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 28,
+        "max": 0.729187,
+        "mean": 0.553213
+      },
+      "reset_identity": 20260711,
+      "role": "hard_slice_long_horizon",
+      "rss_mib": 4628.293,
+      "steps": 228,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110005--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4"
+    },
+    {
+      "action_chunk_count": 27,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.581035517128871
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6190168235659558
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.537493030609504
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.560747425393888
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3747122671188155
+        },
+        {
+          "finite": true,
+          "max": 0.99609375,
+          "min": -0.22521972921920363
+        },
+        {
+          "finite": true,
+          "max": 0.6684134417806986,
+          "min": -0.06828788022822796
+        },
+        {
+          "finite": true,
+          "max": 0.7116001749516976,
+          "min": -0.353147678506363
+        },
+        {
+          "finite": true,
+          "max": 0.625859746361084,
+          "min": -0.6443376945240122
+        },
+        {
+          "finite": true,
+          "max": 0.10228795470641613,
+          "min": -0.45444162066527516
+        },
+        {
+          "finite": true,
+          "max": 0.0241301682689318,
+          "min": -0.3614240415277389
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.1886771088437429
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.03126341356492293
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.06664933068915752
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.04413101979191733
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.045300802176189564
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.08818490281122604
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2966439417712404
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5109165794273507
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5640694817916572
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.41457694389204536
+        },
+        {
+          "finite": true,
+          "max": 0.5122767910855484,
+          "min": -0.057875962807115905
+        },
+        {
+          "finite": true,
+          "max": 0.6219046522119305,
+          "min": -0.06462547070808584
+        },
+        {
+          "finite": true,
+          "max": 0.7514753170388495,
+          "min": -0.08237130411513005
+        },
+        {
+          "finite": true,
+          "max": 0.7039986839924937,
+          "min": -0.5640694817916572
+        },
+        {
+          "finite": true,
+          "max": 0.21103297752783223,
+          "min": -0.5275268614161965
+        },
+        {
+          "finite": true,
+          "max": 0.09392394934682113,
+          "min": -0.3946446055054304
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 33.109,
+      "env_creation_seconds": 5.927,
+      "environment_latency_seconds": {
+        "count": 220,
+        "max": 0.600186,
+        "mean": 0.102415
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260712",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "b55dd89278457f3c00d7b4d871dc8d64e84534e5a119dd35a53e5a152c831d6a",
+      "initial_state_sha256_runtime": "b55dd89278457f3c00d7b4d871dc8d64e84534e5a119dd35a53e5a152c831d6a",
+      "initial_state_shape": [
+        84
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 6,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 27,
+        "max": 0.558597,
+        "mean": 0.528851
+      },
+      "reset_identity": 20260712,
+      "role": "hard_slice_long_horizon",
+      "rss_mib": 4603.789,
+      "steps": 219,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110006--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4"
+    },
+    {
+      "action_chunk_count": 34,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.38796387607369065
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5272286663430011
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.517560692222889
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5740356509849647
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.451119564267506
+        },
+        {
+          "finite": true,
+          "max": 0.0844859195556289,
+          "min": -0.08320181821457229
+        },
+        {
+          "finite": true,
+          "max": 0.6052943702230846,
+          "min": -0.15453709692910778
+        },
+        {
+          "finite": true,
+          "max": 0.6533255668688964,
+          "min": -0.44493583572931766
+        },
+        {
+          "finite": true,
+          "max": 0.6038870899548339,
+          "min": -0.5082380131244588
+        },
+        {
+          "finite": true,
+          "max": 0.44458533100952136,
+          "min": -0.4575962712083459
+        },
+        {
+          "finite": true,
+          "max": 0.04332276079647973,
+          "min": -0.40128871830096874
+        },
+        {
+          "finite": true,
+          "max": 0.008464663884385215,
+          "min": -0.31491525195897074
+        },
+        {
+          "finite": true,
+          "max": 0.99609375,
+          "min": -0.2132210701525879
+        },
+        {
+          "finite": true,
+          "max": 0.99609375,
+          "min": -0.1371852346783211
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.04107839911382139
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.047347921348665944
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.07366802499479083
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.07893204572401583
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.08756494132934578
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.21359253182701154
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.47769601544965923
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.49762835383627413
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3547799287322006
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3016270263678941
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2584402931968951
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2406868906604004
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.24515206760581854
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.26508440599243344
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2667794201428223
+        },
+        {
+          "finite": true,
+          "max": 0.32125854821382216,
+          "min": -0.10232769340946019
+        },
+        {
+          "finite": true,
+          "max": 0.6451590469963144,
+          "min": -0.08361117526110468
+        },
+        {
+          "finite": true,
+          "max": 0.6343662888578385,
+          "min": -0.07425291618692695
+        },
+        {
+          "finite": true,
+          "max": 0.6058803090300249,
+          "min": -0.5507812562005806
+        },
+        {
+          "finite": true,
+          "max": 0.1508959090024481,
+          "min": -0.517560692222889
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 35.343,
+      "env_creation_seconds": 3.663,
+      "environment_latency_seconds": {
+        "count": 282,
+        "max": 0.630942,
+        "mean": 0.099732
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260713",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "1d2fdd615bb32a097ad2781dd5e9203104555e54521dd9bce6eacbb5bf718e33",
+      "initial_state_sha256_runtime": "1d2fdd615bb32a097ad2781dd5e9203104555e54521dd9bce6eacbb5bf718e33",
+      "initial_state_shape": [
+        84
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 7,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 34,
+        "max": 0.576175,
+        "mean": 0.529254
+      },
+      "reset_identity": 20260713,
+      "role": "hard_slice_long_horizon",
+      "rss_mib": 4610.281,
+      "steps": 281,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110007--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4"
+    },
+    {
+      "action_chunk_count": 29,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.023185078834189965
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.41961496477126126
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5462193195615435
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6601632388727975
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.49098424104073585
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4677298462563518
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3946446055054304
+        },
+        {
+          "finite": true,
+          "max": 0.06553607873360306,
+          "min": -0.1288800936838982
+        },
+        {
+          "finite": true,
+          "max": 0.6351928778030069,
+          "min": -0.08411342457701332
+        },
+        {
+          "finite": true,
+          "max": 0.7522025206970213,
+          "min": -0.36264300511563424
+        },
+        {
+          "finite": true,
+          "max": 0.6038870899548339,
+          "min": -0.6823190009610969
+        },
+        {
+          "finite": true,
+          "max": 0.09302282850952148,
+          "min": -0.4112548874942762
+        },
+        {
+          "finite": true,
+          "max": 0.025517584596224427,
+          "min": -0.35145787233443143
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.19366019344039664
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.028724019356264785
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.0707435690341103
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.07249824261051863
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.08068671930042415
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.121210571451416
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.09981210020341813
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3547799287322006
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5009504102340433
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5075945230295816
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3448137595388931
+        },
+        {
+          "finite": true,
+          "max": 0.6052943702230846,
+          "min": -0.0643097659206131
+        },
+        {
+          "finite": true,
+          "max": 0.6650913853829294,
+          "min": -0.08302628406896859
+        },
+        {
+          "finite": true,
+          "max": 0.7103289017320078,
+          "min": -0.22189767282143447
+        },
+        {
+          "finite": true,
+          "max": 0.5837245469417256,
+          "min": -0.5773577073827338
+        },
+        {
+          "finite": true,
+          "max": 0.07770276638931617,
+          "min": -0.5208827486206582
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 30.347,
+      "env_creation_seconds": 2.901,
+      "environment_latency_seconds": {
+        "count": 242,
+        "max": 0.617682,
+        "mean": 0.100032
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260714",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "79a2ec18a6067d027a62de697a1931bf818dffc4dd7572c39c4426e122bd35d0",
+      "initial_state_sha256_runtime": "79a2ec18a6067d027a62de697a1931bf818dffc4dd7572c39c4426e122bd35d0",
+      "initial_state_shape": [
+        84
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 8,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 29,
+        "max": 0.564252,
+        "mean": 0.529353
+      },
+      "reset_identity": 20260714,
+      "role": "hard_slice_long_horizon",
+      "rss_mib": 4637.605,
+      "steps": 241,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110008--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4"
+    },
+    {
+      "action_chunk_count": 28,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.0967738600560415
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5050729042547017
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5873657348683852
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5574253689961189
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5308489178139657
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2385079548102802
+        },
+        {
+          "finite": true,
+          "max": 0.3777335069758976,
+          "min": -0.10785174110019125
+        },
+        {
+          "finite": true,
+          "max": 0.5355311858699325,
+          "min": -0.10231280057811631
+        },
+        {
+          "finite": true,
+          "max": 0.5886840882342388,
+          "min": -0.38163365833417656
+        },
+        {
+          "finite": true,
+          "max": 0.5407157027868652,
+          "min": -0.514568230863973
+        },
+        {
+          "finite": true,
+          "max": 0.26743078873413084,
+          "min": -0.5493844284313005
+        },
+        {
+          "finite": true,
+          "max": 0.04540388528741865,
+          "min": -0.3581019851299697
+        },
+        {
+          "finite": true,
+          "max": 0.005362091011742065,
+          "min": -0.2733895469868563
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.168744770457128
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.03391008142280952
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.03391008142280952
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.14592980990844728
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.121210571451416
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.10064261430286037
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.36474609792550805
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5873238765760413
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5574253689961189
+        },
+        {
+          "finite": true,
+          "max": 0.4092930427547046,
+          "min": -0.23684692661139561
+        },
+        {
+          "finite": true,
+          "max": 0.7049560621561592,
+          "min": -0.0412065638312368
+        },
+        {
+          "finite": true,
+          "max": 0.7578055347783637,
+          "min": -0.011669558628363275
+        },
+        {
+          "finite": true,
+          "max": 0.7641357525178778,
+          "min": -0.47769601544965923
+        },
+        {
+          "finite": true,
+          "max": 0.39540056919118083,
+          "min": -0.5308489178139657
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.33484759034558564
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 29.346,
+      "env_creation_seconds": 2.575,
+      "environment_latency_seconds": {
+        "count": 233,
+        "max": 0.636827,
+        "mean": 0.10178
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260715",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "4da1e19512111404fa9dc3c87088cf26dce60996e1e9cf5b43ca04c73465a4e6",
+      "initial_state_sha256_runtime": "4da1e19512111404fa9dc3c87088cf26dce60996e1e9cf5b43ca04c73465a4e6",
+      "initial_state_shape": [
+        84
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 9,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 28,
+        "max": 0.580233,
+        "mean": 0.536082
+      },
+      "reset_identity": 20260715,
+      "role": "hard_slice_long_horizon",
+      "rss_mib": 4601.418,
+      "steps": 232,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "task_id": 4,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110009--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4"
+    },
+    {
+      "action_chunk_count": 11,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.03314417896150813
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.39888218281017696
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.9082868302541113
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.8900285991629309
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.9119384764723474
+        },
+        {
+          "finite": true,
+          "max": 0.1013933490881671,
+          "min": -0.39888218281017696
+        },
+        {
+          "finite": true,
+          "max": 0.8408517082809752,
+          "min": -0.026174139022217963
+        },
+        {
+          "finite": true,
+          "max": 0.78972866122567,
+          "min": -0.019512304139645137
+        },
+        {
+          "finite": true,
+          "max": 0.644667296551737,
+          "min": -0.05288870363230758
+        },
+        {
+          "finite": true,
+          "max": 0.648238987570558,
+          "min": -0.5978969017040437
+        },
+        {
+          "finite": true,
+          "max": 0.2572893583376753,
+          "min": -0.7987374437070286
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 19.701,
+      "env_creation_seconds": 3.53,
+      "environment_latency_seconds": {
+        "count": 98,
+        "max": 0.665192,
+        "mean": 0.132975
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260711",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "408c455fb617e5320060d643ef80ec2035d4e98600659cc3deb5a1e85482bf76",
+      "initial_state_sha256_runtime": "408c455fb617e5320060d643ef80ec2035d4e98600659cc3deb5a1e85482bf76",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 10,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 11,
+        "max": 0.588547,
+        "mean": 0.533953
+      },
+      "reset_identity": 20260711,
+      "role": "matched_control_spatial",
+      "rss_mib": 4396.559,
+      "steps": 97,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl from table center and place it on the plate",
+      "task_id": 2,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110010--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4"
+    },
+    {
+      "action_chunk_count": 12,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.03850341478431776
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7074462882511264
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.9338483537817639
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.9192417689088196
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6599748874140572
+        },
+        {
+          "finite": true,
+          "max": 0.3789184616741099,
+          "min": -0.033003590821507944
+        },
+        {
+          "finite": true,
+          "max": 0.8810198166815721,
+          "min": -0.0376548521985339
+        },
+        {
+          "finite": true,
+          "max": 0.8554582931539194,
+          "min": -0.03273193005206124
+        },
+        {
+          "finite": true,
+          "max": 0.667961330008929,
+          "min": -0.20717075635278226
+        },
+        {
+          "finite": true,
+          "max": 0.5496272753787029,
+          "min": -0.8096923823617369
+        },
+        {
+          "finite": true,
+          "max": 0.06341270612104455,
+          "min": -0.7987374437070286
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6344133638864047
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 18.424,
+      "env_creation_seconds": 1.933,
+      "environment_latency_seconds": {
+        "count": 99,
+        "max": 0.647423,
+        "mean": 0.139453
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260712",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "05962fe9baf173d80806225d32a331fa8eedcdb5c14a085ee5354715380c0f8f",
+      "initial_state_sha256_runtime": "05962fe9baf173d80806225d32a331fa8eedcdb5c14a085ee5354715380c0f8f",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 11,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 12,
+        "max": 0.567351,
+        "mean": 0.526463
+      },
+      "reset_identity": 20260712,
+      "role": "matched_control_spatial",
+      "rss_mib": 4406.754,
+      "steps": 98,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl from table center and place it on the plate",
+      "task_id": 2,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110011--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4"
+    },
+    {
+      "action_chunk_count": 13,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.04159528160516948
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5905936092675717
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.9155901226905835
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.893680245381167
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.612503486576988
+        },
+        {
+          "finite": true,
+          "max": 0.16438424635273985,
+          "min": -0.30941685046339273
+        },
+        {
+          "finite": true,
+          "max": 0.7714704301344895,
+          "min": -0.030726141088616904
+        },
+        {
+          "finite": true,
+          "max": 0.8591099393721555,
+          "min": -0.05148925543189496
+        },
+        {
+          "finite": true,
+          "max": 0.6356585072909451,
+          "min": -0.05045863315827772
+        },
+        {
+          "finite": true,
+          "max": 0.5846087014797896,
+          "min": -0.5613804395216828
+        },
+        {
+          "finite": true,
+          "max": 0.3383684616848045,
+          "min": -0.6344133638864047
+        },
+        {
+          "finite": true,
+          "max": 0.04662598501646609,
+          "min": -0.6563232411958212
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5650320857399189
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 19.358,
+      "env_creation_seconds": 1.893,
+      "environment_latency_seconds": {
+        "count": 107,
+        "max": 0.654902,
+        "mean": 0.140126
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260713",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "111971abb8f2e699872e68aa0ed445287da5c2ed642a5da083a9c9d4d90a6d12",
+      "initial_state_sha256_runtime": "111971abb8f2e699872e68aa0ed445287da5c2ed642a5da083a9c9d4d90a6d12",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 12,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 13,
+        "max": 0.575848,
+        "mean": 0.530663
+      },
+      "reset_identity": 20260713,
+      "role": "matched_control_spatial",
+      "rss_mib": 4387.945,
+      "steps": 106,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl from table center and place it on the plate",
+      "task_id": 2,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110012--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4"
+    },
+    {
+      "action_chunk_count": 11,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.05148925543189496
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.6709298260687655
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.9046351840358752
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.9082868302541113
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.6198067790134603
+        },
+        {
+          "finite": true,
+          "max": 0.5961914116591571,
+          "min": -0.0340293638270657
+        },
+        {
+          "finite": true,
+          "max": 0.8883231091180444,
+          "min": -0.030887273905126605
+        },
+        {
+          "finite": true,
+          "max": 0.8408517082809752,
+          "min": -0.05375662443385288
+        },
+        {
+          "finite": true,
+          "max": 0.6942577865934237,
+          "min": -0.5978969017040437
+        },
+        {
+          "finite": true,
+          "max": 0.3655520792872401,
+          "min": -0.7001429958146542
+        },
+        {
+          "finite": true,
+          "max": 0.043740242650337824,
+          "min": -0.7804792126158482
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 19.016,
+      "env_creation_seconds": 2.7,
+      "environment_latency_seconds": {
+        "count": 98,
+        "max": 0.645601,
+        "mean": 0.136713
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260714",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "8e240fdf6a9c939b6cbf573f7e07a29d3078fb53d22b17dc595b730c0de21fd4",
+      "initial_state_sha256_runtime": "8e240fdf6a9c939b6cbf573f7e07a29d3078fb53d22b17dc595b730c0de21fd4",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 13,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 11,
+        "max": 0.562418,
+        "mean": 0.529488
+      },
+      "reset_identity": 20260714,
+      "role": "matched_control_spatial",
+      "rss_mib": 4395.23,
+      "steps": 97,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl from table center and place it on the plate",
+      "task_id": 2,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110013--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4"
+    },
+    {
+      "action_chunk_count": 12,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.02469307631784677
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5212123311210859
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8644670756352782
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.8754220142899864
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5577287933034467
+        },
+        {
+          "finite": true,
+          "max": 0.29127895243644386,
+          "min": -0.11816187978327763
+        },
+        {
+          "finite": true,
+          "max": 0.8919747553362805,
+          "min": -0.012995513512291126
+        },
+        {
+          "finite": true,
+          "max": 0.8737165242450999,
+          "min": -0.03293805450678468
+        },
+        {
+          "finite": true,
+          "max": 0.7304154143971041,
+          "min": -0.07616794827356255
+        },
+        {
+          "finite": true,
+          "max": 0.6975448436664856,
+          "min": -0.6672781798505294
+        },
+        {
+          "finite": true,
+          "max": 0.20941686831680262,
+          "min": -0.7695242739611399
+        },
+        {
+          "finite": true,
+          "max": 0.3203125,
+          "min": -0.6672781798505294
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 19.05,
+      "env_creation_seconds": 1.941,
+      "environment_latency_seconds": {
+        "count": 105,
+        "max": 0.637451,
+        "mean": 0.13777
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260715",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "ec0ce01e43aac4b4465f6d7932a486df948ce36a096fe5970b677623505673a8",
+      "initial_state_sha256_runtime": "ec0ce01e43aac4b4465f6d7932a486df948ce36a096fe5970b677623505673a8",
+      "initial_state_shape": [
+        92
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_steps": 220,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 14,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 12,
+        "max": 0.55546,
+        "mean": 0.524179
+      },
+      "reset_identity": 20260715,
+      "role": "matched_control_spatial",
+      "rss_mib": 4395.84,
+      "steps": 104,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+      "task_description": "pick up the black bowl from table center and place it on the plate",
+      "task_id": 2,
+      "task_problem_folder": "libero_spatial",
+      "unnormalization_key": "libero_spatial_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110014--success=True--task=pick_up_the_black_bowl_from_table_center_and_place.mp4"
+    },
+    {
+      "action_chunk_count": 31,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.013819372009360453
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2883388007768175
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.6205444405537328
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7301723016801148
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.690307624906885
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5507812562005806
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.3448137595388931
+        },
+        {
+          "finite": true,
+          "max": 0.15560932232256386,
+          "min": -0.1788887945178223
+        },
+        {
+          "finite": true,
+          "max": 0.3199637473128105,
+          "min": -0.26508440599243344
+        },
+        {
+          "finite": true,
+          "max": 0.3234730944656271,
+          "min": -0.3813563799143538
+        },
+        {
+          "finite": true,
+          "max": 0.32464287684989934,
+          "min": -0.407932831096507
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4278651694831219
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.06161919267857548
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2882629466763434
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4797520332966453
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6791538920913398
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7297956340074527
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6443376945240122
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.3547799287322006
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3747122671188155
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4577636770630443
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4278651694831219
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.35145787233443143
+        },
+        {
+          "finite": true,
+          "max": 0.3129534072193991,
+          "min": -0.12223598088835985
+        },
+        {
+          "finite": true,
+          "max": 0.5621076370520857,
+          "min": -0.0019378662109375
+        },
+        {
+          "finite": true,
+          "max": 0.5355311858699325,
+          "min": -0.13906335478149418
+        },
+        {
+          "finite": true,
+          "max": 0.5773943292022115,
+          "min": -0.1054177246594239
+        },
+        {
+          "finite": true,
+          "max": 0.555238567113912,
+          "min": -0.15554284708618166
+        },
+        {
+          "finite": true,
+          "max": 0.38748779701678804,
+          "min": -0.40461077469873785
+        },
+        {
+          "finite": true,
+          "max": 0.2102417003103929,
+          "min": -0.42122105668758364
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5208827486206582
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 35.922,
+      "env_creation_seconds": 1.08,
+      "environment_latency_seconds": {
+        "count": 253,
+        "max": 0.616023,
+        "mean": 0.130676
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260711",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "9ae67aa7e7dd9987ecd1f2930e2b061fb66a414dd94e4b575417356a556cbd90",
+      "initial_state_sha256_runtime": "9ae67aa7e7dd9987ecd1f2930e2b061fb66a414dd94e4b575417356a556cbd90",
+      "initial_state_shape": [
+        47
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 15,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 31,
+        "max": 0.546905,
+        "mean": 0.53147
+      },
+      "reset_identity": 20260711,
+      "role": "matched_control_libero10",
+      "rss_mib": 4236.008,
+      "steps": 252,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "task_description": "turn on the stove and put the moka pot on it",
+      "task_id": 2,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110015--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4"
+    },
+    {
+      "action_chunk_count": 30,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.0034724646681126847
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.015514919110025782
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.17538888325266633
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.690307624906885
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.776681091248883
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7069179068957308
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.517560692222889
+        },
+        {
+          "finite": true,
+          "max": 0.05413070048694896,
+          "min": -0.2501351522024723
+        },
+        {
+          "finite": true,
+          "max": 0.22989050372384967,
+          "min": -0.20086145092407226
+        },
+        {
+          "finite": true,
+          "max": 0.32113352969708264,
+          "min": -0.33318656214670106
+        },
+        {
+          "finite": true,
+          "max": 0.32113352969708264,
+          "min": -0.3946446055054304
+        },
+        {
+          "finite": true,
+          "max": 0.32932200638698816,
+          "min": -0.37803432351658467
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.29498291357235584
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.1513719880593507
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.3009233821553716
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5842006259986281
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7804373759235657
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.745621178356238
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.48608225103615943
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.47105190265412095
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4477975078697369
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.41789900028981447
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.22189767282143447
+        },
+        {
+          "finite": true,
+          "max": 0.27973284324170766,
+          "min": -0.00445556640625
+        },
+        {
+          "finite": true,
+          "max": 0.5953282010297771,
+          "min": -0.0037384033203125
+        },
+        {
+          "finite": true,
+          "max": 0.5621076370520857,
+          "min": -0.11297082529907232
+        },
+        {
+          "finite": true,
+          "max": 0.5647338937231832,
+          "min": -0.2832589124475098
+        },
+        {
+          "finite": true,
+          "max": 0.4476248655421722,
+          "min": -0.36290979192016604
+        },
+        {
+          "finite": true,
+          "max": 0.2284410763114959,
+          "min": -0.4677298462563518
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3547799287322006
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 34.784,
+      "env_creation_seconds": 0.984,
+      "environment_latency_seconds": {
+        "count": 246,
+        "max": 0.625918,
+        "mean": 0.130494
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260712",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "453d74e45f2f7141904a047d4237db1ee0b5576fe7a3f6c2cb4801e83bacb88a",
+      "initial_state_sha256_runtime": "453d74e45f2f7141904a047d4237db1ee0b5576fe7a3f6c2cb4801e83bacb88a",
+      "initial_state_shape": [
+        47
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 16,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 30,
+        "max": 0.552548,
+        "mean": 0.528316
+      },
+      "reset_identity": 20260712,
+      "role": "matched_control_libero10",
+      "rss_mib": 4312.227,
+      "steps": 245,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "task_description": "turn on the stove and put the moka pot on it",
+      "task_id": 2,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110016--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4"
+    },
+    {
+      "action_chunk_count": 29,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.025896345353054406
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.05164228243576541
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.10064261430286037
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.29498291357235584
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7135620196912691
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7700369784533447
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7301723016801148
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3248814211522782
+        },
+        {
+          "finite": true,
+          "max": 0.14859062801693057,
+          "min": -0.17614221246704104
+        },
+        {
+          "finite": true,
+          "max": 0.3129450530071771,
+          "min": -0.266745434191318
+        },
+        {
+          "finite": true,
+          "max": 0.32464287684989934,
+          "min": -0.47769601544965923
+        },
+        {
+          "finite": true,
+          "max": 0.3223033120813549,
+          "min": -0.49762835383627413
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5507812562005806
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.07665058282612736
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3452349063319704
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5905308437381422
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7519513960957521
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7361258517469669
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5525495373010576
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4677298462563518
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.47105190265412095
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.36806815432327716
+        },
+        {
+          "finite": true,
+          "max": 0.10179519743619736,
+          "min": -0.07904924771736088
+        },
+        {
+          "finite": true,
+          "max": 0.5853620318364696,
+          "min": -0.007317935149700944
+        },
+        {
+          "finite": true,
+          "max": 0.5900547646812397,
+          "min": -0.14318322785766602
+        },
+        {
+          "finite": true,
+          "max": 0.6217058533788102,
+          "min": -0.2516732188635254
+        },
+        {
+          "finite": true,
+          "max": 0.5773943292022115,
+          "min": -0.3115931955612016
+        },
+        {
+          "finite": true,
+          "max": 0.2988647486635905,
+          "min": -0.5009504102340433
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6039341585648871
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 33.846,
+      "env_creation_seconds": 0.934,
+      "environment_latency_seconds": {
+        "count": 238,
+        "max": 0.611065,
+        "mean": 0.131283
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260713",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "8227fd36ba47ae92020986ff9b090acd500ddadcc057c66b04f8afe6fb4de2bb",
+      "initial_state_sha256_runtime": "8227fd36ba47ae92020986ff9b090acd500ddadcc057c66b04f8afe6fb4de2bb",
+      "initial_state_shape": [
+        47
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 17,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 29,
+        "max": 0.539939,
+        "mean": 0.526786
+      },
+      "reset_identity": 20260713,
+      "role": "matched_control_libero10",
+      "rss_mib": 4277.391,
+      "steps": 237,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "task_description": "turn on the stove and put the moka pot on it",
+      "task_id": 2,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110017--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4"
+    },
+    {
+      "action_chunk_count": 30,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.020913260756400653
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.012254449820499391
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.13552420647943653
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5574253689961189
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7467825836689607
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7069179068957308
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.6537650045314244
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2684064623902026
+        },
+        {
+          "finite": true,
+          "max": 0.13513813059780005,
+          "min": -0.1294503176037598
+        },
+        {
+          "finite": true,
+          "max": 0.2684933224048329,
+          "min": -0.23382043553344728
+        },
+        {
+          "finite": true,
+          "max": 0.3223033120813549,
+          "min": -0.40128871830096874
+        },
+        {
+          "finite": true,
+          "max": 0.3234730944656271,
+          "min": -0.43450928227866026
+        },
+        {
+          "finite": true,
+          "max": 0.3269824416184438,
+          "min": -0.5208827486206582
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2750505751857409
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.017646138312115145
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4006243115527189
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6791538920913398
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7519513960957521
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7424560694864809
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.48434012824519757
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.4644077898585826
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.37803432351658467
+        },
+        {
+          "finite": true,
+          "max": 0.99609375,
+          "min": -0.19033813704262748
+        },
+        {
+          "finite": true,
+          "max": 0.45414080412458824,
+          "min": -0.0015716552734375
+        },
+        {
+          "finite": true,
+          "max": 0.6152605394163921,
+          "min": -0.001739501953125
+        },
+        {
+          "finite": true,
+          "max": 0.5742292203324544,
+          "min": -0.1404366458068848
+        },
+        {
+          "finite": true,
+          "max": 0.612210526769539,
+          "min": -0.20086145092407226
+        },
+        {
+          "finite": true,
+          "max": 0.5109270429373132,
+          "min": -0.341491703141124
+        },
+        {
+          "finite": true,
+          "max": 0.24347534344284205,
+          "min": -0.5507812562005806
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5939679893715796
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 34.8,
+      "env_creation_seconds": 1.017,
+      "environment_latency_seconds": {
+        "count": 246,
+        "max": 0.641167,
+        "mean": 0.13014
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260714",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "53956839e3584f29993eb41169934902624a2f06d531b13bec4cd8f8cdd5de9d",
+      "initial_state_sha256_runtime": "53956839e3584f29993eb41169934902624a2f06d531b13bec4cd8f8cdd5de9d",
+      "initial_state_shape": [
+        47
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 18,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 30,
+        "max": 0.557403,
+        "mean": 0.526518
+      },
+      "reset_identity": 20260714,
+      "role": "matched_control_libero10",
+      "rss_mib": 4313.887,
+      "steps": 245,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "task_description": "turn on the stove and put the moka pot on it",
+      "task_id": 2,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110018--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4"
+    },
+    {
+      "action_chunk_count": 30,
+      "action_chunk_ranges": [
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.02238726439346503
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.25511823679912604
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6039341585648871
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.7600708092600372
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.7002737941001925
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.44115339507419854
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.2916608571745867
+        },
+        {
+          "finite": true,
+          "max": 0.07954741032287593,
+          "min": -0.04416765554078472
+        },
+        {
+          "finite": true,
+          "max": 0.30241701154872724,
+          "min": -0.21193150362812696
+        },
+        {
+          "finite": true,
+          "max": 0.3199637473128105,
+          "min": -0.4477975078697369
+        },
+        {
+          "finite": true,
+          "max": 0.3223033120813549,
+          "min": -0.5242048050184274
+        },
+        {
+          "finite": true,
+          "max": 0.32113352969708264,
+          "min": -0.5640694817916572
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4245431130853528
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.03726834063954142
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.35947789624587717
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.5683750816498429
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.6253470413054698
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.5778704082591141
+        },
+        {
+          "finite": true,
+          "max": 1.0078125,
+          "min": -0.36264300511563424
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3913225491076613
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.45444162066527516
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.3946446055054304
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.25511823679912604
+        },
+        {
+          "finite": true,
+          "max": 0.1534947001264798,
+          "min": -0.12057495268947527
+        },
+        {
+          "finite": true,
+          "max": 0.568751749847624,
+          "min": -0.0025482177734375
+        },
+        {
+          "finite": true,
+          "max": 0.558403675983669,
+          "min": -0.12395715350219727
+        },
+        {
+          "finite": true,
+          "max": 0.5963849824207539,
+          "min": -0.2132210701525879
+        },
+        {
+          "finite": true,
+          "max": 0.48244106310949975,
+          "min": -0.36474609792550805
+        },
+        {
+          "finite": true,
+          "max": 0.28303920431480534,
+          "min": -0.44115339507419854
+        },
+        {
+          "finite": true,
+          "max": 1.0,
+          "min": -0.4810180718474284
+        }
+      ],
+      "action_chunk_shapes": [
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "autocast": {
+        "cpu": false,
+        "cuda": false,
+        "fp16_or_bf16_active": false
+      },
+      "cuda_memory": {
+        "allocated_bytes": 5003023872,
+        "allocated_mib": 4771.255,
+        "max_allocated_bytes": 5808542208,
+        "max_allocated_mib": 5539.458
+      },
+      "done": true,
+      "elapsed_seconds": 34.961,
+      "env_creation_seconds": 0.996,
+      "environment_latency_seconds": {
+        "count": 245,
+        "max": 0.635819,
+        "mean": 0.131745
+      },
+      "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260715",
+      "exception": null,
+      "final_reward": 1.0,
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "0da0be61b3b3451f1ee4b9b911e9dcdc4fe9df1b95cdfb702eb3bfc9692ca446",
+      "initial_state_sha256_runtime": "0da0be61b3b3451f1ee4b9b911e9dcdc4fe9df1b95cdfb702eb3bfc9692ca446",
+      "initial_state_shape": [
+        47
+      ],
+      "input_tensor_devices": {
+        "note": "official get_vla_action moves processor inputs to this DEVICE before predict_action",
+        "official_openvla_utils_DEVICE": "cuda:0"
+      },
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_steps": 520,
+      "num_steps_wait": 10,
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+      "planned_episode_index": 19,
+      "policy": "quantized_openvla_oft_int4",
+      "policy_latency_seconds": {
+        "count": 30,
+        "max": 0.560595,
+        "mean": 0.527753
+      },
+      "reset_identity": 20260715,
+      "role": "matched_control_libero10",
+      "rss_mib": 4311.191,
+      "steps": 244,
+      "success": true,
+      "suite": "libero_10",
+      "task_bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "task_description": "turn on the stove and put the moka pot on it",
+      "task_id": 2,
+      "task_problem_folder": "libero_10",
+      "unnormalization_key": "libero_10_no_noops",
+      "video_path": "./rollouts/2026_07_11/2026_07_11-13_35_57--openvla_oft--episode=110019--success=True--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4"
+    }
+  ],
+  "errors": [],
+  "exception": null,
+  "full_precision_claim": false,
+  "infrastructure_failure_count": 0,
+  "load_seconds": 107.557,
+  "manifest": {
+    "canonical_payload_sha256": "716eed8de1708f503ff0123c1a094c886fb162b6b0f8d3d2c40d2e6583787db8",
+    "date_kst": "2026-07-11",
+    "episodes": [
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "2e3f91b350eaef1b23c2d4ee14c513b2158a106bff7ed6c249b58e2cf89367f4",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 0,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260711,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "d1f552d41794709fdcdccf886e4be6384f15a50c1d0e6227a99e08d86e19e23e",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 1,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260712,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "d5a2a728be37ce588fd1326df08b48cb9e1913b333c6719bb7059308783d4731",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 2,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260713,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "7e950b4903eb62f247605b60952d62aca17222446e05c299de3d8b615756a2fb",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 3,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260714,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_4|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "eacc257cf75be38a89bdf75e5300cded0aee0ec1d0a2ac4b91d4c4cdb11c763b",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 4,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260715,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "4365b3c5a82da7f8818c11ef5fd494c4890c17c4c3e27948dc290a9ac2f08131",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 5,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260711,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "b55dd89278457f3c00d7b4d871dc8d64e84534e5a119dd35a53e5a152c831d6a",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 6,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260712,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "1d2fdd615bb32a097ad2781dd5e9203104555e54521dd9bce6eacbb5bf718e33",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 7,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260713,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "79a2ec18a6067d027a62de697a1931bf818dffc4dd7572c39c4426e122bd35d0",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 8,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260714,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_4|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "4da1e19512111404fa9dc3c87088cf26dce60996e1e9cf5b43ca04c73465a4e6",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 9,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260715,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "408c455fb617e5320060d643ef80ec2035d4e98600659cc3deb5a1e85482bf76",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 10,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260711,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "05962fe9baf173d80806225d32a331fa8eedcdb5c14a085ee5354715380c0f8f",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 11,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260712,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "111971abb8f2e699872e68aa0ed445287da5c2ed642a5da083a9c9d4d90a6d12",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 12,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260713,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "8e240fdf6a9c939b6cbf573f7e07a29d3078fb53d22b17dc595b730c0de21fd4",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 13,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260714,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_spatial|task_2|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "ec0ce01e43aac4b4465f6d7932a486df948ce36a096fe5970b677623505673a8",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 14,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260715,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "9ae67aa7e7dd9987ecd1f2930e2b061fb66a414dd94e4b575417356a556cbd90",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 15,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260711,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "453d74e45f2f7141904a047d4237db1ee0b5576fe7a3f6c2cb4801e83bacb88a",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 16,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260712,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "8227fd36ba47ae92020986ff9b090acd500ddadcc057c66b04f8afe6fb4de2bb",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 17,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260713,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "53956839e3584f29993eb41169934902624a2f06d531b13bec4cd8f8cdd5de9d",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 18,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260714,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "quantized_openvla_oft_int4|libero_10|task_2|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "0da0be61b3b3451f1ee4b9b911e9dcdc4fe9df1b95cdfb702eb3bfc9692ca446",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 19,
+        "policy": "quantized_openvla_oft_int4",
+        "reset_identity": 20260715,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      }
+    ],
+    "full_precision_claim": false,
+    "identity_mapping_rule": "reset identity labels 20260711..20260715 map to official LIBERO initial_state indices 0..4 per task",
+    "max_total_episode_budget_with_smolvla": 40,
+    "planned_episode_count": 20,
+    "policy": "quantized_openvla_oft_int4",
+    "prior_smolvla_identity_caveat": "Earlier LeRobot runs used reset_seed labels, but LiberoEnv increments init_state_id on explicit reset and again after success auto-reset; exact video-backed init-state-array identity therefore requires the matched exact-init rerun.",
+    "prior_smolvla_reuse_status": "not_reused_without_matched_exact_init_rerun",
+    "quantized": true,
+    "reset_identities": [
+      20260711,
+      20260712,
+      20260713,
+      20260714,
+      20260715
+    ],
+    "schema_version": 1,
+    "tasks": [
+      {
+        "bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+        "initial_state_count": 50,
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "problem_folder": "libero_spatial",
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+        "initial_state_count": 50,
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "problem_folder": "libero_10",
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+        "initial_state_count": 50,
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "problem_folder": "libero_spatial",
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+        "initial_state_count": 50,
+        "instruction": "turn on the stove and put the moka pot on it",
+        "problem_folder": "libero_10",
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      }
+    ]
+  },
+  "model_hf_device_map": {
+    "": 0
+  },
+  "model_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "vision_backbone.featurizer.cls_token"
+  },
+  "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+  "openvla_input_device_constant": "cuda:0",
+  "policy": "quantized_openvla_oft_int4",
+  "proprio_projector_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "fc1.weight"
+  },
+  "quantized": true,
+  "rss_mib": 4184.285,
+  "schema_version": 1,
+  "success": true,
+  "successful_episode_count": 20,
+  "variant": "int4"
+}

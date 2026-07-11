@@ -1,0 +1,1590 @@
+{
+  "completed_episode_count": 20,
+  "cuda_memory": {
+    "allocated_bytes": 935880704,
+    "allocated_mb": 892.525,
+    "max_allocated_bytes": 971650560,
+    "max_allocated_mb": 926.638
+  },
+  "date_kst": "2026-07-11",
+  "elapsed_seconds": 531.11,
+  "episodes": [
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.093557,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 34.611,
+      "env_step_latency_max_s": 0.084092,
+      "env_step_latency_mean_s": 0.070997,
+      "env_steps": 280,
+      "episode_id": "frozen_base|libero_spatial|task_4|identity_20260711",
+      "episode_length": 280,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 0,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "2e3f91b350eaef1b23c2d4ee14c513b2158a106bff7ed6c249b58e2cf89367f4",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 0,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.270897,
+      "policy_latency_mean_s": 0.007403,
+      "reset_identity": 20260711,
+      "role": "hard_slice_stable_grasp",
+      "rss_mb": 4073.305,
+      "rss_mib": 4073.312,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_4_identity_20260711.mp4"
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.026094,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 20.052,
+      "env_step_latency_max_s": 2.80744,
+      "env_step_latency_mean_s": 0.090235,
+      "env_steps": 131,
+      "episode_id": "frozen_base|libero_spatial|task_4|identity_20260712",
+      "episode_length": 131,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 1,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "d1f552d41794709fdcdccf886e4be6384f15a50c1d0e6227a99e08d86e19e23e",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 1,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.256521,
+      "policy_latency_mean_s": 0.007499,
+      "reset_identity": 20260712,
+      "role": "hard_slice_stable_grasp",
+      "rss_mb": 4221.473,
+      "rss_mib": 4221.473,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_4_identity_20260712.mp4"
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.05164,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.02,
+      "env_step_latency_max_s": 0.080889,
+      "env_step_latency_mean_s": 0.069144,
+      "env_steps": 280,
+      "episode_id": "frozen_base|libero_spatial|task_4|identity_20260713",
+      "episode_length": 280,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 2,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "d5a2a728be37ce588fd1326df08b48cb9e1913b333c6719bb7059308783d4731",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 2,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.278115,
+      "policy_latency_mean_s": 0.007316,
+      "reset_identity": 20260713,
+      "role": "hard_slice_stable_grasp",
+      "rss_mb": 4221.566,
+      "rss_mib": 4221.566,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_4_identity_20260713.mp4"
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.070067,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.678,
+      "env_step_latency_max_s": 0.085704,
+      "env_step_latency_mean_s": 0.070022,
+      "env_steps": 280,
+      "episode_id": "frozen_base|libero_spatial|task_4|identity_20260714",
+      "episode_length": 280,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 3,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "7e950b4903eb62f247605b60952d62aca17222446e05c299de3d8b615756a2fb",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 3,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.300094,
+      "policy_latency_mean_s": 0.00725,
+      "reset_identity": 20260714,
+      "role": "hard_slice_stable_grasp",
+      "rss_mb": 4248.137,
+      "rss_mib": 4248.137,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_4_identity_20260714.mp4"
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.066699,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.527,
+      "env_step_latency_max_s": 0.080725,
+      "env_step_latency_mean_s": 0.071597,
+      "env_steps": 280,
+      "episode_id": "frozen_base|libero_spatial|task_4|identity_20260715",
+      "episode_length": 280,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 4,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "eacc257cf75be38a89bdf75e5300cded0aee0ec1d0a2ac4b91d4c4cdb11c763b",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 4,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.286806,
+      "policy_latency_mean_s": 0.007315,
+      "reset_identity": 20260715,
+      "role": "hard_slice_stable_grasp",
+      "rss_mb": 4261.355,
+      "rss_mib": 4261.355,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_4_identity_20260715.mp4"
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.060063,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.611,
+      "env_step_latency_max_s": 0.041987,
+      "env_step_latency_mean_s": 0.029413,
+      "env_steps": 520,
+      "episode_id": "frozen_base|libero_10|task_4|identity_20260711",
+      "episode_length": 520,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 0,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "4365b3c5a82da7f8818c11ef5fd494c4890c17c4c3e27948dc290a9ac2f08131",
+      "initial_state_shape": [
+        84
+      ],
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 5,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.2932,
+      "policy_latency_mean_s": 0.007111,
+      "reset_identity": 20260711,
+      "role": "hard_slice_long_horizon",
+      "rss_mb": 4804.027,
+      "rss_mib": 4804.027,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_4_identity_20260711.mp4"
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.041545,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.809,
+      "env_step_latency_max_s": 0.043088,
+      "env_step_latency_mean_s": 0.030631,
+      "env_steps": 520,
+      "episode_id": "frozen_base|libero_10|task_4|identity_20260712",
+      "episode_length": 520,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 1,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "b55dd89278457f3c00d7b4d871dc8d64e84534e5a119dd35a53e5a152c831d6a",
+      "initial_state_shape": [
+        84
+      ],
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 6,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.293881,
+      "policy_latency_mean_s": 0.007162,
+      "reset_identity": 20260712,
+      "role": "hard_slice_long_horizon",
+      "rss_mb": 4824.105,
+      "rss_mib": 4824.105,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_4_identity_20260712.mp4"
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.061138,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.164,
+      "env_step_latency_max_s": 0.038565,
+      "env_step_latency_mean_s": 0.02822,
+      "env_steps": 520,
+      "episode_id": "frozen_base|libero_10|task_4|identity_20260713",
+      "episode_length": 520,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 2,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "1d2fdd615bb32a097ad2781dd5e9203104555e54521dd9bce6eacbb5bf718e33",
+      "initial_state_shape": [
+        84
+      ],
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 7,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.279115,
+      "policy_latency_mean_s": 0.006838,
+      "reset_identity": 20260713,
+      "role": "hard_slice_long_horizon",
+      "rss_mb": 4828.273,
+      "rss_mib": 4828.273,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_4_identity_20260713.mp4"
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.037915,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.58,
+      "env_step_latency_max_s": 0.042682,
+      "env_step_latency_mean_s": 0.028874,
+      "env_steps": 520,
+      "episode_id": "frozen_base|libero_10|task_4|identity_20260714",
+      "episode_length": 520,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 3,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "79a2ec18a6067d027a62de697a1931bf818dffc4dd7572c39c4426e122bd35d0",
+      "initial_state_shape": [
+        84
+      ],
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 8,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.337545,
+      "policy_latency_mean_s": 0.007019,
+      "reset_identity": 20260714,
+      "role": "hard_slice_long_horizon",
+      "rss_mb": 4883.641,
+      "rss_mib": 4883.641,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_4_identity_20260714.mp4"
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.030864,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.242,
+      "env_step_latency_max_s": 3.246749,
+      "env_step_latency_mean_s": 0.04198,
+      "env_steps": 263,
+      "episode_id": "frozen_base|libero_10|task_4|identity_20260715",
+      "episode_length": 263,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 4,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "4da1e19512111404fa9dc3c87088cf26dce60996e1e9cf5b43ca04c73465a4e6",
+      "initial_state_shape": [
+        84
+      ],
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 9,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.31451,
+      "policy_latency_mean_s": 0.007644,
+      "reset_identity": 20260715,
+      "role": "hard_slice_long_horizon",
+      "rss_mb": 4849.867,
+      "rss_mib": 4849.867,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_4_identity_20260715.mp4"
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.018912,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 18.278,
+      "env_step_latency_max_s": 2.988427,
+      "env_step_latency_mean_s": 0.099091,
+      "env_steps": 102,
+      "episode_id": "frozen_base|libero_spatial|task_2|identity_20260711",
+      "episode_length": 102,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 0,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "408c455fb617e5320060d643ef80ec2035d4e98600659cc3deb5a1e85482bf76",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 10,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.246893,
+      "policy_latency_mean_s": 0.008948,
+      "reset_identity": 20260711,
+      "role": "matched_control_spatial",
+      "rss_mb": 4577.102,
+      "rss_mib": 4577.102,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_2_identity_20260711.mp4"
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.04629,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 17.226,
+      "env_step_latency_max_s": 3.005805,
+      "env_step_latency_mean_s": 0.101575,
+      "env_steps": 92,
+      "episode_id": "frozen_base|libero_spatial|task_2|identity_20260712",
+      "episode_length": 92,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 1,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "05962fe9baf173d80806225d32a331fa8eedcdb5c14a085ee5354715380c0f8f",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 11,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.272376,
+      "policy_latency_mean_s": 0.007479,
+      "reset_identity": 20260712,
+      "role": "matched_control_spatial",
+      "rss_mb": 4571.652,
+      "rss_mib": 4571.652,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_2_identity_20260712.mp4"
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.041256,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 17.532,
+      "env_step_latency_max_s": 2.930416,
+      "env_step_latency_mean_s": 0.100168,
+      "env_steps": 97,
+      "episode_id": "frozen_base|libero_spatial|task_2|identity_20260713",
+      "episode_length": 97,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 2,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "111971abb8f2e699872e68aa0ed445287da5c2ed642a5da083a9c9d4d90a6d12",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 12,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.309235,
+      "policy_latency_mean_s": 0.007766,
+      "reset_identity": 20260713,
+      "role": "matched_control_spatial",
+      "rss_mb": 4567.395,
+      "rss_mib": 4567.395,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_2_identity_20260713.mp4"
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.018529,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 17.273,
+      "env_step_latency_max_s": 2.971153,
+      "env_step_latency_mean_s": 0.099726,
+      "env_steps": 96,
+      "episode_id": "frozen_base|libero_spatial|task_2|identity_20260714",
+      "episode_length": 96,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 3,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "8e240fdf6a9c939b6cbf573f7e07a29d3078fb53d22b17dc595b730c0de21fd4",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 13,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.282148,
+      "policy_latency_mean_s": 0.007526,
+      "reset_identity": 20260714,
+      "role": "matched_control_spatial",
+      "rss_mb": 4590.594,
+      "rss_mib": 4590.594,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_2_identity_20260714.mp4"
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.01707,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 17.854,
+      "env_step_latency_max_s": 2.982987,
+      "env_step_latency_mean_s": 0.100705,
+      "env_steps": 98,
+      "episode_id": "frozen_base|libero_spatial|task_2|identity_20260715",
+      "episode_length": 98,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 4,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "ec0ce01e43aac4b4465f6d7932a486df948ce36a096fe5970b677623505673a8",
+      "initial_state_shape": [
+        92
+      ],
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 14,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.283792,
+      "policy_latency_mean_s": 0.007191,
+      "reset_identity": 20260715,
+      "role": "matched_control_spatial",
+      "rss_mb": 4590.594,
+      "rss_mib": 4590.594,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_spatial/task_2_identity_20260715.mp4"
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.062075,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 38.666,
+      "env_step_latency_max_s": 0.065796,
+      "env_step_latency_mean_s": 0.055557,
+      "env_steps": 520,
+      "episode_id": "frozen_base|libero_10|task_2|identity_20260711",
+      "episode_length": 520,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 0,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 0,
+      "initial_state_sha256": "9ae67aa7e7dd9987ecd1f2930e2b061fb66a414dd94e4b575417356a556cbd90",
+      "initial_state_shape": [
+        47
+      ],
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 15,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.271046,
+      "policy_latency_mean_s": 0.006939,
+      "reset_identity": 20260711,
+      "role": "matched_control_libero10",
+      "rss_mb": 4572.457,
+      "rss_mib": 4572.457,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_2_identity_20260711.mp4"
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.034058,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.845,
+      "env_step_latency_max_s": 2.064489,
+      "env_step_latency_mean_s": 0.06559,
+      "env_steps": 241,
+      "episode_id": "frozen_base|libero_10|task_2|identity_20260712",
+      "episode_length": 241,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 1,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 1,
+      "initial_state_sha256": "453d74e45f2f7141904a047d4237db1ee0b5576fe7a3f6c2cb4801e83bacb88a",
+      "initial_state_shape": [
+        47
+      ],
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 16,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.271021,
+      "policy_latency_mean_s": 0.006965,
+      "reset_identity": 20260712,
+      "role": "matched_control_libero10",
+      "rss_mb": 4516.453,
+      "rss_mib": 4516.453,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_2_identity_20260712.mp4"
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.023037,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.012,
+      "env_step_latency_max_s": 1.985177,
+      "env_step_latency_mean_s": 0.066234,
+      "env_steps": 232,
+      "episode_id": "frozen_base|libero_10|task_2|identity_20260713",
+      "episode_length": 232,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 2,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 2,
+      "initial_state_sha256": "8227fd36ba47ae92020986ff9b090acd500ddadcc057c66b04f8afe6fb4de2bb",
+      "initial_state_shape": [
+        47
+      ],
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 17,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.251278,
+      "policy_latency_mean_s": 0.00695,
+      "reset_identity": 20260713,
+      "role": "matched_control_libero10",
+      "rss_mb": 4515.785,
+      "rss_mib": 4515.785,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_2_identity_20260713.mp4"
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.029939,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.492,
+      "env_step_latency_max_s": 1.941328,
+      "env_step_latency_mean_s": 0.064958,
+      "env_steps": 244,
+      "episode_id": "frozen_base|libero_10|task_2|identity_20260714",
+      "episode_length": 244,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 3,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 3,
+      "initial_state_sha256": "53956839e3584f29993eb41169934902624a2f06d531b13bec4cd8f8cdd5de9d",
+      "initial_state_shape": [
+        47
+      ],
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 18,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.272105,
+      "policy_latency_mean_s": 0.006916,
+      "reset_identity": 20260714,
+      "role": "matched_control_libero10",
+      "rss_mb": 4464.004,
+      "rss_mib": 4464.004,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_2_identity_20260714.mp4"
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.033601,
+        "shape_ok": true
+      },
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.162,
+      "env_step_latency_max_s": 1.987022,
+      "env_step_latency_mean_s": 0.067996,
+      "env_steps": 234,
+      "episode_id": "frozen_base|libero_10|task_2|identity_20260715",
+      "episode_length": 234,
+      "exact_init_reset_proof": {
+        "auto_reset_after_terminal_cannot_affect_next_episode": true,
+        "episode_index": 4,
+        "fresh_env_per_episode": true,
+        "n_envs": 1
+      },
+      "exception": null,
+      "failure_status": "success",
+      "initial_state_dtype": "float64",
+      "initial_state_index": 4,
+      "initial_state_sha256": "0da0be61b3b3451f1ee4b9b911e9dcdc4fe9df1b95cdfb702eb3bfc9692ca446",
+      "initial_state_shape": [
+        47
+      ],
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "planned_episode_index": 19,
+      "policy": "frozen_base",
+      "policy_latency_max_s": 0.264931,
+      "policy_latency_mean_s": 0.006994,
+      "reset_identity": 20260715,
+      "role": "matched_control_libero10",
+      "rss_mb": 4455.605,
+      "rss_mib": 4455.605,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": "runs/openvla_oft_int4/smolvla_exact_videos/frozen_base/libero_10/task_2_identity_20260715.mp4"
+    }
+  ],
+  "errors": [],
+  "infrastructure_failure_count": 0,
+  "manifest": {
+    "canonical_payload_sha256": "e414eb9860aaa8b9f7230a9fe0a28bb071bcbdc990d42935b0d59aa144e4bd92",
+    "date_kst": "2026-07-11",
+    "episodes": [
+      {
+        "episode_id": "frozen_base|libero_spatial|task_4|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "2e3f91b350eaef1b23c2d4ee14c513b2158a106bff7ed6c249b58e2cf89367f4",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 0,
+        "policy": "frozen_base",
+        "reset_identity": 20260711,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_4|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "d1f552d41794709fdcdccf886e4be6384f15a50c1d0e6227a99e08d86e19e23e",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 1,
+        "policy": "frozen_base",
+        "reset_identity": 20260712,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_4|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "d5a2a728be37ce588fd1326df08b48cb9e1913b333c6719bb7059308783d4731",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 2,
+        "policy": "frozen_base",
+        "reset_identity": 20260713,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_4|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "7e950b4903eb62f247605b60952d62aca17222446e05c299de3d8b615756a2fb",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 3,
+        "policy": "frozen_base",
+        "reset_identity": 20260714,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_4|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "eacc257cf75be38a89bdf75e5300cded0aee0ec1d0a2ac4b91d4c4cdb11c763b",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "planned_episode_index": 4,
+        "policy": "frozen_base",
+        "reset_identity": 20260715,
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_4|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "4365b3c5a82da7f8818c11ef5fd494c4890c17c4c3e27948dc290a9ac2f08131",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 5,
+        "policy": "frozen_base",
+        "reset_identity": 20260711,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_4|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "b55dd89278457f3c00d7b4d871dc8d64e84534e5a119dd35a53e5a152c831d6a",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 6,
+        "policy": "frozen_base",
+        "reset_identity": 20260712,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_4|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "1d2fdd615bb32a097ad2781dd5e9203104555e54521dd9bce6eacbb5bf718e33",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 7,
+        "policy": "frozen_base",
+        "reset_identity": 20260713,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_4|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "79a2ec18a6067d027a62de697a1931bf818dffc4dd7572c39c4426e122bd35d0",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 8,
+        "policy": "frozen_base",
+        "reset_identity": 20260714,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_4|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "4da1e19512111404fa9dc3c87088cf26dce60996e1e9cf5b43ca04c73465a4e6",
+        "initial_state_shape": [
+          84
+        ],
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "planned_episode_index": 9,
+        "policy": "frozen_base",
+        "reset_identity": 20260715,
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_2|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "408c455fb617e5320060d643ef80ec2035d4e98600659cc3deb5a1e85482bf76",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 10,
+        "policy": "frozen_base",
+        "reset_identity": 20260711,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_2|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "05962fe9baf173d80806225d32a331fa8eedcdb5c14a085ee5354715380c0f8f",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 11,
+        "policy": "frozen_base",
+        "reset_identity": 20260712,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_2|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "111971abb8f2e699872e68aa0ed445287da5c2ed642a5da083a9c9d4d90a6d12",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 12,
+        "policy": "frozen_base",
+        "reset_identity": 20260713,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_2|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "8e240fdf6a9c939b6cbf573f7e07a29d3078fb53d22b17dc595b730c0de21fd4",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 13,
+        "policy": "frozen_base",
+        "reset_identity": 20260714,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_spatial|task_2|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "ec0ce01e43aac4b4465f6d7932a486df948ce36a096fe5970b677623505673a8",
+        "initial_state_shape": [
+          92
+        ],
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "planned_episode_index": 14,
+        "policy": "frozen_base",
+        "reset_identity": 20260715,
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_2|identity_20260711",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 0,
+        "initial_state_sha256": "9ae67aa7e7dd9987ecd1f2930e2b061fb66a414dd94e4b575417356a556cbd90",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 15,
+        "policy": "frozen_base",
+        "reset_identity": 20260711,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_2|identity_20260712",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 1,
+        "initial_state_sha256": "453d74e45f2f7141904a047d4237db1ee0b5576fe7a3f6c2cb4801e83bacb88a",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 16,
+        "policy": "frozen_base",
+        "reset_identity": 20260712,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_2|identity_20260713",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 2,
+        "initial_state_sha256": "8227fd36ba47ae92020986ff9b090acd500ddadcc057c66b04f8afe6fb4de2bb",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 17,
+        "policy": "frozen_base",
+        "reset_identity": 20260713,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_2|identity_20260714",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 3,
+        "initial_state_sha256": "53956839e3584f29993eb41169934902624a2f06d531b13bec4cd8f8cdd5de9d",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 18,
+        "policy": "frozen_base",
+        "reset_identity": 20260714,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      },
+      {
+        "episode_id": "frozen_base|libero_10|task_2|identity_20260715",
+        "initial_state_dtype": "float64",
+        "initial_state_index": 4,
+        "initial_state_sha256": "0da0be61b3b3451f1ee4b9b911e9dcdc4fe9df1b95cdfb702eb3bfc9692ca446",
+        "initial_state_shape": [
+          47
+        ],
+        "instruction": "turn on the stove and put the moka pot on it",
+        "planned_episode_index": 19,
+        "policy": "frozen_base",
+        "reset_identity": 20260715,
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      }
+    ],
+    "exact_init_control": "fresh LiberoEnv per episode with episode_index set to initial_state_index before reset",
+    "identity_mapping_rule": "reset identity labels 20260711..20260715 map to official LIBERO initial_state indices 0..4 per task",
+    "planned_episode_count": 20,
+    "policy": "frozen_base",
+    "reset_identities": [
+      20260711,
+      20260712,
+      20260713,
+      20260714,
+      20260715
+    ],
+    "schema_version": 1,
+    "tasks": [
+      {
+        "bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+        "initial_state_count": 50,
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "problem_folder": "libero_spatial",
+        "role": "hard_slice_stable_grasp",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "bddl_file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+        "initial_state_count": 50,
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "problem_folder": "libero_10",
+        "role": "hard_slice_long_horizon",
+        "suite": "libero_10",
+        "task_id": 4
+      },
+      {
+        "bddl_file": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.bddl",
+        "initial_state_count": 50,
+        "instruction": "pick up the black bowl from table center and place it on the plate",
+        "problem_folder": "libero_spatial",
+        "role": "matched_control_spatial",
+        "suite": "libero_spatial",
+        "task_id": 2
+      },
+      {
+        "bddl_file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+        "initial_state_count": 50,
+        "instruction": "turn on the stove and put the moka pot on it",
+        "problem_folder": "libero_10",
+        "role": "matched_control_libero10",
+        "suite": "libero_10",
+        "task_id": 2
+      }
+    ]
+  },
+  "official_path": "LeRobot SmolVLA policy, processors, postprocessors, and LIBERO env wrapper",
+  "policy": "frozen_base",
+  "policy_load_audit": {
+    "action_chunk_device": "cuda:0",
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_finite": true,
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "amp_fp16_or_bf16_active": false,
+    "autocast": {
+      "cpu": false,
+      "cuda": false
+    },
+    "control_mode": "relative",
+    "cuda_memory": {
+      "allocated_bytes": 937419264,
+      "allocated_mb": 893.993,
+      "max_allocated_bytes": 970964480,
+      "max_allocated_mb": 925.984
+    },
+    "empty_cameras": 1,
+    "input_tensor_devices": {
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0"
+    },
+    "input_tensor_shapes": {
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ]
+    },
+    "load_seconds": 16.479,
+    "old_custom_libero_7d_route_used": false,
+    "parameter": {
+      "device": "cuda:0",
+      "dtype": "torch.bfloat16",
+      "numel": 589824
+    },
+    "peft": {
+      "used": false
+    },
+    "policy_class": "SmolVLAPolicy",
+    "policy_name": "frozen_base",
+    "rename_map": {
+      "observation.images.image": "observation.images.camera1",
+      "observation.images.image2": "observation.images.camera2"
+    }
+  },
+  "rss_mib": 4328.699,
+  "schema_version": 1,
+  "success": true,
+  "successful_episode_count": 11,
+  "training_happened": false
+}

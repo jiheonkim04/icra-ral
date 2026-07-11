@@ -1,0 +1,40 @@
+2026-07-11 13:09:50.576587: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-11 13:09:50.576923: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-11 13:09:50.614337: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+<frozen importlib._bootstrap>:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/torch/jit/_script.py:362: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:11<00:35, 12.00s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:33<00:35, 17.62s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:11<00:26, 26.83s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:15<00:00, 18.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:15<00:00, 19.00s/it]
+/home/jiheon/venvs/openvla-oft-int4-rtx5080/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:123: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+	Command being timed: "python -m tca_map.openvla_oft_int4_gate load-smoke --load-in-8bit --out runs/openvla_oft_int4/load_smoke_int8.json"
+	User time (seconds): 78.80
+	System time (seconds): 262.07
+	Percent of CPU this job got: 253%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:14.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7539864
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 76051
+	Minor (reclaiming a frame) page faults: 4314922
+	Voluntary context switches: 105549
+	Involuntary context switches: 821
+	Swaps: 0
+	File system inputs: 33128088
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

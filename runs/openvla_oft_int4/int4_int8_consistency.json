@@ -1,0 +1,26 @@
+{
+  "action_chunk_l2": 1.1724120069754282,
+  "action_chunk_mean_abs": 0.05609847400364539,
+  "first_action_rotation_cosine": 0.906135772799668,
+  "first_action_translation_cosine": 0.3274977792286874,
+  "gripper_agreement_rate": 1.0,
+  "int4_chunk_seconds": 6.669,
+  "int4_load_seconds": 117.673,
+  "int4_peak_vram_mib": 5539.458,
+  "int4_range": {
+    "finite": true,
+    "max": 1.0,
+    "min": -0.039105047547121186
+  },
+  "int4_success": true,
+  "int8_chunk_seconds": 8.536,
+  "int8_load_seconds": 134.016,
+  "int8_peak_vram_mib": 8391.52,
+  "int8_range": {
+    "finite": true,
+    "max": 1.0078125,
+    "min": -0.034351629460085104
+  },
+  "int8_success": true,
+  "schema_version": 1
+}

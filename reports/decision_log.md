@@ -1396,3 +1396,28 @@ Protocol:
 - videos required for every episode
 
 Consequence: no cross-backbone or cross-benchmark evidence exists yet. The correct final decision is blocked, not method-ready, not SmolVLA-specific, and not prior-art killed. The next valid step is explicit OpenVLA-OFT download/hardware approval, then the frozen bounded protocol.
+
+## 2026-07-11 RTX 5080 Quantized OpenVLA-OFT Cross-Backbone Gate
+
+Current decision: `FAILURE_NOT_REPRODUCED_IN_SECOND_ARCHITECTURE`
+
+The approved `14.845` GiB checkpoint `moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10` was downloaded exactly once, checksummed, and evaluated only as quantized INT4 OpenVLA-OFT on the local RTX 5080. No training, fine-tuning, full BF16 load, RLDS download, LIBERO-PRO download, CPU offload, or disk offload occurred.
+
+Hard-slice outcome: OpenVLA-OFT INT4 completed `20/20` exact-init episodes with `20/20` successes and videos. The matched SmolVLA frozen-base exact-init rerun completed `20/20` with `11/20` successes, including hard-slice failures on `libero_spatial/task_4` (`1/5`) and `libero_10/task_4` (`1/5`).
+
+Conclusion: the SmolVLA stable-grasp and long-horizon failures were not reproduced in the second architecture under this bounded quantized OpenVLA-OFT gate. LIBERO-PRO is not justified by this result.
+
+Key reports:
+
+- `reports/openvla_oft_int4_download_status.md`
+- `reports/openvla_oft_int4_environment_lock.md`
+- `reports/openvla_oft_int4_memory_preflight.md`
+- `reports/openvla_oft_int4_policy_load_result.md`
+- `reports/openvla_oft_int4_int8_consistency.md`
+- `reports/openvla_oft_quantized_hard_slice_manifest.json`
+- `reports/openvla_oft_quantized_hard_slice_result.md`
+- `reports/openvla_oft_quantized_hard_slice_result.json`
+- `reports/openvla_oft_quantized_visual_annotations.json`
+- `reports/openvla_oft_quantized_cross_backbone_decision.md`
+
+Exact next step: do not implement a method and do not proceed to LIBERO-PRO from this evidence. Archive the cross-backbone result as failure-not-reproduced unless a future full-precision or different second-backbone run is explicitly approved.

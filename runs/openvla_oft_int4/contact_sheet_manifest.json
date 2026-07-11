@@ -1,0 +1,222 @@
+[
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260711,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110000--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_spatial__task_4__identity_20260711__success_true.jpg",
+    "frame_count": 120,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260712,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110001--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_spatial__task_4__identity_20260712__success_true.jpg",
+    "frame_count": 126,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260713,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110002--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_spatial__task_4__identity_20260713__success_true.jpg",
+    "frame_count": 118,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260714,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110003--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_spatial__task_4__identity_20260714__success_true.jpg",
+    "frame_count": 129,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260715,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110004--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_spatial__task_4__identity_20260715__success_true.jpg",
+    "frame_count": 122,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260711,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110005--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_10__task_4__identity_20260711__success_true.jpg",
+    "frame_count": 219,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260712,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110006--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_10__task_4__identity_20260712__success_true.jpg",
+    "frame_count": 210,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260713,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110007--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_10__task_4__identity_20260713__success_true.jpg",
+    "frame_count": 272,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260714,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110008--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_10__task_4__identity_20260714__success_true.jpg",
+    "frame_count": 232,
+    "fps": 30.0
+  },
+  {
+    "policy": "openvla_int4",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260715,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_11\\2026_07_11-13_35_57--openvla_oft--episode=110009--success=True--task=put_the_white_mug_on_the_left_plate_and_put_the_ye.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\openvla_int4__libero_10__task_4__identity_20260715__success_true.jpg",
+    "frame_count": 223,
+    "fps": 30.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260711,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_spatial\\task_4_identity_20260711.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_spatial__task_4__identity_20260711__success_false.jpg",
+    "frame_count": 281,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260712,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_spatial\\task_4_identity_20260712.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_spatial__task_4__identity_20260712__success_true.jpg",
+    "frame_count": 132,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260713,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_spatial\\task_4_identity_20260713.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_spatial__task_4__identity_20260713__success_false.jpg",
+    "frame_count": 281,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260714,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_spatial\\task_4_identity_20260714.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_spatial__task_4__identity_20260714__success_false.jpg",
+    "frame_count": 281,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_spatial",
+    "task_id": 4,
+    "reset_identity": 20260715,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_spatial\\task_4_identity_20260715.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_spatial__task_4__identity_20260715__success_false.jpg",
+    "frame_count": 281,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260711,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_10\\task_4_identity_20260711.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_10__task_4__identity_20260711__success_false.jpg",
+    "frame_count": 521,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260712,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_10\\task_4_identity_20260712.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_10__task_4__identity_20260712__success_false.jpg",
+    "frame_count": 521,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260713,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_10\\task_4_identity_20260713.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_10__task_4__identity_20260713__success_false.jpg",
+    "frame_count": 521,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260714,
+    "success": false,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_10\\task_4_identity_20260714.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_10__task_4__identity_20260714__success_false.jpg",
+    "frame_count": 521,
+    "fps": 80.0
+  },
+  {
+    "policy": "smolvla_frozen_base",
+    "suite": "libero_10",
+    "task_id": 4,
+    "reset_identity": 20260715,
+    "success": true,
+    "video_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\smolvla_exact_videos\\frozen_base\\libero_10\\task_4_identity_20260715.mp4",
+    "contact_sheet_path": "C:\\Users\\jiheo\\tca_map\\runs\\openvla_oft_int4\\contact_sheets\\smolvla_frozen_base__libero_10__task_4__identity_20260715__success_true.jpg",
+    "frame_count": 264,
+    "fps": 80.0
+  }
+]

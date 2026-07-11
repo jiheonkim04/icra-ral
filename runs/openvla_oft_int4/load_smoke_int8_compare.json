@@ -1,0 +1,156 @@
+{
+  "action_chunk": [
+    [
+      0.006851976189366948,
+      0.06491417099784325,
+      0.08861258732434085,
+      -0.02902168986703918,
+      0.004197304784475664,
+      -0.02669782067587448,
+      -0.004638671875
+    ],
+    [
+      -0.007528898505278603,
+      0.0829317495194275,
+      0.13060651883405594,
+      -0.027063507547166424,
+      -0.01148829430692655,
+      -0.03129010594640086,
+      1.0078125
+    ],
+    [
+      -0.002598312895685906,
+      0.10611061355500728,
+      0.25111084403584694,
+      -0.028815565412315725,
+      -0.018160526756254347,
+      -0.0340293638270657,
+      1.0
+    ],
+    [
+      -0.002187430761553144,
+      0.1294771607001869,
+      0.3953508696561723,
+      -0.02902168986703918,
+      -0.025628744831116018,
+      -0.0340293638270657,
+      1.0078125
+    ],
+    [
+      -0.002598312895685906,
+      0.13979973172817783,
+      0.5012486099850189,
+      -0.02149814726963334,
+      -0.026892957295199166,
+      -0.033626531785791475,
+      1.0
+    ],
+    [
+      -0.013281248383136823,
+      0.1516237676329676,
+      0.5596749494767963,
+      -0.01351082464909975,
+      -0.022678915748255285,
+      -0.0340293638270657,
+      1.0078125
+    ],
+    [
+      -0.022320655334056916,
+      0.18596977668973758,
+      0.5596749494767963,
+      -0.00768780880316236,
+      -0.019096980433353006,
+      -0.034351629460085104,
+      1.0
+    ],
+    [
+      -0.019855362529260567,
+      0.24903130151528252,
+      0.5304617797309077,
+      -0.005755392040130036,
+      -0.010926422100667382,
+      -0.030242742639087827,
+      0.9921875
+    ]
+  ],
+  "action_chunk_shape": [
+    8,
+    7
+  ],
+  "action_dtype": "float64",
+  "action_head_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "model.layer_norm1.weight"
+  },
+  "action_range": {
+    "finite": true,
+    "max": 1.0078125,
+    "min": -0.034351629460085104
+  },
+  "autocast": {
+    "cpu": false,
+    "cuda": false
+  },
+  "config": {
+    "center_crop": true,
+    "env_img_res": 256,
+    "initial_states_path": "DEFAULT",
+    "load_in_4bit": false,
+    "load_in_8bit": true,
+    "local_log_dir": "./experiments/logs",
+    "lora_rank": 32,
+    "model_family": "openvla",
+    "num_diffusion_steps_inference": 50,
+    "num_diffusion_steps_train": 50,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "num_steps_wait": 10,
+    "num_trials_per_task": 1,
+    "pretrained_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "run_id_note": null,
+    "seed": 20260712,
+    "task_suite_name": "libero_spatial",
+    "unnorm_key": "",
+    "use_diffusion": false,
+    "use_film": false,
+    "use_l1_regression": true,
+    "use_proprio": true,
+    "use_wandb": false,
+    "wandb_entity": "your-wandb-entity",
+    "wandb_project": "your-wandb-project"
+  },
+  "cuda_memory": {
+    "allocated_bytes": 8193618432,
+    "allocated_mib": 7814.043,
+    "max_allocated_bytes": 8799145984,
+    "max_allocated_mib": 8391.52
+  },
+  "elapsed_seconds": 142.56,
+  "exception": null,
+  "hard_rules": {
+    "cpu_offload_allowed": false,
+    "disk_offload_allowed": false,
+    "full_bf16_attempt_allowed": false
+  },
+  "load_seconds": 134.016,
+  "model_hf_device_map": {
+    "": 0
+  },
+  "model_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "vision_backbone.featurizer.cls_token"
+  },
+  "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+  "one_chunk_seconds": 8.536,
+  "proprio_projector_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "fc1.weight"
+  },
+  "schema_version": 1,
+  "success": true,
+  "unnormalization_key": "libero_spatial_no_noops",
+  "variant": "int8"
+}

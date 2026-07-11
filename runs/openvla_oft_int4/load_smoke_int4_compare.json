@@ -1,0 +1,156 @@
+{
+  "action_chunk": [
+    [
+      -0.019033598260995044,
+      0.12760032960418854,
+      -0.03736920720480419,
+      -0.011501111215546131,
+      0.009347800008518176,
+      -0.02403912920346446,
+      -0.00445556640625
+    ],
+    [
+      -0.015746541187933283,
+      0.12337745963819224,
+      0.06624625423764496,
+      -0.012171015693397333,
+      -0.01783276796926983,
+      -0.030887273905126605,
+      0.049560546875
+    ],
+    [
+      0.006441094055234187,
+      0.13172935801538488,
+      0.17533918500744794,
+      -0.013253169080695432,
+      -0.02300667453523983,
+      -0.03233746925371389,
+      0.99609375
+    ],
+    [
+      0.013836972469623343,
+      0.13548302020738168,
+      0.27667236756349944,
+      -0.015417475855291643,
+      -0.0225384476966905,
+      -0.036365789666456316,
+      1.0
+    ],
+    [
+      0.020411086615746976,
+      0.1219698363161934,
+      0.36978934612851977,
+      -0.016757284810994047,
+      -0.021040121813332674,
+      -0.03701032093249512,
+      0.9921875
+    ],
+    [
+      0.02698520076187061,
+      0.1242220336313915,
+      0.4537772091479497,
+      -0.019024653812951972,
+      -0.025722390198825884,
+      -0.038138250648063005,
+      0.984375
+    ],
+    [
+      0.05739047868769265,
+      0.13079094246738576,
+      0.5158551948579633,
+      -0.015829724764738526,
+      -0.026518375824359702,
+      -0.039105047547121186,
+      0.96484375
+    ],
+    [
+      0.08307061207098831,
+      0.16982902926415167,
+      0.6144496427503376,
+      -0.016551160356270606,
+      -0.005401345405785407,
+      -0.028107732820334325,
+      0.41015625
+    ]
+  ],
+  "action_chunk_shape": [
+    8,
+    7
+  ],
+  "action_dtype": "float64",
+  "action_head_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "model.layer_norm1.weight"
+  },
+  "action_range": {
+    "finite": true,
+    "max": 1.0,
+    "min": -0.039105047547121186
+  },
+  "autocast": {
+    "cpu": false,
+    "cuda": false
+  },
+  "config": {
+    "center_crop": true,
+    "env_img_res": 256,
+    "initial_states_path": "DEFAULT",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "local_log_dir": "./experiments/logs",
+    "lora_rank": 32,
+    "model_family": "openvla",
+    "num_diffusion_steps_inference": 50,
+    "num_diffusion_steps_train": 50,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "num_steps_wait": 10,
+    "num_trials_per_task": 1,
+    "pretrained_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "run_id_note": null,
+    "seed": 20260712,
+    "task_suite_name": "libero_spatial",
+    "unnorm_key": "",
+    "use_diffusion": false,
+    "use_film": false,
+    "use_l1_regression": true,
+    "use_proprio": true,
+    "use_wandb": false,
+    "wandb_entity": "your-wandb-entity",
+    "wandb_project": "your-wandb-project"
+  },
+  "cuda_memory": {
+    "allocated_bytes": 5003023872,
+    "allocated_mib": 4771.255,
+    "max_allocated_bytes": 5808542208,
+    "max_allocated_mib": 5539.458
+  },
+  "elapsed_seconds": 124.35,
+  "exception": null,
+  "hard_rules": {
+    "cpu_offload_allowed": false,
+    "disk_offload_allowed": false,
+    "full_bf16_attempt_allowed": false
+  },
+  "load_seconds": 117.673,
+  "model_hf_device_map": {
+    "": 0
+  },
+  "model_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "vision_backbone.featurizer.cls_token"
+  },
+  "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+  "one_chunk_seconds": 6.669,
+  "proprio_projector_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "fc1.weight"
+  },
+  "schema_version": 1,
+  "success": true,
+  "unnormalization_key": "libero_spatial_no_noops",
+  "variant": "int4"
+}

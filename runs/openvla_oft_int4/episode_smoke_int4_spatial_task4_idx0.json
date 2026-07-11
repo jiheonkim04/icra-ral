@@ -1,0 +1,232 @@
+{
+  "action_chunk_count": 15,
+  "action_chunk_ranges": [
+    {
+      "finite": true,
+      "max": 1.0,
+      "min": -0.16161934228915903
+    },
+    {
+      "finite": true,
+      "max": 1.0078125,
+      "min": -0.2742292080490607
+    },
+    {
+      "finite": true,
+      "max": 1.0078125,
+      "min": -0.33729073287460565
+    },
+    {
+      "finite": true,
+      "max": 1.0,
+      "min": -0.4773925765022528
+    },
+    {
+      "finite": true,
+      "max": 1.0,
+      "min": -0.7841308588340843
+    },
+    {
+      "finite": true,
+      "max": 1.0,
+      "min": -0.8425571983258617
+    },
+    {
+      "finite": true,
+      "max": 0.22726006080170147,
+      "min": -0.6271100714499325
+    },
+    {
+      "finite": true,
+      "max": 0.961356033482766,
+      "min": -0.07539969217981488
+    },
+    {
+      "finite": true,
+      "max": 0.9321428637368774,
+      "min": -0.018921591585590244
+    },
+    {
+      "finite": true,
+      "max": 0.8008196437388009,
+      "min": -0.015237249101622219
+    },
+    {
+      "finite": true,
+      "max": 0.8398577305355668,
+      "min": -0.5175606849028498
+    },
+    {
+      "finite": true,
+      "max": 0.7828020652172165,
+      "min": -0.8279506134529173
+    },
+    {
+      "finite": true,
+      "max": 0.3338640670544084,
+      "min": -0.9082868302541113
+    },
+    {
+      "finite": true,
+      "max": 0.31134209390242806,
+      "min": -0.7549176890881956
+    },
+    {
+      "finite": true,
+      "max": 0.053840867531452896,
+      "min": -0.5358189159940303
+    }
+  ],
+  "action_chunk_shapes": [
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      8,
+      7
+    ]
+  ],
+  "action_head_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "model.layer_norm1.weight"
+  },
+  "autocast": {
+    "cpu": false,
+    "cuda": false
+  },
+  "config": {
+    "center_crop": true,
+    "env_img_res": 256,
+    "initial_states_path": "DEFAULT",
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "local_log_dir": "./experiments/logs",
+    "lora_rank": 32,
+    "model_family": "openvla",
+    "num_diffusion_steps_inference": 50,
+    "num_diffusion_steps_train": 50,
+    "num_images_in_input": 2,
+    "num_open_loop_steps": 8,
+    "num_steps_wait": 10,
+    "num_trials_per_task": 1,
+    "pretrained_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "run_id_note": null,
+    "seed": 20260712,
+    "task_suite_name": "libero_spatial",
+    "unnorm_key": "",
+    "use_diffusion": false,
+    "use_film": false,
+    "use_l1_regression": true,
+    "use_proprio": true,
+    "use_wandb": false,
+    "wandb_entity": "your-wandb-entity",
+    "wandb_project": "your-wandb-project"
+  },
+  "cuda_memory": {
+    "allocated_bytes": 5003023872,
+    "allocated_mib": 4771.255,
+    "max_allocated_bytes": 5808542208,
+    "max_allocated_mib": 5539.458
+  },
+  "done": true,
+  "elapsed_seconds": 150.642,
+  "env_creation_seconds": 9.964,
+  "environment_latency_seconds": {
+    "count": 130,
+    "max": 7.373126,
+    "mean": 0.179508
+  },
+  "exception": null,
+  "final_reward": 1.0,
+  "initial_state_index": 0,
+  "initial_state_shape": [
+    92
+  ],
+  "load_seconds": 150.638,
+  "max_steps": 220,
+  "model_hf_device_map": {
+    "": 0
+  },
+  "model_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "vision_backbone.featurizer.cls_token"
+  },
+  "num_steps_wait": 10,
+  "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+  "policy_latency_seconds": {
+    "count": 15,
+    "max": 6.818155,
+    "mean": 0.911838
+  },
+  "proprio_projector_parameter": {
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "name": "fc1.weight"
+  },
+  "schema_version": 1,
+  "steps": 129,
+  "success": true,
+  "task_bddl_file": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.bddl",
+  "task_description": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "task_id": 4,
+  "task_problem_folder": "libero_spatial",
+  "task_suite_name": "libero_spatial",
+  "unnormalization_key": "libero_spatial_no_noops",
+  "variant": "int4",
+  "video_path": "./rollouts/2026_07_11/2026_07_11-13_19_57--openvla_oft--episode=9001--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4"
+}

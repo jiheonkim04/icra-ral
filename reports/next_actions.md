@@ -143,3 +143,24 @@ Still forbidden:
 - no full benchmark
 - no generic retry/progress/verification/replanning/chunking method
 - no claim that either mechanism generalizes before OpenVLA-OFT and LIBERO-PRO evidence exists
+
+## 2026-07-11 Quantized OpenVLA-OFT Gate Next Action
+
+Current decision: `FAILURE_NOT_REPRODUCED_IN_SECOND_ARCHITECTURE`
+
+Do not implement a method and do not proceed to LIBERO-PRO from the current evidence.
+
+Why:
+
+- quantized OpenVLA-OFT INT4 succeeded on all exact hard-slice and matched-control episodes (`20/20`)
+- SmolVLA frozen-base still failed on the exact hard slices (`libero_spatial/task_4 = 1/5`, `libero_10/task_4 = 1/5`)
+- visual comparison therefore does not support a shared cross-backbone mechanism
+- INT4 is quantized, so this is not a full-precision OpenVLA-OFT claim
+
+Allowed next actions:
+
+1. Archive the result as `FAILURE_NOT_REPRODUCED_IN_SECOND_ARCHITECTURE`.
+2. If continuing later, predeclare a new second-backbone or full-precision hardware run before any method design.
+3. Keep LIBERO-PRO blocked unless a future decision is one of the confirmed cross-backbone failure decisions.
+
+Still forbidden: no FCAR revival, no LoRA training, no OpenVLA-OFT fine-tuning, no generic correction/chunking/progress method, no LIBERO-PRO run from this decision.
