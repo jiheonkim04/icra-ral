@@ -329,6 +329,30 @@ Exact next step: stop ECHO implementation under this candidate-generation protoc
 - training happened: `False`
 - OpenVLA used: `False`
 
+## Autonomous Dual-Review RA-L Campaign - 2026-07-11
+
+- branch: `codex/autonomous-dual-review-ral-research`
+- final decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
+- cycles killed: `3`
+- new downloads: `0 GiB`
+- active GPU time in this batch: `0 h`
+- paper-ready package produced: `False`
+- main updated: `False`
+
+Cycle outcomes:
+
+- Cycle 01 action conditioning / representation: killed by CAC-VLA, ACoT-VLA, LaRA-VLA, ActionMap, LARA/LAWM/AEM proximity plus local ECHO/ActionMap no-headroom evidence.
+- Cycle 02 intervention-censored correction credit: killed by TORL-VLA, SDP, AFIL, BORA, VLA-Corrector, Pre-VLA proximity plus missing robot/human/tactile data.
+- Cycle 03 contact barrier / irreversibility: killed by VeriSpace, Pre-VLA, VLA-Corrector, AAC, SEAM, Legato, TORL-VLA proximity plus local contact/geometry baseline kills and non-cross-backbone hard-slice evidence.
+
+Key reports:
+
+- `reports/autonomous_campaign_state.md`
+- `reports/autonomous_cycle_01_action_conditioning_kill.md`
+- `reports/autonomous_cycle_02_censored_correction_kill.md`
+- `reports/autonomous_cycle_03_contact_barrier_kill.md`
+- `reports/autonomous_campaign_final_decision.md`
+
 ## ECHO Final Candidate Headroom Gate - 2026-07-11
 
 - branch: `codex/echo-vla-final-candidate-headroom-gate`

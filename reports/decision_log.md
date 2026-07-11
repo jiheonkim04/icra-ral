@@ -1483,3 +1483,24 @@ Evidence: official downstream metrics `{'group_count': 12, 'candidate_count_tota
 Decision: `NO_ECHO_HEADROOM_CONFIRMED`
 
 Evidence: official downstream metrics `{'candidate_count_total': 96, 'default_failure_group_count': 2, 'default_success_rate': 0.833333, 'final_task_success_oracle_rate': 0.833333, 'group_count': 12, 'headroom_spans_multiple_tasks': False, 'local_effect_oracle_success_rate': 0.833333, 'not_solely_one_phase_or_state': False, 'oracle_improvement_pp': 0.0, 'passes_final_gate': False, 'passes_original_thresholds': False, 'phases_with_recovery': [], 'random_success_rate': 0.833333, 'recoverable_default_failure_count': 0, 'recoverable_default_failure_rate': 0.0, 'recovered_group_ids': [], 'tasks_with_recovery': [], 'tasks_with_recovery_count': 0, 'threshold_rule': 'non-relaxed original hard gate: oracle improvement >=10pp and recoverable default-failure rate >=15%, plus recovery across at least two tasks and not solely one phase/state'}`, structured diagnostic metrics `{'candidate_count_total': 96, 'default_failure_group_count': 2, 'default_success_rate': 0.833333, 'final_task_success_oracle_rate': 0.833333, 'group_count': 12, 'headroom_spans_multiple_tasks': False, 'local_effect_oracle_success_rate': 0.833333, 'not_solely_one_phase_or_state': False, 'oracle_improvement_pp': 0.0, 'passes_final_gate': False, 'passes_original_thresholds': False, 'phases_with_recovery': [], 'random_success_rate': 0.833333, 'recoverable_default_failure_count': 0, 'recoverable_default_failure_rate': 0.0, 'recovered_group_ids': [], 'tasks_with_recovery': [], 'tasks_with_recovery_count': 0, 'threshold_rule': 'non-relaxed original hard gate: oracle improvement >=10pp and recoverable default-failure rate >=15%, plus recovery across at least two tasks and not solely one phase/state'}`.
+
+## 2026-07-11 - Autonomous Dual-Review RA-L Campaign
+
+Decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
+
+Execution boundary:
+
+- branch: `codex/autonomous-dual-review-ral-research`
+- training happened: `False`
+- simulator rollout happened: `False`
+- downloads happened: `0 GiB`
+- active GPU time: `0 h`
+- main updated: `False`
+
+Cycle kills:
+
+- Cycle 01, action conditioning and action representation: killed by CAC-VLA, ACoT-VLA, LaRA-VLA, ActionMap, LARA/LAWM/AEM proximity plus local ECHO and ActionMap negative evidence.
+- Cycle 02, intervention-censored correction credit: killed by TORL-VLA, SDP, AFIL, BORA, VLA-Corrector, Pre-VLA proximity and missing intervention/tactile/robot data.
+- Cycle 03, contact barrier and irreversibility boundaries: killed by VeriSpace, Pre-VLA, VLA-Corrector, AAC, SEAM, Legato, TORL-VLA proximity plus local contact/geometry baseline kills and non-cross-backbone hard-slice evidence.
+
+Consequence: stop the autonomous campaign. Do not implement another local VLA method without one of the explicit reopen conditions in `reports/autonomous_campaign_final_decision.md`.

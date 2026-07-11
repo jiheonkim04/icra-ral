@@ -228,6 +228,24 @@ Still forbidden:
 - decision: `NO_ECHO_HEADROOM_CONFIRMED`
 - next: `Archive ECHO and return to the paper-first candidate portfolio.`
 
+## After Autonomous Dual-Review RA-L Campaign - 2026-07-11
+
+- decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
+- next: `Do not start another generic VLA method cycle from the current evidence.`
+
+Allowed reopen conditions:
+
+- reproduce an official action-representation baseline and find a residual not solved by mean-action, MLP, or the official baseline;
+- find a new matched exact-state cross-backbone failure affecting both SmolVLA and Quantized OpenVLA-OFT INT4;
+- add new physical robot intervention, tactile/force, or larger-GPU resources;
+- identify a new primary-source gap not already occupied by action-conditioning, correction, verification, progress, chunking, contact-adaptation, or prior-preservation papers.
+
+Still forbidden:
+
+- ECHO rescue without a new predeclared headroom gate;
+- generic confidence, verification, correction, adaptive chunking, progress, failure-negative, adapter-routing, or LoRA-as-novelty claims;
+- main-branch pollution from abandoned method implementations.
+
 ## After ECHO Final Candidate Headroom Gate - 2026-07-11
 
 - decision: `NO_ECHO_HEADROOM_CONFIRMED`
