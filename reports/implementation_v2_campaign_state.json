@@ -1,0 +1,36 @@
+{
+  "schema_version": "implementation_v2_campaign_state_v1",
+  "date_kst": "2026-07-11",
+  "branch": "codex/autonomous-ral-research-implementation-v2",
+  "base_commit": "585a40db4eda5b73732b8086dce5843efafb8822",
+  "previous_terminal_decision": "NO_METHOD_AFTER_3_VALID_CYCLES",
+  "previous_terminal_decision_reclassified_as": "PREMATURE_LITERATURE_ONLY_TERMINATION",
+  "final_decision": "TWO_IMPLEMENTED_METHODS_KILLED",
+  "main_unchanged": true,
+  "new_downloads_gib": 0,
+  "implemented_cycles": [
+    {
+      "name": "PhaseBarrier-VLA",
+      "mechanism": "phase-conditioned feasibility-field action projection",
+      "result_file": "reports/phase_barrier_vla_prototype_result.json",
+      "final_decision": "PHASE_BARRIER_VALID_KILL",
+      "training_happened": true,
+      "closed_loop_experiment_happened": true,
+      "planned_eval_episodes": 10,
+      "go": false,
+      "kill_reason": "full method did not improve task-balanced closed-loop success over strongest baseline and did not beat the no-phase ablation"
+    },
+    {
+      "name": "CensorCredit-VLA",
+      "mechanism": "intervention-censored temporal credit with action-history hold/blend",
+      "result_file": "reports/censor_credit_vla_prototype_result.json",
+      "final_decision": "CENSOR_CREDIT_VALID_KILL",
+      "training_happened": true,
+      "closed_loop_experiment_happened": true,
+      "planned_eval_episodes": 10,
+      "go": false,
+      "kill_reason": "full method improved over non-ablation baselines but was matched by the uncensored recovery ablation, so the censored-credit component was not proven necessary"
+    }
+  ],
+  "exact_resume_command_if_reopened": "git switch codex/autonomous-ral-research-implementation-v2 && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_censor_credit_vla_prototype.py --max-tasks 2 --train-identities 1 --eval-identities 1 --short-horizon 4 --max-eval-steps 0"
+}

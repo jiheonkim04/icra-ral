@@ -353,6 +353,28 @@ Key reports:
 - `reports/autonomous_cycle_03_contact_barrier_kill.md`
 - `reports/autonomous_campaign_final_decision.md`
 
+## Autonomous RA-L Research Implementation V2 - 2026-07-11
+
+- branch: `codex/autonomous-ral-research-implementation-v2`
+- previous terminal decision reclassified as: `PREMATURE_LITERATURE_ONLY_TERMINATION`
+- final decision: `TWO_IMPLEMENTED_METHODS_KILLED`
+- main updated: `False`
+- new downloads: `0 GiB`
+
+Implemented cycles:
+
+- `PhaseBarrier-VLA`: trained a phase-conditioned feasibility-field action projection and ran closed-loop SmolVLA-LIBERO evaluation; final decision `PHASE_BARRIER_VALID_KILL`.
+- `CensorCredit-VLA`: trained censored and uncensored temporal-credit action-history wrappers and ran closed-loop SmolVLA-LIBERO evaluation; final decision `CENSOR_CREDIT_VALID_KILL`.
+
+Key reports:
+
+- `reports/implementation_v2_reclassification.md`
+- `reports/phase_barrier_vla_exact_overlap_matrix.md`
+- `reports/phase_barrier_vla_prototype_result.json`
+- `reports/censor_credit_vla_prototype_result.json`
+- `reports/implementation_v2_campaign_state.json`
+- `reports/implementation_v2_final_decision.md`
+
 ## ECHO Final Candidate Headroom Gate - 2026-07-11
 
 - branch: `codex/echo-vla-final-candidate-headroom-gate`

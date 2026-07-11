@@ -1,0 +1,2067 @@
+{
+  "branch": "codex/autonomous-ral-research-implementation-v2",
+  "closed_loop_experiment_happened": true,
+  "date_kst": "2026-07-11",
+  "elapsed_seconds": 465.897,
+  "episodes": [
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.086,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.0,
+      "mean_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 0,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "frozen_smolvla"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.19,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.0,
+      "mean_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 0,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "frozen_smolvla"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.256,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 1.955759,
+      "mean_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 230,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "vla_corrector_jump_proxy"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.532,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 1.773265,
+      "mean_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 485,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "vla_corrector_jump_proxy"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.914,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.033959,
+      "mean_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 280,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "simple_temporal_ema"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.449,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.048511,
+      "mean_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 520,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "simple_temporal_ema"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 18.714,
+      "episode_steps": 131,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.05023,
+      "mean_margin": 0.285341,
+      "reset_identity": 20260712,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 77,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "uncensored_recovery_ablation"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.426,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.176209,
+      "mean_margin": -0.772185,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 480,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "uncensored_recovery_ablation"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 19.094,
+      "episode_steps": 132,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.057133,
+      "mean_margin": 0.285517,
+      "reset_identity": 20260712,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 98,
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "censor_credit_full"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.672,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "mean_action_delta_norm": 0.182708,
+      "mean_margin": -0.711624,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 495,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "censor_credit_full"
+    }
+  ],
+  "errors": [],
+  "eval_manifest": {
+    "eval_identities": [
+      20260712
+    ],
+    "planned_episodes": 10,
+    "tasks": [
+      {
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "role": "stable_grasp_contact_transition",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "role": "long_horizon_contact_and_release",
+        "suite": "libero_10",
+        "task_id": 4
+      }
+    ]
+  },
+  "exact_next_step": "Archive as second implemented valid kill; campaign may now conclude TWO_IMPLEMENTED_METHODS_KILLED if no GO exists.",
+  "final_decision": "CENSOR_CREDIT_VALID_KILL",
+  "latency_vram_summary": {
+    "cuda_memory": {
+      "allocated_bytes": 9568256,
+      "allocated_mb": 9.125,
+      "max_allocated_bytes": 971650560,
+      "max_allocated_mb": 926.638
+    },
+    "elapsed_seconds": 465.897
+  },
+  "method": "CensorCredit-VLA",
+  "policy_load_audit": {
+    "action_chunk_device": "cuda:0",
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_finite": true,
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "amp_fp16_or_bf16_active": false,
+    "autocast": {
+      "cpu": false,
+      "cuda": false
+    },
+    "control_mode": "relative",
+    "cuda_memory": {
+      "allocated_bytes": 937419264,
+      "allocated_mb": 893.993,
+      "max_allocated_bytes": 970964480,
+      "max_allocated_mb": 925.984
+    },
+    "empty_cameras": 1,
+    "input_tensor_devices": {
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0"
+    },
+    "input_tensor_shapes": {
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ]
+    },
+    "load_seconds": 6.45,
+    "old_custom_libero_7d_route_used": false,
+    "parameter": {
+      "device": "cuda:0",
+      "dtype": "torch.bfloat16",
+      "numel": 589824
+    },
+    "peft": {
+      "used": false
+    },
+    "policy_class": "SmolVLAPolicy",
+    "policy_name": "frozen_base",
+    "rename_map": {
+      "observation.images.image": "observation.images.camera1",
+      "observation.images.image2": "observation.images.camera2"
+    }
+  },
+  "schema_version": "censor_credit_vla_prototype_v1",
+  "summary": {
+    "ablation_task_balanced_success_rate": 0.5,
+    "absolute_gain_over_strongest_baseline_pp": 50.0,
+    "by_variant": {
+      "censor_credit_full": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.119921,
+        "mean_shaped_steps": 296.5,
+        "success_rate": 0.5,
+        "successes": 1,
+        "task_balanced_success_rate": 0.5,
+        "total": 2
+      },
+      "frozen_smolvla": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.0,
+        "mean_shaped_steps": 0.0,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      },
+      "simple_temporal_ema": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.041235,
+        "mean_shaped_steps": 400.0,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      },
+      "uncensored_recovery_ablation": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.11322,
+        "mean_shaped_steps": 278.5,
+        "success_rate": 0.5,
+        "successes": 1,
+        "task_balanced_success_rate": 0.5,
+        "total": 2
+      },
+      "vla_corrector_jump_proxy": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 1.864512,
+        "mean_shaped_steps": 357.5,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      }
+    },
+    "full_task_balanced_success_rate": 0.5,
+    "passes_prototype_go": false,
+    "relative_failure_rate_reduction": 0.5,
+    "route_a_go": false,
+    "route_b_go": false,
+    "strongest_baseline_task_balanced_success_rate": 0.0,
+    "strongest_non_ablation_baseline": "frozen_smolvla"
+  },
+  "tasks": [
+    {
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4
+    }
+  ],
+  "train": {
+    "censored_model": {
+      "threshold": 0.0,
+      "weights": [
+        -8.211099468732627,
+        8.007013840134432,
+        -2.946969746171567,
+        -1.780154245290029,
+        0.31521261992376537,
+        0.7934892463627556,
+        0.14765500244966767,
+        -1.7156391161055606
+      ]
+    },
+    "censored_positive_count": 4,
+    "rows": [
+      {
+        "candidate_name": "default",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.9938752385634627,
+          "action_norm": 0.9938752385634627,
+          "bias": 1.0,
+          "gripper": -0.9502689242362976,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.0690352170473709,
+          "step_fraction": 0.0,
+          "translation_norm": 0.2828623344802059
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0007467384719074812,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 1.8156948211028745e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 2.269618526378593e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0005310000000000037
+        },
+        "prefix_score": 0.00068,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006554086627225814,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0042899999999999605
+        },
+        "recovered_score": 0.005601,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2486390471458435,
+            -0.06798359751701355,
+            0.11648156493902206,
+            -0.019951827824115753,
+            0.06345313042402267,
+            -0.01847933977842331,
+            -0.9502689242362976
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": null,
+          "state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+          "step": 0,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "ema",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.9938752385634627,
+          "action_norm": 0.9938752385634627,
+          "bias": 1.0,
+          "gripper": -0.9502689242362976,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.0690352170473709,
+          "step_fraction": 0.0,
+          "translation_norm": 0.2828623344802059
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0007467384719074812,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 1.8156948211028745e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 2.269618526378593e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0005310000000000037
+        },
+        "prefix_score": 0.00068,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006554086627225814,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0042899999999999605
+        },
+        "recovered_score": 0.005601,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2486390471458435,
+            -0.06798359751701355,
+            0.11648156493902206,
+            -0.019951827824115753,
+            0.06345313042402267,
+            -0.01847933977842331,
+            -0.9502689242362976
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": null,
+          "state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+          "step": 0,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "jump_plus",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 1.3032241171270562,
+          "action_norm": 1.3032241171270562,
+          "bias": 1.0,
+          "gripper": -0.9502689242362976,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.4987335155780017,
+          "step_fraction": 0.0,
+          "translation_norm": 0.7393557679031061
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0023034783357849514,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 1.8156948211028745e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 2.269618526378593e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0018940000000000068
+        },
+        "prefix_score": 0.002355,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.011876951747547172,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.00871299999999997
+        },
+        "recovered_score": 0.011088,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2486390471458435,
+            -0.06798359751701355,
+            0.11648156493902206,
+            -0.019951827824115753,
+            0.06345313042402267,
+            -0.01847933977842331,
+            -0.9502689242362976
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": null,
+          "state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+          "step": 0,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "hold_previous",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.9938752385634627,
+          "action_norm": 0.9938752385634627,
+          "bias": 1.0,
+          "gripper": -0.9502689242362976,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.0690352170473709,
+          "step_fraction": 0.0,
+          "translation_norm": 0.2828623344802059
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0007467384719074812,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 1.8156948211028745e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 2.269618526378593e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0005310000000000037
+        },
+        "prefix_score": 0.00068,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006554086627225814,
+          "gripper_transition": -0.9502689242362976,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0042899999999999605
+        },
+        "recovered_score": 0.005601,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2486390471458435,
+            -0.06798359751701355,
+            0.11648156493902206,
+            -0.019951827824115753,
+            0.06345313042402267,
+            -0.01847933977842331,
+            -0.9502689242362976
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": null,
+          "state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+          "step": 0,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "default",
+        "censored_label": 1.0,
+        "features": {
+          "action_delta_norm": 0.1344514187899252,
+          "action_norm": 1.395687248205283,
+          "bias": 1.0,
+          "gripper": 1.00699782371521,
+          "prev_action_norm": 1.380294007301082,
+          "rotation_norm": 0.027938186850885678,
+          "step_fraction": 0.35,
+          "translation_norm": 0.9659801941816151
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.011065081137664107,
+          "gripper_transition": 1.00699782371521,
+          "object_goal_delta": 2.7186299407202254e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 3.398287425900282e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0014560000000000128
+        },
+        "prefix_score": 0.603616,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.04906528608545081,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 4.710870212198558e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 5.888587765248197e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.006861000000000006
+        },
+        "recovered_score": 0.597256,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.12583336234092712,
+            0.7760224938392639,
+            -0.5613134503364563,
+            0.005638877861201763,
+            -0.0038075633347034454,
+            -0.027097007259726524,
+            1.00699782371521
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.05788139998912811,
+            0.8290112018585205,
+            -0.4594351053237915,
+            0.003971418831497431,
+            -0.0025981981307268143,
+            -0.011598660610616207,
+            1.001680612564087
+          ],
+          "state_hash": "352eb792a82b52a8d2ae93bd68ded0c3513619a0a2d6b6dc1757f95da1728507",
+          "step": 98,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": 1.0
+      },
+      {
+        "candidate_name": "ema",
+        "censored_label": 1.0,
+        "features": {
+          "action_delta_norm": 0.08734122437013528,
+          "action_norm": 1.3851261232207406,
+          "bias": 1.0,
+          "gripper": 1.0,
+          "prev_action_norm": 1.380294007301082,
+          "rotation_norm": 0.022510222031565757,
+          "step_fraction": 0.35,
+          "translation_norm": 0.9581584770446943
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.01104068634450605,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 2.7186299407202254e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 3.398287425900282e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0016900000000000248
+        },
+        "prefix_score": 0.599324,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.04894713631459528,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 4.710870212198558e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 5.888587765248197e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.007411999999999974
+        },
+        "recovered_score": 0.597035,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.12583336234092712,
+            0.7760224938392639,
+            -0.5613134503364563,
+            0.005638877861201763,
+            -0.0038075633347034454,
+            -0.027097007259726524,
+            1.00699782371521
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.05788139998912811,
+            0.8290112018585205,
+            -0.4594351053237915,
+            0.003971418831497431,
+            -0.0025981981307268143,
+            -0.011598660610616207,
+            1.001680612564087
+          ],
+          "state_hash": "352eb792a82b52a8d2ae93bd68ded0c3513619a0a2d6b6dc1757f95da1728507",
+          "step": 98,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": 1.0
+      },
+      {
+        "candidate_name": "jump_plus",
+        "censored_label": 1.0,
+        "features": {
+          "action_delta_norm": 0.7776414784292939,
+          "action_norm": 1.411269288750903,
+          "bias": 1.0,
+          "gripper": 1.0,
+          "prev_action_norm": 1.380294007301082,
+          "rotation_norm": 0.5183586228367044,
+          "step_fraction": 0.35,
+          "translation_norm": 0.8502854482480074
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.011207106436946028,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 2.7186299407202254e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 3.398287425900282e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0010740000000000194
+        },
+        "prefix_score": 0.59957,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.04640265517232513,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 4.710870212198558e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 5.888587765248197e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.00317400000000001
+        },
+        "recovered_score": 0.59873,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.12583336234092712,
+            0.7760224938392639,
+            -0.5613134503364563,
+            0.005638877861201763,
+            -0.0038075633347034454,
+            -0.027097007259726524,
+            1.00699782371521
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.05788139998912811,
+            0.8290112018585205,
+            -0.4594351053237915,
+            0.003971418831497431,
+            -0.0025981981307268143,
+            -0.011598660610616207,
+            1.001680612564087
+          ],
+          "state_hash": "352eb792a82b52a8d2ae93bd68ded0c3513619a0a2d6b6dc1757f95da1728507",
+          "step": 98,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": 1.0
+      },
+      {
+        "candidate_name": "hold_previous",
+        "censored_label": 1.0,
+        "features": {
+          "action_delta_norm": 0.0,
+          "action_norm": 1.380294007301082,
+          "bias": 1.0,
+          "gripper": 1.001680612564087,
+          "prev_action_norm": 1.380294007301082,
+          "rotation_norm": 0.012532028128836315,
+          "step_fraction": 0.35,
+          "translation_norm": 0.9495738229729659
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.011011638157666847,
+          "gripper_transition": 1.001680612564087,
+          "object_goal_delta": 2.7186299407202254e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 3.398287425900282e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.002122999999999986
+        },
+        "prefix_score": 0.600159,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0487487268644811,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 4.710870212198558e-15,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 5.888587765248197e-14,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.008435000000000026
+        },
+        "recovered_score": 0.596626,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.12583336234092712,
+            0.7760224938392639,
+            -0.5613134503364563,
+            0.005638877861201763,
+            -0.0038075633347034454,
+            -0.027097007259726524,
+            1.00699782371521
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.05788139998912811,
+            0.8290112018585205,
+            -0.4594351053237915,
+            0.003971418831497431,
+            -0.0025981981307268143,
+            -0.011598660610616207,
+            1.001680612564087
+          ],
+          "state_hash": "352eb792a82b52a8d2ae93bd68ded0c3513619a0a2d6b6dc1757f95da1728507",
+          "step": 98,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": 1.0
+      },
+      {
+        "candidate_name": "default",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.183453742382585,
+          "action_norm": 1.0711595332545687,
+          "bias": 1.0,
+          "gripper": 1.0030860900878906,
+          "prev_action_norm": 1.040976955976978,
+          "rotation_norm": 0.08029871667913661,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.3670873978414637
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0022200257681330637,
+          "gripper_transition": 1.0030860900878906,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.001800999999999997
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.007047868703613659,
+          "gripper_transition": 0.9987322479486466,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.004159999999999997
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2381235957145691,
+            0.21270032227039337,
+            0.1811322271823883,
+            -0.07133322209119797,
+            0.03443390130996704,
+            0.01318187266588211,
+            1.0030860900878906
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.1632903516292572,
+            0.2623651623725891,
+            0.02362961322069168,
+            -0.07129866629838943,
+            0.01547114085406065,
+            0.029530009254813194,
+            0.9906465411186218
+          ],
+          "state_hash": "92fd19b207a7da9e53f1b2ae7a3c2d9d2ecd96a66b37f7b8a70f15ed5f85e71d",
+          "step": 181,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "ema",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.11924493254868022,
+          "action_norm": 1.0570779382344533,
+          "bias": 1.0,
+          "gripper": 0.9987322479486466,
+          "prev_action_norm": 1.040976955976978,
+          "rotation_norm": 0.07884620148364188,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.337240182838651
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0023944554691822588,
+          "gripper_transition": 0.9987322479486466,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.00189499999999998
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006797177531788556,
+          "gripper_transition": 0.9987322479486466,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.004062999999999983
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2381235957145691,
+            0.21270032227039337,
+            0.1811322271823883,
+            -0.07133322209119797,
+            0.03443390130996704,
+            0.01318187266588211,
+            1.0030860900878906
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.1632903516292572,
+            0.2623651623725891,
+            0.02362961322069168,
+            -0.07129866629838943,
+            0.01547114085406065,
+            0.029530009254813194,
+            0.9906465411186218
+          ],
+          "state_hash": "92fd19b207a7da9e53f1b2ae7a3c2d9d2ecd96a66b37f7b8a70f15ed5f85e71d",
+          "step": 181,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "jump_plus",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.7887687784751648,
+          "action_norm": 1.260887293391166,
+          "bias": 1.0,
+          "gripper": 1.0,
+          "prev_action_norm": 1.040976955976978,
+          "rotation_norm": 0.43850577826336584,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.6305152250857549
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0026051929419758754,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0013099999999999778
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.008279865946277132,
+          "gripper_transition": 0.9987322479486466,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0012170000000000236
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2381235957145691,
+            0.21270032227039337,
+            0.1811322271823883,
+            -0.07133322209119797,
+            0.03443390130996704,
+            0.01318187266588211,
+            1.0030860900878906
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.1632903516292572,
+            0.2623651623725891,
+            0.02362961322069168,
+            -0.07129866629838943,
+            0.01547114085406065,
+            0.029530009254813194,
+            0.9906465411186218
+          ],
+          "state_hash": "92fd19b207a7da9e53f1b2ae7a3c2d9d2ecd96a66b37f7b8a70f15ed5f85e71d",
+          "step": 181,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "hold_previous",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.0,
+          "action_norm": 1.040976955976978,
+          "bias": 1.0,
+          "gripper": 0.9906465411186218,
+          "prev_action_norm": 1.040976955976978,
+          "rotation_norm": 0.07870754386870824,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.30993156661263305
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.002732466008085715,
+          "gripper_transition": 0.9906465411186218,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0020709999999999895
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006327089497814566,
+          "gripper_transition": 0.9987322479486466,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.00384000000000001
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.2381235957145691,
+            0.21270032227039337,
+            0.1811322271823883,
+            -0.07133322209119797,
+            0.03443390130996704,
+            0.01318187266588211,
+            1.0030860900878906
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "max_steps": 280,
+          "previous_action": [
+            0.1632903516292572,
+            0.2623651623725891,
+            0.02362961322069168,
+            -0.07129866629838943,
+            0.01547114085406065,
+            0.029530009254813194,
+            0.9906465411186218
+          ],
+          "state_hash": "92fd19b207a7da9e53f1b2ae7a3c2d9d2ecd96a66b37f7b8a70f15ed5f85e71d",
+          "step": 181,
+          "suite": "libero_spatial",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "default",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 1.0061910766776265,
+          "action_norm": 1.0061910766776265,
+          "bias": 1.0,
+          "gripper": -0.9967576861381531,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.013247426210991656,
+          "step_fraction": 0.0,
+          "translation_norm": 0.13681777519379723
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0006888826626346673,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -2.799999999997249e-05
+        },
+        "prefix_score": 0.00011,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00529504964276061,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 2.0000000000020002e-05
+        },
+        "recovered_score": 0.001079,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.08818942308425903,
+            -0.10295920073986053,
+            -0.018469765782356262,
+            0.0015838295221328735,
+            -0.00663396529853344,
+            -0.011356772854924202,
+            -0.9967576861381531
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": null,
+          "state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+          "step": 0,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "ema",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 1.0061910766776265,
+          "action_norm": 1.0061910766776265,
+          "bias": 1.0,
+          "gripper": -0.9967576861381531,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.013247426210991656,
+          "step_fraction": 0.0,
+          "translation_norm": 0.13681777519379723
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0006888826626346673,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -2.799999999997249e-05
+        },
+        "prefix_score": 0.00011,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00529504964276061,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 2.0000000000020002e-05
+        },
+        "recovered_score": 0.001079,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.08818942308425903,
+            -0.10295920073986053,
+            -0.018469765782356262,
+            0.0015838295221328735,
+            -0.00663396529853344,
+            -0.011356772854924202,
+            -0.9967576861381531
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": null,
+          "state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+          "step": 0,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "jump_plus",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 1.2826858310305391,
+          "action_norm": 1.2826858310305391,
+          "bias": 1.0,
+          "gripper": -0.9967576861381531,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.5042161401275802,
+          "step_fraction": 0.0,
+          "translation_norm": 0.6304943618192506
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0021456381103565434,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.00022400000000000198
+        },
+        "prefix_score": 0.000653,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.010910546066536842,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.00040799999999996395
+        },
+        "recovered_score": 0.001774,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.08818942308425903,
+            -0.10295920073986053,
+            -0.018469765782356262,
+            0.0015838295221328735,
+            -0.00663396529853344,
+            -0.011356772854924202,
+            -0.9967576861381531
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": null,
+          "state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+          "step": 0,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "hold_previous",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 1.0061910766776265,
+          "action_norm": 1.0061910766776265,
+          "bias": 1.0,
+          "gripper": -0.9967576861381531,
+          "prev_action_norm": 0.0,
+          "rotation_norm": 0.013247426210991656,
+          "step_fraction": 0.0,
+          "translation_norm": 0.13681777519379723
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0006888826626346673,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -2.799999999997249e-05
+        },
+        "prefix_score": 0.00011,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00529504964276061,
+          "gripper_transition": -0.9967576861381531,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 2.0000000000020002e-05
+        },
+        "recovered_score": 0.001079,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            0.08818942308425903,
+            -0.10295920073986053,
+            -0.018469765782356262,
+            0.0015838295221328735,
+            -0.00663396529853344,
+            -0.011356772854924202,
+            -0.9967576861381531
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": null,
+          "state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+          "step": 0,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "default",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.06489380825941822,
+          "action_norm": 1.1462679431585756,
+          "bias": 1.0,
+          "gripper": -0.9790689945220947,
+          "prev_action_norm": 1.1755558984776249,
+          "rotation_norm": 0.011016709677968405,
+          "step_fraction": 0.35,
+          "translation_norm": 0.596014038078263
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.007268089828868842,
+          "gripper_transition": -0.9790689945220947,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.004349000000000006
+        },
+        "prefix_score": -0.585702,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.03183716475676775,
+          "gripper_transition": -0.9815047353506088,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.01702400000000001
+        },
+        "recovered_score": -0.582093,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.35834476351737976,
+            0.01048685610294342,
+            -0.47614261507987976,
+            -0.0011851429007947445,
+            -0.009866719134151936,
+            -0.004755121655762196,
+            -0.9790689945220947
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.4179708659648895,
+            -0.011126011610031128,
+            -0.48422250151634216,
+            -0.000851819000672549,
+            -0.01744886115193367,
+            -0.008938704617321491,
+            -0.986028254032135
+          ],
+          "state_hash": "4b926f6ef13ac8d4f9d194a889c152a29c7002d6f5c9666dbee991f480402b8a",
+          "step": 182,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "ema",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.04218097536862185,
+          "action_norm": 1.1561888529105717,
+          "bias": 1.0,
+          "gripper": -0.9815047353506088,
+          "prev_action_norm": 1.1755558984776249,
+          "rotation_norm": 0.014020856696479235,
+          "step_fraction": 0.35,
+          "translation_norm": 0.610921053538419
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.007301564014368575,
+          "gripper_transition": -0.9815047353506088,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.004348000000000005
+        },
+        "prefix_score": -0.587164,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.031953856414120504,
+          "gripper_transition": -0.9815047353506088,
+          "object_goal_delta": 3.6397197885139695e-05,
+          "object_lift_delta": 3.628284751944211e-05,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0004549649735642462,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.017029000000000002
+        },
+        "recovered_score": -0.582091,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.35834476351737976,
+            0.01048685610294342,
+            -0.47614261507987976,
+            -0.0011851429007947445,
+            -0.009866719134151936,
+            -0.004755121655762196,
+            -0.9790689945220947
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.4179708659648895,
+            -0.011126011610031128,
+            -0.48422250151634216,
+            -0.000851819000672549,
+            -0.01744886115193367,
+            -0.008938704617321491,
+            -0.986028254032135
+          ],
+          "state_hash": "4b926f6ef13ac8d4f9d194a889c152a29c7002d6f5c9666dbee991f480402b8a",
+          "step": 182,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "jump_plus",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.7194849795940202,
+          "action_norm": 1.2442857585407148,
+          "bias": 1.0,
+          "gripper": -0.9790689945220947,
+          "prev_action_norm": 1.1755558984776249,
+          "rotation_norm": 0.49761466318890346,
+          "step_fraction": 0.35,
+          "translation_norm": 0.5848509210492285
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0059279563124954564,
+          "gripper_transition": -0.9790689945220947,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.003296000000000021
+        },
+        "prefix_score": -0.586123,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.029506312877485376,
+          "gripper_transition": -0.9815047353506088,
+          "object_goal_delta": 0.00013069865172060305,
+          "object_lift_delta": 0.00012685100926546067,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0016337331465075381,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.019903000000000004
+        },
+        "recovered_score": -0.580942,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.35834476351737976,
+            0.01048685610294342,
+            -0.47614261507987976,
+            -0.0011851429007947445,
+            -0.009866719134151936,
+            -0.004755121655762196,
+            -0.9790689945220947
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.4179708659648895,
+            -0.011126011610031128,
+            -0.48422250151634216,
+            -0.000851819000672549,
+            -0.01744886115193367,
+            -0.008938704617321491,
+            -0.986028254032135
+          ],
+          "state_hash": "4b926f6ef13ac8d4f9d194a889c152a29c7002d6f5c9666dbee991f480402b8a",
+          "step": 182,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "hold_previous",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.0,
+          "action_norm": 1.1755558984776249,
+          "bias": 1.0,
+          "gripper": -0.986028254032135,
+          "prev_action_norm": 1.1755558984776249,
+          "rotation_norm": 0.019623679352891277,
+          "step_fraction": 0.35,
+          "translation_norm": 0.6397615680114976
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.007365570985255669,
+          "gripper_transition": -0.986028254032135,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.004345000000000002
+        },
+        "prefix_score": -0.589879,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.03217285569047827,
+          "gripper_transition": -0.9815047353506088,
+          "object_goal_delta": 0.00011430746144497665,
+          "object_lift_delta": 0.00011044218261846428,
+          "object_retained": 0.0,
+          "placement_alignment": 0.001428843268062208,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.017053000000000013
+        },
+        "recovered_score": -0.582082,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.35834476351737976,
+            0.01048685610294342,
+            -0.47614261507987976,
+            -0.0011851429007947445,
+            -0.009866719134151936,
+            -0.004755121655762196,
+            -0.9790689945220947
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.4179708659648895,
+            -0.011126011610031128,
+            -0.48422250151634216,
+            -0.000851819000672549,
+            -0.01744886115193367,
+            -0.008938704617321491,
+            -0.986028254032135
+          ],
+          "state_hash": "4b926f6ef13ac8d4f9d194a889c152a29c7002d6f5c9666dbee991f480402b8a",
+          "step": 182,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "default",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.008010847236999885,
+          "action_norm": 1.000661060057026,
+          "bias": 1.0,
+          "gripper": -0.9942165613174438,
+          "prev_action_norm": 0.997868902734658,
+          "rotation_norm": 0.038363986763713415,
+          "step_fraction": 0.6480769230769231,
+          "translation_norm": 0.10669672364305362
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.001159554043280282,
+          "gripper_transition": -0.9942165613174438,
+          "object_goal_delta": 1.3065869701524385e-08,
+          "object_lift_delta": -1.633588320171242e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 1.633233712690548e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0011200000000000099
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0051312724551723825,
+          "gripper_transition": -0.9933101236820221,
+          "object_goal_delta": 5.389672985549582e-08,
+          "object_lift_delta": -6.7385545476916775e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 6.737091231936978e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.004964999999999997
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.007565073668956757,
+            -0.02779439091682434,
+            0.1027347669005394,
+            -0.0017582506407052279,
+            0.025810837745666504,
+            -0.028328513726592064,
+            -0.9942165613174438
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.01201290637254715,
+            -0.02264224737882614,
+            0.10105504840612411,
+            -0.0008938435348682106,
+            0.028358131647109985,
+            -0.027288639917969704,
+            -0.9916267395019531
+          ],
+          "state_hash": "7ea03f56b5dc7a679f5379ce98ce790abdf89fd806df4f0b78f1585eac1d1669",
+          "step": 337,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "ema",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.005207050704049921,
+          "action_norm": 0.9996773900010878,
+          "bias": 1.0,
+          "gripper": -0.9933101236820221,
+          "prev_action_norm": 0.997868902734658,
+          "rotation_norm": 0.03869306460805729,
+          "step_fraction": 0.6480769230769231,
+          "translation_norm": 0.10579569472067182
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0011520038238434973,
+          "gripper_transition": -0.9933101236820221,
+          "object_goal_delta": 1.3065869701524385e-08,
+          "object_lift_delta": -1.633588320171242e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 1.633233712690548e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0011129999999999751
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.005118558965307301,
+          "gripper_transition": -0.9933101236820221,
+          "object_goal_delta": 5.389672985549582e-08,
+          "object_lift_delta": -6.7385545476916775e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 6.737091231936978e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.004954999999999987
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.007565073668956757,
+            -0.02779439091682434,
+            0.1027347669005394,
+            -0.0017582506407052279,
+            0.025810837745666504,
+            -0.028328513726592064,
+            -0.9942165613174438
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.01201290637254715,
+            -0.02264224737882614,
+            0.10105504840612411,
+            -0.0008938435348682106,
+            0.028358131647109985,
+            -0.027288639917969704,
+            -0.9916267395019531
+          ],
+          "state_hash": "7ea03f56b5dc7a679f5379ce98ce790abdf89fd806df4f0b78f1585eac1d1669",
+          "step": 337,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "jump_plus",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.7049162955518309,
+          "action_norm": 1.2345372668931787,
+          "bias": 1.0,
+          "gripper": -0.9942165613174438,
+          "prev_action_norm": 0.997868902734658,
+          "rotation_norm": 0.5148504439548703,
+          "step_fraction": 0.6480769230769231,
+          "translation_norm": 0.5201391284163012
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.003331559133631328,
+          "gripper_transition": -0.9942165613174438,
+          "object_goal_delta": 1.3065869701524385e-08,
+          "object_lift_delta": -1.633588320171242e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 1.633233712690548e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0021950000000000025
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.009282733608622204,
+          "gripper_transition": -0.9933101236820221,
+          "object_goal_delta": 5.389672985549582e-08,
+          "object_lift_delta": -6.7385545476916775e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 6.737091231936978e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0063590000000000035
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.007565073668956757,
+            -0.02779439091682434,
+            0.1027347669005394,
+            -0.0017582506407052279,
+            0.025810837745666504,
+            -0.028328513726592064,
+            -0.9942165613174438
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.01201290637254715,
+            -0.02264224737882614,
+            0.10105504840612411,
+            -0.0008938435348682106,
+            0.028358131647109985,
+            -0.027288639917969704,
+            -0.9916267395019531
+          ],
+          "state_hash": "7ea03f56b5dc7a679f5379ce98ce790abdf89fd806df4f0b78f1585eac1d1669",
+          "step": 337,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      },
+      {
+        "candidate_name": "hold_previous",
+        "censored_label": -1.0,
+        "features": {
+          "action_delta_norm": 0.0,
+          "action_norm": 0.997868902734658,
+          "bias": 1.0,
+          "gripper": -0.9916267395019531,
+          "prev_action_norm": 0.997868902734658,
+          "rotation_norm": 0.03936562530117178,
+          "step_fraction": 0.6480769230769231,
+          "translation_norm": 0.10425499553615468
+        },
+        "prefix_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.001138911474338907,
+          "gripper_transition": -0.9916267395019531,
+          "object_goal_delta": 1.3065869701524385e-08,
+          "object_lift_delta": -1.633588320171242e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 1.633233712690548e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0011009999999999631
+        },
+        "prefix_score": 0.0,
+        "prefix_success": false,
+        "recovered_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.005095513099449285,
+          "gripper_transition": -0.9933101236820221,
+          "object_goal_delta": 5.389672985549582e-08,
+          "object_lift_delta": -6.7385545476916775e-09,
+          "object_retained": 0.0,
+          "placement_alignment": 6.737091231936978e-07,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.004935999999999996
+        },
+        "recovered_score": 0.0,
+        "recovered_success": false,
+        "state": {
+          "base_action": [
+            -0.007565073668956757,
+            -0.02779439091682434,
+            0.1027347669005394,
+            -0.0017582506407052279,
+            0.025810837745666504,
+            -0.028328513726592064,
+            -0.9942165613174438
+          ],
+          "identity": 20260711,
+          "initial_state_index": 0,
+          "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+          "max_steps": 520,
+          "previous_action": [
+            -0.01201290637254715,
+            -0.02264224737882614,
+            0.10105504840612411,
+            -0.0008938435348682106,
+            0.028358131647109985,
+            -0.027288639917969704,
+            -0.9916267395019531
+          ],
+          "state_hash": "7ea03f56b5dc7a679f5379ce98ce790abdf89fd806df4f0b78f1585eac1d1669",
+          "step": 337,
+          "suite": "libero_10",
+          "task_id": 4
+        },
+        "uncensored_label": -1.0
+      }
+    ],
+    "train_identities": [
+      20260711
+    ],
+    "train_tasks": [
+      {
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "role": "stable_grasp_contact_transition",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "role": "long_horizon_contact_and_release",
+        "suite": "libero_10",
+        "task_id": 4
+      }
+    ],
+    "training_record_count": 24,
+    "training_state_count": 6,
+    "uncensored_model": {
+      "threshold": 0.0,
+      "weights": [
+        -8.211099468732627,
+        8.007013840134432,
+        -2.946969746171567,
+        -1.780154245290029,
+        0.31521261992376537,
+        0.7934892463627556,
+        0.14765500244966767,
+        -1.7156391161055606
+      ]
+    },
+    "uncensored_positive_count": 4
+  },
+  "training_happened": true,
+  "variants": [
+    "frozen_smolvla",
+    "vla_corrector_jump_proxy",
+    "simple_temporal_ema",
+    "uncensored_recovery_ablation",
+    "censor_credit_full"
+  ]
+}

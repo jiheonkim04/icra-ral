@@ -1,0 +1,1164 @@
+{
+  "branch": "codex/autonomous-ral-research-implementation-v2",
+  "closed_loop_experiment_happened": true,
+  "date_kst": "2026-07-11",
+  "elapsed_seconds": 487.086,
+  "episodes": [
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.48,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": null,
+      "mean_action_delta_norm": 0.0,
+      "mean_margin": null,
+      "min_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 0,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "frozen_smolvla"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.575,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": null,
+      "mean_action_delta_norm": 0.0,
+      "mean_margin": null,
+      "min_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 0,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "frozen_smolvla"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.383,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": 1.016668,
+      "mean_action_delta_norm": 0.644231,
+      "mean_margin": -0.438309,
+      "min_margin": -1.002043,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 242,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "pre_vla_style_halt_proxy"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.734,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": 1.014651,
+      "mean_action_delta_norm": 0.344224,
+      "mean_margin": -0.441378,
+      "min_margin": -1.001473,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 441,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "pre_vla_style_halt_proxy"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.694,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": null,
+      "mean_action_delta_norm": 0.1481,
+      "mean_margin": null,
+      "min_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 280,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "simple_global_damping"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.972,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": null,
+      "mean_action_delta_norm": 0.081493,
+      "mean_margin": null,
+      "min_margin": null,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 520,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "simple_global_damping"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.834,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": 27.519581,
+      "mean_action_delta_norm": 0.004157,
+      "mean_margin": 11.674931,
+      "min_margin": -1.673917,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 127,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "phase_barrier_no_phase_ablation"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.075,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": 23.690444,
+      "mean_action_delta_norm": 0.005364,
+      "mean_margin": 11.279003,
+      "min_margin": -3.321718,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 223,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "phase_barrier_no_phase_ablation"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.343,
+      "episode_steps": 280,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": 1.023469,
+      "mean_action_delta_norm": 0.141024,
+      "mean_margin": -0.438403,
+      "min_margin": -1.002382,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "shaped_step_count": 255,
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "phase_barrier_full"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.821,
+      "episode_steps": 520,
+      "exception": null,
+      "initial_state_index": 1,
+      "max_margin": 1.012336,
+      "mean_action_delta_norm": 0.081844,
+      "mean_margin": -0.441524,
+      "min_margin": -1.001487,
+      "reset_identity": 20260712,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "shaped_step_count": 460,
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "phase_barrier_full"
+    }
+  ],
+  "errors": [],
+  "eval_manifest": {
+    "eval_identities": [
+      20260712
+    ],
+    "planned_episodes": 10,
+    "tasks": [
+      {
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "role": "stable_grasp_contact_transition",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "role": "long_horizon_contact_and_release",
+        "suite": "libero_10",
+        "task_id": 4
+      }
+    ]
+  },
+  "exact_next_step": "Archive PhaseBarrier-VLA as first implemented kill and select a genuinely different second implemented method cycle.",
+  "final_decision": "PHASE_BARRIER_VALID_KILL",
+  "latency_vram_summary": {
+    "cuda_memory": {
+      "allocated_bytes": 9568256,
+      "allocated_mb": 9.125,
+      "max_allocated_bytes": 971650560,
+      "max_allocated_mb": 926.638
+    },
+    "elapsed_seconds": 487.086
+  },
+  "method": "PhaseBarrier-VLA",
+  "policy_load_audit": {
+    "action_chunk_device": "cuda:0",
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_finite": true,
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "amp_fp16_or_bf16_active": false,
+    "autocast": {
+      "cpu": false,
+      "cuda": false
+    },
+    "control_mode": "relative",
+    "cuda_memory": {
+      "allocated_bytes": 937419264,
+      "allocated_mb": 893.993,
+      "max_allocated_bytes": 970964480,
+      "max_allocated_mb": 925.984
+    },
+    "empty_cameras": 1,
+    "input_tensor_devices": {
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0"
+    },
+    "input_tensor_shapes": {
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ]
+    },
+    "load_seconds": 7.077,
+    "old_custom_libero_7d_route_used": false,
+    "parameter": {
+      "device": "cuda:0",
+      "dtype": "torch.bfloat16",
+      "numel": 589824
+    },
+    "peft": {
+      "used": false
+    },
+    "policy_class": "SmolVLAPolicy",
+    "policy_name": "frozen_base",
+    "rename_map": {
+      "observation.images.image": "observation.images.camera1",
+      "observation.images.image2": "observation.images.camera2"
+    }
+  },
+  "previous_decision_reclassified_as": "PREMATURE_LITERATURE_ONLY_TERMINATION",
+  "schema_version": "phase_barrier_vla_prototype_v1",
+  "summary": {
+    "ablation_task_balanced_success_rate": 0.0,
+    "absolute_gain_over_strongest_baseline_pp": 0.0,
+    "by_variant": {
+      "frozen_smolvla": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.0,
+        "mean_shaped_steps": 0.0,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      },
+      "phase_barrier_full": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.111434,
+        "mean_shaped_steps": 357.5,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      },
+      "phase_barrier_no_phase_ablation": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.00476,
+        "mean_shaped_steps": 175.0,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      },
+      "pre_vla_style_halt_proxy": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.494227,
+        "mean_shaped_steps": 341.5,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      },
+      "simple_global_damping": {
+        "exceptions": 0,
+        "mean_action_delta_norm": 0.114796,
+        "mean_shaped_steps": 400.0,
+        "success_rate": 0.0,
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 2
+      }
+    },
+    "full_task_balanced_success_rate": 0.0,
+    "passes_prototype_go": false,
+    "relative_failure_rate_reduction": 0.0,
+    "route_a_go": false,
+    "route_b_go": false,
+    "strongest_baseline_task_balanced_success_rate": 0.0,
+    "strongest_non_ablation_baseline": "frozen_smolvla"
+  },
+  "tasks": [
+    {
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4
+    }
+  ],
+  "train": {
+    "negative_label_count": 12,
+    "no_phase_model": {
+      "threshold": 0.0,
+      "use_phase": false,
+      "weights": [
+        7.179382321497316,
+        22.634854418879357,
+        -16.46972439499724,
+        -5.624810515369616,
+        -14.656059412180385,
+        -6.695974836948443,
+        -1.1493206742477857,
+        -16.20976406483791,
+        6.607326004794551
+      ]
+    },
+    "phase_model": {
+      "threshold": 0.0,
+      "use_phase": true,
+      "weights": [
+        -0.33706033053747714,
+        0.01500080922913203,
+        -0.01094187347898957,
+        -0.00344487519881404,
+        -0.009730918891885694,
+        -0.004428203573862992,
+        -0.0006926370518133501,
+        -0.010514732042827013,
+        0.030255158982519265,
+        -0.657601520926606,
+        1.3319810936444068,
+        -0.6743795727175889,
+        0.0
+      ]
+    },
+    "positive_label_count": 8,
+    "rows": [
+      {
+        "candidate_name": "default",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006350231527077021,
+          "gripper_transition": 0.9843551516532898,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0027699999999999947
+        },
+        "effect_compatibility": 0.00404,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.20418513174729527,
+          "eef_z": 1.172908463431777,
+          "gripper_mean": 0.9843551516532898,
+          "rotation_norm": 0.021539458858287154,
+          "step_fraction": 0.0,
+          "translation_norm": 0.16775326823925224,
+          "xy_norm": 0.052819824649391514,
+          "z_action_mean": -0.15922068059444427
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "global_damping_0p70",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.004394883787413209,
+          "gripper_transition": 0.9843551516532898,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.001927000000000012
+        },
+        "effect_compatibility": 0.002806,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.20418513174729527,
+          "eef_z": 1.172908463431777,
+          "gripper_mean": 0.9843551516532898,
+          "rotation_norm": 0.015077621200801007,
+          "step_fraction": 0.0,
+          "translation_norm": 0.11742728776747656,
+          "xy_norm": 0.03697387725457405,
+          "z_action_mean": -0.11145447641611099
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "translation_scale_1p35",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006403645384758034,
+          "gripper_transition": 0.9843551516532898,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0022019999999999817
+        },
+        "effect_compatibility": 0.003483,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.20418513174729527,
+          "eef_z": 1.172908463431777,
+          "gripper_mean": 0.9843551516532898,
+          "rotation_norm": 0.021539458858287154,
+          "step_fraction": 0.0,
+          "translation_norm": 0.17445881926103454,
+          "xy_norm": 0.07130676327667855,
+          "z_action_mean": -0.15922068059444427
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "contact_z_boost",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0053450417417529525,
+          "gripper_transition": 0.9843551516532898,
+          "object_goal_delta": 3.2062824018548344e-10,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 4.007853002318543e-09,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0020939999999999848
+        },
+        "effect_compatibility": 0.003163,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.20418513174729527,
+          "eef_z": 1.172908463431777,
+          "gripper_mean": 0.9843551516532898,
+          "rotation_norm": 0.021539458858287154,
+          "step_fraction": 0.0,
+          "translation_norm": 0.1442398175790177,
+          "xy_norm": 0.052819824649391514,
+          "z_action_mean": -0.13422068059444428
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "332c91813d1b8cee49848379af7170a01281b07a5fb629e993a09aa6ad857ec0",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "default",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.01463383435516631,
+          "gripper_transition": 0.9836781620979309,
+          "object_goal_delta": 6.206335383118183e-16,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 7.757919228897728e-15,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0006280000000000174
+        },
+        "effect_compatibility": 0.589956,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.17349637940417484,
+          "eef_z": 1.2154586556275953,
+          "gripper_mean": 0.9836781620979309,
+          "rotation_norm": 0.024488494495954496,
+          "step_fraction": 0.35,
+          "translation_norm": 0.12262171101456606,
+          "xy_norm": 0.035421613800401694,
+          "z_action_mean": -0.11739417910575867
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "dc3a069d5b6df63fbf50b459fed600ab81af111db47a6f05e49c6b2d4ddcf62f",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_98",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "global_damping_0p70",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.013662267783715702,
+          "gripper_transition": 0.9836781620979309,
+          "object_goal_delta": 6.206335383118183e-16,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 7.757919228897728e-15,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0015259999999999718
+        },
+        "effect_compatibility": 0.589596,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.17349637940417484,
+          "eef_z": 1.2154586556275953,
+          "gripper_mean": 0.9836781620979309,
+          "rotation_norm": 0.017141946147168147,
+          "step_fraction": 0.35,
+          "translation_norm": 0.08583519771019625,
+          "xy_norm": 0.024795129660281186,
+          "z_action_mean": -0.08217592537403107
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "dc3a069d5b6df63fbf50b459fed600ab81af111db47a6f05e49c6b2d4ddcf62f",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_98",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "translation_scale_1p35",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.014872815570671405,
+          "gripper_transition": 0.9836781620979309,
+          "object_goal_delta": 6.206335383118183e-16,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 7.757919228897728e-15,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0009580000000000144
+        },
+        "effect_compatibility": 0.589824,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.17349637940417484,
+          "eef_z": 1.2154586556275953,
+          "gripper_mean": 0.9836781620979309,
+          "rotation_norm": 0.024488494495954496,
+          "step_fraction": 0.35,
+          "translation_norm": 0.12675987982328896,
+          "xy_norm": 0.04781917863054229,
+          "z_action_mean": -0.11739417910575867
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "dc3a069d5b6df63fbf50b459fed600ab81af111db47a6f05e49c6b2d4ddcf62f",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_98",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "contact_z_boost",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.013975995519066359,
+          "gripper_transition": 0.9836781620979309,
+          "object_goal_delta": 6.206335383118183e-16,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 7.757919228897728e-15,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0013360000000000039
+        },
+        "effect_compatibility": 0.589672,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.17349637940417484,
+          "eef_z": 1.2154586556275953,
+          "gripper_mean": 0.9836781620979309,
+          "rotation_norm": 0.024488494495954496,
+          "step_fraction": 0.35,
+          "translation_norm": 0.09895137723575059,
+          "xy_norm": 0.035421613800401694,
+          "z_action_mean": -0.09239417910575867
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "dc3a069d5b6df63fbf50b459fed600ab81af111db47a6f05e49c6b2d4ddcf62f",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_98",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "default",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.002767334089916921,
+          "gripper_transition": 1.0000053644180298,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.002000999999999975
+        },
+        "effect_compatibility": 0.0,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.2757828014147389,
+          "eef_z": 0.9901011750855521,
+          "gripper_mean": 1.0000053644180298,
+          "rotation_norm": 0.027158908441804522,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.06472858943481491,
+          "xy_norm": 0.06266274682288675,
+          "z_action_mean": -0.016222529113292694
+        },
+        "label": -1.0,
+        "phase": "transport",
+        "start_state_hash": "ec92e42ef933d64a74ec376e560448d5f1988ab53a81608da428d75c48acab37",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_181",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "global_damping_0p70",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0024033837549888755,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0019500000000000073
+        },
+        "effect_compatibility": 0.0,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.2757828014147389,
+          "eef_z": 0.9901011750855521,
+          "gripper_mean": 1.0,
+          "rotation_norm": 0.019011235909263163,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.04531001260437043,
+          "xy_norm": 0.04386392277602072,
+          "z_action_mean": -0.011355770379304886
+        },
+        "label": -1.0,
+        "phase": "transport",
+        "start_state_hash": "ec92e42ef933d64a74ec376e560448d5f1988ab53a81608da428d75c48acab37",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_181",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "translation_scale_1p35",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0033798117576928667,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0023819999999999952
+        },
+        "effect_compatibility": 0.0,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.2757828014147389,
+          "eef_z": 0.9901011750855521,
+          "gripper_mean": 1.0,
+          "rotation_norm": 0.027158908441804522,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.08613614286766301,
+          "xy_norm": 0.08459470821089711,
+          "z_action_mean": -0.016222529113292694
+        },
+        "label": -1.0,
+        "phase": "transport",
+        "start_state_hash": "ec92e42ef933d64a74ec376e560448d5f1988ab53a81608da428d75c48acab37",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_181",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "contact_z_boost",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.002781035816787007,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.002257000000000009
+        },
+        "effect_compatibility": 0.0,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.2757828014147389,
+          "eef_z": 0.9901011750855521,
+          "gripper_mean": 1.0,
+          "rotation_norm": 0.027158908441804522,
+          "step_fraction": 0.6464285714285715,
+          "translation_norm": 0.06327451172910145,
+          "xy_norm": 0.06266274682288675,
+          "z_action_mean": 0.008777470886707307
+        },
+        "label": -1.0,
+        "phase": "transport",
+        "start_state_hash": "ec92e42ef933d64a74ec376e560448d5f1988ab53a81608da428d75c48acab37",
+        "state_id": "libero_spatial|task_4|identity_20260711|step_181",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "default",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.004486817723956419,
+          "gripper_transition": 0.9947274327278137,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0024899999999999922
+        },
+        "effect_compatibility": -0.001593,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.05389298050668294,
+          "eef_z": 0.6868602373038306,
+          "gripper_mean": 0.9947274327278137,
+          "rotation_norm": 0.03580808972691071,
+          "step_fraction": 0.0,
+          "translation_norm": 0.12606455564742539,
+          "xy_norm": 0.0907660945797961,
+          "z_action_mean": 0.08748593181371689
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+        "state_id": "libero_10|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "global_damping_0p70",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.003112897423910981,
+          "gripper_transition": 0.9947274327278137,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0017149999999999666
+        },
+        "effect_compatibility": -0.001092,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.05389298050668294,
+          "eef_z": 0.6868602373038306,
+          "gripper_mean": 0.9947274327278137,
+          "rotation_norm": 0.0250656628088375,
+          "step_fraction": 0.0,
+          "translation_norm": 0.08824518895319777,
+          "xy_norm": 0.06353626620585727,
+          "z_action_mean": 0.06124015226960182
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+        "state_id": "libero_10|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "translation_scale_1p35",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00518305808876979,
+          "gripper_transition": 0.9947274327278137,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0020839999999999748
+        },
+        "effect_compatibility": -0.001047,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.05389298050668294,
+          "eef_z": 0.6868602373038306,
+          "gripper_mean": 0.9947274327278137,
+          "rotation_norm": 0.03580808972691071,
+          "step_fraction": 0.0,
+          "translation_norm": 0.15056037067939274,
+          "xy_norm": 0.12253422768272475,
+          "z_action_mean": 0.08748593181371689
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+        "state_id": "libero_10|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "contact_z_boost",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.005239887011585823,
+          "gripper_transition": 0.9947274327278137,
+          "object_goal_delta": 0.0,
+          "object_lift_delta": 0.0,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.003434999999999966
+        },
+        "effect_compatibility": -0.002387,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.05389298050668294,
+          "eef_z": 0.6868602373038306,
+          "gripper_mean": 0.9947274327278137,
+          "rotation_norm": 0.03580808972691071,
+          "step_fraction": 0.0,
+          "translation_norm": 0.14453916002685452,
+          "xy_norm": 0.0907660945797961,
+          "z_action_mean": 0.11248593181371688
+        },
+        "label": -1.0,
+        "phase": "approach",
+        "start_state_hash": "a4ad68c1756a1b9c181e1d0eadf334c7ee03954d9586d1cc125b316633a086c9",
+        "state_id": "libero_10|task_4|identity_20260711|step_0",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "default",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0033606366602876325,
+          "gripper_transition": 1.0082658529281616,
+          "object_goal_delta": 0.0003291487075211137,
+          "object_lift_delta": -0.00030212732849094204,
+          "object_retained": 0.0,
+          "placement_alignment": 0.0041143588440139215,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0003120000000000067
+        },
+        "effect_compatibility": 0.605084,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.13987585366368024,
+          "eef_z": 0.5310849034107488,
+          "gripper_mean": 1.0082658529281616,
+          "rotation_norm": 0.033682334524612244,
+          "step_fraction": 0.35,
+          "translation_norm": 0.18473053020231853,
+          "xy_norm": 0.13025868411274855,
+          "z_action_mean": 0.1309887170791626
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "75e7d777ba8237ab94ec7e615baed5b02eb8fb185679f6feef7594def435037c",
+        "state_id": "libero_10|task_4|identity_20260711|step_182",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "global_damping_0p70",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.005246089097643837,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 1.0789849303062817e-05,
+          "object_lift_delta": -8.316566410149218e-06,
+          "object_retained": 0.0,
+          "placement_alignment": 0.00013487311628828522,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0015130000000000005
+        },
+        "effect_compatibility": 0.600605,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.13987585366368024,
+          "eef_z": 0.5310849034107488,
+          "gripper_mean": 1.0,
+          "rotation_norm": 0.023577634167228568,
+          "step_fraction": 0.35,
+          "translation_norm": 0.12931137114162294,
+          "xy_norm": 0.09118107887892397,
+          "z_action_mean": 0.09169210195541382
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "75e7d777ba8237ab94ec7e615baed5b02eb8fb185679f6feef7594def435037c",
+        "state_id": "libero_10|task_4|identity_20260711|step_182",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "translation_scale_1p35",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.002385711357055613,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 0.0006286481408603089,
+          "object_lift_delta": -0.0006162857528266841,
+          "object_retained": 0.0,
+          "placement_alignment": 0.00785810176075386,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.00045000000000000595
+        },
+        "effect_compatibility": 0.60018,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.13987585366368024,
+          "eef_z": 0.5310849034107488,
+          "gripper_mean": 1.0,
+          "rotation_norm": 0.033682334524612244,
+          "step_fraction": 0.35,
+          "translation_norm": 0.21927378645419573,
+          "xy_norm": 0.17584922355221055,
+          "z_action_mean": 0.1309887170791626
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "75e7d777ba8237ab94ec7e615baed5b02eb8fb185679f6feef7594def435037c",
+        "state_id": "libero_10|task_4|identity_20260711|step_182",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "candidate_name": "contact_z_boost",
+        "effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0030434972807280862,
+          "gripper_transition": 1.0,
+          "object_goal_delta": 0.00034909494696210393,
+          "object_lift_delta": -0.00031247616323304417,
+          "object_retained": 0.0,
+          "placement_alignment": 0.004363686837026299,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0005949999999999983
+        },
+        "effect_compatibility": 0.599762,
+        "features": {
+          "bias": 1.0,
+          "eef_xy_norm": 0.13987585366368024,
+          "eef_z": 0.5310849034107488,
+          "gripper_mean": 1.0,
+          "rotation_norm": 0.033682334524612244,
+          "step_fraction": 0.35,
+          "translation_norm": 0.20322353368344878,
+          "xy_norm": 0.13025868411274855,
+          "z_action_mean": 0.1559887170791626
+        },
+        "label": 1.0,
+        "phase": "contact",
+        "start_state_hash": "75e7d777ba8237ab94ec7e615baed5b02eb8fb185679f6feef7594def435037c",
+        "state_id": "libero_10|task_4|identity_20260711|step_182",
+        "task_success_within_short_horizon": false,
+        "terminated": false,
+        "truncated": false
+      }
+    ],
+    "train_identities": [
+      20260711
+    ],
+    "train_tasks": [
+      {
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "role": "stable_grasp_contact_transition",
+        "suite": "libero_spatial",
+        "task_id": 4
+      },
+      {
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "role": "long_horizon_contact_and_release",
+        "suite": "libero_10",
+        "task_id": 4
+      }
+    ],
+    "training_record_count": 20,
+    "training_state_count": 5
+  },
+  "training_happened": true,
+  "variants": [
+    "frozen_smolvla",
+    "pre_vla_style_halt_proxy",
+    "simple_global_damping",
+    "phase_barrier_no_phase_ablation",
+    "phase_barrier_full"
+  ]
+}

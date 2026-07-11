@@ -246,6 +246,21 @@ Still forbidden:
 - generic confidence, verification, correction, adaptive chunking, progress, failure-negative, adapter-routing, or LoRA-as-novelty claims;
 - main-branch pollution from abandoned method implementations.
 
+## After Autonomous RA-L Research Implementation V2 - 2026-07-11
+
+- decision: `TWO_IMPLEMENTED_METHODS_KILLED`
+- next: `Stop autonomous no-method campaign unless the user explicitly reopens a stronger repeat or a new mechanism.`
+
+Reason:
+
+- `PhaseBarrier-VLA` was implemented, trained, evaluated closed-loop, and killed.
+- `CensorCredit-VLA` was implemented, trained, evaluated closed-loop, and killed because its key uncensored ablation matched the full method.
+
+Allowed reopen:
+
+- one explicitly requested repeat of CensorCredit on more held-out resets, because it showed a weak positive signal over frozen/simple baselines but failed the ablation gate;
+- a genuinely new mechanism that differs from both physical feasibility projection and temporal credit/action-history blending.
+
 ## After ECHO Final Candidate Headroom Gate - 2026-07-11
 
 - decision: `NO_ECHO_HEADROOM_CONFIRMED`

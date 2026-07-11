@@ -1504,3 +1504,27 @@ Cycle kills:
 - Cycle 03, contact barrier and irreversibility boundaries: killed by VeriSpace, Pre-VLA, VLA-Corrector, AAC, SEAM, Legato, TORL-VLA proximity plus local contact/geometry baseline kills and non-cross-backbone hard-slice evidence.
 
 Consequence: stop the autonomous campaign. Do not implement another local VLA method without one of the explicit reopen conditions in `reports/autonomous_campaign_final_decision.md`.
+
+## 2026-07-11 - Autonomous RA-L Research Implementation V2
+
+Decision: `TWO_IMPLEMENTED_METHODS_KILLED`
+
+Correction: the prior `NO_METHOD_AFTER_3_VALID_CYCLES` decision is procedurally rejected and reclassified as `PREMATURE_LITERATURE_ONLY_TERMINATION`.
+
+Implemented cycle 1:
+
+- method: `PhaseBarrier-VLA`
+- code: `tca_map/smolvla/phase_barrier_vla.py`, `scripts/run_phase_barrier_vla_prototype.py`
+- result: `reports/phase_barrier_vla_prototype_result.json`
+- final decision: `PHASE_BARRIER_VALID_KILL`
+- evidence: training happened and closed-loop SmolVLA-LIBERO evaluation happened; full method task-balanced success `0.0`.
+
+Implemented cycle 2:
+
+- method: `CensorCredit-VLA`
+- code: `tca_map/smolvla/censored_credit_vla.py`, `scripts/run_censor_credit_vla_prototype.py`
+- result: `reports/censor_credit_vla_prototype_result.json`
+- final decision: `CENSOR_CREDIT_VALID_KILL`
+- evidence: training happened and closed-loop SmolVLA-LIBERO evaluation happened; full method task-balanced success `0.5`, but uncensored recovery ablation also `0.5`.
+
+Consequence: the implementation-v2 campaign has two genuinely distinct implemented valid kills. The valid final decision is `TWO_IMPLEMENTED_METHODS_KILLED`, not another literature-only no-method result.
