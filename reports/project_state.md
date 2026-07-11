@@ -193,3 +193,44 @@ Key reports:
 - `reports/closed_loop_method_gate_decision.md`
 
 Exact next step: do not implement a method. Only reopen method design after one visible mechanism is shown in at least two tasks or at least three independent reset seeds, and after a non-generic novelty claim survives the recent-work audit.
+
+## 2026-07-11 Cross-Backbone Cross-Benchmark Gate
+
+Current decision: `SECOND_BACKBONE_OR_BENCHMARK_BLOCKED`
+
+The new gate selected a second backbone and second benchmark without downloading assets, training, rolling out, or implementing a method.
+
+Selected second backbone:
+
+- `OpenVLA-OFT`
+- checkpoint: `moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10`
+- checkpoint size: `14.845` GiB
+- license/access: MIT, public, non-gated
+- State 1 decision: `SECOND_BACKBONE_DOWNLOAD_APPROVAL_REQUIRED`
+
+Selected second benchmark:
+
+- `LIBERO-PRO`
+- official repo: `https://github.com/Zxy-MLlab/LIBERO-PRO`
+- dataset size from Hugging Face API: `1,090,523` bytes for BDDL/init files
+- license/access: MIT, public, non-gated
+- State 2 decision: `SECOND_BENCHMARK_READY_AFTER_SECOND_BACKBONE`
+
+No cross-model rollout ran because the selected OpenVLA-OFT checkpoint is a large download and local 16GB VRAM inference feasibility is not proven. The predeclared protocol is frozen in `reports/cross_model_failure_manifest.json` for a later approved run.
+
+Key reports:
+
+- `reports/cross_backbone_candidate_audit.md`
+- `reports/cross_benchmark_candidate_audit.md`
+- `reports/openvla_oft_local_feasibility.md`
+- `reports/second_vla_selection.md`
+- `reports/second_benchmark_selection.md`
+- `reports/cross_model_failure_manifest.json`
+- `reports/cross_model_failure_result.md`
+- `reports/cross_model_failure_result.json`
+- `reports/cross_model_visual_annotations.json`
+- `reports/cross_model_failure_generality.md`
+- `reports/cross_model_latest_work_comparison.md`
+- `reports/cross_model_method_readiness_decision.md`
+
+Exact next step: request explicit approval for the OpenVLA-OFT checkpoint download and decide whether to run inference locally with memory/offload safeguards or on lab GPUs. Do not implement a method before cross-backbone and LIBERO-PRO evidence exists.

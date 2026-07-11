@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-11",
+  "branch": "codex/cross-backbone-cross-benchmark-failure-gate",
+  "objective": "cross-backbone and cross-benchmark failure generality gate without method implementation",
+  "downloads_allowed": false,
+  "training_allowed": false,
+  "method_implementation_allowed": false,
+  "selected_second_backbone": {
+    "name": "OpenVLA-OFT",
+    "source_repository": "https://github.com/moojink/openvla-oft",
+    "paper": "https://arxiv.org/abs/2502.19645",
+    "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "checkpoint_sha": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+    "license": "mit",
+    "gated": false,
+    "checkpoint_size_bytes": 15939168050,
+    "checkpoint_size_gib": 14.845,
+    "download_status": "not_downloaded",
+    "state_1_decision": "SECOND_BACKBONE_DOWNLOAD_APPROVAL_REQUIRED"
+  },
+  "selected_second_benchmark": {
+    "name": "LIBERO-PRO",
+    "source_repository": "https://github.com/Zxy-MLlab/LIBERO-PRO",
+    "paper": "https://arxiv.org/abs/2510.03827",
+    "dataset": "https://huggingface.co/datasets/zhouxueyang/LIBERO-Pro",
+    "dataset_sha": "3a33dc4cfbea7ff5eac6764e9c557500972b6259",
+    "license": "mit",
+    "gated": false,
+    "dataset_size_bytes": 1090523,
+    "download_status": "not_downloaded",
+    "state_2_decision": "SECOND_BENCHMARK_READY_AFTER_SECOND_BACKBONE"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "spatial_drawer_bowl_stable_grasp_extraction",
+      "short_name": "stable_grasp",
+      "source_task": "libero_spatial/task_4",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "primary_phase": "stable_grasp",
+      "adjacent_phase": "contact_transition",
+      "standard_libero_reset_seeds": [20260712, 20260713, 20260714],
+      "libero_pro_perturbations": ["position", "object"],
+      "must_remain_separate_from": ["libero10_multi_object_long_horizon_compounding"]
+    },
+    {
+      "mechanism_id": "libero10_multi_object_long_horizon_compounding",
+      "short_name": "long_horizon_compounding",
+      "source_task": "libero_10/task_4",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "primary_phase": "long_horizon_compounding",
+      "adjacent_phase": "placement_alignment",
+      "standard_libero_reset_seeds": [20260713, 20260714, 20260715],
+      "libero_pro_perturbations": ["task", "semantic", "position"],
+      "must_remain_separate_from": ["spatial_drawer_bowl_stable_grasp_extraction"]
+    }
+  ],
+  "policy_checkpoints": [
+    "smolvla:frozen_base",
+    "smolvla:rank4_lora_seed_11",
+    "smolvla:rank4_lora_seed_22",
+    "smolvla:rank4_lora_seed_33",
+    "openvla_oft:moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10"
+  ],
+  "evaluation_protocol": {
+    "state_4_standard_libero_max_episodes": 60,
+    "state_5_second_benchmark_max_episodes": 36,
+    "total_max_episodes": 96,
+    "video_required_for_every_episode": true,
+    "minimum_independent_reset_seeds_per_task_model": 3,
+    "no_task_or_seed_selection_after_second_model_outcomes": true,
+    "success_metric": "closed_loop_task_success",
+    "record_fields": [
+      "success",
+      "reward",
+      "episode_length",
+      "first_divergence_timestep",
+      "physical_failure_phase",
+      "action_chunk_logs",
+      "policy_latency",
+      "vram",
+      "exceptions",
+      "outcome_repeatability"
+    ]
+  },
+  "controls": {
+    "matched_success_controls": [
+      "libero_spatial/task_4 seed_20260711",
+      "libero_spatial/task_4 seed_20260715",
+      "libero_10/task_4 seed_20260712",
+      "libero_10/task_4 seed_20260714"
+    ],
+    "known_rerun_flip_warning": "Previous same-identity SmolVLA video rerun flipped 8/24 outcomes; cross-model claims must not rely on single-run failures."
+  },
+  "execution_status": {
+    "state_4_ran": false,
+    "state_5_ran": false,
+    "episodes_completed": 0,
+    "videos_recorded": 0,
+    "blocked_by": "SECOND_BACKBONE_DOWNLOAD_APPROVAL_REQUIRED"
+  }
+}

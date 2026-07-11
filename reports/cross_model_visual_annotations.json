@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-11",
+  "source": "cross-model visual annotation placeholder; no second-backbone videos were generated",
+  "allowed_phase_labels": [
+    "target_or_object_selection",
+    "initial_reach",
+    "orientation_alignment",
+    "grasp_approach",
+    "contact_transition",
+    "gripper_timing",
+    "stable_grasp",
+    "object_transport",
+    "placement_alignment",
+    "release_transition",
+    "action_chunk_boundary",
+    "long_horizon_compounding",
+    "environment_failure",
+    "unresolved"
+  ],
+  "selected_second_backbone": "OpenVLA-OFT",
+  "selected_second_benchmark": "LIBERO-PRO",
+  "videos_reviewed": 0,
+  "annotations": [],
+  "not_run_reason": "SECOND_BACKBONE_DOWNLOAD_APPROVAL_REQUIRED",
+  "prior_smolvla_visual_annotation_source": "reports/closed_loop_failure_visual_annotations.json",
+  "schema_status": "valid_empty_until_cross_model_rollout"
+}

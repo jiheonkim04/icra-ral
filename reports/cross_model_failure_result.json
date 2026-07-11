@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-11",
+  "branch": "codex/cross-backbone-cross-benchmark-failure-gate",
+  "selected_second_backbone": "OpenVLA-OFT",
+  "selected_second_backbone_checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+  "selected_second_benchmark": "LIBERO-PRO",
+  "downloads_happened": false,
+  "training_happened": false,
+  "rollout_happened": false,
+  "method_implemented": false,
+  "episodes_planned_after_unblock": 96,
+  "episodes_completed": 0,
+  "videos_recorded": 0,
+  "cross_backbone_results": null,
+  "cross_benchmark_results": null,
+  "mechanism_generality": {
+    "stable_grasp": "unproven_second_backbone_not_run",
+    "long_horizon_compounding": "unproven_second_backbone_not_run"
+  },
+  "state_1_decision": "SECOND_BACKBONE_DOWNLOAD_APPROVAL_REQUIRED",
+  "state_2_decision": "SECOND_BENCHMARK_READY_AFTER_SECOND_BACKBONE",
+  "final_decision": "SECOND_BACKBONE_OR_BENCHMARK_BLOCKED",
+  "blocking_reason": "OpenVLA-OFT is selected but the 14.845 GiB checkpoint was not downloaded because the objective forbids large downloads without size reporting and approval; local 16GB VRAM inference feasibility is not proven.",
+  "exact_next_implementation_prompt": null
+}

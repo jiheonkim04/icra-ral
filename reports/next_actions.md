@@ -117,3 +117,29 @@ Still forbidden:
 - no generic correction/replanning/chunking/progress method
 - no full sweep just to rescue the gate
 - no paper claim from SmolVLA-only evidence
+
+## 2026-07-11 Cross-Model Gate Next Action
+
+Current decision: `SECOND_BACKBONE_OR_BENCHMARK_BLOCKED`
+
+Do not implement a method.
+
+The selected second backbone is `OpenVLA-OFT` with checkpoint `moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10`. The selected second benchmark is `LIBERO-PRO`.
+
+Immediate next action:
+
+1. Ask for explicit approval before downloading the `14.845` GiB OpenVLA-OFT checkpoint.
+2. Choose the hardware path:
+   - preferred: lab GPU path with 24GB+ VRAM per inference process;
+   - local RTX 5080 16GB only with a predeclared offload/quantization risk note, because official full-precision inference is not proven.
+3. After approval, run only the frozen protocol in `reports/cross_model_failure_manifest.json`.
+
+Still forbidden:
+
+- no SmolVLA retraining
+- no OpenVLA-OFT fine-tuning
+- no FCAR revival
+- no method implementation
+- no full benchmark
+- no generic retry/progress/verification/replanning/chunking method
+- no claim that either mechanism generalizes before OpenVLA-OFT and LIBERO-PRO evidence exists

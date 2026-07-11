@@ -1358,3 +1358,41 @@ Recent-work audit:
 - prior/expert/adapter-routing routes killed by PriorVLA, CLARE, and VLA-GSE
 
 Consequence: no method candidate is specified and no implementation prompt is authorized. Reopen only with new bounded evidence for one repeated mechanism plus second-backbone, second-benchmark, and simple-baseline kill plans.
+
+## 2026-07-11: Cross-Backbone Cross-Benchmark Failure Gate
+
+Decision: `SECOND_BACKBONE_OR_BENCHMARK_BLOCKED`
+
+- branch: `codex/cross-backbone-cross-benchmark-failure-gate`
+- objective: determine whether either observed failure is a cross-backbone, cross-benchmark VLA execution problem before method design
+- downloads happened: `False`
+- training happened: `False`
+- rollout happened: `False`
+- method implemented: `False`
+- episodes completed: `0`
+- videos recorded: `0`
+
+Second backbone selection:
+
+- selected backbone: `OpenVLA-OFT`
+- selected checkpoint: `moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10`
+- checkpoint size: `14.845` GiB
+- checkpoint access/license: public, non-gated, MIT
+- State 1 decision: `SECOND_BACKBONE_DOWNLOAD_APPROVAL_REQUIRED`
+
+Second benchmark selection:
+
+- selected benchmark: `LIBERO-PRO`
+- source: `https://github.com/Zxy-MLlab/LIBERO-PRO`
+- dataset: `https://huggingface.co/datasets/zhouxueyang/LIBERO-Pro`
+- dataset metadata size: `1,090,523` bytes
+- State 2 decision: `SECOND_BENCHMARK_READY_AFTER_SECOND_BACKBONE`
+
+Protocol:
+
+- mechanisms remain separate: `stable_grasp` and `long_horizon_compounding`
+- maximum predeclared episodes after unblock: `96`
+- no task or seed selection after seeing second-model outcomes
+- videos required for every episode
+
+Consequence: no cross-backbone or cross-benchmark evidence exists yet. The correct final decision is blocked, not method-ready, not SmolVLA-specific, and not prior-art killed. The next valid step is explicit OpenVLA-OFT download/hardware approval, then the frozen bounded protocol.
