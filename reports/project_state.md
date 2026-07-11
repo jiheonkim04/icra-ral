@@ -285,3 +285,37 @@ Key reports:
 - `reports/vla_method_design_decision.md`
 
 Exact next step: implement only the bounded first ECHO-VLA prototype on SmolVLA using the predeclared four-task predicate-diversity set and frozen kill criteria. Do not run OpenVLA-OFT INT4, full LIBERO, LIBERO-PRO, or a broad robustness sweep before the SmolVLA gate passes.
+
+## 2026-07-11 ECHO-VLA First Prototype Headroom Gate
+
+Current decision: `NO_ECHO_CANDIDATE_HEADROOM`
+
+Branch: `codex/implement-echo-vla-first-prototype`
+
+Starting main commit: `5fcc87b93b627dbf09eb69676801e4412909bda4`
+
+The targeted novelty adjudication passed only under the narrowed ECHO claim: phase-conditioned explicit physical-effect mediation learned from same-state action interventions and used for pre-execution candidate credit/ranking. ECHO was compared against Reflective VLA, Action-Effect Memory, Causal World Modeling / LingBot-VA, Pre-VLA, CoVer, Move-Then-Operate, Dream2Fix, and VLA-Corrector.
+
+The same-state counterfactual protocol and effect schema were frozen, then a bounded candidate-headroom gate ran on official SmolVLA-LIBERO through WSL/CUDA. The gate used two initial tasks (`libero_spatial/task_0`, `libero_object/task_4`), two reset identities (`20260711`, `20260712`), `K=4` candidates, and horizon `4`. It generated `4` same-state intervention groups and `16` candidate records. All `4/4` group identity proofs passed, and non-gripper effect labels were populated for EEF displacement and target-distance change.
+
+Oracle candidate selection did not improve over the default candidate:
+
+- default success rate: `0.0`
+- oracle success rate: `0.0`
+- oracle improvement: `0.0` percentage points
+- default-failure recoverable rate: `0.0`
+
+No ECHO heads were trained and no closed-loop ECHO evaluation was run because the predeclared headroom kill fired before training.
+
+Key reports:
+
+- `reports/echo_vla_targeted_novelty_adjudication.md`
+- `reports/echo_vla_counterfactual_data_protocol.md`
+- `reports/echo_vla_effect_predicate_schema.md`
+- `reports/echo_vla_candidate_headroom_result.md`
+- `reports/echo_vla_first_prototype_plan.md`
+- `reports/echo_vla_first_prototype_result.md`
+- `reports/echo_vla_first_prototype_result.json`
+- `reports/echo_vla_first_prototype_decision.md`
+
+Exact next step: stop ECHO implementation under this candidate-generation protocol. Reopen only with a redesigned candidate generator or effect representation and a new predeclared headroom gate; do not train ECHO heads on the current no-headroom candidate set.

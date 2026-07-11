@@ -193,3 +193,32 @@ Still forbidden before the first gate passes:
 - no broad failure mining,
 - no generic confidence/verification/progress/replanning/chunking method,
 - no LoRA, SmolVLA, or quantization as novelty.
+
+## 2026-07-11 ECHO-VLA First Prototype Next Action
+
+Current decision: `NO_ECHO_CANDIDATE_HEADROOM`
+
+Immediate next action: stop the current ECHO implementation path.
+
+Why:
+
+- the focused novelty gate passed, but only for the strict same-state intervention effect-mediator claim;
+- the bounded same-state candidate-headroom gate generated `4` intervention groups and `16` candidate records;
+- all same-state identity proofs passed;
+- oracle realized-effect selection achieved `0.0` percentage-point improvement over the default candidate;
+- `0.0` of default-failure states contained a successful or materially better candidate;
+- therefore training lightweight ECHO heads would only train a selector over a candidate set with no recoverable headroom.
+
+Allowed next actions:
+
+1. Archive this as a no-headroom kill for the current ECHO candidate generator.
+2. If reopening ECHO, design a new candidate generator or longer-horizon state selection protocol first, then freeze a new headroom gate before training.
+3. Preserve the no-privileged-inference and same-state-intervention tests.
+
+Still forbidden:
+
+- no ECHO head training on the current no-headroom data;
+- no OpenVLA-OFT validation;
+- no full benchmark;
+- no claim that a local Pre-VLA-style proxy was officially reproduced;
+- no causality claim from ordinary demonstration transitions.

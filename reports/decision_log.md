@@ -1447,3 +1447,27 @@ Rejected candidates:
 - `IRIS-VLA`: too close to VLA-Corrector/Pre-VLA and expensive recoverability labels.
 
 Consequence: implementation is authorized only for the bounded ECHO-VLA first prototype described in `reports/vla_primary_method_first_experiment.md`; OpenVLA-OFT INT4 and the full two-backbone matrix are held until the SmolVLA gate passes.
+
+## 2026-07-11 ECHO-VLA First Prototype Headroom Gate
+
+Decision: `NO_ECHO_CANDIDATE_HEADROOM`
+
+- branch: `codex/implement-echo-vla-first-prototype`
+- starting main commit: `5fcc87b93b627dbf09eb69676801e4412909bda4`
+- targeted novelty adjudication: passed under strict same-state physical-effect mediator claim
+- same-state intervention groups: `4`
+- candidate records: `16`
+- tasks: `libero_spatial/task_0`, `libero_object/task_4`
+- reset identities: `20260711`, `20260712`
+- candidate count: `4`
+- horizon: `4`
+- same-state group proofs valid: `4/4`
+- non-gripper effect labels populated: `eef_delta_norm`, `target_distance_delta`
+- oracle improvement: `0.0` percentage points
+- default-failure recoverable rate: `0.0`
+- components trained: `none`
+- closed-loop ECHO evaluation: `False`
+- OpenVLA-OFT used: `False`
+- full benchmark run: `False`
+
+Consequence: do not train ECHO heads or run ECHO closed-loop evaluation with the current candidate generator. The required oracle headroom prerequisite failed before training.

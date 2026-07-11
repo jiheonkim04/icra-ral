@@ -1,0 +1,2322 @@
+{
+  "blocker_or_kill_reason": "oracle improvement <10pp or fewer than 15% of default-failure states contain a successful/materially better candidate",
+  "branch": "codex/implement-echo-vla-first-prototype",
+  "candidate_headroom": {
+    "candidate_count_total": 16,
+    "default_failure_group_count": 4,
+    "default_failure_recoverable_count": 0,
+    "default_failure_recoverable_rate": 0.0,
+    "default_success_rate": 0.0,
+    "group_count": 4,
+    "hard_kill_reason": "oracle improvement <10pp or fewer than 15% of default-failure states contain a successful/materially better candidate",
+    "materially_better_group_count": 0,
+    "oracle_improvement_pp": 0.0,
+    "oracle_success_rate": 0.0,
+    "passes_headroom_gate": false
+  },
+  "candidate_headroom_ran": true,
+  "candidate_rows": [
+    [
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              -0.01759931445121765,
+              0.02274194359779358,
+              -0.009169414639472961,
+              -0.0011886830907315016,
+              0.018859371542930603,
+              -0.00821447093039751,
+              -1.002830982208252
+            ],
+            [
+              0.10604099929332733,
+              0.07687114179134369,
+              0.045067496597766876,
+              -0.001131132012233138,
+              0.029564764350652695,
+              -0.008928213268518448,
+              -1.0033265352249146
+            ],
+            [
+              0.2722061574459076,
+              0.1866758018732071,
+              0.10381665080785751,
+              0.0003929971717298031,
+              0.03940112516283989,
+              -0.0026423977687954903,
+              -0.9952779412269592
+            ],
+            [
+              0.5307705402374268,
+              0.3545205891132355,
+              0.1345503032207489,
+              0.001676071435213089,
+              0.03226033225655556,
+              0.009024780243635178,
+              -1.0034853219985962
+            ]
+          ],
+          "candidate_index": 0,
+          "group_id": "libero_spatial|task_0|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.0067916949416596695,
+            "gripper_transition": -1.0012301951646805,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.004400000000000015
+          },
+          "source": "frozen_smolvla_default_candidate",
+          "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+          "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.005758338988430248,
+        "policy_start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.00740068554878235,
+              0.02274194359779358,
+              -0.009169414639472961,
+              -0.0011886830907315016,
+              0.018859371542930603,
+              -0.00821447093039751,
+              -1.0
+            ],
+            [
+              0.13104099929332733,
+              0.07687114179134369,
+              0.045067496597766876,
+              -0.001131132012233138,
+              0.029564764350652695,
+              -0.008928213268518448,
+              -1.0
+            ],
+            [
+              0.2972061574459076,
+              0.1866758018732071,
+              0.10381665080785751,
+              0.0003929971717298031,
+              0.03940112516283989,
+              -0.0026423977687954903,
+              -0.9952779412269592
+            ],
+            [
+              0.5557705402374268,
+              0.3545205891132355,
+              0.1345503032207489,
+              0.001676071435213089,
+              0.03226033225655556,
+              0.009024780243635178,
+              -1.0
+            ]
+          ],
+          "candidate_index": 1,
+          "group_id": "libero_spatial|task_0|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.007359143986801756,
+            "gripper_transition": -0.9988194853067398,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0048719999999999875
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+          "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0063438287974586375,
+        "policy_start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              -0.01759931445121765,
+              -0.0022580564022064223,
+              -0.009169414639472961,
+              -0.0011886830907315016,
+              0.018859371542930603,
+              -0.00821447093039751,
+              -1.0
+            ],
+            [
+              0.10604099929332733,
+              0.05187114179134369,
+              0.045067496597766876,
+              -0.001131132012233138,
+              0.029564764350652695,
+              -0.008928213268518448,
+              -1.0
+            ],
+            [
+              0.2722061574459076,
+              0.1616758018732071,
+              0.10381665080785751,
+              0.0003929971717298031,
+              0.03940112516283989,
+              -0.0026423977687954903,
+              -0.9952779412269592
+            ],
+            [
+              0.5307705402374268,
+              0.32952058911323545,
+              0.1345503032207489,
+              0.001676071435213089,
+              0.03226033225655556,
+              0.009024780243635178,
+              -1.0
+            ]
+          ],
+          "candidate_index": 2,
+          "group_id": "libero_spatial|task_0|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.006063292984775831,
+            "gripper_transition": -0.9988194853067398,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.003836000000000006
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+          "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.005048658597053471,
+        "policy_start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              -0.01759931445121765,
+              0.02274194359779358,
+              0.01583058536052704,
+              -0.0011886830907315016,
+              0.018859371542930603,
+              -0.00821447093039751,
+              -1.0
+            ],
+            [
+              0.10604099929332733,
+              0.07687114179134369,
+              0.07006749659776687,
+              -0.001131132012233138,
+              0.029564764350652695,
+              -0.008928213268518448,
+              -1.0
+            ],
+            [
+              0.2722061574459076,
+              0.1866758018732071,
+              0.1288166508078575,
+              0.0003929971717298031,
+              0.03940112516283989,
+              -0.0026423977687954903,
+              -0.9952779412269592
+            ],
+            [
+              0.5307705402374268,
+              0.3545205891132355,
+              0.1595503032207489,
+              0.001676071435213089,
+              0.03226033225655556,
+              0.009024780243635178,
+              -1.0
+            ]
+          ],
+          "candidate_index": 3,
+          "group_id": "libero_spatial|task_0|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.006878647051997451,
+            "gripper_transition": -0.9988194853067398,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0036379999999999746
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+          "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.005013729410497764,
+        "policy_start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      }
+    ],
+    [
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              -0.010251730680465698,
+              0.01303207129240036,
+              0.07057356089353561,
+              -0.0027645272202789783,
+              0.009536809287965298,
+              -0.008919665589928627,
+              -1.0145597457885742
+            ],
+            [
+              0.05116377770900726,
+              0.04750482365489006,
+              0.09929568320512772,
+              -0.0026887597050517797,
+              0.012817684561014175,
+              0.01063038781285286,
+              -1.0165116786956787
+            ],
+            [
+              0.2190822958946228,
+              0.16899046301841736,
+              0.11564085632562637,
+              -0.020909283310174942,
+              0.03332804515957832,
+              0.010948967188596725,
+              -1.0086770057678223
+            ],
+            [
+              0.46853354573249817,
+              0.2828747630119324,
+              0.2089046835899353,
+              -0.01714642532169819,
+              0.028853479772806168,
+              0.008137973956763744,
+              -1.0040429830551147
+            ]
+          ],
+          "candidate_index": 0,
+          "group_id": "libero_spatial|task_0|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.006019140870422576,
+            "gripper_transition": -1.0109478533267975,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0013579999999999703
+          },
+          "source": "frozen_smolvla_default_candidate",
+          "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+          "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.002561828174182785,
+        "policy_start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.014748269319534303,
+              0.01303207129240036,
+              0.07057356089353561,
+              -0.0027645272202789783,
+              0.009536809287965298,
+              -0.008919665589928627,
+              -1.0
+            ],
+            [
+              0.07616377770900726,
+              0.04750482365489006,
+              0.09929568320512772,
+              -0.0026887597050517797,
+              0.012817684561014175,
+              0.01063038781285286,
+              -1.0
+            ],
+            [
+              0.2440822958946228,
+              0.16899046301841736,
+              0.11564085632562637,
+              -0.020909283310174942,
+              0.03332804515957832,
+              0.010948967188596725,
+              -1.0
+            ],
+            [
+              0.4935335457324982,
+              0.2828747630119324,
+              0.2089046835899353,
+              -0.01714642532169819,
+              0.028853479772806168,
+              0.008137973956763744,
+              -1.0
+            ]
+          ],
+          "candidate_index": 1,
+          "group_id": "libero_spatial|task_0|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.006481168221160121,
+            "gripper_transition": -1.0,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0018109999999999515
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+          "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.003107233644330275,
+        "policy_start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              -0.010251730680465698,
+              -0.011967928707599641,
+              0.07057356089353561,
+              -0.0027645272202789783,
+              0.009536809287965298,
+              -0.008919665589928627,
+              -1.0
+            ],
+            [
+              0.05116377770900726,
+              0.02250482365489006,
+              0.09929568320512772,
+              -0.0026887597050517797,
+              0.012817684561014175,
+              0.01063038781285286,
+              -1.0
+            ],
+            [
+              0.2190822958946228,
+              0.14399046301841736,
+              0.11564085632562637,
+              -0.020909283310174942,
+              0.03332804515957832,
+              0.010948967188596725,
+              -1.0
+            ],
+            [
+              0.46853354573249817,
+              0.25787476301193235,
+              0.2089046835899353,
+              -0.01714642532169819,
+              0.028853479772806168,
+              0.008137973956763744,
+              -1.0
+            ]
+          ],
+          "candidate_index": 2,
+          "group_id": "libero_spatial|task_0|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.0054198264080840015,
+            "gripper_transition": -1.0,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0007939999999999614
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+          "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0018779652817150609,
+        "policy_start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              -0.010251730680465698,
+              0.01303207129240036,
+              0.09557356089353561,
+              -0.0027645272202789783,
+              0.009536809287965298,
+              -0.008919665589928627,
+              -1.0
+            ],
+            [
+              0.05116377770900726,
+              0.04750482365489006,
+              0.12429568320512771,
+              -0.0026887597050517797,
+              0.012817684561014175,
+              0.01063038781285286,
+              -1.0
+            ],
+            [
+              0.2190822958946228,
+              0.16899046301841736,
+              0.14064085632562637,
+              -0.020909283310174942,
+              0.03332804515957832,
+              0.010948967188596725,
+              -1.0
+            ],
+            [
+              0.46853354573249817,
+              0.2828747630119324,
+              0.2339046835899353,
+              -0.01714642532169819,
+              0.028853479772806168,
+              0.008137973956763744,
+              -1.0
+            ]
+          ],
+          "candidate_index": 3,
+          "group_id": "libero_spatial|task_0|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.00658505201574888,
+            "gripper_transition": -1.0,
+            "object_goal_delta": 4.914957580800071e-13,
+            "object_lift_delta": 4.914957330015568e-13,
+            "object_retained": 0.0,
+            "placement_alignment": 6.143696976000089e-12,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0005619999999999514
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+          "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0018790104032480267,
+        "policy_start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "start_body_position_count": 15,
+        "start_state_hash_raw": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "target_body_key": "akita_black_bowl_1_main",
+        "task_success": false
+      }
+    ],
+    [
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.1140858456492424,
+              -0.006958603858947754,
+              -0.02713126689195633,
+              -0.01476565096527338,
+              0.02529836818575859,
+              -0.008016228675842285,
+              -0.9794999361038208
+            ],
+            [
+              0.08369110524654388,
+              -0.045628637075424194,
+              -0.03763160854578018,
+              -0.014862350188195705,
+              0.03889946639537811,
+              -0.010995585471391678,
+              -0.9895018339157104
+            ],
+            [
+              0.10177486389875412,
+              -0.09141501784324646,
+              -0.038330912590026855,
+              -0.01463469211012125,
+              0.037157606333494186,
+              -0.01991884969174862,
+              -0.9992367625236511
+            ],
+            [
+              0.08418533205986023,
+              -0.13310781121253967,
+              -0.0327453650534153,
+              -0.014481864869594574,
+              0.038188155740499496,
+              -0.016713107004761696,
+              -0.9982269406318665
+            ]
+          ],
+          "candidate_index": 0,
+          "group_id": "libero_object|task_4|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.004769832281473181,
+            "gripper_transition": -0.9916163682937622,
+            "object_goal_delta": 4.819061816861189e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827271076486e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0009819999999999829
+          },
+          "source": "frozen_smolvla_default_candidate",
+          "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+          "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0019359664563042573,
+        "policy_start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.1390858456492424,
+              -0.006958603858947754,
+              -0.02713126689195633,
+              -0.01476565096527338,
+              0.02529836818575859,
+              -0.008016228675842285,
+              -0.9794999361038208
+            ],
+            [
+              0.10869110524654388,
+              -0.045628637075424194,
+              -0.03763160854578018,
+              -0.014862350188195705,
+              0.03889946639537811,
+              -0.010995585471391678,
+              -0.9895018339157104
+            ],
+            [
+              0.12677486389875411,
+              -0.09141501784324646,
+              -0.038330912590026855,
+              -0.01463469211012125,
+              0.037157606333494186,
+              -0.01991884969174862,
+              -0.9992367625236511
+            ],
+            [
+              0.10918533205986022,
+              -0.13310781121253967,
+              -0.0327453650534153,
+              -0.014481864869594574,
+              0.038188155740499496,
+              -0.016713107004761696,
+              -0.9982269406318665
+            ]
+          ],
+          "candidate_index": 1,
+          "group_id": "libero_object|task_4|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.00527452221220029,
+            "gripper_transition": -0.9916163682937622,
+            "object_goal_delta": 4.819061816861189e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827271076486e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0014020000000000143
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+          "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0024569044424497108,
+        "policy_start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.1140858456492424,
+              -0.031958603858947755,
+              -0.02713126689195633,
+              -0.01476565096527338,
+              0.02529836818575859,
+              -0.008016228675842285,
+              -0.9794999361038208
+            ],
+            [
+              0.08369110524654388,
+              -0.07062863707542419,
+              -0.03763160854578018,
+              -0.014862350188195705,
+              0.03889946639537811,
+              -0.010995585471391678,
+              -0.9895018339157104
+            ],
+            [
+              0.10177486389875412,
+              -0.11641501784324645,
+              -0.038330912590026855,
+              -0.01463469211012125,
+              0.037157606333494186,
+              -0.01991884969174862,
+              -0.9992367625236511
+            ],
+            [
+              0.08418533205986023,
+              -0.15810781121253967,
+              -0.0327453650534153,
+              -0.014481864869594574,
+              0.038188155740499496,
+              -0.016713107004761696,
+              -0.9982269406318665
+            ]
+          ],
+          "candidate_index": 2,
+          "group_id": "libero_object|task_4|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.005460307051749195,
+            "gripper_transition": -0.9916163682937622,
+            "object_goal_delta": 4.819061816861189e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827271076486e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.00030000000000002247
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+          "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0013920614103594996,
+        "policy_start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.1140858456492424,
+              -0.006958603858947754,
+              -0.002131266891956328,
+              -0.01476565096527338,
+              0.02529836818575859,
+              -0.008016228675842285,
+              -0.9794999361038208
+            ],
+            [
+              0.08369110524654388,
+              -0.045628637075424194,
+              -0.01263160854578018,
+              -0.014862350188195705,
+              0.03889946639537811,
+              -0.010995585471391678,
+              -0.9895018339157104
+            ],
+            [
+              0.10177486389875412,
+              -0.09141501784324646,
+              -0.013330912590026854,
+              -0.01463469211012125,
+              0.037157606333494186,
+              -0.01991884969174862,
+              -0.9992367625236511
+            ],
+            [
+              0.08418533205986023,
+              -0.13310781121253967,
+              -0.007745365053415297,
+              -0.014481864869594574,
+              0.038188155740499496,
+              -0.016713107004761696,
+              -0.9982269406318665
+            ]
+          ],
+          "candidate_index": 3,
+          "group_id": "libero_object|task_4|identity_20260711",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.004097988679525844,
+            "gripper_transition": -0.9916163682937622,
+            "object_goal_delta": 4.819061816861189e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827271076486e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": 0.0002750000000000252
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+          "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0010945977359148322,
+        "policy_start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      }
+    ],
+    [
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.13432857394218445,
+              -0.08349205553531647,
+              -0.01069987565279007,
+              -0.019586963579058647,
+              0.0022973865270614624,
+              0.0022557000629603863,
+              -0.9874523878097534
+            ],
+            [
+              0.18215593695640564,
+              -0.1000470519065857,
+              -0.020659320056438446,
+              -0.03109639696776867,
+              -0.0011496548540890217,
+              -0.0018712200690060854,
+              -0.968409538269043
+            ],
+            [
+              0.21173614263534546,
+              -0.1517459601163864,
+              -0.00370132178068161,
+              -0.025472041219472885,
+              0.013506914488971233,
+              -0.00865975208580494,
+              -0.9744728803634644
+            ],
+            [
+              0.22040793299674988,
+              -0.23245155811309814,
+              0.008509047329425812,
+              -0.01469423621892929,
+              0.013619348406791687,
+              -0.012713275849819183,
+              -0.9832077622413635
+            ]
+          ],
+          "candidate_index": 0,
+          "group_id": "libero_object|task_4|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.00808321193425196,
+            "gripper_transition": -0.9783856421709061,
+            "object_goal_delta": 4.81906181626357e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827270329463e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": -0.0004750000000000032
+          },
+          "source": "frozen_smolvla_default_candidate",
+          "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+          "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.001141642386860027,
+        "policy_start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.15932857394218444,
+              -0.08349205553531647,
+              -0.01069987565279007,
+              -0.019586963579058647,
+              0.0022973865270614624,
+              0.0022557000629603863,
+              -0.9874523878097534
+            ],
+            [
+              0.20715593695640563,
+              -0.1000470519065857,
+              -0.020659320056438446,
+              -0.03109639696776867,
+              -0.0011496548540890217,
+              -0.0018712200690060854,
+              -0.968409538269043
+            ],
+            [
+              0.23673614263534545,
+              -0.1517459601163864,
+              -0.00370132178068161,
+              -0.025472041219472885,
+              0.013506914488971233,
+              -0.00865975208580494,
+              -0.9744728803634644
+            ],
+            [
+              0.24540793299674987,
+              -0.23245155811309814,
+              0.008509047329425812,
+              -0.01469423621892929,
+              0.013619348406791687,
+              -0.012713275849819183,
+              -0.9832077622413635
+            ]
+          ],
+          "candidate_index": 1,
+          "group_id": "libero_object|task_4|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.008705204323455635,
+            "gripper_transition": -0.9783856421709061,
+            "object_goal_delta": 4.81906181626357e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827270329463e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": -5.499999999997174e-05
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+          "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0016860408647007934,
+        "policy_start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.13432857394218445,
+              -0.10849205553531646,
+              -0.01069987565279007,
+              -0.019586963579058647,
+              0.0022973865270614624,
+              0.0022557000629603863,
+              -0.9874523878097534
+            ],
+            [
+              0.18215593695640564,
+              -0.1250470519065857,
+              -0.020659320056438446,
+              -0.03109639696776867,
+              -0.0011496548540890217,
+              -0.0018712200690060854,
+              -0.968409538269043
+            ],
+            [
+              0.21173614263534546,
+              -0.1767459601163864,
+              -0.00370132178068161,
+              -0.025472041219472885,
+              0.013506914488971233,
+              -0.00865975208580494,
+              -0.9744728803634644
+            ],
+            [
+              0.22040793299674988,
+              -0.25745155811309817,
+              0.008509047329425812,
+              -0.01469423621892929,
+              0.013619348406791687,
+              -0.012713275849819183,
+              -0.9832077622413635
+            ]
+          ],
+          "candidate_index": 2,
+          "group_id": "libero_object|task_4|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.008854006470455731,
+            "gripper_transition": -0.9783856421709061,
+            "object_goal_delta": 4.81906181626357e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827270329463e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": -0.0011849999999999916
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+          "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.0005858012941007927,
+        "policy_start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      },
+      {
+        "candidate": {
+          "action_chunk": [
+            [
+              0.13432857394218445,
+              -0.08349205553531647,
+              0.014300124347209932,
+              -0.019586963579058647,
+              0.0022973865270614624,
+              0.0022557000629603863,
+              -0.9874523878097534
+            ],
+            [
+              0.18215593695640564,
+              -0.1000470519065857,
+              0.004340679943561555,
+              -0.03109639696776867,
+              -0.0011496548540890217,
+              -0.0018712200690060854,
+              -0.968409538269043
+            ],
+            [
+              0.21173614263534546,
+              -0.1517459601163864,
+              0.02129867821931839,
+              -0.025472041219472885,
+              0.013506914488971233,
+              -0.00865975208580494,
+              -0.9744728803634644
+            ],
+            [
+              0.22040793299674988,
+              -0.23245155811309814,
+              0.03350904732942581,
+              -0.01469423621892929,
+              0.013619348406791687,
+              -0.012713275849819183,
+              -0.9832077622413635
+            ]
+          ],
+          "candidate_index": 3,
+          "group_id": "libero_object|task_4|identity_20260712",
+          "horizon": 4,
+          "phase": "approach",
+          "realized_effect": {
+            "contact_transition": 0.0,
+            "eef_delta_norm": 0.007817364348091493,
+            "gripper_transition": -0.9783856421709061,
+            "object_goal_delta": 4.81906181626357e-14,
+            "object_lift_delta": 4.81906181626357e-14,
+            "object_retained": 0.0,
+            "placement_alignment": 6.023827270329463e-13,
+            "release_stability": 0.0,
+            "target_distance_delta": -0.0011740000000000084
+          },
+          "source": "bounded_default_chunk_perturbation",
+          "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+          "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+          "success": false,
+          "terminated": false,
+          "truncated": false
+        },
+        "effect_available_components": [
+          "eef_delta_norm",
+          "target_distance_delta"
+        ],
+        "effect_compatibility": 0.00038947286962792856,
+        "policy_start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "start_body_position_count": 8,
+        "start_state_hash_raw": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "target_body_key": "basket_1_main",
+        "task_success": false
+      }
+    ]
+  ],
+  "closed_loop_evaluation_run": false,
+  "closed_loop_results": "not_run_headroom_gate_first",
+  "components_trained": "none_headroom_gate_first",
+  "data_generated": {
+    "candidate_count": 4,
+    "candidate_records": 16,
+    "horizon": 4,
+    "reset_identities": [
+      20260711,
+      20260712
+    ],
+    "same_state_intervention_groups": 4,
+    "tasks": [
+      {
+        "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+        "suite": "libero_spatial",
+        "task_id": 0
+      },
+      {
+        "instruction": "pick up the ketchup and place it in the basket",
+        "suite": "libero_object",
+        "task_id": 4
+      }
+    ]
+  },
+  "date_kst": "2026-07-11",
+  "effect_ranking_results": "not_trained",
+  "elapsed_seconds": 140.541,
+  "errors": [],
+  "exact_next_step": "Stop ECHO implementation or redesign candidate generation/effect representation before training.",
+  "final_decision": "NO_ECHO_CANDIDATE_HEADROOM",
+  "group_proofs": [
+    {
+      "candidate_count": 4,
+      "group_ids": [
+        "libero_spatial|task_0|identity_20260711"
+      ],
+      "horizons": [
+        4
+      ],
+      "phases": [
+        "approach"
+      ],
+      "start_observation_hashes": [
+        "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea"
+      ],
+      "start_state_hashes": [
+        "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87"
+      ],
+      "valid": true
+    },
+    {
+      "candidate_count": 4,
+      "group_ids": [
+        "libero_spatial|task_0|identity_20260712"
+      ],
+      "horizons": [
+        4
+      ],
+      "phases": [
+        "approach"
+      ],
+      "start_observation_hashes": [
+        "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d"
+      ],
+      "start_state_hashes": [
+        "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65"
+      ],
+      "valid": true
+    },
+    {
+      "candidate_count": 4,
+      "group_ids": [
+        "libero_object|task_4|identity_20260711"
+      ],
+      "horizons": [
+        4
+      ],
+      "phases": [
+        "approach"
+      ],
+      "start_observation_hashes": [
+        "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975"
+      ],
+      "start_state_hashes": [
+        "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e"
+      ],
+      "valid": true
+    },
+    {
+      "candidate_count": 4,
+      "group_ids": [
+        "libero_object|task_4|identity_20260712"
+      ],
+      "horizons": [
+        4
+      ],
+      "phases": [
+        "approach"
+      ],
+      "start_observation_hashes": [
+        "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d"
+      ],
+      "start_state_hashes": [
+        "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc"
+      ],
+      "valid": true
+    }
+  ],
+  "groups": [
+    [
+      {
+        "action_chunk": [
+          [
+            -0.01759931445121765,
+            0.02274194359779358,
+            -0.009169414639472961,
+            -0.0011886830907315016,
+            0.018859371542930603,
+            -0.00821447093039751,
+            -1.002830982208252
+          ],
+          [
+            0.10604099929332733,
+            0.07687114179134369,
+            0.045067496597766876,
+            -0.001131132012233138,
+            0.029564764350652695,
+            -0.008928213268518448,
+            -1.0033265352249146
+          ],
+          [
+            0.2722061574459076,
+            0.1866758018732071,
+            0.10381665080785751,
+            0.0003929971717298031,
+            0.03940112516283989,
+            -0.0026423977687954903,
+            -0.9952779412269592
+          ],
+          [
+            0.5307705402374268,
+            0.3545205891132355,
+            0.1345503032207489,
+            0.001676071435213089,
+            0.03226033225655556,
+            0.009024780243635178,
+            -1.0034853219985962
+          ]
+        ],
+        "candidate_index": 0,
+        "group_id": "libero_spatial|task_0|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0067916949416596695,
+          "gripper_transition": -1.0012301951646805,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.004400000000000015
+        },
+        "source": "frozen_smolvla_default_candidate",
+        "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+        "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.00740068554878235,
+            0.02274194359779358,
+            -0.009169414639472961,
+            -0.0011886830907315016,
+            0.018859371542930603,
+            -0.00821447093039751,
+            -1.0
+          ],
+          [
+            0.13104099929332733,
+            0.07687114179134369,
+            0.045067496597766876,
+            -0.001131132012233138,
+            0.029564764350652695,
+            -0.008928213268518448,
+            -1.0
+          ],
+          [
+            0.2972061574459076,
+            0.1866758018732071,
+            0.10381665080785751,
+            0.0003929971717298031,
+            0.03940112516283989,
+            -0.0026423977687954903,
+            -0.9952779412269592
+          ],
+          [
+            0.5557705402374268,
+            0.3545205891132355,
+            0.1345503032207489,
+            0.001676071435213089,
+            0.03226033225655556,
+            0.009024780243635178,
+            -1.0
+          ]
+        ],
+        "candidate_index": 1,
+        "group_id": "libero_spatial|task_0|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.007359143986801756,
+          "gripper_transition": -0.9988194853067398,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0048719999999999875
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+        "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            -0.01759931445121765,
+            -0.0022580564022064223,
+            -0.009169414639472961,
+            -0.0011886830907315016,
+            0.018859371542930603,
+            -0.00821447093039751,
+            -1.0
+          ],
+          [
+            0.10604099929332733,
+            0.05187114179134369,
+            0.045067496597766876,
+            -0.001131132012233138,
+            0.029564764350652695,
+            -0.008928213268518448,
+            -1.0
+          ],
+          [
+            0.2722061574459076,
+            0.1616758018732071,
+            0.10381665080785751,
+            0.0003929971717298031,
+            0.03940112516283989,
+            -0.0026423977687954903,
+            -0.9952779412269592
+          ],
+          [
+            0.5307705402374268,
+            0.32952058911323545,
+            0.1345503032207489,
+            0.001676071435213089,
+            0.03226033225655556,
+            0.009024780243635178,
+            -1.0
+          ]
+        ],
+        "candidate_index": 2,
+        "group_id": "libero_spatial|task_0|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006063292984775831,
+          "gripper_transition": -0.9988194853067398,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.003836000000000006
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+        "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            -0.01759931445121765,
+            0.02274194359779358,
+            0.01583058536052704,
+            -0.0011886830907315016,
+            0.018859371542930603,
+            -0.00821447093039751,
+            -1.0
+          ],
+          [
+            0.10604099929332733,
+            0.07687114179134369,
+            0.07006749659776687,
+            -0.001131132012233138,
+            0.029564764350652695,
+            -0.008928213268518448,
+            -1.0
+          ],
+          [
+            0.2722061574459076,
+            0.1866758018732071,
+            0.1288166508078575,
+            0.0003929971717298031,
+            0.03940112516283989,
+            -0.0026423977687954903,
+            -0.9952779412269592
+          ],
+          [
+            0.5307705402374268,
+            0.3545205891132355,
+            0.1595503032207489,
+            0.001676071435213089,
+            0.03226033225655556,
+            0.009024780243635178,
+            -1.0
+          ]
+        ],
+        "candidate_index": 3,
+        "group_id": "libero_spatial|task_0|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006878647051997451,
+          "gripper_transition": -0.9988194853067398,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0036379999999999746
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "05b21c2c1ce524f194f0d204099c1c21b9686dd5763e8e40346749737f6ebeea",
+        "start_state_hash": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      }
+    ],
+    [
+      {
+        "action_chunk": [
+          [
+            -0.010251730680465698,
+            0.01303207129240036,
+            0.07057356089353561,
+            -0.0027645272202789783,
+            0.009536809287965298,
+            -0.008919665589928627,
+            -1.0145597457885742
+          ],
+          [
+            0.05116377770900726,
+            0.04750482365489006,
+            0.09929568320512772,
+            -0.0026887597050517797,
+            0.012817684561014175,
+            0.01063038781285286,
+            -1.0165116786956787
+          ],
+          [
+            0.2190822958946228,
+            0.16899046301841736,
+            0.11564085632562637,
+            -0.020909283310174942,
+            0.03332804515957832,
+            0.010948967188596725,
+            -1.0086770057678223
+          ],
+          [
+            0.46853354573249817,
+            0.2828747630119324,
+            0.2089046835899353,
+            -0.01714642532169819,
+            0.028853479772806168,
+            0.008137973956763744,
+            -1.0040429830551147
+          ]
+        ],
+        "candidate_index": 0,
+        "group_id": "libero_spatial|task_0|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006019140870422576,
+          "gripper_transition": -1.0109478533267975,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0013579999999999703
+        },
+        "source": "frozen_smolvla_default_candidate",
+        "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+        "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.014748269319534303,
+            0.01303207129240036,
+            0.07057356089353561,
+            -0.0027645272202789783,
+            0.009536809287965298,
+            -0.008919665589928627,
+            -1.0
+          ],
+          [
+            0.07616377770900726,
+            0.04750482365489006,
+            0.09929568320512772,
+            -0.0026887597050517797,
+            0.012817684561014175,
+            0.01063038781285286,
+            -1.0
+          ],
+          [
+            0.2440822958946228,
+            0.16899046301841736,
+            0.11564085632562637,
+            -0.020909283310174942,
+            0.03332804515957832,
+            0.010948967188596725,
+            -1.0
+          ],
+          [
+            0.4935335457324982,
+            0.2828747630119324,
+            0.2089046835899353,
+            -0.01714642532169819,
+            0.028853479772806168,
+            0.008137973956763744,
+            -1.0
+          ]
+        ],
+        "candidate_index": 1,
+        "group_id": "libero_spatial|task_0|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.006481168221160121,
+          "gripper_transition": -1.0,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0018109999999999515
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+        "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            -0.010251730680465698,
+            -0.011967928707599641,
+            0.07057356089353561,
+            -0.0027645272202789783,
+            0.009536809287965298,
+            -0.008919665589928627,
+            -1.0
+          ],
+          [
+            0.05116377770900726,
+            0.02250482365489006,
+            0.09929568320512772,
+            -0.0026887597050517797,
+            0.012817684561014175,
+            0.01063038781285286,
+            -1.0
+          ],
+          [
+            0.2190822958946228,
+            0.14399046301841736,
+            0.11564085632562637,
+            -0.020909283310174942,
+            0.03332804515957832,
+            0.010948967188596725,
+            -1.0
+          ],
+          [
+            0.46853354573249817,
+            0.25787476301193235,
+            0.2089046835899353,
+            -0.01714642532169819,
+            0.028853479772806168,
+            0.008137973956763744,
+            -1.0
+          ]
+        ],
+        "candidate_index": 2,
+        "group_id": "libero_spatial|task_0|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.0054198264080840015,
+          "gripper_transition": -1.0,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0007939999999999614
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+        "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            -0.010251730680465698,
+            0.01303207129240036,
+            0.09557356089353561,
+            -0.0027645272202789783,
+            0.009536809287965298,
+            -0.008919665589928627,
+            -1.0
+          ],
+          [
+            0.05116377770900726,
+            0.04750482365489006,
+            0.12429568320512771,
+            -0.0026887597050517797,
+            0.012817684561014175,
+            0.01063038781285286,
+            -1.0
+          ],
+          [
+            0.2190822958946228,
+            0.16899046301841736,
+            0.14064085632562637,
+            -0.020909283310174942,
+            0.03332804515957832,
+            0.010948967188596725,
+            -1.0
+          ],
+          [
+            0.46853354573249817,
+            0.2828747630119324,
+            0.2339046835899353,
+            -0.01714642532169819,
+            0.028853479772806168,
+            0.008137973956763744,
+            -1.0
+          ]
+        ],
+        "candidate_index": 3,
+        "group_id": "libero_spatial|task_0|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00658505201574888,
+          "gripper_transition": -1.0,
+          "object_goal_delta": 4.914957580800071e-13,
+          "object_lift_delta": 4.914957330015568e-13,
+          "object_retained": 0.0,
+          "placement_alignment": 6.143696976000089e-12,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0005619999999999514
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "0bf99cc5de6a53fb4c87a3da1ca87a2b967facc677e36c63df9ef5639c27543d",
+        "start_state_hash": "b838330d8d0408789865410af90045f97d9e4229638a8f4dd490fe0b2854ba65",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      }
+    ],
+    [
+      {
+        "action_chunk": [
+          [
+            0.1140858456492424,
+            -0.006958603858947754,
+            -0.02713126689195633,
+            -0.01476565096527338,
+            0.02529836818575859,
+            -0.008016228675842285,
+            -0.9794999361038208
+          ],
+          [
+            0.08369110524654388,
+            -0.045628637075424194,
+            -0.03763160854578018,
+            -0.014862350188195705,
+            0.03889946639537811,
+            -0.010995585471391678,
+            -0.9895018339157104
+          ],
+          [
+            0.10177486389875412,
+            -0.09141501784324646,
+            -0.038330912590026855,
+            -0.01463469211012125,
+            0.037157606333494186,
+            -0.01991884969174862,
+            -0.9992367625236511
+          ],
+          [
+            0.08418533205986023,
+            -0.13310781121253967,
+            -0.0327453650534153,
+            -0.014481864869594574,
+            0.038188155740499496,
+            -0.016713107004761696,
+            -0.9982269406318665
+          ]
+        ],
+        "candidate_index": 0,
+        "group_id": "libero_object|task_4|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.004769832281473181,
+          "gripper_transition": -0.9916163682937622,
+          "object_goal_delta": 4.819061816861189e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827271076486e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0009819999999999829
+        },
+        "source": "frozen_smolvla_default_candidate",
+        "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+        "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.1390858456492424,
+            -0.006958603858947754,
+            -0.02713126689195633,
+            -0.01476565096527338,
+            0.02529836818575859,
+            -0.008016228675842285,
+            -0.9794999361038208
+          ],
+          [
+            0.10869110524654388,
+            -0.045628637075424194,
+            -0.03763160854578018,
+            -0.014862350188195705,
+            0.03889946639537811,
+            -0.010995585471391678,
+            -0.9895018339157104
+          ],
+          [
+            0.12677486389875411,
+            -0.09141501784324646,
+            -0.038330912590026855,
+            -0.01463469211012125,
+            0.037157606333494186,
+            -0.01991884969174862,
+            -0.9992367625236511
+          ],
+          [
+            0.10918533205986022,
+            -0.13310781121253967,
+            -0.0327453650534153,
+            -0.014481864869594574,
+            0.038188155740499496,
+            -0.016713107004761696,
+            -0.9982269406318665
+          ]
+        ],
+        "candidate_index": 1,
+        "group_id": "libero_object|task_4|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00527452221220029,
+          "gripper_transition": -0.9916163682937622,
+          "object_goal_delta": 4.819061816861189e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827271076486e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0014020000000000143
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+        "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.1140858456492424,
+            -0.031958603858947755,
+            -0.02713126689195633,
+            -0.01476565096527338,
+            0.02529836818575859,
+            -0.008016228675842285,
+            -0.9794999361038208
+          ],
+          [
+            0.08369110524654388,
+            -0.07062863707542419,
+            -0.03763160854578018,
+            -0.014862350188195705,
+            0.03889946639537811,
+            -0.010995585471391678,
+            -0.9895018339157104
+          ],
+          [
+            0.10177486389875412,
+            -0.11641501784324645,
+            -0.038330912590026855,
+            -0.01463469211012125,
+            0.037157606333494186,
+            -0.01991884969174862,
+            -0.9992367625236511
+          ],
+          [
+            0.08418533205986023,
+            -0.15810781121253967,
+            -0.0327453650534153,
+            -0.014481864869594574,
+            0.038188155740499496,
+            -0.016713107004761696,
+            -0.9982269406318665
+          ]
+        ],
+        "candidate_index": 2,
+        "group_id": "libero_object|task_4|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.005460307051749195,
+          "gripper_transition": -0.9916163682937622,
+          "object_goal_delta": 4.819061816861189e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827271076486e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.00030000000000002247
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+        "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.1140858456492424,
+            -0.006958603858947754,
+            -0.002131266891956328,
+            -0.01476565096527338,
+            0.02529836818575859,
+            -0.008016228675842285,
+            -0.9794999361038208
+          ],
+          [
+            0.08369110524654388,
+            -0.045628637075424194,
+            -0.01263160854578018,
+            -0.014862350188195705,
+            0.03889946639537811,
+            -0.010995585471391678,
+            -0.9895018339157104
+          ],
+          [
+            0.10177486389875412,
+            -0.09141501784324646,
+            -0.013330912590026854,
+            -0.01463469211012125,
+            0.037157606333494186,
+            -0.01991884969174862,
+            -0.9992367625236511
+          ],
+          [
+            0.08418533205986023,
+            -0.13310781121253967,
+            -0.007745365053415297,
+            -0.014481864869594574,
+            0.038188155740499496,
+            -0.016713107004761696,
+            -0.9982269406318665
+          ]
+        ],
+        "candidate_index": 3,
+        "group_id": "libero_object|task_4|identity_20260711",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.004097988679525844,
+          "gripper_transition": -0.9916163682937622,
+          "object_goal_delta": 4.819061816861189e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827271076486e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": 0.0002750000000000252
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "311443efc81f98949e27495d885cc8a2e47653c239d66bf4fb98905da926e975",
+        "start_state_hash": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      }
+    ],
+    [
+      {
+        "action_chunk": [
+          [
+            0.13432857394218445,
+            -0.08349205553531647,
+            -0.01069987565279007,
+            -0.019586963579058647,
+            0.0022973865270614624,
+            0.0022557000629603863,
+            -0.9874523878097534
+          ],
+          [
+            0.18215593695640564,
+            -0.1000470519065857,
+            -0.020659320056438446,
+            -0.03109639696776867,
+            -0.0011496548540890217,
+            -0.0018712200690060854,
+            -0.968409538269043
+          ],
+          [
+            0.21173614263534546,
+            -0.1517459601163864,
+            -0.00370132178068161,
+            -0.025472041219472885,
+            0.013506914488971233,
+            -0.00865975208580494,
+            -0.9744728803634644
+          ],
+          [
+            0.22040793299674988,
+            -0.23245155811309814,
+            0.008509047329425812,
+            -0.01469423621892929,
+            0.013619348406791687,
+            -0.012713275849819183,
+            -0.9832077622413635
+          ]
+        ],
+        "candidate_index": 0,
+        "group_id": "libero_object|task_4|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.00808321193425196,
+          "gripper_transition": -0.9783856421709061,
+          "object_goal_delta": 4.81906181626357e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827270329463e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0004750000000000032
+        },
+        "source": "frozen_smolvla_default_candidate",
+        "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+        "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.15932857394218444,
+            -0.08349205553531647,
+            -0.01069987565279007,
+            -0.019586963579058647,
+            0.0022973865270614624,
+            0.0022557000629603863,
+            -0.9874523878097534
+          ],
+          [
+            0.20715593695640563,
+            -0.1000470519065857,
+            -0.020659320056438446,
+            -0.03109639696776867,
+            -0.0011496548540890217,
+            -0.0018712200690060854,
+            -0.968409538269043
+          ],
+          [
+            0.23673614263534545,
+            -0.1517459601163864,
+            -0.00370132178068161,
+            -0.025472041219472885,
+            0.013506914488971233,
+            -0.00865975208580494,
+            -0.9744728803634644
+          ],
+          [
+            0.24540793299674987,
+            -0.23245155811309814,
+            0.008509047329425812,
+            -0.01469423621892929,
+            0.013619348406791687,
+            -0.012713275849819183,
+            -0.9832077622413635
+          ]
+        ],
+        "candidate_index": 1,
+        "group_id": "libero_object|task_4|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.008705204323455635,
+          "gripper_transition": -0.9783856421709061,
+          "object_goal_delta": 4.81906181626357e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827270329463e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": -5.499999999997174e-05
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+        "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.13432857394218445,
+            -0.10849205553531646,
+            -0.01069987565279007,
+            -0.019586963579058647,
+            0.0022973865270614624,
+            0.0022557000629603863,
+            -0.9874523878097534
+          ],
+          [
+            0.18215593695640564,
+            -0.1250470519065857,
+            -0.020659320056438446,
+            -0.03109639696776867,
+            -0.0011496548540890217,
+            -0.0018712200690060854,
+            -0.968409538269043
+          ],
+          [
+            0.21173614263534546,
+            -0.1767459601163864,
+            -0.00370132178068161,
+            -0.025472041219472885,
+            0.013506914488971233,
+            -0.00865975208580494,
+            -0.9744728803634644
+          ],
+          [
+            0.22040793299674988,
+            -0.25745155811309817,
+            0.008509047329425812,
+            -0.01469423621892929,
+            0.013619348406791687,
+            -0.012713275849819183,
+            -0.9832077622413635
+          ]
+        ],
+        "candidate_index": 2,
+        "group_id": "libero_object|task_4|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.008854006470455731,
+          "gripper_transition": -0.9783856421709061,
+          "object_goal_delta": 4.81906181626357e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827270329463e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0011849999999999916
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+        "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action_chunk": [
+          [
+            0.13432857394218445,
+            -0.08349205553531647,
+            0.014300124347209932,
+            -0.019586963579058647,
+            0.0022973865270614624,
+            0.0022557000629603863,
+            -0.9874523878097534
+          ],
+          [
+            0.18215593695640564,
+            -0.1000470519065857,
+            0.004340679943561555,
+            -0.03109639696776867,
+            -0.0011496548540890217,
+            -0.0018712200690060854,
+            -0.968409538269043
+          ],
+          [
+            0.21173614263534546,
+            -0.1517459601163864,
+            0.02129867821931839,
+            -0.025472041219472885,
+            0.013506914488971233,
+            -0.00865975208580494,
+            -0.9744728803634644
+          ],
+          [
+            0.22040793299674988,
+            -0.23245155811309814,
+            0.03350904732942581,
+            -0.01469423621892929,
+            0.013619348406791687,
+            -0.012713275849819183,
+            -0.9832077622413635
+          ]
+        ],
+        "candidate_index": 3,
+        "group_id": "libero_object|task_4|identity_20260712",
+        "horizon": 4,
+        "phase": "approach",
+        "realized_effect": {
+          "contact_transition": 0.0,
+          "eef_delta_norm": 0.007817364348091493,
+          "gripper_transition": -0.9783856421709061,
+          "object_goal_delta": 4.81906181626357e-14,
+          "object_lift_delta": 4.81906181626357e-14,
+          "object_retained": 0.0,
+          "placement_alignment": 6.023827270329463e-13,
+          "release_stability": 0.0,
+          "target_distance_delta": -0.0011740000000000084
+        },
+        "source": "bounded_default_chunk_perturbation",
+        "start_observation_hash": "3ca545b9215180a50f61013ebd20a6b1398052c29f271f4148dfae636407027d",
+        "start_state_hash": "a2dc982187565d1ae9d98804533fa9f0d59de8e6d3cef636f9e041e5b39ccffc",
+        "success": false,
+        "terminated": false,
+        "truncated": false
+      }
+    ]
+  ],
+  "latency_vram_summary": {
+    "cuda_memory": {
+      "allocated_bytes": 935880704,
+      "allocated_mb": 892.525,
+      "max_allocated_bytes": 971650560,
+      "max_allocated_mb": 926.638
+    },
+    "elapsed_seconds": 140.301
+  },
+  "novelty_gate": "ECHO_NOVELTY_SURVIVES_TARGETED_GATE",
+  "policy": {
+    "downloads_performed": false,
+    "frozen_backbone": true,
+    "full_benchmark_run": false,
+    "full_smolvla_backbone_training": false,
+    "official_smolvla_used": true,
+    "openvla_oft_used": false,
+    "privileged_inference_used": false,
+    "same_state_interventions_required": true
+  },
+  "prototype_baselines": [
+    "frozen_smolvla_default_candidate",
+    "random_candidate_selector",
+    "simple_phase_predicate_heuristic",
+    "direct_success_or_value_head",
+    "pre_vla_style_validity_advantage_proxy",
+    "echo_no_counterfactual",
+    "echo_no_phase",
+    "echo_full"
+  ],
+  "schema_version": "echo_vla_first_prototype_result_v1"
+}
