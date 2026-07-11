@@ -1316,3 +1316,45 @@ Reports:
 - `reports/official_closed_loop_seed_robustness.md`
 - `reports/official_closed_loop_offline_online_analysis.md`
 - `reports/official_closed_loop_method_gap_decision.md`
+
+## 2026-07-11: Closed-Loop Visual Method Gate
+
+Decision: `NO_SAFE_RA_L_METHOD_YET`
+
+- branch: `codex/closed-loop-failure-novelty-method-gate`
+- objective: use bounded official videos to decide whether the current closed-loop failures support exactly one mechanism-specific VLA method
+- video rerun happened: `True`
+- selected/completed videos: `24/24`
+- rerun errors: `0`
+- training happened: `False`
+- method implemented: `False`
+- full 400-episode rerun happened: `False`
+- old custom `LIBERO_7D` route used: `False`
+- static-mix duplicate rollout happened: `False`
+- OpenVLA-OFT used: `False`
+
+Identity and rerun stability:
+
+- same suite/task/policy/reset identity preserved: `True`
+- original-vs-rerun success matches: `16/24`
+- original-vs-rerun success flips: `8/24`
+- interpretation: visual evidence is bounded same-identity rerun evidence, not exact original-frame replay
+
+Visual findings:
+
+- `libero_spatial/task_4`: visible drawer/bowl `stable_grasp` / `contact_transition` failure; seeds `20260713` and `20260714` fail across all four policies in rerun videos
+- `libero_10/task_4`: visible multi-object `long_horizon_compounding`; seed `20260715` fails across all four policies, while seed `20260713` has rerun success flips for LoRA seeds `22` and `33`
+- shared cross-task mechanism: `False`
+- at least three independent rerun-failure seeds for one mechanism: `False`
+
+Recent-work audit:
+
+- confidence route killed by VLAConf
+- verification routes killed by CoVer, VeriSpace, and Pre-VLA
+- monitor/correct route killed by VLA-Corrector
+- adaptive chunking and boundary routes killed by AAC, SEAM, and Legato
+- progress/recovery/replanning routes killed by SPR, ProgressVLA, ProgVLA, and REMAC
+- failure-negative route killed by AFIL
+- prior/expert/adapter-routing routes killed by PriorVLA, CLARE, and VLA-GSE
+
+Consequence: no method candidate is specified and no implementation prompt is authorized. Reopen only with new bounded evidence for one repeated mechanism plus second-backbone, second-benchmark, and simple-baseline kill plans.

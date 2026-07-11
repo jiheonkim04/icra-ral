@@ -159,3 +159,37 @@ Key reports:
 - `reports/official_closed_loop_method_gap_decision.md`
 
 Exact next step: inspect official videos for the bounded review queue, starting with repeated all-policy failures on `libero_10/task_4` and `libero_spatial/task_4`. Do not design a method unless the visual phase evidence identifies a repeated success-critical mechanism.
+
+## 2026-07-11 Closed-Loop Visual Method Gate
+
+Current decision: `NO_SAFE_RA_L_METHOD_YET`
+
+The bounded official video review completed `24/24` selected same-identity reruns with `0` errors. No policy was trained or tuned, no full 400-episode rerun was launched, no static-mix duplicate rollout was used, and the old custom `LIBERO_7D` route was not used.
+
+Identity and outcome status:
+
+- same suite/task/policy/reset identity preserved: `true`
+- original-vs-rerun success matches: `16/24`
+- original-vs-rerun success flips: `8/24`
+- video evidence type: bounded rerun evidence, not exact original-frame replay
+
+Visual mechanisms:
+
+- `libero_spatial/task_4`: drawer-contained black bowl extraction fails at `stable_grasp` / `contact_transition`; rerun failures on reset seeds `20260713` and `20260714` for all four policies.
+- `libero_10/task_4`: two-mug, two-plate sequence fails as `long_horizon_compounding`; reset seed `20260715` failed for all four policies, while seed `20260713` had rerun success flips for seeds `22` and `33`.
+
+The hard method gate did not pass. The strongest spatial mechanism has only two independent rerun-failure reset seeds, and the `libero_10` mechanism is not the same physical failure. Recent VLA work also kills generic confidence, verification, correction, adaptive chunking, progress/recovery, failure-negative, and adapter-routing formulations.
+
+Key reports:
+
+- `reports/closed_loop_failure_video_inventory.md`
+- `reports/closed_loop_failure_visual_annotations.json`
+- `reports/closed_loop_failure_mechanism_summary.md`
+- `reports/latest_vla_method_landscape_2026.md`
+- `reports/closed_loop_failure_vs_recent_work.md`
+- `reports/ral_method_candidate_spec.md`
+- `reports/ral_method_experiment_matrix.md`
+- `reports/ral_method_kill_criteria.md`
+- `reports/closed_loop_method_gate_decision.md`
+
+Exact next step: do not implement a method. Only reopen method design after one visible mechanism is shown in at least two tasks or at least three independent reset seeds, and after a non-generic novelty claim survives the recent-work audit.

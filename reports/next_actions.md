@@ -89,3 +89,31 @@ Rules for the next pass:
 - stop at video/phase annotation unless a repeated mechanism is visually supported
 
 The novelty/method-design gate can only reopen if the bounded review converts the current `ambiguous_or_unclassified` failures into a repeated, success-critical, mechanism-linked phase failure that survives frozen-base, LoRA-seed, task, and reset explanations.
+
+## 2026-07-11 Closed-Loop Visual Gate Next Action
+
+Current decision: `NO_SAFE_RA_L_METHOD_YET`
+
+Do not implement a method from the current evidence.
+
+The bounded video review found real visible failures, but not a safe RA-L method route:
+
+- `libero_spatial/task_4` shows a drawer/bowl stable-grasp extraction failure on only two independent rerun-failure reset seeds.
+- `libero_10/task_4` shows a different multi-object long-horizon failure.
+- `8/24` same-identity reruns changed success status, so original failure identity is not stable enough for a narrow causal method claim.
+- recent work kills generic confidence, verification, correction, adaptive chunking, progress/recovery, failure-negative learning, and adapter-routing routes.
+
+Allowed next actions:
+
+1. Archive this method gate as a no-implementation result.
+2. If reopening later, collect new bounded visual evidence only for a predeclared mechanism and stop once either three independent reset seeds or two tasks are verified.
+3. Before any implementation, predeclare a second-backbone plan, a second-benchmark plan, and simple baseline kill tests.
+
+Still forbidden:
+
+- no LoRA training as a method contribution
+- no best-seed selection
+- no FCAR revival
+- no generic correction/replanning/chunking/progress method
+- no full sweep just to rescue the gate
+- no paper claim from SmolVLA-only evidence
