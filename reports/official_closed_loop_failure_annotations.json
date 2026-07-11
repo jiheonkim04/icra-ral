@@ -1,0 +1,4019 @@
+{
+  "annotation_method": "rule-based from official rollout traces; ambiguous when no visual/semantic evidence is available",
+  "annotations": [
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": null,
+      "needs_human_review": true,
+      "policy": "frozen_base",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_11",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_22",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": false,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260713
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260713,
+        20260714
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": false,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260711",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "lora_introduced_failure_relative_to_frozen_base",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260711,
+        20260712,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260712",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_11",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260713",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260714",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "dominant_failure_phase": "ambiguous_or_unclassified",
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260715",
+      "evidence": "Official rollout recorded no success before termination, but no reliable visual or semantic phase trace is available for automatic phase labeling.",
+      "failed_policies_same_task_seed": [
+        "frozen_base",
+        "rank4_lora_seed_22",
+        "rank4_lora_seed_33"
+      ],
+      "failed_reset_seeds_same_policy_task": [
+        20260712,
+        20260713,
+        20260714,
+        20260715
+      ],
+      "first_visible_failure_timestep": null,
+      "lora_changes_failure_phase_relative_to_frozen_base": "same_pair_failed_for_frozen_base_and_lora",
+      "needs_human_review": true,
+      "policy": "rank4_lora_seed_33",
+      "repeats_across_policies": true,
+      "repeats_across_reset_seeds": true,
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    }
+  ],
+  "bounded_review_queue": [
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260712",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260714",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260712",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260714",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260712",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260711",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260712",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260715",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260711",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260715",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260711",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260711",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260714",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260715",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260714",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260715",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260712",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260713",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260714",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260715",
+      "policy": "frozen_base",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260711",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260712",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260714",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260712",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260711",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260711",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260714",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260712",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260711",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260711",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260712",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260711",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260712",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260714",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260715",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260712",
+      "policy": "rank4_lora_seed_11",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260714",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260711",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260711",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260711",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260714",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260712",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260714",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_22",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260714",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260711",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260711",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260711",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260714",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260711",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260711",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260714",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260711",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260714",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260712",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260713",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260714",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260715",
+      "policy": "rank4_lora_seed_33",
+      "reason": "automatic phase label would be unreliable",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8,
+      "video_path": null
+    }
+  ],
+  "category_counts": {
+    "ambiguous_or_unclassified": 118
+  },
+  "failure_categories": [
+    "target_or_object_selection",
+    "initial_reach",
+    "orientation_or_rotation",
+    "grasp_approach",
+    "gripper_timing_or_contact",
+    "object_transport",
+    "placement_or_release",
+    "collision_or_workspace_violation",
+    "action_chunk_drift",
+    "long_horizon_compounding",
+    "stochastic_policy_variation",
+    "environment_or_infrastructure_failure",
+    "ambiguous_or_unclassified"
+  ],
+  "failure_count": 118,
+  "schema_version": 1
+}

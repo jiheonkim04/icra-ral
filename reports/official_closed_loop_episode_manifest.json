@@ -1,0 +1,3630 @@
+{
+  "batch_size": 1,
+  "canonical_payload_sha256": "9310ce47edfafc2b2f9f7129a6d1ca7ec149fbc54188b378e07d5777fdea47e4",
+  "control_mode": "relative",
+  "date": "2026-07-11",
+  "episodes": [
+    {
+      "episode_id": "frozen_base|libero_spatial|task_0|seed_20260711",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 0,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_0|seed_20260712",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 1,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_0|seed_20260713",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 2,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_0|seed_20260714",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 3,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_0|seed_20260715",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 4,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_2|seed_20260711",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 5,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_2|seed_20260712",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 6,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_2|seed_20260713",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 7,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_2|seed_20260714",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 8,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_2|seed_20260715",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 9,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260711",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 10,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260712",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 11,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260713",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 12,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260714",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 13,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_4|seed_20260715",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 14,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_6|seed_20260711",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 15,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_6|seed_20260712",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 16,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_6|seed_20260713",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 17,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_6|seed_20260714",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 18,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_6|seed_20260715",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 19,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260711",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 20,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260712",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 21,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260713",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 22,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260714",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 23,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_spatial|task_8|seed_20260715",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 24,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_0|seed_20260711",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 25,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_0|seed_20260712",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 26,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_0|seed_20260713",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 27,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_0|seed_20260714",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 28,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_0|seed_20260715",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 29,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260711",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 30,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260712",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 31,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260713",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 32,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260714",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 33,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_2|seed_20260715",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 34,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_4|seed_20260711",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 35,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_4|seed_20260712",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 36,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_4|seed_20260713",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 37,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_4|seed_20260714",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 38,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_4|seed_20260715",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 39,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_6|seed_20260711",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 40,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_6|seed_20260712",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 41,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_6|seed_20260713",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 42,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_6|seed_20260714",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 43,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_6|seed_20260715",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 44,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260711",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 45,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260712",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 46,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260713",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 47,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260714",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 48,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_object|task_8|seed_20260715",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 49,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260711",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 50,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260712",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 51,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260713",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 52,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260714",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 53,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_0|seed_20260715",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 54,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_2|seed_20260711",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 55,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_2|seed_20260712",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 56,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_2|seed_20260713",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 57,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_2|seed_20260714",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 58,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_2|seed_20260715",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 59,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260711",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 60,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260712",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 61,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260713",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 62,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260714",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 63,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_4|seed_20260715",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 64,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260711",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 65,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260712",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 66,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260713",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 67,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260714",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 68,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_6|seed_20260715",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 69,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260711",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 70,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260712",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 71,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260713",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 72,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260714",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 73,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_goal|task_8|seed_20260715",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 74,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260711",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 75,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260712",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 76,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260713",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 77,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260714",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 78,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_0|seed_20260715",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 79,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260711",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 80,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260712",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 81,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260713",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 82,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260714",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 83,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_2|seed_20260715",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 84,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260711",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 85,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260712",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 86,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260713",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 87,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260714",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 88,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_4|seed_20260715",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 89,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260711",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 90,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260712",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 91,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260713",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 92,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260714",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 93,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_6|seed_20260715",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 94,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260711",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 95,
+      "policy": "frozen_base",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260712",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 96,
+      "policy": "frozen_base",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260713",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 97,
+      "policy": "frozen_base",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260714",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 98,
+      "policy": "frozen_base",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_base|libero_10|task_8|seed_20260715",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 99,
+      "policy": "frozen_base",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_0|seed_20260711",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 100,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_0|seed_20260712",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 101,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_0|seed_20260713",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 102,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_0|seed_20260714",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 103,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_0|seed_20260715",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 104,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_2|seed_20260711",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 105,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_2|seed_20260712",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 106,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_2|seed_20260713",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 107,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_2|seed_20260714",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 108,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_2|seed_20260715",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 109,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260711",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 110,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260712",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 111,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260713",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 112,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260714",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 113,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_4|seed_20260715",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 114,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_6|seed_20260711",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 115,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_6|seed_20260712",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 116,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_6|seed_20260713",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 117,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_6|seed_20260714",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 118,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_6|seed_20260715",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 119,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260711",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 120,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260712",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 121,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260713",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 122,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260714",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 123,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_spatial|task_8|seed_20260715",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 124,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260711",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 125,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260712",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 126,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260713",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 127,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260714",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 128,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_0|seed_20260715",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 129,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260711",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 130,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260712",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 131,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260713",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 132,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260714",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 133,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_2|seed_20260715",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 134,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_4|seed_20260711",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 135,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_4|seed_20260712",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 136,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_4|seed_20260713",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 137,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_4|seed_20260714",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 138,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_4|seed_20260715",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 139,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_6|seed_20260711",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 140,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_6|seed_20260712",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 141,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_6|seed_20260713",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 142,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_6|seed_20260714",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 143,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_6|seed_20260715",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 144,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260711",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 145,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260712",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 146,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260713",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 147,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260714",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 148,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_object|task_8|seed_20260715",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 149,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_0|seed_20260711",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 150,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_0|seed_20260712",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 151,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_0|seed_20260713",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 152,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_0|seed_20260714",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 153,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_0|seed_20260715",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 154,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_2|seed_20260711",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 155,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_2|seed_20260712",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 156,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_2|seed_20260713",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 157,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_2|seed_20260714",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 158,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_2|seed_20260715",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 159,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260711",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 160,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260712",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 161,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260713",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 162,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260714",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 163,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_4|seed_20260715",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 164,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260711",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 165,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260712",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 166,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260713",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 167,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260714",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 168,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_6|seed_20260715",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 169,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260711",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 170,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260712",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 171,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260713",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 172,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260714",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 173,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_goal|task_8|seed_20260715",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 174,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260711",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 175,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260712",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 176,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260713",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 177,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260714",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 178,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_0|seed_20260715",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 179,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260711",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 180,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260712",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 181,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260713",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 182,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260714",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 183,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_2|seed_20260715",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 184,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260711",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 185,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260712",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 186,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260713",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 187,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260714",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 188,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_4|seed_20260715",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 189,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260711",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 190,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260712",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 191,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260713",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 192,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260714",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 193,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_6|seed_20260715",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 194,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260711",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 195,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260712",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 196,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260713",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 197,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260714",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 198,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_11|libero_10|task_8|seed_20260715",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 199,
+      "policy": "rank4_lora_seed_11",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260711",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 200,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260712",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 201,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260713",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 202,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260714",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 203,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_0|seed_20260715",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 204,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_2|seed_20260711",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 205,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_2|seed_20260712",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 206,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_2|seed_20260713",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 207,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_2|seed_20260714",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 208,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_2|seed_20260715",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 209,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260711",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 210,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260712",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 211,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260713",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 212,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260714",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 213,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_4|seed_20260715",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 214,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_6|seed_20260711",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 215,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_6|seed_20260712",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 216,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_6|seed_20260713",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 217,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_6|seed_20260714",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 218,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_6|seed_20260715",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 219,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260711",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 220,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260712",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 221,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260713",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 222,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260714",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 223,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_spatial|task_8|seed_20260715",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 224,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_0|seed_20260711",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 225,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_0|seed_20260712",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 226,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_0|seed_20260713",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 227,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_0|seed_20260714",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 228,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_0|seed_20260715",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 229,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260711",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 230,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260712",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 231,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260713",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 232,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260714",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 233,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_2|seed_20260715",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 234,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_4|seed_20260711",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 235,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_4|seed_20260712",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 236,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_4|seed_20260713",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 237,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_4|seed_20260714",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 238,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_4|seed_20260715",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 239,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_6|seed_20260711",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 240,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_6|seed_20260712",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 241,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_6|seed_20260713",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 242,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_6|seed_20260714",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 243,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_6|seed_20260715",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 244,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260711",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 245,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260712",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 246,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260713",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 247,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260714",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 248,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_object|task_8|seed_20260715",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 249,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260711",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 250,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260712",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 251,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260713",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 252,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260714",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 253,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_0|seed_20260715",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 254,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260711",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 255,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260712",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 256,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260713",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 257,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260714",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 258,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_2|seed_20260715",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 259,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260711",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 260,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260712",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 261,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260713",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 262,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260714",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 263,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_4|seed_20260715",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 264,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260711",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 265,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260712",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 266,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260713",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 267,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260714",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 268,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_6|seed_20260715",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 269,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260711",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 270,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260712",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 271,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260713",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 272,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260714",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 273,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_goal|task_8|seed_20260715",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 274,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260711",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 275,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260712",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 276,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260713",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 277,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260714",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 278,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_0|seed_20260715",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 279,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260711",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 280,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260712",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 281,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260713",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 282,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260714",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 283,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_2|seed_20260715",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 284,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260711",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 285,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260712",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 286,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260713",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 287,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260714",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 288,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_4|seed_20260715",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 289,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260711",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 290,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260712",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 291,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260713",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 292,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260714",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 293,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_6|seed_20260715",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 294,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260711",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 295,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260712",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 296,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260713",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 297,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260714",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 298,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_22|libero_10|task_8|seed_20260715",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 299,
+      "policy": "rank4_lora_seed_22",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_0|seed_20260711",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 300,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_0|seed_20260712",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 301,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_0|seed_20260713",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 302,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_0|seed_20260714",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 303,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_0|seed_20260715",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "planned_episode_index": 304,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_2|seed_20260711",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 305,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_2|seed_20260712",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 306,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_2|seed_20260713",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 307,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_2|seed_20260714",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 308,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_2|seed_20260715",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "planned_episode_index": 309,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260711",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 310,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260712",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 311,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260713",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 312,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260714",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 313,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_4|seed_20260715",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "planned_episode_index": 314,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_6|seed_20260711",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 315,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_6|seed_20260712",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 316,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_6|seed_20260713",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 317,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_6|seed_20260714",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 318,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_6|seed_20260715",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "planned_episode_index": 319,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260711",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 320,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260712",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 321,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260713",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 322,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260714",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 323,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_spatial|task_8|seed_20260715",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "planned_episode_index": 324,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260711",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 325,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260712",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 326,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260713",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 327,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260714",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 328,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_0|seed_20260715",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "planned_episode_index": 329,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260711",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 330,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260712",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 331,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260713",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 332,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260714",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 333,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_2|seed_20260715",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "planned_episode_index": 334,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260711",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 335,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260712",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 336,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260713",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 337,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260714",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 338,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_4|seed_20260715",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "planned_episode_index": 339,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_6|seed_20260711",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 340,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_6|seed_20260712",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 341,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_6|seed_20260713",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 342,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_6|seed_20260714",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 343,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_6|seed_20260715",
+      "instruction": "pick up the butter and place it in the basket",
+      "planned_episode_index": 344,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260711",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 345,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260712",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 346,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260713",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 347,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260714",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 348,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_object|task_8|seed_20260715",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "planned_episode_index": 349,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260711",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 350,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260712",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 351,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260713",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 352,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260714",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 353,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_0|seed_20260715",
+      "instruction": "open the middle drawer of the cabinet",
+      "planned_episode_index": 354,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_2|seed_20260711",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 355,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_2|seed_20260712",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 356,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_2|seed_20260713",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 357,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_2|seed_20260714",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 358,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_2|seed_20260715",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "planned_episode_index": 359,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260711",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 360,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260712",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 361,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260713",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 362,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260714",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 363,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_4|seed_20260715",
+      "instruction": "put the bowl on top of the cabinet",
+      "planned_episode_index": 364,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260711",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 365,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260712",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 366,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260713",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 367,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260714",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 368,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_6|seed_20260715",
+      "instruction": "put the cream cheese in the bowl",
+      "planned_episode_index": 369,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260711",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 370,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260712",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 371,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260713",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 372,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260714",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 373,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_goal|task_8|seed_20260715",
+      "instruction": "put the bowl on the plate",
+      "planned_episode_index": 374,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260711",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 375,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260712",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 376,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260713",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 377,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260714",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 378,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_0|seed_20260715",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "planned_episode_index": 379,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260711",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 380,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260712",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 381,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260713",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 382,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260714",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 383,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_2|seed_20260715",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "planned_episode_index": 384,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260711",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 385,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260712",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 386,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260713",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 387,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260714",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 388,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_4|seed_20260715",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "planned_episode_index": 389,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260711",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 390,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260712",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 391,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260713",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 392,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260714",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 393,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_6|seed_20260715",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "planned_episode_index": 394,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260711",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 395,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260711,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260712",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 396,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260712,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260713",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 397,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260713,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260714",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 398,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260714,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "rank4_lora_seed_33|libero_10|task_8|seed_20260715",
+      "instruction": "put both moka pots on the stove",
+      "planned_episode_index": 399,
+      "policy": "rank4_lora_seed_33",
+      "reset_seed": 20260715,
+      "suite": "libero_10",
+      "task_id": 8
+    }
+  ],
+  "max_parallel_tasks": 1,
+  "planned_episode_count": 400,
+  "policies": [
+    "frozen_base",
+    "rank4_lora_seed_11",
+    "rank4_lora_seed_22",
+    "rank4_lora_seed_33"
+  ],
+  "reset_seeds": [
+    20260711,
+    20260712,
+    20260713,
+    20260714,
+    20260715
+  ],
+  "schema_version": 1,
+  "static_mix_duplicate_records": {
+    "static_mix_seed_11": "DEGENERATE_EQUIVALENT_TO_FROZEN_BASE",
+    "static_mix_seed_22": "DEGENERATE_EQUIVALENT_TO_FROZEN_BASE",
+    "static_mix_seed_33": "DEGENERATE_EQUIVALENT_TO_FROZEN_BASE"
+  },
+  "static_mix_duplicate_runs_skipped": true
+}

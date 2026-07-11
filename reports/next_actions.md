@@ -62,3 +62,30 @@ Move the same canonical artifacts/checkpoints into the verified WSL/Linux LeRobo
 Current decision: `OFFICIAL_ROLLOUT_BASELINE_READY`
 
 Exact next step: run a larger predeclared official baseline rollout/failure-mining pass with frozen base and all three LoRA seeds, using official videos for failed episodes. Keep static mixes skipped at alpha `0.0`, keep all seeds reported, and do not select a winning LoRA seed or design a new method from the 48-episode pilot alone.
+
+## 2026-07-11 Closed-Loop Scaleup Next Action
+
+Current decision: `OFFLINE_ONLINE_MISMATCH_CONFIRMED`
+
+Exact next step: run a bounded visual review pass on the already identified repeated failures, with official video capture enabled and no policy changes.
+
+Start with:
+
+1. `libero_10/task_4/seed_20260713`
+2. `libero_10/task_4/seed_20260715`
+3. `libero_spatial/task_4/seed_20260712`
+4. `libero_spatial/task_4/seed_20260713`
+5. `libero_spatial/task_4/seed_20260714`
+
+Rules for the next pass:
+
+- do not retrain any policy
+- do not select seed `11` as best after outcomes
+- do not run static-mix duplicates
+- do not revive FCAR
+- do not design routing, retention, prior, correction, or chunking methods yet
+- do not use old custom `LIBERO_7D` or exact-init replay routes
+- keep frozen_base and all LoRA seeds paired on identical task/reset cases
+- stop at video/phase annotation unless a repeated mechanism is visually supported
+
+The novelty/method-design gate can only reopen if the bounded review converts the current `ambiguous_or_unclassified` failures into a repeated, success-critical, mechanism-linked phase failure that survives frozen-base, LoRA-seed, task, and reset explanations.

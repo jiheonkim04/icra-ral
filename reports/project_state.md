@@ -105,3 +105,57 @@ Pilot overall success:
 - `rank4_lora_seed_33`: `75.0%`
 
 Lower offline action L2 did not predict higher closed-loop success in the pilot. This result is enough to unlock larger official baseline rollout/failure mining, but not enough for method selection or best-seed selection.
+
+## 2026-07-11 Official Closed-Loop Scaleup
+
+Current decision: `OFFLINE_ONLINE_MISMATCH_CONFIRMED`
+
+The predeclared official WSL/LeRobot/LIBERO closed-loop scaleup completed `400/400` planned episodes with frozen base plus persisted rank-4 LoRA seeds `11`, `22`, and `33`. No policy was retrained, no static-mix duplicate rollout was run, no old custom `LIBERO_7D` route was used, and no method was implemented.
+
+CUDA/route audit:
+
+- WSL saw `NVIDIA GeForce RTX 5080`
+- policy parameters: `cuda:0`
+- input tensors: `cuda:0`
+- action chunks: `cuda:0`
+- autocast fp16/bf16 active: `false`
+- episode peak VRAM: approximately `926.638` to `928.365` MB
+- infrastructure failures: `0`
+
+Policy success:
+
+- `frozen_base`: `74/100`, `74.0%`
+- `rank4_lora_seed_11`: `74/100`, `74.0%`
+- `rank4_lora_seed_22`: `68/100`, `68.0%`
+- `rank4_lora_seed_33`: `66/100`, `66.0%`
+
+Suite-level difficulty across all policies:
+
+- `libero_10`: `45/100`, `45.0%`
+- `libero_goal`: `71/100`, `71.0%`
+- `libero_spatial`: `79/100`, `79.0%`
+- `libero_object`: `87/100`, `87.0%`
+
+Failure status:
+
+- unsuccessful episodes preserved: `118`
+- automatic failure category count: `ambiguous_or_unclassified = 118`
+- strongest weak task slice: `libero_10/task_4`, `5/20` successes
+- strongest repeated all-policy failures include `libero_10/task_4/seed_20260713`, `libero_10/task_4/seed_20260715`, and `libero_spatial/task_4` on seeds `20260712`, `20260713`, and `20260714`
+
+The run shows task/reset-structured failures, but not a reliable mechanism-linked failure phase because failure videos or semantic phase traces were not captured. Offline action L2 remains diagnostic-only: the LoRA-only offline ordering does not safely select the better closed-loop seed.
+
+Key reports:
+
+- `reports/official_closed_loop_scaleup_plan.md`
+- `reports/official_closed_loop_task_manifest.json`
+- `reports/official_closed_loop_episode_manifest.json`
+- `reports/official_closed_loop_scaleup_result.md`
+- `reports/official_closed_loop_scaleup_result.json`
+- `reports/official_closed_loop_failure_annotations.json`
+- `reports/official_closed_loop_failure_taxonomy.md`
+- `reports/official_closed_loop_seed_robustness.md`
+- `reports/official_closed_loop_offline_online_analysis.md`
+- `reports/official_closed_loop_method_gap_decision.md`
+
+Exact next step: inspect official videos for the bounded review queue, starting with repeated all-policy failures on `libero_10/task_4` and `libero_spatial/task_4`. Do not design a method unless the visual phase evidence identifies a repeated success-critical mechanism.

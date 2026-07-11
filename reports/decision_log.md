@@ -1243,3 +1243,76 @@ Pilot overall success:
 - `rank4_lora_seed_33`: `75.0%`
 
 Scientific consequence: lower offline action L2 did not correspond to higher closed-loop success. Seed 11 improved this bounded pilot, but the pilot is not large enough for best-seed selection or method design. The next step is larger official baseline rollout/failure mining with failed-episode videos enabled.
+
+## 2026-07-11: Official SmolVLA Closed-Loop Scaleup
+
+Decision: `OFFLINE_ONLINE_MISMATCH_CONFIRMED`
+
+- branch: `codex/official-smolvla-closed-loop-failure-mining`
+- objective: run a predeclared official SmolVLA-LIBERO closed-loop baseline scaleup and identify whether a structured failure exists for later method design
+- rollout happened: `True`
+- training happened: `False`
+- method implemented: `False`
+- static-mix duplicate rollout happened: `False`
+- old custom `LIBERO_7D` route used: `False`
+- OpenVLA-OFT used: `False`
+- policies: `frozen_base`, `rank4_lora_seed_11`, `rank4_lora_seed_22`, `rank4_lora_seed_33`
+- suites: `libero_spatial`, `libero_object`, `libero_goal`, `libero_10`
+- task ids per suite: `0`, `2`, `4`, `6`, `8`
+- reset seeds: `20260711` through `20260715`
+- planned/completed episodes: `400/400`
+- infrastructure failures: `0`
+
+CUDA and route audit:
+
+- RTX 5080 visible in WSL: `True`
+- model parameter device: `cuda:0`
+- input tensor devices: `cuda:0`
+- action chunk device: `cuda:0`
+- autocast fp16/bf16 active: `False`
+- episode peak VRAM: `926.638` to `928.365` MB
+- official relative-control schema: `state_dim=8`, `action_dim=7`
+- old custom `LIBERO_7D` route: `False`
+
+Policy success:
+
+- `frozen_base`: `74/100`, `74.0%`, Wilson 95% `[0.646288, 0.815954]`
+- `rank4_lora_seed_11`: `74/100`, `74.0%`, Wilson 95% `[0.646288, 0.815954]`
+- `rank4_lora_seed_22`: `68/100`, `68.0%`, Wilson 95% `[0.583372, 0.76331]`
+- `rank4_lora_seed_33`: `66/100`, `66.0%`, Wilson 95% `[0.562775, 0.745386]`
+
+Paired outcomes versus frozen_base:
+
+- seed `11` reset-level W/T/L: `9/82/9`; task-level W/T/L: `3/13/4`
+- seed `22` reset-level W/T/L: `8/78/14`; task-level W/T/L: `3/11/6`
+- seed `33` reset-level W/T/L: `4/84/12`; task-level W/T/L: `1/12/7`
+
+Failure mining:
+
+- total unsuccessful episodes: `118`
+- automatic failure category counts: `ambiguous_or_unclassified = 118`
+- weakest suite across policies: `libero_10`, `45/100`
+- weakest task slice: `libero_10/task_4`, `5/20`
+- repeated all-policy task/reset failures include `libero_10/task_4/seed_20260713`, `libero_10/task_4/seed_20260715`, and `libero_spatial/task_4` on seeds `20260712`, `20260713`, and `20260714`
+
+Offline/online analysis:
+
+- offline action L2 values: frozen `0.085579125`, seed 11 `0.086743582`, seed 22 `0.086474081`, seed 33 `0.086918872`
+- closed-loop success: frozen `0.74`, seed 11 `0.74`, seed 22 `0.68`, seed 33 `0.66`
+- all-policy Pearson/Spearman L2-versus-success diagnostics: `-0.569086` / `-0.632456`
+- LoRA-only offline ordering is not selection-safe because seed `22` has lower offline L2 than seed `11`, while seed `11` has higher closed-loop success
+
+Consequence: the run found task/reset-structured failures but did not identify a confident mechanism-linked phase failure. No method-worthy closed-loop intervention is approved yet. The next step is bounded official video capture/review for the repeated all-policy failures, not method design or best-seed selection.
+
+Reports:
+
+- `reports/official_closed_loop_scaleup_plan.md`
+- `reports/official_closed_loop_task_manifest.json`
+- `reports/official_closed_loop_episode_manifest.json`
+- `reports/official_closed_loop_scaleup_result.md`
+- `reports/official_closed_loop_scaleup_result.json`
+- `reports/official_closed_loop_failure_annotations.json`
+- `reports/official_closed_loop_failure_taxonomy.md`
+- `reports/official_closed_loop_seed_robustness.md`
+- `reports/official_closed_loop_offline_online_analysis.md`
+- `reports/official_closed_loop_method_gap_decision.md`
