@@ -222,3 +222,13 @@ Still forbidden:
 - no full benchmark;
 - no claim that a local Pre-VLA-style proxy was officially reproduced;
 - no causality claim from ordinary demonstration transitions.
+
+## After ECHO Final Candidate Headroom Gate - 2026-07-11
+
+- decision: `NO_ECHO_HEADROOM_CONFIRMED`
+- next: `Archive ECHO and return to the paper-first candidate portfolio.`
+
+## After ECHO Final Candidate Headroom Gate - 2026-07-11
+
+- decision: `NO_ECHO_HEADROOM_CONFIRMED`
+- next: `Archive ECHO and return to the paper-first candidate portfolio.`

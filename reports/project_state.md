@@ -319,3 +319,21 @@ Key reports:
 - `reports/echo_vla_first_prototype_decision.md`
 
 Exact next step: stop ECHO implementation under this candidate-generation protocol. Reopen only with a redesigned candidate generator or effect representation and a new predeclared headroom gate; do not train ECHO heads on the current no-headroom candidate set.
+
+## ECHO Final Candidate Headroom Gate - 2026-07-11
+
+- branch: `codex/echo-vla-final-candidate-headroom-gate`
+- decision: `NO_ECHO_HEADROOM_CONFIRMED`
+- official groups/candidates: `12` / `96`
+- structured diagnostic candidates: `96`
+- training happened: `False`
+- OpenVLA used: `False`
+
+## ECHO Final Candidate Headroom Gate - 2026-07-11
+
+- branch: `codex/echo-vla-final-candidate-headroom-gate`
+- decision: `NO_ECHO_HEADROOM_CONFIRMED`
+- official groups/candidates: `12` / `96`
+- structured diagnostic candidates: `96`
+- training happened: `False`
+- OpenVLA used: `False`
