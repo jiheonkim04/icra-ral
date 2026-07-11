@@ -1421,3 +1421,29 @@ Key reports:
 - `reports/openvla_oft_quantized_cross_backbone_decision.md`
 
 Exact next step: do not implement a method and do not proceed to LIBERO-PRO from this evidence. Archive the cross-backbone result as failure-not-reproduced unless a future full-precision or different second-backbone run is explicitly approved.
+
+## 2026-07-11 Paper-First VLA Method Design
+
+Decision: `READY_TO_IMPLEMENT_PRIMARY_VLA_METHOD`
+
+- branch: `codex/paper-first-vla-ral-method-design`
+- objective: literature-first VLA robotics method ideation and selection
+- primary sources reviewed: `34`
+- experiments happened: `False`
+- training happened: `False`
+- GPU/model inference happened: `False`
+- simulator execution happened: `False`
+- large download happened: `False`
+- implementation happened: `False`
+- selected method: `ECHO-VLA`
+- technical novelty: phase-conditioned counterfactual action-effect credit for VLA action chunks
+- estimated RA-L strength: strong if first prototype and second-backbone validation pass
+- estimated kill probability: `0.35`
+
+Rejected candidates:
+
+- `BARRIER-VLA`: high simple-baseline and VeriSpace/Pre-VLA proximity risk.
+- `SEMAPHORE-VLA`: novelty too close to SPR/ProgressVLA/ProgVLA.
+- `IRIS-VLA`: too close to VLA-Corrector/Pre-VLA and expensive recoverability labels.
+
+Consequence: implementation is authorized only for the bounded ECHO-VLA first prototype described in `reports/vla_primary_method_first_experiment.md`; OpenVLA-OFT INT4 and the full two-backbone matrix are held until the SmolVLA gate passes.

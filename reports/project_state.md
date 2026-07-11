@@ -259,3 +259,29 @@ Key reports:
 - `reports/openvla_oft_quantized_cross_backbone_decision.md`
 
 Exact next step: do not implement a method and do not proceed to LIBERO-PRO from this evidence. Archive the cross-backbone result as failure-not-reproduced unless a future full-precision or different second-backbone run is explicitly approved.
+
+## 2026-07-11 Paper-First VLA Method Design
+
+Current decision: `READY_TO_IMPLEMENT_PRIMARY_VLA_METHOD`
+
+This no-experiment, no-implementation goal performed a paper-first VLA robotics ideation study from primary sources up to 2026-07-11. No GPU, model inference, simulator execution, rollout, training, large download, or method implementation occurred.
+
+The selected primary method is `ECHO-VLA: Counterfactual Action-Effect Credit for Closed-Loop Vision-Language-Action Manipulation`.
+
+Reason: recent literature closes generic confidence, verification, progress, correction, chunking, failure-negative, prior-preservation, and adapter-routing routes, but still leaves a deeper action-objective versus closed-loop-success mismatch. ECHO-VLA targets that mismatch by estimating phase-conditioned interventional predicate effects of action chunks and using them for training/guidance.
+
+Key reports:
+
+- `reports/paper_first_vla_landscape_2026.md`
+- `reports/vla_shared_assumption_analysis.md`
+- `reports/vla_implicit_gap_synthesis.md`
+- `reports/vla_method_candidate_portfolio.md`
+- `reports/vla_method_novelty_adversarial_review.md`
+- `reports/vla_primary_method_spec.md`
+- `reports/vla_primary_method_first_experiment.md`
+- `reports/vla_primary_method_full_experiment_matrix.md`
+- `reports/vla_primary_method_kill_criteria.md`
+- `reports/vla_paper_contribution_outline.md`
+- `reports/vla_method_design_decision.md`
+
+Exact next step: implement only the bounded first ECHO-VLA prototype on SmolVLA using the predeclared four-task predicate-diversity set and frozen kill criteria. Do not run OpenVLA-OFT INT4, full LIBERO, LIBERO-PRO, or a broad robustness sweep before the SmolVLA gate passes.

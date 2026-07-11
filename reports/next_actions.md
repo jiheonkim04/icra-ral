@@ -164,3 +164,32 @@ Allowed next actions:
 3. Keep LIBERO-PRO blocked unless a future decision is one of the confirmed cross-backbone failure decisions.
 
 Still forbidden: no FCAR revival, no LoRA training, no OpenVLA-OFT fine-tuning, no generic correction/chunking/progress method, no LIBERO-PRO run from this decision.
+
+## 2026-07-11 Paper-First VLA Method Design Next Action
+
+Current decision: `READY_TO_IMPLEMENT_PRIMARY_VLA_METHOD`
+
+Immediate next action: implement the first bounded `ECHO-VLA` prototype only.
+
+Allowed first implementation scope:
+
+1. Use official SmolVLA-LIBERO as the only first backbone.
+2. Use the four predeclared predicate-diversity tasks:
+   - `libero_spatial/task_0`
+   - `libero_object/task_4`
+   - `libero_goal/task_0`
+   - `libero_10/task_0`
+3. Build a small effect-label dataset from official demonstrations and training-time BDDL/simulator predicate labels.
+4. Train only lightweight visual predicate/effect heads and the ECHO counterfactual ranking objective.
+5. Compare against frozen SmolVLA, heuristic effect/progress, progress/value head, Pre-VLA-style validity/advantage head, and no-counterfactual ECHO.
+
+Kill before scaling if ECHO full fails to beat the strongest simple baseline by at least `5` absolute task-balanced success points or fails to beat its no-counterfactual ablation.
+
+Still forbidden before the first gate passes:
+
+- no OpenVLA-OFT INT4 validation,
+- no full benchmark,
+- no LIBERO-PRO,
+- no broad failure mining,
+- no generic confidence/verification/progress/replanning/chunking method,
+- no LoRA, SmolVLA, or quantization as novelty.
