@@ -228,6 +228,24 @@ Still forbidden:
 - decision: `NO_ECHO_HEADROOM_CONFIRMED`
 - next: `Archive ECHO and return to the paper-first candidate portfolio.`
 
+## After Implementation V2 Empirical Postmortem - 2026-07-12
+
+- decision: `PROTOTYPE_EVIDENCE_INSUFFICIENT_FOR_TERMINAL_CLAIM`
+- next: `Do not start another autonomous campaign from the implementation-v2 terminal claim.`
+
+Allowed only if explicitly reopened later:
+
+1. A bounded CensorCredit repair that first proves censored and uncensored labels differ on held-out generated intervention records, then repeats an adequately powered evaluation.
+2. A genuinely distinct policy-distribution training method using intervention-generated sequence-level supervision, after targeted novelty review against SDP, TORL-VLA, ConRFT, VLA-Corrector, and OpenVLA-OFT.
+
+Still forbidden:
+
+- no PhaseBarrier threshold tuning as a rescue;
+- no CensorCredit hold-strength tuning as a rescue;
+- no rollout rerun inside this postmortem;
+- no claim that `TWO_IMPLEMENTED_METHODS_KILLED` is a review-resistant scientific terminal result;
+- no final method promotion from the current evidence alone.
+
 ## After Autonomous Dual-Review RA-L Campaign - 2026-07-11
 
 - decision: `NO_METHOD_AFTER_3_VALID_CYCLES`

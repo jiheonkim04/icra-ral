@@ -329,6 +329,31 @@ Exact next step: stop ECHO implementation under this candidate-generation protoc
 - training happened: `False`
 - OpenVLA used: `False`
 
+## Implementation V2 Empirical Postmortem - 2026-07-12
+
+- branch: `codex/implementation-v2-empirical-postmortem`
+- base implementation commit: `1ff7e4d420dddae290105b07f8cd03acc987e123`
+- final decision: `PROTOTYPE_EVIDENCE_INSUFFICIENT_FOR_TERMINAL_CLAIM`
+- rollouts rerun: `False`
+- training rerun: `False`
+- thresholds changed: `False`
+- main updated: `False`
+
+Postmortem classifications:
+
+- `PhaseBarrier-VLA`: `UNDERPOWERED_PROTOTYPE_INCONCLUSIVE`, because full PhaseBarrier changed actions but every variant scored `0/2` and the training positives were short-horizon effect-compatibility labels, not task-success labels.
+- `CensorCredit-VLA`: `IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, because censored and uncensored generated labels were identical for `24/24` records, yielding identical learned heads and a full method that collapsed to the uncensored ablation.
+
+Key reports:
+
+- `reports/phase_barrier_empirical_postmortem.md`
+- `reports/censor_credit_empirical_postmortem.md`
+- `reports/two_method_failure_comparison.md`
+- `reports/final_method_mechanism_synthesis.md`
+- `reports/final_method_decision.md`
+
+Exact next step: preserve this postmortem branch. Do not treat `TWO_IMPLEMENTED_METHODS_KILLED` as a genuine two-method terminal scientific claim without a new, explicitly approved follow-up.
+
 ## Autonomous Dual-Review RA-L Campaign - 2026-07-11
 
 - branch: `codex/autonomous-dual-review-ral-research`

@@ -1528,3 +1528,23 @@ Implemented cycle 2:
 - evidence: training happened and closed-loop SmolVLA-LIBERO evaluation happened; full method task-balanced success `0.5`, but uncensored recovery ablation also `0.5`.
 
 Consequence: the implementation-v2 campaign has two genuinely distinct implemented valid kills. The valid final decision is `TWO_IMPLEMENTED_METHODS_KILLED`, not another literature-only no-method result.
+
+## 2026-07-12 - Implementation V2 Empirical Postmortem
+
+Decision: `PROTOTYPE_EVIDENCE_INSUFFICIENT_FOR_TERMINAL_CLAIM`
+
+Execution boundary:
+
+- branch: `codex/implementation-v2-empirical-postmortem`
+- base implementation commit: `1ff7e4d420dddae290105b07f8cd03acc987e123`
+- rollout rerun happened: `False`
+- training rerun happened: `False`
+- threshold changes happened: `False`
+- broad literature search happened: `False`
+
+Evidence:
+
+- PhaseBarrier-VLA trained `20` records from `5` states and evaluated `2` held-out episodes per variant. Full PhaseBarrier shaped most rollout steps and changed actions, but all variants scored `0/2`. Classification: `UNDERPOWERED_PROTOTYPE_INCONCLUSIVE`.
+- CensorCredit-VLA trained `24` records from `6` states and evaluated `2` held-out episodes per variant. Censored and uncensored labels were identical for every record, producing identical saved model weights. Classification: `IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
+
+Consequence: preserve the implementation evidence as negative prototype evidence, but do not report it as two genuine method-level kills. No final method is promoted from this postmortem.
