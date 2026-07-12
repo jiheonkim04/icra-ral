@@ -1,0 +1,50 @@
+{
+  "ablation_loaded_stats": {
+    "epochs": 80,
+    "example_count": 72,
+    "final_loss": 0.000335745164193213,
+    "finite_gradients": true,
+    "initial_loss": 0.0034576428588479757,
+    "loss_decreased": true,
+    "max_grad_norm": 0.0298943668173651,
+    "uses_feedback": false,
+    "uses_phase": false
+  },
+  "branch": "codex/ral-cycle-02-fedo-vla",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "hidden_dim": 64,
+    "max_residual_norm": 0.75
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 1.696,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "full_checkpoint_path": "reports\\fedo_vla\\checkpoints\\fedo_synthetic_full.pt",
+  "full_checkpoint_sha256": "87ce5c89c6d03591da89d281c9c49f0b2a0370bf88de4d13aebda869929de7d0",
+  "full_loaded_stats": {
+    "epochs": 80,
+    "example_count": 72,
+    "final_loss": 6.375691009452567e-05,
+    "finite_gradients": true,
+    "initial_loss": 0.005678920075297356,
+    "loss_decreased": true,
+    "max_grad_norm": 0.044288526928364234,
+    "uses_feedback": true,
+    "uses_phase": true
+  },
+  "mode": "synthetic",
+  "next_step": "Run real trace training.",
+  "no_feedback_checkpoint_path": "reports\\fedo_vla\\checkpoints\\fedo_synthetic_no_feedback.pt",
+  "no_feedback_checkpoint_sha256": "bf1414cb0161b10282545f341c9be547efa06f9e8735e6526b4070e59c2f5db4",
+  "summary": {
+    "mean_realized_error_norm": {
+      "apex_feedback_proxy": 0.097144,
+      "faulted_frozen_smolvla": 0.126658,
+      "fedo_full": 0.058561,
+      "static_inverse_gain": 0.051621
+    },
+    "synthetic_passed": true
+  },
+  "training_happened": true
+}

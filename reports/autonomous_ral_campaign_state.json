@@ -15,14 +15,14 @@
   "maximum_total_gpu_time_hours": 24,
   "maximum_wall_time_hours_per_cycle": 12,
   "maximum_single_uncheckpointed_command_hours": 4,
-  "current_cycle": 1,
-  "topic": "delay_indexed_action_chunk_deployment",
-  "method": "DICD-VLA",
-  "branch": "codex/auto-method-20260712-01-dicd-vla",
+  "current_cycle": 2,
+  "topic": "feedback_execution_disturbance_observer",
+  "method": "FEDO-VLA",
+  "branch": "codex/ral-cycle-02-fedo-vla",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
-  "cycle_branch_alias_from_prompt": "codex/ral-cycle-01-dicd-vla",
+  "cycle_branch_alias_from_prompt": "codex/ral-cycle-02-fedo-vla",
   "current_commit": "a2154c21fa6fa4a9f895f04cc7c5a3b0b215e772",
-  "current_stage": "cycle_1_valid_kill_archived_cycle_2_pending",
+  "current_stage": "cycle_2_real_trace_training_passed_stage_a_ready",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -39,24 +39,33 @@
     "focused_unit_tests_pass",
     "stage_a_rollout_completed",
     "stage_a_result_adjudicated",
-    "cycle_1_valid_kill_recorded"
+    "cycle_1_valid_kill_recorded",
+    "cycle_2_researcher_proposal_frozen",
+    "cycle_2_reviewer_attack_completed",
+    "cycle_2_rebuttal_completed",
+    "cycle_2_preregistration_frozen",
+    "cycle_2_fedo_module_implemented",
+    "cycle_2_synthetic_mechanism_smoke_passed",
+    "cycle_2_real_trace_training_passed",
+    "cycle_2_focused_unit_tests_pass"
   ],
-  "running_command": null,
+  "running_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a",
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
-  "elapsed_active_time_hours_recorded": 2.62,
-  "gpu_time_hours_recorded": 2.62,
+  "elapsed_active_time_hours_recorded": 2.72,
+  "gpu_time_hours_recorded": 2.72,
   "downloads_gib_this_reopened_campaign": 0.0,
-  "hypothesis": "Known execution delay can be compensated by a delay-indexed action-chunk adapter trained on frozen SmolVLA chunk traces and recent executed-action history.",
-  "novelty_claim": "DICD-VLA changes deployed action generation under explicit actuation delay by conditioning a chunk adapter on delay index and executed-action history, rather than ranking existing candidates or tuning generic replanning.",
+  "hypothesis": "Measured low-level action-realization error can be compensated by a feedback execution-disturbance observer that adjusts frozen VLA action references under controlled actuator faults.",
+  "novelty_claim": "FEDO-VLA changes deployed action references using command/realized-action feedback and task phase, rather than candidate ranking, visual drift replanning, delay-indexed chunk selection, or generic robustness post-training.",
   "closest_papers": [
-    "DEFLECT",
-    "TIC-VLA",
+    "APEX",
     "RobustVLA",
-    "PAPO-VLA",
-    "OpenVLA-OFT"
+    "VLA-Corrector",
+    "Real-time Correction for VLA Action Chunks",
+    "TIC-VLA",
+    "APEX-adjacent adaptive control and residual correction methods"
   ],
-  "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest delayed baseline, plus wins over direct chunk-index delay and no-history ablation.",
-  "current_decision": "SIMPLE_BASELINE_EXPLAINS_METHOD",
+  "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest faulted baseline, plus wins over static inverse gain, APEX-style feedback, and no-feedback ablation, with clean retention.",
+  "current_decision": "FEDO_STAGE_A_READY",
   "stage_a_partial_checkpoint": "reports/dicd_vla/stage_a_partial_result.json",
   "stage_a_result_json": "reports/dicd_vla/stage_a_result.json",
   "stage_a_result_md": "reports/dicd_vla/stage_a_result.md",
@@ -83,6 +92,33 @@
     "passes_prototype_go": false,
     "kill_reason": "The direct chunk-index delay baseline matched or exceeded the full method, and the no-history ablation matched the full method, so the delay-indexed history-conditioned adapter did not provide closed-loop value."
   },
+  "cycle_2_pre_stage_a": {
+    "proposal_hash": "F9098041A471641E1506BC9AEE2E2CDE205170BAEF2F9E281077724BC239D073",
+    "proposal": "reports/fedo_vla/researcher_proposal.md",
+    "reviewer_attack": "reports/fedo_vla/reviewer_attack.md",
+    "rebuttal": "reports/fedo_vla/researcher_rebuttal.md",
+    "preregistration": "reports/fedo_vla/preregistration.md",
+    "prototype_protocol": "reports/fedo_vla/prototype_protocol.md",
+    "synthetic_result": "reports/fedo_vla/synthetic_result.json",
+    "real_trace_train_result": "reports/fedo_vla/real_trace_train_result.json",
+    "full_checkpoint_path": "reports/fedo_vla/checkpoints/fedo_full.pt",
+    "full_checkpoint_sha256": "89f6fc614f1bffcd4424416982cb030b5d8678afa7ed9f58e1d4f2e5b92cf99a",
+    "no_feedback_checkpoint_path": "reports/fedo_vla/checkpoints/fedo_no_feedback.pt",
+    "no_feedback_checkpoint_sha256": "439366df6b70063c4ba5502234d6064a9834b7f86b9f4271643132bc3d805797",
+    "real_trace_rows": 225,
+    "full_training_loss_decreased": true,
+    "ablation_training_loss_decreased": true,
+    "stage_a_planned_episode_count": 70,
+    "stage_a_variants": [
+      "faulted_frozen_smolvla",
+      "static_inverse_gain",
+      "apex_feedback_proxy",
+      "fedo_no_feedback_ablation",
+      "fedo_full",
+      "clean_frozen_smolvla",
+      "clean_fedo_full"
+    ]
+  },
   "interrupted_launches": [
     {
       "time_kst": "2026-07-12T18:02:39.9368989+09:00",
@@ -90,7 +126,6 @@
       "scientific_result": false
     }
   ],
-  "next_cycle": 2,
-  "next_action": "Start a genuinely distinct Cycle 2 method family; do not rescue DICD-VLA.",
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && type reports\\autonomous_ral_campaign_state.md"
+  "next_action": "Run FEDO-VLA Stage A exactly as preregistered.",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/ral-cycle-02-fedo-vla && wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a"
 }

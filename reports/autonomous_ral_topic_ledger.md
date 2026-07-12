@@ -36,4 +36,21 @@ The delay-indexed history-conditioned adapter must not be revived through thresh
 
 ## Cycle 2
 
-Status: `PENDING_SELECTION`
+Topic: feedback execution-disturbance observer
+
+Method: `FEDO-VLA`
+
+Status: `STAGE_A_READY`
+
+Distinctness versus Cycle 1:
+
+- core problem changes from execution delay to low-level action-realization disturbance
+- representation changes from delay-indexed chunk features to command/realized-action feedback
+- action-generation mechanism changes from delayed chunk adapter to residual command compensation
+- reviewer-killer direct prior changes from chunk-index delay to APEX-style feedback
+
+Required kill gates:
+
+- static inverse gain matches or beats full: `SIMPLE_BASELINE_EXPLAINS_METHOD`
+- APEX-style feedback matches or beats full: `DIRECT_PRIOR_EXPLAINS_METHOD`
+- no-feedback ablation matches or beats full: `KEY_COMPONENT_NOT_USEFUL`

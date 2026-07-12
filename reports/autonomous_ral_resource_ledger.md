@@ -39,3 +39,17 @@ Observed resource envelope during checkpointed Stage A:
 - new downloads during this cycle: `0 GiB`
 - repeated CUDA OOM: none
 - uncontrolled CPU or disk offload: not observed
+
+Cycle 2 FEDO pre-Stage-A artifacts:
+
+- synthetic result: `reports/fedo_vla/synthetic_result.json`
+- real trace training result: `reports/fedo_vla/real_trace_train_result.json`
+- full checkpoint: `reports/fedo_vla/checkpoints/fedo_full.pt`
+- no-feedback checkpoint: `reports/fedo_vla/checkpoints/fedo_no_feedback.pt`
+
+Observed FEDO real-trace training resource envelope:
+
+- CUDA allocation reported by result JSON: peak approximately `926.638 MiB`
+- new downloads during Cycle 2: `0 GiB`
+- repeated CUDA OOM: none
+- uncontrolled CPU or disk offload: not observed

@@ -18,3 +18,23 @@ Evidence ready before Stage A:
 - real trace training passed
 - Stage A implementation compiles
 - focused DICD unit tests pass
+
+## 2026-07-12 KST Cycle 2
+
+Cycle 2 method: `FEDO-VLA`
+
+Researcher position:
+
+- DICD-VLA is closed and cannot be rescued.
+- FEDO-VLA targets a different deployment axis: low-level action-realization disturbance rather than observation/action delay.
+- The method uses command/realized-action feedback and task phase to emit residual commands.
+- Synthetic smoke passed and real SmolVLA trace training produced reloadable full and no-feedback checkpoints.
+
+Evidence ready before Stage A:
+
+- proposal frozen and hashed
+- reviewer attack completed with APEX/static baselines required
+- preregistration frozen
+- FEDO module and runner compile
+- focused unit tests pass
+- real trace training passed

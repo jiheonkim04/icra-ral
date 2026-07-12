@@ -12,15 +12,15 @@ Governance correction applied:
 - maximum single uncheckpointed command: `4 h`
 - no routine user approvals for bounded local research actions
 
-Current cycle: `1`
+Current cycle: `2`
 
-Current method: `DICD-VLA`
+Current method: `FEDO-VLA`
 
-Current branch: `codex/auto-method-20260712-01-dicd-vla`
+Current branch: `codex/ral-cycle-02-fedo-vla`
 
-Prompt branch alias to create/preserve after commit: `codex/ral-cycle-01-dicd-vla`
+Prompt branch alias to create/preserve after commit: `codex/ral-cycle-02-fedo-vla`
 
-Current stage: `cycle_1_valid_kill_archived_cycle_2_pending`
+Current stage: `cycle_2_real_trace_training_passed_stage_a_ready`
 
 Cycle 1 Stage A result:
 
@@ -45,4 +45,23 @@ The Stage A runner compiled and `tests/test_dicd_vla.py` passed before launch. T
 
 The checkpointed Stage A launch completed the preregistered 50 episodes with no exceptions. The full method changed actions, but it did not improve closed-loop success: the direct chunk-index delay baseline exceeded the full method, and the no-history ablation matched it. DICD-VLA is therefore a valid Cycle 1 kill, not a candidate for rescue or repeat.
 
-Next action: start a genuinely distinct Cycle 2 method family under the remaining governance budget.
+Cycle 2 current method:
+
+- topic: feedback execution-disturbance observer
+- method: `FEDO-VLA`
+- proposal: `reports/fedo_vla/researcher_proposal.md`
+- proposal hash: `F9098041A471641E1506BC9AEE2E2CDE205170BAEF2F9E281077724BC239D073`
+- reviewer attack: `reports/fedo_vla/reviewer_attack.md`
+- preregistration: `reports/fedo_vla/preregistration.md`
+- synthetic result: `SYNTHETIC_MECHANISM_PASS`
+- real trace training result: `REAL_TRACE_TRAIN_PASS`
+- full checkpoint: `reports/fedo_vla/checkpoints/fedo_full.pt`
+- no-feedback checkpoint: `reports/fedo_vla/checkpoints/fedo_no_feedback.pt`
+
+Next command:
+
+```powershell
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a
+```
+
+FEDO Stage A must follow the preregistered APEX-style feedback, static inverse-gain, and no-feedback ablation kill gates.

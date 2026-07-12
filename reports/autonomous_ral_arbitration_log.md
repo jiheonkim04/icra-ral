@@ -39,3 +39,16 @@ Reason:
 - The mechanism changed actions, but the extra delay-indexed history-conditioned adapter did not improve closed-loop success.
 
 Reviewer B ruling: this is a valid scientific kill, not a measurement-invalid result. No repeat or rescue is allowed. Start Cycle 2 with a genuinely distinct method family.
+
+## 2026-07-12 KST Cycle 2 Gate
+
+Decision: `APPROVE_FEDO_STAGE_A_WITH_FIXED_APEX_STATIC_KILL_GATES`
+
+Reason:
+
+- FEDO-VLA is distinct from DICD-VLA and ECHO by problem, representation, and intervention.
+- APEX is a close direct prior, so an APEX-style feedback proxy is a mandatory kill baseline.
+- Static inverse-gain compensation is the simple baseline most likely to explain controlled-fault gains.
+- Synthetic and real-trace training passed without using privileged inference fields.
+
+Next action: run FEDO-VLA Stage A exactly as preregistered.

@@ -6,17 +6,17 @@ Resume command:
 
 ```powershell
 cd /d C:\Users\jiheo\tca_map
-git switch codex/auto-method-20260712-01-dicd-vla
-type reports\autonomous_ral_campaign_state.md
+git switch codex/ral-cycle-02-fedo-vla
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a
 ```
 
-Current stage: `cycle_1_valid_kill_archived_cycle_2_pending`
+Current stage: `cycle_2_real_trace_training_passed_stage_a_ready`
 
 Next automatic stage:
 
-1. Start Cycle 2 with a genuinely distinct method family.
-2. Do not rescue DICD-VLA.
-3. Preserve the Cycle 1 result as a valid prototype kill.
+1. Run FEDO-VLA Stage A.
+2. Adjudicate against static inverse-gain, APEX-style feedback, and no-feedback ablation.
+3. If killed, preserve the valid result and pivot to Cycle 3 without rescuing FEDO.
 
 Governance correction: the active target is now `PAPER_READY_EXPERIMENTAL_PACKAGE`, with at most three distinct method cycles and a 24 hour total GPU-time cap.
 
@@ -27,3 +27,5 @@ Real full checkpoint: `reports/dicd_vla/checkpoints/dicd_real_full.pt`
 Real no-history checkpoint: `reports/dicd_vla/checkpoints/dicd_real_no_history.pt`
 
 DICD-VLA Stage A completed `50 / 50` episodes with zero exceptions and final decision `SIMPLE_BASELINE_EXPLAINS_METHOD`.
+
+FEDO-VLA has passed synthetic smoke and real trace training; the Stage A command is the next resumable action.

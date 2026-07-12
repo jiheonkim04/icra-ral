@@ -25,3 +25,13 @@ Stage A actual runtime:
 - remaining campaign GPU budget: approximately `21.38 h`
 
 Cycle 1 is closed. Cycle 2 remains under the `12 h` per-cycle wall-clock cap and the campaign-level `24 h` GPU cap.
+
+Cycle 2 pre-Stage-A runtime:
+
+- synthetic smoke: local CPU/GPU-light, not counted as material GPU time
+- failed real-trace reporting attempt: approximately `0.04 h`
+- successful real-trace training: `174.563 s`, approximately `0.05 h`
+- approximate campaign GPU time consumed so far: `2.72 h`
+- approximate remaining campaign GPU budget: `21.28 h`
+
+FEDO Stage A planned command is checkpointed and expected to remain under `4 h`.
