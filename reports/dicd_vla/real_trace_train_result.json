@@ -1,0 +1,248 @@
+{
+  "ablation_checkpoint_path": "reports/dicd_vla/checkpoints/dicd_real_no_history.pt",
+  "ablation_checkpoint_sha256": "a0dc6b8a0b5e7db14896549d4bd2f60368751316d7f421671cd45eeab3c364d0",
+  "ablation_example_count": 312,
+  "ablation_loaded_stats": {
+    "epochs": 120,
+    "example_count": 312,
+    "final_loss": 0.0011940556578338146,
+    "finite_gradients": true,
+    "initial_loss": 0.1096893697977066,
+    "loss_decreased": true,
+    "max_grad_norm": 0.12607338030238624
+  },
+  "ablation_train_stats": {
+    "epochs": 120,
+    "example_count": 312,
+    "final_loss": 0.0011940556578338146,
+    "finite_gradients": true,
+    "initial_loss": 0.1096893697977066,
+    "loss_decreased": true,
+    "max_grad_norm": 0.12607338030238624
+  },
+  "branch": "codex/auto-method-20260712-01-dicd-vla",
+  "checks": {
+    "ablation_checkpoint_reloaded": true,
+    "ablation_loss_decreased": true,
+    "full_changes_direct_chunk_index": true,
+    "full_checkpoint_reloaded": true,
+    "full_differs_from_no_history_ablation": true,
+    "full_finite_gradients": true,
+    "full_loss_decreased": true,
+    "labels_have_required_contrast": true,
+    "no_privileged_inference_fields": true,
+    "training_examples_exist": true
+  },
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "chunk_len": 8,
+    "hidden_dim": 64,
+    "history_len": 2
+  },
+  "cuda_memory": {
+    "allocated_bytes": 935874048,
+    "allocated_mb": 892.519,
+    "max_allocated_bytes": 971650560,
+    "max_allocated_mb": 926.638
+  },
+  "date_kst": "2026-07-12",
+  "delay": 2,
+  "elapsed_seconds": 76.581,
+  "final_decision": "DICD_REAL_TRACE_TRAINING_PASSED",
+  "full_checkpoint_path": "reports/dicd_vla/checkpoints/dicd_real_full.pt",
+  "full_checkpoint_sha256": "36d6c14bacf7bd3992d530fd428557175e626229eafca41b2449302ff5cb4538",
+  "full_example_count": 312,
+  "full_loaded_stats": {
+    "epochs": 120,
+    "example_count": 312,
+    "final_loss": 0.0012394102523103356,
+    "finite_gradients": true,
+    "initial_loss": 0.10941647738218307,
+    "loss_decreased": true,
+    "max_grad_norm": 0.1300152669820378
+  },
+  "full_train_stats": {
+    "epochs": 120,
+    "example_count": 312,
+    "final_loss": 0.0012394102523103356,
+    "finite_gradients": true,
+    "initial_loss": 0.10941647738218307,
+    "loss_decreased": true,
+    "max_grad_norm": 0.1300152669820378
+  },
+  "policy_load_audit": {
+    "action_chunk_device": "cuda:0",
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_finite": true,
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "amp_fp16_or_bf16_active": false,
+    "autocast": {
+      "cpu": false,
+      "cuda": false
+    },
+    "control_mode": "relative",
+    "cuda_memory": {
+      "allocated_bytes": 937419264,
+      "allocated_mb": 893.993,
+      "max_allocated_bytes": 970964480,
+      "max_allocated_mb": 925.984
+    },
+    "empty_cameras": 1,
+    "input_tensor_devices": {
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0"
+    },
+    "input_tensor_shapes": {
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ]
+    },
+    "load_seconds": 6.328,
+    "old_custom_libero_7d_route_used": false,
+    "parameter": {
+      "device": "cuda:0",
+      "dtype": "torch.bfloat16",
+      "numel": 589824
+    },
+    "peft": {
+      "used": false
+    },
+    "policy_class": "SmolVLAPolicy",
+    "policy_name": "frozen_base",
+    "rename_map": {
+      "observation.images.image": "observation.images.camera1",
+      "observation.images.image2": "observation.images.camera2"
+    }
+  },
+  "probe": {
+    "dicd_full_action": [
+      0.433946430683136,
+      -0.10617810487747192,
+      0.20637957751750946,
+      -0.025242261588573456,
+      0.06502930074930191,
+      -0.052407048642635345,
+      -0.8977994322776794
+    ],
+    "dicd_full_reloaded_action": [
+      0.433946430683136,
+      -0.10617810487747192,
+      0.20637957751750946,
+      -0.025242261588573456,
+      0.06502930074930191,
+      -0.052407048642635345,
+      -0.8977994322776794
+    ],
+    "dicd_no_history_action": [
+      0.5520819425582886,
+      -0.10739916563034058,
+      0.2472749650478363,
+      -0.008722785860300064,
+      0.07256665080785751,
+      -0.023675136268138885,
+      -0.9566575884819031
+    ],
+    "dicd_no_history_reloaded_action": [
+      0.5520819425582886,
+      -0.10739916563034058,
+      0.2472749650478363,
+      -0.008722785860300064,
+      0.07256665080785751,
+      -0.023675136268138885,
+      -0.9566575884819031
+    ],
+    "direct_chunk_index_action": [
+      0.5840660333633423,
+      -0.08086876571178436,
+      0.22452396154403687,
+      -0.0067689064890146255,
+      0.020327724516391754,
+      -0.03447887301445007,
+      -0.9876165390014648
+    ],
+    "full_vs_ablation_delta_norm": 0.142301,
+    "full_vs_direct_delta_norm": 0.185024,
+    "probe_index": 0,
+    "probe_task": {
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4
+    }
+  },
+  "real_trace_training_happened": true,
+  "real_trace_training_passed": true,
+  "schema_version": "dicd_vla_real_trace_training_v1",
+  "smoke_identity": 20260712,
+  "smoke_trace": {
+    "chunk_sha256": "1e90d11b09d79a2b1a37c97d27f25e38d25cff5030755c078d7ecd007ef0cf47",
+    "executed_action_sha256": "75539cd731f7acea090901caed4d3e72498691e929bb406b2e60f8a5a1fcd166",
+    "executed_action_std": 0.392115,
+    "identity": 20260712,
+    "max_delay_delta_norm": 0.401595,
+    "mean_delay_delta_norm": 0.360516,
+    "step_count": 3,
+    "suite": "libero_spatial",
+    "task_id": 4
+  },
+  "target_std": 0.46941,
+  "train_identity": 20260711,
+  "train_traces": [
+    {
+      "ablation_example_count": 156,
+      "chunk_sha256": "55bbbcbb90a8d52a8c7dfd0019c3d8587c52681e269fcc36224801f245e243cb",
+      "executed_action_sha256": "913871088d71ff70707f1fbd183e097bca0be84736f23b5ea6377faf26f25113",
+      "executed_action_std": 0.500675,
+      "full_example_count": 156,
+      "identity": 20260711,
+      "max_delay_delta_norm": 2.082289,
+      "mean_delay_delta_norm": 0.221917,
+      "step_count": 80,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "ablation_example_count": 156,
+      "chunk_sha256": "14bd8931047ae387ededf18e2ddaf1f1b635a4a5bd850f166f0aaeab875e7129",
+      "executed_action_sha256": "1231c228d15b8d6f567f0f0b19594803cb024e4f146ec4253c1c2aee4c2e5e05",
+      "executed_action_std": 0.432327,
+      "full_example_count": 156,
+      "identity": 20260711,
+      "max_delay_delta_norm": 2.002287,
+      "mean_delay_delta_norm": 0.190799,
+      "step_count": 80,
+      "suite": "libero_10",
+      "task_id": 4
+    }
+  ],
+  "training_happened": true
+}
