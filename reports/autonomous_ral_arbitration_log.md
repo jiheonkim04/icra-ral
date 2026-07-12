@@ -23,3 +23,19 @@ Reason:
 - To respect the single-command governance limit, the runner must checkpoint after each episode before Stage A is restarted.
 
 Allowed repair: add per-episode partial JSON and progress logging only. Do not change variants, tasks, identities, metrics, or GO/KILL rules.
+
+## 2026-07-12 KST Stage A Decision
+
+Decision: `KILL_DICD_VLA_SIMPLE_BASELINE_EXPLAINS_METHOD`
+
+Reason:
+
+- The checkpointed Stage A rollout completed all `50 / 50` preregistered episodes.
+- There were zero rollout exceptions.
+- Full DICD reached `1 / 10`, task-balanced success rate `0.10`.
+- Direct chunk-index delay reached `2 / 10`, task-balanced success rate `0.20`.
+- Frozen delay-only reached `2 / 10`, task-balanced success rate `0.20`.
+- The no-history ablation matched full DICD at `1 / 10`.
+- The mechanism changed actions, but the extra delay-indexed history-conditioned adapter did not improve closed-loop success.
+
+Reviewer B ruling: this is a valid scientific kill, not a measurement-invalid result. No repeat or rescue is allowed. Start Cycle 2 with a genuinely distinct method family.

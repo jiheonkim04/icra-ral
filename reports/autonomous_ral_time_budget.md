@@ -16,3 +16,12 @@ Stage A planned command:
 - output artifacts: `reports/dicd_vla/stage_a_result.json`, `reports/dicd_vla/stage_a_result.md`
 
 Reviewer B approval for Stage A: yes, because it is the cheapest preregistered decisive experiment.
+
+Stage A actual runtime:
+
+- stopped uncheckpointed infrastructure launch: approximately `1.0 h`
+- checkpointed Stage A result launch: `5637.278 s`, approximately `1.57 h`
+- approximate Cycle 1 GPU time consumed including prior smoke work: `2.62 h`
+- remaining campaign GPU budget: approximately `21.38 h`
+
+Cycle 1 is closed. Cycle 2 remains under the `12 h` per-cycle wall-clock cap and the campaign-level `24 h` GPU cap.

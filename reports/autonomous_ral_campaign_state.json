@@ -21,8 +21,8 @@
   "branch": "codex/auto-method-20260712-01-dicd-vla",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
   "cycle_branch_alias_from_prompt": "codex/ral-cycle-01-dicd-vla",
-  "current_commit": "b758f8da18755ff17cc7f35fe4f4c746dc76dce8",
-  "current_stage": "cycle_1_stage_a_rollout_checkpointed_running",
+  "current_commit": "163fc0fe79ecb863338fecf9c12bd26d18e40ea0",
+  "current_stage": "cycle_1_valid_kill_archived_cycle_2_pending",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -36,12 +36,15 @@
     "real_smolvla_chunk_smoke_passed",
     "real_trace_training_passed",
     "stage_a_runner_compiles",
-    "focused_unit_tests_pass"
+    "focused_unit_tests_pass",
+    "stage_a_rollout_completed",
+    "stage_a_result_adjudicated",
+    "cycle_1_valid_kill_recorded"
   ],
-  "running_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a",
+  "running_command": null,
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
-  "elapsed_active_time_hours_recorded": 0.0,
-  "gpu_time_hours_recorded": 0.05,
+  "elapsed_active_time_hours_recorded": 2.62,
+  "gpu_time_hours_recorded": 2.62,
   "downloads_gib_this_reopened_campaign": 0.0,
   "hypothesis": "Known execution delay can be compensated by a delay-indexed action-chunk adapter trained on frozen SmolVLA chunk traces and recent executed-action history.",
   "novelty_claim": "DICD-VLA changes deployed action generation under explicit actuation delay by conditioning a chunk adapter on delay index and executed-action history, rather than ranking existing candidates or tuning generic replanning.",
@@ -53,8 +56,33 @@
     "OpenVLA-OFT"
   ],
   "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest delayed baseline, plus wins over direct chunk-index delay and no-history ablation.",
-  "current_decision": "DICD_STAGE_A_CHECKPOINTED_RUNNING",
+  "current_decision": "SIMPLE_BASELINE_EXPLAINS_METHOD",
   "stage_a_partial_checkpoint": "reports/dicd_vla/stage_a_partial_result.json",
+  "stage_a_result_json": "reports/dicd_vla/stage_a_result.json",
+  "stage_a_result_md": "reports/dicd_vla/stage_a_result.md",
+  "cycle_1_outcome": {
+    "valid_scientific_result": true,
+    "stage_a_completed": true,
+    "episode_count": 50,
+    "exceptions": 0,
+    "final_decision": "SIMPLE_BASELINE_EXPLAINS_METHOD",
+    "full_method_successes": 1,
+    "full_method_total": 10,
+    "full_method_task_balanced_success_rate": 0.1,
+    "direct_chunk_index_delay_successes": 2,
+    "direct_chunk_index_delay_total": 10,
+    "direct_chunk_index_delay_task_balanced_success_rate": 0.2,
+    "delay_only_successes": 2,
+    "delay_only_total": 10,
+    "delay_only_task_balanced_success_rate": 0.2,
+    "no_history_ablation_successes": 1,
+    "no_history_ablation_total": 10,
+    "no_history_ablation_task_balanced_success_rate": 0.1,
+    "strongest_delayed_baseline": "frozen_smolvla_delay",
+    "mechanism_active": true,
+    "passes_prototype_go": false,
+    "kill_reason": "The direct chunk-index delay baseline matched or exceeded the full method, and the no-history ablation matched the full method, so the delay-indexed history-conditioned adapter did not provide closed-loop value."
+  },
   "interrupted_launches": [
     {
       "time_kst": "2026-07-12T18:02:39.9368989+09:00",
@@ -62,5 +90,7 @@
       "scientific_result": false
     }
   ],
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a"
+  "next_cycle": 2,
+  "next_action": "Start a genuinely distinct Cycle 2 method family; do not rescue DICD-VLA.",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && type reports\\autonomous_ral_campaign_state.md"
 }

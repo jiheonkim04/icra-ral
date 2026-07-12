@@ -20,14 +20,29 @@ Current branch: `codex/auto-method-20260712-01-dicd-vla`
 
 Prompt branch alias to create/preserve after commit: `codex/ral-cycle-01-dicd-vla`
 
-Current stage: `cycle_1_stage_a_rollout_checkpointed_running`
+Current stage: `cycle_1_valid_kill_archived_cycle_2_pending`
 
-Next command:
+Cycle 1 Stage A result:
 
-```powershell
-wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a
-```
+- result JSON: `reports/dicd_vla/stage_a_result.json`
+- result markdown: `reports/dicd_vla/stage_a_result.md`
+- completed episodes: `50 / 50`
+- exceptions: `0`
+- elapsed rollout time: `5637.278 s`
+- final decision: `SIMPLE_BASELINE_EXPLAINS_METHOD`
 
-The Stage A runner compiles and `tests/test_dicd_vla.py` passes.
+Summary:
 
-The first Stage A launch was stopped after about one hour because it had no episode-level checkpointing and had not written `stage_a_result.json`. This was an infrastructure/resumability stop before any scientific result existed.
+- frozen SmolVLA clean: `5 / 10`, task-balanced rate `0.50`
+- frozen SmolVLA delay: `2 / 10`, task-balanced rate `0.20`
+- direct chunk-index delay: `2 / 10`, task-balanced rate `0.20`
+- DICD no-history ablation: `1 / 10`, task-balanced rate `0.10`
+- DICD full: `1 / 10`, task-balanced rate `0.10`
+
+Adjudication:
+
+The Stage A runner compiled and `tests/test_dicd_vla.py` passed before launch. The first Stage A launch was stopped after about one hour because it had no episode-level checkpointing and had not written `stage_a_result.json`; this was an infrastructure/resumability stop before any scientific result existed.
+
+The checkpointed Stage A launch completed the preregistered 50 episodes with no exceptions. The full method changed actions, but it did not improve closed-loop success: the direct chunk-index delay baseline exceeded the full method, and the no-history ablation matched it. DICD-VLA is therefore a valid Cycle 1 kill, not a candidate for rescue or repeat.
+
+Next action: start a genuinely distinct Cycle 2 method family under the remaining governance budget.
