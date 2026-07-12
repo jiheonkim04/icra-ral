@@ -12,11 +12,11 @@
   "current_cycle": 1,
   "current_topic": "delay_indexed_action_chunk_deployment",
   "current_branch": "codex/auto-method-20260712-01-dicd-vla",
-  "current_commit": "e54eb5e4d83b3adc659b6f5c515285d58d7dfe97",
+  "current_commit": "b758f8da18755ff17cc7f35fe4f4c746dc76dce8",
   "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
   "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
   "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-  "current_stage": "cycle_1_stage_a_rollout_checkpointed_ready",
+  "current_stage": "cycle_1_stage_a_rollout_checkpointed_running",
   "completed_stages": [
     "starting_state_verified",
     "historical_evidence_inspected",
@@ -55,7 +55,7 @@
   "download_amount_gib_this_epoch": 0.0,
   "download_amount_gib_campaign": 14.845,
   "disk_free_bytes": 382861287424,
-  "current_decision": "DICD_STAGE_A_RESTART_WITH_EPISODE_CHECKPOINTS",
+  "current_decision": "DICD_STAGE_A_CHECKPOINTED_RUNNING",
   "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a",
   "latest_verified_prior_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED",
   "valid_final_states": [

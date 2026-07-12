@@ -10,7 +10,7 @@ git switch codex/auto-method-20260712-01-dicd-vla
 wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a
 ```
 
-Current stage: `cycle_1_stage_a_rollout_checkpointed_ready`
+Current stage: `cycle_1_stage_a_rollout_checkpointed_running`
 
 Expected Stage A artifacts:
 
