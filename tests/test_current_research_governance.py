@@ -11,15 +11,15 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_is_epoch_3_cycle_1_pivot_without_cycle_cap() -> None:
+def test_active_state_is_epoch_3_cycle_2_pivot_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 3
-    assert state["current_cycle"] == 1
+    assert state["current_cycle"] == 2
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED"
+    assert state["current_decision"] == "EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
@@ -27,6 +27,9 @@ def test_active_state_is_epoch_3_cycle_1_pivot_without_cycle_cap() -> None:
     assert state["epoch_2_cycle_3_outcome"]["ocfn_full_successes"] == 26
     assert state["epoch_2_cycle_3_outcome"]["zero_noise_smolvla_successes"] == 27
     assert state["epoch_2_cycle_3_outcome"]["paired_upper_ci_vs_strongest_baseline"] == 0.0625
+    assert state["epoch_3_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE"
+    assert state["epoch_3_cycle_1_outcome"]["cbfd_full_successes"] == 0
+    assert state["epoch_3_cycle_1_outcome"]["frozen_smolvla_successes"] == 7
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:

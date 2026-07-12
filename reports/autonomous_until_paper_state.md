@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED`
 
 Current epoch: `3`
 
-Current cycle: `1`
+Current cycle: `2`
 
-Current stage: `epoch_3_cycle_1_selection_pending`
+Current stage: `epoch_3_cycle_2_selection_pending`
 
 Allowed final states:
 
@@ -69,4 +69,12 @@ git switch codex/autonomous-until-paper-governance-v2
 type reports\current_research_governance.md
 ```
 
-Next action: begin Epoch 3 Cycle 1 candidate generation under `reports/current_research_governance.md`.
+## Epoch 3 Cycle 1
+
+`CBFD-VLA` is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE`.
+
+Teacher acquisition completed `10 / 10` successful Quantized OpenVLA-OFT INT4 episodes and produced `1765` teacher trace rows. Student training passed with `192` retention rows. Stage A completed `50 / 50` held-out episodes with zero exceptions. Frozen SmolVLA reached `7 / 10`; direct distillation, teacher trace memory, no-retention CBFD, and full CBFD each reached `0 / 10`. The CBFD mechanism was active, with full action deltas `1.244676` versus direct distillation and `1.652989` versus teacher memory.
+
+This satisfies the Stage A permanent kill rule: full method `0 / 10` while a paired baseline has at least `4 / 10`.
+
+Next action: begin Epoch 3 Cycle 2 candidate generation under `reports/current_research_governance.md`.

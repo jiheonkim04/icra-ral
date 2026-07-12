@@ -1,0 +1,110 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "checkpoint_sha256": {
+    "cbfd_full": "14c95a910adb9d980e3fb93e47ccc99af857a51fc2dc5eaab466045462ff8c20",
+    "cbfd_no_retention": "2551f23174dd46d9732f7d6bd09eeb2ce3cbafec3e8cd885eddc93ae33bab3af",
+    "direct_distill_proxy": "4f54a416015634460ceb8ca52586d2f0321a5c9955530e754fbc240b0689298c"
+  },
+  "checkpoints": {
+    "cbfd_full": "reports/cbfd_vla/checkpoints/cbfd_full.pt",
+    "cbfd_no_retention": "reports/cbfd_vla/checkpoints/cbfd_no_retention.pt",
+    "direct_distill_proxy": "reports/cbfd_vla/checkpoints/direct_distill_proxy.pt"
+  },
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "delta_l2": 0.01,
+    "failure_weight": 3.0,
+    "hidden_dim": 96,
+    "retention_weight": 1.0,
+    "state_dim": 8
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 2.62,
+  "final_decision": "STUDENT_TRAIN_PASS",
+  "mode": "student-train",
+  "next_step": "Run Stage A.",
+  "retention_coverage": {
+    "libero_10/task_4": {
+      "exists": true,
+      "path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+      "rows": 96
+    },
+    "libero_spatial/task_4": {
+      "exists": true,
+      "path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5",
+      "rows": 96
+    }
+  },
+  "retention_rows": 192,
+  "stats": {
+    "cbfd_full": {
+      "config": {
+        "action_dim": 7,
+        "delta_l2": 0.01,
+        "failure_weight": 3.0,
+        "hidden_dim": 96,
+        "retention_weight": 1.0,
+        "state_dim": 8
+      },
+      "epochs": 220,
+      "example_count": 1957,
+      "final_loss": 0.3989086449146271,
+      "finite_gradients": true,
+      "include_retention": true,
+      "initial_loss": 0.9067542552947998,
+      "loss_decreased": true,
+      "max_grad_norm": 1.7777609484825356,
+      "retention_example_count": 192,
+      "teacher_example_count": 1765,
+      "use_failure_weights": true
+    },
+    "cbfd_no_retention": {
+      "config": {
+        "action_dim": 7,
+        "delta_l2": 0.01,
+        "failure_weight": 3.0,
+        "hidden_dim": 96,
+        "retention_weight": 1.0,
+        "state_dim": 8
+      },
+      "epochs": 220,
+      "example_count": 1765,
+      "final_loss": 0.46018028259277344,
+      "finite_gradients": true,
+      "include_retention": false,
+      "initial_loss": 0.9795036315917969,
+      "loss_decreased": true,
+      "max_grad_norm": 1.6619268702664558,
+      "retention_example_count": 0,
+      "teacher_example_count": 1765,
+      "use_failure_weights": true
+    },
+    "direct_distill_proxy": {
+      "config": {
+        "action_dim": 7,
+        "delta_l2": 0.01,
+        "failure_weight": 3.0,
+        "hidden_dim": 96,
+        "retention_weight": 1.0,
+        "state_dim": 8
+      },
+      "epochs": 220,
+      "example_count": 1765,
+      "final_loss": 0.14434514939785004,
+      "finite_gradients": true,
+      "include_retention": false,
+      "initial_loss": 0.31692245602607727,
+      "loss_decreased": true,
+      "max_grad_norm": 0.6215518306735677,
+      "retention_example_count": 0,
+      "teacher_example_count": 1765,
+      "use_failure_weights": false
+    }
+  },
+  "summary": {
+    "student_train_passed": true
+  },
+  "teacher_rows": 1765,
+  "training_happened": true
+}

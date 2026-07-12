@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current campaign decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
+Current campaign decision: `EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED`
 
 This is not a terminal decision.
 
@@ -33,4 +33,6 @@ Cycle 3 of Epoch 2, `OCFN-VLA`, is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IM
 
 The related Epoch 2 failures have been synthesized in `reports/epoch_2_failure_synthesis.md`.
 
-Begin Epoch 3 Cycle 1 candidate generation under `reports/current_research_governance.md`, changing at least two core dimensions relative to Epoch 2 action-surface interventions.
+Epoch 3 Cycle 1, `CBFD-VLA`, is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE`: teacher acquisition passed, student training passed, Stage A completed `50 / 50` held-out episodes with zero exceptions, frozen SmolVLA reached `7 / 10`, and full CBFD reached `0 / 10` with active mechanism. Do not rescue this formulation.
+
+Begin Epoch 3 Cycle 2 candidate generation under `reports/current_research_governance.md`.

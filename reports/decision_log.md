@@ -1716,3 +1716,28 @@ Evidence:
 - `OCFN-VLA` changed latent flow-noise initialization and outcome-conditioned selection, but full reached `26 / 80` versus zero-noise SmolVLA `27 / 80`.
 
 Consequence: begin Epoch 3 Cycle 1 under `reports/current_research_governance.md`, changing at least two core dimensions relative to Epoch 2 action-surface interventions.
+
+## 2026-07-12 - Epoch 3 Cycle 1 CBFD-VLA
+
+Decision: `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE`
+
+Execution boundary:
+
+- method: `CBFD-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `D355F0FC8C728320D448E572E3CB3D7F8D823EAE7C8C3E91078D1376CEE526E2`
+- teacher acquisition: `10 / 10` successful Quantized OpenVLA-OFT INT4 episodes
+- teacher trace rows: `1765`
+- student training: passed with `192` retention rows
+- Stage A: `50 / 50` episodes, zero exceptions
+
+Evidence:
+
+- frozen SmolVLA: `7 / 10`, task-balanced `0.70`
+- direct distillation proxy: `0 / 10`
+- teacher trace memory: `0 / 10`
+- CBFD no-retention: `0 / 10`
+- CBFD full: `0 / 10`
+- mechanism active: full action delta versus direct distillation `1.244676`, versus memory `1.652989`
+
+Consequence: archive CBFD-VLA as a valid current-formulation kill and continue to Epoch 3 Cycle 2.

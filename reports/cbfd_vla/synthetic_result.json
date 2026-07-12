@@ -1,0 +1,125 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "delta_l2": 0.01,
+    "failure_weight": 3.0,
+    "hidden_dim": 32,
+    "retention_weight": 1.0,
+    "state_dim": 8
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 1.313,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "mode": "synthetic",
+  "next_step": "Run teacher acquisition.",
+  "predictions": {
+    "cbfd_full": [
+      -0.21263298392295837,
+      0.0911271795630455,
+      -0.03687386214733124,
+      0.011364534497261047,
+      0.009881362318992615,
+      0.07420112937688828,
+      -0.07056432962417603
+    ],
+    "cbfd_no_retention": [
+      -0.2589985430240631,
+      0.24631386995315552,
+      -0.028231147676706314,
+      -0.002749066799879074,
+      -0.006919652223587036,
+      0.23260121047496796,
+      -0.5876626372337341
+    ],
+    "direct_distill_proxy": [
+      -0.23184579610824585,
+      0.11918932944536209,
+      -0.044564247131347656,
+      -0.03972059488296509,
+      -0.013123787939548492,
+      0.0826331153512001,
+      -0.38481825590133667
+    ],
+    "teacher_trace_memory": [
+      -0.2800000011920929,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.10000000149011612,
+      -0.6000000238418579
+    ]
+  },
+  "stats": {
+    "cbfd_full": {
+      "config": {
+        "action_dim": 7,
+        "delta_l2": 0.01,
+        "failure_weight": 3.0,
+        "hidden_dim": 32,
+        "retention_weight": 1.0,
+        "state_dim": 8
+      },
+      "epochs": 40,
+      "example_count": 192,
+      "final_loss": 0.19340543448925018,
+      "finite_gradients": true,
+      "include_retention": true,
+      "initial_loss": 0.44976797699928284,
+      "loss_decreased": true,
+      "max_grad_norm": 0.8272090611540889,
+      "retention_example_count": 96,
+      "teacher_example_count": 96,
+      "use_failure_weights": true
+    },
+    "cbfd_no_retention": {
+      "config": {
+        "action_dim": 7,
+        "delta_l2": 0.01,
+        "failure_weight": 3.0,
+        "hidden_dim": 32,
+        "retention_weight": 1.0,
+        "state_dim": 8
+      },
+      "epochs": 40,
+      "example_count": 96,
+      "final_loss": 0.22267185151576996,
+      "finite_gradients": true,
+      "include_retention": false,
+      "initial_loss": 0.6108400821685791,
+      "loss_decreased": true,
+      "max_grad_norm": 1.2084326918183017,
+      "retention_example_count": 0,
+      "teacher_example_count": 96,
+      "use_failure_weights": true
+    },
+    "direct_distill_proxy": {
+      "config": {
+        "action_dim": 7,
+        "delta_l2": 0.01,
+        "failure_weight": 3.0,
+        "hidden_dim": 32,
+        "retention_weight": 1.0,
+        "state_dim": 8
+      },
+      "epochs": 40,
+      "example_count": 96,
+      "final_loss": 0.04661400616168976,
+      "finite_gradients": true,
+      "include_retention": false,
+      "initial_loss": 0.2291296422481537,
+      "loss_decreased": true,
+      "max_grad_norm": 0.4678171775492605,
+      "retention_example_count": 0,
+      "teacher_example_count": 96,
+      "use_failure_weights": false
+    }
+  },
+  "summary": {
+    "all_predictions_finite": true,
+    "synthetic_passed": true
+  },
+  "training_happened": true
+}
