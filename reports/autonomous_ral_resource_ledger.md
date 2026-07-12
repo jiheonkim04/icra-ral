@@ -53,3 +53,28 @@ Observed FEDO real-trace training resource envelope:
 - new downloads during Cycle 2: `0 GiB`
 - repeated CUDA OOM: none
 - uncontrolled CPU or disk offload: not observed
+
+FEDO Stage A completed artifacts:
+
+- `reports/fedo_vla/stage_a_partial_result.json`
+- `reports/fedo_vla/stage_a_result.json`
+- `reports/fedo_vla/stage_a_result.md`
+- `reports/fedo_vla/stage_a_stdout.log`
+- `reports/fedo_vla/stage_a_stderr.log`
+
+Observed FEDO Stage A resource envelope:
+
+- rollout elapsed time: `1879.48 s`
+- GPU memory by `nvidia-smi` during polling: approximately `3.1-5.0 GiB / 16.3 GiB`
+- CUDA allocation reported by the result JSON: peak approximately `926.638 MiB`
+- WSL RAM during polling: approximately `3.7-4.2 GiB / 11 GiB`
+- swap during polling: `0 B`
+- new downloads during Cycle 2: `0 GiB`
+- repeated CUDA OOM: none
+- uncontrolled CPU or disk offload: not observed
+
+Cycle 2 final result:
+
+- final decision: `CLEAN_RETENTION_FAILURE`
+- Stage A episodes: `70 / 70`
+- exceptions: `0`

@@ -1,5 +1,16 @@
 # Autonomous Until Paper Method Ledger
 
+## 2026-07-12 KST Continuity Update
+
+The active governed campaign has completed two valid method cycles:
+
+| Epoch | Cycle | Method | Status | Key evidence |
+| --- | ---: | --- | --- | --- |
+| 1 | 1 | `DICD-VLA` | `KILLED_VALID_PROTOTYPE` | full `1 / 10`; direct chunk-index delay `2 / 10`; no-history ablation `1 / 10`; zero exceptions |
+| 1 | 2 | `FEDO-VLA` | `KILLED_VALID_PROTOTYPE` | faulted full `1 / 10`; static/APEX/no-feedback baselines `2 / 10`; clean frozen `4 / 10`; clean FEDO `0 / 10`; zero exceptions |
+
+Cycle 3 is selection-pending and is the final permitted distinct method cycle. It must not revive DICD, FEDO, ECHO, candidate ranking, adaptive-chunk selection, or residual command compensation through cosmetic changes.
+
 ## Historical Closed Methods
 
 These methods are inherited as closed evidence and must not be cosmetically revived.

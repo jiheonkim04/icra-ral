@@ -1,0 +1,1765 @@
+{
+  "ablation_loaded_stats": {
+    "epochs": 120,
+    "example_count": 225,
+    "final_loss": 0.00025807827478274703,
+    "finite_gradients": true,
+    "initial_loss": 0.005520858336240053,
+    "loss_decreased": true,
+    "max_grad_norm": 0.037536045177623927,
+    "uses_feedback": false,
+    "uses_phase": false
+  },
+  "branch": "codex/ral-cycle-02-fedo-vla",
+  "closed_loop_experiment_happened": true,
+  "cuda_memory": {
+    "allocated_bytes": 935880704,
+    "allocated_mb": 892.525,
+    "max_allocated_bytes": 971650560,
+    "max_allocated_mb": 926.638
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 1879.48,
+  "episode_count": 70,
+  "episodes": [
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 32.777,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.317154,
+      "mean_realized_error_norm": 0.291107,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.935,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.285113,
+      "mean_realized_error_norm": 0.234588,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.568,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.161938,
+      "mean_realized_error_norm": 0.158674,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.648,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.230882,
+      "mean_realized_error_norm": 0.243152,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 31.084,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.255627,
+      "mean_realized_error_norm": 0.221757,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.347,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.116066,
+      "mean_realized_error_norm": 0.191516,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.951,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.091571,
+      "mean_realized_error_norm": 0.168586,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.812,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.082169,
+      "mean_realized_error_norm": 0.142485,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.395,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.102834,
+      "mean_realized_error_norm": 0.186109,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.143,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.082345,
+      "mean_realized_error_norm": 0.159726,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "faulted_frozen_smolvla"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.596,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.344017,
+      "mean_realized_error_norm": 0.154491,
+      "mean_residual_norm": 0.188124,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.249,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.38855,
+      "mean_realized_error_norm": 0.132778,
+      "mean_residual_norm": 0.194143,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.251,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.419613,
+      "mean_realized_error_norm": 0.136772,
+      "mean_residual_norm": 0.200074,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.537,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.355474,
+      "mean_realized_error_norm": 0.149569,
+      "mean_residual_norm": 0.194341,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.619,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.355707,
+      "mean_realized_error_norm": 0.130437,
+      "mean_residual_norm": 0.184552,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.689,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.170805,
+      "mean_realized_error_norm": 0.132029,
+      "mean_residual_norm": 0.140943,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.798,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.134934,
+      "mean_realized_error_norm": 0.109361,
+      "mean_residual_norm": 0.115993,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 14.993,
+      "episode_steps": 227,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.224724,
+      "mean_realized_error_norm": 0.117824,
+      "mean_residual_norm": 0.147469,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 16.954,
+      "episode_steps": 224,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.25194,
+      "mean_realized_error_norm": 0.151487,
+      "mean_residual_norm": 0.161521,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 23.229,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.113287,
+      "mean_realized_error_norm": 0.111108,
+      "mean_residual_norm": 0.09086,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "static_inverse_gain"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.22,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.343559,
+      "mean_realized_error_norm": 0.188464,
+      "mean_residual_norm": 0.191681,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.878,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.362729,
+      "mean_realized_error_norm": 0.175129,
+      "mean_residual_norm": 0.169312,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 15.736,
+      "episode_steps": 126,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.413155,
+      "mean_realized_error_norm": 0.153452,
+      "mean_residual_norm": 0.145527,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.284,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.340067,
+      "mean_realized_error_norm": 0.186225,
+      "mean_residual_norm": 0.198601,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.603,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.329227,
+      "mean_realized_error_norm": 0.164186,
+      "mean_residual_norm": 0.167587,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.907,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.146267,
+      "mean_realized_error_norm": 0.160077,
+      "mean_residual_norm": 0.141698,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 23.071,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.142608,
+      "mean_realized_error_norm": 0.139038,
+      "mean_residual_norm": 0.117617,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.841,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.105769,
+      "mean_realized_error_norm": 0.11773,
+      "mean_residual_norm": 0.084073,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 24.308,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.187081,
+      "mean_realized_error_norm": 0.155994,
+      "mean_residual_norm": 0.153649,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 20.285,
+      "episode_steps": 230,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.227615,
+      "mean_realized_error_norm": 0.150319,
+      "mean_residual_norm": 0.136461,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "apex_feedback_proxy"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.99,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.341986,
+      "mean_realized_error_norm": 0.178417,
+      "mean_residual_norm": 0.164895,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.032,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.380387,
+      "mean_realized_error_norm": 0.157434,
+      "mean_residual_norm": 0.176434,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 19.2,
+      "episode_steps": 128,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.417885,
+      "mean_realized_error_norm": 0.155537,
+      "mean_residual_norm": 0.171141,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.475,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.352198,
+      "mean_realized_error_norm": 0.170059,
+      "mean_residual_norm": 0.177826,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 31.484,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.336604,
+      "mean_realized_error_norm": 0.145639,
+      "mean_residual_norm": 0.165478,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.413,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.169057,
+      "mean_realized_error_norm": 0.142235,
+      "mean_residual_norm": 0.13302,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.995,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.140519,
+      "mean_realized_error_norm": 0.124385,
+      "mean_residual_norm": 0.114433,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 18.987,
+      "episode_steps": 227,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.227766,
+      "mean_realized_error_norm": 0.12934,
+      "mean_residual_norm": 0.148183,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 31.961,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.148879,
+      "mean_realized_error_norm": 0.142734,
+      "mean_residual_norm": 0.118076,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.263,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.107538,
+      "mean_realized_error_norm": 0.122626,
+      "mean_residual_norm": 0.087605,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_no_feedback_ablation"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.93,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.362646,
+      "mean_realized_error_norm": 0.180536,
+      "mean_residual_norm": 0.183171,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 31.35,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.388722,
+      "mean_realized_error_norm": 0.175896,
+      "mean_residual_norm": 0.186956,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 21.8,
+      "episode_steps": 128,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.415662,
+      "mean_realized_error_norm": 0.164754,
+      "mean_residual_norm": 0.187409,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 30.891,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.308954,
+      "mean_realized_error_norm": 0.178342,
+      "mean_residual_norm": 0.167157,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.638,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.325711,
+      "mean_realized_error_norm": 0.153029,
+      "mean_residual_norm": 0.178389,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.572,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.182291,
+      "mean_realized_error_norm": 0.151859,
+      "mean_residual_norm": 0.155312,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.299,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.144136,
+      "mean_realized_error_norm": 0.13209,
+      "mean_residual_norm": 0.131149,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.551,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.131412,
+      "mean_realized_error_norm": 0.118744,
+      "mean_residual_norm": 0.107825,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.665,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.117384,
+      "mean_realized_error_norm": 0.138992,
+      "mean_residual_norm": 0.089079,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "faulted",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.715,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.156411,
+      "mean_realized_error_norm": 0.132951,
+      "mean_residual_norm": 0.117514,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 18.731,
+      "episode_steps": 133,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.282866,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.506,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.284331,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.612,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.292277,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 20.617,
+      "episode_steps": 131,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.280484,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 19.47,
+      "episode_steps": 143,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.274785,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.804,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.108146,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.904,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.083932,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 18.999,
+      "episode_steps": 230,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.146031,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.62,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.076656,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.011,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.078334,
+      "mean_realized_error_norm": 0.0,
+      "mean_residual_norm": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.213,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.394165,
+      "mean_realized_error_norm": 0.189071,
+      "mean_residual_norm": 0.189071,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 29.254,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.381701,
+      "mean_realized_error_norm": 0.186013,
+      "mean_residual_norm": 0.186013,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.605,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.366396,
+      "mean_realized_error_norm": 0.179012,
+      "mean_residual_norm": 0.179012,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.556,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.2156,
+      "mean_realized_error_norm": 0.13164,
+      "mean_residual_norm": 0.13164,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.564,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.206335,
+      "mean_realized_error_norm": 0.127784,
+      "mean_residual_norm": 0.127784,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.123,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_command_norm": 1.157592,
+      "mean_realized_error_norm": 0.136034,
+      "mean_residual_norm": 0.136034,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.643,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_command_norm": 1.129951,
+      "mean_realized_error_norm": 0.123875,
+      "mean_residual_norm": 0.123875,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 26.215,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260715,
+      "mean_command_norm": 1.115391,
+      "mean_realized_error_norm": 0.11099,
+      "mean_residual_norm": 0.11099,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.069,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_command_norm": 1.144528,
+      "mean_realized_error_norm": 0.121106,
+      "mean_residual_norm": 0.121106,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_fedo_full"
+    },
+    {
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 28.534,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_command_norm": 1.148077,
+      "mean_realized_error_norm": 0.133858,
+      "mean_residual_norm": 0.133858,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_fedo_full"
+    }
+  ],
+  "final_decision": "CLEAN_RETENTION_FAILURE",
+  "full_checkpoint_path": "reports/fedo_vla/checkpoints/fedo_full.pt",
+  "full_checkpoint_sha256": "89f6fc614f1bffcd4424416982cb030b5d8678afa7ed9f58e1d4f2e5b92cf99a",
+  "full_loaded_stats": {
+    "epochs": 120,
+    "example_count": 225,
+    "final_loss": 8.990346395876259e-05,
+    "finite_gradients": true,
+    "initial_loss": 0.004509921185672283,
+    "loss_decreased": true,
+    "max_grad_norm": 0.03785320785776274,
+    "uses_feedback": true,
+    "uses_phase": true
+  },
+  "mode": "stage-a",
+  "next_step": "Follow the Stage A method decision.",
+  "no_feedback_checkpoint_path": "reports/fedo_vla/checkpoints/fedo_no_feedback.pt",
+  "no_feedback_checkpoint_sha256": "439366df6b70063c4ba5502234d6064a9834b7f86b9f4271643132bc3d805797",
+  "planned_episode_count": 70,
+  "stage_a_completed": true,
+  "summary": {
+    "by_variant": {
+      "apex_feedback_proxy": {
+        "condition": "faulted",
+        "mean_realized_error_norm": 0.159061,
+        "mean_residual_norm": 0.150621,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          }
+        },
+        "successes": 2,
+        "task_balanced_success_rate": 0.2,
+        "total": 10,
+        "wilson_95_ci": [
+          0.056681,
+          0.509843
+        ]
+      },
+      "clean_fedo_full": {
+        "condition": "clean",
+        "mean_realized_error_norm": 0.143938,
+        "mean_residual_norm": 0.143938,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        },
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 10,
+        "wilson_95_ci": [
+          0.0,
+          0.27754
+        ]
+      },
+      "clean_frozen_smolvla": {
+        "condition": "clean",
+        "mean_realized_error_norm": 0.0,
+        "mean_residual_norm": 0.0,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.6,
+            "successes": 3,
+            "total": 5
+          }
+        },
+        "successes": 4,
+        "task_balanced_success_rate": 0.4,
+        "total": 10,
+        "wilson_95_ci": [
+          0.168178,
+          0.68733
+        ]
+      },
+      "faulted_frozen_smolvla": {
+        "condition": "faulted",
+        "mean_realized_error_norm": 0.19977,
+        "mean_residual_norm": 0.0,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        },
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 10,
+        "wilson_95_ci": [
+          0.0,
+          0.27754
+        ]
+      },
+      "fedo_full": {
+        "condition": "faulted",
+        "mean_realized_error_norm": 0.152719,
+        "mean_residual_norm": 0.150396,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          }
+        },
+        "successes": 1,
+        "task_balanced_success_rate": 0.1,
+        "total": 10,
+        "wilson_95_ci": [
+          0.017876,
+          0.404156
+        ]
+      },
+      "fedo_no_feedback_ablation": {
+        "condition": "faulted",
+        "mean_realized_error_norm": 0.146841,
+        "mean_residual_norm": 0.145709,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          }
+        },
+        "successes": 2,
+        "task_balanced_success_rate": 0.2,
+        "total": 10,
+        "wilson_95_ci": [
+          0.056681,
+          0.509843
+        ]
+      },
+      "static_inverse_gain": {
+        "condition": "faulted",
+        "mean_realized_error_norm": 0.132586,
+        "mean_residual_norm": 0.161802,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        },
+        "successes": 2,
+        "task_balanced_success_rate": 0.2,
+        "total": 10,
+        "wilson_95_ci": [
+          0.056681,
+          0.509843
+        ]
+      }
+    },
+    "clean_retention_drop": 0.4,
+    "exception_count": 0,
+    "method_decision": "CLEAN_RETENTION_FAILURE",
+    "passes_prototype_go": false,
+    "strongest_faulted_baseline": "static_inverse_gain",
+    "strongest_faulted_baseline_rate": 0.2
+  },
+  "training_happened": false
+}

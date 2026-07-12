@@ -1,5 +1,16 @@
 # Autonomous Until Paper Governor Log
 
+## 2026-07-12 Cycle 2 Closure
+
+Role C records Cycle 2 `FEDO-VLA` as a valid prototype kill with decision `CLEAN_RETENTION_FAILURE`.
+
+Governance ruling:
+
+- do not rerun FEDO Stage A;
+- do not rescue FEDO by gain tuning, longer training, or a renamed residual-command wrapper;
+- start Cycle 3, the final permitted distinct method cycle;
+- keep the active terminal-state set from the governance correction: `PAPER_READY_EXPERIMENTAL_PACKAGE`, `NO_METHOD_AFTER_3_VALID_CYCLES`, `AUTONOMOUS_BATCH_PAUSED_RESUMABLE`, `HARD_RESOURCE_BLOCKER`, `ENVIRONMENT_FAILURE_BLOCKS_ALL_RESEARCH`.
+
 ## 2026-07-12 Startup
 
 Role C created the campaign branch and state scaffold after verifying the latest research commit.

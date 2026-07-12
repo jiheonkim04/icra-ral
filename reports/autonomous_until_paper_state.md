@@ -1,5 +1,17 @@
 # Autonomous Until Paper State
 
+## 2026-07-12 KST Continuity Update
+
+The active governed campaign state is now tracked in `reports/autonomous_ral_campaign_state.json`.
+
+Cycle 1 `DICD-VLA` is closed with valid kill `SIMPLE_BASELINE_EXPLAINS_METHOD`.
+
+Cycle 2 `FEDO-VLA` is closed with valid kill `CLEAN_RETENTION_FAILURE`: Stage A completed `70 / 70` episodes with zero exceptions; faulted full FEDO reached `1 / 10`, while static inverse gain, APEX-style feedback proxy, and no-feedback ablation each reached `2 / 10`; clean frozen SmolVLA reached `4 / 10`, while clean FEDO reached `0 / 10`.
+
+Current decision: `CYCLE_2_KILLED_PIVOT_TO_CYCLE_3`.
+
+Next automatic stage: start Cycle 3, the final permitted distinct method cycle.
+
 Date: 2026-07-12 KST
 
 Campaign branch: `codex/autonomous-until-ral-evidence-ready`

@@ -15,14 +15,14 @@
   "maximum_total_gpu_time_hours": 24,
   "maximum_wall_time_hours_per_cycle": 12,
   "maximum_single_uncheckpointed_command_hours": 4,
-  "current_cycle": 2,
-  "topic": "feedback_execution_disturbance_observer",
-  "method": "FEDO-VLA",
+  "current_cycle": 3,
+  "topic": "cycle_3_candidate_selection_pending",
+  "method": null,
   "branch": "codex/ral-cycle-02-fedo-vla",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
   "cycle_branch_alias_from_prompt": "codex/ral-cycle-02-fedo-vla",
-  "current_commit": "a2154c21fa6fa4a9f895f04cc7c5a3b0b215e772",
-  "current_stage": "cycle_2_real_trace_training_passed_stage_a_ready",
+  "current_commit": "79d3ded2088d08180b2ce58bac20f9579f4d2d47",
+  "current_stage": "cycle_2_valid_kill_recorded_cycle_3_selection_pending",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -47,9 +47,12 @@
     "cycle_2_fedo_module_implemented",
     "cycle_2_synthetic_mechanism_smoke_passed",
     "cycle_2_real_trace_training_passed",
-    "cycle_2_focused_unit_tests_pass"
+    "cycle_2_focused_unit_tests_pass",
+    "cycle_2_stage_a_rollout_completed",
+    "cycle_2_stage_a_result_adjudicated",
+    "cycle_2_valid_kill_recorded"
   ],
-  "running_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a",
+  "running_command": null,
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
   "elapsed_active_time_hours_recorded": 2.72,
   "gpu_time_hours_recorded": 2.72,
@@ -65,10 +68,10 @@
     "APEX-adjacent adaptive control and residual correction methods"
   ],
   "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest faulted baseline, plus wins over static inverse gain, APEX-style feedback, and no-feedback ablation, with clean retention.",
-  "current_decision": "FEDO_STAGE_A_READY",
-  "stage_a_partial_checkpoint": "reports/dicd_vla/stage_a_partial_result.json",
-  "stage_a_result_json": "reports/dicd_vla/stage_a_result.json",
-  "stage_a_result_md": "reports/dicd_vla/stage_a_result.md",
+  "current_decision": "CYCLE_2_KILLED_PIVOT_TO_CYCLE_3",
+  "stage_a_partial_checkpoint": "reports/fedo_vla/stage_a_partial_result.json",
+  "stage_a_result_json": "reports/fedo_vla/stage_a_result.json",
+  "stage_a_result_md": "reports/fedo_vla/stage_a_result.md",
   "cycle_1_outcome": {
     "valid_scientific_result": true,
     "stage_a_completed": true,
@@ -119,6 +122,31 @@
       "clean_fedo_full"
     ]
   },
+  "cycle_2_outcome": {
+    "valid_scientific_result": true,
+    "stage_a_completed": true,
+    "episode_count": 70,
+    "exceptions": 0,
+    "final_decision": "CLEAN_RETENTION_FAILURE",
+    "passes_prototype_go": false,
+    "faulted_full_successes": 1,
+    "faulted_full_total": 10,
+    "faulted_full_task_balanced_success_rate": 0.1,
+    "strongest_faulted_baseline": "static_inverse_gain",
+    "strongest_faulted_baseline_successes": 2,
+    "strongest_faulted_baseline_total": 10,
+    "strongest_faulted_baseline_task_balanced_success_rate": 0.2,
+    "apex_feedback_proxy_successes": 2,
+    "apex_feedback_proxy_total": 10,
+    "no_feedback_ablation_successes": 2,
+    "no_feedback_ablation_total": 10,
+    "clean_frozen_successes": 4,
+    "clean_frozen_total": 10,
+    "clean_fedo_successes": 0,
+    "clean_fedo_total": 10,
+    "clean_retention_drop": 0.4,
+    "kill_reason": "Full FEDO under controlled action-realization faults reached 1/10, below the static inverse-gain, APEX-style feedback, and no-feedback ablation baselines at 2/10; clean FEDO also fell from clean frozen 4/10 to 0/10."
+  },
   "interrupted_launches": [
     {
       "time_kst": "2026-07-12T18:02:39.9368989+09:00",
@@ -126,6 +154,6 @@
       "scientific_result": false
     }
   ],
-  "next_action": "Run FEDO-VLA Stage A exactly as preregistered.",
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/ral-cycle-02-fedo-vla && wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a"
+  "next_action": "Archive and push the Cycle 2 kill, then start Cycle 3 with a genuinely distinct fallback mechanism family.",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/ral-cycle-02-fedo-vla && type reports\\autonomous_ral_campaign_state.json"
 }

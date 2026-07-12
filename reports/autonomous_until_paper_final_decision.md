@@ -1,5 +1,15 @@
 # Autonomous Until Paper Final Decision
 
+2026-07-12 KST continuity update:
+
+Current campaign decision: `CYCLE_2_KILLED_PIVOT_TO_CYCLE_3`
+
+This is not a terminal decision.
+
+Cycle 1 `DICD-VLA` is closed with valid kill `SIMPLE_BASELINE_EXPLAINS_METHOD`. Cycle 2 `FEDO-VLA` is closed with valid kill `CLEAN_RETENTION_FAILURE`: full FEDO reached `1 / 10` under faults, the strongest faulted baselines reached `2 / 10`, and clean FEDO dropped from clean frozen `4 / 10` to `0 / 10`.
+
+Next required action: Cycle 3, the final permitted distinct method cycle under the governance correction.
+
 Current campaign decision: `DICD_REAL_TRACE_TRAINING_PASSED_STAGE_A_PENDING`
 
 This is not a terminal decision.

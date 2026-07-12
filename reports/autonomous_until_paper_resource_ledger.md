@@ -1,5 +1,29 @@
 # Autonomous Until Paper Resource Ledger
 
+## 2026-07-12 KST Continuity Update
+
+Cycle 2 `FEDO-VLA` Stage A completed `70 / 70` episodes with zero exceptions.
+
+FEDO Stage A artifacts:
+
+- `reports/fedo_vla/stage_a_partial_result.json`
+- `reports/fedo_vla/stage_a_result.json`
+- `reports/fedo_vla/stage_a_result.md`
+- `reports/fedo_vla/stage_a_stdout.log`
+- `reports/fedo_vla/stage_a_stderr.log`
+
+Observed FEDO Stage A resource envelope:
+
+- rollout elapsed time: `1879.48 s`
+- GPU memory by `nvidia-smi` during polling: approximately `3.1-5.0 GiB / 16.3 GiB`
+- WSL RAM during polling: approximately `3.7-4.2 GiB / 11 GiB`
+- swap during polling: `0 B`
+- new downloads during Cycle 2: `0 GiB`
+- repeated CUDA OOM: none
+- uncontrolled CPU or disk offload: not observed
+
+Approximate governed campaign GPU time consumed so far: `3.24 h`.
+
 Date: 2026-07-12 KST
 
 Hardware/resource constraints inherited from the objective:

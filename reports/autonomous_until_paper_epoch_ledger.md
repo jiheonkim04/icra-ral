@@ -1,5 +1,18 @@
 # Autonomous Until Paper Epoch Ledger
 
+## 2026-07-12 KST Continuity Update
+
+Cycles completed in epoch 1: `2`
+
+Closed cycles:
+
+- Cycle 1 `DICD-VLA`: `SIMPLE_BASELINE_EXPLAINS_METHOD`
+- Cycle 2 `FEDO-VLA`: `CLEAN_RETENTION_FAILURE`
+
+Active cycle: `3`
+
+Cycle 3 is the final permitted distinct method cycle under the governance correction.
+
 ## Epoch 1
 
 Status: `OPEN`

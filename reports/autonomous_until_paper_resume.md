@@ -1,5 +1,30 @@
 # Autonomous Until Paper Resume
 
+## 2026-07-12 KST Continuity Update
+
+Resume command:
+
+```powershell
+cd /d C:\Users\jiheo\tca_map
+git switch codex/ral-cycle-02-fedo-vla
+type reports\autonomous_ral_campaign_state.json
+```
+
+Current stage: `cycle_2_valid_kill_recorded_cycle_3_selection_pending`
+
+Cycle 2 `FEDO-VLA` Stage A completed `70 / 70` episodes with zero exceptions and final decision `CLEAN_RETENTION_FAILURE`.
+
+Key result:
+
+- faulted full FEDO: `1 / 10`
+- static inverse gain: `2 / 10`
+- APEX-style feedback proxy: `2 / 10`
+- no-feedback ablation: `2 / 10`
+- clean frozen SmolVLA: `4 / 10`
+- clean FEDO full: `0 / 10`
+
+Next automatic stage: commit and push the Cycle 2 archive if not already done, then start Cycle 3, the final permitted distinct method cycle.
+
 Date: 2026-07-12 KST
 
 Resume command:

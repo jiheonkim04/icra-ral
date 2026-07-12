@@ -7,10 +7,10 @@ Resume command:
 ```powershell
 cd /d C:\Users\jiheo\tca_map
 git switch codex/ral-cycle-02-fedo-vla
-wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a
+type reports\autonomous_ral_campaign_state.json
 ```
 
-Current stage: `cycle_2_real_trace_training_passed_stage_a_ready`
+Current stage: `cycle_2_valid_kill_recorded_cycle_3_selection_pending`
 
 Completed Stage A artifacts:
 
@@ -27,7 +27,16 @@ Cycle 2 FEDO-VLA status:
 - synthetic mechanism smoke: `SYNTHETIC_MECHANISM_PASS`
 - real SmolVLA trace training: `REAL_TRACE_TRAIN_PASS`
 - focused tests: `tests/test_fedo_vla.py` and `tests/test_dicd_vla.py` pass
+- Stage A closed-loop rollout: completed `70 / 70`
+- Stage A decision: `CLEAN_RETENTION_FAILURE`
+- faulted full FEDO: `1 / 10`
+- strongest faulted baseline: `static_inverse_gain`, `2 / 10`
+- APEX-style feedback proxy: `2 / 10`
+- no-feedback ablation: `2 / 10`
+- clean frozen SmolVLA: `4 / 10`
+- clean FEDO full: `0 / 10`
+- exceptions: `0`
 
-Next automatic stage: run FEDO-VLA Stage A with checkpointed partial result at `reports/fedo_vla/stage_a_partial_result.json`.
+Next automatic stage: commit and push the Cycle 2 archive if not already done, then start Cycle 3, the final permitted distinct method cycle.
 
 No paper-ready terminal decision has been reached.

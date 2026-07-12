@@ -52,3 +52,19 @@ Reason:
 - Synthetic and real-trace training passed without using privileged inference fields.
 
 Next action: run FEDO-VLA Stage A exactly as preregistered.
+
+## 2026-07-12 KST Cycle 2 Stage A Decision
+
+Decision: `KILL_FEDO_VLA_CLEAN_RETENTION_FAILURE`
+
+Reason:
+
+- The Stage A rollout completed all `70 / 70` preregistered episodes.
+- There were zero rollout exceptions.
+- Full FEDO under faults reached `1 / 10`, task-balanced success rate `0.10`.
+- Static inverse gain reached `2 / 10`, task-balanced success rate `0.20`.
+- APEX-style feedback proxy reached `2 / 10`, task-balanced success rate `0.20`.
+- The no-feedback ablation reached `2 / 10`, task-balanced success rate `0.20`.
+- Clean frozen SmolVLA reached `4 / 10`, while clean FEDO reached `0 / 10`, for a `0.40` absolute clean-retention drop.
+
+Reviewer B ruling: this is a valid scientific kill, not a measurement-invalid result. The method loses to simple/static, direct-prior, and ablation controls on the faulted claim axis and also fails clean retention. No repeat, threshold tuning, longer training rescue, or cosmetic FEDO variant is allowed. Start Cycle 3 with a genuinely distinct mechanism family.

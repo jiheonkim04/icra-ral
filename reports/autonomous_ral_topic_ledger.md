@@ -40,7 +40,7 @@ Topic: feedback execution-disturbance observer
 
 Method: `FEDO-VLA`
 
-Status: `STAGE_A_READY`
+Status: `KILLED_VALID_PROTOTYPE`
 
 Distinctness versus Cycle 1:
 
@@ -54,3 +54,30 @@ Required kill gates:
 - static inverse gain matches or beats full: `SIMPLE_BASELINE_EXPLAINS_METHOD`
 - APEX-style feedback matches or beats full: `DIRECT_PRIOR_EXPLAINS_METHOD`
 - no-feedback ablation matches or beats full: `KEY_COMPONENT_NOT_USEFUL`
+
+Cycle 2 Stage A kill:
+
+- decision: `CLEAN_RETENTION_FAILURE`
+- result file: `reports/fedo_vla/stage_a_result.json`
+- faulted frozen SmolVLA: `0 / 10`
+- static inverse gain: `2 / 10`
+- APEX-style feedback proxy: `2 / 10`
+- FEDO no-feedback ablation: `2 / 10`
+- FEDO full under faults: `1 / 10`
+- clean frozen SmolVLA: `4 / 10`
+- clean FEDO full: `0 / 10`
+- exceptions: `0`
+
+FEDO-VLA must not be revived through more epochs, gain retuning, alternate thresholds, or another residual command-compensation wrapper. A new Cycle 3 method must change at least two of the core problem, representation, training signal, objective, action-generation mechanism, and closed-loop intervention.
+
+## Cycle 3
+
+Topic: `pending`
+
+Method: `pending`
+
+Status: `SELECTION_PENDING_FINAL_ALLOWED_CYCLE`
+
+Constraint:
+
+Cycle 3 is the last allowed distinct method cycle under the governance correction. It must not be a renamed DICD, FEDO, ECHO, candidate-ranking, adaptive-chunk, or residual-command-compensation method.
