@@ -271,6 +271,30 @@ Still forbidden:
 - no PhaseBarrier redesign under another name;
 - no CensorCredit repair inside the PhaseBarrier adjudication branch.
 
+## After CensorCredit One-Repair Gate and Final Method - 2026-07-12
+
+- decision: `NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED`
+- next: `Stop this autonomous method chain unless new intervention/correction data or genuinely new primary-source gap appears.`
+
+What happened:
+
+- CensorCredit was diagnosed exactly as `LABEL_OR_DATA_FAILURE`.
+- No repair was allowed because the objective only allowed concrete implementation or optimization bugs.
+- The final distinct candidate, `ISAC-VLA`, was killed before implementation due SDP/TORL-VLA/ConRFT overlap and unavailable paired intervention/correction chunk data.
+
+Allowed reopen conditions:
+
+1. Add real paired negative-policy and corrective-action chunk data from human, robot, or validated intervention simulator.
+2. Identify a new primary-source gap not equivalent to action-chunk correction learning, intervention-censored VLA refinement, contact barriers, candidate selection, or post-hoc temporal wrappers.
+3. Explicitly ask for a non-paper engineering prototype that is allowed to be incremental rather than RA-L novel.
+
+Still forbidden:
+
+- no CensorCredit relabeling as a repair;
+- no CensorCredit hold-strength or threshold tuning;
+- no final-method implementation using synthetic local labels as a substitute for intervention chunks;
+- no PhaseBarrier rescue or rename.
+
 ## After Autonomous Dual-Review RA-L Campaign - 2026-07-11
 
 - decision: `NO_METHOD_AFTER_3_VALID_CYCLES`

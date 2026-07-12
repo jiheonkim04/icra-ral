@@ -329,6 +329,32 @@ Exact next step: stop ECHO implementation under this candidate-generation protoc
 - training happened: `False`
 - OpenVLA used: `False`
 
+## CensorCredit One-Repair Gate and Final Method - 2026-07-12
+
+- branch: `codex/censorcredit-one-repair-and-final-method`
+- base commit: `1f29a422945350e33ba3be0cb6150054735c49f6`
+- CensorCredit exact diagnosis: `LABEL_OR_DATA_FAILURE`
+- CensorCredit repair decision: `CENSORCREDIT_NO_VALID_REPAIR`
+- CensorCredit repair attempted: `False`
+- final method candidate: `Intervention-Set Action-Chunk Fine-Tuning (ISAC-VLA)`
+- final method status: `FINAL_METHOD_KILLED_BEFORE_IMPLEMENTATION`
+- final campaign decision: `NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED`
+- main updated: `False`
+
+Evidence:
+
+- CensorCredit labels collapsed: `24/24` rows had matching censored and uncensored labels.
+- Censored and uncensored learned weights were identical.
+- The final distinct method was killed by near-exact prior-art overlap with SDP/TORL-VLA/ConRFT and by unavailable paired intervention/correction chunk data.
+
+Key reports:
+
+- `reports/censor_credit_exact_failure_diagnosis.md`
+- `reports/censor_credit_repair_result.json`
+- `reports/final_distinct_method_proposal.md`
+- `reports/final_distinct_method_result.json`
+- `reports/final_autonomous_method_decision.md`
+
 ## Implementation V2 Empirical Postmortem - 2026-07-12
 
 - branch: `codex/implementation-v2-empirical-postmortem`

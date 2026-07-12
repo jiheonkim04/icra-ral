@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-12",
+  "branch": "codex/censorcredit-one-repair-and-final-method",
+  "base_commit": "1f29a422945350e33ba3be0cb6150054735c49f6",
+  "censorcredit_decision": "CENSORCREDIT_NO_VALID_REPAIR",
+  "final_method_status": "FINAL_METHOD_KILLED_BEFORE_IMPLEMENTATION",
+  "final_campaign_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED"
+}

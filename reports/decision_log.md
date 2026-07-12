@@ -1579,3 +1579,34 @@ Mechanism:
 - no-phase ablation mean action delta: `0.012180`.
 
 Consequence: archive PhaseBarrier-VLA permanently under the current formulation. The phase-conditioned component is not useful because the key no-phase ablation beat it by `45` task-balanced percentage points.
+
+## 2026-07-12 - CensorCredit One-Repair Gate and Final Method
+
+Decision: `NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED`
+
+Execution boundary:
+
+- branch: `codex/censorcredit-one-repair-and-final-method`
+- base commit: `1f29a422945350e33ba3be0cb6150054735c49f6`
+- CensorCredit implementation changed: `False`
+- CensorCredit repair attempted: `False`
+- CensorCredit training rerun: `False`
+- CensorCredit rollout rerun: `False`
+- final method implementation run: `False`
+
+CensorCredit diagnosis:
+
+- exact classification: `LABEL_OR_DATA_FAILURE`
+- allowed repair categories were only `CONCRETE_IMPLEMENTATION_BUG` and `CONCRETE_OPTIMIZATION_BUG`
+- label-pair table: `(-1,-1)=20`, `(1,1)=4`
+- censored/uncensored label disagreements: `0`
+- censored/uncensored weights identical: `True`
+
+Final distinct method:
+
+- candidate: `Intervention-Set Action-Chunk Fine-Tuning (ISAC-VLA)`
+- reviewer status: `FINAL_METHOD_KILLED_BEFORE_IMPLEMENTATION`
+- kill grounds: `NEAR_EXACT_PRIOR_ART_DUPLICATION`, `HARD_UNAVAILABLE_RESOURCE`
+- primary overlap sources: SDP, TORL-VLA, ConRFT, OpenVLA-OFT
+
+Consequence: the current autonomous chain ends without a valid CensorCredit repair and without a valid final method implementation target.

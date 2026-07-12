@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-12",
+  "branch": "codex/censorcredit-one-repair-and-final-method",
+  "base_commit": "1f29a422945350e33ba3be0cb6150054735c49f6",
+  "source_result": "reports/censor_credit_vla_prototype_result.json",
+  "diagnosis_report": "reports/censor_credit_exact_failure_diagnosis.md",
+  "exact_failure_classification": "LABEL_OR_DATA_FAILURE",
+  "allowed_repair_categories": [
+    "CONCRETE_IMPLEMENTATION_BUG",
+    "CONCRETE_OPTIMIZATION_BUG"
+  ],
+  "repair_allowed": false,
+  "repair_attempted": false,
+  "implementation_changed": false,
+  "training_run": false,
+  "closed_loop_rollout_run": false,
+  "smoke_test_run": false,
+  "final_decision": "CENSORCREDIT_NO_VALID_REPAIR",
+  "evidence": {
+    "training_record_count": 24,
+    "training_state_count": 6,
+    "censored_positive_count": 4,
+    "uncensored_positive_count": 4,
+    "prefix_success_count": 0,
+    "recovered_success_count": 0,
+    "label_pair_counts": {
+      "-1,-1": 20,
+      "1,1": 4
+    },
+    "rows_with_label_disagreement": 0,
+    "censored_uncensored_model_weights_equal": true,
+    "censored_model_weights": [
+      -8.211099468732627,
+      8.007013840134432,
+      -2.946969746171567,
+      -1.780154245290029,
+      0.31521261992376537,
+      0.7934892463627556,
+      0.14765500244966767,
+      -1.7156391161055606
+    ],
+    "uncensored_model_weights": [
+      -8.211099468732627,
+      8.007013840134432,
+      -2.946969746171567,
+      -1.780154245290029,
+      0.31521261992376537,
+      0.7934892463627556,
+      0.14765500244966767,
+      -1.7156391161055606
+    ],
+    "full_success": "1/2",
+    "uncensored_ablation_success": "1/2",
+    "full_mean_action_delta_norm": 0.119921,
+    "uncensored_ablation_mean_action_delta_norm": 0.11322
+  }
+}

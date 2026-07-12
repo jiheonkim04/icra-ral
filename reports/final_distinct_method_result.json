@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-12",
+  "branch": "codex/censorcredit-one-repair-and-final-method",
+  "base_commit": "1f29a422945350e33ba3be0cb6150054735c49f6",
+  "method_name": "Intervention-Set Action-Chunk Fine-Tuning (ISAC-VLA)",
+  "derived_from_local_evidence": [
+    "ECHO_NO_HEADROOM",
+    "PHASEBARRIER_COMPONENT_NOT_USEFUL",
+    "CENSORCREDIT_LABEL_OR_DATA_FAILURE"
+  ],
+  "proposal_file": "reports/final_distinct_method_proposal.md",
+  "protocol_file": "reports/final_distinct_method_protocol.md",
+  "reviewer_assessment_file": "reports/final_distinct_method_reviewer_assessment.md",
+  "status": "FINAL_METHOD_KILLED_BEFORE_IMPLEMENTATION",
+  "implementation_run": false,
+  "training_run": false,
+  "closed_loop_rollout_run": false,
+  "checkpoint_identity_tests_required": false,
+  "action_change_tests_required": false,
+  "no_privileged_input_tests_required": false,
+  "manifest_consistency_tests_required": false,
+  "kill_grounds": [
+    "NEAR_EXACT_PRIOR_ART_DUPLICATION",
+    "HARD_UNAVAILABLE_RESOURCE"
+  ],
+  "near_prior_art": [
+    {
+      "name": "Set-Supervised Diffusion Policy",
+      "url": "https://arxiv.org/abs/2606.01865",
+      "overlap": "paired positive and negative correction action chunks with set-supervised action-chunk policy learning"
+    },
+    {
+      "name": "TORL-VLA",
+      "url": "https://arxiv.org/abs/2606.09337",
+      "overlap": "human-intervention data and intervention-censored credit for VLA policy refinement"
+    },
+    {
+      "name": "ConRFT",
+      "url": "https://arxiv.org/abs/2502.05450",
+      "overlap": "offline and online VLA fine-tuning with human interventions"
+    },
+    {
+      "name": "OpenVLA-OFT",
+      "url": "https://arxiv.org/abs/2502.19645",
+      "overlap": "continuous action representation and action-chunk fine-tuning substrate"
+    }
+  ],
+  "final_campaign_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED"
+}
