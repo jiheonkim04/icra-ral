@@ -21,7 +21,7 @@
   "branch": "codex/auto-method-20260712-01-dicd-vla",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
   "cycle_branch_alias_from_prompt": "codex/ral-cycle-01-dicd-vla",
-  "current_commit": "163fc0fe79ecb863338fecf9c12bd26d18e40ea0",
+  "current_commit": "a2154c21fa6fa4a9f895f04cc7c5a3b0b215e772",
   "current_stage": "cycle_1_valid_kill_archived_cycle_2_pending",
   "completed_stages": [
     "repository_state_verified",
