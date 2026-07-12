@@ -29,6 +29,7 @@ from scripts.run_phase_barrier_vla_prototype import (  # noqa: E402
     _make_exact_vector_env,
     _round,
     _set_runtime_env,
+    _step_success,
     _write_json,
     _write_md,
 )
@@ -63,6 +64,13 @@ DICD_TASKS = [
         "role": "long_horizon_contact_and_release",
         "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
     },
+]
+STAGE_A_VARIANTS = [
+    "frozen_smolvla_clean",
+    "frozen_smolvla_delay",
+    "direct_chunk_index_delay",
+    "dicd_no_history_ablation",
+    "dicd_full",
 ]
 
 
@@ -491,6 +499,278 @@ def _run_real_trace_training(args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
+def _parse_int_list(raw: str) -> list[int]:
+    return [int(part.strip()) for part in str(raw).split(",") if part.strip()]
+
+
+def _stage_a_action_command(
+    variant: str,
+    chunk: np.ndarray,
+    *,
+    history: list[np.ndarray],
+    delay: int,
+    step_fraction: float,
+    config: DICDConfig,
+    full_model: Any,
+    ablation_model: Any,
+) -> tuple[np.ndarray, dict[str, Any]]:
+    if variant in {"frozen_smolvla_clean", "frozen_smolvla_delay"}:
+        action = direct_chunk_index_action(chunk, 0, config)
+        return action, {"command": "chunk_index_0"}
+    if variant == "direct_chunk_index_delay":
+        action = direct_chunk_index_action(chunk, delay, config)
+        return action, {"command": f"chunk_index_{int(delay)}"}
+    if variant == "dicd_no_history_ablation":
+        features = make_dicd_features(chunk, history=history, delay=delay, step_fraction=step_fraction, config=config, use_history=False)
+        action = predict_dicd_action(ablation_model, features)
+        return np.clip(action, -1.0, 1.0), {"command": "dicd_no_history", "feature_dim": len(features)}
+    if variant == "dicd_full":
+        features = make_dicd_features(chunk, history=history, delay=delay, step_fraction=step_fraction, config=config, use_history=True)
+        action = predict_dicd_action(full_model, features)
+        return np.clip(action, -1.0, 1.0), {"command": "dicd_full", "feature_dim": len(features)}
+    raise ValueError(f"unknown Stage A variant {variant}")
+
+
+def _run_stage_a_episode(
+    args: argparse.Namespace,
+    loaded: Mapping[str, Any],
+    task: Mapping[str, Any],
+    identity: int,
+    variant: str,
+    *,
+    config: DICDConfig,
+    full_model: Any,
+    ablation_model: Any,
+) -> dict[str, Any]:
+    import torch
+
+    env = None
+    started = time.monotonic()
+    try:
+        policy = loaded["policy"]
+        if hasattr(policy, "reset"):
+            policy.reset()
+        env = _make_exact_vector_env(str(task["suite"]), int(task["task_id"]), _identity_to_initial_state_index(int(identity)))
+        observation, _ = env.reset(seed=[int(identity)])
+        max_steps = int(env.call("_max_episode_steps")[0])
+        if int(args.max_eval_steps) > 0:
+            max_steps = min(max_steps, int(args.max_eval_steps))
+        history: list[np.ndarray] = []
+        pending: list[np.ndarray] = []
+        action_deltas: list[float] = []
+        full_vs_direct_deltas: list[float] = []
+        shaped_steps = 0
+        reward_sum = 0.0
+        success = False
+        step_count = 0
+        for step in range(max_steps):
+            chunk = predict_postprocessed_action_chunk(policy, env, observation, loaded, max_chunk_len=int(args.real_max_chunk_len))
+            immediate = direct_chunk_index_action(chunk, 0, config)
+            command, meta = _stage_a_action_command(
+                variant,
+                chunk,
+                history=history,
+                delay=int(args.delay),
+                step_fraction=step / max(1.0, float(max_steps - 1)),
+                config=config,
+                full_model=full_model,
+                ablation_model=ablation_model,
+            )
+            if variant == "frozen_smolvla_clean":
+                action = command
+            else:
+                if len(pending) < int(args.delay):
+                    action = command
+                else:
+                    action = pending.pop(0)
+                pending.append(np.asarray(command, dtype=np.float32).reshape(1, -1))
+            delta = float(np.linalg.norm(np.asarray(action, dtype=np.float32) - immediate))
+            action_deltas.append(delta)
+            if delta > float(args.min_action_delta):
+                shaped_steps += 1
+            if variant == "dicd_full":
+                direct = direct_chunk_index_action(chunk, int(args.delay), config)
+                full_vs_direct_deltas.append(float(np.linalg.norm(command - direct)))
+            observation, reward, terminated, truncated, info = env.step(np.asarray(action, dtype=np.float64).reshape(1, -1))
+            reward_sum += float(np.asarray(reward).reshape(-1)[0])
+            history.append(np.asarray(action, dtype=np.float32).reshape(-1))
+            step_count = step + 1
+            success = bool(success or _step_success(info))
+            if np.all(terminated | truncated) or success:
+                break
+        return {
+            "variant": variant,
+            "suite": str(task["suite"]),
+            "task_id": int(task["task_id"]),
+            "task_key": f"{task['suite']}/task_{task['task_id']}",
+            "role": str(task["role"]),
+            "identity": int(identity),
+            "initial_state_index": _identity_to_initial_state_index(int(identity)),
+            "success": bool(success),
+            "reward_sum": _round(reward_sum, 6),
+            "episode_steps": int(step_count),
+            "mean_action_delta_norm": _round(float(np.mean(action_deltas)) if action_deltas else 0.0, 6),
+            "shaped_step_count": int(shaped_steps),
+            "mean_full_vs_direct_command_delta": _round(float(np.mean(full_vs_direct_deltas)) if full_vs_direct_deltas else 0.0, 6),
+            "elapsed_seconds": _round(time.monotonic() - started, 3),
+            "cuda_memory": _cuda_memory(torch),
+            "exception": None,
+        }
+    except Exception as exc:  # pragma: no cover - runtime boundary
+        return {
+            "variant": variant,
+            "suite": str(task["suite"]),
+            "task_id": int(task["task_id"]),
+            "task_key": f"{task['suite']}/task_{task['task_id']}",
+            "identity": int(identity),
+            "success": False,
+            "elapsed_seconds": _round(time.monotonic() - started, 3),
+            "exception": {"type": type(exc).__name__, "message": str(exc), "traceback": traceback.format_exc().splitlines()[-80:]},
+        }
+    finally:
+        if env is not None:
+            try:
+                env.close()
+            except Exception:
+                pass
+
+
+def _wilson(successes: int, total: int, z: float = 1.96) -> list[float]:
+    if total <= 0:
+        return [0.0, 0.0]
+    phat = successes / total
+    denom = 1 + z * z / total
+    center = (phat + z * z / (2 * total)) / denom
+    radius = z * ((phat * (1 - phat) + z * z / (4 * total)) / total) ** 0.5 / denom
+    return [_round(max(0.0, center - radius), 6), _round(min(1.0, center + radius), 6)]
+
+
+def _summarize_stage_a(episodes: list[dict[str, Any]]) -> dict[str, Any]:
+    by_variant: dict[str, Any] = {}
+    for variant in STAGE_A_VARIANTS:
+        rows = [row for row in episodes if row.get("variant") == variant and row.get("exception") is None]
+        successes = sum(1 for row in rows if row.get("success"))
+        per_task = {}
+        for task_key in sorted({str(row.get("task_key")) for row in rows}):
+            task_rows = [row for row in rows if str(row.get("task_key")) == task_key]
+            task_successes = sum(1 for row in task_rows if row.get("success"))
+            per_task[task_key] = {"successes": int(task_successes), "total": int(len(task_rows)), "rate": _round(task_successes / max(1, len(task_rows)), 6)}
+        by_variant[variant] = {
+            "successes": int(successes),
+            "total": int(len(rows)),
+            "task_balanced_success_rate": _round(successes / max(1, len(rows)), 6),
+            "wilson_95_ci": _wilson(successes, len(rows)),
+            "per_task": per_task,
+            "mean_action_delta_norm": _round(float(np.mean([row.get("mean_action_delta_norm", 0.0) for row in rows])) if rows else 0.0, 6),
+            "mean_shaped_step_count": _round(float(np.mean([row.get("shaped_step_count", 0) for row in rows])) if rows else 0.0, 6),
+        }
+    paired = {}
+    full_rows = [row for row in episodes if row.get("variant") == "dicd_full" and row.get("exception") is None]
+    for comparator in ["frozen_smolvla_delay", "direct_chunk_index_delay", "dicd_no_history_ablation"]:
+        comp_rows = [row for row in episodes if row.get("variant") == comparator and row.get("exception") is None]
+        comp_by_key = {(row.get("task_key"), row.get("identity")): row for row in comp_rows}
+        wins = losses = ties = 0
+        for row in full_rows:
+            other = comp_by_key.get((row.get("task_key"), row.get("identity")))
+            if other is None:
+                continue
+            full_success = bool(row.get("success"))
+            comp_success = bool(other.get("success"))
+            if full_success and not comp_success:
+                wins += 1
+            elif comp_success and not full_success:
+                losses += 1
+            else:
+                ties += 1
+        paired[comparator] = {"win": int(wins), "loss": int(losses), "tie": int(ties)}
+    delayed_baselines = ["frozen_smolvla_delay", "direct_chunk_index_delay"]
+    strongest_baseline = max(delayed_baselines, key=lambda name: by_variant[name]["task_balanced_success_rate"])
+    full_rate = float(by_variant["dicd_full"]["task_balanced_success_rate"])
+    strongest_rate = float(by_variant[strongest_baseline]["task_balanced_success_rate"])
+    ablation_rate = float(by_variant["dicd_no_history_ablation"]["task_balanced_success_rate"])
+    direct_rate = float(by_variant["direct_chunk_index_delay"]["task_balanced_success_rate"])
+    mechanism_active = bool(by_variant["dicd_full"]["mean_action_delta_norm"] > 0.0)
+    passes_go = bool(
+        mechanism_active
+        and full_rate >= strongest_rate + 0.05
+        and full_rate > direct_rate
+        and full_rate > ablation_rate
+    )
+    if passes_go:
+        decision = "PROTOTYPE_GO"
+    elif direct_rate >= full_rate:
+        decision = "SIMPLE_BASELINE_EXPLAINS_METHOD"
+    elif ablation_rate >= full_rate:
+        decision = "KEY_COMPONENT_NOT_USEFUL"
+    elif full_rate > strongest_rate and mechanism_active:
+        decision = "UNDERPOWERED_ONE_EXPANSION_ALLOWED"
+    else:
+        decision = "GENUINE_METHOD_KILL"
+    return {
+        "by_variant": by_variant,
+        "paired_full_vs": paired,
+        "strongest_delayed_baseline": strongest_baseline,
+        "mechanism_active": mechanism_active,
+        "passes_prototype_go": passes_go,
+        "method_decision": decision,
+    }
+
+
+def _run_stage_a(args: argparse.Namespace) -> dict[str, Any]:
+    import torch
+
+    _set_runtime_env(args)
+    config = DICDConfig(action_dim=int(args.action_dim), chunk_len=int(args.chunk_len), history_len=int(args.history_len), hidden_dim=int(args.hidden_dim))
+    full_model, full_stats = load_dicd_checkpoint(Path(args.real_checkpoint_dir) / "dicd_real_full.pt")
+    ablation_model, ablation_stats = load_dicd_checkpoint(Path(args.real_checkpoint_dir) / "dicd_real_no_history.pt")
+    loaded = _load_policy_and_processors(args, POLICIES[0])
+    identities = _parse_int_list(args.stage_a_identities)
+    tasks = DICD_TASKS[: int(args.max_tasks)]
+    episodes: list[dict[str, Any]] = []
+    for variant in STAGE_A_VARIANTS:
+        for task in tasks:
+            for identity in identities:
+                episodes.append(
+                    _run_stage_a_episode(
+                        args,
+                        loaded,
+                        task,
+                        int(identity),
+                        variant,
+                        config=config,
+                        full_model=full_model,
+                        ablation_model=ablation_model,
+                    )
+                )
+    measurement_valid = bool(episodes) and not any(row.get("exception") for row in episodes)
+    summary = _summarize_stage_a(episodes) if measurement_valid else {}
+    return {
+        "schema_version": "dicd_vla_stage_a_v1",
+        "date_kst": DATE_KST,
+        "branch": BRANCH,
+        "stage_a_completed": bool(measurement_valid),
+        "closed_loop_experiment_happened": True,
+        "training_happened": False,
+        "config": config.__dict__,
+        "delay": int(args.delay),
+        "variants": STAGE_A_VARIANTS,
+        "tasks": tasks,
+        "identities": identities,
+        "episode_count": int(len(episodes)),
+        "full_checkpoint_path": str(Path(args.real_checkpoint_dir) / "dicd_real_full.pt"),
+        "full_checkpoint_sha256": file_sha256(Path(args.real_checkpoint_dir) / "dicd_real_full.pt"),
+        "full_loaded_stats": full_stats,
+        "ablation_checkpoint_path": str(Path(args.real_checkpoint_dir) / "dicd_real_no_history.pt"),
+        "ablation_checkpoint_sha256": file_sha256(Path(args.real_checkpoint_dir) / "dicd_real_no_history.pt"),
+        "ablation_loaded_stats": ablation_stats,
+        "policy_load_audit": loaded.get("audit"),
+        "episodes": episodes,
+        "summary": summary,
+        "cuda_memory": _cuda_memory(torch),
+        "final_decision": summary.get("method_decision", "DICD_STAGE_A_MEASUREMENT_INVALID"),
+    }
+
+
 def run(args: argparse.Namespace) -> dict[str, Any]:
     started = time.monotonic()
     report: dict[str, Any]
@@ -499,6 +779,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             report = _run_real_smolvla_chunk_smoke(args)
         elif args.mode == "real-trace-train":
             report = _run_real_trace_training(args)
+        elif args.mode == "stage-a":
+            report = _run_stage_a(args)
         else:
             report = _run_synthetic_mechanism_smoke(args)
     except Exception as exc:  # pragma: no cover - runtime boundary
@@ -514,11 +796,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     default_json = {
         "real-smolvla-chunk": "reports/dicd_vla/real_smolvla_chunk_smoke_result.json",
         "real-trace-train": "reports/dicd_vla/real_trace_train_result.json",
+        "stage-a": "reports/dicd_vla/stage_a_result.json",
         "synthetic": "reports/dicd_vla/mechanism_smoke_result.json",
     }[args.mode]
     default_md = {
         "real-smolvla-chunk": "reports/dicd_vla/real_smolvla_chunk_smoke_result.md",
         "real-trace-train": "reports/dicd_vla/real_trace_train_result.md",
+        "stage-a": "reports/dicd_vla/stage_a_result.md",
         "synthetic": "reports/dicd_vla/mechanism_smoke_result.md",
     }[args.mode]
     output_json = Path(args.output_json or default_json)
@@ -548,14 +832,19 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             f"- probe: `{report.get('probe')}`",
             f"- records: `{report.get('records')}`",
             f"- train traces: `{report.get('train_traces')}`",
+            f"- summary: `{report.get('summary')}`",
             f"- elapsed seconds: `{report.get('elapsed_seconds')}`",
             "",
+            "Next step: follow the Stage A method decision."
+            if args.mode == "stage-a"
+            else (
             "Next step: run Stage A closed-loop rollout."
             if args.mode == "real-trace-train" and report.get("real_trace_training_passed")
             else (
             "Next step: run real trace training before Stage A closed-loop rollout."
             if args.mode == "real-smolvla-chunk"
             else "Next step: run real SmolVLA chunk smoke before Stage A closed-loop rollout."
+            )
             ),
         ],
     )
@@ -564,7 +853,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run DICD-VLA prototype smoke.")
-    parser.add_argument("--mode", choices=["synthetic", "real-smolvla-chunk", "real-trace-train"], default="synthetic")
+    parser.add_argument("--mode", choices=["synthetic", "real-smolvla-chunk", "real-trace-train", "stage-a"], default="synthetic")
     parser.add_argument("--output-json", default=None)
     parser.add_argument("--output-md", default=None)
     parser.add_argument("--checkpoint-path", default="reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt")
@@ -589,6 +878,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-tasks", type=int, default=2)
     parser.add_argument("--train-identity", type=int, default=20260711)
     parser.add_argument("--max-train-steps", type=int, default=80)
+    parser.add_argument("--stage-a-identities", default="20260713,20260714,20260715,20260716,20260717")
+    parser.add_argument("--max-eval-steps", type=int, default=0)
     return parser.parse_args(argv)
 
 
@@ -598,6 +889,7 @@ def main(argv: list[str] | None = None) -> int:
     passed = bool(
         report.get("mechanism_smoke_passed")
         or report.get("real_trace_training_passed")
+        or report.get("stage_a_completed")
         or str(report.get("final_decision", "")).endswith("_PASSED")
     )
     return 0 if passed else 2

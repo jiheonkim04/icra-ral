@@ -6,11 +6,11 @@ Resume command:
 
 ```powershell
 cd /d C:\Users\jiheo\tca_map
-git switch codex/autonomous-until-ral-evidence-ready
-type reports\autonomous_until_paper_state.json
+git switch codex/auto-method-20260712-01-dicd-vla
+wsl -e bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a"
 ```
 
-Current stage: `cycle_1_stage_a_rollout_pending`
+Current stage: `cycle_1_stage_a_rollout_ready_to_run`
 
 Next automatic stage:
 
@@ -18,7 +18,7 @@ Next automatic stage:
 2. Run Stage A closed-loop evaluation on identities `20260713` through `20260717`.
 3. Classify DICD-VLA according to the preregistered criteria.
 
-No long-running command is active.
+Governance correction: the active target is now `PAPER_READY_EXPERIMENTAL_PACKAGE`, with at most three distinct method cycles and a 24 hour total GPU-time cap.
 
 Checkpoint from synthetic smoke: `reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt`
 
@@ -26,4 +26,4 @@ Real full checkpoint: `reports/dicd_vla/checkpoints/dicd_real_full.pt`
 
 Real no-history checkpoint: `reports/dicd_vla/checkpoints/dicd_real_no_history.pt`
 
-No command is currently running.
+The Stage A command is the next resumable action.
