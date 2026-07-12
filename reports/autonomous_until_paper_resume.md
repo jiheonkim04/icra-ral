@@ -10,15 +10,16 @@ git switch codex/autonomous-until-ral-evidence-ready
 type reports\autonomous_until_paper_state.json
 ```
 
-Current stage: `cycle_1_implementation_pending`
+Current stage: `cycle_1_real_smolvla_chunk_smoke_pending`
 
 Next automatic stage:
 
-1. Implement DICD-VLA adapter and prototype runner.
-2. Add unit tests for gradients, checkpoint identity, action change, and no-privileged inference.
-3. Run mechanism smoke.
-4. If smoke passes, run Stage A.
+1. Run real SmolVLA action-chunk smoke using `predict_action_chunk`.
+2. Verify postprocessed chunk horizon, delay index, and no-privileged inference on an actual LIBERO observation.
+3. If real chunk smoke passes, generate frozen training traces for identity `20260711`.
+4. Train full and no-history adapters from real traces.
+5. Run Stage A closed-loop evaluation on identities `20260713` through `20260717`.
 
 No long-running command is active.
 
-No checkpoint is active.
+Checkpoint from synthetic smoke: `reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt`

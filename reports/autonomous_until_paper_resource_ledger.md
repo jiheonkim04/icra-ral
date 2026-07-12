@@ -13,10 +13,16 @@ Current measured local state:
 
 - C: free bytes: `382892236800`
 - active long-running command: none
-- active checkpoint: none
+- active checkpoint: `reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt`
 - epoch-1 new downloads: `0.0 GiB`
 - campaign downloads inherited: `14.845 GiB` for quantized OpenVLA-OFT INT4
 - GPU time in new campaign: `0.0 h`
+
+Latest completed command:
+
+- `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe scripts\run_dicd_vla_prototype.py`
+- result: `DICD_SYNTHETIC_MECHANISM_SMOKE_PASSED`
+- elapsed seconds: `1.093`
 
 Resource policy:
 

@@ -1,0 +1,101 @@
+{
+  "ablation_train_stats": {
+    "epochs": 120,
+    "example_count": 32,
+    "final_loss": 0.00010256999667035416,
+    "finite_gradients": true,
+    "initial_loss": 0.08965063095092773,
+    "loss_decreased": true,
+    "max_grad_norm": 0.24011468631608546
+  },
+  "branch": "codex/auto-method-20260712-01-dicd-vla",
+  "checkpoint_path": "reports\\dicd_vla\\checkpoints\\dicd_synthetic_smoke.pt",
+  "checkpoint_sha256": "a4f66e383283dd710c6938f9a0709ea6d20af5039ce2ad43b2068c81687196af",
+  "checks": {
+    "ablation_loss_decreased": true,
+    "checkpoint_reloaded": true,
+    "chunk_horizon_exceeds_delay": true,
+    "full_changes_direct_chunk_index": true,
+    "full_differs_from_no_history_ablation": true,
+    "full_finite_gradients": true,
+    "full_loss_decreased": true,
+    "no_privileged_inference_fields": true
+  },
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "chunk_len": 8,
+    "hidden_dim": 64,
+    "history_len": 2
+  },
+  "date_kst": "2026-07-12",
+  "delay": 2,
+  "elapsed_seconds": 1.093,
+  "final_decision": "DICD_SYNTHETIC_MECHANISM_SMOKE_PASSED",
+  "full_train_stats": {
+    "epochs": 120,
+    "example_count": 32,
+    "final_loss": 0.0005746441893279552,
+    "finite_gradients": true,
+    "initial_loss": 0.08825875073671341,
+    "loss_decreased": true,
+    "max_grad_norm": 0.23590100326633506
+  },
+  "loaded_stats": {
+    "epochs": 120,
+    "example_count": 32,
+    "final_loss": 0.0005746441893279552,
+    "finite_gradients": true,
+    "initial_loss": 0.08825875073671341,
+    "loss_decreased": true,
+    "max_grad_norm": 0.23590100326633506
+  },
+  "mechanism_smoke_passed": true,
+  "probe": {
+    "dicd_full_action": [
+      0.4170002043247223,
+      0.035284582525491714,
+      0.0029570981860160828,
+      0.045875340700149536,
+      0.004686422646045685,
+      -0.010194070637226105,
+      -1.0154014825820923
+    ],
+    "dicd_no_history_action": [
+      0.49418553709983826,
+      0.03506306931376457,
+      0.014230303466320038,
+      0.053471639752388,
+      0.005914054811000824,
+      -0.01983019709587097,
+      -0.992210328578949
+    ],
+    "dicd_reloaded_action": [
+      0.4170002043247223,
+      0.035284582525491714,
+      0.0029570981860160828,
+      0.045875340700149536,
+      0.004686422646045685,
+      -0.010194070637226105,
+      -1.0154014825820923
+    ],
+    "direct_chunk_index_action": [
+      0.3400000035762787,
+      0.041005197912454605,
+      0.022888582199811935,
+      0.05999999865889549,
+      0.003599999938160181,
+      -0.019999999552965164,
+      -1.0
+    ],
+    "full_vs_ablation_delta_norm": 0.082308,
+    "full_vs_direct_delta_norm": 0.083025,
+    "probe_index": 6
+  },
+  "real_smolvla_chunk_smoke_happened": false,
+  "schema_version": "dicd_vla_mechanism_smoke_v1",
+  "smoke_type": "synthetic_core_mechanism",
+  "training_example_count_ablation": 32,
+  "training_example_count_full": 32,
+  "training_happened": true
+}

@@ -1,6 +1,6 @@
 # Autonomous Until Paper Final Decision
 
-Current campaign decision: `DICD_PREREGISTERED_IMPLEMENTATION_PENDING`
+Current campaign decision: `DICD_SYNTHETIC_MECHANISM_SMOKE_PASSED_REAL_SMOLVLA_SMOKE_PENDING`
 
 This is not a terminal decision.
 
@@ -11,4 +11,4 @@ Allowed terminal decisions:
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
 
-The campaign has opened epoch 1, completed candidate discovery, selected `DICD-VLA`, and frozen proposal/review/preregistration on the method child branch. It must continue to implementation, mechanism smoke, and staged evaluation.
+The campaign has opened epoch 1, completed candidate discovery, selected `DICD-VLA`, frozen proposal/review/preregistration, implemented the core adapter, and passed synthetic mechanism smoke. It must continue to real SmolVLA action-chunk smoke, real trace training, and staged evaluation.

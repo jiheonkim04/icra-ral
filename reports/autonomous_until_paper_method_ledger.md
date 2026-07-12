@@ -15,4 +15,4 @@ These methods are inherited as closed evidence and must not be cosmetically revi
 
 | Epoch | Cycle | Method | Status | Next |
 | --- | ---: | --- | --- | --- |
-| 1 | 1 | `DICD-VLA` | `PREREGISTERED_IMPLEMENTATION_PENDING` | implement adapter, tests, mechanism smoke |
+| 1 | 1 | `DICD-VLA` | `SYNTHETIC_MECHANISM_SMOKE_PASSED_REAL_SMOLVLA_SMOKE_PENDING` | run real SmolVLA chunk smoke, then real trace training and Stage A |
