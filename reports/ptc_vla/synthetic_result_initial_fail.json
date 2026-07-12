@@ -1,0 +1,31 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "beta_log_std": 0.01,
+    "conservative_lambda": 0.05,
+    "hidden_dim": 64,
+    "log_std_max": 1.0,
+    "log_std_min": -4.0,
+    "state_dim": 6,
+    "transition_blend": 0.65
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 1.143,
+  "final_decision": "SYNTHETIC_MECHANISM_FAIL",
+  "full_checkpoint_path": "reports\\ptc_vla\\checkpoints\\ptc_full.pt",
+  "full_checkpoint_sha256": "f3c625fff69d09526d0b419839043e5c8ccd9bf895e5e2391b130fbf81a0f991",
+  "mode": "synthetic",
+  "next_step": "Repair or kill synthetic PTC implementation.",
+  "no_transition_checkpoint_path": "reports\\ptc_vla\\checkpoints\\ptc_no_transition.pt",
+  "no_transition_checkpoint_sha256": "7d0b18953867aa2d1dd57955e9b00e4cadb9cb92949be198e03341fe5f7f1a39",
+  "summary": {
+    "ablation_loss_decreased": true,
+    "ablation_mean_action_l2": 0.059233,
+    "full_loss_decreased": true,
+    "full_mean_action_l2": 0.092739,
+    "synthetic_passed": false
+  },
+  "training_happened": true
+}

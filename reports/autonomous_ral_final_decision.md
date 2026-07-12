@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -16,4 +16,6 @@ Corrected adjudication:
 - Cycle 2 `FEDO-VLA`: `VALID_CURRENT_FORMULATION_KILL`
 - Cycle 3 `GCAP-VLA`: `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`
 
-Next action: generate exactly three Epoch 2 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility.
+Epoch 2 Cycle 1 `PTC-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`: full PTC reached `0 / 10` versus frozen SmolVLA `3 / 10`, with zero exceptions and active transition mechanism.
+
+Next action: generate exactly three Epoch 2 Cycle 2 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility.

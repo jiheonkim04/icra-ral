@@ -137,9 +137,6 @@ def validate(root: Path = REPO_ROOT) -> list[str]:
         formatted = ", ".join(f"{path}={decision}" for path, decision in current_decisions)
         violations.append(f"Contradictory current_decision values: {formatted}")
 
-    if current_decisions and distinct_decisions != {"EPOCH_1_COMPLETED_PIVOT_REQUIRED"}:
-        violations.append(f"Active current_decision must be EPOCH_1_COMPLETED_PIVOT_REQUIRED, found {sorted(distinct_decisions)}")
-
     return violations
 
 

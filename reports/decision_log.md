@@ -1632,3 +1632,26 @@ Corrected Epoch 1 adjudication:
 - `GCAP-VLA`: `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`
 
 Consequence: immediately continue to Epoch 2 candidate generation under current governance.
+
+## 2026-07-12 - Epoch 2 Cycle 1 PTC-VLA
+
+Decision: `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`
+
+Execution boundary:
+
+- method: `PTC-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- synthetic mechanism smoke: repaired after one preserved failed smoke, then passed
+- real trace training: passed with `210` examples
+- Stage A: `50 / 50` episodes, zero exceptions
+
+Evidence:
+
+- frozen SmolVLA: `3 / 10`, task-balanced `0.30`
+- global mean action: `0 / 10`
+- phase mean action: `0 / 10`
+- PTC no-transition ablation: `0 / 10`
+- PTC full: `0 / 10`
+- mechanism active: transition-context norm `0.065772`, action delta versus ablation `0.756346`
+
+Consequence: archive PTC-VLA as a valid current-formulation kill and continue to Epoch 2 Cycle 2.

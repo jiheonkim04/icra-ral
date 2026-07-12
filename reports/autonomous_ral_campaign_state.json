@@ -18,15 +18,15 @@
   "maximum_wall_time_hours_per_cycle": 12,
   "maximum_single_uncheckpointed_command_hours": 4,
   "current_epoch": 2,
-  "current_cycle": 0,
-  "topic": "epoch_2_selection_pending",
+  "current_cycle": 2,
+  "topic": "epoch_2_cycle_2_selection_pending",
   "method": null,
   "branch": "codex/autonomous-until-paper-governance-v2",
   "current_branch": "codex/autonomous-until-paper-governance-v2",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
   "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
   "current_commit": "e24a6a11db49054aaf7a9d6787449f671b5035b3",
-  "current_stage": "epoch_1_completed_pivot_required",
+  "current_stage": "epoch_2_cycle_2_selection_pending",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -66,7 +66,16 @@
     "cycle_3_stage_a_result_adjudicated",
     "cycle_3_non_go_archived",
     "epoch_1_corrected_adjudication_recorded",
-    "governance_v2_migration_started"
+    "governance_v2_migration_started",
+    "epoch_2_candidate_generation_completed",
+    "epoch_2_cycle_1_ptc_proposal_frozen",
+    "epoch_2_cycle_1_ptc_reviewer_attack_completed",
+    "epoch_2_cycle_1_ptc_preregistration_frozen",
+    "epoch_2_cycle_1_ptc_implemented",
+    "epoch_2_cycle_1_ptc_synthetic_smoke_repaired_and_passed",
+    "epoch_2_cycle_1_ptc_real_trace_training_passed",
+    "epoch_2_cycle_1_ptc_stage_a_completed",
+    "epoch_2_cycle_1_ptc_valid_current_formulation_kill_recorded"
   ],
   "running_command": null,
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -77,7 +86,7 @@
   "novelty_claim": null,
   "closest_papers": [],
   "prototype_gate": null,
-  "current_decision": "EPOCH_1_COMPLETED_PIVOT_REQUIRED",
+  "current_decision": "EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED",
   "stage_a_partial_checkpoint": null,
   "stage_a_result_json": null,
   "stage_a_result_md": null,
@@ -207,6 +216,24 @@
       "scientific_result": false
     }
   ],
-  "next_action": "Begin Epoch 2 candidate generation under reports/current_research_governance.md.",
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && type reports\\current_research_governance.md"
+  "epoch_2_cycle_1_outcome": {
+    "method": "PTC-VLA",
+    "valid_current_formulation_kill": true,
+    "stage_a_completed": true,
+    "episode_count": 50,
+    "exceptions": 0,
+    "final_decision": "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE",
+    "frozen_smolvla_successes": 3,
+    "frozen_smolvla_total": 10,
+    "frozen_smolvla_task_balanced_success_rate": 0.3,
+    "ptc_full_successes": 0,
+    "ptc_full_total": 10,
+    "ptc_full_task_balanced_success_rate": 0.0,
+    "strongest_baseline": "frozen_smolvla",
+    "strongest_baseline_task_balanced_success_rate": 0.3,
+    "mechanism_active": true,
+    "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
+  },
+  "next_action": "Begin Epoch 2 Cycle 2 candidate generation under reports/current_research_governance.md.",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && type reports\\autonomous_until_paper_state.json"
 }

@@ -1,0 +1,31 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "beta_log_std": 0.01,
+    "conservative_lambda": 0.05,
+    "hidden_dim": 64,
+    "log_std_max": 1.0,
+    "log_std_min": -4.0,
+    "state_dim": 6,
+    "transition_blend": 0.65
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 1.16,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "full_checkpoint_path": "reports\\ptc_vla\\checkpoints\\ptc_full.pt",
+  "full_checkpoint_sha256": "5545d9e1681f376f8efd10f271e4799acb7cffffd5509416772dc8a96b421c09",
+  "mode": "synthetic",
+  "next_step": "Run real trace training.",
+  "no_transition_checkpoint_path": "reports\\ptc_vla\\checkpoints\\ptc_no_transition.pt",
+  "no_transition_checkpoint_sha256": "12f4f59cab890ac0ebdfa4f4e7fb70d3a6fbf9b7b8b390662fefd0fece845f11",
+  "summary": {
+    "ablation_loss_decreased": true,
+    "ablation_mean_action_l2": 0.280616,
+    "full_loss_decreased": true,
+    "full_mean_action_l2": 0.107145,
+    "synthetic_passed": true
+  },
+  "training_happened": true
+}

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED`
 
 Current epoch: `2`
 
-Current cycle: `0`
+Current cycle: `2`
 
-Current stage: `epoch_1_completed_pivot_required`
+Current stage: `epoch_2_cycle_2_selection_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -48,4 +48,6 @@ Cycle 3 `GCAP-VLA`:
 
 ## Next Action
 
-Start Epoch 2 candidate generation and select one technically distinct method under the current governance.
+Epoch 2 Cycle 1 `PTC-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`.
+
+Start Epoch 2 Cycle 2 candidate generation and select one technically distinct method under the current governance.
