@@ -20,7 +20,7 @@ Current branch: `codex/auto-method-20260712-01-dicd-vla`
 
 Prompt branch alias to create/preserve after commit: `codex/ral-cycle-01-dicd-vla`
 
-Current stage: `cycle_1_stage_a_rollout_ready_to_run`
+Current stage: `cycle_1_stage_a_rollout_running`
 
 Next command:
 

@@ -10,7 +10,7 @@ git switch codex/auto-method-20260712-01-dicd-vla
 wsl -e bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a"
 ```
 
-Current stage: `cycle_1_stage_a_rollout_ready_to_run`
+Current stage: `cycle_1_stage_a_rollout_running`
 
 Next automatic stage:
 
