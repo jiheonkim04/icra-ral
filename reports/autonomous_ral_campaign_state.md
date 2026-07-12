@@ -20,12 +20,14 @@ Current branch: `codex/auto-method-20260712-01-dicd-vla`
 
 Prompt branch alias to create/preserve after commit: `codex/ral-cycle-01-dicd-vla`
 
-Current stage: `cycle_1_stage_a_rollout_running`
+Current stage: `cycle_1_stage_a_rollout_checkpointed_ready`
 
 Next command:
 
 ```powershell
-wsl -e bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a"
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a
 ```
 
 The Stage A runner compiles and `tests/test_dicd_vla.py` passes.
+
+The first Stage A launch was stopped after about one hour because it had no episode-level checkpointing and had not written `stage_a_result.json`. This was an infrastructure/resumability stop before any scientific result existed.

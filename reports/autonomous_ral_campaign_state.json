@@ -22,7 +22,7 @@
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
   "cycle_branch_alias_from_prompt": "codex/ral-cycle-01-dicd-vla",
   "current_commit": "e54eb5e4d83b3adc659b6f5c515285d58d7dfe97",
-  "current_stage": "cycle_1_stage_a_rollout_running",
+  "current_stage": "cycle_1_stage_a_rollout_checkpointed_ready",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -38,7 +38,7 @@
     "stage_a_runner_compiles",
     "focused_unit_tests_pass"
   ],
-  "running_command": "wsl -e bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a\"",
+  "running_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a",
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
   "elapsed_active_time_hours_recorded": 0.0,
   "gpu_time_hours_recorded": 0.05,
@@ -53,6 +53,14 @@
     "OpenVLA-OFT"
   ],
   "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest delayed baseline, plus wins over direct chunk-index delay and no-history ablation.",
-  "current_decision": "DICD_STAGE_A_RUNNING",
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && wsl -e bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a\""
+  "current_decision": "DICD_STAGE_A_RESTART_WITH_EPISODE_CHECKPOINTS",
+  "stage_a_partial_checkpoint": "reports/dicd_vla/stage_a_partial_result.json",
+  "interrupted_launches": [
+    {
+      "time_kst": "2026-07-12T18:02:39.9368989+09:00",
+      "reason": "Uncheckpointed Stage A launch was still silent after approximately one hour; stopped before any stage_a_result artifact existed.",
+      "scientific_result": false
+    }
+  ],
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a"
 }

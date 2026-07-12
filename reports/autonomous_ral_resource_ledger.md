@@ -16,5 +16,9 @@ Current runtime:
 Stage A command:
 
 ```powershell
-wsl -e bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a"
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode stage-a
 ```
+
+Stage A partial checkpoint after repair:
+
+- `reports/dicd_vla/stage_a_partial_result.json`

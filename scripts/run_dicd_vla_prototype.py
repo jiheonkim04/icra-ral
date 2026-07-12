@@ -503,6 +503,14 @@ def _parse_int_list(raw: str) -> list[int]:
     return [int(part.strip()) for part in str(raw).split(",") if part.strip()]
 
 
+def _stage_a_episode_key(variant: str, task: Mapping[str, Any], identity: int) -> str:
+    return f"{variant}|{task['suite']}|{int(task['task_id'])}|{int(identity)}"
+
+
+def _stage_a_episode_key_from_row(row: Mapping[str, Any]) -> str:
+    return f"{row.get('variant')}|{row.get('suite')}|{int(row.get('task_id'))}|{int(row.get('identity'))}"
+
+
 def _stage_a_action_command(
     variant: str,
     chunk: np.ndarray,
@@ -726,23 +734,57 @@ def _run_stage_a(args: argparse.Namespace) -> dict[str, Any]:
     loaded = _load_policy_and_processors(args, POLICIES[0])
     identities = _parse_int_list(args.stage_a_identities)
     tasks = DICD_TASKS[: int(args.max_tasks)]
-    episodes: list[dict[str, Any]] = []
+    plan = [(variant, task, int(identity)) for variant in STAGE_A_VARIANTS for task in tasks for identity in identities]
+    partial_path = Path(args.stage_a_partial_json)
+    episode_by_key: dict[str, dict[str, Any]] = {}
+    if partial_path.exists():
+        try:
+            partial = json.loads(partial_path.read_text(encoding="utf-8"))
+            for row in partial.get("episodes", []):
+                key = _stage_a_episode_key_from_row(row)
+                if key in {_stage_a_episode_key(variant, task, identity) for variant, task, identity in plan}:
+                    episode_by_key[key] = row
+        except Exception as exc:  # pragma: no cover - runtime boundary
+            print(f"[stage-a] ignoring unreadable partial result {partial_path}: {exc}", flush=True)
+    total = len(plan)
     for variant in STAGE_A_VARIANTS:
         for task in tasks:
             for identity in identities:
-                episodes.append(
-                    _run_stage_a_episode(
-                        args,
-                        loaded,
-                        task,
-                        int(identity),
-                        variant,
-                        config=config,
-                        full_model=full_model,
-                        ablation_model=ablation_model,
-                    )
+                key = _stage_a_episode_key(variant, task, int(identity))
+                if key in episode_by_key:
+                    print(f"[stage-a] skip completed {len(episode_by_key)}/{total}: {key}", flush=True)
+                    continue
+                row = _run_stage_a_episode(
+                    args,
+                    loaded,
+                    task,
+                    int(identity),
+                    variant,
+                    config=config,
+                    full_model=full_model,
+                    ablation_model=ablation_model,
                 )
-    measurement_valid = bool(episodes) and not any(row.get("exception") for row in episodes)
+                episode_by_key[key] = row
+                _write_json(
+                    partial_path,
+                    {
+                        "schema_version": "dicd_vla_stage_a_partial_v1",
+                        "date_kst": DATE_KST,
+                        "branch": BRANCH,
+                        "planned_episode_count": int(total),
+                        "completed_episode_count": int(len(episode_by_key)),
+                        "partial_result": True,
+                        "episodes": [episode_by_key[_stage_a_episode_key(v, t, i)] for v, t, i in plan if _stage_a_episode_key(v, t, i) in episode_by_key],
+                    },
+                )
+                print(
+                    "[stage-a] completed "
+                    f"{len(episode_by_key)}/{total}: {key} "
+                    f"success={row.get('success')} exception={row.get('exception') is not None}",
+                    flush=True,
+                )
+    episodes = [episode_by_key[_stage_a_episode_key(variant, task, identity)] for variant, task, identity in plan if _stage_a_episode_key(variant, task, identity) in episode_by_key]
+    measurement_valid = len(episodes) == total and not any(row.get("exception") for row in episodes)
     summary = _summarize_stage_a(episodes) if measurement_valid else {}
     return {
         "schema_version": "dicd_vla_stage_a_v1",
@@ -756,7 +798,9 @@ def _run_stage_a(args: argparse.Namespace) -> dict[str, Any]:
         "variants": STAGE_A_VARIANTS,
         "tasks": tasks,
         "identities": identities,
+        "planned_episode_count": int(total),
         "episode_count": int(len(episodes)),
+        "partial_checkpoint_path": str(partial_path),
         "full_checkpoint_path": str(Path(args.real_checkpoint_dir) / "dicd_real_full.pt"),
         "full_checkpoint_sha256": file_sha256(Path(args.real_checkpoint_dir) / "dicd_real_full.pt"),
         "full_loaded_stats": full_stats,
@@ -879,6 +923,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--train-identity", type=int, default=20260711)
     parser.add_argument("--max-train-steps", type=int, default=80)
     parser.add_argument("--stage-a-identities", default="20260713,20260714,20260715,20260716,20260717")
+    parser.add_argument("--stage-a-partial-json", default="reports/dicd_vla/stage_a_partial_result.json")
     parser.add_argument("--max-eval-steps", type=int, default=0)
     return parser.parse_args(argv)
 
