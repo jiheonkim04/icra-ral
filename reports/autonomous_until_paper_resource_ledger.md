@@ -24,6 +24,19 @@ Latest completed command:
 - result: `DICD_SYNTHETIC_MECHANISM_SMOKE_PASSED`
 - elapsed seconds: `1.093`
 
+Next staged command:
+
+- `wsl -e bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dicd_vla_prototype.py --mode real-smolvla-chunk"`
+- purpose: load official SmolVLA, call `predict_action_chunk`, postprocess a real action chunk, and verify delay-index contrast.
+
+Latest completed real SmolVLA smoke:
+
+- result: `DICD_REAL_SMOLVLA_CHUNK_SMOKE_PASSED`
+- elapsed seconds: `22.618`
+- peak CUDA allocation: `926.638 MB`
+- raw action chunk shape: `[1, 50, 7]`
+- postprocessed probe chunk shape: `[8, 7]`
+
 Resource policy:
 
 - no uncontrolled CPU or disk offload;

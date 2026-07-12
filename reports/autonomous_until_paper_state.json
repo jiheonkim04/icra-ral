@@ -7,11 +7,11 @@
   "current_cycle": 1,
   "current_topic": "delay_indexed_action_chunk_deployment",
   "current_branch": "codex/auto-method-20260712-01-dicd-vla",
-  "current_commit": "ed20ecc91a19570b6885f78511b22cdd81e889da",
+  "current_commit": "4fd7e22fc7051211217a767fad34a7eb66dcce5c",
   "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
   "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
   "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-  "current_stage": "cycle_1_real_smolvla_chunk_smoke_pending",
+  "current_stage": "cycle_1_real_trace_training_pending",
   "completed_stages": [
     "starting_state_verified",
     "historical_evidence_inspected",
@@ -25,7 +25,8 @@
     "cycle_1_rebuttal_completed",
     "cycle_1_preregistration_frozen",
     "cycle_1_core_adapter_implemented",
-    "cycle_1_synthetic_mechanism_smoke_passed"
+    "cycle_1_synthetic_mechanism_smoke_passed",
+    "cycle_1_real_smolvla_chunk_smoke_passed"
   ],
   "active_hypothesis": "Known execution delay can be compensated by a delay-indexed action-chunk adapter that changes the deployed chunk action under delay while preserving clean zero-delay behavior.",
   "method_identity": "DICD-VLA",
@@ -47,8 +48,8 @@
   "gpu_time_hours": 0.0,
   "download_amount_gib_this_epoch": 0.0,
   "download_amount_gib_campaign": 14.845,
-  "disk_free_bytes": 382892236800,
-  "current_decision": "DICD_SYNTHETIC_MECHANISM_SMOKE_PASSED_REAL_SMOLVLA_SMOKE_PENDING",
+  "disk_free_bytes": 382869807104,
+  "current_decision": "DICD_REAL_SMOLVLA_CHUNK_SMOKE_PASSED_TRACE_TRAINING_PENDING",
   "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/auto-method-20260712-01-dicd-vla && type reports\\autonomous_until_paper_state.json",
   "latest_verified_prior_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED",
   "valid_final_states": [

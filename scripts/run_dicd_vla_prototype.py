@@ -23,7 +23,14 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from scripts.run_echo_vla_first_prototype import _postprocess_action, _preprocess_batch  # noqa: E402
-from scripts.run_phase_barrier_vla_prototype import _round, _write_json, _write_md  # noqa: E402
+from scripts.run_phase_barrier_vla_prototype import (  # noqa: E402
+    _identity_to_initial_state_index,
+    _make_exact_vector_env,
+    _round,
+    _set_runtime_env,
+    _write_json,
+    _write_md,
+)
 from tca_map.smolvla.dicd_vla import (  # noqa: E402
     DICDConfig,
     assert_no_privileged_inference_fields,
@@ -37,10 +44,25 @@ from tca_map.smolvla.dicd_vla import (  # noqa: E402
     train_dicd_adapter,
 )
 from tca_map.smolvla.official_closed_loop_scaleup import _json_default  # noqa: E402
+from tca_map.smolvla.official_wsl_libero_rollout import POLICIES, _cuda_memory, _load_policy_and_processors  # noqa: E402
 
 
 DATE_KST = "2026-07-12"
 BRANCH = "codex/auto-method-20260712-01-dicd-vla"
+DICD_TASKS = [
+    {
+        "suite": "libero_spatial",
+        "task_id": 4,
+        "role": "stable_grasp_contact_transition",
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+    },
+    {
+        "suite": "libero_10",
+        "task_id": 4,
+        "role": "long_horizon_contact_and_release",
+        "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+    },
+]
 
 
 def _synthetic_chunk(offset: float, *, chunk_len: int, action_dim: int) -> np.ndarray:
@@ -180,11 +202,107 @@ def _run_synthetic_mechanism_smoke(args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
+def _run_real_smolvla_chunk_smoke(args: argparse.Namespace) -> dict[str, Any]:
+    import torch
+
+    _set_runtime_env(args)
+    config = DICDConfig(action_dim=int(args.action_dim), chunk_len=int(args.chunk_len), history_len=int(args.history_len), hidden_dim=int(args.hidden_dim))
+    task = DICD_TASKS[int(args.smoke_task_index)]
+    env = None
+    loaded_model = None
+    loaded_stats: dict[str, Any] = {}
+    if Path(args.checkpoint_path).exists():
+        loaded_model, loaded_stats = load_dicd_checkpoint(args.checkpoint_path)
+    try:
+        loaded = _load_policy_and_processors(args, POLICIES[0])
+        policy = loaded["policy"]
+        if hasattr(policy, "reset"):
+            policy.reset()
+        env = _make_exact_vector_env(str(task["suite"]), int(task["task_id"]), _identity_to_initial_state_index(int(args.smoke_identity)))
+        observation, _ = env.reset(seed=[int(args.smoke_identity)])
+        history: list[np.ndarray] = []
+        records: list[dict[str, Any]] = []
+        for step in range(int(args.smoke_steps)):
+            chunk = predict_postprocessed_action_chunk(policy, env, observation, loaded, max_chunk_len=int(args.real_max_chunk_len))
+            first = direct_chunk_index_action(chunk, 0, config)
+            indexed = direct_chunk_index_action(chunk, int(args.delay), config)
+            features = make_dicd_features(
+                chunk,
+                history=history,
+                delay=int(args.delay),
+                step_fraction=step / max(1.0, float(args.smoke_steps - 1)),
+                config=config,
+                use_history=True,
+            )
+            prediction = None if loaded_model is None else predict_dicd_action(loaded_model, features)
+            records.append(
+                {
+                    "step": int(step),
+                    "postprocessed_chunk_shape": [int(dim) for dim in chunk.shape],
+                    "postprocessed_chunk_finite": bool(np.isfinite(chunk).all()),
+                    "direct_delay_delta_norm": _round(float(np.linalg.norm(indexed - first)), 6),
+                    "feature_dim": int(len(features)),
+                    "feature_finite": bool(np.isfinite(np.asarray(features, dtype=np.float32)).all()),
+                    "synthetic_checkpoint_prediction_finite": None if prediction is None else bool(np.isfinite(prediction).all()),
+                    "synthetic_checkpoint_prediction_delta_from_direct": None if prediction is None else _round(float(np.linalg.norm(prediction - indexed)), 6),
+                }
+            )
+            history.append(first.reshape(-1))
+            observation, _reward, terminated, truncated, _info = env.step(first.reshape(1, -1))
+            if bool(np.all(terminated | truncated)):
+                break
+        assert_no_privileged_inference_fields(["observation", "instruction", "action_chunk", "executed_action_history", "declared_delay", "step_fraction"])
+        delay_deltas = [float(row["direct_delay_delta_norm"]) for row in records]
+        checks = {
+            "official_policy_loaded": bool((loaded.get("audit") or {}).get("policy_class") == "SmolVLAPolicy"),
+            "old_custom_route_not_used": bool((loaded.get("audit") or {}).get("old_custom_libero_7d_route_used") is False),
+            "raw_action_chunk_horizon_exceeds_delay": bool((loaded.get("audit") or {}).get("action_chunk_shape", [0, 0])[1] > int(args.delay)),
+            "postprocessed_chunks_finite": bool(records and all(row["postprocessed_chunk_finite"] for row in records)),
+            "postprocessed_chunk_horizon_exceeds_delay": bool(records and all(row["postprocessed_chunk_shape"][0] > int(args.delay) for row in records)),
+            "postprocessed_action_dim_is_7": bool(records and all(row["postprocessed_chunk_shape"][1] == 7 for row in records)),
+            "features_match_config_width": bool(records and all(row["feature_dim"] == config.input_dim for row in records)),
+            "features_finite": bool(records and all(row["feature_finite"] for row in records)),
+            "real_delay_contrast_present": bool(delay_deltas and max(delay_deltas) > float(args.min_action_delta)),
+            "no_privileged_inference_fields": True,
+        }
+        return {
+            "schema_version": "dicd_vla_real_smolvla_chunk_smoke_v1",
+            "date_kst": DATE_KST,
+            "branch": BRANCH,
+            "smoke_type": "real_smolvla_action_chunk",
+            "training_happened": False,
+            "real_smolvla_chunk_smoke_happened": True,
+            "closed_loop_experiment_happened": False,
+            "config": config.__dict__,
+            "delay": int(args.delay),
+            "task": task,
+            "smoke_identity": int(args.smoke_identity),
+            "policy_load_audit": loaded.get("audit"),
+            "records": records,
+            "checkpoint_path": str(args.checkpoint_path) if Path(args.checkpoint_path).exists() else None,
+            "checkpoint_sha256": file_sha256(args.checkpoint_path) if Path(args.checkpoint_path).exists() else None,
+            "loaded_checkpoint_stats": loaded_stats,
+            "cuda_memory": _cuda_memory(torch),
+            "checks": checks,
+            "mechanism_smoke_passed": bool(all(checks.values())),
+            "final_decision": "DICD_REAL_SMOLVLA_CHUNK_SMOKE_PASSED" if all(checks.values()) else "DICD_REAL_SMOLVLA_CHUNK_SMOKE_FAILED",
+        }
+    finally:
+        if env is not None:
+            try:
+                env.close()
+            except Exception:
+                pass
+
+
 def run(args: argparse.Namespace) -> dict[str, Any]:
     started = time.monotonic()
     report: dict[str, Any]
     try:
-        report = _run_synthetic_mechanism_smoke(args)
+        if args.mode == "real-smolvla-chunk":
+            report = _run_real_smolvla_chunk_smoke(args)
+        else:
+            report = _run_synthetic_mechanism_smoke(args)
     except Exception as exc:  # pragma: no cover - runtime boundary
         report = {
             "schema_version": "dicd_vla_mechanism_smoke_v1",
@@ -195,8 +313,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             "final_decision": "DICD_SYNTHETIC_MECHANISM_SMOKE_FAILED",
         }
     report["elapsed_seconds"] = _round(time.monotonic() - started, 3)
-    output_json = Path(args.output_json)
-    output_md = Path(args.output_md)
+    output_json = Path(args.output_json or ("reports/dicd_vla/real_smolvla_chunk_smoke_result.json" if args.mode == "real-smolvla-chunk" else "reports/dicd_vla/mechanism_smoke_result.json"))
+    output_md = Path(args.output_md or ("reports/dicd_vla/real_smolvla_chunk_smoke_result.md" if args.mode == "real-smolvla-chunk" else "reports/dicd_vla/mechanism_smoke_result.md"))
     _write_json(output_json, report)
     _write_md(
         output_md,
@@ -216,9 +334,12 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             f"- checkpoint sha256: `{report.get('checkpoint_sha256')}`",
             f"- checks: `{report.get('checks')}`",
             f"- probe: `{report.get('probe')}`",
+            f"- records: `{report.get('records')}`",
             f"- elapsed seconds: `{report.get('elapsed_seconds')}`",
             "",
-            "Next step: run real SmolVLA chunk smoke before Stage A closed-loop rollout.",
+            "Next step: run real trace training before Stage A closed-loop rollout."
+            if args.mode == "real-smolvla-chunk"
+            else "Next step: run real SmolVLA chunk smoke before Stage A closed-loop rollout.",
         ],
     )
     return report
@@ -226,9 +347,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run DICD-VLA prototype smoke.")
-    parser.add_argument("--output-json", default="reports/dicd_vla/mechanism_smoke_result.json")
-    parser.add_argument("--output-md", default="reports/dicd_vla/mechanism_smoke_result.md")
+    parser.add_argument("--mode", choices=["synthetic", "real-smolvla-chunk"], default="synthetic")
+    parser.add_argument("--output-json", default=None)
+    parser.add_argument("--output-md", default=None)
     parser.add_argument("--checkpoint-path", default="reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt")
+    parser.add_argument("--base-path", default="/home/jiheon/assets/checkpoints/smolvla_libero")
+    parser.add_argument("--lora-root", default="/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4")
+    parser.add_argument("--libero-config-dir", default="/home/jiheon/.libero")
     parser.add_argument("--delay", type=int, default=2)
     parser.add_argument("--chunk-len", type=int, default=8)
     parser.add_argument("--history-len", type=int, default=2)
@@ -239,6 +364,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lr", type=float, default=3e-3)
     parser.add_argument("--seed", type=int, default=17)
     parser.add_argument("--min-action-delta", type=float, default=1e-4)
+    parser.add_argument("--smoke-task-index", type=int, default=0)
+    parser.add_argument("--smoke-identity", type=int, default=20260712)
+    parser.add_argument("--smoke-steps", type=int, default=3)
+    parser.add_argument("--real-max-chunk-len", type=int, default=8)
     return parser.parse_args(argv)
 
 

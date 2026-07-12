@@ -1,0 +1,168 @@
+{
+  "branch": "codex/auto-method-20260712-01-dicd-vla",
+  "checkpoint_path": "reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt",
+  "checkpoint_sha256": "a4f66e383283dd710c6938f9a0709ea6d20af5039ce2ad43b2068c81687196af",
+  "checks": {
+    "features_finite": true,
+    "features_match_config_width": true,
+    "no_privileged_inference_fields": true,
+    "official_policy_loaded": true,
+    "old_custom_route_not_used": true,
+    "postprocessed_action_dim_is_7": true,
+    "postprocessed_chunk_horizon_exceeds_delay": true,
+    "postprocessed_chunks_finite": true,
+    "raw_action_chunk_horizon_exceeds_delay": true,
+    "real_delay_contrast_present": true
+  },
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "action_dim": 7,
+    "chunk_len": 8,
+    "hidden_dim": 64,
+    "history_len": 2
+  },
+  "cuda_memory": {
+    "allocated_bytes": 935874048,
+    "allocated_mb": 892.519,
+    "max_allocated_bytes": 971650560,
+    "max_allocated_mb": 926.638
+  },
+  "date_kst": "2026-07-12",
+  "delay": 2,
+  "elapsed_seconds": 22.618,
+  "final_decision": "DICD_REAL_SMOLVLA_CHUNK_SMOKE_PASSED",
+  "loaded_checkpoint_stats": {
+    "epochs": 120,
+    "example_count": 32,
+    "final_loss": 0.0005746441893279552,
+    "finite_gradients": true,
+    "initial_loss": 0.08825875073671341,
+    "loss_decreased": true,
+    "max_grad_norm": 0.23590100326633506
+  },
+  "mechanism_smoke_passed": true,
+  "policy_load_audit": {
+    "action_chunk_device": "cuda:0",
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_finite": true,
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "amp_fp16_or_bf16_active": false,
+    "autocast": {
+      "cpu": false,
+      "cuda": false
+    },
+    "control_mode": "relative",
+    "cuda_memory": {
+      "allocated_bytes": 937419264,
+      "allocated_mb": 893.993,
+      "max_allocated_bytes": 970964480,
+      "max_allocated_mb": 925.984
+    },
+    "empty_cameras": 1,
+    "input_tensor_devices": {
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0"
+    },
+    "input_tensor_shapes": {
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ]
+    },
+    "load_seconds": 7.273,
+    "old_custom_libero_7d_route_used": false,
+    "parameter": {
+      "device": "cuda:0",
+      "dtype": "torch.bfloat16",
+      "numel": 589824
+    },
+    "peft": {
+      "used": false
+    },
+    "policy_class": "SmolVLAPolicy",
+    "policy_name": "frozen_base",
+    "rename_map": {
+      "observation.images.image": "observation.images.camera1",
+      "observation.images.image2": "observation.images.camera2"
+    }
+  },
+  "real_smolvla_chunk_smoke_happened": true,
+  "records": [
+    {
+      "direct_delay_delta_norm": 0.44032,
+      "feature_dim": 74,
+      "feature_finite": true,
+      "postprocessed_chunk_finite": true,
+      "postprocessed_chunk_shape": [
+        8,
+        7
+      ],
+      "step": 0,
+      "synthetic_checkpoint_prediction_delta_from_direct": 0.334214,
+      "synthetic_checkpoint_prediction_finite": true
+    },
+    {
+      "direct_delay_delta_norm": 0.332649,
+      "feature_dim": 74,
+      "feature_finite": true,
+      "postprocessed_chunk_finite": true,
+      "postprocessed_chunk_shape": [
+        8,
+        7
+      ],
+      "step": 1,
+      "synthetic_checkpoint_prediction_delta_from_direct": 0.323373,
+      "synthetic_checkpoint_prediction_finite": true
+    },
+    {
+      "direct_delay_delta_norm": 0.405616,
+      "feature_dim": 74,
+      "feature_finite": true,
+      "postprocessed_chunk_finite": true,
+      "postprocessed_chunk_shape": [
+        8,
+        7
+      ],
+      "step": 2,
+      "synthetic_checkpoint_prediction_delta_from_direct": 0.367559,
+      "synthetic_checkpoint_prediction_finite": true
+    }
+  ],
+  "schema_version": "dicd_vla_real_smolvla_chunk_smoke_v1",
+  "smoke_identity": 20260712,
+  "smoke_type": "real_smolvla_action_chunk",
+  "task": {
+    "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+    "role": "stable_grasp_contact_transition",
+    "suite": "libero_spatial",
+    "task_id": 4
+  },
+  "training_happened": false
+}

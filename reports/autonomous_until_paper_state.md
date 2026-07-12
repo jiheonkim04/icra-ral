@@ -12,14 +12,14 @@ Base commit: `06cf915aefa57eb0c86160fb991a763b3ed323b2`
 
 Normal success state: `READY_TO_DRAFT_RAL_PAPER_PACKAGE`
 
-Current decision: `DICD_SYNTHETIC_MECHANISM_SMOKE_PASSED_REAL_SMOLVLA_SMOKE_PENDING`
+Current decision: `DICD_REAL_SMOLVLA_CHUNK_SMOKE_PASSED_TRACE_TRAINING_PENDING`
 
 ## Current Stage
 
 - epoch: `1`
 - cycle: `1`
 - topic: `delay_indexed_action_chunk_deployment`
-- stage: `cycle_1_real_smolvla_chunk_smoke_pending`
+- stage: `cycle_1_real_trace_training_pending`
 - active method: `DICD-VLA`
 - proposal hash: `B3D53F728974517A21DD91E45444C0611137AF1B10E15E46298F43FF5D150CC1`
 
@@ -36,6 +36,7 @@ Completed startup stages:
 - passed unit tests and synthetic mechanism smoke;
 - wrote `reports/dicd_vla/mechanism_smoke_result.json`;
 - persisted checkpoint `reports/dicd_vla/checkpoints/dicd_synthetic_smoke.pt`.
+- passed real SmolVLA action-chunk smoke with official `SmolVLAPolicy`, CUDA tensors, raw chunk `[1, 50, 7]`, finite postprocessed `[8, 7]` chunks, and real delay contrast.
 
 ## Evidence Boundary
 
@@ -43,7 +44,7 @@ The prior decision `NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED` is narrow.
 
 Epoch 1 must not revive ECHO candidate ranking, PhaseBarrier action projection, CensorCredit temporal hold heads, or ISAC intervention-chunk fine-tuning in their previous forms.
 
-Cycle 1 proceeds with `DICD-VLA`, a delay-indexed action-chunk deployment method. The next automatic stage is real SmolVLA action-chunk smoke before Stage A rollout.
+Cycle 1 proceeds with `DICD-VLA`, a delay-indexed action-chunk deployment method. The next automatic stage is real trace training before Stage A rollout.
 
 ## Resume
 
