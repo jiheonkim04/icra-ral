@@ -99,4 +99,4 @@ Reason:
 - Full-frame hold-last reached `0 / 10`.
 - Clean GCAP reached `5 / 10` versus clean frozen `1 / 10`; clean retention was not the kill reason.
 
-Reviewer B ruling: this is a valid scientific kill, not a measurement-invalid result. The full method failed the targeted occlusion-robustness axis and did not beat simple geometric or frozen baselines. This is the third valid distinct method kill. The campaign terminal state is `NO_METHOD_AFTER_3_VALID_CYCLES`.
+Reviewer B ruling at the time: this was treated as a valid scientific kill, not a measurement-invalid result. Under the 2026-07-12 governance migration, that terminal interpretation is superseded: the result is reclassified as `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`, and Epoch 2 must begin.

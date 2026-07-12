@@ -10,7 +10,7 @@ git switch codex/ral-cycle-02-fedo-vla
 type reports\autonomous_ral_campaign_state.json
 ```
 
-Current stage: `terminal_no_method_after_3_valid_cycles`
+Current stage: `epoch_1_completed_pivot_required`
 
 Cycle 2 `FEDO-VLA` Stage A completed `70 / 70` episodes with zero exceptions and final decision `CLEAN_RETENTION_FAILURE`.
 
@@ -34,14 +34,14 @@ Key Cycle 3 result:
 - clean frozen SmolVLA: `1 / 10`
 - clean GCAP full: `5 / 10`
 
-Terminal decision: `NO_METHOD_AFTER_3_VALID_CYCLES`.
+Corrected decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`.
 
 Final state inspection command:
 
 ```powershell
 cd /d C:\Users\jiheo\tca_map
-git switch codex/ral-cycle-03-gcap-vla
-type reports\autonomous_ral_campaign_state.json
+git switch codex/autonomous-until-paper-governance-v2
+type reports\current_research_governance.md
 ```
 
 ## Archived Prior Resume Block

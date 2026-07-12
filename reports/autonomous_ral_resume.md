@@ -18,7 +18,7 @@ git switch codex/ral-cycle-03-gcap-vla
 wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
 ```
 
-Current stage: `terminal_no_method_after_3_valid_cycles`
+Current stage: `epoch_1_completed_pivot_required`
 
 Completed Stage A artifacts:
 
@@ -60,6 +60,6 @@ Cycle 3 GCAP-VLA status:
 - clean GCAP full: `5 / 10`
 - exceptions: `0`
 
-Terminal decision: `NO_METHOD_AFTER_3_VALID_CYCLES`.
+Corrected decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`.
 
-No paper-ready package or RA-L acceptance claim is made.
+No paper-ready package or RA-L acceptance claim is made. Continue to Epoch 2 under `reports/current_research_governance.md`.

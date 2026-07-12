@@ -1,20 +1,12 @@
-# Autonomous Until Paper Final Decision
+# Autonomous Until Paper Decision
 
-2026-07-12 KST continuity update:
+Date: 2026-07-12 KST
 
-Current campaign decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
-
-This is a terminal governed decision.
-
-Cycle 1 `DICD-VLA` is closed with valid kill `SIMPLE_BASELINE_EXPLAINS_METHOD`. Cycle 2 `FEDO-VLA` is closed with valid kill `CLEAN_RETENTION_FAILURE`: full FEDO reached `1 / 10` under faults, the strongest faulted baselines reached `2 / 10`, and clean FEDO dropped from clean frozen `4 / 10` to `0 / 10`.
-
-Cycle 3 `GCAP-VLA` is closed with valid kill `NO_OCCLUSION_ROBUSTNESS_GAIN`: full GCAP reached `3 / 10` under occlusion, while occluded frozen SmolVLA reached `4 / 10`, Sobel edge boost reached `5 / 10`, and the no-temporal ablation reached `4 / 10`.
-
-No paper-ready claim is made after three valid distinct method cycles.
-
-Current campaign decision: `DICD_REAL_TRACE_TRAINING_PASSED_STAGE_A_PENDING`
+Current campaign decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`
 
 This is not a terminal decision.
+
+Active governance: `reports/current_research_governance.md`
 
 Allowed terminal decisions:
 
@@ -23,4 +15,14 @@ Allowed terminal decisions:
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
 
-The campaign has opened epoch 1, completed candidate discovery, selected `DICD-VLA`, frozen proposal/review/preregistration, implemented the core adapter, and passed synthetic smoke, real SmolVLA action-chunk smoke, and real trace training. It must continue to Stage A closed-loop evaluation.
+## Corrected Epoch 1 Status
+
+Cycle 1 `DICD-VLA` is archived as `UNDERPOWERED_STAGE_A_NON_GO_ARCHIVED`: full `1 / 10`, direct chunk-index delay `2 / 10`, no-history ablation `1 / 10`. This is a non-GO archive and the current formulation should not be rescued, but a one-episode difference at 10 episodes per policy is not a permanent scientific family kill.
+
+Cycle 2 `FEDO-VLA` is archived as `VALID_CURRENT_FORMULATION_KILL`: faulted full `1 / 10`, static inverse gain `2 / 10`, APEX-style proxy `2 / 10`, no-feedback ablation `2 / 10`, clean frozen `4 / 10`, clean FEDO `0 / 10`. Do not revive the current formulation.
+
+Cycle 3 `GCAP-VLA` is archived as `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`: occluded full `3 / 10`, occluded frozen `4 / 10`, Sobel edge boost `5 / 10`, no-temporal ablation `4 / 10`, clean frozen `1 / 10`, clean GCAP `5 / 10`. Do not rescue the current formulation, but do not call the broader perception-repair family dead.
+
+## Next Action
+
+Start Epoch 2 candidate generation under `reports/current_research_governance.md`.

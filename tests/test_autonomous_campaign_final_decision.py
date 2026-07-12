@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 
@@ -5,29 +6,30 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 REPORTS = REPO_ROOT / "reports"
 
 
-def test_autonomous_campaign_final_decision_is_explicit() -> None:
-    final = (REPORTS / "autonomous_campaign_final_decision.md").read_text(encoding="utf-8")
+def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
+    final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Final decision: `NO_METHOD_AFTER_3_VALID_CYCLES`" in final
-    assert "Paper-ready status: `false`" in final
-    assert final.count("Cycle 01") >= 1
-    assert final.count("Cycle 02") >= 1
-    assert final.count("Cycle 03") >= 1
-
-
-def test_autonomous_campaign_state_records_resource_bounds() -> None:
-    state = (REPORTS / "autonomous_campaign_state.md").read_text(encoding="utf-8")
-
-    assert "new downloads: `0 GiB`" in state
-    assert "active GPU time in this batch: `0 h`" in state
-    assert "WSL Git caveat" in state
+    assert "Current campaign decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`" in final
+    assert "This is not a terminal decision." in final
+    assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
+    assert "Start Epoch 2 candidate generation" in final
 
 
-def test_core_ledgers_reference_autonomous_campaign_reports() -> None:
-    project_state = (REPORTS / "project_state.md").read_text(encoding="utf-8")
-    next_actions = (REPORTS / "next_actions.md").read_text(encoding="utf-8")
-    decision_log = (REPORTS / "decision_log.md").read_text(encoding="utf-8")
+def test_active_campaign_state_records_governance_v2() -> None:
+    state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8"))
 
-    assert "autonomous_campaign_final_decision.md" in project_state
-    assert "NO_METHOD_AFTER_3_VALID_CYCLES" in next_actions
-    assert "Autonomous Dual-Review RA-L Campaign" in decision_log
+    assert state["governance_file"] == "reports/current_research_governance.md"
+    assert state["current_decision"] == "EPOCH_1_COMPLETED_PIVOT_REQUIRED"
+    assert state["current_epoch"] == 2
+    assert state["maximum_method_cycles"] is None
+    assert state["global_no_method_terminal_allowed"] is False
+
+
+def test_core_ledgers_reference_current_governance() -> None:
+    agents = (REPO_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    manual = (REPORTS / "codex_delegation_manual.md").read_text(encoding="utf-8")
+    governance = (REPORTS / "current_research_governance.md").read_text(encoding="utf-8")
+
+    assert "reports/current_research_governance.md" in agents
+    assert "Multi-stage autonomous research is permitted" in manual
+    assert "There is no finite global method-cycle limit." in governance

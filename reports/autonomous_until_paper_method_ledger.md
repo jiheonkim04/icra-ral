@@ -10,7 +10,7 @@ The active governed campaign has completed three valid method cycles:
 | 1 | 2 | `FEDO-VLA` | `KILLED_VALID_PROTOTYPE` | faulted full `1 / 10`; static/APEX/no-feedback baselines `2 / 10`; clean frozen `4 / 10`; clean FEDO `0 / 10`; zero exceptions |
 | 1 | 3 | `GCAP-VLA` | `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE` | occluded full `3 / 10`; occluded frozen `4 / 10`; Sobel `5 / 10`; no-temporal `4 / 10`; zero exceptions |
 
-The terminal governed decision is `NO_METHOD_AFTER_3_VALID_CYCLES`. DICD, FEDO, and GCAP must not be revived through cosmetic changes.
+The corrected governed decision is `EPOCH_1_COMPLETED_PIVOT_REQUIRED`. DICD, FEDO, and GCAP must not be revived through cosmetic changes, but the campaign continues into Epoch 2.
 
 Cycle 3 selected method: `GCAP-VLA`, status `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE`. It targeted controlled visual occlusion through patchwise temporal geometric repair at the camera tensor boundary.
 

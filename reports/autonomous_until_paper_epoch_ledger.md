@@ -18,7 +18,7 @@ Cycle 3 selected method: `GCAP-VLA`
 
 Cycle 3 status: `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE`
 
-Epoch status: terminal governed decision `NO_METHOD_AFTER_3_VALID_CYCLES`.
+Epoch status: completed related-method set; corrected decision `EPOCH_1_COMPLETED_PIVOT_REQUIRED`.
 
 ## Epoch 1
 

@@ -59,4 +59,4 @@ GCAP Stage A actual runtime:
 - approximate campaign GPU time consumed so far: `3.73 h`
 - approximate remaining campaign GPU budget: `20.27 h`
 
-Cycle 3 is closed with valid prototype decision `NO_OCCLUSION_ROBUSTNESS_GAIN`. The campaign reached terminal governed decision `NO_METHOD_AFTER_3_VALID_CYCLES` before the `24 h` total GPU cap, before the `12 h` Cycle 3 wall-clock cap, and without an uncheckpointed command exceeding `4 h`.
+Cycle 3 consumed approximately `0.49 h` of GPU time and stayed within the recorded resource envelope. Under the 2026-07-12 governance migration, Epoch 1 is not a terminal no-method stop; the corrected decision is `EPOCH_1_COMPLETED_PIVOT_REQUIRED`.

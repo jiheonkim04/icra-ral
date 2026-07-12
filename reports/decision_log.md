@@ -1610,3 +1610,25 @@ Final distinct method:
 - primary overlap sources: SDP, TORL-VLA, ConRFT, OpenVLA-OFT
 
 Consequence: the current autonomous chain ends without a valid CensorCredit repair and without a valid final method implementation target.
+
+## 2026-07-12 - Governance V2 Migration
+
+Decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`
+
+Execution boundary:
+
+- branch: `codex/autonomous-until-paper-governance-v2`
+- starting pushed commit: `e24a6a11db49054aaf7a9d6787449f671b5035b3`
+- active governance file: `reports/current_research_governance.md`
+
+Reason:
+
+The prior fixed-cycle terminal stop retained obsolete governance. The active campaign now has no finite global method-cycle limit and exactly four allowed final states: `READY_TO_DRAFT_RAL_PAPER_PACKAGE`, `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`, `HARD_EXTERNAL_BLOCKER`, and `SAFETY_RESOURCE_STOP`.
+
+Corrected Epoch 1 adjudication:
+
+- `DICD-VLA`: `UNDERPOWERED_STAGE_A_NON_GO_ARCHIVED`
+- `FEDO-VLA`: `VALID_CURRENT_FORMULATION_KILL`
+- `GCAP-VLA`: `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`
+
+Consequence: immediately continue to Epoch 2 candidate generation under current governance.

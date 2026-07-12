@@ -116,4 +116,4 @@ Cycle 3 final result:
 - final decision: `NO_OCCLUSION_ROBUSTNESS_GAIN`
 - Stage A episodes: `70 / 70`
 - exceptions: `0`
-- terminal campaign decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
+- corrected campaign decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`

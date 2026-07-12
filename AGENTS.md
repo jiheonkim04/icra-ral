@@ -1,78 +1,56 @@
 # AGENTS.md
 
-This repository is for the TCA-Map robot-learning research pilot.
+This repository is an autonomous robot-learning research workspace. The current authoritative research governance is:
 
-Future Codex sessions should read `reports/codex_delegation_manual.md` first. The repository files, reports, configs, scripts, tests, and git history are the source of truth; do not rely on old ChatGPT conversation context.
+`reports/current_research_governance.md`
 
-Self-check routine state before asking the user. Branch, commit, git status, pytest, safe runner, SmolVLA path readiness, checkpoint file completeness, and checker policy fields should be inspected directly with existing scripts. Do not ask for routine approval merely because a task involves downloads, GPU, training, datasets, simulator readiness, learned-policy rollout, or benchmark rollout. Run the repository risk assessment first; proceed autonomously when source, size, disk, RAM/VRAM, runtime, dependency, license/token, and repo-policy checks are inside budget. Stop only when risk cannot be evaluated, exceeds budget, requires external irreversible action, requires OpenVLA-OFT execution, or would make an unsupported empirical claim.
+Future Codex sessions must read that file before treating any older report, state file, prompt, or manual entry as active governance. Older TCA-first and bounded-autopilot instructions are historical evidence unless explicitly imported into the current governance file.
 
-Bounded autopilot rule: do not run unbounded end-to-end research loops in a single execution. Each execution may complete at most one major research milestone, such as real candidate-generation smoke, research-integrity policy update, ActionMap vs TCA-Map tiny training/eval, LoRA tiny training/eval, rollout diagnostic, or paper-grade roadmap update. After one milestone, stop and report the result plus the next recommended milestone.
+## Active Operating Rules
 
-Research-integrity override: before any confirmatory ActionMap vs TCA-Map, TCA-Select, LoRA, or QLoRA evaluation, follow `reports/research_integrity_evaluation_policy.md`. Fixed primary metrics, baselines, ablations, split/sample policy, tuning budget, and kill/pivot criteria must be declared before results are inspected.
+1. Do not fabricate results, hide failed runs, overwrite previous experiment outputs, cherry-pick tasks/resets/seeds/metrics, or claim paper-grade evidence from proxy checks.
+2. Do not use privileged simulator state at default inference time. Simulator labels may be used only for training supervision, evaluation metrics, or oracle ablations when predeclared.
+3. Freeze proposals, baselines, ablations, task/reset allocation, statistics, and kill/scale rules before inspecting confirmatory results.
+4. Maintain branch safety: do not modify `main` directly, do not revert user work, and do not use destructive git or filesystem commands unless explicitly requested.
+5. Run bounded risk assessment before downloads, GPU work, training, rollout, simulator setup, or heavy imports. Proceed autonomously only when source, size, disk, RAM/VRAM, runtime, dependency, license/token, and repository policy checks are inside budget.
+6. Stop before token/secret/API-key access, paid services, license click-through, external submission or publishing, deleting user files outside approved repo/cache cleanup, system-wide CUDA/PyTorch/driver changes, credentialed system setup, or unsupported empirical claims.
+7. Preserve resource monitoring for GPU memory, runtime, disk, downloads, checkpoints, and resumability.
+8. Before commit or merge, inspect the changed-file count and line diff. If the change would include more than 50 files or more than 5,000 changed lines, record the scope and justification before proceeding.
 
-## Non-negotiable rules
+## Deprecated Instructions
 
-1. Do not fabricate results.
-2. Do not hide failed runs.
-3. Do not overwrite previous experiment outputs.
-4. Do not use privileged simulator state at default inference time.
-5. Simulator labels may be used only for training supervision, evaluation metrics, or oracle ablations.
-6. Do not launch GPU jobs until preflight and dummy smoke tests pass.
-7. Do not download OpenVLA-OFT automatically. Other downloads may proceed only after risk assessment confirms an official/documented unambiguous source, no token/login/payment/license click-through, budgeted size, approved target root, and enough disk margin.
-8. If local assets are missing, keep dummy smoke and interface validation running and document setup in `reports/missing_assets.md`.
-9. Do not call offline proxy metrics standard success. Use names such as `offline_standard_proxy` or `standard_proxy_score`.
-10. Final paper-grade standard success requires simulator rollouts.
-11. OpenVLA-OFT large experiments are forbidden on local hardware. OpenVLA-OFT download/import/load/execution remains blocked unless a separate OpenVLA risk budget is added later.
-12. TCA-Select inference trick is required for the publishable low-compute method.
-13. TCA-Select must be distributional for the final method, not only heuristic geometry. Heuristic target/action consistency is an ablation.
-14. LoRA/QLoRA are required experimental tracks after the head-only path is validated, but they are supporting adaptation arms, not the main novelty.
-15. Any SOTA claim must be restricted to low-compute target-conditioned action decoding or counterfactual robustness unless full standard baselines are directly reproduced.
-16. Heavy actions must have a short automatic risk assessment before launch. Environment gates such as `ALLOW_DOWNLOADS=1`, `ALLOW_HEAVY_IMPORT=1`, `ALLOW_TINY_TRAINING=1`, `ALLOW_GPU_TRAINING=1`, `ALLOW_ROLLOUTS=1`, or `ALLOW_CLOUD_HANDOFF=1` may be set task-locally only when the risk assessment says proceed.
-17. Run compute-budget enforcement before any new local config or pilot command.
-18. Before commit or merge, stop and report if more than 50 files or more than 5,000 changed lines would be included.
-19. Before every merge, report files changed count, line diff count, whether training happened, whether rollout happened, whether loss was computed, whether the work is only planning/scaffolding, validation results, and merge justification.
-20. If no loss, metric, rollout result, or concrete validation result is being produced, do not keep expanding planners indefinitely.
-21. Do not cherry-pick tasks, samples, seeds, metrics, baselines, visualizations, or rollout episodes.
-22. Log failed runs and weak results. Keep exploratory debugging separate from confirmatory evaluation.
-23. Do not change primary metrics, evaluation split, or tuning budget after seeing results unless the change is logged as exploratory and the previous result is preserved.
-24. If ActionMap + LoRA or ActionMap + counterfactual augmentation matches TCA-Map, report that the novelty is weak. If TCA-Select adds no measurable gain, report it. If offline gains disappear in rollout, report it. If TCA-Map fails, produce a kill/pivot report.
+The following old instructions are no longer active governance:
 
-## Low-compute protocol
+- one-major-milestone-per-execution stopping;
+- TCA-Map as the default publishable path;
+- any requirement that TCA-Select, ActionMap, LoRA, QLoRA, SmolVLA-only adaptation, or any other named method family become the final method;
+- any global maximum of three method cycles;
+- any no-method terminal state after a fixed number of cycles;
+- the obsolete 30-minute global GPU limit;
+- the obsolete assumption that official SmolVLA/LIBERO assets are missing;
+- any blanket prohibition on the already validated quantized OpenVLA-OFT INT4 execution path.
 
-The local publishable path is SmolVLA-first: frozen backbone, head-only ActionMap/TCA-Map training, cached hidden features, low-resolution or coarse-to-fine heatmaps, Distributional TCA-Select inference-time candidate selection, and required LoRA/QLoRA experimental tracks after head-only validation.
+TCA-Map, TCA-Select, ActionMap, ECHO, PhaseBarrier, CensorCredit, DICD, FEDO, GCAP, and related reports remain historical evidence and possible baselines or cautionary examples. They are not mandatory destinations.
 
-Do not plan local OpenVLA-OFT full fine-tuning, full rollout, multi-seed sweep, or large ActionMap/TCA-Map training.
+## Research Campaign Semantics
 
-## Risk-assessed autonomous execution policy
+The active campaign may run multi-stage autonomous research inside one Goal execution when risk-assessed work remains within local constraints. A failed method does not terminate the campaign. Archive it, record the failed assumption, and pivot automatically.
 
-Codex must not ask the user for routine approval when risk can be checked automatically. Inspect source, disk, RAM, VRAM, runtime, dependency, license/token requirements, and repo safety policy. If all checks pass within budget, proceed autonomously. If any check is ambiguous or outside budget, stop and report the blocker.
+Normal success is:
 
-Autonomy is bounded by `reports/autopilot_bounded_execution_policy.md`. It permits routine self-checking and one risk-assessed milestone per execution, not an unbounded chain of research tasks.
+`READY_TO_DRAFT_RAL_PAPER_PACKAGE`
 
-Default local risk budgets:
+Allowed final states are exactly:
 
-- downloads: source official/documented/unambiguous, no token/login/payment/license click-through, single task soft limit 80GB, keep at least 100GB free disk, write only under approved roots such as `C:\assets`, never commit checkpoint/cache/data files. Official LIBERO data is the only current exception: `yifengzhu-hf/LIBERO-datasets` may use a 180GB task budget only if at least 250GB free disk remains after acquisition and no token/login/payment/license click-through is required,
-- GPU: SmolVLA/local-pilot related, no OpenVLA-OFT, expected VRAM <=14GB, runtime <=30 minutes, batch size 1 or equivalent, timeout/stop condition, memory/runtime logged when measurable,
-- training: SmolVLA-only, frozen backbone or LoRA/QLoRA adapter only, no full fine-tuning, no rollout, max 300 local pilot steps after smaller smoke is stable, runtime <=30 minutes, VRAM <=14GB, batch size 1, proxy/local-pilot labels only,
-- real datasets: official/documented/unambiguous source, no token/login/payment/license click-through, inside download/disk budget, no simulator rollout triggered automatically, prefer metadata-only or tiny subset first,
-- simulator readiness: prefer WSL2/Linux, no token/manual license, runtime <=10 minutes for import/render smoke, no policy rollout, no paper claim. Minimal WSL Python packaging setup is standing-approved after risk assessment; credentialed/system-driver/license-gated changes remain hard-stop,
-- bounded rollout: only after simulator import/render/reset-step smoke passes, task count <=5 for the first local benchmark rung, runtime <=30 minutes, no OpenVLA-OFT, no external service/token, no unbounded render loop, and no unsupported claim. This covers toy MuJoCo diagnostics, LIBERO/RoboSuite zero-action diagnostics, and later tiny learned-policy or benchmark rollouts when their own risk assessment is green.
+1. `READY_TO_DRAFT_RAL_PAPER_PACKAGE`
+2. `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
+3. `HARD_EXTERNAL_BLOCKER`
+4. `SAFETY_RESOURCE_STOP`
 
-Always stop before token/secret/API key access, paid services, license click-through, external upload/submission/publishing, deleting user files outside approved cache/repo cleanup, system-wide CUDA/PyTorch/driver changes, credentialed/system-driver/license-gated system setup, OpenVLA-OFT execution, or unsupported paper-level empirical claims. Paper-grade candidate reports are allowed only from verified experiment outputs with honest evidence labels. Minimal WSL Python packaging setup may proceed autonomously only after a green WSL simulator dependency-ladder risk assessment.
+Before any future terminal decision, run:
 
-Before any bounded download/GPU/training/dataset/simulator step, write or print a short risk assessment with task, source, expected size, target path, disk free before/after estimate, expected runtime, expected RAM/VRAM, allowed budget, official/documented source status, token/license/payment status, decision, and reason.
+```powershell
+C:\Users\jiheo\miniconda3\envs\tca_map\python.exe scripts\check_current_research_governance.py
+```
 
-## Local paper-grade runner protocol
-
-Preserve the Windows PowerShell scripts and Linux/WSL shell scripts that perform readiness checks, asset directory planning, local experiment matrix planning, cloud handoff manifest generation, WSL2 setup checks, compute-budget enforcement, and risk assessment. These scripts are planning/readiness tools unless a risk assessment says a bounded heavy action is inside budget.
-
-## Required first milestone
-
-1. Scaffold repository structure.
-2. Run repository-local preflight.
-3. Run dummy smoke train/eval only if preflight passes.
-4. Skip real OpenVLA-OFT, SmolVLA, LIBERO, RoboCasa, simulator, and rollout work unless local paths and safety checks pass in a later step.
-
-## Local path policy
-
-Read optional local paths from `configs/paths.local.yaml` or environment variables. Never commit `configs/paths.local.yaml` if it contains machine paths or tokens.
+and the relevant test suite.

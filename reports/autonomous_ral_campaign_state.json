@@ -3,26 +3,30 @@
   "date_kst": "2026-07-12",
   "campaign": "autonomous_ral_reopened_experimental_package",
   "governance_correction_applied": true,
-  "target_terminal_state": "PAPER_READY_EXPERIMENTAL_PACKAGE",
+  "target_terminal_state": "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
   "valid_final_states": [
-    "PAPER_READY_EXPERIMENTAL_PACKAGE",
-    "NO_METHOD_AFTER_3_VALID_CYCLES",
-    "AUTONOMOUS_BATCH_PAUSED_RESUMABLE",
-    "HARD_RESOURCE_BLOCKER",
-    "ENVIRONMENT_FAILURE_BLOCKS_ALL_RESEARCH"
+    "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
+    "AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE",
+    "HARD_EXTERNAL_BLOCKER",
+    "SAFETY_RESOURCE_STOP"
   ],
-  "maximum_method_cycles": 3,
+  "governance_version": "current_research_governance_20260712",
+  "governance_file": "reports/current_research_governance.md",
+  "maximum_method_cycles": null,
+  "global_no_method_terminal_allowed": false,
   "maximum_total_gpu_time_hours": 24,
   "maximum_wall_time_hours_per_cycle": 12,
   "maximum_single_uncheckpointed_command_hours": 4,
-  "current_cycle": 3,
-  "topic": "geometric_continuity_anchored_perception",
-  "method": "GCAP-VLA",
-  "branch": "codex/ral-cycle-03-gcap-vla",
+  "current_epoch": 2,
+  "current_cycle": 0,
+  "topic": "epoch_2_selection_pending",
+  "method": null,
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "current_branch": "codex/autonomous-until-paper-governance-v2",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
   "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-  "current_commit": "c5eb72fef3ce05bf84094a696e49765c6e94467f",
-  "current_stage": "terminal_no_method_after_3_valid_cycles",
+  "current_commit": "e24a6a11db49054aaf7a9d6787449f671b5035b3",
+  "current_stage": "epoch_1_completed_pivot_required",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -60,33 +64,29 @@
     "cycle_3_focused_unit_tests_pass",
     "cycle_3_stage_a_rollout_completed",
     "cycle_3_stage_a_result_adjudicated",
-    "cycle_3_valid_kill_recorded"
+    "cycle_3_non_go_archived",
+    "epoch_1_corrected_adjudication_recorded",
+    "governance_v2_migration_started"
   ],
   "running_command": null,
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
   "elapsed_active_time_hours_recorded": 3.73,
   "gpu_time_hours_recorded": 3.73,
   "downloads_gib_this_reopened_campaign": 0.0,
-  "hypothesis": "Patchwise temporal geometric repair of camera tensors can preserve interaction-region visual anchors and improve frozen SmolVLA success under controlled partial camera occlusion.",
-  "novelty_claim": "GCAP-VLA changes the perception pathway by preserving geometric continuity in invalid camera regions, rather than changing action chunks, ranking candidates, replanning, or compensating low-level action realization.",
-  "closest_papers": [
-    "AffordVLA",
-    "VLA-IAP",
-    "PALM",
-    "CorridorVLA",
-    "DreamZero"
-  ],
-  "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest occluded baseline, plus wins over full-frame hold-last and no-temporal ablation, with clean retention.",
-  "current_decision": "NO_METHOD_AFTER_3_VALID_CYCLES",
-  "stage_a_partial_checkpoint": "reports/gcap_vla/stage_a_partial_result.json",
-  "stage_a_result_json": "reports/gcap_vla/stage_a_result.json",
-  "stage_a_result_md": "reports/gcap_vla/stage_a_result.md",
+  "hypothesis": null,
+  "novelty_claim": null,
+  "closest_papers": [],
+  "prototype_gate": null,
+  "current_decision": "EPOCH_1_COMPLETED_PIVOT_REQUIRED",
+  "stage_a_partial_checkpoint": null,
+  "stage_a_result_json": null,
+  "stage_a_result_md": null,
   "cycle_1_outcome": {
     "valid_scientific_result": true,
     "stage_a_completed": true,
     "episode_count": 50,
     "exceptions": 0,
-    "final_decision": "SIMPLE_BASELINE_EXPLAINS_METHOD",
+    "final_decision": "UNDERPOWERED_STAGE_A_NON_GO_ARCHIVED",
     "full_method_successes": 1,
     "full_method_total": 10,
     "full_method_task_balanced_success_rate": 0.1,
@@ -102,7 +102,7 @@
     "strongest_delayed_baseline": "frozen_smolvla_delay",
     "mechanism_active": true,
     "passes_prototype_go": false,
-    "kill_reason": "The direct chunk-index delay baseline matched or exceeded the full method, and the no-history ablation matched the full method, so the delay-indexed history-conditioned adapter did not provide closed-loop value."
+    "archive_reason": "Ten episodes per policy cannot justify a permanent scientific kill from a one-episode difference. Do not rerun or rescue the current formulation."
   },
   "cycle_2_pre_stage_a": {
     "proposal_hash": "F9098041A471641E1506BC9AEE2E2CDE205170BAEF2F9E281077724BC239D073",
@@ -136,7 +136,7 @@
     "stage_a_completed": true,
     "episode_count": 70,
     "exceptions": 0,
-    "final_decision": "CLEAN_RETENTION_FAILURE",
+    "final_decision": "VALID_CURRENT_FORMULATION_KILL",
     "passes_prototype_go": false,
     "faulted_full_successes": 1,
     "faulted_full_total": 10,
@@ -154,9 +154,9 @@
     "clean_fedo_successes": 0,
     "clean_fedo_total": 10,
     "clean_retention_drop": 0.4,
-    "kill_reason": "Full FEDO under controlled action-realization faults reached 1/10, below the static inverse-gain, APEX-style feedback, and no-feedback ablation baselines at 2/10; clean FEDO also fell from clean frozen 4/10 to 0/10."
+    "kill_reason": "Full FEDO under controlled action-realization faults reached 1/10, below the static inverse-gain, APEX-style feedback, and no-feedback ablation baselines at 2/10; clean FEDO also fell from clean frozen 4/10 to 0/10. Do not revive the current formulation."
   },
-  "cycle_3_pre_stage_a": {
+  "cycle_3_pre_stage_a_archive": {
     "proposal_hash": "C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655",
     "proposal": "reports/gcap_vla/researcher_proposal.md",
     "reviewer_attack": "reports/gcap_vla/reviewer_attack.md",
@@ -176,12 +176,12 @@
       "clean_gcap_full"
     ]
   },
-  "cycle_3_outcome": {
+  "cycle_3_outcome_archive": {
     "valid_scientific_result": true,
     "stage_a_completed": true,
     "episode_count": 70,
     "exceptions": 0,
-    "final_decision": "NO_OCCLUSION_ROBUSTNESS_GAIN",
+    "final_decision": "UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED",
     "passes_prototype_go": false,
     "occluded_frozen_successes": 4,
     "occluded_frozen_total": 10,
@@ -198,7 +198,7 @@
     "strongest_occluded_baseline": "sobel_edge_boost",
     "strongest_occluded_baseline_task_balanced_success_rate": 0.5,
     "gcap_full_task_balanced_success_rate": 0.3,
-    "kill_reason": "Full GCAP under controlled visual occlusion reached 3/10, below occluded frozen at 4/10 and Sobel edge boost at 5/10; the method did not improve the targeted occlusion-robustness claim axis."
+    "archive_reason": "Full GCAP under controlled visual occlusion reached 3/10, below occluded frozen at 4/10 and Sobel edge boost at 5/10, but 10 episodes per policy and clean GCAP 5/10 versus clean frozen 1/10 leave unresolved variance or mechanism evidence. Do not rerun or rescue the current formulation; do not call the perception-repair family dead."
   },
   "interrupted_launches": [
     {
@@ -207,6 +207,6 @@
       "scientific_result": false
     }
   ],
-  "next_action": "Terminal campaign state reached: no paper-ready method after three valid distinct cycles.",
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/ral-cycle-03-gcap-vla && type reports\\autonomous_ral_campaign_state.json"
+  "next_action": "Begin Epoch 2 candidate generation under reports/current_research_governance.md.",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && type reports\\current_research_governance.md"
 }

@@ -1,5 +1,19 @@
 # Project State
 
+## 2026-07-12 Governance V2 Current State
+
+Active governance: `reports/current_research_governance.md`
+
+Current branch: `codex/autonomous-until-paper-governance-v2`
+
+Current decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`
+
+Current epoch: `2`
+
+Current cycle: `0`
+
+The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`; Epoch 2 must begin with candidate generation under the current governance.
+
 Date: 2026-07-10 KST
 
 Target branch: `main`

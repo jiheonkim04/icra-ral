@@ -119,10 +119,10 @@ GCAP-VLA must not be revived through mask tuning, edge-gain tuning, or another p
 
 ## Terminal Ledger
 
-Final governed decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
+Corrected governed decision: `EPOCH_1_COMPLETED_PIVOT_REQUIRED`
 
 Valid killed cycles:
 
-- Cycle 1 `DICD-VLA`: `SIMPLE_BASELINE_EXPLAINS_METHOD`
-- Cycle 2 `FEDO-VLA`: `CLEAN_RETENTION_FAILURE`
-- Cycle 3 `GCAP-VLA`: `NO_OCCLUSION_ROBUSTNESS_GAIN`
+- Cycle 1 `DICD-VLA`: `UNDERPOWERED_STAGE_A_NON_GO_ARCHIVED`
+- Cycle 2 `FEDO-VLA`: `VALID_CURRENT_FORMULATION_KILL`
+- Cycle 3 `GCAP-VLA`: `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`

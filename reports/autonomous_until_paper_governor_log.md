@@ -9,7 +9,7 @@ Governance ruling:
 - do not rerun FEDO Stage A;
 - do not rescue FEDO by gain tuning, longer training, or a renamed residual-command wrapper;
 - start Cycle 3, the final permitted distinct method cycle;
-- keep the active terminal-state set from the governance correction: `PAPER_READY_EXPERIMENTAL_PACKAGE`, `NO_METHOD_AFTER_3_VALID_CYCLES`, `AUTONOMOUS_BATCH_PAUSED_RESUMABLE`, `HARD_RESOURCE_BLOCKER`, `ENVIRONMENT_FAILURE_BLOCKS_ALL_RESEARCH`.
+- this closure was superseded by the 2026-07-12 governance migration; the active terminal-state set is now defined only in `reports/current_research_governance.md`.
 
 ## 2026-07-12 Cycle 3 Gate
 
@@ -23,8 +23,12 @@ Governance ruling:
 
 - do not rerun GCAP Stage A;
 - do not rescue GCAP by mask tuning, edge-gain tuning, or another patchwise temporal repair wrapper;
-- close the governed campaign at terminal state `NO_METHOD_AFTER_3_VALID_CYCLES`;
+- reclassify the fixed-cycle terminal closure as procedurally invalid under the current governance;
 - make no paper-ready claim and no RA-L acceptance claim.
+
+## 2026-07-12 Governance V2 Migration
+
+Role C records corrected decision `EPOCH_1_COMPLETED_PIVOT_REQUIRED` and requires immediate Epoch 2 candidate generation under `reports/current_research_governance.md`.
 
 ## 2026-07-12 Startup
 
