@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
 
 Current epoch: `2`
 
-Current cycle: `2`
+Current cycle: `3`
 
-Current stage: `epoch_2_cycle_2_selection_pending`
+Current stage: `epoch_2_cycle_3_selection_pending`
 
 Allowed final states:
 
@@ -38,6 +38,14 @@ Epoch 2 must change at least two core dimensions relative to DICD, FEDO, and GCA
 `PTC-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`.
 
 Stage A completed `50 / 50` episodes with zero exceptions. Full PTC reached `0 / 10`, frozen SmolVLA reached `3 / 10`, and the full method was exactly `0.30` task-balanced success below the strongest baseline. The mechanism was active, so this is a valid current-formulation kill.
+
+## Epoch 2 Cycle 2
+
+`SACF-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`.
+
+Stage A completed `50 / 50` episodes with zero exceptions. Full SACF reached `0 / 10`, frozen SmolVLA reached `7 / 10`, and the full method was `0.70` task-balanced success below the strongest baseline. The semantic component was active, so this is a valid current-formulation kill.
+
+Epoch 2 Cycle 3 must change at least two core dimensions relative to PTC and SACF, and should avoid direct transition heads and same-scene semantic-prefix action generators.
 
 ## Resume
 

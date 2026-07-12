@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current campaign decision: `EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED`
+Current campaign decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
 
 This is not a terminal decision.
 
@@ -27,4 +27,6 @@ Cycle 3 `GCAP-VLA` is archived as `UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED`: oc
 
 Cycle 1 of Epoch 2, `PTC-VLA`, is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`: full PTC reached `0 / 10`, frozen SmolVLA reached `3 / 10`, the task-balanced gap was `0.30`, and the mechanism was active. Do not rescue this formulation.
 
-Start Epoch 2 Cycle 2 candidate generation under `reports/current_research_governance.md`.
+Cycle 2 of Epoch 2, `SACF-VLA`, is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`: full SACF reached `0 / 10`, frozen SmolVLA reached `7 / 10`, the task-balanced gap was `0.70`, and the semantic component was active. Do not rescue this formulation.
+
+Start Epoch 2 Cycle 3 candidate generation under `reports/current_research_governance.md`.

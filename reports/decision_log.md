@@ -1655,3 +1655,27 @@ Evidence:
 - mechanism active: transition-context norm `0.065772`, action delta versus ablation `0.756346`
 
 Consequence: archive PTC-VLA as a valid current-formulation kill and continue to Epoch 2 Cycle 2.
+
+## 2026-07-12 - Epoch 2 Cycle 2 SACF-VLA
+
+Decision: `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`
+
+Execution boundary:
+
+- method: `SACF-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `1C43D99A42AD97C29C1BDBDED1AB1326214C8FF0F514F79309266738C5FD1A20`
+- synthetic mechanism smoke: initial brittle gate failed and was preserved, measurement repair recorded, repaired smoke passed
+- real-demo training: passed with `4773` examples
+- Stage A: `50 / 50` episodes, zero exceptions
+
+Evidence:
+
+- frozen SmolVLA: `7 / 10`, task-balanced `0.70`
+- task-phase mean prefix: `0 / 10`
+- plain BC prefix: `0 / 10`
+- CAG null guidance proxy: `1 / 10`, task-balanced `0.10`
+- SACF full: `0 / 10`
+- mechanism active: semantic component norm `1.709826`, action delta versus plain BC `0.429388`
+
+Consequence: archive SACF-VLA as a valid current-formulation kill and continue to Epoch 2 Cycle 3.

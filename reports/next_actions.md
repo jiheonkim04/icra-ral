@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
 
-Immediate next action: start Epoch 2 Cycle 2 autonomous research. Generate exactly three technically distinct candidates, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and baseline attack, then implement unless exact duplication, trivial equivalence, or hard infeasibility is proven.
+Immediate next action: start Epoch 2 Cycle 3 autonomous research. Generate exactly three technically distinct candidates, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and baseline attack, then implement unless exact duplication, trivial equivalence, or hard infeasibility is proven.
 
-Do not stop after governance migration, one method failure, three method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached.
+Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Cycle 3 must change at least two core dimensions relative to PTC-VLA and SACF-VLA.
 
 Date: 2026-07-10 KST
 

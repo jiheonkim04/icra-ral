@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_2_CYCLE_1_PTC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
 
 Current epoch: `2`
 
-Current cycle: `2`
+Current cycle: `3`
 
-Current stage: `epoch_2_cycle_2_selection_pending`
+Current stage: `epoch_2_cycle_3_selection_pending`
 
 ## Corrected Epoch 1 Result
 
