@@ -13,6 +13,10 @@ Active cycle: `3`
 
 Cycle 3 is the final permitted distinct method cycle under the governance correction.
 
+Cycle 3 selected method: `GCAP-VLA`
+
+Cycle 3 status: `STAGE_A_READY_FINAL_ALLOWED_CYCLE`
+
 ## Epoch 1
 
 Status: `OPEN`

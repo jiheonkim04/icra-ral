@@ -14,4 +14,6 @@ Cycle 2, `FEDO-VLA`, is now closed with valid prototype decision `CLEAN_RETENTIO
 
 The 70-episode Stage A closed-loop rollout completed with zero exceptions. Full FEDO under faults reached `1 / 10`, while static inverse gain, the APEX-style feedback proxy, and the no-feedback ablation each reached `2 / 10`. Clean frozen SmolVLA reached `4 / 10`; clean FEDO reached `0 / 10`, a `0.40` absolute clean-retention drop. This kills the method under the preregistered rules.
 
-No paper-ready claim is made. The next required action is Cycle 3, the final permitted distinct method cycle.
+Cycle 3, `GCAP-VLA`, has passed proposal, adversarial review, preregistration, focused unit tests, and synthetic image-mechanism smoke. It has not yet produced the preregistered Stage A closed-loop result.
+
+No paper-ready claim is made. The next required action is GCAP-VLA Stage A, the final permitted distinct method cycle.

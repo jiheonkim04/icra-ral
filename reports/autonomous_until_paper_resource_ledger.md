@@ -24,6 +24,15 @@ Observed FEDO Stage A resource envelope:
 
 Approximate governed campaign GPU time consumed so far: `3.24 h`.
 
+Cycle 3 `GCAP-VLA` pre-Stage-A artifacts:
+
+- `reports/gcap_vla/synthetic_result.json`
+- `scripts/run_gcap_vla_prototype.py`
+- `tca_map/smolvla/gcap_vla.py`
+- `tests/test_gcap_vla.py`
+
+Synthetic result: `SYNTHETIC_MECHANISM_PASS`.
+
 Date: 2026-07-12 KST
 
 Hardware/resource constraints inherited from the objective:

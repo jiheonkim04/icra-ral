@@ -11,6 +11,8 @@ The active governed campaign has completed two valid method cycles:
 
 Cycle 3 is selection-pending and is the final permitted distinct method cycle. It must not revive DICD, FEDO, ECHO, candidate ranking, adaptive-chunk selection, or residual command compensation through cosmetic changes.
 
+Cycle 3 selected method: `GCAP-VLA`, status `STAGE_A_READY_FINAL_ALLOWED_CYCLE`. It targets controlled visual occlusion through patchwise temporal geometric repair at the camera tensor boundary.
+
 ## Historical Closed Methods
 
 These methods are inherited as closed evidence and must not be cosmetically revived.

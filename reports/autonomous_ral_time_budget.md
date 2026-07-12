@@ -42,3 +42,12 @@ FEDO Stage A actual runtime:
 - approximate remaining campaign GPU budget: `20.76 h`
 
 Cycle 2 is closed with valid prototype decision `CLEAN_RETENTION_FAILURE`. Cycle 3 remains under the `12 h` per-cycle wall-clock cap and the campaign-level `24 h` GPU cap. It is the final permitted distinct method cycle.
+
+Cycle 3 pre-Stage-A runtime:
+
+- synthetic image-mechanism smoke: `0.01 s`, CPU/GPU-light
+- focused unit tests: `17 passed`
+- approximate campaign GPU time consumed so far remains `3.24 h`
+- approximate remaining campaign GPU budget: `20.76 h`
+
+GCAP Stage A planned command is checkpointed and expected to remain under `4 h`.

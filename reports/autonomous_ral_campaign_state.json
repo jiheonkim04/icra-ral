@@ -16,13 +16,13 @@
   "maximum_wall_time_hours_per_cycle": 12,
   "maximum_single_uncheckpointed_command_hours": 4,
   "current_cycle": 3,
-  "topic": "cycle_3_candidate_selection_pending",
-  "method": null,
-  "branch": "codex/ral-cycle-02-fedo-vla",
+  "topic": "geometric_continuity_anchored_perception",
+  "method": "GCAP-VLA",
+  "branch": "codex/ral-cycle-03-gcap-vla",
   "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
-  "cycle_branch_alias_from_prompt": "codex/ral-cycle-02-fedo-vla",
+  "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
   "current_commit": "79d3ded2088d08180b2ce58bac20f9579f4d2d47",
-  "current_stage": "cycle_2_valid_kill_recorded_cycle_3_selection_pending",
+  "current_stage": "cycle_3_synthetic_mechanism_passed_stage_a_ready",
   "completed_stages": [
     "repository_state_verified",
     "historical_evidence_inspected",
@@ -50,28 +50,34 @@
     "cycle_2_focused_unit_tests_pass",
     "cycle_2_stage_a_rollout_completed",
     "cycle_2_stage_a_result_adjudicated",
-    "cycle_2_valid_kill_recorded"
+    "cycle_2_valid_kill_recorded",
+    "cycle_3_researcher_proposal_frozen",
+    "cycle_3_reviewer_attack_completed",
+    "cycle_3_rebuttal_completed",
+    "cycle_3_preregistration_frozen",
+    "cycle_3_gcap_module_implemented",
+    "cycle_3_synthetic_mechanism_smoke_passed",
+    "cycle_3_focused_unit_tests_pass"
   ],
-  "running_command": null,
+  "running_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a",
   "start_time": "2026-07-12T17:00:40.0826929+09:00",
   "elapsed_active_time_hours_recorded": 2.72,
   "gpu_time_hours_recorded": 2.72,
   "downloads_gib_this_reopened_campaign": 0.0,
-  "hypothesis": "Measured low-level action-realization error can be compensated by a feedback execution-disturbance observer that adjusts frozen VLA action references under controlled actuator faults.",
-  "novelty_claim": "FEDO-VLA changes deployed action references using command/realized-action feedback and task phase, rather than candidate ranking, visual drift replanning, delay-indexed chunk selection, or generic robustness post-training.",
+  "hypothesis": "Patchwise temporal geometric repair of camera tensors can preserve interaction-region visual anchors and improve frozen SmolVLA success under controlled partial camera occlusion.",
+  "novelty_claim": "GCAP-VLA changes the perception pathway by preserving geometric continuity in invalid camera regions, rather than changing action chunks, ranking candidates, replanning, or compensating low-level action realization.",
   "closest_papers": [
-    "APEX",
-    "RobustVLA",
-    "VLA-Corrector",
-    "Real-time Correction for VLA Action Chunks",
-    "TIC-VLA",
-    "APEX-adjacent adaptive control and residual correction methods"
+    "AffordVLA",
+    "VLA-IAP",
+    "PALM",
+    "CorridorVLA",
+    "DreamZero"
   ],
-  "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest faulted baseline, plus wins over static inverse gain, APEX-style feedback, and no-feedback ablation, with clean retention.",
-  "current_decision": "CYCLE_2_KILLED_PIVOT_TO_CYCLE_3",
-  "stage_a_partial_checkpoint": "reports/fedo_vla/stage_a_partial_result.json",
-  "stage_a_result_json": "reports/fedo_vla/stage_a_result.json",
-  "stage_a_result_md": "reports/fedo_vla/stage_a_result.md",
+  "prototype_gate": "Stage A GO requires at least 5 absolute task-balanced success points over the strongest occluded baseline, plus wins over full-frame hold-last and no-temporal ablation, with clean retention.",
+  "current_decision": "GCAP_STAGE_A_READY",
+  "stage_a_partial_checkpoint": "reports/gcap_vla/stage_a_partial_result.json",
+  "stage_a_result_json": "reports/gcap_vla/stage_a_result.json",
+  "stage_a_result_md": "reports/gcap_vla/stage_a_result.md",
   "cycle_1_outcome": {
     "valid_scientific_result": true,
     "stage_a_completed": true,
@@ -147,6 +153,26 @@
     "clean_retention_drop": 0.4,
     "kill_reason": "Full FEDO under controlled action-realization faults reached 1/10, below the static inverse-gain, APEX-style feedback, and no-feedback ablation baselines at 2/10; clean FEDO also fell from clean frozen 4/10 to 0/10."
   },
+  "cycle_3_pre_stage_a": {
+    "proposal_hash": "C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655",
+    "proposal": "reports/gcap_vla/researcher_proposal.md",
+    "reviewer_attack": "reports/gcap_vla/reviewer_attack.md",
+    "rebuttal": "reports/gcap_vla/researcher_rebuttal.md",
+    "preregistration": "reports/gcap_vla/preregistration.md",
+    "prototype_protocol": "reports/gcap_vla/prototype_protocol.md",
+    "synthetic_result": "reports/gcap_vla/synthetic_result.json",
+    "synthetic_decision": "SYNTHETIC_MECHANISM_PASS",
+    "stage_a_planned_episode_count": 70,
+    "stage_a_variants": [
+      "occluded_frozen_smolvla",
+      "full_frame_hold_last",
+      "sobel_edge_boost",
+      "gcap_no_temporal_ablation",
+      "gcap_full",
+      "clean_frozen_smolvla",
+      "clean_gcap_full"
+    ]
+  },
   "interrupted_launches": [
     {
       "time_kst": "2026-07-12T18:02:39.9368989+09:00",
@@ -154,6 +180,6 @@
       "scientific_result": false
     }
   ],
-  "next_action": "Archive and push the Cycle 2 kill, then start Cycle 3 with a genuinely distinct fallback mechanism family.",
-  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/ral-cycle-02-fedo-vla && type reports\\autonomous_ral_campaign_state.json"
+  "next_action": "Run GCAP-VLA Stage A exactly as preregistered.",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/ral-cycle-03-gcap-vla && wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a"
 }

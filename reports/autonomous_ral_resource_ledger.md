@@ -78,3 +78,20 @@ Cycle 2 final result:
 - final decision: `CLEAN_RETENTION_FAILURE`
 - Stage A episodes: `70 / 70`
 - exceptions: `0`
+
+Cycle 3 GCAP pre-Stage-A artifacts:
+
+- proposal: `reports/gcap_vla/researcher_proposal.md`
+- reviewer attack: `reports/gcap_vla/reviewer_attack.md`
+- preregistration: `reports/gcap_vla/preregistration.md`
+- synthetic result: `reports/gcap_vla/synthetic_result.json`
+- runner: `scripts/run_gcap_vla_prototype.py`
+- module: `tca_map/smolvla/gcap_vla.py`
+- tests: `tests/test_gcap_vla.py`
+
+Observed GCAP synthetic resource envelope:
+
+- elapsed time: `0.01 s`
+- new downloads during Cycle 3: `0 GiB`
+- repeated CUDA OOM: none
+- uncontrolled CPU or disk offload: not observed

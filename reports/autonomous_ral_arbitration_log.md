@@ -68,3 +68,18 @@ Reason:
 - Clean frozen SmolVLA reached `4 / 10`, while clean FEDO reached `0 / 10`, for a `0.40` absolute clean-retention drop.
 
 Reviewer B ruling: this is a valid scientific kill, not a measurement-invalid result. The method loses to simple/static, direct-prior, and ablation controls on the faulted claim axis and also fails clean retention. No repeat, threshold tuning, longer training rescue, or cosmetic FEDO variant is allowed. Start Cycle 3 with a genuinely distinct mechanism family.
+
+## 2026-07-12 KST Cycle 3 Gate
+
+Decision: `APPROVE_GCAP_STAGE_A_WITH_FIXED_HOLD_LAST_GEOMETRY_KILL_GATES`
+
+Reason:
+
+- GCAP-VLA is distinct from DICD and FEDO by problem, representation, and intervention.
+- The core problem changes to controlled visual occlusion and missing interaction-region geometry.
+- The intervention changes the camera tensor pathway, not action chunks or low-level command realization.
+- Latest-paper review makes VLA-IAP, AffordVLA, PALM, CorridorVLA, and DreamZero the closest families.
+- Full-frame hold-last and no-temporal edge-only repair are mandatory kill baselines.
+- Synthetic image smoke passed before Stage A.
+
+Next action: run GCAP-VLA Stage A exactly as preregistered. This is the final allowed method cycle.

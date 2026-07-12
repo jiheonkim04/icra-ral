@@ -10,6 +10,8 @@ Cycle 1 `DICD-VLA` is closed with valid kill `SIMPLE_BASELINE_EXPLAINS_METHOD`. 
 
 Next required action: Cycle 3, the final permitted distinct method cycle under the governance correction.
 
+Cycle 3 update: `GCAP-VLA` is selected and Stage A ready after passing synthetic image-mechanism smoke and focused tests. The next required action is the preregistered GCAP Stage A rollout.
+
 Current campaign decision: `DICD_REAL_TRACE_TRAINING_PASSED_STAGE_A_PENDING`
 
 This is not a terminal decision.

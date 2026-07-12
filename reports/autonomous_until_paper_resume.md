@@ -25,6 +25,16 @@ Key result:
 
 Next automatic stage: commit and push the Cycle 2 archive if not already done, then start Cycle 3, the final permitted distinct method cycle.
 
+Cycle 3 update: `GCAP-VLA` is selected and Stage A ready.
+
+Updated resume command:
+
+```powershell
+cd /d C:\Users\jiheo\tca_map
+git switch codex/ral-cycle-03-gcap-vla
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
+```
+
 Date: 2026-07-12 KST
 
 Resume command:

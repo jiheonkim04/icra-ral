@@ -14,13 +14,13 @@ Governance correction applied:
 
 Current cycle: `3`
 
-Current method: `pending Cycle 3 selection`
+Current method: `GCAP-VLA`
 
-Current branch: `codex/ral-cycle-02-fedo-vla`
+Current branch: `codex/ral-cycle-03-gcap-vla`
 
-Prompt branch alias to create/preserve after commit: `codex/ral-cycle-02-fedo-vla`
+Prompt branch alias to create/preserve after commit: `codex/ral-cycle-03-gcap-vla`
 
-Current stage: `cycle_2_valid_kill_recorded_cycle_3_selection_pending`
+Current stage: `cycle_3_synthetic_mechanism_passed_stage_a_ready`
 
 Cycle 1 Stage A result:
 
@@ -81,4 +81,20 @@ Adjudication:
 
 The FEDO Stage A rollout completed all preregistered episodes with zero exceptions. Full FEDO did not beat the strongest faulted baseline and was worse than the static inverse-gain, APEX-style proxy, and no-feedback ablation baselines. It also failed clean retention, dropping from `4 / 10` for clean frozen SmolVLA to `0 / 10` for clean FEDO. FEDO-VLA is therefore a valid Cycle 2 kill. No repeat or rescue is allowed.
 
-Next automatic stage: start Cycle 3, the final permitted distinct method cycle, with a genuinely different fallback mechanism family.
+Cycle 3 current method:
+
+- topic: geometric-continuity anchored perception
+- method: `GCAP-VLA`
+- proposal: `reports/gcap_vla/researcher_proposal.md`
+- proposal hash: `C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655`
+- reviewer attack: `reports/gcap_vla/reviewer_attack.md`
+- preregistration: `reports/gcap_vla/preregistration.md`
+- synthetic result: `SYNTHETIC_MECHANISM_PASS`
+
+Next command:
+
+```powershell
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
+```
+
+GCAP Stage A must follow the preregistered hold-last, Sobel edge, and no-temporal ablation kill gates. This is the final permitted distinct method cycle.

@@ -10,7 +10,15 @@ git switch codex/ral-cycle-02-fedo-vla
 type reports\autonomous_ral_campaign_state.json
 ```
 
-Current stage: `cycle_2_valid_kill_recorded_cycle_3_selection_pending`
+Updated resume command:
+
+```powershell
+cd /d C:\Users\jiheo\tca_map
+git switch codex/ral-cycle-03-gcap-vla
+wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
+```
+
+Current stage: `cycle_3_synthetic_mechanism_passed_stage_a_ready`
 
 Completed Stage A artifacts:
 
@@ -37,6 +45,12 @@ Cycle 2 FEDO-VLA status:
 - clean FEDO full: `0 / 10`
 - exceptions: `0`
 
-Next automatic stage: commit and push the Cycle 2 archive if not already done, then start Cycle 3, the final permitted distinct method cycle.
+Cycle 3 GCAP-VLA status:
+
+- proposal hash: `C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655`
+- synthetic mechanism smoke: `SYNTHETIC_MECHANISM_PASS`
+- focused tests: `tests/test_gcap_vla.py`, `tests/test_fedo_vla.py`, and `tests/test_dicd_vla.py` pass
+
+Next automatic stage: run GCAP-VLA Stage A with checkpointed partial result at `reports/gcap_vla/stage_a_partial_result.json`.
 
 No paper-ready terminal decision has been reached.

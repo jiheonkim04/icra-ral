@@ -72,12 +72,32 @@ FEDO-VLA must not be revived through more epochs, gain retuning, alternate thres
 
 ## Cycle 3
 
-Topic: `pending`
+Topic: geometric-continuity anchored perception
 
-Method: `pending`
+Method: `GCAP-VLA`
 
-Status: `SELECTION_PENDING_FINAL_ALLOWED_CYCLE`
+Status: `STAGE_A_READY_FINAL_ALLOWED_CYCLE`
 
 Constraint:
 
 Cycle 3 is the last allowed distinct method cycle under the governance correction. It must not be a renamed DICD, FEDO, ECHO, candidate-ranking, adaptive-chunk, or residual-command-compensation method.
+
+Distinctness versus prior cycles:
+
+- core problem changes to partial camera occlusion and missing interaction-region geometry
+- representation changes to image validity masks, temporal repaired camera tensors, and Sobel geometric anchors
+- action-generation mechanism is unchanged; the intervention is perception-path repair before the frozen VLA
+- training signal is absent in the prototype; the hypothesis is deployment-time geometric continuity under visual corruption
+
+Required kill gates:
+
+- full-frame hold-last matches or beats full: `SIMPLE_TEMPORAL_BASELINE_EXPLAINS_METHOD`
+- no-temporal ablation matches or beats full: `TEMPORAL_COMPONENT_NOT_USEFUL`
+- full fails to beat occluded frozen: `NO_OCCLUSION_ROBUSTNESS_GAIN`
+- clean drop exceeds 0.02: `CLEAN_RETENTION_FAILURE`
+
+Stage A planned result files:
+
+- `reports/gcap_vla/stage_a_partial_result.json`
+- `reports/gcap_vla/stage_a_result.json`
+- `reports/gcap_vla/stage_a_result.md`

@@ -1,0 +1,41 @@
+{
+  "box": [
+    22,
+    25,
+    45,
+    47
+  ],
+  "branch": "codex/ral-cycle-03-gcap-vla",
+  "checks": {
+    "finite_outputs": true,
+    "full_improves_over_edge_only": true,
+    "full_improves_over_occluded": true,
+    "full_not_worse_than_hold_last": true,
+    "mask_nonempty": true,
+    "occlusion_degrades_image": true
+  },
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "edge_gain": 0.08,
+    "fill_value": 0.0,
+    "mask_dilate": 5,
+    "max_active_fraction": 0.78,
+    "min_active_fraction": 0.08,
+    "temporal_blend": 1.0
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 0.01,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "mode": "synthetic",
+  "mse": {
+    "edge_only": 0.047808,
+    "gcap_full": 0.008168,
+    "hold_last": 0.030375,
+    "occluded": 0.048904
+  },
+  "next_step": "Run Stage A.",
+  "summary": {
+    "synthetic_passed": true
+  },
+  "training_happened": false
+}

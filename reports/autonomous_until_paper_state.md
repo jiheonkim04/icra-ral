@@ -12,6 +12,8 @@ Current decision: `CYCLE_2_KILLED_PIVOT_TO_CYCLE_3`.
 
 Next automatic stage: start Cycle 3, the final permitted distinct method cycle.
 
+Cycle 3 update: `GCAP-VLA` has been selected, proposal hash `C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655`, synthetic mechanism smoke `SYNTHETIC_MECHANISM_PASS`, and current stage `cycle_3_synthetic_mechanism_passed_stage_a_ready`.
+
 Date: 2026-07-12 KST
 
 Campaign branch: `codex/autonomous-until-ral-evidence-ready`
