@@ -354,6 +354,37 @@ Key reports:
 
 Exact next step: preserve this postmortem branch. Do not treat `TWO_IMPLEMENTED_METHODS_KILLED` as a genuine two-method terminal scientific claim without a new, explicitly approved follow-up.
 
+## PhaseBarrier Bounded Adjudication - 2026-07-12
+
+- branch: `codex/phasebarrier-bounded-adjudication`
+- base postmortem commit: `9620d1b5bea2555fe44bac2b8880a1d798699433`
+- final decision: `PHASEBARRIER_COMPONENT_NOT_USEFUL`
+- valid episodes: `100/100`
+- training rerun for valid result: `False`
+- original PhaseBarrier weights reused: `True`
+- invalid retrained run preserved: `reports/phase_barrier_bounded_repair_invalid_retrained_result.json`
+- main updated: `False`
+
+Key outcome:
+
+- frozen SmolVLA: `8/20`
+- simple global damping: `0/20`
+- no-phase ablation: `9/20`
+- full PhaseBarrier: `0/20`
+
+PhaseBarrier is archived and must not be rescued. The phase-conditioned component acted but was beaten by the no-phase ablation.
+
+Key reports:
+
+- `reports/phase_barrier_bounded_repair_plan.md`
+- `reports/phase_barrier_power_and_sample_plan.md`
+- `reports/phase_barrier_bounded_repair_manifest.json`
+- `reports/phase_barrier_bounded_repair_result.json`
+- `reports/phase_barrier_bounded_repair_result.md`
+- `reports/phase_barrier_bounded_repair_decision.md`
+
+Exact next step: do not continue PhaseBarrier. CensorCredit remains a documented implementation failure, but no CensorCredit repair was performed in this run.
+
 ## Autonomous Dual-Review RA-L Campaign - 2026-07-11
 
 - branch: `codex/autonomous-dual-review-ral-research`

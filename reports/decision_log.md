@@ -1548,3 +1548,34 @@ Evidence:
 - CensorCredit-VLA trained `24` records from `6` states and evaluated `2` held-out episodes per variant. Censored and uncensored labels were identical for every record, producing identical saved model weights. Classification: `IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
 
 Consequence: preserve the implementation evidence as negative prototype evidence, but do not report it as two genuine method-level kills. No final method is promoted from this postmortem.
+
+## 2026-07-12 - PhaseBarrier Bounded Adjudication
+
+Decision: `PHASEBARRIER_COMPONENT_NOT_USEFUL`
+
+Execution boundary:
+
+- branch: `codex/phasebarrier-bounded-adjudication`
+- bounded repair reason: original PhaseBarrier implementation acted but the first prototype was underpowered
+- valid closed-loop episodes: `100/100`
+- valid run reused original saved PhaseBarrier weights: `True`
+- training rerun for valid result: `False`
+- invalid retrained run preserved: `reports/phase_barrier_bounded_repair_invalid_retrained_result.json`
+- CensorCredit repair happened: `False`
+
+Result:
+
+- frozen SmolVLA: `8/20`
+- Pre-VLA-style halt proxy: `0/20`
+- simple global damping: `0/20`
+- no-phase ablation: `9/20`
+- full PhaseBarrier: `0/20`
+
+Mechanism:
+
+- full PhaseBarrier shaped `20/20` episodes;
+- mean full action delta: `0.105796`;
+- mean full shaped steps: `357.45`;
+- no-phase ablation mean action delta: `0.012180`.
+
+Consequence: archive PhaseBarrier-VLA permanently under the current formulation. The phase-conditioned component is not useful because the key no-phase ablation beat it by `45` task-balanced percentage points.

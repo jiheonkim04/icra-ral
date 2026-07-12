@@ -12,6 +12,7 @@ variant emits exactly one continuous action per policy step.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 import time
@@ -45,6 +46,7 @@ from tca_map.smolvla.official_wsl_libero_rollout import (  # noqa: E402
 )
 from tca_map.smolvla.phase_barrier_vla import (  # noqa: E402
     BarrierRecord,
+    PhaseBarrierModel,
     action_feature_dict,
     fit_phase_barrier,
     infer_phase_from_step,
@@ -70,7 +72,7 @@ TASKS = [
         "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
     },
 ]
-RESET_IDENTITIES = [20260711, 20260712, 20260713, 20260714, 20260715]
+RESET_IDENTITIES = [20260711 + index for index in range(20)]
 VARIANTS = [
     "frozen_smolvla",
     "pre_vla_style_halt_proxy",
@@ -88,6 +90,11 @@ def _write_json(path: Path, payload: Mapping[str, Any]) -> None:
 def _write_md(path: Path, lines: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
+def _json_sha256(payload: Any) -> str:
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"), default=_json_default).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def _round(value: float | int | np.floating[Any] | None, digits: int = 6) -> float | None:
@@ -557,7 +564,7 @@ def _write_protocol(report_dir: Path, args: argparse.Namespace) -> None:
     lines = [
         "# PhaseBarrier-VLA Prototype Protocol",
         "",
-        f"Date: {DATE_KST} KST",
+        f"Date: {args.run_date_kst} KST",
         "",
         "## Method",
         "",
@@ -568,6 +575,7 @@ def _write_protocol(report_dir: Path, args: argparse.Namespace) -> None:
         f"- tasks: `{[(item['suite'], item['task_id']) for item in TASKS[: int(args.max_tasks)]]}`",
         f"- training identities: `{RESET_IDENTITIES[: int(args.train_identities)]}`",
         f"- eval identities: `{RESET_IDENTITIES[int(args.train_identities): int(args.train_identities) + int(args.eval_identities)]}`",
+        f"- loaded training/result JSON: `{args.load_train_json or None}`",
         f"- training state fractions: `{args.train_fractions}`",
         f"- short intervention horizon: `{args.short_horizon}`",
         f"- max eval steps override: `{args.max_eval_steps}` (`0` means official max)",
@@ -586,7 +594,7 @@ def _write_protocol(report_dir: Path, args: argparse.Namespace) -> None:
         "- Route B: full method beats strongest baseline and ablation, and relative failure rate decreases by at least 10%.",
         "- Kill: full method fails both routes, simple baseline matches/beats it, ablation matches/beats it, or infrastructure/runtime invalidates measurement.",
     ]
-    _write_md(report_dir / "phase_barrier_vla_prototype_protocol.md", lines)
+    _write_md(report_dir / f"{args.output_stem}_protocol.md", lines)
 
 
 def _write_overlap_and_reclassification(report_dir: Path) -> None:
@@ -654,14 +662,28 @@ def run_prototype(args: argparse.Namespace) -> dict[str, Any]:
     _write_protocol(report_dir, args)
     report: dict[str, Any] = {
         "schema_version": "phase_barrier_vla_prototype_v1",
-        "date_kst": DATE_KST,
-        "branch": BRANCH,
+        "date_kst": str(args.run_date_kst),
+        "branch": str(args.run_branch),
         "previous_decision_reclassified_as": "PREMATURE_LITERATURE_ONLY_TERMINATION",
         "method": "PhaseBarrier-VLA",
         "training_happened": False,
         "closed_loop_experiment_happened": False,
         "tasks": TASKS[: int(args.max_tasks)],
         "variants": list(VARIANTS),
+        "config": {
+            "max_tasks": int(args.max_tasks),
+            "train_identities": int(args.train_identities),
+            "eval_identities": int(args.eval_identities),
+            "train_fractions": str(args.train_fractions),
+            "short_horizon": int(args.short_horizon),
+            "max_eval_steps": int(args.max_eval_steps),
+            "l2": float(args.l2),
+            "damping_scale": float(args.damping_scale),
+            "margin_threshold": float(args.margin_threshold),
+            "projection_strength": float(args.projection_strength),
+            "load_train_json": str(args.load_train_json) if args.load_train_json else None,
+            "output_stem": str(args.output_stem),
+        },
         "train": {},
         "episodes": [],
         "summary": {},
@@ -677,25 +699,42 @@ def run_prototype(args: argparse.Namespace) -> dict[str, Any]:
         spec = next(item for item in POLICIES if item.name == "frozen_base")
         loaded = _load_policy_and_processors(args, spec)
         report["policy_load_audit"] = loaded["audit"]
-        train = _train_barriers(args, loaded)
-        report["training_happened"] = True
+        if args.load_train_json:
+            source_path = Path(args.load_train_json)
+            source_report = json.loads(source_path.read_text(encoding="utf-8"))
+            train = source_report["train"]
+            report["training_happened"] = False
+            report["training_reused_from"] = str(source_path)
+            report["training_checkpoint_identity"] = {
+                "source_final_decision": source_report.get("final_decision"),
+                "source_training_record_count": train.get("training_record_count"),
+                "phase_model_sha256": _json_sha256(train.get("phase_model")),
+                "no_phase_model_sha256": _json_sha256(train.get("no_phase_model")),
+            }
+        else:
+            train = _train_barriers(args, loaded)
+            report["training_happened"] = True
         report["train"] = train
-        phase_model = fit_phase_barrier(
-            [
-                BarrierRecord(str(row["phase"]), {key: float(value) for key, value in row["features"].items()}, float(row["label"]))
-                for row in train["rows"]
-            ],
-            use_phase=True,
-            l2=float(args.l2),
-        )
-        no_phase_model = fit_phase_barrier(
-            [
-                BarrierRecord(str(row["phase"]), {key: float(value) for key, value in row["features"].items()}, float(row["label"]))
-                for row in train["rows"]
-            ],
-            use_phase=False,
-            l2=float(args.l2),
-        )
+        if args.load_train_json and train.get("phase_model") and train.get("no_phase_model"):
+            phase_model = PhaseBarrierModel.from_json(train["phase_model"])
+            no_phase_model = PhaseBarrierModel.from_json(train["no_phase_model"])
+        else:
+            phase_model = fit_phase_barrier(
+                [
+                    BarrierRecord(str(row["phase"]), {key: float(value) for key, value in row["features"].items()}, float(row["label"]))
+                    for row in train["rows"]
+                ],
+                use_phase=True,
+                l2=float(args.l2),
+            )
+            no_phase_model = fit_phase_barrier(
+                [
+                    BarrierRecord(str(row["phase"]), {key: float(value) for key, value in row["features"].items()}, float(row["label"]))
+                    for row in train["rows"]
+                ],
+                use_phase=False,
+                l2=float(args.l2),
+            )
         eval_tasks = TASKS[: int(args.max_tasks)]
         eval_start = int(args.train_identities)
         eval_identities = RESET_IDENTITIES[eval_start : eval_start + int(args.eval_identities)]
@@ -748,10 +787,10 @@ def run_prototype(args: argparse.Namespace) -> dict[str, Any]:
             report["latency_vram_summary"] = {"elapsed_seconds": report["elapsed_seconds"], "cuda_memory": _cuda_memory(torch)}
         except Exception:
             report["latency_vram_summary"] = {"elapsed_seconds": report["elapsed_seconds"]}
-        _write_json(report_dir / "phase_barrier_vla_prototype_result.json", report)
+        _write_json(report_dir / f"{args.output_stem}_result.json", report)
         summary = report.get("summary") or {}
         _write_md(
-            report_dir / "phase_barrier_vla_prototype_result.md",
+            report_dir / f"{args.output_stem}_result.md",
             [
                 "# PhaseBarrier-VLA Prototype Result",
                 "",
@@ -779,6 +818,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lora-root", default="/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4")
     parser.add_argument("--libero-config-dir", default="/home/jiheon/.libero")
     parser.add_argument("--report-dir", default="reports")
+    parser.add_argument("--output-stem", default="phase_barrier_vla_prototype")
+    parser.add_argument("--run-branch", default=BRANCH)
+    parser.add_argument("--run-date-kst", default=DATE_KST)
+    parser.add_argument("--load-train-json", default=None)
     parser.add_argument("--max-tasks", type=int, default=2)
     parser.add_argument("--train-identities", type=int, default=1)
     parser.add_argument("--eval-identities", type=int, default=1)
@@ -797,7 +840,7 @@ def main(argv: list[str] | None = None) -> int:
     if int(args.max_tasks) < 1 or int(args.max_tasks) > len(TASKS):
         raise SystemExit("--max-tasks must be between 1 and 2")
     if int(args.train_identities) < 1 or int(args.train_identities) >= len(RESET_IDENTITIES):
-        raise SystemExit("--train-identities must be between 1 and 4")
+        raise SystemExit(f"--train-identities must be between 1 and {len(RESET_IDENTITIES) - 1}")
     if int(args.eval_identities) < 1 or int(args.train_identities) + int(args.eval_identities) > len(RESET_IDENTITIES):
         raise SystemExit("--eval-identities exceeds available held-out reset identities")
     report = run_prototype(args)

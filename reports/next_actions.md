@@ -246,6 +246,31 @@ Still forbidden:
 - no claim that `TWO_IMPLEMENTED_METHODS_KILLED` is a review-resistant scientific terminal result;
 - no final method promotion from the current evidence alone.
 
+## After PhaseBarrier Bounded Adjudication - 2026-07-12
+
+- decision: `PHASEBARRIER_COMPONENT_NOT_USEFUL`
+- next: `Archive PhaseBarrier; do not rescue or tune it.`
+
+Evidence:
+
+- valid bounded result reused original saved PhaseBarrier weights;
+- full PhaseBarrier completed `20/20` held-out episodes and changed actions in every episode;
+- full PhaseBarrier success was `0/20`;
+- no-phase ablation success was `9/20`;
+- frozen SmolVLA success was `8/20`.
+
+Allowed later action:
+
+1. Inspect CensorCredit's documented implementation failure only if explicitly reopened.
+2. A CensorCredit repair is allowed only if it first demonstrates that censored and uncensored labels differ and that the intended component changes actions.
+
+Still forbidden:
+
+- no PhaseBarrier threshold tuning;
+- no new PhaseBarrier repeat;
+- no PhaseBarrier redesign under another name;
+- no CensorCredit repair inside the PhaseBarrier adjudication branch.
+
 ## After Autonomous Dual-Review RA-L Campaign - 2026-07-11
 
 - decision: `NO_METHOD_AFTER_3_VALID_CYCLES`

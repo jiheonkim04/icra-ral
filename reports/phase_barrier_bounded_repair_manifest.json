@@ -1,0 +1,70 @@
+{
+  "schema_version": "phase_barrier_bounded_repair_manifest_v1",
+  "date_kst": "2026-07-12",
+  "branch": "codex/phasebarrier-bounded-adjudication",
+  "base_commit": "9620d1b5bea2555fe44bac2b8880a1d798699433",
+  "method_frozen": true,
+  "algorithmic_changes_allowed": false,
+  "runner_change": "evaluation/checkpoint-only: extend deterministic reset identities, write bounded-repair output filenames, and load the original saved PhaseBarrier weights instead of retraining",
+  "backbone": {
+    "name": "official frozen SmolVLA-LIBERO",
+    "checkpoint_path": "/home/jiheon/assets/checkpoints/smolvla_libero",
+    "policy": "frozen_base",
+    "lora_used": false
+  },
+  "tasks": [
+    {
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "role": "stable_grasp_contact_transition",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate"
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "role": "long_horizon_contact_and_release",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate"
+    }
+  ],
+  "train_identities": [
+    20260711
+  ],
+  "eval_identities": [
+    20260712,
+    20260713,
+    20260714,
+    20260715,
+    20260716,
+    20260717,
+    20260718,
+    20260719,
+    20260720,
+    20260721
+  ],
+  "initial_state_indices": {
+    "20260711": 0,
+    "20260712": 1,
+    "20260713": 2,
+    "20260714": 3,
+    "20260715": 4,
+    "20260716": 5,
+    "20260717": 6,
+    "20260718": 7,
+    "20260719": 8,
+    "20260720": 9,
+    "20260721": 10
+  },
+  "variants": [
+    "frozen_smolvla",
+    "pre_vla_style_halt_proxy",
+    "simple_global_damping",
+    "phase_barrier_no_phase_ablation",
+    "phase_barrier_full"
+  ],
+  "episodes_per_policy": 20,
+  "episodes_per_task_per_policy": 10,
+  "planned_episode_count": 100,
+  "maximum_allowed_episode_count": 300,
+  "original_train_json": "reports/phase_barrier_vla_prototype_result.json",
+  "command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_phase_barrier_vla_prototype.py --max-tasks 2 --train-identities 1 --eval-identities 10 --short-horizon 4 --max-eval-steps 0 --output-stem phase_barrier_bounded_repair --run-branch codex/phasebarrier-bounded-adjudication --run-date-kst 2026-07-12 --load-train-json reports/phase_barrier_vla_prototype_result.json"
+}
