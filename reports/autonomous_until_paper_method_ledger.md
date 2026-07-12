@@ -15,4 +15,4 @@ These methods are inherited as closed evidence and must not be cosmetically revi
 
 | Epoch | Cycle | Method | Status | Next |
 | --- | ---: | --- | --- | --- |
-| 1 | 1 | `DICD-VLA` | `SELECTED_PENDING_CHILD_BRANCH` | create child branch, freeze proposal, review, preregister |
+| 1 | 1 | `DICD-VLA` | `PREREGISTERED_IMPLEMENTATION_PENDING` | implement adapter, tests, mechanism smoke |

@@ -1,6 +1,6 @@
 # Autonomous Until Paper Final Decision
 
-Current campaign decision: `CYCLE_1_METHOD_SELECTED`
+Current campaign decision: `DICD_PREREGISTERED_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -11,4 +11,4 @@ Allowed terminal decisions:
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
 
-The campaign has opened epoch 1, completed candidate discovery, and selected `DICD-VLA`. It must continue to child-branch proposal, hostile review, preregistration, implementation, mechanism smoke, and staged evaluation.
+The campaign has opened epoch 1, completed candidate discovery, selected `DICD-VLA`, and frozen proposal/review/preregistration on the method child branch. It must continue to implementation, mechanism smoke, and staged evaluation.
