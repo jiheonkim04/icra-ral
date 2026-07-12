@@ -1,0 +1,1770 @@
+{
+  "branch": "codex/ral-cycle-03-gcap-vla",
+  "closed_loop_experiment_happened": true,
+  "config": {
+    "edge_gain": 0.08,
+    "fill_value": 0.0,
+    "mask_dilate": 5,
+    "max_active_fraction": 0.78,
+    "min_active_fraction": 0.08,
+    "temporal_blend": 1.0
+  },
+  "cuda_memory": {
+    "allocated_bytes": 935880704,
+    "allocated_mb": 892.525,
+    "max_allocated_bytes": 974796288,
+    "max_allocated_mb": 929.638
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 1748.648,
+  "episode_count": 70,
+  "episodes": [
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 32.758,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 29.491,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 30.25,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.827068,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.161,
+      "episode_steps": 133,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.083217,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.836879,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.701,
+      "episode_steps": 141,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.084204,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 38.646,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.818182,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 20.602,
+      "episode_steps": 231,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.082323,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.8125,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.14,
+      "episode_steps": 224,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.081751,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 33.141,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 30.668,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "occluded_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.475,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 30.968,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 30.663,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.932,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 28.173,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 27.72,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.16,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.203,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 27.013,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 28.724,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "full_frame_hold_last"
+    },
+    {
+      "active_mask_step_fraction": 0.824427,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 20.6,
+      "episode_steps": 131,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.082951,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.199,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 28.055,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.828358,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 20.221,
+      "episode_steps": 134,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.083346,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.835714,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 17.698,
+      "episode_steps": 140,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.084087,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.107,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.814978,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 18.15,
+      "episode_steps": 227,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.082,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.813333,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 17.36,
+      "episode_steps": 225,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.081835,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.304,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.109,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "sobel_edge_boost"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.23,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 27.589,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 28.482,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.824427,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 21.099,
+      "episode_steps": 131,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.082951,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.836879,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 19.029,
+      "episode_steps": 141,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.084204,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.058,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.813333,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 20.226,
+      "episode_steps": 225,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.081835,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.811659,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 16.674,
+      "episode_steps": 223,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.081666,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.078,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.368,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_no_temporal_ablation"
+    },
+    {
+      "active_mask_step_fraction": 0.821705,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 19.449,
+      "episode_steps": 129,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.082677,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.881,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.406,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.825758,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 16.173,
+      "episode_steps": 132,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.083085,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.696429,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.115,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070072,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 27.725,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.92,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.815789,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 16.225,
+      "episode_steps": 228,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.082082,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.093,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.698077,
+      "condition": "occluded",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.774,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.070238,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 29.187,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.486,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.14,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 16.266,
+      "episode_steps": 133,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.696,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.124,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.74,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.737,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.903,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 25.184,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_frozen_smolvla"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.265,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 26.222,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 18.921,
+      "episode_steps": 127,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 18.337,
+      "episode_steps": 135,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 21.145,
+      "episode_steps": 144,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.847,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260713,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 24.442,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260714,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 17.204,
+      "episode_steps": 266,
+      "exception": null,
+      "identity": 20260715,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 23.538,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260716,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_gcap_full"
+    },
+    {
+      "active_mask_step_fraction": 0.0,
+      "condition": "clean",
+      "cuda_memory": {
+        "allocated_bytes": 937453568,
+        "allocated_mb": 894.025,
+        "max_allocated_bytes": 974796288,
+        "max_allocated_mb": 929.638
+      },
+      "elapsed_seconds": 17.867,
+      "episode_steps": 249,
+      "exception": null,
+      "identity": 20260717,
+      "mean_mask_fraction": 0.0,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "clean_gcap_full"
+    }
+  ],
+  "final_decision": "NO_OCCLUSION_ROBUSTNESS_GAIN",
+  "identities": [
+    20260713,
+    20260714,
+    20260715,
+    20260716,
+    20260717
+  ],
+  "mode": "stage-a",
+  "next_step": "Follow the Stage A method decision.",
+  "planned_episode_count": 70,
+  "stage_a_completed": true,
+  "summary": {
+    "by_variant": {
+      "clean_frozen_smolvla": {
+        "condition": "clean",
+        "mean_mask_fraction": 0.0,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          }
+        },
+        "successes": 1,
+        "task_balanced_success_rate": 0.1,
+        "total": 10,
+        "wilson_95_ci": [
+          0.017876,
+          0.404156
+        ]
+      },
+      "clean_gcap_full": {
+        "condition": "clean",
+        "mean_mask_fraction": 0.0,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.6,
+            "successes": 3,
+            "total": 5
+          }
+        },
+        "successes": 5,
+        "task_balanced_success_rate": 0.5,
+        "total": 10,
+        "wilson_95_ci": [
+          0.23659,
+          0.76341
+        ]
+      },
+      "full_frame_hold_last": {
+        "condition": "occluded",
+        "mean_mask_fraction": 0.070155,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        },
+        "successes": 0,
+        "task_balanced_success_rate": 0.0,
+        "total": 10,
+        "wilson_95_ci": [
+          0.0,
+          0.27754
+        ]
+      },
+      "gcap_full": {
+        "condition": "occluded",
+        "mean_mask_fraction": 0.073901,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          }
+        },
+        "successes": 3,
+        "task_balanced_success_rate": 0.3,
+        "total": 10,
+        "wilson_95_ci": [
+          0.107789,
+          0.603227
+        ]
+      },
+      "gcap_no_temporal_ablation": {
+        "condition": "occluded",
+        "mean_mask_fraction": 0.075159,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          }
+        },
+        "successes": 4,
+        "task_balanced_success_rate": 0.4,
+        "total": 10,
+        "wilson_95_ci": [
+          0.168178,
+          0.68733
+        ]
+      },
+      "occluded_frozen_smolvla": {
+        "condition": "occluded",
+        "mean_mask_fraction": 0.075243,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          }
+        },
+        "successes": 4,
+        "task_balanced_success_rate": 0.4,
+        "total": 10,
+        "wilson_95_ci": [
+          0.168178,
+          0.68733
+        ]
+      },
+      "sobel_edge_boost": {
+        "condition": "occluded",
+        "mean_mask_fraction": 0.076508,
+        "per_task": {
+          "libero_10/task_4": {
+            "rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "libero_spatial/task_4": {
+            "rate": 0.6,
+            "successes": 3,
+            "total": 5
+          }
+        },
+        "successes": 5,
+        "task_balanced_success_rate": 0.5,
+        "total": 10,
+        "wilson_95_ci": [
+          0.23659,
+          0.76341
+        ]
+      }
+    },
+    "clean_retention_drop": -0.4,
+    "exception_count": 0,
+    "method_decision": "NO_OCCLUSION_ROBUSTNESS_GAIN",
+    "passes_prototype_go": false,
+    "strongest_occluded_baseline": "sobel_edge_boost",
+    "strongest_occluded_baseline_rate": 0.5
+  },
+  "tasks": [
+    {
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4
+    }
+  ],
+  "training_happened": false,
+  "variants": [
+    "occluded_frozen_smolvla",
+    "full_frame_hold_last",
+    "sobel_edge_boost",
+    "gcap_no_temporal_ablation",
+    "gcap_full",
+    "clean_frozen_smolvla",
+    "clean_gcap_full"
+  ]
+}

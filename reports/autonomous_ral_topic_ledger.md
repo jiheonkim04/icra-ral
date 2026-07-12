@@ -76,7 +76,7 @@ Topic: geometric-continuity anchored perception
 
 Method: `GCAP-VLA`
 
-Status: `STAGE_A_READY_FINAL_ALLOWED_CYCLE`
+Status: `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE`
 
 Constraint:
 
@@ -101,3 +101,28 @@ Stage A planned result files:
 - `reports/gcap_vla/stage_a_partial_result.json`
 - `reports/gcap_vla/stage_a_result.json`
 - `reports/gcap_vla/stage_a_result.md`
+
+Cycle 3 Stage A kill:
+
+- decision: `NO_OCCLUSION_ROBUSTNESS_GAIN`
+- result file: `reports/gcap_vla/stage_a_result.json`
+- occluded frozen SmolVLA: `4 / 10`
+- full-frame hold-last: `0 / 10`
+- Sobel edge boost: `5 / 10`
+- GCAP no-temporal ablation: `4 / 10`
+- GCAP full under occlusion: `3 / 10`
+- clean frozen SmolVLA: `1 / 10`
+- clean GCAP full: `5 / 10`
+- exceptions: `0`
+
+GCAP-VLA must not be revived through mask tuning, edge-gain tuning, or another patchwise temporal repair wrapper. This closes the third and final allowed method cycle.
+
+## Terminal Ledger
+
+Final governed decision: `NO_METHOD_AFTER_3_VALID_CYCLES`
+
+Valid killed cycles:
+
+- Cycle 1 `DICD-VLA`: `SIMPLE_BASELINE_EXPLAINS_METHOD`
+- Cycle 2 `FEDO-VLA`: `CLEAN_RETENTION_FAILURE`
+- Cycle 3 `GCAP-VLA`: `NO_OCCLUSION_ROBUSTNESS_GAIN`

@@ -10,7 +10,7 @@ git switch codex/ral-cycle-02-fedo-vla
 type reports\autonomous_ral_campaign_state.json
 ```
 
-Current stage: `cycle_2_valid_kill_recorded_cycle_3_selection_pending`
+Current stage: `terminal_no_method_after_3_valid_cycles`
 
 Cycle 2 `FEDO-VLA` Stage A completed `70 / 70` episodes with zero exceptions and final decision `CLEAN_RETENTION_FAILURE`.
 
@@ -23,17 +23,28 @@ Key result:
 - clean frozen SmolVLA: `4 / 10`
 - clean FEDO full: `0 / 10`
 
-Next automatic stage: commit and push the Cycle 2 archive if not already done, then start Cycle 3, the final permitted distinct method cycle.
+Cycle 3 `GCAP-VLA` Stage A completed `70 / 70` episodes with zero exceptions and final decision `NO_OCCLUSION_ROBUSTNESS_GAIN`.
 
-Cycle 3 update: `GCAP-VLA` is selected and Stage A ready.
+Key Cycle 3 result:
 
-Updated resume command:
+- occluded frozen SmolVLA: `4 / 10`
+- Sobel edge boost: `5 / 10`
+- GCAP no-temporal ablation: `4 / 10`
+- GCAP full under occlusion: `3 / 10`
+- clean frozen SmolVLA: `1 / 10`
+- clean GCAP full: `5 / 10`
+
+Terminal decision: `NO_METHOD_AFTER_3_VALID_CYCLES`.
+
+Final state inspection command:
 
 ```powershell
 cd /d C:\Users\jiheo\tca_map
 git switch codex/ral-cycle-03-gcap-vla
-wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
+type reports\autonomous_ral_campaign_state.json
 ```
+
+## Archived Prior Resume Block
 
 Date: 2026-07-12 KST
 
@@ -45,9 +56,9 @@ git switch codex/ral-cycle-02-fedo-vla
 wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_fedo_vla_prototype.py --mode stage-a
 ```
 
-Current stage: `cycle_2_real_trace_training_passed_stage_a_ready`
+Archived stage: `cycle_2_real_trace_training_passed_stage_a_ready`
 
-Next automatic stage:
+Archived next automatic stage at that time:
 
 1. Run FEDO-VLA Stage A.
 2. Adjudicate against static inverse-gain, APEX-style feedback, and no-feedback ablation.

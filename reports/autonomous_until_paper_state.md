@@ -8,11 +8,11 @@ Cycle 1 `DICD-VLA` is closed with valid kill `SIMPLE_BASELINE_EXPLAINS_METHOD`.
 
 Cycle 2 `FEDO-VLA` is closed with valid kill `CLEAN_RETENTION_FAILURE`: Stage A completed `70 / 70` episodes with zero exceptions; faulted full FEDO reached `1 / 10`, while static inverse gain, APEX-style feedback proxy, and no-feedback ablation each reached `2 / 10`; clean frozen SmolVLA reached `4 / 10`, while clean FEDO reached `0 / 10`.
 
-Current decision: `CYCLE_2_KILLED_PIVOT_TO_CYCLE_3`.
+Current decision: `NO_METHOD_AFTER_3_VALID_CYCLES`.
 
-Next automatic stage: start Cycle 3, the final permitted distinct method cycle.
+This is a terminal governed decision.
 
-Cycle 3 update: `GCAP-VLA` has been selected, proposal hash `C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655`, synthetic mechanism smoke `SYNTHETIC_MECHANISM_PASS`, and current stage `cycle_3_synthetic_mechanism_passed_stage_a_ready`.
+Cycle 3 update: `GCAP-VLA` completed Stage A with valid kill `NO_OCCLUSION_ROBUSTNESS_GAIN`: `70 / 70` episodes completed with zero exceptions; full GCAP under occlusion reached `3 / 10`, while occluded frozen SmolVLA reached `4 / 10`, Sobel edge boost reached `5 / 10`, and the no-temporal ablation reached `4 / 10`. Clean GCAP reached `5 / 10` versus clean frozen `1 / 10`, so clean retention was not the blocker.
 
 Date: 2026-07-12 KST
 

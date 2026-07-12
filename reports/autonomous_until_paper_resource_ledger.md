@@ -33,6 +33,25 @@ Cycle 3 `GCAP-VLA` pre-Stage-A artifacts:
 
 Synthetic result: `SYNTHETIC_MECHANISM_PASS`.
 
+Cycle 3 `GCAP-VLA` Stage A completed `70 / 70` episodes with zero exceptions.
+
+GCAP Stage A artifacts:
+
+- `reports/gcap_vla/stage_a_partial_result.json`
+- `reports/gcap_vla/stage_a_result.json`
+- `reports/gcap_vla/stage_a_result.md`
+- local ignored logs: `reports/gcap_vla/stage_a_stdout.log`, `reports/gcap_vla/stage_a_stderr.log`
+
+Observed GCAP Stage A resource envelope:
+
+- rollout elapsed time: `1748.648 s`
+- CUDA allocation reported by result JSON: peak approximately `929.638 MiB`
+- new downloads during Cycle 3: `0 GiB`
+- repeated CUDA OOM: none
+- uncontrolled CPU or disk offload: not observed
+
+Approximate governed campaign GPU time consumed after Cycle 3: `3.73 h`.
+
 Date: 2026-07-12 KST
 
 Hardware/resource constraints inherited from the objective:

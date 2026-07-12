@@ -2,20 +2,23 @@
 
 ## 2026-07-12 KST Continuity Update
 
-Cycles completed in epoch 1: `2`
+Cycles completed in epoch 1: `3`
 
 Closed cycles:
 
 - Cycle 1 `DICD-VLA`: `SIMPLE_BASELINE_EXPLAINS_METHOD`
 - Cycle 2 `FEDO-VLA`: `CLEAN_RETENTION_FAILURE`
+- Cycle 3 `GCAP-VLA`: `NO_OCCLUSION_ROBUSTNESS_GAIN`
 
-Active cycle: `3`
+Active cycle: none
 
-Cycle 3 is the final permitted distinct method cycle under the governance correction.
+Cycle 3 was the final permitted distinct method cycle under the governance correction.
 
 Cycle 3 selected method: `GCAP-VLA`
 
-Cycle 3 status: `STAGE_A_READY_FINAL_ALLOWED_CYCLE`
+Cycle 3 status: `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE`
+
+Epoch status: terminal governed decision `NO_METHOD_AFTER_3_VALID_CYCLES`.
 
 ## Epoch 1
 

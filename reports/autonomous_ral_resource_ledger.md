@@ -95,3 +95,25 @@ Observed GCAP synthetic resource envelope:
 - new downloads during Cycle 3: `0 GiB`
 - repeated CUDA OOM: none
 - uncontrolled CPU or disk offload: not observed
+
+GCAP Stage A completed artifacts:
+
+- `reports/gcap_vla/stage_a_partial_result.json`
+- `reports/gcap_vla/stage_a_result.json`
+- `reports/gcap_vla/stage_a_result.md`
+- local ignored logs: `reports/gcap_vla/stage_a_stdout.log`, `reports/gcap_vla/stage_a_stderr.log`
+
+Observed GCAP Stage A resource envelope:
+
+- rollout elapsed time: `1748.648 s`
+- CUDA allocation reported by the result JSON: peak approximately `929.638 MiB`
+- new downloads during Cycle 3: `0 GiB`
+- repeated CUDA OOM: none
+- uncontrolled CPU or disk offload: not observed
+
+Cycle 3 final result:
+
+- final decision: `NO_OCCLUSION_ROBUSTNESS_GAIN`
+- Stage A episodes: `70 / 70`
+- exceptions: `0`
+- terminal campaign decision: `NO_METHOD_AFTER_3_VALID_CYCLES`

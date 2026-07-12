@@ -20,7 +20,7 @@ Current branch: `codex/ral-cycle-03-gcap-vla`
 
 Prompt branch alias to create/preserve after commit: `codex/ral-cycle-03-gcap-vla`
 
-Current stage: `cycle_3_synthetic_mechanism_passed_stage_a_ready`
+Current stage: `terminal_no_method_after_3_valid_cycles`
 
 Cycle 1 Stage A result:
 
@@ -97,4 +97,27 @@ Next command:
 wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
 ```
 
-GCAP Stage A must follow the preregistered hold-last, Sobel edge, and no-temporal ablation kill gates. This is the final permitted distinct method cycle.
+Cycle 3 Stage A result:
+
+- result JSON: `reports/gcap_vla/stage_a_result.json`
+- result markdown: `reports/gcap_vla/stage_a_result.md`
+- completed episodes: `70 / 70`
+- exceptions: `0`
+- elapsed rollout time: `1748.648 s`
+- final decision: `NO_OCCLUSION_ROBUSTNESS_GAIN`
+
+Summary:
+
+- occluded frozen SmolVLA: `4 / 10`, task-balanced rate `0.40`
+- full-frame hold-last: `0 / 10`, task-balanced rate `0.00`
+- Sobel edge boost: `5 / 10`, task-balanced rate `0.50`
+- GCAP no-temporal ablation: `4 / 10`, task-balanced rate `0.40`
+- GCAP full under occlusion: `3 / 10`, task-balanced rate `0.30`
+- clean frozen SmolVLA: `1 / 10`, task-balanced rate `0.10`
+- clean GCAP full: `5 / 10`, task-balanced rate `0.50`
+
+Adjudication:
+
+The GCAP Stage A rollout completed all preregistered episodes with zero exceptions. Full GCAP did not improve the targeted occlusion-robustness axis: it lost to occluded frozen SmolVLA, the no-temporal ablation, and the Sobel edge baseline. Clean behavior was not the blocker. GCAP-VLA is therefore a valid Cycle 3 kill.
+
+Terminal decision: `NO_METHOD_AFTER_3_VALID_CYCLES`.

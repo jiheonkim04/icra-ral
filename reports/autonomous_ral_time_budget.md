@@ -51,3 +51,12 @@ Cycle 3 pre-Stage-A runtime:
 - approximate remaining campaign GPU budget: `20.76 h`
 
 GCAP Stage A planned command is checkpointed and expected to remain under `4 h`.
+
+GCAP Stage A actual runtime:
+
+- checkpointed Stage A result launch: `1748.648 s`, approximately `0.49 h`
+- approximate Cycle 3 GPU time consumed including pre-Stage-A smoke work: `0.49 h`
+- approximate campaign GPU time consumed so far: `3.73 h`
+- approximate remaining campaign GPU budget: `20.27 h`
+
+Cycle 3 is closed with valid prototype decision `NO_OCCLUSION_ROBUSTNESS_GAIN`. The campaign reached terminal governed decision `NO_METHOD_AFTER_3_VALID_CYCLES` before the `24 h` total GPU cap, before the `12 h` Cycle 3 wall-clock cap, and without an uncheckpointed command exceeding `4 h`.

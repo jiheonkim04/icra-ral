@@ -83,3 +83,20 @@ Reason:
 - Synthetic image smoke passed before Stage A.
 
 Next action: run GCAP-VLA Stage A exactly as preregistered. This is the final allowed method cycle.
+
+## 2026-07-12 KST Cycle 3 Stage A Decision
+
+Decision: `KILL_GCAP_VLA_NO_OCCLUSION_ROBUSTNESS_GAIN`
+
+Reason:
+
+- The Stage A rollout completed all `70 / 70` preregistered episodes.
+- There were zero rollout exceptions.
+- Full GCAP under occlusion reached `3 / 10`, task-balanced success rate `0.30`.
+- Occluded frozen SmolVLA reached `4 / 10`, task-balanced success rate `0.40`.
+- Sobel edge boost reached `5 / 10`, task-balanced success rate `0.50`.
+- GCAP no-temporal ablation reached `4 / 10`, task-balanced success rate `0.40`.
+- Full-frame hold-last reached `0 / 10`.
+- Clean GCAP reached `5 / 10` versus clean frozen `1 / 10`; clean retention was not the kill reason.
+
+Reviewer B ruling: this is a valid scientific kill, not a measurement-invalid result. The full method failed the targeted occlusion-robustness axis and did not beat simple geometric or frozen baselines. This is the third valid distinct method kill. The campaign terminal state is `NO_METHOD_AFTER_3_VALID_CYCLES`.

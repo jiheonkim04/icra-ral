@@ -15,6 +15,17 @@ Governance ruling:
 
 Role C approves `GCAP-VLA` Stage A with fixed hold-last, Sobel edge, and no-temporal ablation kill gates. This is the final permitted distinct method cycle.
 
+## 2026-07-12 Cycle 3 Closure
+
+Role C records Cycle 3 `GCAP-VLA` as a valid prototype kill with decision `NO_OCCLUSION_ROBUSTNESS_GAIN`.
+
+Governance ruling:
+
+- do not rerun GCAP Stage A;
+- do not rescue GCAP by mask tuning, edge-gain tuning, or another patchwise temporal repair wrapper;
+- close the governed campaign at terminal state `NO_METHOD_AFTER_3_VALID_CYCLES`;
+- make no paper-ready claim and no RA-L acceptance claim.
+
 ## 2026-07-12 Startup
 
 Role C created the campaign branch and state scaffold after verifying the latest research commit.

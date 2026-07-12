@@ -18,7 +18,7 @@ git switch codex/ral-cycle-03-gcap-vla
 wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_gcap_vla_prototype.py --mode stage-a
 ```
 
-Current stage: `cycle_3_synthetic_mechanism_passed_stage_a_ready`
+Current stage: `terminal_no_method_after_3_valid_cycles`
 
 Completed Stage A artifacts:
 
@@ -50,7 +50,16 @@ Cycle 3 GCAP-VLA status:
 - proposal hash: `C5A9BA15A608A5EAA93C49409C56B0F6F8EE0A59D103F646E720FD514238F655`
 - synthetic mechanism smoke: `SYNTHETIC_MECHANISM_PASS`
 - focused tests: `tests/test_gcap_vla.py`, `tests/test_fedo_vla.py`, and `tests/test_dicd_vla.py` pass
+- Stage A closed-loop rollout: completed `70 / 70`
+- Stage A decision: `NO_OCCLUSION_ROBUSTNESS_GAIN`
+- occluded frozen SmolVLA: `4 / 10`
+- Sobel edge boost: `5 / 10`
+- GCAP no-temporal ablation: `4 / 10`
+- GCAP full under occlusion: `3 / 10`
+- clean frozen SmolVLA: `1 / 10`
+- clean GCAP full: `5 / 10`
+- exceptions: `0`
 
-Next automatic stage: run GCAP-VLA Stage A with checkpointed partial result at `reports/gcap_vla/stage_a_partial_result.json`.
+Terminal decision: `NO_METHOD_AFTER_3_VALID_CYCLES`.
 
-No paper-ready terminal decision has been reached.
+No paper-ready package or RA-L acceptance claim is made.

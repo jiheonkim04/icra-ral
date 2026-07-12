@@ -2,16 +2,17 @@
 
 ## 2026-07-12 KST Continuity Update
 
-The active governed campaign has completed two valid method cycles:
+The active governed campaign has completed three valid method cycles:
 
 | Epoch | Cycle | Method | Status | Key evidence |
 | --- | ---: | --- | --- | --- |
 | 1 | 1 | `DICD-VLA` | `KILLED_VALID_PROTOTYPE` | full `1 / 10`; direct chunk-index delay `2 / 10`; no-history ablation `1 / 10`; zero exceptions |
 | 1 | 2 | `FEDO-VLA` | `KILLED_VALID_PROTOTYPE` | faulted full `1 / 10`; static/APEX/no-feedback baselines `2 / 10`; clean frozen `4 / 10`; clean FEDO `0 / 10`; zero exceptions |
+| 1 | 3 | `GCAP-VLA` | `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE` | occluded full `3 / 10`; occluded frozen `4 / 10`; Sobel `5 / 10`; no-temporal `4 / 10`; zero exceptions |
 
-Cycle 3 is selection-pending and is the final permitted distinct method cycle. It must not revive DICD, FEDO, ECHO, candidate ranking, adaptive-chunk selection, or residual command compensation through cosmetic changes.
+The terminal governed decision is `NO_METHOD_AFTER_3_VALID_CYCLES`. DICD, FEDO, and GCAP must not be revived through cosmetic changes.
 
-Cycle 3 selected method: `GCAP-VLA`, status `STAGE_A_READY_FINAL_ALLOWED_CYCLE`. It targets controlled visual occlusion through patchwise temporal geometric repair at the camera tensor boundary.
+Cycle 3 selected method: `GCAP-VLA`, status `KILLED_VALID_PROTOTYPE_FINAL_ALLOWED_CYCLE`. It targeted controlled visual occlusion through patchwise temporal geometric repair at the camera tensor boundary.
 
 ## Historical Closed Methods
 
