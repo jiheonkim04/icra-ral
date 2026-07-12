@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-12",
+  "campaign": "autonomous_until_paper",
+  "normal_success_terminal_state": "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
+  "current_epoch": 1,
+  "current_cycle": 1,
+  "current_topic": "delay_indexed_action_chunk_deployment",
+  "current_branch": "codex/autonomous-until-ral-evidence-ready",
+  "current_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
+  "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
+  "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
+  "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
+  "current_stage": "cycle_1_child_branch_pending",
+  "completed_stages": [
+    "starting_state_verified",
+    "historical_evidence_inspected",
+    "campaign_branch_created",
+    "persistent_state_initialized",
+    "epoch_1_candidate_discovery_completed",
+    "cycle_1_method_selected"
+  ],
+  "active_hypothesis": "Known execution delay can be compensated by a delay-indexed action-chunk adapter that changes the deployed chunk action under delay while preserving clean zero-delay behavior.",
+  "method_identity": "DICD-VLA",
+  "proposal_hash": null,
+  "closest_papers": [
+    "DEFLECT: https://arxiv.org/abs/2605.19294",
+    "TIC-VLA: https://arxiv.org/html/2602.02459v2",
+    "RobustVLA: https://arxiv.org/abs/2511.01331",
+    "PAPO-VLA: https://arxiv.org/html/2605.19580v1",
+    "OpenVLA-OFT: https://arxiv.org/abs/2502.19645"
+  ],
+  "prototype_protocol": null,
+  "running_command": null,
+  "process_id": null,
+  "checkpoint_path": null,
+  "task_reset_manifest": null,
+  "start_time": "2026-07-12T16:32:00.7901274+09:00",
+  "elapsed_wall_time_seconds": 0,
+  "gpu_time_hours": 0.0,
+  "download_amount_gib_this_epoch": 0.0,
+  "download_amount_gib_campaign": 14.845,
+  "disk_free_bytes": 382892236800,
+  "current_decision": "CYCLE_1_METHOD_SELECTED",
+  "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-ral-evidence-ready && type reports\\autonomous_until_paper_state.json",
+  "latest_verified_prior_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED",
+  "valid_final_states": [
+    "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
+    "AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE",
+    "HARD_EXTERNAL_BLOCKER",
+    "SAFETY_RESOURCE_STOP"
+  ]
+}
