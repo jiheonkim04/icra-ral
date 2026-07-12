@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -20,4 +20,6 @@ Epoch 2 Cycle 1 `PTC-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`:
 
 Epoch 2 Cycle 2 `SACF-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`: full SACF reached `0 / 10` versus frozen SmolVLA `7 / 10`, with zero exceptions and active semantic mechanism.
 
-Next action: generate exactly three Epoch 2 Cycle 3 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility.
+Epoch 2 Cycle 3 `OCFN-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: expanded Stage B completed `80` paired episodes per key policy with zero exceptions and active mechanism. OCFN full reached `26 / 80`, zero-noise SmolVLA reached `27 / 80`, and the paired upper confidence bound for full minus zero-noise was `0.0625`.
+
+Next action: generate exactly three Epoch 3 Cycle 1 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility. The selected method must change at least two core dimensions relative to Epoch 2 action-surface interventions.

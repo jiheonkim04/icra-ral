@@ -1,0 +1,147 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "chunk_size": 3,
+    "max_action_dim": 2,
+    "noise_count": 4,
+    "seed_base": 2026071203,
+    "task_shuffle_seed": 2026071204
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 0.009,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "mode": "synthetic",
+  "next_step": "Run train acquisition.",
+  "selection_summary": {
+    "frozen_smolvla": {
+      "task_a": {
+        "noise_id": null,
+        "source": "default_policy_noise",
+        "stats": {
+          "custom_noise": false
+        },
+        "task_key": "task_a",
+        "variant": "frozen_smolvla"
+      },
+      "task_b": {
+        "noise_id": null,
+        "source": "default_policy_noise",
+        "stats": {
+          "custom_noise": false
+        },
+        "task_key": "task_b",
+        "variant": "frozen_smolvla"
+      }
+    },
+    "global_success_noise_prior": {
+      "task_a": {
+        "noise_id": 1,
+        "source": "global_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 6.0,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 1,
+          "total": 2
+        },
+        "task_key": "task_a",
+        "variant": "global_success_noise_prior"
+      },
+      "task_b": {
+        "noise_id": 1,
+        "source": "global_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 6.0,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 1,
+          "total": 2
+        },
+        "task_key": "task_b",
+        "variant": "global_success_noise_prior"
+      }
+    },
+    "ocfn_full": {
+      "task_a": {
+        "noise_id": 1,
+        "source": "task_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 4.0,
+          "mean_reward_sum": 1.0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total": 1
+        },
+        "task_key": "task_a",
+        "variant": "ocfn_full"
+      },
+      "task_b": {
+        "noise_id": 2,
+        "source": "task_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 3.0,
+          "mean_reward_sum": 1.0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total": 1
+        },
+        "task_key": "task_b",
+        "variant": "ocfn_full"
+      }
+    },
+    "task_shuffled_noise_prior": {
+      "task_a": {
+        "noise_id": 2,
+        "source": "task_shuffled_noise_prior",
+        "stats": {
+          "mean_episode_steps": 3.0,
+          "mean_reward_sum": 1.0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total": 1
+        },
+        "task_key": "task_a",
+        "variant": "task_shuffled_noise_prior"
+      },
+      "task_b": {
+        "noise_id": 1,
+        "source": "task_shuffled_noise_prior",
+        "stats": {
+          "mean_episode_steps": 4.0,
+          "mean_reward_sum": 1.0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total": 1
+        },
+        "task_key": "task_b",
+        "variant": "task_shuffled_noise_prior"
+      }
+    },
+    "zero_noise_smolvla": {
+      "task_a": {
+        "noise_id": null,
+        "source": "zero_noise",
+        "stats": {
+          "all_zero_noise": true
+        },
+        "task_key": "task_a",
+        "variant": "zero_noise_smolvla"
+      },
+      "task_b": {
+        "noise_id": null,
+        "source": "zero_noise",
+        "stats": {
+          "all_zero_noise": true
+        },
+        "task_key": "task_b",
+        "variant": "zero_noise_smolvla"
+      }
+    }
+  },
+  "summary": {
+    "synthetic_passed": true,
+    "task_noise_delta": 1.954048
+  },
+  "training_happened": false
+}

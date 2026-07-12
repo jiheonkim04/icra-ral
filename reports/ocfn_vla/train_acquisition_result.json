@@ -1,0 +1,551 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": true,
+  "config": {
+    "chunk_size": 50,
+    "max_action_dim": 32,
+    "noise_count": 4,
+    "seed_base": 2026071203,
+    "task_shuffle_seed": 2026071204
+  },
+  "cuda_memory": {
+    "allocated_bytes": 935880704,
+    "allocated_mb": 892.525,
+    "max_allocated_bytes": 971650560,
+    "max_allocated_mb": 926.638
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 386.301,
+  "episode_count": 16,
+  "episodes": [
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 19.925,
+      "episode_steps": 131,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 0,
+      "policy_latency_max_s": 0.3085,
+      "policy_latency_mean_s": 0.008828,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.303,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 1,
+      "policy_latency_max_s": 0.298456,
+      "policy_latency_mean_s": 0.008808,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 17.607,
+      "episode_steps": 130,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 2,
+      "policy_latency_max_s": 0.332613,
+      "policy_latency_mean_s": 0.009215,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.007,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 3,
+      "policy_latency_max_s": 0.289635,
+      "policy_latency_mean_s": 0.008383,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.131,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 0,
+      "policy_latency_max_s": 0.306032,
+      "policy_latency_mean_s": 0.008592,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 17.58,
+      "episode_steps": 130,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 1,
+      "policy_latency_max_s": 0.311768,
+      "policy_latency_mean_s": 0.009181,
+      "reward_sum": 1.0,
+      "role": "stable_grasp_contact_transition",
+      "success": true,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.177,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 2,
+      "policy_latency_max_s": 0.297632,
+      "policy_latency_mean_s": 0.008251,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.642,
+      "episode_steps": 280,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "noise_id": 3,
+      "policy_latency_max_s": 0.33104,
+      "policy_latency_mean_s": 0.0088,
+      "reward_sum": 0.0,
+      "role": "stable_grasp_contact_transition",
+      "success": false,
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 27.952,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 0,
+      "policy_latency_max_s": 0.415751,
+      "policy_latency_mean_s": 0.008372,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 21.945,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 1,
+      "policy_latency_max_s": 0.377272,
+      "policy_latency_mean_s": 0.008403,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 15.743,
+      "episode_steps": 236,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 2,
+      "policy_latency_max_s": 0.361636,
+      "policy_latency_mean_s": 0.008514,
+      "reward_sum": 1.0,
+      "role": "long_horizon_contact_and_release",
+      "success": true,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 25.368,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260711,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 3,
+      "policy_latency_max_s": 0.366619,
+      "policy_latency_mean_s": 0.008196,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 23.719,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 0,
+      "policy_latency_max_s": 0.371131,
+      "policy_latency_mean_s": 0.008163,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 23.153,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 1,
+      "policy_latency_max_s": 0.355232,
+      "policy_latency_mean_s": 0.008375,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.25,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 2,
+      "policy_latency_max_s": 0.355895,
+      "policy_latency_mean_s": 0.008258,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    },
+    {
+      "cuda_memory": {
+        "allocated_bytes": 935880704,
+        "allocated_mb": 892.525,
+        "max_allocated_bytes": 971650560,
+        "max_allocated_mb": 926.638
+      },
+      "elapsed_seconds": 22.343,
+      "episode_steps": 520,
+      "exception": null,
+      "identity": 20260712,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "noise_id": 3,
+      "policy_latency_max_s": 0.347952,
+      "policy_latency_mean_s": 0.008174,
+      "reward_sum": 0.0,
+      "role": "long_horizon_contact_and_release",
+      "success": false,
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "train_noise_identity"
+    }
+  ],
+  "exceptions": [],
+  "final_decision": "TRAIN_ACQUISITION_PASS",
+  "mode": "train-acquisition",
+  "next_step": "Run Stage A.",
+  "noise_bank_sha256": {
+    "0": "96c7c0f070ae31ecbb4ae60329437e516a5b66a273b9ea74e52dc950a57cf6d3",
+    "1": "371832a2f4fbc1ae7b1208963a22675a25b60035a8efaea82299bba71c9a82ae",
+    "2": "3127a17d1916d5ee68e90f734df81fb01b6998a8a04a83afd3512249a10b77de",
+    "3": "d65eaadcd2578099a89b3649939dd2f85be245990a2c35517ca3f5ec2ad25e07"
+  },
+  "planned_episode_count": 16,
+  "selection_summary": {
+    "frozen_smolvla": {
+      "libero_10/task_4": {
+        "noise_id": null,
+        "source": "default_policy_noise",
+        "stats": {
+          "custom_noise": false
+        },
+        "task_key": "libero_10/task_4",
+        "variant": "frozen_smolvla"
+      },
+      "libero_spatial/task_4": {
+        "noise_id": null,
+        "source": "default_policy_noise",
+        "stats": {
+          "custom_noise": false
+        },
+        "task_key": "libero_spatial/task_4",
+        "variant": "frozen_smolvla"
+      }
+    },
+    "global_success_noise_prior": {
+      "libero_10/task_4": {
+        "noise_id": 2,
+        "source": "global_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 291.5,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 2,
+          "total": 4
+        },
+        "task_key": "libero_10/task_4",
+        "variant": "global_success_noise_prior"
+      },
+      "libero_spatial/task_4": {
+        "noise_id": 2,
+        "source": "global_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 291.5,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 2,
+          "total": 4
+        },
+        "task_key": "libero_spatial/task_4",
+        "variant": "global_success_noise_prior"
+      }
+    },
+    "ocfn_full": {
+      "libero_10/task_4": {
+        "noise_id": 2,
+        "source": "task_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 378.0,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 1,
+          "total": 2
+        },
+        "task_key": "libero_10/task_4",
+        "variant": "ocfn_full"
+      },
+      "libero_spatial/task_4": {
+        "noise_id": 1,
+        "source": "task_success_noise_prior",
+        "stats": {
+          "mean_episode_steps": 205.0,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 1,
+          "total": 2
+        },
+        "task_key": "libero_spatial/task_4",
+        "variant": "ocfn_full"
+      }
+    },
+    "task_shuffled_noise_prior": {
+      "libero_10/task_4": {
+        "noise_id": 1,
+        "source": "task_shuffled_noise_prior",
+        "stats": {
+          "mean_episode_steps": 205.0,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 1,
+          "total": 2
+        },
+        "task_key": "libero_10/task_4",
+        "variant": "task_shuffled_noise_prior"
+      },
+      "libero_spatial/task_4": {
+        "noise_id": 2,
+        "source": "task_shuffled_noise_prior",
+        "stats": {
+          "mean_episode_steps": 378.0,
+          "mean_reward_sum": 0.5,
+          "success_rate": 0.5,
+          "successes": 1,
+          "total": 2
+        },
+        "task_key": "libero_spatial/task_4",
+        "variant": "task_shuffled_noise_prior"
+      }
+    },
+    "zero_noise_smolvla": {
+      "libero_10/task_4": {
+        "noise_id": null,
+        "source": "zero_noise",
+        "stats": {
+          "all_zero_noise": true
+        },
+        "task_key": "libero_10/task_4",
+        "variant": "zero_noise_smolvla"
+      },
+      "libero_spatial/task_4": {
+        "noise_id": null,
+        "source": "zero_noise",
+        "stats": {
+          "all_zero_noise": true
+        },
+        "task_key": "libero_spatial/task_4",
+        "variant": "zero_noise_smolvla"
+      }
+    }
+  },
+  "summary": {
+    "full_equals_global": false,
+    "full_equals_shuffled": false,
+    "train_acquisition_complete": true
+  },
+  "tasks": [
+    {
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4
+    }
+  ],
+  "train_identities": [
+    20260711,
+    20260712
+  ],
+  "training_happened": true
+}

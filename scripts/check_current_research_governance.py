@@ -127,7 +127,7 @@ def validate(root: Path = REPO_ROOT) -> list[str]:
         if not path.exists():
             violations.append(f"{rel_path}: missing active state file")
             continue
-        data = json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
         violations.extend(_json_violations(rel_path, data))
         if "current_decision" in data:
             current_decisions.append((rel_path, str(data["current_decision"])))

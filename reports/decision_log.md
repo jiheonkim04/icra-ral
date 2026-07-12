@@ -1679,3 +1679,40 @@ Evidence:
 - mechanism active: semantic component norm `1.709826`, action delta versus plain BC `0.429388`
 
 Consequence: archive SACF-VLA as a valid current-formulation kill and continue to Epoch 2 Cycle 3.
+
+## 2026-07-12 - Epoch 2 Cycle 3 OCFN-VLA
+
+Decision: `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`
+
+Execution boundary:
+
+- method: `OCFN-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `F60B9B7BB2640A073AC16EAB6284A68D41569A6A4D67A54462DEF81F06F3F8EA`
+- train acquisition: `16 / 16` episodes, zero exceptions
+- Stage A: `50 / 50` episodes, zero exceptions, non-GO requiring Stage B
+- expanded Stage B: `400 / 400` total episodes, zero exceptions, `80` paired episodes per key policy
+
+Evidence:
+
+- frozen SmolVLA: `23 / 80`, task-balanced `0.2875`
+- zero-noise SmolVLA: `27 / 80`, task-balanced `0.3375`
+- global success noise prior: `23 / 80`, task-balanced `0.2875`
+- task-shuffled noise prior: `25 / 80`, task-balanced `0.3125`
+- OCFN full: `26 / 80`, task-balanced `0.3250`
+- mechanism active: mean initial delta versus global `0.020219`, versus task-shuffled `0.032354`
+- paired upper confidence bound versus strongest baseline: `0.0625`
+
+Consequence: archive OCFN-VLA as a valid current-formulation kill. Synthesize the three related Epoch 2 kills and pivot to Epoch 3.
+
+## 2026-07-12 - Epoch 2 Failure Synthesis
+
+Decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
+
+Evidence:
+
+- `PTC-VLA` changed temporal transition representation and action generation, but full reached `0 / 10`.
+- `SACF-VLA` changed semantic task-prefix representation and action generation, but full reached `0 / 10`.
+- `OCFN-VLA` changed latent flow-noise initialization and outcome-conditioned selection, but full reached `26 / 80` versus zero-noise SmolVLA `27 / 80`.
+
+Consequence: begin Epoch 3 Cycle 1 under `reports/current_research_governance.md`, changing at least two core dimensions relative to Epoch 2 action-surface interventions.

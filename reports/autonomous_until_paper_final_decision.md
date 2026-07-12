@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current campaign decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
+Current campaign decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
 
 This is not a terminal decision.
 
@@ -29,4 +29,8 @@ Cycle 1 of Epoch 2, `PTC-VLA`, is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WO
 
 Cycle 2 of Epoch 2, `SACF-VLA`, is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`: full SACF reached `0 / 10`, frozen SmolVLA reached `7 / 10`, the task-balanced gap was `0.70`, and the semantic component was active. Do not rescue this formulation.
 
-Start Epoch 2 Cycle 3 candidate generation under `reports/current_research_governance.md`.
+Cycle 3 of Epoch 2, `OCFN-VLA`, is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: expanded Stage B completed `400 / 400` total episodes with zero exceptions, `80` paired episodes per key policy, active mechanism, OCFN full `26 / 80`, zero-noise SmolVLA `27 / 80`, and paired upper confidence bound `0.0625` versus the strongest baseline. Do not rescue this formulation.
+
+The related Epoch 2 failures have been synthesized in `reports/epoch_2_failure_synthesis.md`.
+
+Begin Epoch 3 Cycle 1 candidate generation under `reports/current_research_governance.md`, changing at least two core dimensions relative to Epoch 2 action-surface interventions.

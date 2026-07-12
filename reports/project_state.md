@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
 
-Current epoch: `2`
+Current epoch: `3`
 
-Current cycle: `3`
+Current cycle: `1`
 
-The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`. Epoch 2 Cycle 1 `PTC-VLA` is archived in `reports/epoch_2_cycle_1_ptc_adjudication.md`. Epoch 2 Cycle 2 `SACF-VLA` is archived in `reports/epoch_2_cycle_2_sacf_adjudication.md`. Epoch 2 Cycle 3 must begin with candidate generation under the current governance.
+The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`. Epoch 2 Cycle 1 `PTC-VLA` is archived in `reports/epoch_2_cycle_1_ptc_adjudication.md`. Epoch 2 Cycle 2 `SACF-VLA` is archived in `reports/epoch_2_cycle_2_sacf_adjudication.md`. Epoch 2 Cycle 3 `OCFN-VLA` is archived in `reports/epoch_2_cycle_3_ocfn_adjudication.md`. The three related Epoch 2 kills are synthesized in `reports/epoch_2_failure_synthesis.md`. Epoch 3 Cycle 1 must begin with candidate generation under the current governance and change at least two core dimensions relative to Epoch 2 action-surface interventions.
 
 Date: 2026-07-10 KST
 

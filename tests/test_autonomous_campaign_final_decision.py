@@ -9,21 +9,23 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`" in final
+    assert "Current campaign decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
-    assert "Start Epoch 2 Cycle 3 candidate generation" in final
+    assert "Begin Epoch 3 Cycle 1 candidate generation" in final
+    assert "OCFN-VLA" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
-    state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8"))
+    state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED"
-    assert state["current_epoch"] == 2
-    assert state["current_cycle"] == 3
+    assert state["current_decision"] == "EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED"
+    assert state["current_epoch"] == 3
+    assert state["current_cycle"] == 1
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
+    assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
 
 
 def test_core_ledgers_reference_current_governance() -> None:

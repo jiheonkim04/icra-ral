@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
 
-Current epoch: `2`
+Current epoch: `3`
 
-Current cycle: `3`
+Current cycle: `1`
 
-Current stage: `epoch_2_cycle_3_selection_pending`
+Current stage: `epoch_3_cycle_1_selection_pending`
 
 Allowed final states:
 
@@ -45,7 +45,21 @@ Stage A completed `50 / 50` episodes with zero exceptions. Full PTC reached `0 /
 
 Stage A completed `50 / 50` episodes with zero exceptions. Full SACF reached `0 / 10`, frozen SmolVLA reached `7 / 10`, and the full method was `0.70` task-balanced success below the strongest baseline. The semantic component was active, so this is a valid current-formulation kill.
 
-Epoch 2 Cycle 3 must change at least two core dimensions relative to PTC and SACF, and should avoid direct transition heads and same-scene semantic-prefix action generators.
+## Epoch 2 Cycle 3
+
+`OCFN-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`.
+
+Train acquisition passed `16 / 16` closed-loop acquisition episodes with zero exceptions. Stage A completed `50 / 50` episodes with zero exceptions and required Stage B rather than a permanent Stage A kill.
+
+Expanded Stage B completed `400 / 400` total episodes: `80` paired episodes for each key policy. OCFN full reached `26 / 80` with task-balanced success `0.325`; the strongest baseline, zero-noise SmolVLA, reached `27 / 80` with task-balanced success `0.3375`. The OCFN mechanism was active, with mean initial-noise deltas `0.020219` versus global prior and `0.032354` versus task-shuffled prior.
+
+The paired bootstrap upper confidence bound for `ocfn_full - zero_noise_smolvla` was `0.0625`, excluding the preregistered useful `+0.10` prototype improvement. This is a valid current-formulation kill, not a terminal campaign decision.
+
+## Epoch 2 Failure Synthesis
+
+Epoch 2 produced three related non-GO action-surface methods: `PTC-VLA`, `SACF-VLA`, and `OCFN-VLA`. All three mechanisms acted, but all were harmful or explained by simple baselines.
+
+The synthesized decision is `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`. Epoch 3 must change at least two core dimensions relative to Epoch 2 and should avoid direct small action heads, semantic or phase prefixes, action residual correction, fixed or selected flow-noise priors, ranker/verifier/barrier/filter/damping routes, and simple action-statistic baselines as the main novelty.
 
 ## Resume
 
@@ -54,3 +68,5 @@ cd /d C:\Users\jiheo\tca_map
 git switch codex/autonomous-until-paper-governance-v2
 type reports\current_research_governance.md
 ```
+
+Next action: begin Epoch 3 Cycle 1 candidate generation under `reports/current_research_governance.md`.

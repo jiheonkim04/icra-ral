@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_2_CYCLE_2_SACF_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_2_SYNTHESIZED_KILLS_EPOCH_3_PIVOT_REQUIRED`
 
-Current epoch: `2`
+Current epoch: `3`
 
-Current cycle: `3`
+Current cycle: `1`
 
-Current stage: `epoch_2_cycle_3_selection_pending`
+Current stage: `epoch_3_cycle_1_selection_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -46,8 +46,16 @@ Cycle 3 `GCAP-VLA`:
 - clean GCAP: `5 / 10`
 - ruling: do not rerun or rescue the current formulation; do not call the whole perception-repair family dead.
 
-## Next Action
+## Epoch 2 Result
 
 Epoch 2 Cycle 1 `PTC-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`.
 
-Start Epoch 2 Cycle 2 candidate generation and select one technically distinct method under the current governance.
+Epoch 2 Cycle 2 `SACF-VLA` is archived as `STAGE_A_PERMANENT_KILL_CLEARLY_WORSE`.
+
+Epoch 2 Cycle 3 `OCFN-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: expanded Stage B completed `400 / 400` total episodes with zero exceptions, `80` paired episodes per key policy, active mechanism, OCFN full `26 / 80`, zero-noise SmolVLA `27 / 80`, and paired upper confidence bound versus the strongest baseline `0.0625`.
+
+These three related failures are synthesized in `reports/epoch_2_failure_synthesis.md`.
+
+## Next Action
+
+Begin Epoch 3 Cycle 1 candidate generation under `reports/current_research_governance.md`. The next method must change at least two core dimensions relative to Epoch 2 action-surface interventions (`PTC-VLA`, `SACF-VLA`, and `OCFN-VLA`).
