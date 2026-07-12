@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
 
-Immediate next action: start Epoch 3 Cycle 2 autonomous research. Generate exactly three technically distinct candidates, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and baseline attack, then implement unless exact duplication, trivial equivalence, or hard infeasibility is proven.
+Immediate next action: start Epoch 3 Cycle 3 autonomous research. Generate exactly three technically distinct candidates, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and baseline attack, then implement unless exact duplication, trivial equivalence, or hard infeasibility is proven.
 
-Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Epoch 3 Cycle 2 must not be a cosmetic variant of CBFD-VLA.
+Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Epoch 3 Cycle 3 must not be a cosmetic variant of CBFD-VLA or SCVC-VLA.
 
 Date: 2026-07-10 KST
 

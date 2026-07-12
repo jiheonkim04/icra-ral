@@ -1,0 +1,22 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "bias": 0.28,
+    "eps": 0.0001,
+    "gain": 0.42,
+    "temporal_blend": 0.8
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 0.004,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "mode": "synthetic",
+  "next_step": "Run calibration.",
+  "summary": {
+    "mse_full": 0.0,
+    "mse_inverse": 0.0,
+    "mse_shifted": 0.018314,
+    "synthetic_passed": true
+  },
+  "training_happened": false
+}

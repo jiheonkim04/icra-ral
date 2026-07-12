@@ -1,0 +1,402 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "calibration_rows": [
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.4960848850508531,
+            0.4639768811563651,
+            0.4297198976079623
+          ],
+          "std": [
+            0.21756726379195848,
+            0.19839468536277613,
+            0.17954818283518156
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.4913974267741044,
+            0.4547303182383378,
+            0.41794880107045174
+          ],
+          "std": [
+            0.2859091932574908,
+            0.26149061881005764,
+            0.23641014409561953
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260711,
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.4956175573170185,
+            0.46370694662133854,
+            0.42964791879057884
+          ],
+          "std": [
+            0.2181082864602407,
+            0.1994425399849812,
+            0.18118384294211864
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.5082400826116403,
+            0.4695157508055369,
+            0.4305744258066018
+          ],
+          "std": [
+            0.2830730254451434,
+            0.2581905759871006,
+            0.23254722046355406
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260712,
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.4911419339478016,
+            0.4593782958885034,
+            0.4254981502890587
+          ],
+          "std": [
+            0.22069976230462393,
+            0.2018258993824323,
+            0.18310407300790152
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.4878651996453603,
+            0.45114445065458614,
+            0.4150046904881795
+          ],
+          "std": [
+            0.28660833338896435,
+            0.26220359715322655,
+            0.23730763420462608
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260713,
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.4958622468014558,
+            0.4639617937306563,
+            0.42991340160369873
+          ],
+          "std": [
+            0.21746743035813174,
+            0.19866884996493658,
+            0.18031628367801508
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.5064398385584354,
+            0.4674413911998272,
+            0.4284107983112335
+          ],
+          "std": [
+            0.28614025314648944,
+            0.26102307935555774,
+            0.23514077564080557
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260714,
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.4982864235838254,
+            0.4661876397828261,
+            0.43186934664845467
+          ],
+          "std": [
+            0.21689019352197647,
+            0.19786915617684522,
+            0.17927816634376845
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.48637274156014126,
+            0.4496244676411152,
+            0.4127695212761561
+          ],
+          "std": [
+            0.2871270899971326,
+            0.2625857616464297,
+            0.2372667888800303
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260715,
+      "role": "stable_grasp_contact_transition",
+      "suite": "libero_spatial",
+      "task_id": 4,
+      "task_key": "libero_spatial/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.3124709650874138,
+            0.25778011977672577,
+            0.2285507700095574
+          ],
+          "std": [
+            0.1458310695985953,
+            0.15789848379790783,
+            0.16480588167905807
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.3331583800415198,
+            0.263322872420152,
+            0.22355189236501852
+          ],
+          "std": [
+            0.12396350968629122,
+            0.11710530829926331,
+            0.1133158386995395
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260711,
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.31647085895140964,
+            0.2622448379794757,
+            0.23334982246160507
+          ],
+          "std": [
+            0.14916854413847128,
+            0.1612163974593083,
+            0.16830427447954813
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.33646587158242863,
+            0.2675864299138387,
+            0.228597741574049
+          ],
+          "std": [
+            0.13660994482537112,
+            0.1311000489319364,
+            0.12713787580529848
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260712,
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.31541160494089127,
+            0.26088916634519893,
+            0.23197375610470772
+          ],
+          "std": [
+            0.146415239199996,
+            0.15824067406356335,
+            0.16517038022478422
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.33050936708847684,
+            0.2601187477509181,
+            0.21978052767614523
+          ],
+          "std": [
+            0.12283795544256766,
+            0.11333471319327752,
+            0.10717161962141593
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260713,
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.31718097006281215,
+            0.26222989211479825,
+            0.23286107803384462
+          ],
+          "std": [
+            0.14541063643991947,
+            0.15842034171024957,
+            0.16563078636924425
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.3298190583785375,
+            0.2602429824570815,
+            0.22072075679898262
+          ],
+          "std": [
+            0.1218353258445859,
+            0.11297446147849162,
+            0.10671154006073873
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260714,
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "calibration"
+    },
+    {
+      "camera_stats": {
+        "observation.images.camera1": {
+          "mean": [
+            0.3139205773671468,
+            0.2591218414405982,
+            0.22986425583561262
+          ],
+          "std": [
+            0.1452635501821836,
+            0.15757227999468645,
+            0.1645099272330602
+          ]
+        },
+        "observation.images.camera2": {
+          "mean": [
+            0.32813430080811185,
+            0.25939461464683217,
+            0.22045950467387834
+          ],
+          "std": [
+            0.12294989389677842,
+            0.11527625036736329,
+            0.11002626611540715
+          ]
+        }
+      },
+      "exception": null,
+      "identity": 20260715,
+      "role": "long_horizon_contact_and_release",
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_key": "libero_10/task_4",
+      "variant": "calibration"
+    }
+  ],
+  "camera_stats": {
+    "observation.images.camera1": {
+      "mean": [
+        0.4052448023110628,
+        0.3619477414836486,
+        0.33032483973850807
+      ],
+      "std": [
+        0.1822821975996097,
+        0.1789549307897687,
+        0.17318517987926801
+      ]
+    },
+    "observation.images.camera2": {
+      "mean": [
+        0.4138402267048756,
+        0.36031220257282254,
+        0.32178186600406955
+      ],
+      "std": [
+        0.20570545249308148,
+        0.18952844152227044,
+        0.17430357035870353
+      ]
+    }
+  },
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "bias": 0.28,
+    "eps": 0.0001,
+    "gain": 0.42,
+    "temporal_blend": 0.8
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 94.751,
+  "final_decision": "CALIBRATION_PASS",
+  "mode": "calibration",
+  "next_step": "Run Stage A.",
+  "summary": {
+    "calibration_passed": true,
+    "camera_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2"
+    ],
+    "row_count": 10
+  },
+  "training_happened": false
+}

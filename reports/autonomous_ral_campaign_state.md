@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
 
 Current epoch: `3`
 
-Current cycle: `2`
+Current cycle: `3`
 
-Current stage: `epoch_3_cycle_2_selection_pending`
+Current stage: `epoch_3_cycle_3_selection_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -60,4 +60,6 @@ These three related failures are synthesized in `reports/epoch_2_failure_synthes
 
 Epoch 3 Cycle 1 `CBFD-VLA` is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE`: Stage A completed `50 / 50` held-out episodes with zero exceptions, frozen SmolVLA reached `7 / 10`, and full CBFD reached `0 / 10` with active mechanism.
 
-Begin Epoch 3 Cycle 2 candidate generation under `reports/current_research_governance.md`. The next method must avoid a cosmetic variant of cross-backbone teacher-trace distillation.
+Epoch 3 Cycle 2 `SCVC-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: full SCVC reached `11 / 40`, shifted frozen SmolVLA reached `20 / 40`, and the paired bootstrap CI versus shifted frozen was `[-0.425, -0.025]`.
+
+Begin Epoch 3 Cycle 3 candidate generation under `reports/current_research_governance.md`. The next method must avoid cosmetic variants of CBFD-style teacher distillation and SCVC-style sensor-statistic canonicalization.

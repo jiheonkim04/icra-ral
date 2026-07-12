@@ -1741,3 +1741,28 @@ Evidence:
 - mechanism active: full action delta versus direct distillation `1.244676`, versus memory `1.652989`
 
 Consequence: archive CBFD-VLA as a valid current-formulation kill and continue to Epoch 3 Cycle 2.
+
+## 2026-07-12 - Epoch 3 Cycle 2 SCVC-VLA
+
+Decision: `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`
+
+Execution boundary:
+
+- method: `SCVC-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `BE52CB82140F56E84A0FDBC4D3F51ACD4E704551AC10CC72CE624801DABDE20C`
+- synthetic mechanism smoke: passed
+- calibration: passed with `10` clean calibration rows
+- Stage A: `50 / 50` episodes, zero exceptions, non-GO requiring Stage B
+- Stage B: `200 / 200` episodes, zero exceptions
+
+Evidence:
+
+- clean frozen SmolVLA: `10 / 40`
+- shifted frozen SmolVLA: `20 / 40`
+- known inverse affine: `10 / 40`
+- SCVC no-temporal: `10 / 40`
+- SCVC full: `11 / 40`
+- paired full minus shifted frozen: wins `4`, losses `13`, ties `23`, delta `-0.225`, CI `[-0.425, -0.025]`
+
+Consequence: archive SCVC-VLA as a valid current-formulation kill and continue to Epoch 3 Cycle 3.

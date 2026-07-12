@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current campaign decision: `EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED`
+Current campaign decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
 
 This is not a terminal decision.
 
@@ -35,4 +35,6 @@ The related Epoch 2 failures have been synthesized in `reports/epoch_2_failure_s
 
 Epoch 3 Cycle 1, `CBFD-VLA`, is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE`: teacher acquisition passed, student training passed, Stage A completed `50 / 50` held-out episodes with zero exceptions, frozen SmolVLA reached `7 / 10`, and full CBFD reached `0 / 10` with active mechanism. Do not rescue this formulation.
 
-Begin Epoch 3 Cycle 2 candidate generation under `reports/current_research_governance.md`.
+Epoch 3 Cycle 2, `SCVC-VLA`, is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: full SCVC reached `11 / 40`, shifted frozen SmolVLA reached `20 / 40`, and paired evidence versus shifted frozen was negative.
+
+Begin Epoch 3 Cycle 3 candidate generation under `reports/current_research_governance.md`.

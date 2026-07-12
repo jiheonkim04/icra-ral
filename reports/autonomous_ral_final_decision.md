@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current decision: `EPOCH_3_CYCLE_1_CBFD_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -24,4 +24,6 @@ Epoch 2 Cycle 3 `OCFN-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVE
 
 Epoch 3 Cycle 1 `CBFD-VLA` is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE`: full CBFD reached `0 / 10` while frozen SmolVLA reached `7 / 10`, with zero exceptions and active mechanism.
 
-Next action: generate exactly three Epoch 3 Cycle 2 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility.
+Epoch 3 Cycle 2 `SCVC-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: full SCVC reached `11 / 40`, shifted frozen SmolVLA reached `20 / 40`, and the paired bootstrap CI versus shifted frozen was `[-0.425, -0.025]`.
+
+Next action: generate exactly three Epoch 3 Cycle 3 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility.
