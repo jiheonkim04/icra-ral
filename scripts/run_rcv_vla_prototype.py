@@ -206,6 +206,7 @@ def _run_queued_episode(
     row: Mapping[str, Any],
     loaded: Mapping[str, Any],
     max_eval_steps: int,
+    measure_disagreement: bool,
 ) -> dict[str, Any]:
     env = None
     started = time.time()
@@ -224,9 +225,10 @@ def _run_queued_episode(
             start_policy = time.perf_counter()
             action = policy.select_action(dict(batch))
             queued = _postprocess_action(action, dict(loaded)).reshape(-1)
-            fresh = _policy_action_stateless(policy, batch, loaded)
             policy_latencies.append(time.perf_counter() - start_policy)
-            disagreements.append(action_disagreement(queued, fresh))
+            if measure_disagreement:
+                fresh = _policy_action_stateless(policy, batch, loaded)
+                disagreements.append(action_disagreement(queued, fresh))
             observation, step_success, done, reward_value, _info = _step_env(env, queued)
             rewards.append(reward_value)
             success = bool(success or step_success)
@@ -384,10 +386,11 @@ def _run_episode(
     tau_train: float | None,
     full_verifier: Mapping[str, Any] | None,
     no_context_verifier: Mapping[str, Any] | None,
+    measure_queued_disagreement: bool = False,
 ) -> dict[str, Any]:
     variant = str(row["variant"])
     if variant == "queued_frozen_smolvla":
-        return _run_queued_episode(row=row, loaded=loaded, max_eval_steps=max_eval_steps)
+        return _run_queued_episode(row=row, loaded=loaded, max_eval_steps=max_eval_steps, measure_disagreement=measure_queued_disagreement)
     verifier = None
     if variant == "rcv_full":
         verifier = full_verifier
@@ -659,6 +662,7 @@ def _stage_0_mode(args: argparse.Namespace) -> dict[str, Any]:
                 tau_train=None,
                 full_verifier=None,
                 no_context_verifier=None,
+                measure_queued_disagreement=True,
             )
         )
     summary = _summarize(episodes, variants)
