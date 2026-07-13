@@ -121,7 +121,8 @@
                              "epoch_3_cycle_3_pse_stage_b_40_completed",
                              "epoch_3_cycle_3_pse_stage_b_expansion_completed",
                              "epoch_3_cycle_3_pse_valid_current_formulation_kill_recorded",
-                             "epoch_3_failure_synthesis_completed"
+                             "epoch_3_failure_synthesis_completed",
+                             "post_pse_research_design_governance_applied"
                          ],
     "active_hypothesis":  null,
     "method_identity":  null,
@@ -246,7 +247,7 @@
                                "HARD_EXTERNAL_BLOCKER",
                                "SAFETY_RESOURCE_STOP"
                            ],
-    "next_action":  "Apply post-PSE research-design governance update, add validation tests, then begin Epoch 4 Cycle 1 candidate generation under the updated problem-first, external-prior-early gate.",
+    "next_action":  "Begin Epoch 4 Cycle 1 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.",
     "method":  null,
     "epoch_2_cycle_2_outcome":  {
                                     "method":  "SACF-VLA",

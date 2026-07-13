@@ -29,6 +29,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_3_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG_BASELINE"
     assert state["epoch_3_cycle_2_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
     assert state["epoch_3_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
+    assert state["next_action"] == "Begin Epoch 4 Cycle 1 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate."
+    assert "post_pse_research_design_governance_applied" in state["completed_stages"]
 
 
 def test_core_ledgers_reference_current_governance() -> None:

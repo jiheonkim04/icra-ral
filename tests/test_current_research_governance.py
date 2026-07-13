@@ -49,3 +49,18 @@ def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:
     assert "VALID_CURRENT_FORMULATION_KILL" in adjudication
     assert "GCAP-VLA" in adjudication
     assert "UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED" in adjudication
+
+
+def test_post_pse_research_design_governance_is_active() -> None:
+    governance = (REPO_ROOT / "reports" / "current_research_governance.md").read_text(encoding="utf-8")
+
+    assert "Post-PSE Research Design Governance" in governance
+    assert "closest external prior" in governance
+    assert "No more than one mandatory simple killer baseline" in governance
+    assert "AUTHOR_STATED" in governance
+    assert "INDEPENDENTLY_INFERRED" in governance
+    assert "CROSS_PAPER_SYNTHESIZED" in governance
+    assert "future-work text" in governance
+    assert "mathematical_mechanism_audit.md" in governance
+    assert "variables and tensor shapes" in governance
+    assert "Do not compute KL directly between deterministic 7D action vectors" in governance
