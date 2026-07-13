@@ -106,17 +106,23 @@ def _standardize(x: np.ndarray, mean: np.ndarray, scale: np.ndarray) -> np.ndarr
     return (x - mean.reshape(1, -1)) / scale.reshape(1, -1)
 
 
-def _median_same_task_nearest(features: np.ndarray, tasks: list[str], config: CAVMConfig) -> float:
+def _median_same_task_nearest(features: np.ndarray, tasks: list[str], config: CAVMConfig, *, chunk_size: int = 256) -> float:
     nearest: list[float] = []
     for task in TASK_KEYS:
         indices = [index for index, value in enumerate(tasks) if value == task]
         if len(indices) < 2:
             continue
         task_features = features[np.asarray(indices, dtype=np.int64)]
-        distances = np.linalg.norm(task_features[:, None, :] - task_features[None, :, :], axis=-1)
-        distances[distances <= 0.0] = np.inf
-        finite = np.min(distances, axis=1)
-        nearest.extend(float(value) for value in finite[np.isfinite(finite)])
+        squared_norms = np.sum(task_features * task_features, axis=1)
+        for start in range(0, int(task_features.shape[0]), int(chunk_size)):
+            stop = min(start + int(chunk_size), int(task_features.shape[0]))
+            block = task_features[start:stop]
+            distances_sq = np.sum(block * block, axis=1).reshape(-1, 1) + squared_norms.reshape(1, -1) - 2.0 * (block @ task_features.T)
+            distances_sq = np.maximum(distances_sq, 0.0)
+            for local, global_index in enumerate(range(start, stop)):
+                distances_sq[local, global_index] = np.inf
+            finite = np.sqrt(np.min(distances_sq, axis=1))
+            nearest.extend(float(value) for value in finite[np.isfinite(finite)])
     if not nearest:
         return 1.0
     return float(np.clip(np.median(np.asarray(nearest, dtype=np.float64)), config.sigma_min, config.sigma_max))

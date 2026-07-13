@@ -418,10 +418,12 @@ def _acquire_calibrate_mode(args: argparse.Namespace) -> dict[str, Any]:
     record_path = Path(args.acquisition_records)
     summary_path = Path(args.acquisition_summary)
     memory_path = Path(args.memory_config)
-    if record_path.exists() and summary_path.exists() and memory_path.exists() and not bool(args.rerun_acquisition):
+    memory: dict[str, Any] | None = None
+    if record_path.exists() and summary_path.exists() and not bool(args.rerun_acquisition):
         records = _read_jsonl(record_path)
         episode_summaries = json.loads(summary_path.read_text(encoding="utf-8-sig")).get("episodes") or []
-        memory = json.loads(memory_path.read_text(encoding="utf-8-sig"))
+        if memory_path.exists():
+            memory = json.loads(memory_path.read_text(encoding="utf-8-sig"))
     else:
         loaded = _load_policy(args)
         records = []
@@ -441,6 +443,7 @@ def _acquire_calibrate_mode(args: argparse.Namespace) -> dict[str, Any]:
                 records.extend(new_records)
                 _write_jsonl(record_path, records)
                 _write_json(summary_path, {"episodes": episode_summaries, "record_count": len(records)})
+    if memory is None:
         acquisition_records = [record for record in records if record.get("split") == "acquisition"]
         calibration_records = [record for record in records if record.get("split") == "calibration"]
         memory = fit_cavm_memory(acquisition_records, calibration_records, CAVMConfig())
