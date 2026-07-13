@@ -1,8 +1,8 @@
 # Autonomous Until Paper Decision
 
-Date: 2026-07-12 KST
+Date: 2026-07-13 KST
 
-Current campaign decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
+Current campaign decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
 
 This is not a terminal decision.
 
@@ -41,4 +41,6 @@ Epoch 3 Cycle 3, `PSE-VLA`, is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROV
 
 The related Epoch 3 failures have been synthesized in `reports/epoch_3_failure_synthesis.md`.
 
-Next action: begin Epoch 4 Cycle 1 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.
+Epoch 4 Cycle 1, `RCV-VLA`, is archived as `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: Stage 2B completed `200 / 200` episodes with zero exceptions. Full RCV reached `20 / 40`, while the no-context ablation and stateless first-action baseline each reached `24 / 40`. Full-minus-ablation paired delta was `-0.10` with CI `[-0.250, 0.025]`; full-minus-stateless paired delta was `-0.10` with CI `[-0.225, 0.025]`.
+
+Next action: begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.

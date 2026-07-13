@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "date_kst":  "2026-07-12",
+    "date_kst":  "2026-07-13",
     "campaign":  "autonomous_until_paper",
     "normal_success_terminal_state":  "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
     "governance_version":  "current_research_governance_20260712",
@@ -11,14 +11,14 @@
     "maximum_wall_time_hours_per_cycle":  12,
     "maximum_single_uncheckpointed_command_hours":  4,
     "current_epoch":  4,
-    "current_cycle":  1,
-    "current_topic":  "epoch_4_cycle_1_selection_pending",
+    "current_cycle":  2,
+    "current_topic":  "epoch_4_cycle_2_selection_pending",
     "current_branch":  "codex/autonomous-until-paper-governance-v2",
     "current_commit":  "ce7d455f1ce1c1f978e3a0d5194aa067cc43032b",
     "base_research_branch":  "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit":  "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit":  "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage":  "epoch_4_cycle_1_selection_pending",
+    "current_stage":  "epoch_4_cycle_2_selection_pending",
     "completed_stages":  [
                              "starting_state_verified",
                              "historical_evidence_inspected",
@@ -122,7 +122,18 @@
                              "epoch_3_cycle_3_pse_stage_b_expansion_completed",
                              "epoch_3_cycle_3_pse_valid_current_formulation_kill_recorded",
                              "epoch_3_failure_synthesis_completed",
-                             "post_pse_research_design_governance_applied"
+                             "post_pse_research_design_governance_applied",
+                             "epoch_4_cycle_1_candidate_generation_completed",
+                             "epoch_4_cycle_1_rcv_proposal_frozen",
+                             "epoch_4_cycle_1_rcv_reviewer_attack_completed",
+                             "epoch_4_cycle_1_rcv_rebuttal_completed",
+                             "epoch_4_cycle_1_rcv_preregistration_frozen",
+                             "epoch_4_cycle_1_rcv_implemented",
+                             "epoch_4_cycle_1_rcv_stage_0_completed",
+                             "epoch_4_cycle_1_rcv_stage_1_completed",
+                             "epoch_4_cycle_1_rcv_stage_2a_completed",
+                             "epoch_4_cycle_1_rcv_stage_2b_completed",
+                             "epoch_4_cycle_1_rcv_valid_current_formulation_kill_recorded"
                          ],
     "active_hypothesis":  null,
     "method_identity":  null,
@@ -141,7 +152,7 @@
     "download_amount_gib_this_epoch":  0.0,
     "download_amount_gib_campaign":  14.845,
     "disk_free_bytes":  382861287424,
-    "current_decision":  "EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED",
+    "current_decision":  "EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2",
     "stage_a_result_json":  null,
     "stage_a_result_md":  null,
     "cycle_1_outcome":  {
@@ -247,7 +258,7 @@
                                "HARD_EXTERNAL_BLOCKER",
                                "SAFETY_RESOURCE_STOP"
                            ],
-    "next_action":  "Begin Epoch 4 Cycle 1 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.",
+    "next_action":  "Begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.",
     "method":  null,
     "epoch_2_cycle_2_outcome":  {
                                     "method":  "SACF-VLA",
@@ -431,5 +442,51 @@
                               "pivot_required":  true,
                               "next_epoch":  4,
                               "required_change":  "Change at least two core dimensions relative to teacher distillation, sensor-statistic canonicalization, and photometric action ensembling."
-                          }
+                          },
+    "epoch_4_cycle_1_outcome":  {
+                                    "method":  "RCV-VLA",
+                                    "valid_current_formulation_kill":  true,
+                                    "stage_0_completed":  true,
+                                    "stage_1_completed":  true,
+                                    "stage_2a_completed":  true,
+                                    "stage_2b_completed":  true,
+                                    "episode_count":  200,
+                                    "exceptions":  0,
+                                    "final_decision":  "STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED",
+                                    "proposal_hash":  "86044E841D178DB5AA485B7D12B01FF8E4274CBDFDCDAC7D427477BF0646F26F",
+                                    "queued_frozen_smolvla_successes":  14,
+                                    "queued_frozen_smolvla_total":  40,
+                                    "queued_frozen_smolvla_task_balanced_success_rate":  0.35,
+                                    "sv_deviation_proxy_successes":  16,
+                                    "sv_deviation_proxy_total":  40,
+                                    "sv_deviation_proxy_task_balanced_success_rate":  0.4,
+                                    "rcv_full_successes":  20,
+                                    "rcv_full_total":  40,
+                                    "rcv_full_task_balanced_success_rate":  0.5,
+                                    "rcv_no_context_ablation_successes":  24,
+                                    "rcv_no_context_ablation_total":  40,
+                                    "rcv_no_context_ablation_task_balanced_success_rate":  0.6,
+                                    "stateless_first_action_successes":  24,
+                                    "stateless_first_action_total":  40,
+                                    "stateless_first_action_task_balanced_success_rate":  0.6,
+                                    "strongest_baseline":  "rcv_no_context_ablation",
+                                    "mechanism_active":  true,
+                                    "rcv_full_replan_rate":  0.557293,
+                                    "rcv_full_heavy_policy_calls_per_step":  0.5635,
+                                    "rcv_no_context_heavy_policy_calls_per_step":  0.429078,
+                                    "paired_delta_vs_no_context_ablation":  -0.1,
+                                    "paired_ci_vs_no_context_ablation":  [
+                                                                             -0.25,
+                                                                             0.025
+                                                                         ],
+                                    "paired_delta_vs_stateless_first_action":  -0.1,
+                                    "paired_ci_vs_stateless_first_action":  [
+                                                                                -0.225,
+                                                                                0.025
+                                                                            ],
+                                    "stage_2b_result_json":  "reports/rcv_vla/stage_2b_result.json",
+                                    "stage_2b_result_md":  "reports/rcv_vla/stage_2b_result.md",
+                                    "adjudication_report":  "reports/epoch_4_cycle_1_rcv_adjudication.md",
+                                    "kill_reason":  "Stage 2B completed 40 paired episodes per key policy with zero exceptions. Full RCV improved over queued SmolVLA and the SV-deviation proxy, but lost to the no-context ablation and stateless first-action baseline at 20/40 versus 24/40 each. The claimed current-state queued-vs-fresh validity mechanism is explained by simpler replanning or no-context thresholding."
+                                }
 }

@@ -1,18 +1,18 @@
 # Autonomous RA-L Campaign State
 
-Date: 2026-07-12 KST
+Date: 2026-07-13 KST
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
 
 Current epoch: `4`
 
-Current cycle: `1`
+Current cycle: `2`
 
-Current stage: `epoch_4_cycle_1_selection_pending`
+Current stage: `epoch_4_cycle_2_selection_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -66,4 +66,6 @@ Epoch 3 Cycle 3 `PSE-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEM
 
 The related Epoch 3 failures are synthesized in `reports/epoch_3_failure_synthesis.md`.
 
-Next action: begin Epoch 4 Cycle 1 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.
+Epoch 4 Cycle 1 `RCV-VLA` is archived as `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: Stage 2B completed `200 / 200` episodes with zero exceptions, full RCV reached `20 / 40`, no-context ablation reached `24 / 40`, and stateless first-action reached `24 / 40`.
+
+Next action: begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.

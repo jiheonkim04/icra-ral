@@ -1803,3 +1803,32 @@ Evidence:
 - `PSE-VLA` changed inference-time action generation through photometric view ensembling, but full reached `50 / 80` versus bright-single `51 / 80`, with paired upper confidence bound `0.075`.
 
 Consequence: begin Epoch 4 after applying the post-PSE research-design governance update. Epoch 4 must change at least two core dimensions relative to teacher distillation, sensor-statistic canonicalization, and photometric action ensembling.
+
+## 2026-07-13 - Epoch 4 Cycle 1 RCV-VLA
+
+Decision: `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`
+
+Execution boundary:
+
+- method: `RCV-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `86044E841D178DB5AA485B7D12B01FF8E4274CBDFDCDAC7D427477BF0646F26F`
+- Stage 0: `20 / 20` episodes, zero exceptions
+- Stage 1: `7276` acquisition step records, full and no-context verifiers saved
+- Stage 2A: `50 / 50` episodes, zero exceptions, positive enough to require Stage 2B
+- Stage 2B: `200 / 200` episodes, zero exceptions, `40` paired episodes per key policy
+
+Evidence:
+
+- queued frozen SmolVLA: `14 / 40`, task-balanced `0.35`
+- SV-deviation proxy: `16 / 40`, task-balanced `0.40`
+- RCV full: `20 / 40`, task-balanced `0.50`
+- RCV no-context ablation: `24 / 40`, task-balanced `0.60`
+- stateless first-action: `24 / 40`, task-balanced `0.60`
+- paired full minus no-context ablation: wins `2`, losses `6`, ties `32`, delta `-0.10`, CI `[-0.250, 0.025]`
+- paired full minus stateless first-action: wins `2`, losses `6`, ties `32`, delta `-0.10`, CI `[-0.225, 0.025]`
+- RCV full replan rate: `0.557293`
+- RCV full heavy policy calls per step: `0.563500`
+- no-context ablation heavy policy calls per step: `0.429078`
+
+Consequence: archive RCV-VLA as a valid current-formulation kill. Do not rescue it by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation. Continue to Epoch 4 Cycle 2 under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.

@@ -1,18 +1,18 @@
 # Project State
 
-## 2026-07-12 Governance V2 Current State
+## 2026-07-13 Governance V2 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
 
 Current epoch: `4`
 
-Current cycle: `1`
+Current cycle: `2`
 
-The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`. Epoch 2 Cycle 1 `PTC-VLA` is archived in `reports/epoch_2_cycle_1_ptc_adjudication.md`. Epoch 2 Cycle 2 `SACF-VLA` is archived in `reports/epoch_2_cycle_2_sacf_adjudication.md`. Epoch 2 Cycle 3 `OCFN-VLA` is archived in `reports/epoch_2_cycle_3_ocfn_adjudication.md`. Epoch 3 Cycle 1 `CBFD-VLA` is archived in `reports/epoch_3_cycle_1_cbfd_adjudication.md`. Epoch 3 Cycle 2 `SCVC-VLA` is archived in `reports/epoch_3_cycle_2_scvc_adjudication.md`. Epoch 3 Cycle 3 `PSE-VLA` is archived in `reports/epoch_3_cycle_3_pse_adjudication.md`. Epoch 3 is synthesized in `reports/epoch_3_failure_synthesis.md`; Epoch 4 Cycle 1 must use the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.
+The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`. Epoch 2 Cycle 1 `PTC-VLA` is archived in `reports/epoch_2_cycle_1_ptc_adjudication.md`. Epoch 2 Cycle 2 `SACF-VLA` is archived in `reports/epoch_2_cycle_2_sacf_adjudication.md`. Epoch 2 Cycle 3 `OCFN-VLA` is archived in `reports/epoch_2_cycle_3_ocfn_adjudication.md`. Epoch 3 Cycle 1 `CBFD-VLA` is archived in `reports/epoch_3_cycle_1_cbfd_adjudication.md`. Epoch 3 Cycle 2 `SCVC-VLA` is archived in `reports/epoch_3_cycle_2_scvc_adjudication.md`. Epoch 3 Cycle 3 `PSE-VLA` is archived in `reports/epoch_3_cycle_3_pse_adjudication.md`. Epoch 3 is synthesized in `reports/epoch_3_failure_synthesis.md`. Epoch 4 Cycle 1 `RCV-VLA` is archived in `reports/epoch_4_cycle_1_rcv_adjudication.md` as a valid current-formulation kill: the full method reached `20 / 40`, but the no-context ablation and stateless baseline each reached `24 / 40`. Epoch 4 Cycle 2 must continue under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate and change at least two core dimensions relative to RCV.
 
 Date: 2026-07-10 KST
 

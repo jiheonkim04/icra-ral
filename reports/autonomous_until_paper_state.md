@@ -1,18 +1,18 @@
 # Autonomous Until Paper State
 
-Date: 2026-07-12 KST
+Date: 2026-07-13 KST
 
 Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
 
 Current epoch: `4`
 
-Current cycle: `1`
+Current cycle: `2`
 
-Current stage: `epoch_4_cycle_1_selection_pending`
+Current stage: `epoch_4_cycle_2_selection_pending`
 
 Allowed final states:
 
@@ -95,4 +95,14 @@ Epoch 3 produced three related non-GO observation/data-side methods: `CBFD-VLA`,
 
 The synthesized decision is `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`.
 
-Next action: begin Epoch 4 Cycle 1 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.
+## Epoch 4 Cycle 1
+
+`RCV-VLA` is archived as `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`.
+
+The method passed Stage 0, Stage 1, and Stage 2A, then completed Stage 2B with `200 / 200` episodes and zero exceptions. Full RCV reached `20 / 40` with task-balanced success `0.50`. It beat queued SmolVLA (`14 / 40`) and the SV-deviation proxy (`16 / 40`) but lost to the no-context ablation (`24 / 40`) and stateless first-action baseline (`24 / 40`).
+
+The paired comparison against the no-context ablation was negative: full-minus-ablation delta `-0.10`, wins `2`, losses `6`, ties `32`, CI `[-0.250, 0.025]`. The paired comparison against stateless was also negative: delta `-0.10`, wins `2`, losses `6`, ties `32`, CI `[-0.225, 0.025]`.
+
+RCV's mechanism acted, with full replan rate `0.557293` and heavy policy calls per step `0.563500`, but the no-context ablation achieved higher success with fewer heavy calls per step (`0.429078`). The result excludes a useful improvement from the claimed current-state queued-vs-fresh validity mechanism.
+
+Next action: begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.

@@ -1,14 +1,14 @@
 # Next Actions
 
-## 2026-07-12 Governance V2 Current Action
+## 2026-07-13 Governance V2 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
 
-Immediate next action: start Epoch 4 Cycle 1 autonomous research. Generate exactly three candidates under the post-PSE problem-first and external-prior-early quality gate, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and mathematical mechanism attack, then implement unless exact duplication, trivial equivalence, mathematical invalidity, or hard infeasibility is proven.
+Immediate next action: start Epoch 4 Cycle 2 autonomous research. Generate exactly three candidates under the post-PSE problem-first and external-prior-early quality gate, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and mathematical mechanism attack, then implement unless exact duplication, trivial equivalence, mathematical invalidity, or hard infeasibility is proven.
 
-Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Epoch 4 Cycle 1 must not be a cosmetic variant of CBFD-VLA, SCVC-VLA, or PSE-VLA.
+Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Epoch 4 Cycle 2 must not be a cosmetic variant of CBFD-VLA, SCVC-VLA, PSE-VLA, or RCV-VLA. In particular, do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation; change at least two core dimensions relative to RCV's frozen-policy disagreement verifier, inference-time replanning intervention, and efficiency-versus-stateless claim.
 
 Date: 2026-07-10 KST
 
