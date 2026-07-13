@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
 
-Current epoch: `3`
+Current epoch: `4`
 
-Current cycle: `3`
+Current cycle: `1`
 
-The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`. Epoch 2 Cycle 1 `PTC-VLA` is archived in `reports/epoch_2_cycle_1_ptc_adjudication.md`. Epoch 2 Cycle 2 `SACF-VLA` is archived in `reports/epoch_2_cycle_2_sacf_adjudication.md`. Epoch 2 Cycle 3 `OCFN-VLA` is archived in `reports/epoch_2_cycle_3_ocfn_adjudication.md`. Epoch 3 Cycle 1 `CBFD-VLA` is archived in `reports/epoch_3_cycle_1_cbfd_adjudication.md`. Epoch 3 Cycle 2 `SCVC-VLA` is archived in `reports/epoch_3_cycle_2_scvc_adjudication.md`. Epoch 3 Cycle 3 must begin with candidate generation under the current governance.
+The previous fixed-cycle no-method stop is procedurally invalid under the active Goal. Epoch 1 is archived in `reports/epoch_1_corrected_adjudication.md`. Epoch 2 Cycle 1 `PTC-VLA` is archived in `reports/epoch_2_cycle_1_ptc_adjudication.md`. Epoch 2 Cycle 2 `SACF-VLA` is archived in `reports/epoch_2_cycle_2_sacf_adjudication.md`. Epoch 2 Cycle 3 `OCFN-VLA` is archived in `reports/epoch_2_cycle_3_ocfn_adjudication.md`. Epoch 3 Cycle 1 `CBFD-VLA` is archived in `reports/epoch_3_cycle_1_cbfd_adjudication.md`. Epoch 3 Cycle 2 `SCVC-VLA` is archived in `reports/epoch_3_cycle_2_scvc_adjudication.md`. Epoch 3 Cycle 3 `PSE-VLA` is archived in `reports/epoch_3_cycle_3_pse_adjudication.md`. Epoch 3 is synthesized in `reports/epoch_3_failure_synthesis.md`; Epoch 4 Cycle 1 must start after applying the post-PSE research-design governance update.
 
 Date: 2026-07-10 KST
 

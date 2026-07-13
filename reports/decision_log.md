@@ -1766,3 +1766,40 @@ Evidence:
 - paired full minus shifted frozen: wins `4`, losses `13`, ties `23`, delta `-0.225`, CI `[-0.425, -0.025]`
 
 Consequence: archive SCVC-VLA as a valid current-formulation kill and continue to Epoch 3 Cycle 3.
+
+## 2026-07-13 - Epoch 3 Cycle 3 PSE-VLA
+
+Decision: `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`
+
+Execution boundary:
+
+- method: `PSE-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `3F15D6E3ADCF340C490FBD5656051DFD101136D592F5A6B5D773ABF0E5308CAD`
+- synthetic mechanism smoke: passed
+- Stage A: `50 / 50` episodes, zero exceptions, non-GO requiring Stage B
+- Stage B 40-paired result: completed and archived separately
+- expanded Stage B: `400 / 400` total rows, zero exceptions, `80` paired episodes per variant
+
+Evidence:
+
+- clean frozen SmolVLA: `48 / 80`
+- bright single transform: `51 / 80`
+- dark single transform: `46 / 80`
+- duplicate-clean ensemble: `44 / 80`
+- PSE full: `50 / 80`
+- paired full minus bright single: wins `6`, losses `7`, ties `67`, delta `-0.0125`, CI `[-0.1000, 0.0750]`
+
+Consequence: archive PSE-VLA as a valid current-formulation kill. No further PSE internal controls or expansions are allowed.
+
+## 2026-07-13 - Epoch 3 Failure Synthesis
+
+Decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
+
+Evidence:
+
+- `CBFD-VLA` changed supervision/data source using Quantized OpenVLA-OFT INT4 traces, but full reached `0 / 10` versus frozen SmolVLA `7 / 10`.
+- `SCVC-VLA` changed sensor-statistic canonicalization under a fixed visual shift, but full reached `11 / 40` versus shifted frozen SmolVLA `20 / 40`.
+- `PSE-VLA` changed inference-time action generation through photometric view ensembling, but full reached `50 / 80` versus bright-single `51 / 80`, with paired upper confidence bound `0.075`.
+
+Consequence: begin Epoch 4 after applying the post-PSE research-design governance update. Epoch 4 must change at least two core dimensions relative to teacher distillation, sensor-statistic canonicalization, and photometric action ensembling.

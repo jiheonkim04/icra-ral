@@ -1,0 +1,23 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "bright_bias": 0.28,
+    "bright_gain": 0.42,
+    "dark_bias": -0.1,
+    "dark_gain": 1.25
+  },
+  "date_kst": "2026-07-12",
+  "elapsed_seconds": 0.003,
+  "final_decision": "SYNTHETIC_MECHANISM_PASS",
+  "mode": "synthetic",
+  "next_step": "Run Stage A.",
+  "summary": {
+    "bright_mean_abs_delta": 0.130861,
+    "dark_mean_abs_delta": 0.054993,
+    "duplicate_delta_vs_clean": 0.0,
+    "full_delta_vs_clean": 0.044096,
+    "synthetic_passed": true
+  },
+  "training_happened": false
+}

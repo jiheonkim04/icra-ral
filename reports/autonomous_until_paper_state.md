@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
 
-Current epoch: `3`
+Current epoch: `4`
 
-Current cycle: `3`
+Current cycle: `1`
 
-Current stage: `epoch_3_cycle_3_selection_pending`
+Current stage: `epoch_4_cycle_1_selection_pending`
 
 Allowed final states:
 
@@ -83,4 +83,16 @@ This satisfies the Stage A permanent kill rule: full method `0 / 10` while a pai
 
 Stage B completed `200 / 200` episodes with zero exceptions. Full SCVC reached `11 / 40`, while the strongest baseline, shifted frozen SmolVLA, reached `20 / 40`. The paired bootstrap confidence interval for full minus shifted frozen was `[-0.425, -0.025]`. The image canonicalizer acted, but useful closed-loop improvement was excluded.
 
-Next action: begin Epoch 3 Cycle 3 candidate generation under `reports/current_research_governance.md`.
+## Epoch 3 Cycle 3
+
+`PSE-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`.
+
+Stage A completed `50 / 50` episodes with zero exceptions and required Stage B. Stage B completed `40` paired episodes per policy and was unresolved, so current governance allowed one expansion. The expanded Stage B completed `400 / 400` rows with zero exceptions and a valid shared task/reset manifest. Full PSE reached `50 / 80`, while the strongest baseline, `bright_single`, reached `51 / 80`. The paired bootstrap confidence interval for full minus `bright_single` was `[-0.1000, 0.0750]`, excluding useful `+0.10` improvement after maximum expansion.
+
+## Epoch 3 Failure Synthesis
+
+Epoch 3 produced three related non-GO observation/data-side methods: `CBFD-VLA`, `SCVC-VLA`, and `PSE-VLA`. All three mechanisms acted or changed policy behavior, but each was explained by a simpler baseline.
+
+The synthesized decision is `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`.
+
+Next action: apply the post-PSE research-design governance update, add validation tests, and begin Epoch 4 Cycle 1 candidate generation.

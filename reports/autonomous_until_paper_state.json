@@ -1,4 +1,4 @@
-{
+﻿{
     "schema_version":  1,
     "date_kst":  "2026-07-12",
     "campaign":  "autonomous_until_paper",
@@ -10,15 +10,15 @@
     "maximum_total_gpu_time_hours":  24,
     "maximum_wall_time_hours_per_cycle":  12,
     "maximum_single_uncheckpointed_command_hours":  4,
-    "current_epoch":  3,
-    "current_cycle":  3,
-    "current_topic":  "epoch_3_cycle_3_selection_pending",
+    "current_epoch":  4,
+    "current_cycle":  1,
+    "current_topic":  "epoch_4_cycle_1_selection_pending",
     "current_branch":  "codex/autonomous-until-paper-governance-v2",
     "current_commit":  "ce7d455f1ce1c1f978e3a0d5194aa067cc43032b",
     "base_research_branch":  "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit":  "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit":  "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage":  "epoch_3_cycle_3_selection_pending",
+    "current_stage":  "epoch_4_cycle_1_selection_pending",
     "completed_stages":  [
                              "starting_state_verified",
                              "historical_evidence_inspected",
@@ -109,7 +109,19 @@
                              "epoch_3_cycle_2_scvc_stage_a_completed",
                              "epoch_3_cycle_2_scvc_stage_b_completed",
                              "epoch_3_cycle_2_scvc_valid_current_formulation_kill_recorded",
-                             "epoch_3_cycle_3_selection_pending"
+                             "epoch_3_cycle_3_selection_pending",
+                             "epoch_3_cycle_3_candidate_generation_completed",
+                             "epoch_3_cycle_3_pse_proposal_frozen",
+                             "epoch_3_cycle_3_pse_reviewer_attack_completed",
+                             "epoch_3_cycle_3_pse_rebuttal_completed",
+                             "epoch_3_cycle_3_pse_preregistration_frozen",
+                             "epoch_3_cycle_3_pse_implemented",
+                             "epoch_3_cycle_3_pse_synthetic_smoke_passed",
+                             "epoch_3_cycle_3_pse_stage_a_completed",
+                             "epoch_3_cycle_3_pse_stage_b_40_completed",
+                             "epoch_3_cycle_3_pse_stage_b_expansion_completed",
+                             "epoch_3_cycle_3_pse_valid_current_formulation_kill_recorded",
+                             "epoch_3_failure_synthesis_completed"
                          ],
     "active_hypothesis":  null,
     "method_identity":  null,
@@ -128,7 +140,7 @@
     "download_amount_gib_this_epoch":  0.0,
     "download_amount_gib_campaign":  14.845,
     "disk_free_bytes":  382861287424,
-    "current_decision":  "EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED",
+    "current_decision":  "EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED",
     "stage_a_result_json":  null,
     "stage_a_result_md":  null,
     "cycle_1_outcome":  {
@@ -234,7 +246,7 @@
                                "HARD_EXTERNAL_BLOCKER",
                                "SAFETY_RESOURCE_STOP"
                            ],
-    "next_action":  "Begin Epoch 3 Cycle 3 candidate generation under reports/current_research_governance.md; avoid cosmetic variants of CBFD-VLA teacher distillation and SCVC-VLA sensor-statistic canonicalization.",
+    "next_action":  "Apply post-PSE research-design governance update, add validation tests, then begin Epoch 4 Cycle 1 candidate generation under the updated problem-first, external-prior-early gate.",
     "method":  null,
     "epoch_2_cycle_2_outcome":  {
                                     "method":  "SACF-VLA",
@@ -364,5 +376,59 @@
                                     "stage_b_result_json":  "reports/scvc_vla/stage_b_result.json",
                                     "stage_b_result_md":  "reports/scvc_vla/stage_b_result.md",
                                     "kill_reason":  "SCVC full reached 11/40 while shifted frozen SmolVLA reached 20/40; paired full-minus-shifted-frozen CI was [-0.425, -0.025], excluding useful improvement and showing the full method was clearly worse than a simple baseline."
-                                }
+                                },
+    "epoch_3_cycle_3_outcome":  {
+                                    "method":  "PSE-VLA",
+                                    "valid_current_formulation_kill":  true,
+                                    "synthetic_completed":  true,
+                                    "stage_a_completed":  true,
+                                    "stage_b_completed":  true,
+                                    "stage_b_expanded_to_80_pairs_per_policy":  true,
+                                    "episode_count":  400,
+                                    "exceptions":  0,
+                                    "final_decision":  "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED",
+                                    "clean_frozen_smolvla_successes":  48,
+                                    "clean_frozen_smolvla_total":  80,
+                                    "clean_frozen_smolvla_task_balanced_success_rate":  0.6,
+                                    "bright_single_successes":  51,
+                                    "bright_single_total":  80,
+                                    "bright_single_task_balanced_success_rate":  0.6375,
+                                    "dark_single_successes":  46,
+                                    "dark_single_total":  80,
+                                    "dark_single_task_balanced_success_rate":  0.575,
+                                    "pse_duplicate_clean_successes":  44,
+                                    "pse_duplicate_clean_total":  80,
+                                    "pse_duplicate_clean_task_balanced_success_rate":  0.55,
+                                    "pse_full_successes":  50,
+                                    "pse_full_total":  80,
+                                    "pse_full_task_balanced_success_rate":  0.625,
+                                    "strongest_baseline":  "bright_single",
+                                    "strongest_baseline_successes":  51,
+                                    "strongest_baseline_total":  80,
+                                    "mechanism_active":  true,
+                                    "paired_delta_vs_bright_single":  -0.0125,
+                                    "paired_ci_vs_bright_single":  [
+                                                                       -0.1,
+                                                                       0.075
+                                                                   ],
+                                    "validation_total_rows":  400,
+                                    "validation_unique_keys":  400,
+                                    "validation_duplicate_keys":  0,
+                                    "validation_identical_task_reset_manifest":  true,
+                                    "stage_b_40_result_json":  "reports/pse_vla/stage_b_40_result.json",
+                                    "stage_b_result_json":  "reports/pse_vla/stage_b_result.json",
+                                    "stage_b_result_md":  "reports/pse_vla/stage_b_result.md",
+                                    "kill_reason":  "Expanded Stage B completed 80 paired episodes per policy with active mechanism and zero exceptions; PSE full reached 50/80 while bright-single reached 51/80, and the paired upper confidence bound for full minus bright-single was 0.075, excluding the preregistered useful +0.10 prototype improvement."
+                                },
+    "epoch_3_synthesis":  {
+                              "final_decision":  "EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED",
+                              "related_methods":  [
+                                                      "CBFD-VLA",
+                                                      "SCVC-VLA",
+                                                      "PSE-VLA"
+                                                  ],
+                              "pivot_required":  true,
+                              "next_epoch":  4,
+                              "required_change":  "Change at least two core dimensions relative to teacher distillation, sensor-statistic canonicalization, and photometric action ensembling."
+                          }
 }

@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -26,4 +26,6 @@ Epoch 3 Cycle 1 `CBFD-VLA` is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRONG
 
 Epoch 3 Cycle 2 `SCVC-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: full SCVC reached `11 / 40`, shifted frozen SmolVLA reached `20 / 40`, and the paired bootstrap CI versus shifted frozen was `[-0.425, -0.025]`.
 
-Next action: generate exactly three Epoch 3 Cycle 3 candidates, select exactly one, and continue to implementation unless Reviewer B proves exact duplication, trivial equivalence, or hard infeasibility.
+Epoch 3 Cycle 3 `PSE-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: expanded Stage B completed `400 / 400` rows with zero exceptions, full PSE reached `50 / 80`, bright-single reached `51 / 80`, and the paired CI versus bright-single was `[-0.1000, 0.0750]`.
+
+Next action: apply the post-PSE research-design governance update, add validation tests, and begin Epoch 4 Cycle 1 candidate generation.

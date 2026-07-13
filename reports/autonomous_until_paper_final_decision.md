@@ -2,7 +2,7 @@
 
 Date: 2026-07-12 KST
 
-Current campaign decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
+Current campaign decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
 
 This is not a terminal decision.
 
@@ -37,4 +37,8 @@ Epoch 3 Cycle 1, `CBFD-VLA`, is archived as `STAGE_A_PERMANENT_KILL_ZERO_VS_STRO
 
 Epoch 3 Cycle 2, `SCVC-VLA`, is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: full SCVC reached `11 / 40`, shifted frozen SmolVLA reached `20 / 40`, and paired evidence versus shifted frozen was negative.
 
-Begin Epoch 3 Cycle 3 candidate generation under `reports/current_research_governance.md`.
+Epoch 3 Cycle 3, `PSE-VLA`, is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: full PSE reached `50 / 80`, while the strongest baseline, `bright_single`, reached `51 / 80`, and the paired bootstrap CI versus bright-single was `[-0.1000, 0.0750]`.
+
+The related Epoch 3 failures have been synthesized in `reports/epoch_3_failure_synthesis.md`.
+
+Next action: apply the post-PSE research-design governance update, add validation tests, and begin Epoch 4 Cycle 1 candidate generation.

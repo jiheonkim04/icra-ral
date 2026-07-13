@@ -1,0 +1,13 @@
+# PSE-VLA Stage B Result
+
+Date: `2026-07-12`
+
+Final decision: `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`
+
+- mode: `stage-b`
+- training happened: `False`
+- closed-loop experiment happened: `True`
+- summary: `{'by_variant': {'clean_frozen_smolvla': {'successes': 48, 'total': 80, 'success_rate': 0.6, 'task_balanced_success_rate': 0.6, 'per_task': {'libero_10/task_4': {'successes': 17, 'total': 40, 'rate': 0.425}, 'libero_spatial/task_4': {'successes': 31, 'total': 40, 'rate': 0.775}}, 'exceptions': 0, 'mean_delta_vs_clean': 0.0, 'mean_delta_vs_bright': 0.0, 'mean_delta_vs_dark': 0.0, 'mean_component_delta': 0.0, 'mean_image_abs_delta': 0.0, 'mean_transform_count': 1.0}, 'bright_single': {'successes': 51, 'total': 80, 'success_rate': 0.6375, 'task_balanced_success_rate': 0.6375, 'per_task': {'libero_10/task_4': {'successes': 22, 'total': 40, 'rate': 0.55}, 'libero_spatial/task_4': {'successes': 29, 'total': 40, 'rate': 0.725}}, 'exceptions': 0, 'mean_delta_vs_clean': 0.0, 'mean_delta_vs_bright': 0.0, 'mean_delta_vs_dark': 0.0, 'mean_component_delta': 0.0, 'mean_image_abs_delta': 0.127442, 'mean_transform_count': 1.0}, 'dark_single': {'successes': 46, 'total': 80, 'success_rate': 0.575, 'task_balanced_success_rate': 0.575, 'per_task': {'libero_10/task_4': {'successes': 18, 'total': 40, 'rate': 0.45}, 'libero_spatial/task_4': {'successes': 28, 'total': 40, 'rate': 0.7}}, 'exceptions': 0, 'mean_delta_vs_clean': 0.0, 'mean_delta_vs_bright': 0.0, 'mean_delta_vs_dark': 0.0, 'mean_component_delta': 0.0, 'mean_image_abs_delta': 0.046692, 'mean_transform_count': 1.0}, 'pse_duplicate_clean': {'successes': 44, 'total': 80, 'success_rate': 0.55, 'task_balanced_success_rate': 0.55, 'per_task': {'libero_10/task_4': {'successes': 15, 'total': 40, 'rate': 0.375}, 'libero_spatial/task_4': {'successes': 29, 'total': 40, 'rate': 0.725}}, 'exceptions': 0, 'mean_delta_vs_clean': 0.056776, 'mean_delta_vs_bright': 0.0, 'mean_delta_vs_dark': 0.0, 'mean_component_delta': 0.057116, 'mean_image_abs_delta': 0.0, 'mean_transform_count': 3.0}, 'pse_full': {'successes': 50, 'total': 80, 'success_rate': 0.625, 'task_balanced_success_rate': 0.625, 'per_task': {'libero_10/task_4': {'successes': 20, 'total': 40, 'rate': 0.5}, 'libero_spatial/task_4': {'successes': 30, 'total': 40, 'rate': 0.75}}, 'exceptions': 0, 'mean_delta_vs_clean': 0.076743, 'mean_delta_vs_bright': 0.112162, 'mean_delta_vs_dark': 0.085711, 'mean_component_delta': 0.091539, 'mean_image_abs_delta': 0.05798, 'mean_transform_count': 3.0}}, 'strongest_baseline': 'bright_single', 'mechanism_active': True, 'exception_count': 0}`
+- elapsed seconds: `28870.127`
+
+Next step: Archive or scale according to governance.

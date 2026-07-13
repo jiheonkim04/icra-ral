@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `EPOCH_3_CYCLE_2_SCVC_KILLED_PIVOT_REQUIRED`
+Current decision: `EPOCH_3_SYNTHESIZED_KILLS_EPOCH_4_PIVOT_REQUIRED`
 
-Immediate next action: start Epoch 3 Cycle 3 autonomous research. Generate exactly three technically distinct candidates, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and baseline attack, then implement unless exact duplication, trivial equivalence, or hard infeasibility is proven.
+Immediate next action: apply the post-PSE research-design governance update requested by the user, add governance validation tests, then start Epoch 4 Cycle 1 autonomous research. Generate exactly three candidates under the new problem-first and external-prior-early quality gate, select exactly one, freeze/hash the Researcher proposal, run Reviewer B novelty and mathematical mechanism attack, then implement unless exact duplication, trivial equivalence, mathematical invalidity, or hard infeasibility is proven.
 
-Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Epoch 3 Cycle 3 must not be a cosmetic variant of CBFD-VLA or SCVC-VLA.
+Do not stop after governance migration, method failure, three historical method failures, or prototype GO unless an allowed final state in `reports/current_research_governance.md` is reached. Epoch 4 Cycle 1 must not be a cosmetic variant of CBFD-VLA, SCVC-VLA, or PSE-VLA.
 
 Date: 2026-07-10 KST
 
