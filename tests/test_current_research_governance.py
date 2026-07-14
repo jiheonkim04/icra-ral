@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "DAGR_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
-    assert state["current_stage"] == "epoch_4_cycle_7_dagr_adapter_training_pending"
+    assert state["current_decision"] == "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_a_manifest_pending"
     assert state["method"] == "DAGR-VLA"
     assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["prototype_protocol"] == "reports/dagr_vla/prototype_protocol.md"
@@ -75,6 +75,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_7_dagr_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_selected_config_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_policy_identities_verified" in state["completed_stages"]
     assert state["task_reset_manifest"] == "reports/mtf_vla/stage_b_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
@@ -114,7 +115,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_7_pre_stage_0"]["selected_config"] == "dagr_a020_route_mlp"
     assert state["epoch_4_cycle_7_pre_stage_0"]["selected_residual_alpha"] == 0.2
     assert state["epoch_4_cycle_7_pre_stage_0"]["selected_route_architecture"] == "mlp"
-    assert state["epoch_4_cycle_7_pre_stage_0"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_7_pre_stage_0"]["policy_identity_decision"] == "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["checkpoint_root"] == "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["stage_a_allowed"] is True
     assert state["epoch_4_cycle_7_pre_stage_0"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "dam_static_component_proxy",
@@ -129,6 +132,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_7_dagr_development_outcome"]["scoreable_development_records"] == 1600
     assert state["epoch_4_cycle_7_dagr_development_outcome"]["validation_any_route_fraction"] == 0.865
     assert state["epoch_4_cycle_7_dagr_development_outcome"]["selected_action_validity"] == 1.0
+    assert state["epoch_4_cycle_7_dagr_development_outcome"]["policy_identity_decision"] == "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_7_dagr_development_outcome"]["stage_a_allowed"] is True
+    assert state["epoch_4_cycle_7_dagr_policy_identity_outcome"]["final_decision"] == "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_7_dagr_policy_identity_outcome"]["stage_a_allowed"] is True
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

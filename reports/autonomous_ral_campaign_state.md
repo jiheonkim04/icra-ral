@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `DAGR_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
+Current decision: `DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
 
 Current epoch: `4`
 
 Current cycle: `7`
 
-Current stage: `epoch_4_cycle_7_dagr_adapter_training_pending`
+Current stage: `epoch_4_cycle_7_dagr_stage_a_manifest_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -173,4 +173,8 @@ Stage 0 development audit passed as `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH` in
 
 The bounded six-config validation search completed as `VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING` in `reports/dagr_vla/validation_search.json`. Selected config: `dagr_a020_route_mlp`, residual alpha `0.20`, route architecture `mlp`, validation score `0.8571740870493018`, delta L2 p95 `0.008609326556324959`, clean delta L2 p95 `0.00672802422195673`, and action validity `1.0`.
 
-Current stage: DAGR adapter training pending. Train disk-reloadable policy identities for `dagr_full`, `dam_static_component_proxy`, and `dagr_no_dynamic_route_ablation`, and prepare the nontrainable `gripper_transition_heuristic` before Stage A manifest freeze.
+DAGR policy identity training is complete in `reports/dagr_vla/policy_checkpoint_manifest.json`. Final decision: `DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`. The trainable identities `dagr_full`, `dam_static_component_proxy`, and `dagr_no_dynamic_route_ablation` all disk-reload, preserve initial base passthrough, and have validation action validity `1.0`; the nontrainable `gripper_transition_heuristic` config is saved under the same checkpoint root.
+
+Checkpoint root: `runs/dagr_vla_checkpoints/dagr_a020_route_mlp`. DAGR full validation delta L2 p95 is `0.008576558902859688`; DAM static proxy p95 is `0.016259152442216873`; no-dynamic-route ablation p95 is `0.006147781852632761`.
+
+Current stage: DAGR Stage A manifest pending. Freeze the matched five-policy Stage A manifest before any rollout.

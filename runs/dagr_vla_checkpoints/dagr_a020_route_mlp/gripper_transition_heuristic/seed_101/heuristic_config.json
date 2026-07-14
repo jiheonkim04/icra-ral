@@ -1,0 +1,9 @@
+{
+  "config_id": "dagr_a020_route_mlp",
+  "description": "Nontrainable bounded gripper timing bias near predicted gripper transitions.",
+  "gripper_material_threshold": 0.02,
+  "method": "DAGR-VLA",
+  "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+  "residual_alpha": 0.05,
+  "variant": "gripper_transition_heuristic"
+}

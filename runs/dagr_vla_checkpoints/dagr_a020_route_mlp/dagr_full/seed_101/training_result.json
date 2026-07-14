@@ -1,0 +1,93 @@
+{
+  "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dagr_full\\seed_101",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "disk_reload": true,
+  "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+  "first_gradient_norms": {
+    "residual": 0.0011407372368292066,
+    "route": 0.13343767849834304,
+    "trunk": 0.059725407083386674
+  },
+  "hard_stop_reasons": [],
+  "initial_delta_p95": 0.0,
+  "loss_curve": [
+    {
+      "clean": 0.0,
+      "delta": 0.0,
+      "epoch": 1,
+      "residual": 0.0011733261635527015,
+      "route": 0.7193805575370789,
+      "total": 0.7205538749694824
+    },
+    {
+      "clean": 1.2525596275736461e-06,
+      "delta": 1.8317889043828472e-05,
+      "epoch": 250,
+      "residual": 0.0011167858028784394,
+      "route": 0.4902024269104004,
+      "total": 0.4913211464881897
+    }
+  ],
+  "loss_final_train": {
+    "clean": 1.256597329302167e-06,
+    "delta": 1.8318602087674662e-05,
+    "residual": 0.0011167943011969328,
+    "route": 0.489673912525177,
+    "total": 0.4907926321029663
+  },
+  "loss_initial": {
+    "clean": 0.0,
+    "delta": 0.0,
+    "residual": 0.0011733261635527015,
+    "route": 0.7193805575370789,
+    "total": 0.7205538749694824
+  },
+  "loss_validation": {
+    "clean": 1.1654676654870855e-06,
+    "delta": 2.1272606318234466e-05,
+    "residual": 0.001615336281247437,
+    "route": 0.642228364944458,
+    "total": 0.6438459753990173
+  },
+  "required_files": [
+    "model.pt",
+    "policy_config.json",
+    "training_manifest.json",
+    "sha256_manifest.json"
+  ],
+  "route_metrics": {
+    "gripper": {
+      "accuracy": 0.7375,
+      "gate_activation_fraction": 0.345,
+      "gate_mean": 0.3718228042125702,
+      "majority_accuracy": 0.5225
+    },
+    "rotation": {
+      "accuracy": 0.595,
+      "gate_activation_fraction": 0.455,
+      "gate_mean": 0.5001015663146973,
+      "majority_accuracy": 0.525
+    },
+    "translation": {
+      "accuracy": 0.625,
+      "gate_activation_fraction": 0.5125,
+      "gate_mean": 0.5090685486793518,
+      "majority_accuracy": 0.5425
+    }
+  },
+  "sha256_manifest": {
+    "model.pt": "9C35AC85644A1EAFB17604295F5F5C01A4B3464B650371C192E6541A655E2F86",
+    "policy_config.json": "74D26CC40269F990FC605BD60230C860E918663E88E732D444DD332486AA3C67",
+    "training_manifest.json": "38C63B5B6BE6CBDC78C0ED43A612DAD46BCCF567F1771B0D03558A93F9E30EE0"
+  },
+  "validation": {
+    "action_validity": 1.0,
+    "clean_delta_l2_p95": 0.006687765941023827,
+    "delta_l2_mean": 0.003734895959496498,
+    "delta_l2_p95": 0.008576558902859688,
+    "gripper_delta_abs_p95": 0.007306476589292288,
+    "rotation_delta_l2_p95": 0.0011588227935135365,
+    "translation_delta_l2_p95": 0.006083105690777302
+  },
+  "variant": "dagr_full"
+}

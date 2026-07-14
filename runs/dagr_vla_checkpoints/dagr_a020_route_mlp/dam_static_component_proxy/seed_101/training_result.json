@@ -1,0 +1,74 @@
+{
+  "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dam_static_component_proxy\\seed_101",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "disk_reload": true,
+  "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+  "first_gradient_norms": {
+    "residual": 0.0003036423653233746,
+    "route": 0.0,
+    "trunk": 0.0
+  },
+  "hard_stop_reasons": [],
+  "initial_delta_p95": 0.0,
+  "loss_curve": [
+    {
+      "clean": 0.0,
+      "delta": 0.0,
+      "epoch": 1,
+      "residual": 0.0002477944071870297,
+      "route": 0.0,
+      "total": 0.0002477944071870297
+    },
+    {
+      "clean": 2.69932593255362e-06,
+      "delta": 5.497998427017592e-05,
+      "epoch": 250,
+      "residual": 0.00012130477261962369,
+      "route": 0.0,
+      "total": 0.00012707270798273385
+    }
+  ],
+  "loss_final_train": {
+    "clean": 2.692647285584826e-06,
+    "delta": 5.507700188900344e-05,
+    "residual": 0.00012109871749999002,
+    "route": 0.0,
+    "total": 0.000126875689602457
+  },
+  "loss_initial": {
+    "clean": 0.0,
+    "delta": 0.0,
+    "residual": 0.0002477944071870297,
+    "route": 0.0,
+    "total": 0.0002477944071870297
+  },
+  "loss_validation": {
+    "clean": 3.624965302151395e-06,
+    "delta": 9.05862616491504e-05,
+    "residual": 0.00044736394193023443,
+    "route": 0.0,
+    "total": 0.00045678505557589233
+  },
+  "required_files": [
+    "model.pt",
+    "policy_config.json",
+    "training_manifest.json",
+    "sha256_manifest.json"
+  ],
+  "route_metrics": {},
+  "sha256_manifest": {
+    "model.pt": "C50CFC20C1ECFEECF425F85BF8C9E6B9132C5DB4528B4949CDDD264CF597484A",
+    "policy_config.json": "5357FA3D1772F79457DC07B9F6D201D9F397EBECE840AF6065A00966D7B5B4CE",
+    "training_manifest.json": "809B59157DDADEB525E5A0B70DD334133F7CAF99D3EB393B1CCDC9352984EE6F"
+  },
+  "validation": {
+    "action_validity": 1.0,
+    "clean_delta_l2_p95": 0.009240802377462387,
+    "delta_l2_mean": 0.007301476784050465,
+    "delta_l2_p95": 0.016259152442216873,
+    "gripper_delta_abs_p95": 0.014306374825537205,
+    "rotation_delta_l2_p95": 0.0006726833526045084,
+    "translation_delta_l2_p95": 0.00914224423468113
+  },
+  "variant": "dam_static_component_proxy"
+}

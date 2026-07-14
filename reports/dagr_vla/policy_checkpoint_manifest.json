@@ -1,0 +1,304 @@
+{
+  "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
+  "closed_loop_experiment_happened": false,
+  "config_id": "dagr_a020_route_mlp",
+  "confirmatory_test_identities_used": false,
+  "date": "2026-07-14 KST",
+  "distinction": {
+    "full_vs_shared_delta_l2_mean_abs": 0.00047564832493662834,
+    "full_vs_static_delta_l2_mean_abs": 0.0035665808245539665
+  },
+  "epochs": 250,
+  "final_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+  "heuristic": {
+    "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\gripper_transition_heuristic\\seed_101",
+    "disk_reload": true,
+    "required_files": [
+      "heuristic_config.json",
+      "sha256_manifest.json"
+    ]
+  },
+  "learning_rate": 0.001,
+  "method": "DAGR-VLA",
+  "next_step": "Freeze the DAGR Stage A matched manifest before any rollout.",
+  "nontrainable_variants": [
+    "frozen_smolvla",
+    "gripper_transition_heuristic"
+  ],
+  "policy_identities": [
+    "frozen_smolvla",
+    "dam_static_component_proxy",
+    "dagr_full",
+    "dagr_no_dynamic_route_ablation",
+    "gripper_transition_heuristic"
+  ],
+  "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+  "route_thresholds": {
+    "gripper_material": 0.02,
+    "rotation": 0.011194201244082214,
+    "translation": 0.05906000471441304
+  },
+  "schema_version": 1,
+  "seed": 101,
+  "stage_a_allowed": true,
+  "static_component_weights": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.35333333333333333
+  ],
+  "train_records": 1200,
+  "trainable_variants": [
+    "dagr_full",
+    "dam_static_component_proxy",
+    "dagr_no_dynamic_route_ablation"
+  ],
+  "training_happened": true,
+  "validation_records": 400,
+  "variant_results": [
+    {
+      "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dagr_full\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "residual": 0.0011407372368292066,
+        "route": 0.13343767849834304,
+        "trunk": 0.059725407083386674
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "residual": 0.0011733261635527015,
+          "route": 0.7193805575370789,
+          "total": 0.7205538749694824
+        },
+        {
+          "clean": 1.2525596275736461e-06,
+          "delta": 1.8317889043828472e-05,
+          "epoch": 250,
+          "residual": 0.0011167858028784394,
+          "route": 0.4902024269104004,
+          "total": 0.4913211464881897
+        }
+      ],
+      "loss_final_train": {
+        "clean": 1.256597329302167e-06,
+        "delta": 1.8318602087674662e-05,
+        "residual": 0.0011167943011969328,
+        "route": 0.489673912525177,
+        "total": 0.4907926321029663
+      },
+      "loss_initial": {
+        "clean": 0.0,
+        "delta": 0.0,
+        "residual": 0.0011733261635527015,
+        "route": 0.7193805575370789,
+        "total": 0.7205538749694824
+      },
+      "loss_validation": {
+        "clean": 1.1654676654870855e-06,
+        "delta": 2.1272606318234466e-05,
+        "residual": 0.001615336281247437,
+        "route": 0.642228364944458,
+        "total": 0.6438459753990173
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "route_metrics": {
+        "gripper": {
+          "accuracy": 0.7375,
+          "gate_activation_fraction": 0.345,
+          "gate_mean": 0.3718228042125702,
+          "majority_accuracy": 0.5225
+        },
+        "rotation": {
+          "accuracy": 0.595,
+          "gate_activation_fraction": 0.455,
+          "gate_mean": 0.5001015663146973,
+          "majority_accuracy": 0.525
+        },
+        "translation": {
+          "accuracy": 0.625,
+          "gate_activation_fraction": 0.5125,
+          "gate_mean": 0.5090685486793518,
+          "majority_accuracy": 0.5425
+        }
+      },
+      "sha256_manifest": {
+        "model.pt": "9C35AC85644A1EAFB17604295F5F5C01A4B3464B650371C192E6541A655E2F86",
+        "policy_config.json": "74D26CC40269F990FC605BD60230C860E918663E88E732D444DD332486AA3C67",
+        "training_manifest.json": "38C63B5B6BE6CBDC78C0ED43A612DAD46BCCF567F1771B0D03558A93F9E30EE0"
+      },
+      "validation": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.006687765941023827,
+        "delta_l2_mean": 0.003734895959496498,
+        "delta_l2_p95": 0.008576558902859688,
+        "gripper_delta_abs_p95": 0.007306476589292288,
+        "rotation_delta_l2_p95": 0.0011588227935135365,
+        "translation_delta_l2_p95": 0.006083105690777302
+      },
+      "variant": "dagr_full"
+    },
+    {
+      "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dam_static_component_proxy\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "residual": 0.0003036423653233746,
+        "route": 0.0,
+        "trunk": 0.0
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "residual": 0.0002477944071870297,
+          "route": 0.0,
+          "total": 0.0002477944071870297
+        },
+        {
+          "clean": 2.69932593255362e-06,
+          "delta": 5.497998427017592e-05,
+          "epoch": 250,
+          "residual": 0.00012130477261962369,
+          "route": 0.0,
+          "total": 0.00012707270798273385
+        }
+      ],
+      "loss_final_train": {
+        "clean": 2.692647285584826e-06,
+        "delta": 5.507700188900344e-05,
+        "residual": 0.00012109871749999002,
+        "route": 0.0,
+        "total": 0.000126875689602457
+      },
+      "loss_initial": {
+        "clean": 0.0,
+        "delta": 0.0,
+        "residual": 0.0002477944071870297,
+        "route": 0.0,
+        "total": 0.0002477944071870297
+      },
+      "loss_validation": {
+        "clean": 3.624965302151395e-06,
+        "delta": 9.05862616491504e-05,
+        "residual": 0.00044736394193023443,
+        "route": 0.0,
+        "total": 0.00045678505557589233
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "route_metrics": {},
+      "sha256_manifest": {
+        "model.pt": "C50CFC20C1ECFEECF425F85BF8C9E6B9132C5DB4528B4949CDDD264CF597484A",
+        "policy_config.json": "5357FA3D1772F79457DC07B9F6D201D9F397EBECE840AF6065A00966D7B5B4CE",
+        "training_manifest.json": "809B59157DDADEB525E5A0B70DD334133F7CAF99D3EB393B1CCDC9352984EE6F"
+      },
+      "validation": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.009240802377462387,
+        "delta_l2_mean": 0.007301476784050465,
+        "delta_l2_p95": 0.016259152442216873,
+        "gripper_delta_abs_p95": 0.014306374825537205,
+        "rotation_delta_l2_p95": 0.0006726833526045084,
+        "translation_delta_l2_p95": 0.00914224423468113
+      },
+      "variant": "dam_static_component_proxy"
+    },
+    {
+      "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dagr_no_dynamic_route_ablation\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "residual": 0.0011665072491147336,
+        "route": 0.5756599026659315,
+        "trunk": 0.1504232755120115
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "residual": 0.001212518778629601,
+          "route": 0.7351670861244202,
+          "total": 0.7363796234130859
+        },
+        {
+          "clean": 1.3837612868883298e-06,
+          "delta": 1.228931523655774e-05,
+          "epoch": 250,
+          "residual": 0.0011840990046039224,
+          "route": 0.35953113436698914,
+          "total": 0.3607166111469269
+        }
+      ],
+      "loss_final_train": {
+        "clean": 1.3955475424154429e-06,
+        "delta": 1.2300038179091644e-05,
+        "residual": 0.0011840896913781762,
+        "route": 0.35908353328704834,
+        "total": 0.3602689802646637
+      },
+      "loss_initial": {
+        "clean": 0.0,
+        "delta": 0.0,
+        "residual": 0.001212518778629601,
+        "route": 0.7351670861244202,
+        "total": 0.7363796234130859
+      },
+      "loss_validation": {
+        "clean": 1.094362119147263e-06,
+        "delta": 1.2781861187249888e-05,
+        "residual": 0.0016306153265759349,
+        "route": 0.3341312110424042,
+        "total": 0.33576321601867676
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "route_metrics": {},
+      "sha256_manifest": {
+        "model.pt": "61E8ECAA4B168E66AE812F6F467A232AFA2A0A3ABBD85515E6CA98B247C6EA98",
+        "policy_config.json": "6A7C1CC76F87A001BCFD4A46E882101D46124BF1513EAB0EB46EA26D7BA0C68F",
+        "training_manifest.json": "3DF1049659AA5E3E78FE86CDC1C7BAF42A6A38C5FD8A81E57C530848A0CEC4CF"
+      },
+      "validation": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.0048079947009682655,
+        "delta_l2_mean": 0.0032592476345598698,
+        "delta_l2_p95": 0.006147781852632761,
+        "gripper_delta_abs_p95": 0.0035178472753614187,
+        "rotation_delta_l2_p95": 0.0009464178583584726,
+        "translation_delta_l2_p95": 0.005475370213389397
+      },
+      "variant": "dagr_no_dynamic_route_ablation"
+    }
+  ]
+}

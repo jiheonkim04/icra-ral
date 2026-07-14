@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `DAGR_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
+Current campaign decision: `DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
 
 This is not a terminal decision.
 
@@ -100,4 +100,6 @@ Researcher A rebuttal completed with decision `DAGR_REBUTTAL_PASS_TO_MATHEMATICA
 
 DAGR Stage 0 passed as `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`: `1600` development records, zero duplicate sample/frame keys, zero train/validation/test overlap, validation any-route fraction `0.865`, route-probe margins `0.0375`, `0.0725`, and `0.26`, and no hard stops.
 
-The bounded six-config validation search selected `dagr_a020_route_mlp` as `VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`: residual alpha `0.20`, route architecture `mlp`, validation score `0.8571740870493018`, delta L2 p95 `0.008609326556324959`, clean delta L2 p95 `0.00672802422195673`, and action validity `1.0`. No DAGR closed-loop rollout or confirmatory-test tuning has happened. Next action: train disk-reloadable DAGR policy identities before Stage A manifest freeze.
+The bounded six-config validation search selected `dagr_a020_route_mlp` as `VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`: residual alpha `0.20`, route architecture `mlp`, validation score `0.8571740870493018`, delta L2 p95 `0.008609326556324959`, clean delta L2 p95 `0.00672802422195673`, and action validity `1.0`.
+
+DAGR policy identity training completed as `DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`. The checkpoint root is `runs/dagr_vla_checkpoints/dagr_a020_route_mlp`; `dagr_full`, `dam_static_component_proxy`, and `dagr_no_dynamic_route_ablation` all disk-reload and keep validation action validity `1.0`, while `gripper_transition_heuristic` is a saved nontrainable identity. No DAGR closed-loop rollout or confirmatory-test tuning has happened. Next action: freeze the DAGR Stage A matched manifest before rollout.

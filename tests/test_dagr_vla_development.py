@@ -46,3 +46,29 @@ def test_dagr_validation_search_freezes_selected_config() -> None:
     for item in validation["tried_configs"]:
         assert (REPO_ROOT / item["checkpoint_path"]).exists()
 
+
+def test_dagr_policy_identities_are_disk_reloadable() -> None:
+    manifest = json.loads((DAGR / "policy_checkpoint_manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["final_decision"] == "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert manifest["stage_a_allowed"] is True
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["confirmatory_test_identities_used"] is False
+    assert manifest["policy_identities"] == [
+        "frozen_smolvla",
+        "dam_static_component_proxy",
+        "dagr_full",
+        "dagr_no_dynamic_route_ablation",
+        "gripper_transition_heuristic",
+    ]
+    variants = {row["variant"]: row for row in manifest["variant_results"]}
+    assert set(variants) == {"dagr_full", "dam_static_component_proxy", "dagr_no_dynamic_route_ablation"}
+    for row in variants.values():
+        assert row["final_decision"] == "DAGR_POLICY_CHECKPOINT_VERIFIED"
+        assert row["disk_reload"] is True
+        assert row["initial_delta_p95"] == 0.0
+        assert row["validation"]["action_validity"] == 1.0
+        for filename in row["required_files"]:
+            assert (REPO_ROOT / row["checkpoint_path"] / filename).exists()
+
+    assert (REPO_ROOT / manifest["heuristic"]["checkpoint_path"] / "heuristic_config.json").exists()

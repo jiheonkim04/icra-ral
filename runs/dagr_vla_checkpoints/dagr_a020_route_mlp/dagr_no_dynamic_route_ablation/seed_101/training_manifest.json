@@ -1,0 +1,6 @@
+{
+  "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+  "train_record_count": 1200,
+  "validation_record_count": 400,
+  "variant": "dagr_no_dynamic_route_ablation"
+}

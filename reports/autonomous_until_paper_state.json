@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 7,
-    "current_topic": "epoch_4_cycle_7_dagr_adapter_training_pending",
+    "current_topic": "epoch_4_cycle_7_dagr_stage_a_manifest_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "e849dcf1467b8671a96c6400d2ecd29d8721c5d9",
+    "current_commit": "9ea6038e6c4515414f15b10a18b0648e7f2572bc",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_7_dagr_adapter_training_pending",
+    "current_stage": "epoch_4_cycle_7_dagr_stage_a_manifest_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -220,7 +220,8 @@
         "epoch_4_cycle_7_dagr_prototype_protocol_frozen",
         "epoch_4_cycle_7_dagr_stage_0_completed",
         "epoch_4_cycle_7_dagr_validation_search_completed",
-        "epoch_4_cycle_7_dagr_selected_config_frozen"
+        "epoch_4_cycle_7_dagr_selected_config_frozen",
+        "epoch_4_cycle_7_dagr_policy_identities_verified"
     ],
     "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
     "method_identity": "DAGR-VLA",
@@ -243,7 +244,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "DAGR_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING",
+    "current_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
     "stage_a_result_json": "reports/mtf_vla/stage_a_result.json",
     "stage_a_result_md": "reports/mtf_vla/stage_a_result.md",
     "stage_b_partial_checkpoint": "reports/mtf_vla/stage_b_partial_result.json",
@@ -352,7 +353,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Train disk-reloadable DAGR policy identities for dagr_full, dam_static_component_proxy, and dagr_no_dynamic_route_ablation; prepare the gripper_transition_heuristic before Stage A manifest freeze.",
+    "next_action": "Freeze the DAGR Stage A matched manifest with the five fixed policy identities before any rollout.",
     "method": "DAGR-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1473,7 +1474,7 @@
             "dagr_no_dynamic_route_ablation",
             "gripper_transition_heuristic"
         ],
-        "next_stage": "Train disk-reloadable DAGR policy identities before Stage A manifest freeze.",
+        "next_stage": "Freeze DAGR Stage A matched manifest before rollout.",
         "reviewer_attack": "reports/dagr_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/dagr_vla/researcher_rebuttal.md",
@@ -1495,7 +1496,18 @@
         "selected_route_architecture": "mlp",
         "selected_validation_score": 0.8571740870493018,
         "selected_checkpoint_path": "reports\\dagr_vla\\validation_checkpoints\\dagr_a020_route_mlp.pt",
-        "stage_a_allowed": false
+        "stage_a_allowed": true,
+        "policy_checkpoint_manifest": "reports/dagr_vla/policy_checkpoint_manifest.json",
+        "policy_checkpoint_manifest_md": "reports/dagr_vla/policy_checkpoint_manifest.md",
+        "policy_identity_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+        "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
+        "policy_identities": [
+            "frozen_smolvla",
+            "dam_static_component_proxy",
+            "dagr_full",
+            "dagr_no_dynamic_route_ablation",
+            "gripper_transition_heuristic"
+        ]
     },
     "hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
     "novelty_claim": "A narrow DAM-VLA anchored extension: frozen SmolVLA identity-preserving route-gated group residual adaptation, not broad dynamic arm/gripper routing novelty.",
@@ -1529,7 +1541,85 @@
         "selected_clean_delta_l2_p95": 0.00672802422195673,
         "selected_action_validity": 1.0,
         "selected_checkpoint_path": "reports\\dagr_vla\\validation_checkpoints\\dagr_a020_route_mlp.pt",
-        "stage_a_allowed": false,
-        "next_stage": "Adapter/policy identity training and disk reload verification."
+        "stage_a_allowed": true,
+        "next_stage": "Stage A manifest freeze.",
+        "policy_identity_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+        "policy_checkpoint_manifest": "reports/dagr_vla/policy_checkpoint_manifest.json",
+        "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
+        "policy_identities": [
+            "frozen_smolvla",
+            "dam_static_component_proxy",
+            "dagr_full",
+            "dagr_no_dynamic_route_ablation",
+            "gripper_transition_heuristic"
+        ],
+        "trainable_variant_count": 3,
+        "dagr_full_delta_l2_p95": 0.008576558902859688,
+        "dam_static_component_proxy_delta_l2_p95": 0.016259152442216873,
+        "dagr_no_dynamic_route_ablation_delta_l2_p95": 0.006147781852632761,
+        "identity_distinction": {
+            "full_vs_shared_delta_l2_mean_abs": 0.00047564832493662834,
+            "full_vs_static_delta_l2_mean_abs": 0.0035665808245539665
+        }
+    },
+    "epoch_4_cycle_7_dagr_policy_identity_outcome": {
+        "method": "DAGR-VLA",
+        "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+        "final_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+        "training_happened": true,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_identities_used": false,
+        "stage_a_allowed": true,
+        "config_id": "dagr_a020_route_mlp",
+        "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
+        "policy_identities": [
+            "frozen_smolvla",
+            "dam_static_component_proxy",
+            "dagr_full",
+            "dagr_no_dynamic_route_ablation",
+            "gripper_transition_heuristic"
+        ],
+        "variant_results": [
+            {
+                "variant": "dagr_full",
+                "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+                "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dagr_full\\seed_101",
+                "disk_reload": true,
+                "delta_l2_p95": 0.008576558902859688,
+                "clean_delta_l2_p95": 0.006687765941023827,
+                "action_validity": 1.0
+            },
+            {
+                "variant": "dam_static_component_proxy",
+                "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+                "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dam_static_component_proxy\\seed_101",
+                "disk_reload": true,
+                "delta_l2_p95": 0.016259152442216873,
+                "clean_delta_l2_p95": 0.009240802377462387,
+                "action_validity": 1.0
+            },
+            {
+                "variant": "dagr_no_dynamic_route_ablation",
+                "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+                "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dagr_no_dynamic_route_ablation\\seed_101",
+                "disk_reload": true,
+                "delta_l2_p95": 0.006147781852632761,
+                "clean_delta_l2_p95": 0.0048079947009682655,
+                "action_validity": 1.0
+            }
+        ],
+        "heuristic": {
+            "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\gripper_transition_heuristic\\seed_101",
+            "disk_reload": true,
+            "required_files": [
+                "heuristic_config.json",
+                "sha256_manifest.json"
+            ]
+        },
+        "distinction": {
+            "full_vs_shared_delta_l2_mean_abs": 0.00047564832493662834,
+            "full_vs_static_delta_l2_mean_abs": 0.0035665808245539665
+        },
+        "next_stage": "Freeze the DAGR Stage A matched manifest before any rollout."
     }
 }

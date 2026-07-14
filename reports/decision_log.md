@@ -2026,3 +2026,27 @@ Validation search:
 - selected action validity: `1.0`
 
 Consequence: DAGR-VLA passes Stage 0 and the bounded validation search. The selected config is frozen and requires disk-reloadable policy identities for `dagr_full`, `dam_static_component_proxy`, and `dagr_no_dynamic_route_ablation` before any Stage A manifest or rollout.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Policy Identities
+
+Decision: `DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- selected config: `dagr_a020_route_mlp`
+- policy checkpoint manifest: `reports/dagr_vla/policy_checkpoint_manifest.json`
+- checkpoint root: `runs/dagr_vla_checkpoints/dagr_a020_route_mlp`
+- training happened: `True`
+- closed-loop experiment happened: `False`
+- confirmatory-test identities used: `False`
+- Stage A allowed: `True`
+
+Verified identities:
+
+- `dagr_full`: disk reload `True`, delta L2 p95 `0.008576558902859688`, action validity `1.0`
+- `dam_static_component_proxy`: disk reload `True`, delta L2 p95 `0.016259152442216873`, action validity `1.0`
+- `dagr_no_dynamic_route_ablation`: disk reload `True`, delta L2 p95 `0.006147781852632761`, action validity `1.0`
+- `gripper_transition_heuristic`: saved nontrainable heuristic identity
+
+Consequence: DAGR-VLA has disk-reloadable policy identities for the fixed five-policy comparison. Freeze the Stage A matched manifest before any official rollout.

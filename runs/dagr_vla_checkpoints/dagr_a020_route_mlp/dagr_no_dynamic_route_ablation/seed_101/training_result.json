@@ -1,0 +1,74 @@
+{
+  "checkpoint_path": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp\\dagr_no_dynamic_route_ablation\\seed_101",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "disk_reload": true,
+  "final_decision": "DAGR_POLICY_CHECKPOINT_VERIFIED",
+  "first_gradient_norms": {
+    "residual": 0.0011665072491147336,
+    "route": 0.5756599026659315,
+    "trunk": 0.1504232755120115
+  },
+  "hard_stop_reasons": [],
+  "initial_delta_p95": 0.0,
+  "loss_curve": [
+    {
+      "clean": 0.0,
+      "delta": 0.0,
+      "epoch": 1,
+      "residual": 0.001212518778629601,
+      "route": 0.7351670861244202,
+      "total": 0.7363796234130859
+    },
+    {
+      "clean": 1.3837612868883298e-06,
+      "delta": 1.228931523655774e-05,
+      "epoch": 250,
+      "residual": 0.0011840990046039224,
+      "route": 0.35953113436698914,
+      "total": 0.3607166111469269
+    }
+  ],
+  "loss_final_train": {
+    "clean": 1.3955475424154429e-06,
+    "delta": 1.2300038179091644e-05,
+    "residual": 0.0011840896913781762,
+    "route": 0.35908353328704834,
+    "total": 0.3602689802646637
+  },
+  "loss_initial": {
+    "clean": 0.0,
+    "delta": 0.0,
+    "residual": 0.001212518778629601,
+    "route": 0.7351670861244202,
+    "total": 0.7363796234130859
+  },
+  "loss_validation": {
+    "clean": 1.094362119147263e-06,
+    "delta": 1.2781861187249888e-05,
+    "residual": 0.0016306153265759349,
+    "route": 0.3341312110424042,
+    "total": 0.33576321601867676
+  },
+  "required_files": [
+    "model.pt",
+    "policy_config.json",
+    "training_manifest.json",
+    "sha256_manifest.json"
+  ],
+  "route_metrics": {},
+  "sha256_manifest": {
+    "model.pt": "61E8ECAA4B168E66AE812F6F467A232AFA2A0A3ABBD85515E6CA98B247C6EA98",
+    "policy_config.json": "6A7C1CC76F87A001BCFD4A46E882101D46124BF1513EAB0EB46EA26D7BA0C68F",
+    "training_manifest.json": "3DF1049659AA5E3E78FE86CDC1C7BAF42A6A38C5FD8A81E57C530848A0CEC4CF"
+  },
+  "validation": {
+    "action_validity": 1.0,
+    "clean_delta_l2_p95": 0.0048079947009682655,
+    "delta_l2_mean": 0.0032592476345598698,
+    "delta_l2_p95": 0.006147781852632761,
+    "gripper_delta_abs_p95": 0.0035178472753614187,
+    "rotation_delta_l2_p95": 0.0009464178583584726,
+    "translation_delta_l2_p95": 0.005475370213389397
+  },
+  "variant": "dagr_no_dynamic_route_ablation"
+}
