@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `MTF_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `6`
 
-Current stage: `epoch_4_cycle_6_mtf_stage_a_manifest_pending`
+Current stage: `epoch_4_cycle_6_mtf_stage_b_required`
 
 ## Corrected Epoch 1 Result
 
@@ -145,6 +145,8 @@ Current stage: adapter-training runner validated. Stage A must still not start u
 
 Adapter training completed after the runner dry-run and a development-only FrameSkip proxy repair: all four trainable Stage A policies were trained with seed `101`, saved under `runs/mtf_vla_checkpoints/mtf_r20_ret100`, reloaded from disk, and evaluated on the `400` validation frames. Final decision: `MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY`. Validation action L2 means were `0.082590885` for MTF full, `0.082867367` for the no-retention ablation, `0.082553130` for the corrected FrameSkip proxy, and `0.082396918` for uniform retained-ratio LoRA. The corrected FrameSkip proxy uses `240` action-variation-selected train events and is distinct from the no-retention ablation. No closed-loop rollout happened and no confirmatory-test identities were used.
 
-The MTF Stage A matched manifest is now frozen in `reports/mtf_vla/stage_a_manifest.json` with canonical payload hash `1BB86A8060F8CD057AF984423021CA582E87661CB5157C072EF34B6F587739E3`. It contains exactly five policies (`frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, `mtf_full`), five deterministic task keys selected from the official 20-task manifest, fresh reset seeds `20261201` and `20261202`, `10` paired cases per policy, and `50` total planned episodes. `frameskip_proxy_lora` is labeled as a faithful local proxy, not an official FrameSkip reproduction. No closed-loop rollout has happened from this manifest yet.
+The MTF Stage A matched manifest is frozen in `reports/mtf_vla/stage_a_manifest.json` with canonical payload hash `1BB86A8060F8CD057AF984423021CA582E87661CB5157C072EF34B6F587739E3`. It contains exactly five policies (`frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, `mtf_full`), five deterministic task keys selected from the official 20-task manifest, fresh reset seeds `20261201` and `20261202`, `10` paired cases per policy, and `50` total planned episodes. `frameskip_proxy_lora` is labeled as a faithful local proxy, not an official FrameSkip reproduction.
 
-Current stage: Stage A official WSL rollout pending. Resume with `wsl -d Ubuntu-22.04 bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-a"`. Resume only missing `(policy, suite, task_id, reset_seed)` keys; do not tune checkpoints on Stage A or later confirmatory outcomes.
+Stage A completed `50 / 50` official LIBERO episodes with zero exceptions. Frozen SmolVLA, FrameSkip proxy, and uniform retained-ratio LoRA each reached `8 / 10`; the no-retention ablation and MTF full each reached `7 / 10`. Full MTF tied the key ablation and was only one episode behind the strongest baselines, so this is not a valid Stage A kill. The frozen adjudication is `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`.
+
+Current stage: Stage B required. Freeze and run the MTF Stage B official WSL rollout with at least `40` paired episodes per key policy, using the same frozen policy identities and no retuning from Stage A outcomes.

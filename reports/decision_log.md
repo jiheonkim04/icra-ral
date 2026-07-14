@@ -1851,3 +1851,30 @@ Execution boundary:
 - policies: `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, `mtf_full`
 
 Consequence: Stage A is frozen and ready for official WSL rollout. No closed-loop rollout has happened from this manifest, and no Stage A outcome may be used to retune MTF checkpoints, task selection, reset identities, policy list, or thresholds.
+
+## 2026-07-14 - Epoch 4 Cycle 6 MTF-VLA Stage A Result
+
+Decision: `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
+
+Execution boundary:
+
+- method: `MTF-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31`
+- selected config: `mtf_r20_ret100`
+- manifest: `reports/mtf_vla/stage_a_manifest.json`
+- result: `reports/mtf_vla/stage_a_result.json`
+- episodes: `50 / 50`
+- exceptions: `0`
+
+Evidence:
+
+- frozen SmolVLA: `8 / 10`, task-balanced `0.8`
+- FrameSkip proxy: `8 / 10`, task-balanced `0.8`
+- uniform retained-ratio LoRA: `8 / 10`, task-balanced `0.8`
+- no-retention ablation: `7 / 10`, task-balanced `0.7`
+- MTF full: `7 / 10`, task-balanced `0.7`
+- paired full minus no-retention: wins `1`, losses `1`, ties `8`, delta `0.0`
+- paired full minus FrameSkip proxy: wins `0`, losses `1`, ties `9`, delta `-0.1`
+
+Consequence: this is a noncatastrophic Stage A directional screen, not a valid kill. Under the frozen Stage A rules, MTF-VLA must proceed to Stage B with no checkpoint, threshold, task, identity, or policy-list retuning from Stage A outcomes.

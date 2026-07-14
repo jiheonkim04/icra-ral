@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 6,
-    "topic": "epoch_4_cycle_6_mtf_stage_a_manifest_frozen_rollout_pending",
+    "topic": "epoch_4_cycle_6_mtf_stage_b_required",
     "method": "MTF-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "ad6f42b98ee0e4ac50abc9b2ba91324c4ec2776b",
-    "current_stage": "epoch_4_cycle_6_mtf_stage_a_manifest_frozen_rollout_pending",
+    "current_commit": "59ef9565886b854761995ed55077e8d8c25a305d",
+    "current_stage": "epoch_4_cycle_6_mtf_stage_b_required",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -216,7 +216,9 @@
         "epoch_4_cycle_6_mtf_adapter_training_runner_validated",
         "epoch_4_cycle_6_mtf_adapter_training_completed",
         "epoch_4_cycle_6_mtf_checkpoints_verified",
-        "epoch_4_cycle_6_mtf_stage_a_manifest_frozen"
+        "epoch_4_cycle_6_mtf_stage_a_manifest_frozen",
+        "epoch_4_cycle_6_mtf_stage_a_policy_preflight_passed",
+        "epoch_4_cycle_6_mtf_stage_a_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -233,10 +235,10 @@
         "DAM-VLA: https://arxiv.org/abs/2603.00926"
     ],
     "prototype_gate": "Stage A/B require MTF full to beat Base, FrameSkip proxy, no-retention ablation, and uniform retained-ratio LoRA under a frozen matched manifest with clean retention and bounded milestone-specific action change.",
-    "current_decision": "MTF_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
-    "stage_a_partial_checkpoint": "reports/rac_vla/stage_a_partial_result.json",
-    "stage_a_result_json": "reports/rac_vla/stage_a_result.json",
-    "stage_a_result_md": "reports/rac_vla/stage_a_result.md",
+    "current_decision": "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    "stage_a_partial_checkpoint": "reports/mtf_vla/stage_a_partial_result.json",
+    "stage_a_result_json": "reports/mtf_vla/stage_a_result.json",
+    "stage_a_result_md": "reports/mtf_vla/stage_a_result.md",
     "stage_b_partial_checkpoint": "reports/rac_vla/stage_b_partial_result.json",
     "stage_b_result_json": "reports/rac_vla/stage_b_result.json",
     "stage_b_result_md": "reports/rac_vla/stage_b_result.md",
@@ -384,8 +386,8 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run the frozen MTF-VLA Stage A official WSL rollout from reports/mtf_vla/stage_a_manifest.json; resume only missing (policy, suite, task_id, reset_seed) keys and do not tune checkpoints on outcomes.",
-    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-a\"",
+    "next_action": "Freeze and run the MTF-VLA Stage B official WSL rollout using the same five policy identities, a matched task/reset manifest with at least 40 paired episodes per key policy, and no retuning from Stage A outcomes.",
+    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && type reports\\mtf_vla\\stage_a_result.md",
     "active_hypothesis": "Milestone-transition focused adapter training with frozen-base retention can improve SmolVLA closed-loop success beyond Base, a FrameSkip proxy, a no-retention ablation, and uniform retained-ratio LoRA while retaining clean behavior.",
     "method_identity": "MTF-VLA",
     "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
@@ -1210,5 +1212,97 @@
         "stage_a_partial_result_json": "reports/mtf_vla/stage_a_partial_result.json",
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-a\"",
         "next_stage": "Run frozen MTF Stage A official WSL rollout."
+    },
+    "epoch_4_cycle_6_mtf_stage_a_outcome": {
+        "method": "MTF-VLA",
+        "config_id": "mtf_r20_ret100",
+        "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
+        "final_decision": "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "result_json": "reports/mtf_vla/stage_a_result.json",
+        "result_md": "reports/mtf_vla/stage_a_result.md",
+        "partial_result_json": "reports/mtf_vla/stage_a_partial_result.json",
+        "status_json": "reports/mtf_vla/stage_a_status.json",
+        "result_sha256": "4D87761546803F251DE4C14FF40842E85B0DC19E57939362046E694C094CEE74",
+        "partial_result_sha256": "8ED8E0CA934A488AE8F2C01B9B5214FE2AD187357B69CC490F8175179F7B9D3F",
+        "stage_a_manifest": "reports/mtf_vla/stage_a_manifest.json",
+        "stage_a_manifest_sha256": "4c928ddf498fcaf9d5040972fec04070d676457224c5374585f456d0681d71e7",
+        "closed_loop_experiment_happened": true,
+        "confirmatory_test_tuning_happened": false,
+        "planned_episode_count": 50,
+        "completed_episode_count": 50,
+        "exception_count": 0,
+        "exit_code": 0,
+        "policy_successes": {
+            "frameskip_proxy_lora": {
+                "successes": 8,
+                "total": 10,
+                "task_balanced_success_rate": 0.8,
+                "success_rate": 0.8,
+                "exception_count": 0
+            },
+            "frozen_smolvla": {
+                "successes": 8,
+                "total": 10,
+                "task_balanced_success_rate": 0.8,
+                "success_rate": 0.8,
+                "exception_count": 0
+            },
+            "mtf_full": {
+                "successes": 7,
+                "total": 10,
+                "task_balanced_success_rate": 0.7,
+                "success_rate": 0.7,
+                "exception_count": 0
+            },
+            "mtf_no_retention_ablation": {
+                "successes": 7,
+                "total": 10,
+                "task_balanced_success_rate": 0.7,
+                "success_rate": 0.7,
+                "exception_count": 0
+            },
+            "uniform_retained_ratio_lora": {
+                "successes": 8,
+                "total": 10,
+                "task_balanced_success_rate": 0.8,
+                "success_rate": 0.8,
+                "exception_count": 0
+            }
+        },
+        "paired_vs_mtf_full": {
+            "frameskip_proxy_lora": {
+                "paired_count": 10,
+                "paired_loss_count": 1,
+                "paired_success_delta": -0.1,
+                "paired_tie_count": 9,
+                "paired_win_count": 0
+            },
+            "frozen_smolvla": {
+                "paired_count": 10,
+                "paired_loss_count": 2,
+                "paired_success_delta": -0.1,
+                "paired_tie_count": 7,
+                "paired_win_count": 1
+            },
+            "mtf_no_retention_ablation": {
+                "paired_count": 10,
+                "paired_loss_count": 1,
+                "paired_success_delta": 0.0,
+                "paired_tie_count": 8,
+                "paired_win_count": 1
+            },
+            "uniform_retained_ratio_lora": {
+                "paired_count": 10,
+                "paired_loss_count": 2,
+                "paired_success_delta": -0.1,
+                "paired_tie_count": 7,
+                "paired_win_count": 1
+            }
+        },
+        "stage_a_adjudication": "noncatastrophic_directional_screen_requires_stage_b",
+        "valid_kill": false,
+        "checkpoint_retuning_allowed": false,
+        "threshold_change_allowed": false,
+        "next_stage": "Freeze and run MTF Stage B with at least 40 paired episodes per key policy under the existing policy identities and no confirmatory-test tuning."
     }
 }

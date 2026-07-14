@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `MTF_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current campaign decision: `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
 
 This is not a terminal decision.
 
@@ -86,6 +86,6 @@ Next action: run the MTF adapter trainer to produce and disk-reload verify all f
 
 MTF adapter training is now complete for all four trainable Stage A policies after repairing the development-only FrameSkip proxy collapse. The checkpoints are saved under `runs/mtf_vla_checkpoints/mtf_r20_ret100`, disk-reloaded successfully, and summarized in `reports/mtf_vla/adapter_checkpoint_manifest.json`. Validation action L2 means were `0.082590885` for MTF full, `0.082867367` for no-retention, `0.082553130` for the corrected FrameSkip proxy, and `0.082396918` for uniform retained-ratio LoRA. No rollout or confirmatory-test tuning occurred.
 
-The MTF Stage A manifest is frozen in `reports/mtf_vla/stage_a_manifest.json` with decision `MTF_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`. It uses exactly `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, and `mtf_full`; `frameskip_proxy_lora` is a faithful local proxy rather than an official FrameSkip reproduction. The manifest has `10` paired cases per policy, reset seeds `20261201` and `20261202`, `50` planned official LIBERO episodes, and no closed-loop rollout has happened from it yet.
+The MTF Stage A manifest is frozen in `reports/mtf_vla/stage_a_manifest.json` and has now completed as `reports/mtf_vla/stage_a_result.json`. It used exactly `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, and `mtf_full`; `frameskip_proxy_lora` is a faithful local proxy rather than an official FrameSkip reproduction. Stage A completed `50 / 50` official LIBERO episodes with zero exceptions. Frozen SmolVLA, FrameSkip proxy, and uniform retained-ratio LoRA each reached `8 / 10`; no-retention and MTF full each reached `7 / 10`. The frozen decision is `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`, so Stage B is required.
 
-Next action: freeze the matched MTF Stage A rollout manifest before any Stage A rollout.
+Next action: freeze and run the matched MTF Stage B official WSL rollout with at least `40` paired episodes per key policy, using the same five policy identities and no retuning from Stage A outcomes.
