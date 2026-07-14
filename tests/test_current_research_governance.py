@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_6_mtf_adapter_training_pending"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY"
+    assert state["current_stage"] == "epoch_4_cycle_6_mtf_adapter_training_runner_validated"
     assert state["method"] == "MTF-VLA"
     assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
     assert state["prototype_protocol"] == "reports/mtf_vla/prototype_protocol.md"
@@ -54,6 +54,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_6_mtf_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_selected_config_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_adapter_training_runner_validated" in state["completed_stages"]
     assert state["checkpoint_path"] is None
     assert state["stage_a_result_json"] == "reports/rac_vla/stage_a_result.json"
     assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"
@@ -139,7 +140,13 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["validation_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["selected_config"] == "mtf_r20_ret100"
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["selected_retention_coefficient"] == 1.0
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_runner_validated"] is True
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_happened"] is False
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["final_decision"] == "MTF_ADAPTER_TRAINING_PLAN_READY"
+    assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["jobs"][0]["variant"] == "mtf_full"
+    assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["jobs"][0]["event_count"] == 567
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:

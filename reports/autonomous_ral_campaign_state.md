@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`
+Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY`
 
 Current epoch: `4`
 
 Current cycle: `6`
 
-Current stage: `epoch_4_cycle_6_mtf_adapter_training_pending`
+Current stage: `epoch_4_cycle_6_mtf_adapter_training_runner_validated`
 
 ## Corrected Epoch 1 Result
 
@@ -137,3 +137,8 @@ Stage 0 development audit passed without training or closed-loop rollout using `
 The bounded six-config validation search selected `mtf_r20_ret100`: retained high-frame ratio `0.20`, retention coefficient `1.00`, validation score `0.643663`, `176` high train frames, and `391` base-retention train frames. The selected config and training manifest are frozen under `reports/mtf_vla/`.
 
 Current stage: adapter training pending. Stage A must not start until disk-reloadable checkpoints exist for MTF full, no-retention ablation, FrameSkip proxy, and uniform retained-ratio LoRA.
+
+
+The MTF adapter-training runner is implemented and dry-run validated in `scripts/run_mtf_vla_adapter_training.py`. The real selected-training manifest joins cleanly with the official split and stable prediction artifact: MTF full has `567` training events (`176` milestone, `391` frozen-base retention), no-retention ablation has `176`, the FrameSkip proxy has `176`, and uniform retained-ratio LoRA has `240`. Train/validation/test frame overlap is `0 / 0 / 0`; validation remains `400` frames; no training or closed-loop rollout happened in this dry run.
+
+Current stage: adapter-training runner validated. Stage A must still not start until disk-reloadable checkpoints are trained and disk-reload verified for all four trainable policies.

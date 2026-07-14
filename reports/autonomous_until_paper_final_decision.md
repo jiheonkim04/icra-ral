@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`
+Current campaign decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY`
 
 This is not a terminal decision.
 
@@ -78,3 +78,8 @@ MTF Stage 0 development audit passed without training or closed-loop rollout usi
 The bounded six-config validation search selected `mtf_r20_ret100`: retained high-frame ratio `0.20`, retention coefficient `1.00`, validation score `0.643663`, `176` high train frames, and `391` base-retention train frames. The selected config and training manifest are frozen under `reports/mtf_vla/`.
 
 Next action: train disk-reloadable selected-config adapter checkpoints for MTF full, no-retention ablation, FrameSkip proxy, and uniform retained-ratio LoRA before any Stage A rollout.
+
+
+The MTF adapter-training runner is now implemented and dry-run validated. The frozen selected manifest produces four trainable jobs: MTF full `567` events (`176` milestone + `391` retention), no-retention ablation `176`, FrameSkip proxy `176`, and uniform retained-ratio LoRA `240`, with zero train/validation/test frame overlap. This is not adapter training yet; it is the validated checkpoint-production contract.
+
+Next action: run the MTF adapter trainer to produce and disk-reload verify all four selected-config checkpoints before any Stage A rollout.

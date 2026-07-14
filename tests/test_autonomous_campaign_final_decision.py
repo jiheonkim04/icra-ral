@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`" in final
+    assert "Current campaign decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -39,16 +39,18 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "FrameSkip proxy" in final
     assert "mtf_r20_ret100" in final
     assert "0.643663" in final
+    assert "adapter-training runner is now implemented and dry-run validated" in final
+    assert "zero train/validation/test frame overlap" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 6
-    assert state["current_stage"] == "epoch_4_cycle_6_mtf_adapter_training_pending"
+    assert state["current_stage"] == "epoch_4_cycle_6_mtf_adapter_training_runner_validated"
     assert state["method"] == "MTF-VLA"
     assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
     assert state["maximum_method_cycles"] is None
@@ -100,6 +102,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_6_mtf_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_selected_config_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_adapter_training_runner_validated" in state["completed_stages"]
     assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
     assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
     assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"
@@ -107,6 +110,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["validation_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["selected_config"] == "mtf_r20_ret100"
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_runner_validated"] is True
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_happened"] is False
+    assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["final_decision"] == "MTF_ADAPTER_TRAINING_PLAN_READY"
+    assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["jobs"][0]["event_count"] == 567
     assert state["epoch_4_cycle_3_outcome"]["final_decision"] == "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
     assert state["epoch_4_cycle_3_outcome"]["fang_full_successes"] == 11
     assert state["epoch_4_cycle_3_outcome"]["base_smolvla_successes"] == 16
