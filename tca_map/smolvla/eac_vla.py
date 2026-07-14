@@ -20,6 +20,62 @@ FIRST_COMPARISON_POLICIES = (
 )
 
 
+def chunk_sha256(action_chunk: Any, *, decimals: int = 9) -> str:
+    import hashlib
+    import json
+
+    array = np.asarray(action_chunk, dtype=np.float32)
+    payload = np.round(array, decimals).tolist()
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
+
+
+def eac_commitment_prefix(action_chunk: Any, commitment_length: int) -> np.ndarray:
+    array = _as_array(action_chunk)
+    if array.ndim != 2:
+        raise ValueError(f"expected 2D action chunk, got {array.shape}")
+    if int(commitment_length) < 1 or int(commitment_length) > int(array.shape[0]):
+        raise ValueError(f"invalid commitment length {commitment_length} for chunk horizon {array.shape[0]}")
+    return np.array(array[: int(commitment_length)], copy=True)
+
+
+def audit_runtime_prefix_preservation(
+    action_chunk: Any,
+    *,
+    commitment_lengths: Sequence[int] = COMMITMENT_SET,
+) -> dict[str, Any]:
+    base = _as_array(action_chunk)
+    checks = []
+    max_prefix_diff = 0.0
+    max_queue_pop_diff = 0.0
+    for commitment in commitment_lengths:
+        prefix = eac_commitment_prefix(base, int(commitment))
+        expected = base[: int(commitment)]
+        prefix_diff = float(np.max(np.abs(prefix - expected))) if prefix.size else 0.0
+        popped = np.asarray([item for item in prefix], dtype=np.float64)
+        pop_diff = float(np.max(np.abs(popped - expected))) if popped.size else 0.0
+        max_prefix_diff = max(max_prefix_diff, prefix_diff)
+        max_queue_pop_diff = max(max_queue_pop_diff, pop_diff)
+        checks.append(
+            {
+                "commitment_length": int(commitment),
+                "prefix_shape": [int(dim) for dim in prefix.shape],
+                "prefix_sha256": chunk_sha256(prefix),
+                "expected_prefix_sha256": chunk_sha256(expected),
+                "prefix_max_abs_diff": prefix_diff,
+                "queue_pop_max_abs_diff": pop_diff,
+                "action_values_modified": bool(prefix_diff > 0.0 or pop_diff > 0.0),
+            }
+        )
+    return {
+        "commitment_lengths": [int(item) for item in commitment_lengths],
+        "check_count": len(checks),
+        "max_prefix_abs_diff": max_prefix_diff,
+        "max_queue_pop_abs_diff": max_queue_pop_diff,
+        "all_prefixes_value_preserving": bool(max_prefix_diff == 0.0 and max_queue_pop_diff == 0.0),
+        "checks": checks,
+    }
+
+
 @dataclass(frozen=True)
 class EACStage0Config:
     validation_split: str = "val"

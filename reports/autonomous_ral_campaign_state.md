@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED`
+Current decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_runtime_queue_check_pending`
+Current stage: `epoch_4_cycle_10_eac_validation_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -271,6 +271,8 @@ EAC Stage 0 completed without training, validation search, closed-loop rollout, 
 
 Final EAC Stage 0 decision: `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`. The audit used `2000` validation records and `400` unique validation frames, reserved `6000` confirmatory records unused, found zero validation/test frame or sample overlap, confirmed queue helpers and the canonical `50 x 7` chunk shape, and found noncollapsed first-two chunk dispersion with p95 `0.0007983036317792467` and nonzero fraction `1.0`. The preregistered commitment map was noncollapsed (`2`: `136`, `8`: `132`, `50`: `132`), max commitment share was `0.34`, and first-action passthrough max error was `5.07000000038449e-07`. There were no hard stops.
 
-The canonical artifact stores first-two chunk previews and chunk hashes, not all `50` postprocessed actions. Therefore validation search, Stage A, and rollout remain blocked until the runtime full-chunk equality and queue-prefix execution check is implemented and passed.
+The canonical artifact stores first-two chunk previews and chunk hashes, not all `50` postprocessed actions, so the runtime full-chunk equality and queue-prefix execution check was run before validation search.
 
-Current decision: `EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED`. Current stage: `epoch_4_cycle_10_eac_runtime_queue_check_pending`. Next action: implement the EAC runtime full-chunk equality and queue-prefix execution check before validation search.
+EAC runtime queue check completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. The check is saved in `reports/eac_vla/runtime_queue_check.json` and summarized in `reports/eac_vla/runtime_queue_check.md`. It loaded frozen SmolVLA on `NVIDIA GeForce RTX 5080`, produced a full postprocessed chunk shape `[50, 7]`, verified `select_action` matched `chunk[0]` with max absolute diff `0.0`, observed the official queue length change from `0` before selection to `49` afterward, and verified every commitment prefix in `{1, 2, 4, 8, 16, 50}` preserved action values exactly with max prefix and queue-pop diffs `0.0`.
+
+Current decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`. Current stage: `epoch_4_cycle_10_eac_validation_search_pending`. Next action: run the bounded EAC validation search under the frozen six-configuration budget using discovery/validation identities only.

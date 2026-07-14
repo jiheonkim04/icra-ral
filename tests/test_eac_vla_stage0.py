@@ -38,3 +38,33 @@ def test_eac_stage_0_audit_passes_without_rollout_or_tuning() -> None:
 
     passthrough = report["action_value_passthrough_summary"]
     assert passthrough["max"] <= 1e-6
+
+
+def test_eac_runtime_queue_check_preserves_full_chunk_prefixes() -> None:
+    report = json.loads((REPORTS / "eac_vla" / "runtime_queue_check.json").read_text(encoding="utf-8"))
+
+    assert report["final_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
+    assert report["closed_loop_experiment_happened"] is False
+    assert report["training_happened"] is False
+    assert report["validation_search_happened"] is False
+    assert report["confirmatory_test_tuning_happened"] is False
+    assert report["hard_stop_reasons"] == []
+
+    chunk = report["chunk_check"]
+    assert chunk["raw_action_chunk_shape"] == [1, 50, 7]
+    assert chunk["postprocessed_chunk_shape"] == [50, 7]
+    assert chunk["postprocessed_chunk_finite"] is True
+    assert chunk["select_action_matches_predict_chunk_first"] is True
+    assert chunk["select_action_vs_chunk0_max_abs_diff"] == 0.0
+
+    queue = report["queue_check"]
+    assert queue["queue_owner_present"] is True
+    assert queue["queue_len_before_select_action"] == 0
+    assert queue["queue_len_after_select_action"] == 49
+
+    prefix = report["prefix_preservation"]
+    assert prefix["all_prefixes_value_preserving"] is True
+    assert prefix["commitment_lengths"] == [1, 2, 4, 8, 16, 50]
+    assert prefix["max_prefix_abs_diff"] == 0.0
+    assert prefix["max_queue_pop_abs_diff"] == 0.0
+    assert all(not check["action_values_modified"] for check in prefix["checks"])

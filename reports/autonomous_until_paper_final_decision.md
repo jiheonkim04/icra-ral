@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED`
+Current campaign decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`
 
 This is not a terminal decision.
 
@@ -174,6 +174,8 @@ The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/pr
 
 EAC Stage 0 completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. The audit is saved in `reports/eac_vla/stage_0_audit.json` and passed as `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`: `2000` validation records, `400` validation frames, `6000` reserved confirmatory records untouched, zero validation/test overlap, first-two dispersion p95 `0.0007983036317792467`, commitment counts `2:136`, `8:132`, `50:132`, and passthrough max error `5.07000000038449e-07`.
 
-Because the canonical artifact stores first-two previews rather than all `50` postprocessed chunk actions, validation search, Stage A, and rollout remain blocked until a runtime full-chunk equality and queue-prefix execution check passes.
+Because the canonical artifact stores first-two previews rather than all `50` postprocessed chunk actions, the runtime full-chunk equality and queue-prefix execution check was run before validation search.
 
-Current stage: `epoch_4_cycle_10_eac_runtime_queue_check_pending`. Next action: implement the EAC runtime full-chunk equality and queue-prefix execution check before validation search.
+EAC runtime queue check completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. It loaded frozen SmolVLA on `NVIDIA GeForce RTX 5080`, produced a full postprocessed chunk shape `[50, 7]`, verified `select_action` matched `chunk[0]` with max absolute diff `0.0`, observed queue length `0 -> 49`, and verified every commitment prefix in `{1, 2, 4, 8, 16, 50}` preserved action values exactly.
+
+Current stage: `epoch_4_cycle_10_eac_validation_search_pending`. Next action: run the bounded EAC validation search under the frozen six-configuration budget using discovery/validation identities only.

@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "current_topic": "epoch_4_cycle_10_eac_runtime_queue_check_pending",
+    "current_topic": "epoch_4_cycle_10_eac_validation_search_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "bd80998",
+    "current_commit": "8b6cc51",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_10_eac_runtime_queue_check_pending",
+    "current_stage": "epoch_4_cycle_10_eac_validation_search_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -268,7 +268,8 @@
         "epoch_4_cycle_10_eac_mathematical_audit_preregistered",
         "epoch_4_cycle_10_eac_preregistration_frozen",
         "epoch_4_cycle_10_eac_prototype_protocol_frozen",
-        "epoch_4_cycle_10_eac_stage_0_completed"
+        "epoch_4_cycle_10_eac_stage_0_completed",
+        "epoch_4_cycle_10_eac_runtime_queue_check_completed"
     ],
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -289,7 +290,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED",
+    "current_decision": "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -398,7 +399,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Implement the EAC-VLA runtime full-chunk equality and queue-prefix execution check before any validation search, Stage A, or rollout.",
+    "next_action": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget; do not use confirmatory identities.",
     "method": "EAC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -3365,7 +3366,26 @@
         "stage_0_training_happened": false,
         "stage_0_validation_search_happened": false,
         "stage_0_confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement the runtime full-chunk equality and queue-prefix execution check before validation search."
+        "runtime_queue_check": "reports/eac_vla/runtime_queue_check.json",
+        "runtime_queue_check_md": "reports/eac_vla/runtime_queue_check.md",
+        "runtime_queue_check_decision": "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED",
+        "runtime_queue_check_hard_stop_reasons": [],
+        "runtime_queue_check_chunk_shape": [
+            50,
+            7
+        ],
+        "runtime_queue_check_select_action_vs_chunk0_max_abs_diff": 0.0,
+        "runtime_queue_check_queue_owner_present": true,
+        "runtime_queue_check_queue_len_before_select_action": 0,
+        "runtime_queue_check_queue_len_after_select_action": 49,
+        "runtime_queue_check_all_prefixes_value_preserving": true,
+        "runtime_queue_check_max_prefix_abs_diff": 0.0,
+        "runtime_queue_check_max_queue_pop_abs_diff": 0.0,
+        "runtime_queue_check_closed_loop_experiment_happened": false,
+        "runtime_queue_check_training_happened": false,
+        "runtime_queue_check_validation_search_happened": false,
+        "runtime_queue_check_confirmatory_test_tuning_happened": false,
+        "next_stage": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget."
     },
     "epoch_4_cycle_10_eac_development_outcome": {
         "method": "EAC-VLA",
@@ -3399,6 +3419,21 @@
         "chunk_shape_ok": true,
         "full_chunk_values_available_in_artifact": false,
         "runtime_full_chunk_check_required_before_validation_search": true,
+        "runtime_queue_check": "reports/eac_vla/runtime_queue_check.json",
+        "runtime_queue_check_md": "reports/eac_vla/runtime_queue_check.md",
+        "runtime_queue_check_decision": "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED",
+        "runtime_queue_check_hard_stop_reasons": [],
+        "runtime_queue_check_chunk_shape": [
+            50,
+            7
+        ],
+        "runtime_queue_check_select_action_vs_chunk0_max_abs_diff": 0.0,
+        "runtime_queue_check_queue_owner_present": true,
+        "runtime_queue_check_queue_len_before_select_action": 0,
+        "runtime_queue_check_queue_len_after_select_action": 49,
+        "runtime_queue_check_all_prefixes_value_preserving": true,
+        "runtime_queue_check_max_prefix_abs_diff": 0.0,
+        "runtime_queue_check_max_queue_pop_abs_diff": 0.0,
         "hard_stop_reasons": [],
         "valid_current_formulation_kill": false,
         "first_comparison_policies": [
@@ -3408,6 +3443,35 @@
             "eac_no_calibration_no_hysteresis_ablation",
             "fixed_short_replan_baseline"
         ],
-        "next_stage": "Implement the runtime full-chunk equality and queue-prefix execution check before validation search."
+        "next_stage": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget."
+    },
+    "epoch_4_cycle_10_eac_runtime_queue_check": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED",
+        "runtime_queue_check": "reports/eac_vla/runtime_queue_check.json",
+        "runtime_queue_check_md": "reports/eac_vla/runtime_queue_check.md",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "chunk_shape": [
+            50,
+            7
+        ],
+        "raw_action_chunk_shape": [
+            1,
+            50,
+            7
+        ],
+        "select_action_vs_chunk0_max_abs_diff": 0.0,
+        "queue_owner_present": true,
+        "queue_len_before_select_action": 0,
+        "queue_len_after_select_action": 49,
+        "all_prefixes_value_preserving": true,
+        "max_prefix_abs_diff": 0.0,
+        "max_queue_pop_abs_diff": 0.0,
+        "hard_stop_reasons": [],
+        "next_stage": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget."
     }
 }
