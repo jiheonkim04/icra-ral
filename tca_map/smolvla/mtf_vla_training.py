@@ -168,6 +168,17 @@ def _frame_identity(row: Mapping[str, Any]) -> tuple[int, int, int]:
     return (int(row["task_index"]), int(row["episode_index"]), int(row["frame_index"]))
 
 
+def _phase_label(frame_index: int, episode_length: int) -> str:
+    if episode_length <= 1:
+        return "unknown"
+    ratio = frame_index / max(1, episode_length - 1)
+    if ratio < 1 / 3:
+        return "early"
+    if ratio < 2 / 3:
+        return "mid"
+    return "late"
+
+
 def _event_sort_key(row: Mapping[str, Any]) -> tuple[int, int, int, int]:
     return (int(row["task_index"]), int(row["episode_index"]), int(row["frame_index"]), int(row["dataset_global_index"]))
 
@@ -199,6 +210,7 @@ def _official_samples(split_manifest: Mapping[str, Any]) -> dict[int, dict[str, 
                 "frame_index": int(row["frame_index"]),
                 "task_index": int(row["task_index"]),
                 "task": str(row["task"]),
+                "phase": _phase_label(int(row["frame_index"]), int(row["episode_length"])),
                 "split": str(split),
                 "normalized_phase": float(row.get("normalized_phase", 0.0)),
             }
@@ -309,6 +321,7 @@ def build_training_jobs(
                 "episode_index": int(official["episode_index"]),
                 "episode_length": int(official["episode_length"]),
                 "frame_index": int(official["frame_index"]),
+                "phase": str(official["phase"]),
                 "normalized_phase": float(official["normalized_phase"]),
                 "score": float(row.get("score", 0.0)),
                 "target_action": _as_action7("target_action", stable["target_action"]),
@@ -976,6 +989,15 @@ def _summarize_variant_results(results: Sequence[Mapping[str, Any]]) -> dict[str
     return {"variant_count": len(rows), "rows": rows}
 
 
+def _all_stage_a_variants_verified(results: Sequence[Mapping[str, Any]]) -> bool:
+    verified = {
+        str(result.get("variant"))
+        for result in results
+        if str(result.get("final_decision")) == "MTF_ADAPTER_CHECKPOINT_VERIFIED"
+    }
+    return verified == set(VARIANT_ORDER)
+
+
 def build_or_run(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     started = time.monotonic()
     selected_manifest = _read_json(Path(args.selected_training_manifest))
@@ -1032,6 +1054,7 @@ def build_or_run(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
                 "remaining_variants": [str(item["variant"]) for item in plan["jobs"][len(results) :]],
             }
             _write_json(Path(args.progress_json), progress)
+        all_stage_a_variants_verified = _all_stage_a_variants_verified(results)
         report = {
             **{key: value for key, value in plan.items() if key != "jobs"},
             "jobs": [_job_without_events(job) for job in plan["jobs"]],
@@ -1039,10 +1062,18 @@ def build_or_run(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "training_happened": True,
             "closed_loop_experiment_happened": False,
             "confirmatory_test_identities_used": False,
-            "stage_a_allowed": True,
+            "stage_a_allowed": all_stage_a_variants_verified,
             "variant_results": _summarize_variant_results(results),
-            "final_decision": "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY",
-            "next_step": "Freeze a matched Stage A rollout manifest before any rollout; do not tune these checkpoints on confirmatory outcomes.",
+            "final_decision": (
+                "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY"
+                if all_stage_a_variants_verified
+                else "MTF_PARTIAL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_BLOCKED"
+            ),
+            "next_step": (
+                "Freeze a matched Stage A rollout manifest before any rollout; do not tune these checkpoints on confirmatory outcomes."
+                if all_stage_a_variants_verified
+                else "Train and disk-reload verify the remaining MTF Stage A adapter policies before any rollout."
+            ),
             "runtime": {"elapsed_sec": _round(time.monotonic() - started, 3), "rss_final_mb": _rss_mb()},
         }
         _write_json(Path(args.report_json), report)
@@ -1182,4 +1213,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

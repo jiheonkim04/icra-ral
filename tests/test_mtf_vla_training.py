@@ -7,6 +7,7 @@ from tca_map.smolvla.mtf_vla import PROPOSAL_HASH
 from tca_map.smolvla.mtf_vla_training import (
     MTFTrainArgs,
     MTFTrainingError,
+    _all_stage_a_variants_verified,
     _override_current_action,
     build_training_jobs,
 )
@@ -86,6 +87,7 @@ def test_build_training_jobs_preserves_mtf_retention_contract() -> None:
     retention_events = [event for event in full["events"] if event["objective"] == "base_current_action_retention"]
     assert retention_events[0]["base_action"] == [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0]
     assert "current 7D action only" in retention_events[0]["retention_target_scope"]
+    assert retention_events[0]["phase"] == "early"
     assert plan["stage_a_allowed"] is False
 
 
@@ -127,3 +129,15 @@ def test_build_training_jobs_rejects_extra_variant() -> None:
             train_args=MTFTrainArgs(variants=("mtf_full", "new_unfrozen_variant")),
         )
 
+
+def test_stage_a_ready_requires_all_four_verified_trainable_policies() -> None:
+    one_verified = [{"variant": "mtf_no_retention_ablation", "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED"}]
+    all_verified = [
+        {"variant": "mtf_full", "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED"},
+        {"variant": "mtf_no_retention_ablation", "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED"},
+        {"variant": "frameskip_proxy_lora", "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED"},
+        {"variant": "uniform_retained_ratio_lora", "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED"},
+    ]
+
+    assert _all_stage_a_variants_verified(one_verified) is False
+    assert _all_stage_a_variants_verified(all_verified) is True
