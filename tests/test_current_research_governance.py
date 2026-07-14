@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_rollout_running"
+    assert state["current_decision"] == "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_adjudicated"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -137,6 +137,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_stage_a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_b_manifest_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_b_rollout_launched" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_b_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_b_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -371,11 +374,25 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert stage_b["identity_overlap_verification"]["overlap_with_stage_a_reset_seeds"] == 0
     assert stage_b["partition_separation"]["stage_b_outcomes_used_for_retuning"] is False
     launch_b = state["epoch_4_cycle_10_eac_stage_b_launch"]
-    assert launch_b["final_decision"] == "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING"
+    assert launch_b["final_decision"] == "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD"
     assert launch_b["run_dir"] == "runs/eac_vla_stage_b/20260714T202334Z"
     assert launch_b["child_pid"] == 386
+    assert launch_b["exit_code"] == 0
     assert launch_b["planned_episode_count"] == 200
+    assert launch_b["completed_episode_count"] == 200
     assert launch_b["partial_result"] == "reports/eac_vla/stage_b_partial_result.json"
+    outcome_b = state["epoch_4_cycle_10_eac_stage_b_outcome"]
+    assert outcome_b["final_decision"] == "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD"
+    assert outcome_b["valid_current_formulation_kill"] is True
+    assert outcome_b["completed_episode_count"] == 200
+    assert outcome_b["exception_count"] == 0
+    assert outcome_b["frozen_smolvla_fixed_queue_successes"] == 30
+    assert outcome_b["aac_entropy_proxy_successes"] == 30
+    assert outcome_b["eac_full_successes"] == 29
+    assert outcome_b["eac_no_calibration_no_hysteresis_ablation_successes"] == 30
+    assert outcome_b["fixed_short_replan_baseline_successes"] == 29
+    assert outcome_b["paired_delta_vs_fixed_short_replan_baseline"] == 0.0
+    assert outcome_b["simple_baseline_explains_method"] is True
     assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
@@ -389,7 +406,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["frameskip_proxy_lora"]["successes"] == 8
     assert state["stage_b_manifest_json"] == "reports/eac_vla/stage_b_manifest.json"
     assert state["stage_b_partial_checkpoint"] == "reports/eac_vla/stage_b_partial_result.json"
-    assert state["stage_b_result_json"] is None
+    assert state["stage_b_result_json"] == "reports/eac_vla/stage_b_result.json"
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["planned_episode_count"] == 200
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["paired_cases_per_policy"] == 40
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["reset_seeds"] == [20261203, 20261204]

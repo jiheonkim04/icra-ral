@@ -1,0 +1,11 @@
+{
+  "completed_episode_count": 200,
+  "error": null,
+  "final_decision": "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD",
+  "final_result": "reports/eac_vla/stage_b_result.json",
+  "partial_result": "reports/eac_vla/stage_b_partial_result.json",
+  "pid": 386,
+  "planned_episode_count": 200,
+  "status": "completed",
+  "updated_utc": "2026-07-14T22:03:26Z"
+}

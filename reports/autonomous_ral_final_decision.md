@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING`
+Current decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11`
 
 This is not a terminal state under the active governance.
 
@@ -173,6 +173,12 @@ EAC Stage A completed `50 / 50` episodes with zero exceptions. EAC full reached 
 
 The EAC Stage B matched manifest is frozen in `reports/eac_vla/stage_b_manifest.json` with canonical payload hash `31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D`, all `20` official tasks, fresh reset seeds `20261213` and `20261214`, `40` paired cases per policy, and `200` planned episodes.
 
-EAC Stage B was launched detached from `runs/eac_vla_stage_b/20260714T202334Z` with child PID `386` and partial result path `reports/eac_vla/stage_b_partial_result.json`.
+EAC Stage B completed from the detached run `runs/eac_vla_stage_b/20260714T202334Z` with wrapper exit code `0`, `200 / 200` official LIBERO episodes, zero exceptions, and no confirmatory-test tuning. The final result is saved in `reports/eac_vla/stage_b_result.json` and summarized in `reports/eac_vla/stage_b_result.md`.
 
-Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_running`. Next action: monitor the detached EAC Stage B rollout to completion without retuning.
+Stage B decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. Frozen Base fixed queue reached `30 / 40`, AAC entropy proxy reached `30 / 40`, EAC full reached `29 / 40`, the no-calibration/no-hysteresis ablation reached `30 / 40`, and fixed short-replan reached `29 / 40`. EAC preserved action values, kept finite valid `[50, 7]` action chunks, and activated the scheduler with commitment counts `{'1': 807, '4': 199, '50': 148}`.
+
+EAC full-minus-Base paired delta was `-0.025` with CI `[-0.175, 0.125]`; full-minus-AAC proxy was `-0.025` with CI `[-0.15, 0.1]`; full-minus-ablation was `-0.025` with CI `[-0.175, 0.125]`; and full-minus-fixed-short-replan was `0.0` with CI `[-0.15, 0.15]`.
+
+Final EAC decision: valid current-formulation kill. Do not rescue EAC by retuning `eac_q33_aggressive_1_4_50`, changing thresholds, changing tasks or resets, changing the five-policy list, reinterpreting partial results, or applying any post-hoc expansion.
+
+Current stage: `epoch_4_cycle_10_eac_stage_b_adjudicated`. Next action: start Epoch 4 Cycle 11 candidate generation under current governance.

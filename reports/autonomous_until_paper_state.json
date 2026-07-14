@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "current_topic": "epoch_4_cycle_10_eac_stage_b_rollout_running",
+    "current_topic": "epoch_4_cycle_10_eac_stage_b_adjudicated",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "557f278",
+    "current_commit": "8e3bb3c",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_10_eac_stage_b_rollout_running",
+    "current_stage": "epoch_4_cycle_10_eac_stage_b_adjudicated",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -279,7 +279,10 @@
         "epoch_4_cycle_10_eac_stage_a_completed",
         "epoch_4_cycle_10_eac_stage_a_adjudicated",
         "epoch_4_cycle_10_eac_stage_b_manifest_frozen",
-        "epoch_4_cycle_10_eac_stage_b_rollout_launched"
+        "epoch_4_cycle_10_eac_stage_b_rollout_launched",
+        "epoch_4_cycle_10_eac_stage_b_completed",
+        "epoch_4_cycle_10_eac_stage_b_adjudicated",
+        "epoch_4_cycle_10_eac_valid_current_formulation_kill_recorded"
     ],
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -291,7 +294,7 @@
     ],
     "prototype_protocol": null,
     "running_command": null,
-    "process_id": 386,
+    "process_id": null,
     "checkpoint_path": null,
     "task_reset_manifest": "reports/eac_vla/stage_a_manifest.json",
     "start_time": "2026-07-12T16:32:00.7901274+09:00",
@@ -300,12 +303,12 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING",
+    "current_decision": "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11",
     "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
     "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
     "stage_b_partial_checkpoint": "reports/eac_vla/stage_b_partial_result.json",
-    "stage_b_result_json": null,
-    "stage_b_result_md": null,
+    "stage_b_result_json": "reports/eac_vla/stage_b_result.json",
+    "stage_b_result_md": "reports/eac_vla/stage_b_result.md",
     "cycle_1_outcome": {
         "valid_scientific_result": true,
         "stage_a_completed": true,
@@ -409,7 +412,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Monitor the detached EAC Stage B rollout to completion without retuning.",
+    "next_action": "Start Epoch 4 Cycle 11 candidate generation under current governance; do not rescue or retune EAC.",
     "method": "EAC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2160,7 +2163,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_10_eac_stage_b_rollout_running",
+    "topic": "epoch_4_cycle_10_eac_stage_b_adjudicated",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4119,12 +4122,15 @@
     "epoch_4_cycle_10_eac_stage_b_launch": {
         "method": "EAC-VLA",
         "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
-        "final_decision": "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING",
+        "final_decision": "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD",
         "stage_b_rollout_launched": true,
+        "stage_b_rollout_completed": true,
         "run_dir": "runs/eac_vla_stage_b/20260714T202334Z",
         "wrapper_pid": 375,
         "child_pid": 386,
+        "exit_code": 0,
         "planned_episode_count": 200,
+        "completed_episode_count": 200,
         "partial_result": "reports/eac_vla/stage_b_partial_result.json",
         "final_result": "reports/eac_vla/stage_b_result.json",
         "manifest": "reports/eac_vla/stage_b_manifest.json",
@@ -4141,6 +4147,83 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "note": "Detached EAC Stage B rollout launched from the frozen Stage B manifest; monitor only and do not retune from partial outcomes."
+        "note": "Detached EAC Stage B rollout completed from the frozen Stage B manifest; no partial or final outcome was used to retune EAC."
+    },
+    "epoch_4_cycle_10_eac_stage_b_outcome": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD",
+        "stage_b_completed": true,
+        "valid_current_formulation_kill": true,
+        "simple_baseline_explains_method": true,
+        "stage_b_result_json": "reports/eac_vla/stage_b_result.json",
+        "stage_b_result_md": "reports/eac_vla/stage_b_result.md",
+        "stage_b_partial_result": "reports/eac_vla/stage_b_partial_result.json",
+        "stage_b_status": "reports/eac_vla/stage_b_status.json",
+        "stage_b_result_sha256": "99755D436A53A4D8700E1508F57D267FB9558B8CE92BBA98532EDC07D36A4085",
+        "stage_b_result_md_sha256": "BE817BBB597025DF9D5BA34C27C11CE382B611EFA0D21B08CBCFDAEFEAFA66D5",
+        "stage_b_partial_result_sha256": "7E768FB5AB9E2A1339BDE0A1A144B8DACD4326EB674A39527D4A7D4621C6657C",
+        "stage_b_status_sha256": "039FC375317E99C7663F619F7492511AEEAFF8DE433CFAC59F991F75BD323426",
+        "run_dir": "runs/eac_vla_stage_b/20260714T202334Z",
+        "wrapper_exit_code": 0,
+        "completed_episode_count": 200,
+        "episode_count": 200,
+        "exception_count": 0,
+        "successful_episode_count": 148,
+        "closed_loop_experiment_happened": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "planned_episode_count": 200,
+        "paired_cases_per_policy": 40,
+        "policy_order": [
+            "frozen_smolvla_fixed_queue",
+            "aac_entropy_proxy",
+            "eac_full",
+            "eac_no_calibration_no_hysteresis_ablation",
+            "fixed_short_replan_baseline"
+        ],
+        "frozen_smolvla_fixed_queue_successes": 30,
+        "aac_entropy_proxy_successes": 30,
+        "eac_full_successes": 29,
+        "eac_no_calibration_no_hysteresis_ablation_successes": 30,
+        "fixed_short_replan_baseline_successes": 29,
+        "eac_full_task_balanced_success_rate": 0.725,
+        "frozen_smolvla_fixed_queue_task_balanced_success_rate": 0.75,
+        "aac_entropy_proxy_task_balanced_success_rate": 0.75,
+        "eac_no_calibration_no_hysteresis_ablation_task_balanced_success_rate": 0.75,
+        "fixed_short_replan_baseline_task_balanced_success_rate": 0.725,
+        "paired_delta_vs_frozen_smolvla_fixed_queue": -0.025,
+        "paired_ci_vs_frozen_smolvla_fixed_queue": [
+            -0.175,
+            0.125
+        ],
+        "paired_delta_vs_aac_entropy_proxy": -0.025,
+        "paired_ci_vs_aac_entropy_proxy": [
+            -0.15,
+            0.1
+        ],
+        "paired_delta_vs_no_calibration_ablation": -0.025,
+        "paired_ci_vs_no_calibration_ablation": [
+            -0.175,
+            0.125
+        ],
+        "paired_delta_vs_fixed_short_replan_baseline": 0.0,
+        "paired_ci_vs_fixed_short_replan_baseline": [
+            -0.15,
+            0.15
+        ],
+        "eac_full_commitment_counts": {
+            "1": 807,
+            "4": 199,
+            "50": 148
+        },
+        "eac_full_avg_mechanism_activation_fraction": 0.599512,
+        "eac_full_avg_policy_calls_per_step": 0.251983,
+        "eac_full_action_values_modified": false,
+        "eac_full_action_validity_all_finite": true,
+        "eac_full_action_validity_all_shape_ok": true,
+        "archive_reason": "Stage B completed the frozen all-task matched manifest. EAC full reached 29/40, while Base, the AAC proxy, and the key no-calibration/no-hysteresis ablation each reached 30/40. The fixed short-replan simple killer tied EAC at 29/40 with paired delta 0.0. Under the frozen Stage B decision order this is a valid current-formulation kill: the simple baseline and stronger baselines explain the method. Do not rescue or retune EAC.",
+        "next_stage": "Start Epoch 4 Cycle 11 candidate generation under current governance."
     }
 }
