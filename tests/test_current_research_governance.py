@@ -20,9 +20,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "PESA_STAGE_0_STOP_DESIGN_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_10_candidate_search_pending"
-    assert state["method"] is None
+    assert state["current_decision"] == "SELECT_EAC_VLA"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_proposal_pending"
+    assert state["method"] == "EAC-VLA"
+    assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] is None
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
@@ -115,6 +116,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_9_pesa_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_design_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_10_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_10_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_proposal_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -155,6 +158,28 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert outcome["query_probe_accuracy_margin"] == -0.07750000000000001
     assert outcome["hard_stop_reasons"] == ["query probe accuracy margin below minimum: -0.077500"]
     assert outcome["valid_current_formulation_kill"] is False
+    eac = state["epoch_4_cycle_10_pre_proposal"]
+    assert eac["method"] == "EAC-VLA"
+    assert eac["selection_decision"] == "SELECT_EAC_VLA"
+    assert eac["candidate_generation"] == "reports/epoch_4_cycle_10_candidate_generation.md"
+    assert eac["prior_mechanism_map"] == "reports/epoch_4_cycle_10_prior_mechanism_map.md"
+    assert eac["candidate_count"] == 3
+    assert eac["closest_prior"] == "Adaptive Action Chunking"
+    assert eac["secondary_priors"] == ["AR-VLA", "AC2-VLA"]
+    assert eac["selected_score"] == 93
+    assert eac["selected_contribution_type"] == "PRIOR_EXTENSION"
+    assert eac["first_comparison_policies"] == [
+        "frozen_smolvla_fixed_queue",
+        "aac_entropy_proxy",
+        "eac_full",
+        "eac_no_calibration_no_hysteresis_ablation",
+        "fixed_short_replan_baseline",
+    ]
+    assert eac["stage_0_required"] is True
+    assert eac["closed_loop_experiment_happened"] is False
+    assert eac["confirmatory_test_tuning_happened"] is False
+    assert eac["training_happened"] is False
+    assert eac["proposal_hash"] is None
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

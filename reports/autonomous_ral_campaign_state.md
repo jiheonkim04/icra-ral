@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`
+Current decision: `SELECT_EAC_VLA`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_candidate_search_pending`
+Current stage: `epoch_4_cycle_10_eac_proposal_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -247,4 +247,14 @@ Final PESA Stage 0 decision: `DESIGN_FAILURE`. The only hard stop was query obse
 
 This is a pre-rollout design failure, not a closed-loop kill. Do not rescue PESA by changing query-label construction, thresholds, features, or criteria.
 
-Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. Current stage: `epoch_4_cycle_10_candidate_search_pending`. Next action: generate exactly three post-PESA candidates under current governance.
+Current PESA disposition: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. This remains a pre-rollout design stop, not a closed-loop kill.
+
+## Epoch 4 Cycle 10
+
+Epoch 4 Cycle 10 generated exactly three post-PESA candidates in `reports/epoch_4_cycle_10_candidate_generation.md` after the prior map in `reports/epoch_4_cycle_10_prior_mechanism_map.md`, and selected `EAC-VLA`, Entropy-Calibrated Adaptive Chunking for frozen SmolVLA.
+
+EAC is anchored to Adaptive Action Chunking, with AR-VLA and AC2-VLA as secondary temporal/action-context priors. The method preserves frozen SmolVLA weights and emitted 7D action values, and changes only action-queue commitment length from deployment-observable uncertainty and queue-boundary risk.
+
+The design-level five-policy comparison is Base fixed queue, AAC entropy-only proxy, EAC full, no-calibration/no-hysteresis ablation, and fixed short-replan simple killer. No rollout, training, validation search, or confirmatory-test tuning has happened for EAC.
+
+Current decision: `SELECT_EAC_VLA`. Current stage: `epoch_4_cycle_10_eac_proposal_pending`. Next action: freeze and hash the EAC-VLA Researcher A proposal before Reviewer B.

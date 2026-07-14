@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`
+Current decision: `SELECT_EAC_VLA`
 
 This is not a terminal state under the active governance.
 
@@ -141,4 +141,10 @@ PESA Stage 0 completed without rollout, training, manifest freeze, or confirmato
 
 Final PESA Stage 0 decision: `DESIGN_FAILURE`. The hard stop was query-probe validation margin `-0.07750000000000001`, below the frozen `+0.02` requirement. Do not rescue PESA by retuning labels, thresholds, features, or criteria.
 
-Current stage: `epoch_4_cycle_10_candidate_search_pending`. Next action: generate exactly three post-PESA candidates under current governance.
+Current PESA disposition: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. This remains a pre-rollout design stop, not a closed-loop kill.
+
+Epoch 4 Cycle 10 generated exactly three post-PESA candidates in `reports/epoch_4_cycle_10_candidate_generation.md` after the prior map in `reports/epoch_4_cycle_10_prior_mechanism_map.md`, and selected `EAC-VLA`, Entropy-Calibrated Adaptive Chunking for frozen SmolVLA.
+
+EAC is anchored to Adaptive Action Chunking. It preserves frozen SmolVLA weights and emitted 7D action values, changing only action-queue commitment length from deployment-observable uncertainty and queue-boundary risk. The frozen design-level five-policy comparison is Base fixed queue, AAC entropy-only proxy, EAC full, no-calibration/no-hysteresis ablation, and fixed short-replan simple killer.
+
+Current stage: `epoch_4_cycle_10_eac_proposal_pending`. Next action: freeze and hash the EAC-VLA Researcher A proposal before Reviewer B.

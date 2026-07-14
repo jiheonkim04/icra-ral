@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "current_topic": "epoch_4_cycle_10_candidate_search_pending",
+    "current_topic": "epoch_4_cycle_10_eac_proposal_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "00254ea",
+    "current_commit": "f6b65e6",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_10_candidate_search_pending",
+    "current_stage": "epoch_4_cycle_10_eac_proposal_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -259,12 +259,18 @@
         "epoch_4_cycle_9_pesa_prototype_protocol_frozen",
         "epoch_4_cycle_9_pesa_stage_0_completed",
         "epoch_4_cycle_9_pesa_design_failure_recorded",
-        "epoch_4_cycle_10_candidate_search_pending"
+        "epoch_4_cycle_10_candidate_search_pending",
+        "epoch_4_cycle_10_candidate_generation_completed",
+        "epoch_4_cycle_10_eac_proposal_pending"
     ],
-    "active_hypothesis": "PESA-VLA stopped at Stage 0 as a pre-rollout DESIGN_FAILURE because the prior-query signal was not validation-predictable above majority; Epoch 4 Cycle 10 candidate search is pending.",
-    "method_identity": null,
+    "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
+    "method_identity": "EAC-VLA",
     "proposal_hash": null,
-    "closest_papers": [],
+    "closest_papers": [
+        "Adaptive Action Chunking",
+        "AR-VLA",
+        "AC2-VLA"
+    ],
     "prototype_protocol": null,
     "running_command": null,
     "process_id": null,
@@ -276,7 +282,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "PESA_STAGE_0_STOP_DESIGN_FAILURE",
+    "current_decision": "SELECT_EAC_VLA",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -385,8 +391,8 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Generate exactly three post-PESA candidates under current governance; do not rescue PESA, do not tune its query labels, and do not launch PESA validation search, training, or rollout.",
-    "method": null,
+    "next_action": "Freeze an EAC-VLA Researcher A proposal and hash it; do not rescue PESA, do not run EAC Stage 0 before proposal/review/rebuttal/audit/preregistration are frozen.",
+    "method": "EAC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -3282,5 +3288,35 @@
         ],
         "valid_current_formulation_kill": false,
         "next_stage": "Begin Epoch 4 Cycle 10 candidate search without rescuing PESA."
+    },
+    "epoch_4_cycle_10_pre_proposal": {
+        "method": "EAC-VLA",
+        "selection_decision": "SELECT_EAC_VLA",
+        "candidate_generation": "reports/epoch_4_cycle_10_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_10_prior_mechanism_map.md",
+        "candidate_count": 3,
+        "closest_prior": "Adaptive Action Chunking",
+        "secondary_priors": [
+            "AR-VLA",
+            "AC2-VLA"
+        ],
+        "selected_score": 93,
+        "selected_contribution_type": "PRIOR_EXTENSION",
+        "first_comparison_policies": [
+            "frozen_smolvla_fixed_queue",
+            "aac_entropy_proxy",
+            "eac_full",
+            "eac_no_calibration_no_hysteresis_ablation",
+            "fixed_short_replan_baseline"
+        ],
+        "closest_prior_proxy_label": "faithful_transparent_local_proxy_not_official_aac_reproduction",
+        "stage_0_required": true,
+        "bounded_validation_search_budget": "at most six configurations over one threshold and one hysteresis or commitment-map factor, using discovery/validation identities only",
+        "identity_preserving_surface": "preserve frozen SmolVLA weights and emitted 7D action values; schedule only action-queue commitment length",
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "training_happened": false,
+        "proposal_hash": null,
+        "next_stage": "Freeze EAC-VLA Researcher A proposal and hash it before Reviewer B."
     }
 }

@@ -10,7 +10,7 @@ PESA_PROPOSAL_HASH = "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BA
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`" in final
+    assert "Current campaign decision: `SELECT_EAC_VLA`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -105,7 +105,13 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/pesa_vla/development_audit.json" in final
     assert "Final PESA Stage 0 decision: `DESIGN_FAILURE`" in final
     assert "query probe accuracy margin below minimum: -0.077500" in final
-    assert "Current stage: `epoch_4_cycle_10_candidate_search_pending`" in final
+    assert "Current PESA disposition: `PESA_STAGE_0_STOP_DESIGN_FAILURE`" in final
+    assert "Epoch 4 Cycle 10 generated exactly three post-PESA candidates" in final
+    assert "EAC-VLA" in final
+    assert "Entropy-Calibrated Adaptive Chunking" in final
+    assert "AAC entropy-only proxy" in final
+    assert "fixed short-replan simple killer" in final
+    assert "Current stage: `epoch_4_cycle_10_eac_proposal_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -113,11 +119,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "PESA_STAGE_0_STOP_DESIGN_FAILURE"
+    assert state["current_decision"] == "SELECT_EAC_VLA"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 10
-    assert state["current_stage"] == "epoch_4_cycle_10_candidate_search_pending"
-    assert state["method"] is None
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_proposal_pending"
+    assert state["method"] == "EAC-VLA"
+    assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -131,7 +138,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Generate exactly three post-PESA candidates")
+    assert state["next_action"].startswith("Freeze an EAC-VLA Researcher A proposal")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -236,6 +243,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_9_pesa_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_design_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_10_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_10_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_proposal_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
@@ -263,6 +272,20 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert outcome["query_probe_accuracy_margin"] == -0.07750000000000001
     assert outcome["training_happened"] is False
     assert outcome["closed_loop_experiment_happened"] is False
+    eac = state["epoch_4_cycle_10_pre_proposal"]
+    assert eac["selection_decision"] == "SELECT_EAC_VLA"
+    assert eac["candidate_count"] == 3
+    assert eac["closest_prior"] == "Adaptive Action Chunking"
+    assert eac["selected_score"] == 93
+    assert eac["first_comparison_policies"] == [
+        "frozen_smolvla_fixed_queue",
+        "aac_entropy_proxy",
+        "eac_full",
+        "eac_no_calibration_no_hysteresis_ablation",
+        "fixed_short_replan_baseline",
+    ]
+    assert eac["closed_loop_experiment_happened"] is False
+    assert eac["confirmatory_test_tuning_happened"] is False
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"

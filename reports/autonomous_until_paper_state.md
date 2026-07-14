@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`
+Current decision: `SELECT_EAC_VLA`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_candidate_search_pending`
+Current stage: `epoch_4_cycle_10_eac_proposal_pending`
 
 Allowed final states:
 
@@ -324,4 +324,14 @@ Final PESA Stage 0 decision: `DESIGN_FAILURE`. The query labels were balanced (`
 
 This is a valid pre-rollout design stop, not a closed-loop scientific kill. Do not rescue PESA by changing query labels, thresholds, features, validation search, or Stage 0 criteria.
 
-Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. Current stage: `epoch_4_cycle_10_candidate_search_pending`. Next action: generate exactly three post-PESA candidates under current governance.
+Current PESA disposition: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. This remains a pre-rollout design stop, not a closed-loop kill.
+
+## Epoch 4 Cycle 10
+
+Exactly three post-PESA candidates were generated and scored in `reports/epoch_4_cycle_10_candidate_generation.md` after building the prior mechanism map in `reports/epoch_4_cycle_10_prior_mechanism_map.md`. PESA remains stopped and may not be rescued.
+
+`EAC-VLA` is selected as an Adaptive Action Chunking anchored entropy-calibrated queue-scheduling method for frozen SmolVLA. It preserves frozen SmolVLA weights and emitted 7D action values, changing only how many actions from the current `50 x 7` chunk are committed before refreshing the observation.
+
+The selected first comparison is frozen at the design level to five policies: Base fixed queue, AAC entropy-only proxy, EAC full, no-calibration/no-hysteresis ablation, and one fixed short-replan simple killer. `aac_entropy_proxy` is a faithful transparent local proxy, not an official AAC reproduction.
+
+Current decision: `SELECT_EAC_VLA`. Current stage: `epoch_4_cycle_10_eac_proposal_pending`. Next action: freeze and hash the EAC-VLA Researcher A proposal before Reviewer B.
