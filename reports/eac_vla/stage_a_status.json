@@ -1,0 +1,11 @@
+{
+  "completed_episode_count": 50,
+  "error": null,
+  "final_decision": "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+  "final_result": "reports/eac_vla/stage_a_result.json",
+  "partial_result": "reports/eac_vla/stage_a_partial_result.json",
+  "pid": 403,
+  "planned_episode_count": 50,
+  "status": "completed",
+  "updated_utc": "2026-07-14T20:04:00Z"
+}

@@ -11,7 +11,7 @@ EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A445
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EAC_STAGE_A_ROLLOUT_RUNNING`" in final
+    assert "Current campaign decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -136,8 +136,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "EAC Stage A policy preflight passed in `reports/eac_vla/stage_a_preflight.json`" in final
     assert "all policy prefixes preserved action values exactly" in final
     assert "EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json`" in final
-    assert "EAC Stage A is running detached from `runs/eac_vla_stage_a/20260714T194025Z`" in final
-    assert "Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`" in final
+    assert "EAC Stage A completed `50 / 50` episodes with zero exceptions" in final
+    assert "Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -145,10 +145,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EAC_STAGE_A_ROLLOUT_RUNNING"
+    assert state["current_decision"] == "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 10
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_rollout_running"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_manifest_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -164,7 +164,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Monitor detached EAC Stage A rollout")
+    assert state["next_action"].startswith("Freeze the EAC Stage B matched manifest")
     assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50

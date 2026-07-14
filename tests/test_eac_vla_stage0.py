@@ -182,3 +182,28 @@ def test_eac_stage_a_runner_validation_authorizes_frozen_rollout() -> None:
     assert report["errors"] == []
     assert {record["policy"] for record in report["runner_validation_records"]} == set(report["policy_order"])
     assert all(not record["action_values_modified"] for record in report["runner_validation_records"])
+
+
+def test_eac_stage_a_result_requires_stage_b_without_retuning() -> None:
+    report = json.loads((REPORTS / "eac_vla" / "stage_a_result.json").read_text(encoding="utf-8"))
+    summary = report["summary"]["policy_summary"]
+
+    assert report["final_decision"] == "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    assert report["closed_loop_experiment_happened"] is True
+    assert report["training_happened"] is False
+    assert report["validation_search_happened"] is False
+    assert report["confirmatory_test_tuning_happened"] is False
+    assert report["scaleup"]["completed_episode_count"] == 50
+    assert report["scaleup"]["infrastructure_failure_count"] == 0
+    assert report["stage_b_required"] is True
+    assert report["valid_current_formulation_kill"] is False
+    assert summary["frozen_smolvla_fixed_queue"]["successes"] == 7
+    assert summary["aac_entropy_proxy"]["successes"] == 9
+    assert summary["eac_full"]["successes"] == 8
+    assert summary["eac_no_calibration_no_hysteresis_ablation"]["successes"] == 7
+    assert summary["fixed_short_replan_baseline"]["successes"] == 7
+    assert summary["eac_full"]["action_values_modified"] is False
+    assert summary["eac_full"]["action_validity_all_finite"] is True
+    assert summary["eac_full"]["commitment_counts"] == {"1": 150, "4": 25, "50": 33}
+    assert report["summary"]["paired_vs_eac_full"]["aac_entropy_proxy"]["paired_delta_eac_minus_policy"] == -0.1
+    assert report["summary"]["paired_vs_eac_full"]["frozen_smolvla_fixed_queue"]["paired_delta_eac_minus_policy"] == 0.1

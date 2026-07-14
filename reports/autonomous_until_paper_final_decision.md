@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `EAC_STAGE_A_ROLLOUT_RUNNING`
+Current campaign decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
 
 This is not a terminal decision.
 
@@ -184,6 +184,6 @@ The EAC Stage A matched manifest is frozen in `reports/eac_vla/stage_a_manifest.
 
 EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json`: the runner preserves action values, reconstructs frozen validation-only thresholds, and authorizes the frozen Stage A rollout without training or confirmatory-test tuning.
 
-EAC Stage A is running detached from `runs/eac_vla_stage_a/20260714T194025Z` with child PID `403`; partial progress is written to `reports/eac_vla/stage_a_partial_result.json`.
+EAC Stage A completed `50 / 50` episodes with zero exceptions. EAC full reached `8 / 10`; Base fixed queue, no-calibration ablation, and fixed short-replan each reached `7 / 10`; AAC entropy proxy reached `9 / 10`.
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`. Next action: monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.
+Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`. Next action: freeze the EAC Stage B matched manifest without retuning.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_A_ROLLOUT_RUNNING`
+Current decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`
+Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -285,6 +285,8 @@ EAC Stage A policy preflight passed in `reports/eac_vla/stage_a_preflight.json` 
 
 EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json` as `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`. The validated runner reconstructs the frozen validation-only EAC thresholds, uses `2` runtime samples for dynamic schedulers, preserves all policy prefixes without action-value modification, and keeps rollout/training/confirmatory-test tuning at `False`.
 
-EAC Stage A is now running detached from `runs/eac_vla_stage_a/20260714T194025Z` with child PID `403`, partial result path `reports/eac_vla/stage_a_partial_result.json`, and final result path `reports/eac_vla/stage_a_result.json`. No retuning, task change, threshold change, or policy change is allowed while it runs.
+EAC Stage A ran detached from `runs/eac_vla_stage_a/20260714T194025Z` and completed `50 / 50` episodes with zero exceptions. The result is saved in `reports/eac_vla/stage_a_result.json` and summarized in `reports/eac_vla/stage_a_result.md`.
 
-Current decision: `EAC_STAGE_A_ROLLOUT_RUNNING`. Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`. Next action: monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.
+Stage A decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`. EAC full reached `8 / 10`, Base fixed queue reached `7 / 10`, AAC entropy proxy reached `9 / 10`, no-calibration ablation reached `7 / 10`, and fixed short-replan reached `7 / 10`. EAC full preserved action values, activated the scheduler with commitment counts `{'1': 150, '4': 25, '50': 33}`, and did not satisfy any valid Stage A kill criterion.
+
+Current decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`. Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`. Next action: freeze the EAC Stage B matched manifest without retuning.
