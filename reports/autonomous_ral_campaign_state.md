@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
+Current decision: `EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`
+Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -289,4 +289,6 @@ EAC Stage A ran detached from `runs/eac_vla_stage_a/20260714T194025Z` and comple
 
 Stage A decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`. EAC full reached `8 / 10`, Base fixed queue reached `7 / 10`, AAC entropy proxy reached `9 / 10`, no-calibration ablation reached `7 / 10`, and fixed short-replan reached `7 / 10`. EAC full preserved action values, activated the scheduler with commitment counts `{'1': 150, '4': 25, '50': 33}`, and did not satisfy any valid Stage A kill criterion.
 
-Current decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`. Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`. Next action: freeze the EAC Stage B matched manifest without retuning.
+The EAC Stage B matched manifest is frozen in `reports/eac_vla/stage_b_manifest.json` with canonical payload hash `31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D`. It uses all `20` official tasks, fresh reset seeds `20261213` and `20261214`, `40` paired cases per policy, and `200` total planned episodes. The five policy identities remain unchanged from Stage A.
+
+Current decision: `EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`. Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_pending`. Next action: launch the frozen EAC Stage B official rollout without retuning.

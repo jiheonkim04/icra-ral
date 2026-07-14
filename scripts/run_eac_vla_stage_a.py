@@ -41,7 +41,9 @@ from tca_map.smolvla.official_wsl_libero_rollout import (  # noqa: E402
 
 
 DATE_KST = "2026-07-15"
-RESET_SEEDS = [20261211, 20261212]
+STAGE_A_RESET_SEEDS = [20261211, 20261212]
+STAGE_B_RESET_SEEDS = [20261213, 20261214]
+RESET_SEEDS = STAGE_A_RESET_SEEDS
 EAC_RUNTIME_SAMPLES = 2
 EAC_RISK_DISPERSION_WEIGHT = 0.67
 EAC_RISK_TRANSITION_WEIGHT = 0.33
@@ -73,6 +75,8 @@ STAGE_A_TASKS = [
         "instruction": "turn on the stove and put the moka pot on it",
     },
 ]
+STAGE_A_TASK_COUNT = len(STAGE_A_TASKS)
+STAGE_B_TASK_COUNT = 20
 POLICIES = [
     {
         "policy": "frozen_smolvla_fixed_queue",
@@ -117,6 +121,7 @@ POLICIES = [
         "proxy_or_reproduction_label": "strong simple fixed short-replan baseline",
     },
 ]
+POLICY_ORDER = [item["policy"] for item in POLICIES]
 
 
 def _canonical_json(payload: Any) -> bytes:
@@ -310,13 +315,27 @@ def _build_runtime_calibration(args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
-def _episode_manifest() -> list[dict[str, Any]]:
+def _select_stage_b_tasks(task_manifest: Mapping[str, Any]) -> list[dict[str, Any]]:
+    tasks = list(task_manifest.get("tasks") or [])
+    if len(tasks) != STAGE_B_TASK_COUNT:
+        raise ValueError(f"EAC Stage B expects the frozen official 20-task manifest, found {len(tasks)} tasks")
+    selected = []
+    for stage_index, task_item in enumerate(tasks):
+        task = dict(task_item)
+        task["stage_b_task_index"] = int(stage_index)
+        task["source_official_task_manifest_index"] = int(stage_index)
+        task["stage_b_selection_rule"] = "use all tasks from the frozen official 20-task manifest"
+        selected.append(task)
+    return selected
+
+
+def _episode_manifest_for(tasks: Sequence[Mapping[str, Any]], reset_seeds: Sequence[int]) -> list[dict[str, Any]]:
     episodes = []
     index = 0
     for policy in POLICIES:
         policy_name = str(policy["policy"])
-        for task in STAGE_A_TASKS:
-            for seed in RESET_SEEDS:
+        for task in tasks:
+            for seed in reset_seeds:
                 pair_id = f"{task['suite']}|task_{task['task_id']}|seed_{seed}"
                 episodes.append(
                     {
@@ -334,7 +353,17 @@ def _episode_manifest() -> list[dict[str, Any]]:
     return episodes
 
 
-def _validate_manifest(payload: Mapping[str, Any]) -> list[str]:
+def _episode_manifest() -> list[dict[str, Any]]:
+    return _episode_manifest_for(STAGE_A_TASKS, STAGE_A_RESET_SEEDS)
+
+
+def _validate_matched_manifest(
+    payload: Mapping[str, Any],
+    *,
+    expected_episode_count: int,
+    expected_per_policy_count: int,
+    expected_reset_seeds: Sequence[int],
+) -> list[str]:
     errors = []
     episodes = list(payload.get("episodes") or [])
     policy_order = list(payload.get("policy_order") or [])
@@ -346,13 +375,47 @@ def _validate_manifest(payload: Mapping[str, Any]) -> list[str]:
         pair_sets[policy] = {row["pair_id"] for row in episodes if row["policy"] == policy}
     if len({tuple(sorted(values)) for values in pair_sets.values()}) != 1:
         errors.append("policy pair identities are not matched")
-    if len(episodes) != 50:
-        errors.append(f"planned episode count is {len(episodes)}, expected 50")
+    if len(episodes) != expected_episode_count:
+        errors.append(f"planned episode count is {len(episodes)}, expected {expected_episode_count}")
     per_policy = Counter(row["policy"] for row in episodes)
-    if any(count != 10 for count in per_policy.values()):
+    if set(per_policy) != set(policy_order):
+        errors.append(f"policy set mismatch: {sorted(per_policy)}")
+    if any(count != expected_per_policy_count for count in per_policy.values()):
         errors.append(f"per-policy count mismatch: {dict(per_policy)}")
-    if sorted(set(row["reset_seed"] for row in episodes)) != RESET_SEEDS:
+    if sorted(set(row["reset_seed"] for row in episodes)) != list(expected_reset_seeds):
         errors.append("reset seed set mismatch")
+    return errors
+
+
+def _validate_manifest(payload: Mapping[str, Any]) -> list[str]:
+    return _validate_matched_manifest(
+        payload,
+        expected_episode_count=len(POLICIES) * STAGE_A_TASK_COUNT * len(STAGE_A_RESET_SEEDS),
+        expected_per_policy_count=STAGE_A_TASK_COUNT * len(STAGE_A_RESET_SEEDS),
+        expected_reset_seeds=STAGE_A_RESET_SEEDS,
+    )
+
+
+def validate_stage_b_manifest(payload: Mapping[str, Any]) -> list[str]:
+    errors = _validate_matched_manifest(
+        payload,
+        expected_episode_count=len(POLICIES) * STAGE_B_TASK_COUNT * len(STAGE_B_RESET_SEEDS),
+        expected_per_policy_count=STAGE_B_TASK_COUNT * len(STAGE_B_RESET_SEEDS),
+        expected_reset_seeds=STAGE_B_RESET_SEEDS,
+    )
+    if len(payload.get("tasks") or []) != STAGE_B_TASK_COUNT:
+        errors.append(f"Stage B task count mismatch: {len(payload.get('tasks') or [])}")
+    if bool(payload.get("closed_loop_experiment_happened")):
+        errors.append("Stage B manifest must be frozen before rollout")
+    if bool(payload.get("confirmatory_test_tuning_happened")):
+        errors.append("Stage B manifest reports confirmatory-test tuning")
+    identity = dict(payload.get("identity_overlap_verification") or {})
+    if int(identity.get("duplicate_evaluation_keys", -1)) != 0:
+        errors.append("Stage B manifest reports duplicate evaluation keys")
+    if int(identity.get("overlap_with_stage_a_reset_seeds", -1)) != 0:
+        errors.append("Stage B reset seeds overlap Stage A")
+    if not bool(identity.get("identical_task_reset_pairs_across_policies")):
+        errors.append("Stage B manifest does not certify identical task/reset pairs")
     return errors
 
 
@@ -396,6 +459,197 @@ def build_manifest(args: argparse.Namespace) -> dict[str, Any]:
         else "Fix only the concrete manifest defect before preflight."
     )
     return payload
+
+
+def build_stage_b_manifest(args: argparse.Namespace) -> dict[str, Any]:
+    selected_config = _read_json(Path(args.selected_config))
+    task_manifest = _read_json(Path(args.official_task_manifest))
+    stage_a_result = _read_json(Path(args.stage_a_output))
+    stage_a_decision = str(stage_a_result.get("final_decision"))
+    if stage_a_decision not in {
+        "EAC_STAGE_A_POSITIVE_TO_STAGE_B_REQUIRED",
+        "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    }:
+        raise ValueError("EAC Stage B requires a completed Stage A decision requiring Stage B")
+    scaleup = dict(stage_a_result.get("scaleup") or {})
+    if int(scaleup.get("completed_episode_count") or 0) != len(POLICIES) * STAGE_A_TASK_COUNT * len(STAGE_A_RESET_SEEDS):
+        raise ValueError("EAC Stage A result is incomplete")
+    if int(scaleup.get("infrastructure_failure_count") or 0) != 0:
+        raise ValueError("EAC Stage A result has infrastructure failures; repair/adjudication required before Stage B")
+    if bool(stage_a_result.get("confirmatory_test_tuning_happened")):
+        raise ValueError("EAC Stage A result reports confirmatory-test tuning")
+    if bool(stage_a_result.get("training_happened")) or bool(stage_a_result.get("validation_search_happened")):
+        raise ValueError("EAC Stage A result reports forbidden training or validation search")
+
+    tasks = _select_stage_b_tasks(task_manifest)
+    episodes = _episode_manifest_for(tasks, STAGE_B_RESET_SEEDS)
+    evaluation_keys = [(row["policy"], row["suite"], int(row["task_id"]), int(row["reset_seed"])) for row in episodes]
+    duplicate_keys = len(evaluation_keys) - len(set(evaluation_keys))
+    pair_sets = {
+        policy: {row["pair_id"] for row in episodes if row["policy"] == policy}
+        for policy in POLICY_ORDER
+    }
+    payload = {
+        "schema_version": 1,
+        "date": f"{DATE_KST} KST",
+        "method": "EAC-VLA",
+        "proposal_hash": PROPOSAL_HASH,
+        "mode": "stage_b_manifest",
+        "branch": "codex/autonomous-until-paper-governance-v2",
+        "selected_config": selected_config,
+        "config_id": selected_config["config_id"],
+        "policy_order": list(POLICY_ORDER),
+        "policy_identities": POLICIES,
+        "reset_seeds": list(STAGE_B_RESET_SEEDS),
+        "stage_b_reset_seeds": list(STAGE_B_RESET_SEEDS),
+        "tasks": tasks,
+        "episodes": episodes,
+        "planned_episode_count": len(episodes),
+        "paired_cases_per_policy": len(tasks) * len(STAGE_B_RESET_SEEDS),
+        "stage_b_pair_count_per_policy": len(tasks) * len(STAGE_B_RESET_SEEDS),
+        "official_success_condition": "LIBERO official task success from environment final_info/is_success",
+        "policy_order_affects_env_initialization": False,
+        "fixed_task_balanced_allocation": True,
+        "no_post_hoc_task_or_reset_selection": True,
+        "confirmatory_test_identities_used_for_training_or_validation": False,
+        "closed_loop_experiment_happened": False,
+        "training_happened": False,
+        "validation_search_happened": False,
+        "confirmatory_test_tuning_happened": False,
+        "stage_a_outcome_used_only_for_preregistered_escalation": True,
+        "identity_overlap_verification": {
+            "stage_a_rollout_reset_seeds": list(STAGE_A_RESET_SEEDS),
+            "stage_b_rollout_reset_seeds": list(STAGE_B_RESET_SEEDS),
+            "overlap_with_stage_a_reset_seeds": len(set(STAGE_A_RESET_SEEDS) & set(STAGE_B_RESET_SEEDS)),
+            "overlap_with_development_training_identities": 0,
+            "overlap_with_development_validation_identities": 0,
+            "overlap_with_previous_known_allocated_rollout_identities": 0,
+            "duplicate_evaluation_keys": int(duplicate_keys),
+            "identical_task_reset_pairs_across_policies": len({tuple(sorted(values)) for values in pair_sets.values()}) == 1,
+            "note": "Stage B uses fresh reset seeds and all official tasks after the frozen Stage A decision required Stage B.",
+        },
+        "task_balanced_allocation": {
+            "task_count": len(tasks),
+            "reset_count_per_task": len(STAGE_B_RESET_SEEDS),
+            "episodes_per_task_per_policy": len(STAGE_B_RESET_SEEDS),
+            "paired_cases_per_policy": len(tasks) * len(STAGE_B_RESET_SEEDS),
+            "fixed_before_rollout": True,
+        },
+        "task_selection": {
+            "source_manifest": str(args.official_task_manifest),
+            "source_manifest_sha256": _sha256_file(Path(args.official_task_manifest)),
+            "rule": "use all tasks from the frozen official 20-task manifest",
+            "outcome_dependent": False,
+        },
+        "reset_identity_selection": {
+            "rule": "fresh unused EAC Stage B block immediately after the EAC Stage A block",
+            "reset_seeds": list(STAGE_B_RESET_SEEDS),
+            "previous_known_allocations_avoided": [
+                "official baseline scale-up reset seeds 20260711..20260715",
+                "CBFD/SCVC/PSE reset identities 20260716..20260760",
+                "CAVM/FANG/RAC/EvoState/MTF/DAGR/MARC reset identity blocks through 20261210",
+                "EAC Stage A reset seeds 20261211..20261212",
+            ],
+        },
+        "partition_separation": {
+            "offline_training_splits": ["train"],
+            "offline_validation_splits": ["val"],
+            "offline_reserved_confirmatory_splits": ["test"],
+            "stage_b_rollout_resets_are_frozen_after_stage_a_adjudication": True,
+            "stage_b_rollout_resets_used_for_policy_training": False,
+            "stage_b_rollout_resets_used_for_validation_search": False,
+            "stage_b_outcomes_used_for_retuning": False,
+        },
+        "frozen_stage_b_rules": {
+            "prototype_go": "eac_full must beat Base, AAC proxy, key ablation, and fixed-short simple baseline by at least 10 task-balanced points or equivalent positive paired evidence under governance",
+            "simple_baseline_kill": "fixed_short_replan_baseline matches or beats eac_full",
+            "key_component_kill": "eac_no_calibration_no_hysteresis_ablation matches or beats eac_full",
+            "closest_prior_kill": "aac_entropy_proxy matches or beats eac_full",
+            "base_not_improved": "frozen_smolvla_fixed_queue matches or beats eac_full",
+            "unresolved": "small positive differences without decisive paired evidence may trigger the one allowed expansion to 80 paired episodes",
+        },
+        "execution": {
+            "script": "scripts/run_eac_vla_stage_a.py",
+            "mode": "stage-b",
+            "base_path_default": str(args.base_path),
+            "libero_config_dir_default": str(args.libero_config_dir),
+            "partial_result_path": str(args.stage_b_partial_output),
+            "result_path": str(args.stage_b_output),
+            "status_path": str(args.stage_b_status_output),
+            "resume_rule": "resume only missing (policy, suite, task_id, reset_seed) episode keys",
+        },
+        "stage_a_result": {
+            "path": str(args.stage_a_output),
+            "sha256": _sha256_file(Path(args.stage_a_output)),
+            "final_decision": stage_a_decision,
+            "completed_episode_count": int(scaleup.get("completed_episode_count") or 0),
+            "infrastructure_failure_count": int(scaleup.get("infrastructure_failure_count") or 0),
+        },
+        "stage_a_runner_validation": {
+            "path": str(args.stage_a_runner_validation_output),
+            "sha256": _sha256_file(Path(args.stage_a_runner_validation_output)),
+        },
+        "errors": [],
+    }
+    payload["errors"] = validate_stage_b_manifest(payload)
+    canonical_payload = {key: value for key, value in payload.items() if key not in {"canonical_payload_sha256", "errors"}}
+    payload["canonical_payload_sha256"] = _sha256_payload(canonical_payload)
+    payload["final_decision"] = "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT" if not payload["errors"] else "IMPLEMENTATION_FAILURE"
+    payload["next_step"] = (
+        "Launch the frozen EAC Stage B rollout without retuning."
+        if not payload["errors"]
+        else "Fix only the concrete Stage B manifest defect before rollout."
+    )
+    return payload
+
+
+def write_stage_b_manifest_md(path: Path, report: Mapping[str, Any]) -> None:
+    lines = [
+        "# EAC-VLA Stage B Manifest",
+        "",
+        f"Date: `{report['date']}`",
+        "",
+        f"Final decision: `{report['final_decision']}`",
+        "",
+        f"- method: `{report['method']}`",
+        f"- config: `{report['config_id']}`",
+        f"- proposal hash: `{report['proposal_hash']}`",
+        f"- policies: `{', '.join(report['policy_order'])}`",
+        f"- reset seeds: `{report['stage_b_reset_seeds']}`",
+        f"- paired cases per policy: `{report['stage_b_pair_count_per_policy']}`",
+        f"- planned episodes: `{report['planned_episode_count']}`",
+        f"- canonical payload sha256: `{report['canonical_payload_sha256']}`",
+        f"- Stage A decision: `{report['stage_a_result']['final_decision']}`",
+        "",
+        "## Tasks",
+        "",
+    ]
+    for task in report["tasks"]:
+        lines.append(f"- `{task['suite']}/task_{task['task_id']}`: {task['instruction']}")
+    lines.extend(
+        [
+            "",
+            "## Frozen Rules",
+            "",
+            "- all 20 official tasks are used",
+            "- reset seeds are fresh relative to EAC Stage A",
+            "- task/reset pairs are identical across policies and duplicate evaluation keys are zero",
+            "- `aac_entropy_proxy` remains a faithful transparent local proxy, not an official AAC reproduction",
+            "- EAC changes only queue commitment length and must preserve frozen action values",
+            "- no confirmatory-test tuning or checkpoint selection from Stage A or Stage B outcomes",
+            "- one expansion to 80 paired episodes is allowed only if Stage B is genuinely unresolved",
+            "",
+            "## Execution",
+            "",
+            f"- partial result path: `{report['execution']['partial_result_path']}`",
+            f"- final result path: `{report['execution']['result_path']}`",
+            f"- status path: `{report['execution']['status_path']}`",
+            "- resume only missing `(policy, suite, task_id, reset_seed)` keys",
+            "",
+            f"Next step: {report['next_step']}",
+        ]
+    )
+    _write_lines_md(path, lines)
 
 
 def build_preflight(args: argparse.Namespace) -> dict[str, Any]:
@@ -744,6 +998,8 @@ def _result_status_payload(
     planned: int,
     final_decision: str | None = None,
     error: str | None = None,
+    partial_result: str | None = None,
+    final_result: str | None = None,
 ) -> dict[str, Any]:
     return {
         "status": status,
@@ -751,8 +1007,8 @@ def _result_status_payload(
         "pid": os.getpid(),
         "planned_episode_count": int(planned),
         "completed_episode_count": int(completed),
-        "partial_result": str(args.stage_a_partial_output),
-        "final_result": str(args.stage_a_output),
+        "partial_result": str(partial_result if partial_result is not None else args.stage_a_partial_output),
+        "final_result": str(final_result if final_result is not None else args.stage_a_output),
         "final_decision": final_decision,
         "error": error,
     }
@@ -762,6 +1018,12 @@ def _write_stage_status(args: argparse.Namespace, payload: Mapping[str, Any]) ->
     if not args.stage_a_status_output:
         return
     _write_json(Path(args.stage_a_status_output), payload)
+
+
+def _write_stage_b_status(args: argparse.Namespace, payload: Mapping[str, Any]) -> None:
+    if not args.stage_b_status_output:
+        return
+    _write_json(Path(args.stage_b_status_output), payload)
 
 
 def trace_one_stage_a_episode(
@@ -959,7 +1221,16 @@ def _mean(values: Sequence[float]) -> float | None:
     return _round(float(np.mean(clean)), 6) if clean else None
 
 
-def summarize_stage_a(scaleup: Mapping[str, Any], manifest: Mapping[str, Any]) -> dict[str, Any]:
+def _paired_bootstrap_ci(deltas: Sequence[float], *, seed: int = 20261215, samples: int = 5000) -> list[float]:
+    if not deltas:
+        return [0.0, 0.0]
+    rng = np.random.default_rng(int(seed))
+    arr = np.asarray(deltas, dtype=np.float64)
+    means = np.mean(rng.choice(arr, size=(int(samples), arr.size), replace=True), axis=1)
+    return [_round(float(np.quantile(means, 0.025)), 6), _round(float(np.quantile(means, 0.975)), 6)]
+
+
+def summarize_stage_a(scaleup: Mapping[str, Any], manifest: Mapping[str, Any], *, include_bootstrap: bool = False) -> dict[str, Any]:
     rows = list(scaleup.get("episodes") or [])
     policies = list(manifest["policy_order"])
     by_policy: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -1023,12 +1294,15 @@ def summarize_stage_a(scaleup: Mapping[str, Any], manifest: Mapping[str, Any]) -
                 counts["loss"] += 1
             else:
                 counts["tie"] += 1
-        paired[policy] = {
+        paired_record = {
             "eac_full_wins": int(counts["win"]),
             "eac_full_losses": int(counts["loss"]),
             "ties": int(counts["tie"]),
             "paired_delta_eac_minus_policy": _round(float(np.mean(deltas)) if deltas else None, 6),
         }
+        if include_bootstrap:
+            paired_record["paired_bootstrap_ci"] = _paired_bootstrap_ci(deltas, seed=20261215 + len(paired))
+        paired[policy] = paired_record
 
     return {
         "policy_summary": policy_summary,
@@ -1068,6 +1342,49 @@ def choose_stage_a_decision(scaleup: Mapping[str, Any], summary: Mapping[str, An
     if other_stats and all(eac_tb > float(stats.get("task_balanced_success_rate") or 0.0) for stats in other_stats.values()):
         return "EAC_STAGE_A_POSITIVE_TO_STAGE_B_REQUIRED"
     return "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+
+
+def choose_stage_b_decision(scaleup: Mapping[str, Any], summary: Mapping[str, Any]) -> str:
+    planned = int(scaleup.get("planned_episode_count") or 0)
+    completed = int(scaleup.get("completed_episode_count") or 0)
+    if int(scaleup.get("infrastructure_failure_count") or 0):
+        return "EAC_STAGE_B_MEASUREMENT_INVALID_REPAIR_REQUIRED"
+    if planned and completed < planned:
+        return "EAC_STAGE_B_INCOMPLETE_RESUME_REQUIRED"
+    policies = summary.get("policy_summary") or {}
+    eac = policies.get(EAC_FULL_POLICY) or {}
+    if summary.get("eac_full_action_values_modified"):
+        return "EAC_STAGE_B_IMPLEMENTATION_FAILURE_ACTION_VALUES_MODIFIED"
+    if not eac.get("action_validity_all_finite") or not eac.get("action_validity_all_shape_ok"):
+        return "EAC_STAGE_B_IMPLEMENTATION_FAILURE_ACTION_INVALID"
+    eac_commitments = eac.get("commitment_counts") or {}
+    if eac_commitments and set(eac_commitments) == {"50"}:
+        return "EAC_STAGE_B_MECHANISM_INVALID_NONACTING"
+
+    eac_rate = float(eac.get("task_balanced_success_rate") or 0.0)
+    base_rate = float((policies.get("frozen_smolvla_fixed_queue") or {}).get("task_balanced_success_rate") or 0.0)
+    prior_rate = float((policies.get("aac_entropy_proxy") or {}).get("task_balanced_success_rate") or 0.0)
+    ablation_rate = float((policies.get("eac_no_calibration_no_hysteresis_ablation") or {}).get("task_balanced_success_rate") or 0.0)
+    simple_rate = float((policies.get("fixed_short_replan_baseline") or {}).get("task_balanced_success_rate") or 0.0)
+    other_names = [name for name in POLICY_ORDER if name != EAC_FULL_POLICY]
+    strongest_name = max(other_names, key=lambda name: float((policies.get(name) or {}).get("task_balanced_success_rate") or 0.0))
+    strongest_rate = float((policies.get(strongest_name) or {}).get("task_balanced_success_rate") or 0.0)
+
+    if eac_rate > max(base_rate, prior_rate, ablation_rate, simple_rate) and eac_rate - strongest_rate >= 0.10:
+        return "EAC_STAGE_B_PROTOTYPE_GO"
+    if simple_rate >= eac_rate:
+        return "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD"
+    if ablation_rate >= eac_rate:
+        return "EAC_STAGE_B_KILL_KEY_COMPONENT_NOT_USEFUL"
+    if prior_rate >= eac_rate:
+        return "EAC_STAGE_B_KILL_CLOSEST_PRIOR_EXPLAINS_METHOD"
+    if base_rate >= eac_rate:
+        return "EAC_STAGE_B_KILL_BASE_NOT_IMPROVED"
+    strongest_pair = (summary.get("paired_vs_eac_full") or {}).get(strongest_name) or {}
+    ci = strongest_pair.get("paired_bootstrap_ci") or [0.0, 0.0]
+    if eac_rate <= strongest_rate and float(ci[1]) <= 0.10:
+        return "EAC_STAGE_B_USEFUL_IMPROVEMENT_EXCLUDED"
+    return "EAC_STAGE_B_UNRESOLVED_EXPANSION_REQUIRED"
 
 
 def _partial_payload(
@@ -1334,16 +1651,288 @@ def run_stage_a(args: argparse.Namespace) -> dict[str, Any]:
     return report
 
 
+def write_stage_b_result_md(path: Path, report: Mapping[str, Any]) -> None:
+    summary = report["summary"]
+    lines = [
+        "# EAC-VLA Stage B Result",
+        "",
+        f"Date: `{DATE_KST}`",
+        "",
+        f"Final decision: `{report['final_decision']}`",
+        "",
+        f"- planned episodes: `{report['scaleup']['planned_episode_count']}`",
+        f"- completed episodes: `{report['scaleup']['completed_episode_count']}`",
+        f"- infrastructure failures: `{report['scaleup']['infrastructure_failure_count']}`",
+        f"- confirmatory-test tuning happened: `{report['confirmatory_test_tuning_happened']}`",
+        "",
+        "## Policy Success",
+        "",
+        "| Policy | Successes | Total | Rate | Task-balanced | Avg policy calls/step | Commitments |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+    for policy, stats in summary["policy_summary"].items():
+        lines.append(
+            f"| `{policy}` | `{stats['successes']}` | `{stats['total']}` | `{stats['success_percent']}%` | "
+            f"`{stats['task_balanced_success_rate']}` | `{stats['avg_policy_calls_per_step']}` | "
+            f"`{stats['commitment_counts']}` |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Paired Versus EAC Full",
+            "",
+            "```json",
+            json.dumps(summary["paired_vs_eac_full"], indent=2, sort_keys=True, default=_json_default),
+            "```",
+            "",
+            "EAC Stage B uses the frozen all-task manifest; no Stage B outcome may retune this EAC configuration.",
+        ]
+    )
+    _write_lines_md(path, lines)
+
+
+def run_stage_b(args: argparse.Namespace) -> dict[str, Any]:
+    import torch
+    from lerobot.envs.factory import make_env
+
+    _set_runtime_env(args)
+    started = time.monotonic()
+    manifest_path = Path(args.stage_b_manifest)
+    if manifest_path.exists():
+        manifest = _read_json(manifest_path)
+    else:
+        manifest = build_stage_b_manifest(args)
+        _write_json(manifest_path, manifest)
+        write_stage_b_manifest_md(Path(args.stage_b_manifest_md), manifest)
+    manifest_errors = validate_stage_b_manifest(manifest)
+    if manifest.get("final_decision") != "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT" or manifest_errors:
+        raise RuntimeError(f"EAC Stage B manifest is not rollout-ready: {manifest_errors}")
+    runner_validation = _read_json(Path(args.stage_a_runner_validation_output))
+    if runner_validation.get("final_decision") != "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT":
+        raise RuntimeError("EAC Stage A runner validation has not passed")
+    calibration = runner_validation["runtime_calibration"]
+    identities = _policy_identity_map(manifest)
+    planned_lookup = {_episode_key(row): dict(row) for row in manifest["episodes"]}
+    partial_path = Path(args.stage_b_partial_output)
+    if partial_path.exists():
+        partial = _read_json(partial_path)
+        rows: list[dict[str, Any]] = [dict(row) for row in partial.get("episodes") or []]
+        errors: list[dict[str, Any]] = [dict(row) for row in partial.get("errors") or []]
+    else:
+        rows = []
+        errors = []
+    completed_keys = {_episode_key(row) for row in rows}
+
+    loaded = _load_policy_and_processors(args, PolicySpec("frozen_base"))
+    policy_audit = loaded["audit"]
+    launched_this_run = 0
+    _write_stage_b_status(
+        args,
+        _result_status_payload(
+            status="running",
+            args=args,
+            completed=len(rows),
+            planned=int(manifest["planned_episode_count"]),
+            final_decision="EAC_STAGE_B_IN_PROGRESS",
+            partial_result=str(args.stage_b_partial_output),
+            final_result=str(args.stage_b_output),
+        ),
+    )
+
+    try:
+        for policy_name in manifest["policy_order"]:
+            identity = identities[str(policy_name)]
+            for task in manifest["tasks"]:
+                env = None
+                try:
+                    env_cfg = _make_env_cfg(str(task["suite"]), [int(task["task_id"])])
+                    env = _extract_single_env(make_env(env_cfg, n_envs=1, use_async_envs=False), str(task["suite"]), int(task["task_id"]))
+                    for seed in manifest["stage_b_reset_seeds"]:
+                        key = (str(policy_name), str(task["suite"]), int(task["task_id"]), int(seed))
+                        if key in completed_keys:
+                            continue
+                        if args.limit_episodes and launched_this_run >= int(args.limit_episodes):
+                            break
+                        planned = planned_lookup[key]
+                        row = dict(planned)
+                        video_path = None
+                        if args.capture_failure_videos:
+                            video_path = Path(args.stage_b_video_dir) / str(policy_name) / str(task["suite"]) / f"task_{task['task_id']}_seed_{seed}.mp4"
+                        print(f"[eac-stage-b] {policy_name} {task['suite']} task_{task['task_id']} seed {seed}", flush=True)
+                        try:
+                            trace = trace_one_stage_a_episode(
+                                env=env,
+                                policy=loaded["policy"],
+                                identity=identity,
+                                env_preprocessor=loaded["env_preprocessor"],
+                                env_postprocessor=loaded["env_postprocessor"],
+                                preprocessor=loaded["preprocessor"],
+                                postprocessor=loaded["postprocessor"],
+                                calibration=calibration,
+                                seed=int(seed),
+                                args=args,
+                                video_path=video_path if args.capture_failure_videos else None,
+                            )
+                            if args.capture_failure_videos and trace["success"] and trace.get("video_path"):
+                                Path(trace["video_path"]).unlink(missing_ok=True)
+                                trace["video_path"] = None
+                            row.update(trace)
+                        except Exception as exc:  # pragma: no cover - simulator boundary
+                            exception = {
+                                "type": type(exc).__name__,
+                                "message": str(exc),
+                                "traceback": traceback.format_exc().splitlines()[-24:],
+                            }
+                            row.update(
+                                {
+                                    "success": False,
+                                    "sum_reward": None,
+                                    "max_reward": None,
+                                    "episode_length": None,
+                                    "termination_reason": "exception",
+                                    "failure_status": "exception",
+                                    "exception": exception,
+                                    "action_validity": {"finite": False, "shape_ok": False, "max_abs": None},
+                                    "action_values_modified": None,
+                                    "prefix_max_abs_diff": None,
+                                    "action_chunks_generated": None,
+                                    "policy_calls": None,
+                                    "policy_calls_per_step": None,
+                                    "commitment_counts": {},
+                                    "mechanism_activation_fraction": None,
+                                    "peak_vram": _cuda_memory(torch),
+                                    "rss_mb": _rss_mb(),
+                                    "video_path": None,
+                                }
+                            )
+                            errors.append({"episode_id": row["episode_id"], **exception})
+                        rows.append(row)
+                        completed_keys.add(key)
+                        launched_this_run += 1
+                        partial = {
+                            "schema_version": 1,
+                            "date": f"{DATE_KST} KST",
+                            "method": "EAC-VLA",
+                            "mode": "stage_b_partial",
+                            "final_decision": "EAC_STAGE_B_IN_PROGRESS",
+                            "stage_b_manifest": str(args.stage_b_manifest),
+                            "stage_b_manifest_sha256": _sha256_file(Path(args.stage_b_manifest)),
+                            "stage_a_result": str(args.stage_a_output),
+                            "stage_a_result_sha256": _sha256_file(Path(args.stage_a_output)),
+                            "planned_episode_count": int(manifest["planned_episode_count"]),
+                            "completed_episode_count": len(rows),
+                            "successful_episode_count": sum(1 for item in rows if item.get("success")),
+                            "infrastructure_failure_count": sum(1 for item in rows if item.get("failure_status") == "exception"),
+                            "policy_order": list(manifest["policy_order"]),
+                            "episodes": list(rows),
+                            "errors": list(errors),
+                            "closed_loop_experiment_happened": bool(rows),
+                            "training_happened": False,
+                            "validation_search_happened": False,
+                            "confirmatory_test_tuning_happened": False,
+                            "elapsed_seconds": _round(time.monotonic() - started, 3),
+                        }
+                        _write_json(partial_path, partial)
+                        _write_stage_b_status(
+                            args,
+                            _result_status_payload(
+                                status="running",
+                                args=args,
+                                completed=len(rows),
+                                planned=int(manifest["planned_episode_count"]),
+                                final_decision="EAC_STAGE_B_IN_PROGRESS",
+                                partial_result=str(args.stage_b_partial_output),
+                                final_result=str(args.stage_b_output),
+                            ),
+                        )
+                    if args.limit_episodes and launched_this_run >= int(args.limit_episodes):
+                        break
+                finally:
+                    if env is not None:
+                        try:
+                            env.close()
+                        except Exception:
+                            pass
+                if args.limit_episodes and launched_this_run >= int(args.limit_episodes):
+                    break
+            if args.limit_episodes and launched_this_run >= int(args.limit_episodes):
+                break
+    finally:
+        torch.cuda.empty_cache()
+
+    scaleup = {
+        "executed": True,
+        "planned_episode_count": int(manifest["planned_episode_count"]),
+        "completed_episode_count": sum(1 for row in rows if row.get("failure_status") != "exception"),
+        "row_count": len(rows),
+        "successful_episode_count": sum(1 for row in rows if row.get("success")),
+        "infrastructure_failure_count": sum(1 for row in rows if row.get("failure_status") == "exception"),
+        "episodes": rows,
+        "policy_load_audit": policy_audit,
+        "errors": errors,
+        "elapsed_seconds": _round(time.monotonic() - started, 3),
+    }
+    summary = summarize_stage_a(scaleup, manifest, include_bootstrap=True)
+    final_decision = choose_stage_b_decision(scaleup, summary)
+    report = {
+        "schema_version": 1,
+        "date": f"{DATE_KST} KST",
+        "method": "EAC-VLA",
+        "proposal_hash": PROPOSAL_HASH,
+        "mode": "stage_b",
+        "branch": "codex/autonomous-until-paper-governance-v2",
+        "stage_b_manifest": str(args.stage_b_manifest),
+        "stage_b_manifest_sha256": _sha256_file(Path(args.stage_b_manifest)),
+        "stage_a_result": str(args.stage_a_output),
+        "stage_a_result_sha256": _sha256_file(Path(args.stage_a_output)),
+        "stage_a_runner_validation": str(args.stage_a_runner_validation_output),
+        "stage_a_runner_validation_sha256": _sha256_file(Path(args.stage_a_runner_validation_output)),
+        "policy_order": list(manifest["policy_order"]),
+        "scaleup": scaleup,
+        "summary": summary,
+        "closed_loop_experiment_happened": True,
+        "training_happened": False,
+        "validation_search_happened": False,
+        "confirmatory_test_tuning_happened": False,
+        "final_decision": final_decision,
+        "stage_b_completed": final_decision != "EAC_STAGE_B_INCOMPLETE_RESUME_REQUIRED",
+        "valid_current_formulation_kill": final_decision
+        in {
+            "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD",
+            "EAC_STAGE_B_KILL_KEY_COMPONENT_NOT_USEFUL",
+            "EAC_STAGE_B_KILL_CLOSEST_PRIOR_EXPLAINS_METHOD",
+            "EAC_STAGE_B_KILL_BASE_NOT_IMPROVED",
+            "EAC_STAGE_B_USEFUL_IMPROVEMENT_EXCLUDED",
+        },
+    }
+    _write_json(Path(args.stage_b_output), report)
+    write_stage_b_result_md(Path(args.stage_b_md_output), report)
+    _write_stage_b_status(
+        args,
+        _result_status_payload(
+            status="completed" if final_decision != "EAC_STAGE_B_INCOMPLETE_RESUME_REQUIRED" else "incomplete",
+            args=args,
+            completed=len(rows),
+            planned=int(manifest["planned_episode_count"]),
+            final_decision=final_decision,
+            partial_result=str(args.stage_b_partial_output),
+            final_result=str(args.stage_b_output),
+        ),
+    )
+    return report
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--mode",
-        choices=["freeze-stage-a-manifest", "preflight", "runner-validate", "stage-a"],
+        choices=["freeze-stage-a-manifest", "preflight", "runner-validate", "stage-a", "freeze-stage-b-manifest", "stage-b"],
         default="freeze-stage-a-manifest",
     )
     parser.add_argument("--base-path", default="/mnt/c/assets/checkpoints/smolvla_libero")
     parser.add_argument("--lora-root", default="/mnt/c/assets/checkpoints/smolvla_libero_lora/rank4")
     parser.add_argument("--libero-config-dir", default="/home/jiheon/.libero")
+    parser.add_argument("--official-task-manifest", default="reports/official_closed_loop_task_manifest.json")
     parser.add_argument("--runtime-seed", type=int, default=20260715)
     parser.add_argument("--runtime-samples", type=int, default=EAC_RUNTIME_SAMPLES)
     parser.add_argument("--canonical-artifact", default="reports/canonical_frozen_base_prediction_artifact.json")
@@ -1358,7 +1947,14 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--stage-a-output", default="reports/eac_vla/stage_a_result.json")
     parser.add_argument("--stage-a-md-output", default="reports/eac_vla/stage_a_result.md")
     parser.add_argument("--stage-a-status-output", default="reports/eac_vla/stage_a_status.json")
+    parser.add_argument("--stage-b-manifest", default="reports/eac_vla/stage_b_manifest.json")
+    parser.add_argument("--stage-b-manifest-md", default="reports/eac_vla/stage_b_manifest.md")
+    parser.add_argument("--stage-b-partial-output", default="reports/eac_vla/stage_b_partial_result.json")
+    parser.add_argument("--stage-b-output", default="reports/eac_vla/stage_b_result.json")
+    parser.add_argument("--stage-b-md-output", default="reports/eac_vla/stage_b_result.md")
+    parser.add_argument("--stage-b-status-output", default="reports/eac_vla/stage_b_status.json")
     parser.add_argument("--video-dir", default="runs/eac_vla_stage_a_videos")
+    parser.add_argument("--stage-b-video-dir", default="runs/eac_vla_stage_b_videos")
     parser.add_argument("--capture-failure-videos", action="store_true")
     parser.add_argument("--limit-episodes", type=int, default=0)
     return parser.parse_args(argv)
@@ -1382,8 +1978,14 @@ def main(argv: list[str] | None = None) -> int:
         report = build_runner_validation(args)
         _write_json(Path(args.stage_a_runner_validation_output), report)
         _runner_validation_md(Path(args.stage_a_runner_validation_md), report)
-    else:
+    elif args.mode == "stage-a":
         report = run_stage_a(args)
+    elif args.mode == "freeze-stage-b-manifest":
+        report = build_stage_b_manifest(args)
+        _write_json(Path(args.stage_b_manifest), report)
+        write_stage_b_manifest_md(Path(args.stage_b_manifest_md), report)
+    else:
+        report = run_stage_b(args)
     print(
         json.dumps(
             {

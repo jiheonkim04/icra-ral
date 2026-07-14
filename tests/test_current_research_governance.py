@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_manifest_pending"
+    assert state["current_decision"] == "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_rollout_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -135,6 +135,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_stage_a_rollout_launched" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_b_manifest_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -359,6 +360,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert outcome["paired_delta_vs_frozen_smolvla_fixed_queue"] == 0.1
     assert outcome["paired_delta_vs_aac_entropy_proxy"] == -0.1
     assert outcome["eac_full_action_values_modified"] is False
+    stage_b = state["epoch_4_cycle_10_eac_stage_b_manifest"]
+    assert stage_b["final_decision"] == "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert stage_b["manifest"] == "reports/eac_vla/stage_b_manifest.json"
+    assert stage_b["manifest_canonical_payload_sha256"] == "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D"
+    assert stage_b["planned_episode_count"] == 200
+    assert stage_b["paired_cases_per_policy"] == 40
+    assert stage_b["reset_seeds"] == [20261213, 20261214]
+    assert stage_b["identity_overlap_verification"]["overlap_with_stage_a_reset_seeds"] == 0
+    assert stage_b["partition_separation"]["stage_b_outcomes_used_for_retuning"] is False
     assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
@@ -370,6 +380,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["mtf_full"]["successes"] == 7
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["frameskip_proxy_lora"]["successes"] == 8
+    assert state["stage_b_manifest_json"] == "reports/eac_vla/stage_b_manifest.json"
+    assert state["stage_b_partial_checkpoint"] == "reports/eac_vla/stage_b_partial_result.json"
     assert state["stage_b_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["planned_episode_count"] == 200
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["paired_cases_per_policy"] == 40

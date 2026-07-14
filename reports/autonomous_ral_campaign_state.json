@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "topic": "epoch_4_cycle_10_eac_stage_b_manifest_pending",
+    "topic": "epoch_4_cycle_10_eac_stage_b_rollout_pending",
     "method": "EAC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "d3f04f8",
-    "current_stage": "epoch_4_cycle_10_eac_stage_b_manifest_pending",
+    "current_commit": "e1dbb12",
+    "current_stage": "epoch_4_cycle_10_eac_stage_b_rollout_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -290,7 +290,8 @@
         "epoch_4_cycle_10_eac_stage_a_runner_validated",
         "epoch_4_cycle_10_eac_stage_a_rollout_launched",
         "epoch_4_cycle_10_eac_stage_a_completed",
-        "epoch_4_cycle_10_eac_stage_a_adjudicated"
+        "epoch_4_cycle_10_eac_stage_a_adjudicated",
+        "epoch_4_cycle_10_eac_stage_b_manifest_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -305,11 +306,11 @@
         "AC2-VLA"
     ],
     "prototype_gate": "EAC Stage A completed noncatastrophically; Stage B manifest freeze is required.",
-    "current_decision": "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    "current_decision": "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
     "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
-    "stage_b_partial_checkpoint": null,
+    "stage_b_partial_checkpoint": "reports/eac_vla/stage_b_partial_result.json",
     "stage_b_result_json": null,
     "stage_b_result_md": null,
     "cycle_1_outcome": {
@@ -456,7 +457,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the EAC Stage B matched manifest without retuning.",
+    "next_action": "Launch the frozen EAC Stage B official rollout without retuning.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -2210,7 +2211,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_10_eac_stage_b_manifest_pending",
+    "current_topic": "epoch_4_cycle_10_eac_stage_b_rollout_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3723,7 +3724,10 @@
         "stage_a_paired_delta_vs_aac_proxy": -0.1,
         "stage_a_paired_delta_vs_ablation": 0.1,
         "stage_a_paired_delta_vs_fixed_short": 0.1,
-        "stage_b_required": true
+        "stage_b_required": true,
+        "stage_b_manifest_decision": "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_b_manifest": "reports/eac_vla/stage_b_manifest.json",
+        "stage_b_manifest_sha256": "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D"
     },
     "epoch_4_cycle_10_eac_runtime_queue_check": {
         "method": "EAC-VLA",
@@ -4088,5 +4092,79 @@
         },
         "archive_reason": "Stage A was noncatastrophic: EAC full beat Base, the key ablation, and fixed short-replan by one paired episode, but trailed the AAC proxy by one paired episode. Governance requires Stage B rather than a Stage A kill or paper-candidate decision.",
         "next_stage": "Freeze the EAC Stage B matched manifest without retuning."
+    },
+    "stage_b_manifest_json": "reports/eac_vla/stage_b_manifest.json",
+    "stage_b_manifest_md": "reports/eac_vla/stage_b_manifest.md",
+    "epoch_4_cycle_10_eac_stage_b_manifest": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "manifest": "reports/eac_vla/stage_b_manifest.json",
+        "manifest_md": "reports/eac_vla/stage_b_manifest.md",
+        "manifest_file_sha256": "CD90E53319A10693CFA898E0F8F9157959FE2B922EEACC10242C4678975BE46F",
+        "manifest_canonical_payload_sha256": "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D",
+        "stage_b_reset_seeds": [
+            20261213,
+            20261214
+        ],
+        "reset_seeds": [
+            20261213,
+            20261214
+        ],
+        "paired_cases_per_policy": 40,
+        "planned_episode_count": 200,
+        "task_count": 20,
+        "policy_order": [
+            "frozen_smolvla_fixed_queue",
+            "aac_entropy_proxy",
+            "eac_full",
+            "eac_no_calibration_no_hysteresis_ablation",
+            "fixed_short_replan_baseline"
+        ],
+        "stage_a_result_decision": "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
+        "stage_a_result_sha256": "5d475e5c0194770a9fc9653a7ea9c31998435461d8e3c1edde31f94a087eecb8",
+        "stage_b_result_json": "reports/eac_vla/stage_b_result.json",
+        "stage_b_result_md": "reports/eac_vla/stage_b_result.md",
+        "stage_b_partial_result_json": "reports/eac_vla/stage_b_partial_result.json",
+        "stage_b_status_json": "reports/eac_vla/stage_b_status.json",
+        "identity_overlap_verification": {
+            "duplicate_evaluation_keys": 0,
+            "identical_task_reset_pairs_across_policies": true,
+            "note": "Stage B uses fresh reset seeds and all official tasks after the frozen Stage A decision required Stage B.",
+            "overlap_with_development_training_identities": 0,
+            "overlap_with_development_validation_identities": 0,
+            "overlap_with_previous_known_allocated_rollout_identities": 0,
+            "overlap_with_stage_a_reset_seeds": 0,
+            "stage_a_rollout_reset_seeds": [
+                20261211,
+                20261212
+            ],
+            "stage_b_rollout_reset_seeds": [
+                20261213,
+                20261214
+            ]
+        },
+        "partition_separation": {
+            "offline_reserved_confirmatory_splits": [
+                "test"
+            ],
+            "offline_training_splits": [
+                "train"
+            ],
+            "offline_validation_splits": [
+                "val"
+            ],
+            "stage_b_outcomes_used_for_retuning": false,
+            "stage_b_rollout_resets_are_frozen_after_stage_a_adjudication": true,
+            "stage_b_rollout_resets_used_for_policy_training": false,
+            "stage_b_rollout_resets_used_for_validation_search": false
+        },
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_eac_vla_stage_a.py --mode stage-b\"",
+        "next_stage": "Launch the frozen EAC Stage B official rollout without retuning."
     }
 }

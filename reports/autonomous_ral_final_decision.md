@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
+Current decision: `EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
 
 This is not a terminal state under the active governance.
 
@@ -171,4 +171,6 @@ EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validati
 
 EAC Stage A completed `50 / 50` episodes with zero exceptions. EAC full reached `8 / 10`; Base fixed queue, no-calibration ablation, and fixed short-replan each reached `7 / 10`; AAC entropy proxy reached `9 / 10`.
 
-Current stage: `epoch_4_cycle_10_eac_stage_b_manifest_pending`. Next action: freeze the EAC Stage B matched manifest without retuning.
+The EAC Stage B matched manifest is frozen in `reports/eac_vla/stage_b_manifest.json` with canonical payload hash `31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D`, all `20` official tasks, fresh reset seeds `20261213` and `20261214`, `40` paired cases per policy, and `200` planned episodes.
+
+Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_pending`. Next action: launch the frozen EAC Stage B official rollout without retuning.

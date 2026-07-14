@@ -1,0 +1,2444 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "canonical_payload_sha256": "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D",
+  "closed_loop_experiment_happened": false,
+  "config_id": "eac_q33_aggressive_1_4_50",
+  "confirmatory_test_identities_used_for_training_or_validation": false,
+  "confirmatory_test_tuning_happened": false,
+  "date": "2026-07-15 KST",
+  "episodes": [
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_0|seed_20261213",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261213",
+      "planned_episode_index": 0,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_0|seed_20261214",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261214",
+      "planned_episode_index": 1,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_2|seed_20261213",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261213",
+      "planned_episode_index": 2,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_2|seed_20261214",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261214",
+      "planned_episode_index": 3,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_4|seed_20261213",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261213",
+      "planned_episode_index": 4,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_4|seed_20261214",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261214",
+      "planned_episode_index": 5,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_6|seed_20261213",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261213",
+      "planned_episode_index": 6,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_6|seed_20261214",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261214",
+      "planned_episode_index": 7,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_8|seed_20261213",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261213",
+      "planned_episode_index": 8,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_8|seed_20261214",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261214",
+      "planned_episode_index": 9,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_0|seed_20261213",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261213",
+      "planned_episode_index": 10,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_0|seed_20261214",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261214",
+      "planned_episode_index": 11,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_2|seed_20261213",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261213",
+      "planned_episode_index": 12,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_2|seed_20261214",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261214",
+      "planned_episode_index": 13,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_4|seed_20261213",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261213",
+      "planned_episode_index": 14,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_4|seed_20261214",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261214",
+      "planned_episode_index": 15,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_6|seed_20261213",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261213",
+      "planned_episode_index": 16,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_6|seed_20261214",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261214",
+      "planned_episode_index": 17,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_8|seed_20261213",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261213",
+      "planned_episode_index": 18,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_8|seed_20261214",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261214",
+      "planned_episode_index": 19,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_0|seed_20261213",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261213",
+      "planned_episode_index": 20,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_0|seed_20261214",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261214",
+      "planned_episode_index": 21,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_2|seed_20261213",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261213",
+      "planned_episode_index": 22,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_2|seed_20261214",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261214",
+      "planned_episode_index": 23,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_4|seed_20261213",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261213",
+      "planned_episode_index": 24,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_4|seed_20261214",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261214",
+      "planned_episode_index": 25,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_6|seed_20261213",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261213",
+      "planned_episode_index": 26,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_6|seed_20261214",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261214",
+      "planned_episode_index": 27,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_8|seed_20261213",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261213",
+      "planned_episode_index": 28,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_8|seed_20261214",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261214",
+      "planned_episode_index": 29,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_0|seed_20261213",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261213",
+      "planned_episode_index": 30,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_0|seed_20261214",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261214",
+      "planned_episode_index": 31,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_2|seed_20261213",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261213",
+      "planned_episode_index": 32,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_2|seed_20261214",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261214",
+      "planned_episode_index": 33,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_4|seed_20261213",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261213",
+      "planned_episode_index": 34,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_4|seed_20261214",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261214",
+      "planned_episode_index": 35,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_6|seed_20261213",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261213",
+      "planned_episode_index": 36,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_6|seed_20261214",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261214",
+      "planned_episode_index": 37,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_8|seed_20261213",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261213",
+      "planned_episode_index": 38,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_8|seed_20261214",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261214",
+      "planned_episode_index": 39,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_0|seed_20261213",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261213",
+      "planned_episode_index": 40,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_0|seed_20261214",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261214",
+      "planned_episode_index": 41,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_2|seed_20261213",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261213",
+      "planned_episode_index": 42,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_2|seed_20261214",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261214",
+      "planned_episode_index": 43,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_4|seed_20261213",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261213",
+      "planned_episode_index": 44,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_4|seed_20261214",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261214",
+      "planned_episode_index": 45,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_6|seed_20261213",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261213",
+      "planned_episode_index": 46,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_6|seed_20261214",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261214",
+      "planned_episode_index": 47,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_8|seed_20261213",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261213",
+      "planned_episode_index": 48,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_8|seed_20261214",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261214",
+      "planned_episode_index": 49,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_0|seed_20261213",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261213",
+      "planned_episode_index": 50,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_0|seed_20261214",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261214",
+      "planned_episode_index": 51,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_2|seed_20261213",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261213",
+      "planned_episode_index": 52,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_2|seed_20261214",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261214",
+      "planned_episode_index": 53,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_4|seed_20261213",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261213",
+      "planned_episode_index": 54,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_4|seed_20261214",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261214",
+      "planned_episode_index": 55,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_6|seed_20261213",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261213",
+      "planned_episode_index": 56,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_6|seed_20261214",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261214",
+      "planned_episode_index": 57,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_8|seed_20261213",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261213",
+      "planned_episode_index": 58,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_8|seed_20261214",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261214",
+      "planned_episode_index": 59,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_0|seed_20261213",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261213",
+      "planned_episode_index": 60,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_0|seed_20261214",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261214",
+      "planned_episode_index": 61,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_2|seed_20261213",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261213",
+      "planned_episode_index": 62,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_2|seed_20261214",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261214",
+      "planned_episode_index": 63,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_4|seed_20261213",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261213",
+      "planned_episode_index": 64,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_4|seed_20261214",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261214",
+      "planned_episode_index": 65,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_6|seed_20261213",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261213",
+      "planned_episode_index": 66,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_6|seed_20261214",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261214",
+      "planned_episode_index": 67,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_8|seed_20261213",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261213",
+      "planned_episode_index": 68,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_8|seed_20261214",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261214",
+      "planned_episode_index": 69,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_0|seed_20261213",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261213",
+      "planned_episode_index": 70,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_0|seed_20261214",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261214",
+      "planned_episode_index": 71,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_2|seed_20261213",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261213",
+      "planned_episode_index": 72,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_2|seed_20261214",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261214",
+      "planned_episode_index": 73,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_4|seed_20261213",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261213",
+      "planned_episode_index": 74,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_4|seed_20261214",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261214",
+      "planned_episode_index": 75,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_6|seed_20261213",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261213",
+      "planned_episode_index": 76,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_6|seed_20261214",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261214",
+      "planned_episode_index": 77,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_8|seed_20261213",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261213",
+      "planned_episode_index": 78,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_8|seed_20261214",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261214",
+      "planned_episode_index": 79,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_0|seed_20261213",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261213",
+      "planned_episode_index": 80,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_0|seed_20261214",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261214",
+      "planned_episode_index": 81,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_2|seed_20261213",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261213",
+      "planned_episode_index": 82,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_2|seed_20261214",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261214",
+      "planned_episode_index": 83,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_4|seed_20261213",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261213",
+      "planned_episode_index": 84,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_4|seed_20261214",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261214",
+      "planned_episode_index": 85,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_6|seed_20261213",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261213",
+      "planned_episode_index": 86,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_6|seed_20261214",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261214",
+      "planned_episode_index": 87,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_8|seed_20261213",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261213",
+      "planned_episode_index": 88,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_8|seed_20261214",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261214",
+      "planned_episode_index": 89,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_0|seed_20261213",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261213",
+      "planned_episode_index": 90,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_0|seed_20261214",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261214",
+      "planned_episode_index": 91,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_2|seed_20261213",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261213",
+      "planned_episode_index": 92,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_2|seed_20261214",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261214",
+      "planned_episode_index": 93,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_4|seed_20261213",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261213",
+      "planned_episode_index": 94,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_4|seed_20261214",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261214",
+      "planned_episode_index": 95,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_6|seed_20261213",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261213",
+      "planned_episode_index": 96,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_6|seed_20261214",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261214",
+      "planned_episode_index": 97,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_8|seed_20261213",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261213",
+      "planned_episode_index": 98,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_8|seed_20261214",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261214",
+      "planned_episode_index": 99,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_0|seed_20261213",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261213",
+      "planned_episode_index": 100,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_0|seed_20261214",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261214",
+      "planned_episode_index": 101,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_2|seed_20261213",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261213",
+      "planned_episode_index": 102,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_2|seed_20261214",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261214",
+      "planned_episode_index": 103,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_4|seed_20261213",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261213",
+      "planned_episode_index": 104,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_4|seed_20261214",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261214",
+      "planned_episode_index": 105,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_6|seed_20261213",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261213",
+      "planned_episode_index": 106,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_6|seed_20261214",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261214",
+      "planned_episode_index": 107,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_8|seed_20261213",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261213",
+      "planned_episode_index": 108,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_8|seed_20261214",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261214",
+      "planned_episode_index": 109,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_0|seed_20261213",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261213",
+      "planned_episode_index": 110,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_0|seed_20261214",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261214",
+      "planned_episode_index": 111,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_2|seed_20261213",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261213",
+      "planned_episode_index": 112,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_2|seed_20261214",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261214",
+      "planned_episode_index": 113,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_4|seed_20261213",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261213",
+      "planned_episode_index": 114,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_4|seed_20261214",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261214",
+      "planned_episode_index": 115,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_6|seed_20261213",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261213",
+      "planned_episode_index": 116,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_6|seed_20261214",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261214",
+      "planned_episode_index": 117,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_8|seed_20261213",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261213",
+      "planned_episode_index": 118,
+      "policy": "eac_full",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_8|seed_20261214",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261214",
+      "planned_episode_index": 119,
+      "policy": "eac_full",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_0|seed_20261213",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261213",
+      "planned_episode_index": 120,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_0|seed_20261214",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261214",
+      "planned_episode_index": 121,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_2|seed_20261213",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261213",
+      "planned_episode_index": 122,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_2|seed_20261214",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261214",
+      "planned_episode_index": 123,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_4|seed_20261213",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261213",
+      "planned_episode_index": 124,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_4|seed_20261214",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261214",
+      "planned_episode_index": 125,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_6|seed_20261213",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261213",
+      "planned_episode_index": 126,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_6|seed_20261214",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261214",
+      "planned_episode_index": 127,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_8|seed_20261213",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261213",
+      "planned_episode_index": 128,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_8|seed_20261214",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261214",
+      "planned_episode_index": 129,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_0|seed_20261213",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261213",
+      "planned_episode_index": 130,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_0|seed_20261214",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261214",
+      "planned_episode_index": 131,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_2|seed_20261213",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261213",
+      "planned_episode_index": 132,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_2|seed_20261214",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261214",
+      "planned_episode_index": 133,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_4|seed_20261213",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261213",
+      "planned_episode_index": 134,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_4|seed_20261214",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261214",
+      "planned_episode_index": 135,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_6|seed_20261213",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261213",
+      "planned_episode_index": 136,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_6|seed_20261214",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261214",
+      "planned_episode_index": 137,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_8|seed_20261213",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261213",
+      "planned_episode_index": 138,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_8|seed_20261214",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261214",
+      "planned_episode_index": 139,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_0|seed_20261213",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261213",
+      "planned_episode_index": 140,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_0|seed_20261214",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261214",
+      "planned_episode_index": 141,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_2|seed_20261213",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261213",
+      "planned_episode_index": 142,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_2|seed_20261214",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261214",
+      "planned_episode_index": 143,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_4|seed_20261213",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261213",
+      "planned_episode_index": 144,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_4|seed_20261214",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261214",
+      "planned_episode_index": 145,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_6|seed_20261213",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261213",
+      "planned_episode_index": 146,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_6|seed_20261214",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261214",
+      "planned_episode_index": 147,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_8|seed_20261213",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261213",
+      "planned_episode_index": 148,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_8|seed_20261214",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261214",
+      "planned_episode_index": 149,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_0|seed_20261213",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261213",
+      "planned_episode_index": 150,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_0|seed_20261214",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261214",
+      "planned_episode_index": 151,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_2|seed_20261213",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261213",
+      "planned_episode_index": 152,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_2|seed_20261214",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261214",
+      "planned_episode_index": 153,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_4|seed_20261213",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261213",
+      "planned_episode_index": 154,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_4|seed_20261214",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261214",
+      "planned_episode_index": 155,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_6|seed_20261213",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261213",
+      "planned_episode_index": 156,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_6|seed_20261214",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261214",
+      "planned_episode_index": 157,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_8|seed_20261213",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261213",
+      "planned_episode_index": 158,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_8|seed_20261214",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261214",
+      "planned_episode_index": 159,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_0|seed_20261213",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261213",
+      "planned_episode_index": 160,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_0|seed_20261214",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261214",
+      "planned_episode_index": 161,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_2|seed_20261213",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261213",
+      "planned_episode_index": 162,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_2|seed_20261214",
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "pair_id": "libero_spatial|task_2|seed_20261214",
+      "planned_episode_index": 163,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_4|seed_20261213",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261213",
+      "planned_episode_index": 164,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_4|seed_20261214",
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pair_id": "libero_spatial|task_4|seed_20261214",
+      "planned_episode_index": 165,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_6|seed_20261213",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261213",
+      "planned_episode_index": 166,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_6|seed_20261214",
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "pair_id": "libero_spatial|task_6|seed_20261214",
+      "planned_episode_index": 167,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_8|seed_20261213",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261213",
+      "planned_episode_index": 168,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_8|seed_20261214",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261214",
+      "planned_episode_index": 169,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_0|seed_20261213",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261213",
+      "planned_episode_index": 170,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_0|seed_20261214",
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "pair_id": "libero_object|task_0|seed_20261214",
+      "planned_episode_index": 171,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_2|seed_20261213",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261213",
+      "planned_episode_index": 172,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_2|seed_20261214",
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "pair_id": "libero_object|task_2|seed_20261214",
+      "planned_episode_index": 173,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_4|seed_20261213",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261213",
+      "planned_episode_index": 174,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_4|seed_20261214",
+      "instruction": "pick up the ketchup and place it in the basket",
+      "pair_id": "libero_object|task_4|seed_20261214",
+      "planned_episode_index": 175,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_6|seed_20261213",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261213",
+      "planned_episode_index": 176,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_6|seed_20261214",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261214",
+      "planned_episode_index": 177,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_8|seed_20261213",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261213",
+      "planned_episode_index": 178,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_8|seed_20261214",
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "pair_id": "libero_object|task_8|seed_20261214",
+      "planned_episode_index": 179,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_object",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_0|seed_20261213",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261213",
+      "planned_episode_index": 180,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_0|seed_20261214",
+      "instruction": "open the middle drawer of the cabinet",
+      "pair_id": "libero_goal|task_0|seed_20261214",
+      "planned_episode_index": 181,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_2|seed_20261213",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261213",
+      "planned_episode_index": 182,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_2|seed_20261214",
+      "instruction": "put the wine bottle on top of the cabinet",
+      "pair_id": "libero_goal|task_2|seed_20261214",
+      "planned_episode_index": 183,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_4|seed_20261213",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261213",
+      "planned_episode_index": 184,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_4|seed_20261214",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261214",
+      "planned_episode_index": 185,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_6|seed_20261213",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261213",
+      "planned_episode_index": 186,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_6|seed_20261214",
+      "instruction": "put the cream cheese in the bowl",
+      "pair_id": "libero_goal|task_6|seed_20261214",
+      "planned_episode_index": 187,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_8|seed_20261213",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261213",
+      "planned_episode_index": 188,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_8|seed_20261214",
+      "instruction": "put the bowl on the plate",
+      "pair_id": "libero_goal|task_8|seed_20261214",
+      "planned_episode_index": 189,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_goal",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_0|seed_20261213",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261213",
+      "planned_episode_index": 190,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_0|seed_20261214",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "pair_id": "libero_10|task_0|seed_20261214",
+      "planned_episode_index": 191,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_2|seed_20261213",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261213",
+      "planned_episode_index": 192,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_2|seed_20261214",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261214",
+      "planned_episode_index": 193,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_4|seed_20261213",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261213",
+      "planned_episode_index": 194,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_4|seed_20261214",
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "pair_id": "libero_10|task_4|seed_20261214",
+      "planned_episode_index": 195,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_6|seed_20261213",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261213",
+      "planned_episode_index": 196,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_6|seed_20261214",
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "pair_id": "libero_10|task_6|seed_20261214",
+      "planned_episode_index": 197,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_8|seed_20261213",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261213",
+      "planned_episode_index": 198,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261213,
+      "suite": "libero_10",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_8|seed_20261214",
+      "instruction": "put both moka pots on the stove",
+      "pair_id": "libero_10|task_8|seed_20261214",
+      "planned_episode_index": 199,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261214,
+      "suite": "libero_10",
+      "task_id": 8
+    }
+  ],
+  "errors": [],
+  "execution": {
+    "base_path_default": "/mnt/c/assets/checkpoints/smolvla_libero",
+    "libero_config_dir_default": "/home/jiheon/.libero",
+    "mode": "stage-b",
+    "partial_result_path": "reports/eac_vla/stage_b_partial_result.json",
+    "result_path": "reports/eac_vla/stage_b_result.json",
+    "resume_rule": "resume only missing (policy, suite, task_id, reset_seed) episode keys",
+    "script": "scripts/run_eac_vla_stage_a.py",
+    "status_path": "reports/eac_vla/stage_b_status.json"
+  },
+  "final_decision": "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+  "fixed_task_balanced_allocation": true,
+  "frozen_stage_b_rules": {
+    "base_not_improved": "frozen_smolvla_fixed_queue matches or beats eac_full",
+    "closest_prior_kill": "aac_entropy_proxy matches or beats eac_full",
+    "key_component_kill": "eac_no_calibration_no_hysteresis_ablation matches or beats eac_full",
+    "prototype_go": "eac_full must beat Base, AAC proxy, key ablation, and fixed-short simple baseline by at least 10 task-balanced points or equivalent positive paired evidence under governance",
+    "simple_baseline_kill": "fixed_short_replan_baseline matches or beats eac_full",
+    "unresolved": "small positive differences without decisive paired evidence may trigger the one allowed expansion to 80 paired episodes"
+  },
+  "identity_overlap_verification": {
+    "duplicate_evaluation_keys": 0,
+    "identical_task_reset_pairs_across_policies": true,
+    "note": "Stage B uses fresh reset seeds and all official tasks after the frozen Stage A decision required Stage B.",
+    "overlap_with_development_training_identities": 0,
+    "overlap_with_development_validation_identities": 0,
+    "overlap_with_previous_known_allocated_rollout_identities": 0,
+    "overlap_with_stage_a_reset_seeds": 0,
+    "stage_a_rollout_reset_seeds": [
+      20261211,
+      20261212
+    ],
+    "stage_b_rollout_reset_seeds": [
+      20261213,
+      20261214
+    ]
+  },
+  "method": "EAC-VLA",
+  "mode": "stage_b_manifest",
+  "next_step": "Launch the frozen EAC Stage B rollout without retuning.",
+  "no_post_hoc_task_or_reset_selection": true,
+  "official_success_condition": "LIBERO official task success from environment final_info/is_success",
+  "paired_cases_per_policy": 40,
+  "partition_separation": {
+    "offline_reserved_confirmatory_splits": [
+      "test"
+    ],
+    "offline_training_splits": [
+      "train"
+    ],
+    "offline_validation_splits": [
+      "val"
+    ],
+    "stage_b_outcomes_used_for_retuning": false,
+    "stage_b_rollout_resets_are_frozen_after_stage_a_adjudication": true,
+    "stage_b_rollout_resets_used_for_policy_training": false,
+    "stage_b_rollout_resets_used_for_validation_search": false
+  },
+  "planned_episode_count": 200,
+  "policy_identities": [
+    {
+      "commitment": 50,
+      "policy": "frozen_smolvla_fixed_queue",
+      "proxy_or_reproduction_label": "unmodified frozen SmolVLA action values with fixed full queue commitment",
+      "role": "base",
+      "scheduler": "fixed_commitment"
+    },
+    {
+      "commitment": 8,
+      "commitment_map": {
+        "long": 50,
+        "medium": 8,
+        "short": 2
+      },
+      "policy": "aac_entropy_proxy",
+      "proxy_or_reproduction_label": "faithful transparent local proxy, not an official AAC reproduction",
+      "quantile_margin": 0.33,
+      "role": "closest_prior_proxy",
+      "scheduler": "dispersion_only_quantile_proxy"
+    },
+    {
+      "commitment": 4,
+      "commitment_map": {
+        "long": 50,
+        "medium": 4,
+        "short": 1
+      },
+      "config_id": "eac_q33_aggressive_1_4_50",
+      "policy": "eac_full",
+      "proxy_or_reproduction_label": "ours",
+      "quantile_margin": 0.33,
+      "role": "ours",
+      "scheduler": "selected_validation_config"
+    },
+    {
+      "commitment": 4,
+      "commitment_map": {
+        "long": 50,
+        "medium": 4,
+        "short": 1
+      },
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "proxy_or_reproduction_label": "key ablation",
+      "raw_thresholds": {
+        "high": 0.6666666666666666,
+        "low": 0.3333333333333333
+      },
+      "role": "key_ablation",
+      "scheduler": "raw_risk_fixed_threshold_ablation"
+    },
+    {
+      "commitment": 1,
+      "policy": "fixed_short_replan_baseline",
+      "proxy_or_reproduction_label": "strong simple fixed short-replan baseline",
+      "role": "simple_killer",
+      "scheduler": "fixed_commitment"
+    }
+  ],
+  "policy_order": [
+    "frozen_smolvla_fixed_queue",
+    "aac_entropy_proxy",
+    "eac_full",
+    "eac_no_calibration_no_hysteresis_ablation",
+    "fixed_short_replan_baseline"
+  ],
+  "policy_order_affects_env_initialization": false,
+  "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+  "reset_identity_selection": {
+    "previous_known_allocations_avoided": [
+      "official baseline scale-up reset seeds 20260711..20260715",
+      "CBFD/SCVC/PSE reset identities 20260716..20260760",
+      "CAVM/FANG/RAC/EvoState/MTF/DAGR/MARC reset identity blocks through 20261210",
+      "EAC Stage A reset seeds 20261211..20261212"
+    ],
+    "reset_seeds": [
+      20261213,
+      20261214
+    ],
+    "rule": "fresh unused EAC Stage B block immediately after the EAC Stage A block"
+  },
+  "reset_seeds": [
+    20261213,
+    20261214
+  ],
+  "schema_version": 1,
+  "selected_config": {
+    "commitment_counts": {
+      "1": 132,
+      "4": 136,
+      "50": 132
+    },
+    "commitment_map": {
+      "long": 50,
+      "medium": 4,
+      "short": 1
+    },
+    "config_id": "eac_q33_aggressive_1_4_50",
+    "max_commitment_share": 0.34,
+    "oscillation_fraction": 0.6388888888888888,
+    "policy_calls_per_step_proxy": 0.4216,
+    "quantile_margin": 0.33,
+    "risk_monotonicity_short_gt_long": true,
+    "risk_summary_by_commitment": {
+      "1": {
+        "count": 132,
+        "max": 1.0,
+        "mean": 0.5626796837122628,
+        "min": 0.30860313236146664,
+        "p50": 0.5019669481835786,
+        "p95": 0.9832699363175449
+      },
+      "4": {
+        "count": 136,
+        "max": 0.3085894120013512,
+        "mean": 0.21484555177296905,
+        "min": 0.13938054468316916,
+        "p50": 0.2115970243684425,
+        "p95": 0.29514483289083077
+      },
+      "50": {
+        "count": 132,
+        "max": 0.1364078421539268,
+        "mean": 0.06894869902880432,
+        "min": 0.0,
+        "p50": 0.07300336823166828,
+        "p95": 0.13082922764875465
+      }
+    },
+    "score_components": {
+      "clean_action_value_passthrough": 1.0,
+      "latency_penalty": 0.4097959183673469,
+      "mechanism_activation": 0.6599999999999999,
+      "oscillation_penalty": 0.6388888888888888,
+      "risk_exposure_reduction_proxy": 0.9032794643799159,
+      "runtime_action_validity": 1.0
+    },
+    "validation_score": 0.7530415186081504
+  },
+  "stage_a_outcome_used_only_for_preregistered_escalation": true,
+  "stage_a_result": {
+    "completed_episode_count": 50,
+    "final_decision": "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    "infrastructure_failure_count": 0,
+    "path": "reports/eac_vla/stage_a_result.json",
+    "sha256": "5d475e5c0194770a9fc9653a7ea9c31998435461d8e3c1edde31f94a087eecb8"
+  },
+  "stage_a_runner_validation": {
+    "path": "reports/eac_vla/stage_a_runner_validation.json",
+    "sha256": "b85891b7c9e4abe52f908bbdc7efaa7ab030ee69685882f6b79ec0325f0b04ad"
+  },
+  "stage_b_pair_count_per_policy": 40,
+  "stage_b_reset_seeds": [
+    20261213,
+    20261214
+  ],
+  "task_balanced_allocation": {
+    "episodes_per_task_per_policy": 2,
+    "fixed_before_rollout": true,
+    "paired_cases_per_policy": 40,
+    "reset_count_per_task": 2,
+    "task_count": 20
+  },
+  "task_selection": {
+    "outcome_dependent": false,
+    "rule": "use all tasks from the frozen official 20-task manifest",
+    "source_manifest": "reports/official_closed_loop_task_manifest.json",
+    "source_manifest_sha256": "657edb546b7eeece1b557b09950ac60a72655963f22de8ab22e34122ad68a7c3"
+  },
+  "tasks": [
+    {
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 0,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 0,
+      "suite": "libero_spatial",
+      "suite_task_count": 10,
+      "task_id": 0
+    },
+    {
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 1,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 1,
+      "suite": "libero_spatial",
+      "suite_task_count": 10,
+      "task_id": 2
+    },
+    {
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 2,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 2,
+      "suite": "libero_spatial",
+      "suite_task_count": 10,
+      "task_id": 4
+    },
+    {
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 3,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 3,
+      "suite": "libero_spatial",
+      "suite_task_count": 10,
+      "task_id": 6
+    },
+    {
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 4,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 4,
+      "suite": "libero_spatial",
+      "suite_task_count": 10,
+      "task_id": 8
+    },
+    {
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 5,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 5,
+      "suite": "libero_object",
+      "suite_task_count": 10,
+      "task_id": 0
+    },
+    {
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 6,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 6,
+      "suite": "libero_object",
+      "suite_task_count": 10,
+      "task_id": 2
+    },
+    {
+      "instruction": "pick up the ketchup and place it in the basket",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 7,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 7,
+      "suite": "libero_object",
+      "suite_task_count": 10,
+      "task_id": 4
+    },
+    {
+      "instruction": "pick up the butter and place it in the basket",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 8,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 8,
+      "suite": "libero_object",
+      "suite_task_count": 10,
+      "task_id": 6
+    },
+    {
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 9,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 9,
+      "suite": "libero_object",
+      "suite_task_count": 10,
+      "task_id": 8
+    },
+    {
+      "instruction": "open the middle drawer of the cabinet",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 10,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 10,
+      "suite": "libero_goal",
+      "suite_task_count": 10,
+      "task_id": 0
+    },
+    {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 11,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 11,
+      "suite": "libero_goal",
+      "suite_task_count": 10,
+      "task_id": 2
+    },
+    {
+      "instruction": "put the bowl on top of the cabinet",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 12,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 12,
+      "suite": "libero_goal",
+      "suite_task_count": 10,
+      "task_id": 4
+    },
+    {
+      "instruction": "put the cream cheese in the bowl",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 13,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 13,
+      "suite": "libero_goal",
+      "suite_task_count": 10,
+      "task_id": 6
+    },
+    {
+      "instruction": "put the bowl on the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 14,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 14,
+      "suite": "libero_goal",
+      "suite_task_count": 10,
+      "task_id": 8
+    },
+    {
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 15,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 15,
+      "suite": "libero_10",
+      "suite_task_count": 10,
+      "task_id": 0
+    },
+    {
+      "instruction": "turn on the stove and put the moka pot on it",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 16,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 16,
+      "suite": "libero_10",
+      "suite_task_count": 10,
+      "task_id": 2
+    },
+    {
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 17,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 17,
+      "suite": "libero_10",
+      "suite_task_count": 10,
+      "task_id": 4
+    },
+    {
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 18,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 18,
+      "suite": "libero_10",
+      "suite_task_count": 10,
+      "task_id": 6
+    },
+    {
+      "instruction": "put both moka pots on the stove",
+      "selection_rule": "floor(k * 10 / 5)",
+      "source_official_task_manifest_index": 19,
+      "stage_b_selection_rule": "use all tasks from the frozen official 20-task manifest",
+      "stage_b_task_index": 19,
+      "suite": "libero_10",
+      "suite_task_count": 10,
+      "task_id": 8
+    }
+  ],
+  "training_happened": false,
+  "validation_search_happened": false
+}

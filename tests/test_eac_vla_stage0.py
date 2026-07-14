@@ -207,3 +207,45 @@ def test_eac_stage_a_result_requires_stage_b_without_retuning() -> None:
     assert summary["eac_full"]["commitment_counts"] == {"1": 150, "4": 25, "50": 33}
     assert report["summary"]["paired_vs_eac_full"]["aac_entropy_proxy"]["paired_delta_eac_minus_policy"] == -0.1
     assert report["summary"]["paired_vs_eac_full"]["frozen_smolvla_fixed_queue"]["paired_delta_eac_minus_policy"] == 0.1
+
+
+def test_eac_stage_b_manifest_freezes_all_task_expansion_without_retuning() -> None:
+    manifest = json.loads((REPORTS / "eac_vla" / "stage_b_manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["final_decision"] == "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert manifest["canonical_payload_sha256"] == "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D"
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["training_happened"] is False
+    assert manifest["validation_search_happened"] is False
+    assert manifest["confirmatory_test_tuning_happened"] is False
+    assert manifest["stage_a_outcome_used_only_for_preregistered_escalation"] is True
+    assert manifest["config_id"] == "eac_q33_aggressive_1_4_50"
+    assert manifest["planned_episode_count"] == 200
+    assert manifest["paired_cases_per_policy"] == 40
+    assert manifest["stage_b_pair_count_per_policy"] == 40
+    assert manifest["stage_b_reset_seeds"] == [20261213, 20261214]
+    assert len(manifest["tasks"]) == 20
+    assert manifest["errors"] == []
+    assert manifest["stage_a_result"]["final_decision"] == "EAC_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    assert manifest["stage_a_result"]["completed_episode_count"] == 50
+    assert manifest["stage_a_result"]["infrastructure_failure_count"] == 0
+    assert manifest["identity_overlap_verification"]["overlap_with_stage_a_reset_seeds"] == 0
+    assert manifest["identity_overlap_verification"]["duplicate_evaluation_keys"] == 0
+    assert manifest["identity_overlap_verification"]["identical_task_reset_pairs_across_policies"] is True
+    assert manifest["partition_separation"]["stage_b_outcomes_used_for_retuning"] is False
+    assert manifest["partition_separation"]["stage_b_rollout_resets_used_for_validation_search"] is False
+
+    episodes = manifest["episodes"]
+    assert len({episode["episode_id"] for episode in episodes}) == 200
+    assert Counter(episode["policy"] for episode in episodes) == {
+        "frozen_smolvla_fixed_queue": 40,
+        "aac_entropy_proxy": 40,
+        "eac_full": 40,
+        "eac_no_calibration_no_hysteresis_ablation": 40,
+        "fixed_short_replan_baseline": 40,
+    }
+    pair_sets = {
+        policy: {episode["pair_id"] for episode in episodes if episode["policy"] == policy}
+        for policy in manifest["policy_order"]
+    }
+    assert len({tuple(sorted(pair_ids)) for pair_ids in pair_sets.values()}) == 1
