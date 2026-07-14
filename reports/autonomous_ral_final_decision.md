@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -153,4 +153,6 @@ Reviewer B attack is complete in `reports/eac_vla/reviewer_attack.md` with decis
 
 Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` with decision `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts the review constraints and passes only to mathematical mechanism audit, not implementation.
 
-Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`. Next action: write mathematical mechanism audit before preregistration or implementation.
+The EAC mathematical mechanism audit is frozen in `reports/eac_vla/mathematical_mechanism_audit.md` with decision `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines exact variables, shapes, dispersion/entropy rules, action-value passthrough, validation search limits, required ablation, and Stage 0 hard stops.
+
+Current stage: `epoch_4_cycle_10_eac_preregistration_pending`. Next action: write and freeze preregistration and prototype protocol before implementation.

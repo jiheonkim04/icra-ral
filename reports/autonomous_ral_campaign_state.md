@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_10_eac_preregistration_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -263,4 +263,6 @@ Reviewer B attack is complete in `reports/eac_vla/reviewer_attack.md` with decis
 
 Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` with decision `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts narrow AAC-extension novelty, exact action-value passthrough, live AAC proxy and fixed-replan killer baselines, uncertainty/dispersion terminology, and Stage 0 hard stops before rollout.
 
-Current decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`. Next action: write mathematical mechanism audit before preregistration or implementation.
+The EAC mathematical mechanism audit is frozen in `reports/eac_vla/mathematical_mechanism_audit.md` with decision `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines the `50 x 7` chunk variables, dispersion/entropy rules, queue-risk formula, commitment map, action-value equality gate, validation-search score, required ablation, and Stage 0 hard stops.
+
+Current decision: `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_10_eac_preregistration_pending`. Next action: write and freeze preregistration and prototype protocol before implementation.
