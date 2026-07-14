@@ -21,7 +21,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["current_decision"] == "SELECT_PESA_VLA"
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_mathematical_audit_pending"
     assert state["method"] == "PESA-VLA"
     assert state["proposal_hash"] == PESA_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
@@ -108,6 +108,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_9_pesa_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_rebuttal_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -118,6 +119,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_9_pre_stage_0"]["proposal_hash"] == PESA_PROPOSAL_HASH
     assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_attack"] == "reports/pesa_vla/reviewer_attack.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["researcher_rebuttal"] == "reports/pesa_vla/researcher_rebuttal.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["rebuttal_decision"] == "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["mathematical_audit"] is None
     assert state["epoch_4_cycle_9_pre_stage_0"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "priorvla_style_proxy",

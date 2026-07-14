@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 9,
-    "current_topic": "epoch_4_cycle_9_pesa_rebuttal_pending",
+    "current_topic": "epoch_4_cycle_9_pesa_mathematical_audit_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "5efd630",
+    "current_commit": "d372a94",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_9_pesa_rebuttal_pending",
+    "current_stage": "epoch_4_cycle_9_pesa_mathematical_audit_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -252,9 +252,10 @@
         "epoch_4_cycle_9_candidate_generation_completed",
         "epoch_4_cycle_9_pesa_proposal_pending",
         "epoch_4_cycle_9_pesa_proposal_frozen",
-        "epoch_4_cycle_9_pesa_reviewer_attack_completed"
+        "epoch_4_cycle_9_pesa_reviewer_attack_completed",
+        "epoch_4_cycle_9_pesa_rebuttal_completed"
     ],
-    "active_hypothesis": "PESA-VLA proposal is frozen and Reviewer B attack is complete; Researcher A rebuttal is pending under current governance before mathematical audit or implementation.",
+    "active_hypothesis": "PESA-VLA proposal, Reviewer B attack, and Researcher A rebuttal are complete; mathematical mechanism audit is pending before implementation.",
     "method_identity": "PESA-VLA",
     "proposal_hash": "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63",
     "closest_papers": [
@@ -382,7 +383,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write PESA-VLA Researcher A rebuttal addressing the conditional Reviewer B attack; then proceed to mathematical mechanism audit only if the rebuttal passes. No implementation, training, rollout, or confirmatory-test tuning has happened for PESA.",
+    "next_action": "Write and freeze the PESA-VLA mathematical mechanism audit before any implementation, training, rollout, manifest freeze, or confirmatory-test use.",
     "method": "PESA-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1572,9 +1573,9 @@
         ],
         "stage_b_pair_count_per_policy": 40
     },
-    "hypothesis": "PESA-VLA proposal is frozen and Reviewer B attack is complete; Researcher A rebuttal is pending under current governance before mathematical audit or implementation.",
+    "hypothesis": "PESA-VLA proposal, Reviewer B attack, and Researcher A rebuttal are complete; mathematical mechanism audit is pending before implementation.",
     "novelty_claim": "Prior-preserving spectral adaptation for frozen SmolVLA 7D policies, tested against PriorVLA-style proxy, standard LoRA, no-spectral ablation, and one simple clean-retention baseline.",
-    "prototype_gate": "PESA rebuttal must narrow novelty against PriorVLA, LoRA-SP, and VLA-GSE; preserve the five-policy comparison; require exact Base passthrough, split integrity, noncollapsed labels, bounded deltas, and no confirmatory-test identity use before any Stage 0 training scale-up or rollout.",
+    "prototype_gate": "PESA mathematical audit must define variables, tensor shapes, spectral-energy masking, objective scales, gradient paths, identity-preserving Base passthrough, action-delta groups, and required ablations before Stage 0 implementation.",
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
         "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
@@ -2133,7 +2134,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_9_pesa_rebuttal_pending",
+    "topic": "epoch_4_cycle_9_pesa_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3200,11 +3201,12 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "training_happened": false,
-        "next_stage": "Complete PESA-VLA Researcher A rebuttal to the conditional Reviewer B attack before mathematical audit or implementation.",
+        "next_stage": "Write and freeze the PESA-VLA mathematical mechanism audit before implementation or training.",
         "proposal": "reports/pesa_vla/researcher_proposal.md",
         "reviewer_attack": "reports/pesa_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
-        "researcher_rebuttal": null,
-        "rebuttal_decision": null
+        "researcher_rebuttal": "reports/pesa_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "mathematical_audit": null
     }
 }

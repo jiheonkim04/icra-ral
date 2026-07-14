@@ -12,7 +12,7 @@ Current epoch: `4`
 
 Current cycle: `9`
 
-Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`
+Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`
 
 Allowed final states:
 
@@ -312,6 +312,8 @@ The Researcher A proposal is frozen in `reports/pesa_vla/researcher_proposal.md`
 
 Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The attack narrows novelty against PriorVLA, LoRA-SP, and VLA-GSE; requires `priorvla_style_proxy` to remain an honest local proxy; forbids KL over deterministic 7D actions; and requires noncollapsed labels, observable spectral/query mechanisms, bounded action deltas, identity-preserving integration, and one strong standard-LoRA or clean-retention simple killer before rollout.
 
-No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to write the PESA Researcher A rebuttal before mathematical audit or implementation.
+Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` with decision `PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts the narrow claim, keeps the PriorVLA-style proxy and simple killer live, and requires mathematical variable/shape/objective/gradient audits before implementation.
 
-Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`.
+No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to write and freeze the PESA mathematical mechanism audit before implementation.
+
+Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`.

@@ -131,6 +131,8 @@ The PESA Researcher A proposal is frozen in `reports/pesa_vla/researcher_proposa
 
 Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. PESA is not killed before implementation, but novelty is narrow and must survive the frozen five-policy comparison against Base, PriorVLA-style proxy, PESA full, no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline.
 
+Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` with decision `PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts the narrow claim, preserves the simple killer and closest-prior proxy, and requires mathematical objective/gradient audit before implementation.
+
 No rollout, training, or confirmatory-test tuning has happened for PESA.
 
-Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`. Next action: write the PESA Researcher A rebuttal before mathematical audit or implementation.
+Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`. Next action: write and freeze the PESA mathematical mechanism audit before implementation.

@@ -96,7 +96,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert PESA_PROPOSAL_HASH in final
     assert "reports/pesa_vla/reviewer_attack.md" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
-    assert "Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`" in final
+    assert "reports/pesa_vla/researcher_rebuttal.md" in final
+    assert "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -107,7 +109,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["current_decision"] == "SELECT_PESA_VLA"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 9
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_mathematical_audit_pending"
     assert state["method"] == "PESA-VLA"
     assert state["proposal_hash"] == PESA_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
@@ -122,7 +124,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Write PESA-VLA Researcher A rebuttal")
+    assert state["next_action"].startswith("Write and freeze the PESA-VLA mathematical mechanism audit")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -220,6 +222,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_9_pesa_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_rebuttal_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
@@ -229,6 +232,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_9_pre_stage_0"]["proposal_hash"] == PESA_PROPOSAL_HASH
     assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_attack"] == "reports/pesa_vla/reviewer_attack.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["researcher_rebuttal"] == "reports/pesa_vla/researcher_rebuttal.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["rebuttal_decision"] == "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["mathematical_audit"] is None
     assert state["epoch_4_cycle_9_pre_stage_0"]["training_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
