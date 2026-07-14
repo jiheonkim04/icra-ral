@@ -1899,3 +1899,31 @@ Execution boundary:
 - policies: `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, `mtf_full`
 
 Consequence: Stage B is frozen and ready for official WSL rollout. Stage A outcomes were used only to trigger the preregistered Stage B escalation; no checkpoint, threshold, task, reset, or policy-list retuning occurred.
+
+## 2026-07-14 - Epoch 4 Cycle 6 MTF-VLA Stage B Result
+
+Decision: `MTF_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`
+
+Execution boundary:
+
+- method: `MTF-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31`
+- selected config: `mtf_r20_ret100`
+- Stage B manifest: `reports/mtf_vla/stage_b_manifest.json`
+- Stage B result: `reports/mtf_vla/stage_b_result.json`
+- episodes: `200 / 200`
+- exceptions: `0`
+- confirmatory-test tuning: `False`
+
+Evidence:
+
+- frozen SmolVLA: `28 / 40`, task-balanced `0.7`
+- FrameSkip proxy: `27 / 40`, task-balanced `0.675`
+- uniform retained-ratio LoRA: `29 / 40`, task-balanced `0.725`
+- no-retention ablation: `32 / 40`, task-balanced `0.8`
+- MTF full: `26 / 40`, task-balanced `0.65`
+- paired full minus no-retention: wins `1`, losses `7`, ties `32`, delta `-0.15`, CI `[-0.275, -0.025]`
+- paired full minus FrameSkip proxy: wins `1`, losses `2`, ties `37`, delta `-0.025`, CI `[-0.1, 0.05]`
+
+Consequence: this is a valid current-formulation kill. The simpler no-retention ablation explains or exceeds the full MTF method, so MTF-VLA must be archived without retention retuning, checkpoint rescue, threshold changes, task/reset changes, or post-hoc reinterpretation. Continue to Epoch 4 Cycle 7 candidate search under the installed performance-oriented governance.

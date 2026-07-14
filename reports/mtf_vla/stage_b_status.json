@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "exit_code_file": "runs/mtf_vla_stage_b/stage_b.exitcode",
+  "heartbeat_kst": "2026-07-14T21:57:16.689310+09:00",
+  "heartbeat_utc": "2026-07-14T12:57:16.689295+00:00",
+  "method": "MTF-VLA",
+  "mode": "stage-b-detached-status",
+  "partial_read_error": null,
+  "partial_result_count": 200,
+  "partial_result_path": "reports/mtf_vla/stage_b_partial_result.json",
+  "phase": "completed",
+  "planned_episode_count": 200,
+  "result_exists": true,
+  "result_path": "reports/mtf_vla/stage_b_result.json",
+  "resume_command": "wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b\"",
+  "resume_command_file": "runs/mtf_vla_stage_b/stage_b_resume_command.txt",
+  "schema_version": 1,
+  "worker_pid": 406
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current decision: `MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `EPOCH_4_CYCLE_7_CANDIDATE_SEARCH_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -75,6 +75,8 @@ MTF adapter training is now complete for all four trainable Stage A policies aft
 
 The MTF Stage A manifest is frozen in `reports/mtf_vla/stage_a_manifest.json` and has now completed as `reports/mtf_vla/stage_a_result.json`. It used exactly `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, and `mtf_full`; `frameskip_proxy_lora` is a faithful local proxy rather than an official FrameSkip reproduction. Stage A completed `50 / 50` official LIBERO episodes with zero exceptions. Frozen SmolVLA, FrameSkip proxy, and uniform retained-ratio LoRA each reached `8 / 10`; no-retention and MTF full each reached `7 / 10`. The frozen decision is `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`, so Stage B is required.
 
-The MTF Stage B manifest is frozen in `reports/mtf_vla/stage_b_manifest.json` with decision `MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`. It uses all `20` official tasks, fresh reset seeds `20261203` and `20261204`, `40` paired cases per policy, and `200` total planned official LIBERO episodes.
+The MTF Stage B manifest `reports/mtf_vla/stage_b_manifest.json` completed as `reports/mtf_vla/stage_b_result.json`: `200 / 200` official LIBERO episodes, zero exceptions, all `20` official tasks, reset seeds `20261203` and `20261204`, and the unchanged five-policy comparison. Frozen SmolVLA reached `28 / 40`, the FrameSkip proxy reached `27 / 40`, uniform retained-ratio LoRA reached `29 / 40`, the no-retention ablation reached `32 / 40`, and MTF full reached `26 / 40`.
 
-Next action: run the frozen MTF Stage B official WSL rollout and resume only missing `(policy, suite, task_id, reset_seed)` keys.
+Final MTF decision: `MTF_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. Full-minus-no-retention paired delta was `-0.15` with CI `[-0.275, -0.025]`, so the simpler ablation explains or exceeds the full method. Do not rescue or retune MTF.
+
+Next action: begin Epoch 4 Cycle 7 by generating exactly three post-MTF candidates, selecting exactly one, and proceeding automatically under the installed performance-oriented governance.

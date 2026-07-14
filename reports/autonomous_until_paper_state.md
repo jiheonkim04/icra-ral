@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `EPOCH_4_CYCLE_7_CANDIDATE_SEARCH_PENDING`
 
 Current epoch: `4`
 
-Current cycle: `6`
+Current cycle: `7`
 
-Current stage: `epoch_4_cycle_6_mtf_stage_b_manifest_frozen_rollout_pending`
+Current stage: `epoch_4_cycle_7_candidate_search_pending`
 
 Allowed final states:
 
@@ -226,6 +226,10 @@ The MTF Stage A matched manifest is frozen in `reports/mtf_vla/stage_a_manifest.
 
 Stage A completed `50 / 50` official LIBERO episodes with zero exceptions. Frozen SmolVLA, FrameSkip proxy, and uniform retained-ratio LoRA each reached `8 / 10`; the no-retention ablation and MTF full each reached `7 / 10`. Full MTF tied the key ablation and was only one episode behind the strongest baselines, so this is not a valid Stage A kill. The frozen adjudication is `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`.
 
-The MTF Stage B matched manifest is now frozen in `reports/mtf_vla/stage_b_manifest.json` with canonical payload hash `3C9D9CCF835A3B9753B81C320E9390EC9DA516514563E4850C1DC4F19ACC5743`. It uses all `20` official tasks, fresh reset seeds `20261203` and `20261204`, `40` paired cases per policy, and `200` total planned episodes. The five policy identities are unchanged from Stage A.
+The MTF Stage B matched manifest was frozen in `reports/mtf_vla/stage_b_manifest.json` with canonical payload hash `3C9D9CCF835A3B9753B81C320E9390EC9DA516514563E4850C1DC4F19ACC5743`. It used all `20` official tasks, fresh reset seeds `20261203` and `20261204`, `40` paired cases per policy, and `200` total planned episodes. The five policy identities were unchanged from Stage A.
 
-Current stage: Stage B official WSL rollout pending. Resume with `wsl -d Ubuntu-22.04 bash -lc "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b"`. Resume only missing `(policy, suite, task_id, reset_seed)` keys; do not tune checkpoints on Stage B outcomes.
+Stage B completed `200 / 200` official LIBERO episodes with zero exceptions. Frozen SmolVLA reached `28 / 40`, the FrameSkip proxy reached `27 / 40`, uniform retained-ratio LoRA reached `29 / 40`, the no-retention ablation reached `32 / 40`, and MTF full reached `26 / 40`. Full MTF lost to the key ablation by paired delta `-0.15` with CI `[-0.275, -0.025]`, and also trailed Base, the FrameSkip proxy, and uniform retained-ratio LoRA.
+
+Final MTF decision: `MTF_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. This is a valid current-formulation kill because the simpler no-retention ablation explains or exceeds the full method. Do not rescue MTF by retuning `mtf_r20_ret100`, changing retention, changing task/reset identities, or reinterpreting Stage B outcomes.
+
+Current stage: Epoch 4 Cycle 7 candidate search pending. Generate exactly three post-MTF candidates under the installed performance-oriented governance, select exactly one, and continue without using MTF Stage B outcomes to retune MTF.
