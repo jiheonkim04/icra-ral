@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`" in final
+    assert "Current campaign decision: `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -80,17 +80,22 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "gate accuracy margin `0.0525`" in final
     assert "static_l1_mixture_baseline" in final
     assert "0.0019475044682621956" in final
-    assert "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending" in final
+    assert "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY" in final
+    assert "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp" in final
+    assert "0.010693175718188286" in final
+    assert "0.2307613492012024" in final
+    assert "0.032826922833919525" in final
+    assert "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
+    assert state["current_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 8
-    assert state["current_stage"] == "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending"
+    assert state["current_stage"] == "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending"
     assert state["method"] == "MARC-VLA"
     assert state["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
     assert state["maximum_method_cycles"] is None
@@ -105,7 +110,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Train disk-reloadable MARC policy identities")
+    assert state["next_action"].startswith("Freeze the MARC Stage A matched manifest")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -191,6 +196,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_8_marc_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_selected_config_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_policy_identities_verified" in state["completed_stages"]
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
@@ -270,7 +276,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_8_pre_stage_a"]["selected_validation_score"] == 0.5457964262366295
     assert state["epoch_4_cycle_8_pre_stage_a"]["selected_full_vs_static_mean_l2"] == 0.0019475044682621956
     assert state["epoch_4_cycle_8_pre_stage_a"]["static_mixture_remains_live_reviewer_killer"] is True
-    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_8_pre_stage_a"]["policy_identity_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["checkpoint_root"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_allowed"] is True
     assert state["epoch_4_cycle_8_pre_stage_a"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "openvla_oft_l1_proxy",
@@ -299,6 +307,24 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_full_vs_l1_proxy_mean_l2"] == 0.007010325323790312
     assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_full_vs_static_mean_l2"] == 0.0019475044682621956
     assert state["epoch_4_cycle_8_marc_development_outcome"]["linear_configs_stopped_for_collapsed_gate"] is True
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["policy_identity_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["stage_a_allowed"] is True
+    policy_outcome = state["epoch_4_cycle_8_marc_policy_identity_outcome"]
+    assert policy_outcome["final_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert policy_outcome["stage_a_allowed"] is True
+    assert policy_outcome["policy_identities"] == [
+        "frozen_smolvla",
+        "openvla_oft_l1_proxy",
+        "marc_full",
+        "marc_no_disagreement_gate_ablation",
+        "static_l1_mixture_baseline",
+    ]
+    assert policy_outcome["variant_success_count"] == 4
+    assert policy_outcome["marc_full_delta_l2_p95"] == 0.010693175718188286
+    assert policy_outcome["openvla_oft_l1_proxy_delta_l2_p95"] == 0.2307613492012024
+    assert policy_outcome["static_l1_mixture_delta_l2_p95"] == 0.07999999821186066
+    assert policy_outcome["distinction"]["marc_full_vs_openvla_oft_l1_proxy_mean_l2"] == 0.08430124074220657
+    assert policy_outcome["distinction"]["marc_full_vs_static_l1_mixture_baseline_mean_l2"] == 0.032826922833919525
     assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
     assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
     assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"

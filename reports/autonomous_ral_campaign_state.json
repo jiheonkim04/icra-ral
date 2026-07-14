@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 8,
-    "topic": "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending",
+    "topic": "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending",
     "method": "MARC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "f5a547a",
-    "current_stage": "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending",
+    "current_commit": "1a7a557",
+    "current_stage": "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -253,7 +253,8 @@
         "epoch_4_cycle_8_marc_prototype_protocol_frozen",
         "epoch_4_cycle_8_marc_stage_0_completed",
         "epoch_4_cycle_8_marc_validation_search_completed",
-        "epoch_4_cycle_8_marc_selected_config_frozen"
+        "epoch_4_cycle_8_marc_selected_config_frozen",
+        "epoch_4_cycle_8_marc_policy_identities_verified"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -264,7 +265,7 @@
     "novelty_claim": "A narrow DAM-VLA anchored extension: frozen SmolVLA identity-preserving route-gated group residual adaptation, not broad dynamic arm/gripper routing novelty.",
     "closest_papers": [],
     "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
-    "current_decision": "MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING",
+    "current_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
     "stage_a_partial_checkpoint": "reports/dagr_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
@@ -415,14 +416,14 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Train disk-reloadable MARC policy identities for frozen_smolvla, openvla_oft_l1_proxy, marc_full, marc_no_disagreement_gate_ablation, and static_l1_mixture_baseline; then freeze the Stage A matched manifest without using confirmatory outcomes.",
+    "next_action": "Freeze the MARC Stage A matched manifest for the five verified policy identities; do not change the selected config, checkpoints, policy list, tasks, or reset rules from validation outcomes.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Epoch 4 Cycle 8 candidate search pending under current governance.",
     "method_identity": "MARC-VLA",
     "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
     "prototype_protocol": "reports/marc_vla/prototype_protocol.md",
     "process_id": null,
-    "checkpoint_path": null,
+    "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -2169,7 +2170,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending",
+    "current_topic": "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -2903,7 +2904,7 @@
         "static_mixture_remains_live_reviewer_killer": true,
         "validation_checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_mlp.pt",
         "policy_identity_checkpoint_root": null,
-        "stage_a_allowed": false,
+        "stage_a_allowed": true,
         "first_comparison_policies": [
             "frozen_smolvla",
             "openvla_oft_l1_proxy",
@@ -2913,7 +2914,17 @@
         ],
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Train disk-reloadable MARC policy identities for the frozen five-policy Stage A comparison before any rollout."
+        "next_stage": "Freeze the MARC Stage A matched manifest before any rollout.",
+        "policy_identity_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+        "checkpoint_root": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
+        "policy_identity_variant_count": 4,
+        "policy_identity_verified_count": 4,
+        "policy_identity_distinction": {
+            "marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2": 0.04372206702828407,
+            "marc_full_vs_openvla_oft_l1_proxy_mean_l2": 0.08430124074220657,
+            "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
+        },
+        "policy_identity_static_mixture_remains_live_reviewer_killer": false
     },
     "epoch_4_cycle_8_marc_development_outcome": {
         "method": "MARC-VLA",
@@ -2969,9 +2980,64 @@
         "linear_configs_stopped_for_collapsed_gate": true,
         "static_mixture_remains_live_reviewer_killer": true,
         "validation_checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_mlp.pt",
-        "stage_a_allowed": false,
+        "stage_a_allowed": true,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Train disk-reloadable MARC policy identities for the frozen five-policy comparison before Stage A."
+        "next_stage": "Train disk-reloadable MARC policy identities for the frozen five-policy comparison before Stage A.",
+        "policy_identity_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+        "checkpoint_root": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
+        "policy_identity_variant_count": 4,
+        "policy_identity_verified_count": 4,
+        "policy_identity_distinction": {
+            "marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2": 0.04372206702828407,
+            "marc_full_vs_openvla_oft_l1_proxy_mean_l2": 0.08430124074220657,
+            "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
+        }
+    },
+    "epoch_4_cycle_8_marc_policy_identity_outcome": {
+        "method": "MARC-VLA",
+        "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+        "final_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+        "stage_a_allowed": true,
+        "checkpoint_root": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
+        "policy_identities": [
+            "frozen_smolvla",
+            "openvla_oft_l1_proxy",
+            "marc_full",
+            "marc_no_disagreement_gate_ablation",
+            "static_l1_mixture_baseline"
+        ],
+        "trainable_variants": [
+            "openvla_oft_l1_proxy",
+            "marc_full",
+            "marc_no_disagreement_gate_ablation",
+            "static_l1_mixture_baseline"
+        ],
+        "nontrainable_variants": [
+            "frozen_smolvla"
+        ],
+        "seed": 101,
+        "epochs": 250,
+        "learning_rate": 0.001,
+        "train_records": 1200,
+        "validation_records": 400,
+        "static_beta": 0.4,
+        "distinction": {
+            "marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2": 0.04372206702828407,
+            "marc_full_vs_openvla_oft_l1_proxy_mean_l2": 0.08430124074220657,
+            "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
+        },
+        "static_mixture_remains_live_reviewer_killer": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_identities_used": false,
+        "training_happened": true,
+        "variant_success_count": 4,
+        "variant_count": 4,
+        "marc_full_delta_l2_p95": 0.010693175718188286,
+        "marc_full_clean_delta_l2_p95": 0.008896797895431519,
+        "marc_full_action_validity": 1.0,
+        "openvla_oft_l1_proxy_delta_l2_p95": 0.2307613492012024,
+        "static_l1_mixture_delta_l2_p95": 0.07999999821186066,
+        "next_stage": "Freeze the MARC Stage A matched manifest before any rollout."
     }
 }

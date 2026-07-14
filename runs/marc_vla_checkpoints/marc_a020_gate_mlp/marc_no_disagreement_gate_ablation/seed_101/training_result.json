@@ -1,0 +1,81 @@
+{
+  "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp\\marc_no_disagreement_gate_ablation\\seed_101",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "disk_reload": true,
+  "final_decision": "MARC_POLICY_CHECKPOINT_VERIFIED",
+  "first_gradient_norms": {
+    "anchor_residual": 0.0011968636536479425,
+    "gate": 0.0,
+    "trunk": 0.0
+  },
+  "gate_metrics": {
+    "accuracy": null,
+    "accuracy_margin": null,
+    "majority_accuracy": null,
+    "mean_probability": 1.0,
+    "predicted_positive_fraction": 1.0
+  },
+  "hard_stop_reasons": [],
+  "initial_delta_p95": 0.0,
+  "loss_curve": [
+    {
+      "anchor": 0.0012350187171250582,
+      "clean": 0.0,
+      "delta": 0.0,
+      "epoch": 1,
+      "gate": 0.0,
+      "total": 0.0012350187171250582
+    },
+    {
+      "anchor": 0.0008399462676607072,
+      "clean": 0.0002294575679115951,
+      "delta": 0.0008080383413471282,
+      "epoch": 250,
+      "gate": 0.0,
+      "total": 0.0009436958353035152
+    }
+  ],
+  "loss_final_train": {
+    "anchor": 0.0008367026457563043,
+    "clean": 0.00022950684069655836,
+    "delta": 0.0008120227721519768,
+    "gate": 0.0,
+    "total": 0.0009408555924892426
+  },
+  "loss_initial": {
+    "anchor": 0.0012350187171250582,
+    "clean": 0.0,
+    "delta": 0.0,
+    "gate": 0.0,
+    "total": 0.0012350187171250582
+  },
+  "loss_validation": {
+    "anchor": 0.0018576765432953835,
+    "clean": 0.0015564828645437956,
+    "delta": 0.003167585236951709,
+    "gate": 0.0,
+    "total": 0.0023300834000110626
+  },
+  "required_files": [
+    "model.pt",
+    "policy_config.json",
+    "training_manifest.json",
+    "sha256_manifest.json"
+  ],
+  "sha256_manifest": {
+    "model.pt": "82F26CB49A6CCBCB263D882D7D27A909DB7E7729AD6B641BCBE607579A44E288",
+    "policy_config.json": "06B4E5CFEE3473F11662A08FE61117153E837ABB44820B1D4052548BC92823F2",
+    "training_manifest.json": "8C7FFBC25D0C2AECA7188679FC67D812E4E551594E74F84E2016AF88293AA2E0"
+  },
+  "validation": {
+    "action_l2_to_target": 0.10173239223806452,
+    "action_validity": 1.0,
+    "clean_delta_l2_p95": 0.10007624328136444,
+    "delta_l2_mean": 0.04400073364377022,
+    "delta_l2_p95": 0.12246084958314896,
+    "gripper_delta_abs_p95": 0.11702829599380493,
+    "rotation_delta_l2_p95": 0.0022086421959102154,
+    "translation_delta_l2_p95": 0.033173274248838425
+  },
+  "variant": "marc_no_disagreement_gate_ablation"
+}

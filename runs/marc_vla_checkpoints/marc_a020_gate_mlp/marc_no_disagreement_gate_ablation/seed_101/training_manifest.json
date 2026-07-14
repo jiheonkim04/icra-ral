@@ -1,0 +1,6 @@
+{
+  "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+  "train_record_count": 1200,
+  "validation_record_count": 400,
+  "variant": "marc_no_disagreement_gate_ablation"
+}

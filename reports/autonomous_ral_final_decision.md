@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
+Current decision: `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
 
 This is not a terminal state under the active governance.
 
@@ -113,4 +113,8 @@ The bounded six-config validation search selected `marc_a020_gate_mlp` as `VALID
 
 MARC full differs from the L1 proxy on validation (`0.007010325323790312` mean L2), but full-versus-static mixture is small (`0.0019475044682621956` mean L2). The static L1 mixture therefore remains the important simple reviewer-killer in the frozen five-policy comparison.
 
-Current stage: `epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending`. Next action: train disk-reloadable MARC policy identities for the frozen five-policy Stage A comparison before any rollout.
+MARC policy identity training completed as `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`. Checkpoints are saved under `runs\marc_vla_checkpoints\marc_a020_gate_mlp`; all four trainable identities disk-reload, keep validation action validity `1.0`, and preserve initial base passthrough with initial delta p95 `0.0`. MARC full delta L2 p95 is `0.010693175718188286`, while the L1 proxy and static mixture have p95 values `0.2307613492012024` and `0.07999999821186066`.
+
+The disk-reloaded policy identities are action-distinct: full-versus-L1 mean L2 is `0.08430124074220657`, full-versus-no-gate is `0.04372206702828407`, and full-versus-static mixture is `0.032826922833919525`. No closed-loop rollout or confirmatory-test tuning happened during policy identity training.
+
+Current stage: `epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending`. Next action: freeze the MARC Stage A matched manifest for the five verified policy identities before any rollout.

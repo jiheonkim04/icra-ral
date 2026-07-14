@@ -130,3 +130,42 @@ def test_marc_repo_artifacts_when_present_are_consistent() -> None:
     assert validation["final_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
     assert validation["tried_config_count"] == 6
     assert validation["selected_config"]["initial_delta_p95"] <= 1e-6
+
+
+def test_marc_policy_identities_are_disk_reloadable_when_present() -> None:
+    manifest_path = MARC / "policy_checkpoint_manifest.json"
+    if not manifest_path.exists():
+        return
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+
+    assert manifest["final_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert manifest["stage_a_allowed"] is True
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["confirmatory_test_identities_used"] is False
+    assert manifest["policy_identities"] == [
+        "frozen_smolvla",
+        "openvla_oft_l1_proxy",
+        "marc_full",
+        "marc_no_disagreement_gate_ablation",
+        "static_l1_mixture_baseline",
+    ]
+    variants = {row["variant"]: row for row in manifest["variant_results"]}
+    assert set(variants) == {
+        "openvla_oft_l1_proxy",
+        "marc_full",
+        "marc_no_disagreement_gate_ablation",
+        "static_l1_mixture_baseline",
+    }
+    for row in variants.values():
+        assert row["final_decision"] == "MARC_POLICY_CHECKPOINT_VERIFIED"
+        assert row["disk_reload"] is True
+        assert row["initial_delta_p95"] == 0.0
+        assert row["validation"]["action_validity"] == 1.0
+        for filename in row["required_files"]:
+            assert (REPO_ROOT / row["checkpoint_path"] / filename).exists()
+
+    assert variants["marc_full"]["gate_metrics"]["accuracy_margin"] >= 0.02
+    assert manifest["distinction"]["marc_full_vs_openvla_oft_l1_proxy_mean_l2"] > 1e-6
+    assert manifest["distinction"]["marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2"] > 1e-6
+    assert manifest["distinction"]["marc_full_vs_static_l1_mixture_baseline_mean_l2"] > 1e-6

@@ -1,0 +1,372 @@
+{
+  "checkpoint_root": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
+  "closed_loop_experiment_happened": false,
+  "config_id": "marc_a020_gate_mlp",
+  "confirmatory_test_identities_used": false,
+  "date": "2026-07-15 KST",
+  "disagreement_thresholds": {
+    "disagreement_l2_quantile_0_60": 0.07210158833092721
+  },
+  "distinction": {
+    "marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2": 0.04372206702828407,
+    "marc_full_vs_openvla_oft_l1_proxy_mean_l2": 0.08430124074220657,
+    "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
+  },
+  "epochs": 250,
+  "final_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+  "learning_rate": 0.001,
+  "method": "MARC-VLA",
+  "next_step": "Freeze the MARC Stage A matched manifest before any rollout.",
+  "nontrainable_variants": [
+    "frozen_smolvla"
+  ],
+  "policy_identities": [
+    "frozen_smolvla",
+    "openvla_oft_l1_proxy",
+    "marc_full",
+    "marc_no_disagreement_gate_ablation",
+    "static_l1_mixture_baseline"
+  ],
+  "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+  "schema_version": 1,
+  "seed": 101,
+  "selected_validation_checkpoint": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_mlp.pt",
+  "stage_a_allowed": true,
+  "static_beta": 0.4,
+  "static_mixture_remains_live_reviewer_killer": false,
+  "train_records": 1200,
+  "trainable_variants": [
+    "openvla_oft_l1_proxy",
+    "marc_full",
+    "marc_no_disagreement_gate_ablation",
+    "static_l1_mixture_baseline"
+  ],
+  "training_happened": true,
+  "validation_records": 400,
+  "variant_results": [
+    {
+      "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp\\openvla_oft_l1_proxy\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "MARC_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0011968636536479425,
+        "gate": 0.0,
+        "trunk": 0.0
+      },
+      "gate_metrics": {
+        "accuracy": null,
+        "accuracy_margin": null,
+        "majority_accuracy": null,
+        "mean_probability": 1.0,
+        "predicted_positive_fraction": 1.0
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "anchor": 0.0012350187171250582,
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "gate": 0.0,
+          "total": 0.0012350187171250582
+        },
+        {
+          "anchor": 0.0006073358817957342,
+          "clean": 0.0008386162808164954,
+          "delta": 0.006677740253508091,
+          "epoch": 250,
+          "gate": 0.0,
+          "total": 0.0007408906822092831
+        }
+      ],
+      "loss_final_train": {
+        "anchor": 0.0006059181760065258,
+        "clean": 0.0008375424076803029,
+        "delta": 0.006694871466606855,
+        "gate": 0.0,
+        "total": 0.0007398155867122114
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 0.0,
+        "total": 0.0012350187171250582
+      },
+      "loss_validation": {
+        "anchor": 0.0026051148306578398,
+        "clean": 0.007928906008601189,
+        "delta": 0.014617659151554108,
+        "gate": 0.0,
+        "total": 0.00289746792986989
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "sha256_manifest": {
+        "model.pt": "B09849B4B5E123A0AE30B95312E93479316D67A44FD95A97420985B80789A03B",
+        "policy_config.json": "05BCE4D6CD034271D4B9E6B628C7A68D9BFC159B25F3D9FAC41C300EE9B8AF36",
+        "training_manifest.json": "6EC9C16E38635F4FA448808F4E2809B899E912E681BA30CB14C1C3545C181AE5"
+      },
+      "validation": {
+        "action_l2_to_target": 0.13093115008724351,
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.18917657434940338,
+        "delta_l2_mean": 0.08486169576644897,
+        "delta_l2_p95": 0.2307613492012024,
+        "gripper_delta_abs_p95": 0.22768142819404602,
+        "rotation_delta_l2_p95": 0.004953197669237852,
+        "translation_delta_l2_p95": 0.06691775470972061
+      },
+      "variant": "openvla_oft_l1_proxy"
+    },
+    {
+      "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp\\marc_full\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "MARC_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0011968636536479425,
+        "gate": 0.6835141598826062,
+        "trunk": 0.1775276323086526
+      },
+      "gate_metrics": {
+        "accuracy": 0.6075,
+        "accuracy_margin": 0.04749999999999999,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.39701592922210693,
+        "predicted_positive_fraction": 0.3125
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "anchor": 0.0012350187171250582,
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "gate": 2.3864312171936035,
+          "total": 2.3876662254333496
+        },
+        {
+          "anchor": 0.001220384961925447,
+          "clean": 1.0343387657485437e-05,
+          "delta": 2.6218216589768417e-05,
+          "epoch": 250,
+          "gate": 0.5882205963134766,
+          "total": 0.589444637298584
+        }
+      ],
+      "loss_final_train": {
+        "anchor": 0.0012202697107568383,
+        "clean": 1.0245927114738151e-05,
+        "delta": 2.634141856105998e-05,
+        "gate": 0.587673544883728,
+        "total": 0.5888974666595459
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.3864312171936035,
+        "total": 2.3876662254333496
+      },
+      "loss_validation": {
+        "anchor": 0.0016206495929509401,
+        "clean": 1.2698189493676182e-05,
+        "delta": 2.9761264158878475e-05,
+        "gate": 0.6926857233047485,
+        "total": 0.6943106055259705
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "sha256_manifest": {
+        "model.pt": "76A3E407ECABFBC8100E62AC50C020C5B5CB5254CC47484A5AD1BE8375A3747C",
+        "policy_config.json": "963A50D7E9ED47BCECFA7BE0BC99EE19AA20608A9CF89E115F92755F3C0D3255",
+        "training_manifest.json": "262A29F57475614FB2A142152014474ADBB212EED908CB911E12094483DF9293"
+      },
+      "validation": {
+        "action_l2_to_target": 0.08629934170250374,
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.008896797895431519,
+        "delta_l2_mean": 0.004397292621433735,
+        "delta_l2_p95": 0.010693175718188286,
+        "gripper_delta_abs_p95": 0.005875222850590944,
+        "rotation_delta_l2_p95": 0.003265822771936655,
+        "translation_delta_l2_p95": 0.00828156154602766
+      },
+      "variant": "marc_full"
+    },
+    {
+      "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp\\marc_no_disagreement_gate_ablation\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "MARC_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0011968636536479425,
+        "gate": 0.0,
+        "trunk": 0.0
+      },
+      "gate_metrics": {
+        "accuracy": null,
+        "accuracy_margin": null,
+        "majority_accuracy": null,
+        "mean_probability": 1.0,
+        "predicted_positive_fraction": 1.0
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "anchor": 0.0012350187171250582,
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "gate": 0.0,
+          "total": 0.0012350187171250582
+        },
+        {
+          "anchor": 0.0008399462676607072,
+          "clean": 0.0002294575679115951,
+          "delta": 0.0008080383413471282,
+          "epoch": 250,
+          "gate": 0.0,
+          "total": 0.0009436958353035152
+        }
+      ],
+      "loss_final_train": {
+        "anchor": 0.0008367026457563043,
+        "clean": 0.00022950684069655836,
+        "delta": 0.0008120227721519768,
+        "gate": 0.0,
+        "total": 0.0009408555924892426
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 0.0,
+        "total": 0.0012350187171250582
+      },
+      "loss_validation": {
+        "anchor": 0.0018576765432953835,
+        "clean": 0.0015564828645437956,
+        "delta": 0.003167585236951709,
+        "gate": 0.0,
+        "total": 0.0023300834000110626
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "sha256_manifest": {
+        "model.pt": "82F26CB49A6CCBCB263D882D7D27A909DB7E7729AD6B641BCBE607579A44E288",
+        "policy_config.json": "06B4E5CFEE3473F11662A08FE61117153E837ABB44820B1D4052548BC92823F2",
+        "training_manifest.json": "8C7FFBC25D0C2AECA7188679FC67D812E4E551594E74F84E2016AF88293AA2E0"
+      },
+      "validation": {
+        "action_l2_to_target": 0.10173239223806452,
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.10007624328136444,
+        "delta_l2_mean": 0.04400073364377022,
+        "delta_l2_p95": 0.12246084958314896,
+        "gripper_delta_abs_p95": 0.11702829599380493,
+        "rotation_delta_l2_p95": 0.0022086421959102154,
+        "translation_delta_l2_p95": 0.033173274248838425
+      },
+      "variant": "marc_no_disagreement_gate_ablation"
+    },
+    {
+      "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp\\static_l1_mixture_baseline\\seed_101",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "disk_reload": true,
+      "final_decision": "MARC_POLICY_CHECKPOINT_VERIFIED",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0011968636536479425,
+        "gate": 0.0,
+        "trunk": 0.0
+      },
+      "gate_metrics": {
+        "accuracy": null,
+        "accuracy_margin": null,
+        "majority_accuracy": null,
+        "mean_probability": 0.40000006556510925,
+        "predicted_positive_fraction": 0.0
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_curve": [
+        {
+          "anchor": 0.0012350187171250582,
+          "clean": 0.0,
+          "delta": 0.0,
+          "epoch": 1,
+          "gate": 0.0,
+          "total": 0.0012350187171250582
+        },
+        {
+          "anchor": 0.0005581252626143396,
+          "clean": 0.0001311096566496417,
+          "delta": 0.0003367183089721948,
+          "epoch": 250,
+          "gate": 0.0,
+          "total": 0.0006049080984666944
+        }
+      ],
+      "loss_final_train": {
+        "anchor": 0.000556811923161149,
+        "clean": 0.00013104362005833536,
+        "delta": 0.0003367658064235002,
+        "gate": 0.0,
+        "total": 0.0006035928381606936
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 0.0,
+        "total": 0.0012350187171250582
+      },
+      "loss_validation": {
+        "anchor": 0.002721397439017892,
+        "clean": 0.0008020619279704988,
+        "delta": 0.0016024395590648055,
+        "gate": 0.0,
+        "total": 0.002961847698315978
+      },
+      "required_files": [
+        "model.pt",
+        "policy_config.json",
+        "training_manifest.json",
+        "sha256_manifest.json"
+      ],
+      "sha256_manifest": {
+        "model.pt": "3A6E81B285E48E39B740E9E847D2674C11FF468792CB0D85D8835433D47B6150",
+        "policy_config.json": "AFDDA20228BF07F0015CF4BB2844574C4D3E04BD9C6AA9096F68EF060B2225F1",
+        "training_manifest.json": "22A3F06F510298189B940CC970556FFBC51F298FD941FE74C78CA60B901D6888"
+      },
+      "validation": {
+        "action_l2_to_target": 0.09530899882343835,
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.07970031350851059,
+        "delta_l2_mean": 0.03310273960232735,
+        "delta_l2_p95": 0.07999999821186066,
+        "gripper_delta_abs_p95": 0.07875405997037888,
+        "rotation_delta_l2_p95": 0.002109724096953869,
+        "translation_delta_l2_p95": 0.02551664412021637
+      },
+      "variant": "static_l1_mixture_baseline"
+    }
+  ]
+}

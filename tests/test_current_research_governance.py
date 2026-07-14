@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
-    assert state["current_stage"] == "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending"
+    assert state["current_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["current_stage"] == "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending"
     assert state["method"] == "MARC-VLA"
     assert state["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
     assert state["prototype_protocol"] == "reports/marc_vla/prototype_protocol.md"
@@ -95,11 +95,12 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_8_marc_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_selected_config_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_policy_identities_verified" in state["completed_stages"]
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
-    assert state["checkpoint_path"] is None
+    assert state["checkpoint_path"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
     assert state["stage_a_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
@@ -215,7 +216,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_8_pre_stage_a"]["selected_config"] == "marc_a020_gate_mlp"
     assert state["epoch_4_cycle_8_pre_stage_a"]["selected_correction_alpha"] == 0.2
     assert state["epoch_4_cycle_8_pre_stage_a"]["selected_gate_architecture"] == "mlp"
-    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_8_pre_stage_a"]["policy_identity_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["checkpoint_root"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_allowed"] is True
+    assert state["epoch_4_cycle_8_pre_stage_a"]["policy_identity_verified_count"] == 4
     assert state["epoch_4_cycle_8_pre_stage_a"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "openvla_oft_l1_proxy",
@@ -246,6 +250,25 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_full_vs_l1_proxy_mean_l2"] == 0.007010325323790312
     assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_full_vs_static_mean_l2"] == 0.0019475044682621956
     assert state["epoch_4_cycle_8_marc_development_outcome"]["static_mixture_remains_live_reviewer_killer"] is True
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["policy_identity_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["stage_a_allowed"] is True
+    policy_outcome = state["epoch_4_cycle_8_marc_policy_identity_outcome"]
+    assert policy_outcome["final_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
+    assert policy_outcome["stage_a_allowed"] is True
+    assert policy_outcome["checkpoint_root"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
+    assert policy_outcome["policy_identities"] == [
+        "frozen_smolvla",
+        "openvla_oft_l1_proxy",
+        "marc_full",
+        "marc_no_disagreement_gate_ablation",
+        "static_l1_mixture_baseline",
+    ]
+    assert policy_outcome["variant_success_count"] == 4
+    assert policy_outcome["marc_full_delta_l2_p95"] == 0.010693175718188286
+    assert policy_outcome["openvla_oft_l1_proxy_delta_l2_p95"] == 0.2307613492012024
+    assert policy_outcome["static_l1_mixture_delta_l2_p95"] == 0.07999999821186066
+    assert policy_outcome["distinction"]["marc_full_vs_openvla_oft_l1_proxy_mean_l2"] == 0.08430124074220657
+    assert policy_outcome["distinction"]["marc_full_vs_static_l1_mixture_baseline_mean_l2"] == 0.032826922833919525
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

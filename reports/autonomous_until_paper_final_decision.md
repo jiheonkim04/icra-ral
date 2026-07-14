@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
+Current campaign decision: `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
 
 This is not a terminal decision.
 
@@ -126,4 +126,8 @@ The bounded six-config validation search selected `marc_a020_gate_mlp` as `VALID
 
 MARC full validation action L2 was `0.08665236806523112`, the OpenVLA-OFT-style L1 proxy action L2 was `0.08763420091414227`, and full-versus-L1 mean L2 was `0.007010325323790312`. Full-versus-static mixture mean L2 was only `0.0019475044682621956`, so `static_l1_mixture_baseline` remains a live reviewer-killer for the five-policy comparison.
 
-Current stage: `epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending`. Next action: train disk-reloadable MARC policy identities for `frozen_smolvla`, `openvla_oft_l1_proxy`, `marc_full`, `marc_no_disagreement_gate_ablation`, and `static_l1_mixture_baseline`; then freeze the Stage A matched manifest without using confirmatory outcomes.
+MARC policy identity training completed as `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`. Checkpoints are saved under `runs\marc_vla_checkpoints\marc_a020_gate_mlp`; all four trainable identities disk-reload, have validation action validity `1.0`, and preserve initial base passthrough with initial delta p95 `0.0`. MARC full delta L2 p95 is `0.010693175718188286`; the OpenVLA-OFT-style L1 proxy delta L2 p95 is `0.2307613492012024`; the static mixture delta L2 p95 is `0.07999999821186066`.
+
+The disk-reloaded policy distinctions are no longer trivially identical: full-versus-L1 mean L2 is `0.08430124074220657`, full-versus-no-gate is `0.04372206702828407`, and full-versus-static mixture is `0.032826922833919525`. No closed-loop rollout or confirmatory-test tuning happened during policy identity training.
+
+Current stage: `epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending`. Next action: freeze the MARC Stage A matched manifest for the five verified policy identities without changing the selected config, checkpoints, policy list, tasks, or reset rules from validation outcomes.

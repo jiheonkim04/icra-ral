@@ -1,0 +1,81 @@
+{
+  "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp\\marc_full\\seed_101",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "disk_reload": true,
+  "final_decision": "MARC_POLICY_CHECKPOINT_VERIFIED",
+  "first_gradient_norms": {
+    "anchor_residual": 0.0011968636536479425,
+    "gate": 0.6835141598826062,
+    "trunk": 0.1775276323086526
+  },
+  "gate_metrics": {
+    "accuracy": 0.6075,
+    "accuracy_margin": 0.04749999999999999,
+    "majority_accuracy": 0.56,
+    "mean_probability": 0.39701592922210693,
+    "predicted_positive_fraction": 0.3125
+  },
+  "hard_stop_reasons": [],
+  "initial_delta_p95": 0.0,
+  "loss_curve": [
+    {
+      "anchor": 0.0012350187171250582,
+      "clean": 0.0,
+      "delta": 0.0,
+      "epoch": 1,
+      "gate": 2.3864312171936035,
+      "total": 2.3876662254333496
+    },
+    {
+      "anchor": 0.001220384961925447,
+      "clean": 1.0343387657485437e-05,
+      "delta": 2.6218216589768417e-05,
+      "epoch": 250,
+      "gate": 0.5882205963134766,
+      "total": 0.589444637298584
+    }
+  ],
+  "loss_final_train": {
+    "anchor": 0.0012202697107568383,
+    "clean": 1.0245927114738151e-05,
+    "delta": 2.634141856105998e-05,
+    "gate": 0.587673544883728,
+    "total": 0.5888974666595459
+  },
+  "loss_initial": {
+    "anchor": 0.0012350187171250582,
+    "clean": 0.0,
+    "delta": 0.0,
+    "gate": 2.3864312171936035,
+    "total": 2.3876662254333496
+  },
+  "loss_validation": {
+    "anchor": 0.0016206495929509401,
+    "clean": 1.2698189493676182e-05,
+    "delta": 2.9761264158878475e-05,
+    "gate": 0.6926857233047485,
+    "total": 0.6943106055259705
+  },
+  "required_files": [
+    "model.pt",
+    "policy_config.json",
+    "training_manifest.json",
+    "sha256_manifest.json"
+  ],
+  "sha256_manifest": {
+    "model.pt": "76A3E407ECABFBC8100E62AC50C020C5B5CB5254CC47484A5AD1BE8375A3747C",
+    "policy_config.json": "963A50D7E9ED47BCECFA7BE0BC99EE19AA20608A9CF89E115F92755F3C0D3255",
+    "training_manifest.json": "262A29F57475614FB2A142152014474ADBB212EED908CB911E12094483DF9293"
+  },
+  "validation": {
+    "action_l2_to_target": 0.08629934170250374,
+    "action_validity": 1.0,
+    "clean_delta_l2_p95": 0.008896797895431519,
+    "delta_l2_mean": 0.004397292621433735,
+    "delta_l2_p95": 0.010693175718188286,
+    "gripper_delta_abs_p95": 0.005875222850590944,
+    "rotation_delta_l2_p95": 0.003265822771936655,
+    "translation_delta_l2_p95": 0.00828156154602766
+  },
+  "variant": "marc_full"
+}
