@@ -1,6 +1,14 @@
 import json
 from pathlib import Path
 
+from tca_map.smolvla.dagr_vla_stage_a import (
+    STAGE_A_POLICY_ORDER,
+    _stage_a_decision,
+    _task_index_for_task,
+    _task_index_map_from_artifact,
+    validate_stage_a_manifest,
+)
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DAGR = REPO_ROOT / "reports" / "dagr_vla"
@@ -77,6 +85,7 @@ def test_dagr_policy_identities_are_disk_reloadable() -> None:
 def test_dagr_stage_a_manifest_is_frozen_and_matched() -> None:
     manifest = json.loads((DAGR / "stage_a_manifest.json").read_text(encoding="utf-8"))
 
+    validate_stage_a_manifest(manifest)
     assert manifest["final_decision"] == "DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
     assert manifest["closed_loop_experiment_happened"] is False
     assert manifest["confirmatory_test_tuning_happened"] is False
@@ -102,3 +111,49 @@ def test_dagr_stage_a_manifest_is_frozen_and_matched() -> None:
         for policy in manifest["policy_order"]
     }
     assert len({tuple(sorted(values)) for values in pair_sets.values()}) == 1
+
+
+def test_dagr_stage_a_task_indices_match_stable_artifact() -> None:
+    manifest = json.loads((DAGR / "stage_a_manifest.json").read_text(encoding="utf-8"))
+    task_index_map = _task_index_map_from_artifact(REPO_ROOT / "reports" / "official_smolvla_stable_prediction_artifact.json")
+
+    mapped = {
+        f"{task['suite']}/task_{task['task_id']}": _task_index_for_task(task, task_index_map)
+        for task in manifest["tasks"]
+    }
+
+    assert mapped == {
+        "libero_spatial/task_0": 34,
+        "libero_spatial/task_8": 36,
+        "libero_object/task_6": 27,
+        "libero_goal/task_4": 18,
+        "libero_10/task_2": 3,
+    }
+
+
+def test_dagr_stage_a_decision_uses_catastrophic_gate_only() -> None:
+    noncat = {
+        "exception_count": 0,
+        "by_policy": {
+            policy: {
+                "successes": 2,
+                "task_balanced_success_rate": 0.2,
+            }
+            for policy in STAGE_A_POLICY_ORDER
+        },
+    }
+    noncat["by_policy"]["dagr_full"] = {"successes": 1, "task_balanced_success_rate": 0.1}
+    assert _stage_a_decision(noncat) == "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+
+    catastrophic = {
+        "exception_count": 0,
+        "by_policy": {
+            policy: {
+                "successes": 0,
+                "task_balanced_success_rate": 0.0,
+            }
+            for policy in STAGE_A_POLICY_ORDER
+        },
+    }
+    catastrophic["by_policy"]["frozen_smolvla"] = {"successes": 4, "task_balanced_success_rate": 0.4}
+    assert _stage_a_decision(catastrophic) == "DAGR_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE"

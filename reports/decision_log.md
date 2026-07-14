@@ -2068,3 +2068,31 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: the DAGR Stage A comparison is frozen. Run policy preflight for the DAGR residual wrapper before any official rollout.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Stage A Policy Preflight
+
+Decision: `DAGR_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- preflight artifact: `reports/dagr_vla/stage_a_preflight.json`
+- Stage A manifest: `reports/dagr_vla/stage_a_manifest.json`
+- policies loaded: `5`
+- checkpoint policies verified: `4`
+- checkpoint checksums matched: `True`
+- CUDA checks passed: `True`
+- policy output shape checks passed: `True`
+- no accidental checkpoint reuse: `True`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+
+Task-index map from the official stable artifact:
+
+- `libero_spatial/task_0`: `34`
+- `libero_spatial/task_8`: `36`
+- `libero_object/task_6`: `27`
+- `libero_goal/task_4`: `18`
+- `libero_10/task_2`: `3`
+
+Consequence: DAGR Stage A loader and action-wrapper preflight passed without rollout or confirmatory-test tuning. Launch the frozen official Stage A rollout next.

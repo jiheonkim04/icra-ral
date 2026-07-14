@@ -1,0 +1,465 @@
+{
+  "checkpoint_checksum_matches": true,
+  "checkpoint_policy_count": 4,
+  "closed_loop_experiment_happened": false,
+  "config_id": "dagr_a020_route_mlp",
+  "cuda_ok": true,
+  "date": "2026-07-14 KST",
+  "elapsed_seconds": 54.989,
+  "errors": [],
+  "final_decision": "DAGR_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+  "method": "DAGR-VLA",
+  "mode": "preflight",
+  "no_accidental_checkpoint_reuse": true,
+  "policy_count": 5,
+  "policy_output_shape_ok": true,
+  "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+  "records": [
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": null,
+        "checkpoint_path": null,
+        "files": {}
+      },
+      "checkpoint_path": null,
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 937419264,
+        "allocated_mb": 893.993,
+        "max_allocated_bytes": 970964480,
+        "max_allocated_mb": 925.984
+      },
+      "dagr_action_device": "cpu",
+      "dagr_action_finite": true,
+      "dagr_action_max_abs": 0.912482,
+      "dagr_action_shape": [
+        1,
+        7
+      ],
+      "dagr_delta_l2": 0.0,
+      "dagr_model_parameter_counts": null,
+      "dagr_model_parameter_device": null,
+      "dagr_transform": {
+        "activated": false,
+        "delta_l2": 0.0,
+        "dimensions_changed": [],
+        "gate_values": null,
+        "residual_norm": null,
+        "transform": "identity"
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "frozen_smolvla",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "unmodified_backbone",
+      "wsl_checkpoint_path": null
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dam_static_component_proxy/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "C50CFC20C1ECFEECF425F85BF8C9E6B9132C5DB4528B4949CDDD264CF597484A",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dam_static_component_proxy/seed_101/model.pt",
+            "sha256": "C50CFC20C1ECFEECF425F85BF8C9E6B9132C5DB4528B4949CDDD264CF597484A"
+          },
+          "policy_config.json": {
+            "expected_sha256": "5357FA3D1772F79457DC07B9F6D201D9F397EBECE840AF6065A00966D7B5B4CE",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dam_static_component_proxy/seed_101/policy_config.json",
+            "sha256": "5357FA3D1772F79457DC07B9F6D201D9F397EBECE840AF6065A00966D7B5B4CE"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "809B59157DDADEB525E5A0B70DD334133F7CAF99D3EB393B1CCDC9352984EE6F",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dam_static_component_proxy/seed_101/training_manifest.json",
+            "sha256": "809B59157DDADEB525E5A0B70DD334133F7CAF99D3EB393B1CCDC9352984EE6F"
+          }
+        }
+      },
+      "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dam_static_component_proxy/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "dagr_action_device": "cpu",
+      "dagr_action_finite": true,
+      "dagr_action_max_abs": 1.178482,
+      "dagr_action_shape": [
+        1,
+        7
+      ],
+      "dagr_delta_l2": 0.497382641,
+      "dagr_model_parameter_counts": {
+        "total_parameter_count": 2151,
+        "trainable_parameter_count": 2151
+      },
+      "dagr_model_parameter_device": "cuda:0",
+      "dagr_transform": {
+        "activated": true,
+        "delta_l2": 0.49738267064094543,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ],
+        "residual_norm": 5.869574546813965,
+        "transform": "dam_static_component_proxy"
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "dam_static_component_proxy",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": "faithful_transparent_local_proxy_not_official_dam_vla_reproduction",
+      "role": "closest_external_prior_proxy_faithful_local_proxy_not_official_dam_vla_reproduction",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dam_static_component_proxy/seed_101"
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_full/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "9C35AC85644A1EAFB17604295F5F5C01A4B3464B650371C192E6541A655E2F86",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_full/seed_101/model.pt",
+            "sha256": "9C35AC85644A1EAFB17604295F5F5C01A4B3464B650371C192E6541A655E2F86"
+          },
+          "policy_config.json": {
+            "expected_sha256": "74D26CC40269F990FC605BD60230C860E918663E88E732D444DD332486AA3C67",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_full/seed_101/policy_config.json",
+            "sha256": "74D26CC40269F990FC605BD60230C860E918663E88E732D444DD332486AA3C67"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "38C63B5B6BE6CBDC78C0ED43A612DAD46BCCF567F1771B0D03558A93F9E30EE0",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_full/seed_101/training_manifest.json",
+            "sha256": "38C63B5B6BE6CBDC78C0ED43A612DAD46BCCF567F1771B0D03558A93F9E30EE0"
+          }
+        }
+      },
+      "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_full/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "dagr_action_device": "cpu",
+      "dagr_action_finite": true,
+      "dagr_action_max_abs": 0.838686,
+      "dagr_action_shape": [
+        1,
+        7
+      ],
+      "dagr_delta_l2": 0.158058807,
+      "dagr_model_parameter_counts": {
+        "total_parameter_count": 2250,
+        "trainable_parameter_count": 2250
+      },
+      "dagr_model_parameter_device": "cuda:0",
+      "dagr_transform": {
+        "activated": true,
+        "delta_l2": 0.1580587923526764,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "gate_values": [
+          1.0,
+          1.0,
+          1.1195711024925004e-11
+        ],
+        "residual_norm": 0.9603719711303711,
+        "transform": "dagr_full"
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "dagr_full",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "ours",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_full/seed_101"
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_no_dynamic_route_ablation/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "61E8ECAA4B168E66AE812F6F467A232AFA2A0A3ABBD85515E6CA98B247C6EA98",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_no_dynamic_route_ablation/seed_101/model.pt",
+            "sha256": "61E8ECAA4B168E66AE812F6F467A232AFA2A0A3ABBD85515E6CA98B247C6EA98"
+          },
+          "policy_config.json": {
+            "expected_sha256": "6A7C1CC76F87A001BCFD4A46E882101D46124BF1513EAB0EB46EA26D7BA0C68F",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_no_dynamic_route_ablation/seed_101/policy_config.json",
+            "sha256": "6A7C1CC76F87A001BCFD4A46E882101D46124BF1513EAB0EB46EA26D7BA0C68F"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "3DF1049659AA5E3E78FE86CDC1C7BAF42A6A38C5FD8A81E57C530848A0CEC4CF",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_no_dynamic_route_ablation/seed_101/training_manifest.json",
+            "sha256": "3DF1049659AA5E3E78FE86CDC1C7BAF42A6A38C5FD8A81E57C530848A0CEC4CF"
+          }
+        }
+      },
+      "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_no_dynamic_route_ablation/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "dagr_action_device": "cpu",
+      "dagr_action_finite": true,
+      "dagr_action_max_abs": 0.862925,
+      "dagr_action_shape": [
+        1,
+        7
+      ],
+      "dagr_delta_l2": 0.104230404,
+      "dagr_model_parameter_counts": {
+        "total_parameter_count": 2184,
+        "trainable_parameter_count": 2184
+      },
+      "dagr_model_parameter_device": "cuda:0",
+      "dagr_transform": {
+        "activated": true,
+        "delta_l2": 0.1042303815484047,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "gate_values": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "residual_norm": 0.5211519002914429,
+        "transform": "dagr_no_dynamic_route_ablation"
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "key_ablation",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/dagr_vla_checkpoints/dagr_a020_route_mlp/dagr_no_dynamic_route_ablation/seed_101"
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/gripper_transition_heuristic/seed_101",
+        "files": {
+          "heuristic_config.json": {
+            "expected_sha256": "032E5226A3A27A67B4548FE339EEA6632C88BA8B1A0D912C3EB36FFB320F2A07",
+            "match": true,
+            "path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/gripper_transition_heuristic/seed_101/heuristic_config.json",
+            "sha256": "032E5226A3A27A67B4548FE339EEA6632C88BA8B1A0D912C3EB36FFB320F2A07"
+          }
+        }
+      },
+      "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp/gripper_transition_heuristic/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "dagr_action_device": "cpu",
+      "dagr_action_finite": true,
+      "dagr_action_max_abs": 0.926246,
+      "dagr_action_shape": [
+        1,
+        7
+      ],
+      "dagr_delta_l2": 0.0,
+      "dagr_model_parameter_counts": null,
+      "dagr_model_parameter_device": null,
+      "dagr_transform": {
+        "activated": false,
+        "delta_l2": 0.0,
+        "dimensions_changed": [],
+        "gate_values": null,
+        "near_gripper_transition": false,
+        "residual_norm": null,
+        "transform": "gripper_transition_heuristic"
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "gripper_transition_heuristic",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "strongest_simple_reviewer_killer",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/dagr_vla_checkpoints/dagr_a020_route_mlp/gripper_transition_heuristic/seed_101"
+    }
+  ],
+  "schema_version": 1,
+  "stable_artifact": "reports/official_smolvla_stable_prediction_artifact.json",
+  "stage_a_manifest": "reports/dagr_vla/stage_a_manifest.json",
+  "stage_a_manifest_sha256": "42CEE0298FC7B5F9EB8B4369A6D1CAE10B38A7FE5CC4D1A96AF7BA62B01C8604",
+  "task_indices": {
+    "libero_10/task_2": 3,
+    "libero_goal/task_4": 18,
+    "libero_object/task_6": 27,
+    "libero_spatial/task_0": 34,
+    "libero_spatial/task_8": 36
+  },
+  "training_happened": false
+}
