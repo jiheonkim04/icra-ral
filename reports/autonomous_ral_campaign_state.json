@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 7,
-    "topic": "epoch_4_cycle_7_dagr_stage_a_manifest_pending",
+    "topic": "epoch_4_cycle_7_dagr_stage_a_preflight_pending",
     "method": "DAGR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "9ea6038e6c4515414f15b10a18b0648e7f2572bc",
-    "current_stage": "epoch_4_cycle_7_dagr_stage_a_manifest_pending",
+    "current_commit": "437d04dc625fa7911b0a7890db5c70c40fe0a405",
+    "current_stage": "epoch_4_cycle_7_dagr_stage_a_preflight_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -234,7 +234,8 @@
         "epoch_4_cycle_7_dagr_stage_0_completed",
         "epoch_4_cycle_7_dagr_validation_search_completed",
         "epoch_4_cycle_7_dagr_selected_config_frozen",
-        "epoch_4_cycle_7_dagr_policy_identities_verified"
+        "epoch_4_cycle_7_dagr_policy_identities_verified",
+        "epoch_4_cycle_7_dagr_stage_a_manifest_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -251,7 +252,7 @@
         "PDF: https://arxiv.org/abs/2604.18107"
     ],
     "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
-    "current_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+    "current_decision": "DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
     "stage_a_partial_checkpoint": "reports/mtf_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/mtf_vla/stage_a_result.json",
     "stage_a_result_md": "reports/mtf_vla/stage_a_result.md",
@@ -402,7 +403,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the DAGR Stage A matched manifest with the five fixed policy identities before any rollout.",
+    "next_action": "Run DAGR Stage A policy preflight for the frozen manifest, then launch official rollout only after loader and action-wrapper checks pass.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b\"",
     "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
     "method_identity": "DAGR-VLA",
@@ -1529,7 +1530,7 @@
             "dagr_no_dynamic_route_ablation",
             "gripper_transition_heuristic"
         ],
-        "next_stage": "Freeze DAGR Stage A matched manifest before rollout.",
+        "next_stage": "DAGR Stage A policy preflight before rollout.",
         "reviewer_attack": "reports/dagr_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/dagr_vla/researcher_rebuttal.md",
@@ -1562,7 +1563,17 @@
             "dagr_full",
             "dagr_no_dynamic_route_ablation",
             "gripper_transition_heuristic"
-        ]
+        ],
+        "stage_a_manifest": "reports/dagr_vla/stage_a_manifest.json",
+        "stage_a_manifest_md": "reports/dagr_vla/stage_a_manifest.md",
+        "stage_a_manifest_decision": "DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_a_manifest_sha256": "8379E47D3C3C73E21ADDD285491750E7406B8389578C0003278E5E187EA27E7B",
+        "stage_a_planned_episode_count": 50,
+        "stage_a_reset_seeds": [
+            20261205,
+            20261206
+        ],
+        "stage_a_pair_count_per_policy": 10
     },
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
@@ -1594,7 +1605,7 @@
         "selected_action_validity": 1.0,
         "selected_checkpoint_path": "reports\\dagr_vla\\validation_checkpoints\\dagr_a020_route_mlp.pt",
         "stage_a_allowed": true,
-        "next_stage": "Stage A manifest freeze.",
+        "next_stage": "Stage A policy preflight.",
         "policy_identity_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
         "policy_checkpoint_manifest": "reports/dagr_vla/policy_checkpoint_manifest.json",
         "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
@@ -1612,7 +1623,16 @@
         "identity_distinction": {
             "full_vs_shared_delta_l2_mean_abs": 0.00047564832493662834,
             "full_vs_static_delta_l2_mean_abs": 0.0035665808245539665
-        }
+        },
+        "stage_a_manifest": "reports/dagr_vla/stage_a_manifest.json",
+        "stage_a_manifest_decision": "DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_a_manifest_sha256": "8379E47D3C3C73E21ADDD285491750E7406B8389578C0003278E5E187EA27E7B",
+        "stage_a_planned_episode_count": 50,
+        "stage_a_reset_seeds": [
+            20261205,
+            20261206
+        ],
+        "stage_a_pair_count_per_policy": 10
     },
     "epoch_4_cycle_7_dagr_policy_identity_outcome": {
         "method": "DAGR-VLA",
@@ -1673,5 +1693,38 @@
             "full_vs_static_delta_l2_mean_abs": 0.0035665808245539665
         },
         "next_stage": "Freeze the DAGR Stage A matched manifest before any rollout."
+    },
+    "epoch_4_cycle_7_dagr_stage_a_manifest": {
+        "method": "DAGR-VLA",
+        "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+        "final_decision": "DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "manifest": "reports/dagr_vla/stage_a_manifest.json",
+        "manifest_md": "reports/dagr_vla/stage_a_manifest.md",
+        "manifest_canonical_payload_sha256": "8379E47D3C3C73E21ADDD285491750E7406B8389578C0003278E5E187EA27E7B",
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "policies": [
+            "frozen_smolvla",
+            "dam_static_component_proxy",
+            "dagr_full",
+            "dagr_no_dynamic_route_ablation",
+            "gripper_transition_heuristic"
+        ],
+        "reset_seeds": [
+            20261205,
+            20261206
+        ],
+        "paired_cases_per_policy": 10,
+        "planned_episode_count": 50,
+        "task_keys": [
+            "libero_spatial/task_0",
+            "libero_spatial/task_8",
+            "libero_object/task_6",
+            "libero_goal/task_4",
+            "libero_10/task_2"
+        ],
+        "stage_a_result_json": "reports/dagr_vla/stage_a_result.json",
+        "stage_a_partial_result_json": "reports/dagr_vla/stage_a_partial_result.json",
+        "next_stage": "Run DAGR Stage A policy preflight before rollout."
     }
 }

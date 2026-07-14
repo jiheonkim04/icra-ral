@@ -72,3 +72,33 @@ def test_dagr_policy_identities_are_disk_reloadable() -> None:
             assert (REPO_ROOT / row["checkpoint_path"] / filename).exists()
 
     assert (REPO_ROOT / manifest["heuristic"]["checkpoint_path"] / "heuristic_config.json").exists()
+
+
+def test_dagr_stage_a_manifest_is_frozen_and_matched() -> None:
+    manifest = json.loads((DAGR / "stage_a_manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["final_decision"] == "DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["confirmatory_test_tuning_happened"] is False
+    assert manifest["planned_episode_count"] == 50
+    assert manifest["stage_a_reset_seeds"] == [20261205, 20261206]
+    assert manifest["stage_a_pair_count_per_policy"] == 10
+    assert manifest["canonical_payload_sha256"] == "8379E47D3C3C73E21ADDD285491750E7406B8389578C0003278E5E187EA27E7B"
+    assert manifest["policy_order"] == [
+        "frozen_smolvla",
+        "dam_static_component_proxy",
+        "dagr_full",
+        "dagr_no_dynamic_route_ablation",
+        "gripper_transition_heuristic",
+    ]
+    keys = {(row["policy"], row["suite"], row["task_id"], row["reset_seed"]) for row in manifest["episodes"]}
+    assert len(keys) == len(manifest["episodes"])
+    pair_sets = {
+        policy: {
+            (row["suite"], row["task_id"], row["reset_seed"])
+            for row in manifest["episodes"]
+            if row["policy"] == policy
+        }
+        for policy in manifest["policy_order"]
+    }
+    assert len({tuple(sorted(values)) for values in pair_sets.values()}) == 1

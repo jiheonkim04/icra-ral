@@ -2050,3 +2050,21 @@ Verified identities:
 - `gripper_transition_heuristic`: saved nontrainable heuristic identity
 
 Consequence: DAGR-VLA has disk-reloadable policy identities for the fixed five-policy comparison. Freeze the Stage A matched manifest before any official rollout.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Stage A Manifest
+
+Decision: `DAGR_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- Stage A manifest: `reports/dagr_vla/stage_a_manifest.json`
+- manifest hash: `8379E47D3C3C73E21ADDD285491750E7406B8389578C0003278E5E187EA27E7B`
+- planned episodes: `50`
+- paired cases per policy: `10`
+- reset seeds: `20261205`, `20261206`
+- policies: `frozen_smolvla`, `dam_static_component_proxy`, `dagr_full`, `dagr_no_dynamic_route_ablation`, `gripper_transition_heuristic`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the DAGR Stage A comparison is frozen. Run policy preflight for the DAGR residual wrapper before any official rollout.
