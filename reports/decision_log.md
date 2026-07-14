@@ -1878,3 +1878,24 @@ Evidence:
 - paired full minus FrameSkip proxy: wins `0`, losses `1`, ties `9`, delta `-0.1`
 
 Consequence: this is a noncatastrophic Stage A directional screen, not a valid kill. Under the frozen Stage A rules, MTF-VLA must proceed to Stage B with no checkpoint, threshold, task, identity, or policy-list retuning from Stage A outcomes.
+
+## 2026-07-14 - Epoch 4 Cycle 6 MTF-VLA Stage B Manifest
+
+Decision: `MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+
+Execution boundary:
+
+- method: `MTF-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31`
+- selected config: `mtf_r20_ret100`
+- Stage A result: `reports/mtf_vla/stage_a_result.json`
+- Stage B manifest: `reports/mtf_vla/stage_b_manifest.json`
+- manifest hash: `3C9D9CCF835A3B9753B81C320E9390EC9DA516514563E4850C1DC4F19ACC5743`
+- planned episodes: `200`
+- paired cases per policy: `40`
+- tasks: all `20` official task-manifest entries
+- reset seeds: `20261203`, `20261204`
+- policies: `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, `mtf_full`
+
+Consequence: Stage B is frozen and ready for official WSL rollout. Stage A outcomes were used only to trigger the preregistered Stage B escalation; no checkpoint, threshold, task, reset, or policy-list retuning occurred.

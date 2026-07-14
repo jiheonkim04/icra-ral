@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
+Current campaign decision: `MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
 
 This is not a terminal decision.
 
@@ -88,4 +88,6 @@ MTF adapter training is now complete for all four trainable Stage A policies aft
 
 The MTF Stage A manifest is frozen in `reports/mtf_vla/stage_a_manifest.json` and has now completed as `reports/mtf_vla/stage_a_result.json`. It used exactly `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, and `mtf_full`; `frameskip_proxy_lora` is a faithful local proxy rather than an official FrameSkip reproduction. Stage A completed `50 / 50` official LIBERO episodes with zero exceptions. Frozen SmolVLA, FrameSkip proxy, and uniform retained-ratio LoRA each reached `8 / 10`; no-retention and MTF full each reached `7 / 10`. The frozen decision is `MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`, so Stage B is required.
 
-Next action: freeze and run the matched MTF Stage B official WSL rollout with at least `40` paired episodes per key policy, using the same five policy identities and no retuning from Stage A outcomes.
+The MTF Stage B manifest is frozen in `reports/mtf_vla/stage_b_manifest.json` with decision `MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`. It uses all `20` official tasks, fresh reset seeds `20261203` and `20261204`, `40` paired cases per policy, and `200` total planned official LIBERO episodes.
+
+Next action: run the frozen MTF Stage B official WSL rollout and resume only missing `(policy, suite, task_id, reset_seed)` keys.

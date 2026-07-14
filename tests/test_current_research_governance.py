@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_6_mtf_stage_b_required"
+    assert state["current_decision"] == "MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_stage"] == "epoch_4_cycle_6_mtf_stage_b_manifest_frozen_rollout_pending"
     assert state["method"] == "MTF-VLA"
     assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
     assert state["prototype_protocol"] == "reports/mtf_vla/prototype_protocol.md"
@@ -60,7 +60,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_6_mtf_stage_a_manifest_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_stage_a_policy_preflight_passed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_stage_a_completed" in state["completed_stages"]
-    assert state["task_reset_manifest"] == "reports/mtf_vla/stage_a_manifest.json"
+    assert "epoch_4_cycle_6_mtf_stage_b_manifest_frozen" in state["completed_stages"]
+    assert state["task_reset_manifest"] == "reports/mtf_vla/stage_b_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
@@ -71,7 +72,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["mtf_full"]["successes"] == 7
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["frameskip_proxy_lora"]["successes"] == 8
-    assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"
+    assert state["stage_b_result_json"] == "reports/mtf_vla/stage_b_result.json"
+    assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["planned_episode_count"] == 200
+    assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["paired_cases_per_policy"] == 40
+    assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["reset_seeds"] == [20261203, 20261204]
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

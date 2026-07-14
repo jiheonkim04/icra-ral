@@ -9,8 +9,11 @@ import pytest
 from tca_map.smolvla.mtf_vla_stage_a import (
     STAGE_A_POLICY_ORDER,
     STAGE_A_RESET_SEEDS,
+    STAGE_B_RESET_SEEDS,
     build_stage_a_manifest,
+    build_stage_b_manifest,
     validate_stage_a_manifest,
+    validate_stage_b_manifest,
 )
 
 
@@ -34,6 +37,11 @@ def _args(tmp_path: Path, task_manifest: Path, checkpoint_manifest: Path) -> Nam
         stage_a_md=str(tmp_path / "stage_a_result.md"),
         stage_a_partial_output=str(tmp_path / "stage_a_partial_result.json"),
         stage_a_preflight_output=str(tmp_path / "stage_a_preflight.json"),
+        stage_b_manifest=str(tmp_path / "stage_b_manifest.json"),
+        stage_b_manifest_md=str(tmp_path / "stage_b_manifest.md"),
+        stage_b_output=str(tmp_path / "stage_b_result.json"),
+        stage_b_md=str(tmp_path / "stage_b_result.md"),
+        stage_b_partial_output=str(tmp_path / "stage_b_partial_result.json"),
     )
 
 
@@ -76,6 +84,14 @@ def _checkpoint_manifest() -> dict:
         "checkpoint_root": "runs/mtf_vla_checkpoints/mtf_r20_ret100",
         "variant_count": 4,
         "variants": variants,
+    }
+
+
+def _stage_a_result() -> dict:
+    return {
+        "final_decision": "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "completed_episode_count": 50,
+        "summary": {"exception_count": 0},
     }
 
 
@@ -124,3 +140,29 @@ def test_build_stage_a_manifest_requires_verified_checkpoints(tmp_path: Path) ->
 
     with pytest.raises(ValueError, match="does not allow Stage A"):
         build_stage_a_manifest(_args(tmp_path, task_manifest, checkpoint_manifest))
+
+
+def test_build_stage_b_manifest_freezes_all_task_forty_pair_design(tmp_path: Path) -> None:
+    task_manifest = tmp_path / "official_tasks.json"
+    checkpoint_manifest = tmp_path / "checkpoints.json"
+    stage_a_result = tmp_path / "stage_a_result.json"
+    _write_json(task_manifest, _task_manifest())
+    _write_json(checkpoint_manifest, _checkpoint_manifest())
+    _write_json(stage_a_result, _stage_a_result())
+    args = _args(tmp_path, task_manifest, checkpoint_manifest)
+    args.stage_a_output = str(stage_a_result)
+
+    manifest = build_stage_b_manifest(args)
+
+    assert manifest["final_decision"] == "MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert manifest["policy_order"] == STAGE_A_POLICY_ORDER
+    assert manifest["stage_b_reset_seeds"] == STAGE_B_RESET_SEEDS
+    assert manifest["stage_b_pair_count_per_policy"] == 40
+    assert manifest["planned_episode_count"] == 200
+    assert len(manifest["tasks"]) == 20
+    assert manifest["identity_overlap_verification"]["overlap_with_stage_a_reset_seeds"] == 0
+    assert manifest["stage_a_result"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    validate_stage_b_manifest(manifest)
+    for policy in STAGE_A_POLICY_ORDER:
+        policy_pairs = {episode["pair_id"] for episode in manifest["episodes"] if episode["policy"] == policy}
+        assert policy_pairs == {pair["pair_id"] for pair in manifest["pairs"]}

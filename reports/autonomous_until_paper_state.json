@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 6,
-    "current_topic": "epoch_4_cycle_6_mtf_stage_b_required",
+    "current_topic": "epoch_4_cycle_6_mtf_stage_b_manifest_frozen_rollout_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "59ef9565886b854761995ed55077e8d8c25a305d",
+    "current_commit": "fe45242a52c5de88775063048a313224785bfc07",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_6_mtf_stage_b_required",
+    "current_stage": "epoch_4_cycle_6_mtf_stage_b_manifest_frozen_rollout_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -205,7 +205,8 @@
         "epoch_4_cycle_6_mtf_checkpoints_verified",
         "epoch_4_cycle_6_mtf_stage_a_manifest_frozen",
         "epoch_4_cycle_6_mtf_stage_a_policy_preflight_passed",
-        "epoch_4_cycle_6_mtf_stage_a_completed"
+        "epoch_4_cycle_6_mtf_stage_a_completed",
+        "epoch_4_cycle_6_mtf_stage_b_manifest_frozen"
     ],
     "active_hypothesis": "Milestone-transition focused adapter training with frozen-base retention can improve SmolVLA closed-loop success beyond Base, a FrameSkip proxy, a no-retention ablation, and uniform retained-ratio LoRA while retaining clean behavior.",
     "method_identity": "MTF-VLA",
@@ -221,19 +222,19 @@
     "running_command": null,
     "process_id": null,
     "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100",
-    "task_reset_manifest": "reports/mtf_vla/stage_a_manifest.json",
+    "task_reset_manifest": "reports/mtf_vla/stage_b_manifest.json",
     "start_time": "2026-07-12T16:32:00.7901274+09:00",
     "elapsed_wall_time_seconds": 14776,
     "gpu_time_hours": 5.21,
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    "current_decision": "MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
     "stage_a_result_json": "reports/mtf_vla/stage_a_result.json",
     "stage_a_result_md": "reports/mtf_vla/stage_a_result.md",
-    "stage_b_partial_checkpoint": "reports/rac_vla/stage_b_partial_result.json",
-    "stage_b_result_json": "reports/rac_vla/stage_b_result.json",
-    "stage_b_result_md": "reports/rac_vla/stage_b_result.md",
+    "stage_b_partial_checkpoint": "reports/mtf_vla/stage_b_partial_result.json",
+    "stage_b_result_json": "reports/mtf_vla/stage_b_result.json",
+    "stage_b_result_md": "reports/mtf_vla/stage_b_result.md",
     "cycle_1_outcome": {
         "valid_scientific_result": true,
         "stage_a_completed": true,
@@ -329,7 +330,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && type reports\\mtf_vla\\stage_a_result.md",
+    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b\"",
     "latest_verified_prior_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED",
     "valid_final_states": [
         "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
@@ -337,7 +338,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze and run the MTF-VLA Stage B official WSL rollout using the same five policy identities, a matched task/reset manifest with at least 40 paired episodes per key policy, and no retuning from Stage A outcomes.",
+    "next_action": "Run the frozen MTF-VLA Stage B official WSL rollout from reports/mtf_vla/stage_b_manifest.json; resume only missing (policy, suite, task_id, reset_seed) keys and do not tune checkpoints on outcomes.",
     "method": "MTF-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1249,5 +1250,36 @@
         "checkpoint_retuning_allowed": false,
         "threshold_change_allowed": false,
         "next_stage": "Freeze and run MTF Stage B with at least 40 paired episodes per key policy under the existing policy identities and no confirmatory-test tuning."
+    },
+    "epoch_4_cycle_6_mtf_stage_b_manifest": {
+        "method": "MTF-VLA",
+        "config_id": "mtf_r20_ret100",
+        "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
+        "final_decision": "MTF_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "manifest": "reports/mtf_vla/stage_b_manifest.json",
+        "manifest_md": "reports/mtf_vla/stage_b_manifest.md",
+        "manifest_canonical_payload_sha256": "3C9D9CCF835A3B9753B81C320E9390EC9DA516514563E4850C1DC4F19ACC5743",
+        "stage_a_result": "reports/mtf_vla/stage_a_result.json",
+        "stage_a_decision": "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "policies": [
+            "frozen_smolvla",
+            "frameskip_proxy_lora",
+            "uniform_retained_ratio_lora",
+            "mtf_no_retention_ablation",
+            "mtf_full"
+        ],
+        "reset_seeds": [
+            20261203,
+            20261204
+        ],
+        "paired_cases_per_policy": 40,
+        "planned_episode_count": 200,
+        "task_count": 20,
+        "stage_b_result_json": "reports/mtf_vla/stage_b_result.json",
+        "stage_b_partial_result_json": "reports/mtf_vla/stage_b_partial_result.json",
+        "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b\"",
+        "next_stage": "Run frozen MTF Stage B official WSL rollout."
     }
 }
