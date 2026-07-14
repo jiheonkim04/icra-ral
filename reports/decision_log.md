@@ -2096,3 +2096,36 @@ Task-index map from the official stable artifact:
 - `libero_10/task_2`: `3`
 
 Consequence: DAGR Stage A loader and action-wrapper preflight passed without rollout or confirmatory-test tuning. Launch the frozen official Stage A rollout next.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Stage A Result
+
+Decision: `DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- result: `reports/dagr_vla/stage_a_result.json`
+- result markdown: `reports/dagr_vla/stage_a_result.md`
+- partial checkpoint: `reports/dagr_vla/stage_a_partial_result.json`
+- status: `reports/dagr_vla/stage_a_status.json`
+- completed episodes: `50 / 50`
+- exceptions: `0`
+- exit code: `0`
+- confirmatory-test tuning happened: `False`
+
+Policy success counts:
+
+- `frozen_smolvla`: `8 / 10`
+- `gripper_transition_heuristic`: `7 / 10`
+- `dagr_full`: `6 / 10`
+- `dagr_no_dynamic_route_ablation`: `5 / 10`
+- `dam_static_component_proxy`: `2 / 10`
+
+Paired DAGR-full deltas:
+
+- versus `frozen_smolvla`: `-0.2`
+- versus `gripper_transition_heuristic`: `-0.1`
+- versus `dagr_no_dynamic_route_ablation`: `0.1`
+- versus `dam_static_component_proxy`: `0.4`
+
+Consequence: DAGR full beat the closest-prior proxy and key ablation but trailed Base by two episodes and the gripper heuristic by one episode. This is noncatastrophic under Stage A governance, not a valid kill. Freeze and run Stage B without retuning DAGR, changing thresholds, or reselecting tasks/resets.

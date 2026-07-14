@@ -1,0 +1,3150 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "closed_loop_experiment_happened": true,
+  "completed_episode_count": 50,
+  "config_id": "dagr_a020_route_mlp",
+  "confirmatory_test_tuning_happened": false,
+  "date": "2026-07-14 KST",
+  "elapsed_seconds": 1098.191,
+  "episodes": [
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.035311,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.845046,
+      "env_step_latency_mean_s": 0.097754,
+      "env_steps": 79,
+      "episode_id": "frozen_smolvla|libero_spatial|task_0|seed_20261205",
+      "episode_length": 79,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 0,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.349129,
+      "policy_latency_mean_s": 0.00914,
+      "reset_seed": 20261205,
+      "rss_mb": 4142.797,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 0,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.061059,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 0.078271,
+      "env_step_latency_mean_s": 0.061395,
+      "env_steps": 280,
+      "episode_id": "frozen_smolvla|libero_spatial|task_0|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 1,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.388073,
+      "policy_latency_mean_s": 0.007812,
+      "reset_seed": 20261206,
+      "rss_mb": 4174.449,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.027641,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 3.486068,
+      "env_step_latency_mean_s": 0.102034,
+      "env_steps": 95,
+      "episode_id": "frozen_smolvla|libero_spatial|task_8|seed_20261205",
+      "episode_length": 95,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 2,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.317608,
+      "policy_latency_mean_s": 0.007638,
+      "reset_seed": 20261205,
+      "rss_mb": 4201.09,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.026323,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 3.244175,
+      "env_step_latency_mean_s": 0.099691,
+      "env_steps": 95,
+      "episode_id": "frozen_smolvla|libero_spatial|task_8|seed_20261206",
+      "episode_length": 95,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 3,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.357926,
+      "policy_latency_mean_s": 0.008184,
+      "reset_seed": 20261206,
+      "rss_mb": 4195.785,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.025678,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.011322,
+      "env_step_latency_mean_s": 0.041837,
+      "env_steps": 146,
+      "episode_id": "frozen_smolvla|libero_object|task_6|seed_20261205",
+      "episode_length": 146,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 4,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.365412,
+      "policy_latency_mean_s": 0.007314,
+      "reset_seed": 20261205,
+      "rss_mb": 4475.461,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.028722,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.030773,
+      "env_step_latency_mean_s": 0.042631,
+      "env_steps": 131,
+      "episode_id": "frozen_smolvla|libero_object|task_6|seed_20261206",
+      "episode_length": 131,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 5,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.366543,
+      "policy_latency_mean_s": 0.008963,
+      "reset_seed": 20261206,
+      "rss_mb": 4508.508,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.035269,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.095336,
+      "env_step_latency_mean_s": 0.077563,
+      "env_steps": 96,
+      "episode_id": "frozen_smolvla|libero_goal|task_4|seed_20261205",
+      "episode_length": 96,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 6,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.347402,
+      "policy_latency_mean_s": 0.007944,
+      "reset_seed": 20261205,
+      "rss_mb": 4502.492,
+      "success": true,
+      "suite": "libero_goal",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.021008,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.173437,
+      "env_step_latency_mean_s": 0.08869,
+      "env_steps": 82,
+      "episode_id": "frozen_smolvla|libero_goal|task_4|seed_20261206",
+      "episode_length": 82,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 7,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.361516,
+      "policy_latency_mean_s": 0.008858,
+      "reset_seed": 20261206,
+      "rss_mb": 4498.625,
+      "success": true,
+      "suite": "libero_goal",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.058044,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 0.081035,
+      "env_step_latency_mean_s": 0.053563,
+      "env_steps": 520,
+      "episode_id": "frozen_smolvla|libero_10|task_2|seed_20261205",
+      "episode_length": 520,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 8,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.324939,
+      "policy_latency_mean_s": 0.007351,
+      "reset_seed": 20261205,
+      "rss_mb": 4414.602,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.02787,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.0,
+        "changed_dimensions": [],
+        "max_delta_l2": 0.0,
+        "mean_delta_l2": 0.0,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.037474,
+      "env_step_latency_mean_s": 0.06535,
+      "env_steps": 242,
+      "episode_id": "frozen_smolvla|libero_10|task_2|seed_20261206",
+      "episode_length": 242,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 937455104,
+        "allocated_mb": 894.027,
+        "max_allocated_bytes": 971657216,
+        "max_allocated_mb": 926.645
+      },
+      "planned_episode_index": 9,
+      "policy": "frozen_smolvla",
+      "policy_latency_max_s": 0.313943,
+      "policy_latency_mean_s": 0.007311,
+      "reset_seed": 20261206,
+      "rss_mb": 4439.348,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.632686,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.669900179,
+        "mean_delta_l2": 0.356725588,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.074418,
+      "env_step_latency_mean_s": 0.06449,
+      "env_steps": 280,
+      "episode_id": "dam_static_component_proxy|libero_spatial|task_0|seed_20261205",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 10,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.420698,
+      "policy_latency_mean_s": 0.009439,
+      "reset_seed": 20261205,
+      "rss_mb": 5524.688,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.634679,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.675165236,
+        "mean_delta_l2": 0.300083222,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.085359,
+      "env_step_latency_mean_s": 0.066168,
+      "env_steps": 280,
+      "episode_id": "dam_static_component_proxy|libero_spatial|task_0|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 11,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.268616,
+      "policy_latency_mean_s": 0.00914,
+      "reset_seed": 20261206,
+      "rss_mb": 5464.621,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.592694,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.663668394,
+        "mean_delta_l2": 0.258340475,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.073373,
+      "env_step_latency_mean_s": 0.063661,
+      "env_steps": 280,
+      "episode_id": "dam_static_component_proxy|libero_spatial|task_8|seed_20261205",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 12,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.375603,
+      "policy_latency_mean_s": 0.009437,
+      "reset_seed": 20261205,
+      "rss_mb": 5476.461,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 8,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.636247,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.669889748,
+        "mean_delta_l2": 0.328181027,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.0715,
+      "env_step_latency_mean_s": 0.063313,
+      "env_steps": 280,
+      "episode_id": "dam_static_component_proxy|libero_spatial|task_8|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 13,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.364447,
+      "policy_latency_mean_s": 0.009511,
+      "reset_seed": 20261206,
+      "rss_mb": 5476.473,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 8,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.5682,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.680650055,
+        "mean_delta_l2": 0.210253262,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.042714,
+      "env_step_latency_mean_s": 0.027991,
+      "env_steps": 280,
+      "episode_id": "dam_static_component_proxy|libero_object|task_6|seed_20261205",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 14,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.391446,
+      "policy_latency_mean_s": 0.009003,
+      "reset_seed": 20261205,
+      "rss_mb": 5384.676,
+      "success": false,
+      "suite": "libero_object",
+      "sum_reward": 0.0,
+      "task_id": 6,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.603146,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.684069812,
+        "mean_delta_l2": 0.347042575,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.042599,
+      "env_step_latency_mean_s": 0.02792,
+      "env_steps": 280,
+      "episode_id": "dam_static_component_proxy|libero_object|task_6|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 15,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.261913,
+      "policy_latency_mean_s": 0.008827,
+      "reset_seed": 20261206,
+      "rss_mb": 5403.25,
+      "success": false,
+      "suite": "libero_object",
+      "sum_reward": 0.0,
+      "task_id": 6,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.631458,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.696944058,
+        "mean_delta_l2": 0.293028477,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.076783,
+      "env_step_latency_mean_s": 0.062778,
+      "env_steps": 300,
+      "episode_id": "dam_static_component_proxy|libero_goal|task_4|seed_20261205",
+      "episode_length": 300,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 16,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.370215,
+      "policy_latency_mean_s": 0.009447,
+      "reset_seed": 20261205,
+      "rss_mb": 5429.512,
+      "success": false,
+      "suite": "libero_goal",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.585045,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.638875425,
+        "mean_delta_l2": 0.427307738,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 2.216007,
+      "env_step_latency_mean_s": 0.085944,
+      "env_steps": 85,
+      "episode_id": "dam_static_component_proxy|libero_goal|task_4|seed_20261206",
+      "episode_length": 85,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 17,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.348496,
+      "policy_latency_mean_s": 0.010368,
+      "reset_seed": 20261206,
+      "rss_mb": 5429.523,
+      "success": true,
+      "suite": "libero_goal",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.54781,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.652428746,
+        "mean_delta_l2": 0.21493583,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 0.066905,
+      "env_step_latency_mean_s": 0.056555,
+      "env_steps": 520,
+      "episode_id": "dam_static_component_proxy|libero_10|task_2|seed_20261205",
+      "episode_length": 520,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 18,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.343365,
+      "policy_latency_mean_s": 0.009183,
+      "reset_seed": 20261205,
+      "rss_mb": 5233.582,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.379595,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.482665896,
+        "mean_delta_l2": 0.259252711,
+        "mean_gate_values": [
+          0.5,
+          0.5,
+          0.35333332419395447
+        ]
+      },
+      "env_step_latency_max_s": 1.984656,
+      "env_step_latency_mean_s": 0.064438,
+      "env_steps": 232,
+      "episode_id": "dam_static_component_proxy|libero_10|task_2|seed_20261206",
+      "episode_length": 232,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938918912,
+        "allocated_mb": 895.423,
+        "max_allocated_bytes": 972727808,
+        "max_allocated_mb": 927.666
+      },
+      "planned_episode_index": 19,
+      "policy": "dam_static_component_proxy",
+      "policy_latency_max_s": 0.260008,
+      "policy_latency_mean_s": 0.009031,
+      "reset_seed": 20261206,
+      "rss_mb": 5283.422,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.079448,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.188266858,
+        "mean_delta_l2": 0.067039432,
+        "mean_gate_values": [
+          0.4736017639758878,
+          0.46301987794707805,
+          0.026990661400060335
+        ]
+      },
+      "env_step_latency_max_s": 0.091084,
+      "env_step_latency_mean_s": 0.06855,
+      "env_steps": 280,
+      "episode_id": "dagr_full|libero_spatial|task_0|seed_20261205",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 20,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.359571,
+      "policy_latency_mean_s": 0.010201,
+      "reset_seed": 20261205,
+      "rss_mb": 5662.457,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.071723,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.187740937,
+        "mean_delta_l2": 0.072007667,
+        "mean_gate_values": [
+          0.49758272529931863,
+          0.48721589545874644,
+          0.018256437604857335
+        ]
+      },
+      "env_step_latency_max_s": 0.079199,
+      "env_step_latency_mean_s": 0.065529,
+      "env_steps": 280,
+      "episode_id": "dagr_full|libero_spatial|task_0|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 21,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.394671,
+      "policy_latency_mean_s": 0.009949,
+      "reset_seed": 20261206,
+      "rss_mb": 5662.469,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.024387,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.158352762,
+        "mean_delta_l2": 0.059077655,
+        "mean_gate_values": [
+          0.4535891146929195,
+          0.4985444197378762,
+          0.0026472976742170865
+        ]
+      },
+      "env_step_latency_max_s": 2.66193,
+      "env_step_latency_mean_s": 0.095118,
+      "env_steps": 101,
+      "episode_id": "dagr_full|libero_spatial|task_8|seed_20261205",
+      "episode_length": 101,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 22,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.381168,
+      "policy_latency_mean_s": 0.011867,
+      "reset_seed": 20261205,
+      "rss_mb": 5661.344,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.030414,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.172019854,
+        "mean_delta_l2": 0.070539374,
+        "mean_gate_values": [
+          0.4807414382833957,
+          0.5246623230505415,
+          0.0020062964314110972
+        ]
+      },
+      "env_step_latency_max_s": 2.525705,
+      "env_step_latency_mean_s": 0.09141,
+      "env_steps": 104,
+      "episode_id": "dagr_full|libero_spatial|task_8|seed_20261206",
+      "episode_length": 104,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 23,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.268402,
+      "policy_latency_mean_s": 0.010953,
+      "reset_seed": 20261206,
+      "rss_mb": 5661.344,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.031032,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.050600428,
+        "mean_delta_l2": 0.027861011,
+        "mean_gate_values": [
+          0.5904957635577396,
+          0.5906921723326074,
+          0.019479075722974495
+        ]
+      },
+      "env_step_latency_max_s": 2.13489,
+      "env_step_latency_mean_s": 0.042255,
+      "env_steps": 150,
+      "episode_id": "dagr_full|libero_object|task_6|seed_20261205",
+      "episode_length": 150,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 24,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.326775,
+      "policy_latency_mean_s": 0.008723,
+      "reset_seed": 20261205,
+      "rss_mb": 5546.758,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.030714,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.051235322,
+        "mean_delta_l2": 0.026778093,
+        "mean_gate_values": [
+          0.5840882532549229,
+          0.5862431576611361,
+          0.027126871268529414
+        ]
+      },
+      "env_step_latency_max_s": 2.059608,
+      "env_step_latency_mean_s": 0.042178,
+      "env_steps": 145,
+      "episode_id": "dagr_full|libero_object|task_6|seed_20261206",
+      "episode_length": 145,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 25,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.338856,
+      "policy_latency_mean_s": 0.008766,
+      "reset_seed": 20261206,
+      "rss_mb": 5585.742,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.115724,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.199302167,
+        "mean_delta_l2": 0.075763412,
+        "mean_gate_values": [
+          0.4740271783062548,
+          0.46809283996840917,
+          0.014075997721247712
+        ]
+      },
+      "env_step_latency_max_s": 0.083987,
+      "env_step_latency_mean_s": 0.061814,
+      "env_steps": 300,
+      "episode_id": "dagr_full|libero_goal|task_4|seed_20261205",
+      "episode_length": 300,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 26,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.397825,
+      "policy_latency_mean_s": 0.009588,
+      "reset_seed": 20261205,
+      "rss_mb": 5552.949,
+      "success": false,
+      "suite": "libero_goal",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.084641,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.180988282,
+        "mean_delta_l2": 0.095997425,
+        "mean_gate_values": [
+          0.5926615595715007,
+          0.5979586369167972,
+          0.0044011863018638365
+        ]
+      },
+      "env_step_latency_max_s": 2.224065,
+      "env_step_latency_mean_s": 0.088306,
+      "env_steps": 85,
+      "episode_id": "dagr_full|libero_goal|task_4|seed_20261206",
+      "episode_length": 85,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 27,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.271728,
+      "policy_latency_mean_s": 0.009416,
+      "reset_seed": 20261206,
+      "rss_mb": 5552.949,
+      "success": true,
+      "suite": "libero_goal",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.057575,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.171679467,
+        "mean_delta_l2": 0.033100615,
+        "mean_gate_values": [
+          0.29945940276486593,
+          0.29355031585622293,
+          0.012590243692803404
+        ]
+      },
+      "env_step_latency_max_s": 0.067529,
+      "env_step_latency_mean_s": 0.055554,
+      "env_steps": 520,
+      "episode_id": "dagr_full|libero_10|task_2|seed_20261205",
+      "episode_length": 520,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 28,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.324858,
+      "policy_latency_mean_s": 0.008855,
+      "reset_seed": 20261205,
+      "rss_mb": 5383.848,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.028632,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.111885265,
+        "mean_delta_l2": 0.033867431,
+        "mean_gate_values": [
+          0.4081704630229986,
+          0.40474184965114546,
+          0.004872648190562783
+        ]
+      },
+      "env_step_latency_max_s": 1.91579,
+      "env_step_latency_mean_s": 0.063995,
+      "env_steps": 240,
+      "episode_id": "dagr_full|libero_10|task_2|seed_20261206",
+      "episode_length": 240,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 29,
+      "policy": "dagr_full",
+      "policy_latency_max_s": 0.28614,
+      "policy_latency_mean_s": 0.008792,
+      "reset_seed": 20261206,
+      "rss_mb": 5383.848,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.073211,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.098177589,
+        "mean_delta_l2": 0.066772958,
+        "mean_gate_values": [
+          0.997177597454616,
+          0.997177597454616,
+          0.997177597454616
+        ]
+      },
+      "env_step_latency_max_s": 0.095446,
+      "env_step_latency_mean_s": 0.067395,
+      "env_steps": 280,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_spatial|task_0|seed_20261205",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 30,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.365434,
+      "policy_latency_mean_s": 0.00986,
+      "reset_seed": 20261205,
+      "rss_mb": 5803.988,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.093418,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.09615922,
+        "mean_delta_l2": 0.067910577,
+        "mean_gate_values": [
+          0.9973141245352917,
+          0.9973141245352917,
+          0.9973141245352917
+        ]
+      },
+      "env_step_latency_max_s": 2.556356,
+      "env_step_latency_mean_s": 0.086809,
+      "env_steps": 117,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_spatial|task_0|seed_20261206",
+      "episode_length": 117,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 31,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.264148,
+      "policy_latency_mean_s": 0.009955,
+      "reset_seed": 20261206,
+      "rss_mb": 5804.0,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 0,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.034673,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.090223536,
+        "mean_delta_l2": 0.067820829,
+        "mean_gate_values": [
+          0.9986743534004295,
+          0.9986743534004295,
+          0.9986743534004295
+        ]
+      },
+      "env_step_latency_max_s": 2.722687,
+      "env_step_latency_mean_s": 0.09319,
+      "env_steps": 91,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_spatial|task_8|seed_20261205",
+      "episode_length": 91,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 32,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.367486,
+      "policy_latency_mean_s": 0.010019,
+      "reset_seed": 20261205,
+      "rss_mb": 5804.066,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.082882,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.103739433,
+        "mean_delta_l2": 0.074569598,
+        "mean_gate_values": [
+          0.9961750492453575,
+          0.9961750492453575,
+          0.9961750492453575
+        ]
+      },
+      "env_step_latency_max_s": 0.078858,
+      "env_step_latency_mean_s": 0.066951,
+      "env_steps": 280,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_spatial|task_8|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 33,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.387261,
+      "policy_latency_mean_s": 0.00932,
+      "reset_seed": 20261206,
+      "rss_mb": 5804.066,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 8,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 4,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.055551,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.068211108,
+        "mean_delta_l2": 0.045557967,
+        "mean_gate_values": [
+          0.9998556057873526,
+          0.9998556057873526,
+          0.9998556057873526
+        ]
+      },
+      "env_step_latency_max_s": 1.752342,
+      "env_step_latency_mean_s": 0.039235,
+      "env_steps": 152,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_object|task_6|seed_20261205",
+      "episode_length": 152,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 34,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.367161,
+      "policy_latency_mean_s": 0.010591,
+      "reset_seed": 20261205,
+      "rss_mb": 5689.414,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.050656,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.141790479,
+        "mean_delta_l2": 0.048129258,
+        "mean_gate_values": [
+          0.9999252445214278,
+          0.9999252445214278,
+          0.9999252445214278
+        ]
+      },
+      "env_step_latency_max_s": 1.69922,
+      "env_step_latency_mean_s": 0.040169,
+      "env_steps": 143,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_object|task_6|seed_20261206",
+      "episode_length": 143,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 35,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.392268,
+      "policy_latency_mean_s": 0.009288,
+      "reset_seed": 20261206,
+      "rss_mb": 5689.414,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.101622,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.119504161,
+        "mean_delta_l2": 0.073467653,
+        "mean_gate_values": [
+          0.9970970183610917,
+          0.9970970183610917,
+          0.9970970183610917
+        ]
+      },
+      "env_step_latency_max_s": 0.076727,
+      "env_step_latency_mean_s": 0.062706,
+      "env_steps": 300,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_goal|task_4|seed_20261205",
+      "episode_length": 300,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 36,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.371436,
+      "policy_latency_mean_s": 0.009696,
+      "reset_seed": 20261205,
+      "rss_mb": 5695.227,
+      "success": false,
+      "suite": "libero_goal",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.059441,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.104071565,
+        "mean_delta_l2": 0.08252241,
+        "mean_gate_values": [
+          0.9972130718619324,
+          0.9972130718619324,
+          0.9972130718619324
+        ]
+      },
+      "env_step_latency_max_s": 2.095154,
+      "env_step_latency_mean_s": 0.086182,
+      "env_steps": 86,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_goal|task_4|seed_20261206",
+      "episode_length": 86,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 37,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.271804,
+      "policy_latency_mean_s": 0.009362,
+      "reset_seed": 20261206,
+      "rss_mb": 5695.227,
+      "success": true,
+      "suite": "libero_goal",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.090172,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.117080845,
+        "mean_delta_l2": 0.055942836,
+        "mean_gate_values": [
+          0.9994209861526122,
+          0.9994209861526122,
+          0.9994209861526122
+        ]
+      },
+      "env_step_latency_max_s": 0.072483,
+      "env_step_latency_mean_s": 0.054895,
+      "env_steps": 520,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_10|task_2|seed_20261205",
+      "episode_length": 520,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 38,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.325136,
+      "policy_latency_mean_s": 0.008765,
+      "reset_seed": 20261205,
+      "rss_mb": 5525.816,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.079989,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 1.0,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "max_delta_l2": 0.130627662,
+        "mean_delta_l2": 0.056156415,
+        "mean_gate_values": [
+          0.9996309539446464,
+          0.9996309539446464,
+          0.9996309539446464
+        ]
+      },
+      "env_step_latency_max_s": 0.064262,
+      "env_step_latency_mean_s": 0.055889,
+      "env_steps": 520,
+      "episode_id": "dagr_no_dynamic_route_ablation|libero_10|task_2|seed_20261206",
+      "episode_length": 520,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938919936,
+        "allocated_mb": 895.424,
+        "max_allocated_bytes": 972728832,
+        "max_allocated_mb": 927.667
+      },
+      "planned_episode_index": 39,
+      "policy": "dagr_no_dynamic_route_ablation",
+      "policy_latency_max_s": 0.359606,
+      "policy_latency_mean_s": 0.009228,
+      "reset_seed": 20261206,
+      "rss_mb": 5527.418,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.075243,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.012821,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000641026,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 3.086858,
+      "env_step_latency_mean_s": 0.104722,
+      "env_steps": 78,
+      "episode_id": "gripper_transition_heuristic|libero_spatial|task_0|seed_20261205",
+      "episode_length": 78,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 40,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.380511,
+      "policy_latency_mean_s": 0.010031,
+      "reset_seed": 20261205,
+      "rss_mb": 5806.105,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 0,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.120839,
+        "shape_ok": true
+      },
+      "dagr_task_index": 34,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.039286,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.001964286,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 0.077449,
+      "env_step_latency_mean_s": 0.065196,
+      "env_steps": 280,
+      "episode_id": "gripper_transition_heuristic|libero_spatial|task_0|seed_20261206",
+      "episode_length": 280,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 41,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.372558,
+      "policy_latency_mean_s": 0.008339,
+      "reset_seed": 20261206,
+      "rss_mb": 5806.109,
+      "success": false,
+      "suite": "libero_spatial",
+      "sum_reward": 0.0,
+      "task_id": 0,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.027401,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.010753,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000537634,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.689385,
+      "env_step_latency_mean_s": 0.096882,
+      "env_steps": 93,
+      "episode_id": "gripper_transition_heuristic|libero_spatial|task_8|seed_20261205",
+      "episode_length": 93,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 42,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.364663,
+      "policy_latency_mean_s": 0.008932,
+      "reset_seed": 20261205,
+      "rss_mb": 5806.152,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.049346,
+        "shape_ok": true
+      },
+      "dagr_task_index": 36,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.010417,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000520833,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.579368,
+      "env_step_latency_mean_s": 0.090337,
+      "env_steps": 96,
+      "episode_id": "gripper_transition_heuristic|libero_spatial|task_8|seed_20261206",
+      "episode_length": 96,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 43,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.363619,
+      "policy_latency_mean_s": 0.008618,
+      "reset_seed": 20261206,
+      "rss_mb": 5806.152,
+      "success": true,
+      "suite": "libero_spatial",
+      "sum_reward": 1.0,
+      "task_id": 8,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.074604,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.013514,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000675676,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 1.603028,
+      "env_step_latency_mean_s": 0.038419,
+      "env_steps": 148,
+      "episode_id": "gripper_transition_heuristic|libero_object|task_6|seed_20261205",
+      "episode_length": 148,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 44,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.362923,
+      "policy_latency_mean_s": 0.007542,
+      "reset_seed": 20261205,
+      "rss_mb": 5691.738,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 3,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.055482,
+        "shape_ok": true
+      },
+      "dagr_task_index": 27,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.014388,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000719424,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 1.753615,
+      "env_step_latency_mean_s": 0.040474,
+      "env_steps": 139,
+      "episode_id": "gripper_transition_heuristic|libero_object|task_6|seed_20261206",
+      "episode_length": 139,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "pick up the butter and place it in the basket",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 45,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.258095,
+      "policy_latency_mean_s": 0.007083,
+      "reset_seed": 20261206,
+      "rss_mb": 5707.613,
+      "success": true,
+      "suite": "libero_object",
+      "sum_reward": 1.0,
+      "task_id": 6,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 6,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.095075,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.023333,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.001166667,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 0.077427,
+      "env_step_latency_mean_s": 0.06134,
+      "env_steps": 300,
+      "episode_id": "gripper_transition_heuristic|libero_goal|task_4|seed_20261205",
+      "episode_length": 300,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 46,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.341072,
+      "policy_latency_mean_s": 0.007789,
+      "reset_seed": 20261205,
+      "rss_mb": 5713.426,
+      "success": false,
+      "suite": "libero_goal",
+      "sum_reward": 0.0,
+      "task_id": 4,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 2,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.086025,
+        "shape_ok": true
+      },
+      "dagr_task_index": 18,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.012048,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.00060241,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.255188,
+      "env_step_latency_mean_s": 0.090152,
+      "env_steps": 83,
+      "episode_id": "gripper_transition_heuristic|libero_goal|task_4|seed_20261206",
+      "episode_length": 83,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "put the bowl on top of the cabinet",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 47,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.256308,
+      "policy_latency_mean_s": 0.00808,
+      "reset_seed": 20261206,
+      "rss_mb": 5713.426,
+      "success": true,
+      "suite": "libero_goal",
+      "sum_reward": 1.0,
+      "task_id": 4,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 5,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.055711,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.012876,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000643777,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 2.511683,
+      "env_step_latency_mean_s": 0.069884,
+      "env_steps": 233,
+      "episode_id": "gripper_transition_heuristic|libero_10|task_2|seed_20261205",
+      "episode_length": 233,
+      "exception": null,
+      "failure_status": "success",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 1.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 48,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.377374,
+      "policy_latency_mean_s": 0.008496,
+      "reset_seed": 20261205,
+      "rss_mb": 5527.863,
+      "success": true,
+      "suite": "libero_10",
+      "sum_reward": 1.0,
+      "task_id": 2,
+      "termination_reason": "success",
+      "video_path": null
+    },
+    {
+      "action_chunks_generated": 11,
+      "action_validity": {
+        "finite": true,
+        "max_abs": 1.077521,
+        "shape_ok": true
+      },
+      "dagr_task_index": 3,
+      "dagr_transform_summary": {
+        "activation_fraction": 0.019231,
+        "changed_dimensions": [
+          6
+        ],
+        "max_delta_l2": 0.050000001,
+        "mean_delta_l2": 0.000961538,
+        "mean_gate_values": null
+      },
+      "env_step_latency_max_s": 0.06816,
+      "env_step_latency_mean_s": 0.055794,
+      "env_steps": 520,
+      "episode_id": "gripper_transition_heuristic|libero_10|task_2|seed_20261206",
+      "episode_length": 520,
+      "exception": null,
+      "failure_status": "unsuccessful",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "max_reward": 0.0,
+      "peak_vram": {
+        "allocated_bytes": 938909184,
+        "allocated_mb": 895.414,
+        "max_allocated_bytes": 972718080,
+        "max_allocated_mb": 927.656
+      },
+      "planned_episode_index": 49,
+      "policy": "gripper_transition_heuristic",
+      "policy_latency_max_s": 0.370814,
+      "policy_latency_mean_s": 0.007651,
+      "reset_seed": 20261206,
+      "rss_mb": 5527.863,
+      "success": false,
+      "suite": "libero_10",
+      "sum_reward": 0.0,
+      "task_id": 2,
+      "termination_reason": "max_steps_or_truncated_without_success",
+      "video_path": null
+    }
+  ],
+  "errors": [],
+  "final_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+  "method": "DAGR-VLA",
+  "mode": "stage-a",
+  "next_step": "Run Stage B on a frozen expansion manifest.",
+  "paired_vs_dagr_full": {
+    "dagr_no_dynamic_route_ablation": {
+      "paired_count": 10,
+      "paired_loss_count": 1,
+      "paired_success_delta": 0.1,
+      "paired_tie_count": 7,
+      "paired_win_count": 2
+    },
+    "dam_static_component_proxy": {
+      "paired_count": 10,
+      "paired_loss_count": 0,
+      "paired_success_delta": 0.4,
+      "paired_tie_count": 6,
+      "paired_win_count": 4
+    },
+    "frozen_smolvla": {
+      "paired_count": 10,
+      "paired_loss_count": 2,
+      "paired_success_delta": -0.2,
+      "paired_tie_count": 8,
+      "paired_win_count": 0
+    },
+    "gripper_transition_heuristic": {
+      "paired_count": 10,
+      "paired_loss_count": 2,
+      "paired_success_delta": -0.1,
+      "paired_tie_count": 7,
+      "paired_win_count": 1
+    }
+  },
+  "planned_episode_count": 50,
+  "policy_load_audits": {
+    "dagr_full": {
+      "action_chunk_device": "cuda:0",
+      "action_chunk_dtype": "torch.float32",
+      "action_chunk_finite": true,
+      "action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "amp_fp16_or_bf16_active": false,
+      "autocast": {
+        "cpu": false,
+        "cuda": false
+      },
+      "control_mode": "relative",
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "empty_cameras": 1,
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "input_tensor_shapes": {
+        "observation.images.camera1": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.images.camera2": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.language.attention_mask": [
+          1,
+          48
+        ],
+        "observation.language.tokens": [
+          1,
+          48
+        ],
+        "observation.state": [
+          1,
+          8
+        ]
+      },
+      "load_seconds": 17.533,
+      "old_custom_libero_7d_route_used": false,
+      "parameter": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "numel": 589824
+      },
+      "peft": {
+        "used": false
+      },
+      "policy_class": "SmolVLAPolicy",
+      "policy_name": "dagr_full",
+      "rename_map": {
+        "observation.images.image": "observation.images.camera1",
+        "observation.images.image2": "observation.images.camera2"
+      }
+    },
+    "dagr_no_dynamic_route_ablation": {
+      "action_chunk_device": "cuda:0",
+      "action_chunk_dtype": "torch.float32",
+      "action_chunk_finite": true,
+      "action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "amp_fp16_or_bf16_active": false,
+      "autocast": {
+        "cpu": false,
+        "cuda": false
+      },
+      "control_mode": "relative",
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "empty_cameras": 1,
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "input_tensor_shapes": {
+        "observation.images.camera1": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.images.camera2": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.language.attention_mask": [
+          1,
+          48
+        ],
+        "observation.language.tokens": [
+          1,
+          48
+        ],
+        "observation.state": [
+          1,
+          8
+        ]
+      },
+      "load_seconds": 16.76,
+      "old_custom_libero_7d_route_used": false,
+      "parameter": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "numel": 589824
+      },
+      "peft": {
+        "used": false
+      },
+      "policy_class": "SmolVLAPolicy",
+      "policy_name": "dagr_no_dynamic_route_ablation",
+      "rename_map": {
+        "observation.images.image": "observation.images.camera1",
+        "observation.images.image2": "observation.images.camera2"
+      }
+    },
+    "dam_static_component_proxy": {
+      "action_chunk_device": "cuda:0",
+      "action_chunk_dtype": "torch.float32",
+      "action_chunk_finite": true,
+      "action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "amp_fp16_or_bf16_active": false,
+      "autocast": {
+        "cpu": false,
+        "cuda": false
+      },
+      "control_mode": "relative",
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "empty_cameras": 1,
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "input_tensor_shapes": {
+        "observation.images.camera1": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.images.camera2": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.language.attention_mask": [
+          1,
+          48
+        ],
+        "observation.language.tokens": [
+          1,
+          48
+        ],
+        "observation.state": [
+          1,
+          8
+        ]
+      },
+      "load_seconds": 18.066,
+      "old_custom_libero_7d_route_used": false,
+      "parameter": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "numel": 589824
+      },
+      "peft": {
+        "used": false
+      },
+      "policy_class": "SmolVLAPolicy",
+      "policy_name": "dam_static_component_proxy",
+      "rename_map": {
+        "observation.images.image": "observation.images.camera1",
+        "observation.images.image2": "observation.images.camera2"
+      }
+    },
+    "frozen_smolvla": {
+      "action_chunk_device": "cuda:0",
+      "action_chunk_dtype": "torch.float32",
+      "action_chunk_finite": true,
+      "action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "amp_fp16_or_bf16_active": false,
+      "autocast": {
+        "cpu": false,
+        "cuda": false
+      },
+      "control_mode": "relative",
+      "cuda_memory": {
+        "allocated_bytes": 937419264,
+        "allocated_mb": 893.993,
+        "max_allocated_bytes": 970964480,
+        "max_allocated_mb": 925.984
+      },
+      "empty_cameras": 1,
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "input_tensor_shapes": {
+        "observation.images.camera1": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.images.camera2": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.language.attention_mask": [
+          1,
+          48
+        ],
+        "observation.language.tokens": [
+          1,
+          48
+        ],
+        "observation.state": [
+          1,
+          8
+        ]
+      },
+      "load_seconds": 17.061,
+      "old_custom_libero_7d_route_used": false,
+      "parameter": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "numel": 589824
+      },
+      "peft": {
+        "used": false
+      },
+      "policy_class": "SmolVLAPolicy",
+      "policy_name": "frozen_smolvla",
+      "rename_map": {
+        "observation.images.image": "observation.images.camera1",
+        "observation.images.image2": "observation.images.camera2"
+      }
+    },
+    "gripper_transition_heuristic": {
+      "action_chunk_device": "cuda:0",
+      "action_chunk_dtype": "torch.float32",
+      "action_chunk_finite": true,
+      "action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "amp_fp16_or_bf16_active": false,
+      "autocast": {
+        "cpu": false,
+        "cuda": false
+      },
+      "control_mode": "relative",
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "empty_cameras": 1,
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "input_tensor_shapes": {
+        "observation.images.camera1": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.images.camera2": [
+          1,
+          3,
+          256,
+          256
+        ],
+        "observation.language.attention_mask": [
+          1,
+          48
+        ],
+        "observation.language.tokens": [
+          1,
+          48
+        ],
+        "observation.state": [
+          1,
+          8
+        ]
+      },
+      "load_seconds": 16.303,
+      "old_custom_libero_7d_route_used": false,
+      "parameter": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "numel": 589824
+      },
+      "peft": {
+        "used": false
+      },
+      "policy_class": "SmolVLAPolicy",
+      "policy_name": "gripper_transition_heuristic",
+      "rename_map": {
+        "observation.images.image": "observation.images.camera1",
+        "observation.images.image2": "observation.images.camera2"
+      }
+    }
+  },
+  "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+  "schema_version": 1,
+  "stage_a_manifest": "reports/dagr_vla/stage_a_manifest.json",
+  "stage_a_manifest_sha256": "42CEE0298FC7B5F9EB8B4369A6D1CAE10B38A7FE5CC4D1A96AF7BA62B01C8604",
+  "stage_a_preflight": "reports/dagr_vla/stage_a_preflight.json",
+  "summary": {
+    "by_policy": {
+      "dagr_full": {
+        "action_validity_all_finite": true,
+        "action_validity_all_shape_ok": true,
+        "exception_count": 0,
+        "mean_activation_fraction": 1.0,
+        "mean_dagr_delta_l2": 0.056203212,
+        "peak_vram_max_allocated_mb": 927.667,
+        "per_task": {
+          "libero_10/task_2": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_goal/task_4": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_object/task_6": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          },
+          "libero_spatial/task_0": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 2
+          },
+          "libero_spatial/task_8": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          }
+        },
+        "policy_latency_mean_s": 0.009711,
+        "success_rate": 0.6,
+        "successes": 6,
+        "task_balanced_success_rate": 0.6,
+        "total": 10
+      },
+      "dagr_no_dynamic_route_ablation": {
+        "action_validity_all_finite": true,
+        "action_validity_all_shape_ok": true,
+        "exception_count": 0,
+        "mean_activation_fraction": 1.0,
+        "mean_dagr_delta_l2": 0.06388505,
+        "peak_vram_max_allocated_mb": 927.667,
+        "per_task": {
+          "libero_10/task_2": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 2
+          },
+          "libero_goal/task_4": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_object/task_6": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          },
+          "libero_spatial/task_0": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_spatial/task_8": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          }
+        },
+        "policy_latency_mean_s": 0.009608,
+        "success_rate": 0.5,
+        "successes": 5,
+        "task_balanced_success_rate": 0.5,
+        "total": 10
+      },
+      "dam_static_component_proxy": {
+        "action_validity_all_finite": true,
+        "action_validity_all_shape_ok": true,
+        "exception_count": 0,
+        "mean_activation_fraction": 1.0,
+        "mean_dagr_delta_l2": 0.299515091,
+        "peak_vram_max_allocated_mb": 927.666,
+        "per_task": {
+          "libero_10/task_2": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_goal/task_4": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_object/task_6": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 2
+          },
+          "libero_spatial/task_0": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 2
+          },
+          "libero_spatial/task_8": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 2
+          }
+        },
+        "policy_latency_mean_s": 0.009339,
+        "success_rate": 0.2,
+        "successes": 2,
+        "task_balanced_success_rate": 0.2,
+        "total": 10
+      },
+      "frozen_smolvla": {
+        "action_validity_all_finite": true,
+        "action_validity_all_shape_ok": true,
+        "exception_count": 0,
+        "mean_activation_fraction": 0.0,
+        "mean_dagr_delta_l2": 0.0,
+        "peak_vram_max_allocated_mb": 926.645,
+        "per_task": {
+          "libero_10/task_2": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_goal/task_4": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          },
+          "libero_object/task_6": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          },
+          "libero_spatial/task_0": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_spatial/task_8": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          }
+        },
+        "policy_latency_mean_s": 0.008051,
+        "success_rate": 0.8,
+        "successes": 8,
+        "task_balanced_success_rate": 0.8,
+        "total": 10
+      },
+      "gripper_transition_heuristic": {
+        "action_validity_all_finite": true,
+        "action_validity_all_shape_ok": true,
+        "exception_count": 0,
+        "mean_activation_fraction": 0.016867,
+        "mean_dagr_delta_l2": 0.000843327,
+        "peak_vram_max_allocated_mb": 927.656,
+        "per_task": {
+          "libero_10/task_2": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_goal/task_4": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_object/task_6": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          },
+          "libero_spatial/task_0": {
+            "success_rate": 0.5,
+            "successes": 1,
+            "total": 2
+          },
+          "libero_spatial/task_8": {
+            "success_rate": 1.0,
+            "successes": 2,
+            "total": 2
+          }
+        },
+        "policy_latency_mean_s": 0.008256,
+        "success_rate": 0.7,
+        "successes": 7,
+        "task_balanced_success_rate": 0.7,
+        "total": 10
+      }
+    },
+    "completed_episode_count": 50,
+    "exception_count": 0
+  }
+}

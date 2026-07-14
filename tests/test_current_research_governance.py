@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "DAGR_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT"
-    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_a_rollout_ready"
+    assert state["current_decision"] == "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_b_manifest_pending"
     assert state["method"] == "DAGR-VLA"
     assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["prototype_protocol"] == "reports/dagr_vla/prototype_protocol.md"
@@ -78,6 +78,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_7_dagr_policy_identities_verified" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_manifest_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_stage_a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_stage_a_adjudicated" in state["completed_stages"]
     assert state["task_reset_manifest"] == "reports/dagr_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
@@ -158,6 +160,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_7_dagr_stage_a_preflight"]["cuda_ok"] is True
     assert state["epoch_4_cycle_7_dagr_stage_a_preflight"]["no_accidental_checkpoint_reuse"] is True
     assert state["epoch_4_cycle_7_dagr_stage_a_preflight"]["errors"] == []
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["final_decision"] == "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["completed_episode_count"] == 50
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["exception_count"] == 0
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["frozen_smolvla_successes"] == 8
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["gripper_transition_heuristic_successes"] == 7
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["dagr_full_successes"] == 6
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["dam_static_component_proxy_successes"] == 2
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["stage_b_required"] is True
+    assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["catastrophic_stage_a_kill"] is False
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

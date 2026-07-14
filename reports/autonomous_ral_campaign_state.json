@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 7,
-    "topic": "epoch_4_cycle_7_dagr_stage_a_rollout_ready",
+    "topic": "epoch_4_cycle_7_dagr_stage_b_manifest_pending",
     "method": "DAGR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "7d82aa3d0be144d1626900ebeabf06b460b36b62",
-    "current_stage": "epoch_4_cycle_7_dagr_stage_a_rollout_ready",
+    "current_stage": "epoch_4_cycle_7_dagr_stage_b_manifest_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -236,7 +236,9 @@
         "epoch_4_cycle_7_dagr_selected_config_frozen",
         "epoch_4_cycle_7_dagr_policy_identities_verified",
         "epoch_4_cycle_7_dagr_stage_a_manifest_frozen",
-        "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed"
+        "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed",
+        "epoch_4_cycle_7_dagr_stage_a_completed",
+        "epoch_4_cycle_7_dagr_stage_a_adjudicated"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -253,7 +255,7 @@
         "PDF: https://arxiv.org/abs/2604.18107"
     ],
     "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
-    "current_decision": "DAGR_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+    "current_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
     "stage_a_partial_checkpoint": "reports/dagr_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/dagr_vla/stage_a_result.json",
     "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
@@ -404,7 +406,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Launch DAGR Stage A official WSL rollout using the frozen manifest and passing preflight; save durable PID, heartbeat, logs, partial result, and exact resume command.",
+    "next_action": "Freeze the DAGR Stage B matched manifest with at least 40 paired episodes per policy, then launch the official WSL rollout without changing the Stage A method, checkpoints, thresholds, tasks, or decision rules.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-a\"",
     "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
     "method_identity": "DAGR-VLA",
@@ -1531,7 +1533,7 @@
             "dagr_no_dynamic_route_ablation",
             "gripper_transition_heuristic"
         ],
-        "next_stage": "Launch the frozen DAGR Stage A official rollout.",
+        "next_stage": "Freeze the DAGR Stage B matched manifest.",
         "reviewer_attack": "reports/dagr_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/dagr_vla/researcher_rebuttal.md",
@@ -1581,7 +1583,14 @@
         "stage_a_preflight_checkpoint_policy_count": 4,
         "stage_a_preflight_cuda_ok": true,
         "stage_a_preflight_checkpoint_checksum_matches": true,
-        "stage_a_preflight_no_accidental_checkpoint_reuse": true
+        "stage_a_preflight_no_accidental_checkpoint_reuse": true,
+        "stage_a_result": "reports/dagr_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
+        "stage_a_status": "reports/dagr_vla/stage_a_status.json",
+        "stage_a_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "stage_a_completed_episode_count": 50,
+        "stage_a_exception_count": 0,
+        "stage_b_required": true
     },
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
@@ -1613,7 +1622,7 @@
         "selected_action_validity": 1.0,
         "selected_checkpoint_path": "reports\\dagr_vla\\validation_checkpoints\\dagr_a020_route_mlp.pt",
         "stage_a_allowed": true,
-        "next_stage": "Launch the frozen DAGR Stage A official rollout.",
+        "next_stage": "Freeze the DAGR Stage B matched manifest.",
         "policy_identity_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
         "policy_checkpoint_manifest": "reports/dagr_vla/policy_checkpoint_manifest.json",
         "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
@@ -1647,7 +1656,14 @@
         "stage_a_preflight_checkpoint_policy_count": 4,
         "stage_a_preflight_cuda_ok": true,
         "stage_a_preflight_checkpoint_checksum_matches": true,
-        "stage_a_preflight_no_accidental_checkpoint_reuse": true
+        "stage_a_preflight_no_accidental_checkpoint_reuse": true,
+        "stage_a_result": "reports/dagr_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
+        "stage_a_status": "reports/dagr_vla/stage_a_status.json",
+        "stage_a_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "stage_a_completed_episode_count": 50,
+        "stage_a_exception_count": 0,
+        "stage_b_required": true
     },
     "epoch_4_cycle_7_dagr_policy_identity_outcome": {
         "method": "DAGR-VLA",
@@ -1814,5 +1830,283 @@
             }
         },
         "next_stage": "Launch the frozen DAGR Stage A official rollout."
+    },
+    "epoch_4_cycle_7_dagr_stage_a_outcome": {
+        "method": "DAGR-VLA",
+        "config_id": "dagr_a020_route_mlp",
+        "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+        "final_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "valid_stage_a_result": true,
+        "stage_a_completed": true,
+        "closed_loop_experiment_happened": true,
+        "confirmatory_test_tuning_happened": false,
+        "result_json": "reports/dagr_vla/stage_a_result.json",
+        "result_md": "reports/dagr_vla/stage_a_result.md",
+        "partial_result_json": "reports/dagr_vla/stage_a_partial_result.json",
+        "status_json": "reports/dagr_vla/stage_a_status.json",
+        "stage_a_manifest": "reports/dagr_vla/stage_a_manifest.json",
+        "stage_a_manifest_sha256": "42CEE0298FC7B5F9EB8B4369A6D1CAE10B38A7FE5CC4D1A96AF7BA62B01C8604",
+        "stage_a_preflight": "reports/dagr_vla/stage_a_preflight.json",
+        "planned_episode_count": 50,
+        "completed_episode_count": 50,
+        "partial_completed_episode_count": 50,
+        "exception_count": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 1098.191,
+        "policy_successes": {
+            "dagr_full": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 1.0,
+                "mean_dagr_delta_l2": 0.056203212,
+                "peak_vram_max_allocated_mb": 927.667,
+                "per_task": {
+                    "libero_10/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.009711,
+                "success_rate": 0.6,
+                "successes": 6,
+                "task_balanced_success_rate": 0.6,
+                "total": 10
+            },
+            "dagr_no_dynamic_route_ablation": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 1.0,
+                "mean_dagr_delta_l2": 0.06388505,
+                "peak_vram_max_allocated_mb": 927.667,
+                "per_task": {
+                    "libero_10/task_2": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.009608,
+                "success_rate": 0.5,
+                "successes": 5,
+                "task_balanced_success_rate": 0.5,
+                "total": 10
+            },
+            "dam_static_component_proxy": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 1.0,
+                "mean_dagr_delta_l2": 0.299515091,
+                "peak_vram_max_allocated_mb": 927.666,
+                "per_task": {
+                    "libero_10/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.009339,
+                "success_rate": 0.2,
+                "successes": 2,
+                "task_balanced_success_rate": 0.2,
+                "total": 10
+            },
+            "frozen_smolvla": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 0.0,
+                "mean_dagr_delta_l2": 0.0,
+                "peak_vram_max_allocated_mb": 926.645,
+                "per_task": {
+                    "libero_10/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.008051,
+                "success_rate": 0.8,
+                "successes": 8,
+                "task_balanced_success_rate": 0.8,
+                "total": 10
+            },
+            "gripper_transition_heuristic": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 0.016867,
+                "mean_dagr_delta_l2": 0.000843327,
+                "peak_vram_max_allocated_mb": 927.656,
+                "per_task": {
+                    "libero_10/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.008256,
+                "success_rate": 0.7,
+                "successes": 7,
+                "task_balanced_success_rate": 0.7,
+                "total": 10
+            }
+        },
+        "paired_vs_dagr_full": {
+            "dagr_no_dynamic_route_ablation": {
+                "paired_count": 10,
+                "paired_loss_count": 1,
+                "paired_success_delta": 0.1,
+                "paired_tie_count": 7,
+                "paired_win_count": 2
+            },
+            "dam_static_component_proxy": {
+                "paired_count": 10,
+                "paired_loss_count": 0,
+                "paired_success_delta": 0.4,
+                "paired_tie_count": 6,
+                "paired_win_count": 4
+            },
+            "frozen_smolvla": {
+                "paired_count": 10,
+                "paired_loss_count": 2,
+                "paired_success_delta": -0.2,
+                "paired_tie_count": 8,
+                "paired_win_count": 0
+            },
+            "gripper_transition_heuristic": {
+                "paired_count": 10,
+                "paired_loss_count": 2,
+                "paired_success_delta": -0.1,
+                "paired_tie_count": 7,
+                "paired_win_count": 1
+            }
+        },
+        "frozen_smolvla_successes": 8,
+        "dam_static_component_proxy_successes": 2,
+        "dagr_full_successes": 6,
+        "dagr_no_dynamic_route_ablation_successes": 5,
+        "gripper_transition_heuristic_successes": 7,
+        "dagr_full_task_balanced_success_rate": 0.6,
+        "strongest_baseline": "frozen_smolvla",
+        "strongest_baseline_successes": 8,
+        "strongest_baseline_task_balanced_success_rate": 0.8,
+        "paired_delta_vs_frozen_smolvla": -0.2,
+        "paired_delta_vs_dam_static_component_proxy": 0.4,
+        "paired_delta_vs_no_dynamic_route_ablation": 0.1,
+        "paired_delta_vs_gripper_transition_heuristic": -0.1,
+        "ours_beats_closest_prior_proxy": true,
+        "ours_beats_key_ablation": true,
+        "ours_beats_base": false,
+        "ours_beats_simple_killer": false,
+        "catastrophic_stage_a_kill": false,
+        "stage_b_required": true,
+        "checkpoint_retuning_allowed": false,
+        "threshold_change_allowed": false,
+        "adjudication_reason": "DAGR full reached 6/10: it beat the DAM-style static proxy (2/10) and key ablation (5/10), but trailed frozen SmolVLA (8/10) and the gripper-transition heuristic (7/10). The two-episode Base deficit is noncatastrophic under current Stage A governance, so Stage B is required without retuning.",
+        "next_stage": "Freeze and run DAGR Stage B with at least 40 paired episodes per key policy."
     }
 }

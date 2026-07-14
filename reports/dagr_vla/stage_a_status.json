@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "method": "DAGR-VLA",
+  "config_id": "dagr_a020_route_mlp",
+  "state": "completed",
+  "final_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+  "launched_at_kst": "2026-07-14T23:11:04.3525205+09:00",
+  "launched_commit": "c19ecff",
+  "stage_a_manifest": "reports/dagr_vla/stage_a_manifest.json",
+  "stage_a_preflight": "reports/dagr_vla/stage_a_preflight.json",
+  "result_path": "reports/dagr_vla/stage_a_result.json",
+  "partial_result_path": "reports/dagr_vla/stage_a_partial_result.json",
+  "planned_episode_count": 50,
+  "partial_completed_episode_count": 50,
+  "policy_identities": [
+    "frozen_smolvla",
+    "dam_static_component_proxy",
+    "dagr_full",
+    "dagr_no_dynamic_route_ablation",
+    "gripper_transition_heuristic"
+  ],
+  "model_device": "cuda:0",
+  "learned_head_device": "cuda:0",
+  "official_postprocessed_action_device": "cpu",
+  "preflight_peak_vram_max_allocated_mb": 927.616,
+  "pid_file": "runs/dagr_vla_stage_a/stage_a.pid",
+  "linux_worker_pid": 386,
+  "linux_python_pid": 387,
+  "stdout_log": "runs/dagr_vla_stage_a/stage_a.stdout.log",
+  "stderr_log": "runs/dagr_vla_stage_a/stage_a.stderr.log",
+  "exit_code_file": "runs/dagr_vla_stage_a/stage_a.exitcode",
+  "resume_command_file": "runs/dagr_vla_stage_a/stage_a_resume_command.txt",
+  "resume_command": "wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-a\"",
+  "exit_code": 0,
+  "finished_at_kst": "2026-07-14T23:28:20.495127+09:00",
+  "completed_episode_count": 50,
+  "elapsed_seconds": 1098.191,
+  "policy_successes": {
+    "dagr_full": {
+      "successes": 6,
+      "total": 10,
+      "task_balanced_success_rate": 0.6,
+      "exception_count": 0
+    },
+    "dagr_no_dynamic_route_ablation": {
+      "successes": 5,
+      "total": 10,
+      "task_balanced_success_rate": 0.5,
+      "exception_count": 0
+    },
+    "dam_static_component_proxy": {
+      "successes": 2,
+      "total": 10,
+      "task_balanced_success_rate": 0.2,
+      "exception_count": 0
+    },
+    "frozen_smolvla": {
+      "successes": 8,
+      "total": 10,
+      "task_balanced_success_rate": 0.8,
+      "exception_count": 0
+    },
+    "gripper_transition_heuristic": {
+      "successes": 7,
+      "total": 10,
+      "task_balanced_success_rate": 0.7,
+      "exception_count": 0
+    }
+  }
+}
