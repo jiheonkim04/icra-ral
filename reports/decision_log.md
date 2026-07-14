@@ -2181,3 +2181,31 @@ Evidence:
 - paired full minus DAM-style proxy: wins `14`, losses `1`, ties `25`, delta `0.325`, CI `[0.175, 0.475]`
 
 Consequence: this is a valid current-formulation kill. DAGR full beat the closest-prior proxy and narrowly exceeded the key ablation, but it was clearly below Base and below the simple gripper-transition heuristic. The simple baseline therefore explains or exceeds the method under the frozen Stage B protocol. Do not rescue DAGR by retuning `dagr_a020_route_mlp`, changing route thresholds, changing task/reset identities, changing the policy list, or reinterpreting partial results. Continue to Epoch 4 Cycle 8 candidate search under the installed performance-oriented governance.
+
+## 2026-07-15 - Epoch 4 Cycle 10 EAC-VLA Stage A Manifest And Preflight
+
+Decision: `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`
+
+Execution boundary:
+
+- method: `EAC-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E`
+- selected config: `eac_q33_aggressive_1_4_50`
+- Stage A manifest: `reports/eac_vla/stage_a_manifest.json`
+- Stage A preflight: `reports/eac_vla/stage_a_preflight.json`
+- planned episodes: `50`
+- paired cases per policy: `10`
+- reset seeds: `20261211`, `20261212`
+- policies: `frozen_smolvla_fixed_queue`, `aac_entropy_proxy`, `eac_full`, `eac_no_calibration_no_hysteresis_ablation`, `fixed_short_replan_baseline`
+- manifest canonical payload hash: `63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C`
+- policy preflight count: `5`
+- checkpoint policy count: `0`
+- CUDA device: `NVIDIA GeForce RTX 5080`
+- policy output shape: `[50, 7]`
+- all policy prefixes value-preserving: `True`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the EAC Stage A matched manifest is frozen and the five scheduler identities preserve frozen SmolVLA action values exactly under the official runtime path. The next step is to implement the minimal Stage A runner and launch only after runner validation; no task/reset change, threshold change, validation retuning, or result reinterpretation is allowed before rollout.

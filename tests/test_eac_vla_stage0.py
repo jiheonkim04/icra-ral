@@ -1,4 +1,5 @@
 import json
+from collections import Counter
 from pathlib import Path
 
 
@@ -89,3 +90,73 @@ def test_eac_validation_search_selects_frozen_config_without_test_tuning() -> No
     assert selected["commitment_counts"] == {"1": 132, "4": 136, "50": 132}
     assert selected["score_components"]["clean_action_value_passthrough"] == 1.0
     assert selected["score_components"]["runtime_action_validity"] == 1.0
+
+
+def test_eac_stage_a_manifest_freezes_matched_five_policy_plan() -> None:
+    manifest = json.loads((REPORTS / "eac_vla" / "stage_a_manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["final_decision"] == "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING"
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["training_happened"] is False
+    assert manifest["validation_search_happened"] is False
+    assert manifest["confirmatory_test_tuning_happened"] is False
+    assert manifest["config_id"] == "eac_q33_aggressive_1_4_50"
+    assert manifest["canonical_payload_sha256"] == "63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C"
+    assert manifest["planned_episode_count"] == 50
+    assert manifest["paired_cases_per_policy"] == 10
+    assert manifest["reset_seeds"] == [20261211, 20261212]
+    assert manifest["policy_order"] == [
+        "frozen_smolvla_fixed_queue",
+        "aac_entropy_proxy",
+        "eac_full",
+        "eac_no_calibration_no_hysteresis_ablation",
+        "fixed_short_replan_baseline",
+    ]
+    assert manifest["errors"] == []
+    assert manifest["confirmatory_test_identities_used_for_training_or_validation"] is False
+    assert manifest["policy_order_affects_env_initialization"] is False
+    assert manifest["fixed_task_balanced_allocation"] is True
+    assert manifest["no_post_hoc_task_or_reset_selection"] is True
+
+    episodes = manifest["episodes"]
+    assert len({episode["episode_id"] for episode in episodes}) == 50
+    assert Counter(episode["policy"] for episode in episodes) == {
+        "frozen_smolvla_fixed_queue": 10,
+        "aac_entropy_proxy": 10,
+        "eac_full": 10,
+        "eac_no_calibration_no_hysteresis_ablation": 10,
+        "fixed_short_replan_baseline": 10,
+    }
+    pair_sets = {
+        policy: {episode["pair_id"] for episode in episodes if episode["policy"] == policy}
+        for policy in manifest["policy_order"]
+    }
+    assert len({tuple(sorted(pair_ids)) for pair_ids in pair_sets.values()}) == 1
+
+    labels = {identity["policy"]: identity["proxy_or_reproduction_label"] for identity in manifest["policy_identities"]}
+    assert labels["aac_entropy_proxy"] == "faithful transparent local proxy, not an official AAC reproduction"
+
+
+def test_eac_stage_a_preflight_preserves_action_values_before_rollout() -> None:
+    report = json.loads((REPORTS / "eac_vla" / "stage_a_preflight.json").read_text(encoding="utf-8"))
+
+    assert report["final_decision"] == "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING"
+    assert report["closed_loop_experiment_happened"] is False
+    assert report["training_happened"] is False
+    assert report["validation_search_happened"] is False
+    assert report["confirmatory_test_tuning_happened"] is False
+    assert report["planned_episode_count"] == 50
+    assert report["paired_cases_per_policy"] == 10
+    assert report["policy_count"] == 5
+    assert report["checkpoint_policy_count"] == 0
+    assert report["cuda_ok"] is True
+    assert report["cuda_device_name"] == "NVIDIA GeForce RTX 5080"
+    assert report["policy_output_shape"] == [50, 7]
+    assert report["policy_output_shape_ok"] is True
+    assert report["policy_output_finite"] is True
+    assert report["all_policy_prefixes_value_preserving"] is True
+    assert report["no_accidental_checkpoint_reuse"] is True
+    assert report["old_custom_libero_7d_route_used"] is False
+    assert report["errors"] == []
+    assert all(not record["action_values_modified"] for record in report["preflight_records"])
+    assert {record["policy"] for record in report["preflight_records"]} == set(report["policy_order"])

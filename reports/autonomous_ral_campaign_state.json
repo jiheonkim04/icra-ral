@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "topic": "epoch_4_cycle_10_eac_stage_a_manifest_pending",
+    "topic": "epoch_4_cycle_10_eac_stage_a_runner_pending",
     "method": "EAC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "4cc9e3d",
-    "current_stage": "epoch_4_cycle_10_eac_stage_a_manifest_pending",
+    "current_commit": "ac4b04d",
+    "current_stage": "epoch_4_cycle_10_eac_stage_a_runner_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -284,7 +284,9 @@
         "epoch_4_cycle_10_eac_stage_0_completed",
         "epoch_4_cycle_10_eac_runtime_queue_check_completed",
         "epoch_4_cycle_10_eac_validation_search_completed",
-        "epoch_4_cycle_10_eac_selected_config_frozen"
+        "epoch_4_cycle_10_eac_selected_config_frozen",
+        "epoch_4_cycle_10_eac_stage_a_manifest_frozen",
+        "epoch_4_cycle_10_eac_stage_a_policy_preflight_passed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -299,7 +301,7 @@
         "AC2-VLA"
     ],
     "prototype_gate": "EAC Stage 0, runtime queue check, and bounded validation search passed; Stage A manifest freeze may run next.",
-    "current_decision": "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY",
+    "current_decision": "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -450,7 +452,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before any rollout.",
+    "next_action": "Implement the minimal EAC Stage A runner and launch only after runner validation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -1185,7 +1187,7 @@
         ],
         "next_stage": "Actual disk-reloadable adapter training and validation."
     },
-    "task_reset_manifest": null,
+    "task_reset_manifest": "reports/eac_vla/stage_a_manifest.json",
     "epoch_4_cycle_6_mtf_adapter_checkpoint_outcome": {
         "method": "MTF-VLA",
         "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
@@ -2204,7 +2206,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_10_candidate_search_pending",
+    "current_topic": "epoch_4_cycle_10_eac_stage_a_runner_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3468,7 +3470,39 @@
         "selected_max_commitment_share": 0.34,
         "stage_a_manifest_allowed": true,
         "stage_a_rollout_allowed": false,
-        "next_stage": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before rollout."
+        "next_stage": "Implement the minimal EAC Stage A runner and launch only after runner validation.",
+        "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
+        "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
+        "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
+        "stage_a_manifest_canonical_payload_sha256": "63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C",
+        "stage_a_planned_episode_count": 50,
+        "stage_a_paired_cases_per_policy": 10,
+        "stage_a_reset_seeds": [
+            20261211,
+            20261212
+        ],
+        "stage_a_policy_order": [
+            "frozen_smolvla_fixed_queue",
+            "aac_entropy_proxy",
+            "eac_full",
+            "eac_no_calibration_no_hysteresis_ablation",
+            "fixed_short_replan_baseline"
+        ],
+        "stage_a_preflight_decision": "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING",
+        "stage_a_preflight": "reports/eac_vla/stage_a_preflight.json",
+        "stage_a_preflight_md": "reports/eac_vla/stage_a_preflight.md",
+        "stage_a_preflight_policy_count": 5,
+        "stage_a_preflight_checkpoint_policy_count": 0,
+        "stage_a_preflight_cuda_ok": true,
+        "stage_a_preflight_cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "stage_a_preflight_policy_output_shape": [
+            50,
+            7
+        ],
+        "stage_a_preflight_all_policy_prefixes_value_preserving": true,
+        "stage_a_preflight_no_accidental_checkpoint_reuse": true,
+        "stage_a_preflight_old_custom_libero_7d_route_used": false,
+        "stage_a_runner_implementation_required": true
     },
     "epoch_4_cycle_10_eac_development_outcome": {
         "method": "EAC-VLA",
@@ -3477,7 +3511,7 @@
         "stage_0_completed": true,
         "closed_loop_experiment_happened": false,
         "training_happened": false,
-        "validation_search_happened": false,
+        "validation_search_happened": true,
         "confirmatory_test_tuning_happened": false,
         "stage_0_audit": "reports/eac_vla/stage_0_audit.json",
         "stage_0_audit_md": "reports/eac_vla/stage_0_audit.md",
@@ -3521,7 +3555,6 @@
         "validation_search_md": "reports/eac_vla/validation_search.md",
         "selected_config_path": "reports/eac_vla/selected_config.json",
         "validation_decision": "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY",
-        "validation_search_happened": true,
         "validation_confirmatory_records_used_for_tuning": false,
         "tried_config_count": 6,
         "selected_config": "eac_q33_aggressive_1_4_50",
@@ -3555,7 +3588,39 @@
             "eac_no_calibration_no_hysteresis_ablation",
             "fixed_short_replan_baseline"
         ],
-        "next_stage": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before rollout."
+        "next_stage": "Implement the minimal EAC Stage A runner and launch only after runner validation.",
+        "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
+        "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
+        "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
+        "stage_a_manifest_canonical_payload_sha256": "63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C",
+        "stage_a_planned_episode_count": 50,
+        "stage_a_paired_cases_per_policy": 10,
+        "stage_a_reset_seeds": [
+            20261211,
+            20261212
+        ],
+        "stage_a_policy_order": [
+            "frozen_smolvla_fixed_queue",
+            "aac_entropy_proxy",
+            "eac_full",
+            "eac_no_calibration_no_hysteresis_ablation",
+            "fixed_short_replan_baseline"
+        ],
+        "stage_a_preflight_decision": "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING",
+        "stage_a_preflight": "reports/eac_vla/stage_a_preflight.json",
+        "stage_a_preflight_md": "reports/eac_vla/stage_a_preflight.md",
+        "stage_a_preflight_policy_count": 5,
+        "stage_a_preflight_checkpoint_policy_count": 0,
+        "stage_a_preflight_cuda_ok": true,
+        "stage_a_preflight_cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "stage_a_preflight_policy_output_shape": [
+            50,
+            7
+        ],
+        "stage_a_preflight_all_policy_prefixes_value_preserving": true,
+        "stage_a_preflight_no_accidental_checkpoint_reuse": true,
+        "stage_a_preflight_old_custom_libero_7d_route_used": false,
+        "stage_a_runner_implementation_required": true
     },
     "epoch_4_cycle_10_eac_runtime_queue_check": {
         "method": "EAC-VLA",
@@ -3624,5 +3689,56 @@
         "stage_a_manifest_allowed": true,
         "stage_a_rollout_allowed": false,
         "next_stage": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before rollout."
+    },
+    "epoch_4_cycle_10_eac_stage_a_preflight": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING",
+        "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
+        "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
+        "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
+        "stage_a_manifest_canonical_payload_sha256": "63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C",
+        "stage_a_preflight": "reports/eac_vla/stage_a_preflight.json",
+        "stage_a_preflight_md": "reports/eac_vla/stage_a_preflight.md",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "planned_episode_count": 50,
+        "paired_cases_per_policy": 10,
+        "reset_seeds": [
+            20261211,
+            20261212
+        ],
+        "policy_order": [
+            "frozen_smolvla_fixed_queue",
+            "aac_entropy_proxy",
+            "eac_full",
+            "eac_no_calibration_no_hysteresis_ablation",
+            "fixed_short_replan_baseline"
+        ],
+        "policy_count": 5,
+        "checkpoint_policy_count": 0,
+        "cuda_ok": true,
+        "cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "cuda_memory": {
+            "allocated_bytes": 937461760,
+            "allocated_mb": 894.033,
+            "max_allocated_bytes": 971614720,
+            "max_allocated_mb": 926.604
+        },
+        "policy_output_shape": [
+            50,
+            7
+        ],
+        "policy_output_shape_ok": true,
+        "policy_output_finite": true,
+        "all_policy_prefixes_value_preserving": true,
+        "no_accidental_checkpoint_reuse": true,
+        "old_custom_libero_7d_route_used": false,
+        "errors": [],
+        "stage_a_rollout_allowed": false,
+        "stage_a_runner_implementation_required": true,
+        "next_stage": "Implement the minimal EAC Stage A runner and launch only after runner validation."
     }
 }

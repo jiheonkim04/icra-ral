@@ -1,0 +1,676 @@
+{
+  "branch": "codex/autonomous-until-paper-governance-v2",
+  "canonical_payload_sha256": "63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C",
+  "closed_loop_experiment_happened": false,
+  "config_id": "eac_q33_aggressive_1_4_50",
+  "confirmatory_test_identities_used_for_training_or_validation": false,
+  "confirmatory_test_tuning_happened": false,
+  "date": "2026-07-15 KST",
+  "episodes": [
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_0|seed_20261211",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261211",
+      "planned_episode_index": 0,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_0|seed_20261212",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261212",
+      "planned_episode_index": 1,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_8|seed_20261211",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261211",
+      "planned_episode_index": 2,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_spatial|task_8|seed_20261212",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261212",
+      "planned_episode_index": 3,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_6|seed_20261211",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261211",
+      "planned_episode_index": 4,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261211,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_object|task_6|seed_20261212",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261212",
+      "planned_episode_index": 5,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261212,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_4|seed_20261211",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261211",
+      "planned_episode_index": 6,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261211,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_goal|task_4|seed_20261212",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261212",
+      "planned_episode_index": 7,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261212,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_2|seed_20261211",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261211",
+      "planned_episode_index": 8,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261211,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "frozen_smolvla_fixed_queue|libero_10|task_2|seed_20261212",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261212",
+      "planned_episode_index": 9,
+      "policy": "frozen_smolvla_fixed_queue",
+      "reset_seed": 20261212,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_0|seed_20261211",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261211",
+      "planned_episode_index": 10,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_0|seed_20261212",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261212",
+      "planned_episode_index": 11,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_8|seed_20261211",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261211",
+      "planned_episode_index": 12,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_spatial|task_8|seed_20261212",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261212",
+      "planned_episode_index": 13,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_6|seed_20261211",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261211",
+      "planned_episode_index": 14,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261211,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_object|task_6|seed_20261212",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261212",
+      "planned_episode_index": 15,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261212,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_4|seed_20261211",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261211",
+      "planned_episode_index": 16,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261211,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_goal|task_4|seed_20261212",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261212",
+      "planned_episode_index": 17,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261212,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_2|seed_20261211",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261211",
+      "planned_episode_index": 18,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261211,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "aac_entropy_proxy|libero_10|task_2|seed_20261212",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261212",
+      "planned_episode_index": 19,
+      "policy": "aac_entropy_proxy",
+      "reset_seed": 20261212,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_0|seed_20261211",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261211",
+      "planned_episode_index": 20,
+      "policy": "eac_full",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_0|seed_20261212",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261212",
+      "planned_episode_index": 21,
+      "policy": "eac_full",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_8|seed_20261211",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261211",
+      "planned_episode_index": 22,
+      "policy": "eac_full",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_spatial|task_8|seed_20261212",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261212",
+      "planned_episode_index": 23,
+      "policy": "eac_full",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_6|seed_20261211",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261211",
+      "planned_episode_index": 24,
+      "policy": "eac_full",
+      "reset_seed": 20261211,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_object|task_6|seed_20261212",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261212",
+      "planned_episode_index": 25,
+      "policy": "eac_full",
+      "reset_seed": 20261212,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_4|seed_20261211",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261211",
+      "planned_episode_index": 26,
+      "policy": "eac_full",
+      "reset_seed": 20261211,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_goal|task_4|seed_20261212",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261212",
+      "planned_episode_index": 27,
+      "policy": "eac_full",
+      "reset_seed": 20261212,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_2|seed_20261211",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261211",
+      "planned_episode_index": 28,
+      "policy": "eac_full",
+      "reset_seed": 20261211,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_full|libero_10|task_2|seed_20261212",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261212",
+      "planned_episode_index": 29,
+      "policy": "eac_full",
+      "reset_seed": 20261212,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_0|seed_20261211",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261211",
+      "planned_episode_index": 30,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_0|seed_20261212",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261212",
+      "planned_episode_index": 31,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_8|seed_20261211",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261211",
+      "planned_episode_index": 32,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_spatial|task_8|seed_20261212",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261212",
+      "planned_episode_index": 33,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_6|seed_20261211",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261211",
+      "planned_episode_index": 34,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261211,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_object|task_6|seed_20261212",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261212",
+      "planned_episode_index": 35,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261212,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_4|seed_20261211",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261211",
+      "planned_episode_index": 36,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261211,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_goal|task_4|seed_20261212",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261212",
+      "planned_episode_index": 37,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261212,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_2|seed_20261211",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261211",
+      "planned_episode_index": 38,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261211,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "eac_no_calibration_no_hysteresis_ablation|libero_10|task_2|seed_20261212",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261212",
+      "planned_episode_index": 39,
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "reset_seed": 20261212,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_0|seed_20261211",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261211",
+      "planned_episode_index": 40,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_0|seed_20261212",
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pair_id": "libero_spatial|task_0|seed_20261212",
+      "planned_episode_index": 41,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_8|seed_20261211",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261211",
+      "planned_episode_index": 42,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261211,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_spatial|task_8|seed_20261212",
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "pair_id": "libero_spatial|task_8|seed_20261212",
+      "planned_episode_index": 43,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261212,
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_6|seed_20261211",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261211",
+      "planned_episode_index": 44,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261211,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_object|task_6|seed_20261212",
+      "instruction": "pick up the butter and place it in the basket",
+      "pair_id": "libero_object|task_6|seed_20261212",
+      "planned_episode_index": 45,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261212,
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_4|seed_20261211",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261211",
+      "planned_episode_index": 46,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261211,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_goal|task_4|seed_20261212",
+      "instruction": "put the bowl on top of the cabinet",
+      "pair_id": "libero_goal|task_4|seed_20261212",
+      "planned_episode_index": 47,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261212,
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_2|seed_20261211",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261211",
+      "planned_episode_index": 48,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261211,
+      "suite": "libero_10",
+      "task_id": 2
+    },
+    {
+      "episode_id": "fixed_short_replan_baseline|libero_10|task_2|seed_20261212",
+      "instruction": "turn on the stove and put the moka pot on it",
+      "pair_id": "libero_10|task_2|seed_20261212",
+      "planned_episode_index": 49,
+      "policy": "fixed_short_replan_baseline",
+      "reset_seed": 20261212,
+      "suite": "libero_10",
+      "task_id": 2
+    }
+  ],
+  "errors": [],
+  "final_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
+  "fixed_task_balanced_allocation": true,
+  "method": "EAC-VLA",
+  "mode": "stage_a_manifest",
+  "next_step": "Run the EAC Stage A policy preflight before any rollout.",
+  "no_post_hoc_task_or_reset_selection": true,
+  "official_success_condition": "LIBERO official task success from environment final_info/is_success",
+  "paired_cases_per_policy": 10,
+  "planned_episode_count": 50,
+  "policy_identities": [
+    {
+      "commitment": 50,
+      "policy": "frozen_smolvla_fixed_queue",
+      "proxy_or_reproduction_label": "unmodified frozen SmolVLA action values with fixed full queue commitment",
+      "role": "base",
+      "scheduler": "fixed_commitment"
+    },
+    {
+      "commitment": 8,
+      "commitment_map": {
+        "long": 50,
+        "medium": 8,
+        "short": 2
+      },
+      "policy": "aac_entropy_proxy",
+      "proxy_or_reproduction_label": "faithful transparent local proxy, not an official AAC reproduction",
+      "quantile_margin": 0.33,
+      "role": "closest_prior_proxy",
+      "scheduler": "dispersion_only_quantile_proxy"
+    },
+    {
+      "commitment": 4,
+      "commitment_map": {
+        "long": 50,
+        "medium": 4,
+        "short": 1
+      },
+      "config_id": "eac_q33_aggressive_1_4_50",
+      "policy": "eac_full",
+      "proxy_or_reproduction_label": "ours",
+      "quantile_margin": 0.33,
+      "role": "ours",
+      "scheduler": "selected_validation_config"
+    },
+    {
+      "commitment": 4,
+      "commitment_map": {
+        "long": 50,
+        "medium": 4,
+        "short": 1
+      },
+      "policy": "eac_no_calibration_no_hysteresis_ablation",
+      "proxy_or_reproduction_label": "key ablation",
+      "raw_thresholds": {
+        "high": 0.6666666666666666,
+        "low": 0.3333333333333333
+      },
+      "role": "key_ablation",
+      "scheduler": "raw_risk_fixed_threshold_ablation"
+    },
+    {
+      "commitment": 1,
+      "policy": "fixed_short_replan_baseline",
+      "proxy_or_reproduction_label": "strong simple fixed short-replan baseline",
+      "role": "simple_killer",
+      "scheduler": "fixed_commitment"
+    }
+  ],
+  "policy_order": [
+    "frozen_smolvla_fixed_queue",
+    "aac_entropy_proxy",
+    "eac_full",
+    "eac_no_calibration_no_hysteresis_ablation",
+    "fixed_short_replan_baseline"
+  ],
+  "policy_order_affects_env_initialization": false,
+  "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+  "reset_seeds": [
+    20261211,
+    20261212
+  ],
+  "schema_version": 1,
+  "selected_config": {
+    "commitment_counts": {
+      "1": 132,
+      "4": 136,
+      "50": 132
+    },
+    "commitment_map": {
+      "long": 50,
+      "medium": 4,
+      "short": 1
+    },
+    "config_id": "eac_q33_aggressive_1_4_50",
+    "max_commitment_share": 0.34,
+    "oscillation_fraction": 0.6388888888888888,
+    "policy_calls_per_step_proxy": 0.4216,
+    "quantile_margin": 0.33,
+    "risk_monotonicity_short_gt_long": true,
+    "risk_summary_by_commitment": {
+      "1": {
+        "count": 132,
+        "max": 1.0,
+        "mean": 0.5626796837122628,
+        "min": 0.30860313236146664,
+        "p50": 0.5019669481835786,
+        "p95": 0.9832699363175449
+      },
+      "4": {
+        "count": 136,
+        "max": 0.3085894120013512,
+        "mean": 0.21484555177296905,
+        "min": 0.13938054468316916,
+        "p50": 0.2115970243684425,
+        "p95": 0.29514483289083077
+      },
+      "50": {
+        "count": 132,
+        "max": 0.1364078421539268,
+        "mean": 0.06894869902880432,
+        "min": 0.0,
+        "p50": 0.07300336823166828,
+        "p95": 0.13082922764875465
+      }
+    },
+    "score_components": {
+      "clean_action_value_passthrough": 1.0,
+      "latency_penalty": 0.4097959183673469,
+      "mechanism_activation": 0.6599999999999999,
+      "oscillation_penalty": 0.6388888888888888,
+      "risk_exposure_reduction_proxy": 0.9032794643799159,
+      "runtime_action_validity": 1.0
+    },
+    "validation_score": 0.7530415186081504
+  },
+  "tasks": [
+    {
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    {
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "suite": "libero_spatial",
+      "task_id": 8
+    },
+    {
+      "instruction": "pick up the butter and place it in the basket",
+      "suite": "libero_object",
+      "task_id": 6
+    },
+    {
+      "instruction": "put the bowl on top of the cabinet",
+      "suite": "libero_goal",
+      "task_id": 4
+    },
+    {
+      "instruction": "turn on the stove and put the moka pot on it",
+      "suite": "libero_10",
+      "task_id": 2
+    }
+  ],
+  "training_happened": false,
+  "validation_search_happened": false
+}

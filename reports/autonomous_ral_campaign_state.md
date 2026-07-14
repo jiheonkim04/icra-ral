@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`
+Current decision: `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_manifest_pending`
+Current stage: `epoch_4_cycle_10_eac_stage_a_runner_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -279,4 +279,8 @@ EAC bounded validation search completed with exactly six configurations and no c
 
 Final EAC validation decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`. The selected config is `eac_q33_aggressive_1_4_50`, with validation score `0.7530415186081504`, commitment counts `1:132`, `4:136`, `50:132`, policy-calls-per-step proxy `0.4216`, oscillation fraction `0.6388888888888888`, risk-exposure-reduction proxy `0.9032794643799159`, mechanism activation `0.6599999999999999`, clean action-value passthrough `1.0`, and runtime action validity `1.0`.
 
-Current decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`. Current stage: `epoch_4_cycle_10_eac_stage_a_manifest_pending`. Next action: freeze the EAC Stage A matched manifest and preflight the five policy identities before any rollout.
+The EAC Stage A matched manifest is frozen in `reports/eac_vla/stage_a_manifest.json` with canonical payload hash `63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C`. It contains exactly five policies (`frozen_smolvla_fixed_queue`, `aac_entropy_proxy`, `eac_full`, `eac_no_calibration_no_hysteresis_ablation`, `fixed_short_replan_baseline`), fresh reset seeds `20261211` and `20261212`, `10` paired cases per policy, and `50` total planned episodes. `aac_entropy_proxy` remains a faithful transparent local proxy, not an official AAC reproduction.
+
+EAC Stage A policy preflight passed in `reports/eac_vla/stage_a_preflight.json` as `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`: `5` scheduler identities were checked, `0` checkpoint policies were required, CUDA ran on `NVIDIA GeForce RTX 5080`, the policy output shape was `[50, 7]`, all policy prefixes preserved action values exactly, and no accidental checkpoint reuse was possible. No rollout, training, validation search, or confirmatory-test tuning happened during preflight.
+
+Current decision: `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`. Current stage: `epoch_4_cycle_10_eac_stage_a_runner_pending`. Next action: implement the minimal EAC Stage A runner and launch only after runner validation.

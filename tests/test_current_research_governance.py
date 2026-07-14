@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_manifest_pending"
+    assert state["current_decision"] == "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_runner_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -129,6 +129,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_runtime_queue_check_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_selected_config_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_a_manifest_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_a_policy_preflight_passed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -242,7 +244,27 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert eac["selected_policy_calls_per_step_proxy"] == 0.4216
     assert eac["selected_risk_exposure_reduction_proxy"] == 0.9032794643799159
     assert eac["stage_a_manifest_allowed"] is True
+    assert eac["stage_a_manifest_decision"] == "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING"
+    assert eac["stage_a_manifest"] == "reports/eac_vla/stage_a_manifest.json"
+    assert eac["stage_a_manifest_canonical_payload_sha256"] == "63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C"
+    assert eac["stage_a_planned_episode_count"] == 50
+    assert eac["stage_a_paired_cases_per_policy"] == 10
+    assert eac["stage_a_reset_seeds"] == [20261211, 20261212]
+    assert eac["stage_a_policy_order"] == [
+        "frozen_smolvla_fixed_queue",
+        "aac_entropy_proxy",
+        "eac_full",
+        "eac_no_calibration_no_hysteresis_ablation",
+        "fixed_short_replan_baseline",
+    ]
+    assert eac["stage_a_preflight_decision"] == "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING"
+    assert eac["stage_a_preflight_policy_count"] == 5
+    assert eac["stage_a_preflight_checkpoint_policy_count"] == 0
+    assert eac["stage_a_preflight_cuda_ok"] is True
+    assert eac["stage_a_preflight_policy_output_shape"] == [50, 7]
+    assert eac["stage_a_preflight_all_policy_prefixes_value_preserving"] is True
     assert eac["stage_a_rollout_allowed"] is False
+    assert eac["stage_a_runner_implementation_required"] is True
     eac_outcome = state["epoch_4_cycle_10_eac_development_outcome"]
     assert eac_outcome["final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
     assert eac_outcome["hard_stop_reasons"] == []
@@ -250,6 +272,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert eac_outcome["runtime_queue_check_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
     assert eac_outcome["validation_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
     assert eac_outcome["selected_config"] == "eac_q33_aggressive_1_4_50"
+    assert eac_outcome["stage_a_manifest_decision"] == "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING"
+    assert eac_outcome["stage_a_preflight_decision"] == "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING"
+    assert eac_outcome["stage_a_preflight_all_policy_prefixes_value_preserving"] is True
     assert eac_outcome["valid_current_formulation_kill"] is False
     queue_check = state["epoch_4_cycle_10_eac_runtime_queue_check"]
     assert queue_check["final_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
@@ -276,7 +301,25 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert validation["selected_commitment_counts"] == {"1": 132, "4": 136, "50": 132}
     assert validation["stage_a_manifest_allowed"] is True
     assert validation["stage_a_rollout_allowed"] is False
-    assert state["task_reset_manifest"] is None
+    preflight = state["epoch_4_cycle_10_eac_stage_a_preflight"]
+    assert preflight["final_decision"] == "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING"
+    assert preflight["closed_loop_experiment_happened"] is False
+    assert preflight["training_happened"] is False
+    assert preflight["confirmatory_test_tuning_happened"] is False
+    assert preflight["planned_episode_count"] == 50
+    assert preflight["paired_cases_per_policy"] == 10
+    assert preflight["reset_seeds"] == [20261211, 20261212]
+    assert preflight["policy_count"] == 5
+    assert preflight["checkpoint_policy_count"] == 0
+    assert preflight["cuda_ok"] is True
+    assert preflight["policy_output_shape"] == [50, 7]
+    assert preflight["all_policy_prefixes_value_preserving"] is True
+    assert preflight["no_accidental_checkpoint_reuse"] is True
+    assert preflight["old_custom_libero_7d_route_used"] is False
+    assert preflight["errors"] == []
+    assert preflight["stage_a_rollout_allowed"] is False
+    assert preflight["stage_a_runner_implementation_required"] is True
+    assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
