@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`
+Current decision: `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_runner_pending`
+Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_ready`
 
 ## Corrected Epoch 1 Result
 
@@ -283,4 +283,6 @@ The EAC Stage A matched manifest is frozen in `reports/eac_vla/stage_a_manifest.
 
 EAC Stage A policy preflight passed in `reports/eac_vla/stage_a_preflight.json` as `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`: `5` scheduler identities were checked, `0` checkpoint policies were required, CUDA ran on `NVIDIA GeForce RTX 5080`, the policy output shape was `[50, 7]`, all policy prefixes preserved action values exactly, and no accidental checkpoint reuse was possible. No rollout, training, validation search, or confirmatory-test tuning happened during preflight.
 
-Current decision: `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`. Current stage: `epoch_4_cycle_10_eac_stage_a_runner_pending`. Next action: implement the minimal EAC Stage A runner and launch only after runner validation.
+EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json` as `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`. The validated runner reconstructs the frozen validation-only EAC thresholds, uses `2` runtime samples for dynamic schedulers, preserves all policy prefixes without action-value modification, and keeps rollout/training/confirmatory-test tuning at `False`.
+
+Current decision: `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`. Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_ready`. Next action: launch the frozen EAC Stage A rollout with the validated runner.

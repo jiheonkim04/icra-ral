@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "current_topic": "epoch_4_cycle_10_eac_stage_a_runner_pending",
+    "current_topic": "epoch_4_cycle_10_eac_stage_a_rollout_ready",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "ac4b04d",
+    "current_commit": "f427d09",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_10_eac_stage_a_runner_pending",
+    "current_stage": "epoch_4_cycle_10_eac_stage_a_rollout_ready",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -273,7 +273,8 @@
         "epoch_4_cycle_10_eac_validation_search_completed",
         "epoch_4_cycle_10_eac_selected_config_frozen",
         "epoch_4_cycle_10_eac_stage_a_manifest_frozen",
-        "epoch_4_cycle_10_eac_stage_a_policy_preflight_passed"
+        "epoch_4_cycle_10_eac_stage_a_policy_preflight_passed",
+        "epoch_4_cycle_10_eac_stage_a_runner_validated"
     ],
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -294,7 +295,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING",
+    "current_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -403,7 +404,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Implement the minimal EAC Stage A runner and launch only after runner validation.",
+    "next_action": "Launch the frozen EAC Stage A rollout with the validated runner.",
     "method": "EAC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1595,7 +1596,7 @@
     },
     "hypothesis": "PESA-VLA stopped at Stage 0 as a pre-rollout DESIGN_FAILURE because the prior-query signal was not validation-predictable above majority; Epoch 4 Cycle 10 candidate search is pending.",
     "novelty_claim": "Next method not yet selected after PESA Stage 0 design failure.",
-    "prototype_gate": "Cycle 10 candidate selection must generate exactly three candidates and select one under current governance before implementation.",
+    "prototype_gate": "EAC Stage A runner validation passed; frozen Stage A rollout may launch next.",
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
         "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
@@ -2154,7 +2155,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_10_eac_stage_a_runner_pending",
+    "topic": "epoch_4_cycle_10_eac_stage_a_rollout_ready",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3417,8 +3418,8 @@
         "selected_runtime_action_validity": 1.0,
         "selected_max_commitment_share": 0.34,
         "stage_a_manifest_allowed": true,
-        "stage_a_rollout_allowed": false,
-        "next_stage": "Implement the minimal EAC Stage A runner and launch only after runner validation.",
+        "stage_a_rollout_allowed": true,
+        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner.",
         "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
         "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
         "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
@@ -3450,7 +3451,34 @@
         "stage_a_preflight_all_policy_prefixes_value_preserving": true,
         "stage_a_preflight_no_accidental_checkpoint_reuse": true,
         "stage_a_preflight_old_custom_libero_7d_route_used": false,
-        "stage_a_runner_implementation_required": true
+        "stage_a_runner_implementation_required": false,
+        "stage_a_runner_validation_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
+        "stage_a_runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
+        "stage_a_runner_validation_md": "reports/eac_vla/stage_a_runner_validation.md",
+        "stage_a_runner_validation_sha256": "b85891b7c9e4abe52f908bbdc7efaa7ab030ee69685882f6b79ec0325f0b04ad",
+        "stage_a_runner_policy_count": 5,
+        "stage_a_runner_runtime_samples_for_dynamic_schedulers": 2,
+        "stage_a_runner_runtime_calibration_validation_frame_count": 400,
+        "stage_a_runner_eac_quantile_thresholds": {
+            "high": 0.3085939397201893,
+            "low": 0.1383995528485192,
+            "quantile_margin": 0.33
+        },
+        "stage_a_runner_aac_dispersion_quantile_thresholds": {
+            "high": 0.2708144477625418,
+            "low": 0.10427305027305488,
+            "quantile_margin": 0.33
+        },
+        "stage_a_runner_all_policy_prefixes_value_preserving": true,
+        "stage_a_runner_any_action_values_modified": false,
+        "stage_a_runner_cuda_ok": true,
+        "stage_a_runner_cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "stage_a_runner_errors": [],
+        "stage_a_run_script": "scripts/run_eac_vla_stage_a.py",
+        "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
+        "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
+        "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md"
     },
     "epoch_4_cycle_10_eac_development_outcome": {
         "method": "EAC-VLA",
@@ -3526,7 +3554,7 @@
         "selected_runtime_action_validity": 1.0,
         "selected_max_commitment_share": 0.34,
         "stage_a_manifest_allowed": true,
-        "stage_a_rollout_allowed": false,
+        "stage_a_rollout_allowed": true,
         "hard_stop_reasons": [],
         "valid_current_formulation_kill": false,
         "first_comparison_policies": [
@@ -3536,7 +3564,7 @@
             "eac_no_calibration_no_hysteresis_ablation",
             "fixed_short_replan_baseline"
         ],
-        "next_stage": "Implement the minimal EAC Stage A runner and launch only after runner validation.",
+        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner.",
         "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
         "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
         "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
@@ -3568,7 +3596,34 @@
         "stage_a_preflight_all_policy_prefixes_value_preserving": true,
         "stage_a_preflight_no_accidental_checkpoint_reuse": true,
         "stage_a_preflight_old_custom_libero_7d_route_used": false,
-        "stage_a_runner_implementation_required": true
+        "stage_a_runner_implementation_required": false,
+        "stage_a_runner_validation_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
+        "stage_a_runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
+        "stage_a_runner_validation_md": "reports/eac_vla/stage_a_runner_validation.md",
+        "stage_a_runner_validation_sha256": "b85891b7c9e4abe52f908bbdc7efaa7ab030ee69685882f6b79ec0325f0b04ad",
+        "stage_a_runner_policy_count": 5,
+        "stage_a_runner_runtime_samples_for_dynamic_schedulers": 2,
+        "stage_a_runner_runtime_calibration_validation_frame_count": 400,
+        "stage_a_runner_eac_quantile_thresholds": {
+            "high": 0.3085939397201893,
+            "low": 0.1383995528485192,
+            "quantile_margin": 0.33
+        },
+        "stage_a_runner_aac_dispersion_quantile_thresholds": {
+            "high": 0.2708144477625418,
+            "low": 0.10427305027305488,
+            "quantile_margin": 0.33
+        },
+        "stage_a_runner_all_policy_prefixes_value_preserving": true,
+        "stage_a_runner_any_action_values_modified": false,
+        "stage_a_runner_cuda_ok": true,
+        "stage_a_runner_cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "stage_a_runner_errors": [],
+        "stage_a_run_script": "scripts/run_eac_vla_stage_a.py",
+        "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
+        "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
+        "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md"
     },
     "epoch_4_cycle_10_eac_runtime_queue_check": {
         "method": "EAC-VLA",
@@ -3685,8 +3740,77 @@
         "no_accidental_checkpoint_reuse": true,
         "old_custom_libero_7d_route_used": false,
         "errors": [],
-        "stage_a_rollout_allowed": false,
-        "stage_a_runner_implementation_required": true,
-        "next_stage": "Implement the minimal EAC Stage A runner and launch only after runner validation."
+        "stage_a_rollout_allowed": true,
+        "stage_a_runner_implementation_required": false,
+        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner.",
+        "stage_a_runner_validation_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
+        "stage_a_runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
+        "stage_a_runner_validation_md": "reports/eac_vla/stage_a_runner_validation.md",
+        "stage_a_runner_validation_sha256": "b85891b7c9e4abe52f908bbdc7efaa7ab030ee69685882f6b79ec0325f0b04ad",
+        "stage_a_runner_policy_count": 5,
+        "stage_a_runner_runtime_samples_for_dynamic_schedulers": 2,
+        "stage_a_runner_runtime_calibration_validation_frame_count": 400,
+        "stage_a_runner_eac_quantile_thresholds": {
+            "high": 0.3085939397201893,
+            "low": 0.1383995528485192,
+            "quantile_margin": 0.33
+        },
+        "stage_a_runner_aac_dispersion_quantile_thresholds": {
+            "high": 0.2708144477625418,
+            "low": 0.10427305027305488,
+            "quantile_margin": 0.33
+        },
+        "stage_a_runner_all_policy_prefixes_value_preserving": true,
+        "stage_a_runner_any_action_values_modified": false,
+        "stage_a_runner_cuda_ok": true,
+        "stage_a_runner_cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "stage_a_runner_errors": [],
+        "stage_a_run_script": "scripts/run_eac_vla_stage_a.py",
+        "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
+        "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
+        "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md"
+    },
+    "epoch_4_cycle_10_eac_stage_a_runner_validation": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
+        "stage_a_runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
+        "stage_a_runner_validation_md": "reports/eac_vla/stage_a_runner_validation.md",
+        "stage_a_runner_validation_sha256": "b85891b7c9e4abe52f908bbdc7efaa7ab030ee69685882f6b79ec0325f0b04ad",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "planned_episode_count": 50,
+        "paired_cases_per_policy": 10,
+        "policy_count": 5,
+        "runtime_samples_for_dynamic_schedulers": 2,
+        "runtime_calibration_validation_frame_count": 400,
+        "eac_quantile_thresholds": {
+            "high": 0.3085939397201893,
+            "low": 0.1383995528485192,
+            "quantile_margin": 0.33
+        },
+        "aac_dispersion_quantile_thresholds": {
+            "high": 0.2708144477625418,
+            "low": 0.10427305027305488,
+            "quantile_margin": 0.33
+        },
+        "all_policy_prefixes_value_preserving": true,
+        "any_action_values_modified": false,
+        "no_accidental_checkpoint_reuse": true,
+        "old_custom_libero_7d_route_used": false,
+        "cuda_ok": true,
+        "cuda_device_name": "NVIDIA GeForce RTX 5080",
+        "errors": [],
+        "stage_a_rollout_allowed": true,
+        "stage_a_runner_implementation_required": false,
+        "stage_a_run_script": "scripts/run_eac_vla_stage_a.py",
+        "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
+        "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
+        "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
+        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner."
     }
 }

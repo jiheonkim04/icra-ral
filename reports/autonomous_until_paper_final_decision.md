@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `EAC_STAGE_A_PREFLIGHT_PASS_RUNNER_IMPLEMENTATION_PENDING`
+Current campaign decision: `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`
 
 This is not a terminal decision.
 
@@ -182,4 +182,6 @@ EAC bounded validation search completed with exactly six configurations and no c
 
 The EAC Stage A matched manifest is frozen in `reports/eac_vla/stage_a_manifest.json` with canonical payload hash `63E96D0629F3D34E4801EB1084D094CB287EC4F2F2FCD96373981787EDA9954C`, reset seeds `20261211` and `20261212`, `10` paired cases per policy, and `50` total planned episodes. EAC Stage A policy preflight passed in `reports/eac_vla/stage_a_preflight.json`: CUDA was available on `NVIDIA GeForce RTX 5080`, output shape was `[50, 7]`, and all policy prefixes preserved action values exactly.
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_runner_pending`. Next action: implement the minimal EAC Stage A runner and launch only after runner validation.
+EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json`: the runner preserves action values, reconstructs frozen validation-only thresholds, and authorizes the frozen Stage A rollout without training or confirmatory-test tuning.
+
+Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_ready`. Next action: launch the frozen EAC Stage A rollout with the validated runner.

@@ -160,3 +160,25 @@ def test_eac_stage_a_preflight_preserves_action_values_before_rollout() -> None:
     assert report["errors"] == []
     assert all(not record["action_values_modified"] for record in report["preflight_records"])
     assert {record["policy"] for record in report["preflight_records"]} == set(report["policy_order"])
+
+
+def test_eac_stage_a_runner_validation_authorizes_frozen_rollout() -> None:
+    report = json.loads((REPORTS / "eac_vla" / "stage_a_runner_validation.json").read_text(encoding="utf-8"))
+
+    assert report["final_decision"] == "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT"
+    assert report["closed_loop_experiment_happened"] is False
+    assert report["training_happened"] is False
+    assert report["validation_search_happened"] is False
+    assert report["confirmatory_test_tuning_happened"] is False
+    assert report["planned_episode_count"] == 50
+    assert report["policy_count"] == 5
+    assert report["runtime_samples_for_dynamic_schedulers"] == 2
+    assert report["runtime_calibration"]["validation_frame_count"] == 400
+    assert report["runtime_calibration"]["eac_quantile_thresholds"]["low"] == 0.1383995528485192
+    assert report["runtime_calibration"]["eac_quantile_thresholds"]["high"] == 0.3085939397201893
+    assert report["all_policy_prefixes_value_preserving"] is True
+    assert report["any_action_values_modified"] is False
+    assert report["stage_a_rollout_allowed"] is True
+    assert report["errors"] == []
+    assert {record["policy"] for record in report["runner_validation_records"]} == set(report["policy_order"])
+    assert all(not record["action_values_modified"] for record in report["runner_validation_records"])
