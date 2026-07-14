@@ -11,7 +11,7 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_records_evostate_design_failure_without_cycle_cap() -> None:
+def test_active_state_records_rac_stage_a_pending_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -19,11 +19,11 @@ def test_active_state_records_evostate_design_failure_without_cycle_cap() -> Non
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_5_candidate_search_pending"
-    assert state["method"] == "NEXT_METHOD_UNSELECTED"
-    assert state["proposal_hash"] is None
-    assert state["prototype_protocol"] is None
+    assert state["current_decision"] == "EPOCH_4_CYCLE_5_RAC_VALIDATION_SELECTED_STAGE_A_PENDING"
+    assert state["current_stage"] == "rac_vla_stage_a_pending"
+    assert state["method"] == "RAC-VLA"
+    assert state["proposal_hash"] == "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F"
+    assert state["prototype_protocol"] == "reports/rac_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -36,9 +36,12 @@ def test_active_state_records_evostate_design_failure_without_cycle_cap() -> Non
     assert "epoch_4_cycle_4_evostate_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_4_evostate_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_4_evostate_design_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_5_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_5_rac_validation_search_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_5_rac_stage_a_runner_implemented" in state["completed_stages"]
     assert state["checkpoint_path"] is None
-    assert state["stage_a_result_json"] == "reports/fang_vla/stage_a_result.json"
-    assert state["stage_b_result_json"] == "reports/fang_vla/stage_b_result.json"
+    assert state["stage_a_result_json"] == "reports/rac_vla/stage_a_result.json"
+    assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
@@ -87,6 +90,11 @@ def test_active_state_records_evostate_design_failure_without_cycle_cap() -> Non
     assert state["epoch_4_cycle_4_outcome"]["transition_pairs"] == 10769
     assert state["epoch_4_cycle_4_outcome"]["transition_improvement_vs_actionless"] == 0.024689372539669806
     assert state["epoch_4_cycle_4_outcome"]["required_transition_improvement_vs_actionless"] == 0.05
+    assert state["epoch_4_cycle_5_pre_stage_a"]["method"] == "RAC-VLA"
+    assert state["epoch_4_cycle_5_pre_stage_a"]["proposal_hash"] == "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F"
+    assert state["epoch_4_cycle_5_pre_stage_a"]["development_final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
+    assert state["epoch_4_cycle_5_pre_stage_a"]["selected_config"] == "rac_h4_a0.05"
+    assert state["epoch_4_cycle_5_pre_stage_a"]["selected_residual_alpha"] == 0.05
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:

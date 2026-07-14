@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_5_RAC_VALIDATION_SELECTED_STAGE_A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `5`
 
-Current stage: `epoch_4_cycle_5_candidate_search_pending`
+Current stage: `rac_vla_stage_a_pending`
 
 Allowed final states:
 
@@ -161,4 +161,24 @@ Stage 0 development audit completed without closed-loop rollout. It produced `AU
 
 This is a valid pre-rollout hard stop, not a closed-loop scientific result. Do not lower the threshold, reinterpret the audit, or launch EvoState Stage A.
 
-Current stage: Epoch 4 Cycle 5 candidate search pending. Generate exactly three new prior-anchored candidates under the current post-CAVM governance.
+## Epoch 4 Cycle 5
+
+`RAC-VLA` is selected and preregistered as a Reflective VLA-anchored action-consequence calibration method for frozen SmolVLA under controlled deployment action-channel shift.
+
+Selection artifacts:
+
+- prior mechanism map: `reports/epoch_4_cycle_5_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_5_candidate_generation.md`
+- proposal: `reports/rac_vla/researcher_proposal.md`
+- proposal hash: `71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F`
+- reviewer attack: `reports/rac_vla/reviewer_attack.md`
+- rebuttal: `reports/rac_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/rac_vla/mathematical_mechanism_audit.md`
+- preregistration: `reports/rac_vla/preregistration.md`
+- prototype protocol: `reports/rac_vla/prototype_protocol.md`
+
+Stage 0 development audit passed without closed-loop rollout. It found `10769` consequence pairs and `53685` labeled synthetic inverse-command examples with zero duplicate perturbation keys. The full action-consequence classifier reached validation accuracy `0.585745`, beating action-only `0.368496` and no-consequence `0.374483`; the full-vs-best-baseline margin was `0.211262`, above the preregistered `0.05` threshold. Gate positive fraction was `0.168306`, clean gate positive fraction was `0.0`, clean action delta p95 was `0.0`, and validation action validity was `1.0`.
+
+The bounded six-config validation search selected `rac_h4_a0.05`: history horizon `4`, residual alpha `0.05`, score `0.508926`, full validation accuracy `0.603250`, and full-vs-best-baseline margin `0.244397`.
+
+Current stage: RAC-VLA Stage A pending. Run the preregistered five-policy shifted-condition manifest with hidden `x_attenuate` action-channel shift. Do not retune RAC after Stage A outcomes.

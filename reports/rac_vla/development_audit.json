@@ -1,0 +1,93 @@
+{
+  "action_only_validation_accuracy": 0.368496079828938,
+  "best_baseline_shifted_validation_accuracy": 0.4093608933238299,
+  "clean_action_delta_p95": 0.0,
+  "clean_gate_positive_fraction": 0.0,
+  "clean_identity_validation_count": 4209,
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "forbidden_development_identity_min": 20260917,
+    "gate_confidence": 0.35,
+    "history_horizon": 2,
+    "min_accuracy_margin": 0.05,
+    "min_consequence_pairs": 5000,
+    "min_task_pairs": 1000,
+    "residual_alpha": 0.1,
+    "residual_delta_max": 0.2,
+    "ridge_lambda": 0.01,
+    "train_identities": [
+      20260901,
+      20260902,
+      20260903,
+      20260904,
+      20260905,
+      20260906,
+      20260907,
+      20260908,
+      20260909,
+      20260910
+    ],
+    "validation_identities": [
+      20260911,
+      20260912,
+      20260913,
+      20260914,
+      20260915,
+      20260916
+    ]
+  },
+  "consequence_pairs": 10769,
+  "duplicate_perturbation_keys": 0,
+  "final_decision": "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH",
+  "full_identity_validation_accuracy": 0.6272273699215966,
+  "full_shifted_validation_accuracy": 0.5753741981468282,
+  "full_validation_accuracy": 0.5857448325017819,
+  "full_vs_best_baseline_accuracy_margin": 0.21126158232359227,
+  "full_vs_best_baseline_shifted_accuracy_margin": 0.1660133048229983,
+  "gate_positive_fraction": 0.16830601092896175,
+  "hard_stop_reasons": [],
+  "label_counts": {
+    "gripper_bias": 10737,
+    "identity": 10737,
+    "x_attenuate": 10737,
+    "xy_swap": 10737,
+    "y_attenuate": 10737
+  },
+  "labeled_examples": 53685,
+  "method": "RAC-VLA",
+  "model_reports": {
+    "action": {
+      "confidence_mean": 0.2143915827082369,
+      "feature_dim": 17,
+      "identity_validation_accuracy": 0.2169161320978855,
+      "shifted_validation_accuracy": 0.4063910667617011,
+      "validation_accuracy": 0.368496079828938
+    },
+    "full": {
+      "confidence_mean": 0.26802346755800305,
+      "feature_dim": 111,
+      "identity_validation_accuracy": 0.6272273699215966,
+      "shifted_validation_accuracy": 0.5753741981468282,
+      "validation_accuracy": 0.5857448325017819
+    },
+    "noconsequence": {
+      "confidence_mean": 0.214613753702001,
+      "feature_dim": 25,
+      "identity_validation_accuracy": 0.23497267759562843,
+      "shifted_validation_accuracy": 0.4093608933238299,
+      "validation_accuracy": 0.3744832501781896
+    }
+  },
+  "next_step": "Run bounded six-config validation search.",
+  "no_consequence_validation_accuracy": 0.3744832501781896,
+  "proposal_hash": "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F",
+  "shifted_action_delta_p95": 0.010000000000000002,
+  "task_consequence_counts": {
+    "libero_10/task_4": 7194,
+    "libero_spatial/task_4": 3575
+  },
+  "train_examples": 32640,
+  "training_happened": false,
+  "validation_action_validity": 1.0,
+  "validation_examples": 21045
+}

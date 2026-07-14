@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED`
+Current campaign decision: `EPOCH_4_CYCLE_5_RAC_VALIDATION_SELECTED_STAGE_A_PENDING`
 
 This is not a terminal decision.
 
@@ -57,4 +57,8 @@ Epoch 4 Cycle 4 selected and preregistered `EvoState-VLA`, an EvoScene/DREAM-anc
 
 Stage 0 stopped before rollout as `AUDIT_STOP_DESIGN_FAILURE`: the full transition model improved only `0.024689` over an actionless model, below the preregistered `0.05` threshold.
 
-Next action: begin Epoch 4 Cycle 5 by generating exactly three new prior-anchored candidates.
+Epoch 4 Cycle 5 selected and preregistered `RAC-VLA`, a Reflective VLA-anchored frozen-policy action-consequence calibration method. Proposal hash: `71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F`.
+
+RAC Stage 0 passed without rollout: full action-consequence validation accuracy `0.585745` beat action-only `0.368496` and no-consequence `0.374483`, with margin `0.211262`; clean action delta p95 was `0.0`. The six-config validation search selected `rac_h4_a0.05` with score `0.508926`.
+
+Next action: run RAC-VLA Stage A on the frozen five-policy shifted-condition manifest. Do not retune RAC using Stage A outcomes.

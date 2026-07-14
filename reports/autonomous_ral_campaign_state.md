@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_5_RAC_VALIDATION_SELECTED_STAGE_A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `5`
 
-Current stage: `epoch_4_cycle_5_candidate_search_pending`
+Current stage: `rac_vla_stage_a_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -110,4 +110,12 @@ Artifacts:
 
 Stage 0 development audit completed without closed-loop rollout and stopped as `AUDIT_STOP_DESIGN_FAILURE`. The full transition model improved over a constant predictor by `0.715309`, but improved only `0.024689` over an actionless model, below the preregistered `0.05` action-input improvement threshold. This means the proposed action-conditioned state mechanism is not sufficiently supported for rollout.
 
-Next action: begin Epoch 4 Cycle 5 by generating exactly three new prior-anchored candidates. Do not rescue EvoState by lowering the Stage 0 threshold.
+## Epoch 4 Cycle 5
+
+`RAC-VLA` is selected and preregistered as a Reflective VLA-anchored action-consequence calibration method for frozen SmolVLA under controlled deployment action-channel shift.
+
+Stage 0 development audit passed with `10769` consequence pairs, `53685` labeled examples, zero duplicate perturbation keys, full validation accuracy `0.585745`, action-only validation accuracy `0.368496`, no-consequence validation accuracy `0.374483`, and full-vs-best-baseline margin `0.211262`.
+
+The bounded six-config validation search selected `rac_h4_a0.05`: history horizon `4`, residual alpha `0.05`, score `0.508926`, full validation accuracy `0.603250`, and full-vs-best-baseline margin `0.244397`.
+
+Current stage: RAC-VLA Stage A pending. Run the preregistered five-policy shifted-condition manifest with hidden `x_attenuate` action-channel shift.
