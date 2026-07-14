@@ -37,6 +37,7 @@ ACQUISITION_IDENTITIES = list(range(20260901, 20260913))
 CALIBRATION_IDENTITIES = list(range(20260913, 20260917))
 STAGE_2A_IDENTITIES = list(range(20260917, 20260922))
 STAGE_2B_IDENTITIES = list(range(20260922, 20260942))
+STAGE_2B_EXPANSION_IDENTITIES = list(range(20260942, 20260951))
 
 
 def _write_json(path: Path, payload: Mapping[str, Any]) -> None:
@@ -408,6 +409,21 @@ def _stage_2b_decision(summary: Mapping[str, Any], paired: Mapping[str, Any]) ->
     return "STAGE_2B_UNRESOLVED_EXPANSION_OPTIONAL"
 
 
+def _stage_2b_expanded_decision(summary: Mapping[str, Any], paired: Mapping[str, Any]) -> str:
+    decision = _stage_2b_decision(summary, paired)
+    if decision == "STAGE_2B_PROTOTYPE_GO":
+        return "STAGE_2B_EXPANDED_PROTOTYPE_GO"
+    if decision == "STAGE_2B_PERMANENT_KILL_NO_MECHANISM_ACTIVATION":
+        return "STAGE_2B_EXPANDED_PERMANENT_KILL_NO_MECHANISM_ACTIVATION"
+    if decision == "STAGE_2B_PERMANENT_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT":
+        return "STAGE_2B_EXPANDED_PERMANENT_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
+    if decision == "STAGE_2B_PERMANENT_KILL_WORSE_THAN_FROZEN":
+        return "STAGE_2B_EXPANDED_PERMANENT_KILL_WORSE_THAN_FROZEN"
+    if decision == "STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED":
+        return "STAGE_2B_EXPANDED_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
+    return "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
+
+
 def _load_policy(args: argparse.Namespace) -> dict[str, Any]:
     _set_runtime_env(args)
     return _load_policy_and_processors(args, POLICIES[0])
@@ -482,10 +498,22 @@ def _stage_2_mode(args: argparse.Namespace, *, stage: str) -> dict[str, Any]:
     loaded = _load_policy(args)
     memory_path = Path(args.memory_config)
     memory = json.loads(memory_path.read_text(encoding="utf-8-sig"))
-    identities = STAGE_2A_IDENTITIES[: int(args.stage_2a_identities)] if stage == "stage-2a" else STAGE_2B_IDENTITIES[: int(args.stage_2b_identities)]
+    if stage == "stage-2a":
+        identities = STAGE_2A_IDENTITIES[: int(args.stage_2a_identities)]
+    elif stage == "stage-2b-expansion":
+        identities = STAGE_2B_IDENTITIES + STAGE_2B_EXPANSION_IDENTITIES
+    else:
+        identities = STAGE_2B_IDENTITIES[: int(args.stage_2b_identities)]
     rows = _planned_rows(TASKS[: int(args.max_tasks)], identities, VARIANTS)
-    partial_path = Path(args.stage_2a_partial_output if stage == "stage-2a" else args.stage_2b_partial_output)
+    if stage == "stage-2a":
+        partial_path = Path(args.stage_2a_partial_output)
+    elif stage == "stage-2b-expansion":
+        partial_path = Path(args.stage_2b_expansion_partial_output)
+    else:
+        partial_path = Path(args.stage_2b_partial_output)
     episodes: list[dict[str, Any]] = []
+    if stage == "stage-2b-expansion" and Path(args.stage_2b_output).exists():
+        episodes = list(json.loads(Path(args.stage_2b_output).read_text(encoding="utf-8-sig")).get("episodes") or [])
     if partial_path.exists() and not bool(args.rerun_stage_2):
         episodes = list(json.loads(partial_path.read_text(encoding="utf-8-sig")).get("episodes") or [])
     completed = {(row.get("variant"), row.get("task_key"), int(row.get("identity", -1))) for row in episodes}
@@ -498,7 +526,12 @@ def _stage_2_mode(args: argparse.Namespace, *, stage: str) -> dict[str, Any]:
         _write_json(partial_path, {"episodes": episodes, "planned_episode_count": len(rows)})
     summary = _summarize(episodes, VARIANTS)
     paired = _paired_vs_cavm(episodes, VARIANTS)
-    final = _stage_2a_decision(summary) if stage == "stage-2a" else _stage_2b_decision(summary, paired)
+    if stage == "stage-2a":
+        final = _stage_2a_decision(summary)
+    elif stage == "stage-2b-expansion":
+        final = _stage_2b_expanded_decision(summary, paired)
+    else:
+        final = _stage_2b_decision(summary, paired)
     return {
         "mode": stage,
         "branch": BRANCH,
@@ -537,12 +570,17 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         _write_json(Path(args.stage_2b_output), report)
         _write_md(Path(args.stage_2b_md), "CAVM-VLA Stage 2B Result", report)
         return report
+    if args.mode == "stage-2b-expansion":
+        report = _stage_2_mode(args, stage="stage-2b-expansion")
+        _write_json(Path(args.stage_2b_expansion_output), report)
+        _write_md(Path(args.stage_2b_expansion_md), "CAVM-VLA Stage 2B Expansion Result", report)
+        return report
     raise ValueError(args.mode)
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["acquire-calibrate", "stage-2a", "stage-2b"], required=True)
+    parser.add_argument("--mode", choices=["acquire-calibrate", "stage-2a", "stage-2b", "stage-2b-expansion"], required=True)
     parser.add_argument("--base-path", default="/mnt/c/assets/checkpoints/smolvla_libero")
     parser.add_argument("--lora-root", default="/mnt/c/assets/checkpoints/smolvla_libero_lora/rank4")
     parser.add_argument("--libero-config-dir", default="/home/jiheon/.libero")
@@ -557,6 +595,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--stage-2b-output", default="reports/cavm_vla/stage_2b_result.json")
     parser.add_argument("--stage-2b-md", default="reports/cavm_vla/stage_2b_result.md")
     parser.add_argument("--stage-2b-partial-output", default="reports/cavm_vla/stage_2b_partial_result.json")
+    parser.add_argument("--stage-2b-expansion-output", default="reports/cavm_vla/stage_2b_expansion_result.json")
+    parser.add_argument("--stage-2b-expansion-md", default="reports/cavm_vla/stage_2b_expansion_result.md")
+    parser.add_argument("--stage-2b-expansion-partial-output", default="reports/cavm_vla/stage_2b_expansion_partial_result.json")
     parser.add_argument("--max-tasks", type=int, default=2)
     parser.add_argument("--stage-2a-identities", type=int, default=5)
     parser.add_argument("--stage-2b-identities", type=int, default=20)
