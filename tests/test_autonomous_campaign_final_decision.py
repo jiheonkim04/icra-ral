@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`" in final
+    assert "Current campaign decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -34,18 +34,23 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "RAC full reached `1 / 40`" in final
     assert "no-consequence ablation reached `2 / 40`" in final
     assert "post-RAC governance update is installed" in final
+    assert "MTF-VLA" in final
+    assert "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31" in final
+    assert "FrameSkip proxy" in final
+    assert "mtf_r20_ret100" in final
+    assert "0.643663" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 6
-    assert state["current_stage"] == "epoch_4_cycle_6_candidate_search_pending"
-    assert state["method"] == "TBD_POST_RAC_CYCLE_6"
-    assert state["proposal_hash"] == "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F"
+    assert state["current_stage"] == "epoch_4_cycle_6_mtf_adapter_training_pending"
+    assert state["method"] == "MTF-VLA"
+    assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -58,7 +63,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Generate exactly three post-RAC candidates")
+    assert state["next_action"].startswith("Train disk-reloadable MTF-VLA selected-config adapter checkpoints")
     assert "post_pse_research_design_governance_applied" in state["completed_stages"]
     assert "epoch_4_cycle_1_rcv_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "post_cavm_performance_governance_applied" in state["completed_stages"]
@@ -90,6 +95,18 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_5_stage_b_outcome"]["online_diagonal_inverse_gain_successes"] == 2
     assert "post_rac_governance_update_installed" in state["completed_stages"]
     assert "epoch_4_cycle_6_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_6_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_validation_search_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_selected_config_frozen" in state["completed_stages"]
+    assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
+    assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
+    assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["development_final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["validation_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["selected_config"] == "mtf_r20_ret100"
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["stage_a_allowed"] is False
     assert state["epoch_4_cycle_3_outcome"]["final_decision"] == "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
     assert state["epoch_4_cycle_3_outcome"]["fang_full_successes"] == 11
     assert state["epoch_4_cycle_3_outcome"]["base_smolvla_successes"] == 16

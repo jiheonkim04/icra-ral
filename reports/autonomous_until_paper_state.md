@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`
+Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `6`
 
-Current stage: `epoch_4_cycle_6_candidate_search_pending`
+Current stage: `epoch_4_cycle_6_mtf_adapter_training_pending`
 
 Allowed final states:
 
@@ -191,4 +191,26 @@ Final RAC decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not 
 
 The post-RAC performance-oriented governance is installed in `reports/current_research_governance.md`, `AGENTS.md`, and `reports/codex_delegation_manual.md`. Future method cycles must maximize the probability of an honest paper-worthy positive result by using positive-prior anchors, usable-headroom audits, data/supervision health gates, identity-preserving integration, bounded development search, mathematical objective engineering, mechanism smoke, and frozen confirmatory tests.
 
-Current stage: Epoch 4 Cycle 6 candidate search pending. Generate exactly three candidates and select exactly one under the installed post-RAC governance.
+## Epoch 4 Cycle 6
+
+`MTF-VLA` is selected and preregistered as a FrameSkip and StructVLA anchored milestone-transition data-supervision method for identity-preserving SmolVLA adapter training.
+
+Selection artifacts:
+
+- prior mechanism map: `reports/epoch_4_cycle_6_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_6_candidate_generation.md`
+- proposal: `reports/mtf_vla/researcher_proposal.md`
+- proposal hash: `11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31`
+- reviewer attack: `reports/mtf_vla/reviewer_attack.md`
+- rebuttal: `reports/mtf_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/mtf_vla/mathematical_mechanism_audit.md`
+- preregistration: `reports/mtf_vla/preregistration.md`
+- prototype protocol: `reports/mtf_vla/prototype_protocol.md`
+
+The first serious comparison is frozen to five policies: Base, FrameSkip proxy, MTF full, no-retention ablation, and uniform retained-ratio LoRA.
+
+Stage 0 development audit passed without training or closed-loop rollout using `reports/official_smolvla_stable_prediction_artifact.json`. It found `1600` development records (`1200` train, `400` validation), `1200` reserved test records not used, `40` selected task keys, duplicate sample keys `0`, duplicate frame keys `0`, high-low score gap `0.585702`, gripper-transition fraction `0.341875`, state joined fraction `1.0`, and adapter-init action delta p95 `0.0`.
+
+The bounded six-config validation search selected `mtf_r20_ret100`: retained high-frame ratio `0.20`, retention coefficient `1.00`, validation score `0.643663`, `176` high train frames, and `391` base-retention train frames. The selected config is frozen in `reports/mtf_vla/selected_config.json`; the training manifest is frozen in `reports/mtf_vla/selected_training_manifest.json`.
+
+Current stage: adapter training pending. Stage A must not start until disk-reloadable checkpoints exist for MTF full, no-retention ablation, FrameSkip proxy, and uniform retained-ratio LoRA.

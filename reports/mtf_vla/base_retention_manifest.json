@@ -1,0 +1,6 @@
+{
+  "reloadable": true,
+  "sha256": "3312B604E5F60EC0C0F909792C1410AF17FAD7ED50FB4861E6602056E88A5ACE",
+  "source": "prediction_artifact.base_action",
+  "target_count": 400
+}

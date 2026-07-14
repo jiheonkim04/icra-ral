@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`
+Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `6`
 
-Current stage: `epoch_4_cycle_6_candidate_search_pending`
+Current stage: `epoch_4_cycle_6_mtf_adapter_training_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -128,4 +128,12 @@ Final RAC decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not 
 
 The post-RAC performance-oriented governance is installed in `reports/current_research_governance.md`, `AGENTS.md`, and `reports/codex_delegation_manual.md`. Future method cycles must maximize the probability of an honest paper-worthy positive result by using positive-prior anchors, usable-headroom audits, data/supervision health gates, identity-preserving integration, bounded development search, mathematical objective engineering, mechanism smoke, and frozen confirmatory tests.
 
-Current stage: Epoch 4 Cycle 6 candidate search pending. Generate exactly three candidates and select exactly one under the installed post-RAC governance.
+## Epoch 4 Cycle 6
+
+`MTF-VLA` is selected and preregistered as a FrameSkip and StructVLA anchored milestone-transition data-supervision method for identity-preserving SmolVLA adapter training.
+
+Stage 0 development audit passed without training or closed-loop rollout using `reports/official_smolvla_stable_prediction_artifact.json`: `1600` development records, `1200` reserved test records not used, `40` task keys, duplicate sample keys `0`, duplicate frame keys `0`, high-low score gap `0.585702`, gripper-transition fraction `0.341875`, and adapter-init action delta p95 `0.0`.
+
+The bounded six-config validation search selected `mtf_r20_ret100`: retained high-frame ratio `0.20`, retention coefficient `1.00`, validation score `0.643663`, `176` high train frames, and `391` base-retention train frames. The selected config and training manifest are frozen under `reports/mtf_vla/`.
+
+Current stage: adapter training pending. Stage A must not start until disk-reloadable checkpoints exist for MTF full, no-retention ablation, FrameSkip proxy, and uniform retained-ratio LoRA.

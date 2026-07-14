@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`
+Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -56,4 +56,12 @@ Final RAC decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not 
 
 The post-RAC governance update is installed and active. It requires future methods to maximize the probability of an honest paper-worthy positive result through stronger positive-prior-anchored design, usable-headroom audits, data/supervision health gates, identity-preserving integration, bounded validation search, mathematical objective engineering, mechanism smoke, and frozen confirmatory tests.
 
-Next action: begin Epoch 4 Cycle 6 by generating exactly three candidates, selecting exactly one, and proceeding automatically under the installed governance.
+Epoch 4 Cycle 6 generated exactly three post-RAC candidates and selected `MTF-VLA`. Proposal hash: `11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31`.
+
+MTF-VLA is a FrameSkip and StructVLA anchored milestone-transition data-supervision method for identity-preserving SmolVLA adapter training. The first comparison is frozen to Base, FrameSkip proxy, MTF full, no-retention ablation, and uniform retained-ratio LoRA.
+
+MTF Stage 0 development audit passed without training or closed-loop rollout using the official stable train/val/test prediction artifact: `1600` development records, duplicate sample keys `0`, duplicate frame keys `0`, high-low score gap `0.585702`, gripper-transition fraction `0.341875`, and adapter-init action delta p95 `0.0`.
+
+The bounded six-config validation search selected `mtf_r20_ret100`: retained high-frame ratio `0.20`, retention coefficient `1.00`, validation score `0.643663`, `176` high train frames, and `391` base-retention train frames. The selected config and training manifest are frozen under `reports/mtf_vla/`.
+
+Next action: train disk-reloadable selected-config adapter checkpoints for MTF full, no-retention ablation, FrameSkip proxy, and uniform retained-ratio LoRA before any Stage A rollout.

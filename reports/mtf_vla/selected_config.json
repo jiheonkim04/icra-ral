@@ -1,0 +1,28 @@
+{
+  "audit_final_decision": "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH",
+  "config_id": "mtf_r20_ret100",
+  "final_decision": "VALIDATION_CONFIG_PASS",
+  "gripper_transition_fraction": 0.341875,
+  "hard_stop_reasons": [],
+  "high_low_score_gap": 0.5857019297500093,
+  "high_train_frames": 176,
+  "retained_high_frame_ratio": 0.2,
+  "retention_coefficient": 1.0,
+  "retention_train_frames": 391,
+  "score_terms": {
+    "action_validity_and_bounded_delta": 0.9303362502855659,
+    "base_action_l2_global_validation": 0.08630366897708504,
+    "base_action_l2_high_validation": 0.09724746549783211,
+    "base_action_l2_low_validation": 0.08069325967443643,
+    "base_action_l2_uniform_validation": 0.10202290164275447,
+    "clean_retention": 1.0,
+    "compute_overhead": 1.0,
+    "lora_minus_base_delta_p95_validation": 0.1393274994288682,
+    "mechanism_activation": 0.8353119687777819,
+    "total": 0.6436633752294507,
+    "validation_closed_loop_proxy": 0.09590673270096481
+  },
+  "train_records": 1200,
+  "uniform_overlap_fraction": 0.2175,
+  "validation_records": 400
+}
