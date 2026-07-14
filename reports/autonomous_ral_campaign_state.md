@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_preregistration_pending`
+Current stage: `epoch_4_cycle_10_eac_stage_0_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -265,4 +265,6 @@ Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` wi
 
 The EAC mathematical mechanism audit is frozen in `reports/eac_vla/mathematical_mechanism_audit.md` with decision `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines the `50 x 7` chunk variables, dispersion/entropy rules, queue-risk formula, commitment map, action-value equality gate, validation-search score, required ablation, and Stage 0 hard stops.
 
-Current decision: `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_10_eac_preregistration_pending`. Next action: write and freeze preregistration and prototype protocol before implementation.
+The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/preregistration.md` and `reports/eac_vla/prototype_protocol.md`. The next permitted action is only the Stage 0 development audit; validation search, Stage A, and rollout remain blocked unless Stage 0 passes.
+
+Current decision: `EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_10_eac_stage_0_pending`. Next action: implement and run only the EAC Stage 0 development audit.

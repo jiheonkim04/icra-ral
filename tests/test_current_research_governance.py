@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_preregistration_pending"
+    assert state["current_decision"] == "EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_0_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -123,6 +123,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_rebuttal_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_prototype_protocol_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -192,6 +194,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert eac["rebuttal_decision"] == "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert eac["mathematical_audit"] == "reports/eac_vla/mathematical_mechanism_audit.md"
     assert eac["mathematical_audit_decision"] == "EAC_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert eac["preregistration"] == "reports/eac_vla/preregistration.md"
+    assert eac["preregistration_decision"] == "EAC_PREREGISTRATION_FROZEN_STAGE_0_PENDING"
+    assert eac["prototype_protocol"] == "reports/eac_vla/prototype_protocol.md"
+    assert eac["prototype_protocol_decision"] == "EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

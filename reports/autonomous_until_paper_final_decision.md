@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current campaign decision: `EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -170,4 +170,6 @@ Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` wi
 
 The EAC mathematical mechanism audit is frozen in `reports/eac_vla/mathematical_mechanism_audit.md` with decision `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines exact variables, shapes, dispersion/entropy rules, action-value passthrough, validation search limits, required ablation, and Stage 0 hard stops.
 
-Current stage: `epoch_4_cycle_10_eac_preregistration_pending`. Next action: write and freeze preregistration and prototype protocol before implementation.
+The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/preregistration.md` and `reports/eac_vla/prototype_protocol.md`. The next permitted action is only Stage 0 development audit; validation search, Stage A, and rollout remain blocked unless Stage 0 passes.
+
+Current stage: `epoch_4_cycle_10_eac_stage_0_pending`. Next action: implement and run only the EAC Stage 0 development audit.

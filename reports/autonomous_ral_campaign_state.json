@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "topic": "epoch_4_cycle_10_eac_preregistration_pending",
+    "topic": "epoch_4_cycle_10_eac_stage_0_pending",
     "method": "EAC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "2d96a56",
-    "current_stage": "epoch_4_cycle_10_eac_preregistration_pending",
+    "current_commit": "c0ac34d",
+    "current_stage": "epoch_4_cycle_10_eac_stage_0_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -278,7 +278,9 @@
         "epoch_4_cycle_10_eac_proposal_frozen",
         "epoch_4_cycle_10_eac_reviewer_attack_completed",
         "epoch_4_cycle_10_eac_rebuttal_completed",
-        "epoch_4_cycle_10_eac_mathematical_audit_preregistered"
+        "epoch_4_cycle_10_eac_mathematical_audit_preregistered",
+        "epoch_4_cycle_10_eac_preregistration_frozen",
+        "epoch_4_cycle_10_eac_prototype_protocol_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -292,8 +294,8 @@
         "AR-VLA",
         "AC2-VLA"
     ],
-    "prototype_gate": "EAC mathematical audit is preregistered; no implementation or Stage 0 may run before preregistration and prototype protocol are frozen.",
-    "current_decision": "EAC_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "prototype_gate": "EAC preregistration and prototype protocol are frozen; only Stage 0 development audit may run next.",
+    "current_decision": "EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -444,7 +446,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write and freeze EAC-VLA preregistration and prototype protocol before implementation or Stage 0.",
+    "next_action": "Implement and run only the EAC-VLA Stage 0 development audit; do not launch validation search, Stage A, or rollout unless Stage 0 passes.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -3380,6 +3382,10 @@
         "rebuttal_decision": "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/eac_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_decision": "EAC_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "next_stage": "Write and freeze EAC-VLA preregistration and prototype protocol before implementation or Stage 0."
+        "preregistration": "reports/eac_vla/preregistration.md",
+        "preregistration_decision": "EAC_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol": "reports/eac_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "next_stage": "Implement and run only the EAC-VLA Stage 0 development audit."
     }
 }
