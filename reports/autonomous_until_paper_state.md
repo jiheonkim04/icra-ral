@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
+Current decision: `EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3`
 
 Current epoch: `4`
 
-Current cycle: `2`
+Current cycle: `3`
 
-Current stage: `epoch_4_cycle_2_selection_pending`
+Current stage: `epoch_4_cycle_3_selection_pending`
 
 Allowed final states:
 
@@ -105,4 +105,14 @@ The paired comparison against the no-context ablation was negative: full-minus-a
 
 RCV's mechanism acted, with full replan rate `0.557293` and heavy policy calls per step `0.563500`, but the no-context ablation achieved higher success with fewer heavy calls per step (`0.429078`). The result excludes a useful improvement from the claimed current-state queued-vs-fresh validity mechanism.
 
-Next action: begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.
+## Epoch 4 Cycle 2
+
+`CAVM-VLA` is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION`.
+
+Stage 0/1 acquired and calibrated a contrastive action-value memory with `10801` records and passed the preregistered gateable calibration checks. Stage 2A completed `50 / 50` episodes and required Stage 2B. Stage 2B completed `200 / 200` episodes and produced a positive but unresolved signal, so the preregistered one-time expansion was run unchanged.
+
+The expanded result completed `290 / 290` rows with zero exceptions: `58` paired episodes for each of five variants and an identical task/reset manifest. Full CAVM reached `24 / 58` with task-balanced success `0.413793`. The strongest baseline, nearest-success replay, reached `23 / 58` with task-balanced success `0.396552`; frozen SmolVLA reached `22 / 58`, success-only memory proxy reached `20 / 58`, and the no-contrast ablation reached `21 / 58`.
+
+Full CAVM beat every baseline and the key ablation numerically, but the effect remained below the preregistered useful-improvement bar after the only allowed expansion. Full-minus-nearest paired delta was `0.017241`, wins `4`, losses `3`, ties `51`, CI `[-0.068966, 0.103448]`. Full-minus-no-contrast paired delta was `0.051724`, CI `[-0.034483, 0.137931]`. Mechanism activation was nonzero (`0.633522` mean gate activation rate), and there was no privileged inference signal, but the final decision is non-GO with no third expansion.
+
+Next action: begin Epoch 4 Cycle 3 candidate generation under the post-CAVM performance-oriented research-design gate. Do not rescue CAVM by threshold retuning, additional expansion, memory reconstruction changes, or added hyperparameter variants.

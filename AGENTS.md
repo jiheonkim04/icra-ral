@@ -10,12 +10,27 @@ Future Codex sessions must read that file before treating any older report, stat
 
 1. Do not fabricate results, hide failed runs, overwrite previous experiment outputs, cherry-pick tasks/resets/seeds/metrics, or claim paper-grade evidence from proxy checks.
 2. Do not use privileged simulator state at default inference time. Simulator labels may be used only for training supervision, evaluation metrics, or oracle ablations when predeclared.
-3. Freeze proposals, baselines, ablations, task/reset allocation, statistics, and kill/scale rules before inspecting confirmatory results.
+3. Separate `DISCOVERY`, `VALIDATION`, and `CONFIRMATORY_TEST` evidence. Use discovery and validation to build the strongest honest method, then freeze proposals, baselines, ablations, task/reset allocation, statistics, configuration, and kill/scale rules before inspecting confirmatory results.
 4. Maintain branch safety: do not modify `main` directly, do not revert user work, and do not use destructive git or filesystem commands unless explicitly requested.
 5. Run bounded risk assessment before downloads, GPU work, training, rollout, simulator setup, or heavy imports. Proceed autonomously only when source, size, disk, RAM/VRAM, runtime, dependency, license/token, and repository policy checks are inside budget.
 6. Stop before token/secret/API-key access, paid services, license click-through, external submission or publishing, deleting user files outside approved repo/cache cleanup, system-wide CUDA/PyTorch/driver changes, credentialed system setup, or unsupported empirical claims.
 7. Preserve resource monitoring for GPU memory, runtime, disk, downloads, checkpoints, and resumability.
 8. Before commit or merge, inspect the changed-file count and line diff. If the change would include more than 50 files or more than 5,000 changed lines, record the scope and justification before proceeding.
+
+## Performance-Oriented Method Development
+
+After the fixed CAVM-VLA adjudication, future methods should be anchored to a positive external prior when possible and may use bounded validation-only design search before confirmatory testing. This includes literature-derived design principles, discovery diagnostics, validation tasks/reset identities, bounded hyperparameter search, clean-retention diagnostics, mechanism smoke tests, and external-prior reproduction.
+
+Do not tune on confirmatory test identities or reinterpret confirmatory results to rescue the same method. A major redesign after confirmatory test is a new method cycle.
+
+Future method proposals must include:
+
+- closest positive external prior or a justified reason no anchored prior is feasible;
+- pre-experiment headroom and data/contrast audit;
+- bounded validation search budget;
+- mathematical objective audit with term scale and gradient checks;
+- identity-preserving integration audit;
+- one default simple reviewer-killer baseline at initial prototype unless a concrete reviewer objection justifies another.
 
 ## Deprecated Instructions
 

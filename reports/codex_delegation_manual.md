@@ -43,6 +43,16 @@ Maintain active state primarily in:
 
 Do not fabricate results, hide failed runs, cherry-pick favorable tasks/resets/seeds, change confirmatory metrics after seeing results, or use privileged inference inputs. Preserve failed and weak results with honest labels.
 
+After CAVM, method development is performance-oriented before confirmatory testing. Researcher A should use positive prior evidence, discovery diagnostics, validation-only design search, identity-preserving integration, clean-retention objectives, mechanism-aware ablations, appropriate mathematical distances, adequate training, and implementation diagnostics to build the strongest honest method.
+
+Maintain three evidence partitions:
+
+- `DISCOVERY`: problem discovery, failure inspection, supervision design, representation tests, and mechanism hypotheses.
+- `VALIDATION`: bounded architecture, hyperparameter, coefficient, clean-retention, and configuration selection.
+- `CONFIRMATORY_TEST`: one-shot held-out evaluation after method, configuration, baselines, ablations, tasks, resets, metrics, and thresholds are frozen.
+
+Reviewer B must prevent test-set tuning, task cherry-picking, seed cherry-picking, post-hoc threshold changes, repeated rescue of a valid non-GO result, unreported failed configurations, and inflated novelty claims.
+
 Before confirmatory evaluation, freeze:
 
 - primary metrics,
@@ -79,6 +89,10 @@ OpenVLA-OFT INT4 is not universally prohibited. Quantized OpenVLA-OFT INT4 execu
 ## Prototype Governance
 
 Stage A estimates direction, detects catastrophic harm, and validates the mechanism. It is not a permanent scientific kill for one- or two-episode differences. Permanent scientific kills require the statistical rules in `reports/current_research_governance.md`.
+
+Future first serious prototypes should normally use exactly five policies: Base, closest external prior or faithful transparent proxy, Ours, key ablation, and one strongest simple reviewer-killer baseline. Additional internal controls require a concrete reviewer objection and must be cheaper than moving to the prior comparison.
+
+Before expensive training or rollout, require a pre-experiment headroom and data audit, a bounded validation search budget, a mathematical objective audit, and an identity-preserving integration audit. The default validation search budget is no more than six total configurations, two seeds per lightweight configuration, two architecture choices, and three values for one critical coefficient. Save all tried configurations and negative results.
 
 After a failed method:
 

@@ -2,7 +2,7 @@
 
 Date: 2026-07-13 KST
 
-Current decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
+Current decision: `EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3`
 
 This is not a terminal state under the active governance.
 
@@ -30,4 +30,6 @@ Epoch 3 Cycle 3 `PSE-VLA` is archived as `STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEM
 
 Epoch 4 Cycle 1 `RCV-VLA` is archived as `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: Stage 2B completed `200 / 200` episodes with zero exceptions, full RCV reached `20 / 40`, no-context ablation reached `24 / 40`, and stateless first-action reached `24 / 40`.
 
-Next action: begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.
+Epoch 4 Cycle 2 `CAVM-VLA` is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION`: the expanded result completed `290 / 290` rows with zero exceptions, full CAVM reached `24 / 58`, nearest-success replay reached `23 / 58`, frozen SmolVLA reached `22 / 58`, success-only memory proxy reached `20 / 58`, and no-contrast ablation reached `21 / 58`.
+
+Next action: begin Epoch 4 Cycle 3 candidate generation under the post-CAVM performance-oriented research-design gate. Do not rescue CAVM by threshold retuning, additional expansion, memory reconstruction changes, or added hyperparameter variants.

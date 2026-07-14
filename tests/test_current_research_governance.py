@@ -11,15 +11,15 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_is_epoch_4_cycle_2_after_rcv_kill_without_cycle_cap() -> None:
+def test_active_state_is_epoch_4_cycle_3_after_cavm_non_go_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 2
+    assert state["current_cycle"] == 3
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
@@ -43,6 +43,13 @@ def test_active_state_is_epoch_4_cycle_2_after_rcv_kill_without_cycle_cap() -> N
     assert state["epoch_4_cycle_1_outcome"]["rcv_no_context_ablation_successes"] == 24
     assert state["epoch_4_cycle_1_outcome"]["stateless_first_action_successes"] == 24
     assert state["epoch_4_cycle_1_outcome"]["valid_current_formulation_kill"] is True
+    assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
+    assert state["epoch_4_cycle_2_outcome"]["valid_current_formulation_non_go"] is True
+    assert state["epoch_4_cycle_2_outcome"]["episode_count"] == 290
+    assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
+    assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
+    assert state["epoch_4_cycle_2_outcome"]["manifest_unique_variant_task_identity_keys"] == 290
+    assert state["epoch_4_cycle_2_outcome"]["manifest_bad_pairs"] == 0
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:
@@ -56,16 +63,24 @@ def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:
     assert "UNDERPOWERED_TARGET_AXIS_NON_GO_ARCHIVED" in adjudication
 
 
-def test_post_pse_research_design_governance_is_active() -> None:
+def test_post_cavm_performance_research_design_governance_is_active() -> None:
     governance = (REPO_ROOT / "reports" / "current_research_governance.md").read_text(encoding="utf-8")
 
-    assert "Post-PSE Research Design Governance" in governance
+    assert "Post-CAVM Performance-Oriented Research Design Governance" in governance
+    assert "`DISCOVERY`" in governance
+    assert "`VALIDATION`" in governance
+    assert "`CONFIRMATORY_TEST`" in governance
     assert "closest external prior" in governance
+    assert "positive result that prior already demonstrates" in governance
+    assert "bounded validation search" in governance
+    assert "no more than `6` total configurations" in governance
     assert "No more than one mandatory simple killer baseline" in governance
     assert "AUTHOR_STATED" in governance
     assert "INDEPENDENTLY_INFERRED" in governance
     assert "CROSS_PAPER_SYNTHESIZED" in governance
     assert "future-work text" in governance
     assert "mathematical_mechanism_audit.md" in governance
+    assert "identity-preserving integration audit" in governance
     assert "variables and tensor shapes" in governance
+    assert "Confirmatory outcomes may not be used to retune the same method" in governance
     assert "Do not compute KL directly between deterministic 7D action vectors" in governance

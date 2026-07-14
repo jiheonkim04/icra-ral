@@ -129,35 +129,49 @@ Do not stop at GO. Continue with larger primary-backbone confirmation, recent di
 
 Stop normally only when `READY_TO_DRAFT_RAL_PAPER_PACKAGE` is satisfied. Do not write the full manuscript.
 
-## Post-PSE Research Design Governance
+## Post-CAVM Performance-Oriented Research Design Governance
 
-This section applies to all method candidates after the valid PSE-VLA adjudication. It is not retroactive to PSE.
+This section applies to all method candidates after the valid CAVM-VLA adjudication. It is not retroactive to CAVM, PSE, or any earlier fixed-protocol result.
 
-Future method cycles must be problem-first, novelty-aware, mechanism-explicit, mathematically justified, and external-prior-early.
+Future method cycles must be problem-first, novelty-aware, mechanism-explicit, mathematically justified, performance-oriented during development, and external-prior-anchored when possible. Rigorous research does not mean refusing to improve a method before confirmatory testing. It means keeping development evidence separate from the held-out confirmatory test and reporting failed development configurations honestly.
 
-Before choosing a method, identify:
+Maintain three evidence partitions:
 
-1. the concrete unresolved failure or assumption;
-2. evidence that the failure matters in closed-loop control;
-3. how the closest external prior addresses or fails to address it;
-4. the proposed technical mechanism;
-5. the falsifiable path from mechanism to policy behavior to closed-loop outcome;
-6. the smallest experiment that can test the hypothesis.
+- `DISCOVERY`: used to discover the problem, inspect failures, design supervision, test representations, and identify plausible mechanisms.
+- `VALIDATION`: used to select architecture, loss weights, bounded hyperparameters, development variants, clean-retention behavior, and one final configuration.
+- `CONFIRMATORY_TEST`: used once after method, configuration, baseline list, ablation, tasks, reset identities, metrics, and thresholds are frozen.
+
+Confirmatory outcomes may not be used to retune the same method. A major redesign after confirmatory test becomes a new method cycle.
+
+### Candidate Selection
+
+Generate exactly three candidates. For each candidate identify:
+
+1. the closest external prior;
+2. the positive result that prior already demonstrates;
+3. official code, checkpoint, or a reproducible mechanism;
+4. the assumption or limitation being extended;
+5. the minimal technical difference proposed by this campaign;
+6. why that difference could improve the same claim axis.
+
+Prefer a strong prior plus one technically meaningful extension plus a fair matched comparison over an unanchored local module. A less anchored candidate may proceed only with stronger problem evidence and a clearer falsifiable mechanism.
 
 Every candidate must declare exactly one contribution type:
 
 - `PRIOR_EXTENSION`
 - `IMPLICIT_GAP_SOLUTION`
 - `CROSS_PAPER_SYNTHESIS`
+- `CROSS_DOMAIN_MECHANISM_TRANSFER`
 - `NEW_DEPLOYMENT_PROBLEM`
 
-Generate exactly three candidates and score them on:
+Score exactly three candidates on:
 
-- provisional method novelty: `30%`
-- importance of unresolved problem: `20%`
+- provisional novelty: `25%`
+- importance of problem: `15%`
+- strength of positive prior anchor: `20%`
 - technical mechanism quality: `20%`
-- external-prior comparison feasibility: `15%`
-- decisive local experiment feasibility: `15%`
+- data/supervision feasibility: `10%`
+- decisive experiment feasibility: `10%`
 
 The score selects what to test. It is not a prediction of empirical success.
 
@@ -171,32 +185,87 @@ Each close-paper record must separate:
 
 For the closest literature, build a mechanism map covering observation/input, learned representation, supervision, objective, policy component changed, action-generation mechanism, inference-time intervention, assumed feedback, benchmark condition, primary metric, actual demonstrated causal link, and untested causal link.
 
-Every selected method must include `reports/<method>/mathematical_mechanism_audit.md` before implementation. The audit must define variables and tensor shapes, mathematical formulation, representation learned, exact policy component affected, training objective, inference algorithm, data and supervision source, gradient path, expected behavioral effect, expected closed-loop consequence, closest mathematical alternative, simplest equivalent baseline, key ablation, and known failure mode.
+### Pre-Experiment Audit
 
-Every proposed module and loss term must state what quantities are compared, why the discrepancy is appropriate, where it is used, which parameters receive gradients, what behavior it should induce, what simpler alternative could replace it, and which ablation proves it matters.
+Before expensive training or rollout, perform a bounded development-only audit using discovery and validation data, not confirmatory test identities.
 
-Do not add KL divergence, entropy, contrastive learning, mutual information, consistency losses, or regularization merely because they sound sophisticated. KL may be used only when both arguments are valid probability distributions or justified density approximations, support and normalization are defined, the KL direction is justified, and the estimator is reliable. SmolVLA flow outputs are not automatically normalized action probability distributions. Do not compute KL directly between deterministic 7D action vectors.
+Check problem headroom: whether Base fails meaningfully on the claimed condition, the closest prior leaves meaningful residual failure, a plausible maximum gain exists, and a diagnostic oracle or privileged upper bound shows that the intervention target is useful. Oracles are diagnostics only, never inference methods.
 
-Before implementation, identify the closest external prior, strongest recent method on the same claim axis, official code or checkpoint availability, exact backbone and benchmark compatibility, required modifications for fair comparison, and whether a faithful local proxy is possible. The closest prior must enter no later than the first confirmatory closed-loop comparison.
+Check label and contrast health: class balance, positive/negative counts, variance, task and phase coverage, censor/mask frequency, no all-zero or all-one targets, no accidental duplication, and no train/test overlap.
 
-Future first serious prototypes should normally compare exactly:
+Check mechanism observability: whether the required latent or state can be inferred from deployment inputs, whether the target is predictable above a trivial baseline, and whether the signal survives across tasks.
 
-1. unmodified backbone;
-2. closest external prior or a faithful transparently labeled proxy;
-3. full proposed method;
+Check policy disruption risk before rollout: action delta from Base, translation/rotation/gripper deltas, intervention frequency, action-bound validity, and clean validation behavior.
+
+Do not proceed to large rollout when labels are collapsed, no headroom exists, the module is nonacting, the module catastrophically changes all actions, or the intended mechanism cannot be inferred from deployment inputs. Classify these as `DATA_FAILURE`, `NO_HEADROOM`, `IMPLEMENTATION_FAILURE`, or `DESIGN_FAILURE`, not as closed-loop scientific results.
+
+### Bounded Validation Search
+
+A method may receive bounded validation search before confirmatory testing. Predeclare the search budget. The default maximum is:
+
+- no more than `6` total configurations;
+- no more than `2` random seeds per configuration for lightweight training;
+- no more than `2` architecture choices;
+- no more than `3` values for one critical coefficient;
+- no combinatorial grid over many variables.
+
+Use discovery/validation only. Candidate factors may include residual or gate magnitude, loss coefficient, context horizon, latent dimension, intervention threshold, clean-retention coefficient, number of samples or views, and learning rate.
+
+Select one configuration using a preregistered validation score that normally combines validation closed-loop success or the closest feasible proxy, clean retention, mechanism activation, action validity, and compute overhead. Do not select purely by offline action L2.
+
+After selection, freeze the configuration, save its checkpoint, save all tried configurations and negative results, and do not tune it on the confirmatory test.
+
+### Mathematical Mechanism Audit
+
+Every selected method must include `reports/<method>/mathematical_mechanism_audit.md` before confirmatory testing. The audit must define variables and tensor shapes, mathematical formulation, representation learned, exact policy component affected, training objective, inference algorithm, data and supervision source, gradient path, expected behavioral effect, expected closed-loop consequence, closest mathematical alternative, simplest equivalent baseline, key ablation, known failure mode, and an identity-preserving integration audit.
+
+For every proposed module and objective term, document exact variables, tensor shapes, mathematical formula, scale, units, gradient path, intended representation or action effect, simpler alternative, and required ablation. Before training, estimate term magnitudes and gradient norms on a small batch. When multiple objectives are used, normalize or justify their scale, inspect gradient norm ratios, inspect gradient conflict when relevant, choose coefficients on validation data only, and freeze coefficients before confirmatory test.
+
+Do not add decorative mathematics. KL divergence may be used only when both arguments are valid probability distributions or justified density approximations, support and normalization are defined, the KL direction is justified, and the estimator is reliable. SmolVLA flow outputs are not automatically normalized action probability distributions. Do not compute KL directly between deterministic 7D action vectors.
+
+Prefer identity-preserving integration when feasible: residual branches initialized to zero, gates initialized to base-policy passthrough, adapters initialized near identity, clean-retention regularizers, bounded interventions, or calibrated mixtures with default base behavior. A method that arbitrarily replaces strong pretrained actions receives a high disruption-risk penalty.
+
+### Mechanism Smoke
+
+Before closed-loop confirmatory evaluation require:
+
+- checkpoint persists and disk reloads;
+- expected parameters receive finite nonzero gradients;
+- training and validation objectives behave sensibly;
+- Ours differs from Base and ablation;
+- the difference is bounded rather than globally destructive;
+- action validity is preserved;
+- clean validation behavior is retained;
+- intended mechanism activates in relevant states rather than everywhere;
+- no privileged inference input;
+- no hidden use of test identities.
+
+For a residual or adapter method, report Base action, Ours action, residual norm, gate value, dimensions changed, and activation context. For representation methods, report representation metric, action-distribution consequence, and clean-versus-shift behavior.
+
+### Prior-First Prototype
+
+The first serious comparison for each future method should normally use exactly five policies:
+
+1. Base;
+2. closest external prior or faithful transparent proxy;
+3. Ours;
 4. key ablation;
 5. one strongest simple reviewer-killer baseline.
 
 No more than one mandatory simple killer baseline is required at the initial prototype stage. Additional internal controls are allowed only when they correspond to a concrete reviewer objection, test a genuinely different trivial explanation, could change the scientific decision, and are cheaper than proceeding directly to the prior comparison.
 
-Use this future experiment order:
+Use a matched paired manifest.
 
-1. Stage 0: small problem diagnostic.
-2. Stage 1: mechanism smoke.
-3. Stage 2: early paper comparison on one matched manifest: Base, closest external prior or proxy, Ours, key ablation, and one strongest simple baseline.
-4. Stage 3: confirmatory paired expansion only when Ours is not clearly inferior.
-5. Stage 4: after success, second backbone or second condition, clean retention, statistics, and efficiency.
+Stage A uses approximately `10` paired episodes per policy to detect catastrophic harm, obvious prior dominance, mechanism invalidity, no headroom, or exact trivial equivalence. Small differences advance to Stage B.
 
-Pre-implementation rejection is allowed only for near-exact prior-art duplication, obvious mathematical equivalence to a trivial method, mathematically invalid formulation, essential unavailable resource, no concrete falsifiable mechanism, no feasible fair comparison with the closest prior, or no plausible connection between the intervention and policy behavior. Unknown empirical performance is not a rejection reason.
+Stage B uses at least `40` paired episodes per key policy and reports paired wins/losses/ties, bootstrap confidence interval, effect size, failure-rate reduction, per-task breakdown, mechanism activation, clean retention, and efficiency. Allow one expansion to `80` only when Stage B is genuinely unresolved.
+
+### Paper-Candidate Decision
+
+A method becomes a serious paper candidate when Base plus Ours beats Base, Ours beats the closest external prior on the matched claim axis, Ours beats the key ablation, one strongest simple explanation does not account for the gain, novelty remains defensible, clean behavior is retained, and mechanism evidence supports the intended explanation.
+
+After paper-candidate status, immediately verify Quantized OpenVLA-OFT INT4, add one claim-specific second condition or benchmark, add directly relevant recent baselines when feasible, measure compute and latency, and prepare figure/table-ready evidence.
+
+The final comparison must include SmolVLA versus SmolVLA plus Ours and Quantized OpenVLA-OFT INT4 versus Quantized OpenVLA-OFT INT4 plus Ours.
 
 Before any future terminal decision, `scripts/check_current_research_governance.py` must pass.

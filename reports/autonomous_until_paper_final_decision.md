@@ -2,7 +2,7 @@
 
 Date: 2026-07-13 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_1_RCV_KILLED_CONTINUE_CYCLE_2`
+Current campaign decision: `EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3`
 
 This is not a terminal decision.
 
@@ -43,4 +43,6 @@ The related Epoch 3 failures have been synthesized in `reports/epoch_3_failure_s
 
 Epoch 4 Cycle 1, `RCV-VLA`, is archived as `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED`: Stage 2B completed `200 / 200` episodes with zero exceptions. Full RCV reached `20 / 40`, while the no-context ablation and stateless first-action baseline each reached `24 / 40`. Full-minus-ablation paired delta was `-0.10` with CI `[-0.250, 0.025]`; full-minus-stateless paired delta was `-0.10` with CI `[-0.225, 0.025]`.
 
-Next action: begin Epoch 4 Cycle 2 candidate generation under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate. Do not rescue RCV by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation.
+Epoch 4 Cycle 2, `CAVM-VLA`, is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION`: the expanded result completed `290 / 290` rows with zero exceptions and a valid shared task/reset manifest. Full CAVM reached `24 / 58`, nearest-success replay reached `23 / 58`, frozen SmolVLA reached `22 / 58`, success-only memory proxy reached `20 / 58`, and no-contrast ablation reached `21 / 58`. Full-minus-nearest paired delta was `0.017241` with CI `[-0.068966, 0.103448]`, which is positive but below the preregistered useful-improvement bar after the only allowed expansion.
+
+Next action: begin Epoch 4 Cycle 3 candidate generation under the post-CAVM performance-oriented research-design gate. Do not rescue CAVM by threshold retuning, additional expansion, memory reconstruction changes, or added hyperparameter variants.

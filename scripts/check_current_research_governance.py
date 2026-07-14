@@ -31,6 +31,23 @@ ACTIVE_JSON_FILES = [
     Path("reports/autonomous_ral_campaign_state.json"),
 ]
 
+REQUIRED_POST_CAVM_GOVERNANCE_PHRASES = [
+    "Post-CAVM Performance-Oriented Research Design Governance",
+    "`DISCOVERY`",
+    "`VALIDATION`",
+    "`CONFIRMATORY_TEST`",
+    "closest external prior",
+    "positive result that prior already demonstrates",
+    "bounded validation search",
+    "no more than `6` total configurations",
+    "mathematical_mechanism_audit.md",
+    "identity-preserving integration audit",
+    "one strongest simple reviewer-killer baseline",
+    "No more than one mandatory simple killer baseline",
+    "Confirmatory outcomes may not be used to retune the same method",
+    "Do not compute KL directly between deterministic 7D action vectors",
+]
+
 
 def _repo_path(path: Path, root: Path = REPO_ROOT) -> Path:
     return root / path
@@ -81,6 +98,14 @@ def _collect_text_current_decisions(path: Path, text: str) -> list[str]:
     return decisions
 
 
+def _post_cavm_governance_violations(text: str) -> list[str]:
+    violations: list[str] = []
+    for phrase in REQUIRED_POST_CAVM_GOVERNANCE_PHRASES:
+        if phrase not in text:
+            violations.append(f"reports/current_research_governance.md: missing post-CAVM governance requirement: {phrase}")
+    return violations
+
+
 def _json_violations(path: Path, data: dict[str, Any]) -> list[str]:
     violations: list[str] = []
 
@@ -120,6 +145,8 @@ def validate(root: Path = REPO_ROOT) -> list[str]:
             continue
         text = path.read_text(encoding="utf-8")
         violations.extend(_text_violations(rel_path, text))
+        if rel_path == Path("reports/current_research_governance.md"):
+            violations.extend(_post_cavm_governance_violations(text))
         current_decisions.extend((rel_path, value) for value in _collect_text_current_decisions(rel_path, text))
 
     for rel_path in ACTIVE_JSON_FILES:
