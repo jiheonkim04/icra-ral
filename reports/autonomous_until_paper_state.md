@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_5_RAC_VALIDATION_SELECTED_STAGE_A_PENDING`
+Current decision: `EPOCH_4_CYCLE_5_RAC_STAGE_A_NONCATASTROPHIC_STAGE_B_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `5`
 
-Current stage: `rac_vla_stage_a_pending`
+Current stage: `rac_vla_stage_b_pending`
 
 Allowed final states:
 
@@ -181,4 +181,6 @@ Stage 0 development audit passed without closed-loop rollout. It found `10769` c
 
 The bounded six-config validation search selected `rac_h4_a0.05`: history horizon `4`, residual alpha `0.05`, score `0.508926`, full validation accuracy `0.603250`, and full-vs-best-baseline margin `0.244397`.
 
-Current stage: RAC-VLA Stage A pending. Run the preregistered five-policy shifted-condition manifest with hidden `x_attenuate` action-channel shift. Do not retune RAC after Stage A outcomes.
+Stage A completed `50 / 50` episodes with zero exceptions under the frozen hidden `x_attenuate` action-channel shift. RAC full reached `0 / 10`, frozen shifted Base reached `0 / 10`, the no-consequence ablation reached `0 / 10`, the Reflective-history proxy reached `1 / 10`, and the online diagonal inverse-gain baseline reached `1 / 10`. RAC full tied Base and the key ablation, lost by only `1 / 10` to the strongest baseline and simple baseline, and did not satisfy any permanent Stage A kill criterion.
+
+Current stage: RAC-VLA Stage B pending. Run the preregistered Stage B paired expansion with frozen config `rac_h4_a0.05`. Do not retune RAC after Stage A outcomes.
