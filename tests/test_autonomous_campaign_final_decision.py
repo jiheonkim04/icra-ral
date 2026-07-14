@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`" in final
+    assert "Current campaign decision: `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -87,17 +87,19 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "0.032826922833919525" in final
     assert "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT" in final
     assert "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E" in final
-    assert "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending" in final
+    assert "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT" in final
+    assert "epoch_4_cycle_8_marc_stage_a_rollout_running" in final
+    assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_decision"] == "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 8
-    assert state["current_stage"] == "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending"
+    assert state["current_stage"] == "epoch_4_cycle_8_marc_stage_a_rollout_running"
     assert state["method"] == "MARC-VLA"
     assert state["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
     assert state["maximum_method_cycles"] is None
@@ -112,7 +114,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Run MARC Stage A disk-reloaded policy preflight")
+    assert state["next_action"].startswith("Monitor the detached MARC Stage A rollout")
     assert state["task_reset_manifest"] == "reports/marc_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -200,6 +202,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_8_marc_selected_config_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_policy_identities_verified" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_stage_a_manifest_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_stage_a_policy_preflight_passed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_stage_a_rollout_launched" in state["completed_stages"]
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
@@ -287,6 +291,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_reset_seeds"] == [20261209, 20261210]
     assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_manifest_canonical_payload_sha256"] == "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_preflight_decision"] == "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_preflight_policy_count"] == 5
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_preflight_checkpoint_policy_count"] == 4
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_preflight_cuda_ok"] is True
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_preflight_checkpoint_checksum_matches"] is True
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_preflight_no_accidental_checkpoint_reuse"] is True
     assert state["epoch_4_cycle_8_pre_stage_a"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "openvla_oft_l1_proxy",
@@ -339,6 +349,19 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert marc_manifest["paired_cases_per_policy"] == 10
     assert marc_manifest["reset_seeds"] == [20261209, 20261210]
     assert marc_manifest["manifest_canonical_payload_sha256"] == "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E"
+    marc_preflight = state["epoch_4_cycle_8_marc_stage_a_preflight"]
+    assert marc_preflight["final_decision"] == "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT"
+    assert marc_preflight["policy_count"] == 5
+    assert marc_preflight["checkpoint_policy_count"] == 4
+    assert marc_preflight["checkpoint_checksum_matches"] is True
+    assert marc_preflight["cuda_ok"] is True
+    assert marc_preflight["no_accidental_checkpoint_reuse"] is True
+    assert marc_preflight["errors"] == []
+    marc_launch = state["epoch_4_cycle_8_marc_stage_a_launch"]
+    assert marc_launch["run_dir"] == "runs/marc_vla_stage_a/20260714T171356Z"
+    assert marc_launch["child_pid"] == 414
+    assert marc_launch["planned_episode_count"] == 50
+    assert marc_launch["partial_result"] == "reports/marc_vla/stage_a_partial_result.json"
     assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
     assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
     assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"

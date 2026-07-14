@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`
 
 This is not a terminal state under the active governance.
 
@@ -119,4 +119,6 @@ The disk-reloaded policy identities are action-distinct: full-versus-L1 mean L2 
 
 The MARC Stage A manifest is now frozen as `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`: `50` planned episodes, reset seeds `20261209` and `20261210`, canonical hash `3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E`, and the unchanged five-policy comparison. `openvla_oft_l1_proxy` is explicitly a faithful transparent local proxy, not an official OpenVLA-OFT reproduction. No closed-loop rollout or confirmatory-test tuning happened during manifest freeze.
 
-Current stage: `epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending`. Next action: run MARC Stage A disk-reloaded policy preflight, then launch the official Stage A rollout if preflight passes.
+MARC Stage A preflight passed as `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`: `5` policies loaded through the official SmolVLA/LIBERO path, `4` checkpoint identities checksum-verified, CUDA checks passed, no accidental checkpoint reuse was detected, and finite 7D MARC actions were produced. The official Stage A rollout is now running detached from `runs/marc_vla_stage_a/20260714T171356Z` with child PID `414`; partial and final results are `reports/marc_vla/stage_a_partial_result.json` and `reports/marc_vla/stage_a_result.json`.
+
+Current stage: `epoch_4_cycle_8_marc_stage_a_rollout_running`. Next action: monitor the detached MARC Stage A rollout to completion, then adjudicate the frozen result without retuning.

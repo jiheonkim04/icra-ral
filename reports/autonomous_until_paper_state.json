@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 8,
-    "current_topic": "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending",
+    "current_topic": "epoch_4_cycle_8_marc_stage_a_rollout_running",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "bd63afc",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending",
+    "current_stage": "epoch_4_cycle_8_marc_stage_a_rollout_running",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -242,15 +242,17 @@
         "epoch_4_cycle_8_marc_validation_search_completed",
         "epoch_4_cycle_8_marc_selected_config_frozen",
         "epoch_4_cycle_8_marc_policy_identities_verified",
-        "epoch_4_cycle_8_marc_stage_a_manifest_frozen"
+        "epoch_4_cycle_8_marc_stage_a_manifest_frozen",
+        "epoch_4_cycle_8_marc_stage_a_policy_preflight_passed",
+        "epoch_4_cycle_8_marc_stage_a_rollout_launched"
     ],
-    "active_hypothesis": "MARC Stage A manifest is frozen; disk-reloaded policy preflight is pending before official rollout.",
+    "active_hypothesis": "MARC Stage A policy preflight passed; official Stage A rollout is running detached under the frozen manifest.",
     "method_identity": "MARC-VLA",
     "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
     "closest_papers": [],
     "prototype_protocol": "reports/marc_vla/prototype_protocol.md",
-    "running_command": null,
-    "process_id": null,
+    "running_command": "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_marc_vla_stage_a.py --mode stage-a",
+    "process_id": 414,
     "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
     "task_reset_manifest": "reports/marc_vla/stage_a_manifest.json",
     "start_time": "2026-07-12T16:32:00.7901274+09:00",
@@ -259,7 +261,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+    "current_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
     "stage_a_result_json": null,
     "stage_a_result_md": "reports/marc_vla/stage_a_result.md",
     "stage_b_partial_checkpoint": "reports/marc_vla/stage_b_partial_result.json",
@@ -368,7 +370,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Run MARC Stage A disk-reloaded policy preflight/load checks for the five frozen identities; if preflight passes, launch the official Stage A rollout without changing config, checkpoints, policies, tasks, resets, or thresholds.",
+    "next_action": "Monitor the detached MARC Stage A rollout to completion; adjudicate reports/marc_vla/stage_a_result.json under the frozen Stage A rules without retuning or changing tasks, resets, policies, or thresholds.",
     "method": "MARC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1558,7 +1560,7 @@
         ],
         "stage_b_pair_count_per_policy": 40
     },
-    "hypothesis": "Epoch 4 Cycle 8 candidate search pending under current governance.",
+    "hypothesis": "MARC Stage A policy preflight passed; official Stage A rollout is running detached under the frozen manifest.",
     "novelty_claim": "A narrow OpenVLA-OFT anchored extension: frozen SmolVLA identity-preserving median-anchor correction through a learned disagreement gate, not broad continuous L1 action-prediction novelty.",
     "prototype_gate": "Stage A must use the frozen five-policy MARC manifest, disk-reloaded identities, bounded action deltas, unchanged official 7D action semantics, and a faithful transparent OpenVLA-OFT-style L1 proxy rather than an official OpenVLA-OFT reproduction.",
     "epoch_4_cycle_7_dagr_development_outcome": {
@@ -2119,7 +2121,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending",
+    "topic": "epoch_4_cycle_8_marc_stage_a_rollout_running",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -2863,7 +2865,7 @@
         ],
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Run MARC Stage A policy preflight before rollout.",
+        "next_stage": "MARC Stage A rollout launched detached; monitor to completion before adjudication.",
         "policy_identity_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
         "checkpoint_root": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
         "policy_identity_variant_count": 4,
@@ -2892,7 +2894,18 @@
             "marc_no_disagreement_gate_ablation",
             "static_l1_mixture_baseline"
         ],
-        "stage_a_openvla_proxy_label": "faithful_transparent_local_proxy_not_official_openvla_oft_reproduction"
+        "stage_a_openvla_proxy_label": "faithful_transparent_local_proxy_not_official_openvla_oft_reproduction",
+        "stage_a_preflight": "reports/marc_vla/stage_a_preflight.json",
+        "stage_a_preflight_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_a_preflight_policy_count": 5,
+        "stage_a_preflight_checkpoint_policy_count": 4,
+        "stage_a_preflight_cuda_ok": true,
+        "stage_a_preflight_checkpoint_checksum_matches": true,
+        "stage_a_preflight_no_accidental_checkpoint_reuse": true,
+        "stage_a_rollout_run_dir": "runs/marc_vla_stage_a/20260714T171356Z",
+        "stage_a_rollout_child_pid": 414,
+        "stage_a_result": "reports/marc_vla/stage_a_result.json",
+        "stage_a_result_md": "reports/marc_vla/stage_a_result.md"
     },
     "epoch_4_cycle_8_marc_development_outcome": {
         "method": "MARC-VLA",
@@ -2962,7 +2975,12 @@
             "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
         },
         "stage_a_manifest_decision": "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
-        "stage_a_manifest": "reports/marc_vla/stage_a_manifest.json"
+        "stage_a_manifest": "reports/marc_vla/stage_a_manifest.json",
+        "stage_a_preflight_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_a_preflight_policy_count": 5,
+        "stage_a_preflight_checkpoint_policy_count": 4,
+        "stage_a_preflight_cuda_ok": true,
+        "stage_a_preflight_no_accidental_checkpoint_reuse": true
     },
     "epoch_4_cycle_8_marc_policy_identity_outcome": {
         "method": "MARC-VLA",
@@ -3034,6 +3052,60 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "proxy_label": "openvla_oft_l1_proxy is a faithful transparent local proxy, not an official OpenVLA-OFT reproduction",
-        "next_stage": "Run disk-reloaded Stage A policy preflight before official rollout."
+        "next_stage": "MARC Stage A preflight passed and official Stage A rollout is running detached."
+    },
+    "stage_a_partial_result_json": "reports/marc_vla/stage_a_partial_result.json",
+    "epoch_4_cycle_8_marc_stage_a_preflight": {
+        "method": "MARC-VLA",
+        "final_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+        "preflight_json": "reports/marc_vla/stage_a_preflight.json",
+        "policy_count": 5,
+        "checkpoint_policy_count": 4,
+        "checkpoint_checksum_matches": true,
+        "cuda_ok": true,
+        "policy_output_shape_ok": true,
+        "no_accidental_checkpoint_reuse": true,
+        "errors": [],
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "task_indices": {
+            "libero_10/task_2": 3,
+            "libero_goal/task_4": 18,
+            "libero_object/task_6": 27,
+            "libero_spatial/task_0": 34,
+            "libero_spatial/task_8": 36
+        },
+        "next_stage": "MARC Stage A preflight passed; official Stage A rollout launched detached."
+    },
+    "epoch_4_cycle_8_marc_stage_a_launch": {
+        "method": "MARC-VLA",
+        "launch_status": "running",
+        "preflight_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+        "run_dir": "runs/marc_vla_stage_a/20260714T171356Z",
+        "wrapper_pid": 403,
+        "child_pid": 414,
+        "planned_episode_count": 50,
+        "partial_episode_count_at_launch": 1,
+        "partial_result": "reports/marc_vla/stage_a_partial_result.json",
+        "final_result": "reports/marc_vla/stage_a_result.json",
+        "stdout_log": "runs/marc_vla_stage_a/20260714T171356Z/stdout.log",
+        "stderr_log": "runs/marc_vla_stage_a/20260714T171356Z/stderr.log",
+        "status_json": "runs/marc_vla_stage_a/20260714T171356Z/status.json",
+        "heartbeat_json": "runs/marc_vla_stage_a/20260714T171356Z/heartbeat.json",
+        "exit_code_file": "runs/marc_vla_stage_a/20260714T171356Z/exit_code.txt",
+        "resume_command_file": "runs/marc_vla_stage_a/20260714T171356Z/resume_command.txt",
+        "resume_command": "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_marc_vla_stage_a.py --mode stage-a",
+        "policy_identities": [
+            "frozen_smolvla",
+            "openvla_oft_l1_proxy",
+            "marc_full",
+            "marc_no_disagreement_gate_ablation",
+            "static_l1_mixture_baseline"
+        ],
+        "model_device": "cuda:0",
+        "closed_loop_experiment_status": "running_detached_not_yet_adjudicated",
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Monitor detached Stage A to completion; then adjudicate the frozen result without retuning."
     }
 }

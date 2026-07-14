@@ -1,0 +1,507 @@
+{
+  "checkpoint_checksum_matches": true,
+  "checkpoint_policy_count": 4,
+  "checkpoint_policy_count_ok": true,
+  "closed_loop_experiment_happened": false,
+  "config_id": "marc_a020_gate_mlp",
+  "confirmatory_test_tuning_happened": false,
+  "cuda_ok": true,
+  "date": "2026-07-15 KST",
+  "elapsed_seconds": 66.44,
+  "errors": [],
+  "final_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
+  "method": "MARC-VLA",
+  "mode": "preflight",
+  "no_accidental_checkpoint_reuse": true,
+  "policy_count": 5,
+  "policy_count_ok": true,
+  "policy_output_shape_ok": true,
+  "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+  "records": [
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": null,
+        "checkpoint_path": null,
+        "files": {}
+      },
+      "checkpoint_path": null,
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 937419264,
+        "allocated_mb": 893.993,
+        "max_allocated_bytes": 970964480,
+        "max_allocated_mb": 925.984
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "marc_action_device": "cpu",
+      "marc_action_finite": true,
+      "marc_action_max_abs": 0.910291,
+      "marc_action_shape": [
+        1,
+        7
+      ],
+      "marc_delta_bound_ok": true,
+      "marc_delta_l2": 0.0,
+      "marc_model_parameter_counts": null,
+      "marc_model_parameter_device": null,
+      "marc_transform": {
+        "activated": false,
+        "clipped_residual_norm": null,
+        "correction_alpha": null,
+        "delta_l2": 0.0,
+        "dimensions_changed": [],
+        "gate_values": null,
+        "residual_norm": null,
+        "static_beta": null,
+        "transform": "identity"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "frozen_smolvla",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "unmodified_backbone",
+      "wsl_checkpoint_path": null
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/openvla_oft_l1_proxy/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "B09849B4B5E123A0AE30B95312E93479316D67A44FD95A97420985B80789A03B",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/openvla_oft_l1_proxy/seed_101/model.pt",
+            "sha256": "B09849B4B5E123A0AE30B95312E93479316D67A44FD95A97420985B80789A03B"
+          },
+          "policy_config.json": {
+            "expected_sha256": "05BCE4D6CD034271D4B9E6B628C7A68D9BFC159B25F3D9FAC41C300EE9B8AF36",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/openvla_oft_l1_proxy/seed_101/policy_config.json",
+            "sha256": "05BCE4D6CD034271D4B9E6B628C7A68D9BFC159B25F3D9FAC41C300EE9B8AF36"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "6EC9C16E38635F4FA448808F4E2809B899E912E681BA30CB14C1C3545C181AE5",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/openvla_oft_l1_proxy/seed_101/training_manifest.json",
+            "sha256": "6EC9C16E38635F4FA448808F4E2809B899E912E681BA30CB14C1C3545C181AE5"
+          }
+        }
+      },
+      "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/openvla_oft_l1_proxy/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "marc_action_device": "cpu",
+      "marc_action_finite": true,
+      "marc_action_max_abs": 3.670552,
+      "marc_action_shape": [
+        1,
+        7
+      ],
+      "marc_delta_bound_ok": true,
+      "marc_delta_l2": 4.119843006,
+      "marc_model_parameter_counts": {
+        "total_parameter_count": 2151,
+        "trainable_parameter_count": 2151
+      },
+      "marc_model_parameter_device": "cuda:0",
+      "marc_transform": {
+        "activated": true,
+        "clipped_residual_norm": null,
+        "correction_alpha": 0.2,
+        "delta_l2": 4.119843006134033,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "gate_values": [
+          1.0
+        ],
+        "residual_norm": 4.119843006134033,
+        "static_beta": 0.4,
+        "transform": "openvla_oft_l1_proxy"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "openvla_oft_l1_proxy",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": "faithful_transparent_local_proxy_not_official_openvla_oft_reproduction",
+      "role": "closest_external_prior_proxy_faithful_transparent_local_proxy_not_official_openvla_oft_reproduction",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/marc_vla_checkpoints/marc_a020_gate_mlp/openvla_oft_l1_proxy/seed_101"
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_full/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "76A3E407ECABFBC8100E62AC50C020C5B5CB5254CC47484A5AD1BE8375A3747C",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_full/seed_101/model.pt",
+            "sha256": "76A3E407ECABFBC8100E62AC50C020C5B5CB5254CC47484A5AD1BE8375A3747C"
+          },
+          "policy_config.json": {
+            "expected_sha256": "963A50D7E9ED47BCECFA7BE0BC99EE19AA20608A9CF89E115F92755F3C0D3255",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_full/seed_101/policy_config.json",
+            "sha256": "963A50D7E9ED47BCECFA7BE0BC99EE19AA20608A9CF89E115F92755F3C0D3255"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "262A29F57475614FB2A142152014474ADBB212EED908CB911E12094483DF9293",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_full/seed_101/training_manifest.json",
+            "sha256": "262A29F57475614FB2A142152014474ADBB212EED908CB911E12094483DF9293"
+          }
+        }
+      },
+      "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_full/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "marc_action_device": "cpu",
+      "marc_action_finite": true,
+      "marc_action_max_abs": 0.977257,
+      "marc_action_shape": [
+        1,
+        7
+      ],
+      "marc_delta_bound_ok": true,
+      "marc_delta_l2": 0.199999973,
+      "marc_model_parameter_counts": {
+        "total_parameter_count": 2184,
+        "trainable_parameter_count": 2184
+      },
+      "marc_model_parameter_device": "cuda:0",
+      "marc_transform": {
+        "activated": true,
+        "clipped_residual_norm": 0.19999998807907104,
+        "correction_alpha": 0.2,
+        "delta_l2": 0.19999998807907104,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "gate_values": [
+          1.0
+        ],
+        "residual_norm": 0.422455757856369,
+        "static_beta": 0.4,
+        "transform": "marc_full"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "marc_full",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "ours",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_full/seed_101"
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_no_disagreement_gate_ablation/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "82F26CB49A6CCBCB263D882D7D27A909DB7E7729AD6B641BCBE607579A44E288",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_no_disagreement_gate_ablation/seed_101/model.pt",
+            "sha256": "82F26CB49A6CCBCB263D882D7D27A909DB7E7729AD6B641BCBE607579A44E288"
+          },
+          "policy_config.json": {
+            "expected_sha256": "06B4E5CFEE3473F11662A08FE61117153E837ABB44820B1D4052548BC92823F2",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_no_disagreement_gate_ablation/seed_101/policy_config.json",
+            "sha256": "06B4E5CFEE3473F11662A08FE61117153E837ABB44820B1D4052548BC92823F2"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "8C7FFBC25D0C2AECA7188679FC67D812E4E551594E74F84E2016AF88293AA2E0",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_no_disagreement_gate_ablation/seed_101/training_manifest.json",
+            "sha256": "8C7FFBC25D0C2AECA7188679FC67D812E4E551594E74F84E2016AF88293AA2E0"
+          }
+        }
+      },
+      "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_no_disagreement_gate_ablation/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "marc_action_device": "cpu",
+      "marc_action_finite": true,
+      "marc_action_max_abs": 1.050303,
+      "marc_action_shape": [
+        1,
+        7
+      ],
+      "marc_delta_bound_ok": true,
+      "marc_delta_l2": 0.200000033,
+      "marc_model_parameter_counts": {
+        "total_parameter_count": 2151,
+        "trainable_parameter_count": 2151
+      },
+      "marc_model_parameter_device": "cuda:0",
+      "marc_transform": {
+        "activated": true,
+        "clipped_residual_norm": 0.20000000298023224,
+        "correction_alpha": 0.2,
+        "delta_l2": 0.20000000298023224,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "gate_values": [
+          1.0
+        ],
+        "residual_norm": 2.4415416717529297,
+        "static_beta": 0.4,
+        "transform": "marc_no_disagreement_gate_ablation"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "marc_no_disagreement_gate_ablation",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "key_ablation",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/marc_vla_checkpoints/marc_a020_gate_mlp/marc_no_disagreement_gate_ablation/seed_101"
+    },
+    {
+      "base_action_chunk_shape": [
+        1,
+        50,
+        7
+      ],
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_hashes": {
+        "all_match": true,
+        "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/static_l1_mixture_baseline/seed_101",
+        "files": {
+          "model.pt": {
+            "expected_sha256": "3A6E81B285E48E39B740E9E847D2674C11FF468792CB0D85D8835433D47B6150",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/static_l1_mixture_baseline/seed_101/model.pt",
+            "sha256": "3A6E81B285E48E39B740E9E847D2674C11FF468792CB0D85D8835433D47B6150"
+          },
+          "policy_config.json": {
+            "expected_sha256": "AFDDA20228BF07F0015CF4BB2844574C4D3E04BD9C6AA9096F68EF060B2225F1",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/static_l1_mixture_baseline/seed_101/policy_config.json",
+            "sha256": "AFDDA20228BF07F0015CF4BB2844574C4D3E04BD9C6AA9096F68EF060B2225F1"
+          },
+          "training_manifest.json": {
+            "expected_sha256": "22A3F06F510298189B940CC970556FFBC51F298FD941FE74C78CA60B901D6888",
+            "match": true,
+            "path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/static_l1_mixture_baseline/seed_101/training_manifest.json",
+            "sha256": "22A3F06F510298189B940CC970556FFBC51F298FD941FE74C78CA60B901D6888"
+          }
+        }
+      },
+      "checkpoint_path": "runs/marc_vla_checkpoints/marc_a020_gate_mlp/static_l1_mixture_baseline/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 938873344,
+        "allocated_mb": 895.379,
+        "max_allocated_bytes": 972675584,
+        "max_allocated_mb": 927.616
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "marc_action_device": "cpu",
+      "marc_action_finite": true,
+      "marc_action_max_abs": 0.984948,
+      "marc_action_shape": [
+        1,
+        7
+      ],
+      "marc_delta_bound_ok": true,
+      "marc_delta_l2": 0.079999998,
+      "marc_model_parameter_counts": {
+        "total_parameter_count": 2151,
+        "trainable_parameter_count": 2151
+      },
+      "marc_model_parameter_device": "cuda:0",
+      "marc_transform": {
+        "activated": true,
+        "clipped_residual_norm": 0.19999998807907104,
+        "correction_alpha": 0.2,
+        "delta_l2": 0.07999999821186066,
+        "dimensions_changed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "gate_values": [
+          0.4000000059604645
+        ],
+        "residual_norm": 8.29280948638916,
+        "static_beta": 0.4,
+        "transform": "static_l1_mixture_baseline"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "policy": "static_l1_mixture_baseline",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "postprocessed_action_device": "cpu",
+      "postprocessed_action_shape": [
+        1,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "strongest_simple_reviewer_killer",
+      "wsl_checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/marc_vla_checkpoints/marc_a020_gate_mlp/static_l1_mixture_baseline/seed_101"
+    }
+  ],
+  "schema_version": 1,
+  "stable_artifact": "reports/official_smolvla_stable_prediction_artifact.json",
+  "stage_a_manifest": "reports/marc_vla/stage_a_manifest.json",
+  "stage_a_manifest_sha256": "9CE6D47A20452F037BB53D77E57F8645738076F61FDB0D55356FDFD52E88A786",
+  "task_indices": {
+    "libero_10/task_2": 3,
+    "libero_goal/task_4": 18,
+    "libero_object/task_6": 27,
+    "libero_spatial/task_0": 34,
+    "libero_spatial/task_8": 36
+  },
+  "training_happened": false
+}
