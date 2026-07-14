@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 7,
-    "topic": "epoch_4_cycle_7_dagr_reviewer_attack_pending",
+    "topic": "epoch_4_cycle_7_dagr_mathematical_audit_pending",
     "method": "DAGR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "0824ba87b23a49d295ef23a949ebd487c62eac29",
-    "current_stage": "epoch_4_cycle_7_dagr_reviewer_attack_pending",
+    "current_commit": "c28744018b7fcf315016b381a17826c598a25b28",
+    "current_stage": "epoch_4_cycle_7_dagr_mathematical_audit_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -225,15 +225,17 @@
         "epoch_4_cycle_6_mtf_valid_current_formulation_kill_recorded",
         "epoch_4_cycle_7_candidate_search_pending",
         "epoch_4_cycle_7_candidate_generation_completed",
-        "epoch_4_cycle_7_dagr_proposal_frozen"
+        "epoch_4_cycle_7_dagr_proposal_frozen",
+        "epoch_4_cycle_7_dagr_reviewer_attack_completed",
+        "epoch_4_cycle_7_dagr_rebuttal_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
     "elapsed_active_time_hours_recorded": 5.21,
     "gpu_time_hours_recorded": 5.21,
     "downloads_gib_this_reopened_campaign": 0.0,
-    "hypothesis": "Milestone-transition focused adapter training with frozen-base retention can improve SmolVLA closed-loop success beyond Base, a FrameSkip proxy, a no-retention ablation, and uniform retained-ratio LoRA while retaining clean behavior.",
-    "novelty_claim": "FrameSkip and StructVLA anchored milestone-transition data supervision with explicit frozen-base retention for identity-preserving VLA adapter training.",
+    "hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
+    "novelty_claim": "A narrow DAM-VLA anchored extension: frozen SmolVLA identity-preserving route-gated group residual adaptation, not broad dynamic arm/gripper routing novelty.",
     "closest_papers": [
         "DAM-VLA: https://arxiv.org/abs/2603.00926",
         "ReactVLA: https://arxiv.org/abs/2606.14255",
@@ -241,8 +243,8 @@
         "GEAR-VLA: https://arxiv.org/abs/2606.08530",
         "PDF: https://arxiv.org/abs/2604.18107"
     ],
-    "prototype_gate": "Stage A/B require MTF full to beat Base, FrameSkip proxy, no-retention ablation, and uniform retained-ratio LoRA under a frozen matched manifest with clean retention and bounded milestone-specific action change.",
-    "current_decision": "SELECT_DAGR_VLA_PROPOSAL_FROZEN",
+    "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
+    "current_decision": "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": "reports/mtf_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/mtf_vla/stage_a_result.json",
     "stage_a_result_md": "reports/mtf_vla/stage_a_result.md",
@@ -393,7 +395,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run Reviewer B attack on the frozen DAGR-VLA proposal against DAM-VLA, generic residual adapters, arm/gripper loss weighting, gripper-transition heuristics, MTF, and RAC; then write the Researcher A rebuttal if not killed before implementation.",
+    "next_action": "Write the DAGR mathematical mechanism audit, preregistration, and prototype protocol; then run the Stage 0 development audit before any expensive training or rollout.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b\"",
     "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
     "method_identity": "DAGR-VLA",
@@ -1520,6 +1522,10 @@
             "dagr_no_dynamic_route_ablation",
             "gripper_transition_heuristic"
         ],
-        "next_stage": "Reviewer B novelty and leakage attack before rebuttal, mathematical audit, preregistration, and Stage 0 development audit."
+        "next_stage": "Mathematical mechanism audit, preregistration, and prototype protocol before Stage 0 development audit.",
+        "reviewer_attack": "reports/dagr_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/dagr_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     }
 }

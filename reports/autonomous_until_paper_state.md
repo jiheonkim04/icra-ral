@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_DAGR_VLA_PROPOSAL_FROZEN`
+Current decision: `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `7`
 
-Current stage: `epoch_4_cycle_7_dagr_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_7_dagr_mathematical_audit_pending`
 
 Allowed final states:
 
@@ -240,4 +240,8 @@ Exactly three post-MTF candidates were generated and scored in `reports/epoch_4_
 
 The selected first comparison is frozen at the design level to five policies: Base, a DAM-style static component proxy, DAGR full, a no-dynamic-route shared residual ablation, and one gripper-transition heuristic simple killer. No closed-loop rollout, training, or confirmatory-test tuning has happened for DAGR.
 
-Current stage: DAGR Reviewer B attack pending. Attack novelty and leakage against DAM-VLA, generic residual adapters, arm/gripper loss weighting, gripper-transition heuristics, MTF, and RAC before any implementation.
+Reviewer B attack is complete in `reports/dagr_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The attack narrows novelty against DAM-VLA, requires `dam_static_component_proxy` to be labeled as a faithful transparent local proxy rather than an official DAM-VLA reproduction, forbids KL over deterministic 7D actions, and makes noncollapsed route-label health, route observability, bounded action deltas, and identity-preserving integration mandatory before rollout.
+
+Researcher A rebuttal is complete in `reports/dagr_vla/researcher_rebuttal.md` with decision `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. DAGR will not claim broad dynamic arm/gripper routing novelty; its local claim is frozen SmolVLA identity-preserving route-gated residual adaptation. No training, rollout, or confirmatory-test tuning has happened.
+
+Current stage: DAGR mathematical mechanism audit pending. Next write the mathematical audit, preregistration, and prototype protocol before the Stage 0 development audit.

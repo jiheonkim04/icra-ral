@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `SELECT_DAGR_VLA_PROPOSAL_FROZEN`" in final
+    assert "Current campaign decision: `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -55,16 +55,19 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Epoch 4 Cycle 7 generated exactly three post-MTF candidates" in final
     assert "DAGR-VLA" in final
     assert "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89" in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "No DAGR training, rollout, or confirmatory-test tuning has happened" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "SELECT_DAGR_VLA_PROPOSAL_FROZEN"
+    assert state["current_decision"] == "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 7
-    assert state["current_stage"] == "epoch_4_cycle_7_dagr_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_7_dagr_mathematical_audit_pending"
     assert state["method"] == "DAGR-VLA"
     assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["maximum_method_cycles"] is None
@@ -79,7 +82,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Run Reviewer B attack on the frozen DAGR-VLA proposal")
+    assert state["next_action"].startswith("Write the DAGR mathematical mechanism audit")
     assert state["task_reset_manifest"] == "reports/mtf_vla/stage_b_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -137,8 +140,21 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_7_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_7_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_rebuttal_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["researcher_rebuttal"] == "reports/dagr_vla/researcher_rebuttal.md"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["rebuttal_decision"] == "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "dam_static_component_proxy",
+        "dagr_full",
+        "dagr_no_dynamic_route_ablation",
+        "gripper_transition_heuristic",
+    ]
     assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
     assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
     assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"

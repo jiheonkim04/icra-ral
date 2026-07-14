@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `SELECT_DAGR_VLA_PROPOSAL_FROZEN`
+Current campaign decision: `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -94,4 +94,6 @@ Final MTF decision: `MTF_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. Full-min
 
 Epoch 4 Cycle 7 generated exactly three post-MTF candidates in `reports/epoch_4_cycle_7_candidate_generation.md` and selected `DAGR-VLA`, a DAM-VLA anchored dynamic arm/gripper routing method. Proposal hash: `BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89`.
 
-Next action: run Reviewer B attack on the frozen DAGR-VLA proposal, then write the Researcher A rebuttal if the method is not killed before implementation.
+Reviewer B attack completed with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`: DAGR is not killed before implementation, but novelty is narrowed to frozen SmolVLA identity-preserving route-gated residual adaptation, `dam_static_component_proxy` must remain a transparent local proxy, and Stage 0 must reject collapsed or unobservable route supervision before rollout.
+
+Researcher A rebuttal completed with decision `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. No DAGR training, rollout, or confirmatory-test tuning has happened. Next action: write the DAGR mathematical mechanism audit, preregistration, and prototype protocol before Stage 0 development audit.

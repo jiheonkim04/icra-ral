@@ -1952,3 +1952,31 @@ Selection evidence:
 - first comparison policies: Base, DAM-style static component proxy, DAGR full, no-dynamic-route shared residual ablation, and gripper-transition heuristic simple killer
 
 Consequence: DAGR-VLA is the active Cycle 7 method. Reviewer B must attack the frozen proposal against DAM-VLA, generic residual adapters, arm/gripper loss weighting, gripper-transition heuristics, MTF, and RAC before any implementation.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Reviewer Attack And Rebuttal
+
+Decision: `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal: `reports/dagr_vla/researcher_proposal.md`
+- proposal hash: `BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89`
+- reviewer attack: `reports/dagr_vla/reviewer_attack.md`
+- reviewer decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+- researcher rebuttal: `reports/dagr_vla/researcher_rebuttal.md`
+- rebuttal decision: `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Constraints accepted:
+
+- DAM-VLA owns broad dynamic arm/gripper routing novelty; DAGR's claim is narrowed to frozen SmolVLA identity-preserving route-gated residual adaptation.
+- `dam_static_component_proxy` must be labeled a faithful transparent local proxy, not an official DAM-VLA reproduction.
+- Route labels must be noncollapsed and predictable above a trivial majority baseline before rollout.
+- DAGR full must differ from the static component proxy and shared-residual ablation on validation.
+- KL over deterministic 7D action vectors is forbidden; use group-normalized Huber/L2 style objectives with explicit tensor shapes, scales, and gradient paths.
+- The first serious comparison remains exactly five policies: `frozen_smolvla`, `dam_static_component_proxy`, `dagr_full`, `dagr_no_dynamic_route_ablation`, and `gripper_transition_heuristic`.
+
+Consequence: DAGR-VLA proceeds to mathematical mechanism audit, preregistration, prototype protocol, and then Stage 0 development audit. No training, rollout, or confirmatory-test tuning has happened.
