@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 8,
-    "current_topic": "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending",
+    "current_topic": "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "1a7a557",
+    "current_commit": "bd63afc",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending",
+    "current_stage": "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -241,9 +241,10 @@
         "epoch_4_cycle_8_marc_stage_0_completed",
         "epoch_4_cycle_8_marc_validation_search_completed",
         "epoch_4_cycle_8_marc_selected_config_frozen",
-        "epoch_4_cycle_8_marc_policy_identities_verified"
+        "epoch_4_cycle_8_marc_policy_identities_verified",
+        "epoch_4_cycle_8_marc_stage_a_manifest_frozen"
     ],
-    "active_hypothesis": "Epoch 4 Cycle 8 candidate search pending under current governance.",
+    "active_hypothesis": "MARC Stage A manifest is frozen; disk-reloaded policy preflight is pending before official rollout.",
     "method_identity": "MARC-VLA",
     "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
     "closest_papers": [],
@@ -251,19 +252,19 @@
     "running_command": null,
     "process_id": null,
     "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
-    "task_reset_manifest": null,
+    "task_reset_manifest": "reports/marc_vla/stage_a_manifest.json",
     "start_time": "2026-07-12T16:32:00.7901274+09:00",
     "elapsed_wall_time_seconds": 14776,
     "gpu_time_hours": 5.21,
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
+    "current_decision": "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
     "stage_a_result_json": null,
-    "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
-    "stage_b_partial_checkpoint": "reports/dagr_vla/stage_b_partial_result.json",
+    "stage_a_result_md": "reports/marc_vla/stage_a_result.md",
+    "stage_b_partial_checkpoint": "reports/marc_vla/stage_b_partial_result.json",
     "stage_b_result_json": null,
-    "stage_b_result_md": "reports/dagr_vla/stage_b_result.md",
+    "stage_b_result_md": "reports/marc_vla/stage_b_result.md",
     "cycle_1_outcome": {
         "valid_scientific_result": true,
         "stage_a_completed": true,
@@ -367,7 +368,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze the MARC Stage A matched manifest for the five verified policy identities; do not change the selected config, checkpoints, policy list, tasks, or reset rules from validation outcomes.",
+    "next_action": "Run MARC Stage A disk-reloaded policy preflight/load checks for the five frozen identities; if preflight passes, launch the official Stage A rollout without changing config, checkpoints, policies, tasks, resets, or thresholds.",
     "method": "MARC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1187,7 +1188,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-a\"",
         "next_stage": "Run frozen MTF Stage A official WSL rollout."
     },
-    "stage_a_partial_checkpoint": "reports/dagr_vla/stage_a_partial_result.json",
+    "stage_a_partial_checkpoint": "reports/marc_vla/stage_a_partial_result.json",
     "epoch_4_cycle_6_mtf_stage_a_outcome": {
         "method": "MTF-VLA",
         "config_id": "mtf_r20_ret100",
@@ -1558,8 +1559,8 @@
         "stage_b_pair_count_per_policy": 40
     },
     "hypothesis": "Epoch 4 Cycle 8 candidate search pending under current governance.",
-    "novelty_claim": "A narrow DAM-VLA anchored extension: frozen SmolVLA identity-preserving route-gated group residual adaptation, not broad dynamic arm/gripper routing novelty.",
-    "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
+    "novelty_claim": "A narrow OpenVLA-OFT anchored extension: frozen SmolVLA identity-preserving median-anchor correction through a learned disagreement gate, not broad continuous L1 action-prediction novelty.",
+    "prototype_gate": "Stage A must use the frozen five-policy MARC manifest, disk-reloaded identities, bounded action deltas, unchanged official 7D action semantics, and a faithful transparent OpenVLA-OFT-style L1 proxy rather than an official OpenVLA-OFT reproduction.",
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
         "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
@@ -2118,7 +2119,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending",
+    "topic": "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -2862,7 +2863,7 @@
         ],
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze the MARC Stage A matched manifest before any rollout.",
+        "next_stage": "Run MARC Stage A policy preflight before rollout.",
         "policy_identity_decision": "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
         "checkpoint_root": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
         "policy_identity_variant_count": 4,
@@ -2872,7 +2873,26 @@
             "marc_full_vs_openvla_oft_l1_proxy_mean_l2": 0.08430124074220657,
             "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
         },
-        "policy_identity_static_mixture_remains_live_reviewer_killer": false
+        "policy_identity_static_mixture_remains_live_reviewer_killer": false,
+        "stage_a_manifest_decision": "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_a_manifest": "reports/marc_vla/stage_a_manifest.json",
+        "stage_a_manifest_md": "reports/marc_vla/stage_a_manifest.md",
+        "stage_a_manifest_canonical_payload_sha256": "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E",
+        "stage_a_manifest_file_sha256": "9CE6D47A20452F037BB53D77E57F8645738076F61FDB0D55356FDFD52E88A786",
+        "stage_a_planned_episode_count": 50,
+        "stage_a_paired_cases_per_policy": 10,
+        "stage_a_reset_seeds": [
+            20261209,
+            20261210
+        ],
+        "stage_a_policy_order": [
+            "frozen_smolvla",
+            "openvla_oft_l1_proxy",
+            "marc_full",
+            "marc_no_disagreement_gate_ablation",
+            "static_l1_mixture_baseline"
+        ],
+        "stage_a_openvla_proxy_label": "faithful_transparent_local_proxy_not_official_openvla_oft_reproduction"
     },
     "epoch_4_cycle_8_marc_development_outcome": {
         "method": "MARC-VLA",
@@ -2940,7 +2960,9 @@
             "marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2": 0.04372206702828407,
             "marc_full_vs_openvla_oft_l1_proxy_mean_l2": 0.08430124074220657,
             "marc_full_vs_static_l1_mixture_baseline_mean_l2": 0.032826922833919525
-        }
+        },
+        "stage_a_manifest_decision": "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_a_manifest": "reports/marc_vla/stage_a_manifest.json"
     },
     "epoch_4_cycle_8_marc_policy_identity_outcome": {
         "method": "MARC-VLA",
@@ -2986,6 +3008,32 @@
         "marc_full_action_validity": 1.0,
         "openvla_oft_l1_proxy_delta_l2_p95": 0.2307613492012024,
         "static_l1_mixture_delta_l2_p95": 0.07999999821186066,
-        "next_stage": "Freeze the MARC Stage A matched manifest before any rollout."
+        "next_stage": "Run MARC Stage A policy preflight before official rollout."
+    },
+    "epoch_4_cycle_8_marc_stage_a_manifest": {
+        "method": "MARC-VLA",
+        "manifest": "reports/marc_vla/stage_a_manifest.json",
+        "manifest_md": "reports/marc_vla/stage_a_manifest.md",
+        "final_decision": "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "manifest_canonical_payload_sha256": "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E",
+        "manifest_file_sha256": "9CE6D47A20452F037BB53D77E57F8645738076F61FDB0D55356FDFD52E88A786",
+        "planned_episode_count": 50,
+        "paired_cases_per_policy": 10,
+        "reset_seeds": [
+            20261209,
+            20261210
+        ],
+        "policy_order": [
+            "frozen_smolvla",
+            "openvla_oft_l1_proxy",
+            "marc_full",
+            "marc_no_disagreement_gate_ablation",
+            "static_l1_mixture_baseline"
+        ],
+        "task_count": 5,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "proxy_label": "openvla_oft_l1_proxy is a faithful transparent local proxy, not an official OpenVLA-OFT reproduction",
+        "next_stage": "Run disk-reloaded Stage A policy preflight before official rollout."
     }
 }

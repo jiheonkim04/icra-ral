@@ -10,6 +10,14 @@ from tca_map.smolvla.marc_vla import (
     compute_disagreement_labels,
     run_validation_search,
 )
+from tca_map.smolvla.marc_vla_stage_a import (
+    STAGE_A_POLICY_ORDER,
+    STAGE_A_RESET_SEEDS,
+    _sha256_payload,
+    _task_index_for_task,
+    _task_index_map_from_artifact,
+    validate_stage_a_manifest,
+)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -169,3 +177,58 @@ def test_marc_policy_identities_are_disk_reloadable_when_present() -> None:
     assert manifest["distinction"]["marc_full_vs_openvla_oft_l1_proxy_mean_l2"] > 1e-6
     assert manifest["distinction"]["marc_full_vs_marc_no_disagreement_gate_ablation_mean_l2"] > 1e-6
     assert manifest["distinction"]["marc_full_vs_static_l1_mixture_baseline_mean_l2"] > 1e-6
+
+
+def test_marc_stage_a_manifest_when_present_is_frozen_and_paired() -> None:
+    manifest_path = MARC / "stage_a_manifest.json"
+    if not manifest_path.exists():
+        return
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+    validate_stage_a_manifest(manifest)
+
+    assert manifest["final_decision"] == "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["confirmatory_test_tuning_happened"] is False
+    assert manifest["confirmatory_test_identities_used_for_training_or_validation"] is False
+    assert manifest["planned_episode_count"] == 50
+    assert manifest["stage_a_pair_count_per_policy"] == 10
+    assert manifest["stage_a_reset_seeds"] == STAGE_A_RESET_SEEDS == [20261209, 20261210]
+    assert manifest["policy_order"] == STAGE_A_POLICY_ORDER
+    assert [row["policy"] for row in manifest["policies"]] == STAGE_A_POLICY_ORDER
+    assert manifest["identity_overlap_verification"]["duplicate_evaluation_keys"] == 0
+    assert manifest["identity_overlap_verification"]["identical_task_reset_pairs_across_policies"] is True
+
+    policy_records = {row["policy"]: row for row in manifest["policies"]}
+    assert (
+        policy_records["openvla_oft_l1_proxy"]["proxy_or_reproduction_label"]
+        == "faithful_transparent_local_proxy_not_official_openvla_oft_reproduction"
+    )
+    assert policy_records["openvla_oft_l1_proxy"]["disk_reload"] is True
+    assert policy_records["marc_full"]["disk_reload"] is True
+    assert policy_records["marc_no_disagreement_gate_ablation"]["disk_reload"] is True
+    assert policy_records["static_l1_mixture_baseline"]["disk_reload"] is True
+
+    canonical_payload = {key: value for key, value in manifest.items() if key != "canonical_payload_sha256"}
+    assert manifest["canonical_payload_sha256"] == _sha256_payload(canonical_payload)
+
+    pair_sets = {}
+    for policy in STAGE_A_POLICY_ORDER:
+        rows = [row for row in manifest["episodes"] if row["policy"] == policy]
+        assert len(rows) == 10
+        pair_sets[policy] = {(row["suite"], row["task_id"], row["reset_seed"]) for row in rows}
+    assert len({tuple(sorted(values)) for values in pair_sets.values()}) == 1
+
+    expected_task_indices = {
+        "libero_spatial/task_0": 34,
+        "libero_spatial/task_8": 36,
+        "libero_object/task_6": 27,
+        "libero_goal/task_4": 18,
+        "libero_10/task_2": 3,
+    }
+    stable_index_map = _task_index_map_from_artifact(REPO_ROOT / "reports" / "official_smolvla_stable_prediction_artifact.json")
+    observed = {
+        f"{task['suite']}/task_{task['task_id']}": _task_index_for_task(task, stable_index_map)
+        for task in manifest["tasks"]
+    }
+    assert observed == expected_task_indices

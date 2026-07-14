@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
+Current decision: `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
 
 Current epoch: `4`
 
 Current cycle: `8`
 
-Current stage: `epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending`
+Current stage: `epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -213,4 +213,6 @@ MARC policy identity training is complete in `reports/marc_vla/policy_checkpoint
 
 Checkpoint root: `runs\marc_vla_checkpoints\marc_a020_gate_mlp`. MARC full validation delta L2 p95 is `0.010693175718188286`; OpenVLA-OFT-style L1 proxy p95 is `0.2307613492012024`; no-disagreement-gate p95 is `0.12246084958314896`; static L1 mixture p95 is `0.07999999821186066`. Full-versus-L1 mean L2 is `0.08430124074220657`, full-versus-no-gate is `0.04372206702828407`, and full-versus-static is `0.032826922833919525`.
 
-Current decision: `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`. Current stage: `epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending`.
+The MARC Stage A matched manifest is frozen in `reports/marc_vla/stage_a_manifest.json` with canonical payload hash `3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E`. It contains exactly five policies (`frozen_smolvla`, `openvla_oft_l1_proxy`, `marc_full`, `marc_no_disagreement_gate_ablation`, `static_l1_mixture_baseline`), five evenly spaced official tasks, fresh reset seeds `20261209` and `20261210`, `10` paired cases per policy, and `50` total planned episodes. `openvla_oft_l1_proxy` remains labeled as a faithful transparent local proxy, not an official OpenVLA-OFT reproduction.
+
+Current decision: `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`. Current stage: `epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending`.

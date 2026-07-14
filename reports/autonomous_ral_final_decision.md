@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY`
+Current decision: `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
 
 This is not a terminal state under the active governance.
 
@@ -117,4 +117,6 @@ MARC policy identity training completed as `MARC_POLICY_IDENTITIES_VERIFIED_STAG
 
 The disk-reloaded policy identities are action-distinct: full-versus-L1 mean L2 is `0.08430124074220657`, full-versus-no-gate is `0.04372206702828407`, and full-versus-static mixture is `0.032826922833919525`. No closed-loop rollout or confirmatory-test tuning happened during policy identity training.
 
-Current stage: `epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending`. Next action: freeze the MARC Stage A matched manifest for the five verified policy identities before any rollout.
+The MARC Stage A manifest is now frozen as `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`: `50` planned episodes, reset seeds `20261209` and `20261210`, canonical hash `3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E`, and the unchanged five-policy comparison. `openvla_oft_l1_proxy` is explicitly a faithful transparent local proxy, not an official OpenVLA-OFT reproduction. No closed-loop rollout or confirmatory-test tuning happened during manifest freeze.
+
+Current stage: `epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending`. Next action: run MARC Stage A disk-reloaded policy preflight, then launch the official Stage A rollout if preflight passes.

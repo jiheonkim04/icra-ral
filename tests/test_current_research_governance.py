@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
-    assert state["current_stage"] == "epoch_4_cycle_8_marc_policy_identities_verified_stage_a_manifest_pending"
+    assert state["current_decision"] == "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_stage"] == "epoch_4_cycle_8_marc_stage_a_manifest_frozen_preflight_pending"
     assert state["method"] == "MARC-VLA"
     assert state["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
     assert state["prototype_protocol"] == "reports/marc_vla/prototype_protocol.md"
@@ -96,7 +96,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_8_marc_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_selected_config_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_policy_identities_verified" in state["completed_stages"]
-    assert state["task_reset_manifest"] is None
+    assert "epoch_4_cycle_8_marc_stage_a_manifest_frozen" in state["completed_stages"]
+    assert state["task_reset_manifest"] == "reports/marc_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
@@ -219,6 +220,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_8_pre_stage_a"]["policy_identity_decision"] == "MARC_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY"
     assert state["epoch_4_cycle_8_pre_stage_a"]["checkpoint_root"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
     assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_allowed"] is True
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_manifest_decision"] == "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_planned_episode_count"] == 50
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_paired_cases_per_policy"] == 10
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_reset_seeds"] == [20261209, 20261210]
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_manifest_canonical_payload_sha256"] == "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E"
     assert state["epoch_4_cycle_8_pre_stage_a"]["policy_identity_verified_count"] == 4
     assert state["epoch_4_cycle_8_pre_stage_a"]["first_comparison_policies"] == [
         "frozen_smolvla",
@@ -269,6 +275,12 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert policy_outcome["static_l1_mixture_delta_l2_p95"] == 0.07999999821186066
     assert policy_outcome["distinction"]["marc_full_vs_openvla_oft_l1_proxy_mean_l2"] == 0.08430124074220657
     assert policy_outcome["distinction"]["marc_full_vs_static_l1_mixture_baseline_mean_l2"] == 0.032826922833919525
+    marc_manifest = state["epoch_4_cycle_8_marc_stage_a_manifest"]
+    assert marc_manifest["final_decision"] == "MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert marc_manifest["planned_episode_count"] == 50
+    assert marc_manifest["paired_cases_per_policy"] == 10
+    assert marc_manifest["reset_seeds"] == [20261209, 20261210]
+    assert marc_manifest["manifest_canonical_payload_sha256"] == "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
