@@ -1,11 +1,16 @@
 import numpy as np
 import pytest
+import torch
 
 from tca_map.smolvla.fang_vla import (
     FANGAuditConfig,
+    FANGHead,
+    VARIANTS,
+    apply_fang_action,
     audit_fang_records,
     build_fang_feature,
     compute_gate_targets,
+    load_fang_runtime,
     records_to_arrays,
     split_development_records,
     standardize_train_validation,
@@ -128,3 +133,38 @@ def test_audit_stops_on_duplicates_and_confirmatory_overlap() -> None:
     assert "DATA_FAILURE" in report["failure_classifications"]
     assert report["duplicate_development_keys"] == 1
     assert report["forbidden_confirmatory_identities_present"] == [20260921]
+
+
+def test_runtime_loads_checkpoint_and_applies_all_variants(tmp_path) -> None:
+    checkpoint_path = tmp_path / "fang.pt"
+    model = FANGHead()
+    torch.save(
+        {
+            "model_state_dict": model.state_dict(),
+            "config": {"alpha": 0.10, "beta": 0.50},
+            "feature_mean": np.zeros(25, dtype=float),
+            "feature_scale": np.ones(25, dtype=float),
+            "gate_tau": 0.0,
+        },
+        checkpoint_path,
+    )
+    runtime = load_fang_runtime(
+        checkpoint_path=str(checkpoint_path),
+        records=_healthy_records(),
+        selected_config={"config": {"alpha": 0.10, "beta": 0.50}, "gate_tau": 0.0},
+    )
+
+    for variant in VARIANTS:
+        action, diagnostics = apply_fang_action(
+            runtime,
+            variant=variant,
+            state=np.zeros(8),
+            action=np.zeros(7),
+            previous_action=np.zeros(7),
+            chunk_index_fraction=0.0,
+            task_key="libero_spatial/task_4",
+        )
+
+        assert action.shape == (7,)
+        assert np.all(np.isfinite(action))
+        assert "action_delta_l2" in diagnostics

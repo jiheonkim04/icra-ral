@@ -36,9 +36,11 @@ Forbidden for FANG training and validation:
 
 FANG confirmatory identities, if audit and validation pass:
 
-- Stage A: `20260951..20260960`;
-- Stage B: `20260961..20261000`;
-- optional one-time expansion, only if preregistered unresolved: `20261001..20261040`.
+- `FANG_RESET_IDENTITY_BASE = 20261001`.
+- Exact official LIBERO initial-state index is `identity - FANG_RESET_IDENTITY_BASE`.
+- Stage A: `20261001..20261005`, giving `5` identities x `2` tasks = `10` paired cases per policy.
+- Stage B: `20261006..20261025`, giving `20` identities x `2` tasks = `40` paired cases per policy.
+- Optional one-time expansion, only if preregistered unresolved: add `20261026..20261045`, giving `80` paired cases per policy total.
 
 No confirmatory identity may be used to train, validate, calibrate, select a configuration, choose thresholds, or debug the method.
 
@@ -171,10 +173,10 @@ Definitions:
 
 Run `10` paired episodes per policy:
 
-- identities `20260951..20260960`;
+- identities `20261001..20261005`;
 - two tasks;
 - five policies;
-- total `100` episodes if each identity maps to both tasks for each policy.
+- total `50` episodes.
 
 Stage A may kill only for:
 
@@ -191,7 +193,7 @@ Small differences advance to Stage B.
 
 Run at least `40` paired episodes per key policy:
 
-- identities `20260961..20261000`;
+- identities `20261006..20261025`;
 - two tasks;
 - five policies;
 - matched manifest and identical reset allocation.

@@ -6,9 +6,17 @@ from dataclasses import dataclass
 from typing import Any, Mapping, Sequence
 
 import numpy as np
+import torch
 
 
 TASK_KEYS = ("libero_spatial/task_4", "libero_10/task_4")
+VARIANTS = (
+    "base_smolvla",
+    "afil_local_proxy",
+    "fang_full",
+    "fang_no_failure_ablation",
+    "nearest_success_replay",
+)
 FORBIDDEN_INFERENCE_KEYS = {
     "object_state",
     "object_pose",
@@ -26,7 +34,7 @@ FORBIDDEN_INFERENCE_KEYS = {
 class FANGAuditConfig:
     train_identities: tuple[int, ...] = tuple(range(20260901, 20260911))
     validation_identities: tuple[int, ...] = tuple(range(20260911, 20260917))
-    forbidden_confirmatory_identities: tuple[int, ...] = tuple(range(20260917, 20261041))
+    forbidden_confirmatory_identities: tuple[int, ...] = tuple(range(20260917, 20261091))
     k_neighbors: int = 8
     min_class_rows: int = 250
     min_class_identities_per_task: int = 2
@@ -35,6 +43,25 @@ class FANGAuditConfig:
     min_target_variance: float = 1e-6
     min_scale: float = 1e-6
     max_abs_action: float = 5.0
+
+
+class FANGHead(torch.nn.Module):
+    def __init__(self, input_dim: int = 25, hidden_dim: int = 64) -> None:
+        super().__init__()
+        self.trunk = torch.nn.Sequential(
+            torch.nn.Linear(input_dim, hidden_dim),
+            torch.nn.ReLU(),
+            torch.nn.Linear(hidden_dim, hidden_dim),
+            torch.nn.ReLU(),
+        )
+        self.m_plus = torch.nn.Linear(hidden_dim, 7)
+        self.m_minus = torch.nn.Linear(hidden_dim, 7)
+        self.gate = torch.nn.Linear(hidden_dim, 1)
+        torch.nn.init.constant_(self.gate.bias, -4.0)
+
+    def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        h = self.trunk(x)
+        return self.m_plus(h), self.m_minus(h), self.gate(h).reshape(-1)
 
 
 def _as_vector(name: str, value: Any, size: int) -> np.ndarray:
@@ -219,6 +246,143 @@ def compute_gate_targets(
         "gamma": gamma,
         "q25": q25,
         "q75": q75,
+    }
+
+
+def _clip_l2_np(value: np.ndarray, max_norm: float) -> np.ndarray:
+    vector = np.asarray(value, dtype=np.float64).reshape(-1)
+    norm = float(np.linalg.norm(vector))
+    if norm <= float(max_norm) or norm <= 1e-12:
+        return vector
+    return vector * (float(max_norm) / norm)
+
+
+def load_fang_runtime(
+    *,
+    checkpoint_path: str,
+    records: Sequence[Mapping[str, Any]],
+    selected_config: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    model = FANGHead()
+    model.load_state_dict(checkpoint["model_state_dict"])
+    model.eval()
+    config = dict((selected_config or {}).get("config") or checkpoint.get("config") or {})
+    gate_tau = float((selected_config or {}).get("gate_tau", checkpoint.get("gate_tau", 0.0)))
+    feature_mean = np.asarray(checkpoint["feature_mean"], dtype=np.float64).reshape(25)
+    feature_scale = np.asarray(checkpoint["feature_scale"], dtype=np.float64).reshape(25)
+    splits = split_development_records(records)
+    train_arrays = records_to_arrays(splits["train"])
+    train_features_std = _standardize(train_arrays["features"], feature_mean, feature_scale)
+    success_memory: dict[str, dict[str, np.ndarray]] = {}
+    for task in TASK_KEYS:
+        mask = np.asarray([task_value == task and bool(label) for task_value, label in zip(train_arrays["tasks"], train_arrays["labels"])], dtype=bool)
+        success_memory[task] = {
+            "features": train_features_std[mask],
+            "actions": train_arrays["actions"][mask],
+        }
+    return {
+        "model": model,
+        "config": config,
+        "gate_tau": gate_tau,
+        "feature_mean": feature_mean,
+        "feature_scale": feature_scale,
+        "success_memory": success_memory,
+        "checkpoint_path": checkpoint_path,
+    }
+
+
+def _nearest_success_action(runtime: Mapping[str, Any], task_key: str, key_std: np.ndarray) -> tuple[np.ndarray | None, float]:
+    memory = (runtime.get("success_memory") or {}).get(task_key) or {}
+    raw_features = memory.get("features")
+    raw_actions = memory.get("actions")
+    features = np.asarray(raw_features if raw_features is not None else [], dtype=np.float64).reshape(-1, 25)
+    actions = np.asarray(raw_actions if raw_actions is not None else [], dtype=np.float64).reshape(-1, 7)
+    if features.size == 0 or actions.size == 0:
+        return None, float("inf")
+    distances = np.linalg.norm(features - key_std.reshape(1, -1), axis=1)
+    index = int(np.argmin(distances))
+    return actions[index].astype(np.float64), float(distances[index])
+
+
+def apply_fang_action(
+    runtime: Mapping[str, Any],
+    *,
+    variant: str,
+    state: Any,
+    action: Any,
+    previous_action: Any,
+    chunk_index_fraction: float,
+    task_key: str,
+) -> tuple[np.ndarray, dict[str, Any]]:
+    if variant not in VARIANTS:
+        raise ValueError(f"unknown FANG variant: {variant}")
+    base = _as_vector("action", action, 7)
+    if variant == "base_smolvla":
+        return base, {"gate": 0.0, "action_delta_l2": 0.0, "head_separation": 0.0, "memory_available": False}
+    validate_inference_fields(
+        {
+            "state_vector": state,
+            "action_vector": action,
+            "previous_action_vector": previous_action,
+            "chunk_index_fraction": chunk_index_fraction,
+            "task_key": task_key,
+        }
+    )
+    key = build_fang_feature(
+        state=state,
+        action=base,
+        previous_action=previous_action,
+        chunk_index_fraction=chunk_index_fraction,
+        task_key=task_key,
+    )
+    mean = np.asarray(runtime["feature_mean"], dtype=np.float64).reshape(25)
+    scale = np.asarray(runtime["feature_scale"], dtype=np.float64).reshape(25)
+    key_std = ((key - mean) / scale).astype(np.float64)
+    alpha = float((runtime.get("config") or {}).get("alpha", 0.10))
+    beta = float((runtime.get("config") or {}).get("beta", 0.50))
+    delta_max = 0.35
+    if variant == "nearest_success_replay":
+        nearest, distance = _nearest_success_action(runtime, task_key, key_std)
+        if nearest is None:
+            return base, {"gate": 0.0, "action_delta_l2": 0.0, "head_separation": 0.0, "memory_available": False}
+        delta = alpha * _clip_l2_np(np.asarray(nearest, dtype=np.float64).reshape(-1) - base, delta_max)
+        adjusted = np.clip(base + delta, -1.0, 1.0)
+        return adjusted.astype(np.float64), {
+            "gate": 1.0,
+            "action_delta_l2": float(np.linalg.norm(adjusted - base)),
+            "head_separation": 0.0,
+            "memory_available": True,
+            "nearest_success_distance": float(distance),
+        }
+    model = runtime["model"]
+    with torch.no_grad():
+        x = torch.as_tensor(key_std.reshape(1, -1), dtype=torch.float32)
+        m_plus, m_minus, gate_logits = model(x)
+        plus = m_plus.detach().cpu().numpy().reshape(-1).astype(np.float64)
+        minus = m_minus.detach().cpu().numpy().reshape(-1).astype(np.float64)
+        raw_gate = float(torch.sigmoid(gate_logits).detach().cpu().numpy().reshape(-1)[0])
+        calibrated_gate = float(torch.sigmoid(gate_logits - float(runtime.get("gate_tau", 0.0))).detach().cpu().numpy().reshape(-1)[0])
+    if variant == "afil_local_proxy":
+        gate = raw_gate
+        guidance = (plus - base) + beta * (plus - minus)
+    elif variant == "fang_full":
+        gate = calibrated_gate
+        guidance = (plus - base) + beta * (plus - minus)
+    elif variant == "fang_no_failure_ablation":
+        gate = calibrated_gate
+        guidance = plus - base
+    else:  # pragma: no cover
+        raise ValueError(variant)
+    delta = alpha * gate * _clip_l2_np(guidance, delta_max)
+    adjusted = np.clip(base + delta, -1.0, 1.0)
+    return adjusted.astype(np.float64), {
+        "gate": float(gate),
+        "raw_gate": float(raw_gate),
+        "calibrated_gate": float(calibrated_gate),
+        "action_delta_l2": float(np.linalg.norm(adjusted - base)),
+        "head_separation": float(np.linalg.norm(plus - minus)),
+        "memory_available": True,
     }
 
 
@@ -424,10 +588,14 @@ def audit_fang_records(records: Sequence[Mapping[str, Any]], config: FANGAuditCo
 
 __all__ = [
     "FANGAuditConfig",
+    "FANGHead",
     "TASK_KEYS",
+    "VARIANTS",
+    "apply_fang_action",
     "audit_fang_records",
     "build_fang_feature",
     "compute_gate_targets",
+    "load_fang_runtime",
     "records_to_arrays",
     "split_development_records",
     "standardize_train_validation",
