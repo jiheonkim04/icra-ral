@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `SELECT_EAC_VLA`
+Current campaign decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -164,4 +164,6 @@ EAC is anchored to Adaptive Action Chunking. It preserves frozen SmolVLA weights
 
 The EAC Researcher A proposal is frozen in `reports/eac_vla/researcher_proposal.md` with proposal hash `A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E`.
 
-Current stage: `epoch_4_cycle_10_eac_reviewer_attack_pending`. Next action: run Reviewer B attack before any implementation or Stage 0 audit.
+Reviewer B attack is complete in `reports/eac_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires Researcher A to accept narrow AAC-extension novelty, keep the AAC proxy and fixed short-replan simple killer live, audit uncertainty/dispersion validity, and treat action-value modification as implementation failure.
+
+Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`. Next action: write Researcher A rebuttal before mathematical audit or implementation.

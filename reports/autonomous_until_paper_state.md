@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_EAC_VLA`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`
 
 Allowed final states:
 
@@ -336,4 +336,6 @@ The selected first comparison is frozen at the design level to five policies: Ba
 
 The EAC Researcher A proposal is frozen in `reports/eac_vla/researcher_proposal.md` with proposal hash `A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E`.
 
-Current decision: `SELECT_EAC_VLA`. Current stage: `epoch_4_cycle_10_eac_reviewer_attack_pending`. Next action: run Reviewer B attack before any implementation or Stage 0 audit.
+Reviewer B attack is complete in `reports/eac_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The attack narrows novelty against AAC, forces `aac_entropy_proxy` and `fixed_short_replan_baseline` to remain live, requires uncertainty/dispersion validity before rollout, and treats action-value modification as implementation failure.
+
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`. Next action: write Researcher A rebuttal before mathematical audit or implementation.
