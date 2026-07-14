@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_5_RAC_STAGE_A_NONCATASTROPHIC_STAGE_B_PENDING`
+Current decision: `EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `5`
 
-Current stage: `rac_vla_stage_b_pending`
+Current stage: `post_rac_governance_update_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -120,4 +120,8 @@ The bounded six-config validation search selected `rac_h4_a0.05`: history horizo
 
 Stage A completed `50 / 50` episodes with zero exceptions under the frozen hidden `x_attenuate` action-channel shift. RAC full reached `0 / 10`, frozen shifted Base reached `0 / 10`, the no-consequence ablation reached `0 / 10`, the Reflective-history proxy reached `1 / 10`, and the online diagonal inverse-gain baseline reached `1 / 10`. RAC full tied Base and the key ablation, lost by only `1 / 10` to the strongest baseline and simple baseline, and did not satisfy any permanent Stage A kill criterion.
 
-Current stage: RAC-VLA Stage B pending. Run the preregistered Stage B paired expansion with frozen config `rac_h4_a0.05`. Do not retune RAC after Stage A outcomes.
+Stage B completed `200 / 200` episodes with zero exceptions and a valid shared task/reset manifest: `200` unique `(variant, task, identity)` keys, duplicate keys `0`, `40` episodes per variant, and identical paired manifests. RAC full reached `1 / 40`; shifted Base reached `1 / 40`; the Reflective-history proxy reached `1 / 40`; the no-consequence ablation reached `2 / 40`; and the online diagonal inverse-gain simple baseline reached `2 / 40`. RAC full tied Base and the closest-prior proxy, but lost to the key ablation and simple baseline.
+
+Final RAC decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue RAC, retune `rac_h4_a0.05`, change the hidden shift, or reinterpret the closed result.
+
+Current stage: post-RAC governance update pending. Install the new performance-oriented governance and continue automatically to the next method cycle.

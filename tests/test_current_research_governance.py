@@ -11,7 +11,7 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_records_rac_stage_b_pending_without_cycle_cap() -> None:
+def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -19,8 +19,8 @@ def test_active_state_records_rac_stage_b_pending_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_5_RAC_STAGE_A_NONCATASTROPHIC_STAGE_B_PENDING"
-    assert state["current_stage"] == "rac_vla_stage_b_pending"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING"
+    assert state["current_stage"] == "post_rac_governance_update_pending"
     assert state["method"] == "RAC-VLA"
     assert state["proposal_hash"] == "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F"
     assert state["prototype_protocol"] == "reports/rac_vla/prototype_protocol.md"
@@ -42,6 +42,10 @@ def test_active_state_records_rac_stage_b_pending_without_cycle_cap() -> None:
     assert "epoch_4_cycle_5_rac_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_5_rac_stage_a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_5_rac_stage_b_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_5_rac_stage_b_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_5_rac_stage_b_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_5_rac_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "post_rac_governance_update_pending" in state["completed_stages"]
     assert state["checkpoint_path"] is None
     assert state["stage_a_result_json"] == "reports/rac_vla/stage_a_result.json"
     assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"
@@ -107,6 +111,18 @@ def test_active_state_records_rac_stage_b_pending_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_5_stage_a_outcome"]["rac_no_consequence_ablation_successes"] == 0
     assert state["epoch_4_cycle_5_stage_a_outcome"]["reflective_history_proxy_successes"] == 1
     assert state["epoch_4_cycle_5_stage_a_outcome"]["online_diagonal_inverse_gain_successes"] == 1
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["final_decision"] == "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["stage_b_completed"] is True
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["episode_count"] == 200
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["exceptions"] == 0
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["manifest_unique_variant_task_identity_keys"] == 200
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["manifest_duplicate_keys"] == 0
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["manifest_bad_pairs"] == 0
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["rac_full_successes"] == 1
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["base_smolvla_shifted_successes"] == 1
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["reflective_history_proxy_successes"] == 1
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["rac_no_consequence_ablation_successes"] == 2
+    assert state["epoch_4_cycle_5_stage_b_outcome"]["online_diagonal_inverse_gain_successes"] == 2
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:
