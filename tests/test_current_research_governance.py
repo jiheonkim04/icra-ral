@@ -21,10 +21,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["current_decision"] == "SELECT_PESA_VLA"
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_preregistration_pending"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_stage_0_pending"
     assert state["method"] == "PESA-VLA"
     assert state["proposal_hash"] == PESA_PROPOSAL_HASH
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/pesa_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -110,6 +110,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_9_pesa_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_rebuttal_completed" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_prototype_protocol_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -124,8 +126,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_9_pre_stage_0"]["rebuttal_decision"] == "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["epoch_4_cycle_9_pre_stage_0"]["mathematical_audit"] == "reports/pesa_vla/mathematical_mechanism_audit.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["mathematical_audit_decision"] == "PESA_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["epoch_4_cycle_9_pre_stage_0"]["preregistration"] is None
-    assert state["epoch_4_cycle_9_pre_stage_0"]["prototype_protocol"] is None
+    assert state["epoch_4_cycle_9_pre_stage_0"]["preregistration"] == "reports/pesa_vla/preregistration.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["prototype_protocol"] == "reports/pesa_vla/prototype_protocol.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_decision"] is None
     assert state["epoch_4_cycle_9_pre_stage_0"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "priorvla_style_proxy",

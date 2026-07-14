@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 9,
-    "topic": "epoch_4_cycle_9_pesa_preregistration_pending",
+    "topic": "epoch_4_cycle_9_pesa_stage_0_pending",
     "method": "PESA-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "e7dbbf9",
-    "current_stage": "epoch_4_cycle_9_pesa_preregistration_pending",
+    "current_commit": "e2decb7",
+    "current_stage": "epoch_4_cycle_9_pesa_stage_0_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -267,21 +267,23 @@
         "epoch_4_cycle_9_pesa_proposal_frozen",
         "epoch_4_cycle_9_pesa_reviewer_attack_completed",
         "epoch_4_cycle_9_pesa_rebuttal_completed",
-        "epoch_4_cycle_9_pesa_mathematical_audit_preregistered"
+        "epoch_4_cycle_9_pesa_mathematical_audit_preregistered",
+        "epoch_4_cycle_9_pesa_preregistration_frozen",
+        "epoch_4_cycle_9_pesa_prototype_protocol_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
     "elapsed_active_time_hours_recorded": 5.21,
     "gpu_time_hours_recorded": 5.21,
     "downloads_gib_this_reopened_campaign": 0.0,
-    "hypothesis": "PESA-VLA proposal, reviewer attack, rebuttal, and mathematical mechanism audit are complete; preregistration and prototype protocol are pending before implementation.",
+    "hypothesis": "PESA-VLA pre-implementation documents are frozen through preregistration and prototype protocol; Stage 0 development audit implementation is pending.",
     "novelty_claim": "Prior-preserving spectral adaptation for frozen SmolVLA 7D policies, tested against PriorVLA-style proxy, standard LoRA, no-spectral ablation, and one simple clean-retention baseline.",
     "closest_papers": [
         "PriorVLA",
         "LoRA-SP",
         "VLA-GSE"
     ],
-    "prototype_gate": "PESA preregistration must freeze discovery/validation/test separation, Stage 0 audit gates, bounded validation search budget, exactly five first-comparison policies, simple-killer selection, mathematical objective terms, identity-preserving checks, and no confirmatory-test tuning.",
+    "prototype_gate": "PESA Stage 0 must pass frozen label, split, headroom, spectral activation, gradient, action-validity, action-distinction, and identity-preservation gates before validation search or training.",
     "current_decision": "SELECT_PESA_VLA",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
@@ -433,12 +435,12 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write and freeze the PESA-VLA preregistration and prototype protocol before any implementation, training, rollout, manifest freeze, or confirmatory-test use.",
+    "next_action": "Implement and run PESA-VLA Stage 0 development audit under the frozen preregistration; do not train, roll out, freeze confirmatory manifests, or use confirmatory-test identities before Stage 0 passes.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
-    "active_hypothesis": "PESA-VLA proposal, reviewer attack, rebuttal, and mathematical mechanism audit are complete; preregistration and prototype protocol are pending before implementation.",
+    "active_hypothesis": "PESA-VLA pre-implementation documents are frozen through preregistration and prototype protocol; Stage 0 development audit implementation is pending.",
     "method_identity": "PESA-VLA",
     "proposal_hash": "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63",
-    "prototype_protocol": null,
+    "prototype_protocol": "reports/pesa_vla/prototype_protocol.md",
     "process_id": null,
     "checkpoint_path": null,
     "epoch_2_cycle_2_outcome": {
@@ -2187,7 +2189,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_9_pesa_preregistration_pending",
+    "current_topic": "epoch_4_cycle_9_pesa_stage_0_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3254,7 +3256,7 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "training_happened": false,
-        "next_stage": "Write and freeze PESA-VLA preregistration and prototype protocol before implementation or training.",
+        "next_stage": "Implement and run PESA-VLA Stage 0 development audit under the frozen preregistration.",
         "proposal": "reports/pesa_vla/researcher_proposal.md",
         "reviewer_attack": "reports/pesa_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -3262,7 +3264,8 @@
         "rebuttal_decision": "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/pesa_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_decision": "PESA_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration": null,
-        "prototype_protocol": null
+        "preregistration": "reports/pesa_vla/preregistration.md",
+        "prototype_protocol": "reports/pesa_vla/prototype_protocol.md",
+        "stage_0_decision": null
     }
 }

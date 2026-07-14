@@ -135,6 +135,8 @@ Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` w
 
 The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematical_mechanism_audit.md` with decision `PESA_MATHEMATICAL_AUDIT_PREREGISTERED`. It explicitly forbids KL between deterministic 7D actions and requires Base-passthrough, bounded deltas, spectral activation, gradient, label-health, and clean-retention audits before rollout.
 
+The PESA preregistration and prototype protocol are frozen in `reports/pesa_vla/preregistration.md` and `reports/pesa_vla/prototype_protocol.md`. The first serious comparison is fixed to exactly five policies and the validation search is capped at six named configurations.
+
 No rollout, training, or confirmatory-test tuning has happened for PESA.
 
-Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`. Next action: write and freeze the PESA preregistration and prototype protocol before implementation.
+Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`. Next action: implement and run the PESA Stage 0 development audit under the frozen preregistration.

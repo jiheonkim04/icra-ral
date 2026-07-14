@@ -12,7 +12,7 @@ Current epoch: `4`
 
 Current cycle: `9`
 
-Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`
+Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`
 
 Allowed final states:
 
@@ -316,6 +316,8 @@ Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` w
 
 The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematical_mechanism_audit.md` with decision `PESA_MATHEMATICAL_AUDIT_PREREGISTERED`. The audit defines spectral-energy variables, tensor shapes, action formula, Huber/L2/entropy objectives, gradient paths, small-batch scale checks, required ablations, identity-preserving Base passthrough, and the no deterministic-action KL rule.
 
-No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to write and freeze the PESA preregistration and prototype protocol before implementation.
+The PESA preregistration and prototype protocol are frozen in `reports/pesa_vla/preregistration.md` and `reports/pesa_vla/prototype_protocol.md`. The frozen first comparison remains exactly five policies: Base, PriorVLA-style proxy, PESA full, no-spectral/no-prior-query ablation, and one standard-LoRA or clean-retention simple killer.
 
-Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`.
+No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to implement and run the PESA Stage 0 development audit under the frozen preregistration.
+
+Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`.
