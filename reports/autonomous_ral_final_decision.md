@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING`
 
 This is not a terminal state under the active governance.
 
@@ -173,4 +173,6 @@ EAC Stage A completed `50 / 50` episodes with zero exceptions. EAC full reached 
 
 The EAC Stage B matched manifest is frozen in `reports/eac_vla/stage_b_manifest.json` with canonical payload hash `31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D`, all `20` official tasks, fresh reset seeds `20261213` and `20261214`, `40` paired cases per policy, and `200` planned episodes.
 
-Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_pending`. Next action: launch the frozen EAC Stage B official rollout without retuning.
+EAC Stage B was launched detached from `runs/eac_vla_stage_b/20260714T202334Z` with child PID `386` and partial result path `reports/eac_vla/stage_b_partial_result.json`.
+
+Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_running`. Next action: monitor the detached EAC Stage B rollout to completion without retuning.

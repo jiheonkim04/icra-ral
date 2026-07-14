@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "topic": "epoch_4_cycle_10_eac_stage_b_rollout_pending",
+    "topic": "epoch_4_cycle_10_eac_stage_b_rollout_running",
     "method": "EAC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "e1dbb12",
-    "current_stage": "epoch_4_cycle_10_eac_stage_b_rollout_pending",
+    "current_commit": "557f278",
+    "current_stage": "epoch_4_cycle_10_eac_stage_b_rollout_running",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -291,7 +291,8 @@
         "epoch_4_cycle_10_eac_stage_a_rollout_launched",
         "epoch_4_cycle_10_eac_stage_a_completed",
         "epoch_4_cycle_10_eac_stage_a_adjudicated",
-        "epoch_4_cycle_10_eac_stage_b_manifest_frozen"
+        "epoch_4_cycle_10_eac_stage_b_manifest_frozen",
+        "epoch_4_cycle_10_eac_stage_b_rollout_launched"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -306,7 +307,7 @@
         "AC2-VLA"
     ],
     "prototype_gate": "EAC Stage A completed noncatastrophically; Stage B manifest freeze is required.",
-    "current_decision": "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+    "current_decision": "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
     "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
@@ -457,13 +458,13 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Launch the frozen EAC Stage B official rollout without retuning.",
+    "next_action": "Monitor the detached EAC Stage B rollout to completion without retuning.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
     "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
     "prototype_protocol": null,
-    "process_id": null,
+    "process_id": 386,
     "checkpoint_path": null,
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2211,7 +2212,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_10_eac_stage_b_rollout_pending",
+    "current_topic": "epoch_4_cycle_10_eac_stage_b_rollout_running",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4166,5 +4167,32 @@
         "confirmatory_test_tuning_happened": false,
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_eac_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Launch the frozen EAC Stage B official rollout without retuning."
+    },
+    "epoch_4_cycle_10_eac_stage_b_launch": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING",
+        "stage_b_rollout_launched": true,
+        "run_dir": "runs/eac_vla_stage_b/20260714T202334Z",
+        "wrapper_pid": 375,
+        "child_pid": 386,
+        "planned_episode_count": 200,
+        "partial_result": "reports/eac_vla/stage_b_partial_result.json",
+        "final_result": "reports/eac_vla/stage_b_result.json",
+        "manifest": "reports/eac_vla/stage_b_manifest.json",
+        "runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
+        "stdout_log": "runs/eac_vla_stage_b/20260714T202334Z/stdout.log",
+        "stderr_log": "runs/eac_vla_stage_b/20260714T202334Z/stderr.log",
+        "run_status": "runs/eac_vla_stage_b/20260714T202334Z/status.json",
+        "run_heartbeat": "runs/eac_vla_stage_b/20260714T202334Z/heartbeat.json",
+        "report_status": "reports/eac_vla/stage_b_status.json",
+        "resume_command_file": "runs/eac_vla_stage_b/20260714T202334Z/resume_command.txt",
+        "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_eac_vla_stage_a.py --mode stage-b\"",
+        "launched_from_commit": "557f278",
+        "closed_loop_experiment_happened": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "note": "Detached EAC Stage B rollout launched from the frozen Stage B manifest; monitor only and do not retune from partial outcomes."
     }
 }

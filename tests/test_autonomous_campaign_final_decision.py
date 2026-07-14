@@ -11,7 +11,7 @@ EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A445
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`" in final
+    assert "Current campaign decision: `EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -139,7 +139,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "EAC Stage A completed `50 / 50` episodes with zero exceptions" in final
     assert "EAC Stage B matched manifest is frozen in `reports/eac_vla/stage_b_manifest.json`" in final
     assert "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D" in final
-    assert "Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_pending`" in final
+    assert "EAC Stage B was launched detached from `runs/eac_vla_stage_b/20260714T202334Z`" in final
+    assert "Current stage: `epoch_4_cycle_10_eac_stage_b_rollout_running`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -147,10 +148,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EAC_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_decision"] == "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 10
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_rollout_pending"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_rollout_running"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -166,7 +167,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Launch the frozen EAC Stage B official rollout")
+    assert state["next_action"].startswith("Monitor the detached EAC Stage B rollout")
     assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
     assert state["stage_b_manifest_json"] == "reports/eac_vla/stage_b_manifest.json"
     assert state["stage_b_partial_checkpoint"] == "reports/eac_vla/stage_b_partial_result.json"
@@ -292,6 +293,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_10_eac_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_b_manifest_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_b_rollout_launched" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
@@ -411,6 +413,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert eac_stage_b["reset_seeds"] == [20261213, 20261214]
     assert eac_stage_b["manifest_canonical_payload_sha256"] == "31F7590D81D95AECE9D7D1E8D6A2332364D5A9B36F6A913F9634D30D2C27B24D"
     assert eac_stage_b["partition_separation"]["stage_b_outcomes_used_for_retuning"] is False
+    eac_launch = state["epoch_4_cycle_10_eac_stage_b_launch"]
+    assert eac_launch["final_decision"] == "EAC_STAGE_B_ROLLOUT_LAUNCHED_RUNNING"
+    assert eac_launch["run_dir"] == "runs/eac_vla_stage_b/20260714T202334Z"
+    assert eac_launch["child_pid"] == 386
+    assert eac_launch["planned_episode_count"] == 200
+    assert eac_launch["partial_result"] == "reports/eac_vla/stage_b_partial_result.json"
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
