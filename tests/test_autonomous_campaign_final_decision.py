@@ -11,7 +11,7 @@ EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A445
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`" in final
+    assert "Current campaign decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -115,7 +115,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert EAC_PROPOSAL_HASH in final
     assert "reports/eac_vla/reviewer_attack.md" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
-    assert "Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`" in final
+    assert "reports/eac_vla/researcher_rebuttal.md" in final
+    assert "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -123,10 +125,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_decision"] == "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 10
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_mathematical_audit_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -142,7 +144,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Write Researcher A rebuttal")
+    assert state["next_action"].startswith("Write EAC-VLA mathematical mechanism audit")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -251,6 +253,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_10_eac_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_rebuttal_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
@@ -296,6 +299,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert eac["proposal_hash"] == EAC_PROPOSAL_HASH
     assert eac["reviewer_attack"] == "reports/eac_vla/reviewer_attack.md"
     assert eac["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert eac["researcher_rebuttal"] == "reports/eac_vla/researcher_rebuttal.md"
+    assert eac["rebuttal_decision"] == "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"

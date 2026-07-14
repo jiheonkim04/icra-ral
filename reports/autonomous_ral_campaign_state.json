@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "topic": "epoch_4_cycle_10_eac_rebuttal_pending",
+    "topic": "epoch_4_cycle_10_eac_mathematical_audit_pending",
     "method": "EAC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "bede212",
-    "current_stage": "epoch_4_cycle_10_eac_rebuttal_pending",
+    "current_commit": "976ca7b",
+    "current_stage": "epoch_4_cycle_10_eac_mathematical_audit_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -276,7 +276,8 @@
         "epoch_4_cycle_10_candidate_generation_completed",
         "epoch_4_cycle_10_eac_proposal_pending",
         "epoch_4_cycle_10_eac_proposal_frozen",
-        "epoch_4_cycle_10_eac_reviewer_attack_completed"
+        "epoch_4_cycle_10_eac_reviewer_attack_completed",
+        "epoch_4_cycle_10_eac_rebuttal_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -290,8 +291,8 @@
         "AR-VLA",
         "AC2-VLA"
     ],
-    "prototype_gate": "EAC Reviewer B attack requires rebuttal before mathematical audit, preregistration, implementation, or Stage 0 queue/uncertainty audit.",
-    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "prototype_gate": "EAC rebuttal passed to mathematical audit; no implementation or Stage 0 may run before audit and preregistration are frozen.",
+    "current_decision": "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -442,7 +443,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write Researcher A rebuttal for EAC-VLA; accept or resolve Reviewer B constraints before mathematical audit, preregistration, implementation, or Stage 0.",
+    "next_action": "Write EAC-VLA mathematical mechanism audit; do not implement or run Stage 0 before audit and preregistration are frozen.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -3374,6 +3375,8 @@
         "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
         "reviewer_attack": "reports/eac_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
-        "next_stage": "Write EAC-VLA Researcher A rebuttal before mathematical audit."
+        "researcher_rebuttal": "reports/eac_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "next_stage": "Write EAC-VLA mathematical mechanism audit before preregistration or implementation."
     }
 }

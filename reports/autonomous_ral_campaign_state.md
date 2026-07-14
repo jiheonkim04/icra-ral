@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`
+Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -261,4 +261,6 @@ The EAC Researcher A proposal is frozen in `reports/eac_vla/researcher_proposal.
 
 Reviewer B attack is complete in `reports/eac_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The attack narrows novelty against AAC, forces `aac_entropy_proxy` and `fixed_short_replan_baseline` to remain live, requires uncertainty/dispersion validity before rollout, and treats action-value modification as implementation failure.
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`. Next action: write Researcher A rebuttal before mathematical audit or implementation.
+Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` with decision `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts narrow AAC-extension novelty, exact action-value passthrough, live AAC proxy and fixed-replan killer baselines, uncertainty/dispersion terminology, and Stage 0 hard stops before rollout.
+
+Current decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`. Next action: write mathematical mechanism audit before preregistration or implementation.

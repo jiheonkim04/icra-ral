@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -151,4 +151,6 @@ The EAC Researcher A proposal is frozen in `reports/eac_vla/researcher_proposal.
 
 Reviewer B attack is complete in `reports/eac_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires Researcher A to accept narrow AAC-extension novelty, keep the AAC proxy and fixed short-replan simple killer live, audit uncertainty/dispersion validity, and treat action-value modification as implementation failure.
 
-Current stage: `epoch_4_cycle_10_eac_rebuttal_pending`. Next action: write Researcher A rebuttal before mathematical audit or implementation.
+Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` with decision `EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts the review constraints and passes only to mathematical mechanism audit, not implementation.
+
+Current stage: `epoch_4_cycle_10_eac_mathematical_audit_pending`. Next action: write mathematical mechanism audit before preregistration or implementation.
