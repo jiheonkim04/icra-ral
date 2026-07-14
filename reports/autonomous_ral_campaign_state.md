@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`
+Current decision: `EAC_STAGE_A_ROLLOUT_RUNNING`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_ready`
+Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`
 
 ## Corrected Epoch 1 Result
 
@@ -285,4 +285,6 @@ EAC Stage A policy preflight passed in `reports/eac_vla/stage_a_preflight.json` 
 
 EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json` as `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`. The validated runner reconstructs the frozen validation-only EAC thresholds, uses `2` runtime samples for dynamic schedulers, preserves all policy prefixes without action-value modification, and keeps rollout/training/confirmatory-test tuning at `False`.
 
-Current decision: `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`. Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_ready`. Next action: launch the frozen EAC Stage A rollout with the validated runner.
+EAC Stage A is now running detached from `runs/eac_vla_stage_a/20260714T194025Z` with child PID `403`, partial result path `reports/eac_vla/stage_a_partial_result.json`, and final result path `reports/eac_vla/stage_a_result.json`. No retuning, task change, threshold change, or policy change is allowed while it runs.
+
+Current decision: `EAC_STAGE_A_ROLLOUT_RUNNING`. Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`. Next action: monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.

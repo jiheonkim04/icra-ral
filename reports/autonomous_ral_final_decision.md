@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT`
+Current decision: `EAC_STAGE_A_ROLLOUT_RUNNING`
 
 This is not a terminal state under the active governance.
 
@@ -169,4 +169,6 @@ The EAC Stage A matched manifest is frozen in `reports/eac_vla/stage_a_manifest.
 
 EAC Stage A runner validation passed in `reports/eac_vla/stage_a_runner_validation.json`: the runner preserves action values, reconstructs frozen validation-only thresholds, and authorizes the frozen Stage A rollout without training or confirmatory-test tuning.
 
-Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_ready`. Next action: launch the frozen EAC Stage A rollout with the validated runner.
+EAC Stage A is running detached from `runs/eac_vla_stage_a/20260714T194025Z` with child PID `403`; partial progress is written to `reports/eac_vla/stage_a_partial_result.json`.
+
+Current stage: `epoch_4_cycle_10_eac_stage_a_rollout_running`. Next action: monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.

@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "current_topic": "epoch_4_cycle_10_eac_stage_a_rollout_ready",
+    "current_topic": "epoch_4_cycle_10_eac_stage_a_rollout_running",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "f427d09",
+    "current_commit": "9556599",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_10_eac_stage_a_rollout_ready",
+    "current_stage": "epoch_4_cycle_10_eac_stage_a_rollout_running",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -274,7 +274,8 @@
         "epoch_4_cycle_10_eac_selected_config_frozen",
         "epoch_4_cycle_10_eac_stage_a_manifest_frozen",
         "epoch_4_cycle_10_eac_stage_a_policy_preflight_passed",
-        "epoch_4_cycle_10_eac_stage_a_runner_validated"
+        "epoch_4_cycle_10_eac_stage_a_runner_validated",
+        "epoch_4_cycle_10_eac_stage_a_rollout_launched"
     ],
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -285,8 +286,8 @@
         "AC2-VLA"
     ],
     "prototype_protocol": null,
-    "running_command": null,
-    "process_id": null,
+    "running_command": "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_eac_vla_stage_a.py --mode stage-a --stage-a-status-output reports/eac_vla/stage_a_status.json",
+    "process_id": 403,
     "checkpoint_path": null,
     "task_reset_manifest": "reports/eac_vla/stage_a_manifest.json",
     "start_time": "2026-07-12T16:32:00.7901274+09:00",
@@ -295,7 +296,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
+    "current_decision": "EAC_STAGE_A_ROLLOUT_RUNNING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -404,7 +405,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Launch the frozen EAC Stage A rollout with the validated runner.",
+    "next_action": "Monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.",
     "method": "EAC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -1224,7 +1225,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-a\"",
         "next_stage": "Run frozen MTF Stage A official WSL rollout."
     },
-    "stage_a_partial_checkpoint": null,
+    "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "epoch_4_cycle_6_mtf_stage_a_outcome": {
         "method": "MTF-VLA",
         "config_id": "mtf_r20_ret100",
@@ -1596,7 +1597,7 @@
     },
     "hypothesis": "PESA-VLA stopped at Stage 0 as a pre-rollout DESIGN_FAILURE because the prior-query signal was not validation-predictable above majority; Epoch 4 Cycle 10 candidate search is pending.",
     "novelty_claim": "Next method not yet selected after PESA Stage 0 design failure.",
-    "prototype_gate": "EAC Stage A runner validation passed; frozen Stage A rollout may launch next.",
+    "prototype_gate": "EAC Stage A rollout is running under the frozen five-policy manifest.",
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
         "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
@@ -2155,7 +2156,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_10_eac_stage_a_rollout_ready",
+    "topic": "epoch_4_cycle_10_eac_stage_a_rollout_running",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3419,7 +3420,7 @@
         "selected_max_commitment_share": 0.34,
         "stage_a_manifest_allowed": true,
         "stage_a_rollout_allowed": true,
-        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner.",
+        "next_stage": "Monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.",
         "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
         "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
         "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
@@ -3478,7 +3479,14 @@
         "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
         "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
         "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
-        "stage_a_result_md": "reports/eac_vla/stage_a_result.md"
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
+        "stage_a_rollout_launched": true,
+        "stage_a_launch_run_dir": "runs/eac_vla_stage_a/20260714T194025Z",
+        "stage_a_launch_child_pid": 403,
+        "stage_a_launch_wrapper_pid": 392,
+        "stage_a_status_output": "reports/eac_vla/stage_a_status.json",
+        "stage_a_current_execution_decision": "EAC_STAGE_A_ROLLOUT_RUNNING",
+        "stage_a_rollout_running": true
     },
     "epoch_4_cycle_10_eac_development_outcome": {
         "method": "EAC-VLA",
@@ -3564,7 +3572,7 @@
             "eac_no_calibration_no_hysteresis_ablation",
             "fixed_short_replan_baseline"
         ],
-        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner.",
+        "next_stage": "Monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.",
         "stage_a_manifest_decision": "EAC_STAGE_A_PLAN_FROZEN_PREFLIGHT_PENDING",
         "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
         "stage_a_manifest_md": "reports/eac_vla/stage_a_manifest.md",
@@ -3623,7 +3631,14 @@
         "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
         "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
         "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
-        "stage_a_result_md": "reports/eac_vla/stage_a_result.md"
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
+        "stage_a_rollout_launched": true,
+        "stage_a_launch_run_dir": "runs/eac_vla_stage_a/20260714T194025Z",
+        "stage_a_launch_child_pid": 403,
+        "stage_a_launch_wrapper_pid": 392,
+        "stage_a_status_output": "reports/eac_vla/stage_a_status.json",
+        "stage_a_current_execution_decision": "EAC_STAGE_A_ROLLOUT_RUNNING",
+        "stage_a_rollout_running": true
     },
     "epoch_4_cycle_10_eac_runtime_queue_check": {
         "method": "EAC-VLA",
@@ -3742,7 +3757,7 @@
         "errors": [],
         "stage_a_rollout_allowed": true,
         "stage_a_runner_implementation_required": false,
-        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner.",
+        "next_stage": "Monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.",
         "stage_a_runner_validation_decision": "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT",
         "stage_a_runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
         "stage_a_runner_validation_md": "reports/eac_vla/stage_a_runner_validation.md",
@@ -3769,7 +3784,14 @@
         "stage_a_launch_script": "scripts/launch_eac_vla_stage_a_detached.sh",
         "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
         "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
-        "stage_a_result_md": "reports/eac_vla/stage_a_result.md"
+        "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
+        "stage_a_rollout_launched": true,
+        "stage_a_launch_run_dir": "runs/eac_vla_stage_a/20260714T194025Z",
+        "stage_a_launch_child_pid": 403,
+        "stage_a_launch_wrapper_pid": 392,
+        "stage_a_status_output": "reports/eac_vla/stage_a_status.json",
+        "stage_a_current_execution_decision": "EAC_STAGE_A_ROLLOUT_RUNNING",
+        "stage_a_rollout_running": true
     },
     "epoch_4_cycle_10_eac_stage_a_runner_validation": {
         "method": "EAC-VLA",
@@ -3811,6 +3833,36 @@
         "stage_a_partial_result": "reports/eac_vla/stage_a_partial_result.json",
         "stage_a_result_json": "reports/eac_vla/stage_a_result.json",
         "stage_a_result_md": "reports/eac_vla/stage_a_result.md",
-        "next_stage": "Launch the frozen EAC Stage A rollout with the validated runner."
+        "next_stage": "Monitor detached EAC Stage A rollout to completion, then adjudicate the frozen result without retuning.",
+        "stage_a_rollout_launched": true,
+        "stage_a_launch_run_dir": "runs/eac_vla_stage_a/20260714T194025Z",
+        "stage_a_launch_child_pid": 403,
+        "stage_a_launch_wrapper_pid": 392,
+        "stage_a_status_output": "reports/eac_vla/stage_a_status.json",
+        "stage_a_current_execution_decision": "EAC_STAGE_A_ROLLOUT_RUNNING",
+        "stage_a_rollout_running": true
+    },
+    "epoch_4_cycle_10_eac_stage_a_launch": {
+        "method": "EAC-VLA",
+        "final_decision": "EAC_STAGE_A_ROLLOUT_RUNNING",
+        "run_dir": "runs/eac_vla_stage_a/20260714T194025Z",
+        "wrapper_pid": 392,
+        "child_pid": 403,
+        "planned_episode_count": 50,
+        "partial_result": "reports/eac_vla/stage_a_partial_result.json",
+        "status_output": "reports/eac_vla/stage_a_status.json",
+        "final_result": "reports/eac_vla/stage_a_result.json",
+        "stdout": "runs/eac_vla_stage_a/20260714T194025Z/stdout.log",
+        "stderr": "runs/eac_vla_stage_a/20260714T194025Z/stderr.log",
+        "status": "runs/eac_vla_stage_a/20260714T194025Z/status.json",
+        "heartbeat": "runs/eac_vla_stage_a/20260714T194025Z/heartbeat.json",
+        "resume_command_file": "runs/eac_vla_stage_a/20260714T194025Z/resume_command.txt",
+        "stage_a_manifest": "reports/eac_vla/stage_a_manifest.json",
+        "stage_a_runner_validation": "reports/eac_vla/stage_a_runner_validation.json",
+        "closed_loop_experiment_happened": true,
+        "training_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "launcher_fix_commit": "9556599",
+        "note": "Initial wrapper exited after heartbeat overwrite failure, but the Stage A child process continued; launcher script was fixed in 9556599 for any future resume."
     }
 }

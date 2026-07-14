@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_STAGE_A_RUNNER_VALIDATED_READY_FOR_ROLLOUT"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_rollout_ready"
+    assert state["current_decision"] == "EAC_STAGE_A_ROLLOUT_RUNNING"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_rollout_running"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -132,6 +132,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_stage_a_manifest_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_a_policy_preflight_passed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_a_runner_validated" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_a_rollout_launched" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -336,6 +337,12 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert runner["all_policy_prefixes_value_preserving"] is True
     assert runner["any_action_values_modified"] is False
     assert runner["stage_a_rollout_allowed"] is True
+    launch = state["epoch_4_cycle_10_eac_stage_a_launch"]
+    assert launch["final_decision"] == "EAC_STAGE_A_ROLLOUT_RUNNING"
+    assert launch["run_dir"] == "runs/eac_vla_stage_a/20260714T194025Z"
+    assert launch["child_pid"] == 403
+    assert launch["planned_episode_count"] == 50
+    assert launch["partial_result"] == "reports/eac_vla/stage_a_partial_result.json"
     assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
