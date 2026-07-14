@@ -1,0 +1,65 @@
+{
+  "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_mlp.pt",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "config_id": "marc_a020_gate_mlp",
+  "correction_alpha": 0.2,
+  "final_decision": "VALIDATION_CONFIG_PASS",
+  "first_gradient_norms": {
+    "anchor_residual": 0.0012295743917574429,
+    "gate": 0.6870964448112337,
+    "trunk": 0.17996795163687104
+  },
+  "gate_architecture": "mlp",
+  "gate_metrics": {
+    "accuracy": 0.6125,
+    "accuracy_margin": 0.05249999999999999,
+    "majority_accuracy": 0.56,
+    "mean_probability": 0.40397125482559204,
+    "predicted_positive_fraction": 0.3325
+  },
+  "hard_stop_reasons": [],
+  "initial_delta_p95": 0.0,
+  "loss_final_train": {
+    "anchor": 0.0012159690959379077,
+    "clean": 1.4354229278978892e-05,
+    "delta": 3.426726834732108e-05,
+    "gate": 0.5820536613464355,
+    "total": 0.5832744836807251
+  },
+  "loss_initial": {
+    "anchor": 0.0012350187171250582,
+    "clean": 0.0,
+    "delta": 0.0,
+    "gate": 2.29272723197937,
+    "total": 2.293962240219116
+  },
+  "loss_validation": {
+    "anchor": 0.0016342008020728827,
+    "clean": 1.6174186384887435e-05,
+    "delta": 3.758813545573503e-05,
+    "gate": 0.6703832149505615,
+    "total": 0.6720227599143982
+  },
+  "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+  "score_terms": {
+    "action_validity": 1.0,
+    "clean_retention_and_bounded_delta": 0.9457312375307083,
+    "compute_overhead": 0.95,
+    "full_ablation_static_distinction": 0.19475044682621956,
+    "gate_predictability": 0.5249999999999999,
+    "l1_proxy_validity_and_full_proxy_distinction": 0.5973752234131098,
+    "total": 0.5457964262366295
+  },
+  "validation_metrics": {
+    "action_validity": 1.0,
+    "clean_delta_l2_p95": 0.010853752493858337,
+    "delta_l2_mean": 0.005052071996033192,
+    "delta_l2_p95": 0.011818917468190193,
+    "full_vs_l1_proxy_mean_l2": 0.007010325323790312,
+    "full_vs_no_gate_mean_l2": 0.007010325323790312,
+    "full_vs_static_mean_l2": 0.0019475044682621956,
+    "l1_proxy_action_l2": 0.08763420091414227,
+    "l1_proxy_validity": 1.0,
+    "marc_full_action_l2": 0.08665236806523112
+  }
+}

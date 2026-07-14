@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_8`" in final
+    assert "Current campaign decision: `MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -70,20 +70,29 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "DAGR full reached `18 / 40`" in final
     assert "gripper-transition heuristic reached `24 / 40`" in final
     assert "Full-minus-Base paired delta was `-0.25`" in final
-    assert "epoch_4_cycle_8_candidate_search_pending" in final
     assert "At preflight time, no DAGR closed-loop rollout or confirmatory-test tuning had happened" in final
+    assert "Epoch 4 Cycle 8 generated exactly three post-DAGR candidates" in final
+    assert "MARC-VLA" in final
+    assert "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A" in final
+    assert "MARC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "marc_a020_gate_mlp" in final
+    assert "0.5457964262366295" in final
+    assert "gate accuracy margin `0.0525`" in final
+    assert "static_l1_mixture_baseline" in final
+    assert "0.0019475044682621956" in final
+    assert "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_8"
+    assert state["current_decision"] == "MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 8
-    assert state["current_stage"] == "epoch_4_cycle_8_candidate_search_pending"
-    assert state["method"] == "PENDING_EPOCH_4_CYCLE_8_SELECTION"
-    assert state["proposal_hash"] == "PENDING_EPOCH_4_CYCLE_8_SELECTION"
+    assert state["current_stage"] == "epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending"
+    assert state["method"] == "MARC-VLA"
+    assert state["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -96,7 +105,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Archive DAGR-VLA as a valid current-formulation kill")
+    assert state["next_action"].startswith("Train disk-reloadable MARC policy identities")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -172,6 +181,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_7_dagr_stage_b_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_8_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_8_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_validation_search_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_selected_config_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
@@ -235,6 +254,51 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert outcome["paired_delta_vs_gripper_transition_heuristic"] == -0.15
     assert outcome["paired_ci_vs_gripper_transition_heuristic"] == [-0.3, 0.0]
     assert outcome["simple_baseline_explains_method"] is True
+    assert state["epoch_4_cycle_8_pre_stage_a"]["selection_decision"] == "SELECT_MARC_VLA"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["closest_prior"] == "OpenVLA-OFT"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["secondary_priors"] == ["ReactVLA", "SnapFlow"]
+    assert state["epoch_4_cycle_8_pre_stage_a"]["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["reviewer_attack"] == "reports/marc_vla/reviewer_attack.md"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["researcher_rebuttal"] == "reports/marc_vla/researcher_rebuttal.md"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["rebuttal_decision"] == "MARC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["development_final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["validation_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["selected_config"] == "marc_a020_gate_mlp"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["selected_correction_alpha"] == 0.2
+    assert state["epoch_4_cycle_8_pre_stage_a"]["selected_gate_architecture"] == "mlp"
+    assert state["epoch_4_cycle_8_pre_stage_a"]["selected_validation_score"] == 0.5457964262366295
+    assert state["epoch_4_cycle_8_pre_stage_a"]["selected_full_vs_static_mean_l2"] == 0.0019475044682621956
+    assert state["epoch_4_cycle_8_pre_stage_a"]["static_mixture_remains_live_reviewer_killer"] is True
+    assert state["epoch_4_cycle_8_pre_stage_a"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_8_pre_stage_a"]["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "openvla_oft_l1_proxy",
+        "marc_full",
+        "marc_no_disagreement_gate_ablation",
+        "static_l1_mixture_baseline",
+    ]
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["development_final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["validation_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["scoreable_development_records"] == 1600
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["train_records"] == 1200
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["validation_records"] == 400
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["reserved_test_records_not_used"] == 1200
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["split_overlap"] == {
+        "train_reserved": 0,
+        "train_validation": 0,
+        "validation_reserved": 0,
+    }
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["train_disagreement_fraction"] == 0.4
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["validation_disagreement_fraction"] == 0.44
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["gate_probe_accuracy_margin"] == 0.04749999999999999
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["tried_config_count"] == 6
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_config"] == "marc_a020_gate_mlp"
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_gate_predicted_positive_fraction"] == 0.3325
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_action_validity"] == 1.0
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_full_vs_l1_proxy_mean_l2"] == 0.007010325323790312
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["selected_full_vs_static_mean_l2"] == 0.0019475044682621956
+    assert state["epoch_4_cycle_8_marc_development_outcome"]["linear_configs_stopped_for_collapsed_gate"] is True
     assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
     assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
     assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"

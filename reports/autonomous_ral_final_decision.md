@@ -1,8 +1,8 @@
 # Autonomous RA-L Decision
 
-Date: 2026-07-14 KST
+Date: 2026-07-15 KST
 
-Current decision: `DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_8`
+Current decision: `MARC_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
 
 This is not a terminal state under the active governance.
 
@@ -103,4 +103,14 @@ DAGR Stage B completed `200 / 200` official LIBERO episodes with zero exceptions
 
 Final DAGR decision: `DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. This is a valid current-formulation kill because the simple gripper-transition heuristic and Base explain or exceed the full method under the frozen protocol. Do not rescue DAGR by retuning `dagr_a020_route_mlp`, changing route thresholds, changing task/reset identities, changing the policy list, or reinterpreting partial results.
 
-Current stage: `epoch_4_cycle_8_candidate_search_pending`. Next action: generate exactly three new prior-anchored candidates under `reports/current_research_governance.md`; do not reuse DAGR through a cosmetic routing variant.
+Epoch 4 Cycle 8 generated exactly three post-DAGR candidates in `reports/epoch_4_cycle_8_candidate_generation.md` and selected `MARC-VLA`, Median-Anchored Regression Correction for frozen SmolVLA flow actions. Proposal hash: `D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A`.
+
+Reviewer B attack completed with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; Researcher A rebuttal completed with decision `MARC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. MARC is narrowed to a frozen-SmOLVLA, identity-preserving median-anchor correction of the OpenVLA-OFT continuous-action prior, not a broad claim that L1 continuous actions are novel.
+
+MARC Stage 0 passed as `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`: `1600` development records, `1200` train records, `400` validation records, `1200` reserved test records not used, zero duplicate sample/frame keys, zero split overlap, train disagreement positive fraction `0.4`, validation disagreement positive fraction `0.44`, and gate-probe margin `0.0475`.
+
+The bounded six-config validation search selected `marc_a020_gate_mlp` as `VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`: correction alpha `0.20`, gate architecture `mlp`, validation score `0.5457964262366295`, gate accuracy margin `0.0525`, gate predicted-positive fraction `0.3325`, delta L2 p95 `0.011818917468190193`, clean delta L2 p95 `0.010853752493858337`, and action validity `1.0`. Linear configs were stopped for collapsed gates.
+
+MARC full differs from the L1 proxy on validation (`0.007010325323790312` mean L2), but full-versus-static mixture is small (`0.0019475044682621956` mean L2). The static L1 mixture therefore remains the important simple reviewer-killer in the frozen five-policy comparison.
+
+Current stage: `epoch_4_cycle_8_marc_selected_config_frozen_policy_training_pending`. Next action: train disk-reloadable MARC policy identities for the frozen five-policy Stage A comparison before any rollout.

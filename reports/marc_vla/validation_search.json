@@ -1,0 +1,492 @@
+{
+  "audit_final_decision": "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH",
+  "closed_loop_experiment_happened": false,
+  "confirmatory_test_tuning_happened": false,
+  "date_kst": "2026-07-15",
+  "final_decision": "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING",
+  "method": "MARC-VLA",
+  "mode": "validation",
+  "next_step": "Freeze the selected MARC config and train disk-reloadable policy identities for the five-policy comparison before Stage A.",
+  "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+  "schema_version": 1,
+  "score_weights": {
+    "action_validity": 0.1,
+    "clean_action_retention_and_bounded_deltas": 0.2,
+    "compute_overhead": 0.05,
+    "full_versus_no_gate_and_static_distinction": 0.15,
+    "gate_predictability_above_majority": 0.25,
+    "l1_proxy_validity_and_full_proxy_distinction": 0.25
+  },
+  "search_budget": "6 configs: correction alpha in {0.05, 0.10, 0.20} x gate architecture in {linear, mlp}",
+  "selected_config": {
+    "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_mlp.pt",
+    "checkpoint_reload_max_abs_diff": 0.0,
+    "config_id": "marc_a020_gate_mlp",
+    "correction_alpha": 0.2,
+    "final_decision": "VALIDATION_CONFIG_PASS",
+    "first_gradient_norms": {
+      "anchor_residual": 0.0012295743917574429,
+      "gate": 0.6870964448112337,
+      "trunk": 0.17996795163687104
+    },
+    "gate_architecture": "mlp",
+    "gate_metrics": {
+      "accuracy": 0.6125,
+      "accuracy_margin": 0.05249999999999999,
+      "majority_accuracy": 0.56,
+      "mean_probability": 0.40397125482559204,
+      "predicted_positive_fraction": 0.3325
+    },
+    "hard_stop_reasons": [],
+    "initial_delta_p95": 0.0,
+    "loss_final_train": {
+      "anchor": 0.0012159690959379077,
+      "clean": 1.4354229278978892e-05,
+      "delta": 3.426726834732108e-05,
+      "gate": 0.5820536613464355,
+      "total": 0.5832744836807251
+    },
+    "loss_initial": {
+      "anchor": 0.0012350187171250582,
+      "clean": 0.0,
+      "delta": 0.0,
+      "gate": 2.29272723197937,
+      "total": 2.293962240219116
+    },
+    "loss_validation": {
+      "anchor": 0.0016342008020728827,
+      "clean": 1.6174186384887435e-05,
+      "delta": 3.758813545573503e-05,
+      "gate": 0.6703832149505615,
+      "total": 0.6720227599143982
+    },
+    "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+    "score_terms": {
+      "action_validity": 1.0,
+      "clean_retention_and_bounded_delta": 0.9457312375307083,
+      "compute_overhead": 0.95,
+      "full_ablation_static_distinction": 0.19475044682621956,
+      "gate_predictability": 0.5249999999999999,
+      "l1_proxy_validity_and_full_proxy_distinction": 0.5973752234131098,
+      "total": 0.5457964262366295
+    },
+    "validation_metrics": {
+      "action_validity": 1.0,
+      "clean_delta_l2_p95": 0.010853752493858337,
+      "delta_l2_mean": 0.005052071996033192,
+      "delta_l2_p95": 0.011818917468190193,
+      "full_vs_l1_proxy_mean_l2": 0.007010325323790312,
+      "full_vs_no_gate_mean_l2": 0.007010325323790312,
+      "full_vs_static_mean_l2": 0.0019475044682621956,
+      "l1_proxy_action_l2": 0.08763420091414227,
+      "l1_proxy_validity": 1.0,
+      "marc_full_action_l2": 0.08665236806523112
+    }
+  },
+  "source_prediction_artifact": "reports/official_smolvla_stable_prediction_artifact.json",
+  "training_happened": true,
+  "tried_config_count": 6,
+  "tried_configs": [
+    {
+      "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a005_gate_linear.pt",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "config_id": "marc_a005_gate_linear",
+      "correction_alpha": 0.05,
+      "final_decision": "VALIDATION_CONFIG_STOP",
+      "first_gradient_norms": {
+        "anchor_residual": 0.003364642599580691,
+        "gate": 0.43751503714196405,
+        "trunk": 0.0
+      },
+      "gate_architecture": "linear",
+      "gate_metrics": {
+        "accuracy": 0.56,
+        "accuracy_margin": 0.0,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.010683312080800533,
+        "predicted_positive_fraction": 0.0
+      },
+      "hard_stop_reasons": [
+        "validation gate accuracy margin below minimum: 0.000000",
+        "validation gate activation collapsed: 0.000000"
+      ],
+      "initial_delta_p95": 0.0,
+      "loss_final_train": {
+        "anchor": 0.001193166826851666,
+        "clean": 1.345586895240558e-07,
+        "delta": 3.441495834977104e-07,
+        "gate": 2.1116695404052734,
+        "total": 2.1128628253936768
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.422065496444702,
+        "total": 2.4233005046844482
+      },
+      "loss_validation": {
+        "anchor": 0.0016619545640423894,
+        "clean": 1.2681793748470227e-07,
+        "delta": 3.877199219459726e-07,
+        "gate": 2.395109176635742,
+        "total": 2.396771192550659
+      },
+      "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+      "score_terms": {
+        "action_validity": 1.0,
+        "clean_retention_and_bounded_delta": 0.9948376783868298,
+        "compute_overhead": 1.0,
+        "full_ablation_static_distinction": 0.878447201102972,
+        "gate_predictability": 0.0,
+        "l1_proxy_validity_and_full_proxy_distinction": 0.939223600551486,
+        "total": 0.7003464161185547
+      },
+      "validation_metrics": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.0010324643226340413,
+        "delta_l2_mean": 0.00027492077788338065,
+        "delta_l2_p95": 0.0011108751641586423,
+        "full_vs_l1_proxy_mean_l2": 0.02259768173098564,
+        "full_vs_no_gate_mean_l2": 0.022373564541339874,
+        "full_vs_static_mean_l2": 0.00878447201102972,
+        "l1_proxy_action_l2": 0.0905224654753469,
+        "l1_proxy_validity": 1.0,
+        "marc_full_action_l2": 0.08632745705016255
+      }
+    },
+    {
+      "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a010_gate_linear.pt",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "config_id": "marc_a010_gate_linear",
+      "correction_alpha": 0.1,
+      "final_decision": "VALIDATION_CONFIG_STOP",
+      "first_gradient_norms": {
+        "anchor_residual": 0.003364642599580691,
+        "gate": 0.4371660609984023,
+        "trunk": 0.0
+      },
+      "gate_architecture": "linear",
+      "gate_metrics": {
+        "accuracy": 0.56,
+        "accuracy_margin": 0.0,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.01261181477457285,
+        "predicted_positive_fraction": 0.0
+      },
+      "hard_stop_reasons": [
+        "validation gate accuracy margin below minimum: 0.000000",
+        "validation gate activation collapsed: 0.000000"
+      ],
+      "initial_delta_p95": 0.0,
+      "loss_final_train": {
+        "anchor": 0.001193168107420206,
+        "clean": 2.516736969937483e-07,
+        "delta": 6.27484553206159e-07,
+        "gate": 2.0973401069641113,
+        "total": 2.0985333919525146
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.402449607849121,
+        "total": 2.403684616088867
+      },
+      "loss_validation": {
+        "anchor": 0.001661833724938333,
+        "clean": 1.9398902395550977e-07,
+        "delta": 6.621003763029876e-07,
+        "gate": 2.376521110534668,
+        "total": 2.378182888031006
+      },
+      "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+      "score_terms": {
+        "action_validity": 1.0,
+        "clean_retention_and_bounded_delta": 0.9950318288756534,
+        "compute_overhead": 1.0,
+        "full_ablation_static_distinction": 0.8816746063530445,
+        "gate_predictability": 0.0,
+        "l1_proxy_validity_and_full_proxy_distinction": 0.9408373031765223,
+        "total": 0.7016762083163485
+      },
+      "validation_metrics": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.0009936342248693109,
+        "delta_l2_mean": 0.0003240649530198425,
+        "delta_l2_p95": 0.0012755178613588214,
+        "full_vs_l1_proxy_mean_l2": 0.022527966648340225,
+        "full_vs_no_gate_mean_l2": 0.022527966648340225,
+        "full_vs_static_mean_l2": 0.008816746063530445,
+        "l1_proxy_action_l2": 0.09051370311426714,
+        "l1_proxy_validity": 1.0,
+        "marc_full_action_l2": 0.08632837317938988
+      }
+    },
+    {
+      "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_linear.pt",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "config_id": "marc_a020_gate_linear",
+      "correction_alpha": 0.2,
+      "final_decision": "VALIDATION_CONFIG_STOP",
+      "first_gradient_norms": {
+        "anchor_residual": 0.003364642599580691,
+        "gate": 0.43734965551081917,
+        "trunk": 0.0
+      },
+      "gate_architecture": "linear",
+      "gate_metrics": {
+        "accuracy": 0.56,
+        "accuracy_margin": 0.0,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.012547334656119347,
+        "predicted_positive_fraction": 0.0
+      },
+      "hard_stop_reasons": [
+        "validation gate accuracy margin below minimum: 0.000000",
+        "validation gate activation collapsed: 0.000000"
+      ],
+      "initial_delta_p95": 0.0,
+      "loss_final_train": {
+        "anchor": 0.0011931672925129533,
+        "clean": 1.627711867513426e-07,
+        "delta": 5.100000635138713e-07,
+        "gate": 2.083603620529175,
+        "total": 2.084796905517578
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.390223503112793,
+        "total": 2.391458511352539
+      },
+      "loss_validation": {
+        "anchor": 0.0016619120724499226,
+        "clean": 1.8493301467970014e-07,
+        "delta": 7.349432280534529e-07,
+        "gate": 2.365200996398926,
+        "total": 2.3668630123138428
+      },
+      "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+      "score_terms": {
+        "action_validity": 1.0,
+        "clean_retention_and_bounded_delta": 0.9952964042313397,
+        "compute_overhead": 1.0,
+        "full_ablation_static_distinction": 0.8800787851214409,
+        "gate_predictability": 0.0,
+        "l1_proxy_validity_and_full_proxy_distinction": 0.9400393925607204,
+        "total": 0.7010907948948443
+      },
+      "validation_metrics": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.0009407191537320614,
+        "delta_l2_mean": 0.00034353314549662173,
+        "delta_l2_p95": 0.001424067304469645,
+        "full_vs_l1_proxy_mean_l2": 0.02251727133989334,
+        "full_vs_no_gate_mean_l2": 0.02251727133989334,
+        "full_vs_static_mean_l2": 0.008800787851214409,
+        "l1_proxy_action_l2": 0.09051799903559214,
+        "l1_proxy_validity": 1.0,
+        "marc_full_action_l2": 0.08633649136515988
+      }
+    },
+    {
+      "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a005_gate_mlp.pt",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "config_id": "marc_a005_gate_mlp",
+      "correction_alpha": 0.05,
+      "final_decision": "VALIDATION_CONFIG_STOP",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0011282484724091334,
+        "gate": 0.6632378225858606,
+        "trunk": 0.16018588966482256
+      },
+      "gate_architecture": "mlp",
+      "gate_metrics": {
+        "accuracy": 0.575,
+        "accuracy_margin": 0.014999999999999902,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.4009396731853485,
+        "predicted_positive_fraction": 0.32
+      },
+      "hard_stop_reasons": [
+        "validation gate accuracy margin below minimum: 0.015000"
+      ],
+      "initial_delta_p95": 0.0,
+      "loss_final_train": {
+        "anchor": 0.0012177524622529745,
+        "clean": 1.1390521649445873e-05,
+        "delta": 3.0224300644476898e-05,
+        "gate": 0.5797716975212097,
+        "total": 0.5809935927391052
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.4177792072296143,
+        "total": 2.4190142154693604
+      },
+      "loss_validation": {
+        "anchor": 0.0016257029492408037,
+        "clean": 1.3639954886457417e-05,
+        "delta": 3.253469185438007e-05,
+        "gate": 0.6843847632408142,
+        "total": 0.6860151290893555
+      },
+      "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+      "score_terms": {
+        "action_validity": 1.0,
+        "clean_retention_and_bounded_delta": 0.954125969670713,
+        "compute_overhead": 0.95,
+        "full_ablation_static_distinction": 0.20337854512035847,
+        "gate_predictability": 0.14999999999999902,
+        "l1_proxy_validity_and_full_proxy_distinction": 0.6016892725601792,
+        "total": 0.45717661198228576
+      },
+      "validation_metrics": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.00917480606585741,
+        "delta_l2_mean": 0.004752769600600004,
+        "delta_l2_p95": 0.011165367439389229,
+        "full_vs_l1_proxy_mean_l2": 0.006955367513000965,
+        "full_vs_no_gate_mean_l2": 0.006955367513000965,
+        "full_vs_static_mean_l2": 0.0020337854512035847,
+        "l1_proxy_action_l2": 0.08700579802048766,
+        "l1_proxy_validity": 1.0,
+        "marc_full_action_l2": 0.08642344358287044
+      }
+    },
+    {
+      "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a010_gate_mlp.pt",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "config_id": "marc_a010_gate_mlp",
+      "correction_alpha": 0.1,
+      "final_decision": "VALIDATION_CONFIG_PASS",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0011411926769510133,
+        "gate": 0.6645837645295118,
+        "trunk": 0.17173954112366163
+      },
+      "gate_architecture": "mlp",
+      "gate_metrics": {
+        "accuracy": 0.5875,
+        "accuracy_margin": 0.02749999999999997,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.3838464617729187,
+        "predicted_positive_fraction": 0.3375
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_final_train": {
+        "anchor": 0.0012158299796283245,
+        "clean": 1.3255940757517237e-05,
+        "delta": 3.3213025744771585e-05,
+        "gate": 0.6095583438873291,
+        "total": 0.61077880859375
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.4129841327667236,
+        "total": 2.4142191410064697
+      },
+      "loss_validation": {
+        "anchor": 0.001626246958039701,
+        "clean": 1.664277442614548e-05,
+        "delta": 3.6583427572622895e-05,
+        "gate": 0.7300899624824524,
+        "total": 0.7317215204238892
+      },
+      "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+      "score_terms": {
+        "action_validity": 1.0,
+        "clean_retention_and_bounded_delta": 0.9438977101817727,
+        "compute_overhead": 0.95,
+        "full_ablation_static_distinction": 0.218187365680933,
+        "gate_predictability": 0.2749999999999997,
+        "l1_proxy_validity_and_full_proxy_distinction": 0.6090936828404665,
+        "total": 0.49230448830872764
+      },
+      "validation_metrics": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.011220457963645458,
+        "delta_l2_mean": 0.0048189363442361355,
+        "delta_l2_p95": 0.011754864826798439,
+        "full_vs_l1_proxy_mean_l2": 0.0073147970251739025,
+        "full_vs_no_gate_mean_l2": 0.0073147970251739025,
+        "full_vs_static_mean_l2": 0.00218187365680933,
+        "l1_proxy_action_l2": 0.08712111648615059,
+        "l1_proxy_validity": 1.0,
+        "marc_full_action_l2": 0.08645219930429615
+      }
+    },
+    {
+      "checkpoint_path": "reports\\marc_vla\\validation_checkpoints\\marc_a020_gate_mlp.pt",
+      "checkpoint_reload_max_abs_diff": 0.0,
+      "config_id": "marc_a020_gate_mlp",
+      "correction_alpha": 0.2,
+      "final_decision": "VALIDATION_CONFIG_PASS",
+      "first_gradient_norms": {
+        "anchor_residual": 0.0012295743917574429,
+        "gate": 0.6870964448112337,
+        "trunk": 0.17996795163687104
+      },
+      "gate_architecture": "mlp",
+      "gate_metrics": {
+        "accuracy": 0.6125,
+        "accuracy_margin": 0.05249999999999999,
+        "majority_accuracy": 0.56,
+        "mean_probability": 0.40397125482559204,
+        "predicted_positive_fraction": 0.3325
+      },
+      "hard_stop_reasons": [],
+      "initial_delta_p95": 0.0,
+      "loss_final_train": {
+        "anchor": 0.0012159690959379077,
+        "clean": 1.4354229278978892e-05,
+        "delta": 3.426726834732108e-05,
+        "gate": 0.5820536613464355,
+        "total": 0.5832744836807251
+      },
+      "loss_initial": {
+        "anchor": 0.0012350187171250582,
+        "clean": 0.0,
+        "delta": 0.0,
+        "gate": 2.29272723197937,
+        "total": 2.293962240219116
+      },
+      "loss_validation": {
+        "anchor": 0.0016342008020728827,
+        "clean": 1.6174186384887435e-05,
+        "delta": 3.758813545573503e-05,
+        "gate": 0.6703832149505615,
+        "total": 0.6720227599143982
+      },
+      "proposal_hash": "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A",
+      "score_terms": {
+        "action_validity": 1.0,
+        "clean_retention_and_bounded_delta": 0.9457312375307083,
+        "compute_overhead": 0.95,
+        "full_ablation_static_distinction": 0.19475044682621956,
+        "gate_predictability": 0.5249999999999999,
+        "l1_proxy_validity_and_full_proxy_distinction": 0.5973752234131098,
+        "total": 0.5457964262366295
+      },
+      "validation_metrics": {
+        "action_validity": 1.0,
+        "clean_delta_l2_p95": 0.010853752493858337,
+        "delta_l2_mean": 0.005052071996033192,
+        "delta_l2_p95": 0.011818917468190193,
+        "full_vs_l1_proxy_mean_l2": 0.007010325323790312,
+        "full_vs_no_gate_mean_l2": 0.007010325323790312,
+        "full_vs_static_mean_l2": 0.0019475044682621956,
+        "l1_proxy_action_l2": 0.08763420091414227,
+        "l1_proxy_validity": 1.0,
+        "marc_full_action_l2": 0.08665236806523112
+      }
+    }
+  ]
+}
