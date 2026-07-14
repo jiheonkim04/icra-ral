@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
+Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`
 
 Current epoch: `4`
 
-Current cycle: `3`
+Current cycle: `4`
 
-Current stage: `fang_vla_stage_b_pending`
+Current stage: `epoch_4_cycle_4_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -88,4 +88,8 @@ Artifacts:
 
 Development audit passed and the calibrated validation search selected `fang_c01`. The uncalibrated gate failure is preserved as a negative validation result. Stage A completed `50 / 50` episodes with all policies tied at `3 / 10`.
 
-Next action: run the preregistered FANG-VLA Stage B closed-loop comparison without changing the validation-selected configuration.
+Stage B completed `200 / 200` episodes with zero exceptions. Full FANG reached `11 / 40`, while frozen SmolVLA reached `16 / 40`, AFIL local proxy reached `15 / 40`, nearest-success replay reached `14 / 40`, and the no-failure ablation also reached `11 / 40`. The paired full-minus-base delta was `-0.125` with CI `[-0.250, 0.000]`; full was exactly tied with the key ablation.
+
+Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue this formulation.
+
+Next action: begin Epoch 4 Cycle 4 by generating exactly three prior-anchored candidates under the current post-CAVM governance.

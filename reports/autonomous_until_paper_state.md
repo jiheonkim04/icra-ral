@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
+Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`
 
 Current epoch: `4`
 
-Current cycle: `3`
+Current cycle: `4`
 
-Current stage: `fang_vla_stage_b_pending`
+Current stage: `epoch_4_cycle_4_candidate_search_pending`
 
 Allowed final states:
 
@@ -135,4 +135,10 @@ Development audit passed with `10801` records, duplicate keys `0`, validation ga
 
 Stage A completed `50 / 50` episodes with zero exceptions. All five policies tied at `3 / 10` task-balanced success `0.30`: `base_smolvla`, `afil_local_proxy`, `fang_full`, `fang_no_failure_ablation`, and `nearest_success_replay`. FANG full acted with mean gate `0.095963`, gate activation `0.513922`, and mean action delta L2 `0.008186`.
 
-Current stage: Stage B pending. Do not alter `fang_c01`, gate tau, task list, identity partitions, baselines, or thresholds after the Stage A tie.
+Stage B completed `200 / 200` episodes with zero exceptions. Full FANG reached `11 / 40` with task-balanced success `0.275`, while frozen SmolVLA reached `16 / 40`, the AFIL local proxy reached `15 / 40`, nearest-success replay reached `14 / 40`, and the no-failure ablation also reached `11 / 40`.
+
+The paired comparison against Base was negative: full-minus-base delta `-0.125`, wins `1`, losses `6`, ties `33`, CI `[-0.250, 0.000]`. Full was also `-0.100` versus the AFIL proxy and exactly tied with the key ablation. The FANG mechanism acted, with mean gate `0.086914`, gate activation `0.500365`, and mean action delta L2 `0.008217`, but the failure-aware component did not produce a closed-loop gain beyond simpler explanations.
+
+Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue `fang_c01`, retune its threshold, or reinterpret Stage A/Stage B identities.
+
+Current stage: Epoch 4 Cycle 4 candidate search pending. Generate exactly three prior-anchored candidates under the current post-CAVM governance.

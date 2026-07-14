@@ -11,26 +11,29 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_is_epoch_4_cycle_3_fang_audit_pending_without_cycle_cap() -> None:
+def test_active_state_records_fang_stage_b_kill_and_next_cycle_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 3
+    assert state["current_cycle"] == 4
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B"
-    assert state["current_stage"] == "fang_vla_stage_b_pending"
-    assert state["method"] == "FANG-VLA"
-    assert state["proposal_hash"] == "6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B"
-    assert state["prototype_protocol"] == "reports/fang_vla/prototype_protocol.md"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_4_candidate_search_pending"
+    assert state["method"] == "NEXT_METHOD_UNSELECTED"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_stage_a_completed" in state["completed_stages"]
-    assert state["checkpoint_path"] == "reports/fang_vla/checkpoints/fang_c01.pt"
+    assert "epoch_4_cycle_3_fang_stage_b_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_3_fang_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert state["checkpoint_path"] is None
     assert state["stage_a_result_json"] == "reports/fang_vla/stage_a_result.json"
+    assert state["stage_b_result_json"] == "reports/fang_vla/stage_b_result.json"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
@@ -61,6 +64,15 @@ def test_active_state_is_epoch_4_cycle_3_fang_audit_pending_without_cycle_cap() 
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["epoch_4_cycle_2_outcome"]["manifest_unique_variant_task_identity_keys"] == 290
     assert state["epoch_4_cycle_2_outcome"]["manifest_bad_pairs"] == 0
+    assert state["epoch_4_cycle_3_outcome"]["final_decision"] == "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
+    assert state["epoch_4_cycle_3_outcome"]["valid_current_formulation_kill"] is True
+    assert state["epoch_4_cycle_3_outcome"]["stage_b_completed"] is True
+    assert state["epoch_4_cycle_3_outcome"]["episode_count"] == 200
+    assert state["epoch_4_cycle_3_outcome"]["fang_full_successes"] == 11
+    assert state["epoch_4_cycle_3_outcome"]["base_smolvla_successes"] == 16
+    assert state["epoch_4_cycle_3_outcome"]["afil_local_proxy_successes"] == 15
+    assert state["epoch_4_cycle_3_outcome"]["fang_no_failure_ablation_successes"] == 11
+    assert state["epoch_4_cycle_3_outcome"]["paired_delta_vs_base_smolvla"] == -0.125
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:

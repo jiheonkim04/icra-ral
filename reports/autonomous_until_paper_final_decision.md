@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
+Current campaign decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`
 
 This is not a terminal decision.
 
@@ -47,6 +47,10 @@ Epoch 4 Cycle 2, `CAVM-VLA`, is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_E
 
 Epoch 4 Cycle 3 selected and preregistered `FANG-VLA`, an AFIL-anchored identity-preserving failure-aware action-field guidance method for frozen SmolVLA. Proposal hash: `6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B`.
 
-The development audit passed. The uncalibrated gate validation failure is archived, and the calibrated six-config validation search selected `fang_c01` with clean action validity and bounded activation. Stage A completed `50 / 50` episodes with all five policies tied at `3 / 10`, so the preregistered decision is non-catastrophic advance to Stage B.
+The development audit passed. The uncalibrated gate validation failure is archived, and the calibrated six-config validation search selected `fang_c01` with clean action validity and bounded activation. Stage A completed `50 / 50` episodes with all five policies tied at `3 / 10`, so the preregistered decision was non-catastrophic advance to Stage B.
 
-Next action: run the preregistered FANG-VLA Stage B closed-loop comparison without changing the validation-selected configuration.
+Stage B completed `200 / 200` episodes with zero exceptions. Full FANG reached `11 / 40`, while frozen SmolVLA reached `16 / 40`, AFIL local proxy reached `15 / 40`, nearest-success replay reached `14 / 40`, and the no-failure ablation also reached `11 / 40`. Full-minus-base paired delta was `-0.125` with CI `[-0.250, 0.000]`; full was exactly tied with the key ablation.
+
+Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue this formulation.
+
+Next action: begin Epoch 4 Cycle 4 by generating exactly three prior-anchored candidates under the current post-CAVM governance.
