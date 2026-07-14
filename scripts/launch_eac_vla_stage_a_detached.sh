@@ -45,7 +45,7 @@ write_status() {
   "resume_command_file": "${run_dir}/resume_command.txt"
 }
 STATUS
-  cp "${run_dir}/status.json" "${run_dir}/heartbeat.json"
+  cat "${run_dir}/status.json" > "${run_dir}/heartbeat.json"
 }
 
 cat > "${run_dir}/launch.json" <<LAUNCH
@@ -95,7 +95,7 @@ write_status() {
   "resume_command_file": "${run_dir}/resume_command.txt"
 }
 STATUS
-  cp "${run_dir}/status.json" "${run_dir}/heartbeat.json"
+  cat "${run_dir}/status.json" > "${run_dir}/heartbeat.json"
 }
 
 write_status "starting" null null
