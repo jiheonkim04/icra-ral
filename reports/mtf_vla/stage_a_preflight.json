@@ -1,0 +1,293 @@
+{
+  "checkpoint_checksum_matches": true,
+  "closed_loop_experiment_happened": false,
+  "config_id": "mtf_r20_ret100",
+  "cuda_ok": true,
+  "date": "2026-07-14 KST",
+  "elapsed_seconds": 54.111,
+  "errors": [],
+  "final_decision": "MTF_STAGE_A_PREFLIGHT_PASS_READY_FOR_ROLLOUT",
+  "method": "MTF-VLA",
+  "mode": "preflight",
+  "no_accidental_checkpoint_reuse": true,
+  "policy_count": 5,
+  "policy_output_shape_ok": true,
+  "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
+  "records": [
+    {
+      "adapter_config": null,
+      "adapter_config_sha256": null,
+      "adapter_config_sha256_expected": null,
+      "adapter_config_sha256_match": null,
+      "adapter_model_sha256": null,
+      "adapter_model_sha256_expected": null,
+      "adapter_model_sha256_match": null,
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_path": null,
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 937419264,
+        "allocated_mb": 893.993,
+        "max_allocated_bytes": 970964480,
+        "max_allocated_mb": 925.984
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "parameter_counts": {
+        "total_parameter_count": 450046176,
+        "trainable_parameter_count": 402737376
+      },
+      "peft_audit": {
+        "used": false
+      },
+      "policy": "frozen_smolvla",
+      "policy_class": "SmolVLAPolicy",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "unmodified_backbone",
+      "wsl_adapter_path": null
+    },
+    {
+      "adapter_config": {
+        "adapter_config_exists": true,
+        "base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "lora_alpha": 8,
+        "peft_type": "LORA",
+        "r": 4,
+        "target_modules": "(model\\.vlm_with_expert\\.lm_expert\\..*\\.(q|v)_proj|model\\.(state_proj|action_in_proj|action_out_proj|action_time_mlp_in|action_time_mlp_out))"
+      },
+      "adapter_config_sha256": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e",
+      "adapter_config_sha256_expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_config_sha256_match": true,
+      "adapter_model_sha256": "2e7cf4e4170145979cdcda9b3348622bb1f25fad6075f5c7abff1bff14b1c188",
+      "adapter_model_sha256_expected": "2E7CF4E4170145979CDCDA9B3348622BB1F25FAD6075F5C7ABFF1BFF14B1C188",
+      "adapter_model_sha256_match": true,
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100/frameskip_proxy_lora/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 939623424,
+        "allocated_mb": 896.095,
+        "max_allocated_bytes": 973425664,
+        "max_allocated_mb": 928.331
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "parameter_counts": {
+        "total_parameter_count": 450231840,
+        "trainable_parameter_count": 0
+      },
+      "peft_audit": {
+        "adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/frameskip_proxy_lora/seed_101",
+        "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "resolved_base_model_name_or_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+        "used": true
+      },
+      "policy": "frameskip_proxy_lora",
+      "policy_class": "PeftModel",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "proxy_or_reproduction_label": "faithful_local_proxy_not_official_reproduction",
+      "role": "closest_external_prior_proxy",
+      "wsl_adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/frameskip_proxy_lora/seed_101"
+    },
+    {
+      "adapter_config": {
+        "adapter_config_exists": true,
+        "base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "lora_alpha": 8,
+        "peft_type": "LORA",
+        "r": 4,
+        "target_modules": "(model\\.vlm_with_expert\\.lm_expert\\..*\\.(q|v)_proj|model\\.(state_proj|action_in_proj|action_out_proj|action_time_mlp_in|action_time_mlp_out))"
+      },
+      "adapter_config_sha256": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e",
+      "adapter_config_sha256_expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_config_sha256_match": true,
+      "adapter_model_sha256": "9da654a1fd52ebabf3c014d779df191b13c880792350ccab43710fa99bbbf7a5",
+      "adapter_model_sha256_expected": "9DA654A1FD52EBABF3C014D779DF191B13C880792350CCAB43710FA99BBBF7A5",
+      "adapter_model_sha256_match": true,
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100/uniform_retained_ratio_lora/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 939623424,
+        "allocated_mb": 896.095,
+        "max_allocated_bytes": 973425664,
+        "max_allocated_mb": 928.331
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "parameter_counts": {
+        "total_parameter_count": 450231840,
+        "trainable_parameter_count": 0
+      },
+      "peft_audit": {
+        "adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/uniform_retained_ratio_lora/seed_101",
+        "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "resolved_base_model_name_or_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+        "used": true
+      },
+      "policy": "uniform_retained_ratio_lora",
+      "policy_class": "PeftModel",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "strongest_simple_reviewer_killer",
+      "wsl_adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/uniform_retained_ratio_lora/seed_101"
+    },
+    {
+      "adapter_config": {
+        "adapter_config_exists": true,
+        "base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "lora_alpha": 8,
+        "peft_type": "LORA",
+        "r": 4,
+        "target_modules": "(model\\.vlm_with_expert\\.lm_expert\\..*\\.(q|v)_proj|model\\.(state_proj|action_in_proj|action_out_proj|action_time_mlp_in|action_time_mlp_out))"
+      },
+      "adapter_config_sha256": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e",
+      "adapter_config_sha256_expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_config_sha256_match": true,
+      "adapter_model_sha256": "23d47a0568a8a88ba7b1b3e164e59df675cd2dd7388ae36319439cdcb17659fb",
+      "adapter_model_sha256_expected": "23D47A0568A8A88BA7B1B3E164E59DF675CD2DD7388AE36319439CDCB17659FB",
+      "adapter_model_sha256_match": true,
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100/mtf_no_retention_ablation/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 939623424,
+        "allocated_mb": 896.095,
+        "max_allocated_bytes": 973425664,
+        "max_allocated_mb": 928.331
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "parameter_counts": {
+        "total_parameter_count": 450231840,
+        "trainable_parameter_count": 0
+      },
+      "peft_audit": {
+        "adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/mtf_no_retention_ablation/seed_101",
+        "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "resolved_base_model_name_or_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+        "used": true
+      },
+      "policy": "mtf_no_retention_ablation",
+      "policy_class": "PeftModel",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "key_ablation",
+      "wsl_adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/mtf_no_retention_ablation/seed_101"
+    },
+    {
+      "adapter_config": {
+        "adapter_config_exists": true,
+        "base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "lora_alpha": 8,
+        "peft_type": "LORA",
+        "r": 4,
+        "target_modules": "(model\\.vlm_with_expert\\.lm_expert\\..*\\.(q|v)_proj|model\\.(state_proj|action_in_proj|action_out_proj|action_time_mlp_in|action_time_mlp_out))"
+      },
+      "adapter_config_sha256": "24ba01099cbb42148240b5732e425643a43582427c041789651851a2c7913a1e",
+      "adapter_config_sha256_expected": "24BA01099CBB42148240B5732E425643A43582427C041789651851A2C7913A1E",
+      "adapter_config_sha256_match": true,
+      "adapter_model_sha256": "7ca3a765e864bb6708e8b344ba35af06f19107ec5ffda132da9debb9d301871b",
+      "adapter_model_sha256_expected": "7CA3A765E864BB6708E8B344BA35AF06F19107EC5FFDA132DA9DEBB9D301871B",
+      "adapter_model_sha256_match": true,
+      "base_model_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100/mtf_full/seed_101",
+      "cpu_fallback_detected": false,
+      "cuda_memory": {
+        "allocated_bytes": 939623424,
+        "allocated_mb": 896.095,
+        "max_allocated_bytes": 973425664,
+        "max_allocated_mb": 928.331
+      },
+      "input_tensor_devices": {
+        "observation.images.camera1": "cuda:0",
+        "observation.images.camera2": "cuda:0",
+        "observation.language.attention_mask": "cuda:0",
+        "observation.language.tokens": "cuda:0",
+        "observation.state": "cuda:0"
+      },
+      "model_parameter_device": "cuda:0",
+      "old_custom_libero_7d_route_used": false,
+      "parameter_counts": {
+        "total_parameter_count": 450231840,
+        "trainable_parameter_count": 0
+      },
+      "peft_audit": {
+        "adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/mtf_full/seed_101",
+        "original_base_model_name_or_path": "C:\\assets\\checkpoints\\smolvla_libero",
+        "resolved_base_model_name_or_path": "/mnt/c/assets/checkpoints/smolvla_libero",
+        "used": true
+      },
+      "policy": "mtf_full",
+      "policy_class": "PeftModel",
+      "policy_output_device": "cuda:0",
+      "policy_output_finite": true,
+      "policy_output_shape": [
+        1,
+        50,
+        7
+      ],
+      "proxy_or_reproduction_label": null,
+      "role": "ours",
+      "wsl_adapter_path": "/mnt/c/Users/jiheo/tca_map/runs/mtf_vla_checkpoints/mtf_r20_ret100/mtf_full/seed_101"
+    }
+  ],
+  "schema_version": 1,
+  "stage_a_manifest": "reports/mtf_vla/stage_a_manifest.json",
+  "stage_a_manifest_sha256": "4c928ddf498fcaf9d5040972fec04070d676457224c5374585f456d0681d71e7",
+  "trainable_policy_count": 4,
+  "training_happened": false
+}
