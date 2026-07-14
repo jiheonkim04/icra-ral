@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_0_pending"
+    assert state["current_decision"] == "EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_runtime_queue_check_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -125,6 +125,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_stage_0_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -198,6 +199,32 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert eac["preregistration_decision"] == "EAC_PREREGISTRATION_FROZEN_STAGE_0_PENDING"
     assert eac["prototype_protocol"] == "reports/eac_vla/prototype_protocol.md"
     assert eac["prototype_protocol_decision"] == "EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert eac["stage_0_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
+    assert eac["stage_0_audit"] == "reports/eac_vla/stage_0_audit.json"
+    assert eac["stage_0_completed"] is True
+    assert eac["stage_0_scoreable_validation_records"] == 2000
+    assert eac["stage_0_validation_unique_frames"] == 400
+    assert eac["stage_0_reserved_records_not_used_for_tuning"] == 6000
+    assert eac["stage_0_validation_reserved_frame_overlap"] == 0
+    assert eac["stage_0_validation_reserved_sample_overlap"] == 0
+    assert eac["stage_0_first_two_dispersion_p95"] == 0.0007983036317792467
+    assert eac["stage_0_first_two_dispersion_nonzero_fraction"] == 1.0
+    assert eac["stage_0_commitment_counts"] == {"2": 136, "8": 132, "50": 132}
+    assert eac["stage_0_max_commitment_share"] == 0.34
+    assert eac["stage_0_passthrough_max_abs_error"] == 5.07000000038449e-07
+    assert eac["stage_0_queue_helper_present"] is True
+    assert eac["stage_0_chunk_shape_ok"] is True
+    assert eac["stage_0_full_chunk_values_available_in_artifact"] is False
+    assert eac["stage_0_runtime_full_chunk_check_required_before_validation_search"] is True
+    assert eac["stage_0_closed_loop_experiment_happened"] is False
+    assert eac["stage_0_training_happened"] is False
+    assert eac["stage_0_validation_search_happened"] is False
+    assert eac["stage_0_confirmatory_test_tuning_happened"] is False
+    eac_outcome = state["epoch_4_cycle_10_eac_development_outcome"]
+    assert eac_outcome["final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
+    assert eac_outcome["hard_stop_reasons"] == []
+    assert eac_outcome["runtime_full_chunk_check_required_before_validation_search"] is True
+    assert eac_outcome["valid_current_formulation_kill"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

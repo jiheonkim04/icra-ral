@@ -1,0 +1,18 @@
+{
+  "canonical_artifact_chunk_shapes": {
+    "[50, 7]": 2000
+  },
+  "chunk_shape_ok": true,
+  "expected_chunk_shape": [
+    50,
+    7
+  ],
+  "first_two_preview_available": true,
+  "full_chunk_values_available_in_artifact": false,
+  "previous_preflight_chunk_shape": [
+    50,
+    7
+  ],
+  "queue_helper_present": true,
+  "runtime_full_chunk_check_required_before_validation_search": true
+}

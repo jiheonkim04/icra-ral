@@ -1,0 +1,251 @@
+{
+  "audited_frames_with_repeated_eval_seeds": 400,
+  "commitment_counts": {
+    "2": 136,
+    "8": 132,
+    "50": 132
+  },
+  "eval_seed_count_distribution": {
+    "5": 400
+  },
+  "first_transition_l2_summary": {
+    "count": 400,
+    "max": 2.019235135709165,
+    "mean": 0.11235769422908842,
+    "min": 0.009625775145696307,
+    "nonzero_fraction": 1.0,
+    "p50": 0.06630401280398343,
+    "p95": 0.22224630799806686,
+    "std": 0.25644047733858477
+  },
+  "first_two_dispersion_summary": {
+    "count": 400,
+    "max": 0.046720446452109814,
+    "mean": 0.0008318929853238895,
+    "min": 1.8177096435385518e-05,
+    "nonzero_fraction": 1.0,
+    "p50": 0.00016718024014767058,
+    "p95": 0.0007983036317792467,
+    "std": 0.005065356524949223
+  },
+  "frame_metric_preview": [
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.05001782529644388,
+      "first_two_dispersion": 0.00012729148030742203,
+      "frame_index": 0,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.038166559904417266,
+      "first_two_dispersion": 0.0001051870232171206,
+      "frame_index": 29,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.08779745119457551,
+      "first_two_dispersion": 0.00017977776227494704,
+      "frame_index": 58,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.02943957435281164,
+      "first_two_dispersion": 0.0002342184502662008,
+      "frame_index": 87,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.06380958260020954,
+      "first_two_dispersion": 0.0003151960584834115,
+      "frame_index": 116,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.07902815053818285,
+      "first_two_dispersion": 0.00015357479325641752,
+      "frame_index": 145,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.01726560554569217,
+      "first_two_dispersion": 7.94680285905217e-05,
+      "frame_index": 174,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.0226910728784221,
+      "first_two_dispersion": 0.00011444841027464733,
+      "frame_index": 203,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.03320317272869934,
+      "first_two_dispersion": 0.00010203408447933312,
+      "frame_index": 232,
+      "task_index": 0
+    },
+    {
+      "episode_index": 22,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.03035753087675164,
+      "first_two_dispersion": 4.948677233214253e-05,
+      "frame_index": 262,
+      "task_index": 0
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.04351738095155364,
+      "first_two_dispersion": 0.00010693444954780422,
+      "frame_index": 0,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.026838071586983685,
+      "first_two_dispersion": 7.511277992614286e-05,
+      "frame_index": 26,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.14818418780710205,
+      "first_two_dispersion": 6.823155410027859e-05,
+      "frame_index": 53,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.05920574797874183,
+      "first_two_dispersion": 0.00010540919064796148,
+      "frame_index": 79,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.02099224236712551,
+      "first_two_dispersion": 4.081559948056006e-05,
+      "frame_index": 106,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.08137442959786662,
+      "first_two_dispersion": 0.0001812522483568508,
+      "frame_index": 132,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.051985312939662395,
+      "first_two_dispersion": 0.00012520315138349702,
+      "frame_index": 159,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.010037838547633737,
+      "first_two_dispersion": 0.00012426626301716175,
+      "frame_index": 185,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.09780055597781025,
+      "first_two_dispersion": 0.00013750608539137552,
+      "frame_index": 212,
+      "task_index": 1
+    },
+    {
+      "episode_index": 5,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.037689883123324004,
+      "first_two_dispersion": 5.968801477638663e-05,
+      "frame_index": 239,
+      "task_index": 1
+    },
+    {
+      "episode_index": 34,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.03425526112928657,
+      "first_two_dispersion": 0.0003254754572201597,
+      "frame_index": 0,
+      "task_index": 2
+    },
+    {
+      "episode_index": 34,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.08997408542626437,
+      "first_two_dispersion": 0.00039244427606551115,
+      "frame_index": 49,
+      "task_index": 2
+    },
+    {
+      "episode_index": 34,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.11000834591079592,
+      "first_two_dispersion": 0.0005930871713345991,
+      "frame_index": 99,
+      "task_index": 2
+    },
+    {
+      "episode_index": 34,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.04493892996864625,
+      "first_two_dispersion": 0.0012908396711543092,
+      "frame_index": 149,
+      "task_index": 2
+    },
+    {
+      "episode_index": 34,
+      "eval_seed_count": 5,
+      "first_transition_l2": 0.0590640550070324,
+      "first_two_dispersion": 0.0003661024034835645,
+      "frame_index": 199,
+      "task_index": 2
+    }
+  ],
+  "max_commitment_share": 0.34,
+  "risk_monotonicity": {
+    "long_commitment_dispersion_mean": 9.2099138223779e-05,
+    "short_commitment_dispersion_mean": 0.002179729077336901,
+    "short_gt_long": true
+  },
+  "risk_summary": {
+    "count": 400,
+    "max": 1.0,
+    "mean": 0.27798851578072303,
+    "min": 0.0,
+    "nonzero_fraction": 0.9825,
+    "p50": 0.20967199371748713,
+    "p95": 0.8040613962279417,
+    "std": 0.23593148755423402
+  },
+  "source": "canonical_frozen_base_prediction_artifact_first_two_chunk_previews",
+  "unique_validation_frames": 400
+}

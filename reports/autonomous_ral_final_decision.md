@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -155,6 +155,10 @@ Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` wi
 
 The EAC mathematical mechanism audit is frozen in `reports/eac_vla/mathematical_mechanism_audit.md` with decision `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines exact variables, shapes, dispersion/entropy rules, action-value passthrough, validation search limits, required ablation, and Stage 0 hard stops.
 
-The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/preregistration.md` and `reports/eac_vla/prototype_protocol.md`. The next permitted action is only Stage 0 development audit; validation search, Stage A, and rollout remain blocked unless Stage 0 passes.
+The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/preregistration.md` and `reports/eac_vla/prototype_protocol.md`.
 
-Current stage: `epoch_4_cycle_10_eac_stage_0_pending`. Next action: implement and run only the EAC Stage 0 development audit.
+EAC Stage 0 completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. The audit is saved in `reports/eac_vla/stage_0_audit.json` and passed as `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`: `2000` validation records, `400` validation frames, `6000` reserved confirmatory records untouched, zero validation/test overlap, first-two dispersion p95 `0.0007983036317792467`, commitment counts `2:136`, `8:132`, `50:132`, and passthrough max error `5.07000000038449e-07`.
+
+Because the canonical artifact stores first-two previews rather than all `50` postprocessed chunk actions, validation search, Stage A, and rollout remain blocked until a runtime full-chunk equality and queue-prefix execution check passes.
+
+Current stage: `epoch_4_cycle_10_eac_runtime_queue_check_pending`. Next action: implement the EAC runtime full-chunk equality and queue-prefix execution check before validation search.

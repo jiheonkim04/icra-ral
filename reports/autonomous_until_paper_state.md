@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_stage_0_pending`
+Current stage: `epoch_4_cycle_10_eac_runtime_queue_check_pending`
 
 Allowed final states:
 
@@ -342,6 +342,12 @@ Researcher A rebuttal is complete in `reports/eac_vla/researcher_rebuttal.md` wi
 
 The EAC mathematical mechanism audit is frozen in `reports/eac_vla/mathematical_mechanism_audit.md` with decision `EAC_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines the `50 x 7` chunk variables, dispersion/entropy rules, queue-risk formula, commitment map, action-value equality gate, validation-search score, required ablation, and Stage 0 hard stops.
 
-The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/preregistration.md` and `reports/eac_vla/prototype_protocol.md`. The next permitted action is only the Stage 0 development audit; validation search, Stage A, and rollout remain blocked unless Stage 0 passes.
+The EAC preregistration and prototype protocol are frozen in `reports/eac_vla/preregistration.md` and `reports/eac_vla/prototype_protocol.md`.
 
-Current decision: `EAC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_10_eac_stage_0_pending`. Next action: implement and run only the EAC Stage 0 development audit.
+EAC Stage 0 completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. The audit is saved in `reports/eac_vla/stage_0_audit.json` and summarized in `reports/eac_vla/stage_0_audit.md`.
+
+Final EAC Stage 0 decision: `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`. The audit used `2000` validation records and `400` unique validation frames, reserved `6000` confirmatory records unused, found zero validation/test frame or sample overlap, confirmed queue helpers and the canonical `50 x 7` chunk shape, and found noncollapsed first-two chunk dispersion with p95 `0.0007983036317792467` and nonzero fraction `1.0`. The preregistered commitment map was noncollapsed (`2`: `136`, `8`: `132`, `50`: `132`), max commitment share was `0.34`, and first-action passthrough max error was `5.07000000038449e-07`, below the serialization epsilon. There were no hard stops.
+
+The canonical artifact stores first-two chunk previews and chunk hashes, not all `50` postprocessed actions. Therefore validation search, Stage A, and rollout remain blocked until the runtime full-chunk equality and queue-prefix execution check is implemented and passed.
+
+Current decision: `EAC_STAGE_0_PASS_RUNTIME_QUEUE_CHECK_REQUIRED`. Current stage: `epoch_4_cycle_10_eac_runtime_queue_check_pending`. Next action: implement the EAC runtime full-chunk equality and queue-prefix execution check before validation search.

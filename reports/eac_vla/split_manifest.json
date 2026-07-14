@@ -1,0 +1,15 @@
+{
+  "confirmatory_records_used_for_tuning": false,
+  "confirmatory_reserved_split": "test",
+  "reserved_sample_count": 6000,
+  "reserved_unique_frame_count": 1200,
+  "split_counts_records": {
+    "test": 6000,
+    "val": 2000
+  },
+  "validation_reserved_frame_overlap": 0,
+  "validation_reserved_sample_overlap": 0,
+  "validation_sample_count": 2000,
+  "validation_split": "val",
+  "validation_unique_frame_count": 400
+}
