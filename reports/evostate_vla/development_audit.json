@@ -1,0 +1,101 @@
+{
+  "action_variance": {
+    "max": 1.0013249898414753,
+    "min": 0.0005697299541138892,
+    "per_dim": [
+      0.08612352171330655,
+      0.08613808998207782,
+      0.1615290683981939,
+      0.0005697299541138892,
+      0.0018782529863340277,
+      0.002167686595951957,
+      1.0013249898414753
+    ]
+  },
+  "actionless_loss": 0.0012531045814660672,
+  "closed_gate_passthrough_max_abs_diff": 0.0,
+  "closed_loop_experiment_happened": false,
+  "config": {
+    "damped_inverse_lambda": 0.01,
+    "default_alpha": 0.25,
+    "delta_max": 0.2,
+    "forbidden_development_identity_min": 20260917,
+    "min_effective_rank": 3,
+    "min_task_transition_pairs": 1000,
+    "min_transition_improvement": 0.05,
+    "min_transition_pairs": 5000,
+    "ridge_lambda": 0.01,
+    "train_identities": [
+      20260901,
+      20260902,
+      20260903,
+      20260904,
+      20260905,
+      20260906,
+      20260907,
+      20260908,
+      20260909,
+      20260910
+    ],
+    "validation_identities": [
+      20260911,
+      20260912,
+      20260913,
+      20260914,
+      20260915,
+      20260916
+    ]
+  },
+  "constant_loss": 0.004292949750938233,
+  "controllability_effective_rank": 7,
+  "controllability_singular_values": [
+    2.0897124369205105,
+    0.31776531825041743,
+    0.18357525697230978,
+    0.0979011808024715,
+    0.027602777897907337,
+    0.012838688402919967,
+    0.0016105079191581122
+  ],
+  "damped_inverse_condition_number": 437.6898069020253,
+  "duplicate_transition_keys": 0,
+  "final_decision": "AUDIT_STOP_DESIGN_FAILURE",
+  "full_transition_loss": 0.0012221662156230845,
+  "gate_positive_fraction": 0.28760957119166075,
+  "hard_stop_reasons": [
+    "transition model improvement vs actionless below minimum: 0.024689"
+  ],
+  "method": "EvoState-VLA",
+  "next_step": "Do not roll out EvoState; archive the hard stop and continue.",
+  "proposal_hash": "A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9",
+  "state_variance": {
+    "max": 3.311224123936039,
+    "min": 0.3196912312454606,
+    "per_dim": [
+      0.3196912312454606,
+      3.311224123936039,
+      0.45173082986494306,
+      0.3924016916833797,
+      0.4413407817833279,
+      0.4724162737781985,
+      1.5074029083693872,
+      1.49276004663564
+    ]
+  },
+  "task_transition_counts": {
+    "libero_10/task_4": 7194,
+    "libero_spatial/task_4": 3575
+  },
+  "task_transition_improvement_vs_actionless": {
+    "libero_10/task_4": 0.014670167511547556,
+    "libero_spatial/task_4": 0.043115675006106614
+  },
+  "train_transition_pairs": 6548,
+  "training_happened": false,
+  "transition_improvement_vs_actionless": 0.024689372539669806,
+  "transition_improvement_vs_constant": 0.7153085205910045,
+  "transition_pairs": 10769,
+  "validation_action_delta_p95": 0.04157738591349467,
+  "validation_action_validity": 1.0,
+  "validation_transition_pairs": 4221
+}

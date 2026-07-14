@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`
+Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED`
 
 Current epoch: `4`
 
-Current cycle: `4`
+Current cycle: `5`
 
-Current stage: `evostate_vla_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_5_candidate_search_pending`
 
 Allowed final states:
 
@@ -157,4 +157,8 @@ Selection artifacts:
 - preregistration: `reports/evostate_vla/preregistration.md`
 - prototype protocol: `reports/evostate_vla/prototype_protocol.md`
 
-Current stage: Stage 0 implementation pending. Run the development audit on `reports/cavm_vla/acquisition_records.jsonl`; do not launch closed-loop Stage A unless the audit and bounded validation search pass.
+Stage 0 development audit completed without closed-loop rollout. It produced `AUDIT_STOP_DESIGN_FAILURE`: `10769` transition pairs existed with zero duplicate keys, and the full transition model improved strongly over a constant predictor (`0.715309`), but it improved only `0.024689` over an actionless model, below the preregistered `0.05` action-input improvement threshold. Controllability rank was `7`, gate positive fraction was `0.287610`, validation action delta p95 was `0.041577`, and validation action validity was `1.0`.
+
+This is a valid pre-rollout hard stop, not a closed-loop scientific result. Do not lower the threshold, reinterpret the audit, or launch EvoState Stage A.
+
+Current stage: Epoch 4 Cycle 5 candidate search pending. Generate exactly three new prior-anchored candidates under the current post-CAVM governance.

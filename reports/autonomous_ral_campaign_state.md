@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`
+Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED`
 
 Current epoch: `4`
 
-Current cycle: `4`
+Current cycle: `5`
 
-Current stage: `evostate_vla_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_5_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -108,4 +108,6 @@ Artifacts:
 - `reports/evostate_vla/preregistration.md`
 - `reports/evostate_vla/prototype_protocol.md`
 
-Next action: implement and run the EvoState-VLA Stage 0 development audit on `reports/cavm_vla/acquisition_records.jsonl`.
+Stage 0 development audit completed without closed-loop rollout and stopped as `AUDIT_STOP_DESIGN_FAILURE`. The full transition model improved over a constant predictor by `0.715309`, but improved only `0.024689` over an actionless model, below the preregistered `0.05` action-input improvement threshold. This means the proposed action-conditioned state mechanism is not sufficiently supported for rollout.
+
+Next action: begin Epoch 4 Cycle 5 by generating exactly three new prior-anchored candidates. Do not rescue EvoState by lowering the Stage 0 threshold.

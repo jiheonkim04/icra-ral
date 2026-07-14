@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`
+Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_STAGE_0_DESIGN_FAILURE_NEXT_METHOD_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -42,4 +42,6 @@ Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not
 
 Epoch 4 Cycle 4 selected and preregistered `EvoState-VLA`. Proposal hash: `A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9`.
 
-Next action: implement and run the EvoState-VLA Stage 0 development audit on `reports/cavm_vla/acquisition_records.jsonl`.
+Stage 0 stopped before rollout as `AUDIT_STOP_DESIGN_FAILURE`: the full transition model improved only `0.024689` over an actionless model, below the preregistered `0.05` threshold.
+
+Next action: begin Epoch 4 Cycle 5 by generating exactly three new prior-anchored candidates.
