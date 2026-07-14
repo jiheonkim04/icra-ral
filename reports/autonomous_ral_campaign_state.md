@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_7_CANDIDATE_SEARCH_PENDING`
+Current decision: `SELECT_DAGR_VLA_PROPOSAL_FROZEN`
 
 Current epoch: `4`
 
 Current cycle: `7`
 
-Current stage: `epoch_4_cycle_7_candidate_search_pending`
+Current stage: `epoch_4_cycle_7_dagr_reviewer_attack_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -155,4 +155,12 @@ Stage B completed `200 / 200` official LIBERO episodes with zero exceptions. Fro
 
 Final MTF decision: `MTF_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. Do not rescue MTF by retuning `mtf_r20_ret100`, changing retention, changing task/reset identities, or reinterpreting Stage B outcomes.
 
-Current stage: Epoch 4 Cycle 7 candidate search pending. Generate exactly three post-MTF candidates under the installed performance-oriented governance, select exactly one, and continue without using MTF Stage B outcomes to retune MTF.
+## Epoch 4 Cycle 7
+
+Exactly three post-MTF candidates were generated and scored in `reports/epoch_4_cycle_7_candidate_generation.md` after building the prior mechanism map in `reports/epoch_4_cycle_7_prior_mechanism_map.md`. MTF remains archived and may not be rescued.
+
+`DAGR-VLA` is selected as a DAM-VLA anchored dynamic arm/gripper routing method for frozen SmolVLA adaptation. Proposal hash: `BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89`.
+
+The selected first comparison is frozen at the design level to five policies: Base, a DAM-style static component proxy, DAGR full, a no-dynamic-route shared residual ablation, and one gripper-transition heuristic simple killer. No closed-loop rollout, training, or confirmatory-test tuning has happened for DAGR.
+
+Current stage: DAGR Reviewer B attack pending. Attack novelty and leakage against DAM-VLA, generic residual adapters, arm/gripper loss weighting, gripper-transition heuristics, MTF, and RAC before any implementation.

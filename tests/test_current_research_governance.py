@@ -19,11 +19,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_7_CANDIDATE_SEARCH_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_7_candidate_search_pending"
-    assert state["method"] == "TBD_POST_MTF_CYCLE_7"
-    assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
-    assert state["prototype_protocol"] == "reports/mtf_vla/prototype_protocol.md"
+    assert state["current_decision"] == "SELECT_DAGR_VLA_PROPOSAL_FROZEN"
+    assert state["current_stage"] == "epoch_4_cycle_7_dagr_reviewer_attack_pending"
+    assert state["method"] == "DAGR-VLA"
+    assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
+    assert state["prototype_protocol"] == "reports/dagr_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -65,6 +65,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_6_mtf_stage_b_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_7_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_7_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_proposal_frozen" in state["completed_stages"]
     assert state["task_reset_manifest"] == "reports/mtf_vla/stage_b_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
@@ -89,6 +91,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_b_outcome"]["paired_delta_vs_no_retention_ablation"] == -0.15
     assert state["epoch_4_cycle_6_mtf_stage_b_outcome"]["paired_ci_vs_no_retention_ablation"] == [-0.275, -0.025]
     assert state["epoch_4_cycle_6_mtf_stage_b_outcome"]["simple_baseline_explains_method"] is True
+    assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["closest_prior"] == "DAM-VLA"
+    assert state["epoch_4_cycle_7_pre_stage_0"]["selected_score"] == 89
+    assert state["epoch_4_cycle_7_pre_stage_0"]["closed_loop_experiment_happened"] is False
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

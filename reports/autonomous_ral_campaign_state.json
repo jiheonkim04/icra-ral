@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 7,
-    "topic": "epoch_4_cycle_7_candidate_search_pending",
-    "method": "TBD_POST_MTF_CYCLE_7",
+    "topic": "epoch_4_cycle_7_dagr_reviewer_attack_pending",
+    "method": "DAGR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "0a253c5aa27c208dc1b0d390504b6ef37f7eaf5d",
-    "current_stage": "epoch_4_cycle_7_candidate_search_pending",
+    "current_commit": "0824ba87b23a49d295ef23a949ebd487c62eac29",
+    "current_stage": "epoch_4_cycle_7_dagr_reviewer_attack_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -223,7 +223,9 @@
         "epoch_4_cycle_6_mtf_stage_b_completed",
         "epoch_4_cycle_6_mtf_stage_b_adjudicated",
         "epoch_4_cycle_6_mtf_valid_current_formulation_kill_recorded",
-        "epoch_4_cycle_7_candidate_search_pending"
+        "epoch_4_cycle_7_candidate_search_pending",
+        "epoch_4_cycle_7_candidate_generation_completed",
+        "epoch_4_cycle_7_dagr_proposal_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -233,14 +235,14 @@
     "hypothesis": "Milestone-transition focused adapter training with frozen-base retention can improve SmolVLA closed-loop success beyond Base, a FrameSkip proxy, a no-retention ablation, and uniform retained-ratio LoRA while retaining clean behavior.",
     "novelty_claim": "FrameSkip and StructVLA anchored milestone-transition data supervision with explicit frozen-base retention for identity-preserving VLA adapter training.",
     "closest_papers": [
-        "FrameSkip: https://arxiv.org/abs/2605.13757",
-        "StructVLA: https://arxiv.org/abs/2603.12553",
-        "TT-VLA: https://arxiv.org/abs/2601.06748",
+        "DAM-VLA: https://arxiv.org/abs/2603.00926",
+        "ReactVLA: https://arxiv.org/abs/2606.14255",
         "AffordanceVLA: https://arxiv.org/abs/2606.06155",
-        "DAM-VLA: https://arxiv.org/abs/2603.00926"
+        "GEAR-VLA: https://arxiv.org/abs/2606.08530",
+        "PDF: https://arxiv.org/abs/2604.18107"
     ],
     "prototype_gate": "Stage A/B require MTF full to beat Base, FrameSkip proxy, no-retention ablation, and uniform retained-ratio LoRA under a frozen matched manifest with clean retention and bounded milestone-specific action change.",
-    "current_decision": "EPOCH_4_CYCLE_7_CANDIDATE_SEARCH_PENDING",
+    "current_decision": "SELECT_DAGR_VLA_PROPOSAL_FROZEN",
     "stage_a_partial_checkpoint": "reports/mtf_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/mtf_vla/stage_a_result.json",
     "stage_a_result_md": "reports/mtf_vla/stage_a_result.md",
@@ -391,12 +393,12 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Generate exactly three post-MTF candidates under the installed performance-oriented governance, select exactly one, and proceed through development audit, bounded validation search, and prior-first prototype without using MTF Stage B outcomes to retune MTF.",
+    "next_action": "Run Reviewer B attack on the frozen DAGR-VLA proposal against DAM-VLA, generic residual adapters, arm/gripper loss weighting, gripper-transition heuristics, MTF, and RAC; then write the Researcher A rebuttal if not killed before implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_mtf_vla_stage_a.py --mode stage-b\"",
-    "active_hypothesis": "Milestone-transition focused adapter training with frozen-base retention can improve SmolVLA closed-loop success beyond Base, a FrameSkip proxy, a no-retention ablation, and uniform retained-ratio LoRA while retaining clean behavior.",
-    "method_identity": "MTF-VLA",
-    "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
-    "prototype_protocol": "reports/mtf_vla/prototype_protocol.md",
+    "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
+    "method_identity": "DAGR-VLA",
+    "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+    "prototype_protocol": "reports/dagr_vla/prototype_protocol.md",
     "process_id": null,
     "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100",
     "epoch_2_cycle_2_outcome": {
@@ -1496,5 +1498,28 @@
         "threshold_change_allowed": false,
         "kill_reason": "MTF full reached 26/40 while the no-retention ablation reached 32/40; paired full-minus-ablation delta was -0.15 with CI [-0.275, -0.025], so the frozen-base retention/milestone formulation is explained by a simpler ablation and may not be rescued by Stage B retuning.",
         "next_stage": "Archive MTF-VLA current formulation and begin Epoch 4 Cycle 7 candidate search under the installed performance-oriented governance."
+    },
+    "epoch_4_cycle_7_pre_stage_0": {
+        "method": "DAGR-VLA",
+        "selection_decision": "SELECT_DAGR_VLA",
+        "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+        "prior_mechanism_map": "reports/epoch_4_cycle_7_prior_mechanism_map.md",
+        "candidate_generation": "reports/epoch_4_cycle_7_candidate_generation.md",
+        "proposal": "reports/dagr_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/dagr_vla/proposal_hash.txt",
+        "closest_prior": "DAM-VLA",
+        "closest_prior_url": "https://arxiv.org/abs/2603.00926",
+        "contribution_type": "PRIOR_EXTENSION",
+        "selected_score": 89,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "first_comparison_policies": [
+            "frozen_smolvla",
+            "dam_static_component_proxy",
+            "dagr_full",
+            "dagr_no_dynamic_route_ablation",
+            "gripper_transition_heuristic"
+        ],
+        "next_stage": "Reviewer B novelty and leakage attack before rebuttal, mathematical audit, preregistration, and Stage 0 development audit."
     }
 }

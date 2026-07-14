@@ -1927,3 +1927,28 @@ Evidence:
 - paired full minus FrameSkip proxy: wins `1`, losses `2`, ties `37`, delta `-0.025`, CI `[-0.1, 0.05]`
 
 Consequence: this is a valid current-formulation kill. The simpler no-retention ablation explains or exceeds the full MTF method, so MTF-VLA must be archived without retention retuning, checkpoint rescue, threshold changes, task/reset changes, or post-hoc reinterpretation. Continue to Epoch 4 Cycle 7 candidate search under the installed performance-oriented governance.
+
+## 2026-07-14 - Epoch 4 Cycle 7 Candidate Selection
+
+Decision: `SELECT_DAGR_VLA_PROPOSAL_FROZEN`
+
+Execution boundary:
+
+- prior mechanism map: `reports/epoch_4_cycle_7_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_7_candidate_generation.md`
+- exactly three candidates: `DAGR-VLA`, `CAFP-VLA`, `CPDF-VLA`
+- selected method: `DAGR-VLA`
+- proposal: `reports/dagr_vla/researcher_proposal.md`
+- proposal hash: `BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89`
+- closest prior: DAM-VLA, https://arxiv.org/abs/2603.00926
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Selection evidence:
+
+- DAGR score: `89 / 100`
+- CAFP score: `79 / 100`
+- CPDF score: `77 / 100`
+- first comparison policies: Base, DAM-style static component proxy, DAGR full, no-dynamic-route shared residual ablation, and gripper-transition heuristic simple killer
+
+Consequence: DAGR-VLA is the active Cycle 7 method. Reviewer B must attack the frozen proposal against DAM-VLA, generic residual adapters, arm/gripper loss weighting, gripper-transition heuristics, MTF, and RAC before any implementation.

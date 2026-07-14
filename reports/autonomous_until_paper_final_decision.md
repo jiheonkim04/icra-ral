@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_7_CANDIDATE_SEARCH_PENDING`
+Current campaign decision: `SELECT_DAGR_VLA_PROPOSAL_FROZEN`
 
 This is not a terminal decision.
 
@@ -92,4 +92,6 @@ The MTF Stage B manifest `reports/mtf_vla/stage_b_manifest.json` completed as `r
 
 Final MTF decision: `MTF_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. Full-minus-no-retention paired delta was `-0.15` with CI `[-0.275, -0.025]`, so the simpler ablation explains or exceeds the full method. Do not rescue or retune MTF.
 
-Next action: begin Epoch 4 Cycle 7 by generating exactly three post-MTF candidates, selecting exactly one, and proceeding automatically under the installed performance-oriented governance.
+Epoch 4 Cycle 7 generated exactly three post-MTF candidates in `reports/epoch_4_cycle_7_candidate_generation.md` and selected `DAGR-VLA`, a DAM-VLA anchored dynamic arm/gripper routing method. Proposal hash: `BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89`.
+
+Next action: run Reviewer B attack on the frozen DAGR-VLA proposal, then write the Researcher A rebuttal if the method is not killed before implementation.
