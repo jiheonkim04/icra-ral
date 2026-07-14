@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`" in final
+    assert "Current campaign decision: `DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -65,6 +65,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "DAGR_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT" in final
     assert "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED" in final
     assert "DAGR full `6 / 10`" in final
+    assert "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT" in final
+    assert "200` total episodes" in final
     assert "At preflight time, no DAGR closed-loop rollout or confirmatory-test tuning had happened" in final
 
 
@@ -72,10 +74,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    assert state["current_decision"] == "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 7
-    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_b_manifest_pending"
+    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_b_rollout_ready"
     assert state["method"] == "DAGR-VLA"
     assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["maximum_method_cycles"] is None
@@ -90,8 +92,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Freeze the DAGR Stage B matched manifest")
-    assert state["task_reset_manifest"] == "reports/dagr_vla/stage_a_manifest.json"
+    assert state["next_action"].startswith("Launch DAGR Stage B official WSL rollout")
+    assert state["task_reset_manifest"] == "reports/dagr_vla/stage_b_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
@@ -161,6 +163,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_stage_b_manifest_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
@@ -207,6 +210,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["gripper_transition_heuristic_successes"] == 7
     assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["dagr_full_successes"] == 6
     assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["stage_b_required"] is True
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["final_decision"] == "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["planned_episode_count"] == 200
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["paired_cases_per_policy"] == 40
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["reset_seeds"] == [20261207, 20261208]
     assert state["epoch_4_cycle_6_pre_stage_0"]["selection_decision"] == "SELECT_MTF_VLA"
     assert state["epoch_4_cycle_6_pre_stage_0"]["closest_prior"] == "FrameSkip"
     assert state["epoch_4_cycle_6_pre_stage_0"]["secondary_prior"] == "StructVLA"

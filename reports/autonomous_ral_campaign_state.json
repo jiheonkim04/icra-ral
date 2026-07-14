@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 7,
-    "topic": "epoch_4_cycle_7_dagr_stage_b_manifest_pending",
+    "topic": "epoch_4_cycle_7_dagr_stage_b_rollout_ready",
     "method": "DAGR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "7d82aa3d0be144d1626900ebeabf06b460b36b62",
-    "current_stage": "epoch_4_cycle_7_dagr_stage_b_manifest_pending",
+    "current_stage": "epoch_4_cycle_7_dagr_stage_b_rollout_ready",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -238,7 +238,8 @@
         "epoch_4_cycle_7_dagr_stage_a_manifest_frozen",
         "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed",
         "epoch_4_cycle_7_dagr_stage_a_completed",
-        "epoch_4_cycle_7_dagr_stage_a_adjudicated"
+        "epoch_4_cycle_7_dagr_stage_a_adjudicated",
+        "epoch_4_cycle_7_dagr_stage_b_manifest_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -255,13 +256,13 @@
         "PDF: https://arxiv.org/abs/2604.18107"
     ],
     "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
-    "current_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    "current_decision": "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
     "stage_a_partial_checkpoint": "reports/dagr_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/dagr_vla/stage_a_result.json",
     "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
-    "stage_b_partial_checkpoint": "reports/mtf_vla/stage_b_partial_result.json",
-    "stage_b_result_json": "reports/mtf_vla/stage_b_result.json",
-    "stage_b_result_md": "reports/mtf_vla/stage_b_result.md",
+    "stage_b_partial_checkpoint": "reports/dagr_vla/stage_b_partial_result.json",
+    "stage_b_result_json": "reports/dagr_vla/stage_b_result.json",
+    "stage_b_result_md": "reports/dagr_vla/stage_b_result.md",
     "cycle_1_outcome": {
         "valid_scientific_result": true,
         "stage_a_completed": true,
@@ -406,8 +407,8 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the DAGR Stage B matched manifest with at least 40 paired episodes per policy, then launch the official WSL rollout without changing the Stage A method, checkpoints, thresholds, tasks, or decision rules.",
-    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-a\"",
+    "next_action": "Launch DAGR Stage B official WSL rollout using the frozen all-task manifest; save durable PID, heartbeat, logs, partial result, and exact resume command.",
+    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
     "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
     "method_identity": "DAGR-VLA",
     "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
@@ -1141,7 +1142,7 @@
         ],
         "next_stage": "Actual disk-reloadable adapter training and validation."
     },
-    "task_reset_manifest": "reports/dagr_vla/stage_a_manifest.json",
+    "task_reset_manifest": "reports/dagr_vla/stage_b_manifest.json",
     "epoch_4_cycle_6_mtf_adapter_checkpoint_outcome": {
         "method": "MTF-VLA",
         "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
@@ -1533,7 +1534,7 @@
             "dagr_no_dynamic_route_ablation",
             "gripper_transition_heuristic"
         ],
-        "next_stage": "Freeze the DAGR Stage B matched manifest.",
+        "next_stage": "Run frozen DAGR Stage B official WSL rollout.",
         "reviewer_attack": "reports/dagr_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/dagr_vla/researcher_rebuttal.md",
@@ -1590,7 +1591,17 @@
         "stage_a_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
         "stage_a_completed_episode_count": 50,
         "stage_a_exception_count": 0,
-        "stage_b_required": true
+        "stage_b_required": true,
+        "stage_b_manifest": "reports/dagr_vla/stage_b_manifest.json",
+        "stage_b_manifest_md": "reports/dagr_vla/stage_b_manifest.md",
+        "stage_b_manifest_decision": "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_b_manifest_sha256": "2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B",
+        "stage_b_planned_episode_count": 200,
+        "stage_b_reset_seeds": [
+            20261207,
+            20261208
+        ],
+        "stage_b_pair_count_per_policy": 40
     },
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
@@ -1622,7 +1633,7 @@
         "selected_action_validity": 1.0,
         "selected_checkpoint_path": "reports\\dagr_vla\\validation_checkpoints\\dagr_a020_route_mlp.pt",
         "stage_a_allowed": true,
-        "next_stage": "Freeze the DAGR Stage B matched manifest.",
+        "next_stage": "Run frozen DAGR Stage B official WSL rollout.",
         "policy_identity_decision": "DAGR_POLICY_IDENTITIES_VERIFIED_STAGE_A_MANIFEST_READY",
         "policy_checkpoint_manifest": "reports/dagr_vla/policy_checkpoint_manifest.json",
         "checkpoint_root": "runs\\dagr_vla_checkpoints\\dagr_a020_route_mlp",
@@ -1663,7 +1674,17 @@
         "stage_a_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
         "stage_a_completed_episode_count": 50,
         "stage_a_exception_count": 0,
-        "stage_b_required": true
+        "stage_b_required": true,
+        "stage_b_manifest": "reports/dagr_vla/stage_b_manifest.json",
+        "stage_b_manifest_md": "reports/dagr_vla/stage_b_manifest.md",
+        "stage_b_manifest_decision": "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "stage_b_manifest_sha256": "2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B",
+        "stage_b_planned_episode_count": 200,
+        "stage_b_reset_seeds": [
+            20261207,
+            20261208
+        ],
+        "stage_b_pair_count_per_policy": 40
     },
     "epoch_4_cycle_7_dagr_policy_identity_outcome": {
         "method": "DAGR-VLA",
@@ -2108,5 +2129,36 @@
         "threshold_change_allowed": false,
         "adjudication_reason": "DAGR full reached 6/10: it beat the DAM-style static proxy (2/10) and key ablation (5/10), but trailed frozen SmolVLA (8/10) and the gripper-transition heuristic (7/10). The two-episode Base deficit is noncatastrophic under current Stage A governance, so Stage B is required without retuning.",
         "next_stage": "Freeze and run DAGR Stage B with at least 40 paired episodes per key policy."
+    },
+    "epoch_4_cycle_7_dagr_stage_b_manifest": {
+        "method": "DAGR-VLA",
+        "config_id": "dagr_a020_route_mlp",
+        "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+        "final_decision": "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "manifest": "reports/dagr_vla/stage_b_manifest.json",
+        "manifest_md": "reports/dagr_vla/stage_b_manifest.md",
+        "manifest_canonical_payload_sha256": "2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B",
+        "stage_a_result": "reports/dagr_vla/stage_a_result.json",
+        "stage_a_decision": "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "policies": [
+            "frozen_smolvla",
+            "dam_static_component_proxy",
+            "dagr_full",
+            "dagr_no_dynamic_route_ablation",
+            "gripper_transition_heuristic"
+        ],
+        "reset_seeds": [
+            20261207,
+            20261208
+        ],
+        "paired_cases_per_policy": 40,
+        "planned_episode_count": 200,
+        "task_count": 20,
+        "stage_b_result_json": "reports/dagr_vla/stage_b_result.json",
+        "stage_b_partial_result_json": "reports/dagr_vla/stage_b_partial_result.json",
+        "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
+        "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     }
 }

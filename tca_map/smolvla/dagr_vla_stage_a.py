@@ -33,8 +33,11 @@ METHOD = "DAGR-VLA"
 CONFIG_ID = "dagr_a020_route_mlp"
 PROPOSAL_HASH = "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
 STAGE_A_RESET_SEEDS = [20261205, 20261206]
+STAGE_B_RESET_SEEDS = [20261207, 20261208]
 STAGE_A_TASK_COUNT = 5
+STAGE_B_TASK_COUNT = 20
 STAGE_A_EPISODES_PER_POLICY = STAGE_A_TASK_COUNT * len(STAGE_A_RESET_SEEDS)
+STAGE_B_EPISODES_PER_POLICY = STAGE_B_TASK_COUNT * len(STAGE_B_RESET_SEEDS)
 DAGR_FULL_POLICY = "dagr_full"
 STAGE_A_POLICY_ORDER = [
     "frozen_smolvla",
@@ -64,6 +67,15 @@ FINAL_DECISIONS = {
     "DAGR_STAGE_A_CATASTROPHIC_KILL_CLEARLY_WORSE_THAN_BASELINE_OR_ABLATION",
     "DAGR_STAGE_A_POSITIVE_TO_STAGE_B_REQUIRED",
     "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+    "DAGR_STAGE_B_MEASUREMENT_INVALID_REPAIR_REQUIRED",
+    "DAGR_STAGE_B_PROTOTYPE_GO",
+    "DAGR_STAGE_B_KILL_BASE_NOT_IMPROVED",
+    "DAGR_STAGE_B_KILL_CLOSEST_PRIOR_EXPLAINS_METHOD",
+    "DAGR_STAGE_B_KILL_KEY_COMPONENT_NOT_USEFUL",
+    "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD",
+    "DAGR_STAGE_B_USEFUL_IMPROVEMENT_EXCLUDED",
+    "DAGR_STAGE_B_UNRESOLVED_EXPANSION_REQUIRED",
 }
 
 
@@ -125,6 +137,20 @@ def _select_stage_a_tasks(task_manifest: Mapping[str, Any]) -> list[dict[str, An
         task["stage_a_task_index"] = int(stage_index)
         task["source_official_task_manifest_index"] = int(source_index)
         task["stage_a_selection_rule"] = f"floor(k * {len(tasks)} / {STAGE_A_TASK_COUNT})"
+        selected.append(task)
+    return selected
+
+
+def _select_stage_b_tasks(task_manifest: Mapping[str, Any]) -> list[dict[str, Any]]:
+    tasks = list(task_manifest.get("tasks") or [])
+    if len(tasks) != STAGE_B_TASK_COUNT:
+        raise ValueError(f"DAGR Stage B expects the frozen official 20-task manifest, found {len(tasks)} tasks")
+    selected = []
+    for stage_index, task_item in enumerate(tasks):
+        task = dict(task_item)
+        task["stage_b_task_index"] = int(stage_index)
+        task["source_official_task_manifest_index"] = int(stage_index)
+        task["stage_b_selection_rule"] = "use all tasks from the frozen official 20-task manifest"
         selected.append(task)
     return selected
 
@@ -213,6 +239,32 @@ def validate_stage_a_manifest(manifest: Mapping[str, Any]) -> None:
         raise ValueError("DAGR Stage A manifest reports duplicate evaluation keys")
     if not bool(identity_overlap.get("identical_task_reset_pairs_across_policies")):
         raise ValueError("DAGR Stage A manifest does not certify identical task/reset pairs")
+
+
+def validate_stage_b_manifest(manifest: Mapping[str, Any]) -> None:
+    policies = [str(item["policy"]) for item in manifest.get("policies") or []]
+    if policies != STAGE_A_POLICY_ORDER:
+        raise ValueError(f"DAGR Stage B policies are not frozen order: {policies}")
+    if int(manifest.get("stage_b_pair_count_per_policy", -1)) != STAGE_B_EPISODES_PER_POLICY:
+        raise ValueError("DAGR Stage B must contain exactly 40 paired cases per policy")
+    if int(manifest.get("planned_episode_count", -1)) != len(STAGE_A_POLICY_ORDER) * STAGE_B_EPISODES_PER_POLICY:
+        raise ValueError("DAGR Stage B planned episode count must be 200")
+    if list(manifest.get("stage_b_reset_seeds") or []) != STAGE_B_RESET_SEEDS:
+        raise ValueError("DAGR Stage B reset identities changed")
+    if len(manifest.get("tasks") or []) != STAGE_B_TASK_COUNT:
+        raise ValueError("DAGR Stage B must use all 20 official tasks")
+    if bool(manifest.get("closed_loop_experiment_happened")):
+        raise ValueError("DAGR Stage B manifest must be frozen before rollout")
+    if bool(manifest.get("confirmatory_test_tuning_happened")):
+        raise ValueError("DAGR Stage B manifest reports confirmatory-test tuning")
+    validate_manifest(manifest)
+    identity_overlap = dict(manifest.get("identity_overlap_verification") or {})
+    if int(identity_overlap.get("duplicate_evaluation_keys", -1)) != 0:
+        raise ValueError("DAGR Stage B manifest reports duplicate evaluation keys")
+    if int(identity_overlap.get("overlap_with_stage_a_reset_seeds", -1)) != 0:
+        raise ValueError("DAGR Stage B reset seeds overlap Stage A")
+    if not bool(identity_overlap.get("identical_task_reset_pairs_across_policies")):
+        raise ValueError("DAGR Stage B manifest does not certify identical task/reset pairs")
 
 
 def _manifest_task_map(manifest: Mapping[str, Any]) -> dict[tuple[str, int], dict[str, Any]]:
@@ -606,7 +658,17 @@ def _summarize_stage_a(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
     }
 
 
-def _paired_vs_dagr_full(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
+def _paired_bootstrap_ci(deltas: list[float], *, seed: int = 20261218, samples: int = 5000) -> list[float]:
+    if not deltas:
+        return [0.0, 0.0]
+    rng = np.random.default_rng(seed)
+    arr = np.asarray(deltas, dtype=np.float64)
+    means = np.mean(rng.choice(arr, size=(samples, arr.size), replace=True), axis=1)
+    low, high = np.quantile(means, [0.025, 0.975])
+    return [_round(float(low), 6), _round(float(high), 6)]
+
+
+def _paired_vs_dagr_full(rows: list[Mapping[str, Any]], *, include_bootstrap: bool = False) -> dict[str, Any]:
     by_key = {
         (str(row["policy"]), str(row["suite"]), int(row["task_id"]), int(row["reset_seed"])): bool(row.get("success"))
         for row in rows
@@ -639,6 +701,8 @@ def _paired_vs_dagr_full(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
             "paired_tie_count": ties,
             "paired_success_delta": _round(float(np.mean(deltas)), 6) if deltas else 0.0,
         }
+        if include_bootstrap:
+            out[policy]["paired_bootstrap_ci"] = _paired_bootstrap_ci(deltas)
     return out
 
 
@@ -659,6 +723,37 @@ def _stage_a_decision(summary: Mapping[str, Any]) -> str:
     if all(float(full["task_balanced_success_rate"]) > float(by_policy[policy]["task_balanced_success_rate"]) for policy in STAGE_A_POLICY_ORDER if policy != DAGR_FULL_POLICY):
         return "DAGR_STAGE_A_POSITIVE_TO_STAGE_B_REQUIRED"
     return "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+
+
+def _stage_b_decision(summary: Mapping[str, Any], paired: Mapping[str, Any]) -> str:
+    if int(summary.get("exception_count") or 0) > 0:
+        return "DAGR_STAGE_B_MEASUREMENT_INVALID_REPAIR_REQUIRED"
+    by_policy = summary["by_policy"]
+    full_rate = float(by_policy[DAGR_FULL_POLICY]["task_balanced_success_rate"])
+    base_rate = float(by_policy["frozen_smolvla"]["task_balanced_success_rate"])
+    prior_rate = float(by_policy["dam_static_component_proxy"]["task_balanced_success_rate"])
+    ablation_rate = float(by_policy["dagr_no_dynamic_route_ablation"]["task_balanced_success_rate"])
+    simple_rate = float(by_policy["gripper_transition_heuristic"]["task_balanced_success_rate"])
+    strongest_name = max(
+        (policy for policy in STAGE_A_POLICY_ORDER if policy != DAGR_FULL_POLICY),
+        key=lambda policy: float(by_policy[policy]["task_balanced_success_rate"]),
+    )
+    strongest_rate = float(by_policy[strongest_name]["task_balanced_success_rate"])
+    if full_rate > max(base_rate, prior_rate, ablation_rate, simple_rate) and full_rate - strongest_rate >= 0.10:
+        return "DAGR_STAGE_B_PROTOTYPE_GO"
+    if simple_rate >= full_rate:
+        return "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD"
+    if ablation_rate >= full_rate:
+        return "DAGR_STAGE_B_KILL_KEY_COMPONENT_NOT_USEFUL"
+    if prior_rate >= full_rate:
+        return "DAGR_STAGE_B_KILL_CLOSEST_PRIOR_EXPLAINS_METHOD"
+    if base_rate >= full_rate:
+        return "DAGR_STAGE_B_KILL_BASE_NOT_IMPROVED"
+    strongest_pair = paired.get(strongest_name) or {}
+    ci = strongest_pair.get("paired_bootstrap_ci") or [0.0, 0.0]
+    if full_rate <= strongest_rate and float(ci[1]) <= 0.10:
+        return "DAGR_STAGE_B_USEFUL_IMPROVEMENT_EXCLUDED"
+    return "DAGR_STAGE_B_UNRESOLVED_EXPANSION_REQUIRED"
 
 
 def _transform_summary(records: list[Mapping[str, Any]]) -> dict[str, Any]:
@@ -947,6 +1042,156 @@ def build_stage_a_manifest(args: argparse.Namespace) -> dict[str, Any]:
     return payload
 
 
+def build_stage_b_manifest(args: argparse.Namespace) -> dict[str, Any]:
+    task_manifest = _read_json(Path(args.official_task_manifest))
+    checkpoint_manifest = _read_json(Path(args.checkpoint_manifest))
+    stage_a_result = _read_json(Path(args.stage_a_output))
+    if stage_a_result.get("final_decision") not in {
+        "DAGR_STAGE_A_POSITIVE_TO_STAGE_B_REQUIRED",
+        "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED",
+    }:
+        raise ValueError("DAGR Stage B requires a completed Stage A decision requiring Stage B")
+    if int(stage_a_result.get("completed_episode_count", -1)) != len(STAGE_A_POLICY_ORDER) * STAGE_A_EPISODES_PER_POLICY:
+        raise ValueError("DAGR Stage A result is incomplete")
+    if int((stage_a_result.get("summary") or {}).get("exception_count") or 0) != 0:
+        raise ValueError("DAGR Stage A result has exceptions; repair/adjudication required before Stage B")
+
+    tasks = _select_stage_b_tasks(task_manifest)
+    policies = _policy_records(args, checkpoint_manifest)
+    pairs = []
+    for task in tasks:
+        for seed in STAGE_B_RESET_SEEDS:
+            pairs.append(
+                {
+                    "pair_id": f"{task['suite']}|task_{task['task_id']}|seed_{seed}",
+                    "suite": str(task["suite"]),
+                    "task_id": int(task["task_id"]),
+                    "instruction": str(task["instruction"]),
+                    "reset_seed": int(seed),
+                    "stage_b_task_index": int(task["stage_b_task_index"]),
+                    "source_official_task_manifest_index": int(task["source_official_task_manifest_index"]),
+                }
+            )
+
+    episodes = []
+    planned_index = 0
+    for policy in STAGE_A_POLICY_ORDER:
+        for pair in pairs:
+            episodes.append(
+                {
+                    "planned_episode_index": int(planned_index),
+                    "episode_id": f"{policy}|{pair['suite']}|task_{pair['task_id']}|seed_{pair['reset_seed']}",
+                    "policy": policy,
+                    "pair_id": pair["pair_id"],
+                    "suite": pair["suite"],
+                    "task_id": int(pair["task_id"]),
+                    "instruction": pair["instruction"],
+                    "reset_seed": int(pair["reset_seed"]),
+                }
+            )
+            planned_index += 1
+
+    payload = {
+        "schema_version": 1,
+        "method": METHOD,
+        "config_id": CONFIG_ID,
+        "proposal_hash": PROPOSAL_HASH,
+        "branch": BRANCH,
+        "date": f"{args.date} KST",
+        "mode": "stage_b_manifest",
+        "final_decision": "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+        "closed_loop_experiment_happened": False,
+        "confirmatory_test_tuning_happened": False,
+        "stage_a_outcome_used_only_for_preregistered_escalation": True,
+        "policy_order": list(STAGE_A_POLICY_ORDER),
+        "policies": policies,
+        "stage_b_reset_seeds": list(STAGE_B_RESET_SEEDS),
+        "stage_b_pair_count_per_policy": len(pairs),
+        "planned_episode_count": len(episodes),
+        "tasks": tasks,
+        "pairs": pairs,
+        "episodes": episodes,
+        "identity_overlap_verification": {
+            "stage_a_rollout_reset_seeds": list(STAGE_A_RESET_SEEDS),
+            "stage_b_rollout_reset_seeds": list(STAGE_B_RESET_SEEDS),
+            "overlap_with_stage_a_reset_seeds": len(set(STAGE_A_RESET_SEEDS) & set(STAGE_B_RESET_SEEDS)),
+            "overlap_with_development_training_identities": 0,
+            "overlap_with_development_validation_identities": 0,
+            "overlap_with_previous_known_allocated_rollout_identities": 0,
+            "duplicate_evaluation_keys": 0,
+            "identical_task_reset_pairs_across_policies": True,
+            "note": "Stage B uses fresh reset seeds and all official tasks after the frozen Stage A decision required Stage B.",
+        },
+        "task_balanced_allocation": {
+            "task_count": len(tasks),
+            "reset_count_per_task": len(STAGE_B_RESET_SEEDS),
+            "episodes_per_task_per_policy": len(STAGE_B_RESET_SEEDS),
+            "paired_cases_per_policy": len(pairs),
+            "fixed_before_rollout": True,
+        },
+        "task_selection": {
+            "source_manifest": str(args.official_task_manifest),
+            "source_manifest_sha256": _sha256_file(Path(args.official_task_manifest)),
+            "rule": "use all tasks from the frozen official 20-task manifest",
+            "outcome_dependent": False,
+        },
+        "reset_identity_selection": {
+            "rule": "fresh unused DAGR Stage B block immediately after the DAGR Stage A block",
+            "reset_seeds": list(STAGE_B_RESET_SEEDS),
+            "previous_known_allocations_avoided": [
+                "official baseline scale-up reset seeds 20260711..20260715",
+                "CBFD/SCVC/PSE reset identities 20260716..20260760",
+                "CAVM/FANG/RAC/EvoState/MTF reset identity blocks through 20261204",
+                "DAGR Stage A reset seeds 20261205..20261206",
+            ],
+        },
+        "partition_separation": {
+            "offline_training_splits": ["train"],
+            "offline_validation_splits": ["val"],
+            "offline_reserved_confirmatory_splits": ["test"],
+            "stage_b_rollout_resets_are_frozen_after_stage_a_adjudication": True,
+            "stage_b_rollout_resets_used_for_policy_training": False,
+            "stage_b_rollout_resets_used_for_validation_search": False,
+            "stage_b_outcomes_used_for_retuning": False,
+        },
+        "frozen_stage_b_rules": {
+            "prototype_go": "dagr_full must beat Base, closest-prior proxy, key ablation, and simple killer by at least 10 task-balanced points or equivalent positive paired evidence under governance",
+            "simple_baseline_kill": "gripper_transition_heuristic matches or beats dagr_full",
+            "key_component_kill": "dagr_no_dynamic_route_ablation matches or beats dagr_full",
+            "closest_prior_kill": "dam_static_component_proxy matches or beats dagr_full",
+            "base_not_improved_kill": "frozen_smolvla matches or beats dagr_full",
+            "expansion_rule": "one expansion to 80 paired episodes is allowed only if Stage B is genuinely unresolved",
+        },
+        "execution": {
+            "official_path": "LeRobot SmolVLA/LIBERO policy, processors, action queue, relative 7D control, official LIBERO success condition, plus DAGR residual wrapper",
+            "policy_order_affects_environment_initialization": False,
+            "environment_initialization_rule": "each episode calls env.reset(seed=[reset_seed]) after constructing the task env; the same task/reset pairs are executed for every policy",
+            "base_path_default": str(args.base_path),
+            "checkpoint_root_default": str(args.checkpoint_root),
+            "libero_config_dir_default": str(args.libero_config_dir),
+            "partial_result_path": str(args.stage_b_partial_output),
+            "result_path": str(args.stage_b_output),
+            "resume_rule": "resume only missing (policy, suite, task_id, reset_seed) episode keys",
+        },
+        "checkpoint_manifest": {
+            "path": str(args.checkpoint_manifest),
+            "sha256": _sha256_file(Path(args.checkpoint_manifest)),
+            "checkpoint_root": _relative(str(checkpoint_manifest.get("checkpoint_root"))),
+            "policy_identity_count": len(checkpoint_manifest.get("policy_identities") or []),
+        },
+        "stage_a_result": {
+            "path": str(args.stage_a_output),
+            "sha256": _sha256_file(Path(args.stage_a_output)),
+            "final_decision": str(stage_a_result.get("final_decision")),
+            "completed_episode_count": int(stage_a_result.get("completed_episode_count", 0)),
+            "exception_count": int((stage_a_result.get("summary") or {}).get("exception_count") or 0),
+        },
+    }
+    payload["canonical_payload_sha256"] = _sha256_payload({key: value for key, value in payload.items() if key != "canonical_payload_sha256"})
+    validate_stage_b_manifest(payload)
+    return payload
+
+
 def write_stage_a_manifest_md(path: Path, manifest: Mapping[str, Any]) -> None:
     lines = [
         "# DAGR-VLA Stage A Manifest",
@@ -993,10 +1238,62 @@ def write_stage_a_manifest_md(path: Path, manifest: Mapping[str, Any]) -> None:
     _write_md(path, lines)
 
 
+def write_stage_b_manifest_reports(args: argparse.Namespace, manifest: Mapping[str, Any]) -> None:
+    _write_json(Path(args.stage_b_manifest), manifest)
+    lines = [
+        "# DAGR-VLA Stage B Manifest",
+        "",
+        f"Date: `{manifest['date']}`",
+        "",
+        f"Final decision: `{manifest['final_decision']}`",
+        "",
+        f"- method: `{manifest['method']}`",
+        f"- config: `{manifest['config_id']}`",
+        f"- proposal hash: `{manifest['proposal_hash']}`",
+        f"- policies: `{', '.join(manifest['policy_order'])}`",
+        f"- reset seeds: `{manifest['stage_b_reset_seeds']}`",
+        f"- paired cases per policy: `{manifest['stage_b_pair_count_per_policy']}`",
+        f"- planned episodes: `{manifest['planned_episode_count']}`",
+        f"- canonical payload sha256: `{manifest['canonical_payload_sha256']}`",
+        f"- Stage A decision: `{manifest['stage_a_result']['final_decision']}`",
+        "",
+        "## Tasks",
+        "",
+    ]
+    for task in manifest["tasks"]:
+        lines.append(f"- `{task['suite']}/task_{task['task_id']}`: {task['instruction']}")
+    lines.extend(
+        [
+            "",
+            "## Frozen Rules",
+            "",
+            "- all 20 official tasks are used",
+            "- reset seeds are fresh relative to DAGR Stage A",
+            "- task/reset pairs are identical across policies and duplicate evaluation keys are zero",
+            "- `dam_static_component_proxy` remains a faithful transparent local proxy, not an official DAM-VLA reproduction",
+            "- no confirmatory-test tuning or checkpoint selection from Stage A or Stage B outcomes",
+            "- one expansion to 80 paired episodes is allowed only if Stage B is genuinely unresolved",
+            "",
+            "## Execution",
+            "",
+            f"- partial result path: `{manifest['execution']['partial_result_path']}`",
+            f"- final result path: `{manifest['execution']['result_path']}`",
+            "- resume only missing `(policy, suite, task_id, reset_seed)` keys",
+        ]
+    )
+    _write_md(Path(args.stage_b_manifest_md), lines)
+
+
 def run_plan(args: argparse.Namespace) -> dict[str, Any]:
     manifest = build_stage_a_manifest(args)
     _write_json(Path(args.stage_a_manifest), manifest)
     write_stage_a_manifest_md(Path(args.stage_a_manifest_md), manifest)
+    return manifest
+
+
+def run_stage_b_plan(args: argparse.Namespace) -> dict[str, Any]:
+    manifest = build_stage_b_manifest(args)
+    write_stage_b_manifest_reports(args, manifest)
     return manifest
 
 
@@ -1233,6 +1530,145 @@ def run_stage_a(args: argparse.Namespace) -> dict[str, Any]:
     return report
 
 
+def run_stage_b(args: argparse.Namespace) -> dict[str, Any]:
+    import torch
+    from lerobot.envs.factory import make_env
+
+    started = time.monotonic()
+    _set_runtime_env(args)
+    manifest_path = Path(args.stage_b_manifest)
+    if manifest_path.exists():
+        manifest = _read_json(manifest_path)
+    else:
+        manifest = build_stage_b_manifest(args)
+        write_stage_b_manifest_reports(args, manifest)
+    validate_stage_b_manifest(manifest)
+    planned_lookup = _planned_lookup(manifest)
+    task_map = _manifest_task_map(manifest)
+    task_index_map = _task_index_map_from_artifact(Path(args.stable_artifact))
+    partial_path = Path(args.stage_b_partial_output)
+    rows = _load_partial(partial_path, bool(args.rerun_stage))
+    completed = {_completed_key(row) for row in rows}
+    policy_audits = {}
+    errors = []
+
+    for manifest_policy in manifest["policies"]:
+        policy_name = str(manifest_policy["policy"])
+        print(f"[dagr-stage-b] policy {policy_name}", flush=True)
+        loaded = _load_policy_and_processors(args, PolicySpec(policy_name))
+        adapter = _adapter_for_manifest_policy(manifest_policy, device="cuda")
+        policy_audits[policy_name] = loaded["audit"]
+        for task in manifest["tasks"]:
+            env = None
+            suite = str(task["suite"])
+            task_id = int(task["task_id"])
+            task_index = _task_index_for_task(task, task_index_map)
+            print(f"[dagr-stage-b] {policy_name} {suite} task_{task_id}", flush=True)
+            try:
+                env_cfg = _make_env_cfg(suite, [task_id])
+                env = _extract_single_env(make_env(env_cfg, n_envs=1, use_async_envs=False), suite, task_id)
+                task_record = task_map[(suite, task_id)]
+                for seed in STAGE_B_RESET_SEEDS:
+                    key = (policy_name, suite, task_id, int(seed))
+                    if key in completed:
+                        continue
+                    episode_id = f"{policy_name}|{suite}|task_{task_id}|seed_{seed}"
+                    row = _episode_base_record(policy_name, task_record, int(seed), planned_lookup[episode_id])
+                    row["dagr_task_index"] = int(task_index)
+                    try:
+                        trace = trace_one_dagr_episode(
+                            env=env,
+                            policy=loaded["policy"],
+                            env_preprocessor=loaded["env_preprocessor"],
+                            env_postprocessor=loaded["env_postprocessor"],
+                            preprocessor=loaded["preprocessor"],
+                            postprocessor=loaded["postprocessor"],
+                            adapter=adapter,
+                            task_index=int(task_index),
+                            seed=int(seed),
+                            video_path=None,
+                        )
+                        row.update(trace)
+                    except Exception as exc:  # pragma: no cover - simulator boundary
+                        row.update(
+                            {
+                                "success": False,
+                                "sum_reward": None,
+                                "max_reward": None,
+                                "episode_length": None,
+                                "termination_reason": "exception",
+                                "failure_status": "exception",
+                                "exception": {
+                                    "type": type(exc).__name__,
+                                    "message": str(exc),
+                                    "traceback": traceback.format_exc().splitlines()[-24:],
+                                },
+                                "action_validity": {"finite": False, "shape_ok": False, "max_abs": None},
+                                "action_chunks_generated": None,
+                                "env_steps": None,
+                                "policy_latency_mean_s": None,
+                                "policy_latency_max_s": None,
+                                "env_step_latency_mean_s": None,
+                                "env_step_latency_max_s": None,
+                                "dagr_transform_summary": None,
+                                "peak_vram": _cuda_memory(torch),
+                                "rss_mb": _rss_mb(),
+                                "video_path": None,
+                            }
+                        )
+                        errors.append({"episode_id": episode_id, **row["exception"]})
+                    rows.append(row)
+                    completed.add(key)
+                    _write_json(partial_path, {"episodes": rows, "planned_episode_count": manifest["planned_episode_count"]})
+            finally:
+                if env is not None:
+                    try:
+                        env.close()
+                    except Exception:
+                        pass
+        del loaded
+        del adapter
+        torch.cuda.empty_cache()
+
+    summary = _summarize_stage_a(rows)
+    paired = _paired_vs_dagr_full(rows, include_bootstrap=True)
+    final_decision = _stage_b_decision(summary, paired)
+    if final_decision == "DAGR_STAGE_B_PROTOTYPE_GO":
+        next_step = "Verify Quantized OpenVLA-OFT INT4 transfer and add one second condition."
+    elif final_decision == "DAGR_STAGE_B_UNRESOLVED_EXPANSION_REQUIRED":
+        next_step = "Freeze and run the one allowed Stage B expansion to 80 paired episodes per key policy."
+    else:
+        next_step = "Archive or pivot under the preregistered governance; do not retune DAGR from Stage B outcomes."
+    report = {
+        "schema_version": 1,
+        "method": METHOD,
+        "config_id": CONFIG_ID,
+        "proposal_hash": PROPOSAL_HASH,
+        "branch": BRANCH,
+        "date": f"{args.date} KST",
+        "mode": "stage-b",
+        "closed_loop_experiment_happened": True,
+        "confirmatory_test_tuning_happened": False,
+        "stage_b_manifest": str(args.stage_b_manifest),
+        "stage_b_manifest_sha256": _sha256_file(Path(args.stage_b_manifest)),
+        "stage_a_result": str(args.stage_a_output),
+        "stage_a_result_sha256": _sha256_file(Path(args.stage_a_output)),
+        "planned_episode_count": int(manifest["planned_episode_count"]),
+        "completed_episode_count": len(rows),
+        "policy_load_audits": policy_audits,
+        "episodes": rows,
+        "summary": summary,
+        "paired_vs_dagr_full": paired,
+        "errors": errors,
+        "final_decision": final_decision,
+        "next_step": next_step,
+        "elapsed_seconds": _round(time.monotonic() - started, 3),
+    }
+    _write_json(Path(args.stage_b_output), report)
+    write_stage_b_result_md(Path(args.stage_b_md), report)
+    return report
+
+
 def write_stage_a_result_md(path: Path, report: Mapping[str, Any]) -> None:
     lines = [
         "# DAGR-VLA Stage A Result",
@@ -1273,9 +1709,52 @@ def write_stage_a_result_md(path: Path, report: Mapping[str, Any]) -> None:
     _write_md(path, lines)
 
 
+def write_stage_b_result_md(path: Path, report: Mapping[str, Any]) -> None:
+    lines = [
+        "# DAGR-VLA Stage B Result",
+        "",
+        f"Date: `{report['date']}`",
+        "",
+        f"Final decision: `{report['final_decision']}`",
+        "",
+        f"- planned episodes: `{report['planned_episode_count']}`",
+        f"- completed episodes: `{report['completed_episode_count']}`",
+        f"- closed-loop experiment happened: `{report['closed_loop_experiment_happened']}`",
+        f"- confirmatory-test tuning happened: `{report['confirmatory_test_tuning_happened']}`",
+        f"- elapsed seconds: `{report['elapsed_seconds']}`",
+        "",
+        "## Policy Summary",
+        "",
+        "| policy | successes | total | task-balanced success | exceptions | activation | delta L2 | latency mean s | peak VRAM MB |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    for policy in STAGE_A_POLICY_ORDER:
+        row = report["summary"]["by_policy"][policy]
+        lines.append(
+            f"| `{policy}` | {row['successes']} | {row['total']} | {row['task_balanced_success_rate']} | "
+            f"{row['exception_count']} | {row.get('mean_activation_fraction')} | {row.get('mean_dagr_delta_l2')} | "
+            f"{row['policy_latency_mean_s']} | {row['peak_vram_max_allocated_mb']} |"
+        )
+    lines += [
+        "",
+        "## Paired Versus DAGR Full",
+        "",
+        "| baseline | pairs | wins | losses | ties | delta | CI 95% |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+    for policy, row in report["paired_vs_dagr_full"].items():
+        ci = row.get("paired_bootstrap_ci") or [None, None]
+        lines.append(
+            f"| `{policy}` | {row['paired_count']} | {row['paired_win_count']} | {row['paired_loss_count']} | "
+            f"{row['paired_tie_count']} | {row['paired_success_delta']} | [{ci[0]}, {ci[1]}] |"
+        )
+    lines += ["", f"Next step: {report['next_step']}"]
+    _write_md(path, lines)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["plan", "preflight", "stage-a"], default="plan")
+    parser.add_argument("--mode", choices=["plan", "preflight", "stage-a", "stage-b-plan", "stage-b"], default="plan")
     parser.add_argument("--date", default=DATE_KST)
     parser.add_argument("--base-path", default="/mnt/c/assets/checkpoints/smolvla_libero")
     parser.add_argument("--checkpoint-root", default="/mnt/c/Users/jiheo/tca_map/runs/dagr_vla_checkpoints/dagr_a020_route_mlp")
@@ -1290,6 +1769,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--stage-a-md", default="reports/dagr_vla/stage_a_result.md")
     parser.add_argument("--stage-a-partial-output", default="reports/dagr_vla/stage_a_partial_result.json")
     parser.add_argument("--stage-a-preflight-output", default="reports/dagr_vla/stage_a_preflight.json")
+    parser.add_argument("--stage-b-manifest", default="reports/dagr_vla/stage_b_manifest.json")
+    parser.add_argument("--stage-b-manifest-md", default="reports/dagr_vla/stage_b_manifest.md")
+    parser.add_argument("--stage-b-output", default="reports/dagr_vla/stage_b_result.json")
+    parser.add_argument("--stage-b-md", default="reports/dagr_vla/stage_b_result.md")
+    parser.add_argument("--stage-b-partial-output", default="reports/dagr_vla/stage_b_partial_result.json")
     parser.add_argument("--rerun-stage", action="store_true")
     return parser
 
@@ -1300,8 +1784,12 @@ def main(argv: list[str] | None = None) -> int:
         report = run_plan(args)
     elif args.mode == "preflight":
         report = run_preflight(args)
-    else:
+    elif args.mode == "stage-a":
         report = run_stage_a(args)
+    elif args.mode == "stage-b-plan":
+        report = run_stage_b_plan(args)
+    else:
+        report = run_stage_b(args)
     print(
         json.dumps(
             {

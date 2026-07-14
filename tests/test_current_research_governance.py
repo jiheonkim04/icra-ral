@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_b_manifest_pending"
+    assert state["current_decision"] == "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_b_rollout_ready"
     assert state["method"] == "DAGR-VLA"
     assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["prototype_protocol"] == "reports/dagr_vla/prototype_protocol.md"
@@ -80,7 +80,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_adjudicated" in state["completed_stages"]
-    assert state["task_reset_manifest"] == "reports/dagr_vla/stage_a_manifest.json"
+    assert "epoch_4_cycle_7_dagr_stage_b_manifest_frozen" in state["completed_stages"]
+    assert state["task_reset_manifest"] == "reports/dagr_vla/stage_b_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
@@ -91,7 +92,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["mtf_full"]["successes"] == 7
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["frameskip_proxy_lora"]["successes"] == 8
-    assert state["stage_b_result_json"] == "reports/mtf_vla/stage_b_result.json"
+    assert state["stage_b_result_json"] == "reports/dagr_vla/stage_b_result.json"
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["planned_episode_count"] == 200
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["paired_cases_per_policy"] == 40
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["reset_seeds"] == [20261203, 20261204]
@@ -169,6 +170,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["dam_static_component_proxy_successes"] == 2
     assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["stage_b_required"] is True
     assert state["epoch_4_cycle_7_dagr_stage_a_outcome"]["catastrophic_stage_a_kill"] is False
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["final_decision"] == "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["planned_episode_count"] == 200
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["paired_cases_per_policy"] == 40
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["reset_seeds"] == [20261207, 20261208]
+    assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["manifest_canonical_payload_sha256"] == "2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

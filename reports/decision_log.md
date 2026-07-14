@@ -2129,3 +2129,24 @@ Paired DAGR-full deltas:
 - versus `dam_static_component_proxy`: `0.4`
 
 Consequence: DAGR full beat the closest-prior proxy and key ablation but trailed Base by two episodes and the gripper heuristic by one episode. This is noncatastrophic under Stage A governance, not a valid kill. Freeze and run Stage B without retuning DAGR, changing thresholds, or reselecting tasks/resets.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Stage B Manifest
+
+Decision: `DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- manifest: `reports/dagr_vla/stage_b_manifest.json`
+- manifest markdown: `reports/dagr_vla/stage_b_manifest.md`
+- canonical payload hash: `2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B`
+- Stage A result used only for preregistered escalation: `True`
+- all official tasks: `20`
+- reset seeds: `20261207`, `20261208`
+- paired cases per policy: `40`
+- planned episodes: `200`
+- policies: `frozen_smolvla`, `dam_static_component_proxy`, `dagr_full`, `dagr_no_dynamic_route_ablation`, `gripper_transition_heuristic`
+- closed-loop experiment happened during manifest freeze: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: DAGR Stage B is frozen and ready for the official WSL rollout. Do not retune checkpoints, thresholds, tasks, resets, or decision rules before launch.

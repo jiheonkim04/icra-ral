@@ -3,9 +3,11 @@ from pathlib import Path
 
 from tca_map.smolvla.dagr_vla_stage_a import (
     STAGE_A_POLICY_ORDER,
+    STAGE_B_RESET_SEEDS,
     _stage_a_decision,
     _task_index_for_task,
     _task_index_map_from_artifact,
+    validate_stage_b_manifest,
     validate_stage_a_manifest,
 )
 
@@ -129,6 +131,34 @@ def test_dagr_stage_a_task_indices_match_stable_artifact() -> None:
         "libero_goal/task_4": 18,
         "libero_10/task_2": 3,
     }
+
+
+def test_dagr_stage_b_manifest_is_frozen_all_task_expansion() -> None:
+    manifest = json.loads((DAGR / "stage_b_manifest.json").read_text(encoding="utf-8"))
+
+    validate_stage_b_manifest(manifest)
+    assert manifest["final_decision"] == "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert manifest["closed_loop_experiment_happened"] is False
+    assert manifest["confirmatory_test_tuning_happened"] is False
+    assert manifest["stage_a_outcome_used_only_for_preregistered_escalation"] is True
+    assert manifest["stage_a_result"]["final_decision"] == "DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
+    assert manifest["planned_episode_count"] == 200
+    assert manifest["stage_b_pair_count_per_policy"] == 40
+    assert manifest["stage_b_reset_seeds"] == STAGE_B_RESET_SEEDS
+    assert len(manifest["tasks"]) == 20
+    assert manifest["canonical_payload_sha256"] == "2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B"
+    assert manifest["identity_overlap_verification"]["overlap_with_stage_a_reset_seeds"] == 0
+    keys = {(row["policy"], row["suite"], row["task_id"], row["reset_seed"]) for row in manifest["episodes"]}
+    assert len(keys) == len(manifest["episodes"])
+    pair_sets = {
+        policy: {
+            (row["suite"], row["task_id"], row["reset_seed"])
+            for row in manifest["episodes"]
+            if row["policy"] == policy
+        }
+        for policy in manifest["policy_order"]
+    }
+    assert len({tuple(sorted(values)) for values in pair_sets.values()}) == 1
 
 
 def test_dagr_stage_a_decision_uses_catastrophic_gate_only() -> None:
