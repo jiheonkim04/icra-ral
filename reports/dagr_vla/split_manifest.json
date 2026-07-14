@@ -1,0 +1,19 @@
+{
+  "confirmatory_reserved_splits": [
+    "test"
+  ],
+  "reserved_record_count": 1200,
+  "split_overlap": {
+    "train_reserved": 0,
+    "train_validation": 0,
+    "validation_reserved": 0
+  },
+  "train_record_count": 1200,
+  "train_splits": [
+    "train"
+  ],
+  "validation_record_count": 400,
+  "validation_splits": [
+    "val"
+  ]
+}

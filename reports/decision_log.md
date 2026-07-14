@@ -1980,3 +1980,49 @@ Constraints accepted:
 - The first serious comparison remains exactly five policies: `frozen_smolvla`, `dam_static_component_proxy`, `dagr_full`, `dagr_no_dynamic_route_ablation`, and `gripper_transition_heuristic`.
 
 Consequence: DAGR-VLA proceeds to mathematical mechanism audit, preregistration, prototype protocol, and then Stage 0 development audit. No training, rollout, or confirmatory-test tuning has happened.
+
+## 2026-07-14 - Epoch 4 Cycle 7 DAGR-VLA Stage 0 And Validation Search
+
+Decision: `DAGR_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- mathematical audit: `reports/dagr_vla/mathematical_mechanism_audit.md`
+- preregistration: `reports/dagr_vla/preregistration.md`
+- prototype protocol: `reports/dagr_vla/prototype_protocol.md`
+- development audit: `reports/dagr_vla/development_audit.json`
+- route label manifest: `reports/dagr_vla/route_label_manifest.json`
+- validation search: `reports/dagr_vla/validation_search.json`
+- selected config: `reports/dagr_vla/selected_config.json`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Stage 0 evidence:
+
+- final decision: `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`
+- development records: `1600`
+- train records: `1200`
+- validation records: `400`
+- reserved test records not used: `1200`
+- duplicate sample keys: `0`
+- duplicate frame keys: `0`
+- split overlap: `0 / 0 / 0`
+- validation any-route fraction: `0.865`
+- route-probe accuracy margins: translation `0.0375`, rotation `0.0725`, gripper `0.26`
+- full-vs-shared target mean L2: `0.01581734353223074`
+- full-vs-static target mean L2: `0.04481165090139941`
+- hard stop reasons: none
+
+Validation search:
+
+- tried configs: `6 / 6`
+- selected config: `dagr_a020_route_mlp`
+- residual alpha: `0.20`
+- route architecture: `mlp`
+- selected score: `0.8571740870493018`
+- selected delta L2 p95: `0.008609326556324959`
+- selected clean delta L2 p95: `0.00672802422195673`
+- selected action validity: `1.0`
+
+Consequence: DAGR-VLA passes Stage 0 and the bounded validation search. The selected config is frozen and requires disk-reloadable policy identities for `dagr_full`, `dam_static_component_proxy`, and `dagr_no_dynamic_route_ablation` before any Stage A manifest or rollout.

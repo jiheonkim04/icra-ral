@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current campaign decision: `DAGR_VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`
 
 This is not a terminal decision.
 
@@ -96,4 +96,8 @@ Epoch 4 Cycle 7 generated exactly three post-MTF candidates in `reports/epoch_4_
 
 Reviewer B attack completed with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`: DAGR is not killed before implementation, but novelty is narrowed to frozen SmolVLA identity-preserving route-gated residual adaptation, `dam_static_component_proxy` must remain a transparent local proxy, and Stage 0 must reject collapsed or unobservable route supervision before rollout.
 
-Researcher A rebuttal completed with decision `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. No DAGR training, rollout, or confirmatory-test tuning has happened. Next action: write the DAGR mathematical mechanism audit, preregistration, and prototype protocol before Stage 0 development audit.
+Researcher A rebuttal completed with decision `DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The DAGR mathematical audit, preregistration, and prototype protocol are now frozen under `reports/dagr_vla/`.
+
+DAGR Stage 0 passed as `AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH`: `1600` development records, zero duplicate sample/frame keys, zero train/validation/test overlap, validation any-route fraction `0.865`, route-probe margins `0.0375`, `0.0725`, and `0.26`, and no hard stops.
+
+The bounded six-config validation search selected `dagr_a020_route_mlp` as `VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING`: residual alpha `0.20`, route architecture `mlp`, validation score `0.8571740870493018`, delta L2 p95 `0.008609326556324959`, clean delta L2 p95 `0.00672802422195673`, and action validity `1.0`. No DAGR closed-loop rollout or confirmatory-test tuning has happened. Next action: train disk-reloadable DAGR policy identities before Stage A manifest freeze.
