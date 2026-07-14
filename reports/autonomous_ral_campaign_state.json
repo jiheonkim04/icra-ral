@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 6,
-    "topic": "epoch_4_cycle_6_mtf_adapter_training_runner_validated",
+    "topic": "epoch_4_cycle_6_mtf_stage_a_manifest_pending",
     "method": "MTF-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "a2e94c16929e46cc9b0aa927dfb318a98b3f178e",
-    "current_stage": "epoch_4_cycle_6_mtf_adapter_training_runner_validated",
+    "current_stage": "epoch_4_cycle_6_mtf_stage_a_manifest_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -213,7 +213,9 @@
         "epoch_4_cycle_6_mtf_stage_0_completed",
         "epoch_4_cycle_6_mtf_validation_search_completed",
         "epoch_4_cycle_6_mtf_selected_config_frozen",
-        "epoch_4_cycle_6_mtf_adapter_training_runner_validated"
+        "epoch_4_cycle_6_mtf_adapter_training_runner_validated",
+        "epoch_4_cycle_6_mtf_adapter_training_completed",
+        "epoch_4_cycle_6_mtf_checkpoints_verified"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -230,7 +232,7 @@
         "DAM-VLA: https://arxiv.org/abs/2603.00926"
     ],
     "prototype_gate": "Stage A/B require MTF full to beat Base, FrameSkip proxy, no-retention ablation, and uniform retained-ratio LoRA under a frozen matched manifest with clean retention and bounded milestone-specific action change.",
-    "current_decision": "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY",
+    "current_decision": "EPOCH_4_CYCLE_6_MTF_CHECKPOINTS_VERIFIED_STAGE_A_READY",
     "stage_a_partial_checkpoint": "reports/rac_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/rac_vla/stage_a_result.json",
     "stage_a_result_md": "reports/rac_vla/stage_a_result.md",
@@ -381,14 +383,14 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Train disk-reloadable MTF-VLA selected-config adapter checkpoints for MTF full, no-retention ablation, FrameSkip proxy, and uniform retained-ratio LoRA before any Stage A rollout.",
+    "next_action": "Freeze a matched MTF-VLA Stage A rollout manifest before any rollout; do not tune trained checkpoints on confirmatory outcomes.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && type reports\\current_research_governance.md",
     "active_hypothesis": "Milestone-transition focused adapter training with frozen-base retention can improve SmolVLA closed-loop success beyond Base, a FrameSkip proxy, a no-retention ablation, and uniform retained-ratio LoRA while retaining clean behavior.",
     "method_identity": "MTF-VLA",
     "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
     "prototype_protocol": "reports/mtf_vla/prototype_protocol.md",
     "process_id": null,
-    "checkpoint_path": null,
+    "checkpoint_path": "runs/mtf_vla_checkpoints/mtf_r20_ret100",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -937,8 +939,8 @@
         "selected_retention_coefficient": 1.0,
         "selected_high_train_frames": 176,
         "selected_retention_train_frames": 391,
-        "stage_a_allowed": false,
-        "next_stage": "Run the MTF adapter trainer to produce disk-reloadable checkpoints for all four trainable Stage A policies before any Stage A rollout.",
+        "stage_a_allowed": true,
+        "next_stage": "Freeze a matched Stage A rollout manifest before any rollout; do not tune the verified checkpoints on confirmatory outcomes.",
         "adapter_training_runner": "scripts/run_mtf_vla_adapter_training.py",
         "adapter_training_plan": "reports/mtf_vla/adapter_training_plan.json",
         "adapter_training_result": "reports/mtf_vla/adapter_training_result.json",
@@ -946,7 +948,7 @@
         "adapter_training_runner_validated": true,
         "adapter_training_dry_run_completed": true,
         "adapter_training_plan_decision": "MTF_ADAPTER_TRAINING_PLAN_READY",
-        "adapter_training_happened": false,
+        "adapter_training_happened": true,
         "adapter_training_seed": 101,
         "adapter_training_steps": 100,
         "adapter_training_learning_rate": 0.0002,
@@ -993,7 +995,59 @@
                 "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\uniform_retained_ratio_lora\\seed_101"
             }
         ],
-        "adapter_checkpoint_output_root": "runs/mtf_vla_checkpoints"
+        "adapter_checkpoint_output_root": "runs/mtf_vla_checkpoints",
+        "adapter_checkpoint_manifest": "reports/mtf_vla/adapter_checkpoint_manifest.json",
+        "adapter_checkpoint_manifest_md": "reports/mtf_vla/adapter_checkpoint_manifest.md",
+        "adapter_training_completed": true,
+        "adapter_training_final_decision": "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY",
+        "adapter_training_runtime_sec": 927.984,
+        "adapter_training_variant_results": [
+            {
+                "adapter_minus_base_action_l2_p95": 0.127396702,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_full\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.082590885,
+                "validation_task_balanced_action_l2_mean": 0.082590886,
+                "variant": "mtf_full"
+            },
+            {
+                "adapter_minus_base_action_l2_p95": 0.129667163,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_no_retention_ablation\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.082867367,
+                "validation_task_balanced_action_l2_mean": 0.082867367,
+                "variant": "mtf_no_retention_ablation"
+            },
+            {
+                "adapter_minus_base_action_l2_p95": 0.130987061,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\frameskip_proxy_lora\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.08255313,
+                "validation_task_balanced_action_l2_mean": 0.08255313,
+                "variant": "frameskip_proxy_lora"
+            },
+            {
+                "adapter_minus_base_action_l2_p95": 0.132568751,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\uniform_retained_ratio_lora\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.082396918,
+                "validation_task_balanced_action_l2_mean": 0.082396918,
+                "variant": "uniform_retained_ratio_lora"
+            }
+        ],
+        "adapter_checkpoint_root": "runs/mtf_vla_checkpoints/mtf_r20_ret100",
+        "adapter_checkpoint_variant_count": 4,
+        "confirmatory_test_identities_used": false,
+        "frameskip_proxy_distinct_from_no_retention": true,
+        "frameskip_proxy_train_events": 240
     },
     "epoch_4_cycle_6_mtf_adapter_training_plan": {
         "method": "MTF-VLA",
@@ -1063,5 +1117,62 @@
             }
         ],
         "next_stage": "Actual disk-reloadable adapter training and validation."
+    },
+    "task_reset_manifest": null,
+    "epoch_4_cycle_6_mtf_adapter_checkpoint_outcome": {
+        "method": "MTF-VLA",
+        "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
+        "config_id": "mtf_r20_ret100",
+        "final_decision": "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY",
+        "training_happened": true,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_identities_used": false,
+        "stage_a_allowed": true,
+        "checkpoint_root": "runs/mtf_vla_checkpoints/mtf_r20_ret100",
+        "checkpoint_manifest": "reports/mtf_vla/adapter_checkpoint_manifest.json",
+        "variant_results": [
+            {
+                "adapter_minus_base_action_l2_p95": 0.127396702,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_full\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.082590885,
+                "validation_task_balanced_action_l2_mean": 0.082590886,
+                "variant": "mtf_full"
+            },
+            {
+                "adapter_minus_base_action_l2_p95": 0.129667163,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_no_retention_ablation\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.082867367,
+                "validation_task_balanced_action_l2_mean": 0.082867367,
+                "variant": "mtf_no_retention_ablation"
+            },
+            {
+                "adapter_minus_base_action_l2_p95": 0.130987061,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\frameskip_proxy_lora\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.08255313,
+                "validation_task_balanced_action_l2_mean": 0.08255313,
+                "variant": "frameskip_proxy_lora"
+            },
+            {
+                "adapter_minus_base_action_l2_p95": 0.132568751,
+                "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\uniform_retained_ratio_lora\\seed_101",
+                "disk_reload": true,
+                "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+                "seed": 101,
+                "validation_action_l2_mean": 0.082396918,
+                "validation_task_balanced_action_l2_mean": 0.082396918,
+                "variant": "uniform_retained_ratio_lora"
+            }
+        ],
+        "frameskip_proxy_distinct_from_no_retention": true,
+        "next_stage": "Stage A matched rollout manifest freeze."
     }
 }

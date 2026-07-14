@@ -317,6 +317,12 @@ def _records_for_uniform(records: Sequence[Mapping[str, Any]], ratio: float) -> 
     return [record for record in records if str(record["key"]) in selected]
 
 
+def _frameskip_proxy_records(records: Sequence[Mapping[str, Any]], ratio: float) -> list[Mapping[str, Any]]:
+    ordered = sorted(records, key=lambda item: (-float(item["action_variation"]), str(item["key"])))
+    count = max(1, int(round(float(ratio) * len(ordered))))
+    return sorted(ordered[:count], key=lambda item: str(item["key"]))
+
+
 def _phase_coverage_score(high_records: Sequence[Mapping[str, Any]], selected_tasks: Sequence[int], config: MTFConfig) -> float:
     if not selected_tasks:
         return 0.0
@@ -419,7 +425,7 @@ def _training_manifest(
     high = [record for record in train if bool(record["high_milestone"])]
     low = [record for record in train if bool(record["retention_frame"])]
     uniform = _records_for_uniform(train, retained_ratio)
-    frameskip = sorted(high, key=lambda item: (-float(item["action_variation"]), str(item["key"])))[: len(high)]
+    frameskip = _frameskip_proxy_records(train, retained_ratio)
     return {
         "method": "MTF-VLA",
         "proposal_hash": PROPOSAL_HASH,

@@ -1,0 +1,14 @@
+{
+  "completed_variants": [
+    "mtf_full",
+    "mtf_no_retention_ablation",
+    "frameskip_proxy_lora",
+    "uniform_retained_ratio_lora"
+  ],
+  "date": "2026-07-14 KST",
+  "final_decision": "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY",
+  "method": "MTF-VLA",
+  "remaining_variants": [],
+  "stage_a_allowed": true,
+  "status": "completed"
+}

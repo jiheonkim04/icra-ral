@@ -3,18 +3,18 @@
   "config_id": "mtf_r20_ret100",
   "confirmatory_test_identities_used": false,
   "date": "2026-07-14 KST",
-  "dry_run": true,
-  "final_decision": "MTF_ADAPTER_TRAINING_PLAN_READY",
+  "dry_run": false,
+  "final_decision": "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY",
   "hard_stop_reasons": [],
   "jobs": [
     {
       "base_current_action_retention_event_count": 391,
-      "checkpoint_exists": false,
+      "checkpoint_exists": true,
       "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_full\\seed_101",
       "config_id": "mtf_r20_ret100",
       "demo_action_chunk_event_count": 176,
       "event_count": 567,
-      "event_digest": "B1FB3AEF08CDE105A5C62EFED38D40A8A1934CE072FB3E80DF65E3039791F96C",
+      "event_digest": "AF9611F9A1284033A92DD2E2FCFD5433E6DB8693B366550C25D47C1288F6490A",
       "learning_rate": 0.0002,
       "seed": 101,
       "steps": 100,
@@ -24,12 +24,12 @@
     },
     {
       "base_current_action_retention_event_count": 0,
-      "checkpoint_exists": false,
+      "checkpoint_exists": true,
       "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_no_retention_ablation\\seed_101",
       "config_id": "mtf_r20_ret100",
       "demo_action_chunk_event_count": 176,
       "event_count": 176,
-      "event_digest": "A8790688105C6BE1CA4936FDEC575ACBF95BD9779CB2D307584ADBF1BD6F70E2",
+      "event_digest": "AB3DB99245D2B677996F1BE40C9B3FA111F7A4BECCA1B5624CFFA18E5C309452",
       "learning_rate": 0.0002,
       "seed": 101,
       "steps": 100,
@@ -39,27 +39,27 @@
     },
     {
       "base_current_action_retention_event_count": 0,
-      "checkpoint_exists": false,
+      "checkpoint_exists": true,
       "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\frameskip_proxy_lora\\seed_101",
       "config_id": "mtf_r20_ret100",
-      "demo_action_chunk_event_count": 176,
-      "event_count": 176,
-      "event_digest": "FB783E35D8AAE34D4664B4028B75076B8525716494EF30D324B26E71128B7D4A",
+      "demo_action_chunk_event_count": 240,
+      "event_count": 240,
+      "event_digest": "7F91B66ED0D7B2DDD3BAB9D07797F7C1160B4F85CC1FA8062419D4762C73A1B2",
       "learning_rate": 0.0002,
       "seed": 101,
       "steps": 100,
-      "unique_episode_count": 71,
-      "unique_task_count": 40,
+      "unique_episode_count": 74,
+      "unique_task_count": 38,
       "variant": "frameskip_proxy_lora"
     },
     {
       "base_current_action_retention_event_count": 0,
-      "checkpoint_exists": false,
+      "checkpoint_exists": true,
       "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\uniform_retained_ratio_lora\\seed_101",
       "config_id": "mtf_r20_ret100",
       "demo_action_chunk_event_count": 240,
       "event_count": 240,
-      "event_digest": "6ECF58627C9F0AEF9DFF30475AEE06E8BFD9EDBFEF38C96F7C3F23DEE545A776",
+      "event_digest": "DE3F3955AB898D1240B9A4F50ADABB36FF5FA9F9AB6CB406A59517B24C48F7C9",
       "learning_rate": 0.0002,
       "seed": 101,
       "steps": 100,
@@ -70,7 +70,7 @@
   ],
   "learning_rate": 0.0002,
   "method": "MTF-VLA",
-  "next_step": "Run the MTF adapter trainer to produce disk-reloadable checkpoints for all four trainable Stage A policies.",
+  "next_step": "Freeze a matched Stage A rollout manifest before any rollout; do not tune these checkpoints on confirmatory outcomes.",
   "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
   "retention_target_implementation": {
     "known_limitation": "full frozen-base action chunks are unavailable in the stable prediction artifact, so retention overrides only the current action before the official preprocessor builds the native loss target",
@@ -79,8 +79,8 @@
     "uses_frozen_base_action": true
   },
   "runtime": {
-    "elapsed_sec": 0.11,
-    "rss_final_mb": 54.551
+    "elapsed_sec": 927.984,
+    "rss_final_mb": 2355.043
   },
   "schema_version": 1,
   "seed": 101,
@@ -89,14 +89,59 @@
     "train_validation": 0,
     "validation_test": 0
   },
-  "stage_a_allowed": false,
+  "stage_a_allowed": true,
   "steps": 100,
-  "training_happened": false,
+  "training_happened": true,
   "validation_frame_count_for_post_training_eval": 400,
   "variant_order": [
     "mtf_full",
     "mtf_no_retention_ablation",
     "frameskip_proxy_lora",
     "uniform_retained_ratio_lora"
-  ]
+  ],
+  "variant_results": {
+    "rows": [
+      {
+        "adapter_minus_base_action_l2_p95": 0.127396702,
+        "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_full\\seed_101",
+        "disk_reload": true,
+        "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+        "seed": 101,
+        "validation_action_l2_mean": 0.082590885,
+        "validation_task_balanced_action_l2_mean": 0.082590886,
+        "variant": "mtf_full"
+      },
+      {
+        "adapter_minus_base_action_l2_p95": 0.129667163,
+        "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\mtf_no_retention_ablation\\seed_101",
+        "disk_reload": true,
+        "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+        "seed": 101,
+        "validation_action_l2_mean": 0.082867367,
+        "validation_task_balanced_action_l2_mean": 0.082867367,
+        "variant": "mtf_no_retention_ablation"
+      },
+      {
+        "adapter_minus_base_action_l2_p95": 0.130987061,
+        "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\frameskip_proxy_lora\\seed_101",
+        "disk_reload": true,
+        "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+        "seed": 101,
+        "validation_action_l2_mean": 0.08255313,
+        "validation_task_balanced_action_l2_mean": 0.08255313,
+        "variant": "frameskip_proxy_lora"
+      },
+      {
+        "adapter_minus_base_action_l2_p95": 0.132568751,
+        "checkpoint_path": "runs\\mtf_vla_checkpoints\\mtf_r20_ret100\\uniform_retained_ratio_lora\\seed_101",
+        "disk_reload": true,
+        "final_decision": "MTF_ADAPTER_CHECKPOINT_VERIFIED",
+        "seed": 101,
+        "validation_action_l2_mean": 0.082396918,
+        "validation_task_balanced_action_l2_mean": 0.082396918,
+        "variant": "uniform_retained_ratio_lora"
+      }
+    ],
+    "variant_count": 4
+  }
 }

@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY"
-    assert state["current_stage"] == "epoch_4_cycle_6_mtf_adapter_training_runner_validated"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_CHECKPOINTS_VERIFIED_STAGE_A_READY"
+    assert state["current_stage"] == "epoch_4_cycle_6_mtf_stage_a_manifest_pending"
     assert state["method"] == "MTF-VLA"
     assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
     assert state["prototype_protocol"] == "reports/mtf_vla/prototype_protocol.md"
@@ -55,7 +55,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_6_mtf_validation_search_completed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_selected_config_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_adapter_training_runner_validated" in state["completed_stages"]
-    assert state["checkpoint_path"] is None
+    assert "epoch_4_cycle_6_mtf_adapter_training_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_checkpoints_verified" in state["completed_stages"]
+    assert state["checkpoint_path"] == "runs/mtf_vla_checkpoints/mtf_r20_ret100"
     assert state["stage_a_result_json"] == "reports/rac_vla/stage_a_result.json"
     assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
@@ -141,12 +143,28 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["selected_config"] == "mtf_r20_ret100"
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["selected_retention_coefficient"] == 1.0
     assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_runner_validated"] is True
-    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_happened"] is False
-    assert state["epoch_4_cycle_6_mtf_development_outcome"]["stage_a_allowed"] is False
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_happened"] is True
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_training_final_decision"] == "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY"
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["adapter_checkpoint_manifest"] == "reports/mtf_vla/adapter_checkpoint_manifest.json"
+    assert state["epoch_4_cycle_6_mtf_development_outcome"]["stage_a_allowed"] is True
     assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["final_decision"] == "MTF_ADAPTER_TRAINING_PLAN_READY"
     assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["stage_a_allowed"] is False
     assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["jobs"][0]["variant"] == "mtf_full"
     assert state["epoch_4_cycle_6_mtf_adapter_training_plan"]["jobs"][0]["event_count"] == 567
+    assert state["epoch_4_cycle_6_mtf_adapter_checkpoint_outcome"]["final_decision"] == "MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY"
+    assert state["epoch_4_cycle_6_mtf_adapter_checkpoint_outcome"]["closed_loop_experiment_happened"] is False
+    assert state["epoch_4_cycle_6_mtf_adapter_checkpoint_outcome"]["frameskip_proxy_distinct_from_no_retention"] is True
+
+    mtf_manifest = json.loads((REPO_ROOT / "reports" / "mtf_vla" / "selected_training_manifest.json").read_text(encoding="utf-8"))
+    no_retention_keys = {
+        row["key"] for row in mtf_manifest["variants"]["mtf_no_retention_ablation"]["high_milestone_frames"]
+    }
+    frameskip_keys = {
+        row["key"] for row in mtf_manifest["variants"]["frameskip_proxy_lora"]["selected_frames"]
+    }
+    assert len(frameskip_keys) == 240
+    assert frameskip_keys != no_retention_keys
+    assert len(frameskip_keys & no_retention_keys) == 96
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:

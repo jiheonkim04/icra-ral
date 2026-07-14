@@ -1077,6 +1077,18 @@ def build_or_run(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             "runtime": {"elapsed_sec": _round(time.monotonic() - started, 3), "rss_final_mb": _rss_mb()},
         }
         _write_json(Path(args.report_json), report)
+        _write_json(
+            Path(args.progress_json),
+            {
+                "date": DATE_KST,
+                "method": "MTF-VLA",
+                "status": "completed",
+                "completed_variants": [str(item.get("variant")) for item in results],
+                "remaining_variants": [],
+                "final_decision": report["final_decision"],
+                "stage_a_allowed": report["stage_a_allowed"],
+            },
+        )
         return report, 0
     except MTFTrainingError as exc:
         report = {

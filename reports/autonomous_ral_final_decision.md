@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY`
+Current decision: `EPOCH_4_CYCLE_6_MTF_CHECKPOINTS_VERIFIED_STAGE_A_READY`
 
 This is not a terminal state under the active governance.
 
@@ -70,3 +70,7 @@ Next action: train disk-reloadable selected-config adapter checkpoints for MTF f
 The MTF adapter-training runner is now implemented and dry-run validated. The frozen selected manifest produces four trainable jobs: MTF full `567` events (`176` milestone + `391` retention), no-retention ablation `176`, FrameSkip proxy `176`, and uniform retained-ratio LoRA `240`, with zero train/validation/test frame overlap. This is not adapter training yet; it is the validated checkpoint-production contract.
 
 Next action: run the MTF adapter trainer to produce and disk-reload verify all four selected-config checkpoints before any Stage A rollout.
+
+MTF adapter training is now complete for all four trainable Stage A policies after repairing the development-only FrameSkip proxy collapse. The checkpoints are saved under `runs/mtf_vla_checkpoints/mtf_r20_ret100`, disk-reloaded successfully, and summarized in `reports/mtf_vla/adapter_checkpoint_manifest.json`. Validation action L2 means were `0.082590885` for MTF full, `0.082867367` for no-retention, `0.082553130` for the corrected FrameSkip proxy, and `0.082396918` for uniform retained-ratio LoRA. No rollout or confirmatory-test tuning occurred.
+
+Next action: freeze the matched MTF Stage A rollout manifest before any Stage A rollout.

@@ -4,7 +4,7 @@
   "config_id": "mtf_r20_ret100",
   "confirmatory_test_identities_used": false,
   "counts": {
-    "frameskip_proxy_frames": 176,
+    "frameskip_proxy_frames": 240,
     "mtf_high_frames": 176,
     "mtf_retention_frames": 391,
     "train_records": 1200,
@@ -21,12 +21,72 @@
       ],
       "selected_frames": [
         {
+          "dataset_global_index": 152,
+          "episode_index": 0,
+          "frame_index": 152,
+          "key": "train_task0_episode0_frame152|seed=0",
+          "phase_bin": 3,
+          "score": 0.6434646222775078,
+          "split": "train",
+          "task_index": 0
+        },
+        {
           "dataset_global_index": 167,
           "episode_index": 0,
           "frame_index": 167,
           "key": "train_task0_episode0_frame167|seed=0",
           "phase_bin": 3,
           "score": 0.6617974349705731,
+          "split": "train",
+          "task_index": 0
+        },
+        {
+          "dataset_global_index": 197,
+          "episode_index": 0,
+          "frame_index": 197,
+          "key": "train_task0_episode0_frame197|seed=0",
+          "phase_bin": 4,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 0
+        },
+        {
+          "dataset_global_index": 30,
+          "episode_index": 0,
+          "frame_index": 30,
+          "key": "train_task0_episode0_frame30|seed=0",
+          "phase_bin": 0,
+          "score": 0.580269466935194,
+          "split": "train",
+          "task_index": 0
+        },
+        {
+          "dataset_global_index": 45,
+          "episode_index": 0,
+          "frame_index": 45,
+          "key": "train_task0_episode0_frame45|seed=0",
+          "phase_bin": 1,
+          "score": 0.5332912963132472,
+          "split": "train",
+          "task_index": 0
+        },
+        {
+          "dataset_global_index": 5056,
+          "episode_index": 18,
+          "frame_index": 137,
+          "key": "train_task0_episode18_frame137|seed=0",
+          "phase_bin": 2,
+          "score": 0.4964983773236227,
+          "split": "train",
+          "task_index": 0
+        },
+        {
+          "dataset_global_index": 5135,
+          "episode_index": 18,
+          "frame_index": 216,
+          "key": "train_task0_episode18_frame216|seed=0",
+          "phase_bin": 3,
+          "score": 0.6100087937612206,
           "split": "train",
           "task_index": 0
         },
@@ -41,16 +101,6 @@
           "task_index": 0
         },
         {
-          "dataset_global_index": 4958,
-          "episode_index": 18,
-          "frame_index": 39,
-          "key": "train_task0_episode18_frame39|seed=0",
-          "phase_bin": 0,
-          "score": 0.654504966753213,
-          "split": "train",
-          "task_index": 0
-        },
-        {
           "dataset_global_index": 4977,
           "episode_index": 18,
           "frame_index": 58,
@@ -59,16 +109,6 @@
           "score": 0.7,
           "split": "train",
           "task_index": 0
-        },
-        {
-          "dataset_global_index": 101484,
-          "episode_index": 379,
-          "frame_index": 15,
-          "key": "train_task10_episode379_frame15|seed=0",
-          "phase_bin": 0,
-          "score": 0.3,
-          "split": "train",
-          "task_index": 10
         },
         {
           "dataset_global_index": 101524,
@@ -81,24 +121,44 @@
           "task_index": 10
         },
         {
-          "dataset_global_index": 107241,
-          "episode_index": 422,
-          "frame_index": 67,
-          "key": "train_task10_episode422_frame67|seed=0",
-          "phase_bin": 3,
-          "score": 0.2305419812797,
+          "dataset_global_index": 101564,
+          "episode_index": 379,
+          "frame_index": 95,
+          "key": "train_task10_episode379_frame95|seed=0",
+          "phase_bin": 4,
+          "score": 0.6787619016419083,
           "split": "train",
           "task_index": 10
         },
         {
-          "dataset_global_index": 101702,
-          "episode_index": 380,
-          "frame_index": 121,
-          "key": "train_task11_episode380_frame121|seed=0",
-          "phase_bin": 3,
-          "score": 0.16260726571855055,
+          "dataset_global_index": 107210,
+          "episode_index": 422,
+          "frame_index": 36,
+          "key": "train_task10_episode422_frame36|seed=0",
+          "phase_bin": 2,
+          "score": 0.6922712076006173,
           "split": "train",
-          "task_index": 11
+          "task_index": 10
+        },
+        {
+          "dataset_global_index": 107217,
+          "episode_index": 422,
+          "frame_index": 43,
+          "key": "train_task10_episode422_frame43|seed=0",
+          "phase_bin": 2,
+          "score": 0.7700456123443501,
+          "split": "train",
+          "task_index": 10
+        },
+        {
+          "dataset_global_index": 107253,
+          "episode_index": 422,
+          "frame_index": 79,
+          "key": "train_task10_episode422_frame79|seed=0",
+          "phase_bin": 4,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 10
         },
         {
           "dataset_global_index": 101713,
@@ -106,6 +166,16 @@
           "frame_index": 132,
           "key": "train_task11_episode380_frame132|seed=0",
           "phase_bin": 4,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 11
+        },
+        {
+          "dataset_global_index": 101669,
+          "episode_index": 380,
+          "frame_index": 88,
+          "key": "train_task11_episode380_frame88|seed=0",
+          "phase_bin": 2,
           "score": 0.7,
           "split": "train",
           "task_index": 11
@@ -131,12 +201,32 @@
           "task_index": 11
         },
         {
+          "dataset_global_index": 102049,
+          "episode_index": 382,
+          "frame_index": 163,
+          "key": "train_task12_episode382_frame163|seed=0",
+          "phase_bin": 4,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 12
+        },
+        {
           "dataset_global_index": 102187,
           "episode_index": 383,
           "frame_index": 124,
           "key": "train_task12_episode383_frame124|seed=0",
           "phase_bin": 2,
           "score": 1.0,
+          "split": "train",
+          "task_index": 12
+        },
+        {
+          "dataset_global_index": 102202,
+          "episode_index": 383,
+          "frame_index": 139,
+          "key": "train_task12_episode383_frame139|seed=0",
+          "phase_bin": 3,
+          "score": 0.5164925196630654,
           "split": "train",
           "task_index": 12
         },
@@ -151,26 +241,6 @@
           "task_index": 12
         },
         {
-          "dataset_global_index": 102094,
-          "episode_index": 383,
-          "frame_index": 31,
-          "key": "train_task12_episode383_frame31|seed=0",
-          "phase_bin": 0,
-          "score": 0.1823781056921927,
-          "split": "train",
-          "task_index": 12
-        },
-        {
-          "dataset_global_index": 102109,
-          "episode_index": 383,
-          "frame_index": 46,
-          "key": "train_task12_episode383_frame46|seed=0",
-          "phase_bin": 1,
-          "score": 0.1789381748112971,
-          "split": "train",
-          "task_index": 12
-        },
-        {
           "dataset_global_index": 102140,
           "episode_index": 383,
           "frame_index": 77,
@@ -181,12 +251,22 @@
           "task_index": 12
         },
         {
-          "dataset_global_index": 103161,
-          "episode_index": 391,
-          "frame_index": 0,
-          "key": "train_task13_episode391_frame0|seed=0",
-          "phase_bin": 0,
-          "score": 0.001800626534952846,
+          "dataset_global_index": 102328,
+          "episode_index": 384,
+          "frame_index": 47,
+          "key": "train_task13_episode384_frame47|seed=0",
+          "phase_bin": 2,
+          "score": 0.6488533887955813,
+          "split": "train",
+          "task_index": 13
+        },
+        {
+          "dataset_global_index": 102336,
+          "episode_index": 384,
+          "frame_index": 55,
+          "key": "train_task13_episode384_frame55|seed=0",
+          "phase_bin": 2,
+          "score": 0.7623012230585788,
           "split": "train",
           "task_index": 13
         },
@@ -217,6 +297,26 @@
           "key": "train_task13_episode391_frame47|seed=0",
           "phase_bin": 1,
           "score": 0.7,
+          "split": "train",
+          "task_index": 13
+        },
+        {
+          "dataset_global_index": 103218,
+          "episode_index": 391,
+          "frame_index": 57,
+          "key": "train_task13_episode391_frame57|seed=0",
+          "phase_bin": 2,
+          "score": 0.9957339854711598,
+          "split": "train",
+          "task_index": 13
+        },
+        {
+          "dataset_global_index": 103228,
+          "episode_index": 391,
+          "frame_index": 67,
+          "key": "train_task13_episode391_frame67|seed=0",
+          "phase_bin": 2,
+          "score": 1.0,
           "split": "train",
           "task_index": 13
         },
@@ -261,6 +361,26 @@
           "task_index": 14
         },
         {
+          "dataset_global_index": 102475,
+          "episode_index": 385,
+          "frame_index": 82,
+          "key": "train_task14_episode385_frame82|seed=0",
+          "phase_bin": 4,
+          "score": 0.7450095339666181,
+          "split": "train",
+          "task_index": 14
+        },
+        {
+          "dataset_global_index": 103070,
+          "episode_index": 389,
+          "frame_index": 104,
+          "key": "train_task14_episode389_frame104|seed=0",
+          "phase_bin": 4,
+          "score": 0.7120636024459277,
+          "split": "train",
+          "task_index": 14
+        },
+        {
           "dataset_global_index": 102998,
           "episode_index": 389,
           "frame_index": 32,
@@ -271,124 +391,24 @@
           "task_index": 14
         },
         {
-          "dataset_global_index": 103014,
+          "dataset_global_index": 103006,
           "episode_index": 389,
-          "frame_index": 48,
-          "key": "train_task14_episode389_frame48|seed=0",
+          "frame_index": 40,
+          "key": "train_task14_episode389_frame40|seed=0",
+          "phase_bin": 1,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 14
+        },
+        {
+          "dataset_global_index": 102914,
+          "episode_index": 388,
+          "frame_index": 38,
+          "key": "train_task16_episode388_frame38|seed=0",
           "phase_bin": 2,
-          "score": 0.3351436858282286,
-          "split": "train",
-          "task_index": 14
-        },
-        {
-          "dataset_global_index": 103038,
-          "episode_index": 389,
-          "frame_index": 72,
-          "key": "train_task14_episode389_frame72|seed=0",
-          "phase_bin": 3,
-          "score": 0.3,
-          "split": "train",
-          "task_index": 14
-        },
-        {
-          "dataset_global_index": 102974,
-          "episode_index": 389,
-          "frame_index": 8,
-          "key": "train_task14_episode389_frame8|seed=0",
-          "phase_bin": 0,
-          "score": 0.3,
-          "split": "train",
-          "task_index": 14
-        },
-        {
-          "dataset_global_index": 102596,
-          "episode_index": 386,
-          "frame_index": 113,
-          "key": "train_task15_episode386_frame113|seed=0",
-          "phase_bin": 4,
-          "score": 0.5839148165233256,
-          "split": "train",
-          "task_index": 15
-        },
-        {
-          "dataset_global_index": 104165,
-          "episode_index": 400,
-          "frame_index": 9,
-          "key": "train_task15_episode400_frame9|seed=0",
-          "phase_bin": 0,
-          "score": 0.2671389740296582,
-          "split": "train",
-          "task_index": 15
-        },
-        {
-          "dataset_global_index": 102895,
-          "episode_index": 388,
-          "frame_index": 19,
-          "key": "train_task16_episode388_frame19|seed=0",
-          "phase_bin": 1,
-          "score": 0.08315327174592808,
+          "score": 0.7017490878778285,
           "split": "train",
           "task_index": 16
-        },
-        {
-          "dataset_global_index": 102901,
-          "episode_index": 388,
-          "frame_index": 25,
-          "key": "train_task16_episode388_frame25|seed=0",
-          "phase_bin": 1,
-          "score": 0.05539062383325428,
-          "split": "train",
-          "task_index": 16
-        },
-        {
-          "dataset_global_index": 102920,
-          "episode_index": 388,
-          "frame_index": 44,
-          "key": "train_task16_episode388_frame44|seed=0",
-          "phase_bin": 2,
-          "score": 0.8291546856035659,
-          "split": "train",
-          "task_index": 16
-        },
-        {
-          "dataset_global_index": 102933,
-          "episode_index": 388,
-          "frame_index": 57,
-          "key": "train_task16_episode388_frame57|seed=0",
-          "phase_bin": 3,
-          "score": 0.33304134872750707,
-          "split": "train",
-          "task_index": 16
-        },
-        {
-          "dataset_global_index": 102882,
-          "episode_index": 388,
-          "frame_index": 6,
-          "key": "train_task16_episode388_frame6|seed=0",
-          "phase_bin": 0,
-          "score": 0.048701610984821515,
-          "split": "train",
-          "task_index": 16
-        },
-        {
-          "dataset_global_index": 102965,
-          "episode_index": 388,
-          "frame_index": 89,
-          "key": "train_task16_episode388_frame89|seed=0",
-          "phase_bin": 4,
-          "score": 0.8869962493411032,
-          "split": "train",
-          "task_index": 16
-        },
-        {
-          "dataset_global_index": 103332,
-          "episode_index": 392,
-          "frame_index": 36,
-          "key": "train_task17_episode392_frame36|seed=0",
-          "phase_bin": 1,
-          "score": 0.6382578544363882,
-          "split": "train",
-          "task_index": 17
         },
         {
           "dataset_global_index": 103339,
@@ -421,14 +441,34 @@
           "task_index": 17
         },
         {
-          "dataset_global_index": 103506,
+          "dataset_global_index": 103538,
           "episode_index": 394,
-          "frame_index": 15,
-          "key": "train_task17_episode394_frame15|seed=0",
-          "phase_bin": 0,
-          "score": 0.04440004935652907,
+          "frame_index": 47,
+          "key": "train_task17_episode394_frame47|seed=0",
+          "phase_bin": 2,
+          "score": 0.6900848417261862,
           "split": "train",
           "task_index": 17
+        },
+        {
+          "dataset_global_index": 103546,
+          "episode_index": 394,
+          "frame_index": 55,
+          "key": "train_task17_episode394_frame55|seed=0",
+          "phase_bin": 2,
+          "score": 0.739278512886224,
+          "split": "train",
+          "task_index": 17
+        },
+        {
+          "dataset_global_index": 103955,
+          "episode_index": 398,
+          "frame_index": 35,
+          "key": "train_task18_episode398_frame35|seed=0",
+          "phase_bin": 1,
+          "score": 0.8336381876217166,
+          "split": "train",
+          "task_index": 18
         },
         {
           "dataset_global_index": 104011,
@@ -437,6 +477,16 @@
           "key": "train_task18_episode398_frame91|seed=0",
           "phase_bin": 4,
           "score": 0.8339019931710338,
+          "split": "train",
+          "task_index": 18
+        },
+        {
+          "dataset_global_index": 104499,
+          "episode_index": 402,
+          "frame_index": 101,
+          "key": "train_task18_episode402_frame101|seed=0",
+          "phase_bin": 4,
+          "score": 0.5803563600221315,
           "split": "train",
           "task_index": 18
         },
@@ -451,54 +501,24 @@
           "task_index": 18
         },
         {
-          "dataset_global_index": 104444,
+          "dataset_global_index": 104429,
           "episode_index": 402,
-          "frame_index": 46,
-          "key": "train_task18_episode402_frame46|seed=0",
-          "phase_bin": 2,
-          "score": 0.11692573801126294,
+          "frame_index": 31,
+          "key": "train_task18_episode402_frame31|seed=0",
+          "phase_bin": 1,
+          "score": 0.7,
           "split": "train",
           "task_index": 18
         },
         {
-          "dataset_global_index": 104475,
+          "dataset_global_index": 104491,
           "episode_index": 402,
-          "frame_index": 77,
-          "key": "train_task18_episode402_frame77|seed=0",
-          "phase_bin": 3,
-          "score": 0.5518584510745099,
+          "frame_index": 93,
+          "key": "train_task18_episode402_frame93|seed=0",
+          "phase_bin": 4,
+          "score": 0.8255214527162327,
           "split": "train",
           "task_index": 18
-        },
-        {
-          "dataset_global_index": 104405,
-          "episode_index": 402,
-          "frame_index": 7,
-          "key": "train_task18_episode402_frame7|seed=0",
-          "phase_bin": 0,
-          "score": 0.22300692468435857,
-          "split": "train",
-          "task_index": 18
-        },
-        {
-          "dataset_global_index": 104859,
-          "episode_index": 405,
-          "frame_index": 58,
-          "key": "train_task19_episode405_frame58|seed=0",
-          "phase_bin": 2,
-          "score": 0.5323064082515926,
-          "split": "train",
-          "task_index": 19
-        },
-        {
-          "dataset_global_index": 104810,
-          "episode_index": 405,
-          "frame_index": 9,
-          "key": "train_task19_episode405_frame9|seed=0",
-          "phase_bin": 0,
-          "score": 0.366224197472243,
-          "split": "train",
-          "task_index": 19
         },
         {
           "dataset_global_index": 355,
@@ -507,6 +527,46 @@
           "key": "train_task1_episode1_frame141|seed=0",
           "phase_bin": 2,
           "score": 0.9003911375878428,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 375,
+          "episode_index": 1,
+          "frame_index": 161,
+          "key": "train_task1_episode1_frame161|seed=0",
+          "phase_bin": 2,
+          "score": 0.6428437858516306,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 395,
+          "episode_index": 1,
+          "frame_index": 181,
+          "key": "train_task1_episode1_frame181|seed=0",
+          "phase_bin": 3,
+          "score": 0.6069074125158556,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 416,
+          "episode_index": 1,
+          "frame_index": 202,
+          "key": "train_task1_episode1_frame202|seed=0",
+          "phase_bin": 3,
+          "score": 0.5404591758973145,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 436,
+          "episode_index": 1,
+          "frame_index": 222,
+          "key": "train_task1_episode1_frame222|seed=0",
+          "phase_bin": 3,
+          "score": 0.6919329364935725,
           "split": "train",
           "task_index": 1
         },
@@ -541,6 +601,46 @@
           "task_index": 1
         },
         {
+          "dataset_global_index": 1325,
+          "episode_index": 4,
+          "frame_index": 197,
+          "key": "train_task1_episode4_frame197|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 1345,
+          "episode_index": 4,
+          "frame_index": 217,
+          "key": "train_task1_episode4_frame217|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 1365,
+          "episode_index": 4,
+          "frame_index": 237,
+          "key": "train_task1_episode4_frame237|seed=0",
+          "phase_bin": 4,
+          "score": 0.6408454083931081,
+          "split": "train",
+          "task_index": 1
+        },
+        {
+          "dataset_global_index": 1385,
+          "episode_index": 4,
+          "frame_index": 257,
+          "key": "train_task1_episode4_frame257|seed=0",
+          "phase_bin": 4,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 1
+        },
+        {
           "dataset_global_index": 1167,
           "episode_index": 4,
           "frame_index": 39,
@@ -551,22 +651,22 @@
           "task_index": 1
         },
         {
-          "dataset_global_index": 153622,
-          "episode_index": 807,
-          "frame_index": 111,
-          "key": "train_task20_episode807_frame111|seed=0",
-          "phase_bin": 3,
-          "score": 0.3253239521248848,
+          "dataset_global_index": 1187,
+          "episode_index": 4,
+          "frame_index": 59,
+          "key": "train_task1_episode4_frame59|seed=0",
+          "phase_bin": 1,
+          "score": 0.8363381917331367,
           "split": "train",
-          "task_index": 20
+          "task_index": 1
         },
         {
-          "dataset_global_index": 153531,
+          "dataset_global_index": 153632,
           "episode_index": 807,
-          "frame_index": 20,
-          "key": "train_task20_episode807_frame20|seed=0",
-          "phase_bin": 0,
-          "score": 0.058922903920567773,
+          "frame_index": 121,
+          "key": "train_task20_episode807_frame121|seed=0",
+          "phase_bin": 4,
+          "score": 0.7,
           "split": "train",
           "task_index": 20
         },
@@ -591,22 +691,22 @@
           "task_index": 20
         },
         {
-          "dataset_global_index": 156866,
+          "dataset_global_index": 156817,
           "episode_index": 829,
-          "frame_index": 106,
-          "key": "train_task20_episode829_frame106|seed=0",
-          "phase_bin": 3,
-          "score": 0.3,
+          "frame_index": 57,
+          "key": "train_task20_episode829_frame57|seed=0",
+          "phase_bin": 2,
+          "score": 0.7466101812495931,
           "split": "train",
           "task_index": 20
         },
         {
-          "dataset_global_index": 153769,
+          "dataset_global_index": 153780,
           "episode_index": 808,
-          "frame_index": 115,
-          "key": "train_task21_episode808_frame115|seed=0",
-          "phase_bin": 3,
-          "score": 0.07454055125630905,
+          "frame_index": 126,
+          "key": "train_task21_episode808_frame126|seed=0",
+          "phase_bin": 4,
+          "score": 0.6626450194979435,
           "split": "train",
           "task_index": 21
         },
@@ -631,32 +731,32 @@
           "task_index": 21
         },
         {
-          "dataset_global_index": 153802,
+          "dataset_global_index": 153852,
           "episode_index": 809,
-          "frame_index": 0,
-          "key": "train_task21_episode809_frame0|seed=0",
-          "phase_bin": 0,
-          "score": 0.12765130972393554,
+          "frame_index": 50,
+          "key": "train_task21_episode809_frame50|seed=0",
+          "phase_bin": 1,
+          "score": 0.7,
           "split": "train",
           "task_index": 21
         },
         {
-          "dataset_global_index": 154053,
+          "dataset_global_index": 153998,
           "episode_index": 810,
-          "frame_index": 110,
-          "key": "train_task22_episode810_frame110|seed=0",
-          "phase_bin": 4,
-          "score": 0.5543962424463117,
+          "frame_index": 55,
+          "key": "train_task22_episode810_frame55|seed=0",
+          "phase_bin": 2,
+          "score": 0.7122596366013619,
           "split": "train",
           "task_index": 22
         },
         {
-          "dataset_global_index": 160808,
+          "dataset_global_index": 160743,
           "episode_index": 856,
-          "frame_index": 119,
-          "key": "train_task22_episode856_frame119|seed=0",
-          "phase_bin": 3,
-          "score": 0.18650558199988276,
+          "frame_index": 54,
+          "key": "train_task22_episode856_frame54|seed=0",
+          "phase_bin": 1,
+          "score": 0.8785177720464408,
           "split": "train",
           "task_index": 22
         },
@@ -671,12 +771,12 @@
           "task_index": 22
         },
         {
-          "dataset_global_index": 154307,
-          "episode_index": 812,
-          "frame_index": 102,
-          "key": "train_task23_episode812_frame102|seed=0",
-          "phase_bin": 3,
-          "score": 0.2466017754401523,
+          "dataset_global_index": 154129,
+          "episode_index": 811,
+          "frame_index": 56,
+          "key": "train_task23_episode811_frame56|seed=0",
+          "phase_bin": 2,
+          "score": 0.6545935448028937,
           "split": "train",
           "task_index": 23
         },
@@ -691,22 +791,32 @@
           "task_index": 23
         },
         {
-          "dataset_global_index": 154359,
+          "dataset_global_index": 154261,
+          "episode_index": 812,
+          "frame_index": 56,
+          "key": "train_task23_episode812_frame56|seed=0",
+          "phase_bin": 2,
+          "score": 0.6719827400235654,
+          "split": "train",
+          "task_index": 23
+        },
+        {
+          "dataset_global_index": 154381,
           "episode_index": 813,
-          "frame_index": 22,
-          "key": "train_task24_episode813_frame22|seed=0",
-          "phase_bin": 0,
-          "score": 0.3,
+          "frame_index": 44,
+          "key": "train_task24_episode813_frame44|seed=0",
+          "phase_bin": 1,
+          "score": 0.6570336478948346,
           "split": "train",
           "task_index": 24
         },
         {
-          "dataset_global_index": 155214,
-          "episode_index": 818,
-          "frame_index": 128,
-          "key": "train_task24_episode818_frame128|seed=0",
-          "phase_bin": 3,
-          "score": 0.2520179104591574,
+          "dataset_global_index": 154392,
+          "episode_index": 813,
+          "frame_index": 55,
+          "key": "train_task24_episode813_frame55|seed=0",
+          "phase_bin": 1,
+          "score": 0.7744315996956137,
           "split": "train",
           "task_index": 24
         },
@@ -731,6 +841,16 @@
           "task_index": 24
         },
         {
+          "dataset_global_index": 155144,
+          "episode_index": 818,
+          "frame_index": 58,
+          "key": "train_task24_episode818_frame58|seed=0",
+          "phase_bin": 1,
+          "score": 0.9338093599810431,
+          "split": "train",
+          "task_index": 24
+        },
+        {
           "dataset_global_index": 155155,
           "episode_index": 818,
           "frame_index": 69,
@@ -741,22 +861,32 @@
           "task_index": 24
         },
         {
-          "dataset_global_index": 154641,
+          "dataset_global_index": 154653,
           "episode_index": 814,
-          "frame_index": 149,
-          "key": "train_task25_episode814_frame149|seed=0",
+          "frame_index": 161,
+          "key": "train_task25_episode814_frame161|seed=0",
           "phase_bin": 4,
-          "score": 0.7993923443329297,
+          "score": 0.7786602407440786,
           "split": "train",
           "task_index": 25
         },
         {
-          "dataset_global_index": 155054,
-          "episode_index": 817,
-          "frame_index": 111,
-          "key": "train_task25_episode817_frame111|seed=0",
-          "phase_bin": 3,
-          "score": 0.3514776226199181,
+          "dataset_global_index": 154541,
+          "episode_index": 814,
+          "frame_index": 49,
+          "key": "train_task25_episode814_frame49|seed=0",
+          "phase_bin": 1,
+          "score": 1.0,
+          "split": "train",
+          "task_index": 25
+        },
+        {
+          "dataset_global_index": 154554,
+          "episode_index": 814,
+          "frame_index": 62,
+          "key": "train_task25_episode814_frame62|seed=0",
+          "phase_bin": 1,
+          "score": 0.7347913446139877,
           "split": "train",
           "task_index": 25
         },
@@ -771,12 +901,22 @@
           "task_index": 25
         },
         {
-          "dataset_global_index": 155003,
+          "dataset_global_index": 154983,
           "episode_index": 817,
-          "frame_index": 60,
-          "key": "train_task25_episode817_frame60|seed=0",
-          "phase_bin": 2,
-          "score": 0.24472846479609325,
+          "frame_index": 40,
+          "key": "train_task25_episode817_frame40|seed=0",
+          "phase_bin": 1,
+          "score": 0.6831720062160936,
+          "split": "train",
+          "task_index": 25
+        },
+        {
+          "dataset_global_index": 154993,
+          "episode_index": 817,
+          "frame_index": 50,
+          "key": "train_task25_episode817_frame50|seed=0",
+          "phase_bin": 1,
+          "score": 0.7815736063757779,
           "split": "train",
           "task_index": 25
         },
@@ -791,32 +931,12 @@
           "task_index": 26
         },
         {
-          "dataset_global_index": 154871,
-          "episode_index": 816,
-          "frame_index": 52,
-          "key": "train_task26_episode816_frame52|seed=0",
-          "phase_bin": 2,
-          "score": 0.6082413750490547,
-          "split": "train",
-          "task_index": 26
-        },
-        {
-          "dataset_global_index": 154898,
-          "episode_index": 816,
-          "frame_index": 79,
-          "key": "train_task26_episode816_frame79|seed=0",
-          "phase_bin": 3,
-          "score": 0.22707240911393564,
-          "split": "train",
-          "task_index": 26
-        },
-        {
-          "dataset_global_index": 154827,
-          "episode_index": 816,
-          "frame_index": 8,
-          "key": "train_task26_episode816_frame8|seed=0",
-          "phase_bin": 0,
-          "score": 0.1119890840320366,
+          "dataset_global_index": 155717,
+          "episode_index": 822,
+          "frame_index": 32,
+          "key": "train_task26_episode822_frame32|seed=0",
+          "phase_bin": 1,
+          "score": 0.6517647194223796,
           "split": "train",
           "task_index": 26
         },
@@ -831,22 +951,22 @@
           "task_index": 26
         },
         {
-          "dataset_global_index": 155390,
+          "dataset_global_index": 155379,
           "episode_index": 819,
-          "frame_index": 140,
-          "key": "train_task27_episode819_frame140|seed=0",
+          "frame_index": 129,
+          "key": "train_task27_episode819_frame129|seed=0",
           "phase_bin": 4,
-          "score": 0.7203185161351843,
+          "score": 0.6889139823091726,
           "split": "train",
           "task_index": 27
         },
         {
-          "dataset_global_index": 155271,
+          "dataset_global_index": 155293,
           "episode_index": 819,
-          "frame_index": 21,
-          "key": "train_task27_episode819_frame21|seed=0",
-          "phase_bin": 0,
-          "score": 0.4006349529598206,
+          "frame_index": 43,
+          "key": "train_task27_episode819_frame43|seed=0",
+          "phase_bin": 1,
+          "score": 0.8545859496426411,
           "split": "train",
           "task_index": 27
         },
@@ -861,24 +981,24 @@
           "task_index": 27
         },
         {
-          "dataset_global_index": 156536,
+          "dataset_global_index": 156481,
           "episode_index": 827,
-          "frame_index": 99,
-          "key": "train_task27_episode827_frame99|seed=0",
-          "phase_bin": 3,
-          "score": 0.03893314318499169,
+          "frame_index": 44,
+          "key": "train_task27_episode827_frame44|seed=0",
+          "phase_bin": 1,
+          "score": 0.6982433083662326,
           "split": "train",
           "task_index": 27
         },
         {
-          "dataset_global_index": 155655,
-          "episode_index": 821,
-          "frame_index": 102,
-          "key": "train_task28_episode821_frame102|seed=0",
-          "phase_bin": 3,
-          "score": 0.15439475707669104,
+          "dataset_global_index": 156492,
+          "episode_index": 827,
+          "frame_index": 55,
+          "key": "train_task27_episode827_frame55|seed=0",
+          "phase_bin": 1,
+          "score": 0.9922688641360448,
           "split": "train",
-          "task_index": 28
+          "task_index": 27
         },
         {
           "dataset_global_index": 155665,
@@ -901,16 +1021,6 @@
           "task_index": 28
         },
         {
-          "dataset_global_index": 155599,
-          "episode_index": 821,
-          "frame_index": 46,
-          "key": "train_task28_episode821_frame46|seed=0",
-          "phase_bin": 1,
-          "score": 0.6854587489476724,
-          "split": "train",
-          "task_index": 28
-        },
-        {
           "dataset_global_index": 155609,
           "episode_index": 821,
           "frame_index": 56,
@@ -919,6 +1029,46 @@
           "score": 1.0,
           "split": "train",
           "task_index": 28
+        },
+        {
+          "dataset_global_index": 157015,
+          "episode_index": 830,
+          "frame_index": 119,
+          "key": "train_task28_episode830_frame119|seed=0",
+          "phase_bin": 4,
+          "score": 0.6528858575833674,
+          "split": "train",
+          "task_index": 28
+        },
+        {
+          "dataset_global_index": 156951,
+          "episode_index": 830,
+          "frame_index": 55,
+          "key": "train_task28_episode830_frame55|seed=0",
+          "phase_bin": 2,
+          "score": 0.6719196144024557,
+          "split": "train",
+          "task_index": 28
+        },
+        {
+          "dataset_global_index": 156960,
+          "episode_index": 830,
+          "frame_index": 64,
+          "key": "train_task28_episode830_frame64|seed=0",
+          "phase_bin": 2,
+          "score": 0.7416837887988054,
+          "split": "train",
+          "task_index": 28
+        },
+        {
+          "dataset_global_index": 155938,
+          "episode_index": 823,
+          "frame_index": 138,
+          "key": "train_task29_episode823_frame138|seed=0",
+          "phase_bin": 4,
+          "score": 0.6875770090699852,
+          "split": "train",
+          "task_index": 29
         },
         {
           "dataset_global_index": 155857,
@@ -941,26 +1091,6 @@
           "task_index": 29
         },
         {
-          "dataset_global_index": 156390,
-          "episode_index": 826,
-          "frame_index": 114,
-          "key": "train_task29_episode826_frame114|seed=0",
-          "phase_bin": 3,
-          "score": 0.20322688588719218,
-          "split": "train",
-          "task_index": 29
-        },
-        {
-          "dataset_global_index": 156401,
-          "episode_index": 826,
-          "frame_index": 125,
-          "key": "train_task29_episode826_frame125|seed=0",
-          "phase_bin": 3,
-          "score": 0.2802752725403159,
-          "split": "train",
-          "task_index": 29
-        },
-        {
           "dataset_global_index": 156413,
           "episode_index": 826,
           "frame_index": 137,
@@ -971,14 +1101,54 @@
           "task_index": 29
         },
         {
-          "dataset_global_index": 156298,
+          "dataset_global_index": 156424,
           "episode_index": 826,
-          "frame_index": 22,
-          "key": "train_task29_episode826_frame22|seed=0",
-          "phase_bin": 0,
-          "score": 0.0734797914065352,
+          "frame_index": 148,
+          "key": "train_task29_episode826_frame148|seed=0",
+          "phase_bin": 4,
+          "score": 0.5448598423439476,
           "split": "train",
           "task_index": 29
+        },
+        {
+          "dataset_global_index": 156321,
+          "episode_index": 826,
+          "frame_index": 45,
+          "key": "train_task29_episode826_frame45|seed=0",
+          "phase_bin": 1,
+          "score": 0.7015998611683862,
+          "split": "train",
+          "task_index": 29
+        },
+        {
+          "dataset_global_index": 156333,
+          "episode_index": 826,
+          "frame_index": 57,
+          "key": "train_task29_episode826_frame57|seed=0",
+          "phase_bin": 1,
+          "score": 0.7477028082424078,
+          "split": "train",
+          "task_index": 29
+        },
+        {
+          "dataset_global_index": 719,
+          "episode_index": 2,
+          "frame_index": 221,
+          "key": "train_task2_episode2_frame221|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 2
+        },
+        {
+          "dataset_global_index": 743,
+          "episode_index": 2,
+          "frame_index": 245,
+          "key": "train_task2_episode2_frame245|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 2
         },
         {
           "dataset_global_index": 792,
@@ -991,12 +1161,12 @@
           "task_index": 2
         },
         {
-          "dataset_global_index": 547,
+          "dataset_global_index": 817,
           "episode_index": 2,
-          "frame_index": 49,
-          "key": "train_task2_episode2_frame49|seed=0",
-          "phase_bin": 0,
-          "score": 0.23755803156948574,
+          "frame_index": 319,
+          "key": "train_task2_episode2_frame319|seed=0",
+          "phase_bin": 4,
+          "score": 0.43250285650513454,
           "split": "train",
           "task_index": 2
         },
@@ -1041,22 +1211,22 @@
           "task_index": 2
         },
         {
-          "dataset_global_index": 220495,
+          "dataset_global_index": 220596,
           "episode_index": 1261,
-          "frame_index": 0,
-          "key": "train_task30_episode1261_frame0|seed=0",
-          "phase_bin": 0,
-          "score": 0.11081725767443464,
+          "frame_index": 101,
+          "key": "train_task30_episode1261_frame101|seed=0",
+          "phase_bin": 4,
+          "score": 0.6609038854091723,
           "split": "train",
           "task_index": 30
         },
         {
-          "dataset_global_index": 220526,
+          "dataset_global_index": 220549,
           "episode_index": 1261,
-          "frame_index": 31,
-          "key": "train_task30_episode1261_frame31|seed=0",
-          "phase_bin": 1,
-          "score": 0.021294942476885927,
+          "frame_index": 54,
+          "key": "train_task30_episode1261_frame54|seed=0",
+          "phase_bin": 2,
+          "score": 0.6805111283569907,
           "split": "train",
           "task_index": 30
         },
@@ -1069,26 +1239,6 @@
           "score": 0.9999718224264744,
           "split": "train",
           "task_index": 30
-        },
-        {
-          "dataset_global_index": 222091,
-          "episode_index": 1274,
-          "frame_index": 88,
-          "key": "train_task30_episode1274_frame88|seed=0",
-          "phase_bin": 3,
-          "score": 0.1906668513419375,
-          "split": "train",
-          "task_index": 30
-        },
-        {
-          "dataset_global_index": 220624,
-          "episode_index": 1262,
-          "frame_index": 19,
-          "key": "train_task31_episode1262_frame19|seed=0",
-          "phase_bin": 0,
-          "score": 0.22031725147821152,
-          "split": "train",
-          "task_index": 31
         },
         {
           "dataset_global_index": 220644,
@@ -1111,12 +1261,22 @@
           "task_index": 31
         },
         {
-          "dataset_global_index": 220833,
+          "dataset_global_index": 220860,
           "episode_index": 1263,
-          "frame_index": 90,
-          "key": "train_task31_episode1263_frame90|seed=0",
-          "phase_bin": 3,
-          "score": 0.2706944441078933,
+          "frame_index": 117,
+          "key": "train_task31_episode1263_frame117|seed=0",
+          "phase_bin": 4,
+          "score": 0.51496515450157,
+          "split": "train",
+          "task_index": 31
+        },
+        {
+          "dataset_global_index": 220779,
+          "episode_index": 1263,
+          "frame_index": 36,
+          "key": "train_task31_episode1263_frame36|seed=0",
+          "phase_bin": 1,
+          "score": 0.6238139551019832,
           "split": "train",
           "task_index": 31
         },
@@ -1131,12 +1291,22 @@
           "task_index": 32
         },
         {
-          "dataset_global_index": 220940,
+          "dataset_global_index": 220954,
           "episode_index": 1264,
-          "frame_index": 70,
-          "key": "train_task32_episode1264_frame70|seed=0",
-          "phase_bin": 3,
-          "score": 0.30868715790723,
+          "frame_index": 84,
+          "key": "train_task32_episode1264_frame84|seed=0",
+          "phase_bin": 4,
+          "score": 0.6205652642524104,
+          "split": "train",
+          "task_index": 32
+        },
+        {
+          "dataset_global_index": 220961,
+          "episode_index": 1264,
+          "frame_index": 91,
+          "key": "train_task32_episode1264_frame91|seed=0",
+          "phase_bin": 4,
+          "score": 0.8518637928203451,
           "split": "train",
           "task_index": 32
         },
@@ -1151,42 +1321,42 @@
           "task_index": 32
         },
         {
-          "dataset_global_index": 220986,
+          "dataset_global_index": 221002,
           "episode_index": 1265,
-          "frame_index": 16,
-          "key": "train_task32_episode1265_frame16|seed=0",
-          "phase_bin": 0,
-          "score": 0.23793918712409362,
+          "frame_index": 32,
+          "key": "train_task32_episode1265_frame32|seed=0",
+          "phase_bin": 1,
+          "score": 0.6907308456183179,
           "split": "train",
           "task_index": 32
         },
         {
-          "dataset_global_index": 221035,
+          "dataset_global_index": 221068,
           "episode_index": 1265,
-          "frame_index": 65,
-          "key": "train_task32_episode1265_frame65|seed=0",
-          "phase_bin": 2,
-          "score": 0.3,
+          "frame_index": 98,
+          "key": "train_task32_episode1265_frame98|seed=0",
+          "phase_bin": 4,
+          "score": 0.6832194033318205,
           "split": "train",
           "task_index": 32
         },
         {
-          "dataset_global_index": 221210,
+          "dataset_global_index": 221219,
           "episode_index": 1267,
-          "frame_index": 17,
-          "key": "train_task33_episode1267_frame17|seed=0",
-          "phase_bin": 0,
-          "score": 0.6698395540940889,
+          "frame_index": 26,
+          "key": "train_task33_episode1267_frame26|seed=0",
+          "phase_bin": 1,
+          "score": 0.6994716228874996,
           "split": "train",
           "task_index": 33
         },
         {
-          "dataset_global_index": 221554,
+          "dataset_global_index": 221564,
           "episode_index": 1269,
-          "frame_index": 108,
-          "key": "train_task33_episode1269_frame108|seed=0",
-          "phase_bin": 3,
-          "score": 0.22833114668718957,
+          "frame_index": 118,
+          "key": "train_task33_episode1269_frame118|seed=0",
+          "phase_bin": 4,
+          "score": 0.7,
           "split": "train",
           "task_index": 33
         },
@@ -1201,24 +1371,74 @@
           "task_index": 33
         },
         {
-          "dataset_global_index": 221505,
-          "episode_index": 1269,
-          "frame_index": 59,
-          "key": "train_task33_episode1269_frame59|seed=0",
+          "dataset_global_index": 221869,
+          "episode_index": 1272,
+          "frame_index": 35,
+          "key": "train_task34_episode1272_frame35|seed=0",
           "phase_bin": 2,
-          "score": 0.1982693101903734,
+          "score": 0.5219260434884461,
           "split": "train",
-          "task_index": 33
+          "task_index": 34
         },
         {
-          "dataset_global_index": 221455,
-          "episode_index": 1269,
-          "frame_index": 9,
-          "key": "train_task33_episode1269_frame9|seed=0",
-          "phase_bin": 0,
-          "score": 0.15090143316207694,
+          "dataset_global_index": 221875,
+          "episode_index": 1272,
+          "frame_index": 41,
+          "key": "train_task34_episode1272_frame41|seed=0",
+          "phase_bin": 2,
+          "score": 0.5120175669988836,
           "split": "train",
-          "task_index": 33
+          "task_index": 34
+        },
+        {
+          "dataset_global_index": 221905,
+          "episode_index": 1272,
+          "frame_index": 71,
+          "key": "train_task34_episode1272_frame71|seed=0",
+          "phase_bin": 4,
+          "score": 0.5550018346370866,
+          "split": "train",
+          "task_index": 34
+        },
+        {
+          "dataset_global_index": 221911,
+          "episode_index": 1272,
+          "frame_index": 77,
+          "key": "train_task34_episode1272_frame77|seed=0",
+          "phase_bin": 4,
+          "score": 0.6219229366640284,
+          "split": "train",
+          "task_index": 34
+        },
+        {
+          "dataset_global_index": 221948,
+          "episode_index": 1273,
+          "frame_index": 30,
+          "key": "train_task34_episode1273_frame30|seed=0",
+          "phase_bin": 1,
+          "score": 0.7081869972058589,
+          "split": "train",
+          "task_index": 34
+        },
+        {
+          "dataset_global_index": 221954,
+          "episode_index": 1273,
+          "frame_index": 36,
+          "key": "train_task34_episode1273_frame36|seed=0",
+          "phase_bin": 2,
+          "score": 0.6861704308401286,
+          "split": "train",
+          "task_index": 34
+        },
+        {
+          "dataset_global_index": 221978,
+          "episode_index": 1273,
+          "frame_index": 60,
+          "key": "train_task34_episode1273_frame60|seed=0",
+          "phase_bin": 3,
+          "score": 0.26070098816873694,
+          "split": "train",
+          "task_index": 34
         },
         {
           "dataset_global_index": 221984,
@@ -1241,6 +1461,16 @@
           "task_index": 34
         },
         {
+          "dataset_global_index": 222537,
+          "episode_index": 1278,
+          "frame_index": 42,
+          "key": "train_task35_episode1278_frame42|seed=0",
+          "phase_bin": 2,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 35
+        },
+        {
           "dataset_global_index": 222545,
           "episode_index": 1278,
           "frame_index": 50,
@@ -1261,6 +1491,26 @@
           "task_index": 35
         },
         {
+          "dataset_global_index": 222636,
+          "episode_index": 1279,
+          "frame_index": 40,
+          "key": "train_task35_episode1279_frame40|seed=0",
+          "phase_bin": 2,
+          "score": 0.6250808611634833,
+          "split": "train",
+          "task_index": 35
+        },
+        {
+          "dataset_global_index": 222643,
+          "episode_index": 1279,
+          "frame_index": 47,
+          "key": "train_task35_episode1279_frame47|seed=0",
+          "phase_bin": 2,
+          "score": 0.7570236776654016,
+          "split": "train",
+          "task_index": 35
+        },
+        {
           "dataset_global_index": 222677,
           "episode_index": 1279,
           "frame_index": 81,
@@ -1269,6 +1519,46 @@
           "score": 0.7348402528556848,
           "split": "train",
           "task_index": 35
+        },
+        {
+          "dataset_global_index": 222684,
+          "episode_index": 1279,
+          "frame_index": 88,
+          "key": "train_task35_episode1279_frame88|seed=0",
+          "phase_bin": 4,
+          "score": 0.6801355325379803,
+          "split": "train",
+          "task_index": 35
+        },
+        {
+          "dataset_global_index": 222752,
+          "episode_index": 1280,
+          "frame_index": 60,
+          "key": "train_task36_episode1280_frame60|seed=0",
+          "phase_bin": 2,
+          "score": 0.7650408117260197,
+          "split": "train",
+          "task_index": 36
+        },
+        {
+          "dataset_global_index": 222790,
+          "episode_index": 1280,
+          "frame_index": 98,
+          "key": "train_task36_episode1280_frame98|seed=0",
+          "phase_bin": 4,
+          "score": 0.6222924506368341,
+          "split": "train",
+          "task_index": 36
+        },
+        {
+          "dataset_global_index": 223385,
+          "episode_index": 1285,
+          "frame_index": 106,
+          "key": "train_task36_episode1285_frame106|seed=0",
+          "phase_bin": 4,
+          "score": 0.6818441515795135,
+          "split": "train",
+          "task_index": 36
         },
         {
           "dataset_global_index": 223394,
@@ -1281,14 +1571,54 @@
           "task_index": 36
         },
         {
-          "dataset_global_index": 223287,
+          "dataset_global_index": 223332,
           "episode_index": 1285,
-          "frame_index": 8,
-          "key": "train_task36_episode1285_frame8|seed=0",
-          "phase_bin": 0,
-          "score": 0.0011220819358132136,
+          "frame_index": 53,
+          "key": "train_task36_episode1285_frame53|seed=0",
+          "phase_bin": 2,
+          "score": 0.6964146152347885,
           "split": "train",
           "task_index": 36
+        },
+        {
+          "dataset_global_index": 223341,
+          "episode_index": 1285,
+          "frame_index": 62,
+          "key": "train_task36_episode1285_frame62|seed=0",
+          "phase_bin": 2,
+          "score": 0.8086942925188233,
+          "split": "train",
+          "task_index": 36
+        },
+        {
+          "dataset_global_index": 222902,
+          "episode_index": 1281,
+          "frame_index": 103,
+          "key": "train_task37_episode1281_frame103|seed=0",
+          "phase_bin": 4,
+          "score": 0.6544911857966423,
+          "split": "train",
+          "task_index": 37
+        },
+        {
+          "dataset_global_index": 222846,
+          "episode_index": 1281,
+          "frame_index": 47,
+          "key": "train_task37_episode1281_frame47|seed=0",
+          "phase_bin": 2,
+          "score": 0.6367373758590177,
+          "split": "train",
+          "task_index": 37
+        },
+        {
+          "dataset_global_index": 222854,
+          "episode_index": 1281,
+          "frame_index": 55,
+          "key": "train_task37_episode1281_frame55|seed=0",
+          "phase_bin": 2,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 37
         },
         {
           "dataset_global_index": 223525,
@@ -1301,76 +1631,6 @@
           "task_index": 37
         },
         {
-          "dataset_global_index": 223432,
-          "episode_index": 1286,
-          "frame_index": 28,
-          "key": "train_task37_episode1286_frame28|seed=0",
-          "phase_bin": 1,
-          "score": 0.3543232039910123,
-          "split": "train",
-          "task_index": 37
-        },
-        {
-          "dataset_global_index": 223450,
-          "episode_index": 1286,
-          "frame_index": 46,
-          "key": "train_task37_episode1286_frame46|seed=0",
-          "phase_bin": 1,
-          "score": 0.7297456050751769,
-          "split": "train",
-          "task_index": 37
-        },
-        {
-          "dataset_global_index": 223119,
-          "episode_index": 1283,
-          "frame_index": 124,
-          "key": "train_task38_episode1283_frame124|seed=0",
-          "phase_bin": 4,
-          "score": 0.9465551221334925,
-          "split": "train",
-          "task_index": 38
-        },
-        {
-          "dataset_global_index": 223014,
-          "episode_index": 1283,
-          "frame_index": 19,
-          "key": "train_task38_episode1283_frame19|seed=0",
-          "phase_bin": 0,
-          "score": 0.3729586665709514,
-          "split": "train",
-          "task_index": 38
-        },
-        {
-          "dataset_global_index": 223042,
-          "episode_index": 1283,
-          "frame_index": 47,
-          "key": "train_task38_episode1283_frame47|seed=0",
-          "phase_bin": 1,
-          "score": 1.0,
-          "split": "train",
-          "task_index": 38
-        },
-        {
-          "dataset_global_index": 223052,
-          "episode_index": 1283,
-          "frame_index": 57,
-          "key": "train_task38_episode1283_frame57|seed=0",
-          "phase_bin": 2,
-          "score": 0.7664432587835274,
-          "split": "train",
-          "task_index": 38
-        },
-        {
-          "dataset_global_index": 223004,
-          "episode_index": 1283,
-          "frame_index": 9,
-          "key": "train_task38_episode1283_frame9|seed=0",
-          "phase_bin": 0,
-          "score": 0.42557543752754506,
-          "split": "train",
-          "task_index": 38
-        },
-        {
           "dataset_global_index": 223571,
           "episode_index": 1287,
           "frame_index": 35,
@@ -1379,16 +1639,6 @@
           "score": 0.7,
           "split": "train",
           "task_index": 38
-        },
-        {
-          "dataset_global_index": 223970,
-          "episode_index": 1290,
-          "frame_index": 128,
-          "key": "train_task39_episode1290_frame128|seed=0",
-          "phase_bin": 3,
-          "score": 0.4017718252266708,
-          "split": "train",
-          "task_index": 39
         },
         {
           "dataset_global_index": 223981,
@@ -1401,22 +1651,22 @@
           "task_index": 39
         },
         {
-          "dataset_global_index": 223865,
-          "episode_index": 1290,
-          "frame_index": 23,
-          "key": "train_task39_episode1290_frame23|seed=0",
-          "phase_bin": 0,
-          "score": 0.11198577706074589,
-          "split": "train",
-          "task_index": 39
-        },
-        {
           "dataset_global_index": 223888,
           "episode_index": 1290,
           "frame_index": 46,
           "key": "train_task39_episode1290_frame46|seed=0",
           "phase_bin": 1,
           "score": 0.9428206203881656,
+          "split": "train",
+          "task_index": 39
+        },
+        {
+          "dataset_global_index": 224655,
+          "episode_index": 1295,
+          "frame_index": 126,
+          "key": "train_task39_episode1295_frame126|seed=0",
+          "phase_bin": 4,
+          "score": 0.667107885032112,
           "split": "train",
           "task_index": 39
         },
@@ -1441,6 +1691,16 @@
           "task_index": 39
         },
         {
+          "dataset_global_index": 10799,
+          "episode_index": 38,
+          "frame_index": 204,
+          "key": "train_task3_episode38_frame204|seed=0",
+          "phase_bin": 3,
+          "score": 0.5091154992056974,
+          "split": "train",
+          "task_index": 3
+        },
+        {
           "dataset_global_index": 10836,
           "episode_index": 38,
           "frame_index": 241,
@@ -1457,6 +1717,16 @@
           "key": "train_task3_episode38_frame37|seed=0",
           "phase_bin": 0,
           "score": 0.7,
+          "split": "train",
+          "task_index": 3
+        },
+        {
+          "dataset_global_index": 10669,
+          "episode_index": 38,
+          "frame_index": 74,
+          "key": "train_task3_episode38_frame74|seed=0",
+          "phase_bin": 1,
+          "score": 0.7130177601393546,
           "split": "train",
           "task_index": 3
         },
@@ -1481,12 +1751,32 @@
           "task_index": 3
         },
         {
+          "dataset_global_index": 1864,
+          "episode_index": 6,
+          "frame_index": 218,
+          "key": "train_task3_episode6_frame218|seed=0",
+          "phase_bin": 3,
+          "score": 0.5118491766005442,
+          "split": "train",
+          "task_index": 3
+        },
+        {
           "dataset_global_index": 1904,
           "episode_index": 6,
           "frame_index": 258,
           "key": "train_task3_episode6_frame258|seed=0",
           "phase_bin": 4,
           "score": 0.6936267270971038,
+          "split": "train",
+          "task_index": 3
+        },
+        {
+          "dataset_global_index": 1705,
+          "episode_index": 6,
+          "frame_index": 59,
+          "key": "train_task3_episode6_frame59|seed=0",
+          "phase_bin": 1,
+          "score": 0.6291336827094547,
           "split": "train",
           "task_index": 3
         },
@@ -1501,12 +1791,142 @@
           "task_index": 3
         },
         {
+          "dataset_global_index": 1745,
+          "episode_index": 6,
+          "frame_index": 99,
+          "key": "train_task3_episode6_frame99|seed=0",
+          "phase_bin": 1,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 3
+        },
+        {
           "dataset_global_index": 2041,
           "episode_index": 7,
           "frame_index": 116,
           "key": "train_task4_episode7_frame116|seed=0",
           "phase_bin": 2,
           "score": 0.6940532868727812,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2060,
+          "episode_index": 7,
+          "frame_index": 135,
+          "key": "train_task4_episode7_frame135|seed=0",
+          "phase_bin": 2,
+          "score": 0.6267845561686405,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2099,
+          "episode_index": 7,
+          "frame_index": 174,
+          "key": "train_task4_episode7_frame174|seed=0",
+          "phase_bin": 3,
+          "score": 0.5585456398716414,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2118,
+          "episode_index": 7,
+          "frame_index": 193,
+          "key": "train_task4_episode7_frame193|seed=0",
+          "phase_bin": 3,
+          "score": 0.6049449431116775,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2137,
+          "episode_index": 7,
+          "frame_index": 212,
+          "key": "train_task4_episode7_frame212|seed=0",
+          "phase_bin": 3,
+          "score": 0.044714985084408305,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 1983,
+          "episode_index": 7,
+          "frame_index": 58,
+          "key": "train_task4_episode7_frame58|seed=0",
+          "phase_bin": 1,
+          "score": 0.25,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2002,
+          "episode_index": 7,
+          "frame_index": 77,
+          "key": "train_task4_episode7_frame77|seed=0",
+          "phase_bin": 1,
+          "score": 0.6786711047533993,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2563,
+          "episode_index": 9,
+          "frame_index": 107,
+          "key": "train_task4_episode9_frame107|seed=0",
+          "phase_bin": 1,
+          "score": 0.6158109611203273,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2585,
+          "episode_index": 9,
+          "frame_index": 129,
+          "key": "train_task4_episode9_frame129|seed=0",
+          "phase_bin": 2,
+          "score": 0.5621169475515786,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2606,
+          "episode_index": 9,
+          "frame_index": 150,
+          "key": "train_task4_episode9_frame150|seed=0",
+          "phase_bin": 2,
+          "score": 0.5275061578848756,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2649,
+          "episode_index": 9,
+          "frame_index": 193,
+          "key": "train_task4_episode9_frame193|seed=0",
+          "phase_bin": 3,
+          "score": 0.7102131270353967,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2671,
+          "episode_index": 9,
+          "frame_index": 215,
+          "key": "train_task4_episode9_frame215|seed=0",
+          "phase_bin": 3,
+          "score": 0.6960110976147018,
+          "split": "train",
+          "task_index": 4
+        },
+        {
+          "dataset_global_index": 2692,
+          "episode_index": 9,
+          "frame_index": 236,
+          "key": "train_task4_episode9_frame236|seed=0",
+          "phase_bin": 3,
+          "score": 0.30980966610662436,
           "split": "train",
           "task_index": 4
         },
@@ -1521,6 +1941,36 @@
           "task_index": 4
         },
         {
+          "dataset_global_index": 3780,
+          "episode_index": 13,
+          "frame_index": 142,
+          "key": "train_task5_episode13_frame142|seed=0",
+          "phase_bin": 2,
+          "score": 0.5811490871782267,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 3800,
+          "episode_index": 13,
+          "frame_index": 162,
+          "key": "train_task5_episode13_frame162|seed=0",
+          "phase_bin": 2,
+          "score": 0.5176978148602049,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 3840,
+          "episode_index": 13,
+          "frame_index": 202,
+          "key": "train_task5_episode13_frame202|seed=0",
+          "phase_bin": 3,
+          "score": 0.7928799431586043,
+          "split": "train",
+          "task_index": 5
+        },
+        {
           "dataset_global_index": 3861,
           "episode_index": 13,
           "frame_index": 223,
@@ -1531,12 +1981,42 @@
           "task_index": 5
         },
         {
-          "dataset_global_index": 3678,
+          "dataset_global_index": 3698,
           "episode_index": 13,
-          "frame_index": 40,
-          "key": "train_task5_episode13_frame40|seed=0",
-          "phase_bin": 0,
-          "score": 0.35893505583239965,
+          "frame_index": 60,
+          "key": "train_task5_episode13_frame60|seed=0",
+          "phase_bin": 1,
+          "score": 0.7646556131804103,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 2326,
+          "episode_index": 8,
+          "frame_index": 129,
+          "key": "train_task5_episode8_frame129|seed=0",
+          "phase_bin": 2,
+          "score": 0.6289605617216214,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 2381,
+          "episode_index": 8,
+          "frame_index": 184,
+          "key": "train_task5_episode8_frame184|seed=0",
+          "phase_bin": 3,
+          "score": 0.7023286485689348,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 2399,
+          "episode_index": 8,
+          "frame_index": 202,
+          "key": "train_task5_episode8_frame202|seed=0",
+          "phase_bin": 3,
+          "score": 0.8067996712560154,
           "split": "train",
           "task_index": 5
         },
@@ -1547,6 +2027,26 @@
           "key": "train_task5_episode8_frame221|seed=0",
           "phase_bin": 4,
           "score": 0.6178444109355572,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 2436,
+          "episode_index": 8,
+          "frame_index": 239,
+          "key": "train_task5_episode8_frame239|seed=0",
+          "phase_bin": 4,
+          "score": 0.4375133566549618,
+          "split": "train",
+          "task_index": 5
+        },
+        {
+          "dataset_global_index": 2252,
+          "episode_index": 8,
+          "frame_index": 55,
+          "key": "train_task5_episode8_frame55|seed=0",
+          "phase_bin": 1,
+          "score": 0.7298881515806814,
           "split": "train",
           "task_index": 5
         },
@@ -1571,12 +2071,102 @@
           "task_index": 6
         },
         {
+          "dataset_global_index": 2921,
+          "episode_index": 10,
+          "frame_index": 163,
+          "key": "train_task6_episode10_frame163|seed=0",
+          "phase_bin": 2,
+          "score": 0.5305231767575103,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 2949,
+          "episode_index": 10,
+          "frame_index": 191,
+          "key": "train_task6_episode10_frame191|seed=0",
+          "phase_bin": 2,
+          "score": 0.7226740328549951,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 3058,
+          "episode_index": 10,
+          "frame_index": 300,
+          "key": "train_task6_episode10_frame300|seed=0",
+          "phase_bin": 3,
+          "score": 0.5389810334407739,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 3112,
+          "episode_index": 10,
+          "frame_index": 354,
+          "key": "train_task6_episode10_frame354|seed=0",
+          "phase_bin": 4,
+          "score": 0.5105070220347716,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 2839,
+          "episode_index": 10,
+          "frame_index": 81,
+          "key": "train_task6_episode10_frame81|seed=0",
+          "phase_bin": 1,
+          "score": 0.5072316156446736,
+          "split": "train",
+          "task_index": 6
+        },
+        {
           "dataset_global_index": 5546,
           "episode_index": 20,
           "frame_index": 102,
           "key": "train_task6_episode20_frame102|seed=0",
           "phase_bin": 1,
           "score": 0.6455802317380861,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 5597,
+          "episode_index": 20,
+          "frame_index": 153,
+          "key": "train_task6_episode20_frame153|seed=0",
+          "phase_bin": 2,
+          "score": 0.6653412740031754,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 5623,
+          "episode_index": 20,
+          "frame_index": 179,
+          "key": "train_task6_episode20_frame179|seed=0",
+          "phase_bin": 2,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 5699,
+          "episode_index": 20,
+          "frame_index": 255,
+          "key": "train_task6_episode20_frame255|seed=0",
+          "phase_bin": 3,
+          "score": 0.47621830034120066,
+          "split": "train",
+          "task_index": 6
+        },
+        {
+          "dataset_global_index": 5725,
+          "episode_index": 20,
+          "frame_index": 281,
+          "key": "train_task6_episode20_frame281|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
           "split": "train",
           "task_index": 6
         },
@@ -1589,6 +2179,16 @@
           "score": 0.5639457795633906,
           "split": "train",
           "task_index": 6
+        },
+        {
+          "dataset_global_index": 3478,
+          "episode_index": 12,
+          "frame_index": 119,
+          "key": "train_task7_episode12_frame119|seed=0",
+          "phase_bin": 2,
+          "score": 0.47797701302612994,
+          "split": "train",
+          "task_index": 7
         },
         {
           "dataset_global_index": 3498,
@@ -1611,12 +2211,72 @@
           "task_index": 7
         },
         {
+          "dataset_global_index": 3537,
+          "episode_index": 12,
+          "frame_index": 178,
+          "key": "train_task7_episode12_frame178|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 7
+        },
+        {
+          "dataset_global_index": 3557,
+          "episode_index": 12,
+          "frame_index": 198,
+          "key": "train_task7_episode12_frame198|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 7
+        },
+        {
+          "dataset_global_index": 3577,
+          "episode_index": 12,
+          "frame_index": 218,
+          "key": "train_task7_episode12_frame218|seed=0",
+          "phase_bin": 3,
+          "score": 0.6002626617191613,
+          "split": "train",
+          "task_index": 7
+        },
+        {
+          "dataset_global_index": 3617,
+          "episode_index": 12,
+          "frame_index": 258,
+          "key": "train_task7_episode12_frame258|seed=0",
+          "phase_bin": 4,
+          "score": 0.26030455154147025,
+          "split": "train",
+          "task_index": 7
+        },
+        {
           "dataset_global_index": 3398,
           "episode_index": 12,
           "frame_index": 39,
           "key": "train_task7_episode12_frame39|seed=0",
           "phase_bin": 0,
           "score": 0.8120297296479351,
+          "split": "train",
+          "task_index": 7
+        },
+        {
+          "dataset_global_index": 3418,
+          "episode_index": 12,
+          "frame_index": 59,
+          "key": "train_task7_episode12_frame59|seed=0",
+          "phase_bin": 1,
+          "score": 0.6063663118819784,
+          "split": "train",
+          "task_index": 7
+        },
+        {
+          "dataset_global_index": 4794,
+          "episode_index": 17,
+          "frame_index": 124,
+          "key": "train_task7_episode17_frame124|seed=0",
+          "phase_bin": 2,
+          "score": 0.44947508390258173,
           "split": "train",
           "task_index": 7
         },
@@ -1651,6 +2311,16 @@
           "task_index": 7
         },
         {
+          "dataset_global_index": 4900,
+          "episode_index": 17,
+          "frame_index": 230,
+          "key": "train_task7_episode17_frame230|seed=0",
+          "phase_bin": 4,
+          "score": 0.290048429262313,
+          "split": "train",
+          "task_index": 7
+        },
+        {
           "dataset_global_index": 4705,
           "episode_index": 17,
           "frame_index": 35,
@@ -1681,12 +2351,32 @@
           "task_index": 8
         },
         {
-          "dataset_global_index": 3941,
+          "dataset_global_index": 4087,
           "episode_index": 14,
-          "frame_index": 18,
-          "key": "train_task8_episode14_frame18|seed=0",
-          "phase_bin": 0,
-          "score": 0.2920036315157512,
+          "frame_index": 164,
+          "key": "train_task8_episode14_frame164|seed=0",
+          "phase_bin": 3,
+          "score": 0.7,
+          "split": "train",
+          "task_index": 8
+        },
+        {
+          "dataset_global_index": 4014,
+          "episode_index": 14,
+          "frame_index": 91,
+          "key": "train_task8_episode14_frame91|seed=0",
+          "phase_bin": 1,
+          "score": 0.6932583481734416,
+          "split": "train",
+          "task_index": 8
+        },
+        {
+          "dataset_global_index": 4317,
+          "episode_index": 15,
+          "frame_index": 137,
+          "key": "train_task8_episode15_frame137|seed=0",
+          "phase_bin": 2,
+          "score": 0.6839053597743477,
           "split": "train",
           "task_index": 8
         },
@@ -1701,54 +2391,14 @@
           "task_index": 8
         },
         {
-          "dataset_global_index": 4403,
+          "dataset_global_index": 4266,
           "episode_index": 15,
-          "frame_index": 223,
-          "key": "train_task8_episode15_frame223|seed=0",
-          "phase_bin": 4,
-          "score": 0.2989609662551203,
-          "split": "train",
-          "task_index": 8
-        },
-        {
-          "dataset_global_index": 4421,
-          "episode_index": 15,
-          "frame_index": 241,
-          "key": "train_task8_episode15_frame241|seed=0",
-          "phase_bin": 4,
-          "score": 0.3,
-          "split": "train",
-          "task_index": 8
-        },
-        {
-          "dataset_global_index": 7793,
-          "episode_index": 27,
-          "frame_index": 216,
-          "key": "train_task9_episode27_frame216|seed=0",
-          "phase_bin": 4,
-          "score": 0.4708537020742932,
-          "split": "train",
-          "task_index": 9
-        },
-        {
-          "dataset_global_index": 7810,
-          "episode_index": 27,
-          "frame_index": 233,
-          "key": "train_task9_episode27_frame233|seed=0",
-          "phase_bin": 4,
-          "score": 0.43908868471788753,
-          "split": "train",
-          "task_index": 9
-        },
-        {
-          "dataset_global_index": 7626,
-          "episode_index": 27,
-          "frame_index": 49,
-          "key": "train_task9_episode27_frame49|seed=0",
+          "frame_index": 86,
+          "key": "train_task8_episode15_frame86|seed=0",
           "phase_bin": 1,
-          "score": 0.8817176307961696,
+          "score": 0.666984517250218,
           "split": "train",
-          "task_index": 9
+          "task_index": 8
         },
         {
           "dataset_global_index": 7643,
@@ -1757,16 +2407,6 @@
           "key": "train_task9_episode27_frame66|seed=0",
           "phase_bin": 1,
           "score": 0.8312093560810471,
-          "split": "train",
-          "task_index": 9
-        },
-        {
-          "dataset_global_index": 7824,
-          "episode_index": 28,
-          "frame_index": 13,
-          "key": "train_task9_episode28_frame13|seed=0",
-          "phase_bin": 0,
-          "score": 0.3562774082918485,
           "split": "train",
           "task_index": 9
         },

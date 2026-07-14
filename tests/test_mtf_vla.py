@@ -5,6 +5,7 @@ import pytest
 
 from tca_map.smolvla.mtf_vla import (
     MTFConfig,
+    _frameskip_proxy_records,
     audit_mtf_records,
     build_score_records,
     compute_mtf_scores,
@@ -142,3 +143,16 @@ def test_validation_search_freezes_one_of_six_configs() -> None:
     assert report["tried_config_count"] == 6
     assert report["final_decision"] == "VALIDATION_SEARCH_SELECT_CONFIG_REQUIRES_ADAPTER_TRAINING"
     assert report["selected_training_manifest"]["checkpoint_required_before_stage_a"] is True
+
+
+def test_frameskip_proxy_selects_action_variation_from_full_train_group() -> None:
+    records = [
+        {"key": "mtf_high_due_gripper", "task_index": 0, "phase_bin": 0, "action_variation": 0.1},
+        {"key": "frameskip_top_a", "task_index": 0, "phase_bin": 0, "action_variation": 5.0},
+        {"key": "frameskip_top_b", "task_index": 0, "phase_bin": 0, "action_variation": 4.0},
+        {"key": "low_motion", "task_index": 0, "phase_bin": 0, "action_variation": 0.0},
+    ]
+
+    selected = _frameskip_proxy_records(records, 0.5)
+
+    assert [record["key"] for record in selected] == ["frameskip_top_a", "frameskip_top_b"]

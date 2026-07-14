@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_6_MTF_ADAPTER_TRAINING_RUNNER_READY`
+Current decision: `EPOCH_4_CYCLE_6_MTF_CHECKPOINTS_VERIFIED_STAGE_A_READY`
 
 Current epoch: `4`
 
 Current cycle: `6`
 
-Current stage: `epoch_4_cycle_6_mtf_adapter_training_runner_validated`
+Current stage: `epoch_4_cycle_6_mtf_stage_a_manifest_pending`
 
 Allowed final states:
 
@@ -219,3 +219,7 @@ Current stage: adapter training pending. Stage A must not start until disk-reloa
 The MTF adapter-training runner is implemented and dry-run validated in `scripts/run_mtf_vla_adapter_training.py`. The real selected-training manifest joins cleanly with the official split and stable prediction artifact: MTF full has `567` training events (`176` milestone, `391` frozen-base retention), no-retention ablation has `176`, the FrameSkip proxy has `176`, and uniform retained-ratio LoRA has `240`. Train/validation/test frame overlap is `0 / 0 / 0`; validation remains `400` frames; no training or closed-loop rollout happened in this dry run.
 
 Current stage: adapter-training runner validated. Stage A must still not start until disk-reloadable checkpoints are trained and disk-reload verified for all four trainable policies.
+
+Adapter training completed after the runner dry-run and a development-only FrameSkip proxy repair: all four trainable Stage A policies were trained with seed `101`, saved under `runs/mtf_vla_checkpoints/mtf_r20_ret100`, reloaded from disk, and evaluated on the `400` validation frames. Final decision: `MTF_ALL_ADAPTER_CHECKPOINTS_VERIFIED_STAGE_A_READY`. Validation action L2 means were `0.082590885` for MTF full, `0.082867367` for the no-retention ablation, `0.082553130` for the corrected FrameSkip proxy, and `0.082396918` for uniform retained-ratio LoRA. The corrected FrameSkip proxy uses `240` action-variation-selected train events and is distinct from the no-retention ablation. No closed-loop rollout happened and no confirmatory-test identities were used.
+
+Current stage: Stage A matched-manifest freeze pending. Stage A may start only after the paired task/reset manifest is frozen; these checkpoints must not be tuned on Stage A or later confirmatory outcomes.
