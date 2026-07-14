@@ -1,6 +1,6 @@
 {
     "schema_version": 1,
-    "date_kst": "2026-07-14",
+    "date_kst": "2026-07-15",
     "campaign": "autonomous_ral_reopened_experimental_package",
     "governance_correction_applied": true,
     "target_terminal_state": "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
@@ -18,15 +18,15 @@
     "maximum_wall_time_hours_per_cycle": 12,
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
-    "current_cycle": 7,
-    "topic": "epoch_4_cycle_7_dagr_stage_b_rollout_ready",
-    "method": "DAGR-VLA",
+    "current_cycle": 8,
+    "topic": "epoch_4_cycle_8_candidate_search_pending",
+    "method": "PENDING_EPOCH_4_CYCLE_8_SELECTION",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "7d82aa3d0be144d1626900ebeabf06b460b36b62",
-    "current_stage": "epoch_4_cycle_7_dagr_stage_b_rollout_ready",
+    "current_commit": "f5a547a",
+    "current_stage": "epoch_4_cycle_8_candidate_search_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -239,24 +239,22 @@
         "epoch_4_cycle_7_dagr_stage_a_policy_preflight_passed",
         "epoch_4_cycle_7_dagr_stage_a_completed",
         "epoch_4_cycle_7_dagr_stage_a_adjudicated",
-        "epoch_4_cycle_7_dagr_stage_b_manifest_frozen"
+        "epoch_4_cycle_7_dagr_stage_b_manifest_frozen",
+        "epoch_4_cycle_7_dagr_stage_b_completed",
+        "epoch_4_cycle_7_dagr_stage_b_adjudicated",
+        "epoch_4_cycle_7_dagr_valid_current_formulation_kill_recorded",
+        "epoch_4_cycle_8_candidate_search_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
     "elapsed_active_time_hours_recorded": 5.21,
     "gpu_time_hours_recorded": 5.21,
     "downloads_gib_this_reopened_campaign": 0.0,
-    "hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
+    "hypothesis": "Epoch 4 Cycle 8 candidate search pending under current governance.",
     "novelty_claim": "A narrow DAM-VLA anchored extension: frozen SmolVLA identity-preserving route-gated group residual adaptation, not broad dynamic arm/gripper routing novelty.",
-    "closest_papers": [
-        "DAM-VLA: https://arxiv.org/abs/2603.00926",
-        "ReactVLA: https://arxiv.org/abs/2606.14255",
-        "AffordanceVLA: https://arxiv.org/abs/2606.06155",
-        "GEAR-VLA: https://arxiv.org/abs/2606.08530",
-        "PDF: https://arxiv.org/abs/2604.18107"
-    ],
+    "closest_papers": [],
     "prototype_gate": "Stage 0 must show noncollapsed observable route labels, validation prediction above the trivial majority baseline, nonidentical and non-always-on group activations, bounded zero-initialized action deltas, zero split overlap, and full DAGR distinct from the static proxy and shared-residual ablation.",
-    "current_decision": "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT",
+    "current_decision": "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_8",
     "stage_a_partial_checkpoint": "reports/dagr_vla/stage_a_partial_result.json",
     "stage_a_result_json": "reports/dagr_vla/stage_a_result.json",
     "stage_a_result_md": "reports/dagr_vla/stage_a_result.md",
@@ -407,14 +405,14 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Launch DAGR Stage B official WSL rollout using the frozen all-task manifest; save durable PID, heartbeat, logs, partial result, and exact resume command.",
-    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
-    "active_hypothesis": "Dynamic arm/gripper action routing with identity-preserving group residuals can improve frozen SmolVLA closed-loop manipulation success beyond Base, a DAM-style static component proxy, a shared-residual ablation, and a gripper-transition heuristic.",
-    "method_identity": "DAGR-VLA",
-    "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
-    "prototype_protocol": "reports/dagr_vla/prototype_protocol.md",
+    "next_action": "Archive DAGR-VLA as a valid current-formulation kill and begin Epoch 4 Cycle 8 candidate search under the installed performance-oriented governance. Generate exactly three prior-anchored candidates; do not retune DAGR from Stage B outcomes.",
+    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
+    "active_hypothesis": "Epoch 4 Cycle 8 candidate search pending under current governance.",
+    "method_identity": "PENDING_EPOCH_4_CYCLE_8_SELECTION",
+    "proposal_hash": "PENDING_EPOCH_4_CYCLE_8_SELECTION",
+    "prototype_protocol": null,
     "process_id": null,
-    "checkpoint_path": "runs/dagr_vla_checkpoints/dagr_a020_route_mlp",
+    "checkpoint_path": null,
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -1142,7 +1140,7 @@
         ],
         "next_stage": "Actual disk-reloadable adapter training and validation."
     },
-    "task_reset_manifest": "reports/dagr_vla/stage_b_manifest.json",
+    "task_reset_manifest": null,
     "epoch_4_cycle_6_mtf_adapter_checkpoint_outcome": {
         "method": "MTF-VLA",
         "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
@@ -2160,5 +2158,701 @@
         "stage_b_partial_result_json": "reports/dagr_vla/stage_b_partial_result.json",
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
+    },
+    "current_topic": "epoch_4_cycle_8_candidate_search_pending",
+    "epoch_4_cycle_7_dagr_stage_b_outcome": {
+        "method": "DAGR-VLA",
+        "config_id": "dagr_a020_route_mlp",
+        "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
+        "final_decision": "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD",
+        "valid_current_formulation_kill": true,
+        "stage_b_completed": true,
+        "stage_b_adjudicated": true,
+        "closed_loop_experiment_happened": true,
+        "confirmatory_test_tuning_happened": false,
+        "result_json": "reports/dagr_vla/stage_b_result.json",
+        "result_md": "reports/dagr_vla/stage_b_result.md",
+        "partial_result_json": "reports/dagr_vla/stage_b_partial_result.json",
+        "status_json": "reports/dagr_vla/stage_b_status.json",
+        "stage_b_manifest": "reports/dagr_vla/stage_b_manifest.json",
+        "stage_b_manifest_sha256": "2067109FA6C8261600321B998067052EE86DF6597A199B212463AE04A8B5DA92",
+        "stage_a_result": "reports/dagr_vla/stage_a_result.json",
+        "stage_a_result_sha256": "937F931FEE7C69C9EBBFCD47EE0CCB6B51EF6F8C9CF71C6F5C955DB52C36B0FE",
+        "planned_episode_count": 200,
+        "completed_episode_count": 200,
+        "partial_completed_episode_count": 200,
+        "exception_count": 0,
+        "exit_code": 0,
+        "elapsed_seconds": 4580.403,
+        "policy_successes": {
+            "dagr_full": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 0.999952,
+                "mean_dagr_delta_l2": 0.057304793,
+                "peak_vram_max_allocated_mb": 927.667,
+                "per_task": {
+                    "libero_10/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_10/task_2": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_10/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_goal/task_2": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_4": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_2": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.009427,
+                "success_rate": 0.45,
+                "successes": 18,
+                "task_balanced_success_rate": 0.45,
+                "total": 40
+            },
+            "dagr_no_dynamic_route_ablation": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 1.0,
+                "mean_dagr_delta_l2": 0.06611561,
+                "peak_vram_max_allocated_mb": 927.667,
+                "per_task": {
+                    "libero_10/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_10/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_goal/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_8": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_8": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.009015,
+                "success_rate": 0.4,
+                "successes": 16,
+                "task_balanced_success_rate": 0.4,
+                "total": 40
+            },
+            "dam_static_component_proxy": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 1.0,
+                "mean_dagr_delta_l2": 0.297116974,
+                "peak_vram_max_allocated_mb": 927.666,
+                "per_task": {
+                    "libero_10/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_2": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_object/task_8": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_2": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.009636,
+                "success_rate": 0.125,
+                "successes": 5,
+                "task_balanced_success_rate": 0.125,
+                "total": 40
+            },
+            "frozen_smolvla": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 0.0,
+                "mean_dagr_delta_l2": 0.0,
+                "peak_vram_max_allocated_mb": 926.645,
+                "per_task": {
+                    "libero_10/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_10/task_2": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_10/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_10/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_goal/task_2": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_4": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.008024,
+                "success_rate": 0.7,
+                "successes": 28,
+                "task_balanced_success_rate": 0.7,
+                "total": 40
+            },
+            "gripper_transition_heuristic": {
+                "action_validity_all_finite": true,
+                "action_validity_all_shape_ok": true,
+                "exception_count": 0,
+                "mean_activation_fraction": 0.016455,
+                "mean_dagr_delta_l2": 0.000822732,
+                "peak_vram_max_allocated_mb": 927.656,
+                "per_task": {
+                    "libero_10/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_10/task_2": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_10/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_10/task_8": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_goal/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_4": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_goal/task_6": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_goal/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_0": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_object/task_4": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_object/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_0": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_2": {
+                        "success_rate": 0.5,
+                        "successes": 1,
+                        "total": 2
+                    },
+                    "libero_spatial/task_4": {
+                        "success_rate": 0.0,
+                        "successes": 0,
+                        "total": 2
+                    },
+                    "libero_spatial/task_6": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    },
+                    "libero_spatial/task_8": {
+                        "success_rate": 1.0,
+                        "successes": 2,
+                        "total": 2
+                    }
+                },
+                "policy_latency_mean_s": 0.007731,
+                "success_rate": 0.6,
+                "successes": 24,
+                "task_balanced_success_rate": 0.6,
+                "total": 40
+            }
+        },
+        "paired_vs_dagr_full": {
+            "dagr_no_dynamic_route_ablation": {
+                "paired_bootstrap_ci": [
+                    -0.15,
+                    0.25
+                ],
+                "paired_count": 40,
+                "paired_loss_count": 7,
+                "paired_success_delta": 0.05,
+                "paired_tie_count": 24,
+                "paired_win_count": 9
+            },
+            "dam_static_component_proxy": {
+                "paired_bootstrap_ci": [
+                    0.175,
+                    0.475
+                ],
+                "paired_count": 40,
+                "paired_loss_count": 1,
+                "paired_success_delta": 0.325,
+                "paired_tie_count": 25,
+                "paired_win_count": 14
+            },
+            "frozen_smolvla": {
+                "paired_bootstrap_ci": [
+                    -0.4,
+                    -0.1
+                ],
+                "paired_count": 40,
+                "paired_loss_count": 11,
+                "paired_success_delta": -0.25,
+                "paired_tie_count": 28,
+                "paired_win_count": 1
+            },
+            "gripper_transition_heuristic": {
+                "paired_bootstrap_ci": [
+                    -0.3,
+                    0.0
+                ],
+                "paired_count": 40,
+                "paired_loss_count": 8,
+                "paired_success_delta": -0.15,
+                "paired_tie_count": 30,
+                "paired_win_count": 2
+            }
+        },
+        "frozen_smolvla_successes": 28,
+        "dam_static_component_proxy_successes": 5,
+        "dagr_full_successes": 18,
+        "dagr_no_dynamic_route_ablation_successes": 16,
+        "gripper_transition_heuristic_successes": 24,
+        "dagr_full_task_balanced_success_rate": 0.45,
+        "frozen_smolvla_task_balanced_success_rate": 0.7,
+        "gripper_transition_heuristic_task_balanced_success_rate": 0.6,
+        "dagr_no_dynamic_route_ablation_task_balanced_success_rate": 0.4,
+        "dam_static_component_proxy_task_balanced_success_rate": 0.125,
+        "mean_dagr_full_activation_fraction": 0.999952,
+        "mean_dagr_full_delta_l2": 0.057304793,
+        "strongest_baseline": "frozen_smolvla",
+        "strongest_baseline_successes": 28,
+        "strongest_baseline_task_balanced_success_rate": 0.7,
+        "strongest_simple_killer_baseline": "gripper_transition_heuristic",
+        "strongest_simple_killer_successes": 24,
+        "paired_delta_vs_frozen_smolvla": -0.25,
+        "paired_ci_vs_frozen_smolvla": [
+            -0.4,
+            -0.1
+        ],
+        "paired_delta_vs_dam_static_component_proxy": 0.325,
+        "paired_ci_vs_dam_static_component_proxy": [
+            0.175,
+            0.475
+        ],
+        "paired_delta_vs_no_dynamic_route_ablation": 0.05,
+        "paired_ci_vs_no_dynamic_route_ablation": [
+            -0.15,
+            0.25
+        ],
+        "paired_delta_vs_gripper_transition_heuristic": -0.15,
+        "paired_ci_vs_gripper_transition_heuristic": [
+            -0.3,
+            0.0
+        ],
+        "ours_beats_base": false,
+        "ours_beats_closest_prior_proxy": true,
+        "ours_beats_key_ablation": true,
+        "ours_beats_simple_killer": false,
+        "simple_baseline_explains_method": true,
+        "checkpoint_retuning_allowed": false,
+        "threshold_change_allowed": false,
+        "task_or_reset_change_allowed": false,
+        "kill_reason": "DAGR full reached 18/40 while frozen SmolVLA reached 28/40 and the gripper-transition heuristic reached 24/40. Paired full-minus-Base delta was -0.25 with CI [-0.4, -0.1], and paired full-minus-gripper delta was -0.15 with CI [-0.3, 0.0]. The simple heuristic baseline therefore explains or exceeds the full method under the frozen Stage B protocol.",
+        "next_stage": "Archive DAGR-VLA current formulation and begin Epoch 4 Cycle 8 candidate search."
     }
 }

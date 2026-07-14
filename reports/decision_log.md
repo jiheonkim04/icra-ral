@@ -2150,3 +2150,34 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: DAGR Stage B is frozen and ready for the official WSL rollout. Do not retune checkpoints, thresholds, tasks, resets, or decision rules before launch.
+
+## 2026-07-15 - Epoch 4 Cycle 7 DAGR-VLA Stage B Result
+
+Decision: `DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`
+
+Execution boundary:
+
+- method: `DAGR-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89`
+- selected config: `dagr_a020_route_mlp`
+- Stage B manifest: `reports/dagr_vla/stage_b_manifest.json`
+- Stage B result: `reports/dagr_vla/stage_b_result.json`
+- status: `reports/dagr_vla/stage_b_status.json`
+- episodes: `200 / 200`
+- exceptions: `0`
+- confirmatory-test tuning: `False`
+
+Evidence:
+
+- frozen SmolVLA: `28 / 40`, task-balanced `0.70`
+- DAM-style static component proxy: `5 / 40`, task-balanced `0.125`
+- DAGR full: `18 / 40`, task-balanced `0.45`
+- no-dynamic-route ablation: `16 / 40`, task-balanced `0.40`
+- gripper-transition heuristic: `24 / 40`, task-balanced `0.60`
+- paired full minus Base: wins `1`, losses `11`, ties `28`, delta `-0.25`, CI `[-0.4, -0.1]`
+- paired full minus gripper heuristic: wins `2`, losses `8`, ties `30`, delta `-0.15`, CI `[-0.3, 0.0]`
+- paired full minus no-dynamic-route ablation: wins `9`, losses `7`, ties `24`, delta `0.05`, CI `[-0.15, 0.25]`
+- paired full minus DAM-style proxy: wins `14`, losses `1`, ties `25`, delta `0.325`, CI `[0.175, 0.475]`
+
+Consequence: this is a valid current-formulation kill. DAGR full beat the closest-prior proxy and narrowly exceeded the key ablation, but it was clearly below Base and below the simple gripper-transition heuristic. The simple baseline therefore explains or exceeds the method under the frozen Stage B protocol. Do not rescue DAGR by retuning `dagr_a020_route_mlp`, changing route thresholds, changing task/reset identities, changing the policy list, or reinterpreting partial results. Continue to Epoch 4 Cycle 8 candidate search under the installed performance-oriented governance.

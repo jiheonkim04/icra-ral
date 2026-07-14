@@ -161,6 +161,34 @@ def test_dagr_stage_b_manifest_is_frozen_all_task_expansion() -> None:
     assert len({tuple(sorted(values)) for values in pair_sets.values()}) == 1
 
 
+def test_dagr_stage_b_result_records_valid_simple_baseline_kill() -> None:
+    result = json.loads((DAGR / "stage_b_result.json").read_text(encoding="utf-8-sig"))
+
+    assert result["final_decision"] == "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD"
+    assert result["closed_loop_experiment_happened"] is True
+    assert result["confirmatory_test_tuning_happened"] is False
+    assert result["completed_episode_count"] == 200
+    assert result["summary"]["exception_count"] == 0
+
+    by_policy = result["summary"]["by_policy"]
+    assert by_policy["frozen_smolvla"]["successes"] == 28
+    assert by_policy["dam_static_component_proxy"]["successes"] == 5
+    assert by_policy["dagr_full"]["successes"] == 18
+    assert by_policy["dagr_no_dynamic_route_ablation"]["successes"] == 16
+    assert by_policy["gripper_transition_heuristic"]["successes"] == 24
+    assert by_policy["dagr_full"]["mean_activation_fraction"] == 0.999952
+    assert by_policy["dagr_full"]["action_validity_all_finite"] is True
+    assert by_policy["dagr_full"]["action_validity_all_shape_ok"] is True
+
+    paired = result["paired_vs_dagr_full"]
+    assert paired["frozen_smolvla"]["paired_success_delta"] == -0.25
+    assert paired["frozen_smolvla"]["paired_bootstrap_ci"] == [-0.4, -0.1]
+    assert paired["gripper_transition_heuristic"]["paired_success_delta"] == -0.15
+    assert paired["gripper_transition_heuristic"]["paired_bootstrap_ci"] == [-0.3, 0.0]
+    assert paired["dagr_no_dynamic_route_ablation"]["paired_success_delta"] == 0.05
+    assert paired["dam_static_component_proxy"]["paired_success_delta"] == 0.325
+
+
 def test_dagr_stage_a_decision_uses_catastrophic_gate_only() -> None:
     noncat = {
         "exception_count": 0,

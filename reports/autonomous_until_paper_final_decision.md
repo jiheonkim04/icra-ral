@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+Current campaign decision: `DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_8`
 
 This is not a terminal decision.
 
@@ -110,4 +110,10 @@ DAGR Stage A policy preflight passed as `DAGR_STAGE_A_PREFLIGHT_PASS_READY_FOR_O
 
 DAGR Stage A completed as `DAGR_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED`: `50 / 50` official LIBERO episodes, zero exceptions, frozen SmolVLA `8 / 10`, gripper-transition heuristic `7 / 10`, DAGR full `6 / 10`, no-dynamic-route ablation `5 / 10`, and DAM static proxy `2 / 10`. This is not a valid Stage A kill; freeze the DAGR Stage B matched manifest next without retuning.
 
-The DAGR Stage B manifest is now frozen as `DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`: all `20` official tasks, reset seeds `20261207` and `20261208`, `40` paired cases per policy, `200` total episodes, canonical hash `2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B`, and the unchanged five-policy comparison. Next action: launch DAGR Stage B official WSL rollout.
+The DAGR Stage B manifest froze all `20` official tasks, reset seeds `20261207` and `20261208`, `40` paired cases per policy, `200` total episodes, canonical hash `2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B`, and the unchanged five-policy comparison.
+
+DAGR Stage B completed `200 / 200` official LIBERO episodes with zero exceptions and no confirmatory-test tuning. Frozen SmolVLA reached `28 / 40`; the DAM-style static component proxy reached `5 / 40`; DAGR full reached `18 / 40`; the no-dynamic-route ablation reached `16 / 40`; and the gripper-transition heuristic reached `24 / 40`. Full-minus-Base paired delta was `-0.25` with CI `[-0.4, -0.1]`; full-minus-gripper paired delta was `-0.15` with CI `[-0.3, 0.0]`.
+
+Final DAGR decision: `DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD`. This is a valid current-formulation kill because the simple gripper-transition heuristic and Base explain or exceed the full method under the frozen protocol. Do not rescue DAGR by retuning `dagr_a020_route_mlp`, changing route thresholds, changing task/reset identities, changing the policy list, or reinterpreting partial results.
+
+Current stage: `epoch_4_cycle_8_candidate_search_pending`. Next action: generate exactly three new prior-anchored candidates under `reports/current_research_governance.md`; do not reuse DAGR through a cosmetic routing variant.

@@ -15,15 +15,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 7
+    assert state["current_cycle"] == 8
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "DAGR_STAGE_B_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
-    assert state["current_stage"] == "epoch_4_cycle_7_dagr_stage_b_rollout_ready"
-    assert state["method"] == "DAGR-VLA"
-    assert state["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
-    assert state["prototype_protocol"] == "reports/dagr_vla/prototype_protocol.md"
+    assert state["current_decision"] == "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_8"
+    assert state["current_stage"] == "epoch_4_cycle_8_candidate_search_pending"
+    assert state["method"] == "PENDING_EPOCH_4_CYCLE_8_SELECTION"
+    assert state["proposal_hash"] == "PENDING_EPOCH_4_CYCLE_8_SELECTION"
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -81,11 +81,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_7_dagr_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_7_dagr_stage_b_manifest_frozen" in state["completed_stages"]
-    assert state["task_reset_manifest"] == "reports/dagr_vla/stage_b_manifest.json"
+    assert "epoch_4_cycle_7_dagr_stage_b_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_stage_b_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_7_dagr_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_8_candidate_search_pending" in state["completed_stages"]
+    assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
-    assert state["checkpoint_path"] == "runs/dagr_vla_checkpoints/dagr_a020_route_mlp"
+    assert state["checkpoint_path"] is None
     assert state["stage_a_result_json"] == "reports/dagr_vla/stage_a_result.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
@@ -175,6 +179,20 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["paired_cases_per_policy"] == 40
     assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["reset_seeds"] == [20261207, 20261208]
     assert state["epoch_4_cycle_7_dagr_stage_b_manifest"]["manifest_canonical_payload_sha256"] == "2A14FA11271EC8FAD9BD91A1251952E9039A5BD297105BEBB78E27EFC4470A3B"
+    outcome = state["epoch_4_cycle_7_dagr_stage_b_outcome"]
+    assert outcome["final_decision"] == "DAGR_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD"
+    assert outcome["valid_current_formulation_kill"] is True
+    assert outcome["stage_b_completed"] is True
+    assert outcome["completed_episode_count"] == 200
+    assert outcome["exception_count"] == 0
+    assert outcome["dagr_full_successes"] == 18
+    assert outcome["frozen_smolvla_successes"] == 28
+    assert outcome["gripper_transition_heuristic_successes"] == 24
+    assert outcome["paired_delta_vs_frozen_smolvla"] == -0.25
+    assert outcome["paired_ci_vs_frozen_smolvla"] == [-0.4, -0.1]
+    assert outcome["paired_delta_vs_gripper_transition_heuristic"] == -0.15
+    assert outcome["paired_ci_vs_gripper_transition_heuristic"] == [-0.3, 0.0]
+    assert outcome["simple_baseline_explains_method"] is True
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
