@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `SELECT_PESA_VLA`
+Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -137,6 +137,8 @@ The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematica
 
 The PESA preregistration and prototype protocol are frozen in `reports/pesa_vla/preregistration.md` and `reports/pesa_vla/prototype_protocol.md`. The first serious comparison is fixed to exactly five policies and the validation search is capped at six named configurations.
 
-No rollout, training, or confirmatory-test tuning has happened for PESA.
+PESA Stage 0 completed without rollout, training, manifest freeze, or confirmatory-test tuning. The development audit is saved in `reports/pesa_vla/development_audit.json`.
 
-Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`. Next action: implement and run the PESA Stage 0 development audit under the frozen preregistration.
+Final PESA Stage 0 decision: `DESIGN_FAILURE`. The hard stop was query-probe validation margin `-0.07750000000000001`, below the frozen `+0.02` requirement. Do not rescue PESA by retuning labels, thresholds, features, or criteria.
+
+Current stage: `epoch_4_cycle_10_candidate_search_pending`. Next action: generate exactly three post-PESA candidates under current governance.

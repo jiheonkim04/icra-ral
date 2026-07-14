@@ -16,15 +16,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 9
+    assert state["current_cycle"] == 10
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "SELECT_PESA_VLA"
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_stage_0_pending"
-    assert state["method"] == "PESA-VLA"
-    assert state["proposal_hash"] == PESA_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/pesa_vla/prototype_protocol.md"
+    assert state["current_decision"] == "PESA_STAGE_0_STOP_DESIGN_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_10_candidate_search_pending"
+    assert state["method"] is None
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -112,6 +112,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_9_pesa_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_design_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_10_candidate_search_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -128,7 +131,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["epoch_4_cycle_9_pre_stage_0"]["mathematical_audit_decision"] == "PESA_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["epoch_4_cycle_9_pre_stage_0"]["preregistration"] == "reports/pesa_vla/preregistration.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prototype_protocol"] == "reports/pesa_vla/prototype_protocol.md"
-    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_decision"] is None
+    assert state["epoch_4_cycle_9_pre_stage_0"]["development_audit"] == "reports/pesa_vla/development_audit.json"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_decision"] == "DESIGN_FAILURE"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_query_probe_accuracy_margin"] == -0.07750000000000001
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_training_happened"] is False
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "priorvla_style_proxy",
@@ -138,6 +145,16 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     ]
     assert state["epoch_4_cycle_9_pre_stage_0"]["closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["confirmatory_test_tuning_happened"] is False
+    outcome = state["epoch_4_cycle_9_pesa_development_outcome"]
+    assert outcome["final_decision"] == "DESIGN_FAILURE"
+    assert outcome["stage_0_completed"] is True
+    assert outcome["closed_loop_experiment_happened"] is False
+    assert outcome["training_happened"] is False
+    assert outcome["query_probe_accuracy"] == 0.5225
+    assert outcome["query_probe_majority_accuracy"] == 0.6
+    assert outcome["query_probe_accuracy_margin"] == -0.07750000000000001
+    assert outcome["hard_stop_reasons"] == ["query probe accuracy margin below minimum: -0.077500"]
+    assert outcome["valid_current_formulation_kill"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

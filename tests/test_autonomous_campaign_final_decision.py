@@ -10,7 +10,7 @@ PESA_PROPOSAL_HASH = "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BA
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `SELECT_PESA_VLA`" in final
+    assert "Current campaign decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -102,7 +102,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "PESA_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "reports/pesa_vla/preregistration.md" in final
     assert "reports/pesa_vla/prototype_protocol.md" in final
-    assert "Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`" in final
+    assert "reports/pesa_vla/development_audit.json" in final
+    assert "Final PESA Stage 0 decision: `DESIGN_FAILURE`" in final
+    assert "query probe accuracy margin below minimum: -0.077500" in final
+    assert "Current stage: `epoch_4_cycle_10_candidate_search_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -110,12 +113,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "SELECT_PESA_VLA"
+    assert state["current_decision"] == "PESA_STAGE_0_STOP_DESIGN_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 9
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_stage_0_pending"
-    assert state["method"] == "PESA-VLA"
-    assert state["proposal_hash"] == PESA_PROPOSAL_HASH
+    assert state["current_cycle"] == 10
+    assert state["current_stage"] == "epoch_4_cycle_10_candidate_search_pending"
+    assert state["method"] is None
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -128,7 +131,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Implement and run PESA-VLA Stage 0 development audit")
+    assert state["next_action"].startswith("Generate exactly three post-PESA candidates")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -230,6 +233,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_9_pesa_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_design_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_10_candidate_search_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
@@ -245,9 +251,18 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_9_pre_stage_0"]["mathematical_audit_decision"] == "PESA_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["epoch_4_cycle_9_pre_stage_0"]["preregistration"] == "reports/pesa_vla/preregistration.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prototype_protocol"] == "reports/pesa_vla/prototype_protocol.md"
-    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_decision"] is None
+    assert state["epoch_4_cycle_9_pre_stage_0"]["development_audit"] == "reports/pesa_vla/development_audit.json"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_decision"] == "DESIGN_FAILURE"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["stage_0_query_probe_accuracy_margin"] == -0.07750000000000001
     assert state["epoch_4_cycle_9_pre_stage_0"]["training_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["closed_loop_experiment_happened"] is False
+    outcome = state["epoch_4_cycle_9_pesa_development_outcome"]
+    assert outcome["final_decision"] == "DESIGN_FAILURE"
+    assert outcome["query_probe_accuracy"] == 0.5225
+    assert outcome["query_probe_majority_accuracy"] == 0.6
+    assert outcome["query_probe_accuracy_margin"] == -0.07750000000000001
+    assert outcome["training_happened"] is False
+    assert outcome["closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"

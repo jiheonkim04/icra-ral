@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_PESA_VLA`
+Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `9`
+Current cycle: `10`
 
-Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`
+Current stage: `epoch_4_cycle_10_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -241,6 +241,10 @@ The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematica
 
 The PESA preregistration and prototype protocol are frozen in `reports/pesa_vla/preregistration.md` and `reports/pesa_vla/prototype_protocol.md`. Stage 0 must pass the frozen label, split, headroom, spectral activation, gradient, action-validity, action-distinction, and identity-preservation gates before validation search or training.
 
-No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to implement and run the PESA Stage 0 development audit under the frozen preregistration.
+PESA Stage 0 completed without closed-loop rollout, training, manifest freeze, or confirmatory-test tuning. The development audit is saved in `reports/pesa_vla/development_audit.json` and summarized in `reports/pesa_vla/development_audit.md`.
 
-Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`.
+Final PESA Stage 0 decision: `DESIGN_FAILURE`. The only hard stop was query observability: validation query-probe accuracy `0.5225`, majority `0.6`, margin `-0.07750000000000001`, below the frozen `+0.02` requirement. Other Stage 0 checks passed or remained healthy, including split integrity, label balance, standard LoRA headroom, noncollapsed spectral activation, action distinctions, finite gradients, initial Base equality, and Base action validity.
+
+This is a pre-rollout design failure, not a closed-loop kill. Do not rescue PESA by changing query-label construction, thresholds, features, or criteria.
+
+Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. Current stage: `epoch_4_cycle_10_candidate_search_pending`. Next action: generate exactly three post-PESA candidates under current governance.

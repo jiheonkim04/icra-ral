@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_PESA_VLA`
+Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `9`
+Current cycle: `10`
 
-Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`
+Current stage: `epoch_4_cycle_10_candidate_search_pending`
 
 Allowed final states:
 
@@ -318,6 +318,10 @@ The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematica
 
 The PESA preregistration and prototype protocol are frozen in `reports/pesa_vla/preregistration.md` and `reports/pesa_vla/prototype_protocol.md`. The frozen first comparison remains exactly five policies: Base, PriorVLA-style proxy, PESA full, no-spectral/no-prior-query ablation, and one standard-LoRA or clean-retention simple killer.
 
-No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to implement and run the PESA Stage 0 development audit under the frozen preregistration.
+PESA Stage 0 completed without training, closed-loop rollout, manifest freeze, or confirmatory-test tuning. The development audit is saved in `reports/pesa_vla/development_audit.json` and summarized in `reports/pesa_vla/development_audit.md`.
 
-Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_stage_0_pending`.
+Final PESA Stage 0 decision: `DESIGN_FAILURE`. The query labels were balanced (`0.3858333333333333` train positive fraction, `0.4` validation positive fraction), standard LoRA had positive L1 headroom (`0.0065395455599999985`), spectral activation was noncollapsed (validation active-rank mean `2.3475`), action distinctions passed, Base validity was `1.0`, and gradients were finite. However, the prior-query probe reached validation accuracy `0.5225` versus majority `0.6`, for an accuracy margin `-0.07750000000000001`, below the preregistered `+0.02` requirement.
+
+This is a valid pre-rollout design stop, not a closed-loop scientific kill. Do not rescue PESA by changing query labels, thresholds, features, validation search, or Stage 0 criteria.
+
+Current decision: `PESA_STAGE_0_STOP_DESIGN_FAILURE`. Current stage: `epoch_4_cycle_10_candidate_search_pending`. Next action: generate exactly three post-PESA candidates under current governance.
