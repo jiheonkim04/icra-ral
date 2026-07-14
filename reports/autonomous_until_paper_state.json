@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "current_topic": "epoch_4_cycle_10_eac_proposal_pending",
+    "current_topic": "epoch_4_cycle_10_eac_reviewer_attack_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "f6b65e6",
+    "current_commit": "cce5443",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_10_eac_proposal_pending",
+    "current_stage": "epoch_4_cycle_10_eac_reviewer_attack_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -261,11 +261,12 @@
         "epoch_4_cycle_9_pesa_design_failure_recorded",
         "epoch_4_cycle_10_candidate_search_pending",
         "epoch_4_cycle_10_candidate_generation_completed",
-        "epoch_4_cycle_10_eac_proposal_pending"
+        "epoch_4_cycle_10_eac_proposal_pending",
+        "epoch_4_cycle_10_eac_proposal_frozen"
     ],
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
     "closest_papers": [
         "Adaptive Action Chunking",
         "AR-VLA",
@@ -391,7 +392,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze an EAC-VLA Researcher A proposal and hash it; do not rescue PESA, do not run EAC Stage 0 before proposal/review/rebuttal/audit/preregistration are frozen.",
+    "next_action": "Run Reviewer B attack against the frozen EAC-VLA proposal; do not implement or run Stage 0 before review and any required rebuttal/audit/preregistration are complete.",
     "method": "EAC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -3316,7 +3317,8 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "training_happened": false,
-        "proposal_hash": null,
-        "next_stage": "Freeze EAC-VLA Researcher A proposal and hash it before Reviewer B."
+        "proposal": "reports/eac_vla/researcher_proposal.md",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "next_stage": "Run Reviewer B attack against the frozen EAC-VLA proposal."
     }
 }

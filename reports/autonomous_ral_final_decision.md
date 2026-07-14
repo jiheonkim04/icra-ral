@@ -147,4 +147,6 @@ Epoch 4 Cycle 10 generated exactly three post-PESA candidates in `reports/epoch_
 
 EAC is anchored to Adaptive Action Chunking. It preserves frozen SmolVLA weights and emitted 7D action values, changing only action-queue commitment length from deployment-observable uncertainty and queue-boundary risk. The frozen design-level five-policy comparison is Base fixed queue, AAC entropy-only proxy, EAC full, no-calibration/no-hysteresis ablation, and fixed short-replan simple killer.
 
-Current stage: `epoch_4_cycle_10_eac_proposal_pending`. Next action: freeze and hash the EAC-VLA Researcher A proposal before Reviewer B.
+The EAC Researcher A proposal is frozen in `reports/eac_vla/researcher_proposal.md` with proposal hash `A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E`.
+
+Current stage: `epoch_4_cycle_10_eac_reviewer_attack_pending`. Next action: run Reviewer B attack before any implementation or Stage 0 audit.

@@ -12,7 +12,7 @@ Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_proposal_pending`
+Current stage: `epoch_4_cycle_10_eac_reviewer_attack_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -257,4 +257,6 @@ EAC is anchored to Adaptive Action Chunking, with AR-VLA and AC2-VLA as secondar
 
 The design-level five-policy comparison is Base fixed queue, AAC entropy-only proxy, EAC full, no-calibration/no-hysteresis ablation, and fixed short-replan simple killer. No rollout, training, validation search, or confirmatory-test tuning has happened for EAC.
 
-Current decision: `SELECT_EAC_VLA`. Current stage: `epoch_4_cycle_10_eac_proposal_pending`. Next action: freeze and hash the EAC-VLA Researcher A proposal before Reviewer B.
+The EAC Researcher A proposal is frozen in `reports/eac_vla/researcher_proposal.md` with proposal hash `A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E`.
+
+Current decision: `SELECT_EAC_VLA`. Current stage: `epoch_4_cycle_10_eac_reviewer_attack_pending`. Next action: run Reviewer B attack before any implementation or Stage 0 audit.
