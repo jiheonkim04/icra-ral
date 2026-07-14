@@ -148,6 +148,8 @@ Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` with decision `PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. PESA proceeds only to mathematical mechanism audit, with the simple killer, PriorVLA-style proxy, no deterministic-action KL rule, and no confirmatory-test tuning commitments preserved.
 
+The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematical_mechanism_audit.md` with decision `PESA_MATHEMATICAL_AUDIT_PREREGISTERED`. The audit preserves exact Base passthrough, bounded 7D action deltas, spectral-energy masking, objective-scale checks, gradient-path checks, and the first five-policy comparison.
+
 No rollout, training, or confirmatory-test tuning has happened for PESA.
 
-Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`. Next action: write and freeze the PESA mathematical mechanism audit before implementation.
+Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`. Next action: write and freeze the PESA preregistration and prototype protocol before implementation.

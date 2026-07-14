@@ -133,6 +133,8 @@ Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` with decision `PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts the narrow claim, preserves the simple killer and closest-prior proxy, and requires mathematical objective/gradient audit before implementation.
 
+The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematical_mechanism_audit.md` with decision `PESA_MATHEMATICAL_AUDIT_PREREGISTERED`. It explicitly forbids KL between deterministic 7D actions and requires Base-passthrough, bounded deltas, spectral activation, gradient, label-health, and clean-retention audits before rollout.
+
 No rollout, training, or confirmatory-test tuning has happened for PESA.
 
-Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`. Next action: write and freeze the PESA mathematical mechanism audit before implementation.
+Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`. Next action: write and freeze the PESA preregistration and prototype protocol before implementation.

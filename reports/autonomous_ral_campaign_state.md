@@ -12,7 +12,7 @@ Current epoch: `4`
 
 Current cycle: `9`
 
-Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -237,6 +237,8 @@ Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/pesa_vla/researcher_rebuttal.md` with decision `PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts the narrow claim and keeps the PriorVLA-style proxy, no-spectral/no-prior-query ablation, and standard-LoRA or clean-retention simple killer live.
 
-No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to write and freeze the PESA mathematical mechanism audit before implementation.
+The PESA mathematical mechanism audit is frozen in `reports/pesa_vla/mathematical_mechanism_audit.md` with decision `PESA_MATHEMATICAL_AUDIT_PREREGISTERED`. The audit defines variables, shapes, spectral-energy masking, objectives, gradient paths, small-batch scale checks, required ablations, and the no deterministic-action KL rule.
 
-Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_mathematical_audit_pending`.
+No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to write and freeze the PESA preregistration and prototype protocol before implementation.
+
+Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_preregistration_pending`.
