@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 10,
-    "topic": "epoch_4_cycle_10_eac_validation_search_pending",
+    "topic": "epoch_4_cycle_10_eac_stage_a_manifest_pending",
     "method": "EAC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "8b6cc51",
-    "current_stage": "epoch_4_cycle_10_eac_validation_search_pending",
+    "current_commit": "4cc9e3d",
+    "current_stage": "epoch_4_cycle_10_eac_stage_a_manifest_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -282,7 +282,9 @@
         "epoch_4_cycle_10_eac_preregistration_frozen",
         "epoch_4_cycle_10_eac_prototype_protocol_frozen",
         "epoch_4_cycle_10_eac_stage_0_completed",
-        "epoch_4_cycle_10_eac_runtime_queue_check_completed"
+        "epoch_4_cycle_10_eac_runtime_queue_check_completed",
+        "epoch_4_cycle_10_eac_validation_search_completed",
+        "epoch_4_cycle_10_eac_selected_config_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -296,8 +298,8 @@
         "AR-VLA",
         "AC2-VLA"
     ],
-    "prototype_gate": "EAC Stage 0 and runtime queue checks passed; bounded validation search may run next.",
-    "current_decision": "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED",
+    "prototype_gate": "EAC Stage 0, runtime queue check, and bounded validation search passed; Stage A manifest freeze may run next.",
+    "current_decision": "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -448,7 +450,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget; do not use confirmatory identities.",
+    "next_action": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before any rollout.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
     "method_identity": "EAC-VLA",
@@ -3437,7 +3439,36 @@
         "runtime_queue_check_training_happened": false,
         "runtime_queue_check_validation_search_happened": false,
         "runtime_queue_check_confirmatory_test_tuning_happened": false,
-        "next_stage": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget."
+        "validation_search": "reports/eac_vla/validation_search.json",
+        "validation_search_md": "reports/eac_vla/validation_search.md",
+        "selected_config_path": "reports/eac_vla/selected_config.json",
+        "validation_decision": "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY",
+        "validation_search_happened": true,
+        "validation_confirmatory_records_used_for_tuning": false,
+        "tried_config_count": 6,
+        "selected_config": "eac_q33_aggressive_1_4_50",
+        "selected_validation_score": 0.7530415186081504,
+        "selected_quantile_margin": 0.33,
+        "selected_commitment_map": {
+            "short": 1,
+            "medium": 4,
+            "long": 50
+        },
+        "selected_commitment_counts": {
+            "1": 132,
+            "4": 136,
+            "50": 132
+        },
+        "selected_policy_calls_per_step_proxy": 0.4216,
+        "selected_oscillation_fraction": 0.6388888888888888,
+        "selected_risk_exposure_reduction_proxy": 0.9032794643799159,
+        "selected_mechanism_activation": 0.6599999999999999,
+        "selected_clean_action_value_passthrough": 1.0,
+        "selected_runtime_action_validity": 1.0,
+        "selected_max_commitment_share": 0.34,
+        "stage_a_manifest_allowed": true,
+        "stage_a_rollout_allowed": false,
+        "next_stage": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before rollout."
     },
     "epoch_4_cycle_10_eac_development_outcome": {
         "method": "EAC-VLA",
@@ -3486,6 +3517,35 @@
         "runtime_queue_check_all_prefixes_value_preserving": true,
         "runtime_queue_check_max_prefix_abs_diff": 0.0,
         "runtime_queue_check_max_queue_pop_abs_diff": 0.0,
+        "validation_search": "reports/eac_vla/validation_search.json",
+        "validation_search_md": "reports/eac_vla/validation_search.md",
+        "selected_config_path": "reports/eac_vla/selected_config.json",
+        "validation_decision": "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY",
+        "validation_search_happened": true,
+        "validation_confirmatory_records_used_for_tuning": false,
+        "tried_config_count": 6,
+        "selected_config": "eac_q33_aggressive_1_4_50",
+        "selected_validation_score": 0.7530415186081504,
+        "selected_quantile_margin": 0.33,
+        "selected_commitment_map": {
+            "short": 1,
+            "medium": 4,
+            "long": 50
+        },
+        "selected_commitment_counts": {
+            "1": 132,
+            "4": 136,
+            "50": 132
+        },
+        "selected_policy_calls_per_step_proxy": 0.4216,
+        "selected_oscillation_fraction": 0.6388888888888888,
+        "selected_risk_exposure_reduction_proxy": 0.9032794643799159,
+        "selected_mechanism_activation": 0.6599999999999999,
+        "selected_clean_action_value_passthrough": 1.0,
+        "selected_runtime_action_validity": 1.0,
+        "selected_max_commitment_share": 0.34,
+        "stage_a_manifest_allowed": true,
+        "stage_a_rollout_allowed": false,
         "hard_stop_reasons": [],
         "valid_current_formulation_kill": false,
         "first_comparison_policies": [
@@ -3495,7 +3555,7 @@
             "eac_no_calibration_no_hysteresis_ablation",
             "fixed_short_replan_baseline"
         ],
-        "next_stage": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget."
+        "next_stage": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before rollout."
     },
     "epoch_4_cycle_10_eac_runtime_queue_check": {
         "method": "EAC-VLA",
@@ -3525,5 +3585,44 @@
         "max_queue_pop_abs_diff": 0.0,
         "hard_stop_reasons": [],
         "next_stage": "Run the bounded EAC-VLA validation search under the frozen six-configuration budget."
+    },
+    "epoch_4_cycle_10_eac_validation_search": {
+        "method": "EAC-VLA",
+        "proposal_hash": "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E",
+        "final_decision": "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY",
+        "validation_search": "reports/eac_vla/validation_search.json",
+        "validation_search_md": "reports/eac_vla/validation_search.md",
+        "selected_config_path": "reports/eac_vla/selected_config.json",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": true,
+        "confirmatory_test_tuning_happened": false,
+        "confirmatory_records_used_for_tuning": false,
+        "validation_frame_count": 400,
+        "tried_config_count": 6,
+        "selected_config": "eac_q33_aggressive_1_4_50",
+        "selected_validation_score": 0.7530415186081504,
+        "selected_quantile_margin": 0.33,
+        "selected_commitment_map": {
+            "short": 1,
+            "medium": 4,
+            "long": 50
+        },
+        "selected_commitment_counts": {
+            "1": 132,
+            "4": 136,
+            "50": 132
+        },
+        "selected_policy_calls_per_step_proxy": 0.4216,
+        "selected_oscillation_fraction": 0.6388888888888888,
+        "selected_risk_exposure_reduction_proxy": 0.9032794643799159,
+        "selected_mechanism_activation": 0.6599999999999999,
+        "selected_clean_action_value_passthrough": 1.0,
+        "selected_runtime_action_validity": 1.0,
+        "selected_max_commitment_share": 0.34,
+        "hard_stop_reasons": [],
+        "stage_a_manifest_allowed": true,
+        "stage_a_rollout_allowed": false,
+        "next_stage": "Freeze the EAC-VLA Stage A matched manifest and preflight the five policy identities before rollout."
     }
 }

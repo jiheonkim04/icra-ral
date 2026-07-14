@@ -1,0 +1,53 @@
+{
+  "commitment_counts": {
+    "1": 132,
+    "4": 136,
+    "50": 132
+  },
+  "commitment_map": {
+    "long": 50,
+    "medium": 4,
+    "short": 1
+  },
+  "config_id": "eac_q33_aggressive_1_4_50",
+  "max_commitment_share": 0.34,
+  "oscillation_fraction": 0.6388888888888888,
+  "policy_calls_per_step_proxy": 0.4216,
+  "quantile_margin": 0.33,
+  "risk_monotonicity_short_gt_long": true,
+  "risk_summary_by_commitment": {
+    "1": {
+      "count": 132,
+      "max": 1.0,
+      "mean": 0.5626796837122628,
+      "min": 0.30860313236146664,
+      "p50": 0.5019669481835786,
+      "p95": 0.9832699363175449
+    },
+    "4": {
+      "count": 136,
+      "max": 0.3085894120013512,
+      "mean": 0.21484555177296905,
+      "min": 0.13938054468316916,
+      "p50": 0.2115970243684425,
+      "p95": 0.29514483289083077
+    },
+    "50": {
+      "count": 132,
+      "max": 0.1364078421539268,
+      "mean": 0.06894869902880432,
+      "min": 0.0,
+      "p50": 0.07300336823166828,
+      "p95": 0.13082922764875465
+    }
+  },
+  "score_components": {
+    "clean_action_value_passthrough": 1.0,
+    "latency_penalty": 0.4097959183673469,
+    "mechanism_activation": 0.6599999999999999,
+    "oscillation_penalty": 0.6388888888888888,
+    "risk_exposure_reduction_proxy": 0.9032794643799159,
+    "runtime_action_validity": 1.0
+  },
+  "validation_score": 0.7530415186081504
+}

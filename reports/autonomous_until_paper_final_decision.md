@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`
+Current campaign decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`
 
 This is not a terminal decision.
 
@@ -178,4 +178,6 @@ Because the canonical artifact stores first-two previews rather than all `50` po
 
 EAC runtime queue check completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. It loaded frozen SmolVLA on `NVIDIA GeForce RTX 5080`, produced a full postprocessed chunk shape `[50, 7]`, verified `select_action` matched `chunk[0]` with max absolute diff `0.0`, observed queue length `0 -> 49`, and verified every commitment prefix in `{1, 2, 4, 8, 16, 50}` preserved action values exactly.
 
-Current stage: `epoch_4_cycle_10_eac_validation_search_pending`. Next action: run the bounded EAC validation search under the frozen six-configuration budget using discovery/validation identities only.
+EAC bounded validation search completed with exactly six configurations and no confirmatory records used for tuning. The selected frozen config is `eac_q33_aggressive_1_4_50`, with validation score `0.7530415186081504`, commitment counts `1:132`, `4:136`, `50:132`, policy-calls-per-step proxy `0.4216`, and risk-exposure-reduction proxy `0.9032794643799159`.
+
+Current stage: `epoch_4_cycle_10_eac_stage_a_manifest_pending`. Next action: freeze the EAC Stage A matched manifest and preflight the five policy identities before any rollout.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`
+Current decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`
 
 Current epoch: `4`
 
 Current cycle: `10`
 
-Current stage: `epoch_4_cycle_10_eac_validation_search_pending`
+Current stage: `epoch_4_cycle_10_eac_stage_a_manifest_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -275,4 +275,8 @@ The canonical artifact stores first-two chunk previews and chunk hashes, not all
 
 EAC runtime queue check completed without training, validation search, closed-loop rollout, or confirmatory-test tuning. The check is saved in `reports/eac_vla/runtime_queue_check.json` and summarized in `reports/eac_vla/runtime_queue_check.md`. It loaded frozen SmolVLA on `NVIDIA GeForce RTX 5080`, produced a full postprocessed chunk shape `[50, 7]`, verified `select_action` matched `chunk[0]` with max absolute diff `0.0`, observed the official queue length change from `0` before selection to `49` afterward, and verified every commitment prefix in `{1, 2, 4, 8, 16, 50}` preserved action values exactly with max prefix and queue-pop diffs `0.0`.
 
-Current decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`. Current stage: `epoch_4_cycle_10_eac_validation_search_pending`. Next action: run the bounded EAC validation search under the frozen six-configuration budget using discovery/validation identities only.
+EAC bounded validation search completed with exactly six configurations and no confirmatory records used for tuning. The search is saved in `reports/eac_vla/validation_search.json`, summarized in `reports/eac_vla/validation_search.md`, and the selected frozen config is `reports/eac_vla/selected_config.json`.
+
+Final EAC validation decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`. The selected config is `eac_q33_aggressive_1_4_50`, with validation score `0.7530415186081504`, commitment counts `1:132`, `4:136`, `50:132`, policy-calls-per-step proxy `0.4216`, oscillation fraction `0.6388888888888888`, risk-exposure-reduction proxy `0.9032794643799159`, mechanism activation `0.6599999999999999`, clean action-value passthrough `1.0`, and runtime action validity `1.0`.
+
+Current decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`. Current stage: `epoch_4_cycle_10_eac_stage_a_manifest_pending`. Next action: freeze the EAC Stage A matched manifest and preflight the five policy identities before any rollout.

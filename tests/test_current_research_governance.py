@@ -21,8 +21,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_validation_search_pending"
+    assert state["current_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_manifest_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -127,6 +127,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_runtime_queue_check_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_validation_search_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_selected_config_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -230,11 +232,24 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert eac["runtime_queue_check_all_prefixes_value_preserving"] is True
     assert eac["runtime_queue_check_max_prefix_abs_diff"] == 0.0
     assert eac["runtime_queue_check_max_queue_pop_abs_diff"] == 0.0
+    assert eac["validation_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert eac["validation_search_happened"] is True
+    assert eac["validation_confirmatory_records_used_for_tuning"] is False
+    assert eac["tried_config_count"] == 6
+    assert eac["selected_config"] == "eac_q33_aggressive_1_4_50"
+    assert eac["selected_validation_score"] == 0.7530415186081504
+    assert eac["selected_commitment_counts"] == {"1": 132, "4": 136, "50": 132}
+    assert eac["selected_policy_calls_per_step_proxy"] == 0.4216
+    assert eac["selected_risk_exposure_reduction_proxy"] == 0.9032794643799159
+    assert eac["stage_a_manifest_allowed"] is True
+    assert eac["stage_a_rollout_allowed"] is False
     eac_outcome = state["epoch_4_cycle_10_eac_development_outcome"]
     assert eac_outcome["final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
     assert eac_outcome["hard_stop_reasons"] == []
     assert eac_outcome["runtime_full_chunk_check_required_before_validation_search"] is True
     assert eac_outcome["runtime_queue_check_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
+    assert eac_outcome["validation_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert eac_outcome["selected_config"] == "eac_q33_aggressive_1_4_50"
     assert eac_outcome["valid_current_formulation_kill"] is False
     queue_check = state["epoch_4_cycle_10_eac_runtime_queue_check"]
     assert queue_check["final_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
@@ -249,6 +264,18 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert queue_check["queue_len_after_select_action"] == 49
     assert queue_check["all_prefixes_value_preserving"] is True
     assert queue_check["hard_stop_reasons"] == []
+    validation = state["epoch_4_cycle_10_eac_validation_search"]
+    assert validation["final_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert validation["validation_search_happened"] is True
+    assert validation["confirmatory_records_used_for_tuning"] is False
+    assert validation["validation_frame_count"] == 400
+    assert validation["tried_config_count"] == 6
+    assert validation["selected_config"] == "eac_q33_aggressive_1_4_50"
+    assert validation["selected_validation_score"] == 0.7530415186081504
+    assert validation["selected_commitment_map"] == {"short": 1, "medium": 4, "long": 50}
+    assert validation["selected_commitment_counts"] == {"1": 132, "4": 136, "50": 132}
+    assert validation["stage_a_manifest_allowed"] is True
+    assert validation["stage_a_rollout_allowed"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

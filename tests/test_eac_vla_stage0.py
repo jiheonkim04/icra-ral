@@ -68,3 +68,24 @@ def test_eac_runtime_queue_check_preserves_full_chunk_prefixes() -> None:
     assert prefix["max_prefix_abs_diff"] == 0.0
     assert prefix["max_queue_pop_abs_diff"] == 0.0
     assert all(not check["action_values_modified"] for check in prefix["checks"])
+
+
+def test_eac_validation_search_selects_frozen_config_without_test_tuning() -> None:
+    report = json.loads((REPORTS / "eac_vla" / "validation_search.json").read_text(encoding="utf-8"))
+    selected = json.loads((REPORTS / "eac_vla" / "selected_config.json").read_text(encoding="utf-8"))
+
+    assert report["final_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert report["closed_loop_experiment_happened"] is False
+    assert report["training_happened"] is False
+    assert report["validation_search_happened"] is True
+    assert report["confirmatory_test_tuning_happened"] is False
+    assert report["confirmatory_records_used_for_tuning"] is False
+    assert report["tried_config_count"] == 6
+    assert report["hard_stop_reasons"] == []
+    assert report["selected_config_id"] == "eac_q33_aggressive_1_4_50"
+    assert selected["config_id"] == report["selected_config_id"]
+    assert selected["validation_score"] == 0.7530415186081504
+    assert selected["commitment_map"] == {"short": 1, "medium": 4, "long": 50}
+    assert selected["commitment_counts"] == {"1": 132, "4": 136, "50": 132}
+    assert selected["score_components"]["clean_action_value_passthrough"] == 1.0
+    assert selected["score_components"]["runtime_action_validity"] == 1.0

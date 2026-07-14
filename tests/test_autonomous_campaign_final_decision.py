@@ -11,7 +11,7 @@ EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A445
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED`" in final
+    assert "Current campaign decision: `EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -128,7 +128,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "passthrough max error `5.07000000038449e-07`" in final
     assert "EAC runtime queue check completed without training" in final
     assert "queue length `0 -> 49`" in final
-    assert "Current stage: `epoch_4_cycle_10_eac_validation_search_pending`" in final
+    assert "EAC bounded validation search completed with exactly six configurations" in final
+    assert "eac_q33_aggressive_1_4_50" in final
+    assert "validation score `0.7530415186081504`" in final
+    assert "Current stage: `epoch_4_cycle_10_eac_stage_a_manifest_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -136,10 +139,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EAC_RUNTIME_QUEUE_CHECK_PASS_VALIDATION_SEARCH_ALLOWED"
+    assert state["current_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 10
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_validation_search_pending"
+    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_a_manifest_pending"
     assert state["method"] == "EAC-VLA"
     assert state["method_identity"] == "EAC-VLA"
     assert state["proposal_hash"] == EAC_PROPOSAL_HASH
@@ -155,7 +158,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Run the bounded EAC-VLA validation search")
+    assert state["next_action"].startswith("Freeze the EAC-VLA Stage A matched manifest")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -270,6 +273,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_10_eac_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_runtime_queue_check_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_validation_search_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_10_eac_selected_config_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
@@ -342,6 +347,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert eac["runtime_queue_check_queue_len_before_select_action"] == 0
     assert eac["runtime_queue_check_queue_len_after_select_action"] == 49
     assert eac["runtime_queue_check_all_prefixes_value_preserving"] is True
+    assert eac["validation_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert eac["validation_search_happened"] is True
+    assert eac["validation_confirmatory_records_used_for_tuning"] is False
+    assert eac["tried_config_count"] == 6
+    assert eac["selected_config"] == "eac_q33_aggressive_1_4_50"
+    assert eac["selected_validation_score"] == 0.7530415186081504
+    assert eac["selected_commitment_counts"] == {"1": 132, "4": 136, "50": 132}
     eac_outcome = state["epoch_4_cycle_10_eac_development_outcome"]
     assert eac_outcome["final_decision"] == "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH"
     assert eac_outcome["hard_stop_reasons"] == []
@@ -353,6 +365,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert queue_check["select_action_vs_chunk0_max_abs_diff"] == 0.0
     assert queue_check["queue_len_after_select_action"] == 49
     assert queue_check["all_prefixes_value_preserving"] is True
+    validation = state["epoch_4_cycle_10_eac_validation_search"]
+    assert validation["final_decision"] == "EAC_VALIDATION_SEARCH_SELECT_CONFIG_STAGE_A_MANIFEST_READY"
+    assert validation["tried_config_count"] == 6
+    assert validation["selected_config"] == "eac_q33_aggressive_1_4_50"
+    assert validation["selected_validation_score"] == 0.7530415186081504
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"
