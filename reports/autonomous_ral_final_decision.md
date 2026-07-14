@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING`
+Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
 
 This is not a terminal state under the active governance.
 
@@ -34,6 +34,6 @@ Epoch 4 Cycle 2 `CAVM-VLA` is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXP
 
 Epoch 4 Cycle 3 selected and preregistered `FANG-VLA`. Proposal hash: `6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B`.
 
-The development audit passed and the calibrated validation search selected `fang_c01`. The uncalibrated gate failure is preserved as a negative validation result.
+The development audit passed and the calibrated validation search selected `fang_c01`. The uncalibrated gate failure is preserved as a negative validation result. Stage A completed `50 / 50` episodes with all five policies tied at `3 / 10`.
 
-Next action: implement and run the preregistered FANG-VLA Stage A closed-loop comparison.
+Next action: run the preregistered FANG-VLA Stage B closed-loop comparison.

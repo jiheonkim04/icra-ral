@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING`
+Current campaign decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
 
 This is not a terminal decision.
 
@@ -47,6 +47,6 @@ Epoch 4 Cycle 2, `CAVM-VLA`, is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_E
 
 Epoch 4 Cycle 3 selected and preregistered `FANG-VLA`, an AFIL-anchored identity-preserving failure-aware action-field guidance method for frozen SmolVLA. Proposal hash: `6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B`.
 
-The development audit passed. The uncalibrated gate validation failure is archived, and the calibrated six-config validation search selected `fang_c01` with clean action validity and bounded activation.
+The development audit passed. The uncalibrated gate validation failure is archived, and the calibrated six-config validation search selected `fang_c01` with clean action validity and bounded activation. Stage A completed `50 / 50` episodes with all five policies tied at `3 / 10`, so the preregistered decision is non-catastrophic advance to Stage B.
 
-Next action: implement and run the preregistered FANG-VLA Stage A closed-loop comparison without changing the validation-selected configuration.
+Next action: run the preregistered FANG-VLA Stage B closed-loop comparison without changing the validation-selected configuration.

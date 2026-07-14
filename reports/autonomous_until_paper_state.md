@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING`
+Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
 
 Current epoch: `4`
 
 Current cycle: `3`
 
-Current stage: `fang_vla_stage_a_implementation_pending`
+Current stage: `fang_vla_stage_b_pending`
 
 Allowed final states:
 
@@ -133,4 +133,6 @@ Selection artifacts:
 
 Development audit passed with `10801` records, duplicate keys `0`, validation gateable fraction `1.0`, and median action-field separation `0.124345`. The first uncalibrated gate validation search is preserved as `VALIDATION_SEARCH_STOP_DESIGN_FAILURE` because the gate activated almost everywhere. The calibrated validation search then selected `fang_c01` with score `0.996806`, mean delta L2 `0.002555`, gate activation fraction `0.499882`, action validity `1.0`, and gate tau `2.815790`.
 
-Current stage: Stage A implementation pending. Do not alter `fang_c01`, gate tau, task list, identity partitions, baselines, or thresholds before Stage A.
+Stage A completed `50 / 50` episodes with zero exceptions. All five policies tied at `3 / 10` task-balanced success `0.30`: `base_smolvla`, `afil_local_proxy`, `fang_full`, `fang_no_failure_ablation`, and `nearest_success_replay`. FANG full acted with mean gate `0.095963`, gate activation `0.513922`, and mean action delta L2 `0.008186`.
+
+Current stage: Stage B pending. Do not alter `fang_c01`, gate tau, task list, identity partitions, baselines, or thresholds after the Stage A tie.

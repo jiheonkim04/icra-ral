@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING`
+Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B`
 
 Current epoch: `4`
 
 Current cycle: `3`
 
-Current stage: `fang_vla_stage_a_implementation_pending`
+Current stage: `fang_vla_stage_b_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -86,6 +86,6 @@ Artifacts:
 - `reports/fang_vla/preregistration.md`
 - `reports/fang_vla/prototype_protocol.md`
 
-Development audit passed and the calibrated validation search selected `fang_c01`. The uncalibrated gate failure is preserved as a negative validation result.
+Development audit passed and the calibrated validation search selected `fang_c01`. The uncalibrated gate failure is preserved as a negative validation result. Stage A completed `50 / 50` episodes with all policies tied at `3 / 10`.
 
-Next action: implement and run the preregistered FANG-VLA Stage A closed-loop comparison without changing the validation-selected configuration.
+Next action: run the preregistered FANG-VLA Stage B closed-loop comparison without changing the validation-selected configuration.

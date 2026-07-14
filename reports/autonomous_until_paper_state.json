@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours":  4,
     "current_epoch":  4,
     "current_cycle":  3,
-    "current_topic":  "fang_vla_stage_a_implementation_pending",
+    "current_topic":  "fang_vla_stage_b_pending",
     "current_branch":  "codex/autonomous-until-paper-governance-v2",
-    "current_commit":  "6bed5d187c025296d4ed31e02f30c78cd352cf4a",
+    "current_commit":  "844a0bf027036344361ce80e1e4c7d06378f2b6b",
     "base_research_branch":  "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit":  "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit":  "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage":  "fang_vla_stage_a_implementation_pending",
+    "current_stage":  "fang_vla_stage_b_pending",
     "completed_stages":  [
                              "starting_state_verified",
                              "historical_evidence_inspected",
@@ -157,7 +157,8 @@
                              "epoch_4_cycle_3_fang_development_audit_passed",
                              "epoch_4_cycle_3_fang_uncalibrated_gate_failure_recorded",
                              "epoch_4_cycle_3_fang_validation_search_completed",
-                             "epoch_4_cycle_3_fang_selected_config_frozen"
+                             "epoch_4_cycle_3_fang_selected_config_frozen",
+                             "epoch_4_cycle_3_fang_stage_a_completed"
                          ],
     "active_hypothesis":  "Identity-preserving failure-aware action-field guidance can improve frozen SmolVLA hard-task success over an AFIL-style local proxy, no-failure ablation, nearest-success replay, and Base without confirmatory-test tuning.",
     "method_identity":  "FANG-VLA",
@@ -180,9 +181,9 @@
     "download_amount_gib_this_epoch":  0.0,
     "download_amount_gib_campaign":  14.845,
     "disk_free_bytes":  382861287424,
-    "current_decision":  "EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING",
-    "stage_a_result_json":  null,
-    "stage_a_result_md":  null,
+    "current_decision":  "EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B",
+    "stage_a_result_json":  "reports/fang_vla/stage_a_result.json",
+    "stage_a_result_md":  "reports/fang_vla/stage_a_result.md",
     "cycle_1_outcome":  {
                             "valid_scientific_result":  true,
                             "stage_a_completed":  true,
@@ -286,7 +287,7 @@
                                "HARD_EXTERNAL_BLOCKER",
                                "SAFETY_RESOURCE_STOP"
                            ],
-    "next_action":  "Implement and run the preregistered FANG-VLA Stage A closed-loop comparison using selected config fang_c01; do not alter the validation-selected configuration or tune on Stage A identities.",
+    "next_action":  "Run the preregistered FANG-VLA Stage B closed-loop comparison using selected config fang_c01; do not alter configuration, baselines, identities, or thresholds after the Stage A tie.",
     "method":  "FANG-VLA",
     "epoch_2_cycle_2_outcome":  {
                                     "method":  "SACF-VLA",

@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours":  4,
     "current_epoch":  4,
     "current_cycle":  3,
-    "topic":  "fang_vla_stage_a_implementation_pending",
+    "topic":  "fang_vla_stage_b_pending",
     "method":  "FANG-VLA",
     "branch":  "codex/autonomous-until-paper-governance-v2",
     "current_branch":  "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt":  "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt":  "codex/ral-cycle-03-gcap-vla",
-    "current_commit":  "6bed5d187c025296d4ed31e02f30c78cd352cf4a",
-    "current_stage":  "fang_vla_stage_a_implementation_pending",
+    "current_commit":  "844a0bf027036344361ce80e1e4c7d06378f2b6b",
+    "current_stage":  "fang_vla_stage_b_pending",
     "completed_stages":  [
                              "repository_state_verified",
                              "historical_evidence_inspected",
@@ -170,7 +170,8 @@
                              "epoch_4_cycle_3_fang_development_audit_passed",
                              "epoch_4_cycle_3_fang_uncalibrated_gate_failure_recorded",
                              "epoch_4_cycle_3_fang_validation_search_completed",
-                             "epoch_4_cycle_3_fang_selected_config_frozen"
+                             "epoch_4_cycle_3_fang_selected_config_frozen",
+                             "epoch_4_cycle_3_fang_stage_a_completed"
                          ],
     "running_command":  null,
     "start_time":  "2026-07-12T17:00:40.0826929+09:00",
@@ -187,10 +188,10 @@
                            "VeriSpace: https://arxiv.org/abs/2606.10568"
                        ],
     "prototype_gate":  "Audit and validation must pass before any closed-loop rollout; Stage B GO requires FANG to beat Base, AFIL proxy, no-failure ablation, and nearest-success replay with clean retention.",
-    "current_decision":  "EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING",
-    "stage_a_partial_checkpoint":  null,
-    "stage_a_result_json":  null,
-    "stage_a_result_md":  null,
+    "current_decision":  "EPOCH_4_CYCLE_3_FANG_STAGE_A_TIE_TO_STAGE_B",
+    "stage_a_partial_checkpoint":  "reports/fang_vla/stage_a_partial_result.json",
+    "stage_a_result_json":  "reports/fang_vla/stage_a_result.json",
+    "stage_a_result_md":  "reports/fang_vla/stage_a_result.md",
     "cycle_1_outcome":  {
                             "valid_scientific_result":  true,
                             "stage_a_completed":  true,
@@ -335,7 +336,7 @@
                                     "mechanism_active":  true,
                                     "kill_reason":  "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
                                 },
-    "next_action":  "Implement and run the preregistered FANG-VLA Stage A closed-loop comparison using selected config fang_c01; do not alter the validation-selected configuration or tune on Stage A identities.",
+    "next_action":  "Run the preregistered FANG-VLA Stage B closed-loop comparison using selected config fang_c01; do not alter configuration, baselines, identities, or thresholds after the Stage A tie.",
     "exact_resume_command":  "cd /d C:\\Users\\jiheo\\tca_map \u0026\u0026 git switch codex/autonomous-until-paper-governance-v2 \u0026\u0026 type reports\\current_research_governance.md",
     "active_hypothesis":  "Identity-preserving failure-aware action-field guidance can improve frozen SmolVLA hard-task success over an AFIL-style local proxy, no-failure ablation, nearest-success replay, and Base without confirmatory-test tuning.",
     "method_identity":  "FANG-VLA",
