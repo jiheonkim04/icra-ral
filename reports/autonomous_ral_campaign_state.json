@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 9,
-    "topic": "epoch_4_cycle_9_candidate_search_pending",
-    "method": "PENDING_NEXT_METHOD",
+    "topic": "epoch_4_cycle_9_pesa_proposal_pending",
+    "method": "PESA-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "bd63afc",
-    "current_stage": "epoch_4_cycle_9_candidate_search_pending",
+    "current_stage": "epoch_4_cycle_9_pesa_proposal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -261,24 +261,30 @@
         "epoch_4_cycle_8_marc_stage_a_completed",
         "epoch_4_cycle_8_marc_stage_a_adjudicated",
         "epoch_4_cycle_8_marc_valid_current_formulation_kill_recorded",
-        "epoch_4_cycle_9_candidate_search_pending"
+        "epoch_4_cycle_9_candidate_search_pending",
+        "epoch_4_cycle_9_candidate_generation_completed",
+        "epoch_4_cycle_9_pesa_proposal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
     "elapsed_active_time_hours_recorded": 5.21,
     "gpu_time_hours_recorded": 5.21,
     "downloads_gib_this_reopened_campaign": 0.0,
-    "hypothesis": "MARC-VLA current formulation is validly killed by Stage A; Epoch 4 Cycle 9 candidate search is pending.",
-    "novelty_claim": "A narrow OpenVLA-OFT anchored extension: frozen SmolVLA identity-preserving median-anchor correction through a learned disagreement gate, not broad continuous L1 action-prediction novelty.",
-    "closest_papers": [],
-    "prototype_gate": "Stage A must use the frozen five-policy MARC manifest, disk-reloaded identities, bounded action deltas, unchanged official 7D action semantics, and a faithful transparent OpenVLA-OFT-style L1 proxy rather than an official OpenVLA-OFT reproduction.",
-    "current_decision": "MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE",
-    "stage_a_partial_checkpoint": "reports/marc_vla/stage_a_partial_result.json",
-    "stage_a_result_json": "reports/marc_vla/stage_a_result.json",
-    "stage_a_result_md": "reports/marc_vla/stage_a_result.md",
-    "stage_b_partial_checkpoint": "reports/marc_vla/stage_b_partial_result.json",
+    "hypothesis": "PESA-VLA selected for Epoch 4 Cycle 9; Researcher A proposal is pending under current governance.",
+    "novelty_claim": "Prior-preserving spectral adaptation for frozen SmolVLA 7D policies, tested against PriorVLA-style proxy, standard LoRA, no-spectral ablation, and one simple clean-retention baseline.",
+    "closest_papers": [
+        "PriorVLA",
+        "LoRA-SP",
+        "VLA-GSE"
+    ],
+    "prototype_gate": "PESA Stage 0 must verify standard LoRA/prior-proxy headroom, split integrity, exact Base passthrough, finite gradients, bounded action deltas, clean retention, and no confirmatory-test identity use before any training scale-up or rollout.",
+    "current_decision": "SELECT_PESA_VLA",
+    "stage_a_partial_checkpoint": null,
+    "stage_a_result_json": null,
+    "stage_a_result_md": null,
+    "stage_b_partial_checkpoint": null,
     "stage_b_result_json": null,
-    "stage_b_result_md": "reports/marc_vla/stage_b_result.md",
+    "stage_b_result_md": null,
     "cycle_1_outcome": {
         "valid_scientific_result": true,
         "stage_a_completed": true,
@@ -423,14 +429,14 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Begin Epoch 4 Cycle 9 candidate generation under current governance; do not rescue MARC by retuning checkpoints, changing thresholds, or changing Stage A tasks/resets.",
+    "next_action": "Freeze PESA-VLA Researcher A proposal under current governance; do not rescue MARC or reuse confirmatory-test outcomes for tuning.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
-    "active_hypothesis": "MARC-VLA current formulation is validly killed by Stage A; Epoch 4 Cycle 9 candidate search is pending.",
-    "method_identity": "PENDING_NEXT_METHOD",
+    "active_hypothesis": "PESA-VLA selected for Epoch 4 Cycle 9; Researcher A proposal is pending under current governance.",
+    "method_identity": "PESA-VLA",
     "proposal_hash": null,
-    "prototype_protocol": "reports/marc_vla/prototype_protocol.md",
+    "prototype_protocol": null,
     "process_id": null,
-    "checkpoint_path": "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp",
+    "checkpoint_path": null,
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -1158,7 +1164,7 @@
         ],
         "next_stage": "Actual disk-reloadable adapter training and validation."
     },
-    "task_reset_manifest": "reports/marc_vla/stage_a_manifest.json",
+    "task_reset_manifest": null,
     "epoch_4_cycle_6_mtf_adapter_checkpoint_outcome": {
         "method": "MTF-VLA",
         "proposal_hash": "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31",
@@ -2177,7 +2183,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_9_candidate_search_pending",
+    "current_topic": "epoch_4_cycle_9_pesa_proposal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3119,7 +3125,7 @@
         "proxy_label": "openvla_oft_l1_proxy is a faithful transparent local proxy, not an official OpenVLA-OFT reproduction",
         "next_stage": "MARC Stage A preflight passed and official Stage A rollout is running detached."
     },
-    "stage_a_partial_result_json": "reports/marc_vla/stage_a_partial_result.json",
+    "stage_a_partial_result_json": null,
     "epoch_4_cycle_8_marc_stage_a_preflight": {
         "method": "MARC-VLA",
         "final_decision": "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT",
@@ -3218,5 +3224,32 @@
         "task_or_reset_change_allowed": false,
         "kill_reason": "MARC full reached 0/10 while frozen SmolVLA reached 8/10, the no-disagreement-gate ablation reached 7/10, and the static L1 mixture baseline reached 7/10 under the frozen Stage A manifest. The full method was therefore catastrophically worse than Base and dominated by the key ablation and simple baseline; no retuning, task/reset change, or rescue is allowed.",
         "next_stage": "Archive MARC-VLA current formulation and begin Epoch 4 Cycle 9 candidate search."
+    },
+    "epoch_4_cycle_9_pre_stage_0": {
+        "method": "PESA-VLA",
+        "selection_decision": "SELECT_PESA_VLA",
+        "candidate_generation": "reports/epoch_4_cycle_9_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_9_prior_mechanism_map.md",
+        "closest_prior": "PriorVLA",
+        "secondary_priors": [
+            "LoRA-SP",
+            "VLA-GSE"
+        ],
+        "selected_score": 90,
+        "selected_contribution_type": "CROSS_PAPER_SYNTHESIS",
+        "first_comparison_policies": [
+            "frozen_smolvla",
+            "priorvla_style_proxy",
+            "pesa_full",
+            "pesa_no_spectral_no_prior_query_ablation",
+            "standard_lora_or_clean_retention_baseline"
+        ],
+        "closest_prior_proxy_label": "faithful_transparent_local_proxy_not_official_priorvla_reproduction",
+        "stage_0_required": true,
+        "proposal_hash": null,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "training_happened": false,
+        "next_stage": "Freeze PESA-VLA Researcher A proposal, then run Reviewer B attack before any implementation."
     }
 }

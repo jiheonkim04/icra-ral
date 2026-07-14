@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`
+Current campaign decision: `SELECT_PESA_VLA`
 
 This is not a terminal decision.
 
@@ -138,4 +138,8 @@ MARC Stage A completed as `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELIN
 
 Final MARC decision: valid current-formulation kill. Do not rescue MARC by retuning checkpoints, changing thresholds, changing policies, changing task/reset identities, or reinterpreting Stage A outcomes.
 
-Current stage: `epoch_4_cycle_9_candidate_search_pending`. Next action: generate the next exactly-three candidate set under current governance.
+Epoch 4 Cycle 9 generated exactly three post-MARC candidates in `reports/epoch_4_cycle_9_candidate_generation.md` and selected `PESA-VLA`, Prior-Expert Spectral Adaptation for frozen SmolVLA 7D policies. PESA is anchored to PriorVLA, LoRA-SP, and VLA-GSE. It is not a MARC rescue, action residual wrapper, milestone-frame rescue, or ActionMap mini-proxy revival.
+
+The design-level five-policy comparison is Base, PriorVLA-style proxy, PESA full, no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline. No rollout, training, or confirmatory-test tuning has happened for PESA.
+
+Current stage: `epoch_4_cycle_9_pesa_proposal_pending`. Next action: freeze the PESA Researcher A proposal and run Reviewer B attack before any implementation.

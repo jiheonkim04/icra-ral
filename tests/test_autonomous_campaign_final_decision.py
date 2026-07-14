@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`" in final
+    assert "Current campaign decision: `SELECT_PESA_VLA`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -89,7 +89,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E" in final
     assert "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT" in final
     assert "MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE" in final
-    assert "epoch_4_cycle_9_candidate_search_pending" in final
+    assert "Epoch 4 Cycle 9 generated exactly three post-MARC candidates" in final
+    assert "PESA-VLA" in final
+    assert "Prior-Expert Spectral Adaptation" in final
+    assert "Current stage: `epoch_4_cycle_9_pesa_proposal_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -97,11 +100,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE"
+    assert state["current_decision"] == "SELECT_PESA_VLA"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 9
-    assert state["current_stage"] == "epoch_4_cycle_9_candidate_search_pending"
-    assert state["method"] == "PENDING_NEXT_METHOD"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_proposal_pending"
+    assert state["method"] == "PESA-VLA"
     assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -115,8 +118,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Begin Epoch 4 Cycle 9 candidate generation")
-    assert state["task_reset_manifest"] == "reports/marc_vla/stage_a_manifest.json"
+    assert state["next_action"].startswith("Freeze PESA-VLA Researcher A proposal")
+    assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
@@ -209,6 +212,15 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_8_marc_stage_a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_9_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_9_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_proposal_pending" in state["completed_stages"]
+    assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["secondary_priors"] == ["LoRA-SP", "VLA-GSE"]
+    assert state["epoch_4_cycle_9_pre_stage_0"]["selected_score"] == 90
+    assert state["epoch_4_cycle_9_pre_stage_0"]["training_happened"] is False
+    assert state["epoch_4_cycle_9_pre_stage_0"]["closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"
     assert state["epoch_4_cycle_7_pre_stage_0"]["proposal_hash"] == "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89"
     assert state["epoch_4_cycle_7_pre_stage_0"]["reviewer_attack"] == "reports/dagr_vla/reviewer_attack.md"

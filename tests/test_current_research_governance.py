@@ -19,11 +19,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE"
-    assert state["current_stage"] == "epoch_4_cycle_9_candidate_search_pending"
-    assert state["method"] == "PENDING_NEXT_METHOD"
+    assert state["current_decision"] == "SELECT_PESA_VLA"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_proposal_pending"
+    assert state["method"] == "PESA-VLA"
     assert state["proposal_hash"] is None
-    assert state["prototype_protocol"] == "reports/marc_vla/prototype_protocol.md"
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -103,12 +103,29 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_8_marc_stage_a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_9_candidate_search_pending" in state["completed_stages"]
-    assert state["task_reset_manifest"] == "reports/marc_vla/stage_a_manifest.json"
+    assert "epoch_4_cycle_9_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_proposal_pending" in state["completed_stages"]
+    assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["secondary_priors"] == ["LoRA-SP", "VLA-GSE"]
+    assert state["epoch_4_cycle_9_pre_stage_0"]["selected_score"] == 90
+    assert state["epoch_4_cycle_9_pre_stage_0"]["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "priorvla_style_proxy",
+        "pesa_full",
+        "pesa_no_spectral_no_prior_query_ablation",
+        "standard_lora_or_clean_retention_baseline",
+    ]
+    assert state["epoch_4_cycle_9_pre_stage_0"]["closed_loop_experiment_happened"] is False
+    assert state["epoch_4_cycle_9_pre_stage_0"]["confirmatory_test_tuning_happened"] is False
+    assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
-    assert state["checkpoint_path"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
-    assert state["stage_a_result_json"] == "reports/marc_vla/stage_a_result.json"
+    assert state["checkpoint_path"] is None
+    assert state["stage_a_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"

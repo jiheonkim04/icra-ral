@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`
+Current decision: `SELECT_PESA_VLA`
 
 Current epoch: `4`
 
 Current cycle: `9`
 
-Current stage: `epoch_4_cycle_9_candidate_search_pending`
+Current stage: `epoch_4_cycle_9_pesa_proposal_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -223,4 +223,12 @@ Stage A decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`. Froz
 
 Final MARC decision: valid current-formulation kill. MARC full was catastrophically worse than Base and dominated by both the key ablation and simple static-mixture baseline. Do not rescue MARC by retuning `marc_a020_gate_mlp`, changing thresholds, changing policies, changing task/reset identities, or reinterpreting Stage A outcomes.
 
-Current decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`. Current stage: `epoch_4_cycle_9_candidate_search_pending`.
+## Epoch 4 Cycle 9
+
+Exactly three post-MARC candidates were generated and scored in `reports/epoch_4_cycle_9_candidate_generation.md` after building the prior mechanism map in `reports/epoch_4_cycle_9_prior_mechanism_map.md`. MARC remains archived and may not be rescued.
+
+`PESA-VLA` is selected as a PriorVLA, LoRA-SP, and VLA-GSE anchored prior-expert spectral adaptation method for frozen SmolVLA 7D policies. The selected first comparison is frozen at the design level to five policies: Base, a PriorVLA-style proxy, PESA full, a no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline.
+
+No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to freeze the PESA Researcher A proposal and submit it to Reviewer B attack before any implementation.
+
+Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_proposal_pending`.
