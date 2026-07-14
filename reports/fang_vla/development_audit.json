@@ -1,0 +1,127 @@
+{
+  "action_stats": {
+    "finite": true,
+    "max_abs": 1.0782382488250732,
+    "mean_l2": 1.1510070190475687
+  },
+  "closed_loop_experiment_happened": false,
+  "combined_identity_counts": {
+    "libero_10/task_4": {
+      "failure": 12,
+      "success": 4
+    },
+    "libero_spatial/task_4": {
+      "failure": 10,
+      "success": 6
+    }
+  },
+  "config": {
+    "forbidden_confirmatory_identity_max": 20261040,
+    "forbidden_confirmatory_identity_min": 20260917,
+    "k_neighbors": 8,
+    "min_action_field_separation": 0.05,
+    "min_class_identities_per_task": 2,
+    "min_class_rows": 250,
+    "min_validation_gateable_fraction": 0.1,
+    "train_identities": [
+      20260901,
+      20260902,
+      20260903,
+      20260904,
+      20260905,
+      20260906,
+      20260907,
+      20260908,
+      20260909,
+      20260910
+    ],
+    "validation_identities": [
+      20260911,
+      20260912,
+      20260913,
+      20260914,
+      20260915,
+      20260916
+    ]
+  },
+  "date_kst": "2026-07-14",
+  "development_records": 10801,
+  "duplicate_development_keys": 0,
+  "failure_classifications": [],
+  "final_decision": "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH",
+  "forbidden_confirmatory_identities_present": [],
+  "hard_stop_reasons": [],
+  "method": "FANG-VLA",
+  "mode": "audit",
+  "next_step": "Run bounded train-validate search.",
+  "proposal_hash": "6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B",
+  "row_counts": {
+    "libero_10/task_4": {
+      "failure": 6240,
+      "success": 970
+    },
+    "libero_spatial/task_4": {
+      "failure": 2800,
+      "success": 791
+    }
+  },
+  "schema_version": 1,
+  "source_records": "reports/cavm_vla/acquisition_records.jsonl",
+  "total_input_records": 10801,
+  "train_action_variance_by_task_class": {
+    "libero_10/task_4": {
+      "failure": 0.16880800172231616,
+      "success": 0.18641182372428472
+    },
+    "libero_spatial/task_4": {
+      "failure": 0.21439211340643022,
+      "success": 0.2227166022779173
+    }
+  },
+  "train_class_mean_separation_by_task": {
+    "libero_10/task_4": 0.1327347225331515,
+    "libero_spatial/task_4": 0.2980430309460136
+  },
+  "train_identity_counts": {
+    "libero_10/task_4": {
+      "failure": 7,
+      "success": 3
+    },
+    "libero_spatial/task_4": {
+      "failure": 6,
+      "success": 4
+    }
+  },
+  "train_records": 6568,
+  "train_row_counts": {
+    "libero_10/task_4": {
+      "failure": 3640,
+      "success": 726
+    },
+    "libero_spatial/task_4": {
+      "failure": 1680,
+      "success": 522
+    }
+  },
+  "training_happened": false,
+  "validation_action_field_separation": {
+    "count": 4233,
+    "mean": 0.1997046560710014,
+    "median": 0.1243454626282238,
+    "q25": 0.0709162262315842,
+    "q75": 0.21425714272874852
+  },
+  "validation_gateable_fraction": 1.0,
+  "validation_gateable_records": 4233,
+  "validation_records": 4233,
+  "validation_row_counts": {
+    "libero_10/task_4": {
+      "failure": 2600,
+      "success": 244
+    },
+    "libero_spatial/task_4": {
+      "failure": 1120,
+      "success": 269
+    }
+  }
+}

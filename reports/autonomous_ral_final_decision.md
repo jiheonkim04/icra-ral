@@ -1,8 +1,8 @@
 # Autonomous RA-L Decision
 
-Date: 2026-07-13 KST
+Date: 2026-07-14 KST
 
-Current decision: `EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3`
+Current decision: `EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -32,4 +32,8 @@ Epoch 4 Cycle 1 `RCV-VLA` is archived as `STAGE_2B_PERMANENT_KILL_USEFUL_IMPROVE
 
 Epoch 4 Cycle 2 `CAVM-VLA` is archived as `STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION`: the expanded result completed `290 / 290` rows with zero exceptions, full CAVM reached `24 / 58`, nearest-success replay reached `23 / 58`, frozen SmolVLA reached `22 / 58`, success-only memory proxy reached `20 / 58`, and no-contrast ablation reached `21 / 58`.
 
-Next action: begin Epoch 4 Cycle 3 candidate generation under the post-CAVM performance-oriented research-design gate. Do not rescue CAVM by threshold retuning, additional expansion, memory reconstruction changes, or added hyperparameter variants.
+Epoch 4 Cycle 3 selected and preregistered `FANG-VLA`. Proposal hash: `6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B`.
+
+The development audit passed and the calibrated validation search selected `fang_c01`. The uncalibrated gate failure is preserved as a negative validation result.
+
+Next action: implement and run the preregistered FANG-VLA Stage A closed-loop comparison.

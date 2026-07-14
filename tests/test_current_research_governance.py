@@ -11,7 +11,7 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_is_epoch_4_cycle_3_after_cavm_non_go_without_cycle_cap() -> None:
+def test_active_state_is_epoch_4_cycle_3_fang_audit_pending_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -19,7 +19,16 @@ def test_active_state_is_epoch_4_cycle_3_after_cavm_non_go_without_cycle_cap() -
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING"
+    assert state["current_stage"] == "fang_vla_stage_a_implementation_pending"
+    assert state["method"] == "FANG-VLA"
+    assert state["proposal_hash"] == "6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B"
+    assert state["prototype_protocol"] == "reports/fang_vla/prototype_protocol.md"
+    assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
+    assert "epoch_4_cycle_3_fang_validation_search_completed" in state["completed_stages"]
+    assert state["checkpoint_path"] == "reports/fang_vla/checkpoints/fang_c01.pt"
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

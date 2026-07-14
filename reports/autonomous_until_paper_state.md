@@ -1,18 +1,18 @@
 # Autonomous Until Paper State
 
-Date: 2026-07-13 KST
+Date: 2026-07-14 KST
 
 Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_2_CAVM_NON_GO_CONTINUE_CYCLE_3`
+Current decision: `EPOCH_4_CYCLE_3_FANG_VALIDATION_SELECTED_STAGE_A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `3`
 
-Current stage: `epoch_4_cycle_3_selection_pending`
+Current stage: `fang_vla_stage_a_implementation_pending`
 
 Allowed final states:
 
@@ -115,4 +115,22 @@ The expanded result completed `290 / 290` rows with zero exceptions: `58` paired
 
 Full CAVM beat every baseline and the key ablation numerically, but the effect remained below the preregistered useful-improvement bar after the only allowed expansion. Full-minus-nearest paired delta was `0.017241`, wins `4`, losses `3`, ties `51`, CI `[-0.068966, 0.103448]`. Full-minus-no-contrast paired delta was `0.051724`, CI `[-0.034483, 0.137931]`. Mechanism activation was nonzero (`0.633522` mean gate activation rate), and there was no privileged inference signal, but the final decision is non-GO with no third expansion.
 
-Next action: begin Epoch 4 Cycle 3 candidate generation under the post-CAVM performance-oriented research-design gate. Do not rescue CAVM by threshold retuning, additional expansion, memory reconstruction changes, or added hyperparameter variants.
+## Epoch 4 Cycle 3
+
+`FANG-VLA` is selected and preregistered as the first post-CAVM performance-oriented method.
+
+Selection artifacts:
+
+- prior mechanism map: `reports/epoch_4_cycle_3_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_3_candidate_generation.md`
+- proposal: `reports/fang_vla/researcher_proposal.md`
+- proposal hash: `6837DBA2A1307F7C9938FA9F5463ED483907AF3C168F1C0514F6E281804E859B`
+- reviewer attack: `reports/fang_vla/reviewer_attack.md`
+- rebuttal: `reports/fang_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/fang_vla/mathematical_mechanism_audit.md`
+- preregistration: `reports/fang_vla/preregistration.md`
+- prototype protocol: `reports/fang_vla/prototype_protocol.md`
+
+Development audit passed with `10801` records, duplicate keys `0`, validation gateable fraction `1.0`, and median action-field separation `0.124345`. The first uncalibrated gate validation search is preserved as `VALIDATION_SEARCH_STOP_DESIGN_FAILURE` because the gate activated almost everywhere. The calibrated validation search then selected `fang_c01` with score `0.996806`, mean delta L2 `0.002555`, gate activation fraction `0.499882`, action validity `1.0`, and gate tau `2.815790`.
+
+Current stage: Stage A implementation pending. Do not alter `fang_c01`, gate tau, task list, identity partitions, baselines, or thresholds before Stage A.

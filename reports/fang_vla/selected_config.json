@@ -1,0 +1,62 @@
+{
+  "checkpoint_path": "reports\\fang_vla\\checkpoints\\fang_c01.pt",
+  "checkpoint_reload_max_abs_diff": 0.0,
+  "config": {
+    "alpha": 0.1,
+    "beta": 0.5,
+    "lambda_delta": 0.1,
+    "lambda_gate_fit": 1.0,
+    "lambda_gate_sparse": 0.01,
+    "name": "fang_c01"
+  },
+  "first_gradient_norms": {
+    "gate": 0.7663840598841862,
+    "m_minus": 0.09368470520873179,
+    "m_plus": 0.08441157420302584,
+    "trunk": 0.3595535253421827
+  },
+  "gate_tau": 2.815789982813291,
+  "loss_final_train": {
+    "delta": 0.0003563973295968026,
+    "failure": 0.01629994437098503,
+    "gate_fit": 0.5527300834655762,
+    "gate_sparse": 0.5113481879234314,
+    "success": 0.011763577349483967,
+    "total": 0.5859427452087402
+  },
+  "loss_initial": {
+    "delta": 4.0308987081516534e-07,
+    "failure": 0.10616764426231384,
+    "gate_fit": 2.135991334915161,
+    "gate_sparse": 0.01811196841299534,
+    "success": 0.1144203245639801,
+    "total": 2.3567605018615723
+  },
+  "loss_validation": {
+    "delta": 0.0003080648311879486,
+    "failure": 0.017872633412480354,
+    "gate_fit": 0.7375312447547913,
+    "gate_sparse": 0.47866499423980713,
+    "success": 0.012277750298380852,
+    "total": 0.7724990844726562
+  },
+  "name": "fang_c01",
+  "validation_metrics": {
+    "action_validity": 1.0,
+    "gate_activation_fraction": 0.49988188046302856,
+    "mean_delta_l2": 0.0025550848804414272,
+    "mean_gate": 0.07651050388813019,
+    "mean_head_separation": 0.335997611284256,
+    "median_head_separation": 0.32838189601898193,
+    "p95_delta_l2": 0.007864141836762428,
+    "validation_loss": 0.7724990844726562
+  },
+  "validation_score_terms": {
+    "action_validity": 1.0,
+    "bounded_activation": 1.0,
+    "clean_retention": 0.9872245755977929,
+    "compute_efficiency": 1.0,
+    "mechanism_separation": 1.0,
+    "total": 0.9968061438994482
+  }
+}
