@@ -15,14 +15,14 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 8
+    assert state["current_cycle"] == 9
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT"
-    assert state["current_stage"] == "epoch_4_cycle_8_marc_stage_a_rollout_running"
-    assert state["method"] == "MARC-VLA"
-    assert state["proposal_hash"] == "D1F910465D4E415C996B3F8C7CE2B2CF47339EA94D697B06A9DCED49AC1E585A"
+    assert state["current_decision"] == "MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE"
+    assert state["current_stage"] == "epoch_4_cycle_9_candidate_search_pending"
+    assert state["method"] == "PENDING_NEXT_METHOD"
+    assert state["proposal_hash"] is None
     assert state["prototype_protocol"] == "reports/marc_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -99,12 +99,16 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_8_marc_stage_a_manifest_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_stage_a_policy_preflight_passed" in state["completed_stages"]
     assert "epoch_4_cycle_8_marc_stage_a_rollout_launched" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_stage_a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_stage_a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_8_marc_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_9_candidate_search_pending" in state["completed_stages"]
     assert state["task_reset_manifest"] == "reports/marc_vla/stage_a_manifest.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
     assert state["checkpoint_path"] == "runs\\marc_vla_checkpoints\\marc_a020_gate_mlp"
-    assert state["stage_a_result_json"] is None
+    assert state["stage_a_result_json"] == "reports/marc_vla/stage_a_result.json"
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
@@ -301,6 +305,17 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert marc_launch["run_dir"] == "runs/marc_vla_stage_a/20260714T171356Z"
     assert marc_launch["child_pid"] == 414
     assert marc_launch["planned_episode_count"] == 50
+    marc_outcome = state["epoch_4_cycle_8_marc_stage_a_outcome"]
+    assert marc_outcome["final_decision"] == "MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE"
+    assert marc_outcome["valid_current_formulation_kill"] is True
+    assert marc_outcome["completed_episode_count"] == 50
+    assert marc_outcome["exception_count"] == 0
+    assert marc_outcome["frozen_smolvla_successes"] == 8
+    assert marc_outcome["marc_full_successes"] == 0
+    assert marc_outcome["marc_no_disagreement_gate_ablation_successes"] == 7
+    assert marc_outcome["static_l1_mixture_baseline_successes"] == 7
+    assert marc_outcome["paired_delta_vs_frozen_smolvla"] == -0.8
+    assert marc_outcome["paired_delta_vs_no_disagreement_gate_ablation"] == -0.7
     assert state["valid_final_states"] == ALLOWED_FINAL_STATES
     assert state["epoch_2_cycle_1_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"
     assert state["epoch_2_cycle_2_outcome"]["final_decision"] == "STAGE_A_PERMANENT_KILL_CLEARLY_WORSE"

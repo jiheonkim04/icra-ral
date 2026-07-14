@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`
 
 This is not a terminal state under the active governance.
 
@@ -119,6 +119,10 @@ The disk-reloaded policy identities are action-distinct: full-versus-L1 mean L2 
 
 The MARC Stage A manifest is now frozen as `MARC_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`: `50` planned episodes, reset seeds `20261209` and `20261210`, canonical hash `3383E377CEDD2B44E7730AAD3617E64838786E7094B9CF60D39F9679DE97D74E`, and the unchanged five-policy comparison. `openvla_oft_l1_proxy` is explicitly a faithful transparent local proxy, not an official OpenVLA-OFT reproduction. No closed-loop rollout or confirmatory-test tuning happened during manifest freeze.
 
-MARC Stage A preflight passed as `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`: `5` policies loaded through the official SmolVLA/LIBERO path, `4` checkpoint identities checksum-verified, CUDA checks passed, no accidental checkpoint reuse was detected, and finite 7D MARC actions were produced. The official Stage A rollout is now running detached from `runs/marc_vla_stage_a/20260714T171356Z` with child PID `414`; partial and final results are `reports/marc_vla/stage_a_partial_result.json` and `reports/marc_vla/stage_a_result.json`.
+MARC Stage A preflight passed as `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`: `5` policies loaded through the official SmolVLA/LIBERO path, `4` checkpoint identities checksum-verified, CUDA checks passed, no accidental checkpoint reuse was detected, and finite 7D MARC actions were produced.
 
-Current stage: `epoch_4_cycle_8_marc_stage_a_rollout_running`. Next action: monitor the detached MARC Stage A rollout to completion, then adjudicate the frozen result without retuning.
+MARC Stage A completed as `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`: `50 / 50` official LIBERO episodes from `runs/marc_vla_stage_a/20260714T171356Z`, zero exceptions, frozen SmolVLA `8 / 10`, OpenVLA-OFT-style L1 proxy `0 / 10`, MARC full `0 / 10`, no-disagreement-gate ablation `7 / 10`, and static L1 mixture `7 / 10`. Full-minus-Base paired delta was `-0.8`; full-minus-no-gate was `-0.7`; full-minus-static was `-0.7`.
+
+Final MARC decision: valid current-formulation kill. Do not rescue MARC by retuning checkpoints, changing thresholds, changing policies, changing task/reset identities, or reinterpreting Stage A outcomes.
+
+Current stage: `epoch_4_cycle_9_candidate_search_pending`. Next action: generate the next exactly-three candidate set under current governance.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`
+Current decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`
 
 Current epoch: `4`
 
-Current cycle: `8`
+Current cycle: `9`
 
-Current stage: `epoch_4_cycle_8_marc_stage_a_rollout_running`
+Current stage: `epoch_4_cycle_9_candidate_search_pending`
 
 Allowed final states:
 
@@ -294,6 +294,10 @@ The MARC Stage A matched manifest is frozen in `reports/marc_vla/stage_a_manifes
 
 MARC Stage A policy preflight passed as `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT` in `reports/marc_vla/stage_a_preflight.json`: `5` policies loaded through the official SmolVLA/LIBERO path, `4` checkpoint identities checksum-verified, CUDA checks passed, no accidental checkpoint reuse was detected, and finite 7D MARC actions were produced. No rollout result, training, or confirmatory-test tuning happened during preflight.
 
-The official MARC Stage A rollout is running detached from `runs/marc_vla_stage_a/20260714T171356Z`: wrapper PID `403`, Python child PID `414`, planned episodes `50`, partial result `reports/marc_vla/stage_a_partial_result.json`, final result `reports/marc_vla/stage_a_result.json`, stdout `runs/marc_vla_stage_a/20260714T171356Z/stdout.log`, stderr `runs/marc_vla_stage_a/20260714T171356Z/stderr.log`, heartbeat `runs/marc_vla_stage_a/20260714T171356Z/heartbeat.json`, and resume command file `runs/marc_vla_stage_a/20260714T171356Z/resume_command.txt`.
+The official MARC Stage A rollout completed from `runs/marc_vla_stage_a/20260714T171356Z` with exit code `0`, `50 / 50` episodes, zero exceptions, and no confirmatory-test tuning. The result is saved in `reports/marc_vla/stage_a_result.json` and summarized in `reports/marc_vla/stage_a_result.md`.
 
-Current decision: `MARC_STAGE_A_PREFLIGHT_PASS_READY_FOR_OFFICIAL_ROLLOUT`. Current stage: `epoch_4_cycle_8_marc_stage_a_rollout_running`.
+Stage A decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`. Frozen SmolVLA reached `8 / 10`, OpenVLA-OFT-style L1 proxy reached `0 / 10`, MARC full reached `0 / 10`, no-disagreement-gate ablation reached `7 / 10`, and static L1 mixture reached `7 / 10`. MARC full-minus-Base paired delta was `-0.8`, full-minus-no-gate was `-0.7`, and full-minus-static was `-0.7`.
+
+Final MARC decision: valid current-formulation kill. MARC full was catastrophically worse than Base and dominated by both the key ablation and simple static-mixture baseline. Do not rescue MARC by retuning `marc_a020_gate_mlp`, changing thresholds, changing policies, changing task/reset identities, or reinterpreting Stage A outcomes.
+
+Current decision: `MARC_STAGE_A_CATASTROPHIC_KILL_ZERO_VS_STRONG_BASELINE`. Current stage: `epoch_4_cycle_9_candidate_search_pending`.
