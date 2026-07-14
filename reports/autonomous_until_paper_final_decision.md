@@ -142,4 +142,10 @@ Epoch 4 Cycle 9 generated exactly three post-MARC candidates in `reports/epoch_4
 
 The design-level five-policy comparison is Base, PriorVLA-style proxy, PESA full, no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline. No rollout, training, or confirmatory-test tuning has happened for PESA.
 
-Current stage: `epoch_4_cycle_9_pesa_proposal_pending`. Next action: freeze the PESA Researcher A proposal and run Reviewer B attack before any implementation.
+The PESA Researcher A proposal is frozen in `reports/pesa_vla/researcher_proposal.md` with proposal hash `B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63`.
+
+Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. PESA is not killed before implementation, but novelty is narrowed to a frozen-SmolVLA, identity-preserving prior-expert spectral adaptation combination that must beat the PriorVLA-style proxy, no-spectral/no-prior-query ablation, and one strong standard-LoRA or clean-retention simple killer.
+
+No rollout, training, or confirmatory-test tuning has happened for PESA.
+
+Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`. Next action: write the PESA Researcher A rebuttal before mathematical audit or implementation.

@@ -4,6 +4,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 REPORTS = REPO_ROOT / "reports"
+PESA_PROPOSAL_HASH = "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
@@ -92,7 +93,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Epoch 4 Cycle 9 generated exactly three post-MARC candidates" in final
     assert "PESA-VLA" in final
     assert "Prior-Expert Spectral Adaptation" in final
-    assert "Current stage: `epoch_4_cycle_9_pesa_proposal_pending`" in final
+    assert PESA_PROPOSAL_HASH in final
+    assert "reports/pesa_vla/reviewer_attack.md" in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -103,9 +107,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["current_decision"] == "SELECT_PESA_VLA"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 9
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_rebuttal_pending"
     assert state["method"] == "PESA-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == PESA_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -118,7 +122,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Freeze PESA-VLA Researcher A proposal")
+    assert state["next_action"].startswith("Write PESA-VLA Researcher A rebuttal")
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
@@ -214,11 +218,17 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_9_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_9_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_reviewer_attack_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["secondary_priors"] == ["LoRA-SP", "VLA-GSE"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selected_score"] == 90
+    assert state["epoch_4_cycle_9_pre_stage_0"]["proposal"] == "reports/pesa_vla/researcher_proposal.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["proposal_hash"] == PESA_PROPOSAL_HASH
+    assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_attack"] == "reports/pesa_vla/reviewer_attack.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["epoch_4_cycle_9_pre_stage_0"]["training_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_7_pre_stage_0"]["selection_decision"] == "SELECT_DAGR_VLA"

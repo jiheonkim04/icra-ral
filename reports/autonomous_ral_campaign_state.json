@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 9,
-    "topic": "epoch_4_cycle_9_pesa_proposal_pending",
+    "topic": "epoch_4_cycle_9_pesa_rebuttal_pending",
     "method": "PESA-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "bd63afc",
-    "current_stage": "epoch_4_cycle_9_pesa_proposal_pending",
+    "current_commit": "5efd630",
+    "current_stage": "epoch_4_cycle_9_pesa_rebuttal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -263,21 +263,23 @@
         "epoch_4_cycle_8_marc_valid_current_formulation_kill_recorded",
         "epoch_4_cycle_9_candidate_search_pending",
         "epoch_4_cycle_9_candidate_generation_completed",
-        "epoch_4_cycle_9_pesa_proposal_pending"
+        "epoch_4_cycle_9_pesa_proposal_pending",
+        "epoch_4_cycle_9_pesa_proposal_frozen",
+        "epoch_4_cycle_9_pesa_reviewer_attack_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
     "elapsed_active_time_hours_recorded": 5.21,
     "gpu_time_hours_recorded": 5.21,
     "downloads_gib_this_reopened_campaign": 0.0,
-    "hypothesis": "PESA-VLA selected for Epoch 4 Cycle 9; Researcher A proposal is pending under current governance.",
+    "hypothesis": "PESA-VLA proposal is frozen and Reviewer B attack is complete; Researcher A rebuttal is pending under current governance before mathematical audit or implementation.",
     "novelty_claim": "Prior-preserving spectral adaptation for frozen SmolVLA 7D policies, tested against PriorVLA-style proxy, standard LoRA, no-spectral ablation, and one simple clean-retention baseline.",
     "closest_papers": [
         "PriorVLA",
         "LoRA-SP",
         "VLA-GSE"
     ],
-    "prototype_gate": "PESA Stage 0 must verify standard LoRA/prior-proxy headroom, split integrity, exact Base passthrough, finite gradients, bounded action deltas, clean retention, and no confirmatory-test identity use before any training scale-up or rollout.",
+    "prototype_gate": "PESA rebuttal must narrow novelty against PriorVLA, LoRA-SP, and VLA-GSE; preserve the five-policy comparison; require exact Base passthrough, split integrity, noncollapsed labels, bounded deltas, and no confirmatory-test identity use before any Stage 0 training scale-up or rollout.",
     "current_decision": "SELECT_PESA_VLA",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
@@ -429,11 +431,11 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze PESA-VLA Researcher A proposal under current governance; do not rescue MARC or reuse confirmatory-test outcomes for tuning.",
+    "next_action": "Write PESA-VLA Researcher A rebuttal addressing the conditional Reviewer B attack; then proceed to mathematical mechanism audit only if the rebuttal passes. No implementation, training, rollout, or confirmatory-test tuning has happened for PESA.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
-    "active_hypothesis": "PESA-VLA selected for Epoch 4 Cycle 9; Researcher A proposal is pending under current governance.",
+    "active_hypothesis": "PESA-VLA proposal is frozen and Reviewer B attack is complete; Researcher A rebuttal is pending under current governance before mathematical audit or implementation.",
     "method_identity": "PESA-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63",
     "prototype_protocol": null,
     "process_id": null,
     "checkpoint_path": null,
@@ -2183,7 +2185,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_9_pesa_proposal_pending",
+    "current_topic": "epoch_4_cycle_9_pesa_rebuttal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -3246,10 +3248,15 @@
         ],
         "closest_prior_proxy_label": "faithful_transparent_local_proxy_not_official_priorvla_reproduction",
         "stage_0_required": true,
-        "proposal_hash": null,
+        "proposal_hash": "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63",
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "training_happened": false,
-        "next_stage": "Freeze PESA-VLA Researcher A proposal, then run Reviewer B attack before any implementation."
+        "next_stage": "Complete PESA-VLA Researcher A rebuttal to the conditional Reviewer B attack before mathematical audit or implementation.",
+        "proposal": "reports/pesa_vla/researcher_proposal.md",
+        "reviewer_attack": "reports/pesa_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": null,
+        "rebuttal_decision": null
     }
 }

@@ -12,7 +12,7 @@ Current epoch: `4`
 
 Current cycle: `9`
 
-Current stage: `epoch_4_cycle_9_pesa_proposal_pending`
+Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`
 
 Allowed final states:
 
@@ -304,10 +304,14 @@ Final MARC decision: valid current-formulation kill. MARC full was catastrophica
 
 Exactly three post-MARC candidates were generated and scored in `reports/epoch_4_cycle_9_candidate_generation.md` after building the prior mechanism map in `reports/epoch_4_cycle_9_prior_mechanism_map.md`. MARC remains archived and may not be rescued.
 
-`PESA-VLA` is selected as a PriorVLA, LoRA-SP, and VLA-GSE anchored prior-expert spectral adaptation method for frozen SmolVLA 7D policies.
+`PESA-VLA` is selected as a PriorVLA, LoRA-SP, and VLA-GSE anchored prior-expert spectral adaptation method for frozen SmolVLA 7D policies. Proposal hash: `B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63`.
 
 The selected first comparison is frozen at the design level to five policies: Base, a PriorVLA-style proxy, PESA full, a no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline. `priorvla_style_proxy` is a faithful transparent local proxy, not an official PriorVLA reproduction unless exact official equivalence is later established.
 
-No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to freeze the PESA Researcher A proposal and submit it to Reviewer B attack before any implementation.
+The Researcher A proposal is frozen in `reports/pesa_vla/researcher_proposal.md`.
 
-Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_proposal_pending`.
+Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The attack narrows novelty against PriorVLA, LoRA-SP, and VLA-GSE; requires `priorvla_style_proxy` to remain an honest local proxy; forbids KL over deterministic 7D actions; and requires noncollapsed labels, observable spectral/query mechanisms, bounded action deltas, identity-preserving integration, and one strong standard-LoRA or clean-retention simple killer before rollout.
+
+No closed-loop rollout, training, or confirmatory-test tuning has happened for PESA. The next action is to write the PESA Researcher A rebuttal before mathematical audit or implementation.
+
+Current decision: `SELECT_PESA_VLA`. Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`.

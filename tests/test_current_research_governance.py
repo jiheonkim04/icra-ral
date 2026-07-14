@@ -5,6 +5,7 @@ from scripts.check_current_research_governance import ALLOWED_FINAL_STATES, vali
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+PESA_PROPOSAL_HASH = "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -20,9 +21,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["current_decision"] == "SELECT_PESA_VLA"
-    assert state["current_stage"] == "epoch_4_cycle_9_pesa_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_9_pesa_rebuttal_pending"
     assert state["method"] == "PESA-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == PESA_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -105,12 +106,18 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_9_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_9_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_9_pesa_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_9_pesa_reviewer_attack_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["secondary_priors"] == ["LoRA-SP", "VLA-GSE"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selected_score"] == 90
+    assert state["epoch_4_cycle_9_pre_stage_0"]["proposal"] == "reports/pesa_vla/researcher_proposal.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["proposal_hash"] == PESA_PROPOSAL_HASH
+    assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_attack"] == "reports/pesa_vla/reviewer_attack.md"
+    assert state["epoch_4_cycle_9_pre_stage_0"]["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["epoch_4_cycle_9_pre_stage_0"]["first_comparison_policies"] == [
         "frozen_smolvla",
         "priorvla_style_proxy",

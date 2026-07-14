@@ -127,6 +127,10 @@ Final MARC decision: valid current-formulation kill. Do not rescue MARC by retun
 
 Epoch 4 Cycle 9 generated exactly three post-MARC candidates in `reports/epoch_4_cycle_9_candidate_generation.md` and selected `PESA-VLA`, Prior-Expert Spectral Adaptation for frozen SmolVLA 7D policies. PESA is anchored to PriorVLA, LoRA-SP, and VLA-GSE, with a design-level comparison against Base, a PriorVLA-style proxy, PESA full, a no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline.
 
+The PESA Researcher A proposal is frozen in `reports/pesa_vla/researcher_proposal.md` with proposal hash `B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63`.
+
+Reviewer B attack is complete in `reports/pesa_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. PESA is not killed before implementation, but novelty is narrow and must survive the frozen five-policy comparison against Base, PriorVLA-style proxy, PESA full, no-spectral/no-prior-query ablation, and one strongest simple standard-LoRA or clean-retention adaptation baseline.
+
 No rollout, training, or confirmatory-test tuning has happened for PESA.
 
-Current stage: `epoch_4_cycle_9_pesa_proposal_pending`. Next action: freeze the PESA Researcher A proposal and run Reviewer B attack before any implementation.
+Current stage: `epoch_4_cycle_9_pesa_rebuttal_pending`. Next action: write the PESA Researcher A rebuttal before mathematical audit or implementation.
