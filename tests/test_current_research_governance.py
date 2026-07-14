@@ -19,8 +19,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_6_MTF_CHECKPOINTS_VERIFIED_STAGE_A_READY"
-    assert state["current_stage"] == "epoch_4_cycle_6_mtf_stage_a_manifest_pending"
+    assert state["current_decision"] == "MTF_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT"
+    assert state["current_stage"] == "epoch_4_cycle_6_mtf_stage_a_manifest_frozen_rollout_pending"
     assert state["method"] == "MTF-VLA"
     assert state["proposal_hash"] == "11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31"
     assert state["prototype_protocol"] == "reports/mtf_vla/prototype_protocol.md"
@@ -57,6 +57,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_6_mtf_adapter_training_runner_validated" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_adapter_training_completed" in state["completed_stages"]
     assert "epoch_4_cycle_6_mtf_checkpoints_verified" in state["completed_stages"]
+    assert "epoch_4_cycle_6_mtf_stage_a_manifest_frozen" in state["completed_stages"]
+    assert state["task_reset_manifest"] == "reports/mtf_vla/stage_a_manifest.json"
+    assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
+    assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
+    assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
     assert state["checkpoint_path"] == "runs/mtf_vla_checkpoints/mtf_r20_ret100"
     assert state["stage_a_result_json"] == "reports/rac_vla/stage_a_result.json"
     assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"

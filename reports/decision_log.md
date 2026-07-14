@@ -1832,3 +1832,22 @@ Evidence:
 - no-context ablation heavy policy calls per step: `0.429078`
 
 Consequence: archive RCV-VLA as a valid current-formulation kill. Do not rescue it by threshold retuning, a renamed verifier, or another receding-chunk replanning ablation. Continue to Epoch 4 Cycle 2 under the post-PSE problem-first, external-prior-early, mathematically justified research-design gate.
+
+## 2026-07-14 - Epoch 4 Cycle 6 MTF-VLA Stage A Manifest
+
+Decision: `MTF_STAGE_A_PLAN_FROZEN_READY_FOR_OFFICIAL_ROLLOUT`
+
+Execution boundary:
+
+- method: `MTF-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- proposal hash: `11DC94A2B75CD8605577AB044E5743DFDA4131A4FA7F6C6A7390519B9F995B31`
+- selected config: `mtf_r20_ret100`
+- manifest: `reports/mtf_vla/stage_a_manifest.json`
+- manifest hash: `1BB86A8060F8CD057AF984423021CA582E87661CB5157C072EF34B6F587739E3`
+- planned episodes: `50`
+- paired cases per policy: `10`
+- reset seeds: `20261201`, `20261202`
+- policies: `frozen_smolvla`, `frameskip_proxy_lora`, `uniform_retained_ratio_lora`, `mtf_no_retention_ablation`, `mtf_full`
+
+Consequence: Stage A is frozen and ready for official WSL rollout. No closed-loop rollout has happened from this manifest, and no Stage A outcome may be used to retune MTF checkpoints, task selection, reset identities, policy list, or thresholds.
