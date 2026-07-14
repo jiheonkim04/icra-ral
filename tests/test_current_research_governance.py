@@ -15,13 +15,13 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 5
+    assert state["current_cycle"] == 6
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING"
-    assert state["current_stage"] == "post_rac_governance_update_pending"
-    assert state["method"] == "RAC-VLA"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_6_candidate_search_pending"
+    assert state["method"] == "TBD_POST_RAC_CYCLE_6"
     assert state["proposal_hash"] == "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F"
     assert state["prototype_protocol"] == "reports/rac_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
@@ -46,6 +46,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_5_rac_stage_b_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_5_rac_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "post_rac_governance_update_pending" in state["completed_stages"]
+    assert "post_rac_governance_update_installed" in state["completed_stages"]
+    assert "epoch_4_cycle_6_candidate_search_pending" in state["completed_stages"]
     assert state["checkpoint_path"] is None
     assert state["stage_a_result_json"] == "reports/rac_vla/stage_a_result.json"
     assert state["stage_b_result_json"] == "reports/rac_vla/stage_b_result.json"
@@ -140,12 +142,25 @@ def test_post_cavm_performance_research_design_governance_is_active() -> None:
     governance = (REPO_ROOT / "reports" / "current_research_governance.md").read_text(encoding="utf-8")
 
     assert "Post-CAVM Performance-Oriented Research Design Governance" in governance
+    assert "Post-RAC Honest Positive-Result Governance" in governance
+    assert "MAXIMIZE_THE_PROBABILITY_OF_AN_HONEST_PAPER_WORTHY_POSITIVE_RESULT" in governance
     assert "`DISCOVERY`" in governance
     assert "`VALIDATION`" in governance
     assert "`CONFIRMATORY_TEST`" in governance
+    assert "DISCOVERY PARTITION" in governance
+    assert "DEVELOPMENT / VALIDATION PARTITION" in governance
+    assert "CONFIRMATORY TEST PARTITION" in governance
     assert "closest external prior" in governance
     assert "positive result that prior already demonstrates" in governance
+    assert "positive external-prior anchor" in governance
     assert "bounded validation search" in governance
+    assert "NO_USABLE_HEADROOM_OR_CONDITION_TOO_SEVERE" in governance
+    assert "DATA_OR_SUPERVISION_FAILURE" in governance
+    assert "GENUINE_METHOD_KILL" in governance
+    assert "SIMPLE_BASELINE_EXPLAINS_METHOD" in governance
+    assert "KEY_COMPONENT_NOT_USEFUL" in governance
+    assert "detached durable execution" in governance
+    assert "resume only missing evaluation keys" in governance
     assert "no more than `6` total configurations" in governance
     assert "No more than one mandatory simple killer baseline" in governance
     assert "AUTHOR_STATED" in governance

@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current campaign decision: `EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING`
+Current campaign decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`
 
 This is not a terminal decision.
 
@@ -67,4 +67,6 @@ Stage B completed `200 / 200` episodes with zero exceptions and a valid shared m
 
 Final RAC decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue or retune RAC.
 
-Next action: install the post-RAC performance-oriented governance update, validate it, commit and push it, then continue automatically to the next method cycle.
+The post-RAC governance update is installed and active. It requires future methods to maximize the probability of an honest paper-worthy positive result through stronger positive-prior-anchored design, usable-headroom audits, data/supervision health gates, identity-preserving integration, bounded validation search, mathematical objective engineering, mechanism smoke, and frozen confirmatory tests.
+
+Next action: begin Epoch 4 Cycle 6 by generating exactly three candidates, selecting exactly one, and proceeding automatically under the installed governance.

@@ -21,6 +21,12 @@ Future Codex sessions must read that file before treating any older report, stat
 
 After the fixed CAVM-VLA adjudication, future methods should be anchored to a positive external prior when possible and may use bounded validation-only design search before confirmatory testing. This includes literature-derived design principles, discovery diagnostics, validation tasks/reset identities, bounded hyperparameter search, clean-retention diagnostics, mechanism smoke tests, and external-prior reproduction.
 
+After the closed RAC-VLA Stage B result, `reports/current_research_governance.md` also imports the post-RAC objective:
+
+`MAXIMIZE_THE_PROBABILITY_OF_AN_HONEST_PAPER_WORTHY_POSITIVE_RESULT`
+
+This means Researcher A should design stronger methods before confirmatory testing: identify usable headroom, verify data and supervision health, prefer positive external priors, run bounded validation search, preserve the pretrained policy by default, and audit mathematical objectives before expensive rollout. It does not authorize confirmatory-test tuning, cherry-picking, or rescue of a valid kill.
+
 Do not tune on confirmatory test identities or reinterpret confirmatory results to rescue the same method. A major redesign after confirmatory test is a new method cycle.
 
 Future method proposals must include:
@@ -31,6 +37,8 @@ Future method proposals must include:
 - mathematical objective audit with term scale and gradient checks;
 - identity-preserving integration audit;
 - one default simple reviewer-killer baseline at initial prototype unless a concrete reviewer objection justifies another.
+
+Future long-running WSL experiments should use detached durable execution with PID, heartbeat, logs, partial result, exact resume command, and missing-key-only resume behavior.
 
 ## Deprecated Instructions
 

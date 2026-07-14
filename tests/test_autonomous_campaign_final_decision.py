@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING`" in final
+    assert "Current campaign decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -33,17 +33,18 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT" in final
     assert "RAC full reached `1 / 40`" in final
     assert "no-consequence ablation reached `2 / 40`" in final
+    assert "post-RAC governance update is installed" in final
 
 
 def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 5
-    assert state["current_stage"] == "post_rac_governance_update_pending"
-    assert state["method"] == "RAC-VLA"
+    assert state["current_cycle"] == 6
+    assert state["current_stage"] == "epoch_4_cycle_6_candidate_search_pending"
+    assert state["method"] == "TBD_POST_RAC_CYCLE_6"
     assert state["proposal_hash"] == "71ABA93E37FC725C1A2E5EAE6E1461BC77AACDAFF9B0711C37F17D5C0AB0902F"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -57,7 +58,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Preserve and push the closed RAC-VLA Stage B kill")
+    assert state["next_action"].startswith("Generate exactly three post-RAC candidates")
     assert "post_pse_research_design_governance_applied" in state["completed_stages"]
     assert "epoch_4_cycle_1_rcv_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "post_cavm_performance_governance_applied" in state["completed_stages"]
@@ -87,6 +88,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_5_stage_b_outcome"]["rac_full_successes"] == 1
     assert state["epoch_4_cycle_5_stage_b_outcome"]["rac_no_consequence_ablation_successes"] == 2
     assert state["epoch_4_cycle_5_stage_b_outcome"]["online_diagonal_inverse_gain_successes"] == 2
+    assert "post_rac_governance_update_installed" in state["completed_stages"]
+    assert "epoch_4_cycle_6_candidate_search_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_3_outcome"]["final_decision"] == "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
     assert state["epoch_4_cycle_3_outcome"]["fang_full_successes"] == 11
     assert state["epoch_4_cycle_3_outcome"]["base_smolvla_successes"] == 16
@@ -101,3 +104,5 @@ def test_core_ledgers_reference_current_governance() -> None:
     assert "Multi-stage autonomous research is permitted" in manual
     assert "There is no finite global method-cycle limit." in governance
     assert "Post-CAVM Performance-Oriented Research Design Governance" in governance
+    assert "Post-RAC Honest Positive-Result Governance" in governance
+    assert "MAXIMIZE_THE_PROBABILITY_OF_AN_HONEST_PAPER_WORTHY_POSITIVE_RESULT" in governance

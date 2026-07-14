@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING`
+Current decision: `EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING`
 
 Current epoch: `4`
 
-Current cycle: `5`
+Current cycle: `6`
 
-Current stage: `post_rac_governance_update_pending`
+Current stage: `epoch_4_cycle_6_candidate_search_pending`
 
 Allowed final states:
 
@@ -187,4 +187,8 @@ Stage B completed `200 / 200` episodes with zero exceptions and a valid shared t
 
 Final RAC decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue RAC, retune `rac_h4_a0.05`, change the hidden shift, or reinterpret the closed result.
 
-Current stage: post-RAC governance update pending. Install the new performance-oriented governance and continue automatically to the next method cycle.
+## Post-RAC Governance
+
+The post-RAC performance-oriented governance is installed in `reports/current_research_governance.md`, `AGENTS.md`, and `reports/codex_delegation_manual.md`. Future method cycles must maximize the probability of an honest paper-worthy positive result by using positive-prior anchors, usable-headroom audits, data/supervision health gates, identity-preserving integration, bounded development search, mathematical objective engineering, mechanism smoke, and frozen confirmatory tests.
+
+Current stage: Epoch 4 Cycle 6 candidate search pending. Generate exactly three candidates and select exactly one under the installed post-RAC governance.

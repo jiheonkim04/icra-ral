@@ -43,7 +43,9 @@ Maintain active state primarily in:
 
 Do not fabricate results, hide failed runs, cherry-pick favorable tasks/resets/seeds, change confirmatory metrics after seeing results, or use privileged inference inputs. Preserve failed and weak results with honest labels.
 
-After CAVM, method development is performance-oriented before confirmatory testing. Researcher A should use positive prior evidence, discovery diagnostics, validation-only design search, identity-preserving integration, clean-retention objectives, mechanism-aware ablations, appropriate mathematical distances, adequate training, and implementation diagnostics to build the strongest honest method.
+After CAVM, method development is performance-oriented before confirmatory testing. After the closed RAC-VLA Stage B result, the active objective is `MAXIMIZE_THE_PROBABILITY_OF_AN_HONEST_PAPER_WORTHY_POSITIVE_RESULT`. Researcher A should use positive prior evidence, discovery diagnostics, validation-only design search, identity-preserving integration, clean-retention objectives, mechanism-aware ablations, appropriate mathematical distances, adequate training, and implementation diagnostics to build the strongest honest method.
+
+This objective does not permit held-out confirmatory-test tuning, cherry-picking, changing thresholds after results, or rescuing a valid kill. It requires stronger pre-confirmatory method design: usable-headroom audit, data and supervision health gate, bounded development search, mathematical objective engineering, mechanism smoke, and preservation of the pretrained policy by default.
 
 Maintain three evidence partitions:
 
@@ -63,6 +65,8 @@ Before confirmatory evaluation, freeze:
 - kill, Stage B, and scale-up criteria.
 
 Offline proxies must be labeled as proxy or smoke evidence. Simulator rollouts must be labeled with their scope and cannot support claims outside the predeclared protocol.
+
+Failure classifications must be precise. `DATA_OR_SUPERVISION_FAILURE`, `IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, and `CONDITION_TOO_SEVERE_OR_NO_HEADROOM` inform the next design; they are not scientific kills of a full research family. `GENUINE_METHOD_KILL`, `SIMPLE_BASELINE_EXPLAINS_METHOD`, and `KEY_COMPONENT_NOT_USEFUL` require a valid mechanism and a completed frozen Stage B or a valid catastrophic Stage A.
 
 ## Resource And Safety Policy
 
@@ -121,3 +125,5 @@ powershell -ExecutionPolicy Bypass -File scripts\99_tree_check.ps1
 ```
 
 For method commits, add task-specific tests, compile checks, risk reports, rollout/training logs, and result artifacts as appropriate.
+
+For future long-running WSL experiments, use detached durable execution. Save PID, heartbeat, stdout/stderr logs, partial result, final result, exact resume command, and a missing-key-only resume policy.

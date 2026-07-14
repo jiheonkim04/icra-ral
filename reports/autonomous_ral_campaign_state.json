@@ -18,15 +18,15 @@
     "maximum_wall_time_hours_per_cycle":  12,
     "maximum_single_uncheckpointed_command_hours":  4,
     "current_epoch":  4,
-    "current_cycle":  5,
-    "topic":  "post_rac_governance_update_pending",
-    "method":  "RAC-VLA",
+    "current_cycle":  6,
+    "topic":  "epoch_4_cycle_6_candidate_search_pending",
+    "method":  "TBD_POST_RAC_CYCLE_6",
     "branch":  "codex/autonomous-until-paper-governance-v2",
     "current_branch":  "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt":  "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt":  "codex/ral-cycle-03-gcap-vla",
     "current_commit":  "a2e94c16929e46cc9b0aa927dfb318a98b3f178e",
-    "current_stage":  "post_rac_governance_update_pending",
+    "current_stage":  "epoch_4_cycle_6_candidate_search_pending",
     "completed_stages":  [
                              "repository_state_verified",
                              "historical_evidence_inspected",
@@ -200,7 +200,9 @@
                              "epoch_4_cycle_5_rac_stage_b_completed",
                              "epoch_4_cycle_5_rac_stage_b_adjudicated",
                              "epoch_4_cycle_5_rac_valid_current_formulation_kill_recorded",
-                             "post_rac_governance_update_pending"
+                             "post_rac_governance_update_pending",
+                             "post_rac_governance_update_installed",
+                             "epoch_4_cycle_6_candidate_search_pending"
                          ],
     "running_command":  null,
     "start_time":  "2026-07-12T17:00:40.0826929+09:00",
@@ -217,7 +219,7 @@
                            "ProgressVLA: https://arxiv.org/abs/2603.27670"
                        ],
     "prototype_gate":  "Stage A/B require RAC full to beat Base, Reflective-history proxy, no-consequence ablation, and online diagonal inverse-gain under the frozen shifted-condition manifest with nonzero bounded mechanism activation.",
-    "current_decision":  "EPOCH_4_CYCLE_5_RAC_STAGE_B_KILL_GOVERNANCE_UPDATE_PENDING",
+    "current_decision":  "EPOCH_4_CYCLE_6_CANDIDATE_SEARCH_PENDING",
     "stage_a_partial_checkpoint":  "reports/rac_vla/stage_a_partial_result.json",
     "stage_a_result_json":  "reports/rac_vla/stage_a_result.json",
     "stage_a_result_md":  "reports/rac_vla/stage_a_result.md",
@@ -368,7 +370,7 @@
                                     "mechanism_active":  true,
                                     "kill_reason":  "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
                                 },
-    "next_action":  "Preserve and push the closed RAC-VLA Stage B kill, then install the post-RAC performance-oriented governance update before continuing to the next method cycle.",
+    "next_action":  "Generate exactly three post-RAC candidates under the installed performance-oriented governance, select exactly one, and proceed through development audit, validation search, and prior-first prototype without using RAC outcomes to retune RAC.",
     "exact_resume_command":  "cd /d C:\\Users\\jiheo\\tca_map \u0026\u0026 git switch codex/autonomous-until-paper-governance-v2 \u0026\u0026 type reports\\current_research_governance.md",
     "active_hypothesis":  "A compact Reflective VLA-style action-consequence calibration context can infer controlled action-channel deployment shift and improve frozen SmolVLA shifted-condition success while retaining clean passthrough.",
     "method_identity":  "RAC-VLA",

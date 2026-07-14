@@ -1,6 +1,6 @@
 # Current Research Governance
 
-Date: 2026-07-12 KST
+Date: 2026-07-14 KST
 
 This file is the active repository governance for the autonomous until-paper research campaign.
 
@@ -269,3 +269,180 @@ After paper-candidate status, immediately verify Quantized OpenVLA-OFT INT4, add
 The final comparison must include SmolVLA versus SmolVLA plus Ours and Quantized OpenVLA-OFT INT4 versus Quantized OpenVLA-OFT INT4 plus Ours.
 
 Before any future terminal decision, `scripts/check_current_research_governance.py` must pass.
+
+## Post-RAC Honest Positive-Result Governance
+
+This section applies only after the closed RAC-VLA Stage B result. It is not retroactive to RAC or any earlier frozen protocol.
+
+The campaign objective for subsequent methods is:
+
+`MAXIMIZE_THE_PROBABILITY_OF_AN_HONEST_PAPER_WORTHY_POSITIVE_RESULT`
+
+This means choosing stronger ideas, anchoring them to real positive prior evidence, verifying usable data and headroom, designing mathematically functional mechanisms, allowing bounded development and validation tuning, preserving the pretrained policy, and then running a frozen fair confirmatory experiment. It does not permit held-out test tuning, cherry-picking, threshold changes after results, or rescue of a valid kill.
+
+### Evidence Partitions
+
+Every new method must create and persist strictly separated identities for:
+
+1. `DISCOVERY PARTITION`: failure discovery, trajectory/video inspection, hypothesis formation, label construction, method design, signal existence checks, and diagnostic headroom.
+2. `DEVELOPMENT / VALIDATION PARTITION`: architecture choice, one or two critical coefficients, context length, residual/gate scale, training duration, final configuration selection, mechanism activation, and clean retention.
+3. `CONFIRMATORY TEST PARTITION`: one-shot held-out evaluation after architecture, hyperparameters, checkpoint-selection rule, task/reset manifest, baselines, ablations, metrics, and decision thresholds are frozen.
+
+Confirmatory-test outcomes may not be used to retune the same method. A major redesign after test is a new method cycle. Every split must prove zero identity overlap.
+
+### Candidate Quality Gate
+
+Generate exactly three candidates. Do not select a method merely because it is a small MLP, a lightweight residual, a simple frozen-policy attachment, a convenient image transform, an easy threshold, or immediately runnable on one task.
+
+For each candidate reconstruct:
+
+- exact robotics or VLA problem;
+- closest external prior;
+- positive result already demonstrated by that prior;
+- actual prior mechanism, not only contribution wording;
+- remaining assumption or limitation;
+- proposed representation, objective, supervision, or policy mechanism;
+- falsifiable mechanism-to-success hypothesis;
+- required data and whether it exists;
+- diagnostic headroom;
+- policy-disruption risk;
+- fair external-prior comparison path;
+- decisive local experiment;
+- second-backbone integration path;
+- claim-specific second condition.
+
+Score exactly three candidates on:
+
+- provisional novelty: `25%`
+- importance of the problem: `15%`
+- strength of positive external-prior anchor: `20%`
+- technical mechanism quality: `20%`
+- data and supervision feasibility: `10%`
+- decisive experiment feasibility: `10%`
+
+Unknown future performance is not a rejection reason. Pre-implementation rejection is allowed only for near-exact prior-art duplication, mathematically invalid formulation, obvious equivalence to a trivial method, missing essential data or supervision, unavailable essential hardware, or no falsifiable experimental path.
+
+### Positive-Prior Anchor
+
+Future methods should preferably use:
+
+strong external prior + clearly identified unresolved assumption + one technically meaningful extension + matched Base/Prior/Ours comparison.
+
+Before implementation, identify closest external prior, strongest recent method on the same claim axis, official code or checkpoint status, exact positive result, backbone and benchmark compatibility, observation and action semantics, inference budget, privileged inputs, and what must be faithfully reproduced locally.
+
+Do not treat published numbers from incompatible protocols as a direct baseline. When official code cannot be run, implement a faithful transparent proxy only if the essential mechanism is preserved; list omitted components; never call a proxy an official reproduction.
+
+A less anchored method may proceed only when problem evidence is strong, diagnostic headroom is clear, supervision is available, and the mechanism is deeper than another local add-on.
+
+### Problem And Headroom Audit
+
+Before expensive implementation, training, or rollout, test usable headroom on discovery and validation identities only.
+
+Check whether Base fails meaningfully, the closest prior leaves residual failure, the condition is neither saturated nor at an unusable floor, and the failure appears across more than one task or controlled condition.
+
+Use a diagnostic oracle, privileged training-only upper bound, teacher policy, known inverse dynamics, successful trajectory evidence, intervention upper bound, or representation probe only when it measures the proposed intervention target.
+
+If Base, prior, and oracle all fail, classify the condition as `NO_USABLE_HEADROOM_OR_CONDITION_TOO_SEVERE`. If a stronger working backbone fully solves the claimed problem, do not frame it as a general VLA failure without a new deployment condition or stronger claim.
+
+### Data And Supervision Health Gate
+
+Before training, report records, positive and negative counts, task coverage, phase coverage, label variance, mask or intervention frequency, duplicate count, train/validation/test overlap, trivial-majority accuracy, and predictability from deployment-time inputs.
+
+Reject or redesign before rollout when labels collapse, full and ablation receive effectively identical targets, supervision depends on inaccessible inference-time information, the signal is not observable from RGB/proprioception/instruction, coverage collapses, required successful counterexamples do not exist, or data construction does not represent the claimed mechanism. Classify this as `DATA_OR_SUPERVISION_FAILURE`, not as a scientific method kill.
+
+### Identity-Preserving Integration
+
+A strong pretrained VLA should be preserved by default. Prefer zero-initialized residuals, identity adapters, base-passthrough gates, bounded residual magnitude, conservative latent updates, clean-retention objectives, and context-dependent interventions initialized to zero so that Ours is initially close to Base.
+
+Before rollout quantify action delta from Base, translation/rotation/gripper deltas, intervention frequency, output validity, action-bound violations, clean validation success, and full-versus-ablation difference.
+
+Do not proceed to confirmatory rollout if the component strongly modifies nearly every action, clean validation collapses, gripper behavior changes unintentionally, the action distribution leaves the valid pretrained region, or the method acts globally when it should act selectively.
+
+### Bounded Development Search
+
+Do not send the first arbitrary implementation directly to confirmatory rollout. Every selected method may receive one bounded development search using discovery and validation data only.
+
+Default maximum:
+
+- at most `6` total configurations;
+- at most `2` architecture variants;
+- at most `3` values of one critical coefficient;
+- at most `2` lightweight training seeds per selected configuration;
+- no broad combinatorial sweep;
+- no confirmatory-test use.
+
+Before search, write configurations, selection metric, compute budget, and tie-breaking rule. Prefer a validation score that combines closed-loop success when affordable, clean retention, mechanism activation, action validity, and compute overhead. Do not select by offline action L2 alone. Save every attempted result, final checkpoint, and negative result.
+
+### Mathematical Objective Engineering
+
+For every objective term provide exact variables and tensor shapes, mathematical definition, units and scale, training stage, gradient path, expected representation change, expected action-distribution change, expected closed-loop consequence, simplest substitute, and required ablation.
+
+Before full training, measure loss magnitudes and gradient norms, detect one loss dominating others, detect gradient conflict when relevant, and validate coefficient scale.
+
+Do not add ornamental KL, contrastive loss, entropy loss, mutual information, causal terminology, or arbitrary weighted objectives. KL is permitted only when both arguments are valid probability distributions or justified density approximations with defined support, normalization, estimator, gradient destination, and direction. Do not compute KL directly between deterministic 7D action vectors or assume SmolVLA flow vectors are normalized distributions.
+
+### Mechanism Smoke
+
+A method may enter confirmatory rollout only when applicable checks pass:
+
+- intended parameters receive finite nonzero gradients;
+- loss and validation behavior are sensible;
+- checkpoint persists and disk reloads;
+- evaluation loads the intended checkpoint;
+- mechanism changes the intended representation or action;
+- full differs from key ablation;
+- change is bounded;
+- clean validation behavior is retained;
+- action validity is preserved;
+- no privileged inference signal;
+- no identity leakage;
+- no collapsed gate, mask, label, memory, or intervention.
+
+For learned modules report parameter count, training loss, validation loss, gradient norms, activation frequency, output variance, action delta, and clean retention.
+
+### First Serious Experiment
+
+The default first paper-oriented comparison uses exactly five policies:
+
+1. Base
+2. closest external prior or faithful transparent proxy
+3. Ours
+4. key ablation
+5. one strongest simple reviewer-killer baseline
+
+Do not run a large suite of internal controls before the external prior. Additional controls require a concrete alternative explanation, decision relevance, and lower cost than proceeding to final comparison.
+
+Use identical paired task/reset manifest, matched inference budget where possible, same observation and action semantics, comparable training data, and transparent compute differences.
+
+### Staged Closed-Loop Evaluation
+
+Stage A is a catastrophic and directional screen using approximately `10` paired episodes per policy. It may permanently kill only when full has `0 / 10` while a paired baseline has at least `4 / 10`, full is at least `30` absolute points below baseline or ablation, mechanism is valid and clearly harmful, no diagnostic headroom exists, implementation or supervision is invalid, or trivial equivalence is proven. Small differences, ties, and one- or two-episode gaps advance to Stage B.
+
+Stage B is the confirmatory paired prototype using at least `40` paired episodes per key policy. Report successes/counts, task-balanced success, paired wins/losses/ties, paired bootstrap confidence interval, effect size, relative failure-rate reduction, per-task result, clean retention, mechanism activation, latency, and VRAM.
+
+Allow one expansion to `80` only when full is not clearly inferior, the confidence interval remains unresolved, and useful improvement has not been excluded. No second expansion.
+
+### Result Classification
+
+Classify results precisely:
+
+- `PROTOTYPE_GO`: Ours beats Base, closest prior, key ablation, and strongest simple explanation; clean behavior is retained; mechanism is active; effect is meaningful.
+- `UNDERPOWERED_ONE_EXPANSION_ALLOWED`: evidence is directionally positive or unresolved.
+- `GENUINE_METHOD_KILL`: implementation and data are valid, mechanism acts, Stage B or valid catastrophic Stage A is complete, and full clearly fails against prior, baseline, or ablation.
+- `DATA_OR_SUPERVISION_FAILURE`
+- `IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+- `CONDITION_TOO_SEVERE_OR_NO_HEADROOM`
+- `SIMPLE_BASELINE_EXPLAINS_METHOD`
+- `KEY_COMPONENT_NOT_USEFUL`
+
+Only `PROTOTYPE_GO`, `GENUINE_METHOD_KILL`, `SIMPLE_BASELINE_EXPLAINS_METHOD`, and `KEY_COMPONENT_NOT_USEFUL` are scientific formulation decisions. Data, implementation, optimization, and no-headroom failures inform the next design rather than proving a research family impossible.
+
+### After Prototype GO
+
+Do not stop at SmolVLA GO. Immediately proceed to larger primary-backbone confirmation, strongest recent directly relevant baseline, Quantized OpenVLA-OFT INT4 integration, same-backbone OpenVLA-OFT INT4 versus OpenVLA-OFT INT4 plus Ours comparison, one claim-specific second condition or benchmark, clean retention, statistical confirmation, latency, VRAM, parameters, training cost, figure/table-ready artifacts, and novelty re-adjudication against latest papers.
+
+Final paper comparison must include SmolVLA versus SmolVLA plus Ours and Quantized OpenVLA-OFT INT4 versus Quantized OpenVLA-OFT INT4 plus Ours.
+
+### Long-Running Execution
+
+For future long-running WSL experiments, use detached durable execution, save PID, heartbeat, logs, partial result, exact resume command, and resume only missing evaluation keys after interruption.
