@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `4`
 
-Current stage: `epoch_4_cycle_4_candidate_search_pending`
+Current stage: `evostate_vla_stage_0_implementation_pending`
 
 Allowed final states:
 
@@ -141,4 +141,20 @@ The paired comparison against Base was negative: full-minus-base delta `-0.125`,
 
 Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue `fang_c01`, retune its threshold, or reinterpret Stage A/Stage B identities.
 
-Current stage: Epoch 4 Cycle 4 candidate search pending. Generate exactly three prior-anchored candidates under the current post-CAVM governance.
+## Epoch 4 Cycle 4
+
+`EvoState-VLA` is selected and preregistered as an EvoScene/DREAM-anchored action-evolved state guidance method for frozen chunked VLAs.
+
+Selection artifacts:
+
+- prior mechanism map: `reports/epoch_4_cycle_4_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_4_candidate_generation.md`
+- proposal: `reports/evostate_vla/researcher_proposal.md`
+- proposal hash: `A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9`
+- reviewer attack: `reports/evostate_vla/reviewer_attack.md`
+- rebuttal: `reports/evostate_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/evostate_vla/mathematical_mechanism_audit.md`
+- preregistration: `reports/evostate_vla/preregistration.md`
+- prototype protocol: `reports/evostate_vla/prototype_protocol.md`
+
+Current stage: Stage 0 implementation pending. Run the development audit on `reports/cavm_vla/acquisition_records.jsonl`; do not launch closed-loop Stage A unless the audit and bounded validation search pass.

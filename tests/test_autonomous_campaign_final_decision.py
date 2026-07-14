@@ -9,7 +9,7 @@ REPORTS = REPO_ROOT / "reports"
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`" in final
+    assert "Current campaign decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -17,6 +17,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT" in final
     assert "11 / 40" in final
     assert "16 / 40" in final
+    assert "EvoState-VLA" in final
+    assert "A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9" in final
     assert "CAVM-VLA" in final
     assert "24 / 58" in final
     assert "23 / 58" in final
@@ -26,12 +28,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED"
+    assert state["current_decision"] == "EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 4
-    assert state["current_stage"] == "epoch_4_cycle_4_candidate_search_pending"
-    assert state["method"] == "NEXT_METHOD_UNSELECTED"
-    assert state["proposal_hash"] is None
+    assert state["current_stage"] == "evostate_vla_stage_0_implementation_pending"
+    assert state["method"] == "EvoState-VLA"
+    assert state["proposal_hash"] == "A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -44,7 +46,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Begin Epoch 4 Cycle 4")
+    assert state["next_action"].startswith("Implement and run the EvoState-VLA Stage 0")
     assert "post_pse_research_design_governance_applied" in state["completed_stages"]
     assert "epoch_4_cycle_1_rcv_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "post_cavm_performance_governance_applied" in state["completed_stages"]
@@ -54,6 +56,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_3_fang_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_stage_b_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_4_evostate_preregistration_frozen" in state["completed_stages"]
+    assert state["epoch_4_cycle_4_pre_stage_0"]["selection_decision"] == "SELECT_EVOSTATE_VLA"
     assert state["epoch_4_cycle_3_outcome"]["final_decision"] == "STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT"
     assert state["epoch_4_cycle_3_outcome"]["fang_full_successes"] == 11
     assert state["epoch_4_cycle_3_outcome"]["base_smolvla_successes"] == 16

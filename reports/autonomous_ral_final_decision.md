@@ -2,7 +2,7 @@
 
 Date: 2026-07-14 KST
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -40,4 +40,6 @@ Stage B completed `200 / 200` episodes with zero exceptions. Full FANG reached `
 
 Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue this formulation.
 
-Next action: begin Epoch 4 Cycle 4 by generating exactly three prior-anchored candidates under the current post-CAVM governance.
+Epoch 4 Cycle 4 selected and preregistered `EvoState-VLA`. Proposal hash: `A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9`.
+
+Next action: implement and run the EvoState-VLA Stage 0 development audit on `reports/cavm_vla/acquisition_records.jsonl`.

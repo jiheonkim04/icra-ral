@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED`
+Current decision: `EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `4`
 
-Current stage: `epoch_4_cycle_4_candidate_search_pending`
+Current stage: `evostate_vla_stage_0_implementation_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -92,4 +92,20 @@ Stage B completed `200 / 200` episodes with zero exceptions. Full FANG reached `
 
 Final FANG decision: `STAGE_B_KILL_BASELINE_OR_ABLATION_EXPLAINS_RESULT`. Do not rescue this formulation.
 
-Next action: begin Epoch 4 Cycle 4 by generating exactly three prior-anchored candidates under the current post-CAVM governance.
+## Epoch 4 Cycle 4
+
+`EvoState-VLA` is selected and preregistered as an EvoScene/DREAM-anchored action-evolved state guidance method.
+
+Artifacts:
+
+- `reports/epoch_4_cycle_4_prior_mechanism_map.md`
+- `reports/epoch_4_cycle_4_candidate_generation.md`
+- `reports/evostate_vla/researcher_proposal.md`
+- `reports/evostate_vla/proposal_hash.txt`
+- `reports/evostate_vla/reviewer_attack.md`
+- `reports/evostate_vla/researcher_rebuttal.md`
+- `reports/evostate_vla/mathematical_mechanism_audit.md`
+- `reports/evostate_vla/preregistration.md`
+- `reports/evostate_vla/prototype_protocol.md`
+
+Next action: implement and run the EvoState-VLA Stage 0 development audit on `reports/cavm_vla/acquisition_records.jsonl`.

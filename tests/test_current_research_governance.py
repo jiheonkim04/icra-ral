@@ -11,7 +11,7 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_records_fang_stage_b_kill_and_next_cycle_without_cycle_cap() -> None:
+def test_active_state_records_evostate_selection_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -19,11 +19,11 @@ def test_active_state_records_fang_stage_b_kill_and_next_cycle_without_cycle_cap
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EPOCH_4_CYCLE_3_FANG_STAGE_B_VALID_KILL_NEXT_METHOD_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_4_candidate_search_pending"
-    assert state["method"] == "NEXT_METHOD_UNSELECTED"
-    assert state["proposal_hash"] is None
-    assert state["prototype_protocol"] is None
+    assert state["current_decision"] == "EPOCH_4_CYCLE_4_EVOSTATE_PREREGISTERED_STAGE_0_PENDING"
+    assert state["current_stage"] == "evostate_vla_stage_0_implementation_pending"
+    assert state["method"] == "EvoState-VLA"
+    assert state["proposal_hash"] == "A44ED68CC8E1F296DB8B0B3E16FF84D7D5BBE684EAF63EAE29E7CC91DCFD93C9"
+    assert state["prototype_protocol"] == "reports/evostate_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -31,6 +31,9 @@ def test_active_state_records_fang_stage_b_kill_and_next_cycle_without_cycle_cap
     assert "epoch_4_cycle_3_fang_stage_a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_stage_b_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_4_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_4_evostate_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_4_evostate_prototype_protocol_frozen" in state["completed_stages"]
     assert state["checkpoint_path"] is None
     assert state["stage_a_result_json"] == "reports/fang_vla/stage_a_result.json"
     assert state["stage_b_result_json"] == "reports/fang_vla/stage_b_result.json"
@@ -73,6 +76,10 @@ def test_active_state_records_fang_stage_b_kill_and_next_cycle_without_cycle_cap
     assert state["epoch_4_cycle_3_outcome"]["afil_local_proxy_successes"] == 15
     assert state["epoch_4_cycle_3_outcome"]["fang_no_failure_ablation_successes"] == 11
     assert state["epoch_4_cycle_3_outcome"]["paired_delta_vs_base_smolvla"] == -0.125
+    assert state["epoch_4_cycle_4_pre_stage_0"]["method"] == "EvoState-VLA"
+    assert state["epoch_4_cycle_4_pre_stage_0"]["selection_decision"] == "SELECT_EVOSTATE_VLA"
+    assert state["epoch_4_cycle_4_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_4_candidate_generation.md"
+    assert state["epoch_4_cycle_4_pre_stage_0"]["mathematical_audit"] == "reports/evostate_vla/mathematical_mechanism_audit.md"
 
 
 def test_epoch_1_corrected_adjudication_records_all_cycles() -> None:
