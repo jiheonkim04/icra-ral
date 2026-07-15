@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
+Current campaign decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -321,7 +321,13 @@ identity, 20-step fit, group coverage, coefficient scaling, Base hash, memory,
 and disk reload. Fixed-subset loss fell by `0.11399528227036353`; exceptions,
 duplicate keys, and confirmatory observations/actions were zero.
 
-Current stage:
-`epoch_4_cycle_17_famr_endpoint_training_implementation_pending`. The frozen
-300-step discovery-only endpoint may be implemented and run; validation search,
-closed-loop rollout, and confirmatory decoding remain forbidden.
+The frozen endpoint completed all `300` optimizer steps and `2400`
+discovery-only microbatches. Fit, gradients, action effect, Base hash, reload,
+manifest, and memory passed, but Base-relative action validity failed on both
+outside-`[-1,1]` frequency and p99 exceedance. The decision is
+`FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, classified as
+`IMPLEMENTATION_OR_DATA_FAILURE`, not a scientific kill. Headroom, validation,
+rollout, and confirmatory evaluation did not run.
+
+Current cycle: `18`. Current stage:
+`epoch_4_cycle_18_candidate_search_pending`.

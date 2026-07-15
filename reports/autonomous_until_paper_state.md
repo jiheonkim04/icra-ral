@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
+Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `17`
+Current cycle: `18`
 
-Current stage: `epoch_4_cycle_17_famr_endpoint_training_implementation_pending`
+Current stage: `epoch_4_cycle_18_candidate_search_pending`
 
 Allowed final states:
 
@@ -516,5 +516,19 @@ Identity, Base hash, group coverage, coefficient scaling, and disk reload all
 passed. Peak CUDA allocation was `1.0808053016662598 GiB`; exceptions,
 validation/test decodes, and confirmatory observations/actions were zero.
 
-Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`. Current
-stage: `epoch_4_cycle_17_famr_endpoint_training_implementation_pending`.
+The frozen 300-step endpoint then completed `300 / 300` optimizer steps and
+`2400 / 2400` task-balanced discovery microbatches with zero exceptions or
+duplicates. Fixed-subset loss fell by `0.7775824820789773`, action effect was
+active on `24 / 24` rows, and gradient, Base-hash, checkpoint-reload, manifest,
+and memory gates passed.
+
+The Base-relative action-validity gate failed. Outside-`[-1,1]` frequency was
+`0.1130952380952381` versus permitted `0.08738095238095238`; p99 exceedance
+was `0.09376012921333322` versus permitted `0.04096377015113834`. This is
+`FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, an
+`IMPLEMENTATION_OR_DATA_FAILURE`, not a scientific kill. No clipping,
+headroom, validation search, rollout, or confirmatory rescue is allowed.
+
+Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
+Current cycle: `18`. Current stage:
+`epoch_4_cycle_18_candidate_search_pending`.

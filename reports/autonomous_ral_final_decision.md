@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
+Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -295,8 +295,15 @@ and memory gates passed. The 20-step loss reduction was
 `0.11399528227036353`; exceptions, duplicate keys, and confirmatory
 observations/actions were zero.
 
-Current stage:
-`epoch_4_cycle_17_famr_endpoint_training_implementation_pending`.
+The frozen endpoint completed `300 / 300` optimizer steps and `2400 / 2400`
+discovery microbatches. Fit, gradients, action effect, Base hash, reload,
+manifest, and memory passed. Base-relative action validity failed, so the
+result is `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, an
+implementation/optimization failure rather than a scientific kill. No
+headroom, validation, rollout, or confirmatory evaluation ran.
+
+Current cycle: `18`. Current stage:
+`epoch_4_cycle_18_candidate_search_pending`.
 
 The Windows Efficiency Mode interval is recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency

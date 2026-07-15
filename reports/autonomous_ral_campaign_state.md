@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
+Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `17`
+Current cycle: `18`
 
-Current stage: `epoch_4_cycle_17_famr_endpoint_training_implementation_pending`
+Current stage: `epoch_4_cycle_18_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -436,7 +436,14 @@ LoRA scaling relative error was at most `2.052311574965452e-07`. Peak CUDA
 allocation was `1.0808053016662598 GiB`, exceptions and duplicate keys were
 zero, and confirmatory observations/actions remained `0 / 0`.
 
-Current stage:
-`epoch_4_cycle_17_famr_endpoint_training_implementation_pending`. Implement
-and run the frozen 300-step endpoint on discovery episodes only; validation
-search and confirmatory decoding remain forbidden.
+The frozen endpoint completed `300 / 300` optimizer steps and `2400 / 2400`
+discovery microbatches with zero exceptions and duplicates. Fit, gradient,
+action-effect, Base-hash, checkpoint-reload, manifest, and memory checks
+passed. Base-relative action validity failed: outside-`[-1,1]` frequency was
+`0.1130952380952381` versus limit `0.08738095238095238`, and p99 exceedance
+was `0.09376012921333322` versus limit `0.04096377015113834`.
+
+The endpoint is closed unchanged as
+`FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. This is an
+implementation/optimization failure, not a scientific kill. Current cycle is
+`18`; current stage is `epoch_4_cycle_18_candidate_search_pending`.

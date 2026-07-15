@@ -45,16 +45,16 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_iarc_stop_and_famr_stage_0a_pass() -> None:
+def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 17
+    assert state["current_cycle"] == 18
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED"
-    assert state["current_stage"] == "epoch_4_cycle_17_famr_endpoint_training_implementation_pending"
+    assert state["current_decision"] == "FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_18_candidate_search_pending"
     assert state["method"] == "FAMR-VLA"
     assert state["method_identity"] == "FAMR-VLA"
     assert state["proposal_hash"] == FAMR_PROPOSAL_HASH
@@ -72,6 +72,12 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_pass() -> None:
     assert "epoch_4_cycle_17_famr_stage_0a_runner_implemented" in state["completed_stages"]
     assert "epoch_4_cycle_17_famr_stage_0a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_17_famr_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_endpoint_training_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_endpoint_training_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_endpoint_training_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_endpoint_training_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_endpoint_implementation_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_18_candidate_search_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -115,6 +121,25 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_pass() -> None:
     assert famr_stage_0a["scaling_identity_passed"] is True
     assert famr_stage_0a["confirmatory_observations_decoded"] == 0
     assert famr_stage_0a["confirmatory_actions_computed"] == 0
+    endpoint = state["epoch_4_cycle_17_famr_endpoint_training"]
+    assert endpoint["final_decision"] == "FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert endpoint["failure_class"] == "IMPLEMENTATION_OR_DATA_FAILURE"
+    assert endpoint["valid_scientific_kill"] is False
+    assert endpoint["optimizer_steps_completed"] == endpoint["optimizer_steps_planned"] == 300
+    assert endpoint["microbatches_completed"] == endpoint["microbatches_planned"] == 2400
+    assert endpoint["task_counts"] == [800, 800, 800]
+    assert endpoint["duplicate_key_count"] == 0
+    assert endpoint["exception_count"] == 0
+    assert endpoint["fixed_subset_relative_reduction"] > 0.75
+    assert endpoint["action_effect_active_fraction"] == 1.0
+    assert endpoint["outside_fraction"] > endpoint["outside_fraction_limit"]
+    assert endpoint["p99_exceedance"] > endpoint["p99_exceedance_limit"]
+    assert endpoint["checkpoint_reload_max_abs_error"] == 0.0
+    assert endpoint["base_hash_unchanged"] is True
+    assert endpoint["confirmatory_observations_decoded"] == 0
+    assert endpoint["confirmatory_actions_computed"] == 0
+    assert endpoint["headroom_allowed"] is False
+    assert endpoint["validation_search_allowed"] is False
     outcome = state["epoch_4_cycle_16_iarc_stage_0a_outcome"]
     assert outcome["final_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
     assert outcome["valid_scientific_kill"] is False
@@ -1183,7 +1208,7 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_pass() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
-    assert state["checkpoint_path"] == "runs/famr_vla/stage0a/micro_checkpoint"
+    assert state["checkpoint_path"] == "runs/famr_vla/endpoint/endpoint_checkpoint"
     assert state["stage_a_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
