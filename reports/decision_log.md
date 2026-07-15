@@ -2446,3 +2446,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: Researcher A accepted the narrowed novelty, REMAC/TAS distinction, transparent AR proxy, EMA/action-history killer baseline, source legality, and identity-preserving integration constraints. Proceed only to mathematical mechanism audit.
+
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Mathematical Audit
+
+Decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- proposal hash: `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`
+- researcher rebuttal: `reports/rar_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/rar_vla/mathematical_mechanism_audit.md`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the audit freezes variables/shapes, legal causal memory, residual/gate formula, objective terms, gradient paths, small-batch magnitude checks, EMA/history baselines, REMAC/TAS distinction, bounded validation search, first five-policy comparison, and no deterministic-action KL. Proceed to preregistration and prototype protocol.

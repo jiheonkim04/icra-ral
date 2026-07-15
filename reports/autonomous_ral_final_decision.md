@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -223,4 +223,6 @@ Reviewer B attack is complete in `reports/rar_vla/reviewer_attack.md` with decis
 
 Researcher A rebuttal is complete in `reports/rar_vla/researcher_rebuttal.md` with decision `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts the narrowed novelty, REMAC/TAS distinction, transparent AR proxy status, EMA/action-history killer baseline, source legality, and identity-preserving integration constraints.
 
-Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`. Next action: write the RAR-VLA mathematical mechanism audit before preregistration or implementation.
+The RAR mathematical mechanism audit is frozen in `reports/rar_vla/mathematical_mechanism_audit.md` with decision `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines legal causal memory, residual/gate formulas, objective terms, gradient paths, no deterministic-action KL, EMA/history baselines, REMAC/TAS distinctions, bounded validation search, and the first five-policy comparison.
+
+Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`. Next action: freeze RAR-VLA preregistration and prototype protocol before implementation.

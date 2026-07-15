@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `13`
 
-Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`
+Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`
 
 Allowed final states:
 
@@ -410,4 +410,6 @@ Reviewer B attack is complete in `reports/rar_vla/reviewer_attack.md` with decis
 
 Researcher A rebuttal is complete in `reports/rar_vla/researcher_rebuttal.md` with decision `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
-Current decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`. Next action: mathematical mechanism audit.
+The mathematical mechanism audit is frozen in `reports/rar_vla/mathematical_mechanism_audit.md` with decision `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`. Next action: preregistration and prototype protocol.

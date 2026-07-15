@@ -4,9 +4,9 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: write the RAR-VLA mathematical mechanism audit before preregistration, implementation, validation search, training, manifest freeze, or rollout.
+Immediate next action: freeze RAR-VLA preregistration and prototype protocol before implementation, validation search, training, manifest freeze, or rollout.
 
 Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. RAR must keep the `ema_action_history_baseline` simple killer live.
 

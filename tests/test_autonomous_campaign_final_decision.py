@@ -14,7 +14,7 @@ RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16F
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`" in final
+    assert "Current campaign decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -190,7 +190,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "REMAC/TAS distinctions" in final
     assert "reports/rar_vla/researcher_rebuttal.md" in final
     assert "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
-    assert "Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`" in final
+    assert "reports/rar_vla/mathematical_mechanism_audit.md" in final
+    assert "RAR_MATHEMATICAL_AUDIT_PREREGISTERED" in final
+    assert "no deterministic-action KL" in final
+    assert "Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -198,10 +201,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_decision"] == "RAR_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 13
-    assert state["current_stage"] == "epoch_4_cycle_13_rar_rebuttal_completed"
+    assert state["current_stage"] == "epoch_4_cycle_13_rar_mathematical_audit_preregistered"
     assert state["method"] == "RAR-VLA"
     assert state["method_identity"] == "RAR-VLA"
     assert state["proposal_hash"] == RAR_PROPOSAL_HASH
@@ -217,7 +220,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Write the RAR-VLA mathematical mechanism audit")
+    assert state["next_action"].startswith("Freeze RAR-VLA preregistration and prototype protocol")
     assert state["task_reset_manifest"] is None
     assert state["stage_b_manifest_json"] is None
     assert state["stage_b_partial_checkpoint"] is None
@@ -372,6 +375,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_13_rar_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_13_rar_mathematical_audit_preregistered" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"
