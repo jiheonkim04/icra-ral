@@ -13,7 +13,7 @@ Current epoch: `4`
 
 Current cycle: `20`
 
-Current stage: `epoch_4_cycle_20_nice_stage_0b1_implementation_pending`
+Current stage: `epoch_4_cycle_20_nice_stage_0b1_pending`
 
 Allowed final states:
 
@@ -611,7 +611,7 @@ and algebra/calibration smoke, exact Base passthrough, zero validation or
 confirmatory reads, and one mechanical implementation repair at most.
 
 Current cycle: `20`. Current stage:
-`epoch_4_cycle_20_nice_stage_0b1_implementation_pending`.
+`epoch_4_cycle_20_nice_stage_0b1_pending`.
 
 NICE Stage 0A completed `128 / 128` discovery-only latent/action pairs with
 exit code zero, zero exceptions, and exact manifest/partial key equality. The

@@ -293,12 +293,15 @@ def conformal_threshold(episode_scores_by_task: Mapping[str, Sequence[float]], c
 def validate_manifest(
     manifest_rows: Sequence[Mapping[str, Any]],
     result_rows: Sequence[Mapping[str, Any]],
+    *,
+    allowed_partitions: Sequence[str] = ("discovery",),
 ) -> dict[str, Any]:
     planned = [pair_key(row) for row in manifest_rows]
     completed = [str(row.get("pair_key") or pair_key(row)) for row in result_rows]
     planned_set = set(planned)
     completed_set = set(completed)
-    split_overlap = sum(str(row.get("partition", "discovery")) != "discovery" for row in manifest_rows)
+    allowed = set(allowed_partitions)
+    split_overlap = sum(str(row.get("partition", "discovery")) not in allowed for row in manifest_rows)
     return {
         "planned_count": len(planned),
         "completed_count": len(completed),
@@ -341,6 +344,32 @@ def action_validity(actions: np.ndarray, lower: float = -1.0, upper: float = 1.0
         "minimum": float(np.min(value)),
         "maximum": float(np.max(value)),
     }
+
+
+def auroc_average_ranks(negative_scores: Sequence[float], positive_scores: Sequence[float]) -> float:
+    """Compute AUROC with average ranks for ties and higher scores as positive."""
+
+    negative = np.asarray(negative_scores, dtype=np.float64)
+    positive = np.asarray(positive_scores, dtype=np.float64)
+    if negative.ndim != 1 or positive.ndim != 1 or not len(negative) or not len(positive):
+        raise ValueError("both score groups must be nonempty vectors")
+    values = np.concatenate((negative, positive))
+    if not np.all(np.isfinite(values)):
+        raise ValueError("scores must be finite")
+    order = np.argsort(values, kind="mergesort")
+    ranks = np.empty(len(values), dtype=np.float64)
+    start = 0
+    while start < len(values):
+        stop = start + 1
+        while stop < len(values) and values[order[stop]] == values[order[start]]:
+            stop += 1
+        average_rank = 0.5 * ((start + 1) + stop)
+        ranks[order[start:stop]] = average_rank
+        start = stop
+    positive_rank_sum = float(np.sum(ranks[len(negative) :]))
+    return (positive_rank_sum - len(positive) * (len(positive) + 1) / 2.0) / (
+        len(negative) * len(positive)
+    )
 
 
 @dataclass(frozen=True)

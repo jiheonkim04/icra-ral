@@ -35,7 +35,7 @@ forbidden. Historical SPARC decision:
 Cycle 20 selected NICE-VLA from exactly three candidates and froze its
 proposal, review, rebuttal, mathematical audit, preregistration, and prototype
 protocol. Current cycle: `20`. Current stage:
-`epoch_4_cycle_20_nice_stage_0b1_implementation_pending`.
+`epoch_4_cycle_20_nice_stage_0b1_pending`.
 
 ## Corrected Epoch 1 Status
 

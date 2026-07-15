@@ -9,6 +9,7 @@ from tca_map.smolvla.nice_vla import (
     TinyCovariance,
     TinyResidualMean,
     action_validity,
+    auroc_average_ranks,
     classify_stage0a,
     condition_vector,
     conformal_threshold,
@@ -160,6 +161,12 @@ def test_manifest_detects_duplicates_missing_and_extras() -> None:
     assert duplicate["duplicate_result_key_count"] == 1
     assert duplicate["missing_manifest_key_count"] == 1
 
+    validation = {**base, "partition": "validation_calibration", "frame_t": 3, "frame_t_plus_10": 13}
+    validation_result = [{**validation, "pair_key": pair_key(validation)}]
+    assert validate_manifest(
+        [validation], validation_result, allowed_partitions=("discovery", "validation_calibration")
+    )["passed"]
+
 
 def test_monitor_disabled_passthrough_is_exact() -> None:
     queue = np.arange(35, dtype=np.float32).reshape(5, 7)
@@ -176,6 +183,12 @@ def test_action_validity_reports_component_groups() -> None:
     assert result["translation_inside_fraction"] == 1.0
     assert result["rotation_inside_fraction"] == 1.0
     assert result["gripper_inside_fraction"] == 1.0
+
+
+def test_auroc_uses_average_ranks_for_ties() -> None:
+    assert auroc_average_ranks([0.0, 0.0], [1.0, 1.0]) == 1.0
+    assert auroc_average_ranks([1.0, 1.0], [0.0, 0.0]) == 0.0
+    assert auroc_average_ranks([1.0, 1.0], [1.0, 1.0]) == 0.5
 
 
 def test_stage0_decision_requires_every_gate() -> None:

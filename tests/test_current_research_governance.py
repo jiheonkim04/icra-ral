@@ -57,7 +57,7 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["current_decision"] == "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED"
-    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0b1_implementation_pending"
+    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0b1_pending"
     assert state["method"] == "NICE-VLA"
     assert state["method_identity"] == "NICE-VLA"
     assert state["proposal_hash"] == NICE_PROPOSAL_HASH
@@ -114,6 +114,7 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert "epoch_4_cycle_20_nice_stage_0a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_20_nice_stage_0a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_20_nice_stage_0b1_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0b1_runner_implemented" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95

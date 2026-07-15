@@ -13,7 +13,7 @@ Current epoch: `4`
 
 Current cycle: `20`
 
-Current stage: `epoch_4_cycle_20_nice_stage_0b1_implementation_pending`
+Current stage: `epoch_4_cycle_20_nice_stage_0b1_pending`
 
 ## Epoch 4 Cycle 20 NICE-VLA
 

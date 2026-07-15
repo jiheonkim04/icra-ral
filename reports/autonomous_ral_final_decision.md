@@ -22,7 +22,7 @@ kill. Do not run Stage 0B or rescue SPARC. Historical SPARC decision:
 
 Cycle 20 selected NICE-VLA from exactly three candidates and froze the full
 pre-implementation protocol package. Current cycle: `20`; current stage:
-`epoch_4_cycle_20_nice_stage_0b1_implementation_pending`.
+`epoch_4_cycle_20_nice_stage_0b1_pending`.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 
