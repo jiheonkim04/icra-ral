@@ -1,9 +1,9 @@
 # Autonomous Until Paper Decision
 
-Date: 2026-07-15 KST
+Date: 2026-07-16 KST
 
 Current campaign decision:
-`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal decision.
 
@@ -405,5 +405,21 @@ headroom gates. Final PCAV decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`. This
 is not a closed-loop scientific kill; Stage 0B and formulation rescue are
 forbidden.
 
-Current cycle: `24`. Current stage:
-`epoch_4_cycle_24_candidate_search_pending`.
+Cycle 24 generated exactly three candidates in
+`reports/epoch_4_cycle_24_candidate_generation.md` after the prior map in
+`reports/epoch_4_cycle_24_prior_mechanism_map.md`, and selected `VDR-VLA`,
+Visuomotor Dynamic Residual alignment, with `92 / 100`. The closest positive
+prior is FutureVLA. Proposal hash:
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
+
+VDR subtracts a discovery-fitted actionless static future-feature predictor
+and supervises generated-action-conditioned prediction of the remaining
+dynamic visual residual. LoRA is only low-compute infrastructure. The frozen
+first comparison is Base, transparent FutureVLA proxy, VDR full,
+no-action-residual ablation, and standard LoRA.
+
+Reviewer B attack, Researcher A rebuttal, mathematical audit,
+preregistration, and prototype protocol are frozen under `reports/vdr_vla/`.
+No training, validation search, rollout, confirmatory-test access, or KITE
+rescue has happened. Current cycle: `24`. Current stage:
+`epoch_4_cycle_24_vdr_stage_0a_pending`.

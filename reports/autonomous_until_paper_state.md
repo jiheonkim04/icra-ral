@@ -7,13 +7,34 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `24`
 
-Current stage: `epoch_4_cycle_24_candidate_search_pending`
+Current stage: `epoch_4_cycle_24_vdr_stage_0a_pending`
+
+## Epoch 4 Cycle 24 VDR-VLA
+
+Cycle 24 generated exactly three candidates and selected `VDR-VLA`,
+Visuomotor Dynamic Residual alignment, at `92 / 100`, anchored to FutureVLA.
+Proposal SHA-256:
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
+
+VDR subtracts a discovery-fitted actionless static future-feature predictor
+from frozen future visual-feature change, then supervises generated-action-
+conditioned prediction of the remaining dynamic residual. LoRA is only
+identity-preserving low-compute infrastructure. The frozen first comparison is
+Base, transparent FutureVLA latent-alignment proxy, VDR full,
+no-action-residual ablation, and matched standard LoRA.
+
+The prior map, candidate generation, Researcher A proposal, Reviewer B attack,
+Researcher A rebuttal, mathematical audit, preregistration, and prototype
+protocol are frozen under `reports/vdr_vla/`. No training, validation search,
+rollout, simulator access, confirmatory-test tuning, or KITE rescue has
+happened. Next action: implement and run only the frozen VDR Stage 0A
+development audit.
 
 Allowed final states:
 

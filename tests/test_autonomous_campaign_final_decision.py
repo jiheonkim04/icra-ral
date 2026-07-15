@@ -17,6 +17,7 @@ NICE_PROPOSAL_HASH = "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9
 HEST_PROPOSAL_HASH = "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527"
 HASTE_PROPOSAL_HASH = "5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6"
 KITE_PROPOSAL_HASH = "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8"
+VDR_PROPOSAL_HASH = "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
@@ -219,7 +220,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_24_candidate_search_pending" in final
+    assert "epoch_4_cycle_24_vdr_stage_0a_pending" in final
+    assert "VDR-VLA" in final
+    assert VDR_PROPOSAL_HASH in final
+    assert "FutureVLA" in final
     assert "KITE-VLA" in final
     assert KITE_PROPOSAL_HASH in final
     assert "GeoPredict" in final
@@ -238,13 +242,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert state["current_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 24
-    assert state["current_stage"] == "epoch_4_cycle_24_candidate_search_pending"
-    assert state["method"] == "KITE-VLA"
-    assert state["method_identity"] == "KITE-VLA"
-    assert state["proposal_hash"] == KITE_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_24_vdr_stage_0a_pending"
+    assert state["method"] == "VDR-VLA"
+    assert state["method_identity"] == "VDR-VLA"
+    assert state["proposal_hash"] == VDR_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -258,9 +262,27 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Generate exactly three Epoch 4 Cycle 24 candidates without KITE repair or rescue."
+        "Implement and run only the frozen VDR Stage 0A development audit without KITE repair or rescue."
     )
-    assert state["prototype_protocol"] == "reports/kite_vla/prototype_protocol.md"
+    assert state["prototype_protocol"] == "reports/vdr_vla/prototype_protocol.md"
+    vdr = state["epoch_4_cycle_24_candidate_selection"]
+    assert vdr["candidate_count"] == 3
+    assert vdr["selected_score"] == 92
+    assert vdr["closest_prior"] == "FutureVLA"
+    assert vdr["proposal_hash"] == VDR_PROPOSAL_HASH
+    assert vdr["policy_order"] == [
+        "smolvla_base",
+        "futurevla_latent_alignment_proxy",
+        "vdr_full",
+        "vdr_no_action_residual",
+        "standard_lora",
+    ]
+    assert vdr["confirmatory_test_tuning_happened"] is False
+    vdr_pre = state["epoch_4_cycle_24_vdr_pre_stage_0a"]
+    assert vdr_pre["final_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert vdr_pre["stage_0a_pending"] is True
+    assert vdr_pre["horizons"] == [4, 12]
+    assert vdr_pre["projection_dimension"] == 32
     hest = state["epoch_4_cycle_21_hest_stage_0a_outcome"]
     assert hest["final_decision"] == "HEST_STAGE_0A_IMPLEMENTATION_FAILURE"
     assert hest["completed_window_count"] == 160

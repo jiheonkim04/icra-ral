@@ -20,6 +20,7 @@ NICE_PROPOSAL_HASH = "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9
 HEST_PROPOSAL_HASH = "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527"
 HASTE_PROPOSAL_HASH = "5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6"
 KITE_PROPOSAL_HASH = "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8"
+VDR_PROPOSAL_HASH = "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -59,12 +60,12 @@ def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> No
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_24_candidate_search_pending"
-    assert state["method"] == "KITE-VLA"
-    assert state["method_identity"] == "KITE-VLA"
-    assert state["proposal_hash"] == KITE_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/kite_vla/prototype_protocol.md"
+    assert state["current_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_24_vdr_stage_0a_pending"
+    assert state["method"] == "VDR-VLA"
+    assert state["method_identity"] == "VDR-VLA"
+    assert state["proposal_hash"] == VDR_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/vdr_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -184,8 +185,33 @@ def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> No
         "epoch_4_cycle_23_kite_stage_0a_adjudicated",
         "epoch_4_cycle_23_kite_implementation_failure_recorded",
         "epoch_4_cycle_24_candidate_search_pending",
+        "epoch_4_cycle_24_candidate_generation_completed",
+        "epoch_4_cycle_24_vdr_researcher_proposal_frozen",
+        "epoch_4_cycle_24_vdr_reviewer_attack_completed",
+        "epoch_4_cycle_24_vdr_rebuttal_completed",
+        "epoch_4_cycle_24_vdr_mathematical_audit_preregistered",
+        "epoch_4_cycle_24_vdr_preregistration_frozen",
+        "epoch_4_cycle_24_vdr_prototype_protocol_frozen",
+        "epoch_4_cycle_24_vdr_stage_0a_pending",
     ):
         assert stage in state["completed_stages"]
+    vdr = state["epoch_4_cycle_24_candidate_selection"]
+    assert vdr["candidate_count"] == 3
+    assert vdr["selected_score"] == 92
+    assert vdr["closest_prior"] == "FutureVLA"
+    assert vdr["proposal_hash"] == VDR_PROPOSAL_HASH
+    assert vdr["policy_order"] == [
+        "smolvla_base",
+        "futurevla_latent_alignment_proxy",
+        "vdr_full",
+        "vdr_no_action_residual",
+        "standard_lora",
+    ]
+    assert vdr["standard_lora_required"] is True
+    vdr_pre = state["epoch_4_cycle_24_vdr_pre_stage_0a"]
+    assert vdr_pre["final_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert vdr_pre["stage_0a_pending"] is True
+    assert vdr_pre["vdr_coefficients"] == [0.1, 0.3, 1.0]
     kite = state["epoch_4_cycle_23_kite_pre_stage_0a"]
     assert kite["candidate_count"] == 3
     assert kite["selected_score"] == 96

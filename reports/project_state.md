@@ -1,13 +1,13 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 23 Current State
+## 2026-07-16 Epoch 4 Cycle 24 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
@@ -88,8 +88,17 @@ hash defects; the exception remained preserved. Headroom, operators,
 gradients, Base hash, and identity passed, but all 128 reconstructed action
 rows exceeded raw bounds somewhere, with maximum absolute value
 `1.1056011915206909`. Decision: `KITE_STAGE_0A_IMPLEMENTATION_FAILURE`, not a
-scientific kill. Stage 0B and KITE rescue are forbidden. Current stage:
-`epoch_4_cycle_24_candidate_search_pending`.
+scientific kill. Stage 0B and KITE rescue are forbidden.
+
+Cycle 24 generated exactly three candidates and selected `VDR-VLA` at
+`92 / 100`, anchored to FutureVLA. Proposal hash:
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`. VDR
+subtracts a discovery-fitted actionless static future-feature predictor and
+supervises generated-action-conditioned prediction of the remaining dynamic
+visual residual. The frozen first comparison is Base, transparent FutureVLA
+proxy, VDR full, no-action-residual ablation, and standard LoRA. The current
+stage is `epoch_4_cycle_24_vdr_stage_0a_pending`; next action is to implement
+and run only the frozen VDR Stage 0A development audit.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

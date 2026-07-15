@@ -1,9 +1,9 @@
 # Autonomous RA-L Decision
 
-Date: 2026-07-15 KST
+Date: 2026-07-16 KST
 
 Current decision:
-`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -368,8 +368,22 @@ Only `7 / 96` rows met the frozen 5% material oracle-improvement threshold,
 and median reduction over improvable rows was `0.0166833`. Final decision:
 `PCAV_STAGE_0A_NO_USABLE_HEADROOM`. Stage 0B is forbidden.
 
-Current cycle: `19`. Current stage:
-`epoch_4_cycle_19_candidate_search_pending`.
+Cycle 24 generated exactly three candidates in
+`reports/epoch_4_cycle_24_candidate_generation.md` after the prior map in
+`reports/epoch_4_cycle_24_prior_mechanism_map.md`, and selected `VDR-VLA`,
+Visuomotor Dynamic Residual alignment, with `92 / 100`. The closest positive
+prior is FutureVLA. Proposal hash:
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
+
+VDR subtracts a discovery-fitted actionless static future-feature predictor
+and supervises generated-action-conditioned prediction of the remaining
+dynamic visual residual. The frozen first comparison is Base, transparent
+FutureVLA proxy, VDR full, no-action-residual ablation, and standard LoRA.
+
+The VDR proposal/review/rebuttal/math/preregistration/protocol package is
+frozen under `reports/vdr_vla/`. No training, validation search, rollout,
+confirmatory-test access, or KITE rescue has happened. Current cycle: `24`.
+Current stage: `epoch_4_cycle_24_vdr_stage_0a_pending`.
 
 The Windows Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency

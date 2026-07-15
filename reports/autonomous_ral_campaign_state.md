@@ -7,13 +7,31 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `24`
 
-Current stage: `epoch_4_cycle_24_candidate_search_pending`
+Current stage: `epoch_4_cycle_24_vdr_stage_0a_pending`
+
+## Epoch 4 Cycle 24 VDR-VLA
+
+Cycle 24 generated exactly three candidates and selected `VDR-VLA` at
+`92 / 100`, anchored to FutureVLA. Proposal SHA-256:
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
+
+VDR's scientific method is dynamic future-feature residual alignment: subtract
+a discovery-fitted actionless static future-feature predictor, then supervise
+the generated-action-conditioned prediction of the remaining residual. Rank-4
+LoRA or an equivalent zero-effect adapter is only implementation
+infrastructure. The first comparison is Base, transparent FutureVLA proxy, VDR
+full, no-action-residual ablation, and standard LoRA.
+
+The complete proposal/review/rebuttal/math/preregistration/protocol package is
+frozen under `reports/vdr_vla/`. No training, validation search, rollout,
+confirmatory-test access, or KITE rescue has happened. Next action: implement
+and run only the frozen VDR Stage 0A development audit.
 
 ## Epoch 4 Cycle 22 HASTE-VLA
 

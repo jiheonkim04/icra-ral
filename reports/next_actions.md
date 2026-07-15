@@ -1,17 +1,22 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 23 Current Action
+## 2026-07-16 Epoch 4 Cycle 24 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
-Immediate next action: generate exactly three Epoch 4 Cycle 24 candidates,
-select exactly one under active governance, and do not repair, rerun, or rescue
-KITE. Its Stage 0A completed `128 / 128` through a valid missing-key-only
-resume but retained one persistence exception and failed the frozen action
-bound on all 128 reconstructed rows. Stage 0B is forbidden.
+Immediate next action: implement and run only the frozen `VDR-VLA` Stage 0A
+development audit under `reports/vdr_vla/prototype_protocol.md`. Cycle 24 has
+already generated exactly three candidates and selected VDR at `92 / 100` with
+proposal hash
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
+
+Do not repair, rerun, or rescue KITE. Its Stage 0A completed `128 / 128`
+through a valid missing-key-only resume but retained one persistence exception
+and failed the frozen action bound on all 128 reconstructed rows. Stage 0B is
+forbidden.
 
 Do not change horizons `{5,20}`, ridge `1e-4`, four task sources, demo splits,
 operator fitting, headroom bars, rank-4 identity path, or failure taxonomy. No
