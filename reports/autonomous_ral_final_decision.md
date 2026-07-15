@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
+Current decision: `SELECT_RAR_VLA`
 
 This is not a terminal state under the active governance.
 
@@ -213,4 +213,8 @@ CALA Stage 0 is complete in `reports/cala_vla/development_audit.json` and `repor
 
 Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or the source gate. Validation search, training, Stage A manifest freeze, and rollout are disallowed for this CALA formulation.
 
-Current stage: `epoch_4_cycle_13_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 13 candidates under current governance.
+Epoch 4 Cycle 13 generated exactly three post-CALA candidates in `reports/epoch_4_cycle_13_candidate_generation.md` after the prior map in `reports/epoch_4_cycle_13_prior_mechanism_map.md`, and selected `RAR-VLA`, Re-Anchored Autoregressive Residuals for frozen SmolVLA.
+
+RAR is anchored to AR-VLA, with ReactVLA and DSWAM as secondary action-generation priors. The design changes the mechanism axis from future-action latent prediction to causal action memory: it uses current Base action chunks, proprioception, task identity, and previous emitted actions, with a re-anchored zero-initialized residual gate. The frozen first comparison is Base, an AR-VLA re-anchored expert proxy, RAR full, no-reanchor-memory ablation, and `ema_action_history_baseline`.
+
+Current stage: `epoch_4_cycle_13_candidate_generation_completed`. Next action: freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack.

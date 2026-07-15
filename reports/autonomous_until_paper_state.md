@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
+Current decision: `SELECT_RAR_VLA`
 
 Current epoch: `4`
 
 Current cycle: `13`
 
-Current stage: `epoch_4_cycle_13_candidate_search_pending`
+Current stage: `epoch_4_cycle_13_candidate_generation_completed`
 
 Allowed final states:
 
@@ -402,4 +402,6 @@ The preregistration and prototype protocol are frozen in `reports/cala_vla/prere
 
 CALA Stage 0 stopped as `DESIGN_FAILURE` in `reports/cala_vla/development_audit.json`: the latent predictability margin was `-0.01171824382857035`, with `action_history_only` beating the full deployment-observable probe. Source legality, split health, label variance, headroom, gradients, Base action validity, and identity-preserving zero delta passed. No training, validation search, rollout, or confirmatory-test tuning happened.
 
-Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`. Current stage: `epoch_4_cycle_13_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 13 candidates and do not rescue CALA.
+Epoch 4 Cycle 13 generated exactly three candidates in `reports/epoch_4_cycle_13_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_13_prior_mechanism_map.md` and selected `RAR-VLA`.
+
+Current decision: `SELECT_RAR_VLA`. Current stage: `epoch_4_cycle_13_candidate_generation_completed`. Next action: freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack.

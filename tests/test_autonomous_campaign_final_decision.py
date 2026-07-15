@@ -13,7 +13,7 @@ CALA_PROPOSAL_HASH = "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`" in final
+    assert "Current campaign decision: `SELECT_RAR_VLA`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -176,7 +176,13 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "action_history_only" in final
     assert "-0.01171824382857035" in final
     assert "Validation search, training, Stage A manifest freeze, and rollout are disallowed" in final
-    assert "Current stage: `epoch_4_cycle_13_candidate_search_pending`" in final
+    assert "Epoch 4 Cycle 13 generated exactly three post-CALA candidates" in final
+    assert "RAR-VLA" in final
+    assert "reports/epoch_4_cycle_13_candidate_generation.md" in final
+    assert "reports/epoch_4_cycle_13_prior_mechanism_map.md" in final
+    assert "AR-VLA" in final
+    assert "ema_action_history_baseline" in final
+    assert "Current stage: `epoch_4_cycle_13_candidate_generation_completed`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -184,12 +190,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13"
+    assert state["current_decision"] == "SELECT_RAR_VLA"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 13
-    assert state["current_stage"] == "epoch_4_cycle_13_candidate_search_pending"
-    assert state["method"] == "CYCLE_13_METHOD_PENDING"
-    assert state["method_identity"] == "CYCLE_13_METHOD_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_13_candidate_generation_completed"
+    assert state["method"] == "RAR-VLA"
+    assert state["method_identity"] == "RAR-VLA"
     assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -203,7 +209,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Start Epoch 4 Cycle 13 candidate generation")
+    assert state["next_action"].startswith("Freeze and hash the RAR-VLA Researcher A proposal")
     assert state["task_reset_manifest"] is None
     assert state["stage_b_manifest_json"] is None
     assert state["stage_b_partial_checkpoint"] is None
@@ -354,6 +360,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_12_cala_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_design_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_13_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_13_candidate_generation_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"

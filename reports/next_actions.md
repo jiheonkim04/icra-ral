@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
+Current decision: `SELECT_RAR_VLA`
 
-Immediate next action: generate exactly three distinct Epoch 4 Cycle 13 candidates under current governance, select one, freeze/hash the Researcher A proposal, run Reviewer B attack and rebuttal, then proceed only through the preregistered development path.
+Immediate next action: freeze and hash the RAR-VLA Researcher A proposal, then run Reviewer B attack before any implementation, validation search, training, manifest freeze, or rollout.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. RAR must keep the `ema_action_history_baseline` simple killer live.
 
 ## 2026-07-13 Governance V2 Current Action
 

@@ -2365,3 +2365,32 @@ Hard stop:
 - full deployment-observable probe RMSE: `3.198806582620636`
 
 Consequence: CALA stops before rollout as a design failure. Do not rescue CALA by changing labels, features, thresholds, source gates, validation configs, or baselines. Proceed to Epoch 4 Cycle 13 candidate generation under current governance.
+
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Candidate Selection
+
+Decision: `SELECT_RAR_VLA`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- prior mechanism map: `reports/epoch_4_cycle_13_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_13_candidate_generation.md`
+- candidates generated: `3`
+- selected score: `91 / 100`
+- contribution type: `PRIOR_EXTENSION`
+- closest prior: `AR-VLA`, `https://arxiv.org/abs/2603.10126`
+- secondary priors: `ReactVLA`, `DSWAM`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Frozen first comparison:
+
+- `frozen_smolvla`
+- `ar_vla_reanchored_expert_proxy`
+- `rar_full`
+- `rar_no_reanchor_memory_ablation`
+- `ema_action_history_baseline`
+
+Consequence: RAR-VLA is selected for proposal freezing. CALA remains stopped as `DESIGN_FAILURE` and must not be rescued. RAR may use only causal deployment-time action history, current Base action chunks, proprioception, task/language inputs, and legal observation features at inference; it must keep the EMA/action-history simple killer baseline live.

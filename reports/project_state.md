@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
+Current decision: `SELECT_RAR_VLA`
 
 Current epoch: `4`
 
@@ -30,7 +30,9 @@ The preregistration and prototype protocol are frozen in `reports/cala_vla/prere
 
 CALA Stage 0 is complete in `reports/cala_vla/development_audit.json` and `reports/cala_vla/development_audit.md` with final decision `DESIGN_FAILURE`. The hard stop was latent predictability: the full deployment-observable probe margin was `-0.01171824382857035`, and `action_history_only` beat it. No training, validation search, rollout, or confirmatory-test tuning happened.
 
-Exact next step: generate exactly three distinct Epoch 4 Cycle 13 candidates under current governance. Do not rescue CALA.
+Epoch 4 Cycle 13 generated exactly three candidates in `reports/epoch_4_cycle_13_candidate_generation.md` and selected `RAR-VLA`, Re-Anchored Autoregressive Residuals for frozen SmolVLA, anchored to AR-VLA.
+
+Exact next step: freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack.
 
 ## 2026-07-13 Governance V2 Current State
 

@@ -23,10 +23,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13"
-    assert state["current_stage"] == "epoch_4_cycle_13_candidate_search_pending"
-    assert state["method"] == "CYCLE_13_METHOD_PENDING"
-    assert state["method_identity"] == "CYCLE_13_METHOD_PENDING"
+    assert state["current_decision"] == "SELECT_RAR_VLA"
+    assert state["current_stage"] == "epoch_4_cycle_13_candidate_generation_completed"
+    assert state["method"] == "RAR-VLA"
+    assert state["method_identity"] == "RAR-VLA"
     assert state["proposal_hash"] is None
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
@@ -163,6 +163,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_12_cala_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_design_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_13_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_13_candidate_generation_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -678,6 +679,34 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cycle13["candidate_search_pending"] is True
     assert cycle13["previous_method"] == "CALA-VLA"
     assert cycle13["must_not_rescue_previous_method"] is True
+    rar = state["epoch_4_cycle_13_pre_proposal"]
+    assert rar["method"] == "RAR-VLA"
+    assert rar["selection_decision"] == "SELECT_RAR_VLA"
+    assert rar["candidate_generation"] == "reports/epoch_4_cycle_13_candidate_generation.md"
+    assert rar["prior_mechanism_map"] == "reports/epoch_4_cycle_13_prior_mechanism_map.md"
+    assert rar["candidate_count"] == 3
+    assert rar["closest_prior"] == "AR-VLA"
+    assert rar["closest_prior_url"] == "https://arxiv.org/abs/2603.10126"
+    assert rar["secondary_priors"] == ["ReactVLA", "DSWAM"]
+    assert rar["selected_score"] == 91
+    assert rar["selected_contribution_type"] == "PRIOR_EXTENSION"
+    assert rar["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "ar_vla_reanchored_expert_proxy",
+        "rar_full",
+        "rar_no_reanchor_memory_ablation",
+        "ema_action_history_baseline",
+    ]
+    assert rar["causal_source_gate_required"] is True
+    assert rar["action_history_simple_killer_required"] is True
+    assert rar["identity_preserving_gate_required"] is True
+    assert rar["official_closest_prior_code_or_checkpoint_verified"] is False
+    assert rar["rollout_allowed"] is False
+    assert rar["closed_loop_experiment_happened"] is False
+    assert rar["training_happened"] is False
+    assert rar["validation_search_happened"] is False
+    assert rar["confirmatory_test_tuning_happened"] is False
+    assert rar["must_not_rescue_previous_method"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
