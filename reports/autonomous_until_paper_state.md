@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `G3P_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `11`
 
-Current stage: `epoch_4_cycle_11_g3p_mathematical_audit_preregistered`
+Current stage: `epoch_4_cycle_11_g3p_prototype_protocol_frozen`
 
 Allowed final states:
 
@@ -384,6 +384,6 @@ Exactly three post-EAC candidates were generated and scored in `reports/epoch_4_
 
 The selected first comparison is frozen at the design level to five policies: Base, closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic. The closest-prior proxy is a faithful transparent local proxy, not an official reproduction unless exact official equivalence is later established.
 
-The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is complete in `reports/g3p_vla/researcher_rebuttal.md` with decision `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is frozen in `reports/g3p_vla/mathematical_mechanism_audit.md` with decision `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
+The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is complete in `reports/g3p_vla/researcher_rebuttal.md` with decision `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is frozen in `reports/g3p_vla/mathematical_mechanism_audit.md` with decision `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`. The preregistration and prototype protocol are frozen in `reports/g3p_vla/preregistration.md` and `reports/g3p_vla/prototype_protocol.md`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
 
-Current decision: `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_11_g3p_mathematical_audit_preregistered`. Next action: freeze G3P-VLA preregistration and prototype protocol before implementation or Stage 0 data construction.
+Current decision: `G3P_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_11_g3p_prototype_protocol_frozen`. Next action: implement and run only the G3P-VLA Stage 0 development audit.
