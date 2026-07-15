@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -276,7 +276,19 @@ decision is `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific
 kill. No clipping, one-check, Stage 0B, or validation search is allowed.
 Confirmatory decode/action counts remain zero.
 
-Current stage: `epoch_4_cycle_17_candidate_search_pending`.
+Cycle 17 generated exactly three candidates and selected `FAMR-VLA`,
+Function-Aware Model Retention, with `93 / 100`. RETAIN is the closest positive
+prior and Fisher-weighted model merging is the secondary mechanism prior.
+FAMR fits bounded checkpoint task-vector coefficients from groupwise
+postprocessed action responses while limiting original-task action drift. The
+rank-4 LoRA endpoint is only the local low-compute parameterization.
+
+Proposal hash:
+`96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69`.
+The complete proposal/review/rebuttal/math/preregistration/protocol package is
+frozen under `reports/famr_vla/`.
+
+Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`.
 
 The Windows Efficiency Mode interval is recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency

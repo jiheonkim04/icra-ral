@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `17`
 
-Current stage: `epoch_4_cycle_17_candidate_search_pending`
+Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -406,4 +406,21 @@ against `1.0`. The result is adjudicated as
 `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill. Clipping,
 one-check, Stage 0B, and validation search are forbidden.
 
-Current stage: `epoch_4_cycle_17_candidate_search_pending`.
+## Epoch 4 Cycle 17
+
+Cycle 17 generated exactly three candidates and selected `FAMR-VLA` with
+`93 / 100`. RETAIN is the closest positive prior and Fisher-weighted model
+merging is the secondary mechanism prior. FAMR fits bounded checkpoint
+task-vector coefficients from groupwise postprocessed action responses while
+limiting original-task action drift; rank-4 LoRA is only the local low-compute
+endpoint.
+
+Proposal hash:
+`96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69`.
+The proposal, Reviewer B attack, rebuttal, mathematical audit,
+preregistration, and executable protocol are frozen under
+`reports/famr_vla/`.
+
+Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`. Stage
+0A may run provenance, data, identity, capacity, reload, and exact
+group-scaling checks only, with zero confirmatory decode.

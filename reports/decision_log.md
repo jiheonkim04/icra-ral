@@ -2829,3 +2829,36 @@ Execution boundary:
 Consequence: classify as an implementation/action-validity failure, not a
 scientific kill. Do not clip, widen bounds, run one-check or Stage 0B, or start
 validation search. Continue to Epoch 4 Cycle 17 candidate generation.
+
+## 2026-07-15 - FAMR-VLA Selection And Protocol Freeze
+
+Decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+
+Cycle 17 generated exactly three candidates:
+
+- `FAMR-VLA`: `93 / 100`;
+- `PARF-VLA`: `83 / 100`;
+- `TCFM-VLA`: `75 / 100`.
+
+Selected method: `FAMR-VLA`, Function-Aware Model Retention.
+
+Execution boundary:
+
+- closest prior: RETAIN, transparent local scalar proxy required;
+- secondary mechanism prior: Fisher-weighted model merging;
+- scientific method: bounded task-vector group coefficients fit in
+  postprocessed VLA action-function space;
+- low-compute parameterization: one rank-4 SmolVLA LoRA endpoint;
+- proposal hash:
+  `96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69`;
+- six total selection configurations;
+- first policies: Base, scalar RETAIN, FAMR, target-only, standard LoRA;
+- target source: three frozen `libero_90` tasks absent as exact identities from
+  the official 40-task checkpoint metadata;
+- Stage 0A micro fit: `20` steps on `24` fixed discovery rows;
+- confirmatory observations/actions allowed in Stage 0A: `0 / 0`;
+- full endpoint training, validation search, rollout, test tuning:
+  `False / False / False / False`.
+
+Consequence: implement and run only the frozen Stage 0A provenance, data,
+identity, capacity, reload, and exact group-scaling audit.

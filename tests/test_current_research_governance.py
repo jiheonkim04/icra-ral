@@ -13,6 +13,7 @@ RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16F
 COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621"
 LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F"
 IARC_PROPOSAL_HASH = "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408"
+FAMR_PROPOSAL_HASH = "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -44,7 +45,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_iarc_stage_0a_stop_and_cycle_17_continuation() -> None:
+def test_active_state_records_iarc_stop_and_famr_stage_0a_freeze() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -52,12 +53,12 @@ def test_active_state_records_iarc_stage_0a_stop_and_cycle_17_continuation() -> 
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_17_candidate_search_pending"
-    assert state["method"] is None
-    assert state["method_identity"] is None
-    assert state["proposal_hash"] is None
-    assert state["prototype_protocol"] is None
+    assert state["current_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_17_famr_stage_0a_implementation_pending"
+    assert state["method"] == "FAMR-VLA"
+    assert state["method_identity"] == "FAMR-VLA"
+    assert state["proposal_hash"] == FAMR_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/famr_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -65,6 +66,9 @@ def test_active_state_records_iarc_stage_0a_stop_and_cycle_17_continuation() -> 
     assert "epoch_4_cycle_16_iarc_stage_0a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_implementation_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_17_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_17_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_stage_0a_implementation_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -78,6 +82,23 @@ def test_active_state_records_iarc_stage_0a_stop_and_cycle_17_continuation() -> 
     ]
     assert selection["bounded_validation_search_max_configs"] == 6
     assert selection["confirmatory_test_tuning_happened"] is False
+    famr = state["epoch_4_cycle_17_candidate_selection"]
+    assert famr["candidate_count"] == 3
+    assert famr["selected_score"] == 93
+    assert famr["proposal_hash"] == FAMR_PROPOSAL_HASH
+    assert famr["closest_prior"] == "RETAIN"
+    assert famr["bounded_validation_search_max_configs"] == 6
+    assert famr["policy_order"] == [
+        "smolvla_base",
+        "retain_scalar_proxy",
+        "famr_full",
+        "famr_target_only",
+        "standard_lora_new_task",
+    ]
+    pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
+    assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert pre_stage["confirmatory_observations_decoded_max"] == 0
+    assert pre_stage["confirmatory_actions_computed_max"] == 0
     outcome = state["epoch_4_cycle_16_iarc_stage_0a_outcome"]
     assert outcome["final_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
     assert outcome["valid_scientific_kill"] is False

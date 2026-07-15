@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `17`
 
-Current stage: `epoch_4_cycle_17_candidate_search_pending`
+Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`
 
 Allowed final states:
 
@@ -501,5 +501,13 @@ against required `1.0`, with `28` invalid pair rows. The adjudication is
 validity failure, not a scientific kill. Do not clip, widen bounds, run the
 one-check, run Stage 0B, or start validation search.
 
-Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. Current stage:
-`epoch_4_cycle_17_candidate_search_pending`.
+IARC remains closed unchanged as `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
+Cycle 17 generated exactly three candidates and selected `FAMR-VLA` with
+`93 / 100`. Proposal hash:
+`96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69`.
+The frozen package is under `reports/famr_vla/`; Stage 0A is limited to
+provenance, data semantics, identity, capacity, reload, and exact group-scaling
+audits with zero confirmatory decode.
+
+Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`. Current
+stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`.

@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current campaign decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal decision.
 
@@ -300,5 +300,22 @@ pairs were valid versus required `1.0`. Final IARC decision:
 but it forbids clipping, one-check, Stage 0B, and validation search for this
 formulation. Confirmatory observations and actions remained zero.
 
-Current stage: `epoch_4_cycle_17_candidate_search_pending`. Generate exactly
-three Cycle 17 candidates and select exactly one.
+Cycle 17 generated exactly three candidates and selected `FAMR-VLA`,
+Function-Aware Model Retention, with `93 / 100`. Its closest positive prior is
+RETAIN; Fisher-weighted model merging is the secondary mechanism prior. The
+scientific method fits bounded checkpoint task-vector coefficients from
+groupwise postprocessed action responses while limiting original-task action
+drift. The rank-4 LoRA endpoint is low-compute infrastructure, not the method.
+
+The proposal hash is
+`96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69`.
+Researcher proposal, Reviewer B attack, rebuttal, mathematical audit,
+preregistration, and executable protocol are frozen under
+`reports/famr_vla/`. The first comparison is Base, transparent scalar RETAIN
+proxy, FAMR full, target-only ablation, and matched standard LoRA.
+
+Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`. Stage
+0A may audit LIBERO-90 provenance/data semantics, zero-effect identity,
+20-step subset fit, checkpoint reload, and exact group scaling. It may not run
+full endpoint training, validation search, closed-loop rollout, or confirmatory
+decoding.
