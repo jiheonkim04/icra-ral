@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `16`
 
-Current stage: `epoch_4_cycle_16_candidate_search_pending`
+Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`
 
 Allowed final states:
 
@@ -446,4 +446,47 @@ The mathematical audit, preregistration, and prototype protocol are frozen in `r
 
 LIFT Stage 0 is implemented and adjudicated in `reports/lift_vla/stage_0_adjudication.md` as `LIFT_COMPUTE_INFEASIBLE`. The same-scene target-BDDL manifest retained `20 / 20` valid rows, exact identity passed at `0.0`, mechanism activation and practical separation passed, peak CUDA allocation was `0.9200425148010254 GiB`, and LIFT latency was `2.013133036365988` times Base. Executed-action bound validity was only `0.8023809523809524` against the frozen `1.0` requirement. No clipping rescue, headroom rollout, validation search, training, Stage A, or confirmatory evaluation ran; confirmatory policy observations and actions remained zero.
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`. Cycle 15 is closed without rescue. Current stage: `epoch_4_cycle_16_candidate_search_pending`; generate exactly three materially distinct candidates and select exactly one under the active governance.
+Archived Cycle 15 decision: `LIFT_COMPUTE_INFEASIBLE`. Cycle 15 is closed without rescue. The campaign then advanced through Cycle 16 candidate generation under the active governance.
+
+## Epoch 4 Cycle 16
+
+Exactly three candidates were generated in
+`reports/epoch_4_cycle_16_candidate_generation.md` after the primary-source and
+closed-axis audit in `reports/epoch_4_cycle_16_prior_mechanism_map.md`.
+`IARC-VLA`, Interference-Aware Robustness Consolidation, was selected with
+`95 / 100`.
+
+IARC is anchored to STRONG-VLA and Gradient Episodic Memory. The scientific
+method is an asymmetric Stage II projected SGD update that protects a paired
+perturbation-replay SmolVLA action gradient while clean fidelity is restored.
+The low-compute parameterization is the official rank-4 SmolVLA LoRA wrapper;
+LoRA is not the contribution.
+
+The proposal is frozen at `reports/iarc_vla/researcher_proposal.md` with hash
+`A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
+Reviewer B required an actual-step mathematical repair, shared flow noise/time,
+exact perturbation semantics, a development-only closed-loop headroom screen,
+transparent STRONG proxy status, and resource-contention quarantine. Researcher
+A accepted all conditions in `reports/iarc_vla/researcher_rebuttal.md`.
+
+The mathematical audit, preregistration, and prototype protocol are frozen in
+`reports/iarc_vla/mathematical_mechanism_audit.md`,
+`reports/iarc_vla/preregistration.md`, and
+`reports/iarc_vla/prototype_protocol.md`. Stage II now uses explicit SGD with
+zero momentum and weight decay, so the realized conflict projection has the
+claimed first-order geometry.
+
+The first comparison is exactly Base, transparent STRONG proxy, IARC full,
+unprojected joint replay, and matched standard clean-only LoRA. Stage 0A is the
+only authorized next step: `20` micro-fit steps, `40` independent gradient
+pairs, `40` validation diagnostics, and zero confirmatory decodes.
+
+The user-reported Windows Efficiency Mode interval is recorded in
+`reports/resource_contention_intervals.json`. No active Linux worker was found.
+The already completed EAC Stage B result passed PID, exit-code, JSON,
+`200 / 200` row, exception, synchrony, duplicate-key, and manifest checks and is
+accepted without rerun. Timing/resource evidence with unknown overlap is not
+final paper evidence.
+
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`. Current
+stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.

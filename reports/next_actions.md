@@ -4,13 +4,27 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
-Immediate next action: generate exactly three Cycle 16 candidates, apply the prior-anchor, headroom, supervision, identity-preserving integration, mathematical objective, and decisive-experiment screens, then select exactly one candidate.
+Immediate next action: implement `tca_map/smolvla/iarc_vla.py`,
+`scripts/run_iarc_vla_stage0.py`, and `tests/test_iarc_vla.py`; run the pure
+tests, then execute the frozen real SmolVLA Stage 0A audit exactly once.
 
 COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 
-Do not rescue G3P, CALA, RAR, COVI, or LIFT by changing frozen labels, objectives, thresholds, source gates, validation configs, baselines, action clipping, or guidance scales. LIFT stopped before headroom and validation because action-bound validity was `0.8023809523809524` rather than `1.0`; its confirmatory partition remains sealed.
+Do not rescue G3P, CALA, RAR, COVI, or LIFT by changing frozen labels,
+objectives, thresholds, source gates, validation configs, baselines, action
+clipping, or guidance scales. IARC Stage 0A must keep rank `4`, `20` micro-fit
+steps, `40` independent same-noise/time gradient pairs, the four frozen
+perturbation families, and zero confirmatory decodes. Headroom rollout and the
+six-trial validation search are forbidden until their predecessor gates pass.
+
+Before any long WSL launch, inspect state, newest PID/heartbeat/status/partial/
+result/log/exit files, worker liveness, JSON parseability, completed/planned
+counts, exceptions, and duplicate/manifest keys. Do not duplicate a live or
+completed run. The Windows Efficiency Mode interval is recorded in
+`reports/resource_contention_intervals.json`; overlap-unknown efficiency
+metrics are excluded from final paper evidence.
 
 ## 2026-07-13 Governance V2 Current Action
 

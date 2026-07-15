@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `16`
 
-Current stage: `epoch_4_cycle_16_candidate_search_pending`
+Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -367,4 +367,33 @@ The mathematical audit, preregistration, and prototype protocol are frozen in `r
 
 LIFT Stage 0 is implemented and adjudicated in `reports/lift_vla/stage_0_adjudication.md` as `LIFT_COMPUTE_INFEASIBLE`. The same-scene target-BDDL manifest retained `20 / 20` valid rows, exact identity passed at `0.0`, mechanism activation and practical separation passed, peak CUDA allocation was `0.9200425148010254 GiB`, and LIFT latency was `2.013133036365988` times Base. Executed-action bound validity was only `0.8023809523809524` against the frozen `1.0` requirement. No clipping rescue, headroom rollout, validation search, training, Stage A, or confirmatory evaluation ran; confirmatory policy observations and actions remained zero.
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`. Cycle 15 is closed without rescue. Current stage: `epoch_4_cycle_16_candidate_search_pending`; generate exactly three materially distinct candidates and select exactly one under the active governance.
+Archived Cycle 15 decision: `LIFT_COMPUTE_INFEASIBLE`. Cycle 15 is closed without rescue. The campaign then advanced through Cycle 16 candidate generation under the active governance.
+
+## Epoch 4 Cycle 16
+
+Cycle 16 generated exactly three candidates and selected `IARC-VLA` with score
+`95 / 100`. IARC is a narrow STRONG-VLA plus GEM cross-paper synthesis: it
+projects the actual zero-momentum, zero-decay Stage II SGD step against a paired
+perturbation-replay SmolVLA action gradient only when clean and robust gradients
+conflict. Rank-4 LoRA is fixed low-compute infrastructure, not the method claim.
+
+The frozen proposal hash is
+`A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
+Reviewer B attack and Researcher A rebuttal are complete. The mathematical
+audit, preregistration, and executable Stage 0A protocol are frozen under
+`reports/iarc_vla/`.
+
+The five policies are Base, transparent STRONG proxy, IARC full, unprojected
+joint replay, and standard clean-only LoRA. Stage 0A must use `40 / 40 / 1200`
+fit-audit/validation/confirmatory source boundaries with zero confirmatory
+decode, `20` micro-fit steps, and `40` same-noise/time gradient pairs before any
+headroom rollout or validation search.
+
+The Windows Efficiency Mode interval and durable-worker audit are recorded in
+`reports/resource_contention_intervals.json`. No worker was alive; EAC Stage B
+was already complete and accepted without rerun after `200 / 200`, zero-error,
+zero-duplicate, synchronous manifest validation. Overlapping or
+overlap-unknown efficiency metrics are quarantined.
+
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`. Current
+stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.

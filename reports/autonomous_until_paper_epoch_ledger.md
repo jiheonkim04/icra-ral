@@ -1,5 +1,12 @@
 # Autonomous Until Paper Epoch Ledger
 
+## 2026-07-15 KST Epoch 4 Cycle 16 Update
+
+Cycle 16 selected `IARC-VLA` after exactly three candidates. Proposal, review,
+rebuttal, mathematical audit, preregistration, and prototype protocol are
+frozen. Current stage:
+`epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.
+
 ## 2026-07-15 KST Epoch 4 Update
 
 Cycle 15 `LIFT-VLA` closed at the frozen pre-rollout action-validity gate as

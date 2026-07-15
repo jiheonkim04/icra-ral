@@ -12,6 +12,7 @@ CALA_PROPOSAL_HASH = "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E
 RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56"
 COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621"
 LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F"
+IARC_PROPOSAL_HASH = "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -43,7 +44,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_lift_stop_and_cycle_16_continuation() -> None:
+def test_active_state_records_lift_stop_and_iarc_stage_0a_continuation() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -51,12 +52,37 @@ def test_active_state_records_lift_stop_and_cycle_16_continuation() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LIFT_COMPUTE_INFEASIBLE"
-    assert state["current_stage"] == "epoch_4_cycle_16_candidate_search_pending"
-    assert state["method"] is None
-    assert state["method_identity"] is None
-    assert state["proposal_hash"] is None
-    assert state["prototype_protocol"] is None
+    assert state["current_decision"] == "IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_16_iarc_stage_0a_implementation_pending"
+    assert state["method"] == "IARC-VLA"
+    assert state["method_identity"] == "IARC-VLA"
+    assert state["proposal_hash"] == IARC_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/iarc_vla/prototype_protocol.md"
+    assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
+    selection = state["epoch_4_cycle_16_candidate_selection"]
+    assert selection["candidate_count"] == 3
+    assert selection["selected_score"] == 95
+    assert selection["proposal_hash"] == IARC_PROPOSAL_HASH
+    assert selection["policy_order"] == [
+        "smolvla_base",
+        "strong_vla_transparent_proxy",
+        "iarc_vla_full",
+        "iarc_unprojected_joint_replay_ablation",
+        "standard_lora_clean_only",
+    ]
+    assert selection["bounded_validation_search_max_configs"] == 6
+    assert selection["confirmatory_test_tuning_happened"] is False
+    resource_audit = state["resource_contention_audit_20260715"]
+    assert resource_audit["active_linux_research_worker_found"] is False
+    assert resource_audit["completed_episode_count"] == resource_audit["planned_episode_count"] == 200
+    assert resource_audit["exception_count"] == 0
+    assert resource_audit["duplicate_key_count"] == 0
+    assert resource_audit["missing_manifest_key_count"] == 0
+    assert resource_audit["extra_result_key_count"] == 0
+    assert resource_audit["simulator_synchronous"] is True
+    assert resource_audit["performance_metrics_quarantined_if_overlap_unknown"] is True
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]

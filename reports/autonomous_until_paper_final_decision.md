@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `LIFT_COMPUTE_INFEASIBLE`
+Current campaign decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal decision.
 
@@ -272,4 +272,22 @@ The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3
 
 Reviewer B returned `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A accepted the narrow novelty boundary, feasible counterfactual benchmark gate, native-flow same-noise CAG, matched-compute ablation, practical-equivalence threshold, headroom, and compute gates.
 
-The frozen Stage 0 completed and is adjudicated in `reports/lift_vla/stage_0_adjudication.md`. Manifest, shape, identity, activation, field-count, separation, memory, and latency gates passed, but executed-action bound validity was `0.8023809523809524` against the frozen `1.0` requirement. The final decision is `LIFT_COMPUTE_INFEASIBLE`; clipping, scale changes, headroom rollout, and validation search are forbidden. Confirmatory policy observations and actions remained zero. Current stage: `epoch_4_cycle_16_candidate_search_pending`.
+The frozen Stage 0 completed and is adjudicated in `reports/lift_vla/stage_0_adjudication.md`. Manifest, shape, identity, activation, field-count, separation, memory, and latency gates passed, but executed-action bound validity was `0.8023809523809524` against the frozen `1.0` requirement. The final decision is `LIFT_COMPUTE_INFEASIBLE`; clipping, scale changes, headroom rollout, and validation search are forbidden. Confirmatory policy observations and actions remained zero. The campaign then advanced to Epoch 4 Cycle 16 candidate generation.
+
+Epoch 4 Cycle 16 generated exactly three candidates and selected `IARC-VLA`,
+Interference-Aware Robustness Consolidation, with score `95 / 100`. The method
+is a narrow STRONG-VLA plus GEM synthesis that projects the actual Stage II SGD
+step against a paired perturbation-replay SmolVLA action gradient. Rank-4 LoRA
+is low-compute infrastructure, not a contribution.
+
+The proposal hash is
+`A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
+Reviewer B attack, Researcher A rebuttal, mathematical audit, preregistration,
+and prototype protocol are frozen under `reports/iarc_vla/`. The first
+comparison contains exactly Base, transparent STRONG proxy, IARC full,
+unprojected joint replay, and matched standard LoRA.
+
+Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`. Stage
+0A implementation and the frozen real SmolVLA audit are the only authorized
+next work. The user-reported Windows Efficiency Mode interval is recorded and
+overlap-unknown performance-efficiency evidence is quarantined.

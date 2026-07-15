@@ -2715,3 +2715,93 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
+## 2026-07-15 - Resource Contention And Durable Worker Audit
+
+Decision: `NO_ACTIVE_WORKER_ACCEPT_COMPLETED_EAC_RESULT_NO_RERUN`
+
+Execution boundary:
+
+- Windows Efficiency Mode on `vmmemWSL` was user-reported and disabled before
+  audit; exact interval start unknown
+- campaign active PID / command: none
+- newest durable rollout: `runs/eac_vla_stage_b/20260714T202334Z`
+- wrapper / child PID: `375 / 386`, both dead
+- heartbeat/status: `completed`
+- exit code: `0`
+- partial JSON: valid
+- completed/planned: `200 / 200`
+- exceptions / timeouts / infrastructure failures: `0 / 0 / 0`
+- duplicate keys / missing manifest keys / extra result keys: `0 / 0 / 0`
+- action-modified / invalid-action rows: `0 / 0`
+- simulator: synchronous, `use_async_envs=False`
+- manifest file SHA256:
+  `CD90E53319A10693CFA898E0F8F9157959FE2B922EEACC10242C4678975BE46F`
+- record: `reports/resource_contention_intervals.json`
+
+Consequence: do not relaunch or resume EAC. Preserve its closed-loop success
+rows. Exclude latency, throughput, wall-clock, and resource-utilization evidence
+whose overlap with the start-unknown interval cannot be ruled out.
+
+## 2026-07-15 - Epoch 4 Cycle 16 IARC-VLA Selection
+
+Decision: `SELECT_IARC_VLA`
+
+Execution boundary:
+
+- exactly three candidates generated
+- candidate generation:
+  `reports/epoch_4_cycle_16_candidate_generation.md`
+- selected method: `IARC-VLA`
+- selected score: `95 / 100`
+- closest prior: `STRONG-VLA`
+- secondary mechanism prior: `Gradient Episodic Memory`
+- contribution type: `CROSS_PAPER_SYNTHESIS`
+- scientific method: conflict-triggered Stage II robustness consolidation
+- low-compute parameterization: official rank-4 SmolVLA LoRA wrapper
+- standard LoRA required as matched generic-adaptation control
+- training / validation search / closed-loop / test tuning:
+  `False / False / False / False`
+
+Consequence: freeze one Researcher A proposal; do not rescue LIFT or any earlier
+method.
+
+## 2026-07-15 - IARC-VLA Proposal And Dual Review
+
+Decision: `IARC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+
+Execution boundary:
+
+- proposal: `reports/iarc_vla/researcher_proposal.md`
+- proposal hash:
+  `A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`
+- Reviewer B attack: `reports/iarc_vla/reviewer_attack.md`
+- Researcher A rebuttal: `reports/iarc_vla/researcher_rebuttal.md`
+- reviewer repaired the invalid raw-gradient-plus-AdamW guarantee
+- frozen repair: Stage II SGD, momentum `0`, weight decay `0`
+- shared flow noise/time and exact perturbation contracts accepted
+- development-only closed-loop headroom required before full training
+- narrow novelty: VLA robustness cross-paper synthesis, not new optimizer/LoRA
+
+Consequence: proceed to mathematical audit only.
+
+## 2026-07-15 - IARC-VLA Mathematical Audit And Prototype Freeze
+
+Decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+
+Execution boundary:
+
+- mathematical audit:
+  `reports/iarc_vla/mathematical_mechanism_audit.md`
+- preregistration: `reports/iarc_vla/preregistration.md`
+- prototype protocol: `reports/iarc_vla/prototype_protocol.md`
+- Stage 0A fit/audit/validation rows: `40 / 40 / 40`
+- micro-fit steps: `20`
+- robust squared-norm floor: `1e-12`
+- full training schedule after gates: `60` Stage I plus `40` Stage II steps
+- bounded validation trials: `6`
+- first policies: Base, transparent STRONG, IARC, joint replay, standard LoRA
+- confirmatory rows decoded/actions computed max: `0 / 0`
+- training / validation search / closed-loop / test tuning:
+  `False / False / False / False`
+
+Consequence: implement and run only the frozen Stage 0A audit.

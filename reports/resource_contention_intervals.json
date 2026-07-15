@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "intervals": [
+    {
+      "id": "windows_efficiency_mode_vmmemwsl_20260715_user_reported",
+      "resource": "vmmemWSL",
+      "condition": "Windows Efficiency Mode enabled while Goal UI was paused",
+      "source": "user_report",
+      "start_time": null,
+      "end_time_latest_kst": "2026-07-15T16:23:29+09:00",
+      "end_time_exact": false,
+      "efficiency_mode_disabled": true,
+      "active_linux_research_worker_found_at_audit": false,
+      "audit_time_kst": "2026-07-15T16:23:29+09:00",
+      "paper_evidence_policy": {
+        "latency_excluded_if_overlap_unknown_or_positive": true,
+        "throughput_excluded_if_overlap_unknown_or_positive": true,
+        "wall_clock_efficiency_excluded_if_overlap_unknown_or_positive": true,
+        "resource_utilization_excluded_if_overlap_unknown_or_positive": true,
+        "closed_loop_success_may_remain_valid_after_row_audit": true
+      },
+      "durable_run_audit": {
+        "newest_rollout_run": "runs/eac_vla_stage_b/20260714T202334Z",
+        "wrapper_pid": 375,
+        "child_pid": 386,
+        "wrapper_alive": false,
+        "child_alive": false,
+        "heartbeat_status": "completed",
+        "exit_code": 0,
+        "partial_json_parsed": true,
+        "planned_episode_count": 200,
+        "completed_episode_count": 200,
+        "exception_count": 0,
+        "duplicate_key_count": 0,
+        "missing_manifest_key_count": 0,
+        "extra_result_key_count": 0,
+        "timeout_count": 0,
+        "action_modified_row_count": 0,
+        "invalid_action_row_count": 0,
+        "simulator_synchronous": true,
+        "manifest_file_sha256": "CD90E53319A10693CFA898E0F8F9157959FE2B922EEACC10242C4678975BE46F",
+        "final_result_accepted_without_rerun": true,
+        "resume_or_relaunch_performed": false
+      }
+    }
+  ]
+}

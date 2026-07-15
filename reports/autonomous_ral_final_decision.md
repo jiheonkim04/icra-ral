@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -255,4 +255,19 @@ The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3
 
 Reviewer B returned `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A accepted the narrow novelty boundary, feasible counterfactual benchmark gate, native-flow same-noise CAG, matched-compute ablation, practical-equivalence threshold, headroom, and compute gates.
 
-The frozen Stage 0 completed and is adjudicated in `reports/lift_vla/stage_0_adjudication.md`. Manifest, shape, identity, activation, field-count, separation, memory, and latency gates passed, but executed-action bound validity was `0.8023809523809524` against the frozen `1.0` requirement. The final decision is `LIFT_COMPUTE_INFEASIBLE`; clipping, scale changes, headroom rollout, and validation search are forbidden. Confirmatory policy observations and actions remained zero. Current stage: `epoch_4_cycle_16_candidate_search_pending`.
+The frozen Stage 0 completed and is adjudicated in `reports/lift_vla/stage_0_adjudication.md`. Manifest, shape, identity, activation, field-count, separation, memory, and latency gates passed, but executed-action bound validity was `0.8023809523809524` against the frozen `1.0` requirement. The final decision is `LIFT_COMPUTE_INFEASIBLE`; clipping, scale changes, headroom rollout, and validation search are forbidden. Confirmatory policy observations and actions remained zero. The campaign then advanced to Epoch 4 Cycle 16 candidate generation.
+
+Epoch 4 Cycle 16 generated exactly three candidates and selected `IARC-VLA`
+with `95 / 100`. Its scientific method is actual-step projected SGD during
+clean refinement against a paired perturbation-replay SmolVLA action gradient;
+rank-4 LoRA is implementation infrastructure.
+
+Proposal, review, rebuttal, mathematical audit, preregistration, and executable
+protocol are frozen under `reports/iarc_vla/` with proposal hash
+`A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
+Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.
+
+The Windows Efficiency Mode interval is recorded in
+`reports/resource_contention_intervals.json`; overlap-unknown efficiency
+metrics are not final paper evidence. The existing EAC Stage B result was
+accepted without rerun after complete synchronous duplicate/manifest audit.

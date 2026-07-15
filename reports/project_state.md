@@ -6,15 +6,34 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_COMPUTE_INFEASIBLE`
+Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `16`
 
-Cycle 15 generated exactly three candidates and selected `LIFT-VLA`, an inference-only method that applies language guidance throughout SmolVLA's continuous action-flow path. The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
+Cycle 15 is closed as `LIFT_COMPUTE_INFEASIBLE` without rescue. Cycle 16
+generated exactly three candidates and selected `IARC-VLA` with score
+`95 / 100`.
 
-The first comparison was exactly Base, transparent training-free CAG, full LIFT, and matched-compute last-step-only LIFT. Stage 0 passed source/scorer, shape, identity, activation, practical-separation, memory, and latency gates, but action-bound validity was `0.8023809523809524` rather than `1.0`. The frozen decision is `LIFT_COMPUTE_INFEASIBLE`; no clipping rescue, headroom rollout, validation search, training, or confirmatory-test tuning happened. Cycle 16 candidate search is now active.
+IARC is anchored to STRONG-VLA and GEM. The scientific method is actual-step
+projected SGD during clean refinement against a paired perturbation-replay
+SmolVLA action gradient. Rank-4 LoRA is implementation infrastructure. The
+proposal hash is
+`A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
+
+Reviewer B attack and Researcher A rebuttal are complete. The mathematical
+audit, preregistration, and prototype protocol are frozen under
+`reports/iarc_vla/`. The first comparison is Base, transparent STRONG proxy,
+IARC full, unprojected joint replay, and matched standard LoRA.
+
+Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`. Only
+the `20`-step rank-4 micro fit, `40` real same-noise/time gradient pairs, and
+`40` validation diagnostics are authorized. Test decode remains zero.
+
+The Windows Efficiency Mode interval and completed-worker audit are recorded in
+`reports/resource_contention_intervals.json`. EAC Stage B is accepted without
+rerun; efficiency metrics with unknown interval overlap are quarantined.
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 
