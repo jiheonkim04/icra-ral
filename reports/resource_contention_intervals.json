@@ -91,6 +91,58 @@
         "stderr_log": "runs/famr_vla/endpoint/stderr.log",
         "exit_code_file": "runs/famr_vla/endpoint/exit_code.txt"
       }
+    },
+    {
+      "id": "windows_efficiency_mode_vmmemwsl_20260715_goal_pause_3_user_reported",
+      "resource": "vmmemWSL",
+      "condition": "Windows gaming and Efficiency Mode enabled while Goal UI was paused",
+      "source": "user_report",
+      "start_time": null,
+      "end_time_latest_kst": "2026-07-15T21:57:27+09:00",
+      "end_time_exact": false,
+      "efficiency_mode_disabled": true,
+      "active_linux_research_worker_found_at_audit": false,
+      "audit_time_kst": "2026-07-15T21:57:27+09:00",
+      "paper_evidence_policy": {
+        "latency_excluded_if_overlap_unknown_or_positive": true,
+        "throughput_excluded_if_overlap_unknown_or_positive": true,
+        "wall_clock_efficiency_excluded_if_overlap_unknown_or_positive": true,
+        "resource_utilization_excluded_if_overlap_unknown_or_positive": true,
+        "closed_loop_success_may_remain_valid_after_row_audit": true
+      },
+      "durable_run_audit": {
+        "newest_durable_experiment": "runs/nice_vla/stage0b1",
+        "pid": 403,
+        "pid_alive": false,
+        "matching_linux_worker_found": false,
+        "heartbeat_status": "failed",
+        "status_file_status": "failed",
+        "exit_code": 1,
+        "partial_json_parsed": true,
+        "result_json_parsed": true,
+        "planned_pair_count": 1792,
+        "completed_pair_count": 1792,
+        "exception_count": 1,
+        "exception_classification": "DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST",
+        "duplicate_manifest_key_count": 0,
+        "duplicate_partial_key_count": 0,
+        "missing_manifest_key_count": 0,
+        "extra_partial_key_count": 0,
+        "manifest_partial_key_sets_equal": true,
+        "closed_loop_rows_present": false,
+        "task_success_acceptance_not_applicable": true,
+        "timing_and_resource_evidence_quarantined": true,
+        "final_result_accepted_without_rerun": true,
+        "resume_or_relaunch_performed": false,
+        "pid_file": "reports/nice_vla/stage_0b1_pid.txt",
+        "heartbeat_file": "reports/nice_vla/stage_0b1_heartbeat.json",
+        "status_file": "reports/nice_vla/stage_0b1_status.json",
+        "partial_result_file": "reports/nice_vla/stage_0b1_partial.json",
+        "result_file": "reports/nice_vla/stage_0b1_result.json",
+        "stdout_log": "reports/nice_vla/stage_0b1_stdout.log",
+        "stderr_log": "reports/nice_vla/stage_0b1_stderr.log",
+        "exit_code_file": "reports/nice_vla/stage_0b1_exit_code.txt"
+      }
     }
   ]
 }

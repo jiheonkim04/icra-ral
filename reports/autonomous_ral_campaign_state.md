@@ -7,13 +7,23 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
+`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `21`
 
-Current stage: `epoch_4_cycle_21_candidate_search_pending`
+Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`
+
+## Epoch 4 Cycle 21 HEST-VLA
+
+Cycle 21 generated exactly three candidates and selected `HEST-VLA` at
+`93 / 100`, anchored to Spline Policy. Proposal hash:
+`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
+The review, rebuttal, mathematical audit, preregistration, and prototype
+protocol are frozen. The CPU-only Stage 0A runner and eight focused invariant
+tests are implemented; execution is pending. Only the fixed `160`
+discovery/validation action windows are authorized.
 
 ## Epoch 4 Cycle 20 NICE-VLA
 

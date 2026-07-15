@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current campaign decision:
-`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
+`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal decision.
 
@@ -36,8 +36,13 @@ Cycle 20 selected NICE-VLA from exactly three candidates and froze its
 proposal, review, rebuttal, mathematical audit, preregistration, and prototype
 protocol. Stage 0A passed, but Stage 0B1 found collapsed action-regime contrast
 on two validation tasks after completing all 1792 pair keys. This is a data
-failure, not a scientific kill. Current cycle: `21`. Current stage:
-`epoch_4_cycle_21_candidate_search_pending`.
+failure, not a scientific kill.
+
+Cycle 21 generated exactly three candidates and selected HEST-VLA at
+`93 / 100`, anchored to Spline Policy. Proposal hash:
+`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
+The full protocol package and CPU-only Stage 0A runner are frozen. Current
+cycle: `21`. Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`.
 
 ## Corrected Epoch 1 Status
 

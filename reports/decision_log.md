@@ -2883,3 +2883,41 @@ No labeled SPARC fit, validation search, rollout, or confirmatory evaluation
 occurred. The result is not a scientific kill. Stage 0B and SPARC rescue are
 forbidden. Continue automatically to Epoch 4 Cycle 20 exact-three candidate
 generation.
+
+## 2026-07-15 - NICE-VLA Stage 0B1 Adjudication
+
+Decision: `NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
+
+NICE Stage 0B1 completed all `1792 / 1792` frozen pair keys. The final
+manifest, partial, status, result, and validation artifacts parse with zero
+duplicate, missing, or extra keys. The worker is dead and no resume is needed.
+The one terminal exception records the frozen calibration diagnostic detecting
+a collapsed action-regime contrast.
+
+This is a development data failure, not a closed-loop scientific result. Do
+not rerun, repair, reinterpret, or rescue NICE. Continue automatically to
+Cycle 21.
+
+## 2026-07-15 - HEST-VLA Selection And Protocol Freeze
+
+Decision: `HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+
+Cycle 21 generated exactly three candidates:
+
+- `HEST-VLA`: `93 / 100`;
+- `TASF-VLA`: `78 / 100`;
+- `ACORN-VLA`: `79 / 100`.
+
+Selected method: `HEST-VLA`, Hybrid Event-Spline Trajectories, anchored to
+Spline Policy. Proposal hash:
+`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
+
+The method transforms six cumulative arm coordinates with exact first and
+endpoint constraints, copies the gripper event stream exactly, and falls back
+to the full Base chunk on invalid output. The proposal, review, rebuttal,
+mathematical audit, preregistration, and prototype protocol are frozen. Stage
+0A is CPU-only and limited to `160` discovery/validation action windows; it may
+not read SmolVLA, CUDA, simulator state, outcomes, or confirmatory identities.
+
+Consequence: commit and push the frozen implementation, then run only HEST
+Stage 0A. Stage 0B remains unauthorized unless every frozen gate passes.

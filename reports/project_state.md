@@ -1,44 +1,47 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 20 Current State
+## 2026-07-15 Epoch 4 Cycle 21 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
-Current cycle: `20`
+Current cycle: `21`
 
-Cycle 19 generated exactly three candidates and selected `SPARC-VLA` with
-`96 / 100`. COAST is the closest positive prior. SPARC extends its complete
-source success-minus-failure conceptor transfer by combining target-success
-activations with an equal-task-weight aggregate of source-failure activations.
-The proposal is frozen at
-`CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D`.
+Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
+Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
+positive external prior. HEST extends structured trajectory output by
+smoothing only the six continuous arm dimensions in cumulative coordinates,
+preserving the first arm action and cumulative endpoint, copying the discrete
+gripper stream exactly, and falling back to the entire Base chunk on any
+invalid transformation.
 
-SPARC Stage 0A attempt 1 persisted both smoke observations before a missing
-capture reset raised an implementation exception. The one allowed
-implementation repair was applied without changing the method or thresholds.
-Final PID `306` then completed `2 / 2` observations with exit `0`, zero
-exceptions, and zero duplicate, missing, or extra observation indices.
+The HEST proposal, Reviewer B attack, Researcher A rebuttal, mathematical
+audit, preregistration, and prototype protocol are frozen. Proposal hash:
+`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
+The CPU-only Stage 0A runner and eight focused invariant tests are implemented;
+Stage 0A is pending. It is limited to `160` preregistered discovery/validation
+demonstration action windows and may not read SmolVLA, CUDA, simulator state,
+reward, success, done, video, or confirmatory identities.
 
-Hook identity, checkpoint reload, Base preservation, finite operator, and
-mechanism-action gates passed. Both synthetic action rows failed only the
-frozen Base-relative outside-fraction and p99-exceedance gates. Because this
-was an unlabeled synthetic smoke operator, the result is an implementation and
-prototype action-validity failure, not a scientific kill. Stage 0B,
-validation, rollout, confirmatory testing, and SPARC rescue are forbidden.
+NICE remains closed unchanged as
+`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`. Its final
+`1792 / 1792` artifacts parse with zero duplicate, missing, or extra manifest
+keys and one expected terminal exception. No NICE resume, rerun, or rescue is
+allowed.
 
-Current stage: `epoch_4_cycle_20_candidate_search_pending`.
+Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`.
 
-The two Windows gaming and Efficiency Mode intervals remain recorded in
-`reports/resource_contention_intervals.json`. SPARC Stage 0A has no
-closed-loop task-success rows; timing, throughput, wall-clock efficiency, and
-resource-utilization evidence are excluded from the decision and paper.
+Three Windows gaming and Efficiency Mode intervals are recorded in
+`reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,
+throughput, wall-clock, resource-utilization, and latency evidence remain
+ineligible for paper claims. NICE and HEST Stage 0A contain no closed-loop
+task-success rows.
 
 ## Epoch 4 Cycles 17-19 History
 

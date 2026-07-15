@@ -1,25 +1,24 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 20 Current Action
+## 2026-07-15 Epoch 4 Cycle 21 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
-Immediate next action: generate exactly three materially distinct,
-prior-anchored Cycle 20 candidates, score them under current governance, and
-select exactly one.
+Immediate next action: commit and push the frozen HEST-VLA package, perform the
+required runtime-artifact and worker audit, then run only the preregistered
+CPU-only HEST Stage 0A action-source and algebra gate.
 
-Cycle 19 SPARC Stage 0A completed `2 / 2` final smoke observations with zero
-exceptions and zero duplicate, missing, or extra indices after the one allowed
-implementation repair. Identity and acting checks passed, but both synthetic
-rows failed the frozen Base-relative range-safety gate. This is a pre-rollout
-implementation/prototype action-validity failure, not a scientific kill.
+Cycle 21 selected HEST from exactly three candidates at `93 / 100`, anchored to
+Spline Policy. The method, tasks, demo partitions, 160 source windows,
+objective, lambda, alpha search set, policies, thresholds, and decision
+taxonomy are frozen under `reports/hest_vla/`. Eight focused tests pass.
 
-Do not change SPARC's operator, ridge, aperture, beta, hook site, thresholds,
-or smoke construction. Do not run SPARC Stage 0B, validation, rollout, or
-confirmatory testing. Do not rescue FAMR, PCAV, or SPARC.
+Do not load SmolVLA, CUDA, the simulator, rewards, task outcomes, video, or
+confirmatory identities in Stage 0A. Do not authorize HEST Stage 0B unless all
+frozen Stage 0A gates pass. Do not rerun or rescue NICE.
 
 ## Epoch 4 Cycle 19 Historical Action
 

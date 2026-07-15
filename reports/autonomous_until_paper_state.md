@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
+`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `21`
 
-Current stage: `epoch_4_cycle_21_candidate_search_pending`
+Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`
 
 Allowed final states:
 
@@ -23,6 +23,16 @@ Allowed final states:
 - `SAFETY_RESOURCE_STOP`
 
 There is no finite global method-cycle limit.
+
+## Epoch 4 Cycle 21 HEST-VLA
+
+Cycle 21 generated exactly three candidates and selected `HEST-VLA` at
+`93 / 100`, anchored to Spline Policy. The proposal is frozen at
+`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
+The review, rebuttal, mathematical audit, preregistration, and prototype
+protocol are complete. The CPU-only Stage 0A runner and eight focused tests are
+implemented; only the preregistered `160` discovery/validation action windows
+may now run. Stage 0B remains unauthorized unless every Stage 0A gate passes.
 
 ## Epoch 4 Cycle 19 SPARC-VLA
 

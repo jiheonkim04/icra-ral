@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current decision:
-`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
+`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -22,8 +22,13 @@ kill. Do not run Stage 0B or rescue SPARC. Historical SPARC decision:
 
 Cycle 20 selected NICE-VLA from exactly three candidates and froze the full
 pre-implementation protocol package. Stage 0B1 closed as a collapsed-contrast
-data failure with no confirmatory access. Current cycle: `21`; current stage:
-`epoch_4_cycle_21_candidate_search_pending`.
+data failure with no confirmatory access.
+
+Cycle 21 generated exactly three candidates and selected HEST-VLA at
+`93 / 100`, anchored to Spline Policy. Proposal hash:
+`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
+The full protocol package and CPU-only Stage 0A runner are frozen. Current
+cycle: `21`; current stage: `epoch_4_cycle_21_hest_stage_0a_pending`.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 
