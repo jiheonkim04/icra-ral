@@ -1,16 +1,16 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 16 Current State
+## 2026-07-15 Epoch 4 Cycle 17 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `16`
+Current cycle: `17`
 
 Cycle 15 is closed as `LIFT_COMPUTE_INFEASIBLE` without rescue. Cycle 16
 generated exactly three candidates and selected `IARC-VLA` with score
@@ -27,9 +27,16 @@ audit, preregistration, and prototype protocol are frozen under
 `reports/iarc_vla/`. The first comparison is Base, transparent STRONG proxy,
 IARC full, unprojected joint replay, and matched standard LoRA.
 
-Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`. Only
-the `20`-step rank-4 micro fit, `40` real same-noise/time gradient pairs, and
-`40` validation diagnostics are authorized. Test decode remains zero.
+IARC Stage 0A is complete and adjudicated in
+`reports/iarc_vla/stage_0a_adjudication.md`. The mechanism activated on
+`18 / 40` rows across all four families; all projection, identity, Base-hash,
+checkpoint, partition, and duplicate-key checks passed. Dataset-range action
+validity was only `12 / 40 = 0.30` against the frozen `1.0` gate. No clipping,
+one-check, Stage 0B, or validation rescue is allowed. Confirmatory decode and
+action counts remained zero.
+
+Current stage: `epoch_4_cycle_17_candidate_search_pending`. Generate exactly
+three Cycle 17 candidates and select exactly one under the active governance.
 
 The Windows Efficiency Mode interval and completed-worker audit are recorded in
 `reports/resource_contention_intervals.json`. EAC Stage B is accepted without

@@ -1,10 +1,13 @@
 # Autonomous Until Paper Method Ledger
 
-## 2026-07-15 KST Cycle 16 Selection And Protocol Freeze
+## 2026-07-15 KST Cycle 16 Closure
 
 | Epoch | Cycle | Method | Status | Key evidence |
 | --- | ---: | --- | --- | --- |
-| 4 | 16 | `IARC-VLA` | `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING` | exactly three candidates; selected `95 / 100`; STRONG plus GEM cross-paper synthesis; actual-step projected SGD; rank-4 LoRA infrastructure; five-policy comparison; zero confirmatory decode allowed |
+| 4 | 16 | `IARC-VLA` | `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE` | `40 / 40` gradient pairs; conflicts `18 / 40` across four families; projection `18 / 18`; agreeing unchanged `22 / 22`; exact identity/reload/Base hash; dataset-range validity `0.30 < 1.0`; zero confirmatory decode/action |
+
+IARC is closed without clipping, bound changes, one-check, Stage 0B, or
+validation search. Cycle 17 candidate generation is pending.
 
 Proposal hash:
 `A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.

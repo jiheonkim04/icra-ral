@@ -16,7 +16,7 @@ LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`" in final
+    assert "Current campaign decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -213,7 +213,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`" in final
+    assert "Current stage: `epoch_4_cycle_17_candidate_search_pending`" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -228,13 +228,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 16
-    assert state["current_stage"] == "epoch_4_cycle_16_iarc_stage_0a_implementation_pending"
-    assert state["method"] == "IARC-VLA"
-    assert state["method_identity"] == "IARC-VLA"
-    assert state["proposal_hash"] == "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408"
+    assert state["current_cycle"] == 17
+    assert state["current_stage"] == "epoch_4_cycle_17_candidate_search_pending"
+    assert state["method"] is None
+    assert state["method_identity"] is None
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -247,12 +247,19 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == "Implement and run the frozen IARC-VLA Stage 0A audit."
-    assert state["prototype_protocol"] == "reports/iarc_vla/prototype_protocol.md"
+    assert state["next_action"] == "Generate exactly three Cycle 17 candidates and select exactly one under the active governance."
+    assert state["prototype_protocol"] is None
     assert state["epoch_4_cycle_16_candidate_selection"]["candidate_count"] == 3
     assert state["epoch_4_cycle_16_candidate_selection"]["selected_score"] == 95
     assert state["epoch_4_cycle_16_iarc_pre_stage_0a"]["confirmatory_rows_decoded_max"] == 0
     assert state["resource_contention_audit_20260715"]["duplicate_key_count"] == 0
+    iarc_stage_0a = state["epoch_4_cycle_16_iarc_stage_0a_outcome"]
+    assert iarc_stage_0a["final_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert iarc_stage_0a["valid_scientific_kill"] is False
+    assert iarc_stage_0a["conflict_count"] == 18
+    assert iarc_stage_0a["dataset_range_valid_fraction"] == 0.3
+    assert iarc_stage_0a["confirmatory_observations_decoded"] == 0
+    assert iarc_stage_0a["confirmatory_actions_computed"] == 0
     lift_stage_0 = state["epoch_4_cycle_15_lift_stage_0"]
     assert lift_stage_0["final_decision"] == "LIFT_COMPUTE_INFEASIBLE"
     assert lift_stage_0["manifest_rows_valid"] == 20

@@ -44,23 +44,27 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_lift_stop_and_iarc_stage_0a_continuation() -> None:
+def test_active_state_records_iarc_stage_0a_stop_and_cycle_17_continuation() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 16
+    assert state["current_cycle"] == 17
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_16_iarc_stage_0a_implementation_pending"
-    assert state["method"] == "IARC-VLA"
-    assert state["method_identity"] == "IARC-VLA"
-    assert state["proposal_hash"] == IARC_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/iarc_vla/prototype_protocol.md"
+    assert state["current_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_17_candidate_search_pending"
+    assert state["method"] is None
+    assert state["method_identity"] is None
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_16_iarc_stage_0a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_16_iarc_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_16_iarc_implementation_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_17_candidate_search_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -74,6 +78,22 @@ def test_active_state_records_lift_stop_and_iarc_stage_0a_continuation() -> None
     ]
     assert selection["bounded_validation_search_max_configs"] == 6
     assert selection["confirmatory_test_tuning_happened"] is False
+    outcome = state["epoch_4_cycle_16_iarc_stage_0a_outcome"]
+    assert outcome["final_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert outcome["valid_scientific_kill"] is False
+    assert outcome["gradient_pairs_completed"] == outcome["gradient_pairs_planned"] == 40
+    assert outcome["exception_count"] == 0
+    assert outcome["duplicate_key_count"] == 0
+    assert outcome["conflict_count"] == 18
+    assert outcome["conflict_family_count"] == 4
+    assert outcome["projection_constraint_pass_count"] == outcome["projected_row_count"] == 18
+    assert outcome["agreeing_unchanged_count"] == outcome["agreeing_row_count"] == 22
+    assert outcome["dataset_range_valid_fraction"] == 0.3
+    assert outcome["invalid_validation_pair_count"] == 28
+    assert outcome["confirmatory_observations_decoded"] == 0
+    assert outcome["confirmatory_actions_computed"] == 0
+    assert outcome["one_check_allowed"] is False
+    assert outcome["stage_0b_allowed"] is False
     resource_audit = state["resource_contention_audit_20260715"]
     assert resource_audit["active_linux_research_worker_found"] is False
     assert resource_audit["completed_episode_count"] == resource_audit["planned_episode_count"] == 200

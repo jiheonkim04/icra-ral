@@ -1,11 +1,14 @@
 # Autonomous Until Paper Epoch Ledger
 
-## 2026-07-15 KST Epoch 4 Cycle 16 Update
+## 2026-07-15 KST Epoch 4 Cycle 16 Closure
 
-Cycle 16 selected `IARC-VLA` after exactly three candidates. Proposal, review,
-rebuttal, mathematical audit, preregistration, and prototype protocol are
-frozen. Current stage:
-`epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.
+Cycle 16 selected `IARC-VLA` after exactly three candidates and completed its
+frozen Stage 0A. The mechanism activated on `18 / 40` rows across all four
+families, but dataset-range action validity was `0.30 < 1.0`. The final status
+is `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill. No
+one-check, Stage 0B, validation search, rollout, or confirmatory decode ran.
+
+Epoch 4 continues into Cycle 17 candidate generation.
 
 ## 2026-07-15 KST Epoch 4 Update
 

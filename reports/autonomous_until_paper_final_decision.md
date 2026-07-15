@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current campaign decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -287,7 +287,18 @@ and prototype protocol are frozen under `reports/iarc_vla/`. The first
 comparison contains exactly Base, transparent STRONG proxy, IARC full,
 unprojected joint replay, and matched standard LoRA.
 
-Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`. Stage
-0A implementation and the frozen real SmolVLA audit are the only authorized
-next work. The user-reported Windows Efficiency Mode interval is recorded and
-overlap-unknown performance-efficiency evidence is quarantined.
+IARC Stage 0A completed under the frozen protocol. The worker exited `0`, all
+`40` gradient pairs and `40` validation rows completed with zero exceptions,
+and duplicate/manifest checks passed. The mechanism activated on `18 / 40`
+rows across all four perturbation families; projection passed `18 / 18`,
+agreeing rows were unchanged `22 / 22`, identity/reload error was `0.0`, and
+the Base hash did not change.
+
+The frozen dataset-range action-validity gate failed: only `12 / 40 = 0.30`
+pairs were valid versus required `1.0`. Final IARC decision:
+`IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. This is not a scientific kill,
+but it forbids clipping, one-check, Stage 0B, and validation search for this
+formulation. Confirmatory observations and actions remained zero.
+
+Current stage: `epoch_4_cycle_17_candidate_search_pending`. Generate exactly
+three Cycle 17 candidates and select exactly one.

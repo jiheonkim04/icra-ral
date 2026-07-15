@@ -2805,3 +2805,27 @@ Execution boundary:
   `False / False / False / False`
 
 Consequence: implement and run only the frozen Stage 0A audit.
+
+## 2026-07-15 - IARC-VLA Stage 0A Adjudication
+
+Decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+
+Execution boundary:
+
+- worker and wrapper exit code: `0 / 0`
+- gradient pairs / validation rows: `40 / 40`, `40 / 40`
+- exceptions / duplicate keys / manifest mismatch: `0 / 0 / 0`
+- conflict rows: `18 / 40` across all four families
+- projection constraints: `18 / 18`
+- agreeing rows unchanged: `22 / 22`
+- identity / reload max error: `0.0 / 0.0`
+- Base parameter hash unchanged: `True`
+- fixed-subset loss: `0.0959141970379278 -> 0.09489042789209634`
+- dataset-range action-valid pair rows: `12 / 40 = 0.30`
+- frozen action-validity requirement: `1.0`
+- confirmatory observations / actions: `0 / 0`
+- adjudication: `reports/iarc_vla/stage_0a_adjudication.md`
+
+Consequence: classify as an implementation/action-validity failure, not a
+scientific kill. Do not clip, widen bounds, run one-check or Stage 0B, or start
+validation search. Continue to Epoch 4 Cycle 17 candidate generation.

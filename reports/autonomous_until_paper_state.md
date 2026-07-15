@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `16`
+Current cycle: `17`
 
-Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_17_candidate_search_pending`
 
 Allowed final states:
 
@@ -488,5 +488,18 @@ The already completed EAC Stage B result passed PID, exit-code, JSON,
 accepted without rerun. Timing/resource evidence with unknown overlap is not
 final paper evidence.
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`. Current
-stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.
+IARC Stage 0A completed with child and wrapper exit code `0`, `40 / 40`
+gradient pairs, `40 / 40` validation rows, zero exceptions, zero duplicate or
+manifest mismatches, and zero confirmatory decodes/actions. Conflict activation
+was `18 / 40` across all four families; projection constraints passed `18 /
+18`, agreeing rows were unchanged `22 / 22`, identity and reload error were
+`0.0`, and the Base hash was unchanged.
+
+The frozen hard stop is dataset-range action validity: `12 / 40 = 0.30`
+against required `1.0`, with `28` invalid pair rows. The adjudication is
+`reports/iarc_vla/stage_0a_adjudication.md`. This is an implementation/action-
+validity failure, not a scientific kill. Do not clip, widen bounds, run the
+one-check, run Stage 0B, or start validation search.
+
+Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. Current stage:
+`epoch_4_cycle_17_candidate_search_pending`.

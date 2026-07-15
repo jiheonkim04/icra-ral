@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `16`
+Current cycle: `17`
 
-Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_17_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -395,5 +395,15 @@ was already complete and accepted without rerun after `200 / 200`, zero-error,
 zero-duplicate, synchronous manifest validation. Overlapping or
 overlap-unknown efficiency metrics are quarantined.
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`. Current
-stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.
+IARC Stage 0A completed normally: `40 / 40` gradient pairs, `40 / 40`
+validation rows, zero exceptions, zero duplicate/manifest mismatches, and zero
+confirmatory decodes or actions. The mechanism activated on `18 / 40` rows
+across all four families, with projection `18 / 18`, agreeing rows unchanged
+`22 / 22`, exact identity/reload, and unchanged Base hash.
+
+The frozen dataset-range action-validity gate failed at `12 / 40 = 0.30`
+against `1.0`. The result is adjudicated as
+`IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill. Clipping,
+one-check, Stage 0B, and validation search are forbidden.
+
+Current stage: `epoch_4_cycle_17_candidate_search_pending`.

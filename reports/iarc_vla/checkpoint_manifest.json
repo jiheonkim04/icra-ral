@@ -1,0 +1,56 @@
+{
+  "base_frozen_hash_after": "799DA2890ACDBDF5CA412A400799561C254213C04F9C449DE9830E56C85443C7",
+  "base_frozen_hash_unchanged": true,
+  "checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/iarc_vla/stage0a/micro_checkpoint",
+  "disk_reload": true,
+  "files": {
+    "README.md": {
+      "sha256": "9A9A2D60DF23F9E4467C7EDB6654D9F499C39020A9AD9E7F225B120CCE3FB27B",
+      "size_bytes": 5116
+    },
+    "adapter_config.json": {
+      "sha256": "8AE8832BC7B9A36BD52B4C4C70C04DB661EEC70A531224E5AF5F2566C7E25A25",
+      "size_bytes": 1254
+    },
+    "adapter_model.safetensors": {
+      "sha256": "FCE06E4CB6655F37A4A3326F5564577D9C67464C7F435281EA5E972610A9564C",
+      "size_bytes": 753728
+    },
+    "iarc_training_manifest.json": {
+      "sha256": "FCCF9947036F395F54778EA5EA8799B3980D6DD119B1312B0684288755874DBB",
+      "size_bytes": 14822
+    },
+    "reload_probe.json": {
+      "sha256": "FDE62B9213A370E916222EE98862ED6883ACBA4DD98C1A05EC404B66D9FD236C",
+      "size_bytes": 536
+    }
+  },
+  "reload_native_max_abs_error": 0.0,
+  "reload_output_max_abs_error": 0.0,
+  "reload_postprocessed_max_abs_error": 0.0,
+  "reload_probe": {
+    "native_action": [
+      [
+        -0.19729670882225037,
+        -0.3402809202671051,
+        0.553593099117279,
+        -0.0750315710902214,
+        1.1640359163284302,
+        -0.04340282082557678,
+        -0.9411191344261169
+      ]
+    ],
+    "native_action_hash": "CD16D3AF9EE83B300504B39F36F484E1A805345E64A67EA4CA9C347D65F2EE40",
+    "postprocessed_action": [
+      -0.0034161582589149475,
+      -0.041937485337257385,
+      0.15582561492919922,
+      -0.0024037614930421114,
+      0.0794350728392601,
+      -0.008613228797912598,
+      -0.9895995855331421
+    ]
+  },
+  "resumed_existing_checkpoint": false,
+  "saved": true
+}

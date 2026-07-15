@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -265,7 +265,18 @@ rank-4 LoRA is implementation infrastructure.
 Proposal, review, rebuttal, mathematical audit, preregistration, and executable
 protocol are frozen under `reports/iarc_vla/` with proposal hash
 `A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
-Current stage: `epoch_4_cycle_16_iarc_stage_0a_implementation_pending`.
+IARC Stage 0A completed `40 / 40` gradient pairs and `40 / 40` validation rows
+with zero exceptions and zero duplicate/manifest mismatches. It produced
+`18 / 40` conflicts across all four families, passed projection `18 / 18`,
+kept agreeing rows unchanged `22 / 22`, preserved Base weights, and disk-
+reloaded exactly.
+
+Dataset-range action validity was `12 / 40 = 0.30`, below frozen `1.0`. The
+decision is `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific
+kill. No clipping, one-check, Stage 0B, or validation search is allowed.
+Confirmatory decode/action counts remain zero.
+
+Current stage: `epoch_4_cycle_17_candidate_search_pending`.
 
 The Windows Efficiency Mode interval is recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-15",
+  "method": "IARC-VLA",
+  "proposal_hash": "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408",
+  "final_decision": "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "classification": "IMPLEMENTATION_FAILURE",
+  "failing_prerequisite_or_invariant": "Postprocessed validation actions must have dataset-range validity 1.0.",
+  "expected": {
+    "dataset_range_valid_fraction": 1.0,
+    "invalid_pair_row_count": 0
+  },
+  "observed": {
+    "dataset_range_valid_fraction": 0.3,
+    "valid_pair_row_count": 12,
+    "invalid_pair_row_count": 28,
+    "scalar_violation_count": 40,
+    "gripper_violation_count": 38,
+    "z_translation_violation_count": 2
+  },
+  "command": "wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_iarc_vla_stage0.py --mode audit\"",
+  "stack_trace": [],
+  "decoded_split_counts_at_failure": {
+    "train_micro_fit": 40,
+    "train_conflict_audit": 40,
+    "validation": 40,
+    "confirmatory_observations": 0
+  },
+  "parameter_update_occurred": true,
+  "completed_pair_count": 40,
+  "planned_pair_count": 40,
+  "exception_count": 0,
+  "bounded_implementation_repair_possible_without_method_change": false,
+  "forbidden_rescues": [
+    "action clipping",
+    "wider action bounds",
+    "postprocessor change",
+    "learning-rate change",
+    "rank change",
+    "row change",
+    "new retention loss",
+    "one-check",
+    "Stage 0B headroom rollout",
+    "validation search"
+  ],
+  "exact_resume_command": null,
+  "next_action": "Close Cycle 16 and generate exactly three Cycle 17 candidates."
+}

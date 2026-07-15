@@ -1,23 +1,22 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 16 Current Action
+## 2026-07-15 Epoch 4 Cycle 17 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `IARC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
-Immediate next action: implement `tca_map/smolvla/iarc_vla.py`,
-`scripts/run_iarc_vla_stage0.py`, and `tests/test_iarc_vla.py`; run the pure
-tests, then execute the frozen real SmolVLA Stage 0A audit exactly once.
+Immediate next action: generate exactly three materially distinct Cycle 17
+candidates, score them under the active governance, and select exactly one.
 
 COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 
-Do not rescue G3P, CALA, RAR, COVI, or LIFT by changing frozen labels,
+Do not rescue G3P, CALA, RAR, COVI, LIFT, or IARC by changing frozen labels,
 objectives, thresholds, source gates, validation configs, baselines, action
-clipping, or guidance scales. IARC Stage 0A must keep rank `4`, `20` micro-fit
-steps, `40` independent same-noise/time gradient pairs, the four frozen
-perturbation families, and zero confirmatory decodes. Headroom rollout and the
-six-trial validation search are forbidden until their predecessor gates pass.
+clipping, or guidance scales. IARC Stage 0A completed `40 / 40` gradient pairs
+and `40 / 40` validation rows with zero exceptions, but dataset-range action
+validity was `0.30 < 1.0`. Its one-check, Stage 0B, and validation search are
+forbidden.
 
 Before any long WSL launch, inspect state, newest PID/heartbeat/status/partial/
 result/log/exit files, worker liveness, JSON parseability, completed/planned
