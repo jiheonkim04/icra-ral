@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current campaign decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -270,4 +270,6 @@ The frozen four-policy comparison is Base, transparent training-free CAG, LIFT f
 
 The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
 
-Reviewer B returned `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A accepted the narrow novelty boundary, feasible counterfactual benchmark gate, native-flow same-noise CAG, matched-compute ablation, practical-equivalence threshold, headroom, and compute gates. Current stage: `epoch_4_cycle_15_lift_rebuttal_completed`. The mathematical mechanism audit is next.
+Reviewer B returned `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A accepted the narrow novelty boundary, feasible counterfactual benchmark gate, native-flow same-noise CAG, matched-compute ablation, practical-equivalence threshold, headroom, and compute gates.
+
+The mathematical audit, preregistration, and prototype protocol are frozen. Current stage: `epoch_4_cycle_15_lift_stage_0_implementation_pending`. The executable four-policy sampler and Stage 0 audit are next; validation search and rollout remain forbidden.

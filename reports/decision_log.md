@@ -2347,6 +2347,14 @@ Reviewer B conditionally passed the frozen proposal but required a narrower empi
 
 Researcher A accepted every essential constraint without changing the central method, adding policies, or expanding the three-scale validation budget. No implementation, training, validation search, rollout, or confirmatory access has happened. Proceed only to the mathematical mechanism audit.
 
+## 2026-07-15 - LIFT-VLA Mathematical Audit And Preregistration
+
+Decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+
+The mathematical audit freezes native `[1,50,32]` flow tensors, ten Euler steps, native-space same-noise CAG, full-path LIFT, the matched-compute last-step ablation, postprocessing order, practical-equivalence formulas, scoreable-counterfactual source/scorer gate, and memory/latency limits. No KL or training objective is used.
+
+The preregistration freezes discovery/validation/confirmatory target-task indices `[0-3] / [4-6] / [7-9]`, scales `[1.25,1.5,2.0]`, exactly four policies, and the validation score. The prototype command and outputs are frozen in `reports/lift_vla/prototype_protocol.md`. Implement Stage 0 next; no validation search or rollout is allowed before a valid pass.
+
 ## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Stage 0
 
 Decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`

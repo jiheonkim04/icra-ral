@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `15`
 
-Current stage: `epoch_4_cycle_15_lift_rebuttal_completed`
+Current stage: `epoch_4_cycle_15_lift_stage_0_implementation_pending`
 
 Allowed final states:
 
@@ -440,4 +440,8 @@ The Researcher A proposal is frozen in `reports/lift_vla/researcher_proposal.md`
 
 Reviewer B attack is complete in `reports/lift_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Essential evidence now includes narrow VLA-flow novelty, a scoreable feasible counterfactual manifest, native-flow-space same-noise CAG, a matched-compute last-step ablation, practical-equivalence thresholds, Base-and-CAG headroom, and one-chunk memory/latency feasibility.
 
-Researcher A accepted every constraint in `reports/lift_vla/researcher_rebuttal.md`. Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. No implementation, validation search, training, rollout, or confirmatory-test tuning has happened.
+Researcher A accepted every constraint in `reports/lift_vla/researcher_rebuttal.md`.
+
+The mathematical audit, preregistration, and prototype protocol are frozen in `reports/lift_vla/mathematical_mechanism_audit.md`, `reports/lift_vla/preregistration.md`, and `reports/lift_vla/prototype_protocol.md`. They freeze native `[1,50,32]` flow tensors, ten steps, native-space same-noise CAG, `20` evaluations for Prior/Ours/ablation, practical-equivalence threshold construction, target-task partitions `[0-3] / [4-6] / [7-9]`, three guidance scales, and zero confirmatory policy decodes in Stage 0.
+
+Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. No implementation, validation search, training, rollout, or confirmatory-test tuning has happened.

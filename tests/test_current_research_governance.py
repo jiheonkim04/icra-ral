@@ -51,8 +51,8 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_15_lift_rebuttal_completed"
+    assert state["current_decision"] == "LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_15_lift_stage_0_implementation_pending"
     assert state["method"] == "LIFT-VLA"
     assert state["method_identity"] == "LIFT-VLA"
     assert state["proposal_hash"] == LIFT_PROPOSAL_HASH
@@ -217,6 +217,9 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
     assert "epoch_4_cycle_15_lift_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_15_lift_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_15_lift_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_prototype_protocol_frozen" in state["completed_stages"]
     covi_outcome = state["epoch_4_cycle_14_covi_stage_0_outcome"]
     assert covi_outcome["final_decision"] == "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL"
     assert covi_outcome["objective_gradient_ratio"] == 1345.9529990435792
@@ -260,6 +263,24 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
     assert lift_review["one_chunk_memory_latency_gate_required"] is True
     assert lift_review["standard_lora_required"] is False
     assert lift_review["fifth_policy_required"] is False
+    lift_math = state["epoch_4_cycle_15_lift_mathematical_audit"]
+    assert lift_math["final_decision"] == "LIFT_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert lift_math["native_chunk_shape"] == [1, 50, 32]
+    assert lift_math["canonical_policy_chunk_shape"] == [1, 50, 7]
+    assert lift_math["flow_steps"] == 10
+    assert lift_math["matched_compute_field_evaluations"] == 20
+    assert lift_math["practical_threshold_construction_frozen"] is True
+    lift_prereg = state["epoch_4_cycle_15_lift_preregistration"]
+    assert lift_prereg["final_decision"] == "LIFT_PREREGISTRATION_FROZEN_STAGE_0_PENDING"
+    assert lift_prereg["discovery_target_tasks"] == [0, 1, 2, 3]
+    assert lift_prereg["validation_target_tasks"] == [4, 5, 6]
+    assert lift_prereg["confirmatory_target_tasks"] == [7, 8, 9]
+    assert lift_prereg["guidance_scales"] == [1.25, 1.5, 2.0]
+    lift_proto = state["epoch_4_cycle_15_lift_prototype_protocol"]
+    assert lift_proto["final_decision"] == "LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert lift_proto["confirmatory_policy_observations_decoded_max"] == 0
+    assert lift_proto["confirmatory_policy_actions_computed_max"] == 0
+    assert lift_proto["stage_0_pending"] is True
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"

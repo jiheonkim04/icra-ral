@@ -4,9 +4,9 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
-Immediate next action: freeze the LIFT mathematical mechanism audit, including native tensor shapes, same-noise CAG, matched-compute ablation, feasible-counterfactual source gate, practical-equivalence threshold construction, and memory/latency gate.
+Immediate next action: implement the frozen LIFT four-policy sampler and Stage 0 runner, run unit tests, then execute the preregistered WSL audit command.
 
 COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 
