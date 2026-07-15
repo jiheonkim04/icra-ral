@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
@@ -14,7 +14,7 @@ Current cycle: `15`
 
 Cycle 15 generated exactly three candidates and selected `LIFT-VLA`, an inference-only method that applies language guidance throughout SmolVLA's continuous action-flow path. The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
 
-The first comparison is exactly Base, transparent training-free CAG, full LIFT, and last-step-only LIFT. Standard LoRA is omitted because generic adaptation does not test the frozen inference mechanism. Independent Reviewer B attack is pending; no LIFT validation search, training, rollout, or confirmatory-test tuning has happened.
+The first comparison is exactly Base, transparent training-free CAG, full LIFT, and matched-compute last-step-only LIFT. Standard LoRA is omitted because generic adaptation does not test the frozen inference mechanism. Reviewer B attack and Researcher A rebuttal are complete; the mathematical audit is pending. No LIFT validation search, training, rollout, or confirmatory-test tuning has happened.
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 

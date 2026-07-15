@@ -4,9 +4,9 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
-Immediate next action: conduct an independent Reviewer B attack on the frozen LIFT proposal, then allow exactly one Researcher A rebuttal before mathematical audit or preregistration.
+Immediate next action: freeze the LIFT mathematical mechanism audit, including native tensor shapes, same-noise CAG, matched-compute ablation, feasible-counterfactual source gate, practical-equivalence threshold construction, and memory/latency gate.
 
 COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 

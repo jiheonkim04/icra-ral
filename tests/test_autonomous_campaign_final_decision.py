@@ -16,7 +16,7 @@ LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`" in final
+    assert "Current campaign decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -213,7 +213,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "Current stage: `epoch_4_cycle_15_lift_proposal_frozen`" in final
+    assert "Current stage: `epoch_4_cycle_15_lift_rebuttal_completed`" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -228,10 +228,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 15
-    assert state["current_stage"] == "epoch_4_cycle_15_lift_proposal_frozen"
+    assert state["current_stage"] == "epoch_4_cycle_15_lift_rebuttal_completed"
     assert state["method"] == "LIFT-VLA"
     assert state["method_identity"] == "LIFT-VLA"
     assert state["proposal_hash"] == LIFT_PROPOSAL_HASH
@@ -247,7 +247,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == "Conduct independent Reviewer B attack on the frozen LIFT proposal."
+    assert state["next_action"] == "Complete the LIFT mathematical mechanism audit before preregistration or implementation."
     assert state["task_reset_manifest"] is None
     assert state["stage_b_manifest_json"] is None
     assert state["stage_b_partial_checkpoint"] is None
@@ -418,6 +418,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_14_covi_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_15_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_15_lift_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_rebuttal_completed" in state["completed_stages"]
     covi = state["epoch_4_cycle_14_pre_proposal"]
     assert covi["selection_decision"] == "SELECT_COVI_VLA"
     assert covi["candidate_count"] == 3

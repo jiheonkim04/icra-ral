@@ -2339,6 +2339,14 @@ Proposal hash: `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F
 
 Consequence: independent Reviewer B attack is required before mathematical audit, preregistration, implementation, validation search, or rollout. Official LIBERO-CF equivalence may not be claimed from the local LIBERO-Goal development proxy.
 
+## 2026-07-15 - LIFT-VLA Reviewer Attack And Rebuttal
+
+Decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+
+Reviewer B conditionally passed the frozen proposal but required a narrower empirical VLA-flow novelty claim, a scoreable feasible counterfactual manifest, native-flow-space same-noise CAG, a matched-compute last-step ablation, practical-equivalence thresholds, Base-and-CAG headroom, and a one-chunk memory/latency gate. Standard LoRA and a fifth policy were classified as irrelevant.
+
+Researcher A accepted every essential constraint without changing the central method, adding policies, or expanding the three-scale validation budget. No implementation, training, validation search, rollout, or confirmatory access has happened. Proceed only to the mathematical mechanism audit.
+
 ## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Stage 0
 
 Decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`

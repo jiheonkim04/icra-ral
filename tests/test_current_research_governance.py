@@ -51,8 +51,8 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_15_lift_proposal_frozen"
+    assert state["current_decision"] == "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_stage"] == "epoch_4_cycle_15_lift_rebuttal_completed"
     assert state["method"] == "LIFT-VLA"
     assert state["method_identity"] == "LIFT-VLA"
     assert state["proposal_hash"] == LIFT_PROPOSAL_HASH
@@ -215,6 +215,8 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
     assert "epoch_4_cycle_15_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_15_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_15_lift_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_rebuttal_completed" in state["completed_stages"]
     covi_outcome = state["epoch_4_cycle_14_covi_stage_0_outcome"]
     assert covi_outcome["final_decision"] == "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL"
     assert covi_outcome["objective_gradient_ratio"] == 1345.9529990435792
@@ -239,9 +241,25 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
         "lift_last_step_only_ablation",
     ]
     assert lift["proposal_hash"] == LIFT_PROPOSAL_HASH
-    assert lift["reviewer_attack_pending"] is True
+    assert lift["reviewer_attack_pending"] is False
+    assert lift["reviewer_attack_completed"] is True
+    assert lift["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert lift["rebuttal_completed"] is True
+    assert lift["rebuttal_decision"] == "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert lift["rollout_allowed"] is False
     assert lift["confirmatory_test_tuning_happened"] is False
+    lift_review = state["epoch_4_cycle_15_lift_review"]
+    assert lift_review["final_decision"] == "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert lift_review["accepted_narrow_vla_flow_novelty"] is True
+    assert lift_review["scoreable_counterfactual_benchmark_gate_required"] is True
+    assert lift_review["native_flow_space_cag_required"] is True
+    assert lift_review["same_noise_coupling_required"] is True
+    assert lift_review["matched_compute_last_step_ablation_required"] is True
+    assert lift_review["practical_equivalence_threshold_required"] is True
+    assert lift_review["base_and_cag_headroom_required"] is True
+    assert lift_review["one_chunk_memory_latency_gate_required"] is True
+    assert lift_review["standard_lora_required"] is False
+    assert lift_review["fifth_policy_required"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"

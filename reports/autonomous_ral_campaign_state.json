@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 15,
-    "topic": "lift_vla_reviewer_attack_pending",
+    "topic": "lift_vla_mathematical_audit_pending",
     "method": "LIFT-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "6027d10",
-    "current_stage": "epoch_4_cycle_15_lift_proposal_frozen",
+    "current_commit": "81e29fe",
+    "current_stage": "epoch_4_cycle_15_lift_rebuttal_completed",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -343,7 +343,9 @@
         "post_covi_lora_governance_installed",
         "epoch_4_cycle_15_candidate_search_pending",
         "epoch_4_cycle_15_candidate_generation_completed",
-        "epoch_4_cycle_15_lift_proposal_frozen"
+        "epoch_4_cycle_15_lift_proposal_frozen",
+        "epoch_4_cycle_15_lift_reviewer_attack_completed",
+        "epoch_4_cycle_15_lift_rebuttal_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -356,7 +358,7 @@
         "When Vision Overrides Language: Evaluating and Mitigating Counterfactual Failures in VLAs"
     ],
     "prototype_gate": "Independent adversarial review of the frozen LIFT proposal, followed by a bounded development-only mechanism and headroom audit.",
-    "current_decision": "LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -507,7 +509,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Conduct independent Reviewer B attack on the frozen LIFT proposal.",
+    "next_action": "Complete the LIFT mathematical mechanism audit before preregistration or implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Pathwise conditional-minus-unconditional guidance through SmolVLA's continuous action flow can improve same-scene language grounding over final-action CAG under a matched two-branch budget.",
     "method_identity": "LIFT-VLA",
@@ -2261,7 +2263,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "lift_vla_reviewer_attack_pending",
+    "current_topic": "lift_vla_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -5349,7 +5351,13 @@
         "proposal_hash": "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F",
         "proposal_hash_file": "reports/lift_vla/proposal_hash.txt",
         "proposal_decision": "LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true,
+        "reviewer_attack_pending": false,
+        "reviewer_attack": "reports/lift_vla/reviewer_attack.md",
+        "reviewer_attack_completed": true,
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "rebuttal": "reports/lift_vla/researcher_rebuttal.md",
+        "rebuttal_completed": true,
+        "rebuttal_decision": "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "rollout_allowed": false,
         "training_happened": false,
         "validation_search_happened": false,
@@ -5357,6 +5365,29 @@
         "confirmatory_test_tuning_happened": false,
         "previous_method_stop": "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL",
         "must_not_rescue_previous_method": true,
-        "next_stage": "Independent Reviewer B attack on the frozen LIFT proposal."
+        "next_stage": "Mathematical mechanism audit before preregistration or implementation."
+    },
+    "epoch_4_cycle_15_lift_review": {
+        "method": "LIFT-VLA",
+        "proposal_hash": "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F",
+        "reviewer_attack": "reports/lift_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/lift_vla/researcher_rebuttal.md",
+        "final_decision": "LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_narrow_vla_flow_novelty": true,
+        "scoreable_counterfactual_benchmark_gate_required": true,
+        "native_flow_space_cag_required": true,
+        "same_noise_coupling_required": true,
+        "matched_compute_last_step_ablation_required": true,
+        "practical_equivalence_threshold_required": true,
+        "base_and_cag_headroom_required": true,
+        "one_chunk_memory_latency_gate_required": true,
+        "standard_lora_required": false,
+        "fifth_policy_required": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Mathematical mechanism audit before preregistration or implementation."
     }
 }

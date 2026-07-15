@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -251,4 +251,6 @@ Epoch 4 Cycle 15 generated exactly three candidates and selected `LIFT-VLA` with
 
 The frozen four-policy comparison is Base, transparent training-free CAG, LIFT full, and last-step-only LIFT. No standard-LoRA or fifth-policy control is included because LIFT is inference-only, the backbone remains frozen, and those controls do not test the claimed mechanism.
 
-The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`. Current stage: `epoch_4_cycle_15_lift_proposal_frozen`. Independent Reviewer B attack is the only allowed next step.
+The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
+
+Reviewer B returned `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A accepted the narrow novelty boundary, feasible counterfactual benchmark gate, native-flow same-noise CAG, matched-compute ablation, practical-equivalence threshold, headroom, and compute gates. Current stage: `epoch_4_cycle_15_lift_rebuttal_completed`. The mathematical mechanism audit is next.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `15`
 
-Current stage: `epoch_4_cycle_15_lift_proposal_frozen`
+Current stage: `epoch_4_cycle_15_lift_rebuttal_completed`
 
 ## Corrected Epoch 1 Result
 
@@ -357,4 +357,8 @@ Epoch 4 Cycle 15 generated exactly three prior-anchored candidates in `reports/e
 
 LIFT is a frozen, inference-only cross-domain mechanism transfer. It applies conditional-minus-unconditional language guidance at every SmolVLA action-flow step and compares against CAG final-action mixing under the same two-branch budget. The first comparison contains exactly Base, transparent training-free CAG, LIFT full, and last-step-only LIFT. Standard LoRA and a fifth policy are omitted because they do not test the claimed mechanism.
 
-The Researcher A proposal is frozen in `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`. Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Next action: independent Reviewer B attack before mathematical audit, preregistration, implementation, validation search, or rollout.
+The Researcher A proposal is frozen in `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
+
+Reviewer B attack is complete in `reports/lift_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Essential evidence now includes narrow VLA-flow novelty, a scoreable feasible counterfactual manifest, native-flow-space same-noise CAG, a matched-compute last-step ablation, practical-equivalence thresholds, Base-and-CAG headroom, and one-chunk memory/latency feasibility.
+
+Researcher A accepted every constraint in `reports/lift_vla/researcher_rebuttal.md`. Current decision: `LIFT_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. No implementation, validation search, training, rollout, or confirmatory-test tuning has happened.
