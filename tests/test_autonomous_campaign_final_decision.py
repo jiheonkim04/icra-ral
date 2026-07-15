@@ -218,7 +218,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_22_haste_stage_0a_implementation_pending" in final
+    assert "epoch_4_cycle_22_haste_stage_0a_pending" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -233,10 +233,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING"
+    assert state["current_decision"] == "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 22
-    assert state["current_stage"] == "epoch_4_cycle_22_haste_stage_0a_implementation_pending"
+    assert state["current_stage"] == "epoch_4_cycle_22_haste_stage_0a_pending"
     assert state["method"] == "HASTE-VLA"
     assert state["method_identity"] == "HASTE-VLA"
     assert state["proposal_hash"] == HASTE_PROPOSAL_HASH

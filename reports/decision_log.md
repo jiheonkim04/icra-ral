@@ -2971,3 +2971,22 @@ preregistration, and prototype protocol are frozen. Only Stage 0A source,
 label, Base headroom, frozen-feature observability, identity, and persistence
 auditing is authorized. No adapter training, simulator rollout, or
 confirmatory access may occur.
+
+## 2026-07-15 - HASTE-VLA Stage 0A Runner Implemented
+
+Decision: `HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+
+The frozen Stage 0A source, label, Base headroom, frozen-feature observability,
+zero-effect identity, persistence, resume, and manifest audit runner is
+implemented and pushed at commit `3dd76f0`. The pure event-label and decision
+suite passes `8 / 8`; the focused governance suite passes `17 / 17`.
+
+A real canonical checkpoint interface smoke confirmed finite processed inputs,
+the declared pooled prefix width `960`, flow shape `[1,50,32]`, native action
+shape `[1,50,7]`, and postprocessed action shape `[50,7]`. The rank-4
+zero-effect LoRA save/reload smoke produced maximum flow and action error `0.0`,
+an unchanged Base hash, and a valid disk reload.
+
+No adapter optimization, simulator rollout, reward, success, done flag, or
+confirmatory identity was used. Only execution of the unchanged frozen HASTE
+Stage 0A audit is pending.

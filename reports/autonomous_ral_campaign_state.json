@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 22,
-    "topic": "epoch_4_cycle_22_haste_stage_0a_implementation_pending",
+    "topic": "epoch_4_cycle_22_haste_stage_0a_pending",
     "method": "HASTE-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "ab5b306",
-    "current_stage": "epoch_4_cycle_22_haste_stage_0a_implementation_pending",
+    "current_commit": "3dd76f0",
+    "current_stage": "epoch_4_cycle_22_haste_stage_0a_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -457,7 +457,9 @@
         "epoch_4_cycle_22_haste_mathematical_audit_preregistered",
         "epoch_4_cycle_22_haste_preregistration_frozen",
         "epoch_4_cycle_22_haste_prototype_protocol_frozen",
-        "epoch_4_cycle_22_haste_stage_0a_implementation_pending"
+        "epoch_4_cycle_22_haste_stage_0a_implementation_pending",
+        "epoch_4_cycle_22_haste_stage_0a_runner_implemented",
+        "epoch_4_cycle_22_haste_stage_0a_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -470,7 +472,7 @@
         "Improving Vision-Language-Action Model Fine-Tuning with Structured Stage and Keyframe Supervision (StaKe)"
     ],
     "prototype_gate": "Frozen HASTE Stage 0A source, label, Base event-near headroom, frozen-feature observability, identity, and persistence audit.",
-    "current_decision": "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING",
+    "current_decision": "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -2375,7 +2377,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_22_haste_stage_0a_implementation_pending",
+    "current_topic": "epoch_4_cycle_22_haste_stage_0a_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6116,11 +6118,16 @@
         "hazard_coefficients": [0.25, 0.5, 1.0],
         "bounded_validation_search_max_configs": 6,
         "policy_order": ["smolvla_base", "stake_transparent_proxy", "haste_full", "haste_no_hazard", "standard_lora"],
+        "implementation_commit": "3dd76f0",
+        "runner": "scripts/run_haste_vla_stage0a.py",
+        "runner_unit_tests_passed": 8,
+        "real_checkpoint_interface_smoke_passed": true,
+        "zero_effect_identity_smoke_max_error": 0.0,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "stage_0a_pending": true,
-        "next_stage": "Implement and run only the frozen HASTE Stage 0A audit."
+        "next_stage": "Run only the frozen HASTE Stage 0A audit."
     }
 }

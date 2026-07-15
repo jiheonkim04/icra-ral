@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -33,12 +33,13 @@ one validation Base row and HEST's required whole-Base fallback were outside
 discovery-defined support. This is a pre-rollout implementation/prototype
 support failure, not a scientific kill. Stage 0B and HEST rescue are forbidden.
 Current cycle: `22`; current stage:
-`epoch_4_cycle_22_haste_stage_0a_implementation_pending`.
+`epoch_4_cycle_22_haste_stage_0a_pending`.
 
 Cycle 22 selected HASTE-VLA from exactly three candidates at `95 / 100`,
 anchored to StaKe. Proposal hash:
 `5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
-The protocol package is frozen and only Stage 0A implementation is authorized.
+The protocol package and pushed runner commit `3dd76f0` are frozen; only Stage
+0A execution is authorized.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 

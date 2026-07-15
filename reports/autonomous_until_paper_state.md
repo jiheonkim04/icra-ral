@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `22`
 
-Current stage: `epoch_4_cycle_22_haste_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_22_haste_stage_0a_pending`
 
 Allowed final states:
 
@@ -30,10 +30,11 @@ Cycle 22 generated exactly three candidates and selected `HASTE-VLA` at
 `95 / 100`, anchored to StaKe. Proposal hash:
 `5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
 
-The complete review and preregistration package is frozen. Only Stage 0A
-implementation is pending. HASTE may not train an adapter, run a simulator, or
-read confirmatory records before its source, label, headroom, observability,
-identity, and persistence gates pass.
+The complete review and preregistration package is frozen. The Stage 0A runner
+is implemented and pushed at `3dd76f0`; unit, real-checkpoint interface, and
+zero-effect identity smokes pass. Only Stage 0A execution is pending. HASTE may
+not train an adapter, run a simulator, or read confirmatory records before its
+source, label, headroom, observability, identity, and persistence gates pass.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

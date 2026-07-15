@@ -5,11 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
-Immediate next action: commit and push the frozen HASTE-VLA protocol package,
-then implement and run only the preregistered Stage 0A source, label, Base
-headroom, frozen-feature observability, identity, and persistence audit.
+Immediate next action: after the mandatory worker/artifact prelaunch audit,
+run only the preregistered Stage 0A source, label, Base headroom,
+frozen-feature observability, identity, and persistence audit. Runner commit
+`3dd76f0` is pushed.
 
 HEST Stage 0A completed `160 / 160` windows with zero exceptions and exact
 artifact integrity. It failed only the frozen all-variant support gate: one

@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
@@ -51,9 +51,11 @@ ordinary SmolVLA path.
 Proposal hash:
 `5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
 Review, rebuttal, mathematical audit, preregistration, and prototype protocol
-are frozen under `reports/haste_vla/`. Only Stage 0A implementation is pending.
+are frozen under `reports/haste_vla/`. The Stage 0A runner is implemented at
+commit `3dd76f0`; its unit, real-checkpoint interface, and zero-effect identity
+smokes pass. Only frozen Stage 0A execution is pending.
 
-Current stage: `epoch_4_cycle_22_haste_stage_0a_implementation_pending`.
+Current stage: `epoch_4_cycle_22_haste_stage_0a_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,
