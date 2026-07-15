@@ -219,7 +219,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_23_kite_stage_0a_pending" in final
+    assert "epoch_4_cycle_24_candidate_search_pending" in final
     assert "KITE-VLA" in final
     assert KITE_PROPOSAL_HASH in final
     assert "GeoPredict" in final
@@ -238,10 +238,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN"
+    assert state["current_decision"] == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 23
-    assert state["current_stage"] == "epoch_4_cycle_23_kite_stage_0a_pending"
+    assert state["current_cycle"] == 24
+    assert state["current_stage"] == "epoch_4_cycle_24_candidate_search_pending"
     assert state["method"] == "KITE-VLA"
     assert state["method_identity"] == "KITE-VLA"
     assert state["proposal_hash"] == KITE_PROPOSAL_HASH
@@ -258,7 +258,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Run the foreground serializer preflight, then launch only the frozen KITE-VLA Stage 0A audit."
+        "Generate exactly three Epoch 4 Cycle 24 candidates without KITE repair or rescue."
     )
     assert state["prototype_protocol"] == "reports/kite_vla/prototype_protocol.md"
     hest = state["epoch_4_cycle_21_hest_stage_0a_outcome"]
@@ -292,7 +292,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     ]
     assert kite["implementation_commit"] == "62dbb75"
     assert kite["runner_validation"] == "reports/kite_vla/stage_0a_runner_validation.json"
-    assert kite["stage_0a_pending"] is True
+    assert kite["stage_0a_pending"] is False
+    kite_outcome = state["epoch_4_cycle_23_kite_stage_0a_outcome"]
+    assert kite_outcome["final_decision"] == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert kite_outcome["completed_model_row_count"] == 128
+    assert kite_outcome["resumed_model_row_count"] == 115
+    assert kite_outcome["exception_count"] == 1
+    assert kite_outcome["missing_manifest_key_count"] == 0
+    assert kite_outcome["action_validity_ok"] is False
+    assert kite_outcome["invalid_action_row_count"] == 128
+    assert kite_outcome["stage_0b_allowed"] is False
     assert state["epoch_4_cycle_16_candidate_selection"]["candidate_count"] == 3
     assert state["epoch_4_cycle_16_candidate_selection"]["selected_score"] == 95
     assert state["epoch_4_cycle_16_iarc_pre_stage_0a"]["confirmatory_rows_decoded_max"] == 0

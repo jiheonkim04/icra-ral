@@ -1,0 +1,85 @@
+{
+  "method": "KITE-VLA",
+  "stage": "0A",
+  "proposal_hash": "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8",
+  "manifest_hash": "098A7DE24BA5D48EFCF5748BA0AB5C51404BEF53D32BD4D4AB066FCA433FB2C7",
+  "operator_hash": "253B2ABD114FFD4C6AABF88BB1036DE62B65CE0599533A547D7E2DB776BCDE97",
+  "final_decision": "KITE_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "failure_class": "IMPLEMENTATION_FAILURE",
+  "valid_scientific_result": false,
+  "scientific_kill": false,
+  "stage_0b_allowed": false,
+  "rerun_allowed": false,
+  "kite_rescue_allowed": false,
+  "attempt_1_worker_pid": 368,
+  "attempt_1_exit_code": 1,
+  "resume_worker_pid": 385,
+  "resume_exit_code": 0,
+  "resumed_model_row_count": 115,
+  "planned_model_row_count": 128,
+  "completed_model_row_count": 128,
+  "exception_count": 1,
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "missing_manifest_key_count": 0,
+  "extra_partial_key_count": 0,
+  "split_overlap_key_count": 0,
+  "key_sets_equal": true,
+  "unique_feature_cache_count": 64,
+  "bad_feature_cache_hash_count": 0,
+  "operator_validation_relative_improvement": {
+    "5": 0.9059144587642893,
+    "20": 0.9208542724043707
+  },
+  "headroom": {
+    "passed": true,
+    "relative_deficit": 4.216099058335802,
+    "absolute_gap": 0.1084517682912324
+  },
+  "gradient": {
+    "flow_loss": 0.1255863457918167,
+    "kite_loss": 0.18566206097602844,
+    "kite_to_flow_gradient_ratio": 3.41963609249749,
+    "kite_gradient_nonzero": true,
+    "frozen_parameter_gradient_count": 0
+  },
+  "identity": {
+    "identity_max_abs_error": 0.0,
+    "base_hash_unchanged": true,
+    "checkpoint_reload_ok": true
+  },
+  "action_validity": {
+    "passed": false,
+    "invalid_action_row_count": 128,
+    "nonfinite_row_count": 0,
+    "processor_mismatch_row_count": 0,
+    "maximum_absolute_action": 1.1056011915206909,
+    "all_four_tasks_affected": true
+  },
+  "forbidden_access_audit": {
+    "optimizer_step_count": 0,
+    "simulator_load_count": 0,
+    "reward_read_count": 0,
+    "success_read_count": 0,
+    "done_read_count": 0,
+    "confirmatory_records_read": 0,
+    "closed_loop_experiment_happened": false
+  },
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "artifact_sha256": {
+    "manifest": "17799144E514506DA6CEC80C64F28F89546D5D61C0DF03671320B5C6C9861399",
+    "partial": "1337A0975EEF1032E3835392D16490CF38D02EB596551BC83AA670BBF7754F17",
+    "result": "091E4E820A623D381287348BA092E5212E86C008F81CE59D4CD6E7F7009FA211",
+    "validation": "285E3F05E984848667403C6553B1F2C984A5E31049568E659F6686764360E1EB",
+    "attempt_1_blocker": "DD12D6C46710D0C6195B31CF089D93C4D31D13BBDC2C0EB7CFE9B5AD34073544",
+    "serializer_preflight": "C30053797308485DA71B7A531EC7C7A2A7C22CE4B45890AC9FE4635A93986096"
+  },
+  "large_artifact_scope": {
+    "manifest_lines": 396066,
+    "manifest_bytes": 15386993,
+    "partial_lines": 37008,
+    "partial_bytes": 1001424,
+    "justification": "The preregistered full label manifest and resumable row evidence are required for split, duplicate, and missing-key verification; the scope is generated evidence rather than source-code churn."
+  },
+  "next_stage": "Epoch 4 Cycle 24 exact-three candidate generation without KITE repair or rescue."
+}

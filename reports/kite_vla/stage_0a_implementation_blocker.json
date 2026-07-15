@@ -1,0 +1,14 @@
+{
+  "completed_model_row_count": 115,
+  "exception": "[Errno 13] Permission denied: '/mnt/c/Users/jiheo/tca_map/reports/kite_vla/stage_0a_partial.json.tmp' -> '/mnt/c/Users/jiheo/tca_map/reports/kite_vla/stage_0a_partial.json'",
+  "exception_type": "PermissionError",
+  "failed_at": "2026-07-15T15:09:51.355178+00:00",
+  "manifest_persisted": true,
+  "method": "KITE-VLA",
+  "partial_persisted": true,
+  "planned_model_row_count": 128,
+  "proposal_hash": "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8",
+  "scientific_kill": false,
+  "stage": "0A",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_kite_vla_stage0a.py\", line 1322, in main\n    result = run(args, paths, state)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_kite_vla_stage0a.py\", line 1097, in run\n    _write_json(paths[\"partial\"], _partial_payload(manifest_hash, operator_hash, len(model_rows), partial_rows))\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_kite_vla_stage0a.py\", line 113, in _write_json\n    temporary.replace(path)\n  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/pathlib.py\", line 1247, in replace\n    self._accessor.replace(self, target)\nPermissionError: [Errno 13] Permission denied: '/mnt/c/Users/jiheo/tca_map/reports/kite_vla/stage_0a_partial.json.tmp' -> '/mnt/c/Users/jiheo/tca_map/reports/kite_vla/stage_0a_partial.json'\n"
+}

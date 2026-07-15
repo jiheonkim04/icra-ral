@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current decision:
-`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -32,8 +32,8 @@ exact artifact integrity. The frozen all-variant support gate failed because
 one validation Base row and HEST's required whole-Base fallback were outside
 discovery-defined support. This is a pre-rollout implementation/prototype
 support failure, not a scientific kill. Stage 0B and HEST rescue are forbidden.
-Current cycle: `23`; current stage:
-`epoch_4_cycle_23_kite_stage_0a_pending`.
+Current cycle: `24`; current stage:
+`epoch_4_cycle_24_candidate_search_pending`.
 
 Cycle 22 selected HASTE-VLA from exactly three candidates at `95 / 100`,
 anchored to StaKe. Proposal hash:
@@ -50,6 +50,14 @@ The full protocol package is frozen. Runner commit `62dbb75` passed serializer,
 data/operator, real-checkpoint gradient, and identity/reload validation. Only
 the foreground serializer preflight and frozen Stage 0A execution are
 authorized.
+
+KITE Stage 0A completed `128 / 128` rows through a missing-key-only resume from
+115 rows. Final key and cache integrity pass, while one atomic persistence
+exception remains recorded. All 128 reconstructed rows independently failed
+the frozen raw action bound, with maximum absolute value
+`1.1056011915206909`. The decision is
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`, not a scientific kill. Stage 0B,
+rerun, and KITE rescue are forbidden. Continue to Cycle 24.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 

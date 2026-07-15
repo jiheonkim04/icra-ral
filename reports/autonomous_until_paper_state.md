@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `23`
+Current cycle: `24`
 
-Current stage: `epoch_4_cycle_23_kite_stage_0a_pending`
+Current stage: `epoch_4_cycle_24_candidate_search_pending`
 
 Allowed final states:
 
@@ -56,6 +56,14 @@ passed 25 focused tests, the governance validator, the NumPy serializer
 round-trip, a full data/operator smoke, and a real-checkpoint gradient and
 identity smoke. Stage 0A is ready for its required foreground serializer
 preflight and single detached launch.
+
+Stage 0A completed `128 / 128` rows after preserving 115 valid rows and
+resuming only 13 missing keys. Final duplicate, missing, extra, and overlap
+counts are zero, but one atomic persistence exception remains recorded. The
+frozen action-validity gate also failed on `128 / 128` reconstructed rows,
+with maximum absolute action `1.1056011915206909`. Decision:
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`. This is not a scientific kill. Stage
+0B, rerun, and KITE rescue are forbidden. Continue to Cycle 24.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

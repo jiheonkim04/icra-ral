@@ -3057,3 +3057,26 @@ gradient ratio `3.506742293171115`, unchanged Base hash, and zero frozen
 gradients. It performed no optimizer step, simulator load, outcome read,
 confirmatory access, or closed-loop experiment. Run the required foreground
 serializer preflight, then launch exactly one frozen Stage 0A worker.
+
+## 2026-07-16 - KITE-VLA Stage 0A Adjudication
+
+Decision: `KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
+
+Attempt 1 PID `368` persisted `115 / 128` rows before an atomic Windows/WSL
+partial-file replacement denial and exited `1`. Its partial parsed with zero
+duplicate or extra keys. Persistence fix commit `9298b8e` preserved the
+exception and added bounded sharing-lock retry. Resume PID `385` executed only
+the 13 missing keys, completed `128 / 128`, and exited `0`. Final duplicate,
+missing, extra, overlap, and bad feature-cache hash counts are zero.
+
+The operator, headroom, gradient, Base-hash, and exact identity/reload gates
+passed. The frozen action-validity gate failed independently: all `128 / 128`
+reconstructed `u=0.5` rows exceeded raw `[-1,1]` bounds somewhere across all
+four tasks, with maximum absolute action `1.1056011915206909`. There were zero
+nonfinite rows and zero processor mismatches.
+
+This is an implementation failure, not a valid scientific result or
+scientific kill. No optimizer step, simulator load, outcome read,
+confirmatory access, or closed-loop experiment occurred. Do not run Stage 0B,
+rerun, clip, retune, reinterpret, or rescue KITE. Continue automatically to
+Epoch 4 Cycle 24 exact-three candidate generation.

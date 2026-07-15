@@ -1,0 +1,513 @@
+{
+  "action_normalization": {
+    "mean": [
+      0.06278156489133835,
+      0.08684080839157104,
+      -0.09037306159734726,
+      0.0005407430580817163,
+      0.005643379874527454,
+      -0.0052290987223386765,
+      -0.0496407225728035
+    ],
+    "mode": "MEAN_STD",
+    "processor_step": "UnnormalizerProcessorStep",
+    "std": [
+      0.33552372455596924,
+      0.3784469962120056,
+      0.4447286128997803,
+      0.03924354165792465,
+      0.06339296698570251,
+      0.07797027379274368,
+      0.9987671375274658
+    ]
+  },
+  "action_validity_ok": false,
+  "adapter_training_happened": false,
+  "closed_loop_experiment_happened": false,
+  "completed_at": "2026-07-15T15:14:36.034774+00:00",
+  "completed_model_row_count": 128,
+  "confirmatory_records_read": 0,
+  "data_audit": {
+    "all_operator_ranks_six": true,
+    "all_tasks_reported": true,
+    "command_variance_all_positive": true,
+    "counts": {
+      "20": {
+        "discovery": 4874,
+        "validation": 1118
+      },
+      "5": {
+        "discovery": 4874,
+        "validation": 1118
+      }
+    },
+    "maximum_sampled_task_fraction": 0.25,
+    "minimum_discovery_rows_per_horizon": 4874,
+    "minimum_operator_relative_improvement": 0.9059144587642893,
+    "minimum_validation_rows_per_horizon": 1118,
+    "operator_audit": {
+      "20": {
+        "discovery_command_variance": [
+          22.360636626300717,
+          55.00613888708201,
+          66.18454215296454,
+          0.2142809207185664,
+          1.0197220185972318,
+          0.3184600171142918
+        ],
+        "discovery_row_count": 4874,
+        "discovery_state_variance": [
+          0.0030270308653809106,
+          0.00936726195526697,
+          0.010453135278829361,
+          0.0034659956132758983,
+          0.01218952253052204,
+          0.0278153035770341
+        ],
+        "global_validation": {
+          "normalized_discovery_mean_mse": 1.2885152958738817,
+          "normalized_model_mse": 0.10198048061003588,
+          "normalized_relative_improvement": 0.9208542724043707,
+          "raw_discovery_mean_mse": 0.012726659603788585,
+          "raw_model_mse": 0.0010632697221340495
+        },
+        "per_task_validation": {
+          "libero_10/task_5": {
+            "normalized_discovery_mean_mse": 1.3565870858914328,
+            "normalized_model_mse": 0.15080786978657612,
+            "normalized_relative_improvement": 0.8888328870626997,
+            "raw_discovery_mean_mse": 0.013444615455094455,
+            "raw_model_mse": 0.001438406236360126,
+            "row_count": 486
+          },
+          "libero_goal/task_5": {
+            "normalized_discovery_mean_mse": 1.1104552400400816,
+            "normalized_model_mse": 0.06846538829315332,
+            "normalized_relative_improvement": 0.9383447564345933,
+            "raw_discovery_mean_mse": 0.011101396427846338,
+            "raw_model_mse": 0.0008563141128780326,
+            "row_count": 166
+          },
+          "libero_object/task_3": {
+            "normalized_discovery_mean_mse": 0.9277771241397024,
+            "normalized_model_mse": 0.028513255438330307,
+            "normalized_relative_improvement": 0.969267128175024,
+            "raw_discovery_mean_mse": 0.00943973496671407,
+            "raw_model_mse": 0.00023384478419200165,
+            "row_count": 260
+          },
+          "libero_spatial/task_3": {
+            "normalized_discovery_mean_mse": 1.7267046355378013,
+            "normalized_model_mse": 0.1065186977432757,
+            "normalized_relative_improvement": 0.9383109910340286,
+            "raw_discovery_mean_mse": 0.01649106518199796,
+            "raw_model_mse": 0.001391855979840642,
+            "row_count": 206
+          }
+        },
+        "validation_row_count": 1118
+      },
+      "5": {
+        "discovery_command_variance": [
+          2.2561500409692656,
+          4.29064885120317,
+          5.6613214022191745,
+          0.02185713290237748,
+          0.09111333828935576,
+          0.025363479475197948
+        ],
+        "discovery_row_count": 4874,
+        "discovery_state_variance": [
+          0.0002943796290884611,
+          0.0007240385922480839,
+          0.000890850410822321,
+          0.0003410350889908324,
+          0.0009820213790558926,
+          0.002617508470974403
+        ],
+        "global_validation": {
+          "normalized_discovery_mean_mse": 1.3289560510531329,
+          "normalized_model_mse": 0.1250355493418067,
+          "normalized_relative_improvement": 0.9059144587642893,
+          "raw_discovery_mean_mse": 0.0011680894660425051,
+          "raw_model_mse": 0.00014480740338461575
+        },
+        "per_task_validation": {
+          "libero_10/task_5": {
+            "normalized_discovery_mean_mse": 1.3292242794886235,
+            "normalized_model_mse": 0.14936446710556567,
+            "normalized_relative_improvement": 0.8876303499639437,
+            "raw_discovery_mean_mse": 0.001144310463444196,
+            "raw_model_mse": 0.00014004015496198776,
+            "row_count": 486
+          },
+          "libero_goal/task_5": {
+            "normalized_discovery_mean_mse": 1.2844292361102632,
+            "normalized_model_mse": 0.12545790356918796,
+            "normalized_relative_improvement": 0.90232400505837,
+            "raw_discovery_mean_mse": 0.0011367004563153527,
+            "raw_model_mse": 0.00019723317094781789,
+            "row_count": 166
+          },
+          "libero_object/task_3": {
+            "normalized_discovery_mean_mse": 1.0198957837006308,
+            "normalized_model_mse": 0.047814337164841576,
+            "normalized_relative_improvement": 0.953118408832567,
+            "raw_discovery_mean_mse": 0.0008837171500042892,
+            "raw_model_mse": 4.598830660583989e-05,
+            "row_count": 260
+          },
+          "libero_spatial/task_3": {
+            "normalized_discovery_mean_mse": 1.7542801373274937,
+            "normalized_model_mse": 0.1647615218227716,
+            "normalized_relative_improvement": 0.9060802671608807,
+            "raw_discovery_mean_mse": 0.0016084000148163977,
+            "raw_model_mse": 0.00023853153193018547,
+            "row_count": 206
+          }
+        },
+        "validation_row_count": 1118
+      }
+    },
+    "sampled_model_coverage": {
+      "discovery|libero_10/task_5": {
+        "demo_ids": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 327,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "discovery|libero_goal/task_5": {
+        "demo_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 85,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "discovery|libero_object/task_3": {
+        "demo_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 147,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "discovery|libero_spatial/task_3": {
+        "demo_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 102,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "validation|libero_10/task_5": {
+        "demo_ids": [
+          8,
+          9
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 209,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "validation|libero_goal/task_5": {
+        "demo_ids": [
+          8,
+          9
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 89,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "validation|libero_object/task_3": {
+        "demo_ids": [
+          8,
+          9
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 124,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      },
+      "validation|libero_spatial/task_3": {
+        "demo_ids": [
+          8,
+          9
+        ],
+        "horizons": [
+          5,
+          20
+        ],
+        "maximum_frame_index": 92,
+        "minimum_frame_index": 0,
+        "row_count": 16
+      }
+    },
+    "sampled_model_task_counts": {
+      "libero_10/task_5": 32,
+      "libero_goal/task_5": 32,
+      "libero_object/task_3": 32,
+      "libero_spatial/task_3": 32
+    },
+    "sampled_model_task_fractions": {
+      "libero_10/task_5": 0.25,
+      "libero_goal/task_5": 0.25,
+      "libero_object/task_3": 0.25,
+      "libero_spatial/task_3": 0.25
+    },
+    "state_variance_all_positive": true
+  },
+  "done_read_count": 0,
+  "exception_count": 1,
+  "final_decision": "KITE_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "gradient": {
+    "finite_objectives_and_gradients": true,
+    "flow_gradient_finite_fraction": 1.0,
+    "flow_gradient_norm": 0.15860483927346827,
+    "flow_loss": 0.1255863457918167,
+    "flow_time": 0.5,
+    "frozen_parameter_gradient_count": 0,
+    "frozen_parameter_gradient_names": [],
+    "gradient_cosine": 0.44077693501006476,
+    "kite_gradient_finite_fraction": 1.0,
+    "kite_gradient_nonzero": true,
+    "kite_gradient_norm": 0.5423708328243154,
+    "kite_loss": 0.18566206097602844,
+    "kite_to_flow_gradient_ratio": 3.41963609249749,
+    "lambda_reference": 0.3,
+    "reference_total_loss": 0.18128496408462524,
+    "trainable_numel": 185664,
+    "trainable_parameter_count": 74,
+    "trainable_parameter_names": [
+      "base_model.model.model.action_in_proj.lora_A.default.weight",
+      "base_model.model.model.action_in_proj.lora_B.default.weight",
+      "base_model.model.model.action_out_proj.lora_A.default.weight",
+      "base_model.model.model.action_out_proj.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_B.default.weight",
+      "base_model.model.model.state_proj.lora_A.default.weight",
+      "base_model.model.model.state_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_B.default.weight"
+    ]
+  },
+  "headroom": {
+    "absolute_gap": 0.1084517682912324,
+    "absolute_gate": 0.02,
+    "base_median_normalized_huber": 0.13417501786166375,
+    "by_horizon": {
+      "20": {
+        "base_median_normalized_huber": 0.10758299640033024,
+        "demo_median_normalized_huber": 0.02244757482870049,
+        "row_count": 32
+      },
+      "5": {
+        "base_median_normalized_huber": 0.18999554707962135,
+        "demo_median_normalized_huber": 0.033487513719407155,
+        "row_count": 32
+      }
+    },
+    "demo_operator_median_normalized_huber": 0.025723249570431345,
+    "passed": true,
+    "relative_deficit": 4.216099058335802,
+    "relative_gate": 0.25,
+    "validation_row_count": 64
+  },
+  "identity": {
+    "adapter_checkpoint": "/mnt/c/Users/jiheo/tca_map/runs/kite_vla/stage0a/identity_adapter",
+    "adapter_files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_model.safetensors"
+    ],
+    "base_action_finite": true,
+    "base_action_in_bounds": false,
+    "base_action_shape": [
+      50,
+      7
+    ],
+    "base_flow_shape": [
+      1,
+      50,
+      32
+    ],
+    "base_hash_unchanged": true,
+    "base_native_shape": [
+      1,
+      50,
+      7
+    ],
+    "base_parameter_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "base_parameter_hash_before": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "checkpoint_reload_ok": true,
+    "identity_max_abs_error": 0.0,
+    "initialized_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "rank": 4,
+    "reload_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "training_only_operator_absent_from_policy_parameters": true
+  },
+  "manifest_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 11984,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 11984,
+    "split_overlap_key_count": 0
+  },
+  "manifest_hash": "098A7DE24BA5D48EFCF5748BA0AB5C51404BEF53D32BD4D4AB066FCA433FB2C7",
+  "method": "KITE-VLA",
+  "operator_hash": "253B2ABD114FFD4C6AABF88BB1036DE62B65CE0599533A547D7E2DB776BCDE97",
+  "optimizer_step_count": 0,
+  "partial_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 128,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 128,
+    "split_overlap_key_count": 0
+  },
+  "planned_label_row_count": 11984,
+  "planned_model_row_count": 128,
+  "proposal_hash": "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8",
+  "resumed_model_row_count": 115,
+  "reward_read_count": 0,
+  "scientific_kill": false,
+  "simulator_load_count": 0,
+  "stage": "0A",
+  "stage_0b_allowed": false,
+  "success_read_count": 0,
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "valid_scientific_result": false,
+  "worker_pid": 385
+}

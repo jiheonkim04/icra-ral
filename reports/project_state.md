@@ -7,11 +7,11 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `23`
+Current cycle: `24`
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
@@ -79,8 +79,17 @@ and the governance validator. The development-only data smoke enumerated
 `11,984` labels and `128` model-audit rows, with rank-6 operators improving
 validation MSE by `0.905914` and `0.920854`. The real-checkpoint smoke had
 zero processor and identity error, nonzero KITE gradient, ratio `3.506742`,
-and zero frozen gradients. Current stage:
-`epoch_4_cycle_23_kite_stage_0a_pending`.
+and zero frozen gradients.
+
+Attempt 1 PID `368` persisted `115 / 128` rows before an atomic partial-file
+replacement exception. Resume PID `385` executed only the 13 missing keys and
+completed `128 / 128` with zero duplicate, missing, extra, overlap, or cache
+hash defects; the exception remained preserved. Headroom, operators,
+gradients, Base hash, and identity passed, but all 128 reconstructed action
+rows exceeded raw bounds somewhere, with maximum absolute value
+`1.1056011915206909`. Decision: `KITE_STAGE_0A_IMPLEMENTATION_FAILURE`, not a
+scientific kill. Stage 0B and KITE rescue are forbidden. Current stage:
+`epoch_4_cycle_24_candidate_search_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

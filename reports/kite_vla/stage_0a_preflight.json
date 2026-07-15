@@ -1,0 +1,20 @@
+{
+  "adapter_training_happened": false,
+  "confirmatory_records_read": 0,
+  "data_gates_passed": true,
+  "manifest_hash": "098A7DE24BA5D48EFCF5748BA0AB5C51404BEF53D32BD4D4AB066FCA433FB2C7",
+  "manifest_json_parsed": true,
+  "method": "KITE-VLA",
+  "operator_hash": "253B2ABD114FFD4C6AABF88BB1036DE62B65CE0599533A547D7E2DB776BCDE97",
+  "planned_label_row_count": 11984,
+  "planned_model_row_count": 128,
+  "prior_exception_count": 1,
+  "proposal_hash_ok": true,
+  "proposal_hash_recomputed": "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8",
+  "proposal_hash_registry": "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8",
+  "resumed_model_row_count": 115,
+  "serializer_preflight_ok": true,
+  "serializer_preflight_path": "/mnt/c/Users/jiheo/tca_map/reports/kite_vla/stage_0a_serializer_preflight.json",
+  "simulator_load_count": 0,
+  "written_at": "2026-07-15T15:13:46.355967+00:00"
+}

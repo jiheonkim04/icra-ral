@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `23`
+Current cycle: `24`
 
-Current stage: `epoch_4_cycle_23_kite_stage_0a_pending`
+Current stage: `epoch_4_cycle_24_candidate_search_pending`
 
 ## Epoch 4 Cycle 22 HASTE-VLA
 
@@ -43,6 +43,14 @@ protocol are frozen. Runner commit `62dbb75` passed the structured serializer,
 full data/operator, real-checkpoint action-path gradient, and zero-effect
 save/reload identity smokes. Stage 0A is ready for foreground serializer
 preflight and one detached launch.
+
+Stage 0A completed `128 / 128` model rows after a missing-key-only resume from
+115 rows. Integrity and all 64 feature-cache hashes pass, while the original
+atomic persistence exception remains recorded. The frozen action-validity
+gate independently failed on all 128 reconstructed rows, with maximum absolute
+action `1.1056011915206909`. Final decision:
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`. This is not a scientific kill. Do not
+run Stage 0B, rerun, or rescue KITE; continue to Cycle 24.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

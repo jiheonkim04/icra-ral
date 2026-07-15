@@ -1,0 +1,18 @@
+{
+  "action_validity_ok": false,
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "exception_count": 1,
+  "extra_partial_key_count": 0,
+  "final_decision": "KITE_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "key_sets_equal": true,
+  "manifest_json_parsed": true,
+  "manifest_row_count": 128,
+  "missing_manifest_key_count": 0,
+  "partial_json_parsed": true,
+  "partial_row_count": 128,
+  "proposal_hash_ok": true,
+  "result_decision_recomputed": "KITE_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "serializer_preflight_ok": true,
+  "split_overlap_key_count": 0
+}

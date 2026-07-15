@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current campaign decision:
-`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -52,8 +52,8 @@ anchored to StaKe. Proposal hash:
 The protocol package and pushed runner commit `3dd76f0` are frozen. Stage 0A
 PID `295` exited `1` before manifest persistence on NumPy JSON serialization;
 no partial, model row, or scientific evidence exists. Do not repair, rerun, or
-rescue HASTE. Current cycle: `23`. Current stage:
-`epoch_4_cycle_23_kite_stage_0a_pending`.
+rescue HASTE. Current cycle: `24`. Current stage:
+`epoch_4_cycle_24_candidate_search_pending`.
 
 Cycle 23 selected KITE-VLA from exactly three candidates at `96 / 100`,
 anchored to GeoPredict. Proposal SHA-256:
@@ -64,6 +64,14 @@ The frozen first serious comparison is `smolvla_base`,
 passed the structured serializer, data/operator, true action-path gradient,
 and zero-effect identity/reload validations. Only the foreground serializer
 preflight and frozen KITE Stage 0A execution are authorized.
+
+KITE Stage 0A completed `128 / 128` rows after a missing-key-only resume from
+115 rows. Final key and cache integrity pass. One atomic persistence exception
+is preserved, and all 128 reconstructed action rows failed the frozen raw
+action-bound gate, with maximum absolute action `1.1056011915206909`.
+Headroom, operators, gradients, Base hash, and identity passed, but the final
+decision is `KITE_STAGE_0A_IMPLEMENTATION_FAILURE`. This is not a scientific
+kill. Stage 0B, rerun, and KITE rescue are forbidden.
 
 ## Corrected Epoch 1 Status
 
@@ -397,5 +405,5 @@ headroom gates. Final PCAV decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`. This
 is not a closed-loop scientific kill; Stage 0B and formulation rescue are
 forbidden.
 
-Current cycle: `23`. Current stage:
-`epoch_4_cycle_23_kite_stage_0a_pending`.
+Current cycle: `24`. Current stage:
+`epoch_4_cycle_24_candidate_search_pending`.

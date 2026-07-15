@@ -5,12 +5,13 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+`KITE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
-Immediate next action: run the required foreground serializer preflight, audit
-worker and artifact state, then launch exactly one detached frozen KITE-VLA
-Stage 0A source, empirical realization-operator, frozen-Base headroom,
-objective-gradient, identity, and persistence audit. Runner commit: `62dbb75`.
+Immediate next action: generate exactly three Epoch 4 Cycle 24 candidates,
+select exactly one under active governance, and do not repair, rerun, or rescue
+KITE. Its Stage 0A completed `128 / 128` through a valid missing-key-only
+resume but retained one persistence exception and failed the frozen action
+bound on all 128 reconstructed rows. Stage 0B is forbidden.
 
 Do not change horizons `{5,20}`, ridge `1e-4`, four task sources, demo splits,
 operator fitting, headroom bars, rank-4 identity path, or failure taxonomy. No

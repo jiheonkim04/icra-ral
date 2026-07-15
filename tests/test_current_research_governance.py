@@ -51,16 +51,16 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
+def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 23
+    assert state["current_cycle"] == 24
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN"
-    assert state["current_stage"] == "epoch_4_cycle_23_kite_stage_0a_pending"
+    assert state["current_decision"] == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_24_candidate_search_pending"
     assert state["method"] == "KITE-VLA"
     assert state["method_identity"] == "KITE-VLA"
     assert state["proposal_hash"] == KITE_PROPOSAL_HASH
@@ -177,6 +177,13 @@ def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
         "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
         "epoch_4_cycle_23_kite_stage_0a_runner_implemented",
         "epoch_4_cycle_23_kite_stage_0a_pending",
+        "epoch_4_cycle_23_kite_stage_0a_launched",
+        "epoch_4_cycle_23_kite_stage_0a_attempt_1_persistence_failure_recorded",
+        "epoch_4_cycle_23_kite_stage_0a_resumed_missing_keys_only",
+        "epoch_4_cycle_23_kite_stage_0a_completed",
+        "epoch_4_cycle_23_kite_stage_0a_adjudicated",
+        "epoch_4_cycle_23_kite_implementation_failure_recorded",
+        "epoch_4_cycle_24_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     kite = state["epoch_4_cycle_23_kite_pre_stage_0a"]
@@ -195,7 +202,23 @@ def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
     assert kite["implementation_commit"] == "62dbb75"
     assert kite["runner"] == "scripts/run_kite_vla_stage0a.py"
     assert kite["runner_validation"] == "reports/kite_vla/stage_0a_runner_validation.json"
-    assert kite["stage_0a_pending"] is True
+    assert kite["stage_0a_pending"] is False
+    outcome = state["epoch_4_cycle_23_kite_stage_0a_outcome"]
+    assert outcome["final_decision"] == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert outcome["completed_model_row_count"] == 128
+    assert outcome["planned_model_row_count"] == 128
+    assert outcome["resumed_model_row_count"] == 115
+    assert outcome["exception_count"] == 1
+    assert outcome["duplicate_partial_key_count"] == 0
+    assert outcome["missing_manifest_key_count"] == 0
+    assert outcome["bad_feature_cache_hash_count"] == 0
+    assert outcome["headroom_passed"] is True
+    assert outcome["kite_gradient_nonzero"] is True
+    assert outcome["identity_max_abs_error"] == 0.0
+    assert outcome["action_validity_ok"] is False
+    assert outcome["invalid_action_row_count"] == 128
+    assert outcome["stage_0b_allowed"] is False
+    assert outcome["rerun_allowed"] is False
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
