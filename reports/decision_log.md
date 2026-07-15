@@ -2408,6 +2408,23 @@ Execution boundary:
 
 Consequence: the Researcher A proposal is frozen. Reviewer B must attack novelty, LIBERO-Occ/VIM source fidelity, random-cutout and two-camera-fusion triviality, PatchGuard overlap, privileged clean-view leakage, identity-preserving integration, and local SmolVLA visual-adapter feasibility before any implementation.
 
+## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Reviewer B Attack
+
+Decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+
+Execution boundary:
+
+- method: `COVI-VLA`
+- proposal hash: `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`
+- reviewer attack: `reports/covi_vla/reviewer_attack.md`
+- primary sources reviewed: LIBERO-Occ / VIM, CamVLA, STRONG-VLA, Partially Observable Adversarial Patch Attacks on VLAs, and local PatchGuard-v1 evidence
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: COVI is not killed before implementation, but novelty is narrowed to a frozen-SmolVLA identity-preserving complementary-feature adapter for scene-induced occlusion. The VIM proxy must remain transparent until official equivalence is established; Stage 0 must separate predicted complementary evidence from direct two-camera pass-through or clean-view oracle use; the random-cutout clean-retention baseline remains live; and physical scene-induced occlusion must be validated rather than silently replaced by synthetic masking. Researcher A must accept these conditions in rebuttal before mathematical audit.
+
 ## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Stage 0 Development Audit
 
 Decision: `DESIGN_FAILURE`

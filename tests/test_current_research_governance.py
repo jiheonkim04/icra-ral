@@ -25,8 +25,8 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_14_covi_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_rebuttal_pending"
     assert state["method"] == "COVI-VLA"
     assert state["method_identity"] == "COVI-VLA"
     assert state["proposal_hash"] == COVI_PROPOSAL_HASH
@@ -178,6 +178,7 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert "epoch_4_cycle_14_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_reviewer_attack_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -881,17 +882,33 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi["proposal_hash"] == COVI_PROPOSAL_HASH
     assert covi["proposal_hash_file"] == "reports/covi_vla/proposal_hash.txt"
     assert covi["proposal_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert covi["reviewer_attack_pending"] is True
+    assert covi["reviewer_attack_pending"] is False
+    assert covi["reviewer_attack"] == "reports/covi_vla/reviewer_attack.md"
+    assert covi["reviewer_attack_completed"] is True
+    assert covi["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert covi["rebuttal_pending"] is True
     covi_proposal = state["epoch_4_cycle_14_covi_proposal"]
     assert covi_proposal["method"] == "COVI-VLA"
     assert covi_proposal["proposal"] == "reports/covi_vla/researcher_proposal.md"
     assert covi_proposal["proposal_hash"] == COVI_PROPOSAL_HASH
     assert covi_proposal["proposal_hash_file"] == "reports/covi_vla/proposal_hash.txt"
     assert covi_proposal["final_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert covi_proposal["reviewer_attack"] == "reports/covi_vla/reviewer_attack.md"
+    assert covi_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert covi_proposal["reviewer_attack_completed"] is True
     assert covi_proposal["closed_loop_experiment_happened"] is False
     assert covi_proposal["training_happened"] is False
     assert covi_proposal["validation_search_happened"] is False
     assert covi_proposal["confirmatory_test_tuning_happened"] is False
+    covi_review = state["epoch_4_cycle_14_covi_review"]
+    assert covi_review["method"] == "COVI-VLA"
+    assert covi_review["proposal_hash"] == COVI_PROPOSAL_HASH
+    assert covi_review["reviewer_attack"] == "reports/covi_vla/reviewer_attack.md"
+    assert covi_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert covi_review["vim_proxy_must_remain_transparent"] is True
+    assert covi_review["direct_two_camera_fusion_diagnostic_required"] is True
+    assert covi_review["random_cutout_simple_killer_must_remain_live"] is True
+    assert covi_review["physical_occlusion_claim_must_be_validated"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 14,
-    "topic": "epoch_4_cycle_14_covi_reviewer_attack_pending",
+    "topic": "epoch_4_cycle_14_covi_rebuttal_pending",
     "method": "COVI-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "8884673",
-    "current_stage": "epoch_4_cycle_14_covi_reviewer_attack_pending",
+    "current_commit": "cf2c4c8",
+    "current_stage": "epoch_4_cycle_14_covi_rebuttal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -329,7 +329,8 @@
         "epoch_4_cycle_14_candidate_search_pending",
         "epoch_4_cycle_14_candidate_generation_completed",
         "epoch_4_cycle_14_covi_proposal_pending",
-        "epoch_4_cycle_14_covi_proposal_frozen"
+        "epoch_4_cycle_14_covi_proposal_frozen",
+        "epoch_4_cycle_14_covi_reviewer_attack_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -346,7 +347,7 @@
         "DFM-VLA"
     ],
     "prototype_gate": "COVI Stage 0 must prove occlusion headroom, source legality, split separation, noncollapsed view-completion targets, complementary-feature predictability above simple baselines, Base passthrough, and clean retention before validation search or rollout.",
-    "current_decision": "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -497,7 +498,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run Reviewer B attack on the frozen COVI-VLA Researcher A proposal; do not rescue RAR.",
+    "next_action": "Write Researcher A rebuttal to COVI Reviewer B attack; do not rescue RAR.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "COVI-VLA selected for Epoch 4 Cycle 14 as a LIBERO-Occ/VIM-anchored, identity-preserving complementary-view representation method for frozen SmolVLA under scene-induced occlusion.",
     "method_identity": "COVI-VLA",
@@ -2251,7 +2252,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_14_covi_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_14_covi_rebuttal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -5114,12 +5115,16 @@
         "proposal_hash": "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621",
         "proposal_hash_file": "reports/covi_vla/proposal_hash.txt",
         "proposal_decision": "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true,
+        "reviewer_attack_pending": false,
+        "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
+        "reviewer_attack_completed": true,
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "rebuttal_pending": true,
         "closed_loop_experiment_happened_after_proposal": false,
         "training_happened_after_proposal": false,
         "validation_search_happened_after_proposal": false,
         "confirmatory_test_tuning_happened_after_proposal": false,
-        "next_stage": "Reviewer B attack on frozen COVI-VLA proposal."
+        "next_stage": "Researcher A rebuttal."
     },
     "epoch_4_cycle_14_covi_proposal": {
         "method": "COVI-VLA",
@@ -5133,6 +5138,26 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B attack."
+        "next_stage": "Researcher A rebuttal.",
+        "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true
+    },
+    "epoch_4_cycle_14_covi_review": {
+        "method": "COVI-VLA",
+        "proposal_hash": "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621",
+        "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "narrowed_novelty": "frozen SmolVLA identity-preserving complementary-feature adapter for scene-induced occlusion; not official VIM, not full viewpoint imagination novelty, and not calibration-free view-robust action generation",
+        "vim_proxy_must_remain_transparent": true,
+        "direct_two_camera_fusion_diagnostic_required": true,
+        "random_cutout_simple_killer_must_remain_live": true,
+        "physical_occlusion_claim_must_be_validated": true,
+        "next_stage": "Researcher A rebuttal before mathematical mechanism audit."
     }
 }

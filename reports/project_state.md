@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
@@ -48,7 +48,9 @@ Epoch 4 Cycle 14 generated exactly three candidates in `reports/epoch_4_cycle_14
 
 The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_proposal.md` with proposal hash `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`.
 
-Exact next step: run Reviewer B attack on the frozen COVI proposal. Do not rescue RAR.
+Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires narrowed novelty, transparent VIM proxy status, direct two-camera fusion diagnostics, physical occlusion validation, and the live random-cutout simple killer.
+
+Exact next step: write Researcher A rebuttal before mathematical mechanism audit. Do not rescue RAR.
 
 ## 2026-07-13 Governance V2 Current State
 

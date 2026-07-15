@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 14,
-    "current_topic": "epoch_4_cycle_14_covi_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_14_covi_rebuttal_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "8884673",
+    "current_commit": "cf2c4c8",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_14_covi_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_14_covi_rebuttal_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -316,7 +316,8 @@
         "epoch_4_cycle_14_candidate_search_pending",
         "epoch_4_cycle_14_candidate_generation_completed",
         "epoch_4_cycle_14_covi_proposal_pending",
-        "epoch_4_cycle_14_covi_proposal_frozen"
+        "epoch_4_cycle_14_covi_proposal_frozen",
+        "epoch_4_cycle_14_covi_reviewer_attack_completed"
     ],
     "active_hypothesis": "COVI-VLA selected for Epoch 4 Cycle 14 as a LIBERO-Occ/VIM-anchored, identity-preserving complementary-view representation method for frozen SmolVLA under scene-induced occlusion.",
     "method_identity": "COVI-VLA",
@@ -339,7 +340,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -448,7 +449,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Run Reviewer B attack on the frozen COVI-VLA Researcher A proposal; do not rescue RAR.",
+    "next_action": "Write Researcher A rebuttal to COVI Reviewer B attack; do not rescue RAR.",
     "method": "COVI-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -5062,12 +5063,16 @@
         "proposal_hash": "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621",
         "proposal_hash_file": "reports/covi_vla/proposal_hash.txt",
         "proposal_decision": "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true,
+        "reviewer_attack_pending": false,
+        "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
+        "reviewer_attack_completed": true,
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "rebuttal_pending": true,
         "closed_loop_experiment_happened_after_proposal": false,
         "training_happened_after_proposal": false,
         "validation_search_happened_after_proposal": false,
         "confirmatory_test_tuning_happened_after_proposal": false,
-        "next_stage": "Reviewer B attack on frozen COVI-VLA proposal."
+        "next_stage": "Researcher A rebuttal."
     },
     "epoch_4_cycle_14_covi_proposal": {
         "method": "COVI-VLA",
@@ -5081,6 +5086,26 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B attack."
+        "next_stage": "Researcher A rebuttal.",
+        "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true
+    },
+    "epoch_4_cycle_14_covi_review": {
+        "method": "COVI-VLA",
+        "proposal_hash": "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621",
+        "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "narrowed_novelty": "frozen SmolVLA identity-preserving complementary-feature adapter for scene-induced occlusion; not official VIM, not full viewpoint imagination novelty, and not calibration-free view-robust action generation",
+        "vim_proxy_must_remain_transparent": true,
+        "direct_two_camera_fusion_diagnostic_required": true,
+        "random_cutout_simple_killer_must_remain_live": true,
+        "physical_occlusion_claim_must_be_validated": true,
+        "next_stage": "Researcher A rebuttal before mathematical mechanism audit."
     }
 }

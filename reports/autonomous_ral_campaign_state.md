@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `14`
 
-Current stage: `epoch_4_cycle_14_covi_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_14_covi_rebuttal_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -343,4 +343,6 @@ COVI is anchored to LIBERO-Occ / Viewpoint Imagination, with CamVLA and STRONG-V
 
 The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_proposal.md` with proposal hash `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`.
 
-Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Current stage: `epoch_4_cycle_14_covi_reviewer_attack_pending`. Next action: Reviewer B attack on the frozen COVI proposal. Do not rescue RAR.
+Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The novelty is narrowed to a frozen-SmolVLA identity-preserving complementary-feature adapter for scene-induced occlusion; the VIM proxy must remain transparent, direct two-camera fusion diagnostics are required, and `random_cutout_clean_retention_baseline` remains live.
+
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_14_covi_rebuttal_pending`. Next action: Researcher A rebuttal before mathematical mechanism audit. Do not rescue RAR.
