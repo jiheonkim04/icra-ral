@@ -18,6 +18,7 @@ PCAV_PROPOSAL_HASH = "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D42
 SPARC_PROPOSAL_HASH = "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D"
 NICE_PROPOSAL_HASH = "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A"
 HEST_PROPOSAL_HASH = "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527"
+HASTE_PROPOSAL_HASH = "5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -49,7 +50,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_hest_stage_0a_failure() -> None:
+def test_active_state_records_haste_stage_0a_pending() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -57,12 +58,12 @@ def test_active_state_records_hest_stage_0a_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "HEST_STAGE_0A_IMPLEMENTATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_22_candidate_search_pending"
-    assert state["method"] == "HEST-VLA"
-    assert state["method_identity"] == "HEST-VLA"
-    assert state["proposal_hash"] == HEST_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/hest_vla/prototype_protocol.md"
+    assert state["current_decision"] == "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_22_haste_stage_0a_implementation_pending"
+    assert state["method"] == "HASTE-VLA"
+    assert state["method_identity"] == "HASTE-VLA"
+    assert state["proposal_hash"] == HASTE_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/haste_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -136,6 +137,15 @@ def test_active_state_records_hest_stage_0a_failure() -> None:
     assert hest["invalid_support_counts"]["base"] == 1
     assert hest["invalid_support_counts"]["hest"] == 1
     assert hest["stage_0b_allowed"] is False
+    assert "epoch_4_cycle_22_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_22_haste_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_22_haste_stage_0a_implementation_pending" in state["completed_stages"]
+    haste = state["epoch_4_cycle_22_haste_pre_stage_0a"]
+    assert haste["candidate_count"] == 3
+    assert haste["selected_score"] == 95
+    assert haste["proposal_hash"] == HASTE_PROPOSAL_HASH
+    assert haste["bounded_validation_search_max_configs"] == 6
+    assert haste["stage_0a_pending"] is True
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95

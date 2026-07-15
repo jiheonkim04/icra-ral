@@ -7,13 +7,25 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `22`
 
-Current stage: `epoch_4_cycle_22_candidate_search_pending`
+Current stage: `epoch_4_cycle_22_haste_stage_0a_implementation_pending`
+
+## Epoch 4 Cycle 22 HASTE-VLA
+
+Cycle 22 generated exactly three candidates and selected `HASTE-VLA` at
+`95 / 100`, anchored to StaKe. Proposal hash:
+`5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
+
+The review, rebuttal, mathematical audit, preregistration, and prototype
+protocol are frozen. HASTE supervises a censored time-to-command-event hazard
+and relative cumulative arm displacement during training while retaining the
+ordinary inference path. Only Stage 0A implementation is pending; no adapter
+training, simulator rollout, or confirmatory access is authorized.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

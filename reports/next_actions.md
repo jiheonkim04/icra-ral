@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
-Immediate next action: commit and push the immutable HEST Stage 0A result, then
-generate exactly three materially distinct, positive-prior-anchored Cycle 22
-candidates and select exactly one under current governance.
+Immediate next action: commit and push the frozen HASTE-VLA protocol package,
+then implement and run only the preregistered Stage 0A source, label, Base
+headroom, frozen-feature observability, identity, and persistence audit.
 
 HEST Stage 0A completed `160 / 160` windows with zero exceptions and exact
 artifact integrity. It failed only the frozen all-variant support gate: one
@@ -20,6 +20,10 @@ support failure, not a scientific kill.
 Do not widen support, clip actions, alter fallback, change sources or
 thresholds, rerun HEST Stage 0A, or authorize Stage 0B. Do not rescue NICE or
 HEST.
+
+Do not train a HASTE adapter or run the simulator in Stage 0A. Do not change
+the event threshold, horizons, target coordinates, four tasks, demo splits,
+probe baselines, headroom bars, or failure taxonomy.
 
 ## Epoch 4 Cycle 19 Historical Action
 

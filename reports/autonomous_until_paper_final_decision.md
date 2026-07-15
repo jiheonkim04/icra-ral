@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current campaign decision:
-`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -46,7 +46,12 @@ exact artifact integrity. The frozen all-variant support gate failed because
 one validation Base row and HEST's required whole-Base fallback were outside
 discovery-defined support. This is a pre-rollout implementation/prototype
 support failure, not a scientific kill. Stage 0B and HEST rescue are forbidden.
-Current cycle: `22`. Current stage: `epoch_4_cycle_22_candidate_search_pending`.
+Cycle 22 selected HASTE-VLA from exactly three candidates at `95 / 100`,
+anchored to StaKe. Proposal hash:
+`5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
+The protocol package is frozen and only Stage 0A implementation is authorized.
+Current cycle: `22`. Current stage:
+`epoch_4_cycle_22_haste_stage_0a_implementation_pending`.
 
 ## Corrected Epoch 1 Status
 

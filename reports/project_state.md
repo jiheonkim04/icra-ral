@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
+`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
@@ -41,7 +41,19 @@ NICE remains closed unchanged as
 keys and one expected terminal exception. No NICE resume, rerun, or rescue is
 allowed.
 
-Current stage: `epoch_4_cycle_22_candidate_search_pending`.
+Cycle 22 generated exactly three candidates and selected `HASTE-VLA` at
+`95 / 100`, anchored to StaKe. HASTE extends StaKe's binary stage and absolute
+keyframe supervision with a censored time-to-command-event hazard and relative
+cumulative six-dimensional arm displacement. It uses a zero-effect rank-4
+LoRA, training-only auxiliary heads, and clean retention; inference remains the
+ordinary SmolVLA path.
+
+Proposal hash:
+`5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
+Review, rebuttal, mathematical audit, preregistration, and prototype protocol
+are frozen under `reports/haste_vla/`. Only Stage 0A implementation is pending.
+
+Current stage: `epoch_4_cycle_22_haste_stage_0a_implementation_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

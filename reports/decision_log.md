@@ -2945,3 +2945,29 @@ This is a pre-rollout implementation/prototype support failure, not a
 scientific kill. No SmolVLA, simulator, outcome, confirmatory identity, or
 closed-loop row was read. Stage 0B, rerun, support repair, clipping, and HEST
 rescue are forbidden. Continue automatically to Cycle 22 candidate search.
+
+## 2026-07-15 - HASTE-VLA Selection And Protocol Freeze
+
+Decision: `HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+
+Cycle 22 generated exactly three candidates:
+
+- `HASTE-VLA`: `95 / 100`;
+- `SITE-VLA`: `86 / 100`;
+- `SAVR-VLA`: `78 / 100`.
+
+Selected method: HASTE-VLA, Hazard-Anchored Stage-Transition Encoding, anchored
+to StaKe. Proposal hash:
+`5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
+
+HASTE extends StaKe's binary stage and absolute next-keyframe supervision with
+a censored time-to-gripper-command-event hazard and current-centered cumulative
+six-dimensional arm displacement. A zero-effect rank-4 LoRA and clean-retention
+objective preserve Base at initialization; auxiliary heads are absent from the
+inference action path.
+
+The Reviewer B attack, Researcher A rebuttal, mathematical audit,
+preregistration, and prototype protocol are frozen. Only Stage 0A source,
+label, Base headroom, frozen-feature observability, identity, and persistence
+auditing is authorized. No adapter training, simulator rollout, or
+confirmatory access may occur.
