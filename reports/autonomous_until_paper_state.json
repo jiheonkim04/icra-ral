@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 25,
-    "current_topic": "epoch_4_cycle_25_rap_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_25_rap_rebuttal_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "500dfb1",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_25_rap_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_25_rap_rebuttal_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -486,7 +486,9 @@
         "epoch_4_cycle_25_rap_candidate_selected",
         "epoch_4_cycle_25_rap_researcher_proposal_pending",
         "epoch_4_cycle_25_rap_researcher_proposal_frozen",
-        "epoch_4_cycle_25_rap_reviewer_attack_pending"
+        "epoch_4_cycle_25_rap_reviewer_attack_pending",
+        "epoch_4_cycle_25_rap_reviewer_attack_completed",
+        "epoch_4_cycle_25_rap_rebuttal_pending"
     ],
     "active_hypothesis": "Dynamic future-feature residuals unexplained by an actionless static predictor can align SmolVLA generated action chunks with motor-induced visual consequences.",
     "method_identity": "RAP-VLA",
@@ -506,7 +508,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -615,7 +617,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Run Reviewer B novelty and mathematical-mechanism attack on the frozen RAP-VLA proposal without VDR repair or rescue.",
+    "next_action": "Write RAP-VLA Researcher A rebuttal accepting or rejecting Reviewer B conditions without VDR repair or rescue.",
     "method": "RAP-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2366,7 +2368,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_25_rap_reviewer_attack_pending",
+    "topic": "epoch_4_cycle_25_rap_rebuttal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6600,11 +6602,13 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B novelty and mechanism attack.",
+        "next_stage": "Researcher A rebuttal.",
         "proposal": "reports/rap_vla/researcher_proposal.md",
         "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
         "proposal_hash_file": "reports/rap_vla/proposal_hash.txt",
-        "proposal_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+        "proposal_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "reviewer_attack": "reports/rap_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     },
     "epoch_4_cycle_25_rap_researcher_proposal": {
         "method": "RAP-VLA",
@@ -6627,6 +6631,30 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B novelty and mechanism attack."
+        "next_stage": "Researcher A rebuttal.",
+        "reviewer_attack": "reports/rap_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    },
+    "epoch_4_cycle_25_rap_reviewer_attack": {
+        "method": "RAP-VLA",
+        "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+        "reviewer_attack": "reports/rap_vla/reviewer_attack.md",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "conditions": [
+            "optimusvla_proxy_first_serious_comparison",
+            "anchor_only_no_residual_ablation",
+            "matched_standard_lora_simple_killer",
+            "frozen_memory_partition_separation",
+            "predeclared_action_validity_unit_system",
+            "retrieval_headroom_and_residual_predictability_stage_0_gates",
+            "honest_official_vs_transparent_optimusvla_status",
+            "memory_latency_and_storage_reporting",
+            "no_prior_method_rescue"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal."
     }
 }

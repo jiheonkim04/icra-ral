@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -32,8 +32,10 @@ ablation, and matched standard LoRA. The Researcher A proposal is frozen in
 `reports/rap_vla/researcher_proposal.md` with SHA-256
 `E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. No RAP
 training, validation search, rollout, simulator access, or confirmatory-test
-tuning has happened. Current cycle: `25`. Current stage:
-`epoch_4_cycle_25_rap_reviewer_attack_pending`.
+tuning has happened. Reviewer B attack is complete in
+`reports/rap_vla/reviewer_attack.md` with decision
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current cycle: `25`.
+Current stage: `epoch_4_cycle_25_rap_rebuttal_pending`.
 
 ## Epoch 4 Cycle 19 Decision
 

@@ -61,8 +61,8 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_rebuttal_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
     assert state["proposal_hash"] == RAP_PROPOSAL_HASH
@@ -204,6 +204,8 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "epoch_4_cycle_25_rap_researcher_proposal_pending",
         "epoch_4_cycle_25_rap_researcher_proposal_frozen",
         "epoch_4_cycle_25_rap_reviewer_attack_pending",
+        "epoch_4_cycle_25_rap_reviewer_attack_completed",
+        "epoch_4_cycle_25_rap_rebuttal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -225,6 +227,10 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert rap_proposal["final_decision"] == "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert rap_proposal["proposal"] == "reports/rap_vla/researcher_proposal.md"
     assert rap_proposal["proposal_hash"] == RAP_PROPOSAL_HASH
+    rap_review = state["epoch_4_cycle_25_rap_reviewer_attack"]
+    assert rap_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert rap_review["reviewer_attack"] == "reports/rap_vla/reviewer_attack.md"
+    assert rap_review["proposal_hash"] == RAP_PROPOSAL_HASH
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

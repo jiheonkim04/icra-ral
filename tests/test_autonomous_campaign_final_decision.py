@@ -222,9 +222,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "RAP-VLA" in final
-    assert "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "OptimusVLA" in final
-    assert "epoch_4_cycle_25_rap_reviewer_attack_pending" in final
+    assert "epoch_4_cycle_25_rap_rebuttal_pending" in final
     assert RAP_PROPOSAL_HASH in final
     assert "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "1536 / 1536" in final
@@ -249,10 +249,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 25
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_rebuttal_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
     assert state["proposal_hash"] == RAP_PROPOSAL_HASH
@@ -269,7 +269,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Run Reviewer B novelty and mathematical-mechanism attack on the frozen RAP-VLA proposal without VDR repair or rescue."
+        "Write RAP-VLA Researcher A rebuttal accepting or rejecting Reviewer B conditions without VDR repair or rescue."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -290,6 +290,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     rap_proposal = state["epoch_4_cycle_25_rap_researcher_proposal"]
     assert rap_proposal["final_decision"] == "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert rap_proposal["proposal_hash"] == RAP_PROPOSAL_HASH
+    rap_review = state["epoch_4_cycle_25_rap_reviewer_attack"]
+    assert rap_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert rap_review["proposal_hash"] == RAP_PROPOSAL_HASH
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

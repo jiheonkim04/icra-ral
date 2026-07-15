@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run Reviewer B novelty and mathematical-mechanism
-attack on the frozen `RAP-VLA` Researcher A proposal without VDR repair,
-rerun, rescue, or threshold changes.
+Immediate next action: write RAP-VLA Researcher A rebuttal accepting or
+rejecting Reviewer B conditions without VDR repair, rerun, rescue, or
+threshold changes.
 
 Cycle 25 generated exactly three candidates and selected `RAP-VLA`,
 Retrieval-Anchored Prior residualization for VLA action flows, at `94 / 100`.
@@ -25,7 +25,9 @@ LoRA. The Researcher A proposal is frozen in
 `reports/rap_vla/researcher_proposal.md` with SHA-256
 `E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. No RAP
 training, validation search, rollout, simulator access, or confirmatory-test
-tuning has happened.
+tuning has happened. Reviewer B attack is complete in
+`reports/rap_vla/reviewer_attack.md` with decision
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity
