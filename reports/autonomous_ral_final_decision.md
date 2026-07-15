@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
 
 This is not a terminal state under the active governance.
 
@@ -288,7 +288,15 @@ Proposal hash:
 The complete proposal/review/rebuttal/math/preregistration/protocol package is
 frozen under `reports/famr_vla/`.
 
-Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`.
+FAMR Stage 0A completed as
+`FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`. Source, split, identity,
+gradient, fixed-subset fit, parameter-group, scaling, Base-hash, checkpoint,
+and memory gates passed. The 20-step loss reduction was
+`0.11399528227036353`; exceptions, duplicate keys, and confirmatory
+observations/actions were zero.
+
+Current stage:
+`epoch_4_cycle_17_famr_endpoint_training_implementation_pending`.
 
 The Windows Efficiency Mode interval is recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency

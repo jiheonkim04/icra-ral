@@ -45,7 +45,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_iarc_stop_and_famr_stage_0a_freeze() -> None:
+def test_active_state_records_iarc_stop_and_famr_stage_0a_pass() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -53,8 +53,8 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_freeze() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_17_famr_stage_0a_implementation_pending"
+    assert state["current_decision"] == "FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED"
+    assert state["current_stage"] == "epoch_4_cycle_17_famr_endpoint_training_implementation_pending"
     assert state["method"] == "FAMR-VLA"
     assert state["method_identity"] == "FAMR-VLA"
     assert state["proposal_hash"] == FAMR_PROPOSAL_HASH
@@ -69,6 +69,9 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_freeze() -> None:
     assert "epoch_4_cycle_17_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_17_famr_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_17_famr_stage_0a_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_stage_0a_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_stage_0a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_17_famr_stage_0a_adjudicated" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -99,6 +102,19 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_freeze() -> None:
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0
     assert pre_stage["confirmatory_actions_computed_max"] == 0
+    famr_stage_0a = state["epoch_4_cycle_17_famr_stage_0a"]
+    assert famr_stage_0a["final_decision"] == "FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED"
+    assert famr_stage_0a["valid_scientific_kill"] is False
+    assert famr_stage_0a["micro_fit_steps_completed"] == famr_stage_0a["micro_fit_steps_planned"] == 20
+    assert famr_stage_0a["fixed_subset_relative_reduction"] > 0.01
+    assert famr_stage_0a["duplicate_key_count"] == 0
+    assert famr_stage_0a["exception_count"] == 0
+    assert famr_stage_0a["identity_max_abs_error"] == 0.0
+    assert famr_stage_0a["checkpoint_reload_max_abs_error"] == 0.0
+    assert famr_stage_0a["base_hash_unchanged"] is True
+    assert famr_stage_0a["scaling_identity_passed"] is True
+    assert famr_stage_0a["confirmatory_observations_decoded"] == 0
+    assert famr_stage_0a["confirmatory_actions_computed"] == 0
     outcome = state["epoch_4_cycle_16_iarc_stage_0a_outcome"]
     assert outcome["final_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
     assert outcome["valid_scientific_kill"] is False
@@ -1167,7 +1183,7 @@ def test_active_state_records_iarc_stop_and_famr_stage_0a_freeze() -> None:
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
-    assert state["checkpoint_path"] is None
+    assert state["checkpoint_path"] == "runs/famr_vla/stage0a/micro_checkpoint"
     assert state["stage_a_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0

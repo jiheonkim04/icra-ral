@@ -1,0 +1,3481 @@
+{
+  "adapter_identity": {
+    "native_max_abs_error": 0.0,
+    "postprocessed_max_abs_error": 0.0
+  },
+  "adjudication_text": "All frozen provenance, semantic, identity, gradient, fit, checkpoint, grouping, scaling, and memory gates passed. The fixed 300-step endpoint stage is authorized.",
+  "checkpoint": {
+    "base_frozen_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "base_frozen_hash_unchanged": true,
+    "checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/famr_vla/stage0a/micro_checkpoint",
+    "disk_reload": true,
+    "files": {
+      "README.md": {
+        "sha256": "9A9A2D60DF23F9E4467C7EDB6654D9F499C39020A9AD9E7F225B120CCE3FB27B",
+        "size_bytes": 5116
+      },
+      "adapter_config.json": {
+        "sha256": "8AE8832BC7B9A36BD52B4C4C70C04DB661EEC70A531224E5AF5F2566C7E25A25",
+        "size_bytes": 1254
+      },
+      "adapter_model.safetensors": {
+        "sha256": "FC552BC4A82F78A8A7FF7343B4E2E2C3D2CACEF6C2800D3E67FD8433CBF5F031",
+        "size_bytes": 753728
+      },
+      "famr_training_manifest.json": {
+        "sha256": "24A4EB98D85D96ADC9807524E48C7AD808787092F58C9B2A1C62FCBEE11AC4C3",
+        "size_bytes": 60794
+      },
+      "reload_probe.json": {
+        "sha256": "D6A4346E849C0DD5CE46007453E12D4ACAC2AC130DF7166389C6C1F09B5E24DC",
+        "size_bytes": 525
+      }
+    },
+    "reload_native_max_abs_error": 0.0,
+    "reload_output_max_abs_error": 0.0,
+    "reload_postprocessed_max_abs_error": 0.0,
+    "reload_probe": {
+      "native_action": [
+        [
+          0.8785299062728882,
+          -1.7824597358703613,
+          0.6729636788368225,
+          1.047511339187622,
+          -0.12054531276226044,
+          0.567939043045044,
+          -0.9437509179115295
+        ]
+      ],
+      "native_action_hash": "F97F7C749D10221A39204152436EB0EFBA304008CBA2176077EC4265730A7329",
+      "postprocessed_action": [
+        0.35754919052124023,
+        -0.5877256989479065,
+        0.2089131474494934,
+        0.04164879769086838,
+        -0.0019983453676104546,
+        0.039053261280059814,
+        -0.992228090763092
+      ]
+    },
+    "resumed_existing_checkpoint": false,
+    "saved": true
+  },
+  "command": "/mnt/c/Users/jiheo/tca_map/scripts/run_famr_vla_stage0.py --mode audit --checkpoint /mnt/c/assets/checkpoints/smolvla_libero --libero-data-root /mnt/c/assets/data/libero --stable-artifact /mnt/c/Users/jiheo/tca_map/reports/official_smolvla_stable_prediction_artifact.json --run-root /mnt/c/Users/jiheo/tca_map/runs/famr_vla/stage0a --report-root /mnt/c/Users/jiheo/tca_map/reports/famr_vla",
+  "confirmatory": {
+    "actions_computed": 0,
+    "observations_decoded": 0
+  },
+  "data_semantics": {
+    "confirmatory_actions_computed": 0,
+    "confirmatory_observations_decoded": 0,
+    "decoded_split_counts": {
+      "test": 0,
+      "train": 24,
+      "validation": 0
+    },
+    "duplicate_episode_identity_hash_count": 0,
+    "duplicate_frame_identity_hash_count": 0,
+    "fixed_discovery_row_count": 24,
+    "method": "FAMR-VLA",
+    "official_mapping_calibration": {
+      "action_mapping_passed": true,
+      "action_max_abs_error": 9.047133563144794e-10,
+      "agent_rotated_mae": 0.017288127914071083,
+      "agent_unrotated_mae": 0.184173583984375,
+      "image_orientation_passed": true,
+      "matched_raw_demo": "demo_19",
+      "matched_raw_source": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+      "note": "The state tolerance covers deterministic source-versus-official replay drift; both use pos/axis-angle/gripper semantics.",
+      "official_dataset_episode": 0,
+      "state_mapping_passed": true,
+      "state_representation_max_abs_error": 0.005072439533311943,
+      "wrist_rotated_mae": 0.019393255934119225,
+      "wrist_unrotated_mae": 0.0962054505944252
+    },
+    "passed": true,
+    "proposal_hash": "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69",
+    "source_terminal_failure_count": 0,
+    "source_terminal_success_count": 150,
+    "target_tasks": [
+      {
+        "action_finite_fraction": 1.0,
+        "action_iqr": [
+          0.3348214285714286,
+          0.3991071428571429,
+          0.2517857142857143,
+          0.037142857142857144,
+          0.03428571428571429,
+          0.19285714285714284,
+          2.0
+        ],
+        "action_max": [
+          0.9026785714285714,
+          0.6428571428571429,
+          0.6375000000000001,
+          0.17,
+          0.1757142857142857,
+          0.25,
+          1.0
+        ],
+        "action_min": [
+          -0.7794642857142858,
+          -0.9375,
+          -0.9375,
+          -0.175,
+          -0.25,
+          -0.13428571428571429,
+          -1.0
+        ],
+        "action_scale": [
+          0.3348214285714286,
+          0.3991071428571429,
+          0.2517857142857143,
+          0.05,
+          0.05,
+          0.19285714285714284,
+          2.0
+        ],
+        "action_shape": [
+          7
+        ],
+        "bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf.bddl",
+        "bddl_sha256": "CFD11A9A7E3401271369C85CDEA5C8D531102A31F2B91B1467E0DFBFEA520497",
+        "camera_discovery_value_range": [
+          0,
+          255
+        ],
+        "camera_dtype": "uint8",
+        "camera_keys": [
+          "agentview_rgb",
+          "eye_in_hand_rgb"
+        ],
+        "camera_policy_transform": "official LiberoProcessorStep 180-degree H/W flip, then bicubic 256 resize",
+        "camera_shape": [
+          128,
+          128,
+          3
+        ],
+        "camera_source_convention": "opengl",
+        "controller": {
+          "control_delta": true,
+          "damping_ratio": 1,
+          "damping_ratio_limits": [
+            0,
+            10
+          ],
+          "impedance_mode": "fixed",
+          "input_max": 1,
+          "input_min": -1,
+          "interpolation": null,
+          "kp": 150,
+          "kp_limits": [
+            0,
+            300
+          ],
+          "orientation_limits": null,
+          "output_max": [
+            0.05,
+            0.05,
+            0.05,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "output_min": [
+            -0.05,
+            -0.05,
+            -0.05,
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          "position_limits": null,
+          "ramp_ratio": 0.2,
+          "type": "OSC_POSE",
+          "uncouple_pos_ori": true
+        },
+        "demonstration_count": 50,
+        "episode_identity_hashes": {
+          "test": [
+            "7753C261D574741CC8267D213872EB9F3E786B650EFEE538ECF95E2B85DAC7A5",
+            "72D5A168441273A68B07C13656D97C13B7184E93CD3684B1974E39D53EFF7051",
+            "94A54E7D924F129A27B0377E9C088DC4A1BA0A6B221CFB7DC372A10CEC681CCB",
+            "9A2A6947D32A54DB18B8009D2DE2C7EF955436DFBE4A82D3F3A8CB87C57E4A0B",
+            "834CB219E565598F7233400EF3EE7ECE04F2A801AE7F3A27685E9B1A1C6A9539"
+          ],
+          "train": [
+            "3E22FC42FA00ADC7B20C5A3CA65684F0F292A1614FF425B92BF10B19987010F7",
+            "79C56BBD1CDE1F0A7A06A302551A49DC2F94DF20E267C11D461EE15CFFCCDDEF",
+            "2A34961B96B6C65BF7EF5619C10EDB672C1EC5BAF17CA1C2056F411D150799A5",
+            "9E8D566A7E4D23FDBE940409B5701972838BF626BEF71A5BB615FC107F97BBDE",
+            "652FA5DA8DE81605ECC9FA850B76928E82243907BA82BB912CAAA3594C923C95",
+            "E61E30D363BE35205683EDD25425259D3EDC1EA00724F8F16049906F7D08818A",
+            "1D36CA595EEA2E146D314E0547D967FF7A692915D0D382917DB12DB28D763FAB",
+            "EBE040959ADC0BBF9DD961021AAF24723E170E44438780A5D5661C01D3F3EB26",
+            "5BDF61091E51AF0BDFB1207D2600699382013C181B3D02C9F3EE0D627F58703E",
+            "6F37BB73A04D4FCFB4E8C5CD1C849ABA0E0F97A6A782726AF475B4598FFA2B2B",
+            "5226E68C928DA4D1476922991F7B0BC52C53ECEE775EA1C0F5A7AB0C7B9213B1",
+            "050524F1A8480E3644A782883B8AFD2D06940F3B928EFA16CF7496386FD52285",
+            "DF9E85FA87F4E6D4E7B84040857DA3CBA3DFFADDA208AA8D6A35511B8521C868",
+            "20440ACC6C7243CDD7491E24ED103985605ECE0D1EA2E67B1DB302FC5AAD5F19",
+            "8C79D5360C67F6CA487835F9E39A2CE5D25E54025BA0E4204E190725724EDBDD",
+            "A10EC88C5DAC7628718556D7AA36A0BCB2727ADD08ED2FD72FEBEB5217C323EB",
+            "91AB47CF5E0D510D6DEC62E08BFC0DC3E09EA5F07FD3AB9E11E6D42DF332F2DE",
+            "D6AA7801FD6D8E6BA1EBE171895BDC751486131653C19EF2D56F15302BCF2F1A",
+            "991283551C02AB511A557135A1BFA6112823D96FC1C5CD1BDB38CA7DBA5181A5",
+            "E163197DDD0083A3782AFDC1C2DD3F61FE07F9FAC8CE56D4107B12B012BF3703",
+            "EF20854C012D8996C9071E49F4F4B762CBC0F45A6E3996BE87571E1740E9C830",
+            "2B248D316B316AE28F6063302858D8727C9A2A509B05B37C408CDC5DA3596E4B",
+            "C2D03E6B1B189E9861A4594E25B72D5AD9045076E49591D5A9831833A9DB5A23",
+            "43EB5297C1A898EBB282F3E496411AD30FC9B59100A3C8737FEC8CD8AC961592",
+            "CE203A9019A47ABA01F4E7DFE7DC765E0E9A1E23FB09EDED178A5F4B0D87D927",
+            "32D3D233AE07E1C7B84CDDB0FE53A6367804E259ABA3191B5727311EAFE19D04",
+            "811B77213CAFD3A23400ABEB214564A47AD567E60065C108412E115B8B020634",
+            "25FCF6FE54890A402AAA4D73698F972F702A322F2F18E92D40FF508C880F87EF",
+            "DEE7148C6785CF0B8154B302C9F73A2DBDC5E8F7297A7241FBBDBAA872C2ED56",
+            "0C9AD80CAE33218AFA3F73466C04562A4AF3541C2D3FC7303C2843616DA21A00",
+            "FBF980B9091EE04C6D7A7F1532B880410BCE959D711801BD7C1A9728766F1C45",
+            "BDB6466EC0707A040489A7D2C3447459E1780699B7D920BDC833ED6A437F5096",
+            "9097BDA67C5DD98954722600586F45229CED9840F977047C9D69DD79B7723579",
+            "AB10631D5C1A79347B12EEB1D64F2F5072FF88FC4E15C7EA3D530DD95BA82D70",
+            "384503DF04B0988D17980773D171EBD15B35987B027C69CF1C2B0C12B92A970A"
+          ],
+          "validation": [
+            "7567D1DFB7332CC6D27727550C6665705ABF68EAAEB192F09A87C35B85158561",
+            "89B4EDC4C63DFBAEE2A2654E2A8B5C6712DF833188E3900E7CFC5709FC112409",
+            "F3968A229A1CBD97C1B3DB0FDC72C514DD45D5E5E3BE57E4D6ED37087856D4FB",
+            "07ACFFC2B4DDB07ECCED826274E9473D6ABBD9C90A6D7701CE28FC397CCE6983",
+            "AB93E12710983ADAF212B761111C90AEC20F0260BE90A3386B1B8426CB0FCEF1",
+            "421117C6135EAFE30B03903EF075A6395DA0030B8EFE2B597DBF71A2AAC203CC",
+            "610D563231FE10A3F697A04C265766DF4DD9A304813BE4218281206240C6A170",
+            "DE7F2880F5E54D59F4B0EACD798A088A03E699BD4D859FD9470260F1D52DD381",
+            "99DE9306DEDD71EF4AB776663B1A4F7848E89CC09CF7A57EB8FB9EE87B8DE61C",
+            "E9F1F3DCEFD6BA334E893BC4F8EF6B28AD8FDB2B88A443FFF1D45528B414C3E1"
+          ]
+        },
+        "fixed_discovery_rows": [
+          "target0_episode0_frame61",
+          "target0_episode1_frame63",
+          "target0_episode2_frame70",
+          "target0_episode3_frame57",
+          "target0_episode4_frame67",
+          "target0_episode5_frame81",
+          "target0_episode6_frame61",
+          "target0_episode7_frame73"
+        ],
+        "frame_count": 8612,
+        "frame_identity_hash_counts": {
+          "test": 837,
+          "train": 6011,
+          "validation": 1764
+        },
+        "gripper_values": [
+          -1.0,
+          1.0
+        ],
+        "length_max": 213,
+        "length_min": 142,
+        "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+        "source_sha256": "1EE3BB8AB3ED9DEAA27CB410B0B9A29874E8687E940BB4A0F4557586CF64BDDF",
+        "source_terminal_failure_count": 0,
+        "source_terminal_success_count": 50,
+        "split_audit": {
+          "all_available": true,
+          "counts": {
+            "test": 5,
+            "train": 35,
+            "validation": 10
+          },
+          "pairwise_overlap": {
+            "test__train": [],
+            "test__validation": [],
+            "train__validation": []
+          }
+        },
+        "state_concat_max_abs_error": 0.0,
+        "state_finite_fraction": 1.0,
+        "state_keys": [
+          "ee_pos",
+          "ee_ori",
+          "ee_states",
+          "gripper_states"
+        ],
+        "state_mapping": "concat(ee_states[6], gripper_states[2]) -> observation.state[8]",
+        "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+        "task_index": 0,
+        "task_language": "put the frying pan under the cabinet shelf"
+      },
+      {
+        "action_finite_fraction": 1.0,
+        "action_iqr": [
+          0.26517857142857143,
+          0.6214285714285713,
+          0.5243303571428571,
+          0.009375,
+          0.037500000000000006,
+          0.009642857142857144,
+          2.0
+        ],
+        "action_max": [
+          0.7232142857142858,
+          0.9133928571428572,
+          0.9375,
+          0.16285714285714287,
+          0.2357142857142857,
+          0.12107142857142857,
+          1.0
+        ],
+        "action_min": [
+          -0.5758928571428572,
+          -0.7875,
+          -0.9375,
+          -0.1842857142857143,
+          -0.20464285714285715,
+          -0.10714285714285715,
+          -1.0
+        ],
+        "action_scale": [
+          0.26517857142857143,
+          0.6214285714285713,
+          0.5243303571428571,
+          0.05,
+          0.05,
+          0.05,
+          2.0
+        ],
+        "action_shape": [
+          7
+        ],
+        "bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray.bddl",
+        "bddl_sha256": "E7DECACD298BCB5922B2E0FFBE53345CDAF8B41FE84ADD6586EB68FCD5893F78",
+        "camera_discovery_value_range": [
+          0,
+          255
+        ],
+        "camera_dtype": "uint8",
+        "camera_keys": [
+          "agentview_rgb",
+          "eye_in_hand_rgb"
+        ],
+        "camera_policy_transform": "official LiberoProcessorStep 180-degree H/W flip, then bicubic 256 resize",
+        "camera_shape": [
+          128,
+          128,
+          3
+        ],
+        "camera_source_convention": "opengl",
+        "controller": {
+          "control_delta": true,
+          "damping_ratio": 1,
+          "damping_ratio_limits": [
+            0,
+            10
+          ],
+          "impedance_mode": "fixed",
+          "input_max": 1,
+          "input_min": -1,
+          "interpolation": null,
+          "kp": 150,
+          "kp_limits": [
+            0,
+            300
+          ],
+          "orientation_limits": null,
+          "output_max": [
+            0.05,
+            0.05,
+            0.05,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "output_min": [
+            -0.05,
+            -0.05,
+            -0.05,
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          "position_limits": null,
+          "ramp_ratio": 0.2,
+          "type": "OSC_POSE",
+          "uncouple_pos_ori": true
+        },
+        "demonstration_count": 50,
+        "episode_identity_hashes": {
+          "test": [
+            "60CC9BB20E822B7FC4DE4DF064C81F6CD42EB2740226B67643AFB2E916EF1564",
+            "E7927D5C10724A7373DE7476C2C0F865894C2A1A1FA3A9C5AB062036733204B7",
+            "92F68CCFDE4A876B75BCC340CAF0D8D450446F9C669DCA7D6F9A1E92D1D9B6C5",
+            "897CCF781F0ACA2A427A51E70141818EB5ED0E3833F9B850CC5AC76CBFFF512B",
+            "7B9E6CA858E874EC1F72C99107A278E045CEC1A2A5119421D8CC1F0FFF311E7F"
+          ],
+          "train": [
+            "745945C11AEE0236DD257501134A0F2FA0188C3916954B87BB1DAAB21EE7BFA7",
+            "2263FB67EDCF6D35EA13DD2D4C2E67E0C0F711DCDF67CDF4989A33669AE9AE91",
+            "61FABEFD18696C008FF5F9F85B2DCDAFCA87F0BE8F613558CAE93BBF0414BAC0",
+            "69D3B420680EEDAB737112BB20186C524FD4F26D193EA7CBC21F527923F54CEE",
+            "7EEE9CE7B397F745136E24EF9D550899F7386132985E2C124769EB243E69AADC",
+            "D777729E1D71FF42F01C189892B3651691286F633E85F7F2C08921CE486B5642",
+            "66105F1DBED2A4E92D3100191389BD8845DA8A1B06895EEC67925F9278368FB9",
+            "D6E95C843DF118AAEEE457466F5FC642A03645A077FDBEC07A48C0EDEC88D9E8",
+            "1651EAF7BBBC98E26FDFF74A5636F9B8E380AF9A8E54263EB89817921D65C3AF",
+            "B1C38B6FEB2BBB7D7CC1083BFC155A1DA309449594FF69F93F6899AB2638FD97",
+            "83109F2A4FD58CEFC0DF7B3C5D795E0332B2F333BD957798F9A161B0137BDCBA",
+            "BAFBB6FEDC47F2FD6FBC0663ED91569A3475711824195A8C2359E945345E1E73",
+            "4867EA2523E564EE5E6B8DCB190C10A6C230167311227AA4CC4C8FDF7D8478C2",
+            "A58D89C87BBB3EA3D544D0236B91D52D692EBFB786AD77E25A35979B34EB8817",
+            "BFE9EE536A9E102D2483BDF7486273DE683779BE0F87C1DC74D41C65F83F5909",
+            "7C6B55D7414F67FE71C07C3F83B6931732D36532CC526D002C1A17A0FBCE99CF",
+            "8FEA1395D9A2A0E550B200F0376A582FFADB3E55B7CC935D331731CF7EAFAE1D",
+            "1C3BDB56C163CC0480002F8B7D58529900DA96209896F6EC46283421269D9F7D",
+            "39AAFE2AEAB5E3B300CC2C7442C5326EF02AF49F8B183432388E2CD5C88085B6",
+            "3F081C59F52FB94C278A2CEE5BE68A2F38005B55BC0E30710EBF854C4DD271F5",
+            "5E38E37FFAE3B3631FBA1D8998497780E41D5EC84EFA8A42A3AAA528CEE1D8C3",
+            "D3F30B96154AD44F928DBACC21F2707E7A341A0D2F336A59B05E5B1CFA33DCDF",
+            "5B2B6802A4199CE443B6F10D300A44CACED805F58539E970D44219AF3FB0C2A0",
+            "6B3DA4FA3C09C9AD8954ED9BF05287816587353466D0D14B624540B5ED742727",
+            "360A8792E83E937038CD01303C8BAB9EAFD51A8C662C6E573A11A53702ADB472",
+            "17C34272911DA0C0214602425D63377AFD2086A8BE30453E21CAFFDE46F355DF",
+            "FC51766789F943C8859724C6D1DBD5460F7361855899A9F8C5835D9EBBEFEBF1",
+            "F34120A85DC1786E4B8656D598720D9344C1A93470FA66392C7EE60C7A8113C7",
+            "1FAF93FE4CC82E3330FF40DC41984BB74C35AC0CDA694982C03974F96C65FE44",
+            "605AD21EE6CB89CF26E5086B1D6D6F04E73579401D2D85BD78F798BFF26495EA",
+            "915908879C00F41ED9DE2C31D8D3F5BCE05EA51D4229093F881CFE0B11852082",
+            "2D4A49F4370B002B7C34EE395B47C2F452A9F2D87CE86408C4C2B11385DE1358",
+            "F571091B5D1F9E06E74C6F3C88D3EFBCA0DC85064416E3611566EC1FE2D80E19",
+            "7D0A3E0D927C05AEF368A4DF83198292EDAF83B9F97BFB825B162DF84810CAAF",
+            "69DBF46FDA06DA31C5C5F1E275440B9859B10B48D8A1807E20E2949A943F47E0"
+          ],
+          "validation": [
+            "994EFB794CA9E8CDCF21A9482802B130031067C0B8A98B433E9059006B593792",
+            "31A584B2ED64569FFAA7CEBF2A9D0235C939EBF941294E4A43C5D54EFB331E16",
+            "80538882B913B63FE644027441715CA774AC070FFEF036C05A4C92BDE9542F73",
+            "0E8E2E3F912B59C17ADF53B600AD7DD572424D65018BE6E8FCCF2CFB0CE9D74E",
+            "309978A38D68A3C821F035D37BAB2B800603F154D93C37660E1E91A96B6E15B3",
+            "F17067B1E3F63658A37EF0F890D62055F651D90D8902A827D608F957E2B54554",
+            "E244EE272D9573308EC5D0B96EA881CD7BFF3311A43A81CB76AC880264271F41",
+            "44C7D5A8611370D0739596842BBC4B70FF6DB50789C0BC87240A29851BAD8013",
+            "EBC421BB96D368599D506A3F05F3E290B902DAFCC30C2B82CC4C01C76840D041",
+            "F54E442AD3A7C02FDEE019480B62D7BB11D11F1C2318AE2EFD989CE7EE8F00A5"
+          ]
+        },
+        "fixed_discovery_rows": [
+          "target1_episode0_frame50",
+          "target1_episode1_frame50",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50",
+          "target1_episode4_frame49",
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target1_episode7_frame56"
+        ],
+        "frame_count": 7660,
+        "frame_identity_hash_counts": {
+          "test": 767,
+          "train": 5386,
+          "validation": 1507
+        },
+        "gripper_values": [
+          -1.0,
+          1.0
+        ],
+        "length_max": 171,
+        "length_min": 139,
+        "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+        "source_sha256": "310068FD25D645010365F3A511C87B933CA92D49BEF6D61C650286A5E1A69CD4",
+        "source_terminal_failure_count": 0,
+        "source_terminal_success_count": 50,
+        "split_audit": {
+          "all_available": true,
+          "counts": {
+            "test": 5,
+            "train": 35,
+            "validation": 10
+          },
+          "pairwise_overlap": {
+            "test__train": [],
+            "test__validation": [],
+            "train__validation": []
+          }
+        },
+        "state_concat_max_abs_error": 0.0,
+        "state_finite_fraction": 1.0,
+        "state_keys": [
+          "ee_pos",
+          "ee_ori",
+          "ee_states",
+          "gripper_states"
+        ],
+        "state_mapping": "concat(ee_states[6], gripper_states[2]) -> observation.state[8]",
+        "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+        "task_index": 1,
+        "task_language": "pick up the chocolate pudding and put it in the tray"
+      },
+      {
+        "action_finite_fraction": 1.0,
+        "action_iqr": [
+          0.3247767857142857,
+          0.47142857142857153,
+          0.45066964285714284,
+          0.010714285714285714,
+          0.024642857142857147,
+          0.08785714285714288,
+          2.0
+        ],
+        "action_max": [
+          0.6535714285714286,
+          0.7258928571428571,
+          0.9375,
+          0.23785714285714282,
+          0.23357142857142857,
+          0.16071428571428573,
+          1.0
+        ],
+        "action_min": [
+          -0.8785714285714287,
+          -0.9375,
+          -0.9375,
+          -0.1725,
+          -0.32785714285714296,
+          -0.30749999999999994,
+          -1.0
+        ],
+        "action_scale": [
+          0.3247767857142857,
+          0.47142857142857153,
+          0.45066964285714284,
+          0.05,
+          0.05,
+          0.08785714285714288,
+          2.0
+        ],
+        "action_shape": [
+          7
+        ],
+        "bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy.bddl",
+        "bddl_sha256": "D7125A220301C45200A90C0F5342414054DA6D2AFC57E7982B0C32A4564AFDC0",
+        "camera_discovery_value_range": [
+          0,
+          251
+        ],
+        "camera_dtype": "uint8",
+        "camera_keys": [
+          "agentview_rgb",
+          "eye_in_hand_rgb"
+        ],
+        "camera_policy_transform": "official LiberoProcessorStep 180-degree H/W flip, then bicubic 256 resize",
+        "camera_shape": [
+          128,
+          128,
+          3
+        ],
+        "camera_source_convention": "opengl",
+        "controller": {
+          "control_delta": true,
+          "damping_ratio": 1,
+          "damping_ratio_limits": [
+            0,
+            10
+          ],
+          "impedance_mode": "fixed",
+          "input_max": 1,
+          "input_min": -1,
+          "interpolation": null,
+          "kp": 150,
+          "kp_limits": [
+            0,
+            300
+          ],
+          "orientation_limits": null,
+          "output_max": [
+            0.05,
+            0.05,
+            0.05,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "output_min": [
+            -0.05,
+            -0.05,
+            -0.05,
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          "position_limits": null,
+          "ramp_ratio": 0.2,
+          "type": "OSC_POSE",
+          "uncouple_pos_ori": true
+        },
+        "demonstration_count": 50,
+        "episode_identity_hashes": {
+          "test": [
+            "D09AE29C255D30424CED346F0BB149806A6B1DEA593BB6D4EFE004112FA26BC4",
+            "F34A72CFBE3983BA55E37D00B3F5F5F248A290803BCED22CEFBED0EB43EC1F9D",
+            "23A0A46DE2B23B7D6FF5A21E4C0FC06F568F86D33DA476706B17CC45E6671B94",
+            "3CD061A97450A391CD4C133A2809B1AC507D5C04720C1978CC6BBDFBFDCB0D17",
+            "BE304CFD99E00E0A337D069FBDEE41EB33C4C7AEB6403C79AFBF7AF71D52686A"
+          ],
+          "train": [
+            "AB6CDB9015F17A9593F13FF785D5B00962FB3BCCC9809003A3DED00D43B7C537",
+            "6BCB3605D9263094F863B2794F03B9D85D7BFAB5C1C82AFFA0C29625E3ECF5F2",
+            "096797EE39C706FB7F7B4F07332060969AE942FD84BFA9160A1FC85EAE958437",
+            "A39591151A4E3FDE42F0B2DE6BC74A208C9870B56CFB4AD81631769D9C9BB655",
+            "A4C352720DF64A3FF357E22F3B62FC034C80DC29D46A1B63C1F44FE856668ECB",
+            "F778C0BE631EC4FDEFC040818B296A8A24C8CC50743CD8C85C4F3BA7E6EDD874",
+            "D7ECD551F4B07AB05357FF62FD365EDD47959A6087F810B798F3CB67C379E9BB",
+            "2DA90C5CD3B48984F28E4759799166EA89724A5D5EFA4382998280B0337FFFFD",
+            "7712F6231136F0E551116F2664DED3035B454CE4DF3D22526610FF0773D246E0",
+            "3DDBB5F0397AB37B766AF8265889195AAF8D7E7C2A2FABD99C31AB224B54D502",
+            "058F4084DE690F46D45AD7C98C80D2C06BF94301811228B41E8B115D840833EA",
+            "6F169BBC33BEA0EE36D4FC4863684D879D593F1C3520288D329A354DB44308DB",
+            "325CDC09BFB16F163EFB1B3D4209699A69F3DECE969D191E103EC7D7A13BE88C",
+            "A4F4A2A8D286FD0E629BD24A05F9BF546B8FAD1E7011F92D21957D566CB4284D",
+            "C6D5C728CDC20F43195EB0F6BCDF21939204E11F206DA74895E50943C03D9441",
+            "2C95C5275DBE567FD1562F05DB546F443063CD67DA3D54197DF5E9F9CB5D9092",
+            "656EC5B9FB51EF59A46464A6108F524BC6BB837583BC85FD09429275181E4209",
+            "C6B9AAD100A09AA9AB596F027C4EA5B510B005B50131CA09391C33AA361D1089",
+            "017C2483AA91AE2C3232725CD55419764C556D6CA109200484ADAED1404E4979",
+            "CAD60A7C65FF16D2F680B2205CFD9DB84DB5CE6F9186382A6CC5FD5BD3591CD4",
+            "768CF41DB34958F89F44AAD58D5D47AE07E35E5A23798792142D509DF362018A",
+            "A5DB3549007233E499AEC493D7465FAA2708E2C0EAA64CB5C65D6801554B2866",
+            "1B4AA16801629C6BB4E04C9219BBBA8D4B392DF872D0E10257A04E46CA54B093",
+            "3E8271C61774334AC9F7F97BC592762E403880C4E6A37C637952229A4E05FB0C",
+            "E592A1EF060AC96F48587A59F4772B78F41C1B0B8009AA41B8668D149B5CF6B5",
+            "68F251ED862DC9557B1A0C4A748F1A519087CC370ABD82FBFB9E51AF8EF13C80",
+            "70E75305EF0BCBC24DB9475C5033812E6B9C03DD503D666F62D9CE1AA1B3D136",
+            "33C7EF5F1390620E904C89058DF4FF3CD3BFABDAEF685416B5DE8D299CA1449D",
+            "20A74333AA7EA04CD0CC5AB38649518E22E761EAB89B8BF08CA1B0FF2C049D14",
+            "52E2EF65B57AE2244E1A98132199E1DBE2D763C93B7DF5A206CEC8ADF1E093A6",
+            "2D00DCA51B14A94A64AAEBD07A634B56F574125D6FE5EE2EDA1437A9BCA0A385",
+            "BE16E632D554B127DB10DB20BB2E4F4BA0B5886713B8315A7DA20AEFB99AC0D8",
+            "24055B7D1E42426B884311AC4DAA323F155F5B6D079414710D65640ED2DA763C",
+            "6DE297DD6372DD95E071CEAEEF18E627D333FF090BADDD952CDB33CD962B4286",
+            "9D22AB0C85D17442B8BE92C91193C3A036F188DCB63CB24E81BA3928B97CE263"
+          ],
+          "validation": [
+            "07B5A6FEEB88B786165A08AA6013C4DBE3E73E7C65FA2D50D27B7A660DD0109C",
+            "91F0364A2B7B8A1AF2D41CCD3AED06D73ED53ADE7F2134921DE521AC02DB0659",
+            "53D099B1796B155F2421E0D392A2C199253AC44F65A1EE49A16F8DA5BE0C298C",
+            "F80432E960EE63D86418D597589BAB51B302DDEC108AFF79E9E6BB2A71AFA463",
+            "9F5C2F07F96F68F36CF5D4DF0568303A4D3717F2090C51D6DA46CE4A851F8ABC",
+            "5F39FE545880A7F287FCA50E0BFF8116589F84D4602E2AF1993BDC4634D94E2C",
+            "01A032AF1D2544E46D00DA4BFDDE585360B8583EE14A688966B27E53928D087C",
+            "3C4D5C36F28031930214D36F12757396642092E9FA1BBA65C36E5332EEB13FF4",
+            "488BD31DF755DC250039A132861259690815DC29CEB1815276BC74E1174C6FC5",
+            "20E8CFE1448DC2D9F792596BA0A50BB09824BB5B23A4F8E4A01F9093BEFE43D4"
+          ]
+        },
+        "fixed_discovery_rows": [
+          "target2_episode0_frame49",
+          "target2_episode1_frame50",
+          "target2_episode2_frame44",
+          "target2_episode3_frame58",
+          "target2_episode4_frame56",
+          "target2_episode5_frame52",
+          "target2_episode6_frame52",
+          "target2_episode7_frame66"
+        ],
+        "frame_count": 7938,
+        "frame_identity_hash_counts": {
+          "test": 840,
+          "train": 5528,
+          "validation": 1570
+        },
+        "gripper_values": [
+          -1.0,
+          1.0
+        ],
+        "length_max": 211,
+        "length_min": 130,
+        "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+        "source_sha256": "4483158FFCF75E24687EC341D77342655EFB71B12BC7B4093CD763B8E1FF2AE2",
+        "source_terminal_failure_count": 0,
+        "source_terminal_success_count": 50,
+        "split_audit": {
+          "all_available": true,
+          "counts": {
+            "test": 5,
+            "train": 35,
+            "validation": 10
+          },
+          "pairwise_overlap": {
+            "test__train": [],
+            "test__validation": [],
+            "train__validation": []
+          }
+        },
+        "state_concat_max_abs_error": 0.0,
+        "state_finite_fraction": 1.0,
+        "state_keys": [
+          "ee_pos",
+          "ee_ori",
+          "ee_states",
+          "gripper_states"
+        ],
+        "state_mapping": "concat(ee_states[6], gripper_states[2]) -> observation.state[8]",
+        "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+        "task_index": 2,
+        "task_language": "pick up the book and place it in the left compartment of the caddy"
+      }
+    ]
+  },
+  "decision_summary": {
+    "base_unchanged": true,
+    "capacity_check_used": false,
+    "checkpoint_reload_passed": true,
+    "confirmatory_sealed": true,
+    "data_semantics_passed": true,
+    "essential_source_unavailable": false,
+    "gradient_health_passed": true,
+    "group_assignment_passed": true,
+    "identity_passed": true,
+    "memory_passed": true,
+    "preflight_passed": true,
+    "scaling_identity_passed": true,
+    "split_integrity_passed": true,
+    "subset_fit_passed": true,
+    "target_modules_passed": true,
+    "target_overlap_count": 0
+  },
+  "elapsed_seconds_diagnostic_only": 76.25779938697815,
+  "exception_count": 0,
+  "experiment_boundaries": {
+    "closed_loop_experiment_happened": false,
+    "confirmatory_test_tuning_happened": false,
+    "stage": "Stage 0A",
+    "test_episode_observation_decode_happened": false,
+    "training_happened": true,
+    "validation_search_happened": false
+  },
+  "final_decision": "FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED",
+  "finished_unix": 1784107442.9300838,
+  "git_commit": "1438232f6393fd5bf3cf642907192d7d9090efc0",
+  "input_contract": {
+    "identity_draw": {
+      "noise_hash": "51B7DF670554DF6E5800261FF36E9D5867A81A56EAD53ACD9CE6EFC788F04AAF",
+      "seed": 2115933115895133717,
+      "time_hash": "30063B507F675868DFEB10EC33AA646460FAE5AC88BE77CBECB2505CCF3E43E6"
+    },
+    "processed_devices": {
+      "action": "cuda:0",
+      "action_is_pad": "cuda:0",
+      "actions_id_pad": "cuda:0",
+      "episode_index": "cuda:0",
+      "index": "cuda:0",
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0",
+      "task_index": "cuda:0"
+    },
+    "processed_shapes": {
+      "action": [
+        1,
+        50,
+        7
+      ],
+      "action_is_pad": [
+        1,
+        50
+      ],
+      "actions_id_pad": [
+        1,
+        50
+      ],
+      "episode_index": [],
+      "index": [
+        1
+      ],
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ],
+      "task_index": [
+        1
+      ]
+    },
+    "raw_sample_shapes": {
+      "action": [
+        50,
+        7
+      ],
+      "action_is_pad": [
+        50
+      ],
+      "episode_index": [],
+      "frame_index": [],
+      "index": [],
+      "observation.images.image": [
+        3,
+        256,
+        256
+      ],
+      "observation.images.image2": [
+        3,
+        256,
+        256
+      ],
+      "observation.state": [
+        8
+      ],
+      "task": null,
+      "task_index": [],
+      "timestamp": []
+    }
+  },
+  "method": "FAMR-VLA",
+  "micro_fit": {
+    "completed_steps": 20,
+    "fixed_subset_loss_after": 0.6487047945459684,
+    "fixed_subset_loss_after_values": [
+      0.19536563754081726,
+      0.48237112164497375,
+      0.5125011205673218,
+      1.1008741855621338,
+      1.2929937839508057,
+      2.4122133255004883,
+      0.8324108719825745,
+      0.313205361366272,
+      0.1437574326992035,
+      0.20922914147377014,
+      0.04872918128967285,
+      0.15341396629810333,
+      0.1777012050151825,
+      1.3208544254302979,
+      0.0720827504992485,
+      0.46023619174957275,
+      1.2656761407852173,
+      0.2028140276670456,
+      0.21724723279476166,
+      0.11492196470499039,
+      0.22605563700199127,
+      1.2143737077713013,
+      1.3449376821517944,
+      1.2549489736557007
+    ],
+    "fixed_subset_loss_before": 0.7321685557253659,
+    "fixed_subset_loss_before_values": [
+      0.21806079149246216,
+      0.5244773626327515,
+      0.5924882292747498,
+      1.2480294704437256,
+      1.5561628341674805,
+      2.690464735031128,
+      1.0678175687789917,
+      0.3564223647117615,
+      0.1519501507282257,
+      0.22226737439632416,
+      0.05042121186852455,
+      0.15635909140110016,
+      0.18483982980251312,
+      1.4227590560913086,
+      0.07317052781581879,
+      0.5203218460083008,
+      1.4241993427276611,
+      0.21913494169712067,
+      0.2353219985961914,
+      0.12038784474134445,
+      0.24187114834785461,
+      1.2997530698776245,
+      1.542164921760559,
+      1.4531996250152588
+    ],
+    "fixed_subset_passed": true,
+    "fixed_subset_relative_reduction": 0.11399528227036353,
+    "fixed_subset_row_count": 24,
+    "fixed_subset_rows": [
+      "target0_episode0_frame61",
+      "target0_episode1_frame63",
+      "target0_episode2_frame70",
+      "target0_episode3_frame57",
+      "target0_episode4_frame67",
+      "target0_episode5_frame81",
+      "target0_episode6_frame61",
+      "target0_episode7_frame73",
+      "target1_episode0_frame50",
+      "target1_episode1_frame50",
+      "target1_episode2_frame54",
+      "target1_episode3_frame50",
+      "target1_episode4_frame49",
+      "target1_episode5_frame53",
+      "target1_episode6_frame48",
+      "target1_episode7_frame56",
+      "target2_episode0_frame49",
+      "target2_episode1_frame50",
+      "target2_episode2_frame44",
+      "target2_episode3_frame58",
+      "target2_episode4_frame56",
+      "target2_episode5_frame52",
+      "target2_episode6_frame52",
+      "target2_episode7_frame66"
+    ],
+    "gradient_accumulation": 8,
+    "gradient_curve": [
+      {
+        "gradient_norm": 0.5727076994815472,
+        "nonzero_gradient_tensor_count": 37,
+        "optimizer_step": 1
+      },
+      {
+        "gradient_norm": 0.41690730420474176,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 2
+      },
+      {
+        "gradient_norm": 0.17882790855735942,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 3
+      },
+      {
+        "gradient_norm": 0.7242480825592332,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 4
+      },
+      {
+        "gradient_norm": 0.29872314567827407,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 5
+      },
+      {
+        "gradient_norm": 0.4377005163268093,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 6
+      },
+      {
+        "gradient_norm": 0.4970267223514953,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 7
+      },
+      {
+        "gradient_norm": 0.260795286144301,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 8
+      },
+      {
+        "gradient_norm": 0.19016076559058034,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 9
+      },
+      {
+        "gradient_norm": 0.4043258892571527,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 10
+      },
+      {
+        "gradient_norm": 0.5591800604391718,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 11
+      },
+      {
+        "gradient_norm": 0.5107017484404391,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 12
+      },
+      {
+        "gradient_norm": 0.5728116368723227,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 13
+      },
+      {
+        "gradient_norm": 0.5180433370164067,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 14
+      },
+      {
+        "gradient_norm": 0.45113980538902587,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 15
+      },
+      {
+        "gradient_norm": 0.6308515266459429,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 16
+      },
+      {
+        "gradient_norm": 0.8467502387075219,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 17
+      },
+      {
+        "gradient_norm": 0.2816135731391761,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 18
+      },
+      {
+        "gradient_norm": 1.031275880748947,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 19
+      },
+      {
+        "gradient_norm": 0.8731103993954704,
+        "nonzero_gradient_tensor_count": 74,
+        "optimizer_step": 20
+      }
+    ],
+    "learning_rate": 0.0001,
+    "loss_curve": [
+      {
+        "draws": [
+          {
+            "noise_hash": "CE246EEF88472E022820F4CC0E663241B2EA559CF93497995500AA8EBF21E1F8",
+            "seed": 4746486355987108117,
+            "time_hash": "58D7FF92AEA698FA0DDDA2A4FF6D3FF4691CB638DE6AE3B96922DB5B44868DCF"
+          },
+          {
+            "noise_hash": "BFF4287A04AB4932034920C34379DECDADD71472F27808A6E36E231D899462FB",
+            "seed": 4401192353873002810,
+            "time_hash": "0930508C20E17068325C959DE8022C8E7D062795C67FE1956E8578533A79FEA7"
+          },
+          {
+            "noise_hash": "FBB9FF69105308AF60A1EEF5CFCA5FD33BF4351F5F55E5F5699B51F3E890B82D",
+            "seed": 2511110833540180837,
+            "time_hash": "F36A2237D9BD60F0F8A9153D66D3D9111374B1BB64167426702F376EDA9F8CF3"
+          },
+          {
+            "noise_hash": "97EA8F5DB8C270939C1A4D606F69D6E2C8FFD002AFF36B558FF719A7F5B6F3CB",
+            "seed": 15632579202762599026,
+            "time_hash": "CD1B5459FF36727319B9C4F7DF3CCF40378E5A9CD12368D7FC142B5E77CD64CE"
+          },
+          {
+            "noise_hash": "D8194BAE283EFF5E121E3D9893FFE9A000E84C97A275458EA7924FEEFDD9F523",
+            "seed": 14966323474969256347,
+            "time_hash": "1F9674DEA094D7EACF2EAF532617B9BEF21AC675D32CA18E42720CBB9B466B2F"
+          },
+          {
+            "noise_hash": "E1A2C1F19C1434EDCBC5C5FB0B795B3138496E92DE991B65E4D361770B8FEC83",
+            "seed": 15724648516809013708,
+            "time_hash": "7CB85F771D3E15D0E9DF34338AA054A9A65D6C5196902846A5000FB131CC719B"
+          },
+          {
+            "noise_hash": "C68E046EFB57C8F983E3A1C31605266990EA27D82CF7ACAC7DB9B0435690E034",
+            "seed": 239600574781948777,
+            "time_hash": "13A4B589915D2C2BDCEDF4AAC8995D0D911D6D86153F977A47A43DB34C7B43CF"
+          },
+          {
+            "noise_hash": "C4EE005D1B612BDC0AF42DFFA53CA49018B6EE4387CBE859F92ED04EDC98DD2D",
+            "seed": 3100290401442608633,
+            "time_hash": "63E6D0FF97B52AB011EA19163884081F052D553DE71AE6387FFDD1E9FC35597F"
+          }
+        ],
+        "mean_micro_loss": 0.973401665687561,
+        "micro_losses": [
+          2.5984508991241455,
+          0.19838157296180725,
+          2.909714937210083,
+          0.18525248765945435,
+          0.6347481608390808,
+          0.27180686593055725,
+          0.5130559206008911,
+          0.475802481174469
+        ],
+        "optimizer_step": 1,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "F26FD5373CA4EC7E8A2AF3B834C64232A957370D3C3184791F7B5E01866DA2ED",
+            "seed": 12188864208549134814,
+            "time_hash": "8D87255988BC4BAB7213AF7F7DFA0B74A6E7B4AEDB2CAC4F8779DB900C4F6CD4"
+          },
+          {
+            "noise_hash": "85797D4694AB8C79618B3F030DCFF4C9A56B0CE1CD825BD847F0F37B2CA58ACF",
+            "seed": 10301431683420039517,
+            "time_hash": "2F253826BC0DD0573C164B1048F57CAA159EBA21CF0CBCF47E5985EB3904C2C7"
+          },
+          {
+            "noise_hash": "79BE683680D6F78BA44A6C010E826D5A0F7FF41793DB29B6FC04D89EB3424ECB",
+            "seed": 4096715384261066271,
+            "time_hash": "90B6A6A542C9210F5851CE22DD79F811EDA9D3921631BB7D7A5D59814CD9AC54"
+          },
+          {
+            "noise_hash": "9BE679DF0E3AFDCE1142EF4F73747F1DC6A57F2F6E560CE56299637225B955DB",
+            "seed": 17607376085797828034,
+            "time_hash": "5D167AE87499BEF6797735AA95752876D41F346088DDC041B2FADDD7FD1A7DE9"
+          },
+          {
+            "noise_hash": "9AF0FAE45990AF9B277433CA9279509E11EB36020469A8CDF4FFA90BC628D301",
+            "seed": 13715881130382942138,
+            "time_hash": "5A2CAEC30F1444025FB501DC6DAAFF7C7E4E61C9F9A9AB186846E72BDD509FBC"
+          },
+          {
+            "noise_hash": "F9D0D9C7D7CDBF66CFD30C47CA238A8148F91ACBEDBD8097D0C5E3A32B1936FA",
+            "seed": 11622490361212121269,
+            "time_hash": "C1A3674E4063DFCA1040FCA38AC95AC27B62A0B226A754D083375D9BC8C1AF3E"
+          },
+          {
+            "noise_hash": "4371A14FCBFAA487CEB24417D1C3BE51F692F6AD0218AAA10D2F66D0C7DB675A",
+            "seed": 12763626756538643404,
+            "time_hash": "7D9C0329581B99743FF1A4F7527A39CC7ED2D700F06FA3667DC88664E96417CF"
+          },
+          {
+            "noise_hash": "F3ED4302559754F98E7ED5BC6E81342A2D13CEC53BA3D228CE6CC6750C22CB6C",
+            "seed": 6683941729482535659,
+            "time_hash": "6174FAAF7170906E598E4DFC636520300B3C36D0DA94ABECCD8FA9C5FDD694C7"
+          }
+        ],
+        "mean_micro_loss": 1.0523691102862358,
+        "micro_losses": [
+          0.4351956844329834,
+          2.2615349292755127,
+          1.4388494491577148,
+          0.847622811794281,
+          1.561491847038269,
+          0.42390912771224976,
+          0.8008134961128235,
+          0.6495355367660522
+        ],
+        "optimizer_step": 2,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "1BA11BDC969760AB566CCB0C860381E7E02EDF8C825F8443EE4F1CD831D47C38",
+            "seed": 17543340831449274947,
+            "time_hash": "552DD51960C5C996CAC3BE82589CF8844A3FCF5E2405BD351BF0E802A6750BA4"
+          },
+          {
+            "noise_hash": "C7B9A175E14742BD18A4EF66B887B9D58EA248902C537BFBB7702BA6D8355DEA",
+            "seed": 3427786413609497287,
+            "time_hash": "6978929750943F6E23C3A93478E2FF2C5F3FA7F5D60065510F4454C547377BAA"
+          },
+          {
+            "noise_hash": "2ED6AC683998F99D3037B1F1346143091B6F52D84AE97F953A65516530D38F0F",
+            "seed": 14429281732022293860,
+            "time_hash": "9443B50BE73F46D9D55BBE750D336BC9EB36A78E7F7DC28333243ECCA87E7B83"
+          },
+          {
+            "noise_hash": "12CA1AECF1FCB6C11EE1D7CC868F46AC3EE098C81470D460C6E9D66951D301BC",
+            "seed": 13700156735736485493,
+            "time_hash": "23753518A6182518945F628BE466FEED5877903448EB29C457981ED93DDB53B9"
+          },
+          {
+            "noise_hash": "98B6EAA176BA26C292383EF79C952B07E84A74FA5A947861A426E64446E90B2C",
+            "seed": 12847309151181692699,
+            "time_hash": "6F1A11F04308646D6DA250B8601B940DD12AB9D0EC194E3CA6C48C0F88404BDE"
+          },
+          {
+            "noise_hash": "7DC90DC17C44A727319C99C678C05764C8018EB1EC7ADCBD851DE7604F1107EA",
+            "seed": 995520341777332287,
+            "time_hash": "B1E205023271130538D9684D46E951CD46CE388D2C79C53C4E2015F28D325197"
+          },
+          {
+            "noise_hash": "A7B7273D40CF121793B06E53E5627E671AA2B506BA1B32E0510F33828A425806",
+            "seed": 13567058536775315865,
+            "time_hash": "5065AFBCF6A58CF3E3915267D49BB0B02F277742E5590CBDD7957A4BEEDF64A7"
+          },
+          {
+            "noise_hash": "DF87A17EA0E450B9DD0B5A284277C0CEE951962218416F436EB69540B78D6D14",
+            "seed": 612397807978123724,
+            "time_hash": "4197C2A9A0C4BF2B4B353B27DCA8CA44A1B66EF45498259C1A9BE2066A4A6873"
+          }
+        ],
+        "mean_micro_loss": 0.3152573322877288,
+        "micro_losses": [
+          0.1504840850830078,
+          0.07978164404630661,
+          0.10888515412807465,
+          0.385913223028183,
+          1.1086105108261108,
+          0.18608121573925018,
+          0.06542843580245972,
+          0.4368743896484375
+        ],
+        "optimizer_step": 3,
+        "row_ids": [
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target2_episode4_frame56",
+          "target0_episode2_frame70",
+          "target0_episode1_frame63",
+          "target2_episode1_frame50",
+          "target2_episode0_frame49",
+          "target0_episode0_frame61"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "56563C6B8DC3263DF2E853DB0210CC7C1C1A3824281EC5342D2769621161E708",
+            "seed": 1315183850894702703,
+            "time_hash": "8F0449516A853DAFC1481E7C788E11F839F7CBE7C888FF83E8E5054F530DB431"
+          },
+          {
+            "noise_hash": "E4BDEAD737BD26E1D698222129267D8A45E0A8711A8C315A8136EFD23F97BCD8",
+            "seed": 9876892018206123573,
+            "time_hash": "3407FCDFCEE9C30AF96023C506CC3CEC0805C8D9058438D3DE957AAA8EA3100E"
+          },
+          {
+            "noise_hash": "AF8B3BC5EED550F1B117999CAC5D01E108551F2A782D4CF02F3CDF23B20DFD4B",
+            "seed": 14357799027431934516,
+            "time_hash": "AFA36E265136FA5726830581907523C75382F44533E489C8FDB2CF06D6A0A2FB"
+          },
+          {
+            "noise_hash": "889A618052CEF0A8E01357D19DBE90E6B36AB7D7BBD50141FF54613618399615",
+            "seed": 13795746943769103097,
+            "time_hash": "FDBC29E167B3A05BEBB56CF594E0BFC65BDEEB3A90D96658772A6B754B4986A1"
+          },
+          {
+            "noise_hash": "C92F7942F711BCB4F6C3A41725DA20F2B77609D6B262AC0B801D2ED700F573B4",
+            "seed": 17974043233623509386,
+            "time_hash": "777FE6C94B682E3702F5CB5925DD5FA5E5EDE0C3C399AE6AEB3260D2B76CCCA4"
+          },
+          {
+            "noise_hash": "3F27ACA9FE255320011E7AEA88BF1AB7BCECA830FBFA5BE67CAF5C8A5F30507D",
+            "seed": 9779591514108678394,
+            "time_hash": "ADD9EDD7DF024408B1F79D616A0E769D29AFC82E8D476EAAA04B3570794E12F8"
+          },
+          {
+            "noise_hash": "28FD923AA96D61FE28A1AB455D20BF7FE09A5C61F1A38AC68DC79483E445B02E",
+            "seed": 14454831708525497567,
+            "time_hash": "AABB9363F8CB080BD9BD8EC60D3BB96604B20D47B5B5EBEF69F763A129F6CDF3"
+          },
+          {
+            "noise_hash": "05E8EEAB888FAB4B8771711D6DB69A819AD3FD69056F63D2F1957AB67CE4EF95",
+            "seed": 17897840861742152635,
+            "time_hash": "4AE1FB2063C2034577EE762EC1A864B75DF05DC66FFFF5EEF5C5B0D441663D89"
+          }
+        ],
+        "mean_micro_loss": 1.189333911985159,
+        "micro_losses": [
+          0.7534684538841248,
+          1.4151524305343628,
+          0.4021933972835541,
+          0.5786842703819275,
+          1.6047964096069336,
+          0.5896376371383667,
+          1.3599050045013428,
+          2.810833692550659
+        ],
+        "optimizer_step": 4,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "72BB97007C65467307B2E66BBD2324C46E1BCD89BD18EA102912D982D447FBAD",
+            "seed": 11002305816947988319,
+            "time_hash": "E0A60FF24C5D49C1BBA7362808709E275B19C47064666FC515D2427780A5F6E8"
+          },
+          {
+            "noise_hash": "3C855C6CF95440A3AB1E18BA467C6039336D34CDB8FF85C09DEE71BB0A082FBC",
+            "seed": 16982455650340949997,
+            "time_hash": "00A19831A59457B41BF7BE84AEC6ED04F2651567E887FC5F510E2B882BC84EA0"
+          },
+          {
+            "noise_hash": "4B0623AC28441124B79083055E3BC8C941918076C8290DF46F7ABBE95EF7358E",
+            "seed": 10629838303200834039,
+            "time_hash": "07A2067FD36478DFD8A99D2DAD2311835EC90CFCC1C6DF5F3546975A16705537"
+          },
+          {
+            "noise_hash": "2C0C040A8FA3D5BCD390DC02661DCA94362394E675A4C44D965AB65AFA1E87D4",
+            "seed": 7607525824305633587,
+            "time_hash": "88968E3909347FF7955C3574A5BE2DF63A9610EDA80F092980A533037BAB7102"
+          },
+          {
+            "noise_hash": "F8AD65542F9C5C25023B4BEE956E631B7A214F5D1E2E2EC9266F261EB0E04404",
+            "seed": 11048666049687417715,
+            "time_hash": "E9E19B02452423C79A728A283D7732D9ECAEDA5E66495E516454153030535919"
+          },
+          {
+            "noise_hash": "8AE02B0C451457AA365FF49B52C87C0BEF65785F25FE6CB4A668629BC08AE6A6",
+            "seed": 13485307567393466244,
+            "time_hash": "3DD056317764377A20C3484C43174118187C45D1BB432598B636B7EF7016879C"
+          },
+          {
+            "noise_hash": "0ABDF4A21AEF68E6B1A9D9178E0A2AC2D2720CBAE7FF5B4DAF8596004D116A70",
+            "seed": 15895088890948174926,
+            "time_hash": "C1853536EF78EB11103C4AAD03CA01BF454D3DF9996557CE7491F5C5755906F2"
+          },
+          {
+            "noise_hash": "F3ACC7826ABD5A959D2F02E82A5BBAE921311B3404FAE15A65BD0A7FAEE9A841",
+            "seed": 3101916081050897737,
+            "time_hash": "DA9224B10B59567CACBF8516CA82B991FDAEDEC9706F92E64E3DD39F5BE3D5F7"
+          }
+        ],
+        "mean_micro_loss": 0.659196063876152,
+        "micro_losses": [
+          0.4521951675415039,
+          1.593587040901184,
+          2.073105812072754,
+          0.5610740184783936,
+          0.33396032452583313,
+          0.09653595089912415,
+          0.0783059224486351,
+          0.08480427414178848
+        ],
+        "optimizer_step": 5,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "2FC3EE70F44BD6A8A19A7B63673CECE635573E084944FCB611C116966861875F",
+            "seed": 13173125952114787666,
+            "time_hash": "B652475514B4ABC66C23F27BA235D8FA3C72FFA2D0985197F517DC179FDB4148"
+          },
+          {
+            "noise_hash": "7C786B0F6893C3033833F9655A396A41317025B27A8D1FC717552849D848FD37",
+            "seed": 3914707027399752456,
+            "time_hash": "1E005D351CB61C914FB37308A27D899C541ECB38FB2FDA3BA782378DE2DD72B1"
+          },
+          {
+            "noise_hash": "AE99E1FC6FDC0DAF813101922277E261894EFD83CD81E173C9ECC08767B65506",
+            "seed": 1771095830815103778,
+            "time_hash": "A2A5B1B6B69E797ABF88FD5BD245278796C6D151C78C54F811E2C76719C6E269"
+          },
+          {
+            "noise_hash": "EFFCC3AA6BF0780B7D318334F91B1872CD5918924B6AB29E5C700B6FAA936536",
+            "seed": 11259010513192470461,
+            "time_hash": "32CBC03C133E929A1A979C99E14725FC530AB9AAC7CBE649FAA9F1F44C03946C"
+          },
+          {
+            "noise_hash": "D737034A51A6EB2AC9E033131996D38A1D31AC0AB46F17ED4BD28D87ADFA0AE9",
+            "seed": 5614955743736697509,
+            "time_hash": "ADE1F366348D3367366563128AA20D7615A0A5613B73DB45094A0BC98619EBA0"
+          },
+          {
+            "noise_hash": "6A1B0C2FA5D7C1B76A706BCA413A916A248CBF3C6CA14E6E02BF2035880381F9",
+            "seed": 9423940984200857550,
+            "time_hash": "313DDE619DA8C946927629F95634D6E9EB629D5BC2DD0C1673AA038574871045"
+          },
+          {
+            "noise_hash": "0EFB2FC18CAF5339A6B4BE60D595A3B8F54255964AE0672900B90FFD3F282E92",
+            "seed": 13572411686917293812,
+            "time_hash": "991F92B0A4AD9902435421C59B9EC85323F86135E1634BF2DB17181DF88E25D3"
+          },
+          {
+            "noise_hash": "1E51A78A20C3EF85067791B1A7DF59B9A77990FF88E4AFBB757E09991888886B",
+            "seed": 1844130059824672377,
+            "time_hash": "55D7958F6E4C40CB5B74B0524E4B3E2F86D9F1B10A7D318D9006F2376E6B1373"
+          }
+        ],
+        "mean_micro_loss": 0.6575950561091304,
+        "micro_losses": [
+          0.1796053797006607,
+          0.5246069431304932,
+          0.44566062092781067,
+          0.31872183084487915,
+          2.11924147605896,
+          0.1124214306473732,
+          0.644200325012207,
+          0.9163024425506592
+        ],
+        "optimizer_step": 6,
+        "row_ids": [
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target2_episode4_frame56",
+          "target0_episode2_frame70",
+          "target0_episode1_frame63",
+          "target2_episode1_frame50",
+          "target2_episode0_frame49",
+          "target0_episode0_frame61"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "31E97AD502496CE1393A764E9EB969F6067CEA43253DCDE1E968DA5C7024080E",
+            "seed": 5569660099239366686,
+            "time_hash": "44F1CE9150D2F871F5DBADEB9902979D0ED3E744370E6BF76E46845EF0221F23"
+          },
+          {
+            "noise_hash": "D56821A7B93217CF553966FD4B273A4905E602F73FB4A39B1301E8081304FA43",
+            "seed": 4256143373821669509,
+            "time_hash": "7BB9B28274E53499EFC8305312C6AD926B8A25BC12850408AE20624568E9FE44"
+          },
+          {
+            "noise_hash": "1C944BC19AF1110383459DE3FE0FF746C0803CC1E81D53E7FBC07A1B43BC104E",
+            "seed": 17209654094885982179,
+            "time_hash": "83FEDFD5C35CE8FF9A4F7B66D0EF9499BEF42717C371B6FBA952D131601FCD8B"
+          },
+          {
+            "noise_hash": "95D6C56D3F42D12A6D8D36D28CD256872C529218657524680E5549AD6EE60BBF",
+            "seed": 10537197556359182275,
+            "time_hash": "6576A288C5BDE797AA82F17533773E0FB00DE7D43F43051EFB304C4798847AEC"
+          },
+          {
+            "noise_hash": "DC15F32F07A80F38EB3C0308A410274E078E776EED6162872C1ED246A8F39F09",
+            "seed": 7998546719024032102,
+            "time_hash": "277C0D4F2887E98061903EC9C5DD46280B1F4EBCD8186E6386DB77C3F32596F0"
+          },
+          {
+            "noise_hash": "471D63D32589D7647930604F2F48D81365642ECE70AEE11DEAE669806EC4D196",
+            "seed": 2280123449726516471,
+            "time_hash": "BA349B329B1A04F045C1A0FD3EDA509E32808A485A2929363B3A5CDBA81473F6"
+          },
+          {
+            "noise_hash": "ED941FF6BEE998C063DBEF48ED2E77247D00C3A8069619D46C60077A990B59DE",
+            "seed": 14327125493352589559,
+            "time_hash": "9F0D3889DAC54CA50A79BFA5B4007C38008CB57CE5970CF43C44337DA605F409"
+          },
+          {
+            "noise_hash": "6173D5BF7D4B65E3362C39E954409395E041301BB596CA39802761DDFEB8CBD2",
+            "seed": 6723284201568108427,
+            "time_hash": "8FC620E0808663F166F8095C62833D9A0076EDD9B71FF8949C35003DF2B91351"
+          }
+        ],
+        "mean_micro_loss": 0.8406571447849274,
+        "micro_losses": [
+          0.39178141951560974,
+          1.104387879371643,
+          0.3859490752220154,
+          0.222471684217453,
+          0.4322524070739746,
+          1.1314221620559692,
+          2.323737859725952,
+          0.7332546710968018
+        ],
+        "optimizer_step": 7,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "5410D34E2203A71B0508DCD1ED2EC4DEE8AAFE25689311C606EAFC7604F6703F",
+            "seed": 10041777372011726752,
+            "time_hash": "3E392B8C6A31991FF5C55EDD923124CB050BFADBB408DCCFE7C7B9390CF24C1D"
+          },
+          {
+            "noise_hash": "8EDAE0ACC4DCB1F7A6B278FA2CD912D72A215A5C2A3502542A485F085FE034B7",
+            "seed": 8109702887497225475,
+            "time_hash": "B8C04A8BCB56225DBB3294E22AFFFAFFD59FEE20C4F670F95D203692AD22DAA5"
+          },
+          {
+            "noise_hash": "B3215B8786A8FBD09DA8BD7D81CBF5EDFEE81596C59BDAC5B04F6429609B7FC4",
+            "seed": 6272279765605335778,
+            "time_hash": "8D34865A8ECF12F634D84ADA812EAA4C430D573E57C3F71A6D2F97A1FBBDE737"
+          },
+          {
+            "noise_hash": "47C26C5C3472504A34EB50812030356BA28D5781EA3A78AD563C35EDFA03234B",
+            "seed": 8554493575924849026,
+            "time_hash": "B5A4E5C21CC8A2B77C595968A325A016B99374910DFC7C0C4C6CBB294337655D"
+          },
+          {
+            "noise_hash": "0058DA5A0751444CFEED6B0D470748BC3EE4F48BE299BB96CB61E89E8E22460F",
+            "seed": 13786255768691815650,
+            "time_hash": "E675F4A5B0ED2C030C9B5F64CC382A47A678D21B24430B5F8FAD707DC2481CD4"
+          },
+          {
+            "noise_hash": "3BBD077E5F737580728A32AABA4797BF4D569B886959AE8963C65342727835B5",
+            "seed": 9935828413698864759,
+            "time_hash": "EAFDF278F1B3E5D2302B3D5BA068CBE88A89723C726ADC451339292257D2C800"
+          },
+          {
+            "noise_hash": "D89BFA1C3B008E574DB1E32165586491AB6916AB45940DA24F797BBF39216E76",
+            "seed": 15371803003693856310,
+            "time_hash": "1CBD4D403CB29E7A82B96C119815D876E9801F9BB085C1ED71AB60A97910A794"
+          },
+          {
+            "noise_hash": "CFAFA85B302A73528049B990611ADC24DFFE6F67C02631B1463A67FFB03274A1",
+            "seed": 14394349410868390673,
+            "time_hash": "DD81CF0F629687E9B211623A235EF4EFA5F7B4F39FC90A1C1C48DBF80AFA2CF2"
+          }
+        ],
+        "mean_micro_loss": 0.466557826846838,
+        "micro_losses": [
+          0.29450204968452454,
+          1.422558307647705,
+          0.3149459958076477,
+          0.44610467553138733,
+          0.6350588202476501,
+          0.08476315438747406,
+          0.11760495603084564,
+          0.4169246554374695
+        ],
+        "optimizer_step": 8,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "FCD0AA4FC1DE99A2A9CFC9631541624C0E3D242D32D09EEE911B12FC13581D91",
+            "seed": 16434883262980754398,
+            "time_hash": "9399B9DCB9C6A828FEDED69F9D101D2E0372A9999B9DD0405522E5BC66018F91"
+          },
+          {
+            "noise_hash": "940C2F6AE41CBBAE3F44DAB14DFE23C0AF86F9EE46869815ACE3D15005225637",
+            "seed": 16854192186698718031,
+            "time_hash": "9F29499CE77259BA8A6AFCFC39B50EB925EDEC7535134227B58CE904118E6F2E"
+          },
+          {
+            "noise_hash": "CD180E44D2AF8B6A97949DFB77C46C15534F42B8799E1C4A8E83363D7FFFC421",
+            "seed": 1707606672469722645,
+            "time_hash": "E1C3D25B67376FCA03062201FB726BC0F06DBBED45AFE56416485BA7D10156B8"
+          },
+          {
+            "noise_hash": "77F02E21E7BC6E8864368BD7833347002F1FF719E796757E13464BDB179B7062",
+            "seed": 18216952138825994533,
+            "time_hash": "1857B281E15B1BD55F5C9E40A8B819FBF1E89D231CF047706E5393644EDE66C2"
+          },
+          {
+            "noise_hash": "034E24F172338B5C867BA74989B8032C2F5827728347BF4A85AE6EB7918A0C11",
+            "seed": 1220702722669646897,
+            "time_hash": "3A75A547F60089828E77EDCECBAA72B6B41C756432B0CC65270FDE8FE76B4842"
+          },
+          {
+            "noise_hash": "841F23537C5321B3A86DCFFB01219094BC3F0C9D803D01D9B446D9D3101CF7BC",
+            "seed": 13393544886959042891,
+            "time_hash": "E4CE03E4191CCB13896E2B378B520945716BEEFCEDCDEB6C13714DE86DBFAFCA"
+          },
+          {
+            "noise_hash": "A262A1F2DCC84C1E8DDB4DD96BD053404393C550F287B5E77A14D26ABB1F579D",
+            "seed": 13784709363178297636,
+            "time_hash": "D9F6050CD13E1BB982AEA67F292356BA5E3AA5C31BFC90D2F174E1C71B618C89"
+          },
+          {
+            "noise_hash": "95FE2081A2345841F4E71E046796443A0AD513870392CCE31CBD2D4CB623FD12",
+            "seed": 6458221999258055112,
+            "time_hash": "F13B6375BA0306E6F880A49124547F88CE700BA3829254BE1418304E4A10C0B4"
+          }
+        ],
+        "mean_micro_loss": 0.3017928064800799,
+        "micro_losses": [
+          0.5484635829925537,
+          0.15010011196136475,
+          0.12283088266849518,
+          0.34229812026023865,
+          0.31734901666641235,
+          0.346341997385025,
+          0.054495129734277725,
+          0.5324636101722717
+        ],
+        "optimizer_step": 9,
+        "row_ids": [
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target2_episode4_frame56",
+          "target0_episode2_frame70",
+          "target0_episode1_frame63",
+          "target2_episode1_frame50",
+          "target2_episode0_frame49",
+          "target0_episode0_frame61"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "59DF9719DC4757A977F65B46D7258FA3E54C7F36C504035F127BA19AE00AF6A7",
+            "seed": 1819325862099842388,
+            "time_hash": "4206BB70BE7ECD65E7DEB5087D72B11D9B4817546666B2BFB1AD6E66B17D5CDF"
+          },
+          {
+            "noise_hash": "19872A3700A02C7809431727DF8D0045717CF6EA1B372CE1D469CC06CEDB7FF9",
+            "seed": 15446975282162744592,
+            "time_hash": "1145E3F661413F03237BE49D8797C956D038C9CFE981DDC2569EBD2FBCF08B2F"
+          },
+          {
+            "noise_hash": "06E0C6C71B3BCFDCCB5ADD5E29E9C7CC65CD16E266FAEFCD52BACAEB071822A5",
+            "seed": 13549590689898376246,
+            "time_hash": "9EC2386306772484A4E768AE18F9026A7B8469E6C1F534835BEDB3892F997483"
+          },
+          {
+            "noise_hash": "CECAB80438A7F6CF0C28C8595AD89C71461261F6A6D604ABDEAF5FA5F383F8E2",
+            "seed": 11397818564451265518,
+            "time_hash": "BC450FC3C7A48428F42D43E492C0468524BE738A5D6DE26BB6F2DE032EFB4416"
+          },
+          {
+            "noise_hash": "7D5DF9A2FB3203E41E3B3EAC4FA4392FA185B32A9B05210C23EC2489D7A263CD",
+            "seed": 734524610115618663,
+            "time_hash": "04CD4B7C4711C98AEA27296431BA6FAE5B6B20B6AED2AA064D98560F4DBCBAA3"
+          },
+          {
+            "noise_hash": "E026EAEEA83AE80ED1A6298371EA92795E78B29204B1308A831A5C79675CEE20",
+            "seed": 9186287664145950157,
+            "time_hash": "94FA43D605BAF113D8EA3D3444ECDC07320A8AFFFE506B9B337C490A066BFCCE"
+          },
+          {
+            "noise_hash": "B78B161989FCB41D1FC7D6F062D65DB268253CA6BD6906377A44DC349F919671",
+            "seed": 9383951539712164193,
+            "time_hash": "680F57B288FE5C485A129603ACC23D28DE83D81C335E2AC7334B44E22977CD3C"
+          },
+          {
+            "noise_hash": "F1F074DC615237C2F9AD3856DFA0CF302ACB63C18C2AC525306F467C3ED832C5",
+            "seed": 8912878049203167639,
+            "time_hash": "FBB07B32C0A0E8F6213EF4FBA3E323620FB5C1E4795D83DAD3E7191FB16CED6B"
+          }
+        ],
+        "mean_micro_loss": 0.7466144943609834,
+        "micro_losses": [
+          0.4170898199081421,
+          0.3037433624267578,
+          2.207798480987549,
+          0.7059653401374817,
+          1.6126551628112793,
+          0.09128839522600174,
+          0.2839681804180145,
+          0.350407212972641
+        ],
+        "optimizer_step": 10,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "8163A41C1542A5CFB8A85E67D9C58241096DACC376CD588469A824F5D0E3588C",
+            "seed": 14967829500386972417,
+            "time_hash": "D7D3D990F5F4F2C54686108EF0E59C01186768FA7A103534FA558D56F1B4ECCD"
+          },
+          {
+            "noise_hash": "B05D98F26744CA1CBB0EAB502D028E402A415E6B23BAEFA459BF980C7AB58B55",
+            "seed": 9525947949567295944,
+            "time_hash": "385E74C9C884C88044887B57C26FDC4B611EBEDCB63CD0CA1DDABC1292762585"
+          },
+          {
+            "noise_hash": "DEEC33730E296EFFD8B19B858FA0632BF300E49A730ECAFC788734E2B02FE842",
+            "seed": 6362688759753381094,
+            "time_hash": "B2FF55BAB3E6FCDF0A79DA4C8513E597CE6A4BEEC35F4A047AF7558802AC2FD8"
+          },
+          {
+            "noise_hash": "FD5DD56B37ED4D5F9A34A33C49E0953C424C82C7959804A7646F63E8EABD7D0E",
+            "seed": 1059268252461150245,
+            "time_hash": "F40346969F272468B189A3A2E8185A472AAEAE91D8FFAA37BCFB695A37BF90A2"
+          },
+          {
+            "noise_hash": "4D8C8927174DC42C52E74D175127CA7D9AFCA2ACC3DC7C0C01AB5F918A2C3418",
+            "seed": 15782116602309125429,
+            "time_hash": "5748334B09D1368A2C8D8B203EBA9747C751DD751D5AA229533A03868AFB4830"
+          },
+          {
+            "noise_hash": "4EA16B9D6BBD20EE3FC5B49836C876A2AE53A063A960BB1A52B16DC258741537",
+            "seed": 13175830542896937675,
+            "time_hash": "71CCE5FBEC49EAE094CBC52BE6B39CD8BF325C5F8686BA16E7586BF266BB76EF"
+          },
+          {
+            "noise_hash": "8409B52150171071F8582E90C67A09537337E14FD08CA02FD122F0441CBDEF39",
+            "seed": 13221495841845469011,
+            "time_hash": "AF63D39732522663D77C4F0089328990E96DBA1AFF24345C7A5AA89D0EAB1CDE"
+          },
+          {
+            "noise_hash": "461F4BB305E3CB74DF93554386D3F874A508189E3201B430FACAB9BCCA4BAB34",
+            "seed": 11006942861990322757,
+            "time_hash": "C69072D142ECB38A06D2D5901F0130586B75B513795EEC82F9A4BD1989029C8B"
+          }
+        ],
+        "mean_micro_loss": 1.1063359226100147,
+        "micro_losses": [
+          0.4078831076622009,
+          2.1008810997009277,
+          1.9049313068389893,
+          3.550915479660034,
+          0.10947275906801224,
+          0.3254876136779785,
+          0.03966127708554268,
+          0.4114547371864319
+        ],
+        "optimizer_step": 11,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "56E443DBAED02954B126E30F3D9A1953C146C71F40289DB226F50651C6C9CB04",
+            "seed": 10018848296656972484,
+            "time_hash": "6224916263D461818BA9509F4422E70CBB180425363DD0682451FB97698A3310"
+          },
+          {
+            "noise_hash": "D8A3A384BA9DF7B3B8C8615353F38ED5906F0EDABF1D49798731809F57B36907",
+            "seed": 14203644985024618102,
+            "time_hash": "EA1DA91B555E37A3AF743672879FE3C3667383B14BAD2524EA4E43AAE82E30DD"
+          },
+          {
+            "noise_hash": "90A2D5075C2DAC9381EC42CC2E87D20962A593E54D90FFC03BFA75A8DF9E72E0",
+            "seed": 2003621859392191506,
+            "time_hash": "322C21C601FE11BBB0A197197A6202115A53124D9452A45B9BB9E5EC23C33D23"
+          },
+          {
+            "noise_hash": "931B9E98689F4EDDB3C935CDF08403867EEDCF7B8F468B8FBE29F6CB298FF892",
+            "seed": 1401237319558343002,
+            "time_hash": "FDE44415240B5D6DB84075590F9ACE6DD98474FB421D990EA560F6FC75F89620"
+          },
+          {
+            "noise_hash": "8B24E8DA10551EC8AD76DD72633102A9B1D22A4200F788DFC8885B5DA116B1BF",
+            "seed": 16812354804937118906,
+            "time_hash": "1A3F80E90BE81DB07A910E0A8A172E5F1FE8C115D6242A33DD37011233ADA748"
+          },
+          {
+            "noise_hash": "7AF9F1A2A964B32BC18982A33E60331FFD7E18C05F2A2ED9521FC508630AE878",
+            "seed": 11927506864900207781,
+            "time_hash": "8F4B6D7B2ABD837B353B61ED440B00B1D92BA277BFB93CDC0C6F3A9FF075E4F2"
+          },
+          {
+            "noise_hash": "38B38E9B2CF667DB6A8DA58B83ECEE69E63BBAF66CDFE9244DD397D7E608D289",
+            "seed": 2683994814373482795,
+            "time_hash": "CDBCEC6053181ED6123E93B5D1E6ACDACB82636FF610ACF39D5069500D753EE3"
+          },
+          {
+            "noise_hash": "B804F7037F622294FB3FADD1459566E49BF3920DF1E6EF7EEB12FB0DBC0AF08A",
+            "seed": 10983702060829179362,
+            "time_hash": "B2DA8C96AEF3BD603F07DF516D5E0E2B6606A548ECC001B2E8E8337B548206AD"
+          }
+        ],
+        "mean_micro_loss": 0.771606370806694,
+        "micro_losses": [
+          0.11817477643489838,
+          0.573891818523407,
+          2.5086894035339355,
+          0.2142346352338791,
+          0.21509608626365662,
+          0.5810860991477966,
+          1.3443963527679443,
+          0.6172817945480347
+        ],
+        "optimizer_step": 12,
+        "row_ids": [
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target2_episode4_frame56",
+          "target0_episode2_frame70",
+          "target0_episode1_frame63",
+          "target2_episode1_frame50",
+          "target2_episode0_frame49",
+          "target0_episode0_frame61"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "B7DC42599AD967DD815D3993E070464BDDED218CCC71CBCC613CC9F942E9CACA",
+            "seed": 10644273427941870150,
+            "time_hash": "BD705E2B37E25DB7FE6106D09F378953B6197F66C4E73DD1566112180C1D74AD"
+          },
+          {
+            "noise_hash": "2FEE97FCBFD10E40F76B38C3CC617E1FAFD425287ACD90B1FD15BCC98E5C86BF",
+            "seed": 1051039618440181748,
+            "time_hash": "9417A4C66FB85104F583259C2FB3C88732574D343587D540C7DBCFEE62258C67"
+          },
+          {
+            "noise_hash": "9FFE31AC839C60EB99B6B1FBF29245F1E01A56C25527431730D7FD2D7D683837",
+            "seed": 10978942429677532682,
+            "time_hash": "107170E31AA5F211BA7C9D6D67F7CFA1B6F4AD0B59090887F8519C842C35C6A8"
+          },
+          {
+            "noise_hash": "FB1D8BFF04FE1A8EB59D3C92C8C9820FA5E3E872C88905F49139ED50BC8DD1C9",
+            "seed": 14792454358014923014,
+            "time_hash": "7435FDF576AA6D8437A0C4E30F20AEF8FF2E8F5C3121188C29DEE34A6C9BB9C4"
+          },
+          {
+            "noise_hash": "EE379C217648472517911C8EC33CA5961AFE26785E981B9737C72FE26F05EA17",
+            "seed": 10934870070223197718,
+            "time_hash": "3A48A078026A4973579C0EE6DB209BF4FF6882B034178F6AD7432333C6D5893F"
+          },
+          {
+            "noise_hash": "BF9F880EF3D5F172A8745972CBE8C99AB2B4E9A9067109D4CCF92293F7A40157",
+            "seed": 12299450655576927020,
+            "time_hash": "872CA55C57B04BAD7120DD5DB4712FBFF933A81BBC24DADC43317C45331B9942"
+          },
+          {
+            "noise_hash": "FA3745861994D54D5F782E937DED697F462F73C91488D8CF84BA57DFDE891EA8",
+            "seed": 27649919691627216,
+            "time_hash": "0FED5EA81E5C9E37606B19E2D397FDDF7A4DC3D1C2AD5263B29A0E788FD50940"
+          },
+          {
+            "noise_hash": "A92192233F0B7B60CE578633CFF3F109CE630B6F3746FA08E1A9D956FA1CBF34",
+            "seed": 12515079574715249765,
+            "time_hash": "94938BA62C21E7ACDFDCEE505EE85EF3DD1C877C55B263D631EFF777CC7C15BD"
+          }
+        ],
+        "mean_micro_loss": 0.7229244858026505,
+        "micro_losses": [
+          0.8785000443458557,
+          0.829005241394043,
+          0.5851544141769409,
+          0.21887291967868805,
+          0.15007276833057404,
+          0.2886107861995697,
+          1.7335230112075806,
+          1.0996567010879517
+        ],
+        "optimizer_step": 13,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "4C805F9D66687C38138E984FC8841B8F80A32BF8DD8395356033A89C10D87360",
+            "seed": 16084466075273156400,
+            "time_hash": "EDB8333242C4D39DAFDF9BE9FF00553D977F1B8A366D2AB9EF3922096A63472C"
+          },
+          {
+            "noise_hash": "DC403759F4F3EF4E06164040B8F1C37383B2DE8CC17CC1D8762D2CFFE42E9D2C",
+            "seed": 9088949260499407683,
+            "time_hash": "FF519AE48DC11818E87C376BE611CBB621364CAC99C1D6EA331FE27984FC2988"
+          },
+          {
+            "noise_hash": "0358BD765ACAE39752CF3476D2D9608A614FBAB1D3B9FD886A9AADA5843B7045",
+            "seed": 12043206564157971856,
+            "time_hash": "3E1A38E127904422B843082954475568AE5C5BD6EC79E4E6F888CF9B271D25BF"
+          },
+          {
+            "noise_hash": "BAF374DC61BCE3FF1C6211523DC9AB88A3D33C103368CB50E62870DAF6619E8D",
+            "seed": 16046751913520986457,
+            "time_hash": "AFEAF721578C376E5E86AE960579BF3A74A1A89D3094B73F18983E39FDCE1BFF"
+          },
+          {
+            "noise_hash": "3000B39C3A050438A5027156FAF395E045EA5C4BC966BDAC51CE8EBAFDA463EE",
+            "seed": 3170461954686233250,
+            "time_hash": "13D36835D67493A333DB08ED3CF4B07BFE5A561295DC3F0695F5289BEC01D227"
+          },
+          {
+            "noise_hash": "8FFEB8E0DD6C2606F8B3A513EE1E1725505F71AAB64EDD5FB0662ECD14370E00",
+            "seed": 11424297016627185406,
+            "time_hash": "3C0D2AE4D4AFBAD6ECA58F8EE4621CF6A5A011672FFE90E497AC54198EFCF747"
+          },
+          {
+            "noise_hash": "60D62ADAD2E3E0E26BA2C4FE58ABB74E8FE801BD13112A4E3B670FCEA0C35D4B",
+            "seed": 6638886178681895747,
+            "time_hash": "B87BB22C27B587A2504D1291BB3550C701FA38D2A1AFCB7F016136E98C97FFB1"
+          },
+          {
+            "noise_hash": "FE07E385C298781346528E4B62C58CB80D7C47C8C86E475031D299DD5E105CB7",
+            "seed": 2834899404886211695,
+            "time_hash": "8C0548A260F0E285F97DCC7D30627C9BC965B0EB8BC5E5332BF66DDE0BF9F8E6"
+          }
+        ],
+        "mean_micro_loss": 0.9288014322519302,
+        "micro_losses": [
+          0.9089445471763611,
+          0.7691705226898193,
+          0.8331537246704102,
+          2.16195011138916,
+          1.5948951244354248,
+          0.5241987705230713,
+          0.45982733368873596,
+          0.1782713234424591
+        ],
+        "optimizer_step": 14,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "0C5A0AD12B5400343A2331A0BF62B9C782DEECEA5A44A07DB7180C99C1033BEE",
+            "seed": 1392253332811546240,
+            "time_hash": "65A6414888E67E0AA17000C2E50E1A8495C0F97EAE4E6FEF33E53F703F172C42"
+          },
+          {
+            "noise_hash": "D407379587CBEF17FEC48C0B48A7E356E31ECDAD1976B6ADC84843235B89F740",
+            "seed": 3319860195915763081,
+            "time_hash": "CEBC99F0163C94B61314766CED380AD624BD7FE19DFB8E8D5C2CCD45B8892969"
+          },
+          {
+            "noise_hash": "BFA8C16AB9985C58154A758776CC7C82EF423282314218465A735CEE56472173",
+            "seed": 14216842861279648977,
+            "time_hash": "224BA3E0E5F3CB1A992D8343FC2F42F2D97F8B3950FB68681FEF7B164669FABE"
+          },
+          {
+            "noise_hash": "0CEB8B0E2C8F1B47E6FD378EC85D004ADEB9DF90610DDA3BBB2B83679DB4A476",
+            "seed": 13456881270798236083,
+            "time_hash": "40614FB2A4BCE082B62C3EC92106E6C6CE45667420A31A9D4DD3D3A7DB85E8CC"
+          },
+          {
+            "noise_hash": "90794F73D100D3CD057D689377BA187B195A8155C9EDE5074EF89A630DFB3A0E",
+            "seed": 15212954676459327501,
+            "time_hash": "D4EE7B25F149CF26E6B35871E2183873F5F6CEFB263FBD982E72C724D5672BE8"
+          },
+          {
+            "noise_hash": "4852F847771A325C5FC8B704FF21BDEA01C44F5EBB15C4747B9A4F5E8DCE4D20",
+            "seed": 17643910738223212471,
+            "time_hash": "A2AEDD616EFB0F84550A9E8669B9BAA12888A3BA02E17899E2C17206F4EDFF73"
+          },
+          {
+            "noise_hash": "1516E2727C4CA703F0BF0E2FA11694B492F20B4C4F1E063859A4C1A74EAC8A28",
+            "seed": 8523301816037029751,
+            "time_hash": "A07377DEA8C1E63CF17BC03A9E40D972371D079D9ABE1D6DF96518F49E41C60E"
+          },
+          {
+            "noise_hash": "5A190403DF4AA99CB5A99BA3FC1113193D19A93D1E81BB7626725C9C3DD3DB55",
+            "seed": 14290754233388230104,
+            "time_hash": "1D8AA6C9CF07FD337C9595497EF3A09C5BB10176ECD9E9A74EF29E48FFDCC743"
+          }
+        ],
+        "mean_micro_loss": 0.5605571484193206,
+        "micro_losses": [
+          0.41639244556427,
+          0.05234784632921219,
+          0.1759607493877411,
+          0.3406166732311249,
+          1.4073542356491089,
+          1.6285603046417236,
+          0.1476813405752182,
+          0.31554359197616577
+        ],
+        "optimizer_step": 15,
+        "row_ids": [
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target2_episode4_frame56",
+          "target0_episode2_frame70",
+          "target0_episode1_frame63",
+          "target2_episode1_frame50",
+          "target2_episode0_frame49",
+          "target0_episode0_frame61"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "81D024C6F4FCB2BD3DF3495BBDA47267041AF961863767080407B6DFE652E0DC",
+            "seed": 6310873691005515044,
+            "time_hash": "4903B5259DCBD92CB73B57CFE35418351E5FED2F27CC532E226076116DFA4E99"
+          },
+          {
+            "noise_hash": "B3F7004964D0B93922F3DE585A4F913B5756E5F3A4C314ECCD8F913F06ABDC09",
+            "seed": 3192040939361883151,
+            "time_hash": "D6F42591D1F94715E0297FBC3392A760BC00A94A389C47415BBC42B5975271B0"
+          },
+          {
+            "noise_hash": "31DD7AEF35F41BB75E3BCE4C504326C843C522933BD94CF9C56A5E553F79F616",
+            "seed": 7064784855131016968,
+            "time_hash": "FBB568487E709DF52077CE2E8110A0171ED3A7A56A19C306A49583198B4D60C7"
+          },
+          {
+            "noise_hash": "86CF18F2FC2AFEBA19C75F50E91612C4D99AFC29851893524A7057452358A30F",
+            "seed": 9612684444586892890,
+            "time_hash": "63C1444233E5403959FA19EEDBA27A84C6FAC289FD693F5F79004A1EC4A2F26D"
+          },
+          {
+            "noise_hash": "038201DE3B5E9CF2762C06B652A39288685D345D4C655C6BD4DDCA105A64BFFD",
+            "seed": 4363441428102049845,
+            "time_hash": "2D72F7BD988A85D528BE45E48A41E465AD8C0F439391CF1D1BE82BC88B9CCAFD"
+          },
+          {
+            "noise_hash": "EEE4278F13F8743158FE6501A537C0BB35940BB0FDD91F870ED69EAF0F1627F9",
+            "seed": 376724999782897492,
+            "time_hash": "905F946A0A156F1F3EC51099CD375885D6C67492ADE7D3B978E0158206BB9641"
+          },
+          {
+            "noise_hash": "283FF55ED90B00730BA15CBA0FBC0F967C85496AF029359CCE862C37311636A7",
+            "seed": 9558635897723748345,
+            "time_hash": "DFB11BC0804C3F147118A625039E395E8251B1D8BF06D51E374CA78ED56EC8C0"
+          },
+          {
+            "noise_hash": "496C9B5C7CBF7A8EAD7EB20D5C185A8963AFE1D133AD744B8EDFE8521D939ED9",
+            "seed": 8470961055819088940,
+            "time_hash": "3390A3CBBDAA8584AED40579F333308FA45B16ABBD856C3B08D16D6AEDBC14A6"
+          }
+        ],
+        "mean_micro_loss": 0.6295506269671023,
+        "micro_losses": [
+          2.0401852130889893,
+          0.38651037216186523,
+          0.3405984044075012,
+          0.7616575360298157,
+          0.16516906023025513,
+          0.054989296942949295,
+          0.4215297996997833,
+          0.8657653331756592
+        ],
+        "optimizer_step": 16,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "A8D1B5DE375B3E1C1B8B74AC8AF6D874B8B2CDBBF424F5F44E331A11B4065F74",
+            "seed": 1014117567641089128,
+            "time_hash": "D1C9FEEE9BE932E39010598E8F20441A98C4065BE516969C9F6CBBEFA1B59B8D"
+          },
+          {
+            "noise_hash": "35573DE088780B04B1587559086363A5DC861FCDAFEE834893A4FA9E005B31A4",
+            "seed": 15973388933045049209,
+            "time_hash": "50B479E2DA4981AEB300E97348966C61A163BA96690F86279C1C061C75F7B67C"
+          },
+          {
+            "noise_hash": "7E1E075E8D32219CA7EBD90EB443481DDF835C75E2828EBCCF2B10C1F43BA1D9",
+            "seed": 13890942273421633343,
+            "time_hash": "E73931C572784F4707EAB718E224E5A8B83EB39A46765211262ED1D1224E1AA3"
+          },
+          {
+            "noise_hash": "0E5867045EA9AD3DB7D25C18149DC3E156FFB310EE0E20E79CE3A34579A84232",
+            "seed": 12230486134921315232,
+            "time_hash": "48B4D86717E4CB3CFBB645A31B218255D7773F99B3EC87EF4F20A2530B8F68E5"
+          },
+          {
+            "noise_hash": "3ED2E6A9549A3E6F45A134CADB1FFD66FC7171CAEDAE86D0436D783DB36F8760",
+            "seed": 13787136704615755694,
+            "time_hash": "1AB5149B98DDCC9418591C6A2549ED56AE90FA9DF81A551DFFD4ACC02E1E7448"
+          },
+          {
+            "noise_hash": "0FA96BB33265F2875DB861095BD98386A59294D4AAF6D9E6EB4DEB81227DE0C6",
+            "seed": 18395386121686651566,
+            "time_hash": "CDCF22BF04CE5F22F7BD2EFD40DFBA668F7A26B554941D2F9FF452D96F92CBC0"
+          },
+          {
+            "noise_hash": "8F0BFA45C144E9FC6422589AA7FB78EE05810D2AAF5FB21F69BC29C2D24663EB",
+            "seed": 18013850182084824301,
+            "time_hash": "1B156DCE5BF3BC3DF2C70E6F8DB9CAD567FCD0EB1C76DC89B449A7C909539FC5"
+          },
+          {
+            "noise_hash": "F3253E5174548382EAA86BDEA41B68620010C97E10021C432D21196824454CE4",
+            "seed": 3881722392859161178,
+            "time_hash": "E7BD671887F21EFF6F052204D8070FF6AB59CE092EBFF780DF0AAFB2AE23330B"
+          }
+        ],
+        "mean_micro_loss": 1.0926659568212926,
+        "micro_losses": [
+          0.48673126101493835,
+          2.062206745147705,
+          1.9791430234909058,
+          2.787612199783325,
+          0.3888533413410187,
+          0.905579686164856,
+          0.05715438351035118,
+          0.0740470141172409
+        ],
+        "optimizer_step": 17,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "92B2F886F3ADD6C2B5CFC1D8F91FFA398259B3B09C1E4D110946031166450211",
+            "seed": 9184538345374178961,
+            "time_hash": "E4FB4D04125B674AFE3B13C822798C54BA19C19A0637F80C04D1A051D4EB91FA"
+          },
+          {
+            "noise_hash": "39D29330A67F1F7C9A562F4577476625F2B5BD0284F8F237E89FBA0002DD4D92",
+            "seed": 4081993581444661490,
+            "time_hash": "CD1D91AB0D37F64557E58584EFBBE9E622A85BAC7BD8F3181076808AD914DE05"
+          },
+          {
+            "noise_hash": "6032342A437D53DCCDD2FDCCF65DCCE700BB2E870B065658F480DD0729DECFB6",
+            "seed": 6236300753261658786,
+            "time_hash": "CD86B2C69C8D05C64F20788DAAA84F96E7C876C1C648E3426992AC589BC6CC64"
+          },
+          {
+            "noise_hash": "0B70D626FC5F82DC5446947E5E106F43B30FD280500EC0B65BFE9FF1C408B725",
+            "seed": 1407981916616493588,
+            "time_hash": "EBFBC9A99BA70FF5AF301087C4BAE4E687C90C1BF8D565B5CEAA4233BFE7BA26"
+          },
+          {
+            "noise_hash": "9D78F8D8B373117269BD359466760C4F34676CC972B3640F96A3F742D0009C8F",
+            "seed": 11930872444784753150,
+            "time_hash": "FA1FB69435EA33407F95830637E258B63FBFB9F9AF0BF063B14AC635C706E147"
+          },
+          {
+            "noise_hash": "440B2DF2C214BE65387831769DE842A5E6487545FB1D61A4A08723074CC40838",
+            "seed": 1207133715090847066,
+            "time_hash": "A007CE551B404EDA89C93A1A6D446E3B719F4AB7C88C421482019EEF61BC1F7B"
+          },
+          {
+            "noise_hash": "235B7806F1A4B398E9D41710F05FF6EF3205A8A0EC3269344F237F4FE382BF51",
+            "seed": 4734951354278970802,
+            "time_hash": "CF63196A6F33558215399F1CD833ED7640F6B9A0428EAE447920F059ECDAC428"
+          },
+          {
+            "noise_hash": "6412D9AA4B3270129D37BCB191D10F6DB0F15CE1D4D04F025247529B45E3DE7F",
+            "seed": 7830057377729761488,
+            "time_hash": "7DE5CD43FB65958832DB960EA9E7CC0FEE8DC0BA19602C9ED83A5F5408A3A494"
+          }
+        ],
+        "mean_micro_loss": 0.3247936265543103,
+        "micro_losses": [
+          0.30694422125816345,
+          0.11877650767564774,
+          0.1300888955593109,
+          0.1336853802204132,
+          0.2231685221195221,
+          1.269264817237854,
+          0.11455985903739929,
+          0.3018608093261719
+        ],
+        "optimizer_step": 18,
+        "row_ids": [
+          "target1_episode5_frame53",
+          "target1_episode6_frame48",
+          "target2_episode4_frame56",
+          "target0_episode2_frame70",
+          "target0_episode1_frame63",
+          "target2_episode1_frame50",
+          "target2_episode0_frame49",
+          "target0_episode0_frame61"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "030AD3DF7ADE1EAEB09E11B120141FE1DE2A7A4DE869D34B8941D1411DD49AC5",
+            "seed": 304865043309841828,
+            "time_hash": "5E9A5B0A751ED1DDD1575A100CEC2EB69C98136BA8BE5B633C7245B2E3A79180"
+          },
+          {
+            "noise_hash": "7AC852B8B6804627F69E289DAEDE82C3DD0B0ADDA4C94DD656A6A13E118F6749",
+            "seed": 2346130985541071851,
+            "time_hash": "7739B5D5AA467591168A6DC4D8E4AB3D3C5E441679B4F4322EF8CB53F85DCDE7"
+          },
+          {
+            "noise_hash": "B46942B7832CE7D2292458F77A7C13ADAEB9F75234CF80F0BDC316CF02F93531",
+            "seed": 8719195591811587871,
+            "time_hash": "71CC0133FC9DF854FDBE010446B7A45627C54E55261DE8DA5C0AA4A8D0CDD049"
+          },
+          {
+            "noise_hash": "0A69594F19785080F21E3D233B63D87BD28BE1F0D43CD6FC048B355C057EA306",
+            "seed": 17839899629113397621,
+            "time_hash": "B10CE1CDCC3174AD29D24EE7A26BA5E7C389CEF95E4DBB8B553949040BB95348"
+          },
+          {
+            "noise_hash": "B798EE051BDB43BFF61ED8D92C5FA6CC9B8D768B9250CE97F3380BA9FA5F0D00",
+            "seed": 17829054774893855223,
+            "time_hash": "27ED310DB2AB74696305C416209A40862E123C1C9ECE69E51E681BBCAC980CC0"
+          },
+          {
+            "noise_hash": "FE5408A9424CD34D26751E71AAAB75EC416F4E847E9CC3FE42DB5DF4F3724C70",
+            "seed": 16819280360622185733,
+            "time_hash": "4024CDEA0E96AE0AB57ADA967AE1948DE9AC794964DF23EB8DE480994297F392"
+          },
+          {
+            "noise_hash": "B1EB19A7B8B275DD093ECA4ADC5F024AC27C221835B64653DD11DF40AD260999",
+            "seed": 16556155466952048934,
+            "time_hash": "93BBA27EC97074DE924E0ADC2C40005EB56D9B1B78A2FCBA143322407392D26D"
+          },
+          {
+            "noise_hash": "2245D104C2C6F439EE96AD9099C97B5E4F9628EBA3511D1B216CF6F114C69A97",
+            "seed": 12534025322967940329,
+            "time_hash": "5BA48205324A1625362C30A8BDE275FF7073E584A7B551075B9D953E88E33006"
+          }
+        ],
+        "mean_micro_loss": 1.053791468963027,
+        "micro_losses": [
+          3.360743284225464,
+          0.1346723735332489,
+          0.7004427909851074,
+          0.3408970236778259,
+          0.6274712085723877,
+          0.19782228767871857,
+          0.7088581919670105,
+          2.359424591064453
+        ],
+        "optimizer_step": 19,
+        "row_ids": [
+          "target0_episode5_frame81",
+          "target1_episode4_frame49",
+          "target2_episode6_frame52",
+          "target1_episode0_frame50",
+          "target0_episode7_frame73",
+          "target2_episode3_frame58",
+          "target0_episode6_frame61",
+          "target0_episode3_frame57"
+        ]
+      },
+      {
+        "draws": [
+          {
+            "noise_hash": "EB71BB43D5AEF805FED86625B1959BB8DBE3EB68234D9552D995FEC91E0339C4",
+            "seed": 5276610670436885448,
+            "time_hash": "A025F4F18C87A7A72C5527ED1666D241B5EBF22BB649896159D07CA64486E0D6"
+          },
+          {
+            "noise_hash": "7D2F1EF800EE9DB4514EF6B6BA519953D6A1585090B85EAEA5D86DDBC9ACDB34",
+            "seed": 3689744768594753260,
+            "time_hash": "FB58F1FE69EAB2AD26ABC7B44124CB2F0C0F9535E779ED31E60E6A6EB02F736F"
+          },
+          {
+            "noise_hash": "7370155DC95BE35DB4A6D7CFE6B12DDEEDD93B8347727A12AA259DFEC0E59DCD",
+            "seed": 16589324408269885882,
+            "time_hash": "C2EB28722EAD52B1813194FD65564370CB642CA5EA411D6C84744FC52D055A5E"
+          },
+          {
+            "noise_hash": "C7AE7B2C3FE5AE74C56C525F3B0B8482302DEDF15CD288B63DE29B25A4865C05",
+            "seed": 15138317844564516738,
+            "time_hash": "9113BAC689A2F3028B283375CF770C197452E6899D77DBFF09C245551E3DBD8C"
+          },
+          {
+            "noise_hash": "E40DEF6910FAC9BF07F6392F0D3F5691D6402624E3FCAC94BD158004EAA5F199",
+            "seed": 11795381218365320296,
+            "time_hash": "E0EABB00B88168A2B1BE3048C740483EBB94C432D58A76458BA37BC0B52A0F4A"
+          },
+          {
+            "noise_hash": "29B9BDCC56C93A37FAD976C8185101A59F5C18BA0407562BB396A3E9380AAEA2",
+            "seed": 5181638070816412152,
+            "time_hash": "A9EDDA6D76DA387759B3DF6BA1D83123498A272252E8B51E752C0FD927D22A9B"
+          },
+          {
+            "noise_hash": "3790FC673D205612B80E3E8F1C41A5AB99E4C24A33FE671709050B27D4A1FD7B",
+            "seed": 11125352840037307104,
+            "time_hash": "005785A9B2A578971E11B104DF2D3FEA073AAEAD775DEFF5AB4693979FB0CC37"
+          },
+          {
+            "noise_hash": "9BFC8C55BAD153BF7E94498552AE3B99021FE4393E23E8FBD88C08B8AF88928B",
+            "seed": 12708971252448403674,
+            "time_hash": "43F1BE64228E43AA6C3D343FD1CA89CC1E71C23730CEF8DFC5739EAADF7C1197"
+          }
+        ],
+        "mean_micro_loss": 1.0694208405911922,
+        "micro_losses": [
+          1.6518380641937256,
+          2.111757516860962,
+          0.273712694644928,
+          0.5062382221221924,
+          1.7844388484954834,
+          1.1993963718414307,
+          0.669425368309021,
+          0.35855963826179504
+        ],
+        "optimizer_step": 20,
+        "row_ids": [
+          "target0_episode4_frame67",
+          "target2_episode2_frame44",
+          "target1_episode7_frame56",
+          "target2_episode5_frame52",
+          "target1_episode1_frame50",
+          "target2_episode7_frame66",
+          "target1_episode2_frame54",
+          "target1_episode3_frame50"
+        ]
+      }
+    ],
+    "optimizer": "AdamW",
+    "physical_batch_size": 1,
+    "rank": 4,
+    "resumed_from_optimizer_step": 0,
+    "seed": 1701,
+    "weight_decay": 0.0
+  },
+  "next_command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_famr_vla_stage0.py --mode train-endpoint --checkpoint /mnt/c/assets/checkpoints/smolvla_libero --libero-data-root /mnt/c/assets/data/libero --stable-artifact /mnt/c/Users/jiheo/tca_map/reports/official_smolvla_stable_prediction_artifact.json --run-root /mnt/c/Users/jiheo/tca_map/runs/famr_vla/stage0a --report-root /mnt/c/Users/jiheo/tca_map/reports/famr_vla",
+  "parameter_groups": {
+    "base_frozen_hash_before": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "coarse_group_counts": {
+      "action_flow": 8,
+      "state_projection": 2,
+      "vlm_expert": 64
+    },
+    "fine_group_counts": {
+      "action_input_output": 4,
+      "action_time_mlp": 4,
+      "state_projection": 2,
+      "vlm_layers_0_7": 32,
+      "vlm_layers_8_15": 32
+    },
+    "identity_native_max_abs_error": 0.0,
+    "identity_postprocessed_max_abs_error": 0.0,
+    "lora_config": {
+      "alpha": 8,
+      "bias": "none",
+      "dropout": 0.0,
+      "rank": 4
+    },
+    "lora_only_trainable": true,
+    "method": "FAMR-VLA",
+    "parameter_count": 74,
+    "parameters": [
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_input_output",
+        "name": "base_model.model.model.action_in_proj.lora_A.default.weight",
+        "numel": 128,
+        "shape": [
+          4,
+          32
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_input_output",
+        "name": "base_model.model.model.action_in_proj.lora_B.default.weight",
+        "numel": 2880,
+        "shape": [
+          720,
+          4
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_input_output",
+        "name": "base_model.model.model.action_out_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_input_output",
+        "name": "base_model.model.model.action_out_proj.lora_B.default.weight",
+        "numel": 128,
+        "shape": [
+          32,
+          4
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_time_mlp",
+        "name": "base_model.model.model.action_time_mlp_in.lora_A.default.weight",
+        "numel": 5760,
+        "shape": [
+          4,
+          1440
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_time_mlp",
+        "name": "base_model.model.model.action_time_mlp_in.lora_B.default.weight",
+        "numel": 2880,
+        "shape": [
+          720,
+          4
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_time_mlp",
+        "name": "base_model.model.model.action_time_mlp_out.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "action_flow",
+        "dtype": "torch.float32",
+        "fine_group": "action_time_mlp",
+        "name": "base_model.model.model.action_time_mlp_out.lora_B.default.weight",
+        "numel": 2880,
+        "shape": [
+          720,
+          4
+        ]
+      },
+      {
+        "coarse_group": "state_projection",
+        "dtype": "torch.float32",
+        "fine_group": "state_projection",
+        "name": "base_model.model.model.state_proj.lora_A.default.weight",
+        "numel": 128,
+        "shape": [
+          4,
+          32
+        ]
+      },
+      {
+        "coarse_group": "state_projection",
+        "dtype": "torch.float32",
+        "fine_group": "state_projection",
+        "name": "base_model.model.model.state_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_0_7",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_A.default.weight",
+        "numel": 2880,
+        "shape": [
+          4,
+          720
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_B.default.weight",
+        "numel": 3840,
+        "shape": [
+          960,
+          4
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_A.default.weight",
+        "numel": 1280,
+        "shape": [
+          4,
+          320
+        ]
+      },
+      {
+        "coarse_group": "vlm_expert",
+        "dtype": "torch.float32",
+        "fine_group": "vlm_layers_8_15",
+        "name": "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_B.default.weight",
+        "numel": 1280,
+        "shape": [
+          320,
+          4
+        ]
+      }
+    ],
+    "proposal_hash": "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69",
+    "trainable_numel": 185664
+  },
+  "peak_cuda_allocated_gib": 1.0808053016662598,
+  "preflight": {
+    "active_linux_workers": [],
+    "bddl_paths": {
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf.bddl",
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray.bddl",
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy.bddl"
+    },
+    "cuda_available": true,
+    "cuda_capability": [
+      12,
+      0
+    ],
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "disk_free_gib": 303.2548141479492,
+    "expected_stage": "epoch_4_cycle_17_famr_stage_0a_implementation_pending",
+    "forbidden_gates_enabled": [],
+    "inconsistent_completed_status": false,
+    "missing_paths": [],
+    "mode": "audit",
+    "observed_stages": {
+      "reports/autonomous_ral_campaign_state.json": "epoch_4_cycle_17_famr_stage_0a_implementation_pending",
+      "reports/autonomous_until_paper_state.json": "epoch_4_cycle_17_famr_stage_0a_implementation_pending"
+    },
+    "package_versions": {
+      "h5py": "3.16.0",
+      "lerobot": "0.4.4",
+      "numpy": "2.2.6",
+      "peft": "0.19.1",
+      "pyarrow": "25.0.0",
+      "torch": "2.10.0+cu128",
+      "transformers": "4.57.6"
+    },
+    "partial_audit": null,
+    "partial_parse_error": null,
+    "passed": true,
+    "paths": {
+      "bddl_0": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf.bddl",
+      "bddl_1": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray.bddl",
+      "bddl_2": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy.bddl",
+      "checkpoint": "/mnt/c/assets/checkpoints/smolvla_libero",
+      "official_dataset": "/mnt/c/assets/datasets/lerobot_libero",
+      "official_dataset_info": "/mnt/c/assets/datasets/lerobot_libero/meta/info.json",
+      "official_dataset_tasks": "/mnt/c/assets/datasets/lerobot_libero/meta/tasks.parquet",
+      "proposal_hash": "/mnt/c/Users/jiheo/tca_map/reports/famr_vla/proposal_hash.txt",
+      "resource_registry": "/mnt/c/Users/jiheo/tca_map/reports/resource_contention_intervals.json",
+      "stable_artifact": "/mnt/c/Users/jiheo/tca_map/reports/official_smolvla_stable_prediction_artifact.json",
+      "target_0": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "target_1": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "target_2": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "vlm": "/mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
+    },
+    "proposal_hash_expected": "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69",
+    "proposal_hash_observed": "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69",
+    "proposal_hash_ok": true,
+    "resource_evidence": {
+      "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+      "overlap_interval_ids": [],
+      "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+      "registry_interval_count": 1,
+      "timing_throughput_resource_evidence_eligible": true,
+      "unresolved_interval_ids": []
+    },
+    "result_absent": true,
+    "stage_ok": true,
+    "status_payload": null,
+    "target_paths": {
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5"
+    }
+  },
+  "proposal_hash": "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69",
+  "scaling_audit": {
+    "coefficient_one_full_native_max_abs_error": 0.0,
+    "coefficient_one_full_postprocessed_max_abs_error": 0.0,
+    "coefficient_zero_base_native_max_abs_error": 0.0,
+    "coefficient_zero_base_postprocessed_max_abs_error": 0.0,
+    "lora_pair_count": 37,
+    "passed": true,
+    "single_group_effective_weight_max_abs_error": 5.820766091346741e-11,
+    "single_group_effective_weight_max_relative_error": 2.052311574965452e-07
+  },
+  "started_unix": 1784107366.6722844,
+  "task_provenance": {
+    "checkpoint": "/mnt/c/assets/checkpoints/smolvla_libero",
+    "checkpoint_dataset_info": {
+      "chunks_size": 1000,
+      "codebase_version": "v3.0",
+      "data_files_size_in_mb": 100,
+      "data_path": "data/chunk-{chunk_index:03d}/file-{file_index:03d}.parquet",
+      "features": {
+        "action": {
+          "dtype": "float32",
+          "fps": 10.0,
+          "names": [
+            "actions"
+          ],
+          "shape": [
+            7
+          ]
+        },
+        "episode_index": {
+          "dtype": "int64",
+          "names": null,
+          "shape": [
+            1
+          ]
+        },
+        "frame_index": {
+          "dtype": "int64",
+          "names": null,
+          "shape": [
+            1
+          ]
+        },
+        "index": {
+          "dtype": "int64",
+          "names": null,
+          "shape": [
+            1
+          ]
+        },
+        "observation.images.image": {
+          "dtype": "video",
+          "fps": 10.0,
+          "info": {
+            "has_audio": false,
+            "video.channels": 3,
+            "video.codec": "av1",
+            "video.fps": 10,
+            "video.height": 256,
+            "video.is_depth_map": false,
+            "video.pix_fmt": "yuv420p",
+            "video.width": 256
+          },
+          "names": [
+            "height",
+            "width",
+            "channel"
+          ],
+          "shape": [
+            256,
+            256,
+            3
+          ]
+        },
+        "observation.images.image2": {
+          "dtype": "video",
+          "fps": 10.0,
+          "info": {
+            "has_audio": false,
+            "video.channels": 3,
+            "video.codec": "av1",
+            "video.fps": 10,
+            "video.height": 256,
+            "video.is_depth_map": false,
+            "video.pix_fmt": "yuv420p",
+            "video.width": 256
+          },
+          "names": [
+            "height",
+            "width",
+            "channel"
+          ],
+          "shape": [
+            256,
+            256,
+            3
+          ]
+        },
+        "observation.state": {
+          "dtype": "float32",
+          "fps": 10.0,
+          "names": [
+            "state"
+          ],
+          "shape": [
+            8
+          ]
+        },
+        "task_index": {
+          "dtype": "int64",
+          "names": null,
+          "shape": [
+            1
+          ]
+        },
+        "timestamp": {
+          "dtype": "float32",
+          "names": null,
+          "shape": [
+            1
+          ]
+        }
+      },
+      "fps": 10.0,
+      "robot_type": "panda",
+      "splits": {
+        "train": "0:1693"
+      },
+      "total_episodes": 1693,
+      "total_frames": 273465,
+      "total_tasks": 40,
+      "video_files_size_in_mb": 500,
+      "video_path": "videos/{video_key}/chunk-{chunk_index:03d}/file-{file_index:03d}.mp4"
+    },
+    "identity_audit": {
+      "intersection_count": 0,
+      "normalized_intersection": [],
+      "pretraining_duplicates": [],
+      "pretraining_task_count": 40,
+      "pretraining_unique_count": 40,
+      "target_task_count": 3,
+      "target_unique_count": 3
+    },
+    "method": "FAMR-VLA",
+    "official_pretraining_tasks": [
+      "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "put the yellow and white mug in the microwave and close it",
+      "turn on the stove and put the moka pot on it",
+      "put both the alphabet soup and the cream cheese box in the basket",
+      "put both the alphabet soup and the tomato sauce in the basket",
+      "put both moka pots on the stove",
+      "put both the cream cheese box and the butter in the basket",
+      "put the black bowl in the bottom drawer of the cabinet and close it",
+      "pick up the book and place it in the back compartment of the caddy",
+      "put the bowl on the plate",
+      "put the wine bottle on the rack",
+      "open the top drawer and put the bowl inside",
+      "put the cream cheese in the bowl",
+      "put the wine bottle on top of the cabinet",
+      "push the plate to the front of the stove",
+      "turn on the stove",
+      "put the bowl on the stove",
+      "put the bowl on top of the cabinet",
+      "open the middle drawer of the cabinet",
+      "pick up the orange juice and place it in the basket",
+      "pick up the ketchup and place it in the basket",
+      "pick up the cream cheese and place it in the basket",
+      "pick up the bbq sauce and place it in the basket",
+      "pick up the alphabet soup and place it in the basket",
+      "pick up the milk and place it in the basket",
+      "pick up the salad dressing and place it in the basket",
+      "pick up the butter and place it in the basket",
+      "pick up the tomato sauce and place it in the basket",
+      "pick up the chocolate pudding and place it in the basket",
+      "pick up the black bowl next to the cookie box and place it on the plate",
+      "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "pick up the black bowl on the ramekin and place it on the plate",
+      "pick up the black bowl on the stove and place it on the plate",
+      "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "pick up the black bowl on the cookie box and place it on the plate",
+      "pick up the black bowl next to the plate and place it on the plate",
+      "pick up the black bowl next to the ramekin and place it on the plate",
+      "pick up the black bowl from table center and place it on the plate",
+      "pick up the black bowl on the wooden cabinet and place it on the plate"
+    ],
+    "proposal_hash": "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69",
+    "target_task_identities": [
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy"
+    ]
+  }
+}

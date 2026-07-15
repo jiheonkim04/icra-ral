@@ -1,0 +1,56 @@
+{
+  "base_frozen_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+  "base_frozen_hash_unchanged": true,
+  "checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/famr_vla/stage0a/micro_checkpoint",
+  "disk_reload": true,
+  "files": {
+    "README.md": {
+      "sha256": "9A9A2D60DF23F9E4467C7EDB6654D9F499C39020A9AD9E7F225B120CCE3FB27B",
+      "size_bytes": 5116
+    },
+    "adapter_config.json": {
+      "sha256": "8AE8832BC7B9A36BD52B4C4C70C04DB661EEC70A531224E5AF5F2566C7E25A25",
+      "size_bytes": 1254
+    },
+    "adapter_model.safetensors": {
+      "sha256": "FC552BC4A82F78A8A7FF7343B4E2E2C3D2CACEF6C2800D3E67FD8433CBF5F031",
+      "size_bytes": 753728
+    },
+    "famr_training_manifest.json": {
+      "sha256": "24A4EB98D85D96ADC9807524E48C7AD808787092F58C9B2A1C62FCBEE11AC4C3",
+      "size_bytes": 60794
+    },
+    "reload_probe.json": {
+      "sha256": "D6A4346E849C0DD5CE46007453E12D4ACAC2AC130DF7166389C6C1F09B5E24DC",
+      "size_bytes": 525
+    }
+  },
+  "reload_native_max_abs_error": 0.0,
+  "reload_output_max_abs_error": 0.0,
+  "reload_postprocessed_max_abs_error": 0.0,
+  "reload_probe": {
+    "native_action": [
+      [
+        0.8785299062728882,
+        -1.7824597358703613,
+        0.6729636788368225,
+        1.047511339187622,
+        -0.12054531276226044,
+        0.567939043045044,
+        -0.9437509179115295
+      ]
+    ],
+    "native_action_hash": "F97F7C749D10221A39204152436EB0EFBA304008CBA2176077EC4265730A7329",
+    "postprocessed_action": [
+      0.35754919052124023,
+      -0.5877256989479065,
+      0.2089131474494934,
+      0.04164879769086838,
+      -0.0019983453676104546,
+      0.039053261280059814,
+      -0.992228090763092
+    ]
+  },
+  "resumed_existing_checkpoint": false,
+  "saved": true
+}

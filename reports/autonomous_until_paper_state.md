@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
 
 Current epoch: `4`
 
 Current cycle: `17`
 
-Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_17_famr_endpoint_training_implementation_pending`
 
 Allowed final states:
 
@@ -505,9 +505,16 @@ IARC remains closed unchanged as `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
 Cycle 17 generated exactly three candidates and selected `FAMR-VLA` with
 `93 / 100`. Proposal hash:
 `96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69`.
-The frozen package is under `reports/famr_vla/`; Stage 0A is limited to
-provenance, data semantics, identity, capacity, reload, and exact group-scaling
-audits with zero confirmatory decode.
+The frozen package is under `reports/famr_vla/`. Stage 0A completed as
+`FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`: all `24` discovery rows and
+`150 / 150` source-success demonstrations passed provenance and semantic
+checks with zero overlap or duplicate keys. The rank-4 adapter completed `20 /
+20` optimizer steps and reduced fixed-subset loss from `0.7321685557253659` to
+`0.6487047945459684`, a relative reduction of `0.11399528227036353`.
 
-Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`. Current
-stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`.
+Identity, Base hash, group coverage, coefficient scaling, and disk reload all
+passed. Peak CUDA allocation was `1.0808053016662598 GiB`; exceptions,
+validation/test decodes, and confirmatory observations/actions were zero.
+
+Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`. Current
+stage: `epoch_4_cycle_17_famr_endpoint_training_implementation_pending`.

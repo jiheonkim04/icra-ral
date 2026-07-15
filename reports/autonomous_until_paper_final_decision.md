@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current campaign decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
 
 This is not a terminal decision.
 
@@ -314,8 +314,14 @@ preregistration, and executable protocol are frozen under
 `reports/famr_vla/`. The first comparison is Base, transparent scalar RETAIN
 proxy, FAMR full, target-only ablation, and matched standard LoRA.
 
-Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`. Stage
-0A may audit LIBERO-90 provenance/data semantics, zero-effect identity,
-20-step subset fit, checkpoint reload, and exact group scaling. It may not run
-full endpoint training, validation search, closed-loop rollout, or confirmatory
-decoding.
+FAMR Stage 0A completed as
+`FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`. It passed source provenance,
+`150 / 150` terminal-success metadata, 24-row discovery integrity, exact
+identity, 20-step fit, group coverage, coefficient scaling, Base hash, memory,
+and disk reload. Fixed-subset loss fell by `0.11399528227036353`; exceptions,
+duplicate keys, and confirmatory observations/actions were zero.
+
+Current stage:
+`epoch_4_cycle_17_famr_endpoint_training_implementation_pending`. The frozen
+300-step discovery-only endpoint may be implemented and run; validation search,
+closed-loop rollout, and confirmatory decoding remain forbidden.

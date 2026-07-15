@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`
 
 Current epoch: `4`
 
 Current cycle: `17`
 
-Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_17_famr_endpoint_training_implementation_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -421,6 +421,22 @@ The proposal, Reviewer B attack, rebuttal, mathematical audit,
 preregistration, and executable protocol are frozen under
 `reports/famr_vla/`.
 
-Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`. Stage
-0A may run provenance, data, identity, capacity, reload, and exact
-group-scaling checks only, with zero confirmatory decode.
+FAMR Stage 0A completed under the frozen protocol and is adjudicated as
+`FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED`. All `24` fixed discovery rows
+loaded with `150 / 150` source-terminal successes, zero task overlap, zero
+duplicate episode or frame keys, and zero validation or test decode. The
+rank-4 endpoint completed `20 / 20` optimizer steps with finite nonzero
+gradients and reduced fixed-subset loss from `0.7321685557253659` to
+`0.6487047945459684`, a relative reduction of `0.11399528227036353`.
+
+Zero-effect identity, all-zero/all-one coefficient identity, Base hash
+retention, and disk reload all passed at zero output error. The 74 trainable
+tensors covered every frozen coarse and fine group exactly once; effective
+LoRA scaling relative error was at most `2.052311574965452e-07`. Peak CUDA
+allocation was `1.0808053016662598 GiB`, exceptions and duplicate keys were
+zero, and confirmatory observations/actions remained `0 / 0`.
+
+Current stage:
+`epoch_4_cycle_17_famr_endpoint_training_implementation_pending`. Implement
+and run the frozen 300-step endpoint on discovery episodes only; validation
+search and confirmatory decoding remain forbidden.
