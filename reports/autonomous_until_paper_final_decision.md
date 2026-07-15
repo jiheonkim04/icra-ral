@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE`
+Current campaign decision: `SELECT_CALA_VLA`
 
 This is not a terminal decision.
 
@@ -210,4 +210,10 @@ Final G3P Stage 0 decision: `DATA_OR_SUPERVISION_FAILURE`. The source gate passe
 
 This is a pre-rollout data/supervision stop, not a closed-loop scientific kill. Do not rescue G3P by changing the material threshold, label construction, source gate, validation search, or Stage 0 criteria.
 
-Current stage: `epoch_4_cycle_11_g3p_stage_0_completed`. Next action: start Epoch 4 Cycle 12 candidate generation under current governance.
+Epoch 4 Cycle 12 generated exactly three post-G3P candidates in `reports/epoch_4_cycle_12_candidate_generation.md` after the prior map in `reports/epoch_4_cycle_12_prior_mechanism_map.md`, and selected `CALA-VLA`, Context-Gated Action-Latent Adapter for frozen SmolVLA.
+
+CALA is anchored to CAC-VLA, with VLS and World Pilot as secondary action-interface priors. The selected design changes the mechanism axis from source-gated point labels to action-structured latent conditioning. Future 7D action segments may be used only as discovery/validation supervision; inference must use only deployment-observable current RGB, proprioception, language, and Base features.
+
+The design-level five-policy comparison is Base, a CAC-style latent-action proxy, CALA full, no-context-gate ablation, and one simple task-mean latent-action baseline.
+
+Current stage: `epoch_4_cycle_12_candidate_generation_completed`. Next action: freeze and hash the `CALA-VLA` Researcher A proposal before Reviewer B attack.

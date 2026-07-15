@@ -11,14 +11,14 @@
     "maximum_wall_time_hours_per_cycle": 12,
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
-    "current_cycle": 11,
-    "current_topic": "epoch_4_cycle_11_g3p_stage_0_completed",
+    "current_cycle": 12,
+    "current_topic": "epoch_4_cycle_12_candidate_generation_completed",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "cec6d75",
+    "current_commit": "9079a25",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_11_g3p_stage_0_completed",
+    "current_stage": "epoch_4_cycle_12_candidate_generation_completed",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -293,18 +293,19 @@
         "epoch_4_cycle_11_g3p_prototype_protocol_frozen",
         "epoch_4_cycle_11_g3p_stage_0_completed",
         "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded",
-        "epoch_4_cycle_12_candidate_search_pending"
+        "epoch_4_cycle_12_candidate_search_pending",
+        "epoch_4_cycle_12_candidate_generation_completed"
     ],
-    "active_hypothesis": "G3P-VLA Stage 0 stopped pre-rollout as DATA_OR_SUPERVISION_FAILURE because the material point label collapsed; do not rescue by changing thresholds or labels.",
-    "method_identity": "G3P-VLA",
-    "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
+    "active_hypothesis": "CALA-VLA selected for Epoch 4 Cycle 12 as a CAC-VLA-anchored, identity-preserving action-latent conditioning method for frozen SmolVLA.",
+    "method_identity": "CALA-VLA",
+    "proposal_hash": null,
     "closest_papers": [
-        "Direct Action-Head Injection of A Grounded 3D Point",
-        "RoboPoint",
-        "RoboGround",
-        "AffordanceVLA"
+        "CAC-VLA",
+        "STRONG-VLA",
+        "VLS",
+        "VLA Grounder"
     ],
-    "prototype_protocol": "reports/g3p_vla/prototype_protocol.md",
+    "prototype_protocol": null,
     "running_command": null,
     "process_id": null,
     "checkpoint_path": null,
@@ -315,7 +316,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE",
+    "current_decision": "SELECT_CALA_VLA",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -424,8 +425,8 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Start Epoch 4 Cycle 12 candidate generation under current governance; do not rescue or retune G3P.",
-    "method": "G3P-VLA",
+    "next_action": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack.",
+    "method": "CALA-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -4475,5 +4476,42 @@
         "confirmatory_test_tuning_happened": false,
         "valid_closed_loop_scientific_kill": false,
         "next_stage": "Epoch 4 Cycle 12 candidate generation under current governance."
+    },
+    "epoch_4_cycle_12_pre_proposal": {
+        "method": "CALA-VLA",
+        "selection_decision": "SELECT_CALA_VLA",
+        "candidate_generation": "reports/epoch_4_cycle_12_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_12_prior_mechanism_map.md",
+        "candidate_count": 3,
+        "closest_prior": "CAC-VLA",
+        "closest_prior_url": "https://arxiv.org/abs/2607.04816",
+        "secondary_priors": [
+            "VLS",
+            "World Pilot"
+        ],
+        "reviewed_but_not_selected_priors": [
+            "STRONG-VLA",
+            "VLA Grounder"
+        ],
+        "selected_score": 94,
+        "selected_contribution_type": "PRIOR_EXTENSION",
+        "first_comparison_policies": [
+            "frozen_smolvla",
+            "cac_vla_latent_action_proxy",
+            "cala_full",
+            "cala_no_context_gate_ablation",
+            "task_mean_latent_action_baseline"
+        ],
+        "stage_0_required": true,
+        "latent_label_health_gate_required": true,
+        "identity_preserving_gate_required": true,
+        "official_closest_prior_code_or_checkpoint_verified": false,
+        "closest_prior_comparison_status": "faithful_transparent_proxy_required_until_official_equivalence_is_established",
+        "rollout_allowed": false,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack."
     }
 }

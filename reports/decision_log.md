@@ -2209,3 +2209,32 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: the EAC Stage A matched manifest is frozen and the five scheduler identities preserve frozen SmolVLA action values exactly under the official runtime path. The next step is to implement the minimal Stage A runner and launch only after runner validation; no task/reset change, threshold change, validation retuning, or result reinterpretation is allowed before rollout.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Candidate Selection
+
+Decision: `SELECT_CALA_VLA`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- branch: `codex/autonomous-until-paper-governance-v2`
+- prior mechanism map: `reports/epoch_4_cycle_12_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_12_candidate_generation.md`
+- candidates generated: `3`
+- selected score: `94 / 100`
+- contribution type: `PRIOR_EXTENSION`
+- closest prior: `CAC-VLA`, `https://arxiv.org/abs/2607.04816`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Frozen first comparison:
+
+- `frozen_smolvla`
+- `cac_vla_latent_action_proxy`
+- `cala_full`
+- `cala_no_context_gate_ablation`
+- `task_mean_latent_action_baseline`
+
+Consequence: CALA-VLA is selected for proposal freezing. G3P remains stopped as `DATA_OR_SUPERVISION_FAILURE` and must not be rescued by changing its point-label construction, thresholds, source gate, validation search, or Stage 0 criteria. CALA may use future 7D action segments only as discovery/validation training labels; no future actions, reset identity, success label, or privileged simulator state may enter inference.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE`
+Current decision: `SELECT_CALA_VLA`
 
 Current epoch: `4`
 
-Current cycle: `11`
+Current cycle: `12`
 
-Current stage: `epoch_4_cycle_11_g3p_stage_0_completed`
+Current stage: `epoch_4_cycle_12_candidate_generation_completed`
 
 Allowed final states:
 
@@ -388,4 +388,6 @@ The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_propo
 
 G3P Stage 0 stopped as `DATA_OR_SUPERVISION_FAILURE` in `reports/g3p_vla/development_audit.json`: the material point label collapsed with train fraction `0.9982142857142857` and validation fraction `1.0`. No training, validation search, rollout, or confirmatory-test tuning happened.
 
-Current decision: `G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE`. Current stage: `epoch_4_cycle_11_g3p_stage_0_completed`. Next action: start Epoch 4 Cycle 12 candidate generation under current governance.
+Epoch 4 Cycle 12 generated exactly three candidates in `reports/epoch_4_cycle_12_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_12_prior_mechanism_map.md` and selected `CALA-VLA`.
+
+Current decision: `SELECT_CALA_VLA`. Current stage: `epoch_4_cycle_12_candidate_generation_completed`. Next action: freeze and hash the CALA-VLA Researcher A proposal before Reviewer B attack.

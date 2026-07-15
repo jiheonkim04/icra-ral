@@ -18,15 +18,15 @@
     "maximum_wall_time_hours_per_cycle": 12,
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
-    "current_cycle": 11,
-    "topic": "epoch_4_cycle_11_g3p_stage_0_completed",
-    "method": "G3P-VLA",
+    "current_cycle": 12,
+    "topic": "epoch_4_cycle_12_candidate_generation_completed",
+    "method": "CALA-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "cec6d75",
-    "current_stage": "epoch_4_cycle_11_g3p_stage_0_completed",
+    "current_commit": "9079a25",
+    "current_stage": "epoch_4_cycle_12_candidate_generation_completed",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -306,23 +306,24 @@
         "epoch_4_cycle_11_g3p_prototype_protocol_frozen",
         "epoch_4_cycle_11_g3p_stage_0_completed",
         "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded",
-        "epoch_4_cycle_12_candidate_search_pending"
+        "epoch_4_cycle_12_candidate_search_pending",
+        "epoch_4_cycle_12_candidate_generation_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
     "elapsed_active_time_hours_recorded": 5.21,
     "gpu_time_hours_recorded": 5.21,
     "downloads_gib_this_reopened_campaign": 0.0,
-    "hypothesis": "EAC-VLA selected for Epoch 4 Cycle 10 as an AAC-anchored action-queue scheduling method that preserves frozen SmolVLA 7D action values while adapting chunk commitment length from deployment-observable uncertainty.",
-    "novelty_claim": "EAC-VLA extends Adaptive Action Chunking to the local frozen SmolVLA 7D action queue with SmolVLA-specific uncertainty-source validation, queue-boundary risk, and identity-preserving action-value passthrough.",
+    "hypothesis": "CALA-VLA selected for Epoch 4 Cycle 12 as a CAC-VLA-anchored, identity-preserving action-latent conditioning method for frozen SmolVLA.",
+    "novelty_claim": "CALA-VLA extends CAC-VLA to frozen SmolVLA with a zero-initialized context gate, bounded hidden-state residual, latent-label health gate, and a task-mean latent-action reviewer-killer baseline.",
     "closest_papers": [
-        "Direct Action-Head Injection of A Grounded 3D Point",
-        "RoboPoint",
-        "RoboGround",
-        "AffordanceVLA"
+        "CAC-VLA",
+        "STRONG-VLA",
+        "VLS",
+        "VLA Grounder"
     ],
-    "prototype_gate": "G3P-VLA Stage 0 stopped as DATA_OR_SUPERVISION_FAILURE; next candidate cycle pending.",
-    "current_decision": "G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE",
+    "prototype_gate": "CALA-VLA selected; Stage 0 latent-label and identity-preservation audit required before any training, validation search, manifest freeze, or rollout.",
+    "current_decision": "SELECT_CALA_VLA",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -473,7 +474,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Start Epoch 4 Cycle 12 candidate generation under current governance; do not rescue or retune G3P.",
+    "next_action": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "G3P-VLA Stage 0 stopped pre-rollout as DATA_OR_SUPERVISION_FAILURE because the material point label collapsed; do not rescue by changing thresholds or labels.",
     "method_identity": "G3P-VLA",
@@ -2227,7 +2228,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_11_g3p_stage_0_completed",
+    "current_topic": "epoch_4_cycle_12_candidate_generation_completed",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4527,5 +4528,42 @@
         "confirmatory_test_tuning_happened": false,
         "valid_closed_loop_scientific_kill": false,
         "next_stage": "Epoch 4 Cycle 12 candidate generation under current governance."
+    },
+    "epoch_4_cycle_12_pre_proposal": {
+        "method": "CALA-VLA",
+        "selection_decision": "SELECT_CALA_VLA",
+        "candidate_generation": "reports/epoch_4_cycle_12_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_12_prior_mechanism_map.md",
+        "candidate_count": 3,
+        "closest_prior": "CAC-VLA",
+        "closest_prior_url": "https://arxiv.org/abs/2607.04816",
+        "secondary_priors": [
+            "VLS",
+            "World Pilot"
+        ],
+        "reviewed_but_not_selected_priors": [
+            "STRONG-VLA",
+            "VLA Grounder"
+        ],
+        "selected_score": 94,
+        "selected_contribution_type": "PRIOR_EXTENSION",
+        "first_comparison_policies": [
+            "frozen_smolvla",
+            "cac_vla_latent_action_proxy",
+            "cala_full",
+            "cala_no_context_gate_ablation",
+            "task_mean_latent_action_baseline"
+        ],
+        "stage_0_required": true,
+        "latent_label_health_gate_required": true,
+        "identity_preserving_gate_required": true,
+        "official_closest_prior_code_or_checkpoint_verified": false,
+        "closest_prior_comparison_status": "faithful_transparent_proxy_required_until_official_equivalence_is_established",
+        "rollout_allowed": false,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack."
     }
 }

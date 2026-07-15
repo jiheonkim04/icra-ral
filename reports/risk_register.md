@@ -1559,3 +1559,13 @@ Impact: reporting only the ActionMap comparison would overstate online action-de
 Mitigation: keep the mean-action baseline as a required gate for every bounded online 7D head. Do not run or claim method rollout support unless the best non-leaking head beats the mean baseline by the documented threshold, fixed-prior TCA beats ActionMap, and TCA/ActionMap actions differ meaningfully.
 
 Current result: `small_cpu_mlp_fixed_prior_tca_7d` beats ActionMap on eval 7D L2 (`0.669078005` vs `0.992624014`) and differs meaningfully from ActionMap, but it still loses to the mean-action baseline (`0.57299313`). The rollout gate is red and no rollout was run.
+
+## CALA Future-Action Label Leakage Risk
+
+Risk: CALA-VLA uses future 7D action segments to construct latent-action supervision. If those future segments, demonstration indices, reset identities, success labels, or simulator state leak into inference or confirmatory evaluation, the method would become an invalid oracle/action-replay proxy rather than a deployable policy.
+
+Impact: A closed-loop gain could be falsely attributed to latent-action conditioning when it is actually caused by future action leakage or task/reset memorization.
+
+Mitigation: CALA Stage 0 must create split-clean discovery/validation/test manifests; prove zero identity overlap; document the latent encoder source; forbid future action, success, reset identity, and privileged simulator state at inference; compare against `task_mean_latent_action_baseline`; and audit action deltas, gate values, and full-versus-ablation differences before rollout.
+
+Current result: Cycle 12 selected CALA only as a pre-proposal method. No training, validation search, rollout, or confirmatory-test tuning has happened.

@@ -1,5 +1,25 @@
 # Project State
 
+## 2026-07-15 Epoch 4 Cycle 12 Current State
+
+Active governance: `reports/current_research_governance.md`
+
+Current branch: `codex/autonomous-until-paper-governance-v2`
+
+Current decision: `SELECT_CALA_VLA`
+
+Current epoch: `4`
+
+Current cycle: `12`
+
+G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
+
+Epoch 4 Cycle 12 generated exactly three candidates in `reports/epoch_4_cycle_12_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_12_prior_mechanism_map.md` and selected `CALA-VLA`, Context-Gated Action-Latent Adapter for frozen SmolVLA.
+
+CALA is anchored to CAC-VLA and tests whether a Base-preserving, zero-initialized context-gated latent-action interface can improve SmolVLA beyond Base, a CAC-style proxy, a no-context-gate ablation, and a task-mean latent-action baseline. Future 7D action segments are training labels only; confirmatory inference may not use future actions or privileged state.
+
+Exact next step: freeze and hash the CALA Researcher A proposal before Reviewer B attack.
+
 ## 2026-07-13 Governance V2 Current State
 
 Active governance: `reports/current_research_governance.md`

@@ -18,16 +18,16 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 11
+    assert state["current_cycle"] == 12
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_11_g3p_stage_0_completed"
-    assert state["method"] == "G3P-VLA"
-    assert state["method_identity"] == "G3P-VLA"
-    assert state["proposal_hash"] == G3P_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/g3p_vla/prototype_protocol.md"
+    assert state["current_decision"] == "SELECT_CALA_VLA"
+    assert state["current_stage"] == "epoch_4_cycle_12_candidate_generation_completed"
+    assert state["method"] == "CALA-VLA"
+    assert state["method_identity"] == "CALA-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -152,6 +152,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_11_g3p_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_12_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_12_candidate_generation_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -518,6 +519,32 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert g3p_development["train_material_point_fraction"] == 0.9982142857142857
     assert g3p_development["validation_material_point_fraction"] == 1.0
     assert "validation material point fraction collapsed" in " ".join(g3p_development["hard_stop_reasons"])
+    cala = state["epoch_4_cycle_12_pre_proposal"]
+    assert cala["method"] == "CALA-VLA"
+    assert cala["selection_decision"] == "SELECT_CALA_VLA"
+    assert cala["candidate_generation"] == "reports/epoch_4_cycle_12_candidate_generation.md"
+    assert cala["prior_mechanism_map"] == "reports/epoch_4_cycle_12_prior_mechanism_map.md"
+    assert cala["candidate_count"] == 3
+    assert cala["closest_prior"] == "CAC-VLA"
+    assert cala["closest_prior_url"] == "https://arxiv.org/abs/2607.04816"
+    assert cala["secondary_priors"] == ["VLS", "World Pilot"]
+    assert cala["selected_score"] == 94
+    assert cala["selected_contribution_type"] == "PRIOR_EXTENSION"
+    assert cala["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "cac_vla_latent_action_proxy",
+        "cala_full",
+        "cala_no_context_gate_ablation",
+        "task_mean_latent_action_baseline",
+    ]
+    assert cala["latent_label_health_gate_required"] is True
+    assert cala["identity_preserving_gate_required"] is True
+    assert cala["official_closest_prior_code_or_checkpoint_verified"] is False
+    assert cala["rollout_allowed"] is False
+    assert cala["closed_loop_experiment_happened"] is False
+    assert cala["training_happened"] is False
+    assert cala["validation_search_happened"] is False
+    assert cala["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
