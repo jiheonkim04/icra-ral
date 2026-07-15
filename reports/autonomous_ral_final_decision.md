@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -205,4 +205,6 @@ Reviewer B attack is complete in `reports/cala_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/cala_vla/researcher_rebuttal.md` with decision `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts the narrowed novelty, source-fidelity, future-action leakage, task-mean baseline, matched ablation, and identity-preserving integration constraints.
 
-Current stage: `epoch_4_cycle_12_cala_rebuttal_completed`. Next action: mathematical mechanism audit.
+The CALA mathematical mechanism audit is frozen in `reports/cala_vla/mathematical_mechanism_audit.md` with decision `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines the latent-action encoder, source legality, context gate, identity-preserving residual, objective terms, gradient paths, small-batch magnitude audit, bounded validation search, first five-policy comparison, and no deterministic-action KL rule.
+
+Current stage: `epoch_4_cycle_12_cala_mathematical_audit_preregistered`. Next action: freeze preregistration and prototype protocol.

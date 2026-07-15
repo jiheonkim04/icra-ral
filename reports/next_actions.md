@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: write `reports/cala_vla/mathematical_mechanism_audit.md`.
+Immediate next action: freeze `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA accepted Reviewer B's constraints; mathematical audit must define variables, shapes, latent encoder, gate, residual, objectives, gradient paths, loss scales, ablation, source gate, and no deterministic-action KL before implementation.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA's mathematical audit is frozen; preregistration and prototype protocol must freeze Stage 0 hard stops, six-configuration validation-search budget, first five-policy comparison, and no confirmatory-test tuning before implementation.
 
 ## 2026-07-13 Governance V2 Current Action
 

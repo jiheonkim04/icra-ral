@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `12`
 
-Current stage: `epoch_4_cycle_12_cala_rebuttal_completed`
+Current stage: `epoch_4_cycle_12_cala_mathematical_audit_preregistered`
 
 ## Corrected Epoch 1 Result
 
@@ -317,4 +317,6 @@ Reviewer B attack is complete in `reports/cala_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/cala_vla/researcher_rebuttal.md` with decision `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
-Current decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_12_cala_rebuttal_completed`. Next action: mathematical mechanism audit.
+The mathematical mechanism audit is frozen in `reports/cala_vla/mathematical_mechanism_audit.md` with decision `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Current decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_12_cala_mathematical_audit_preregistered`. Next action: freeze preregistration and prototype protocol.

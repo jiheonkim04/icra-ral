@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 12,
-    "current_topic": "epoch_4_cycle_12_cala_rebuttal_completed",
+    "current_topic": "epoch_4_cycle_12_cala_mathematical_audit_preregistered",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "9079a25",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_12_cala_rebuttal_completed",
+    "current_stage": "epoch_4_cycle_12_cala_mathematical_audit_preregistered",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -297,7 +297,8 @@
         "epoch_4_cycle_12_candidate_generation_completed",
         "epoch_4_cycle_12_cala_proposal_frozen",
         "epoch_4_cycle_12_cala_reviewer_attack_completed",
-        "epoch_4_cycle_12_cala_rebuttal_completed"
+        "epoch_4_cycle_12_cala_rebuttal_completed",
+        "epoch_4_cycle_12_cala_mathematical_audit_preregistered"
     ],
     "active_hypothesis": "CALA-VLA selected for Epoch 4 Cycle 12 as a CAC-VLA-anchored, identity-preserving action-latent conditioning method for frozen SmolVLA.",
     "method_identity": "CALA-VLA",
@@ -319,7 +320,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -428,7 +429,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write the CALA-VLA mathematical mechanism audit before implementation.",
+    "next_action": "Freeze the CALA-VLA preregistration and prototype protocol before Stage 0.",
     "method": "CALA-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -4527,7 +4528,11 @@
         "rebuttal": "reports/cala_vla/researcher_rebuttal.md",
         "rebuttal_pending": false,
         "rebuttal_completed": true,
-        "rebuttal_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+        "rebuttal_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_pending": false,
+        "mathematical_audit_completed": true,
+        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
     },
     "epoch_4_cycle_12_cala_proposal": {
         "method": "CALA-VLA",
@@ -4539,13 +4544,16 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Mathematical mechanism audit.",
+        "next_stage": "Freeze preregistration and prototype protocol.",
         "reviewer_attack": "reports/cala_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
         "researcher_rebuttal": "reports/cala_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-        "rebuttal_completed": true
+        "rebuttal_completed": true,
+        "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit_completed": true
     },
     "epoch_4_cycle_12_cala_review": {
         "method": "CALA-VLA",
@@ -4561,10 +4569,13 @@
         "closest_prior_proxy_must_remain_transparent": true,
         "future_action_leakage_gate_required": true,
         "task_mean_baseline_must_remain_live": true,
-        "next_stage": "Mathematical mechanism audit.",
+        "next_stage": "Freeze preregistration and prototype protocol.",
         "researcher_rebuttal": "reports/cala_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-        "rebuttal_completed": true
+        "rebuttal_completed": true,
+        "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit_completed": true
     },
     "epoch_4_cycle_12_cala_rebuttal": {
         "method": "CALA-VLA",
@@ -4582,6 +4593,27 @@
         "accepted_future_action_source_gate": true,
         "accepted_task_mean_simple_killer": true,
         "accepted_identity_preserving_integration": true,
-        "next_stage": "Mathematical mechanism audit."
+        "next_stage": "Freeze preregistration and prototype protocol.",
+        "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit_completed": true
+    },
+    "epoch_4_cycle_12_cala_mathematical_audit": {
+        "method": "CALA-VLA",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "researcher_rebuttal": "reports/cala_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
+        "final_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit_completed": true,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "kl_between_deterministic_actions_forbidden": true,
+        "identity_preserving_adapter_required": true,
+        "future_action_inference_forbidden": true,
+        "bounded_validation_search_max_configs": 6,
+        "next_stage": "Freeze preregistration and prototype protocol."
     }
 }

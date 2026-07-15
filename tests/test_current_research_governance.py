@@ -23,8 +23,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_12_cala_rebuttal_completed"
+    assert state["current_decision"] == "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_12_cala_mathematical_audit_preregistered"
     assert state["method"] == "CALA-VLA"
     assert state["method_identity"] == "CALA-VLA"
     assert state["proposal_hash"] == CALA_PROPOSAL_HASH
@@ -157,6 +157,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_12_cala_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_12_cala_mathematical_audit_preregistered" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -561,6 +562,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala["rebuttal_pending"] is False
     assert cala["rebuttal_completed"] is True
     assert cala["rebuttal_decision"] == "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert cala["mathematical_audit"] == "reports/cala_vla/mathematical_mechanism_audit.md"
+    assert cala["mathematical_audit_completed"] is True
+    assert cala["mathematical_audit_decision"] == "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
     cala_proposal = state["epoch_4_cycle_12_cala_proposal"]
     assert cala_proposal["proposal"] == "reports/cala_vla/researcher_proposal.md"
     assert cala_proposal["proposal_hash"] == CALA_PROPOSAL_HASH
@@ -576,6 +580,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala_proposal["researcher_rebuttal"] == "reports/cala_vla/researcher_rebuttal.md"
     assert cala_proposal["rebuttal_decision"] == "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert cala_proposal["rebuttal_completed"] is True
+    assert cala_proposal["mathematical_audit"] == "reports/cala_vla/mathematical_mechanism_audit.md"
+    assert cala_proposal["mathematical_audit_decision"] == "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert cala_proposal["mathematical_audit_completed"] is True
     cala_review = state["epoch_4_cycle_12_cala_review"]
     assert cala_review["reviewer_attack"] == "reports/cala_vla/reviewer_attack.md"
     assert cala_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -587,6 +594,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala_review["researcher_rebuttal"] == "reports/cala_vla/researcher_rebuttal.md"
     assert cala_review["rebuttal_decision"] == "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert cala_review["rebuttal_completed"] is True
+    assert cala_review["mathematical_audit"] == "reports/cala_vla/mathematical_mechanism_audit.md"
+    assert cala_review["mathematical_audit_decision"] == "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert cala_review["mathematical_audit_completed"] is True
     cala_rebuttal = state["epoch_4_cycle_12_cala_rebuttal"]
     assert cala_rebuttal["researcher_rebuttal"] == "reports/cala_vla/researcher_rebuttal.md"
     assert cala_rebuttal["final_decision"] == "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
@@ -596,6 +606,18 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala_rebuttal["accepted_identity_preserving_integration"] is True
     assert cala_rebuttal["training_happened"] is False
     assert cala_rebuttal["confirmatory_test_tuning_happened"] is False
+    assert cala_rebuttal["mathematical_audit"] == "reports/cala_vla/mathematical_mechanism_audit.md"
+    assert cala_rebuttal["mathematical_audit_decision"] == "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert cala_rebuttal["mathematical_audit_completed"] is True
+    cala_audit = state["epoch_4_cycle_12_cala_mathematical_audit"]
+    assert cala_audit["mathematical_audit"] == "reports/cala_vla/mathematical_mechanism_audit.md"
+    assert cala_audit["final_decision"] == "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert cala_audit["kl_between_deterministic_actions_forbidden"] is True
+    assert cala_audit["identity_preserving_adapter_required"] is True
+    assert cala_audit["future_action_inference_forbidden"] is True
+    assert cala_audit["bounded_validation_search_max_configs"] == 6
+    assert cala_audit["training_happened"] is False
+    assert cala_audit["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

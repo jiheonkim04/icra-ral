@@ -2290,3 +2290,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: Researcher A accepted the narrowed novelty, CAC source-fidelity, future-action source gate, task-mean simple killer, matched no-context-gate ablation, and identity-preserving integration constraints. Proceed only to mathematical mechanism audit.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Mathematical Audit
+
+Decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- proposal hash: `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`
+- researcher rebuttal: `reports/cala_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/cala_vla/mathematical_mechanism_audit.md`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the audit freezes variables/shapes, latent encoder, source legality, context gate, residual/action formula, objective terms, gradient paths, small-batch magnitude checks, bounded validation search, first five-policy comparison, and no deterministic-action KL. Proceed to preregistration and prototype protocol.
