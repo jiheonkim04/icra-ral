@@ -1130,7 +1130,15 @@ def _preflight(paths: Mapping[str, Path], started_unix: float) -> dict[str, Any]
         except Exception as exc:
             partial_parse_error = f"{type(exc).__name__}: {exc}"
     registry = _read_json(RESOURCE_REGISTRY) if RESOURCE_REGISTRY.is_file() else {"intervals": []}
-    workers = _active_linux_workers()
+    workers = [
+        worker
+        for worker in _active_linux_workers()
+        if not (
+            "run_vdr_vla_stage0a.py" in str(worker.get("command", ""))
+            and "stage_0a_exit_code.txt" in str(worker.get("command", ""))
+            and "bash -lc" in str(worker.get("command", ""))
+        )
+    ]
     return {
         "passed": bool(
             not missing

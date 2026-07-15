@@ -1,0 +1,11 @@
+{
+  "completed_model_row_count": 0,
+  "exception_count": 1,
+  "failed_at": "2026-07-15T16:07:29.556158+00:00",
+  "method": "VDR-VLA",
+  "phase": "failed",
+  "pid": 379,
+  "planned_model_row_count": null,
+  "stage": "0A",
+  "status": "failed"
+}

@@ -1,0 +1,13 @@
+{
+  "completed_model_row_count": 0,
+  "completed_row_keys": [],
+  "exception_count": 1,
+  "last_exception": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_vdr_vla_stage0a.py\", line 1433, in main\n    result = run(args, paths, state)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_vdr_vla_stage0a.py\", line 1165, in run\n    raise RuntimeError(f\"VDR Stage 0A preflight failed: {preflight}\")\nRuntimeError: VDR Stage 0A preflight failed: {'passed': False, 'missing_paths': [], 'cuda_available': True, 'cuda_device': 'NVIDIA GeForce RTX 5080', 'proposal_hash_file': '0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72', 'proposal_hash_observed': '0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72', 'partial_summary': None, 'partial_parse_error': None, 'result_absent': True, 'active_linux_workers': [{'pid': 373, 'command': 'bash -lc /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_vdr_vla_stage0a.py > reports/vdr_vla/stage_0a_stdout.log 2> reports/vdr_vla/stage_0a_stderr.log; rc=$?; printf %s\\\\n $rc > reports/vdr_vla/stage_0a_exit_code.txt'}], 'resource_evidence': {'registry_interval_count': 3, 'overlap_interval_ids': [], 'unresolved_interval_ids': [], 'timing_throughput_resource_evidence_eligible': True, 'closed_loop_success_row_policy': 'not_applicable_stage_0a_no_rollout', 'policy': 'timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap'}}\n",
+  "manifest_hash": null,
+  "method": "VDR-VLA",
+  "planned_model_row_count": null,
+  "proposal_hash": "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72",
+  "rows": [],
+  "stage": "0A",
+  "updated_at": "2026-07-15T16:07:29.549162+00:00"
+}
