@@ -346,6 +346,70 @@ def parameter_gradient_norms(model: nn.Module) -> dict[str, float]:
     return result
 
 
+def objective_gradient_audit(
+    model: COVIStage0Adapter,
+    *,
+    occluded_source: torch.Tensor,
+    occluded_camera2: torch.Tensor,
+    target: torch.Tensor,
+    context_target: torch.Tensor,
+    clean_source: torch.Tensor,
+    clean_camera2: torch.Tensor,
+) -> dict[str, Any]:
+    """Measure frozen weighted-objective gradients before optimization."""
+
+    cfg = model.config
+    weights = {
+        "view": cfg.lambda_view,
+        "clean": cfg.lambda_clean,
+        "delta": cfg.lambda_delta,
+        "gate": cfg.lambda_gate,
+        "action": cfg.lambda_action,
+    }
+    model.zero_grad(set_to_none=True)
+    _, terms = covi_stage0_loss(
+        model,
+        occluded_source=occluded_source,
+        occluded_camera2=occluded_camera2,
+        target=target,
+        context_target=context_target,
+        clean_source=clean_source,
+        clean_camera2=clean_camera2,
+    )
+    parameters = [parameter for parameter in model.parameters() if parameter.requires_grad]
+    gradient_norms: dict[str, float] = {}
+    finite: dict[str, bool] = {}
+    for name, term in terms.items():
+        gradients = torch.autograd.grad(
+            weights[name] * term,
+            parameters,
+            retain_graph=True,
+            allow_unused=True,
+        )
+        squared = torch.zeros((), device=term.device, dtype=torch.float64)
+        term_finite = bool(torch.isfinite(term).item())
+        for gradient in gradients:
+            if gradient is None:
+                continue
+            term_finite = term_finite and bool(torch.isfinite(gradient).all().item())
+            squared = squared + torch.sum(gradient.detach().double() ** 2)
+        gradient_norms[name] = float(torch.sqrt(squared).item())
+        finite[name] = term_finite
+    model.zero_grad(set_to_none=True)
+    nonzero = [value for value in gradient_norms.values() if value > 0.0 and math.isfinite(value)]
+    ratio = max(nonzero) / min(nonzero) if nonzero else math.inf
+    return {
+        "term_values": {name: float(term.detach().item()) for name, term in terms.items()},
+        "weights": weights,
+        "weighted_gradient_norms": gradient_norms,
+        "finite_by_objective": finite,
+        "nonzero_objective_count": len(nonzero),
+        "largest_to_smallest_nonzero_gradient_ratio": float(ratio),
+        "threshold": 100.0,
+        "passed": bool(nonzero and all(finite.values()) and ratio <= 100.0),
+    }
+
+
 def prediction_metrics(prediction: np.ndarray, target: np.ndarray) -> dict[str, float]:
     prediction = np.asarray(prediction, dtype=np.float64)
     target = np.asarray(target, dtype=np.float64)

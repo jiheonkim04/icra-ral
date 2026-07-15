@@ -11,6 +11,7 @@ from tca_map.smolvla.covi_vla import (
     covi_stage0_loss,
     episode_cluster_bootstrap_margin,
     irregular_occlusion_mask,
+    objective_gradient_audit,
     parameter_gradient_norms,
     partition_stage0_manifest,
     partition_summary,
@@ -114,6 +115,27 @@ def test_covi_adapter_is_identity_initialized_and_receives_gradients(tmp_path) -
     assert gradients["predictor"] > 0.0
     assert gradients["residual_projection"] > 0.0
     assert gradients["gate_head"] > 0.0
+
+    audit_model = COVIStage0Adapter(cfg)
+    audit = objective_gradient_audit(
+        audit_model,
+        occluded_source=source,
+        occluded_camera2=camera2,
+        target=target,
+        context_target=context,
+        clean_source=clean_source,
+        clean_camera2=clean_camera2,
+    )
+    assert set(audit["weighted_gradient_norms"]) == {"view", "clean", "delta", "gate", "action"}
+    assert audit["finite_by_objective"] == {
+        "view": True,
+        "clean": True,
+        "delta": True,
+        "gate": True,
+        "action": True,
+    }
+    assert audit["weighted_gradient_norms"]["view"] > 0.0
+    assert audit["weighted_gradient_norms"]["gate"] > 0.0
 
     checkpoint = tmp_path / "adapter.pt"
     torch.save({"config": cfg.to_dict(), "state_dict": model.state_dict()}, checkpoint)

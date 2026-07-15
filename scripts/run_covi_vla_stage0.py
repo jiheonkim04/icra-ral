@@ -39,6 +39,7 @@ from tca_map.smolvla.covi_vla import (  # noqa: E402
     irregular_occlusion_mask,
     mask_context,
     normalized_rmse_margin,
+    objective_gradient_audit,
     parameter_gradient_norms,
     partition_stage0_manifest,
     partition_summary,
@@ -348,6 +349,34 @@ def _train_adapter(
     model = COVIStage0Adapter(config).to("cuda")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.learning_rate, weight_decay=config.weight_decay)
     generator = torch.Generator(device="cpu").manual_seed(config.seed)
+    audit_index = torch.arange(min(config.batch_size, fit_count))
+    objective_audit = objective_gradient_audit(
+        model,
+        occluded_source=source[audit_index].to("cuda"),
+        occluded_camera2=camera2[audit_index].to("cuda"),
+        target=target[audit_index].to("cuda"),
+        context_target=context[audit_index].to("cuda"),
+        clean_source=clean_source[audit_index].to("cuda"),
+        clean_camera2=clean_camera2[audit_index].to("cuda"),
+    )
+    microbatch_terms: dict[str, list[float]] = {}
+    with torch.no_grad():
+        for micro_index in torch.chunk(audit_index, chunks=4):
+            _, terms = covi_stage0_loss(
+                model,
+                occluded_source=source[micro_index].to("cuda"),
+                occluded_camera2=camera2[micro_index].to("cuda"),
+                target=target[micro_index].to("cuda"),
+                context_target=context[micro_index].to("cuda"),
+                clean_source=clean_source[micro_index].to("cuda"),
+                clean_camera2=clean_camera2[micro_index].to("cuda"),
+            )
+            for name, value in terms.items():
+                microbatch_terms.setdefault(name, []).append(float(value.item()))
+    objective_audit["term_statistics_over_four_fixed_microbatches"] = {
+        name: {"mean": float(np.mean(values)), "std": float(np.std(values))}
+        for name, values in microbatch_terms.items()
+    }
     epoch_rows: list[dict[str, float]] = []
     first_terms: dict[str, float] | None = None
     first_gradients: dict[str, float] | None = None
@@ -392,6 +421,7 @@ def _train_adapter(
         "first_gradient_norms": first_gradients,
         "last_gradient_norms": last_gradients,
         "largest_to_smallest_nonzero_gradient_ratio": float(ratio),
+        "objective_gradient_audit_before_training": objective_audit,
         "epoch_losses": epoch_rows,
         "elapsed_sec": time.monotonic() - started,
     }
@@ -917,6 +947,8 @@ def run_stage0(args: argparse.Namespace) -> dict[str, Any]:
         and mask_valid
         and nonzero_target_dims >= 100
         and gradient_valid
+        and bool(training["objective_gradient_audit_before_training"]["passed"])
+        and bool(random_training["objective_gradient_audit_before_training"]["passed"])
         and reload_max_abs <= 1e-6
     )
     identity_safe = bool(
