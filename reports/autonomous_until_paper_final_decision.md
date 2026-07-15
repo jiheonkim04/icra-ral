@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current campaign decision: `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -202,6 +202,6 @@ G3P is anchored to Direct Action-Head Injection of A Grounded 3D Point, with Rob
 
 The design-level five-policy comparison is Base, a closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic.
 
-The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is complete in `reports/g3p_vla/researcher_rebuttal.md` with decision `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
+The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is complete in `reports/g3p_vla/researcher_rebuttal.md` with decision `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is frozen in `reports/g3p_vla/mathematical_mechanism_audit.md` with decision `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
 
-Current stage: `epoch_4_cycle_11_g3p_rebuttal_completed`. Next action: freeze the G3P-VLA mathematical mechanism audit before any implementation or Stage 0 data construction.
+Current stage: `epoch_4_cycle_11_g3p_mathematical_audit_preregistered`. Next action: freeze G3P-VLA preregistration and prototype protocol before implementation or Stage 0 data construction.

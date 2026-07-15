@@ -22,8 +22,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_11_g3p_rebuttal_completed"
+    assert state["current_decision"] == "G3P_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_11_g3p_mathematical_audit_preregistered"
     assert state["method"] == "G3P-VLA"
     assert state["method_identity"] == "G3P-VLA"
     assert state["proposal_hash"] == G3P_PROPOSAL_HASH
@@ -146,6 +146,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_11_g3p_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_11_g3p_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_11_g3p_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_11_g3p_mathematical_audit_preregistered" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -430,7 +431,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert g3p["rebuttal_completed"] is True
     assert g3p["rebuttal_decision"] == "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert g3p["mathematical_audit"] == "reports/g3p_vla/mathematical_mechanism_audit.md"
-    assert g3p["mathematical_audit_pending"] is True
+    assert g3p["mathematical_audit_pending"] is False
+    assert g3p["mathematical_audit_completed"] is True
+    assert g3p["mathematical_audit_decision"] == "G3P_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert g3p["preregistration"] == "reports/g3p_vla/preregistration.md"
+    assert g3p["prototype_protocol"] == "reports/g3p_vla/prototype_protocol.md"
     assert g3p["rollout_allowed"] is False
     assert g3p["closed_loop_experiment_happened"] is False
     assert g3p["training_happened"] is False
@@ -462,6 +467,14 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert g3p_rebuttal["accepted_simple_heuristic_killer"] is True
     assert g3p_rebuttal["accepted_identity_preserving_integration"] is True
     assert g3p_rebuttal["training_happened"] is False
+    g3p_audit = state["epoch_4_cycle_11_g3p_mathematical_audit"]
+    assert g3p_audit["mathematical_audit"] == "reports/g3p_vla/mathematical_mechanism_audit.md"
+    assert g3p_audit["final_decision"] == "G3P_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert g3p_audit["kl_between_deterministic_actions_forbidden"] is True
+    assert g3p_audit["identity_preserving_adapter_required"] is True
+    assert g3p_audit["source_gate_required"] is True
+    assert g3p_audit["bounded_validation_search_max_configs"] == 6
+    assert g3p_audit["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
