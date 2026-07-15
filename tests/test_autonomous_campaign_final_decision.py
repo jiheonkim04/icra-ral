@@ -13,6 +13,7 @@ COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698
 LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F"
 FAMR_PROPOSAL_HASH = "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69"
 SPARC_PROPOSAL_HASH = "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D"
+NICE_PROPOSAL_HASH = "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
@@ -215,7 +216,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_20_candidate_search_pending" in final
+    assert "epoch_4_cycle_20_nice_stage_0a_pending" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -230,15 +231,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == (
-        "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL"
-    )
+    assert state["current_decision"] == "NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 20
-    assert state["current_stage"] == "epoch_4_cycle_20_candidate_search_pending"
-    assert state["method"] == "SPARC-VLA"
-    assert state["method_identity"] == "SPARC-VLA"
-    assert state["proposal_hash"] == SPARC_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0a_pending"
+    assert state["method"] == "NICE-VLA"
+    assert state["method_identity"] == "NICE-VLA"
+    assert state["proposal_hash"] == NICE_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -252,10 +251,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Generate exactly three prior-anchored Cycle 20 candidates, select exactly one, and continue without "
-        "rescuing FAMR, PCAV, or SPARC."
+        "Implement, validate, commit, and run only the frozen NICE Stage 0A source, latent, algebra, calibration, "
+        "and Base-passthrough audit."
     )
-    assert state["prototype_protocol"] == "reports/sparc_vla/prototype_protocol.md"
+    assert state["prototype_protocol"] == "reports/nice_vla/prototype_protocol.md"
     assert state["epoch_4_cycle_16_candidate_selection"]["candidate_count"] == 3
     assert state["epoch_4_cycle_16_candidate_selection"]["selected_score"] == 95
     assert state["epoch_4_cycle_16_iarc_pre_stage_0a"]["confirmatory_rows_decoded_max"] == 0

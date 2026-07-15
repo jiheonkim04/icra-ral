@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `20`
 
-Current stage: `epoch_4_cycle_20_candidate_search_pending`
+Current stage: `epoch_4_cycle_20_nice_stage_0a_pending`
 
 Allowed final states:
 
@@ -572,3 +572,43 @@ Both miss the frozen 25% and 5% headroom requirements. The decision is
 Historical decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`.
 Current cycle: `19`. Current stage:
 `epoch_4_cycle_19_candidate_search_pending`.
+
+## Epoch 4 Cycle 19 Completion
+
+SPARC Stage 0A is closed unchanged as
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`.
+The final worker completed `2 / 2` planned synthetic action rows with exit code
+zero, zero exceptions, and zero duplicate, missing-manifest, or extra keys.
+Hook identity, serialization, and mechanism activation passed, but both action
+rows failed the frozen Base-relative action-validity gates. The one mechanical
+repair was consumed. No labeled activation fit, Stage 0B, validation search,
+rollout, or confirmatory access occurred. SPARC rescue is forbidden.
+
+## Epoch 4 Cycle 20
+
+Exactly three candidates were generated in
+`reports/epoch_4_cycle_20_candidate_generation.md` after the primary-source,
+historical-overlap, and local-data audit in
+`reports/epoch_4_cycle_20_prior_mechanism_map.md`.
+
+`NICE-VLA`, Normalized-Innovation Corrective Execution for VLAs, was selected
+with `96 / 100`. Its closest positive prior is VLA-Corrector at official source
+commit `9d23a0ba6fad562d3ed1a68fc52c8a12459abb41`. NICE preserves the prior's
+frozen mean, queue, truncation, recovery, OGG, and action semantics, and changes
+only the monitor through an action-conditioned heteroscedastic covariance,
+normalized innovation, and episode-cluster split-conformal threshold.
+
+The Researcher A proposal is frozen with hash
+`898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A`.
+Reviewer B attack, Researcher A rebuttal, mathematical mechanism audit,
+preregistration, and prototype protocol are frozen under `reports/nice_vla/`.
+
+The first comparison is exactly Base, the official-code-derived VLA-Corrector
+proxy, NICE full, a shared-mean global-error ablation, and fixed short-horizon
+replanning. Validation search is capped at six configurations. Stage 0A is the
+only authorized next step: `128` discovery-only latent/action pairs, tiny model
+and algebra/calibration smoke, exact Base passthrough, zero validation or
+confirmatory reads, and one mechanical implementation repair at most.
+
+Current cycle: `20`. Current stage:
+`epoch_4_cycle_20_nice_stage_0a_pending`.

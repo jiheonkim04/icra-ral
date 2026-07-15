@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current decision:
-`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -17,8 +17,12 @@ frozen Base-relative range-safety gate. No labeled fit, validation, rollout,
 or confirmatory evaluation occurred.
 
 This is an implementation/prototype action-validity failure, not a scientific
-kill. Do not run Stage 0B or rescue SPARC. Current cycle: `20`; current stage:
-`epoch_4_cycle_20_candidate_search_pending`.
+kill. Do not run Stage 0B or rescue SPARC. Historical SPARC decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`.
+
+Cycle 20 selected NICE-VLA from exactly three candidates and froze the full
+pre-implementation protocol package. Current cycle: `20`; current stage:
+`epoch_4_cycle_20_nice_stage_0a_pending`.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 

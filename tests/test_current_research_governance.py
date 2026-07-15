@@ -16,6 +16,7 @@ IARC_PROPOSAL_HASH = "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6
 FAMR_PROPOSAL_HASH = "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69"
 PCAV_PROPOSAL_HASH = "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA"
 SPARC_PROPOSAL_HASH = "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D"
+NICE_PROPOSAL_HASH = "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -47,7 +48,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_sparc_stage_0a_failure_and_cycle_20_search() -> None:
+def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -55,14 +56,12 @@ def test_active_state_records_sparc_stage_0a_failure_and_cycle_20_search() -> No
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == (
-        "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL"
-    )
-    assert state["current_stage"] == "epoch_4_cycle_20_candidate_search_pending"
-    assert state["method"] == "SPARC-VLA"
-    assert state["method_identity"] == "SPARC-VLA"
-    assert state["proposal_hash"] == SPARC_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/sparc_vla/prototype_protocol.md"
+    assert state["current_decision"] == "NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0a_pending"
+    assert state["method"] == "NICE-VLA"
+    assert state["method_identity"] == "NICE-VLA"
+    assert state["proposal_hash"] == NICE_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/nice_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -103,6 +102,15 @@ def test_active_state_records_sparc_stage_0a_failure_and_cycle_20_search() -> No
     assert "epoch_4_cycle_19_sparc_stage_0a_completed" in state["completed_stages"]
     assert "epoch_4_cycle_19_sparc_stage_0a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_20_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_20_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_researcher_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0a_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0a_runner_implemented" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -232,6 +240,31 @@ def test_active_state_records_sparc_stage_0a_failure_and_cycle_20_search() -> No
     assert sparc_outcome["labeled_activation_fit_happened"] is False
     assert sparc_outcome["confirmatory_records_read"] == 0
     assert sparc_outcome["stage_0b_allowed"] is False
+    nice = state["epoch_4_cycle_20_candidate_selection"]
+    assert nice["candidate_count"] == 3
+    assert nice["selected_score"] == 96
+    assert nice["proposal_hash"] == NICE_PROPOSAL_HASH
+    assert nice["closest_prior"] == "VLA-Corrector"
+    assert nice["closest_prior_source_commit"] == "9d23a0ba6fad562d3ed1a68fc52c8a12459abb41"
+    assert nice["bounded_validation_search_max_configs"] == 6
+    assert nice["policy_order"] == [
+        "smolvla_base_fixed_horizon",
+        "vla_corrector_official_proxy",
+        "nice_full",
+        "nice_mean_only_global_error_ablation",
+        "fixed_short_horizon_replan",
+    ]
+    assert nice["training_happened"] is False
+    assert nice["validation_search_happened"] is False
+    assert nice["closed_loop_experiment_happened"] is False
+    assert nice["confirmatory_test_tuning_happened"] is False
+    nice_pre_stage = state["epoch_4_cycle_20_nice_pre_stage_0a"]
+    assert nice_pre_stage["final_decision"] == "NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert nice_pre_stage["planned_pair_count"] == 128
+    assert nice_pre_stage["k_step"] == 10
+    assert nice_pre_stage["validation_records_read_max"] == 0
+    assert nice_pre_stage["confirmatory_records_read_max"] == 0
+    assert nice_pre_stage["stage_0a_pending"] is True
     pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0

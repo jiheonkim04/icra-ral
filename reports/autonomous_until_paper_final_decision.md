@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current campaign decision:
-`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal decision.
 
@@ -29,8 +29,13 @@ The raw runner decision remains `SPARC_STAGE_0A_IMPLEMENTATION_FAILURE`. The
 campaign classifies it as a pre-rollout implementation/prototype
 action-validity failure, not a scientific kill, because no fitted SPARC
 operator or policy comparison was evaluated. Stage 0B and SPARC rescue are
-forbidden. Current cycle: `20`. Current stage:
-`epoch_4_cycle_20_candidate_search_pending`.
+forbidden. Historical SPARC decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`.
+
+Cycle 20 selected NICE-VLA from exactly three candidates and froze its
+proposal, review, rebuttal, mathematical audit, preregistration, and prototype
+protocol. Current cycle: `20`. Current stage:
+`epoch_4_cycle_20_nice_stage_0a_pending`.
 
 ## Corrected Epoch 1 Status
 

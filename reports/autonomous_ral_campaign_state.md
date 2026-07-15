@@ -7,13 +7,23 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `20`
 
-Current stage: `epoch_4_cycle_20_candidate_search_pending`
+Current stage: `epoch_4_cycle_20_nice_stage_0a_pending`
+
+## Epoch 4 Cycle 20 NICE-VLA
+
+Cycle 20 generated exactly three prior-anchored candidates and selected
+`NICE-VLA` at `96 / 100`, with VLA-Corrector as the closest positive prior.
+The proposal hash is
+`898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A`.
+The review, rebuttal, mathematical audit, preregistration, and prototype
+protocol are frozen. Only the 128-pair discovery-only Stage 0A audit is
+authorized; validation and confirmatory records remain sealed.
 
 ## Epoch 4 Cycle 19 SPARC-VLA
 
