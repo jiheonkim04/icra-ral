@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `18`
 
-Current stage: `epoch_4_cycle_18_candidate_search_pending`
+Current stage: `epoch_4_cycle_18_pcav_stage_0a_implementation_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -445,5 +445,13 @@ was `0.09376012921333322` versus limit `0.04096377015113834`.
 
 The endpoint is closed unchanged as
 `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. This is an
-implementation/optimization failure, not a scientific kill. Current cycle is
-`18`; current stage is `epoch_4_cycle_18_candidate_search_pending`.
+implementation/optimization failure, not a scientific kill.
+
+Cycle 18 generated exactly three candidates and selected `PCAV-VLA` with
+`95 / 100`, anchored to TACO and extended with ProgressVLA's
+progress-consequence mechanism. Proposal hash:
+`E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
+All pre-Stage 0A research artifacts are frozen under `reports/pcav_vla/`.
+
+Current cycle is `18`; current stage is
+`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.

@@ -39,3 +39,28 @@ remain valid because the simulator was synchronous, no timeout or exception
 occurred, action semantics and frozen identities were unchanged, and no
 duplicate or off-manifest rows were created.
 
+## 2026-07-15 Goal Pause And Gaming Interval 2
+
+The user reported a second start-unknown interval in which Windows gaming and
+Efficiency Mode on `vmmemWSL` may have overlapped a detached WSL experiment.
+Efficiency Mode was disabled before the continuity audit, which completed at
+`2026-07-15T19:24:37+09:00`.
+
+No Linux VLA or simulator worker was alive. The newest experiment was the
+already completed FAMR endpoint at `runs/famr_vla/endpoint`:
+
+- PID `387`: dead;
+- heartbeat/status: `completed`;
+- exit code: `0`;
+- partial and final JSON: parsed;
+- optimizer steps: `300 / 300`;
+- discovery microbatches: `2400 / 2400`;
+- exceptions and duplicate schedule keys: `0 / 0`;
+- resume or relaunch: not performed.
+
+The FAMR endpoint contains no closed-loop task-success rows, so the simulator,
+timeout, reset-identity, and rollout-manifest acceptance conditions are not
+applicable to it. Its fixed scientific endpoint adjudication remains unchanged,
+but latency, throughput, wall-clock efficiency, and resource utilization are
+quarantined because overlap with the start-unknown interval cannot be excluded.
+The completed endpoint was accepted without rerun.

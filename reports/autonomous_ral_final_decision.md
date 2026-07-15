@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -302,10 +302,18 @@ result is `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, an
 implementation/optimization failure rather than a scientific kill. No
 headroom, validation, rollout, or confirmatory evaluation ran.
 
-Current cycle: `18`. Current stage:
-`epoch_4_cycle_18_candidate_search_pending`.
+FAMR remains closed without rescue. Cycle 18 generated exactly three
+candidates and selected `PCAV-VLA` with `95 / 100`. The closest prior is TACO;
+the extension uses action-conditioned task progress motivated by ProgressVLA.
+Proposal hash:
+`E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
 
-The Windows Efficiency Mode interval is recorded in
+Current cycle: `18`. Current stage:
+`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
+
+The Windows Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency
-metrics are not final paper evidence. The existing EAC Stage B result was
-accepted without rerun after complete synchronous duplicate/manifest audit.
+metrics are not final paper evidence. The latest audit found FAMR endpoint PID
+`387` dead after clean `300 / 300` completion and did not relaunch it. The
+existing EAC Stage B result remains accepted after its synchronous
+duplicate/manifest audit.

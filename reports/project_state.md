@@ -1,46 +1,47 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 17 Current State
+## 2026-07-15 Epoch 4 Cycle 18 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
-Current cycle: `17`
+Current cycle: `18`
 
-Cycle 15 is closed as `LIFT_COMPUTE_INFEASIBLE` without rescue. Cycle 16
-generated exactly three candidates and selected `IARC-VLA` with score
-`95 / 100`.
+Cycle 17 FAMR is closed unchanged as
+`FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. Its endpoint completed
+`300 / 300` optimizer steps and `2400 / 2400` discovery microbatches with zero
+exceptions, but failed the frozen Base-relative action-validity gate. This is
+not a scientific kill, and no FAMR rescue is allowed.
 
-IARC is anchored to STRONG-VLA and GEM. The scientific method is actual-step
-projected SGD during clean refinement against a paired perturbation-replay
-SmolVLA action gradient. Rank-4 LoRA is implementation infrastructure. The
-proposal hash is
-`A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408`.
+Cycle 18 generated exactly three candidates and selected `PCAV-VLA` with
+`95 / 100`. TACO is the closest positive prior; ProgressVLA motivates the
+action-conditioned progress extension. The scientific method filters frozen
+SmolVLA candidates by successful-action support, ranks eligible candidates by
+predicted task progress, and returns Base exactly unless a
+validation-frozen advantage margin is cleared. Proposal hash:
+`E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
 
 Reviewer B attack and Researcher A rebuttal are complete. The mathematical
 audit, preregistration, and prototype protocol are frozen under
-`reports/iarc_vla/`. The first comparison is Base, transparent STRONG proxy,
-IARC full, unprojected joint replay, and matched standard LoRA.
+`reports/pcav_vla/`. The first comparison is Base, transparent TACO support
+proxy, PCAV full, progress-only ablation, and matched standard LoRA.
 
-IARC Stage 0A is complete and adjudicated in
-`reports/iarc_vla/stage_0a_adjudication.md`. The mechanism activated on
-`18 / 40` rows across all four families; all projection, identity, Base-hash,
-checkpoint, partition, and duplicate-key checks passed. Dataset-range action
-validity was only `12 / 40 = 0.30` against the frozen `1.0` gate. No clipping,
-one-check, Stage 0B, or validation rescue is allowed. Confirmatory decode and
-action counts remained zero.
+Only PCAV Stage 0A implementation, audit, and discovery-only execution are
+authorized. It starts with `24` rows and may expand to `96` only under the
+frozen unresolved decision. Validation and confirmatory observations remain
+sealed.
 
-Current stage: `epoch_4_cycle_17_candidate_search_pending`. Generate exactly
-three Cycle 17 candidates and select exactly one under the active governance.
+Current stage: `epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
 
-The Windows Efficiency Mode interval and completed-worker audit are recorded in
-`reports/resource_contention_intervals.json`. EAC Stage B is accepted without
-rerun; efficiency metrics with unknown interval overlap are quarantined.
+The Windows Efficiency Mode intervals and completed-worker audits are recorded
+in `reports/resource_contention_intervals.json`. The newest FAMR PID `387` is
+dead after clean completion and was not relaunched. Timing and resource metrics
+with unknown interval overlap are quarantined.
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 

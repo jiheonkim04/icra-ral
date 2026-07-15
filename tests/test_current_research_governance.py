@@ -14,6 +14,7 @@ COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698
 LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F"
 IARC_PROPOSAL_HASH = "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408"
 FAMR_PROPOSAL_HASH = "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69"
+PCAV_PROPOSAL_HASH = "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -45,7 +46,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> None:
+def test_active_state_records_pcav_stage_0a_and_preserves_famr_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -53,12 +54,12 @@ def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> Non
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_18_candidate_search_pending"
-    assert state["method"] == "FAMR-VLA"
-    assert state["method_identity"] == "FAMR-VLA"
-    assert state["proposal_hash"] == FAMR_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/famr_vla/prototype_protocol.md"
+    assert state["current_decision"] == "PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_18_pcav_stage_0a_implementation_pending"
+    assert state["method"] == "PCAV-VLA"
+    assert state["method_identity"] == "PCAV-VLA"
+    assert state["proposal_hash"] == PCAV_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/pcav_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -78,6 +79,14 @@ def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> Non
     assert "epoch_4_cycle_17_famr_endpoint_training_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_17_famr_endpoint_implementation_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_18_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_18_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_researcher_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_stage_0a_implementation_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -104,6 +113,32 @@ def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> Non
         "famr_target_only",
         "standard_lora_new_task",
     ]
+    pcav = state["epoch_4_cycle_18_candidate_selection"]
+    assert pcav["candidate_count"] == 3
+    assert pcav["selected_score"] == 95
+    assert pcav["proposal_hash"] == PCAV_PROPOSAL_HASH
+    assert pcav["closest_prior"] == "TACO"
+    assert pcav["secondary_mechanism_prior"] == "ProgressVLA"
+    assert pcav["bounded_validation_search_max_configs"] == 6
+    assert pcav["policy_order"] == [
+        "smolvla_base",
+        "taco_support_proxy",
+        "pcav_full",
+        "pcav_progress_only",
+        "standard_lora_new_task",
+    ]
+    assert pcav["training_happened"] is False
+    assert pcav["validation_search_happened"] is False
+    assert pcav["closed_loop_experiment_happened"] is False
+    assert pcav["confirmatory_test_tuning_happened"] is False
+    pcav_pre_stage = state["epoch_4_cycle_18_pcav_pre_stage_0a"]
+    assert pcav_pre_stage["final_decision"] == "PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert pcav_pre_stage["stage_0a_initial_rows"] == 24
+    assert pcav_pre_stage["stage_0a_expansion_rows"] == 96
+    assert pcav_pre_stage["candidate_count_per_row"] == 4
+    assert pcav_pre_stage["confirmatory_observations_decoded_max"] == 0
+    assert pcav_pre_stage["confirmatory_actions_computed_max"] == 0
+    assert pcav_pre_stage["stage_0a_pending"] is True
     pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0
@@ -165,6 +200,27 @@ def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> Non
     assert resource_audit["extra_result_key_count"] == 0
     assert resource_audit["simulator_synchronous"] is True
     assert resource_audit["performance_metrics_quarantined_if_overlap_unknown"] is True
+    registry = json.loads(
+        (REPO_ROOT / "reports" / "resource_contention_intervals.json").read_text(encoding="utf-8")
+    )
+    latest_interval = next(
+        interval
+        for interval in registry["intervals"]
+        if interval["id"] == "windows_efficiency_mode_vmmemwsl_20260715_goal_pause_2_user_reported"
+    )
+    latest_run = latest_interval["durable_run_audit"]
+    assert latest_interval["active_linux_research_worker_found_at_audit"] is False
+    assert latest_run["pid"] == 387
+    assert latest_run["pid_alive"] is False
+    assert latest_run["partial_json_parsed"] is True
+    assert latest_run["result_json_parsed"] is True
+    assert latest_run["completed_optimizer_steps"] == latest_run["planned_optimizer_steps"] == 300
+    assert latest_run["completed_microbatch_count"] == latest_run["planned_microbatch_count"] == 2400
+    assert latest_run["exception_count"] == 0
+    assert latest_run["duplicate_key_count"] == 0
+    assert latest_run["closed_loop_rows_present"] is False
+    assert latest_run["timing_and_resource_evidence_quarantined"] is True
+    assert latest_run["resume_or_relaunch_performed"] is False
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -1208,7 +1264,7 @@ def test_active_state_records_famr_endpoint_failure_and_cycle_18_search() -> Non
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
-    assert state["checkpoint_path"] == "runs/famr_vla/endpoint/endpoint_checkpoint"
+    assert state["checkpoint_path"] == "/mnt/c/assets/checkpoints/smolvla_libero"
     assert state["stage_a_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0

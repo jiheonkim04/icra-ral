@@ -1,29 +1,33 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 17 Current Action
+## 2026-07-15 Epoch 4 Cycle 18 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
-Immediate next action: generate exactly three materially distinct Cycle 17
-candidates, score them under the active governance, and select exactly one.
+Immediate next action: validate and commit the frozen PCAV Stage 0A
+implementation, run the model-free audit, then launch one detached
+discovery-only Stage 0A worker only when the durable-process audit remains
+clean.
 
-COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
+COVI, IARC, and FAMR remain preserved under their fixed protocols. FAMR's
+endpoint completed `300 / 300` optimizer steps and `2400 / 2400` discovery
+microbatches, then stopped on its frozen Base-relative action-validity gate as
+an implementation/optimization failure rather than a scientific kill.
 
-Do not rescue G3P, CALA, RAR, COVI, LIFT, or IARC by changing frozen labels,
-objectives, thresholds, source gates, validation configs, baselines, action
-clipping, or guidance scales. IARC Stage 0A completed `40 / 40` gradient pairs
-and `40 / 40` validation rows with zero exceptions, but dataset-range action
-validity was `0.30 < 1.0`. Its one-check, Stage 0B, and validation search are
-forbidden.
+Cycle 18 generated exactly three candidates and selected `PCAV-VLA` with
+`95 / 100`. Its TACO-anchored support filter, ProgressVLA-motivated
+progress-consequence extension, exact five-policy comparison, partitions,
+thresholds, and Stage 0A row construction are frozen under
+`reports/pcav_vla/`. Do not load or rescue the FAMR checkpoint.
 
 Before any long WSL launch, inspect state, newest PID/heartbeat/status/partial/
 result/log/exit files, worker liveness, JSON parseability, completed/planned
 counts, exceptions, and duplicate/manifest keys. Do not duplicate a live or
-completed run. The Windows Efficiency Mode interval is recorded in
-`reports/resource_contention_intervals.json`; overlap-unknown efficiency
-metrics are excluded from final paper evidence.
+completed run. Both Windows Efficiency Mode intervals are recorded in
+`reports/resource_contention_intervals.json`; overlap-unknown timing and
+resource metrics are excluded from final paper evidence.
 
 ## 2026-07-13 Governance V2 Current Action
 

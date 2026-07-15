@@ -42,6 +42,55 @@
         "final_result_accepted_without_rerun": true,
         "resume_or_relaunch_performed": false
       }
+    },
+    {
+      "id": "windows_efficiency_mode_vmmemwsl_20260715_goal_pause_2_user_reported",
+      "resource": "vmmemWSL",
+      "condition": "Windows gaming and Efficiency Mode enabled while Goal UI was paused",
+      "source": "user_report",
+      "start_time": null,
+      "end_time_latest_kst": "2026-07-15T19:24:37+09:00",
+      "end_time_exact": false,
+      "efficiency_mode_disabled": true,
+      "active_linux_research_worker_found_at_audit": false,
+      "audit_time_kst": "2026-07-15T19:24:37+09:00",
+      "paper_evidence_policy": {
+        "latency_excluded_if_overlap_unknown_or_positive": true,
+        "throughput_excluded_if_overlap_unknown_or_positive": true,
+        "wall_clock_efficiency_excluded_if_overlap_unknown_or_positive": true,
+        "resource_utilization_excluded_if_overlap_unknown_or_positive": true,
+        "closed_loop_success_may_remain_valid_after_row_audit": true
+      },
+      "durable_run_audit": {
+        "newest_durable_experiment": "runs/famr_vla/endpoint",
+        "newest_rollout_run": "runs/eac_vla_stage_b/20260714T202334Z",
+        "pid": 387,
+        "pid_alive": false,
+        "heartbeat_status": "completed",
+        "status_file_status": "completed",
+        "exit_code": 0,
+        "partial_json_parsed": true,
+        "result_json_parsed": true,
+        "planned_optimizer_steps": 300,
+        "completed_optimizer_steps": 300,
+        "planned_microbatch_count": 2400,
+        "completed_microbatch_count": 2400,
+        "exception_count": 0,
+        "duplicate_key_count": 0,
+        "closed_loop_rows_present": false,
+        "task_success_acceptance_not_applicable": true,
+        "timing_and_resource_evidence_quarantined": true,
+        "final_result_accepted_without_rerun": true,
+        "resume_or_relaunch_performed": false,
+        "pid_file": "runs/famr_vla/endpoint/child_pid.txt",
+        "heartbeat_file": "runs/famr_vla/endpoint/heartbeat.json",
+        "status_file": "runs/famr_vla/endpoint/status.json",
+        "partial_result_file": "runs/famr_vla/endpoint/partial_result.json",
+        "result_file": "reports/famr_vla/endpoint_training_result.json",
+        "stdout_log": "runs/famr_vla/endpoint/stdout.log",
+        "stderr_log": "runs/famr_vla/endpoint/stderr.log",
+        "exit_code_file": "runs/famr_vla/endpoint/exit_code.txt"
+      }
     }
   ]
 }

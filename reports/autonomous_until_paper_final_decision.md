@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current campaign decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 This is not a terminal decision.
 
@@ -329,5 +329,12 @@ outside-`[-1,1]` frequency and p99 exceedance. The decision is
 `IMPLEMENTATION_OR_DATA_FAILURE`, not a scientific kill. Headroom, validation,
 rollout, and confirmatory evaluation did not run.
 
+FAMR remains closed without rescue. Cycle 18 generated exactly three
+candidates and selected `PCAV-VLA` with `95 / 100`. TACO is the closest
+positive prior and ProgressVLA supplies the action-conditioned progress
+extension. Proposal hash:
+`E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
+The pre-Stage 0A research package is frozen under `reports/pcav_vla/`.
+
 Current cycle: `18`. Current stage:
-`epoch_4_cycle_18_candidate_search_pending`.
+`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.

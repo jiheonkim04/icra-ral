@@ -1,0 +1,57 @@
+{
+  "active_linux_workers": [],
+  "bddl_paths": {
+    "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf.bddl",
+    "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray.bddl",
+    "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy.bddl"
+  },
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 5080",
+  "disk_free_gib": 303.05495834350586,
+  "existing_pid": null,
+  "existing_pid_alive": false,
+  "expected_stage": "epoch_4_cycle_18_pcav_stage_0a_implementation_pending",
+  "forbidden_gates_enabled": [],
+  "missing_paths": [],
+  "mode": "audit",
+  "observed_stages": {
+    "reports/autonomous_ral_campaign_state.json": "epoch_4_cycle_18_pcav_stage_0a_implementation_pending",
+    "reports/autonomous_until_paper_state.json": "epoch_4_cycle_18_pcav_stage_0a_implementation_pending"
+  },
+  "partial_audit": null,
+  "partial_parse_error": null,
+  "passed": true,
+  "proposal_hash_expected": "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA",
+  "proposal_hash_file": "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA",
+  "proposal_hash_observed": "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA",
+  "proposal_hash_ok": true,
+  "required_paths": {
+    "bddl_0": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf.bddl",
+    "bddl_1": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray.bddl",
+    "bddl_2": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy.bddl",
+    "checkpoint": "/mnt/c/assets/checkpoints/smolvla_libero",
+    "official_dataset": "/mnt/c/assets/datasets/lerobot_libero",
+    "proposal": "/mnt/c/Users/jiheo/tca_map/reports/pcav_vla/researcher_proposal.md",
+    "proposal_hash": "/mnt/c/Users/jiheo/tca_map/reports/pcav_vla/proposal_hash.txt",
+    "resource_registry": "/mnt/c/Users/jiheo/tca_map/reports/resource_contention_intervals.json",
+    "target_0": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+    "target_1": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+    "target_2": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+    "vlm": "/mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
+  },
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 2,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "result_absent": true,
+  "stage_ok": true,
+  "target_paths": {
+    "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+    "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+    "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5"
+  }
+}

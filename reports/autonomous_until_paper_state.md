@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `18`
 
-Current stage: `epoch_4_cycle_18_candidate_search_pending`
+Current stage: `epoch_4_cycle_18_pcav_stage_0a_implementation_pending`
 
 Allowed final states:
 
@@ -529,6 +529,16 @@ was `0.09376012921333322` versus permitted `0.04096377015113834`. This is
 `IMPLEMENTATION_OR_DATA_FAILURE`, not a scientific kill. No clipping,
 headroom, validation search, rollout, or confirmatory rescue is allowed.
 
-Current decision: `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
+The FAMR endpoint remains closed unchanged as
+`FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`.
+
+Cycle 18 generated exactly three candidates and selected `PCAV-VLA` with
+`95 / 100`. TACO is the closest positive prior and ProgressVLA supplies the
+progress-consequence extension. Proposal hash:
+`E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
+The proposal, review, rebuttal, mathematical audit, preregistration, and
+prototype protocol are frozen under `reports/pcav_vla/`.
+
+Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`.
 Current cycle: `18`. Current stage:
-`epoch_4_cycle_18_candidate_search_pending`.
+`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
