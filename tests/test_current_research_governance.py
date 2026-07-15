@@ -17,15 +17,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 10
+    assert state["current_cycle"] == 11
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11"
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_adjudicated"
-    assert state["method"] == "EAC-VLA"
-    assert state["method_identity"] == "EAC-VLA"
-    assert state["proposal_hash"] == EAC_PROPOSAL_HASH
+    assert state["current_decision"] == "SELECT_G3P_VLA_CONTINUE_PROPOSAL"
+    assert state["current_stage"] == "epoch_4_cycle_11_candidate_generation_completed"
+    assert state["method"] == "G3P-VLA"
+    assert state["method_identity"] == "G3P-VLA"
+    assert state["proposal_hash"] is None
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -140,6 +140,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_10_eac_stage_b_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_b_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_11_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_11_candidate_generation_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -393,20 +395,42 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert outcome_b["fixed_short_replan_baseline_successes"] == 29
     assert outcome_b["paired_delta_vs_fixed_short_replan_baseline"] == 0.0
     assert outcome_b["simple_baseline_explains_method"] is True
-    assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
+    g3p = state["epoch_4_cycle_11_pre_proposal"]
+    assert g3p["method"] == "G3P-VLA"
+    assert g3p["selection_decision"] == "SELECT_G3P_VLA"
+    assert g3p["candidate_generation"] == "reports/epoch_4_cycle_11_candidate_generation.md"
+    assert g3p["prior_mechanism_map"] == "reports/epoch_4_cycle_11_prior_mechanism_map.md"
+    assert g3p["candidate_count"] == 3
+    assert g3p["closest_prior"] == "Direct Action-Head Injection of A Grounded 3D Point"
+    assert g3p["secondary_priors"] == ["RoboPoint", "RoboGround", "AffordanceVLA"]
+    assert g3p["selected_score"] == 90
+    assert g3p["selected_contribution_type"] == "PRIOR_EXTENSION"
+    assert g3p["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "g3p_3d_point_proxy",
+        "g3p_full",
+        "g3p_no_3d_no_injection_ablation",
+        "simple_2d_phase_or_nearest_object_heuristic",
+    ]
+    assert g3p["source_gate_required"] is True
+    assert g3p["rollout_allowed"] is False
+    assert g3p["closed_loop_experiment_happened"] is False
+    assert g3p["training_happened"] is False
+    assert g3p["confirmatory_test_tuning_happened"] is False
+    assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["reset_seeds"] == [20261201, 20261202]
     assert state["checkpoint_path"] is None
-    assert state["stage_a_result_json"] == "reports/eac_vla/stage_a_result.json"
+    assert state["stage_a_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["final_decision"] == "MTF_STAGE_A_NONCATASTROPHIC_TO_STAGE_B_REQUIRED"
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["mtf_full"]["successes"] == 7
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["policy_successes"]["frameskip_proxy_lora"]["successes"] == 8
-    assert state["stage_b_manifest_json"] == "reports/eac_vla/stage_b_manifest.json"
-    assert state["stage_b_partial_checkpoint"] == "reports/eac_vla/stage_b_partial_result.json"
-    assert state["stage_b_result_json"] == "reports/eac_vla/stage_b_result.json"
+    assert state["stage_b_manifest_json"] is None
+    assert state["stage_b_partial_checkpoint"] is None
+    assert state["stage_b_result_json"] is None
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["planned_episode_count"] == 200
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["paired_cases_per_policy"] == 40
     assert state["epoch_4_cycle_6_mtf_stage_b_manifest"]["reset_seeds"] == [20261203, 20261204]

@@ -11,7 +11,7 @@ EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A445
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11`" in final
+    assert "Current campaign decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -144,7 +144,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "EAC full reached `29 / 40`" in final
     assert "AAC entropy proxy reached `30 / 40`" in final
     assert "fixed short-replan reached `29 / 40`" in final
-    assert "Current stage: `epoch_4_cycle_10_eac_stage_b_adjudicated`" in final
+    assert "Epoch 4 Cycle 11 generated exactly three post-EAC candidates" in final
+    assert "G3P-VLA" in final
+    assert "Grounded 3D Point Injection" in final
+    assert "Current stage: `epoch_4_cycle_11_candidate_generation_completed`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -152,13 +155,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11"
+    assert state["current_decision"] == "SELECT_G3P_VLA_CONTINUE_PROPOSAL"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 10
-    assert state["current_stage"] == "epoch_4_cycle_10_eac_stage_b_adjudicated"
-    assert state["method"] == "EAC-VLA"
-    assert state["method_identity"] == "EAC-VLA"
-    assert state["proposal_hash"] == EAC_PROPOSAL_HASH
+    assert state["current_cycle"] == 11
+    assert state["current_stage"] == "epoch_4_cycle_11_candidate_generation_completed"
+    assert state["method"] == "G3P-VLA"
+    assert state["method_identity"] == "G3P-VLA"
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -171,10 +174,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Start Epoch 4 Cycle 11 candidate generation")
-    assert state["task_reset_manifest"] == "reports/eac_vla/stage_a_manifest.json"
-    assert state["stage_b_manifest_json"] == "reports/eac_vla/stage_b_manifest.json"
-    assert state["stage_b_partial_checkpoint"] == "reports/eac_vla/stage_b_partial_result.json"
+    assert state["next_action"].startswith("Freeze the G3P-VLA Researcher A proposal")
+    assert state["task_reset_manifest"] is None
+    assert state["stage_b_manifest_json"] is None
+    assert state["stage_b_partial_checkpoint"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["completed_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_outcome"]["exception_count"] == 0
@@ -301,6 +304,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_10_eac_stage_b_completed" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_stage_b_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_10_eac_valid_current_formulation_kill_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_11_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_11_candidate_generation_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11`
+Current decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`
 
 Current epoch: `4`
 
-Current cycle: `10`
+Current cycle: `11`
 
-Current stage: `epoch_4_cycle_10_eac_stage_b_adjudicated`
+Current stage: `epoch_4_cycle_11_candidate_generation_completed`
 
 Allowed final states:
 
@@ -376,4 +376,14 @@ EAC full-minus-Base paired delta was `-0.025` with CI `[-0.175, 0.125]`; full-mi
 
 Final EAC decision: valid current-formulation kill. Do not rescue EAC by retuning `eac_q33_aggressive_1_4_50`, changing thresholds, changing tasks or resets, changing the five-policy list, reinterpreting partial results, or applying any post-hoc expansion.
 
-Current decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11`. Current stage: `epoch_4_cycle_10_eac_stage_b_adjudicated`. Next action: start Epoch 4 Cycle 11 candidate generation under current governance.
+## Epoch 4 Cycle 11
+
+Exactly three post-EAC candidates were generated and scored in `reports/epoch_4_cycle_11_candidate_generation.md` after building the prior mechanism map in `reports/epoch_4_cycle_11_prior_mechanism_map.md`. EAC remains archived and may not be rescued.
+
+`G3P-VLA` is selected as a Direct 3D Grounded Point Injection anchored source-gated spatial-conditioning method for frozen SmolVLA. It changes the active method axis from action-queue scheduling to gripper-relative spatial grounding at the action interface.
+
+The selected first comparison is frozen at the design level to five policies: Base, closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic. The closest-prior proxy is a faithful transparent local proxy, not an official reproduction unless exact official equivalence is later established.
+
+No G3P proposal, training, validation search, rollout, or confirmatory-test tuning has happened. The next action is to freeze the G3P-VLA Researcher A proposal and hash it before Reviewer B attack.
+
+Current decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`. Current stage: `epoch_4_cycle_11_candidate_generation_completed`. Next action: freeze the G3P-VLA Researcher A proposal and hash it before Reviewer B attack.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11`
+Current decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`
 
 Current epoch: `4`
 
-Current cycle: `10`
+Current cycle: `11`
 
-Current stage: `epoch_4_cycle_10_eac_stage_b_adjudicated`
+Current stage: `epoch_4_cycle_11_candidate_generation_completed`
 
 ## Corrected Epoch 1 Result
 
@@ -299,4 +299,12 @@ EAC full-minus-Base paired delta was `-0.025` with CI `[-0.175, 0.125]`; full-mi
 
 Final EAC decision: valid current-formulation kill. Do not rescue EAC by retuning `eac_q33_aggressive_1_4_50`, changing thresholds, changing tasks or resets, changing the five-policy list, reinterpreting partial results, or applying any post-hoc expansion.
 
-Current decision: `EAC_STAGE_B_KILL_SIMPLE_BASELINE_EXPLAINS_METHOD_CONTINUE_CYCLE_11`. Current stage: `epoch_4_cycle_10_eac_stage_b_adjudicated`. Next action: start Epoch 4 Cycle 11 candidate generation under current governance.
+## Epoch 4 Cycle 11
+
+Epoch 4 Cycle 11 generated exactly three post-EAC candidates in `reports/epoch_4_cycle_11_candidate_generation.md` after the prior map in `reports/epoch_4_cycle_11_prior_mechanism_map.md`, and selected `G3P-VLA`, Grounded 3D Point Injection for frozen SmolVLA.
+
+G3P is anchored to Direct Action-Head Injection of A Grounded 3D Point, with RoboPoint, RoboGround, and AffordanceVLA as secondary spatial-grounding priors. Its first design-level comparison is Base, closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic.
+
+No G3P proposal, training, validation search, rollout, or confirmatory-test tuning has happened. The next action is to freeze the G3P-VLA Researcher A proposal and hash it before Reviewer B attack.
+
+Current decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`. Current stage: `epoch_4_cycle_11_candidate_generation_completed`. Next action: freeze the G3P-VLA Researcher A proposal and hash it before Reviewer B attack.
