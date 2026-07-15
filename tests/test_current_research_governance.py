@@ -212,6 +212,10 @@ def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> No
     assert vdr_pre["final_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert vdr_pre["stage_0a_pending"] is True
     assert vdr_pre["vdr_coefficients"] == [0.1, 0.3, 1.0]
+    assert vdr_pre["runner"] == "scripts/run_vdr_vla_stage0a.py"
+    assert vdr_pre["runner_validation"] == "reports/vdr_vla/stage_0a_serializer_preflight.json"
+    assert vdr_pre["runner_unit_tests_passed"] == 10
+    assert vdr_pre["serializer_preflight_passed"] is True
     kite = state["epoch_4_cycle_23_kite_pre_stage_0a"]
     assert kite["candidate_count"] == 3
     assert kite["selected_score"] == 96

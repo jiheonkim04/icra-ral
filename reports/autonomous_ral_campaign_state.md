@@ -29,9 +29,11 @@ infrastructure. The first comparison is Base, transparent FutureVLA proxy, VDR
 full, no-action-residual ablation, and standard LoRA.
 
 The complete proposal/review/rebuttal/math/preregistration/protocol package is
-frozen under `reports/vdr_vla/`. No training, validation search, rollout,
-confirmatory-test access, or KITE rescue has happened. Next action: implement
-and run only the frozen VDR Stage 0A development audit.
+frozen under `reports/vdr_vla/`. The Stage 0A runner is implemented in
+`scripts/run_vdr_vla_stage0a.py`; serializer preflight and 10 focused VDR
+tests passed. No training, validation search, rollout, confirmatory-test
+access, or KITE rescue has happened. Next action: run only the frozen VDR
+Stage 0A development audit.
 
 ## Epoch 4 Cycle 22 HASTE-VLA
 

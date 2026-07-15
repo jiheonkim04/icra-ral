@@ -6326,12 +6326,17 @@
         "vdr_coefficients": [0.1, 0.3, 1.0],
         "bounded_validation_search_max_configs": 6,
         "policy_order": ["smolvla_base", "futurevla_latent_alignment_proxy", "vdr_full", "vdr_no_action_residual", "standard_lora"],
+        "runner": "scripts/run_vdr_vla_stage0a.py",
+        "runner_validation": "reports/vdr_vla/stage_0a_serializer_preflight.json",
+        "runner_validation_decision": "VDR_STAGE_0A_RUNNER_VALIDATED_READY_TO_RUN",
+        "runner_unit_tests_passed": 10,
+        "serializer_preflight_passed": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "stage_0a_pending": true,
         "final_decision": "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING",
-        "next_stage": "Implement and run only the frozen VDR Stage 0A development audit."
+        "next_stage": "Run only the frozen VDR Stage 0A development audit."
     }
 }

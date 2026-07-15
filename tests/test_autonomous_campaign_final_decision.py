@@ -283,6 +283,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert vdr_pre["stage_0a_pending"] is True
     assert vdr_pre["horizons"] == [4, 12]
     assert vdr_pre["projection_dimension"] == 32
+    assert vdr_pre["runner"] == "scripts/run_vdr_vla_stage0a.py"
+    assert vdr_pre["runner_validation_decision"] == "VDR_STAGE_0A_RUNNER_VALIDATED_READY_TO_RUN"
+    assert vdr_pre["runner_unit_tests_passed"] == 10
     hest = state["epoch_4_cycle_21_hest_stage_0a_outcome"]
     assert hest["final_decision"] == "HEST_STAGE_0A_IMPLEMENTATION_FAILURE"
     assert hest["completed_window_count"] == 160

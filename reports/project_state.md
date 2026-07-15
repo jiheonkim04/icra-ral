@@ -97,8 +97,10 @@ subtracts a discovery-fitted actionless static future-feature predictor and
 supervises generated-action-conditioned prediction of the remaining dynamic
 visual residual. The frozen first comparison is Base, transparent FutureVLA
 proxy, VDR full, no-action-residual ablation, and standard LoRA. The current
-stage is `epoch_4_cycle_24_vdr_stage_0a_pending`; next action is to implement
-and run only the frozen VDR Stage 0A development audit.
+stage is `epoch_4_cycle_24_vdr_stage_0a_pending`. The Stage 0A runner is now
+implemented in `scripts/run_vdr_vla_stage0a.py`, with serializer preflight and
+10 focused VDR tests passing; next action is to run only the frozen VDR Stage
+0A development audit.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

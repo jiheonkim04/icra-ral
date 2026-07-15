@@ -381,9 +381,11 @@ dynamic visual residual. The frozen first comparison is Base, transparent
 FutureVLA proxy, VDR full, no-action-residual ablation, and standard LoRA.
 
 The VDR proposal/review/rebuttal/math/preregistration/protocol package is
-frozen under `reports/vdr_vla/`. No training, validation search, rollout,
-confirmatory-test access, or KITE rescue has happened. Current cycle: `24`.
-Current stage: `epoch_4_cycle_24_vdr_stage_0a_pending`.
+frozen under `reports/vdr_vla/`. The Stage 0A runner is implemented in
+`scripts/run_vdr_vla_stage0a.py`, with serializer preflight and 10 focused
+VDR tests passing. No training, validation search, rollout, confirmatory-test
+access, or KITE rescue has happened. Current cycle: `24`. Current stage:
+`epoch_4_cycle_24_vdr_stage_0a_pending`.
 
 The Windows Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency

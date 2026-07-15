@@ -31,10 +31,11 @@ no-action-residual ablation, and matched standard LoRA.
 
 The prior map, candidate generation, Researcher A proposal, Reviewer B attack,
 Researcher A rebuttal, mathematical audit, preregistration, and prototype
-protocol are frozen under `reports/vdr_vla/`. No training, validation search,
-rollout, simulator access, confirmatory-test tuning, or KITE rescue has
-happened. Next action: implement and run only the frozen VDR Stage 0A
-development audit.
+protocol are frozen under `reports/vdr_vla/`. The Stage 0A runner is
+implemented in `scripts/run_vdr_vla_stage0a.py`; serializer preflight and 10
+focused VDR tests passed. No training, validation search, rollout, simulator
+access, confirmatory-test tuning, or KITE rescue has happened. Next action:
+run only the frozen VDR Stage 0A development audit.
 
 Allowed final states:
 

@@ -420,6 +420,8 @@ no-action-residual ablation, and standard LoRA.
 
 Reviewer B attack, Researcher A rebuttal, mathematical audit,
 preregistration, and prototype protocol are frozen under `reports/vdr_vla/`.
-No training, validation search, rollout, confirmatory-test access, or KITE
-rescue has happened. Current cycle: `24`. Current stage:
+The Stage 0A runner is implemented in `scripts/run_vdr_vla_stage0a.py`, with
+serializer preflight and 10 focused VDR tests passing. No training,
+validation search, rollout, confirmatory-test access, or KITE rescue has
+happened. Current cycle: `24`. Current stage:
 `epoch_4_cycle_24_vdr_stage_0a_pending`.

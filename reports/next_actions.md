@@ -7,8 +7,10 @@ Active governance: `reports/current_research_governance.md`
 Current decision:
 `VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
 
-Immediate next action: implement and run only the frozen `VDR-VLA` Stage 0A
-development audit under `reports/vdr_vla/prototype_protocol.md`. Cycle 24 has
+Immediate next action: run only the frozen `VDR-VLA` Stage 0A development
+audit under `reports/vdr_vla/prototype_protocol.md`. The Stage 0A runner is
+implemented in `scripts/run_vdr_vla_stage0a.py`, with serializer preflight and
+10 focused VDR tests passing. Cycle 24 has
 already generated exactly three candidates and selected VDR at `92 / 100` with
 proposal hash
 `0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
@@ -18,9 +20,10 @@ through a valid missing-key-only resume but retained one persistence exception
 and failed the frozen action bound on all 128 reconstructed rows. Stage 0B is
 forbidden.
 
-Do not change horizons `{5,20}`, ridge `1e-4`, four task sources, demo splits,
-operator fitting, headroom bars, rank-4 identity path, or failure taxonomy. No
-adapter optimization or simulator access is allowed in Stage 0A.
+Do not change VDR horizons `{4,12}`, projection dimension `32`, ridge `1e-4`,
+four task sources, demo splits, dynamic-residual construction, headroom bars,
+rank-4 identity path, or failure taxonomy. No adapter optimization or
+simulator access is allowed in Stage 0A.
 
 HASTE Stage 0A PID `295` exited `1` before manifest persistence on a canonical
 JSON serialization defect. It created no partial, model row, feature cache,
