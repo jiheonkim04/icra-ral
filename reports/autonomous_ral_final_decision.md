@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
 
 This is not a terminal state under the active governance.
 
@@ -308,12 +308,20 @@ the extension uses action-conditioned task progress motivated by ProgressVLA.
 Proposal hash:
 `E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
 
-Current cycle: `18`. Current stage:
-`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
+PCAV Stage 0A completed `96 / 96` discovery rows with zero final exceptions,
+duplicates, or manifest mismatches. The resume preserved all 24 initial rows
+and added exactly 72 missing keys. Base identity, reload, source, partition,
+mapping, and checkpoint-hash checks passed; confirmatory counts remained zero.
+
+Only `7 / 96` rows met the frozen 5% material oracle-improvement threshold,
+and median reduction over improvable rows was `0.0166833`. Final decision:
+`PCAV_STAGE_0A_NO_USABLE_HEADROOM`. Stage 0B is forbidden.
+
+Current cycle: `19`. Current stage:
+`epoch_4_cycle_19_candidate_search_pending`.
 
 The Windows Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`; overlap-unknown efficiency
-metrics are not final paper evidence. The latest audit found FAMR endpoint PID
-`387` dead after clean `300 / 300` completion and did not relaunch it. The
-existing EAC Stage B result remains accepted after its synchronous
-duplicate/manifest audit.
+metrics are not final paper evidence. PCAV PID `371` completed with exit `0`
+after both intervals had ended. The existing EAC Stage B result remains
+accepted after its synchronous duplicate/manifest audit.

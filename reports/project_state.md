@@ -1,16 +1,16 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 18 Current State
+## 2026-07-15 Epoch 4 Cycle 19 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `18`
+Current cycle: `19`
 
 Cycle 17 FAMR is closed unchanged as
 `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. Its endpoint completed
@@ -31,17 +31,23 @@ audit, preregistration, and prototype protocol are frozen under
 `reports/pcav_vla/`. The first comparison is Base, transparent TACO support
 proxy, PCAV full, progress-only ablation, and matched standard LoRA.
 
-Only PCAV Stage 0A implementation, audit, and discovery-only execution are
-authorized. It starts with `24` rows and may expand to `96` only under the
-frozen unresolved decision. Validation and confirmatory observations remain
-sealed.
+PCAV Stage 0A completed its frozen automatic expansion at `96 / 96` rows. The
+attempt-1 implementation failure occurred only after 24 valid rows had been
+persisted; resume retained those row objects exactly and added only 72 missing
+keys. Final exceptions, duplicates, and missing/extra manifest keys were zero.
 
-Current stage: `epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
+Candidate generation was noncollapsed and Base-safe, but only `7 / 96` rows
+met the 5% material-improvement threshold and median oracle reduction over
+improvable rows was `0.0166833`. PCAV is closed as
+`PCAV_STAGE_0A_NO_USABLE_HEADROOM`; Stage 0B, validation, rollout, and rescue
+are forbidden.
+
+Current stage: `epoch_4_cycle_19_candidate_search_pending`.
 
 The Windows Efficiency Mode intervals and completed-worker audits are recorded
-in `reports/resource_contention_intervals.json`. The newest FAMR PID `387` is
-dead after clean completion and was not relaunched. Timing and resource metrics
-with unknown interval overlap are quarantined.
+in `reports/resource_contention_intervals.json`. PCAV PID `371` completed with
+exit `0`; its start was after both recorded intervals ended. Timing and
+resource metrics with unknown interval overlap remain quarantined.
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 

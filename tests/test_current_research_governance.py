@@ -46,16 +46,16 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_pcav_stage_0a_and_preserves_famr_failure() -> None:
+def test_active_state_records_pcav_no_headroom_and_cycle_19_search() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 18
+    assert state["current_cycle"] == 19
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_18_pcav_stage_0a_implementation_pending"
+    assert state["current_decision"] == "PCAV_STAGE_0A_NO_USABLE_HEADROOM"
+    assert state["current_stage"] == "epoch_4_cycle_19_candidate_search_pending"
     assert state["method"] == "PCAV-VLA"
     assert state["method_identity"] == "PCAV-VLA"
     assert state["proposal_hash"] == PCAV_PROPOSAL_HASH
@@ -87,6 +87,13 @@ def test_active_state_records_pcav_stage_0a_and_preserves_famr_failure() -> None
     assert "epoch_4_cycle_18_pcav_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_18_pcav_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_18_pcav_stage_0a_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_stage_0a_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_stage_0a_attempt_1_implementation_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_stage_0a_resumed_missing_keys_only" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_stage_0a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_18_pcav_no_headroom_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_19_candidate_search_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -138,7 +145,41 @@ def test_active_state_records_pcav_stage_0a_and_preserves_famr_failure() -> None
     assert pcav_pre_stage["candidate_count_per_row"] == 4
     assert pcav_pre_stage["confirmatory_observations_decoded_max"] == 0
     assert pcav_pre_stage["confirmatory_actions_computed_max"] == 0
-    assert pcav_pre_stage["stage_0a_pending"] is True
+    assert pcav_pre_stage["stage_0a_pending"] is False
+    pcav_outcome = state["epoch_4_cycle_18_pcav_stage_0a_outcome"]
+    assert pcav_outcome["final_decision"] == "PCAV_STAGE_0A_NO_USABLE_HEADROOM"
+    assert pcav_outcome["failure_class"] == "NO_HEADROOM"
+    assert pcav_outcome["valid_scientific_kill"] is False
+    assert pcav_outcome["expanded_rows_completed"] == pcav_outcome["expanded_rows_planned"] == 96
+    assert pcav_outcome["resume_preserved_initial_rows"] is True
+    assert pcav_outcome["resume_new_rows"] == 72
+    assert pcav_outcome["resume_repeated_completed_rows"] == 0
+    assert pcav_outcome["exception_count"] == 0
+    assert pcav_outcome["duplicate_key_count"] == 0
+    assert pcav_outcome["missing_manifest_key_count"] == 0
+    assert pcav_outcome["extra_result_key_count"] == 0
+    assert pcav_outcome["source_health_passed"] is True
+    assert pcav_outcome["partition_audit_passed"] is True
+    assert pcav_outcome["manifest_health_passed"] is True
+    assert pcav_outcome["all_base_candidates_valid"] is True
+    assert pcav_outcome["materially_better_row_count"] == 7
+    assert pcav_outcome["materially_better_fraction"] < 0.25
+    assert pcav_outcome["median_oracle_relative_reduction_improvable"] < 0.05
+    assert pcav_outcome["headroom_passed"] is False
+    assert pcav_outcome["base_identity_max_abs_error"] == 0.0
+    assert pcav_outcome["checkpoint_reload_max_abs_error"] == 0.0
+    assert pcav_outcome["base_hash_unchanged"] is True
+    assert pcav_outcome["confirmatory_observations_decoded"] == 0
+    assert pcav_outcome["confirmatory_actions_computed"] == 0
+    assert pcav_outcome["stage_0b_allowed"] is False
+    pcav_validation = json.loads(
+        (REPO_ROOT / "reports" / "pcav_vla" / "stage_0a_validation.json").read_text(encoding="utf-8")
+    )
+    assert pcav_validation["row_manifest_hash_recomputed"] is True
+    assert pcav_validation["candidate_manifest_hash_recomputed"] is True
+    assert pcav_validation["partial_candidate_keys_equal"] is True
+    assert pcav_validation["candidate_expanded_key_sets_equal"] is True
+    assert pcav_validation["accepted_without_rerun"] is True
     pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `18`
+Current cycle: `19`
 
-Current stage: `epoch_4_cycle_18_pcav_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_19_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -453,5 +453,12 @@ progress-consequence mechanism. Proposal hash:
 `E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
 All pre-Stage 0A research artifacts are frozen under `reports/pcav_vla/`.
 
-Current cycle is `18`; current stage is
-`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
+PCAV Stage 0A completed `96 / 96` rows with zero final exceptions, duplicates,
+or manifest mismatches. The first 24 rows were preserved exactly and only 72
+missing keys were added on resume. Candidate generation was noncollapsed and
+Base-safe, but only `7 / 96` rows met the 5% material-improvement threshold;
+median reduction over improvable rows was `0.0166833`.
+
+The frozen decision is `PCAV_STAGE_0A_NO_USABLE_HEADROOM`. Stage 0B is
+forbidden. Current cycle is `19`; current stage is
+`epoch_4_cycle_19_candidate_search_pending`.

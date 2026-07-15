@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current campaign decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
 
 This is not a terminal decision.
 
@@ -336,5 +336,16 @@ extension. Proposal hash:
 `E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA`.
 The pre-Stage 0A research package is frozen under `reports/pcav_vla/`.
 
-Current cycle: `18`. Current stage:
-`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
+PCAV Stage 0A completed its automatic expansion at `96 / 96` rows. The first
+24 completed rows were preserved exactly and the resume added only 72 missing
+keys. Final exceptions, duplicates, missing/extra manifest keys, Base identity
+error, and reload error were all zero.
+
+Material candidate-oracle improvement appeared on only `7 / 96` rows and the
+median reduction over improvable rows was `0.0166833`, below the frozen
+headroom gates. Final PCAV decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`. This
+is not a closed-loop scientific kill; Stage 0B and formulation rescue are
+forbidden.
+
+Current cycle: `19`. Current stage:
+`epoch_4_cycle_19_candidate_search_pending`.

@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `18`
+Current cycle: `19`
 
-Current stage: `epoch_4_cycle_18_pcav_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_19_candidate_search_pending`
 
 Allowed final states:
 
@@ -539,6 +539,16 @@ progress-consequence extension. Proposal hash:
 The proposal, review, rebuttal, mathematical audit, preregistration, and
 prototype protocol are frozen under `reports/pcav_vla/`.
 
-Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`.
-Current cycle: `18`. Current stage:
-`epoch_4_cycle_18_pcav_stage_0a_implementation_pending`.
+PCAV Stage 0A completed `96 / 96` rows after preserving the first 24 rows and
+resuming only 72 missing keys. Exceptions, duplicates, and manifest mismatches
+were zero. Base identity, mapping, source health, partition, reload, and Base
+hash checks passed; confirmatory observations/actions remained `0 / 0`.
+
+Only `7 / 96 = 0.0729167` rows had a valid alternative at least 5% better
+than Base, and median relative reduction over improvable rows was `0.0166833`.
+Both miss the frozen 25% and 5% headroom requirements. The decision is
+`PCAV_STAGE_0A_NO_USABLE_HEADROOM`; Stage 0B and PCAV rescue are forbidden.
+
+Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`.
+Current cycle: `19`. Current stage:
+`epoch_4_cycle_19_candidate_search_pending`.

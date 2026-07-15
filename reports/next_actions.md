@@ -1,26 +1,26 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 18 Current Action
+## 2026-07-15 Epoch 4 Cycle 19 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `PCAV_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
 
-Immediate next action: validate and commit the frozen PCAV Stage 0A
-implementation, run the model-free audit, then launch one detached
-discovery-only Stage 0A worker only when the durable-process audit remains
-clean.
+Immediate next action: generate exactly three materially distinct,
+prior-anchored Cycle 19 candidates, score them under current governance, and
+select exactly one.
 
 COVI, IARC, and FAMR remain preserved under their fixed protocols. FAMR's
 endpoint completed `300 / 300` optimizer steps and `2400 / 2400` discovery
 microbatches, then stopped on its frozen Base-relative action-validity gate as
 an implementation/optimization failure rather than a scientific kill.
 
-Cycle 18 generated exactly three candidates and selected `PCAV-VLA` with
-`95 / 100`. Its TACO-anchored support filter, ProgressVLA-motivated
-progress-consequence extension, exact five-policy comparison, partitions,
-thresholds, and Stage 0A row construction are frozen under
-`reports/pcav_vla/`. Do not load or rescue the FAMR checkpoint.
+Cycle 18 PCAV Stage 0A completed `96 / 96` rows. Only `7 / 96` rows met the
+frozen 5% material oracle-improvement threshold and median reduction over
+improvable rows was `0.0166833`, so it closed as
+`PCAV_STAGE_0A_NO_USABLE_HEADROOM`. Do not load an adapted candidate generator,
+change noise, or continue to PCAV Stage 0B. Such a redesign belongs to a new
+method cycle. Do not rescue FAMR or PCAV.
 
 Before any long WSL launch, inspect state, newest PID/heartbeat/status/partial/
 result/log/exit files, worker liveness, JSON parseability, completed/planned
