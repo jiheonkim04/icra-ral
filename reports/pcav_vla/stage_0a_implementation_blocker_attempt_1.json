@@ -1,0 +1,9 @@
+{
+  "exception": "free variable 'policy' referenced before assignment in enclosing scope",
+  "exception_type": "NameError",
+  "failure_class": "IMPLEMENTATION_OR_DATA_FAILURE",
+  "method": "PCAV-VLA",
+  "proposal_hash": "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA",
+  "time": "2026-07-15T10:38:30.306050+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_pcav_vla_stage0.py\", line 872, in main\n    result = _run_stage0a(args, paths, preflight)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_pcav_vla_stage0.py\", line 740, in _run_stage0a\n    complete_manifest(expanded_rows, planned)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_pcav_vla_stage0.py\", line 698, in complete_manifest\n    policy=policy,\nNameError: free variable 'policy' referenced before assignment in enclosing scope\n"
+}

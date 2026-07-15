@@ -1,0 +1,1296 @@
+{
+  "expanded_manifest_health": {
+    "duplicate_action_prefix_identity_count": 0,
+    "duplicate_action_prefix_value_count_diagnostic": 0,
+    "duplicate_row_count": 0,
+    "expected_task_phase_counts": {
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|early": 11,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|late": 11,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|middle": 10,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|early": 11,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|late": 11,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|middle": 10,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|early": 11,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|late": 11,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|middle": 10
+    },
+    "passed": true,
+    "row_count": 96,
+    "task_phase_counts": {
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|early": 11,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|late": 11,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|middle": 10,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|early": 11,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|late": 11,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|middle": 10,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|early": 11,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|late": 11,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|middle": 10
+    }
+  },
+  "expanded_phase_quotas_per_task": {
+    "early": 11,
+    "late": 11,
+    "middle": 10
+  },
+  "expanded_rows": [
+    {
+      "episode": 11,
+      "episode_length": 192,
+      "frame": 51,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 16,
+      "episode_length": 190,
+      "frame": 33,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 18,
+      "episode_length": 176,
+      "frame": 42,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 18,
+      "episode_length": 176,
+      "frame": 5,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 19,
+      "episode_length": 181,
+      "frame": 33,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 1,
+      "episode_length": 177,
+      "frame": 2,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 21,
+      "episode_length": 176,
+      "frame": 44,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 25,
+      "episode_length": 144,
+      "frame": 17,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 28,
+      "episode_length": 159,
+      "frame": 36,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 29,
+      "episode_length": 199,
+      "frame": 43,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 5,
+      "episode_length": 213,
+      "frame": 17,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 11,
+      "episode_length": 192,
+      "frame": 129,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 14,
+      "episode_length": 174,
+      "frame": 130,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 17,
+      "episode_length": 160,
+      "frame": 117,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 21,
+      "episode_length": 176,
+      "frame": 164,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 22,
+      "episode_length": 157,
+      "frame": 131,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 23,
+      "episode_length": 170,
+      "frame": 123,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 26,
+      "episode_length": 168,
+      "frame": 109,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 26,
+      "episode_length": 168,
+      "frame": 123,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 2,
+      "episode_length": 191,
+      "frame": 144,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 2,
+      "episode_length": 191,
+      "frame": 170,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 7,
+      "episode_length": 197,
+      "frame": 168,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 10,
+      "episode_length": 151,
+      "frame": 51,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 11,
+      "episode_length": 192,
+      "frame": 109,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 16,
+      "episode_length": 190,
+      "frame": 64,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 17,
+      "episode_length": 160,
+      "frame": 99,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 18,
+      "episode_length": 176,
+      "frame": 72,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 22,
+      "episode_length": 157,
+      "frame": 76,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 24,
+      "episode_length": 174,
+      "frame": 56,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 29,
+      "episode_length": 199,
+      "frame": 89,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 2,
+      "episode_length": 191,
+      "frame": 85,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 4,
+      "episode_length": 184,
+      "frame": 63,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 12,
+      "episode_length": 147,
+      "frame": 5,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 13,
+      "episode_length": 161,
+      "frame": 38,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 20,
+      "episode_length": 164,
+      "frame": 45,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 21,
+      "episode_length": 147,
+      "frame": 44,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 23,
+      "episode_length": 148,
+      "frame": 2,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 23,
+      "episode_length": 148,
+      "frame": 6,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 24,
+      "episode_length": 158,
+      "frame": 6,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 26,
+      "episode_length": 152,
+      "frame": 35,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 27,
+      "episode_length": 152,
+      "frame": 3,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 5,
+      "episode_length": 156,
+      "frame": 27,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 5,
+      "episode_length": 156,
+      "frame": 47,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 11,
+      "episode_length": 161,
+      "frame": 139,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 12,
+      "episode_length": 147,
+      "frame": 125,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 14,
+      "episode_length": 154,
+      "frame": 100,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 17,
+      "episode_length": 154,
+      "frame": 120,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 17,
+      "episode_length": 154,
+      "frame": 96,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 19,
+      "episode_length": 149,
+      "frame": 110,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 20,
+      "episode_length": 164,
+      "frame": 137,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 20,
+      "episode_length": 164,
+      "frame": 139,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 20,
+      "episode_length": 164,
+      "frame": 147,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 22,
+      "episode_length": 170,
+      "frame": 159,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 29,
+      "episode_length": 156,
+      "frame": 128,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 0,
+      "episode_length": 151,
+      "frame": 60,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 0,
+      "episode_length": 151,
+      "frame": 83,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 16,
+      "episode_length": 141,
+      "frame": 74,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 23,
+      "episode_length": 148,
+      "frame": 50,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 24,
+      "episode_length": 158,
+      "frame": 50,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 27,
+      "episode_length": 152,
+      "frame": 78,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 3,
+      "episode_length": 150,
+      "frame": 68,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 4,
+      "episode_length": 149,
+      "frame": 79,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 5,
+      "episode_length": 156,
+      "frame": 61,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 9,
+      "episode_length": 156,
+      "frame": 97,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 0,
+      "episode_length": 148,
+      "frame": 7,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 0,
+      "episode_length": 148,
+      "frame": 8,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 10,
+      "episode_length": 182,
+      "frame": 13,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 12,
+      "episode_length": 164,
+      "frame": 24,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 12,
+      "episode_length": 164,
+      "frame": 8,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 14,
+      "episode_length": 192,
+      "frame": 46,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 15,
+      "episode_length": 193,
+      "frame": 18,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 17,
+      "episode_length": 154,
+      "frame": 10,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 1,
+      "episode_length": 150,
+      "frame": 28,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 21,
+      "episode_length": 151,
+      "frame": 16,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 23,
+      "episode_length": 162,
+      "frame": 33,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 14,
+      "episode_length": 192,
+      "frame": 143,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 1,
+      "episode_length": 150,
+      "frame": 128,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 1,
+      "episode_length": 150,
+      "frame": 97,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 20,
+      "episode_length": 159,
+      "frame": 103,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 20,
+      "episode_length": 159,
+      "frame": 147,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 25,
+      "episode_length": 151,
+      "frame": 114,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 26,
+      "episode_length": 176,
+      "frame": 113,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 26,
+      "episode_length": 176,
+      "frame": 154,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 5,
+      "episode_length": 154,
+      "frame": 136,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 8,
+      "episode_length": 211,
+      "frame": 176,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 8,
+      "episode_length": 211,
+      "frame": 183,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 12,
+      "episode_length": 164,
+      "frame": 70,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 17,
+      "episode_length": 154,
+      "frame": 70,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 21,
+      "episode_length": 151,
+      "frame": 89,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 22,
+      "episode_length": 150,
+      "frame": 76,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 24,
+      "episode_length": 161,
+      "frame": 82,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 24,
+      "episode_length": 161,
+      "frame": 96,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 26,
+      "episode_length": 176,
+      "frame": 107,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 26,
+      "episode_length": 176,
+      "frame": 87,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 2,
+      "episode_length": 138,
+      "frame": 79,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 7,
+      "episode_length": 182,
+      "frame": 87,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    }
+  ],
+  "initial_manifest_health": {
+    "duplicate_action_prefix_identity_count": 0,
+    "duplicate_action_prefix_value_count_diagnostic": 0,
+    "duplicate_row_count": 0,
+    "expected_task_phase_counts": {
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|early": 3,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|late": 3,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|middle": 2,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|early": 3,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|late": 3,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|middle": 2,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|early": 3,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|late": 3,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|middle": 2
+    },
+    "passed": true,
+    "row_count": 24,
+    "task_phase_counts": {
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|early": 3,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|late": 3,
+      "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf|middle": 2,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|early": 3,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|late": 3,
+      "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray|middle": 2,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|early": 3,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|late": 3,
+      "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy|middle": 2
+    }
+  },
+  "initial_phase_quotas_per_task": {
+    "early": 3,
+    "late": 3,
+    "middle": 2
+  },
+  "initial_rows": [
+    {
+      "episode": 19,
+      "episode_length": 181,
+      "frame": 33,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 25,
+      "episode_length": 144,
+      "frame": 17,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 5,
+      "episode_length": 213,
+      "frame": 17,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 11,
+      "episode_length": 192,
+      "frame": 129,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 26,
+      "episode_length": 168,
+      "frame": 109,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 2,
+      "episode_length": 191,
+      "frame": 170,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 18,
+      "episode_length": 176,
+      "frame": 72,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 29,
+      "episode_length": 199,
+      "frame": 89,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf_demo.hdf5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf",
+      "task_index": 0,
+      "task_language": "put the frying pan under the cabinet shelf"
+    },
+    {
+      "episode": 12,
+      "episode_length": 147,
+      "frame": 5,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 13,
+      "episode_length": 161,
+      "frame": 38,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 23,
+      "episode_length": 148,
+      "frame": 2,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 12,
+      "episode_length": 147,
+      "frame": 125,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 17,
+      "episode_length": 154,
+      "frame": 120,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 29,
+      "episode_length": 156,
+      "frame": 128,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 4,
+      "episode_length": 149,
+      "frame": 79,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 9,
+      "episode_length": 156,
+      "frame": 97,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray_demo.hdf5",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray",
+      "task_index": 1,
+      "task_language": "pick up the chocolate pudding and put it in the tray"
+    },
+    {
+      "episode": 0,
+      "episode_length": 148,
+      "frame": 8,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 12,
+      "episode_length": 164,
+      "frame": 8,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 1,
+      "episode_length": 150,
+      "frame": 28,
+      "phase": "early",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 14,
+      "episode_length": 192,
+      "frame": 143,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 1,
+      "episode_length": 150,
+      "frame": 128,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 8,
+      "episode_length": 211,
+      "frame": 176,
+      "phase": "late",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 17,
+      "episode_length": 154,
+      "frame": 70,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    },
+    {
+      "episode": 24,
+      "episode_length": 161,
+      "frame": 96,
+      "phase": "middle",
+      "source_path": "/mnt/c/assets/data/libero/libero_90/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy_demo.hdf5",
+      "task_identity": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy",
+      "task_index": 2,
+      "task_language": "pick up the book and place it in the left compartment of the caddy"
+    }
+  ],
+  "manifest_hash": "D1D1D4B1717EBA3F6D428859AC10E3AB57775D2A94BA833FD5ACAE211F8210DE",
+  "method": "PCAV-VLA",
+  "partition_audit": {
+    "counts": {
+      "confirmatory_offline": 4631,
+      "discovery": 13710,
+      "validation": 4369
+    },
+    "duplicate_counts": {
+      "confirmatory_offline": 0,
+      "discovery": 0,
+      "validation": 0
+    },
+    "pairwise_overlap_counts": {
+      "confirmatory_offline__discovery": 0,
+      "confirmatory_offline__validation": 0,
+      "discovery__validation": 0
+    },
+    "passed": true
+  },
+  "proposal_hash": "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA",
+  "selection_rule": "SHA256(proposal_hash|task|episode|frame) within task/phase"
+}

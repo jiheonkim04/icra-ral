@@ -160,6 +160,13 @@ def _pid_alive(pid: int) -> bool:
     return pid > 0 and Path(f"/proc/{pid}").exists()
 
 
+def _pid_command(pid: int) -> str | None:
+    try:
+        return Path(f"/proc/{pid}/cmdline").read_bytes().replace(b"\0", b" ").decode("utf-8", "replace").strip()
+    except (FileNotFoundError, PermissionError, ProcessLookupError):
+        return None
+
+
 def _proposal_hash_observed() -> str | None:
     return _file_hash(PROPOSAL_FILE) if PROPOSAL_FILE.is_file() else None
 
@@ -198,10 +205,18 @@ def _preflight(args: argparse.Namespace, paths: Mapping[str, Path]) -> dict[str,
             partial_parse_error = str(exc)
     existing_pid = None
     existing_pid_alive = False
+    existing_pid_command = None
     if paths["pid"].is_file():
         try:
             existing_pid = int(paths["pid"].read_text(encoding="utf-8").strip())
-            existing_pid_alive = _pid_alive(existing_pid) and existing_pid != os.getpid()
+            existing_pid_command = _pid_command(existing_pid)
+            existing_pid_alive = bool(
+                _pid_alive(existing_pid)
+                and existing_pid != os.getpid()
+                and existing_pid_command
+                and "scripts/run_pcav_vla_stage0.py" in existing_pid_command
+                and "--mode stage0a" in existing_pid_command
+            )
         except ValueError:
             existing_pid = None
     other_workers = _active_linux_workers()
@@ -242,6 +257,7 @@ def _preflight(args: argparse.Namespace, paths: Mapping[str, Path]) -> dict[str,
         "bddl_paths": {task: str(path) for task, path in bddl_paths.items()},
         "existing_pid": existing_pid,
         "existing_pid_alive": existing_pid_alive,
+        "existing_pid_command": existing_pid_command,
         "active_linux_workers": other_workers,
         "partial_audit": partial_audit,
         "partial_parse_error": partial_parse_error,
@@ -687,7 +703,14 @@ def _run_stage0a(args: argparse.Namespace, paths: Mapping[str, Path], preflight:
         policy, _, preprocessor, postprocessor = _load_policy_and_processors(paths["checkpoint"])
         torch.cuda.reset_peak_memory_stats()
 
-        def complete_manifest(target_rows: Sequence[Mapping[str, Any]], planned_count: int) -> None:
+        def complete_manifest(
+            target_rows: Sequence[Mapping[str, Any]],
+            planned_count: int,
+            *,
+            active_policy: Any,
+            active_preprocessor: Any,
+            active_postprocessor: Any,
+        ) -> None:
             existing = {row_key(row) for row in completed_rows}
             for index, row in enumerate(target_rows):
                 key = row_key(row)
@@ -695,9 +718,9 @@ def _run_stage0a(args: argparse.Namespace, paths: Mapping[str, Path], preflight:
                     continue
                 completed = _run_row(
                     row,
-                    policy=policy,
-                    preprocessor=preprocessor,
-                    postprocessor=postprocessor,
+                    policy=active_policy,
+                    preprocessor=active_preprocessor,
+                    postprocessor=active_postprocessor,
                     scales=source_audit["discovery_action_scales"],
                 )
                 completed_rows.append(completed)
@@ -708,7 +731,13 @@ def _run_stage0a(args: argparse.Namespace, paths: Mapping[str, Path], preflight:
                 print(f"[pcav-stage0a] rows {len(completed_rows)}/{planned_count} ({index + 1}/{len(target_rows)})", flush=True)
 
         target = initial_rows if planned == 24 else expanded_rows
-        complete_manifest(target, planned)
+        complete_manifest(
+            target,
+            planned,
+            active_policy=policy,
+            active_preprocessor=preprocessor,
+            active_postprocessor=postprocessor,
+        )
 
         reload_row = completed_rows[0]
         reload_raw = _raw_sample(reload_row)
@@ -737,7 +766,13 @@ def _run_stage0a(args: argparse.Namespace, paths: Mapping[str, Path], preflight:
             planned = 96
             expansion_used = True
             _write_json(paths["partial"], _partial_payload(manifest_hash, planned, completed_rows))
-            complete_manifest(expanded_rows, planned)
+            complete_manifest(
+                expanded_rows,
+                planned,
+                active_policy=reloaded_policy,
+                active_preprocessor=reloaded_preprocessor,
+                active_postprocessor=reloaded_postprocessor,
+            )
             audit, decision = _evaluate_rows(
                 completed_rows,
                 mapping_passed=mapping_passed,

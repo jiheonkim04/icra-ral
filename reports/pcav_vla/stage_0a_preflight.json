@@ -7,9 +7,10 @@
   },
   "cuda_available": true,
   "cuda_device": "NVIDIA GeForce RTX 5080",
-  "disk_free_gib": 303.05495834350586,
-  "existing_pid": null,
+  "disk_free_gib": 303.0195426940918,
+  "existing_pid": 386,
   "existing_pid_alive": false,
+  "existing_pid_command": null,
   "expected_stage": "epoch_4_cycle_18_pcav_stage_0a_implementation_pending",
   "forbidden_gates_enabled": [],
   "missing_paths": [],
@@ -18,7 +19,13 @@
     "reports/autonomous_ral_campaign_state.json": "epoch_4_cycle_18_pcav_stage_0a_implementation_pending",
     "reports/autonomous_until_paper_state.json": "epoch_4_cycle_18_pcav_stage_0a_implementation_pending"
   },
-  "partial_audit": null,
+  "partial_audit": {
+    "completed_row_count": 24,
+    "duplicate_row_key_count": 0,
+    "exception_count": 0,
+    "missing_row_count": 72,
+    "planned_row_count": 96
+  },
   "partial_parse_error": null,
   "passed": true,
   "proposal_hash_expected": "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA",
