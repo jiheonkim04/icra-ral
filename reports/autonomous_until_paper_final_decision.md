@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current campaign decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -238,4 +238,6 @@ The RAR-VLA Researcher A proposal is frozen in `reports/rar_vla/researcher_propo
 
 Reviewer B attack is complete in `reports/rar_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. RAR is not killed before implementation, but novelty is narrowed to a frozen-SmolVLA identity-preserving AR-style residual memory adapter. REMAC/TAS distinctions, transparent AR proxy status, inter-chunk and intra-chunk Stage 0 diagnostics, and the `ema_action_history_baseline` simple killer must remain live.
 
-Current stage: `epoch_4_cycle_13_rar_reviewer_attack_completed`. Next action: Researcher A writes the one allowed rebuttal.
+Researcher A rebuttal is complete in `reports/rar_vla/researcher_rebuttal.md` with decision `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts the narrowed novelty, REMAC/TAS distinction, transparent AR proxy status, EMA/action-history killer baseline, source legality, and identity-preserving integration constraints.
+
+Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`. Next action: write the RAR-VLA mathematical mechanism audit before preregistration or implementation.

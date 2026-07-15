@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `13`
 
-Current stage: `epoch_4_cycle_13_rar_reviewer_attack_completed`
+Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`
 
 Allowed final states:
 
@@ -408,4 +408,6 @@ The RAR-VLA Researcher A proposal is frozen in `reports/rar_vla/researcher_propo
 
 Reviewer B attack is complete in `reports/rar_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_13_rar_reviewer_attack_completed`. Next action: Researcher A rebuttal.
+Researcher A rebuttal is complete in `reports/rar_vla/researcher_rebuttal.md` with decision `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
+
+Current decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_13_rar_rebuttal_completed`. Next action: mathematical mechanism audit.

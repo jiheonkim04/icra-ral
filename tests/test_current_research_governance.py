@@ -24,8 +24,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_13_rar_reviewer_attack_completed"
+    assert state["current_decision"] == "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_stage"] == "epoch_4_cycle_13_rar_rebuttal_completed"
     assert state["method"] == "RAR-VLA"
     assert state["method_identity"] == "RAR-VLA"
     assert state["proposal_hash"] == RAR_PROPOSAL_HASH
@@ -167,6 +167,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_13_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_13_rar_rebuttal_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -718,7 +719,10 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert rar["reviewer_attack_pending"] is False
     assert rar["reviewer_attack_completed"] is True
     assert rar["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert rar["rebuttal_pending"] is True
+    assert rar["rebuttal"] == "reports/rar_vla/researcher_rebuttal.md"
+    assert rar["rebuttal_pending"] is False
+    assert rar["rebuttal_completed"] is True
+    assert rar["rebuttal_decision"] == "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     rar_proposal = state["epoch_4_cycle_13_rar_proposal"]
     assert rar_proposal["proposal"] == "reports/rar_vla/researcher_proposal.md"
     assert rar_proposal["proposal_hash"] == RAR_PROPOSAL_HASH
@@ -741,6 +745,19 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert rar_review["stage_0_inter_and_intra_chunk_diagnostics_required"] is True
     assert rar_review["training_happened"] is False
     assert rar_review["confirmatory_test_tuning_happened"] is False
+    assert rar_review["researcher_rebuttal"] == "reports/rar_vla/researcher_rebuttal.md"
+    assert rar_review["rebuttal_decision"] == "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert rar_review["rebuttal_completed"] is True
+    rar_rebuttal = state["epoch_4_cycle_13_rar_rebuttal"]
+    assert rar_rebuttal["researcher_rebuttal"] == "reports/rar_vla/researcher_rebuttal.md"
+    assert rar_rebuttal["final_decision"] == "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert rar_rebuttal["accepted_narrowed_novelty"] is True
+    assert rar_rebuttal["accepted_remac_tas_distinction"] is True
+    assert rar_rebuttal["accepted_ema_action_history_killer"] is True
+    assert rar_rebuttal["accepted_transparent_ar_proxy"] is True
+    assert rar_rebuttal["accepted_identity_preserving_integration"] is True
+    assert rar_rebuttal["training_happened"] is False
+    assert rar_rebuttal["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

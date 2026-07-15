@@ -2429,3 +2429,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: RAR is not killed before implementation, but novelty is narrowed to a frozen-SmolVLA identity-preserving AR-style residual memory adapter. The REMAC/TAS distinctions, transparent AR proxy status, Stage 0 inter-chunk and intra-chunk diagnostics, and `ema_action_history_baseline` must be accepted in Researcher A rebuttal before mathematical audit.
+
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Rebuttal
+
+Decision: `RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- proposal hash: `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`
+- reviewer attack: `reports/rar_vla/reviewer_attack.md`
+- researcher rebuttal: `reports/rar_vla/researcher_rebuttal.md`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: Researcher A accepted the narrowed novelty, REMAC/TAS distinction, transparent AR proxy, EMA/action-history killer baseline, source legality, and identity-preserving integration constraints. Proceed only to mathematical mechanism audit.
