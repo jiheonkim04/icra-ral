@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
 
 Current epoch: `4`
 
 Current cycle: `23`
 
-Current stage: `epoch_4_cycle_23_kite_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_23_kite_stage_0a_pending`
 
 ## Epoch 4 Cycle 22 HASTE-VLA
 
@@ -39,7 +39,10 @@ Cycle 23 generated exactly three candidates and selected `KITE-VLA` at
 KITE fits discovery-only empirical action-to-state realization operators and
 backpropagates multi-horizon future-state error through generated clean
 actions. Review, rebuttal, mathematical audit, preregistration, and prototype
-protocol are frozen. Only Stage 0A implementation is pending.
+protocol are frozen. Runner commit `62dbb75` passed the structured serializer,
+full data/operator, real-checkpoint action-path gradient, and zero-effect
+save/reload identity smokes. Stage 0A is ready for foreground serializer
+preflight and one detached launch.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

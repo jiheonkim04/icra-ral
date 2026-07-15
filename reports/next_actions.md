@@ -5,11 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
 
-Immediate next action: implement and run only the frozen KITE-VLA Stage 0A
-source, empirical realization-operator, frozen-Base headroom, objective
-gradient, identity, and persistence audit.
+Immediate next action: run the required foreground serializer preflight, audit
+worker and artifact state, then launch exactly one detached frozen KITE-VLA
+Stage 0A source, empirical realization-operator, frozen-Base headroom,
+objective-gradient, identity, and persistence audit. Runner commit: `62dbb75`.
 
 Do not change horizons `{5,20}`, ridge `1e-4`, four task sources, demo splits,
 operator fitting, headroom bars, rank-4 identity path, or failure taxonomy. No

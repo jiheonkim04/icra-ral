@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
 
 Current epoch: `4`
 
@@ -74,8 +74,13 @@ Proposal hash:
 Reviewer B required the cumulative-action-target key ablation, a transparent
 GeoPredict proxy, standard LoRA, global task-agnostic operators, and prelaunch
 JSON round-trip checks. The rebuttal, mathematical audit, preregistration, and
-prototype protocol are frozen. Current stage:
-`epoch_4_cycle_23_kite_stage_0a_implementation_pending`.
+prototype protocol are frozen. Runner commit `62dbb75` passed 25 focused tests
+and the governance validator. The development-only data smoke enumerated
+`11,984` labels and `128` model-audit rows, with rank-6 operators improving
+validation MSE by `0.905914` and `0.920854`. The real-checkpoint smoke had
+zero processor and identity error, nonzero KITE gradient, ratio `3.506742`,
+and zero frozen gradients. Current stage:
+`epoch_4_cycle_23_kite_stage_0a_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

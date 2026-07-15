@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 23,
-    "topic": "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
+    "topic": "epoch_4_cycle_23_kite_stage_0a_pending",
     "method": "KITE-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "4c0a015",
-    "current_stage": "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
+    "current_commit": "62dbb75",
+    "current_stage": "epoch_4_cycle_23_kite_stage_0a_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -472,7 +472,9 @@
         "epoch_4_cycle_23_kite_mathematical_audit_preregistered",
         "epoch_4_cycle_23_kite_preregistration_frozen",
         "epoch_4_cycle_23_kite_prototype_protocol_frozen",
-        "epoch_4_cycle_23_kite_stage_0a_implementation_pending"
+        "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
+        "epoch_4_cycle_23_kite_stage_0a_runner_implemented",
+        "epoch_4_cycle_23_kite_stage_0a_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -486,7 +488,7 @@
         "StyleVLA: Driving Style-Aware Vision Language Action Model for Autonomous Driving"
     ],
     "prototype_gate": "Frozen KITE Stage 0A source, empirical realization operator, Base headroom, objective gradient, identity, and persistence audit.",
-    "current_decision": "KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING",
+    "current_decision": "KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -637,7 +639,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Implement and run only the frozen KITE-VLA Stage 0A audit.",
+    "next_action": "Run the foreground serializer preflight, then launch only the frozen KITE-VLA Stage 0A audit.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Direct multi-horizon supervision of the generated action chunk's empirical future-state realization can reduce cumulative manipulation drift beyond hidden-state kinematics prediction and cumulative-action matching.",
     "method_identity": "KITE-VLA",
@@ -2391,7 +2393,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
+    "current_topic": "epoch_4_cycle_23_kite_stage_0a_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6198,7 +6200,11 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
+        "implementation_commit": "62dbb75",
+        "runner": "scripts/run_kite_vla_stage0a.py",
+        "runner_validation": "reports/kite_vla/stage_0a_runner_validation.json",
+        "runner_validation_decision": "KITE_STAGE_0A_RUNNER_VALIDATED_READY_TO_COMMIT",
         "stage_0a_pending": true,
-        "next_stage": "Implement and run only the frozen KITE Stage 0A audit."
+        "next_stage": "Run foreground serializer preflight, then launch only frozen KITE Stage 0A."
     }
 }

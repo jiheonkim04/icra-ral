@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+`KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
 
 Current epoch: `4`
 
 Current cycle: `23`
 
-Current stage: `epoch_4_cycle_23_kite_stage_0a_implementation_pending`
+Current stage: `epoch_4_cycle_23_kite_stage_0a_pending`
 
 Allowed final states:
 
@@ -51,8 +51,11 @@ KITE directly supervises the generated action chunk's empirical future-state
 realization at horizons `5` and `20`. The closest-prior proxy predicts the same
 kinematic target from hidden state; the key ablation directly matches
 cumulative actions. The review, rebuttal, mathematical audit,
-preregistration, and prototype protocol are frozen. Only Stage 0A
-implementation is pending.
+preregistration, and prototype protocol are frozen. Runner commit `62dbb75`
+passed 25 focused tests, the governance validator, the NumPy serializer
+round-trip, a full data/operator smoke, and a real-checkpoint gradient and
+identity smoke. Stage 0A is ready for its required foreground serializer
+preflight and single detached launch.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

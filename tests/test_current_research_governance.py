@@ -59,8 +59,8 @@ def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_23_kite_stage_0a_implementation_pending"
+    assert state["current_decision"] == "KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN"
+    assert state["current_stage"] == "epoch_4_cycle_23_kite_stage_0a_pending"
     assert state["method"] == "KITE-VLA"
     assert state["method_identity"] == "KITE-VLA"
     assert state["proposal_hash"] == KITE_PROPOSAL_HASH
@@ -175,6 +175,8 @@ def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
         "epoch_4_cycle_23_kite_preregistration_frozen",
         "epoch_4_cycle_23_kite_prototype_protocol_frozen",
         "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
+        "epoch_4_cycle_23_kite_stage_0a_runner_implemented",
+        "epoch_4_cycle_23_kite_stage_0a_pending",
     ):
         assert stage in state["completed_stages"]
     kite = state["epoch_4_cycle_23_kite_pre_stage_0a"]
@@ -190,6 +192,9 @@ def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
         "cumulative_action_target",
         "standard_lora",
     ]
+    assert kite["implementation_commit"] == "62dbb75"
+    assert kite["runner"] == "scripts/run_kite_vla_stage0a.py"
+    assert kite["runner_validation"] == "reports/kite_vla/stage_0a_runner_validation.json"
     assert kite["stage_0a_pending"] is True
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3

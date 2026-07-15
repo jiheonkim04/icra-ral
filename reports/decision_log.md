@@ -3038,3 +3038,22 @@ The mathematical audit, preregistration, and prototype protocol are frozen.
 Stage 0A may audit data, operators, frozen-Base headroom, gradients, identity,
 and persistence only. It may not optimize an adapter, load the simulator, or
 read confirmatory identities.
+
+## 2026-07-15 - KITE-VLA Stage 0A Runner Ready
+
+Decision: `KITE_STAGE_0A_RUNNER_IMPLEMENTED_READY_TO_RUN`
+
+Runner commit `62dbb75` implements the frozen structured serializer, full
+label and operator manifest, missing-key-only resume, native-velocity
+headroom, objective-gradient, action-processor, identity, and persistence
+audits. The development-only data smoke enumerated `11,984` labels and `128`
+model rows with zero duplicate or split-overlap keys. Both operators had rank
+`6` and validation-MSE improvements `0.9059144587642893` and
+`0.9208542724043707`.
+
+The real-checkpoint smoke produced exact processor and initialized/reloaded
+identity errors of `0.0`, finite flow and KITE losses, nonzero KITE gradient,
+gradient ratio `3.506742293171115`, unchanged Base hash, and zero frozen
+gradients. It performed no optimizer step, simulator load, outcome read,
+confirmatory access, or closed-loop experiment. Run the required foreground
+serializer preflight, then launch exactly one frozen Stage 0A worker.
