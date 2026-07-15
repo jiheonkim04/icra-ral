@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_RAR_VLA`
+Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `13`
 
-Current stage: `epoch_4_cycle_13_candidate_generation_completed`
+Current stage: `epoch_4_cycle_13_rar_proposal_frozen`
 
 Allowed final states:
 
@@ -404,4 +404,6 @@ CALA Stage 0 stopped as `DESIGN_FAILURE` in `reports/cala_vla/development_audit.
 
 Epoch 4 Cycle 13 generated exactly three candidates in `reports/epoch_4_cycle_13_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_13_prior_mechanism_map.md` and selected `RAR-VLA`.
 
-Current decision: `SELECT_RAR_VLA`. Current stage: `epoch_4_cycle_13_candidate_generation_completed`. Next action: freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack.
+The RAR-VLA Researcher A proposal is frozen in `reports/rar_vla/researcher_proposal.md` with proposal hash `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`.
+
+Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Current stage: `epoch_4_cycle_13_rar_proposal_frozen`. Next action: Reviewer B attacks the frozen proposal before implementation.

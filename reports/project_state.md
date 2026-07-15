@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_RAR_VLA`
+Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
@@ -32,7 +32,9 @@ CALA Stage 0 is complete in `reports/cala_vla/development_audit.json` and `repor
 
 Epoch 4 Cycle 13 generated exactly three candidates in `reports/epoch_4_cycle_13_candidate_generation.md` and selected `RAR-VLA`, Re-Anchored Autoregressive Residuals for frozen SmolVLA, anchored to AR-VLA.
 
-Exact next step: freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack.
+The RAR-VLA Researcher A proposal is frozen in `reports/rar_vla/researcher_proposal.md` with proposal hash `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`.
+
+Exact next step: run Reviewer B attack before implementation.
 
 ## 2026-07-13 Governance V2 Current State
 

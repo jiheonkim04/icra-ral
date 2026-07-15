@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `SELECT_RAR_VLA`
+Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -217,4 +217,6 @@ Epoch 4 Cycle 13 generated exactly three post-CALA candidates in `reports/epoch_
 
 RAR is anchored to AR-VLA, with ReactVLA and DSWAM as secondary action-generation priors. The design changes the mechanism axis from future-action latent prediction to causal action memory: it uses current Base action chunks, proprioception, task identity, and previous emitted actions, with a re-anchored zero-initialized residual gate. The frozen first comparison is Base, an AR-VLA re-anchored expert proxy, RAR full, no-reanchor-memory ablation, and `ema_action_history_baseline`.
 
-Current stage: `epoch_4_cycle_13_candidate_generation_completed`. Next action: freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack.
+The RAR-VLA Researcher A proposal is frozen in `reports/rar_vla/researcher_proposal.md` with proposal hash `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`.
+
+Current stage: `epoch_4_cycle_13_rar_proposal_frozen`. Next action: Reviewer B attacks the frozen RAR proposal before any implementation.

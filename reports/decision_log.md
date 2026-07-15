@@ -2394,3 +2394,21 @@ Frozen first comparison:
 - `ema_action_history_baseline`
 
 Consequence: RAR-VLA is selected for proposal freezing. CALA remains stopped as `DESIGN_FAILURE` and must not be rescued. RAR may use only causal deployment-time action history, current Base action chunks, proprioception, task/language inputs, and legal observation features at inference; it must keep the EMA/action-history simple killer baseline live.
+
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Proposal Freeze
+
+Decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- proposal: `reports/rar_vla/researcher_proposal.md`
+- proposal hash: `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`
+- proposal hash file: `reports/rar_vla/proposal_hash.txt`
+- closest prior: `AR-VLA`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the Researcher A proposal is frozen. Reviewer B must attack novelty, AR-VLA source fidelity, action-history triviality, re-anchoring necessity, identity-preserving integration, and prior local action-history/chunk-method kills before any implementation.

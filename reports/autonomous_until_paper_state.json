@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 13,
-    "current_topic": "epoch_4_cycle_13_candidate_generation_completed",
+    "current_topic": "epoch_4_cycle_13_rar_proposal_frozen",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "65fd947",
+    "current_commit": "21b7f81",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_13_candidate_generation_completed",
+    "current_stage": "epoch_4_cycle_13_rar_proposal_frozen",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -304,11 +304,12 @@
         "epoch_4_cycle_12_cala_stage_0_completed",
         "epoch_4_cycle_12_cala_design_failure_recorded",
         "epoch_4_cycle_13_candidate_search_pending",
-        "epoch_4_cycle_13_candidate_generation_completed"
+        "epoch_4_cycle_13_candidate_generation_completed",
+        "epoch_4_cycle_13_rar_proposal_frozen"
     ],
-    "active_hypothesis": "RAR-VLA selected for Epoch 4 Cycle 13 as an AR-VLA-anchored, identity-preserving, re-anchored causal action-memory residual for frozen SmolVLA.",
+    "active_hypothesis": "RAR-VLA proposal is frozen for Reviewer B attack: AR-VLA-anchored, identity-preserving, re-anchored causal action-memory residual for frozen SmolVLA.",
     "method_identity": "RAR-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
     "closest_papers": [
         "AR-VLA",
         "ReactVLA",
@@ -326,7 +327,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "SELECT_RAR_VLA",
+    "current_decision": "RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -435,7 +436,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze and hash the RAR-VLA Researcher A proposal, then run Reviewer B attack before any implementation, validation search, training, manifest freeze, or rollout.",
+    "next_action": "Run Reviewer B attack on the frozen RAR-VLA proposal before any implementation, validation search, training, manifest freeze, or rollout.",
     "method": "RAR-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2186,7 +2187,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_13_candidate_generation_completed",
+    "topic": "epoch_4_cycle_13_rar_proposal_frozen",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4791,6 +4792,24 @@
         "confirmatory_test_tuning_happened": false,
         "previous_method_stop": "CALA_STAGE_0_DESIGN_FAILURE",
         "must_not_rescue_previous_method": true,
-        "next_stage": "Freeze and hash the RAR-VLA Researcher A proposal before Reviewer B attack."
+        "next_stage": "Reviewer B attacks the frozen RAR-VLA proposal before implementation.",
+        "proposal": "reports/rar_vla/researcher_proposal.md",
+        "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
+        "proposal_hash_file": "reports/rar_vla/proposal_hash.txt",
+        "proposal_decision": "RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "reviewer_attack_pending": true
+    },
+    "epoch_4_cycle_13_rar_proposal": {
+        "method": "RAR-VLA",
+        "proposal": "reports/rar_vla/researcher_proposal.md",
+        "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
+        "proposal_hash_file": "reports/rar_vla/proposal_hash.txt",
+        "final_decision": "RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "closest_prior": "AR-VLA",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Reviewer B attack before implementation."
     }
 }
