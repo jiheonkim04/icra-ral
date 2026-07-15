@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -201,4 +201,6 @@ The design-level five-policy comparison is Base, a CAC-style latent-action proxy
 
 The CALA-VLA Researcher A proposal is frozen in `reports/cala_vla/researcher_proposal.md` with proposal hash `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`.
 
-Current stage: `epoch_4_cycle_12_cala_proposal_frozen`. Next action: Reviewer B attacks novelty, CAC source fidelity, future-action leakage, trivial task-mean/action-history baselines, and local SmolVLA integration feasibility before implementation.
+Reviewer B attack is complete in `reports/cala_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. CALA is not killed before implementation, but novelty is narrowed to frozen-SmolVLA identity-preserving CAC-style latent-action adaptation. The CAC proxy, future-action leakage gate, no broad latent-action novelty claim, and task-mean simple baseline must remain live.
+
+Current stage: `epoch_4_cycle_12_cala_reviewer_attack_completed`. Next action: Researcher A rebuttal.

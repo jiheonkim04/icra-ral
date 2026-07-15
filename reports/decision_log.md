@@ -2256,3 +2256,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: the Researcher A proposal is frozen. Reviewer B must attack novelty, CAC source fidelity, latent-action leakage, trivial task-mean/action-history baselines, and local SmolVLA integration feasibility before any implementation.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Reviewer B Attack
+
+Decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- proposal hash: `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`
+- reviewer attack: `reports/cala_vla/reviewer_attack.md`
+- primary sources reviewed: `CAC-VLA`, `RotVLA`, `LARA`, `VLS`, `World Pilot`, `STRONG-VLA`, `VLA Grounder`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: CALA is not killed before implementation, but the novelty is narrowed to a frozen-SmolVLA identity-preserving CAC-style latent-action adapter. The CAC proxy, future-action leakage gate, task-mean latent-action baseline, and no broad latent-action/context-gating novelty claim must be accepted in Researcher A rebuttal before mathematical audit.

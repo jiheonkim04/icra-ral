@@ -23,8 +23,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_12_cala_proposal_frozen"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_12_cala_reviewer_attack_completed"
     assert state["method"] == "CALA-VLA"
     assert state["method_identity"] == "CALA-VLA"
     assert state["proposal_hash"] == CALA_PROPOSAL_HASH
@@ -155,6 +155,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_12_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_12_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_12_cala_reviewer_attack_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -551,7 +552,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala["proposal_hash"] == CALA_PROPOSAL_HASH
     assert cala["proposal_hash_file"] == "reports/cala_vla/proposal_hash.txt"
     assert cala["proposal_decision"] == "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert cala["reviewer_attack_pending"] is True
+    assert cala["reviewer_attack"] == "reports/cala_vla/reviewer_attack.md"
+    assert cala["reviewer_attack_pending"] is False
+    assert cala["reviewer_attack_completed"] is True
+    assert cala["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert cala["rebuttal_pending"] is True
     cala_proposal = state["epoch_4_cycle_12_cala_proposal"]
     assert cala_proposal["proposal"] == "reports/cala_vla/researcher_proposal.md"
     assert cala_proposal["proposal_hash"] == CALA_PROPOSAL_HASH
@@ -561,6 +566,17 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala_proposal["training_happened"] is False
     assert cala_proposal["validation_search_happened"] is False
     assert cala_proposal["confirmatory_test_tuning_happened"] is False
+    assert cala_proposal["reviewer_attack"] == "reports/cala_vla/reviewer_attack.md"
+    assert cala_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert cala_proposal["reviewer_attack_completed"] is True
+    cala_review = state["epoch_4_cycle_12_cala_review"]
+    assert cala_review["reviewer_attack"] == "reports/cala_vla/reviewer_attack.md"
+    assert cala_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert cala_review["closest_prior_proxy_must_remain_transparent"] is True
+    assert cala_review["future_action_leakage_gate_required"] is True
+    assert cala_review["task_mean_baseline_must_remain_live"] is True
+    assert cala_review["training_happened"] is False
+    assert cala_review["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

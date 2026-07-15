@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
@@ -20,7 +20,9 @@ CALA is anchored to CAC-VLA and tests whether a Base-preserving, zero-initialize
 
 The CALA Researcher A proposal is frozen in `reports/cala_vla/researcher_proposal.md` with proposal hash `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`.
 
-Exact next step: run Reviewer B attack on novelty, CAC source fidelity, future-action leakage, task-mean/action-history baselines, and SmolVLA integration feasibility.
+Reviewer B attack is complete in `reports/cala_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
+
+Exact next step: write Researcher A rebuttal accepting or answering the narrowed novelty, CAC source-fidelity, future-action leakage, task-mean baseline, and SmolVLA integration constraints.
 
 ## 2026-07-13 Governance V2 Current State
 

@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run Reviewer B attack on the frozen `CALA-VLA` proposal.
+Immediate next action: write Researcher A rebuttal to Reviewer B's CALA attack.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA must proceed under the current performance-oriented governance: Reviewer B source/novelty attack next, then rebuttal, mathematical audit, preregistration, and Stage 0 latent-label/source/identity audit before any expensive training or rollout.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA must accept or answer Reviewer B's novelty, CAC source-fidelity, future-action leakage, task-mean baseline, and identity-preserving integration constraints before mathematical audit or implementation.
 
 ## 2026-07-13 Governance V2 Current Action
 
