@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
 
 Current epoch: `4`
 
-Current cycle: `12`
+Current cycle: `13`
 
-Current stage: `epoch_4_cycle_12_cala_prototype_protocol_frozen`
+Current stage: `epoch_4_cycle_13_candidate_search_pending`
 
 Allowed final states:
 
@@ -400,4 +400,6 @@ The mathematical mechanism audit is frozen in `reports/cala_vla/mathematical_mec
 
 The preregistration and prototype protocol are frozen in `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`.
 
-Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_12_cala_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.
+CALA Stage 0 stopped as `DESIGN_FAILURE` in `reports/cala_vla/development_audit.json`: the latent predictability margin was `-0.01171824382857035`, with `action_history_only` beating the full deployment-observable probe. Source legality, split health, label variance, headroom, gradients, Base action validity, and identity-preserving zero delta passed. No training, validation search, rollout, or confirmatory-test tuning happened.
+
+Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`. Current stage: `epoch_4_cycle_13_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 13 candidates and do not rescue CALA.

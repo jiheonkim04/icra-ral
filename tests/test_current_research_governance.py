@@ -19,16 +19,16 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 12
+    assert state["current_cycle"] == 13
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_12_cala_prototype_protocol_frozen"
-    assert state["method"] == "CALA-VLA"
-    assert state["method_identity"] == "CALA-VLA"
-    assert state["proposal_hash"] == CALA_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/cala_vla/prototype_protocol.md"
+    assert state["current_decision"] == "CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13"
+    assert state["current_stage"] == "epoch_4_cycle_13_candidate_search_pending"
+    assert state["method"] == "CYCLE_13_METHOD_PENDING"
+    assert state["method_identity"] == "CYCLE_13_METHOD_PENDING"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -160,6 +160,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_12_cala_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_12_cala_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_12_cala_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_12_cala_design_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_13_candidate_search_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -572,7 +575,15 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala["preregistration_completed"] is True
     assert cala["prototype_protocol_completed"] is True
     assert cala["prototype_protocol_decision"] == "CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert cala["stage_0_pending"] is True
+    assert cala["stage_0_pending"] is False
+    assert cala["stage_0_audit"] == "reports/cala_vla/development_audit.json"
+    assert cala["stage_0_decision"] == "DESIGN_FAILURE"
+    assert cala["stage_0_failure_class"] == "DESIGN_FAILURE"
+    assert cala["validation_search_allowed"] is False
+    assert cala["stage_0_training_happened"] is False
+    assert cala["stage_0_closed_loop_experiment_happened"] is False
+    assert cala["stage_0_confirmatory_test_tuning_happened"] is False
+    assert cala["stage_0_hard_stop_reasons"] == ["latent predictability margin below minimum: -0.011718"]
     cala_proposal = state["epoch_4_cycle_12_cala_proposal"]
     assert cala_proposal["proposal"] == "reports/cala_vla/researcher_proposal.md"
     assert cala_proposal["proposal_hash"] == CALA_PROPOSAL_HASH
@@ -645,7 +656,28 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
         "cala_no_context_gate_ablation",
         "task_mean_latent_action_baseline",
     ]
-    assert cala_proto["stage_0_next"] == "development_audit_only"
+    assert cala_proto["stage_0_next"] == "development_audit_completed_stop"
+    assert cala_proto["stage_0_audit"] == "reports/cala_vla/development_audit.json"
+    assert cala_proto["stage_0_decision"] == "DESIGN_FAILURE"
+    assert cala_proto["stage_0_completed"] is True
+    assert cala_proto["stage_0_passed"] is False
+    assert cala_proto["validation_search_allowed"] is False
+    cala_outcome = state["epoch_4_cycle_12_cala_development_outcome"]
+    assert cala_outcome["final_decision"] == "DESIGN_FAILURE"
+    assert cala_outcome["stage_0_completed"] is True
+    assert cala_outcome["stage_0_passed"] is False
+    assert cala_outcome["source_gate_passed"] is True
+    assert cala_outcome["future_action_segments_used_at_inference"] is False
+    assert cala_outcome["latent_labels_used_at_inference"] is False
+    assert cala_outcome["latent_predictability_margin"] == -0.01171824382857035
+    assert cala_outcome["best_trivial_baseline"] == "action_history_only"
+    assert cala_outcome["validation_search_allowed"] is False
+    assert cala_outcome["training_happened"] is False
+    assert cala_outcome["closed_loop_experiment_happened"] is False
+    cycle13 = state["epoch_4_cycle_13_pre_stage"]
+    assert cycle13["candidate_search_pending"] is True
+    assert cycle13["previous_method"] == "CALA-VLA"
+    assert cycle13["must_not_rescue_previous_method"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

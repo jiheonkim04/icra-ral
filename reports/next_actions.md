@@ -1,14 +1,14 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 12 Current Action
+## 2026-07-15 Epoch 4 Cycle 13 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
 
-Immediate next action: implement and run the CALA Stage 0 development audit only.
+Immediate next action: generate exactly three distinct Epoch 4 Cycle 13 candidates under current governance, select one, freeze/hash the Researcher A proposal, run Reviewer B attack and rebuttal, then proceed only through the preregistered development path.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA's preregistration/prototype protocol is frozen; Stage 0 may only audit source legality, latent-label health, split separation, latent predictability, Base passthrough, gradients, and action validity.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline.
 
 ## 2026-07-13 Governance V2 Current Action
 

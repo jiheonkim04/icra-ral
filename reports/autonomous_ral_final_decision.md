@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
 
 This is not a terminal state under the active governance.
 
@@ -209,4 +209,8 @@ The CALA mathematical mechanism audit is frozen in `reports/cala_vla/mathematica
 
 The CALA preregistration and prototype protocol are frozen in `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`. Stage 0 must run before validation search, training, manifest freeze, or rollout.
 
-Current stage: `epoch_4_cycle_12_cala_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.
+CALA Stage 0 is complete in `reports/cala_vla/development_audit.json` and `reports/cala_vla/development_audit.md` with final decision `DESIGN_FAILURE`. This is a pre-rollout development stop, not a closed-loop scientific kill: source legality passed, future action segments and latent labels were not used at inference, split duplicates were `0`, latent variance was healthy, Base action validity was `1.0`, initial action delta p95 was `0.0`, and diagnostic action headroom was `0.08630366897708504`. The hard stop was latent predictability: the deployment-observable full probe had margin `-0.01171824382857035` because `action_history_only` was the strongest trivial baseline (`3.1439661695829484` RMSE) and beat the full probe (`3.198806582620636` RMSE).
+
+Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or the source gate. Validation search, training, Stage A manifest freeze, and rollout are disallowed for this CALA formulation.
+
+Current stage: `epoch_4_cycle_13_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 13 candidates under current governance.

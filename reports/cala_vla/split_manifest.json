@@ -1,0 +1,12 @@
+{
+  "duplicate_frame_keys": 0,
+  "duplicate_sample_keys": 0,
+  "reserved_records_not_used": 1200,
+  "split_overlap": {
+    "train_reserved": 0,
+    "train_validation": 0,
+    "validation_reserved": 0
+  },
+  "train_records": 1200,
+  "validation_records": 400
+}

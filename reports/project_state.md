@@ -1,16 +1,16 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 12 Current State
+## 2026-07-15 Epoch 4 Cycle 13 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `CALA_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_13`
 
 Current epoch: `4`
 
-Current cycle: `12`
+Current cycle: `13`
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 
@@ -28,7 +28,9 @@ The CALA mathematical mechanism audit is frozen in `reports/cala_vla/mathematica
 
 The preregistration and prototype protocol are frozen in `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`.
 
-Exact next step: implement and run the CALA Stage 0 development audit only.
+CALA Stage 0 is complete in `reports/cala_vla/development_audit.json` and `reports/cala_vla/development_audit.md` with final decision `DESIGN_FAILURE`. The hard stop was latent predictability: the full deployment-observable probe margin was `-0.01171824382857035`, and `action_history_only` beat it. No training, validation search, rollout, or confirmatory-test tuning happened.
+
+Exact next step: generate exactly three distinct Epoch 4 Cycle 13 candidates under current governance. Do not rescue CALA.
 
 ## 2026-07-13 Governance V2 Current State
 

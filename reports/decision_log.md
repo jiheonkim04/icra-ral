@@ -2324,3 +2324,44 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Stage 0 Development Audit
+
+Decision: `DESIGN_FAILURE`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- development audit: `reports/cala_vla/development_audit.json`
+- audit markdown: `reports/cala_vla/development_audit.md`
+- source gate manifest: `reports/cala_vla/source_gate_manifest.json`
+- latent label manifest: `reports/cala_vla/latent_label_manifest.json`
+- split manifest: `reports/cala_vla/split_manifest.json`
+- scoreable development records: `2800`
+- train records: `1200`
+- validation records: `400`
+- reserved records not used: `1200`
+- selected task count: `40`
+- duplicate sample keys: `0`
+- duplicate frame keys: `0`
+- source gate passed: `True`
+- future action segments used at inference: `False`
+- latent labels used at inference: `False`
+- train latent variance nonzero dims: `35`
+- validation latent variance nonzero dims: `35`
+- oracle action headroom L2 validation: `0.08630366897708504`
+- initial action delta p95: `0.0`
+- base action validity: `1.0`
+- training happened: `False`
+- validation search happened: `False`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Hard stop:
+
+- latent predictability margin was `-0.01171824382857035`, below the preregistered minimum `0.02`
+- strongest trivial baseline: `action_history_only`
+- strongest trivial RMSE: `3.1439661695829484`
+- full deployment-observable probe RMSE: `3.198806582620636`
+
+Consequence: CALA stops before rollout as a design failure. Do not rescue CALA by changing labels, features, thresholds, source gates, validation configs, or baselines. Proceed to Epoch 4 Cycle 13 candidate generation under current governance.
