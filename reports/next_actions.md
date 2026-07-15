@@ -5,12 +5,15 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
-Immediate next action: generate exactly three Cycle 23 candidates under the
-active prior-first performance governance, select exactly one, freeze and hash
-its proposal, complete Reviewer B attack and rebuttal, preregister, implement,
-and continue automatically.
+Immediate next action: implement and run only the frozen KITE-VLA Stage 0A
+source, empirical realization-operator, frozen-Base headroom, objective
+gradient, identity, and persistence audit.
+
+Do not change horizons `{5,20}`, ridge `1e-4`, four task sources, demo splits,
+operator fitting, headroom bars, rank-4 identity path, or failure taxonomy. No
+adapter optimization or simulator access is allowed in Stage 0A.
 
 HASTE Stage 0A PID `295` exited `1` before manifest persistence on a canonical
 JSON serialization defect. It created no partial, model row, feature cache,

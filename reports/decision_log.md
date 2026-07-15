@@ -3012,3 +3012,29 @@ This is a pre-manifest implementation failure, not a scientific result or
 scientific kill. Under the frozen protocol, do not repair, resume, rerun, or
 rescue HASTE and do not authorize Stage 0B. Continue automatically to Epoch 4
 Cycle 23 candidate generation.
+
+## 2026-07-15 - KITE-VLA Selection And Protocol Freeze
+
+Decision: `KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
+
+Cycle 23 generated exactly three candidates:
+
+- `KITE-VLA`: `96 / 100`;
+- `CIRR-VLA`: `88 / 100`;
+- `HFC-VLA`: `84 / 100`.
+
+Selected method: `KITE-VLA`, Kinematic Integration Targets for Execution,
+anchored to GeoPredict. Proposal SHA-256:
+`FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8`.
+
+KITE fits global discovery-only empirical action-to-state realization
+operators and sends future-state error through generated clean actions at
+horizons `5` and `20`. Reviewer B preserved the narrow novelty boundary and
+required a cumulative-action-target key ablation, transparent GeoPredict
+proxy, standard LoRA, structured serializer round-trip, and direct gradient
+audit. Researcher A accepted every condition.
+
+The mathematical audit, preregistration, and prototype protocol are frozen.
+Stage 0A may audit data, operators, frozen-Base headroom, gradients, identity,
+and persistence only. It may not optimize an adapter, load the simulator, or
+read confirmatory identities.

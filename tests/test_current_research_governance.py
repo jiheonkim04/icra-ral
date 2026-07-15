@@ -19,6 +19,7 @@ SPARC_PROPOSAL_HASH = "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895
 NICE_PROPOSAL_HASH = "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A"
 HEST_PROPOSAL_HASH = "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527"
 HASTE_PROPOSAL_HASH = "5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6"
+KITE_PROPOSAL_HASH = "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -50,7 +51,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_haste_stage_0a_failure_and_cycle_23_pending() -> None:
+def test_active_state_records_kite_stage_0a_implementation_pending() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -58,12 +59,12 @@ def test_active_state_records_haste_stage_0a_failure_and_cycle_23_pending() -> N
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "HASTE_STAGE_0A_IMPLEMENTATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_23_candidate_search_pending"
-    assert state["method"] == "HASTE-VLA"
-    assert state["method_identity"] == "HASTE-VLA"
-    assert state["proposal_hash"] == HASTE_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/haste_vla/prototype_protocol.md"
+    assert state["current_decision"] == "KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_23_kite_stage_0a_implementation_pending"
+    assert state["method"] == "KITE-VLA"
+    assert state["method_identity"] == "KITE-VLA"
+    assert state["proposal_hash"] == KITE_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/kite_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -165,6 +166,31 @@ def test_active_state_records_haste_stage_0a_failure_and_cycle_23_pending() -> N
     assert outcome["partial_persisted"] is False
     assert outcome["stage_0b_allowed"] is False
     assert outcome["rerun_allowed"] is False
+    for stage in (
+        "epoch_4_cycle_23_candidate_generation_completed",
+        "epoch_4_cycle_23_kite_researcher_proposal_frozen",
+        "epoch_4_cycle_23_kite_reviewer_attack_completed",
+        "epoch_4_cycle_23_kite_rebuttal_completed",
+        "epoch_4_cycle_23_kite_mathematical_audit_preregistered",
+        "epoch_4_cycle_23_kite_preregistration_frozen",
+        "epoch_4_cycle_23_kite_prototype_protocol_frozen",
+        "epoch_4_cycle_23_kite_stage_0a_implementation_pending",
+    ):
+        assert stage in state["completed_stages"]
+    kite = state["epoch_4_cycle_23_kite_pre_stage_0a"]
+    assert kite["candidate_count"] == 3
+    assert kite["selected_score"] == 96
+    assert kite["proposal_hash"] == KITE_PROPOSAL_HASH
+    assert kite["horizons"] == [5, 20]
+    assert kite["kite_coefficients"] == [0.1, 0.3, 1.0]
+    assert kite["policy_order"] == [
+        "smolvla_base",
+        "geopredict_kinematics_proxy",
+        "kite_full",
+        "cumulative_action_target",
+        "standard_lora",
+    ]
+    assert kite["stage_0a_pending"] is True
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95

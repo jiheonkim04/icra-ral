@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `23`
 
-Current stage: `epoch_4_cycle_23_candidate_search_pending`
+Current stage: `epoch_4_cycle_23_kite_stage_0a_implementation_pending`
 
 ## Epoch 4 Cycle 22 HASTE-VLA
 
@@ -30,6 +30,16 @@ interface, and zero-effect identity smokes. Frozen execution PID `295` exited
 partial, model row, feature cache, adapter, simulator row, or confirmatory
 access. Decision: `HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`. Do not repair,
 resume, rerun, or rescue HASTE; continue to Cycle 23.
+
+## Epoch 4 Cycle 23 KITE-VLA
+
+Cycle 23 generated exactly three candidates and selected `KITE-VLA` at
+`96 / 100`, anchored to GeoPredict. Proposal SHA-256:
+`FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8`.
+KITE fits discovery-only empirical action-to-state realization operators and
+backpropagates multi-horizon future-state error through generated clean
+actions. Review, rebuttal, mathematical audit, preregistration, and prototype
+protocol are frozen. Only Stage 0A implementation is pending.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current decision:
-`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -33,7 +33,7 @@ one validation Base row and HEST's required whole-Base fallback were outside
 discovery-defined support. This is a pre-rollout implementation/prototype
 support failure, not a scientific kill. Stage 0B and HEST rescue are forbidden.
 Current cycle: `23`; current stage:
-`epoch_4_cycle_23_candidate_search_pending`.
+`epoch_4_cycle_23_kite_stage_0a_implementation_pending`.
 
 Cycle 22 selected HASTE-VLA from exactly three candidates at `95 / 100`,
 anchored to StaKe. Proposal hash:
@@ -42,6 +42,12 @@ The protocol package and pushed runner commit `3dd76f0` are frozen. Stage 0A
 PID `295` exited `1` before manifest persistence on NumPy JSON serialization;
 no partial, model row, or scientific evidence exists. Do not repair, rerun, or
 rescue HASTE. Continue to Cycle 23.
+
+Cycle 23 selected KITE-VLA from exactly three candidates at `96 / 100`,
+anchored to GeoPredict. Proposal SHA-256:
+`FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8`.
+The full protocol package is frozen; only KITE Stage 0A implementation and
+execution are authorized.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 

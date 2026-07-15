@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
+`KITE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
@@ -60,8 +60,22 @@ closed-loop row. The independently reproduced decision is
 `HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`.
 
 This is a pre-manifest implementation failure, not a scientific kill. HASTE
-resume, rerun, repair, Stage 0B, and rescue are forbidden. Current stage:
-`epoch_4_cycle_23_candidate_search_pending`.
+resume, rerun, repair, Stage 0B, and rescue are forbidden.
+
+Cycle 23 generated exactly three candidates and selected `KITE-VLA`, Kinematic
+Integration Targets for Execution, at `96 / 100`. GeoPredict is the closest
+positive prior. KITE fits global discovery-only empirical action-to-state
+realization operators and backpropagates future-state error through the
+generated clean action chunk at horizons `5` and `20`; all realization
+machinery is absent at inference.
+
+Proposal hash:
+`FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8`.
+Reviewer B required the cumulative-action-target key ablation, a transparent
+GeoPredict proxy, standard LoRA, global task-agnostic operators, and prelaunch
+JSON round-trip checks. The rebuttal, mathematical audit, preregistration, and
+prototype protocol are frozen. Current stage:
+`epoch_4_cycle_23_kite_stage_0a_implementation_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,
