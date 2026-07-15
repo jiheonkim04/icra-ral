@@ -6,12 +6,13 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 REPORTS = REPO_ROOT / "reports"
 PESA_PROPOSAL_HASH = "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63"
 EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E"
+G3P_PROPOSAL_HASH = "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`" in final
+    assert "Current campaign decision: `G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -147,7 +148,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Epoch 4 Cycle 11 generated exactly three post-EAC candidates" in final
     assert "G3P-VLA" in final
     assert "Grounded 3D Point Injection" in final
-    assert "Current stage: `epoch_4_cycle_11_candidate_generation_completed`" in final
+    assert G3P_PROPOSAL_HASH in final
+    assert "Current stage: `epoch_4_cycle_11_g3p_proposal_frozen`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -155,13 +157,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "SELECT_G3P_VLA_CONTINUE_PROPOSAL"
+    assert state["current_decision"] == "G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 11
-    assert state["current_stage"] == "epoch_4_cycle_11_candidate_generation_completed"
+    assert state["current_stage"] == "epoch_4_cycle_11_g3p_proposal_frozen"
     assert state["method"] == "G3P-VLA"
     assert state["method_identity"] == "G3P-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == G3P_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -174,7 +176,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Freeze the G3P-VLA Researcher A proposal")
+    assert state["next_action"].startswith("Run Reviewer B attack on the frozen G3P-VLA proposal")
     assert state["task_reset_manifest"] is None
     assert state["stage_b_manifest_json"] is None
     assert state["stage_b_partial_checkpoint"] is None
@@ -306,6 +308,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_10_eac_valid_current_formulation_kill_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_11_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_11_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_11_g3p_proposal_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"

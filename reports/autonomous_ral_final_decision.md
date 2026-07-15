@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `SELECT_G3P_VLA_CONTINUE_PROPOSAL`
+Current decision: `G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -185,6 +185,8 @@ Epoch 4 Cycle 11 generated exactly three post-EAC candidates in `reports/epoch_4
 
 G3P is anchored to Direct Action-Head Injection of A Grounded 3D Point, with RoboPoint, RoboGround, and AffordanceVLA as secondary spatial-grounding priors. The selected design changes the mechanism axis from queue scheduling to source-gated gripper-relative spatial grounding at the action interface. It must use only deployment-observable RGB, proprioception, language, and Base features at inference; oracle object state may be used only for discovery/validation diagnostics and training labels, never as hidden confirmatory-test input.
 
-The design-level five-policy comparison is Base, a closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic. No G3P proposal, training, validation search, rollout, or confirmatory-test tuning has happened yet.
+The design-level five-policy comparison is Base, a closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic.
 
-Current stage: `epoch_4_cycle_11_candidate_generation_completed`. Next action: freeze the G3P-VLA Researcher A proposal and hash it before Reviewer B attack.
+The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
+
+Current stage: `epoch_4_cycle_11_g3p_proposal_frozen`. Next action: run Reviewer B attack on the frozen G3P-VLA proposal without altering the proposal during review.
