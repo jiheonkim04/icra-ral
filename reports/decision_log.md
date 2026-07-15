@@ -2273,3 +2273,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: CALA is not killed before implementation, but the novelty is narrowed to a frozen-SmolVLA identity-preserving CAC-style latent-action adapter. The CAC proxy, future-action leakage gate, task-mean latent-action baseline, and no broad latent-action/context-gating novelty claim must be accepted in Researcher A rebuttal before mathematical audit.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Rebuttal
+
+Decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- proposal hash: `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`
+- reviewer attack: `reports/cala_vla/reviewer_attack.md`
+- researcher rebuttal: `reports/cala_vla/researcher_rebuttal.md`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: Researcher A accepted the narrowed novelty, CAC source-fidelity, future-action source gate, task-mean simple killer, matched no-context-gate ablation, and identity-preserving integration constraints. Proceed only to mathematical mechanism audit.

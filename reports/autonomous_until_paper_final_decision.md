@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current campaign decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -220,4 +220,6 @@ The CALA-VLA Researcher A proposal is frozen in `reports/cala_vla/researcher_pro
 
 Reviewer B attack is complete in `reports/cala_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. CALA is not killed before implementation, but novelty is narrowed to frozen-SmolVLA identity-preserving CAC-style latent-action adaptation. The CAC proxy, future-action leakage gate, no broad latent-action novelty claim, and task-mean simple baseline must remain live.
 
-Current stage: `epoch_4_cycle_12_cala_reviewer_attack_completed`. Next action: Researcher A rebuttal.
+Researcher A rebuttal is complete in `reports/cala_vla/researcher_rebuttal.md` with decision `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts the narrowed novelty, source-fidelity, future-action leakage, task-mean baseline, matched ablation, and identity-preserving integration constraints.
+
+Current stage: `epoch_4_cycle_12_cala_rebuttal_completed`. Next action: mathematical mechanism audit.

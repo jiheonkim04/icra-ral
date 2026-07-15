@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
-Immediate next action: write Researcher A rebuttal to Reviewer B's CALA attack.
+Immediate next action: write `reports/cala_vla/mathematical_mechanism_audit.md`.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA must accept or answer Reviewer B's novelty, CAC source-fidelity, future-action leakage, task-mean baseline, and identity-preserving integration constraints before mathematical audit or implementation.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA accepted Reviewer B's constraints; mathematical audit must define variables, shapes, latent encoder, gate, residual, objectives, gradient paths, loss scales, ablation, source gate, and no deterministic-action KL before implementation.
 
 ## 2026-07-13 Governance V2 Current Action
 
