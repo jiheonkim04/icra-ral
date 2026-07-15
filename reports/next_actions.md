@@ -1,14 +1,27 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 19 Current Action
+## 2026-07-15 Epoch 4 Cycle 20 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
+Current decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
 
 Immediate next action: generate exactly three materially distinct,
-prior-anchored Cycle 19 candidates, score them under current governance, and
+prior-anchored Cycle 20 candidates, score them under current governance, and
 select exactly one.
+
+Cycle 19 SPARC Stage 0A completed `2 / 2` final smoke observations with zero
+exceptions and zero duplicate, missing, or extra indices after the one allowed
+implementation repair. Identity and acting checks passed, but both synthetic
+rows failed the frozen Base-relative range-safety gate. This is a pre-rollout
+implementation/prototype action-validity failure, not a scientific kill.
+
+Do not change SPARC's operator, ridge, aperture, beta, hook site, thresholds,
+or smoke construction. Do not run SPARC Stage 0B, validation, rollout, or
+confirmatory testing. Do not rescue FAMR, PCAV, or SPARC.
+
+## Epoch 4 Cycle 19 Historical Action
 
 COVI, IARC, and FAMR remain preserved under their fixed protocols. FAMR's
 endpoint completed `300 / 300` optimizer steps and `2400 / 2400` discovery

@@ -2,11 +2,23 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
+Current decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
 
 This is not a terminal state under the active governance.
 
 Active governance: `reports/current_research_governance.md`
+
+Epoch 4 Cycle 19 selected SPARC-VLA from exactly three candidates. Its final
+Stage 0A smoke completed `2 / 2` rows with zero exceptions and no duplicate,
+missing, or extra indices after the one allowed implementation repair. The
+hook and identity gates passed, but both synthetic action rows failed the
+frozen Base-relative range-safety gate. No labeled fit, validation, rollout,
+or confirmatory evaluation occurred.
+
+This is an implementation/prototype action-validity failure, not a scientific
+kill. Do not run Stage 0B or rescue SPARC. Current cycle: `20`; current stage:
+`epoch_4_cycle_20_candidate_search_pending`.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 

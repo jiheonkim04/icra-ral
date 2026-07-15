@@ -15,6 +15,7 @@ LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B
 IARC_PROPOSAL_HASH = "A1B0CF8BCBCF6A88F27B31EF5E38BAF408A3E62BB34206A1AC9F051EA6B57408"
 FAMR_PROPOSAL_HASH = "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69"
 PCAV_PROPOSAL_HASH = "E8B23C755C6D4E450FD193101CC0B15F88AAFE20E137A0F86830ED6D421E12AA"
+SPARC_PROPOSAL_HASH = "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -46,20 +47,22 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_pcav_no_headroom_and_cycle_19_search() -> None:
+def test_active_state_records_sparc_stage_0a_failure_and_cycle_20_search() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 19
+    assert state["current_cycle"] == 20
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "PCAV_STAGE_0A_NO_USABLE_HEADROOM"
-    assert state["current_stage"] == "epoch_4_cycle_19_candidate_search_pending"
-    assert state["method"] == "PCAV-VLA"
-    assert state["method_identity"] == "PCAV-VLA"
-    assert state["proposal_hash"] == PCAV_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/pcav_vla/prototype_protocol.md"
+    assert state["current_decision"] == (
+        "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL"
+    )
+    assert state["current_stage"] == "epoch_4_cycle_20_candidate_search_pending"
+    assert state["method"] == "SPARC-VLA"
+    assert state["method_identity"] == "SPARC-VLA"
+    assert state["proposal_hash"] == SPARC_PROPOSAL_HASH
+    assert state["prototype_protocol"] == "reports/sparc_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -94,6 +97,12 @@ def test_active_state_records_pcav_no_headroom_and_cycle_19_search() -> None:
     assert "epoch_4_cycle_18_pcav_stage_0a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_18_pcav_no_headroom_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_19_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_19_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_19_sparc_researcher_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_19_sparc_stage_0a_single_repair_consumed" in state["completed_stages"]
+    assert "epoch_4_cycle_19_sparc_stage_0a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_19_sparc_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_20_candidate_search_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -180,6 +189,49 @@ def test_active_state_records_pcav_no_headroom_and_cycle_19_search() -> None:
     assert pcav_validation["partial_candidate_keys_equal"] is True
     assert pcav_validation["candidate_expanded_key_sets_equal"] is True
     assert pcav_validation["accepted_without_rerun"] is True
+    sparc = state["epoch_4_cycle_19_candidate_selection"]
+    assert sparc["candidate_count"] == 3
+    assert sparc["selected_score"] == 96
+    assert sparc["proposal_hash"] == SPARC_PROPOSAL_HASH
+    assert sparc["closest_prior"] == "COAST"
+    assert sparc["bounded_validation_search_max_configs"] == 6
+    assert sparc["policy_order"] == [
+        "smolvla_base",
+        "coast_single_source_transfer_proxy",
+        "sparc_full",
+        "sparc_source_failure_only",
+        "standard_lora_target_success",
+    ]
+    assert sparc["training_happened"] is False
+    assert sparc["validation_search_happened"] is False
+    assert sparc["closed_loop_experiment_happened"] is False
+    assert sparc["confirmatory_test_tuning_happened"] is False
+    sparc_pre_stage = state["epoch_4_cycle_19_sparc_pre_stage_0a"]
+    assert sparc_pre_stage["planned_observation_count"] == 2
+    assert sparc_pre_stage["synthetic_unlabeled_operator_only"] is True
+    assert sparc_pre_stage["confirmatory_records_read_max"] == 0
+    assert sparc_pre_stage["stage_0a_pending"] is False
+    sparc_outcome = state["epoch_4_cycle_19_sparc_stage_0a_outcome"]
+    assert sparc_outcome["raw_final_decision"] == "SPARC_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert sparc_outcome["failure_class"] == "IMPLEMENTATION_OR_DATA_FAILURE"
+    assert sparc_outcome["valid_scientific_kill"] is False
+    assert sparc_outcome["single_allowed_repair_consumed"] is True
+    assert sparc_outcome["final_worker_alive"] is False
+    assert sparc_outcome["final_worker_status"] == "completed"
+    assert sparc_outcome["exit_code"] == 0
+    assert sparc_outcome["completed_observation_count"] == sparc_outcome["planned_observation_count"] == 2
+    assert sparc_outcome["exception_count"] == 0
+    assert sparc_outcome["duplicate_key_count"] == 0
+    assert sparc_outcome["missing_manifest_key_count"] == 0
+    assert sparc_outcome["extra_result_key_count"] == 0
+    assert sparc_outcome["capture_identity_max_abs_error"] == 0.0
+    assert sparc_outcome["configured_reload_max_abs_error"] == 0.0
+    assert sparc_outcome["all_activation_rows_act"] is True
+    assert sparc_outcome["all_action_rows_safe"] is False
+    assert sparc_outcome["synthetic_unlabeled_operator_only"] is True
+    assert sparc_outcome["labeled_activation_fit_happened"] is False
+    assert sparc_outcome["confirmatory_records_read"] == 0
+    assert sparc_outcome["stage_0b_allowed"] is False
     pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0

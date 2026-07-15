@@ -1,0 +1,182 @@
+{
+  "acting_action_row_count": 2,
+  "all_action_rows_safe": false,
+  "all_activation_rows_act": true,
+  "base_checkpoint_unchanged": true,
+  "capture_count": 10,
+  "capture_identity_max_abs_error": 0.0,
+  "capture_shapes": [
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ],
+    [
+      1,
+      50,
+      720
+    ]
+  ],
+  "completed_at": "2026-07-15T11:33:43.860834+00:00",
+  "completed_observation_count": 2,
+  "configured_reload_max_abs_error": 0.0,
+  "confirmatory_records_read": 0,
+  "duplicate_key_count": 0,
+  "exception_count": 0,
+  "final_decision": "SPARC_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "identity_operator_max_abs_error": 0.0,
+  "method": "SPARC-VLA",
+  "operator_audit": {
+    "eigenvalue_max": 0.26692029669700773,
+    "eigenvalue_min": 0.000996702123936668,
+    "finite_fraction": 1.0
+  },
+  "operator_sha256": "DD780D816841BA2BB5DA70FAF6143668CC337AA859A9E7350279D2FAF08874FC",
+  "planned_observation_count": 2,
+  "proposal_hash": "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D",
+  "removed_hook_identity_max_abs_error": 0.0,
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 2,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "rows": [
+    {
+      "action_safety": {
+        "absolute_max": 1.0629554986953735,
+        "base_outside_fraction": 0.06,
+        "base_p99_exceedance": 0.011530463695526098,
+        "changed_dimension_count": 7,
+        "finite_fraction": 1.0,
+        "full_chunk_7d_delta_l2_p95": 0.10338225058809794,
+        "gripper_abs_delta_p95": 0.03781304359436035,
+        "mean_full_chunk_7d_delta_l2": 0.07344741924794365,
+        "outside_fraction": 0.14285714285714285,
+        "p99_exceedance": 0.043342590332031215,
+        "passed": false,
+        "rotation_delta_l2_p95": 0.019063188544876552,
+        "translation_delta_l2_p95": 0.10108761562827738
+      },
+      "activation_delta_norms": [
+        40.676422119140625,
+        39.79909896850586,
+        38.438880920410156,
+        37.18452835083008,
+        35.939674377441406,
+        34.75028991699219,
+        33.61565399169922,
+        32.64495849609375,
+        31.600921630859375,
+        30.307140350341797
+      ],
+      "base_action_sha256": "CC7C88825C4F056CA4884DE49C5A97C8ED1D604D48B661086CE79451A6D6C982",
+      "maximum_token_delta_norms": [
+        6.153292179107666,
+        6.007900238037109,
+        5.782148838043213,
+        5.571002960205078,
+        5.388333320617676,
+        5.181112289428711,
+        5.004603385925293,
+        4.845380783081055,
+        4.710622310638428,
+        4.631559371948242
+      ],
+      "observation_index": 0,
+      "ours_action_sha256": "618B0A2226E1D2E220D99A74BF1485AF0D14C10D2B1DA2B7476B1D350866B3F5",
+      "task_identity": "KITCHEN_SCENE9_put_the_frying_pan_under_the_cabinet_shelf"
+    },
+    {
+      "action_safety": {
+        "absolute_max": 1.0860835313796997,
+        "base_outside_fraction": 0.06857142857142857,
+        "base_p99_exceedance": 0.04426018714904782,
+        "changed_dimension_count": 7,
+        "finite_fraction": 1.0,
+        "full_chunk_7d_delta_l2_p95": 0.09170618717379146,
+        "gripper_abs_delta_p95": 0.02497133314609527,
+        "mean_full_chunk_7d_delta_l2": 0.047795094863397745,
+        "outside_fraction": 0.1,
+        "p99_exceedance": 0.07801522374153137,
+        "passed": false,
+        "rotation_delta_l2_p95": 0.018300493579411704,
+        "translation_delta_l2_p95": 0.09510223467618938
+      },
+      "activation_delta_norms": [
+        40.663795471191406,
+        39.75462341308594,
+        38.39468002319336,
+        37.11467361450195,
+        35.8175048828125,
+        34.58684539794922,
+        33.374488830566406,
+        32.296688079833984,
+        31.133764266967773,
+        29.706968307495117
+      ],
+      "base_action_sha256": "4C5CF93974A649108F18F5B9678BC0FD4F5476437F5D9B942334066EDC4F4F3D",
+      "maximum_token_delta_norms": [
+        6.120944023132324,
+        5.9593586921691895,
+        5.793910980224609,
+        5.616164207458496,
+        5.443532466888428,
+        5.288703918457031,
+        5.12690544128418,
+        4.9394402503967285,
+        4.727287769317627,
+        4.440617084503174
+      ],
+      "observation_index": 1,
+      "ours_action_sha256": "974ECCE5E53B7BB342675E5E763F11EFBCAF41183B69D8654210709ADD51323F",
+      "task_identity": "LIVING_ROOM_SCENE4_pick_up_the_chocolate_pudding_and_put_it_in_the_tray"
+    }
+  ],
+  "stage_0b_allowed": false,
+  "started_at": "2026-07-15T11:33:00.092671+00:00",
+  "unconfigured_identity_max_abs_error": 0.0,
+  "unique_capture_hash_count": 10
+}

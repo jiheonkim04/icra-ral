@@ -2,7 +2,8 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
+Current campaign decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
 
 This is not a terminal decision.
 
@@ -14,6 +15,22 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 19 Decision
+
+SPARC Stage 0A final PID `306` completed `2 / 2` smoke observations with exit
+`0`, zero exceptions, and zero duplicate, missing, or extra observation
+indices. The one allowed implementation repair followed a preserved
+capture-reset exception. Hook identity, reload, Base preservation, finite
+operator, and acting checks passed, but both synthetic action rows failed the
+frozen Base-relative range-safety gate.
+
+The raw runner decision remains `SPARC_STAGE_0A_IMPLEMENTATION_FAILURE`. The
+campaign classifies it as a pre-rollout implementation/prototype
+action-validity failure, not a scientific kill, because no fitted SPARC
+operator or policy comparison was evaluated. Stage 0B and SPARC rescue are
+forbidden. Current cycle: `20`. Current stage:
+`epoch_4_cycle_20_candidate_search_pending`.
 
 ## Corrected Epoch 1 Status
 

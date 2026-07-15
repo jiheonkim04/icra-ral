@@ -6,13 +6,14 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
+Current decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
 
 Current epoch: `4`
 
-Current cycle: `19`
+Current cycle: `20`
 
-Current stage: `epoch_4_cycle_19_candidate_search_pending`
+Current stage: `epoch_4_cycle_20_candidate_search_pending`
 
 Allowed final states:
 
@@ -22,6 +23,25 @@ Allowed final states:
 - `SAFETY_RESOURCE_STOP`
 
 There is no finite global method-cycle limit.
+
+## Epoch 4 Cycle 19 SPARC-VLA
+
+Cycle 19 generated exactly three candidates and selected `SPARC-VLA` at
+`96 / 100`, anchored to COAST. Proposal hash:
+`CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D`.
+
+The first Stage 0A attempt persisted both observations before a capture-reset
+implementation exception. The one allowed implementation repair was consumed.
+Final PID `306` completed `2 / 2` observations with exit `0`, zero exceptions,
+and zero duplicate, missing, or extra observation indices. Identity, reload,
+Base-hash, finite-operator, and acting checks passed, but both synthetic action
+rows failed the frozen Base-relative range-safety gate.
+
+Decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`.
+This unlabeled smoke is not a fitted scientific SPARC operator. Stage 0B,
+validation, rollout, confirmatory testing, and SPARC rescue are forbidden.
+Continue to Cycle 20 exact-three candidate generation.
 
 ## Corrected Epoch 1
 
@@ -549,6 +569,6 @@ than Base, and median relative reduction over improvable rows was `0.0166833`.
 Both miss the frozen 25% and 5% headroom requirements. The decision is
 `PCAV_STAGE_0A_NO_USABLE_HEADROOM`; Stage 0B and PCAV rescue are forbidden.
 
-Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`.
+Historical decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`.
 Current cycle: `19`. Current stage:
 `epoch_4_cycle_19_candidate_search_pending`.

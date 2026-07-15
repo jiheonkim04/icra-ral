@@ -12,12 +12,13 @@ RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16F
 COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621"
 LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F"
 FAMR_PROPOSAL_HASH = "96E067FFFC48D5EF9986E35E5336D679EA841BFD1F06D5E5AD4F28B5B551FD69"
+SPARC_PROPOSAL_HASH = "CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`" in final
+    assert "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -214,7 +215,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "Current stage: `epoch_4_cycle_17_famr_stage_0a_implementation_pending`" in final
+    assert "epoch_4_cycle_20_candidate_search_pending" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -229,13 +230,15 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_decision"] == (
+        "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL"
+    )
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 17
-    assert state["current_stage"] == "epoch_4_cycle_17_famr_stage_0a_implementation_pending"
-    assert state["method"] == "FAMR-VLA"
-    assert state["method_identity"] == "FAMR-VLA"
-    assert state["proposal_hash"] == FAMR_PROPOSAL_HASH
+    assert state["current_cycle"] == 20
+    assert state["current_stage"] == "epoch_4_cycle_20_candidate_search_pending"
+    assert state["method"] == "SPARC-VLA"
+    assert state["method_identity"] == "SPARC-VLA"
+    assert state["proposal_hash"] == SPARC_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -248,8 +251,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == "Implement and run the frozen FAMR Stage 0A provenance, data, identity, capacity, and group-scaling audit without confirmatory decoding."
-    assert state["prototype_protocol"] == "reports/famr_vla/prototype_protocol.md"
+    assert state["next_action"] == (
+        "Generate exactly three prior-anchored Cycle 20 candidates, select exactly one, and continue without "
+        "rescuing FAMR, PCAV, or SPARC."
+    )
+    assert state["prototype_protocol"] == "reports/sparc_vla/prototype_protocol.md"
     assert state["epoch_4_cycle_16_candidate_selection"]["candidate_count"] == 3
     assert state["epoch_4_cycle_16_candidate_selection"]["selected_score"] == 95
     assert state["epoch_4_cycle_16_iarc_pre_stage_0a"]["confirmatory_rows_decoded_max"] == 0
@@ -265,6 +271,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
         "famr_target_only",
         "standard_lora_new_task",
     ]
+    sparc = state["epoch_4_cycle_19_candidate_selection"]
+    assert sparc["candidate_count"] == 3
+    assert sparc["selected_score"] == 96
+    assert sparc["proposal_hash"] == SPARC_PROPOSAL_HASH
+    sparc_outcome = state["epoch_4_cycle_19_sparc_stage_0a_outcome"]
+    assert sparc_outcome["valid_scientific_kill"] is False
+    assert sparc_outcome["completed_observation_count"] == 2
+    assert sparc_outcome["exception_count"] == 0
+    assert sparc_outcome["duplicate_key_count"] == 0
+    assert sparc_outcome["stage_0b_allowed"] is False
     assert state["resource_contention_audit_20260715"]["duplicate_key_count"] == 0
     iarc_stage_0a = state["epoch_4_cycle_16_iarc_stage_0a_outcome"]
     assert iarc_stage_0a["final_decision"] == "IARC_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"

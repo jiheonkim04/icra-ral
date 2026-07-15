@@ -2862,3 +2862,24 @@ Execution boundary:
 
 Consequence: implement and run only the frozen Stage 0A provenance, data,
 identity, capacity, reload, and exact group-scaling audit.
+
+## 2026-07-15 - SPARC-VLA Selection And Stage 0A Adjudication
+
+Decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
+
+Cycle 19 generated exactly three candidates and selected SPARC-VLA at
+`96 / 100`, anchored to COAST. Proposal hash:
+`CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D`.
+
+Attempt 1 persisted both observations before a capture-reset implementation
+exception. The single allowed repair was consumed. Final PID `306` completed
+`2 / 2` observations with exit `0`, zero exceptions, and zero duplicate,
+missing, or extra indices. Identity/reload checks and mechanism activation
+passed, but both synthetic action rows failed the frozen Base-relative
+range-safety gate.
+
+No labeled SPARC fit, validation search, rollout, or confirmatory evaluation
+occurred. The result is not a scientific kill. Stage 0B and SPARC rescue are
+forbidden. Continue automatically to Epoch 4 Cycle 20 exact-three candidate
+generation.

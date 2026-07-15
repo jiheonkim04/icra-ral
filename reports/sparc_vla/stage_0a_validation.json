@@ -1,0 +1,16 @@
+{
+  "action_safety_pass": false,
+  "activation_acting_pass": true,
+  "base_checkpoint_unchanged": true,
+  "capture_shape_pass": true,
+  "completed_matches_planned": true,
+  "confirmatory_records_read": 0,
+  "duplicate_key_count": 0,
+  "exception_count": 0,
+  "final_decision": "SPARC_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "identity_checks_pass": true,
+  "passed": false,
+  "proposal_hash_matches": true,
+  "reload_pass": true,
+  "result_json_parsed": true
+}

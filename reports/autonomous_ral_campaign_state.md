@@ -6,13 +6,31 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
+Current decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
 
 Current epoch: `4`
 
-Current cycle: `19`
+Current cycle: `20`
 
-Current stage: `epoch_4_cycle_19_candidate_search_pending`
+Current stage: `epoch_4_cycle_20_candidate_search_pending`
+
+## Epoch 4 Cycle 19 SPARC-VLA
+
+Cycle 19 selected `SPARC-VLA` from exactly three candidates at `96 / 100`,
+with COAST as the closest positive prior. Proposal hash:
+`CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D`.
+
+After one preserved capture-reset failure and the single allowed
+implementation repair, final PID `306` completed `2 / 2` Stage 0A smoke rows
+with exit `0`, zero exceptions, and zero duplicate, missing, or extra indices.
+The hook acted and all Base identity/reload checks passed. Both synthetic
+action rows failed the frozen Base-relative range-safety gate.
+
+The decision is
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`.
+No labeled fit, validation, rollout, or confirmatory evaluation occurred.
+Stage 0B and SPARC rescue are forbidden. Continue to Cycle 20.
 
 ## Corrected Epoch 1 Result
 

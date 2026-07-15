@@ -1,16 +1,46 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 19 Current State
+## 2026-07-15 Epoch 4 Cycle 20 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `PCAV_STAGE_0A_NO_USABLE_HEADROOM`
+Current decision:
+`SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL`
 
 Current epoch: `4`
 
-Current cycle: `19`
+Current cycle: `20`
+
+Cycle 19 generated exactly three candidates and selected `SPARC-VLA` with
+`96 / 100`. COAST is the closest positive prior. SPARC extends its complete
+source success-minus-failure conceptor transfer by combining target-success
+activations with an equal-task-weight aggregate of source-failure activations.
+The proposal is frozen at
+`CC2F9ACCE2A26EC438C58F2854ADC95134354C245CAD8ED961D29A895DBC697D`.
+
+SPARC Stage 0A attempt 1 persisted both smoke observations before a missing
+capture reset raised an implementation exception. The one allowed
+implementation repair was applied without changing the method or thresholds.
+Final PID `306` then completed `2 / 2` observations with exit `0`, zero
+exceptions, and zero duplicate, missing, or extra observation indices.
+
+Hook identity, checkpoint reload, Base preservation, finite operator, and
+mechanism-action gates passed. Both synthetic action rows failed only the
+frozen Base-relative outside-fraction and p99-exceedance gates. Because this
+was an unlabeled synthetic smoke operator, the result is an implementation and
+prototype action-validity failure, not a scientific kill. Stage 0B,
+validation, rollout, confirmatory testing, and SPARC rescue are forbidden.
+
+Current stage: `epoch_4_cycle_20_candidate_search_pending`.
+
+The two Windows gaming and Efficiency Mode intervals remain recorded in
+`reports/resource_contention_intervals.json`. SPARC Stage 0A has no
+closed-loop task-success rows; timing, throughput, wall-clock efficiency, and
+resource-utilization evidence are excluded from the decision and paper.
+
+## Epoch 4 Cycles 17-19 History
 
 Cycle 17 FAMR is closed unchanged as
 `FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. Its endpoint completed
@@ -42,12 +72,8 @@ improvable rows was `0.0166833`. PCAV is closed as
 `PCAV_STAGE_0A_NO_USABLE_HEADROOM`; Stage 0B, validation, rollout, and rescue
 are forbidden.
 
-Current stage: `epoch_4_cycle_19_candidate_search_pending`.
-
-The Windows Efficiency Mode intervals and completed-worker audits are recorded
-in `reports/resource_contention_intervals.json`. PCAV PID `371` completed with
-exit `0`; its start was after both recorded intervals ended. Timing and
-resource metrics with unknown interval overlap remain quarantined.
+PCAV advanced the campaign to Cycle 19 candidate search; it is not eligible
+for rescue.
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 
