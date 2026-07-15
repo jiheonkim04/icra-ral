@@ -30,7 +30,9 @@ from tca_map.smolvla.famr_vla import (  # noqa: E402
     PROPOSAL_HASH,
     TARGET_TASK_IDENTITIES,
     action_scales,
+    action_validity,
     assign_parameter_groups,
+    build_endpoint_schedule,
     classify_stage0,
     episode_partitions,
     scale_lora_b,
@@ -62,8 +64,11 @@ MAX_CUDA_GIB = 15.5
 CHUNK_SIZE = 50
 MAX_ACTION_DIM = 32
 EXPECTED_STAGE = "epoch_4_cycle_17_famr_stage_0a_implementation_pending"
+EXPECTED_ENDPOINT_STAGE = "epoch_4_cycle_17_famr_endpoint_training_implementation_pending"
 EXPECTED_TASK_COUNT = 40
 FIXED_ROWS_PER_TASK = 8
+ENDPOINT_STEPS = 300
+ENDPOINT_SAMPLES_PER_TASK = 800
 FORBIDDEN_GATES = (
     "ALLOW_DOWNLOADS",
     "ALLOW_ROLLOUTS",
@@ -282,6 +287,13 @@ def _paths(args: argparse.Namespace) -> dict[str, Path]:
         "parameter_manifest": report_dir / "parameter_group_manifest.json",
         "checkpoint_manifest": report_dir / "checkpoint_manifest.json",
         "blocker": report_dir / "implementation_blocker.json",
+        "endpoint_checkpoint_dir": run_dir / "endpoint_checkpoint",
+        "endpoint_resume_state": run_dir / "endpoint_resume.pt",
+        "endpoint_result_json": report_dir / "endpoint_training_result.json",
+        "endpoint_result_md": report_dir / "endpoint_training_result.md",
+        "endpoint_manifest": report_dir / "endpoint_training_manifest.json",
+        "endpoint_checkpoint_manifest": report_dir / "endpoint_checkpoint_manifest.json",
+        "endpoint_blocker": report_dir / "endpoint_training_blocker.json",
     }
 
 
@@ -1465,7 +1477,707 @@ def run_audit(args: argparse.Namespace, paths: Mapping[str, Path]) -> dict[str, 
     return result
 
 
+def _endpoint_preflight(
+    args: argparse.Namespace, paths: Mapping[str, Path], started_unix: float
+) -> dict[str, Any]:
+    import torch
+
+    states = {str(path.relative_to(REPO_ROOT)): _read_json(path) for path in STATE_FILES if path.is_file()}
+    registry = _read_json(RESOURCE_REGISTRY)
+    target_paths = {
+        task: paths["data_root"] / "libero_90" / filename for task, filename in TARGET_FILES.items()
+    }
+    bddl_paths = {
+        task: LIBERO_REPO / "libero" / "libero" / "bddl_files" / "libero_90" / filename.replace("_demo.hdf5", ".bddl")
+        for task, filename in TARGET_FILES.items()
+    }
+    stage0_result = paths["report_dir"] / "stage_0a_result.json"
+    required = {
+        "checkpoint": paths["checkpoint"],
+        "vlm": VLM_PATH,
+        "stage0_result": stage0_result,
+        "stage0_checkpoint": REPO_ROOT / "runs" / "famr_vla" / "stage0a" / "micro_checkpoint",
+        "stable_artifact": paths["stable_artifact"],
+        "resource_registry": RESOURCE_REGISTRY,
+        "proposal_hash": PROPOSAL_HASH_FILE,
+        **{f"target_{index}": path for index, path in enumerate(target_paths.values())},
+        **{f"bddl_{index}": path for index, path in enumerate(bddl_paths.values())},
+    }
+    missing = [name for name, path in required.items() if not path.exists()]
+    stage0 = _read_json(stage0_result) if stage0_result.is_file() else {}
+    observed_stages = {name: value.get("current_stage") for name, value in states.items()}
+    stage_ok = len(states) == len(STATE_FILES) and all(
+        stage == EXPECTED_ENDPOINT_STAGE for stage in observed_stages.values()
+    )
+    stage0_ok = bool(
+        stage0.get("proposal_hash") == PROPOSAL_HASH
+        and stage0.get("final_decision") == "FAMR_STAGE_0A_PASS_ENDPOINT_TRAINING_ALLOWED"
+        and stage0.get("confirmatory", {}).get("observations_decoded") == 0
+        and stage0.get("confirmatory", {}).get("actions_computed") == 0
+    )
+    proposal_observed = PROPOSAL_HASH_FILE.read_text(encoding="utf-8").strip() if PROPOSAL_HASH_FILE.is_file() else None
+    workers = _active_linux_workers()
+    forbidden = [name for name in FORBIDDEN_GATES if os.environ.get(name) == "1"]
+    result_absent = not paths["endpoint_result_json"].exists()
+    partial_audit = None
+    partial_parse_error = None
+    if paths["partial"].is_file():
+        try:
+            partial_audit = validate_partial_payload(paths["partial"].read_text(encoding="utf-8-sig"))
+        except (OSError, ValueError) as exc:
+            partial_parse_error = str(exc)
+    status_payload = _read_json(paths["status"]) if paths["status"].is_file() else None
+    inconsistent_completed_status = bool(
+        status_payload and status_payload.get("status") == "completed" and result_absent
+    )
+    cuda_available = bool(torch.cuda.is_available())
+    disk = shutil.disk_usage(paths["run_dir"].parent if paths["run_dir"].parent.exists() else REPO_ROOT)
+    disk_free_gib = disk.free / 1024**3
+    passed = bool(
+        not missing
+        and stage_ok
+        and stage0_ok
+        and proposal_observed == PROPOSAL_HASH
+        and not workers
+        and not forbidden
+        and result_absent
+        and partial_parse_error is None
+        and not inconsistent_completed_status
+        and args.mode == "train-endpoint"
+        and cuda_available
+        and disk_free_gib >= 5.0
+    )
+    return {
+        "passed": passed,
+        "mode": args.mode,
+        "expected_stage": EXPECTED_ENDPOINT_STAGE,
+        "observed_stages": observed_stages,
+        "stage_ok": stage_ok,
+        "stage0_result": str(stage0_result),
+        "stage0_result_sha256": _sha256_file(stage0_result) if stage0_result.is_file() else None,
+        "stage0_pass_verified": stage0_ok,
+        "proposal_hash_expected": PROPOSAL_HASH,
+        "proposal_hash_observed": proposal_observed,
+        "active_linux_workers": workers,
+        "forbidden_gates_enabled": forbidden,
+        "result_absent": result_absent,
+        "partial_audit": partial_audit,
+        "partial_parse_error": partial_parse_error,
+        "status_payload": status_payload,
+        "inconsistent_completed_status": inconsistent_completed_status,
+        "missing_paths": missing,
+        "target_paths": {task: str(path) for task, path in target_paths.items()},
+        "bddl_paths": {task: str(path) for task, path in bddl_paths.items()},
+        "cuda_available": cuda_available,
+        "cuda_device": torch.cuda.get_device_name(0) if cuda_available else None,
+        "disk_free_gib": disk_free_gib,
+        "resource_evidence": _resource_evidence(registry, started_unix),
+    }
+
+
+def _endpoint_schedule(
+    paths: Mapping[str, Path], preflight: Mapping[str, Any]
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    import h5py
+
+    frame_lengths: dict[int, dict[int, int]] = {}
+    metadata: dict[int, dict[str, Any]] = {}
+    for task_index, task in enumerate(TARGET_TASK_IDENTITIES):
+        source = Path(preflight["target_paths"][task])
+        with h5py.File(source, "r") as handle:
+            data = handle["data"]
+            problem = json.loads(str(data.attrs["problem_info"]))
+            frame_lengths[task_index] = {
+                episode: int(data[f"demo_{episode}"]["actions"].shape[0])
+                for episode in episode_partitions()["train"]
+            }
+            metadata[task_index] = {
+                "task_identity": task,
+                "task_language": str(problem["language_instruction"]),
+                "source_path": str(source),
+                "source_sha256": _sha256_file(source),
+            }
+    schedule = build_endpoint_schedule(
+        frame_lengths,
+        seed=SEED,
+        samples_per_task=ENDPOINT_SAMPLES_PER_TASK,
+    )
+    enriched = []
+    for row in schedule:
+        task = metadata[int(row["task_index"])]
+        enriched.append(
+            {
+                **row,
+                **task,
+                "row_id": (
+                    f"endpoint_step{int(row['optimizer_step'])}_acc{int(row['accumulation_index'])}_"
+                    f"task{int(row['task_index'])}_episode{int(row['episode'])}_frame{int(row['frame'])}"
+                ),
+            }
+        )
+    serialized = json.dumps(enriched, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    source_keys = [
+        (int(row["task_index"]), int(row["episode"]), int(row["frame"])) for row in enriched
+    ]
+    manifest = {
+        "method": "FAMR-VLA",
+        "proposal_hash": PROPOSAL_HASH,
+        "stage": "endpoint_training",
+        "seed": SEED,
+        "optimizer_steps": ENDPOINT_STEPS,
+        "gradient_accumulation": GRADIENT_ACCUMULATION,
+        "planned_microbatch_count": len(enriched),
+        "samples_per_task": ENDPOINT_SAMPLES_PER_TASK,
+        "task_counts": {
+            str(task): sum(int(row["task_index"]) == task for row in enriched) for task in range(3)
+        },
+        "episode_partition": "discovery_0_34_only",
+        "validation_episode_count": 0,
+        "test_episode_count": 0,
+        "duplicate_source_key_count": len(source_keys) - len(set(source_keys)),
+        "schedule_sha256": hashlib.sha256(serialized).hexdigest().upper(),
+        "task_metadata": metadata,
+        "rows": enriched,
+    }
+    _write_json(paths["endpoint_manifest"], manifest)
+    return manifest, enriched
+
+
+def _actions_on_rows(
+    policy: Any,
+    preprocessor: Any,
+    postprocessor: Any,
+    samples: Sequence[Mapping[str, Any]],
+    rows: Sequence[Mapping[str, Any]],
+    *,
+    partition: str,
+) -> np.ndarray:
+    values = []
+    for sample, row in zip(samples, rows, strict=True):
+        batch = _preprocess(preprocessor, sample)
+        noise, _, _ = _shared_draw(str(row["row_id"]), partition, 0, "cuda")
+        _, processed = _predict(policy, batch, postprocessor, noise)
+        values.append(np.asarray(processed, dtype=np.float32).reshape(7))
+        del batch
+    return np.stack(values)
+
+
+def _load_endpoint_resume(
+    path: Path,
+    named: Sequence[tuple[str, Any]],
+    optimizer: Any,
+    schedule_sha256: str,
+) -> dict[str, Any] | None:
+    import torch
+
+    if not path.is_file():
+        return None
+    payload = torch.load(path, map_location="cpu", weights_only=False)
+    if payload.get("proposal_hash") != PROPOSAL_HASH or payload.get("schedule_sha256") != schedule_sha256:
+        raise RuntimeError("existing FAMR endpoint resume state has a different protocol or schedule")
+    by_name = dict(named)
+    saved = payload.get("trainable_state") or {}
+    if set(saved) != set(by_name):
+        raise RuntimeError("existing FAMR endpoint resume parameter manifest differs")
+    with torch.no_grad():
+        for name, value in saved.items():
+            by_name[name].copy_(value.to(by_name[name].device, by_name[name].dtype))
+    optimizer.load_state_dict(payload["optimizer_state"])
+    for state in optimizer.state.values():
+        for key, value in state.items():
+            if hasattr(value, "to"):
+                state[key] = value.to("cuda")
+    return payload
+
+
+def _save_endpoint_resume(
+    path: Path,
+    named: Sequence[tuple[str, Any]],
+    optimizer: Any,
+    *,
+    schedule_sha256: str,
+    completed_steps: int,
+    loss_curve: Sequence[Mapping[str, Any]],
+    gradient_curve: Sequence[Mapping[str, Any]],
+    baseline_loss_values: Sequence[float],
+    base_actions: Any,
+) -> None:
+    import torch
+
+    payload = {
+        "method": "FAMR-VLA",
+        "proposal_hash": PROPOSAL_HASH,
+        "stage": "endpoint_training",
+        "rank": LORA_RANK,
+        "schedule_sha256": schedule_sha256,
+        "completed_steps": completed_steps,
+        "trainable_state": {name: parameter.detach().cpu() for name, parameter in named},
+        "optimizer_state": optimizer.state_dict(),
+        "loss_curve": list(loss_curve),
+        "gradient_curve": list(gradient_curve),
+        "baseline_loss_values": list(baseline_loss_values),
+        "base_actions": np.asarray(base_actions, dtype=np.float32),
+    }
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    torch.save(payload, temporary)
+    temporary.replace(path)
+
+
+def _save_endpoint_checkpoint(
+    policy: Any,
+    paths: Mapping[str, Path],
+    training_summary: Mapping[str, Any],
+    probe_native: Any,
+    probe_processed: np.ndarray,
+) -> dict[str, Any]:
+    checkpoint_dir = paths["endpoint_checkpoint_dir"]
+    if checkpoint_dir.exists():
+        manifest_path = checkpoint_dir / "famr_endpoint_manifest.json"
+        probe_path = checkpoint_dir / "reload_probe.json"
+        if not manifest_path.is_file() or not probe_path.is_file():
+            raise RuntimeError("existing FAMR endpoint checkpoint is incomplete")
+        manifest = _read_json(manifest_path)
+        if manifest.get("proposal_hash") != PROPOSAL_HASH:
+            raise RuntimeError("existing FAMR endpoint checkpoint has a different proposal hash")
+        return {
+            "checkpoint_path": str(checkpoint_dir),
+            "files": _directory_hashes(checkpoint_dir),
+            "saved": True,
+            "resumed_existing_checkpoint": True,
+        }
+    temporary = checkpoint_dir.with_name(f"{checkpoint_dir.name}.tmp_{os.getpid()}")
+    temporary.mkdir(parents=True)
+    try:
+        if hasattr(policy, "peft_config"):
+            for config in policy.peft_config.values():
+                config.base_model_name_or_path = str(paths["checkpoint"])
+        policy.save_pretrained(temporary)
+        _write_json(
+            temporary / "famr_endpoint_manifest.json",
+            {
+                "method": "FAMR-VLA",
+                "proposal_hash": PROPOSAL_HASH,
+                "stage": "endpoint_training",
+                "rank": LORA_RANK,
+                "alpha": LORA_ALPHA,
+                "dropout": LORA_DROPOUT,
+                "optimizer_steps": ENDPOINT_STEPS,
+                "gradient_accumulation": GRADIENT_ACCUMULATION,
+                "learning_rate": LEARNING_RATE,
+                "weight_decay": WEIGHT_DECAY,
+                "training_summary": dict(training_summary),
+            },
+        )
+        _write_json(
+            temporary / "reload_probe.json",
+            {
+                "native_action": probe_native,
+                "postprocessed_action": probe_processed,
+                "native_action_hash": _value_hash(probe_native),
+            },
+        )
+        temporary.rename(checkpoint_dir)
+    except Exception:
+        shutil.rmtree(temporary, ignore_errors=True)
+        raise
+    return {
+        "checkpoint_path": str(checkpoint_dir),
+        "files": _directory_hashes(checkpoint_dir),
+        "saved": True,
+        "resumed_existing_checkpoint": False,
+    }
+
+
+def _write_endpoint_markdown(result: Mapping[str, Any], path: Path) -> None:
+    training = result["training"]
+    lines = [
+        "# FAMR-VLA Endpoint Training Result",
+        "",
+        f"Date: {DATE_KST} KST",
+        "",
+        f"Decision: `{result['final_decision']}`",
+        "",
+        f"- optimizer steps: `{training['completed_steps']} / {ENDPOINT_STEPS}`",
+        f"- microbatches: `{training['completed_microbatch_count']} / {ENDPOINT_STEPS * GRADIENT_ACCUMULATION}`",
+        f"- fixed-subset loss before/after: `{training['fixed_subset_loss_before']} / {training['fixed_subset_loss_after']}`",
+        f"- fixed-subset relative reduction: `{training['fixed_subset_relative_reduction']}`",
+        f"- action-effect active fraction: `{result['action_effect']['active_fraction']}`",
+        f"- offline numerical action validity: `{result['offline_action_validity']['numerical_passed']}`",
+        f"- checkpoint reload max error: `{result['checkpoint']['reload_output_max_abs_error']}`",
+        f"- Base hash unchanged: `{result['checkpoint']['base_frozen_hash_unchanged']}`",
+        f"- peak CUDA allocation GiB: `{result['peak_cuda_allocated_gib']}`",
+        f"- validation/test/confirmatory decodes: `0 / 0 / 0`",
+        f"- exception count: `{result['exception_count']}`",
+        "",
+        result["adjudication_text"],
+        "",
+        f"Next command: `{result['next_command']}`",
+    ]
+    _write_text(path, "\n".join(lines).rstrip() + "\n")
+
+
+def run_endpoint(args: argparse.Namespace, paths: Mapping[str, Path]) -> dict[str, Any]:
+    import torch
+
+    started_unix = time.time()
+    started_monotonic = time.monotonic()
+    preflight = _endpoint_preflight(args, paths, started_unix)
+    if not preflight["passed"]:
+        raise RuntimeError(f"FAMR endpoint preflight failed: {preflight}")
+    torch.manual_seed(SEED)
+    torch.cuda.manual_seed_all(SEED)
+    np.random.seed(SEED)
+    random.seed(SEED)
+    torch.cuda.reset_peak_memory_stats()
+    _write_json(paths["status"], {"status": "running", "pid": os.getpid(), "started_unix": started_unix})
+    _write_json(
+        paths["partial"],
+        {
+            "method": "FAMR-VLA",
+            "proposal_hash": PROPOSAL_HASH,
+            "phase": "endpoint_manifest",
+            "completed_count": 0,
+            "planned_count": ENDPOINT_STEPS,
+            "exception_count": 0,
+        },
+    )
+    data_semantics, fixed_rows = _audit_target_sources(paths, preflight)
+    manifest, schedule = _endpoint_schedule(paths, preflight)
+    if manifest["duplicate_source_key_count"] != 0 or len(schedule) != ENDPOINT_STEPS * GRADIENT_ACCUMULATION:
+        raise RuntimeError("FAMR endpoint schedule is incomplete or duplicated")
+    fixed_samples = [_raw_sample(row) for row in fixed_rows]
+
+    policy, config, preprocessor, postprocessor = _load_policy_and_processors(paths["checkpoint"])
+    base_hash_before = _hash_base_parameters(policy)
+    resume_exists = paths["endpoint_resume_state"].is_file()
+    baseline_loss_values: list[float] | None = None
+    base_actions: np.ndarray | None = None
+    if not resume_exists:
+        baseline_loss_values = _loss_on_rows(policy, preprocessor, fixed_samples, fixed_rows)
+        base_actions = _actions_on_rows(
+            policy,
+            preprocessor,
+            postprocessor,
+            fixed_samples,
+            fixed_rows,
+            partition="endpoint_base_action",
+        )
+    first_batch = _preprocess(preprocessor, fixed_samples[0])
+    identity_noise, _, identity_draw = _shared_draw(
+        str(fixed_rows[0]["row_id"]), "endpoint_reload_probe", 0, "cuda"
+    )
+    policy = policy.wrap_with_peft(
+        peft_cli_overrides={
+            "method_type": "LORA",
+            "r": LORA_RANK,
+            "lora_alpha": LORA_ALPHA,
+            "lora_dropout": LORA_DROPOUT,
+            "bias": "none",
+        }
+    )
+    policy.to("cuda")
+    named = _named_trainable(policy)
+    groups = assign_parameter_groups([name for name, _ in named])
+    optimizer = torch.optim.AdamW(
+        [parameter for _, parameter in named], lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY
+    )
+    resume = _load_endpoint_resume(
+        paths["endpoint_resume_state"], named, optimizer, manifest["schedule_sha256"]
+    )
+    if resume is None:
+        completed_steps = 0
+        loss_curve: list[dict[str, Any]] = []
+        gradient_curve: list[dict[str, Any]] = []
+        assert baseline_loss_values is not None and base_actions is not None
+        _save_endpoint_resume(
+            paths["endpoint_resume_state"],
+            named,
+            optimizer,
+            schedule_sha256=manifest["schedule_sha256"],
+            completed_steps=0,
+            loss_curve=loss_curve,
+            gradient_curve=gradient_curve,
+            baseline_loss_values=baseline_loss_values,
+            base_actions=base_actions,
+        )
+    else:
+        completed_steps = int(resume["completed_steps"])
+        loss_curve = list(resume["loss_curve"])
+        gradient_curve = list(resume["gradient_curve"])
+        baseline_loss_values = [float(value) for value in resume["baseline_loss_values"]]
+        base_actions = np.asarray(resume["base_actions"], dtype=np.float32)
+
+    policy.train()
+    for step in range(completed_steps, ENDPOINT_STEPS):
+        if time.monotonic() - started_monotonic > MAX_RUNTIME_SECONDS:
+            raise TimeoutError("FAMR endpoint training exceeded its four-hour cap")
+        optimizer.zero_grad(set_to_none=True)
+        micro_losses = []
+        row_ids = []
+        step_rows = schedule[step * GRADIENT_ACCUMULATION : (step + 1) * GRADIENT_ACCUMULATION]
+        for row in step_rows:
+            sample = _raw_sample(row)
+            batch = _preprocess(preprocessor, sample)
+            noise, time_tensor, _ = _shared_draw(
+                str(row["row_id"]), "endpoint_training", int(row["logical_index"]), "cuda"
+            )
+            loss = _loss(policy, batch, noise, time_tensor)
+            loss_value = _to_float(loss)
+            if not math.isfinite(loss_value):
+                raise RuntimeError(f"nonfinite FAMR endpoint loss at optimizer step {step}")
+            (loss / GRADIENT_ACCUMULATION).backward()
+            micro_losses.append(loss_value)
+            row_ids.append(str(row["row_id"]))
+            del sample, batch, loss
+        gradient_squared = 0.0
+        nonzero_gradient_tensors = 0
+        for _, parameter in named:
+            if parameter.grad is None:
+                continue
+            gradient = parameter.grad.detach().float()
+            if not bool(torch.isfinite(gradient).all()):
+                raise RuntimeError(f"nonfinite FAMR endpoint gradient at optimizer step {step}")
+            norm = float(torch.linalg.vector_norm(gradient).item())
+            gradient_squared += norm * norm
+            nonzero_gradient_tensors += int(norm > 0.0)
+        gradient_norm = math.sqrt(gradient_squared)
+        if not math.isfinite(gradient_norm) or gradient_norm <= 0.0:
+            raise RuntimeError(f"invalid FAMR endpoint gradient at optimizer step {step}: {gradient_norm}")
+        optimizer.step()
+        loss_curve.append(
+            {
+                "optimizer_step": step + 1,
+                "mean_micro_loss": float(np.mean(micro_losses)),
+                "micro_losses": micro_losses,
+                "row_ids": row_ids,
+            }
+        )
+        gradient_curve.append(
+            {
+                "optimizer_step": step + 1,
+                "gradient_norm": gradient_norm,
+                "nonzero_gradient_tensor_count": nonzero_gradient_tensors,
+            }
+        )
+        _save_endpoint_resume(
+            paths["endpoint_resume_state"],
+            named,
+            optimizer,
+            schedule_sha256=manifest["schedule_sha256"],
+            completed_steps=step + 1,
+            loss_curve=loss_curve,
+            gradient_curve=gradient_curve,
+            baseline_loss_values=baseline_loss_values,
+            base_actions=base_actions,
+        )
+        _write_json(
+            paths["partial"],
+            {
+                "method": "FAMR-VLA",
+                "proposal_hash": PROPOSAL_HASH,
+                "phase": "endpoint_training",
+                "completed_count": step + 1,
+                "planned_count": ENDPOINT_STEPS,
+                "exception_count": 0,
+                "last_mean_micro_loss": float(np.mean(micro_losses)),
+            },
+        )
+        print(
+            f"[FAMR endpoint] {step + 1}/{ENDPOINT_STEPS} mean_loss={np.mean(micro_losses):.8f} grad={gradient_norm:.8f}",
+            flush=True,
+        )
+
+    after_loss_values = _loss_on_rows(policy, preprocessor, fixed_samples, fixed_rows)
+    endpoint_actions = _actions_on_rows(
+        policy,
+        preprocessor,
+        postprocessor,
+        fixed_samples,
+        fixed_rows,
+        partition="endpoint_base_action",
+    )
+    baseline_loss = float(np.mean(baseline_loss_values))
+    after_loss = float(np.mean(after_loss_values))
+    relative_reduction = (baseline_loss - after_loss) / max(abs(baseline_loss), 1e-12)
+    action_deltas = np.linalg.norm(endpoint_actions - base_actions, axis=1)
+    active_fraction = float(np.mean(action_deltas > 1e-4))
+    validity = action_validity(endpoint_actions, base_actions, simulator_accepted=True)
+    numerical_passed = bool(validity["passed"])
+    validity["numerical_passed"] = numerical_passed
+    validity["simulator_accepted"] = None
+    validity["simulator_acceptance_pending"] = True
+    validity["passed"] = None
+    base_hash_after = _hash_base_parameters(policy)
+    probe_native, probe_processed = _predict(policy, first_batch, postprocessor, identity_noise)
+    training_summary = {
+        "completed_steps": ENDPOINT_STEPS,
+        "planned_steps": ENDPOINT_STEPS,
+        "completed_microbatch_count": ENDPOINT_STEPS * GRADIENT_ACCUMULATION,
+        "fixed_subset_loss_before": baseline_loss,
+        "fixed_subset_loss_after": after_loss,
+        "fixed_subset_relative_reduction": relative_reduction,
+        "schedule_sha256": manifest["schedule_sha256"],
+    }
+    checkpoint = _save_endpoint_checkpoint(
+        policy, paths, training_summary, probe_native, probe_processed
+    )
+    del optimizer, policy, first_batch
+    gc.collect()
+    torch.cuda.empty_cache()
+
+    adapter_paths = dict(paths)
+    adapter_paths["checkpoint_dir"] = paths["endpoint_checkpoint_dir"]
+    policy, config, preprocessor, postprocessor = _load_adapter(adapter_paths)
+    first_batch = _preprocess(preprocessor, fixed_samples[0])
+    reloaded_native, reloaded_processed = _predict(
+        policy, first_batch, postprocessor, identity_noise
+    )
+    reload_native_error = float(torch.max(torch.abs(reloaded_native - probe_native)).item())
+    reload_processed_error = float(np.max(np.abs(reloaded_processed - probe_processed)))
+    checkpoint.update(
+        {
+            "disk_reload": True,
+            "reload_native_max_abs_error": reload_native_error,
+            "reload_postprocessed_max_abs_error": reload_processed_error,
+            "reload_output_max_abs_error": max(reload_native_error, reload_processed_error),
+            "base_frozen_hash_before": base_hash_before,
+            "base_frozen_hash_after": base_hash_after,
+            "base_frozen_hash_unchanged": base_hash_before == base_hash_after,
+        }
+    )
+    _write_json(paths["endpoint_checkpoint_manifest"], checkpoint)
+    peak_cuda_gib = float(torch.cuda.max_memory_allocated() / 1024**3)
+    fit_passed = relative_reduction >= 0.01
+    gradient_passed = len(gradient_curve) == ENDPOINT_STEPS and all(
+        math.isfinite(float(row["gradient_norm"])) and float(row["gradient_norm"]) > 0.0
+        for row in gradient_curve
+    )
+    mechanism_acts = active_fraction >= 0.25
+    passed = bool(
+        fit_passed
+        and gradient_passed
+        and mechanism_acts
+        and numerical_passed
+        and checkpoint["reload_output_max_abs_error"] <= 1e-6
+        and checkpoint["base_frozen_hash_unchanged"]
+        and peak_cuda_gib <= MAX_CUDA_GIB
+        and manifest["duplicate_source_key_count"] == 0
+    )
+    if passed:
+        decision = "FAMR_ENDPOINT_TRAINING_PASS_HEADROOM_PENDING"
+        adjudication_text = (
+            "The frozen discovery-only endpoint completed and passed fit, gradient, action-effect, numerical validity, "
+            "Base-retention, memory, and reload checks. Discovery closed-loop headroom is authorized next."
+        )
+        next_command = (
+            f"{sys.executable} scripts/run_famr_vla_stage0.py --mode headroom "
+            f"--checkpoint {paths['checkpoint']} --libero-data-root {paths['data_root']} "
+            f"--stable-artifact {paths['stable_artifact']} --run-root {paths['run_dir'].parent / 'headroom'} "
+            f"--report-root {paths['report_dir']}"
+        )
+    else:
+        decision = "FAMR_ENDPOINT_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+        adjudication_text = (
+            "The frozen endpoint missed an implementation, fit, action-effect, numerical validity, reload, Base, or memory gate. "
+            "This is not a closed-loop scientific kill."
+        )
+        next_command = "Preserve the endpoint result and adjudicate the implementation failure without validation or confirmatory rescue."
+    finished_unix = time.time()
+    result = {
+        "method": "FAMR-VLA",
+        "proposal_hash": PROPOSAL_HASH,
+        "git_commit": _git_commit(),
+        "command": " ".join(sys.argv),
+        "started_unix": started_unix,
+        "finished_unix": finished_unix,
+        "elapsed_seconds_diagnostic_only": finished_unix - started_unix,
+        "preflight": preflight,
+        "experiment_boundaries": {
+            "training_happened": True,
+            "validation_search_happened": False,
+            "closed_loop_experiment_happened": False,
+            "confirmatory_test_tuning_happened": False,
+            "decoded_split_counts": {"train": ENDPOINT_STEPS * GRADIENT_ACCUMULATION, "validation": 0, "test": 0},
+        },
+        "manifest": {
+            key: value for key, value in manifest.items() if key != "rows"
+        },
+        "parameter_groups": _parameter_report(named, groups),
+        "training": {
+            **training_summary,
+            "optimizer": "AdamW",
+            "learning_rate": LEARNING_RATE,
+            "weight_decay": WEIGHT_DECAY,
+            "physical_batch_size": 1,
+            "gradient_accumulation": GRADIENT_ACCUMULATION,
+            "seed": SEED,
+            "rank": LORA_RANK,
+            "fixed_subset_loss_before_values": baseline_loss_values,
+            "fixed_subset_loss_after_values": after_loss_values,
+            "loss_curve": loss_curve,
+            "gradient_curve": gradient_curve,
+            "resumed_from_optimizer_step": completed_steps,
+        },
+        "action_effect": {
+            "threshold": 1e-4,
+            "active_fraction": active_fraction,
+            "l2_min": float(np.min(action_deltas)),
+            "l2_median": float(np.median(action_deltas)),
+            "l2_max": float(np.max(action_deltas)),
+            "per_row_l2": action_deltas,
+        },
+        "offline_action_validity": validity,
+        "checkpoint": checkpoint,
+        "peak_cuda_allocated_gib": peak_cuda_gib,
+        "confirmatory": {"observations_decoded": 0, "actions_computed": 0},
+        "exception_count": 0,
+        "decision_summary": {
+            "fit_passed": fit_passed,
+            "gradient_passed": gradient_passed,
+            "mechanism_acts": mechanism_acts,
+            "offline_numerical_action_validity_passed": numerical_passed,
+            "checkpoint_reload_passed": checkpoint["reload_output_max_abs_error"] <= 1e-6,
+            "base_unchanged": checkpoint["base_frozen_hash_unchanged"],
+            "memory_passed": peak_cuda_gib <= MAX_CUDA_GIB,
+            "manifest_passed": manifest["duplicate_source_key_count"] == 0,
+            "confirmatory_sealed": True,
+        },
+        "final_decision": decision,
+        "adjudication_text": adjudication_text,
+        "next_command": next_command,
+    }
+    _write_json(paths["endpoint_result_json"], result)
+    _write_endpoint_markdown(result, paths["endpoint_result_md"])
+    _write_json(
+        paths["partial"],
+        {
+            "method": "FAMR-VLA",
+            "proposal_hash": PROPOSAL_HASH,
+            "phase": "completed",
+            "completed_count": ENDPOINT_STEPS,
+            "planned_count": ENDPOINT_STEPS,
+            "exception_count": 0,
+            "final_decision": decision,
+            "result_json": str(paths["endpoint_result_json"]),
+        },
+    )
+    _write_json(
+        paths["status"],
+        {
+            "status": "completed",
+            "pid": os.getpid(),
+            "started_unix": started_unix,
+            "finished_unix": finished_unix,
+            "final_decision": decision,
+        },
+    )
+    return result
+
+
 def _write_blocker(paths: Mapping[str, Path], args: argparse.Namespace, exc: BaseException) -> None:
+    is_endpoint = args.mode == "train-endpoint"
+    blocker_path = paths["endpoint_blocker"] if is_endpoint else paths["blocker"]
+    planned_count = ENDPOINT_STEPS if is_endpoint else MICRO_STEPS
     partial = None
     if paths["partial"].is_file():
         try:
@@ -1483,7 +2195,7 @@ def _write_blocker(paths: Mapping[str, Path], args: argparse.Namespace, exc: Bas
         "scientific_kill": False,
         "classification": "IMPLEMENTATION_OR_DATA_FAILURE",
     }
-    _write_json(paths["blocker"], payload)
+    _write_json(blocker_path, payload)
     completed = 0
     if isinstance(partial, dict):
         completed = int(partial.get("completed_count") or 0)
@@ -1494,9 +2206,9 @@ def _write_blocker(paths: Mapping[str, Path], args: argparse.Namespace, exc: Bas
             "proposal_hash": PROPOSAL_HASH,
             "phase": "failed",
             "completed_count": completed,
-            "planned_count": MICRO_STEPS,
+            "planned_count": planned_count,
             "exception_count": 1,
-            "blocker": str(paths["blocker"]),
+            "blocker": str(blocker_path),
         },
     )
     _write_json(
@@ -1546,9 +2258,12 @@ def main() -> int:
     heartbeat.start()
     exit_code = 1
     try:
-        if args.mode != "audit":
-            raise RuntimeError(f"FAMR mode {args.mode} is out of order until a validated Stage 0A pass")
-        result = run_audit(args, paths)
+        if args.mode == "audit":
+            result = run_audit(args, paths)
+        elif args.mode == "train-endpoint":
+            result = run_endpoint(args, paths)
+        else:
+            raise RuntimeError(f"FAMR mode {args.mode} is out of order until a validated endpoint pass")
         print(json.dumps({"final_decision": result["final_decision"]}, sort_keys=True), flush=True)
         exit_code = 0
     except BaseException as exc:

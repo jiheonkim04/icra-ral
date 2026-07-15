@@ -13,6 +13,7 @@ from tca_map.smolvla.famr_vla import (
     action_validity,
     assign_parameter_groups,
     build_response_matrix,
+    build_endpoint_schedule,
     canonical_task_identity,
     classify_stage0,
     episode_partitions,
@@ -67,6 +68,23 @@ def test_task_identity_and_episode_partitions_are_exact_and_disjoint() -> None:
     summary = validate_episode_partitions(partitions, range(50))
     assert summary["counts"] == {"train": 35, "validation": 10, "test": 5}
     assert all(not overlap for overlap in summary["pairwise_overlap"].values())
+
+
+def test_endpoint_schedule_is_task_balanced_discovery_only_and_without_replacement() -> None:
+    lengths = {task: {episode: 30 for episode in range(35)} for task in range(3)}
+    first = build_endpoint_schedule(lengths, seed=1701, samples_per_task=80)
+    second = build_endpoint_schedule(lengths, seed=1701, samples_per_task=80)
+    assert first == second
+    assert len(first) == 240
+    assert {task: sum(row["task_index"] == task for row in first) for task in range(3)} == {
+        0: 80,
+        1: 80,
+        2: 80,
+    }
+    source_keys = [(row["task_index"], row["episode"], row["frame"]) for row in first]
+    assert len(source_keys) == len(set(source_keys))
+    assert all(0 <= row["episode"] <= 34 for row in first)
+    assert [row["logical_index"] for row in first] == list(range(240))
 
 
 def test_parameter_assignment_is_exhaustive_disjoint_and_rejects_unknowns() -> None:
@@ -236,3 +254,21 @@ def test_frozen_artifact_contract_matches_proposal_and_seals_test() -> None:
     assert contract["stage_0a_micro_fit_steps"] == 20
     assert contract["confirmatory_observations_decoded_max"] == 0
     assert contract["confirmatory_actions_computed_max"] == 0
+
+
+def test_frozen_endpoint_manifest_is_balanced_unique_and_discovery_only() -> None:
+    manifest = json.loads(
+        (REPO_ROOT / "reports" / "famr_vla" / "endpoint_training_manifest.json").read_text()
+    )
+    assert manifest["proposal_hash"] == PROPOSAL_HASH
+    assert manifest["optimizer_steps"] == 300
+    assert manifest["gradient_accumulation"] == 8
+    assert manifest["planned_microbatch_count"] == 2400
+    assert manifest["task_counts"] == {"0": 800, "1": 800, "2": 800}
+    assert manifest["duplicate_source_key_count"] == 0
+    rows = manifest["rows"]
+    keys = [(row["task_index"], row["episode"], row["frame"]) for row in rows]
+    assert len(keys) == len(set(keys)) == 2400
+    assert all(0 <= row["episode"] <= 34 for row in rows)
+    assert manifest["validation_episode_count"] == 0
+    assert manifest["test_episode_count"] == 0

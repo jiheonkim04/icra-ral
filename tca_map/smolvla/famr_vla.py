@@ -93,6 +93,48 @@ def validate_episode_partitions(partitions: Mapping[str, Sequence[int]], availab
     }
 
 
+def build_endpoint_schedule(
+    frame_lengths_by_task: Mapping[int, Mapping[int, int]],
+    *,
+    seed: int,
+    samples_per_task: int = 800,
+) -> list[dict[str, int]]:
+    """Build the frozen task-balanced, no-replacement discovery schedule."""
+
+    if sorted(frame_lengths_by_task) != list(range(len(frame_lengths_by_task))):
+        raise ValueError("endpoint task indices must be contiguous from zero")
+    if samples_per_task <= 0:
+        raise ValueError("samples_per_task must be positive")
+    rng = np.random.default_rng(seed)
+    selected: list[dict[str, int]] = []
+    for task_index in sorted(frame_lengths_by_task):
+        lengths = frame_lengths_by_task[task_index]
+        if set(lengths) != set(TRAIN_EPISODES):
+            raise ValueError(f"task {task_index} endpoint schedule must use exactly discovery episodes 0-34")
+        population = [
+            (episode, frame)
+            for episode in TRAIN_EPISODES
+            for frame in range(int(lengths[episode]))
+        ]
+        if any(int(lengths[episode]) <= 0 for episode in TRAIN_EPISODES):
+            raise ValueError(f"task {task_index} has an empty discovery episode")
+        if len(population) < samples_per_task:
+            raise ValueError(f"task {task_index} has only {len(population)} discovery frames")
+        indices = rng.choice(len(population), size=samples_per_task, replace=False)
+        for index in indices:
+            episode, frame = population[int(index)]
+            selected.append({"task_index": task_index, "episode": episode, "frame": frame})
+    order = rng.permutation(len(selected))
+    schedule = []
+    for logical_index, source_index in enumerate(order):
+        row = dict(selected[int(source_index)])
+        row["logical_index"] = logical_index
+        row["optimizer_step"] = logical_index // 8
+        row["accumulation_index"] = logical_index % 8
+        schedule.append(row)
+    return schedule
+
+
 def _parameter_family(name: str) -> tuple[str, str]:
     lowered = name.lower()
     if "state_proj" in lowered:
