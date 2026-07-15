@@ -1,12 +1,12 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 13 Current Action
+## 2026-07-15 Epoch 4 Cycle 14 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
 
-Immediate next action: implement and run the RAR Stage 0 development audit only.
+Immediate next action: generate exactly three distinct Epoch 4 Cycle 14 candidates under current governance and do not rescue RAR.
 
 Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. RAR must keep the `ema_action_history_baseline` simple killer live.
 

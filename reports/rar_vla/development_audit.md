@@ -1,0 +1,225 @@
+# RAR-VLA Development Audit
+
+Date: `2026-07-15`
+
+Proposal hash: `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`
+
+Final decision: `DESIGN_FAILURE`
+
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+- scoreable development records: `2800`
+- train records: `1200`
+- validation records: `400`
+- reserved records not used: `1200`
+- selected task count: `40`
+- duplicate sample keys: `0`
+- duplicate frame keys: `0`
+- source gate passed: `True`
+- future actions used at inference: `False`
+- CALA latents used at inference: `False`
+- residual predictability margin: `-0.03837609884238533`
+- best trivial baseline: `zero_residual`
+- residual headroom L2 validation: `0.08630366897708504`
+- initial action delta p95: `0.0`
+- base action validity: `1.0`
+- residual gradient norm: `0.12211874064201944`
+- gate surrogate gradient norm: `0.07268675928645833`
+
+Source gate manifest:
+
+```json
+{
+  "cala_latents_used_at_inference": false,
+  "dataset_feature_names": [
+    "action",
+    "episode_index",
+    "frame_index",
+    "index",
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state",
+    "task_index",
+    "timestamp"
+  ],
+  "forbidden_inference_keys": [
+    "cala_latent_label",
+    "dataset_global_index",
+    "episode_index",
+    "frame_index",
+    "future_action",
+    "future_action_segment",
+    "future_observation",
+    "identity",
+    "object_pose",
+    "object_state",
+    "oracle_phase",
+    "phase",
+    "placement_pose",
+    "reset_identity",
+    "reward",
+    "success",
+    "target_action"
+  ],
+  "future_actions_used_at_inference": false,
+  "legal_inference_features": [
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state",
+    "language_or_task_instruction",
+    "base_action",
+    "previous_base_actions",
+    "previous_emitted_actions",
+    "causal_memory_state"
+  ],
+  "object_or_pose_feature_names": [],
+  "previous_actions_are_causal_only": true,
+  "privileged_object_pose_available_as_dataset_feature": false,
+  "rgb_video_available_in_dataset": true,
+  "source_gate_passed": true,
+  "state_available_in_dataset": true,
+  "used_inference_features_for_stage_0_probe": [
+    "observation.state",
+    "base_action",
+    "previous_base_actions",
+    "state_delta",
+    "language_or_task_instruction_proxy"
+  ]
+}
+```
+
+History feature manifest:
+
+```json
+{
+  "cala_latents_used_at_inference": false,
+  "discontinuity_diagnostics": {
+    "base_inter_chunk_proxy_l2_mean": 2.189421898259279,
+    "base_intra_chunk_proxy_l2_mean": 0.6484387346380917,
+    "diagnostic_type": "frame_local_base_difference_proxy",
+    "inter_chunk_proxy_threshold": 1.5475249675163965,
+    "target_inter_chunk_proxy_l2_mean": 2.158841821099026,
+    "target_intra_chunk_proxy_l2_mean": 0.6669475094222675
+  },
+  "future_actions_used_at_inference": false,
+  "history_horizon": 8,
+  "history_source": "previous_base_actions_and_current_state_only",
+  "inter_chunk_diagnostic": "frame_local_base_difference_proxy",
+  "reanchor_feature": "base_action_diff_from_previous",
+  "train_residual_summary": {
+    "max_task_share": 0.025,
+    "residual_dim": 7,
+    "residual_norm_mean": 0.07912110642565871,
+    "residual_norm_p95": 0.16175614400415114,
+    "residual_variance": [
+      0.0022836321362077385,
+      0.002025069355857464,
+      0.002575718196387937,
+      4.4219658389579344e-05,
+      0.00014855583811432355,
+      9.194291015382257e-05,
+      0.013402131245451079
+    ],
+    "residual_variance_nonzero_dims": 7,
+    "task_count": 40,
+    "total_records": 1200
+  },
+  "validation_residual_summary": {
+    "max_task_share": 0.025,
+    "residual_dim": 7,
+    "residual_norm_mean": 0.08630366897708504,
+    "residual_norm_p95": 0.15985449508330726,
+    "residual_variance": [
+      0.0025686605905972594,
+      0.0019759856548314816,
+      0.002855012607135235,
+      5.3809991331819137e-05,
+      0.0002055162612074181,
+      0.00013953692437697676,
+      0.0196132679245164
+    ],
+    "residual_variance_nonzero_dims": 7,
+    "task_count": 40,
+    "total_records": 400
+  }
+}
+```
+
+Residual observability summary:
+
+```json
+{
+  "baseline_rmses": {
+    "base_only": 0.16643142288045257,
+    "ema_action_history_alpha_0_50": 1.2264022674863613,
+    "ema_action_history_alpha_0_80": 1.2442205187013928,
+    "linear_history_only": 0.16838801776113438,
+    "state_base_task": 0.16819108977532987,
+    "train_mean_residual": 0.16564239348210824,
+    "zero_residual": 0.16559729909097304
+  },
+  "best_trivial_baseline": "zero_residual",
+  "best_trivial_rmse": 0.16559729909097304,
+  "full_probe_features": [
+    "observation.state",
+    "base_action",
+    "previous_base_actions",
+    "state_delta",
+    "language_or_task_instruction_proxy"
+  ],
+  "full_probe_rmse": 0.1719540079557317,
+  "full_probe_score": 0.0,
+  "full_probe_uses_only_legal_causal_features": true,
+  "label_scale_rmse": 0.16564239348210824,
+  "residual_predictability_margin": -0.03837609884238533,
+  "valid": true
+}
+```
+
+Discontinuity diagnostics:
+
+```json
+{
+  "base_inter_chunk_proxy_l2_mean": 2.189421898259279,
+  "base_intra_chunk_proxy_l2_mean": 0.6484387346380917,
+  "diagnostic_type": "frame_local_base_difference_proxy",
+  "inter_chunk_proxy_threshold": 1.5475249675163965,
+  "target_inter_chunk_proxy_l2_mean": 2.158841821099026,
+  "target_intra_chunk_proxy_l2_mean": 0.6669475094222675
+}
+```
+
+Gradient audit:
+
+```json
+{
+  "batch_size": 64,
+  "gate_surrogate_gradient_norm": 0.07268675928645833,
+  "residual_head_gradient_norm": 0.12211874064201944,
+  "valid": true
+}
+```
+
+Split manifest:
+
+```json
+{
+  "duplicate_frame_keys": 0,
+  "duplicate_sample_keys": 0,
+  "reserved_records_not_used": 1200,
+  "split_overlap": {
+    "train_reserved": 0,
+    "train_validation": 0,
+    "validation_reserved": 0
+  },
+  "train_records": 1200,
+  "validation_records": 400
+}
+```
+
+Hard stop reasons:
+- `residual predictability margin below minimum: -0.038376`
+
+Next step: Record pre-rollout Stage 0 stop and continue to the next method cycle without rescuing RAR.

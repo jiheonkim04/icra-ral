@@ -1,0 +1,52 @@
+{
+  "cala_latents_used_at_inference": false,
+  "discontinuity_diagnostics": {
+    "base_inter_chunk_proxy_l2_mean": 2.189421898259279,
+    "base_intra_chunk_proxy_l2_mean": 0.6484387346380917,
+    "diagnostic_type": "frame_local_base_difference_proxy",
+    "inter_chunk_proxy_threshold": 1.5475249675163965,
+    "target_inter_chunk_proxy_l2_mean": 2.158841821099026,
+    "target_intra_chunk_proxy_l2_mean": 0.6669475094222675
+  },
+  "future_actions_used_at_inference": false,
+  "history_horizon": 8,
+  "history_source": "previous_base_actions_and_current_state_only",
+  "inter_chunk_diagnostic": "frame_local_base_difference_proxy",
+  "reanchor_feature": "base_action_diff_from_previous",
+  "train_residual_summary": {
+    "max_task_share": 0.025,
+    "residual_dim": 7,
+    "residual_norm_mean": 0.07912110642565871,
+    "residual_norm_p95": 0.16175614400415114,
+    "residual_variance": [
+      0.0022836321362077385,
+      0.002025069355857464,
+      0.002575718196387937,
+      4.4219658389579344e-05,
+      0.00014855583811432355,
+      9.194291015382257e-05,
+      0.013402131245451079
+    ],
+    "residual_variance_nonzero_dims": 7,
+    "task_count": 40,
+    "total_records": 1200
+  },
+  "validation_residual_summary": {
+    "max_task_share": 0.025,
+    "residual_dim": 7,
+    "residual_norm_mean": 0.08630366897708504,
+    "residual_norm_p95": 0.15985449508330726,
+    "residual_variance": [
+      0.0025686605905972594,
+      0.0019759856548314816,
+      0.002855012607135235,
+      5.3809991331819137e-05,
+      0.0002055162612074181,
+      0.00013953692437697676,
+      0.0196132679245164
+    ],
+    "residual_variance_nonzero_dims": 7,
+    "task_count": 40,
+    "total_records": 400
+  }
+}

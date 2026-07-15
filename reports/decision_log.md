@@ -2325,6 +2325,45 @@ Execution boundary:
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
 
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Stage 0 Development Audit
+
+Decision: `DESIGN_FAILURE`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- development audit: `reports/rar_vla/development_audit.json`
+- audit markdown: `reports/rar_vla/development_audit.md`
+- source gate manifest: `reports/rar_vla/source_gate_manifest.json`
+- history feature manifest: `reports/rar_vla/history_feature_manifest.json`
+- split manifest: `reports/rar_vla/split_manifest.json`
+- scoreable development records: `2800`
+- train records: `1200`
+- validation records: `400`
+- reserved records not used: `1200`
+- selected task count: `40`
+- duplicate sample keys: `0`
+- duplicate frame keys: `0`
+- source gate passed: `True`
+- future actions used at inference: `False`
+- CALA latents used at inference: `False`
+- residual headroom L2 validation: `0.08630366897708504`
+- initial action delta p95: `0.0`
+- base action validity: `1.0`
+- training happened: `False`
+- validation search happened: `False`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Hard stop:
+
+- residual predictability margin was `-0.03837609884238533`, below the preregistered minimum `0.02`
+- strongest trivial baseline: `zero_residual`
+- strongest trivial RMSE: `0.16559729909097304`
+- full legal causal probe RMSE: `0.1719540079557317`
+
+Consequence: RAR stops before rollout as a design failure. Do not rescue RAR by changing history features, labels, thresholds, source gates, validation configs, or baselines. Proceed to Epoch 4 Cycle 14 candidate generation under current governance.
+
 ## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Stage 0 Development Audit
 
 Decision: `DESIGN_FAILURE`

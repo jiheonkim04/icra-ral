@@ -1,0 +1,57 @@
+{
+  "cala_latents_used_at_inference": false,
+  "dataset_feature_names": [
+    "action",
+    "episode_index",
+    "frame_index",
+    "index",
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state",
+    "task_index",
+    "timestamp"
+  ],
+  "forbidden_inference_keys": [
+    "cala_latent_label",
+    "dataset_global_index",
+    "episode_index",
+    "frame_index",
+    "future_action",
+    "future_action_segment",
+    "future_observation",
+    "identity",
+    "object_pose",
+    "object_state",
+    "oracle_phase",
+    "phase",
+    "placement_pose",
+    "reset_identity",
+    "reward",
+    "success",
+    "target_action"
+  ],
+  "future_actions_used_at_inference": false,
+  "legal_inference_features": [
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state",
+    "language_or_task_instruction",
+    "base_action",
+    "previous_base_actions",
+    "previous_emitted_actions",
+    "causal_memory_state"
+  ],
+  "object_or_pose_feature_names": [],
+  "previous_actions_are_causal_only": true,
+  "privileged_object_pose_available_as_dataset_feature": false,
+  "rgb_video_available_in_dataset": true,
+  "source_gate_passed": true,
+  "state_available_in_dataset": true,
+  "used_inference_features_for_stage_0_probe": [
+    "observation.state",
+    "base_action",
+    "previous_base_actions",
+    "state_delta",
+    "language_or_task_instruction_proxy"
+  ]
+}

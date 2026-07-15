@@ -16,20 +16,20 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
+def test_active_state_records_rar_stage_0_stop_and_cycle_14_handoff() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 13
+    assert state["current_cycle"] == 14
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_13_rar_prototype_protocol_frozen"
-    assert state["method"] == "RAR-VLA"
-    assert state["method_identity"] == "RAR-VLA"
-    assert state["proposal_hash"] == RAR_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/rar_vla/prototype_protocol.md"
+    assert state["current_decision"] == "RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14"
+    assert state["current_stage"] == "epoch_4_cycle_14_candidate_search_pending"
+    assert state["method"] == "CYCLE_14_METHOD_PENDING"
+    assert state["method_identity"] == "CYCLE_14_METHOD_PENDING"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -171,6 +171,9 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_13_rar_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_13_rar_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_13_rar_design_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_14_candidate_search_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -734,7 +737,20 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert rar["preregistration_completed"] is True
     assert rar["prototype_protocol_completed"] is True
     assert rar["prototype_protocol_decision"] == "RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert rar["stage_0_pending"] is True
+    assert rar["stage_0_pending"] is False
+    assert rar["stage_0_audit"] == "reports/rar_vla/development_audit.json"
+    assert rar["stage_0_audit_md"] == "reports/rar_vla/development_audit.md"
+    assert rar["source_gate_manifest"] == "reports/rar_vla/source_gate_manifest.json"
+    assert rar["history_feature_manifest"] == "reports/rar_vla/history_feature_manifest.json"
+    assert rar["split_manifest"] == "reports/rar_vla/split_manifest.json"
+    assert rar["stage_0_completed"] is True
+    assert rar["stage_0_decision"] == "DESIGN_FAILURE"
+    assert rar["stage_0_failure_class"] == "DESIGN_FAILURE"
+    assert rar["stage_0_hard_stop_reasons"] == ["residual predictability margin below minimum: -0.038376"]
+    assert rar["stage_0_training_happened"] is False
+    assert rar["stage_0_closed_loop_experiment_happened"] is False
+    assert rar["stage_0_confirmatory_test_tuning_happened"] is False
+    assert rar["validation_search_allowed"] is False
     rar_proposal = state["epoch_4_cycle_13_rar_proposal"]
     assert rar_proposal["proposal"] == "reports/rar_vla/researcher_proposal.md"
     assert rar_proposal["proposal_hash"] == RAR_PROPOSAL_HASH
@@ -800,7 +816,30 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
         "rar_no_reanchor_memory_ablation",
         "ema_action_history_baseline",
     ]
-    assert rar_proto["stage_0_next"] == "development_audit_only"
+    assert rar_proto["stage_0_next"] == "development_audit_completed_stop"
+    assert rar_proto["stage_0_audit"] == "reports/rar_vla/development_audit.json"
+    assert rar_proto["stage_0_decision"] == "DESIGN_FAILURE"
+    assert rar_proto["stage_0_completed"] is True
+    assert rar_proto["stage_0_passed"] is False
+    assert rar_proto["stage_0_failure_class"] == "DESIGN_FAILURE"
+    assert rar_proto["validation_search_allowed"] is False
+    rar_outcome = state["epoch_4_cycle_13_rar_development_outcome"]
+    assert rar_outcome["final_decision"] == "DESIGN_FAILURE"
+    assert rar_outcome["stage_0_completed"] is True
+    assert rar_outcome["stage_0_passed"] is False
+    assert rar_outcome["stage_0_failure_class"] == "DESIGN_FAILURE"
+    assert rar_outcome["source_gate_passed"] is True
+    assert rar_outcome["future_actions_used_at_inference"] is False
+    assert rar_outcome["cala_latents_used_at_inference"] is False
+    assert rar_outcome["residual_predictability_margin"] == -0.03837609884238533
+    assert rar_outcome["best_trivial_baseline"] == "zero_residual"
+    assert rar_outcome["validation_search_allowed"] is False
+    assert rar_outcome["training_happened"] is False
+    assert rar_outcome["closed_loop_experiment_happened"] is False
+    cycle14 = state["epoch_4_cycle_14_pre_stage"]
+    assert cycle14["candidate_search_pending"] is True
+    assert cycle14["previous_method"] == "RAR-VLA"
+    assert cycle14["must_not_rescue_previous_method"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

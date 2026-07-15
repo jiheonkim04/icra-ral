@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
 
 Current epoch: `4`
 
-Current cycle: `13`
+Current cycle: `14`
 
-Current stage: `epoch_4_cycle_13_rar_prototype_protocol_frozen`
+Current stage: `epoch_4_cycle_14_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -335,4 +335,6 @@ The mathematical mechanism audit is frozen in `reports/rar_vla/mathematical_mech
 
 The preregistration and prototype protocol are frozen in `reports/rar_vla/preregistration.md` and `reports/rar_vla/prototype_protocol.md`.
 
-Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_13_rar_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.
+RAR Stage 0 stopped as `DESIGN_FAILURE` in `reports/rar_vla/development_audit.json`: the residual predictability margin was `-0.03837609884238533`, with `zero_residual` beating the full legal causal probe. Source legality, split health, residual headroom, gradients, Base action validity, and identity-preserving zero delta passed. No training, validation search, rollout, or confirmatory-test tuning happened.
+
+Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`. Current stage: `epoch_4_cycle_14_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 14 candidates and do not rescue RAR.

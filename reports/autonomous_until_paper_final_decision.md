@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current campaign decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
 
 This is not a terminal decision.
 
@@ -244,4 +244,8 @@ The RAR mathematical mechanism audit is frozen in `reports/rar_vla/mathematical_
 
 The RAR preregistration and prototype protocol are frozen in `reports/rar_vla/preregistration.md` and `reports/rar_vla/prototype_protocol.md`. Stage 0 must run before validation search, training, manifest freeze, or rollout.
 
-Current stage: `epoch_4_cycle_13_rar_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.
+RAR Stage 0 is complete in `reports/rar_vla/development_audit.json` and `reports/rar_vla/development_audit.md` with final decision `DESIGN_FAILURE`. This is a pre-rollout development stop, not a closed-loop scientific kill: source legality passed, future actions and CALA latents were not used at inference, split duplicates were `0`, residual headroom was `0.08630366897708504`, gradients were finite/nonzero, Base action validity was `1.0`, and initial action delta p95 was `0.0`. The hard stop was residual predictability: the legal full probe had margin `-0.03837609884238533` because `zero_residual` was the strongest trivial baseline (`0.16559729909097304` RMSE) and beat the full probe (`0.1719540079557317` RMSE).
+
+Do not rescue RAR by changing history features, residual labels, thresholds, validation configs, or source gates. Validation search, training, Stage A manifest freeze, and rollout are disallowed for this RAR formulation.
+
+Current stage: `epoch_4_cycle_14_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 14 candidates under current governance.
