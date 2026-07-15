@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED`
+`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
 
 Current epoch: `4`
 
-Current cycle: `20`
+Current cycle: `21`
 
-Current stage: `epoch_4_cycle_20_nice_stage_0b1_pending`
+Current stage: `epoch_4_cycle_21_candidate_search_pending`
 
 Allowed final states:
 
@@ -624,3 +624,14 @@ a scientific performance result.
 The separate Stage 0B1 offline development protocol is frozen at
 `reports/nice_vla/stage_0b1_execution_protocol.md`. Only its fixed 1792-pair
 observability audit is authorized next.
+
+NICE Stage 0B1 then completed all `1792 / 1792` pair keys with exact manifest
+equality but stopped during the action-regime diagnostic. Under the frozen
+deadband `2.0`, two validation tasks have counts `[80,0]`, so required
+action-regime supervision is collapsed. The adjudicated decision is
+`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`, not a
+scientific kill. No Stage 0B2, deadband change, resampling, task replacement,
+or NICE rescue is allowed.
+
+Current cycle: `21`. Current stage:
+`epoch_4_cycle_21_candidate_search_pending`.

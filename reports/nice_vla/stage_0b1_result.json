@@ -1,0 +1,84 @@
+{
+  "method": "NICE-VLA",
+  "stage": "0B1",
+  "proposal_hash": "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A",
+  "implementation_commit": "8ded948",
+  "raw_worker_decision": "NICE_STAGE_0B1_IMPLEMENTATION_FAILURE",
+  "final_decision": "NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST",
+  "failure_class": "DATA_FAILURE",
+  "valid_scientific_result": false,
+  "scientific_kill": false,
+  "worker_pid": 403,
+  "worker_alive": false,
+  "worker_status": "failed",
+  "wrapper_exit_code": 1,
+  "failure_phase": "calibration_diagnostics",
+  "planned_pair_count": 1792,
+  "completed_pair_count": 1792,
+  "resumed_pair_count": 0,
+  "repeated_completed_pair_count": 0,
+  "exception_count": 1,
+  "manifest_hash": "484568CE3B0B22CF8A6D286629AF39057DF9F3AB7AB2C17BBD8DFAD43A28D727",
+  "manifest_audit": {
+    "manifest_row_count": 1792,
+    "partial_row_count": 1792,
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "missing_manifest_key_count": 0,
+    "extra_partial_key_count": 0,
+    "manifest_partial_key_sets_equal": true,
+    "passed": true
+  },
+  "role_counts": {
+    "discovery": 1152,
+    "validation_calibration": 320,
+    "validation_evaluation": 320
+  },
+  "frozen_gripper_deadband": 2.0,
+  "evaluation_transition_counts": {
+    "libero_10/task_5": {"no_transition": 78, "transition": 2},
+    "libero_goal/task_5": {"no_transition": 79, "transition": 1},
+    "libero_object/task_3": {"no_transition": 80, "transition": 0},
+    "libero_spatial/task_3": {"no_transition": 80, "transition": 0}
+  },
+  "collapsed_validation_tasks": [
+    "libero_object/task_3",
+    "libero_spatial/task_3"
+  ],
+  "required_noncollapsed_action_regime_contrast_passed": false,
+  "worker_exception_type": "RuntimeError",
+  "worker_exception": "diagnostic family action_regime collapsed for libero_object/task_3",
+  "classification_rationale": "The preregistration requires noncollapsed gripper/action-regime contrast and action-regime diagnostic coverage. Two of four validation tasks have zero transition-positive rows under the frozen sampler and deadband. Changing the deadband, sampler, tasks, or diagnostic would be a prohibited redesign.",
+  "mean_checkpoint": {
+    "path": "runs/nice_vla/stage0b1/vla_corrector_shared_mean.pt",
+    "size_bytes": 152223663,
+    "sha256": "842C8CD6F39A8E16C9A33A6F831C6789EAAD25A2A335A6B996329DEC6B510E5D"
+  },
+  "covariance_checkpoint": {
+    "path": "runs/nice_vla/stage0b1/nice_reference_diagonal.pt",
+    "size_bytes": 1076333,
+    "sha256": "06276094953498FF51F2B9C87148E38422431C45ECE60A9FF2713519C50915D6"
+  },
+  "rank8_basis": {
+    "path": "runs/nice_vla/stage0b1/nice_rank8_basis.npy",
+    "size_bytes": 3932288,
+    "sha256": "BE880409C6767D11EEC3D21C1F6CF154D33A2E51E3ED47079B10961E86020624"
+  },
+  "training_completed_before_data_gate_discovered": true,
+  "training_artifacts_selected_for_science": false,
+  "mechanism_metrics_persisted_or_interpreted": false,
+  "validation_pair_records_read": 640,
+  "confirmatory_records_read": 0,
+  "task_outcome_read_count": 0,
+  "reward_read_count": 0,
+  "done_read_count": 0,
+  "reset_identity_read_count": 0,
+  "simulator_rollout_count": 0,
+  "validation_search_happened": false,
+  "closed_loop_experiment_happened": false,
+  "confirmatory_test_tuning_happened": false,
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "stage_0b2_allowed": false,
+  "nice_rescue_allowed": false,
+  "next_stage": "Epoch 4 Cycle 21 candidate generation without NICE rescue."
+}

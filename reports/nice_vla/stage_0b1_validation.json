@@ -1,0 +1,23 @@
+{
+  "proposal_hash_recomputed": true,
+  "manifest_json_parsed": true,
+  "partial_json_parsed": true,
+  "blocker_json_parsed": true,
+  "status_json_parsed": true,
+  "heartbeat_json_parsed": true,
+  "manifest_hash_matches_partial": true,
+  "manifest_row_count": 1792,
+  "partial_row_count": 1792,
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "missing_manifest_key_count": 0,
+  "extra_partial_key_count": 0,
+  "worker_pid": 403,
+  "worker_alive": false,
+  "wrapper_exit_code": 1,
+  "exception_count": 1,
+  "frozen_deadband_recomputed": 2.0,
+  "collapsed_validation_task_count": 2,
+  "accepted_without_rerun": true,
+  "final_decision": "NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST"
+}

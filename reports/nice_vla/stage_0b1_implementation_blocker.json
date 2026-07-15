@@ -1,0 +1,11 @@
+{
+  "exception": "diagnostic family action_regime collapsed for libero_object/task_3",
+  "exception_type": "RuntimeError",
+  "final_decision": "NICE_STAGE_0B1_IMPLEMENTATION_FAILURE",
+  "method": "NICE-VLA",
+  "proposal_hash": "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A",
+  "protocol_change_allowed": false,
+  "scientific_kill": false,
+  "stage": "0B1",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_nice_vla_stage0b1.py\", line 1121, in main\n    result = run(args)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_nice_vla_stage0b1.py\", line 1002, in run\n    mechanism = _calibration_and_diagnostics(\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_nice_vla_stage0b1.py\", line 811, in _calibration_and_diagnostics\n    raise RuntimeError(f\"diagnostic family {family} collapsed for {task}\")\nRuntimeError: diagnostic family action_regime collapsed for libero_object/task_3\n"
+}

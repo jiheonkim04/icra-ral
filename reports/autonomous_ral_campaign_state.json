@@ -18,15 +18,15 @@
     "maximum_wall_time_hours_per_cycle": 12,
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
-    "current_cycle": 20,
-    "topic": "epoch_4_cycle_20_nice_stage_0b1_pending",
+    "current_cycle": 21,
+    "topic": "epoch_4_cycle_21_candidate_search_pending",
     "method": "NICE-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "660db5a",
-    "current_stage": "epoch_4_cycle_20_nice_stage_0b1_pending",
+    "current_stage": "epoch_4_cycle_21_candidate_search_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -432,7 +432,11 @@
         "epoch_4_cycle_20_nice_stage_0a_adjudicated",
         "epoch_4_cycle_20_nice_stage_0b1_protocol_frozen",
         "epoch_4_cycle_20_nice_stage_0b1_implementation_pending",
-        "epoch_4_cycle_20_nice_stage_0b1_runner_implemented"
+        "epoch_4_cycle_20_nice_stage_0b1_runner_implemented",
+        "epoch_4_cycle_20_nice_stage_0b1_completed",
+        "epoch_4_cycle_20_nice_stage_0b1_adjudicated",
+        "epoch_4_cycle_20_nice_data_failure_recorded",
+        "epoch_4_cycle_21_candidate_search_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -446,7 +450,7 @@
         "Split Conformal Prediction"
     ],
     "prototype_gate": "Frozen NICE Stage 0A source, latent-pair, gradient, algebra, calibration, serialization, and Base-passthrough audit.",
-    "current_decision": "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED",
+    "current_decision": "NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -597,7 +601,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Implement, validate, commit, and run only the frozen NICE Stage 0B1 offline development audit.",
+    "next_action": "Generate exactly three prior-anchored Cycle 21 candidates, select exactly one, and continue without rescuing NICE.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Action-conditioned predictive uncertainty and episode-cluster conformal calibration can improve VLA-Corrector interrupt timing while preserving its frozen mean and recovery path.",
     "method_identity": "NICE-VLA",
@@ -2351,7 +2355,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_20_nice_stage_0b1_pending",
+    "current_topic": "epoch_4_cycle_21_candidate_search_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",

@@ -52,12 +52,12 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 20
+    assert state["current_cycle"] == 21
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED"
-    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0b1_pending"
+    assert state["current_decision"] == "NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST"
+    assert state["current_stage"] == "epoch_4_cycle_21_candidate_search_pending"
     assert state["method"] == "NICE-VLA"
     assert state["method_identity"] == "NICE-VLA"
     assert state["proposal_hash"] == NICE_PROPOSAL_HASH
@@ -115,6 +115,10 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert "epoch_4_cycle_20_nice_stage_0a_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_20_nice_stage_0b1_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_20_nice_stage_0b1_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0b1_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0b1_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_data_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_21_candidate_search_pending" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -288,6 +292,28 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert nice_outcome["confirmatory_records_read"] == 0
     assert nice_outcome["simulator_rollout_count"] == 0
     assert nice_outcome["stage_0b1_allowed"] is True
+    nice_stage0b1 = state["epoch_4_cycle_20_nice_stage_0b1_outcome"]
+    assert nice_stage0b1["raw_worker_decision"] == "NICE_STAGE_0B1_IMPLEMENTATION_FAILURE"
+    assert nice_stage0b1["final_decision"] == "NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST"
+    assert nice_stage0b1["failure_class"] == "DATA_FAILURE"
+    assert nice_stage0b1["valid_scientific_result"] is False
+    assert nice_stage0b1["worker_alive"] is False
+    assert nice_stage0b1["exit_code"] == 1
+    assert nice_stage0b1["completed_pair_count"] == nice_stage0b1["planned_pair_count"] == 1792
+    assert nice_stage0b1["exception_count"] == 1
+    assert nice_stage0b1["duplicate_manifest_key_count"] == 0
+    assert nice_stage0b1["duplicate_partial_key_count"] == 0
+    assert nice_stage0b1["missing_manifest_key_count"] == 0
+    assert nice_stage0b1["extra_partial_key_count"] == 0
+    assert nice_stage0b1["frozen_gripper_deadband"] == 2.0
+    assert nice_stage0b1["collapsed_validation_tasks"] == [
+        "libero_object/task_3",
+        "libero_spatial/task_3",
+    ]
+    assert nice_stage0b1["confirmatory_records_read"] == 0
+    assert nice_stage0b1["simulator_rollout_count"] == 0
+    assert nice_stage0b1["stage_0b2_allowed"] is False
+    assert nice_stage0b1["nice_rescue_allowed"] is False
     pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0

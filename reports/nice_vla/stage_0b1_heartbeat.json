@@ -1,0 +1,9 @@
+{
+  "completed_pair_count": 1792,
+  "exception_count": 1,
+  "phase": "calibration_diagnostics",
+  "pid": 403,
+  "planned_pair_count": 1792,
+  "status": "failed",
+  "updated_at": "2026-07-15T12:49:10.596382+00:00"
+}

@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current campaign decision:
-`NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED`
+`NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`
 
 This is not a terminal decision.
 
@@ -34,8 +34,10 @@ forbidden. Historical SPARC decision:
 
 Cycle 20 selected NICE-VLA from exactly three candidates and froze its
 proposal, review, rebuttal, mathematical audit, preregistration, and prototype
-protocol. Current cycle: `20`. Current stage:
-`epoch_4_cycle_20_nice_stage_0b1_pending`.
+protocol. Stage 0A passed, but Stage 0B1 found collapsed action-regime contrast
+on two validation tasks after completing all 1792 pair keys. This is a data
+failure, not a scientific kill. Current cycle: `21`. Current stage:
+`epoch_4_cycle_21_candidate_search_pending`.
 
 ## Corrected Epoch 1 Status
 
