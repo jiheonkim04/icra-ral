@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 12,
-    "topic": "epoch_4_cycle_12_cala_mathematical_audit_preregistered",
+    "topic": "epoch_4_cycle_12_cala_prototype_protocol_frozen",
     "method": "CALA-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "9079a25",
-    "current_stage": "epoch_4_cycle_12_cala_mathematical_audit_preregistered",
+    "current_stage": "epoch_4_cycle_12_cala_prototype_protocol_frozen",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -311,7 +311,9 @@
         "epoch_4_cycle_12_cala_proposal_frozen",
         "epoch_4_cycle_12_cala_reviewer_attack_completed",
         "epoch_4_cycle_12_cala_rebuttal_completed",
-        "epoch_4_cycle_12_cala_mathematical_audit_preregistered"
+        "epoch_4_cycle_12_cala_mathematical_audit_preregistered",
+        "epoch_4_cycle_12_cala_preregistration_frozen",
+        "epoch_4_cycle_12_cala_prototype_protocol_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -327,7 +329,7 @@
         "VLA Grounder"
     ],
     "prototype_gate": "CALA-VLA selected; Stage 0 latent-label and identity-preservation audit required before any training, validation search, manifest freeze, or rollout.",
-    "current_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -478,7 +480,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the CALA-VLA preregistration and prototype protocol before Stage 0.",
+    "next_action": "Implement and run the CALA-VLA Stage 0 development audit only.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "G3P-VLA Stage 0 stopped pre-rollout as DATA_OR_SUPERVISION_FAILURE because the material point label collapsed; do not rescue by changing thresholds or labels.",
     "method_identity": "G3P-VLA",
@@ -2232,7 +2234,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_12_cala_mathematical_audit_preregistered",
+    "current_topic": "epoch_4_cycle_12_cala_prototype_protocol_frozen",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4584,7 +4586,16 @@
         "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_pending": false,
         "mathematical_audit_completed": true,
-        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED"
+        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/cala_vla/preregistration.md",
+        "prototype_protocol": "reports/cala_vla/prototype_protocol.md",
+        "preregistration_pending": false,
+        "prototype_protocol_pending": false,
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true,
+        "preregistration_decision": "CALA_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol_decision": "CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "stage_0_pending": true
     },
     "epoch_4_cycle_12_cala_proposal": {
         "method": "CALA-VLA",
@@ -4596,7 +4607,7 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze preregistration and prototype protocol.",
+        "next_stage": "Stage 0 development audit.",
         "reviewer_attack": "reports/cala_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
@@ -4605,7 +4616,11 @@
         "rebuttal_completed": true,
         "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "mathematical_audit_completed": true
+        "mathematical_audit_completed": true,
+        "preregistration": "reports/cala_vla/preregistration.md",
+        "prototype_protocol": "reports/cala_vla/prototype_protocol.md",
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true
     },
     "epoch_4_cycle_12_cala_review": {
         "method": "CALA-VLA",
@@ -4621,13 +4636,17 @@
         "closest_prior_proxy_must_remain_transparent": true,
         "future_action_leakage_gate_required": true,
         "task_mean_baseline_must_remain_live": true,
-        "next_stage": "Freeze preregistration and prototype protocol.",
+        "next_stage": "Stage 0 development audit.",
         "researcher_rebuttal": "reports/cala_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CALA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "rebuttal_completed": true,
         "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "mathematical_audit_completed": true
+        "mathematical_audit_completed": true,
+        "preregistration": "reports/cala_vla/preregistration.md",
+        "prototype_protocol": "reports/cala_vla/prototype_protocol.md",
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true
     },
     "epoch_4_cycle_12_cala_rebuttal": {
         "method": "CALA-VLA",
@@ -4645,10 +4664,14 @@
         "accepted_future_action_source_gate": true,
         "accepted_task_mean_simple_killer": true,
         "accepted_identity_preserving_integration": true,
-        "next_stage": "Freeze preregistration and prototype protocol.",
+        "next_stage": "Stage 0 development audit.",
         "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "mathematical_audit_completed": true
+        "mathematical_audit_completed": true,
+        "preregistration": "reports/cala_vla/preregistration.md",
+        "prototype_protocol": "reports/cala_vla/prototype_protocol.md",
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true
     },
     "epoch_4_cycle_12_cala_mathematical_audit": {
         "method": "CALA-VLA",
@@ -4666,6 +4689,42 @@
         "identity_preserving_adapter_required": true,
         "future_action_inference_forbidden": true,
         "bounded_validation_search_max_configs": 6,
-        "next_stage": "Freeze preregistration and prototype protocol."
+        "next_stage": "Stage 0 development audit.",
+        "preregistration": "reports/cala_vla/preregistration.md",
+        "prototype_protocol": "reports/cala_vla/prototype_protocol.md",
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true
+    },
+    "epoch_4_cycle_12_cala_preregistration": {
+        "method": "CALA-VLA",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "mathematical_audit": "reports/cala_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_decision": "CALA_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/cala_vla/preregistration.md",
+        "final_decision": "CALA_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "bounded_validation_search_max_configs": 6,
+        "stage_0_pending": true
+    },
+    "epoch_4_cycle_12_cala_prototype_protocol": {
+        "method": "CALA-VLA",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "prototype_protocol": "reports/cala_vla/prototype_protocol.md",
+        "final_decision": "CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "first_comparison_policies": [
+            "frozen_smolvla",
+            "cac_vla_latent_action_proxy",
+            "cala_full",
+            "cala_no_context_gate_ablation",
+            "task_mean_latent_action_baseline"
+        ],
+        "stage_0_next": "development_audit_only"
     }
 }

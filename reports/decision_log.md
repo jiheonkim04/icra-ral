@@ -2307,3 +2307,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: the audit freezes variables/shapes, latent encoder, source legality, context gate, residual/action formula, objective terms, gradient paths, small-batch magnitude checks, bounded validation search, first five-policy comparison, and no deterministic-action KL. Proceed to preregistration and prototype protocol.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Preregistration And Prototype Protocol
+
+Decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- preregistration: `reports/cala_vla/preregistration.md`
+- prototype protocol: `reports/cala_vla/prototype_protocol.md`
+- proposal hash: `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.

@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
-Immediate next action: freeze `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`.
+Immediate next action: implement and run the CALA Stage 0 development audit only.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA's mathematical audit is frozen; preregistration and prototype protocol must freeze Stage 0 hard stops, six-configuration validation-search budget, first five-policy comparison, and no confirmatory-test tuning before implementation.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA's preregistration/prototype protocol is frozen; Stage 0 may only audit source legality, latent-label health, split separation, latent predictability, Base passthrough, gradients, and action validity.
 
 ## 2026-07-13 Governance V2 Current Action
 

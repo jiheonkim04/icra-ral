@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current campaign decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -224,4 +224,6 @@ Researcher A rebuttal is complete in `reports/cala_vla/researcher_rebuttal.md` w
 
 The CALA mathematical mechanism audit is frozen in `reports/cala_vla/mathematical_mechanism_audit.md` with decision `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines the latent-action encoder, source legality, context gate, identity-preserving residual, objective terms, gradient paths, small-batch magnitude audit, bounded validation search, first five-policy comparison, and no deterministic-action KL rule.
 
-Current stage: `epoch_4_cycle_12_cala_mathematical_audit_preregistered`. Next action: freeze preregistration and prototype protocol.
+The CALA preregistration and prototype protocol are frozen in `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`. Stage 0 must run before validation search, training, manifest freeze, or rollout.
+
+Current stage: `epoch_4_cycle_12_cala_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.

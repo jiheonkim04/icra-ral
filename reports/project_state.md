@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `CALA_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
@@ -26,7 +26,9 @@ Researcher A rebuttal is complete in `reports/cala_vla/researcher_rebuttal.md` w
 
 The CALA mathematical mechanism audit is frozen in `reports/cala_vla/mathematical_mechanism_audit.md` with decision `CALA_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Exact next step: freeze `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`.
+The preregistration and prototype protocol are frozen in `reports/cala_vla/preregistration.md` and `reports/cala_vla/prototype_protocol.md`.
+
+Exact next step: implement and run the CALA Stage 0 development audit only.
 
 ## 2026-07-13 Governance V2 Current State
 
