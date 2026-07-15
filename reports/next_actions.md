@@ -4,13 +4,13 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
+Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
-Immediate next action: generate exactly three Epoch 4 Cycle 15 candidates under the post-COVI LoRA and minimum-sufficient design governance, score all three, and select exactly one.
+Immediate next action: conduct an independent Reviewer B attack on the frozen LIFT proposal, then allow exactly one Researcher A rebuttal before mathematical audit or preregistration.
 
 COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 
-Do not rescue G3P, CALA, RAR, or COVI by changing their frozen labels, objectives, thresholds, source gates, validation configs, or baselines. Cycle 15 must separate scientific novelty from low-compute parameterization, use the minimum sufficient method, and include standard LoRA only when it tests a real alternative explanation.
+Do not rescue G3P, CALA, RAR, or COVI by changing their frozen labels, objectives, thresholds, source gates, validation configs, or baselines. LIFT must retain its narrow pathwise-flow claim, transparent training-free CAG prior, last-step ablation, three-scale validation cap, and official-LIBERO-CF non-equivalence disclosure.
 
 ## 2026-07-13 Governance V2 Current Action
 

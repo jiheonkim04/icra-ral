@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
+Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `15`
 
-Current stage: `epoch_4_cycle_15_candidate_search_pending`
+Current stage: `epoch_4_cycle_15_lift_proposal_frozen`
 
 ## Corrected Epoch 1 Result
 
@@ -353,4 +353,8 @@ The COVI preregistration and prototype protocol are frozen in `reports/covi_vla/
 
 Previous decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. COVI Stage 0 then completed under its frozen protocol. The repaired admissible result is `IMPLEMENTATION_OR_DATA_FAILURE`: the full weighted objective-gradient ratio was `1345.9529990435792:1` against a frozen `100:1` maximum, only two objectives had nonzero pretraining gradients, and output validity was `0.2`. The no-imagined-view target also had no preregistered headroom. This is `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the one-check set stayed sealed and no validation search or rollout ran.
 
-Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`. Current stage: `epoch_4_cycle_15_candidate_search_pending`. The post-COVI LoRA and minimum-sufficient comparison governance is active. Next action: generate exactly three prior-anchored Cycle 15 candidates and select one without rescuing COVI or RAR.
+Epoch 4 Cycle 15 generated exactly three prior-anchored candidates in `reports/epoch_4_cycle_15_candidate_generation.md` after the source audit in `reports/epoch_4_cycle_15_prior_mechanism_map.md`. It selected `LIFT-VLA`, Language-Induced Flow Transport, with score `90 / 100`.
+
+LIFT is a frozen, inference-only cross-domain mechanism transfer. It applies conditional-minus-unconditional language guidance at every SmolVLA action-flow step and compares against CAG final-action mixing under the same two-branch budget. The first comparison contains exactly Base, transparent training-free CAG, LIFT full, and last-step-only LIFT. Standard LoRA and a fifth policy are omitted because they do not test the claimed mechanism.
+
+The Researcher A proposal is frozen in `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`. Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Next action: independent Reviewer B attack before mathematical audit, preregistration, implementation, validation search, or rollout.

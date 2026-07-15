@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
+Current decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -247,4 +247,8 @@ The COVI preregistration and prototype protocol are frozen in `reports/covi_vla/
 
 Previous stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`. COVI Stage 0 is preserved and adjudicated as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; no one-check, validation search, rollout, or confirmatory-test tuning occurred.
 
-Current stage: `epoch_4_cycle_15_candidate_search_pending`. Next action: generate exactly three prior-anchored candidates under the post-COVI LoRA and minimum-sufficient design governance.
+Epoch 4 Cycle 15 generated exactly three candidates and selected `LIFT-VLA` with score `90 / 100`. LIFT narrowly transfers pathwise classifier-free guidance to SmolVLA's continuous action flow and tests it against CAG final-action mixing under a matched two-branch inference budget.
+
+The frozen four-policy comparison is Base, transparent training-free CAG, LIFT full, and last-step-only LIFT. No standard-LoRA or fifth-policy control is included because LIFT is inference-only, the backbone remains frozen, and those controls do not test the claimed mechanism.
+
+The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`. Current stage: `epoch_4_cycle_15_lift_proposal_frozen`. Independent Reviewer B attack is the only allowed next step.

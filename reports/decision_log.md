@@ -2325,6 +2325,20 @@ Execution boundary:
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
 
+## 2026-07-15 - Epoch 4 Cycle 15 LIFT-VLA Selection And Proposal Freeze
+
+Decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+
+Exactly three candidates were generated and scored: LIFT-VLA `90 / 100`, MOTAL-VLA `82 / 100`, and GRAFT-VLA `77 / 100`. LIFT was selected as a narrow `CROSS_DOMAIN_MECHANISM_TRANSFER` from CAG and classifier-free guidance to SmolVLA's continuous action flow.
+
+The scientific method is pathwise conditional-minus-unconditional vector-field guidance. Its low-compute parameterization is frozen two-branch inference with no trainable weights. The first comparison is Base, transparent training-free CAG, LIFT full, and last-step-only LIFT. Standard LoRA and a fifth policy are omitted because they do not test the inference-only mechanism.
+
+Proposal: `reports/lift_vla/researcher_proposal.md`.
+
+Proposal hash: `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
+
+Consequence: independent Reviewer B attack is required before mathematical audit, preregistration, implementation, validation search, or rollout. Official LIBERO-CF equivalence may not be claimed from the local LIBERO-Goal development proxy.
+
 ## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Stage 0
 
 Decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`

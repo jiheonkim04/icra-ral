@@ -11,6 +11,7 @@ G3P_PROPOSAL_HASH = "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED
 CALA_PROPOSAL_HASH = "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76"
 RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56"
 COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621"
+LIFT_PROPOSAL_HASH = "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -42,7 +43,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_covi_stage_0_stop_and_cycle_15_continuation() -> None:
+def test_active_state_records_lift_selection_after_covi_stop() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -50,11 +51,11 @@ def test_active_state_records_covi_stage_0_stop_and_cycle_15_continuation() -> N
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15"
-    assert state["current_stage"] == "epoch_4_cycle_15_candidate_search_pending"
-    assert state["method"] == "PENDING_SELECTION"
-    assert state["method_identity"] is None
-    assert state["proposal_hash"] is None
+    assert state["current_decision"] == "LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_15_lift_proposal_frozen"
+    assert state["method"] == "LIFT-VLA"
+    assert state["method_identity"] == "LIFT-VLA"
+    assert state["proposal_hash"] == LIFT_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -212,12 +213,35 @@ def test_active_state_records_covi_stage_0_stop_and_cycle_15_continuation() -> N
     assert "epoch_4_cycle_14_covi_implementation_optimization_stop_recorded" in state["completed_stages"]
     assert "post_covi_lora_governance_installed" in state["completed_stages"]
     assert "epoch_4_cycle_15_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_15_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_15_lift_proposal_frozen" in state["completed_stages"]
     covi_outcome = state["epoch_4_cycle_14_covi_stage_0_outcome"]
     assert covi_outcome["final_decision"] == "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL"
     assert covi_outcome["objective_gradient_ratio"] == 1345.9529990435792
     assert covi_outcome["objective_gradient_ratio_max"] == 100.0
     assert covi_outcome["confirmatory_test_records_decoded"] == 0
     assert covi_outcome["scientific_method_kill"] is False
+    lift = state["epoch_4_cycle_15_pre_proposal"]
+    assert lift["method"] == "LIFT-VLA"
+    assert lift["selection_decision"] == "SELECT_LIFT_VLA"
+    assert lift["candidate_count"] == 3
+    assert lift["selected_score"] == 90
+    assert lift["selected_contribution_type"] == "CROSS_DOMAIN_MECHANISM_TRANSFER"
+    assert lift["scientific_method"] == "pathwise conditional-minus-unconditional vector-field guidance through every SmolVLA flow step"
+    assert lift["low_compute_parameterization"] == "frozen two-branch SmolVLA inference with no trainable parameters"
+    assert lift["standard_lora_required"] is False
+    assert lift["conditional_fifth_policy"] is None
+    assert lift["bounded_validation_search_max_configs"] == 3
+    assert lift["first_comparison_policies"] == [
+        "frozen_smolvla",
+        "training_free_cag_proxy",
+        "lift_full_pathwise_guidance",
+        "lift_last_step_only_ablation",
+    ]
+    assert lift["proposal_hash"] == LIFT_PROPOSAL_HASH
+    assert lift["reviewer_attack_pending"] is True
+    assert lift["rollout_allowed"] is False
+    assert lift["confirmatory_test_tuning_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
