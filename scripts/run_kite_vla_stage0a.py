@@ -12,6 +12,7 @@ import os
 from pathlib import Path
 import sys
 import threading
+import time
 import traceback
 from typing import Any, Mapping, Sequence
 
@@ -110,7 +111,14 @@ def _write_json(path: Path, payload: Mapping[str, Any]) -> None:
         + "\n",
         encoding="utf-8",
     )
-    temporary.replace(path)
+    for attempt in range(40):
+        try:
+            temporary.replace(path)
+            break
+        except PermissionError:
+            if attempt == 39:
+                raise
+            time.sleep(0.1)
 
 
 def _write_text(path: Path, value: str) -> None:
@@ -606,9 +614,9 @@ def _load_resume(
     model_rows: Sequence[Mapping[str, Any]],
     manifest_hash: str,
     operator_hash: str,
-) -> list[dict[str, Any]]:
+) -> tuple[list[dict[str, Any]], int, str | None]:
     if not path.is_file():
-        return []
+        return [], 0, None
     partial = _read_json(path)
     if partial.get("proposal_hash") != PROPOSAL_HASH:
         raise RuntimeError("partial proposal hash mismatch")
@@ -622,7 +630,7 @@ def _load_resume(
         cache = Path(str(row["feature_cache_path"]))
         if not cache.is_file() or _sha256(cache) != row["feature_cache_sha256"]:
             raise RuntimeError(f"cached feature hash mismatch for {row['row_key']}")
-    return rows
+    return rows, int(partial.get("exception_count") or 0), partial.get("last_exception")
 
 
 def _headroom(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
@@ -983,7 +991,9 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
 
     manifest_audit = validate_manifest(rows, [{"row_key": row["row_key"]} for row in rows])
     data = _data_summary(rows, model_rows, operators, operator_audit)
-    partial_rows = _load_resume(paths["partial"], model_rows, manifest_hash, operator_hash)
+    partial_rows, prior_exception_count, prior_last_exception = _load_resume(
+        paths["partial"], model_rows, manifest_hash, operator_hash
+    )
     resumed_count = len(partial_rows)
     _write_json(
         paths["preflight"],
@@ -1000,6 +1010,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
             "planned_label_row_count": len(rows),
             "planned_model_row_count": len(model_rows),
             "resumed_model_row_count": resumed_count,
+            "prior_exception_count": prior_exception_count,
             "data_gates_passed": _data_gates_pass(data, manifest_audit),
             "adapter_training_happened": False,
             "simulator_load_count": 0,
@@ -1031,7 +1042,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
             base_hash_unchanged=True,
             checkpoint_reload_ok=True,
             action_validity_ok=True,
-            exception_count=0,
+            exception_count=prior_exception_count,
         )
         decision = classify_stage0a(decision_inputs)
         result = {
@@ -1045,7 +1056,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
             "planned_model_row_count": len(model_rows),
             "completed_model_row_count": resumed_count,
             "resumed_model_row_count": resumed_count,
-            "exception_count": 0,
+            "exception_count": prior_exception_count,
             "manifest_audit": manifest_audit,
             "data_audit": data,
             "headroom": None,
@@ -1075,10 +1086,20 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
             "phase": "model_audit",
             "planned_model_row_count": len(model_rows),
             "completed_model_row_count": len(partial_rows),
-            "exception_count": 0,
+            "exception_count": prior_exception_count,
         }
     )
-    _write_json(paths["partial"], _partial_payload(manifest_hash, operator_hash, len(model_rows), partial_rows))
+    _write_json(
+        paths["partial"],
+        _partial_payload(
+            manifest_hash,
+            operator_hash,
+            len(model_rows),
+            partial_rows,
+            exception_count=prior_exception_count,
+            last_exception=prior_last_exception,
+        ),
+    )
     policy, _, preprocessor, postprocessor = _load_policy_and_processors(paths["checkpoint"])
     action_stats = _action_stats(postprocessor)
     for row in model_rows:
@@ -1094,7 +1115,17 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         partial_rows.append(summary)
         completed.add(str(row["row_key"]))
         state["completed_model_row_count"] = len(partial_rows)
-        _write_json(paths["partial"], _partial_payload(manifest_hash, operator_hash, len(model_rows), partial_rows))
+        _write_json(
+            paths["partial"],
+            _partial_payload(
+                manifest_hash,
+                operator_hash,
+                len(model_rows),
+                partial_rows,
+                exception_count=prior_exception_count,
+                last_exception=prior_last_exception,
+            ),
+        )
         _write_json(paths["heartbeat"], {**state, "updated_at": _utc_now()})
         print(f"[kite-stage0a] model rows {len(partial_rows)}/{len(model_rows)}", flush=True)
 
@@ -1160,7 +1191,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         base_hash_unchanged=identity["base_hash_unchanged"],
         checkpoint_reload_ok=identity["checkpoint_reload_ok"],
         action_validity_ok=action_validity,
-        exception_count=0,
+        exception_count=prior_exception_count,
     )
     decision = classify_stage0a(decision_inputs)
     result = {
@@ -1174,7 +1205,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         "planned_model_row_count": len(model_rows),
         "completed_model_row_count": len(partial_rows),
         "resumed_model_row_count": resumed_count,
-        "exception_count": 0,
+        "exception_count": prior_exception_count,
         "manifest_audit": manifest_audit,
         "partial_audit": partial_audit,
         "data_audit": data,
@@ -1205,14 +1236,24 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         "partial_json_parsed": True,
         "result_decision_recomputed": classify_stage0a(decision_inputs),
         "action_validity_ok": action_validity,
-        "exception_count": 0,
+        "exception_count": prior_exception_count,
         "final_decision": decision,
         **partial_audit,
     }
     _write_json(paths["result_json"], result)
     _write_text(paths["result_md"], _result_markdown(result))
     _write_json(paths["validation"], validation)
-    _write_json(paths["partial"], _partial_payload(manifest_hash, operator_hash, len(model_rows), partial_rows))
+    _write_json(
+        paths["partial"],
+        _partial_payload(
+            manifest_hash,
+            operator_hash,
+            len(model_rows),
+            partial_rows,
+            exception_count=prior_exception_count,
+            last_exception=prior_last_exception,
+        ),
+    )
     state.update({"status": "completed", "phase": "complete", "completed_model_row_count": len(partial_rows)})
     _write_json(paths["status"], {**state, "completed_at": _utc_now()})
     _write_json(paths["heartbeat"], {**state, "updated_at": _utc_now()})

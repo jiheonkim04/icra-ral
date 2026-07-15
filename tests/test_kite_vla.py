@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 
@@ -5,7 +6,12 @@ import numpy as np
 import pytest
 import torch
 
-from scripts.run_kite_vla_stage0a import _evenly_spaced, _serializer_preflight
+from scripts.run_kite_vla_stage0a import (
+    _evenly_spaced,
+    _load_resume,
+    _partial_payload,
+    _serializer_preflight,
+)
 from tca_map.smolvla.kite_vla import (
     HORIZONS,
     Stage0ADecisionInputs,
@@ -110,6 +116,33 @@ def test_manifest_validation_detects_duplicates_missing_extra_and_overlap() -> N
     assert missing["missing_manifest_key_count"] == 1
 
 
+def test_resume_preserves_prior_exception_and_validates_cache_hash(tmp_path: Path) -> None:
+    manifest_row = _manifest_row("discovery", 0, 1, 5)
+    cache = tmp_path / "feature.npz"
+    cache.write_bytes(b"persisted-feature")
+    completed = {
+        "row_key": manifest_row["row_key"],
+        "feature_cache_path": str(cache),
+        "feature_cache_sha256": hashlib.sha256(cache.read_bytes()).hexdigest().upper(),
+    }
+    partial = _partial_payload(
+        "MANIFEST",
+        "OPERATOR",
+        1,
+        [completed],
+        exception_count=1,
+        last_exception="transient sharing violation",
+    )
+    path = tmp_path / "partial.json"
+    path.write_text(json.dumps(partial), encoding="utf-8")
+    rows, exception_count, last_exception = _load_resume(
+        path, [manifest_row], "MANIFEST", "OPERATOR"
+    )
+    assert rows == [completed]
+    assert exception_count == 1
+    assert last_exception == "transient sharing violation"
+
+
 def test_differentiable_unnormalization_and_operator_preserve_gradient() -> None:
     actions = torch.zeros((1, 20, 7), dtype=torch.float32, requires_grad=True)
     raw = differentiable_mean_std_unnormalize(actions, np.arange(7), np.ones(7) * 2.0)
@@ -158,3 +191,4 @@ def test_stage0a_decision_taxonomy() -> None:
     assert classify_stage0a(_healthy_inputs(base_headroom_passed=False)) == "KITE_STAGE_0A_NO_HEADROOM"
     assert classify_stage0a(_healthy_inputs(kite_gradient_nonzero=False)) == "KITE_STAGE_0A_DESIGN_FAILURE"
     assert classify_stage0a(_healthy_inputs(serializer_preflight_ok=False)) == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert classify_stage0a(_healthy_inputs(exception_count=1)) == "KITE_STAGE_0A_IMPLEMENTATION_FAILURE"
