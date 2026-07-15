@@ -1,16 +1,16 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 15 Current Action
+## 2026-07-15 Epoch 4 Cycle 16 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `LIFT_COMPUTE_INFEASIBLE`
 
-Immediate next action: implement the frozen LIFT four-policy sampler and Stage 0 runner, run unit tests, then execute the preregistered WSL audit command.
+Immediate next action: generate exactly three Cycle 16 candidates, apply the prior-anchor, headroom, supervision, identity-preserving integration, mathematical objective, and decisive-experiment screens, then select exactly one candidate.
 
 COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 
-Do not rescue G3P, CALA, RAR, or COVI by changing their frozen labels, objectives, thresholds, source gates, validation configs, or baselines. LIFT must retain its narrow pathwise-flow claim, transparent training-free CAG prior, last-step ablation, three-scale validation cap, and official-LIBERO-CF non-equivalence disclosure.
+Do not rescue G3P, CALA, RAR, COVI, or LIFT by changing frozen labels, objectives, thresholds, source gates, validation configs, baselines, action clipping, or guidance scales. LIFT stopped before headroom and validation because action-bound validity was `0.8023809523809524` rather than `1.0`; its confirmatory partition remains sealed.
 
 ## 2026-07-13 Governance V2 Current Action
 

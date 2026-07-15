@@ -1,5 +1,14 @@
 # Autonomous Until Paper Method Ledger
 
+## 2026-07-15 KST Cycle 15 Closure
+
+| Epoch | Cycle | Method | Status | Key evidence |
+| --- | ---: | --- | --- | --- |
+| 4 | 15 | `LIFT-VLA` | `LIFT_COMPUTE_INFEASIBLE` | `20 / 20` scoreable manifest rows; exact identity `0.0`; activation/separation/memory/latency passed; action-bound validity `0.8023809523809524 < 1.0`; zero confirmatory decodes |
+
+LIFT is closed without clipping, scale, bridge, headroom, or validation rescue.
+Cycle 16 candidate generation is pending.
+
 ## 2026-07-12 KST Continuity Update
 
 The active governed campaign has completed three valid method cycles:

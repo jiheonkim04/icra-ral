@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current campaign decision: `LIFT_COMPUTE_INFEASIBLE`
 
 This is not a terminal decision.
 
@@ -272,4 +272,4 @@ The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3
 
 Reviewer B returned `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A accepted the narrow novelty boundary, feasible counterfactual benchmark gate, native-flow same-noise CAG, matched-compute ablation, practical-equivalence threshold, headroom, and compute gates.
 
-The mathematical audit, preregistration, and prototype protocol are frozen. Current stage: `epoch_4_cycle_15_lift_stage_0_implementation_pending`. The executable four-policy sampler and Stage 0 audit are next; validation search and rollout remain forbidden.
+The frozen Stage 0 completed and is adjudicated in `reports/lift_vla/stage_0_adjudication.md`. Manifest, shape, identity, activation, field-count, separation, memory, and latency gates passed, but executed-action bound validity was `0.8023809523809524` against the frozen `1.0` requirement. The final decision is `LIFT_COMPUTE_INFEASIBLE`; clipping, scale changes, headroom rollout, and validation search are forbidden. Confirmatory policy observations and actions remained zero. Current stage: `epoch_4_cycle_16_candidate_search_pending`.

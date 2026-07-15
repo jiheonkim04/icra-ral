@@ -43,19 +43,19 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_lift_selection_after_covi_stop() -> None:
+def test_active_state_records_lift_stop_and_cycle_16_continuation() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 15
+    assert state["current_cycle"] == 16
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_15_lift_stage_0_implementation_pending"
-    assert state["method"] == "LIFT-VLA"
-    assert state["method_identity"] == "LIFT-VLA"
-    assert state["proposal_hash"] == LIFT_PROPOSAL_HASH
+    assert state["current_decision"] == "LIFT_COMPUTE_INFEASIBLE"
+    assert state["current_stage"] == "epoch_4_cycle_16_candidate_search_pending"
+    assert state["method"] is None
+    assert state["method_identity"] is None
+    assert state["proposal_hash"] is None
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -281,6 +281,18 @@ def test_active_state_records_lift_selection_after_covi_stop() -> None:
     assert lift_proto["confirmatory_policy_observations_decoded_max"] == 0
     assert lift_proto["confirmatory_policy_actions_computed_max"] == 0
     assert lift_proto["stage_0_pending"] is True
+    lift_stage_0 = state["epoch_4_cycle_15_lift_stage_0"]
+    assert lift_stage_0["final_decision"] == "LIFT_COMPUTE_INFEASIBLE"
+    assert lift_stage_0["manifest_rows_valid"] == 20
+    assert lift_stage_0["manifest_rows_total"] == 20
+    assert lift_stage_0["identity_native_max_abs_error"] == 0.0
+    assert lift_stage_0["identity_postprocessed_max_abs_error"] == 0.0
+    assert lift_stage_0["action_finite_fraction"] == 1.0
+    assert lift_stage_0["action_range_valid_fraction"] == 0.8023809523809524
+    assert lift_stage_0["confirmatory_policy_observations_decoded"] == 0
+    assert lift_stage_0["confirmatory_policy_actions_computed"] == 0
+    assert lift_stage_0["validation_search_happened"] is False
+    assert lift_stage_0["closed_loop_experiment_happened"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"

@@ -1,0 +1,16 @@
+{
+  "confirmatory_data_used": false,
+  "e_exec": 0.0,
+  "e_native": 0.0,
+  "formula": {
+    "executed": "max(100*e_exec, 0.01*s_exec, 1e-5)",
+    "native": "max(100*e_native, 0.01*s_native, 1e-5)"
+  },
+  "manifest_key": "libero_goal/open_the_top_drawer_and_put_the_bowl_inside/open_the_middle_drawer_of_the_cabinet/15000",
+  "s_exec": 0.8614959120750427,
+  "s_native": 0.9567149877548218,
+  "source": "discovery_only_repeated_same_noise_base",
+  "tau_exec": 0.008614959120750427,
+  "tau_native": 0.009567149877548219,
+  "validation_data_used": false
+}

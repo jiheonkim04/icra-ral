@@ -1,0 +1,28 @@
+{
+  "completed_stage": "cuda_load_and_shape_check",
+  "error": "ValueError: _quat2axisangle expected shape (B, 4), got (4,)",
+  "frozen_protocol_changed": false,
+  "proposal_hash": "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F",
+  "traceback_tail": [
+    "Traceback (most recent call last):",
+    "  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_lift_vla_stage0.py\", line 778, in run",
+    "    smoke, thresholds = _smoke_audit(args, runtime, manifest, loaded)",
+    "  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_lift_vla_stage0.py\", line 356, in _smoke_audit",
+    "    conditioned_batch = _make_batch(observation, str(row[\"target_language\"]), loaded)",
+    "  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_lift_vla_stage0.py\", line 285, in _make_batch",
+    "    policy_observation = loaded[\"env_preprocessor\"](policy_observation)",
+    "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/lerobot/processor/pipeline.py\", line 294, in __call__",
+    "    transformed_transition = self._forward(transition)",
+    "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/lerobot/processor/pipeline.py\", line 311, in _forward",
+    "    transition = processor_step(transition)",
+    "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/lerobot/processor/pipeline.py\", line 1463, in __call__",
+    "    processed_observation = self.observation(observation.copy())",
+    "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/lerobot/processor/env_processor.py\", line 112, in observation",
+    "    return self._process_observation(observation)",
+    "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/lerobot/processor/env_processor.py\", line 73, in _process_observation",
+    "    eef_axisangle = self._quat2axisangle(eef_quat)  # (B, 3)",
+    "  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/lerobot/processor/env_processor.py\", line 134, in _quat2axisangle",
+    "    raise ValueError(f\"_quat2axisangle expected shape (B, 4), got {tuple(quat.shape)}\")",
+    "ValueError: _quat2axisangle expected shape (B, 4), got (4,)"
+  ]
+}

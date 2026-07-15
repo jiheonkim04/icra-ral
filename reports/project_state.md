@@ -1,20 +1,20 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 15 Current State
+## 2026-07-15 Epoch 4 Cycle 16 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `LIFT_COMPUTE_INFEASIBLE`
 
 Current epoch: `4`
 
-Current cycle: `15`
+Current cycle: `16`
 
 Cycle 15 generated exactly three candidates and selected `LIFT-VLA`, an inference-only method that applies language guidance throughout SmolVLA's continuous action-flow path. The proposal is frozen at `reports/lift_vla/researcher_proposal.md` with hash `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`.
 
-The first comparison is exactly Base, transparent training-free CAG, full LIFT, and matched-compute last-step-only LIFT. Standard LoRA is omitted because generic adaptation does not test the frozen inference mechanism. Reviewer B attack, rebuttal, mathematical audit, preregistration, and prototype protocol are complete. Stage 0 implementation is pending; no LIFT validation search, training, rollout, or confirmatory-test tuning has happened.
+The first comparison was exactly Base, transparent training-free CAG, full LIFT, and matched-compute last-step-only LIFT. Stage 0 passed source/scorer, shape, identity, activation, practical-separation, memory, and latency gates, but action-bound validity was `0.8023809523809524` rather than `1.0`. The frozen decision is `LIFT_COMPUTE_INFEASIBLE`; no clipping rescue, headroom rollout, validation search, training, or confirmatory-test tuning happened. Cycle 16 candidate search is now active.
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 

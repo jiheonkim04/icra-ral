@@ -2325,6 +2325,26 @@ Execution boundary:
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
 
+## 2026-07-15 - Epoch 4 Cycle 15 LIFT-VLA Stage 0
+
+Decision: `LIFT_COMPUTE_INFEASIBLE`
+
+Execution boundary:
+
+- proposal hash: `3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F`
+- valid source/scorer manifest rows: `20 / 20`
+- exact native and postprocessed identity error: `0.0`
+- conditioned-minus-empty activation: `1.0`
+- peak CUDA allocation: `0.9200425148010254 GiB`
+- LIFT/Base median latency ratio: `2.013133036365988`
+- action finite fraction: `1.0`
+- action-bound valid fraction: `0.8023809523809524`
+- required action-bound valid fraction: `1.0`
+- confirmatory policy observations/actions: `0 / 0`
+- validation search, training, and rollout happened: `False`
+
+Consequence: close LIFT without clipping, bridge, scale, headroom, or validation rescue. Continue automatically to `epoch_4_cycle_16_candidate_search_pending`.
+
 ## 2026-07-15 - Epoch 4 Cycle 15 LIFT-VLA Selection And Proposal Freeze
 
 Decision: `LIFT_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`

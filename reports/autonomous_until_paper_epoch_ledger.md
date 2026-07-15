@@ -1,5 +1,11 @@
 # Autonomous Until Paper Epoch Ledger
 
+## 2026-07-15 KST Epoch 4 Update
+
+Cycle 15 `LIFT-VLA` closed at the frozen pre-rollout action-validity gate as
+`LIFT_COMPUTE_INFEASIBLE`. Current cycle: `16`. Current stage:
+`epoch_4_cycle_16_candidate_search_pending`.
+
 ## 2026-07-12 KST Continuity Update
 
 Cycles completed in epoch 1: `3`

@@ -1,0 +1,2616 @@
+{
+  "canonical_payload_sha256": "37e9239547b6883110e608c7cc3550a5a4d2f73d8055ace2ebc14ddca287ad0c",
+  "confirmatory_policy_actions_computed": 0,
+  "confirmatory_policy_observations_decoded": 0,
+  "development_scoreable_episode_count": 14,
+  "minimum_target_task_counts": {
+    "confirmatory": 2,
+    "discovery": 4,
+    "validation": 2
+  },
+  "pairing_rule": "cyclic next task within each frozen target-task partition",
+  "partition_overlaps": [],
+  "partition_rule": {
+    "confirmatory": [
+      7,
+      8,
+      9
+    ],
+    "discovery": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "validation": [
+      4,
+      5,
+      6
+    ]
+  },
+  "ready_for_stage_0_model_load": true,
+  "reset_rule": "two source states per target at indices 2*target_sorted_index and +1",
+  "row_count": 20,
+  "rows": [
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ]
+        ],
+        "source_benchmark_task_id": 3,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 0,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "wooden_cabinet_1_middle_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "82648ccb4637a913dd7120ef28b740cf37114048b2a6b38506a63e5bf047c519",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/open_the_top_drawer_and_put_the_bowl_inside/open_the_middle_drawer_of_the_cabinet/15000",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15000,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl",
+      "source_bddl_sha256": "331974c58b0c7ec65ab2f8a075144d93fae91d5b9db4658844fd7bbf495ff1c4",
+      "source_goal_state": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "source_initial_state_index": 0,
+      "source_language": "open the top layer of the drawer and put the bowl inside",
+      "source_sorted_index": 1,
+      "source_task": "open_the_top_drawer_and_put_the_bowl_inside",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl",
+      "target_bddl_sha256": "a472ba8d20f97d8a8d20b36d1f42d6bf2b76a35e8f29cbad33f4bc404b485dfa",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "target_language": "open the middle layer of the drawer",
+      "target_obj_of_interest": [
+        "wooden_cabinet_1_middle_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 0,
+      "target_task": "open_the_middle_drawer_of_the_cabinet",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ]
+        ],
+        "source_benchmark_task_id": 3,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 0,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "wooden_cabinet_1_middle_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "129620065cb1f88d9f1ee6f586691f5c42cebbacde285a5aee08fe35c1c06577",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/open_the_top_drawer_and_put_the_bowl_inside/open_the_middle_drawer_of_the_cabinet/15001",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15001,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl",
+      "source_bddl_sha256": "331974c58b0c7ec65ab2f8a075144d93fae91d5b9db4658844fd7bbf495ff1c4",
+      "source_goal_state": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "source_initial_state_index": 1,
+      "source_language": "open the top layer of the drawer and put the bowl inside",
+      "source_sorted_index": 1,
+      "source_task": "open_the_top_drawer_and_put_the_bowl_inside",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl",
+      "target_bddl_sha256": "a472ba8d20f97d8a8d20b36d1f42d6bf2b76a35e8f29cbad33f4bc404b485dfa",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "target_language": "open the middle layer of the drawer",
+      "target_obj_of_interest": [
+        "wooden_cabinet_1_middle_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 0,
+      "target_task": "open_the_middle_drawer_of_the_cabinet",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "open",
+            "wooden_cabinet_1_middle_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ]
+        ],
+        "source_benchmark_task_id": 5,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 3,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "bdab83b2513cbc398fc185a062675e11c1995b91bfb55f1338594eeb5e97b557",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/push_the_plate_to_the_front_of_the_stove/open_the_top_drawer_and_put_the_bowl_inside/15002",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15002,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl",
+      "source_bddl_sha256": "aeb7a582f75e366904bbcc9fadf46112c424742f55bc6f0d75f62284650dd4fe",
+      "source_goal_state": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "source_initial_state_index": 2,
+      "source_language": "push the plate to the front of the stove",
+      "source_sorted_index": 2,
+      "source_task": "push_the_plate_to_the_front_of_the_stove",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl",
+      "target_bddl_sha256": "331974c58b0c7ec65ab2f8a075144d93fae91d5b9db4658844fd7bbf495ff1c4",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "target_language": "open the top layer of the drawer and put the bowl inside",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 1,
+      "target_task": "open_the_top_drawer_and_put_the_bowl_inside",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ]
+        ],
+        "source_benchmark_task_id": 5,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 3,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "957874faa8e613db6e88de628ae349eae220e8c0cf2ee37b7fae09318b864875",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/push_the_plate_to_the_front_of_the_stove/open_the_top_drawer_and_put_the_bowl_inside/15003",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15003,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl",
+      "source_bddl_sha256": "aeb7a582f75e366904bbcc9fadf46112c424742f55bc6f0d75f62284650dd4fe",
+      "source_goal_state": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "source_initial_state_index": 3,
+      "source_language": "push the plate to the front of the stove",
+      "source_sorted_index": 2,
+      "source_task": "push_the_plate_to_the_front_of_the_stove",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl",
+      "target_bddl_sha256": "331974c58b0c7ec65ab2f8a075144d93fae91d5b9db4658844fd7bbf495ff1c4",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "target_language": "open the top layer of the drawer and put the bowl inside",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 1,
+      "target_task": "open_the_top_drawer_and_put_the_bowl_inside",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "in",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ]
+        ],
+        "source_benchmark_task_id": 8,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 5,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "main_table_stove_front_region",
+          "plate_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "3817838dd5f7a448a586d3217b90c0eaf5515a4d2a1e1ecc56092bfac90a42f1",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_bowl_on_the_plate/push_the_plate_to_the_front_of_the_stove/15004",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15004,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_plate.bddl",
+      "source_bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+      "source_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "source_initial_state_index": 4,
+      "source_language": "put the bowl on the plate",
+      "source_sorted_index": 3,
+      "source_task": "put_the_bowl_on_the_plate",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl",
+      "target_bddl_sha256": "aeb7a582f75e366904bbcc9fadf46112c424742f55bc6f0d75f62284650dd4fe",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "target_language": "push the plate to the front of the stove",
+      "target_obj_of_interest": [
+        "main_table_stove_front_region",
+        "plate_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 2,
+      "target_task": "push_the_plate_to_the_front_of_the_stove",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ]
+        ],
+        "source_benchmark_task_id": 8,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 5,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "main_table_stove_front_region",
+          "plate_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "b07acf1db6e56645266a4ff4da58280c4af62cd2df76466e30c98165b3472271",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_bowl_on_the_plate/push_the_plate_to_the_front_of_the_stove/15005",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15005,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_plate.bddl",
+      "source_bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+      "source_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "source_initial_state_index": 5,
+      "source_language": "put the bowl on the plate",
+      "source_sorted_index": 3,
+      "source_task": "put_the_bowl_on_the_plate",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl",
+      "target_bddl_sha256": "aeb7a582f75e366904bbcc9fadf46112c424742f55bc6f0d75f62284650dd4fe",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "target_language": "push the plate to the front of the stove",
+      "target_obj_of_interest": [
+        "main_table_stove_front_region",
+        "plate_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 2,
+      "target_task": "push_the_plate_to_the_front_of_the_stove",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "plate_1",
+            "main_table_stove_front_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ]
+        ],
+        "source_benchmark_task_id": 0,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 8,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "f40979cd9a55d6e7589b9f8a8e764f7cd171dcbe64cb0d0d4e7cc97bc7175867",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/open_the_middle_drawer_of_the_cabinet/put_the_bowl_on_the_plate/15006",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15006,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl",
+      "source_bddl_sha256": "a472ba8d20f97d8a8d20b36d1f42d6bf2b76a35e8f29cbad33f4bc404b485dfa",
+      "source_goal_state": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "source_initial_state_index": 6,
+      "source_language": "open the middle layer of the drawer",
+      "source_sorted_index": 0,
+      "source_task": "open_the_middle_drawer_of_the_cabinet",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_plate.bddl",
+      "target_bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "target_language": "put the bowl on the plate",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "plate_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 3,
+      "target_task": "put_the_bowl_on_the_plate",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ]
+        ],
+        "source_benchmark_task_id": 0,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 8,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "discovery",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "802ef16a4000d0fbe4e2437747ed0706cc1ab8903ba64563165851b804f75607",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/open_the_middle_drawer_of_the_cabinet/put_the_bowl_on_the_plate/15007",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15007,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl",
+      "source_bddl_sha256": "a472ba8d20f97d8a8d20b36d1f42d6bf2b76a35e8f29cbad33f4bc404b485dfa",
+      "source_goal_state": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "source_initial_state_index": 7,
+      "source_language": "open the middle layer of the drawer",
+      "source_sorted_index": 0,
+      "source_task": "open_the_middle_drawer_of_the_cabinet",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_plate.bddl",
+      "target_bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "target_language": "put the bowl on the plate",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "plate_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 3,
+      "target_task": "put_the_bowl_on_the_plate",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "plate_1"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "source_benchmark_task_id": 4,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 1,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "validation",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "f1a01b4869f6aa6ec50b5ba73521f76ea2a9db31408e7d13098d76eb5836f76b",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_bowl_on_top_of_the_cabinet/put_the_bowl_on_the_stove/15008",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15008,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl",
+      "source_bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+      "source_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "source_initial_state_index": 8,
+      "source_language": "put the bowl on the top of the drawer",
+      "source_sorted_index": 5,
+      "source_task": "put_the_bowl_on_top_of_the_cabinet",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl",
+      "target_bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "target_language": "put the bowl on the stove",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 4,
+      "target_task": "put_the_bowl_on_the_stove",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "source_benchmark_task_id": 4,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 1,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "validation",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "0bdb12152f26683de8453761aed0ba4b147942a7da423c2d73a18cb4d9eec24b",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_bowl_on_top_of_the_cabinet/put_the_bowl_on_the_stove/15009",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15009,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl",
+      "source_bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+      "source_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "source_initial_state_index": 9,
+      "source_language": "put the bowl on the top of the drawer",
+      "source_sorted_index": 5,
+      "source_task": "put_the_bowl_on_top_of_the_cabinet",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl",
+      "target_bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "target_language": "put the bowl on the stove",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 4,
+      "target_task": "put_the_bowl_on_the_stove",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "flat_stove_1_cook_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "source_benchmark_task_id": 6,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 4,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "validation",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "eca26d7297e28c669d49ca75a8d40efedb4848b81af5f9ee1bd51fab51f76bef",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_cream_cheese_in_the_bowl/put_the_bowl_on_top_of_the_cabinet/15010",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15010,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl",
+      "source_bddl_sha256": "478bd5726ad7d9bde05e8f26f6a9984d503dc4a91c27d0565f5f0beea1ed3bb1",
+      "source_goal_state": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "source_initial_state_index": 10,
+      "source_language": "put the cream cheese on the bowl",
+      "source_sorted_index": 6,
+      "source_task": "put_the_cream_cheese_in_the_bowl",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl",
+      "target_bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "target_language": "put the bowl on the top of the drawer",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 5,
+      "target_task": "put_the_bowl_on_top_of_the_cabinet",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "source_benchmark_task_id": 6,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 4,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "validation",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "0ed370b787e1517ffe8ec84f39c97557d443a6c1a21e1626534c6e4ffa27a47d",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_cream_cheese_in_the_bowl/put_the_bowl_on_top_of_the_cabinet/15011",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15011,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl",
+      "source_bddl_sha256": "478bd5726ad7d9bde05e8f26f6a9984d503dc4a91c27d0565f5f0beea1ed3bb1",
+      "source_goal_state": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "source_initial_state_index": 11,
+      "source_language": "put the cream cheese on the bowl",
+      "source_sorted_index": 6,
+      "source_task": "put_the_cream_cheese_in_the_bowl",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl",
+      "target_bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "target_language": "put the bowl on the top of the drawer",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 5,
+      "target_task": "put_the_bowl_on_top_of_the_cabinet",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "akita_black_bowl_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ]
+        ],
+        "source_benchmark_task_id": 1,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 6,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "validation",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "cream_cheese_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "dc75923b8a563b8ae794650241d520d42475ac48f750344e2f5ad46f547989ff",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_bowl_on_the_stove/put_the_cream_cheese_in_the_bowl/15012",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15012,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl",
+      "source_bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+      "source_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "source_initial_state_index": 12,
+      "source_language": "put the bowl on the stove",
+      "source_sorted_index": 4,
+      "source_task": "put_the_bowl_on_the_stove",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl",
+      "target_bddl_sha256": "478bd5726ad7d9bde05e8f26f6a9984d503dc4a91c27d0565f5f0beea1ed3bb1",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "target_language": "put the cream cheese on the bowl",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "cream_cheese_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 6,
+      "target_task": "put_the_cream_cheese_in_the_bowl",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": false,
+        "initial_target_success": false,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ]
+        ],
+        "source_benchmark_task_id": 1,
+        "source_state_applied": true,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 6,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "validation",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ]
+        ],
+        "obj_of_interest": [
+          "akita_black_bowl_1",
+          "cream_cheese_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "3cca37fa44f86ed043b0ccae813a27b677c2d2b773827059b7d4dbfb23801978",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_bowl_on_the_stove/put_the_cream_cheese_in_the_bowl/15013",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15013,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl",
+      "source_bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+      "source_goal_state": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "source_initial_state_index": 13,
+      "source_language": "put the bowl on the stove",
+      "source_sorted_index": 4,
+      "source_task": "put_the_bowl_on_the_stove",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl",
+      "target_bddl_sha256": "478bd5726ad7d9bde05e8f26f6a9984d503dc4a91c27d0565f5f0beea1ed3bb1",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "target_language": "put the cream cheese on the bowl",
+      "target_obj_of_interest": [
+        "akita_black_bowl_1",
+        "cream_cheese_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 6,
+      "target_task": "put_the_cream_cheese_in_the_bowl",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "cream_cheese_1",
+            "akita_black_bowl_1"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": null,
+        "initial_target_success": null,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ]
+        ],
+        "source_benchmark_task_id": 2,
+        "source_state_applied": false,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 9,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "confirmatory",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "dc9f0b9bbe9013de4d3eae7815e654521fdef9f7c5d1887889374f0ca4ce831e",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_wine_bottle_on_top_of_the_cabinet/put_the_wine_bottle_on_the_rack/15014",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15014,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+      "source_bddl_sha256": "38242c40f3640cc6076a1569271647ab9a063e69345309da843193d9b0241265",
+      "source_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "source_initial_state_index": 14,
+      "source_language": "put the wine bottle on the top of the drawer",
+      "source_sorted_index": 8,
+      "source_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_the_rack.bddl",
+      "target_bddl_sha256": "bfe7b14240a61700419ec2dd99857177f373aa1ead1f0a991458815a843c5772",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "target_language": "put the wine bottle on the rack",
+      "target_obj_of_interest": [
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 7,
+      "target_task": "put_the_wine_bottle_on_the_rack",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": null,
+        "initial_target_success": null,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ]
+        ],
+        "source_benchmark_task_id": 2,
+        "source_state_applied": false,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 9,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "confirmatory",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ]
+        ],
+        "obj_of_interest": [
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "bdde0f80d1fb89d38b260307f5f1de4d69c2bb80f62b8103225248e85b846d58",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_wine_bottle_on_top_of_the_cabinet/put_the_wine_bottle_on_the_rack/15015",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15015,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+      "source_bddl_sha256": "38242c40f3640cc6076a1569271647ab9a063e69345309da843193d9b0241265",
+      "source_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "source_initial_state_index": 15,
+      "source_language": "put the wine bottle on the top of the drawer",
+      "source_sorted_index": 8,
+      "source_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_the_rack.bddl",
+      "target_bddl_sha256": "bfe7b14240a61700419ec2dd99857177f373aa1ead1f0a991458815a843c5772",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "target_language": "put the wine bottle on the rack",
+      "target_obj_of_interest": [
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 7,
+      "target_task": "put_the_wine_bottle_on_the_rack",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wine_rack_1_top_region"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": null,
+        "initial_target_success": null,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "source_benchmark_task_id": 7,
+        "source_state_applied": false,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 2,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "confirmatory",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "obj_of_interest": [
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "5955380f53dc4cd6bf8e663e9d4ad62948e8dedbed19e5f48fc62b4b9466b4a7",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/turn_on_the_stove/put_the_wine_bottle_on_top_of_the_cabinet/15016",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15016,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/turn_on_the_stove.bddl",
+      "source_bddl_sha256": "c9f2ca9dc069c3597b1824f014f3865f7c8029fdc101545ec21d75ac1a10720f",
+      "source_goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "source_initial_state_index": 16,
+      "source_language": "turn on the stove",
+      "source_sorted_index": 9,
+      "source_task": "turn_on_the_stove",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+      "target_bddl_sha256": "38242c40f3640cc6076a1569271647ab9a063e69345309da843193d9b0241265",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "target_language": "put the wine bottle on the top of the drawer",
+      "target_obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 8,
+      "target_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": null,
+        "initial_target_success": null,
+        "instantiated_target_goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "source_benchmark_task_id": 7,
+        "source_state_applied": false,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 2,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "confirmatory",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ],
+        "obj_of_interest": [
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "bd8cbf658b680122f142a1639ed22e36649b1ff9093d2d9cfaa717d8e7604371",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/turn_on_the_stove/put_the_wine_bottle_on_top_of_the_cabinet/15017",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15017,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/turn_on_the_stove.bddl",
+      "source_bddl_sha256": "c9f2ca9dc069c3597b1824f014f3865f7c8029fdc101545ec21d75ac1a10720f",
+      "source_goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "source_initial_state_index": 17,
+      "source_language": "turn on the stove",
+      "source_sorted_index": 9,
+      "source_task": "turn_on_the_stove",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+      "target_bddl_sha256": "38242c40f3640cc6076a1569271647ab9a063e69345309da843193d9b0241265",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "target_language": "put the wine bottle on the top of the drawer",
+      "target_obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 8,
+      "target_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "on",
+            "wine_bottle_1",
+            "wooden_cabinet_1_top_side"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": null,
+        "initial_target_success": null,
+        "instantiated_target_goal_state": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ]
+        ],
+        "source_benchmark_task_id": 9,
+        "source_state_applied": false,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 7,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "confirmatory",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ]
+        ],
+        "obj_of_interest": [
+          "flat_stove_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "b85af0931dbace25cb76007cdab629e3f95422991896b6665ad7dd5c641f4ca9",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_wine_bottle_on_the_rack/turn_on_the_stove/15018",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15018,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_the_rack.bddl",
+      "source_bddl_sha256": "bfe7b14240a61700419ec2dd99857177f373aa1ead1f0a991458815a843c5772",
+      "source_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "source_initial_state_index": 18,
+      "source_language": "put the wine bottle on the rack",
+      "source_sorted_index": 7,
+      "source_task": "put_the_wine_bottle_on_the_rack",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/turn_on_the_stove.bddl",
+      "target_bddl_sha256": "c9f2ca9dc069c3597b1824f014f3865f7c8029fdc101545ec21d75ac1a10720f",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "target_language": "turn on the stove",
+      "target_obj_of_interest": [
+        "flat_stove_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 9,
+      "target_task": "turn_on_the_stove",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ]
+        ]
+      },
+      "valid": true
+    },
+    {
+      "dynamic_scorer_audit": {
+        "confirmatory_state_applied": false,
+        "confirmatory_success_or_grounding_read": false,
+        "errors": [],
+        "initial_target_grounding": null,
+        "initial_target_success": null,
+        "instantiated_target_goal_state": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ]
+        ],
+        "source_benchmark_task_id": 9,
+        "source_state_applied": false,
+        "source_state_shape_compatible": true,
+        "target_benchmark_task_id": 7,
+        "target_environment_problem": "libero_tabletop_manipulation",
+        "target_goal_entities_instantiated": true,
+        "target_success_scorer_callable": true,
+        "valid": true
+      },
+      "errors": [],
+      "evidence_partition": "confirmatory",
+      "feasibility_audit": {
+        "pairing_rule": "next target task within the frozen evidence partition",
+        "reset_rule": "source init-state indices 2*target_sorted_index and +1",
+        "same_scene": true,
+        "static_errors": [],
+        "static_valid": true,
+        "target_goal_differs": true
+      },
+      "grounding_scorer": {
+        "definition": "conjunction of target goal predicates that mention target obj_of_interest",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ]
+        ],
+        "obj_of_interest": [
+          "flat_stove_1"
+        ]
+      },
+      "initial_state_dtype": "float64",
+      "initial_state_sha256": "840ae5951ef9d9aa5f1160755e73506fd5337a7830e956796dd2d90d0e25966c",
+      "initial_state_shape": [
+        79
+      ],
+      "manifest_key": "libero_goal/put_the_wine_bottle_on_the_rack/turn_on_the_stove/15019",
+      "old_offline_proxy_used": false,
+      "reset_seed": 15019,
+      "scene_sha256": "8e4569180429d57f521578e3bc123a1c3820ac9228dac928c0470796e6359452",
+      "source_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_the_rack.bddl",
+      "source_bddl_sha256": "bfe7b14240a61700419ec2dd99857177f373aa1ead1f0a991458815a843c5772",
+      "source_goal_state": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "source_initial_state_index": 19,
+      "source_language": "put the wine bottle on the rack",
+      "source_sorted_index": 7,
+      "source_task": "put_the_wine_bottle_on_the_rack",
+      "suite": "libero_goal",
+      "target_bddl_path": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal/turn_on_the_stove.bddl",
+      "target_bddl_sha256": "c9f2ca9dc069c3597b1824f014f3865f7c8029fdc101545ec21d75ac1a10720f",
+      "target_fixtures": [
+        "flat_stove_1",
+        "main_table",
+        "wine_rack_1",
+        "wooden_cabinet_1"
+      ],
+      "target_goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "target_language": "turn on the stove",
+      "target_obj_of_interest": [
+        "flat_stove_1"
+      ],
+      "target_objects": [
+        "akita_black_bowl_1",
+        "cream_cheese_1",
+        "plate_1",
+        "wine_bottle_1"
+      ],
+      "target_regions": [
+        "bowl_drainer_1_left_region",
+        "bowl_drainer_1_right_region",
+        "flat_stove_1_cook_region",
+        "main_table_akita_black_bowl_region",
+        "main_table_cabinet_region",
+        "main_table_cream_cheese_region",
+        "main_table_plate_region",
+        "main_table_stove_front_region",
+        "main_table_stove_region",
+        "main_table_wine_bottle_region",
+        "main_table_wine_rack_region",
+        "wine_rack_1_top_region",
+        "wooden_cabinet_1_bottom_region",
+        "wooden_cabinet_1_middle_region",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "target_sorted_index": 9,
+      "target_task": "turn_on_the_stove",
+      "task_success_scorer": {
+        "definition": "OffScreenRenderEnv.check_success -> target environment _check_success",
+        "environment": "target BDDL environment",
+        "goal_state": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ]
+        ]
+      },
+      "valid": true
+    }
+  ],
+  "schema_version": "lift-vla-counterfactual-manifest-v1",
+  "target_task_counts": {
+    "confirmatory": 3,
+    "discovery": 4,
+    "validation": 3
+  },
+  "task_count": 10,
+  "valid_row_count": 20
+}

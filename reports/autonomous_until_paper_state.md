@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `LIFT_COMPUTE_INFEASIBLE`
 
 Current epoch: `4`
 
-Current cycle: `15`
+Current cycle: `16`
 
-Current stage: `epoch_4_cycle_15_lift_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_16_candidate_search_pending`
 
 Allowed final states:
 
@@ -444,4 +444,6 @@ Researcher A accepted every constraint in `reports/lift_vla/researcher_rebuttal.
 
 The mathematical audit, preregistration, and prototype protocol are frozen in `reports/lift_vla/mathematical_mechanism_audit.md`, `reports/lift_vla/preregistration.md`, and `reports/lift_vla/prototype_protocol.md`. They freeze native `[1,50,32]` flow tensors, ten steps, native-space same-noise CAG, `20` evaluations for Prior/Ours/ablation, practical-equivalence threshold construction, target-task partitions `[0-3] / [4-6] / [7-9]`, three guidance scales, and zero confirmatory policy decodes in Stage 0.
 
-Current decision: `LIFT_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. No implementation, validation search, training, rollout, or confirmatory-test tuning has happened.
+LIFT Stage 0 is implemented and adjudicated in `reports/lift_vla/stage_0_adjudication.md` as `LIFT_COMPUTE_INFEASIBLE`. The same-scene target-BDDL manifest retained `20 / 20` valid rows, exact identity passed at `0.0`, mechanism activation and practical separation passed, peak CUDA allocation was `0.9200425148010254 GiB`, and LIFT latency was `2.013133036365988` times Base. Executed-action bound validity was only `0.8023809523809524` against the frozen `1.0` requirement. No clipping rescue, headroom rollout, validation search, training, Stage A, or confirmatory evaluation ran; confirmatory policy observations and actions remained zero.
+
+Current decision: `LIFT_COMPUTE_INFEASIBLE`. Cycle 15 is closed without rescue. Current stage: `epoch_4_cycle_16_candidate_search_pending`; generate exactly three materially distinct candidates and select exactly one under the active governance.

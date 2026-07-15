@@ -1,0 +1,564 @@
+{
+  "completed_stage": "discovery_mechanism_compute_smoke",
+  "confirmatory_policy_actions_computed": 0,
+  "confirmatory_policy_observations_decoded": 0,
+  "elapsed_seconds": 77.648,
+  "errors": [],
+  "final_decision": "LIFT_COMPUTE_INFEASIBLE",
+  "manifest": {
+    "path": "reports/lift_vla/counterfactual_manifest.json",
+    "ready": true,
+    "row_count": 20,
+    "sha256": "37e9239547b6883110e608c7cc3550a5a4d2f73d8055ace2ebc14ddca287ad0c",
+    "valid_row_count": 20
+  },
+  "mode": "audit",
+  "policy_load_audit": {
+    "action_chunk_device": "cuda:0",
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_finite": true,
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "amp_fp16_or_bf16_active": false,
+    "autocast": {
+      "cpu": false,
+      "cuda": false
+    },
+    "control_mode": "relative",
+    "cuda_memory": {
+      "allocated_bytes": 937383424,
+      "allocated_mb": 893.958,
+      "max_allocated_bytes": 970928640,
+      "max_allocated_mb": 925.95
+    },
+    "empty_cameras": 1,
+    "input_tensor_devices": {
+      "observation.images.camera1": "cuda:0",
+      "observation.images.camera2": "cuda:0",
+      "observation.language.attention_mask": "cuda:0",
+      "observation.language.tokens": "cuda:0",
+      "observation.state": "cuda:0"
+    },
+    "input_tensor_shapes": {
+      "observation.images.camera1": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.images.camera2": [
+        1,
+        3,
+        256,
+        256
+      ],
+      "observation.language.attention_mask": [
+        1,
+        48
+      ],
+      "observation.language.tokens": [
+        1,
+        48
+      ],
+      "observation.state": [
+        1,
+        8
+      ]
+    },
+    "load_seconds": 20.159,
+    "old_custom_libero_7d_route_used": false,
+    "parameter": {
+      "device": "cuda:0",
+      "dtype": "torch.bfloat16",
+      "numel": 589824
+    },
+    "peft": {
+      "used": false
+    },
+    "policy_class": "SmolVLAPolicy",
+    "policy_name": "frozen_base",
+    "rename_map": {
+      "observation.images.image": "observation.images.camera1",
+      "observation.images.image2": "observation.images.camera2"
+    }
+  },
+  "proposal_hash": "3D263AA6FF73B342523D85AD4854145AF4D79DE2B90C6119F417D37A8B08F55F",
+  "schema_version": "lift-vla-stage0-v1",
+  "smoke": {
+    "action_gate_passed": false,
+    "action_validity": {
+      "finite_fraction": 1.0,
+      "out_of_range_fraction": 0.19761904761904758,
+      "per_dimension_max": [
+        -0.1389116495847702,
+        0.4675874412059784,
+        1.0558278560638428,
+        2.0888640880584717,
+        1.283451795578003,
+        4.302379131317139,
+        0.003307327628135681
+      ],
+      "per_dimension_min": [
+        -1.5645713806152344,
+        -0.21901655197143555,
+        -0.09962598979473114,
+        0.19627980887889862,
+        0.23111054301261902,
+        -0.34103789925575256,
+        -0.03245067596435547
+      ],
+      "range_valid_fraction": 0.8023809523809524,
+      "variant_specific_clipping_applied": false
+    },
+    "activation_gate_passed": true,
+    "base_prefix": {
+      "conditioned": {
+        "embedding_shape": [
+          1,
+          241,
+          960
+        ],
+        "pad_mask_shape": [
+          1,
+          241
+        ]
+      }
+    },
+    "compute_gate_passed": true,
+    "cuda_memory": {
+      "limit_bytes": 16642998272,
+      "peak_allocated_bytes": 987888128,
+      "peak_allocated_gib": 0.9200425148010254
+    },
+    "discovery_practical_separation_seen": true,
+    "empty_language": {
+      "empty_attention_mask": [
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "empty_token_ids": [
+        [
+          198,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "task_text": "",
+      "token_ids": [
+        [
+          6465,
+          260,
+          3891,
+          4070,
+          282,
+          260,
+          46520,
+          198,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    "field_counts_ok": true,
+    "identity": {
+      "latency_seconds": 0.6067342589999498,
+      "native_max_abs_error": 0.0,
+      "omega": 1.0,
+      "postprocessed_max_abs_error": 0.0
+    },
+    "identity_gate_passed": true,
+    "identity_prefix": {
+      "conditioned": {
+        "embedding_shape": [
+          1,
+          241,
+          960
+        ],
+        "pad_mask_shape": [
+          1,
+          241
+        ]
+      },
+      "empty": {
+        "embedding_shape": [
+          1,
+          241,
+          960
+        ],
+        "pad_mask_shape": [
+          1,
+          241
+        ]
+      }
+    },
+    "latency": {
+      "base_calls_seconds": [
+        0.30099250500006747,
+        0.25401417900002343,
+        0.27803882500006694
+      ],
+      "base_median_seconds": 0.27803882500006694,
+      "lift_calls_seconds": [
+        0.5597291440000163,
+        0.5497990100000152,
+        0.5619185460000153
+      ],
+      "lift_median_seconds": 0.5597291440000163,
+      "lift_over_base_ratio": 2.013133036365988,
+      "limit_ratio": 4.0
+    },
+    "manifest_key": "libero_goal/open_the_top_drawer_and_put_the_bowl_inside/open_the_middle_drawer_of_the_cabinet/15000",
+    "noise_seed": 1890671940403605954,
+    "repeatability": {
+      "first_action_rms_errors": [
+        0.0,
+        0.0
+      ],
+      "native_rms_errors": [
+        0.0,
+        0.0
+      ]
+    },
+    "separation": {
+      "1.25": {
+        "above_discovery_thresholds": true,
+        "conditioned_minus_empty_nonzero_step_fraction": 1.0,
+        "field_evaluations": {
+          "ablation": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          },
+          "cag": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          },
+          "lift": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          }
+        },
+        "finite_fraction": 1.0,
+        "gripper_delta_from_base": 9.284168481826782e-05,
+        "latency_seconds": {
+          "ablation": 0.5829700540000431,
+          "cag": 0.5455933299999742,
+          "lift": 0.5597291440000163
+        },
+        "lift_vs_ablation_first_action_rms": 0.012146418914198875,
+        "lift_vs_ablation_native_rms": 0.0702623724937439,
+        "lift_vs_cag_first_action_rms": 0.010180198587477207,
+        "lift_vs_cag_native_rms": 0.024345465004444122,
+        "range_valid_fraction": 0.8114285714285714,
+        "rotation_delta_from_base": [
+          -0.0017485618591308594,
+          0.028262197971343994,
+          -0.007964923977851868
+        ],
+        "translation_delta_from_base": [
+          -0.008538544178009033,
+          0.01854965090751648,
+          0.024865686893463135
+        ]
+      },
+      "1.50": {
+        "above_discovery_thresholds": true,
+        "conditioned_minus_empty_nonzero_step_fraction": 1.0,
+        "field_evaluations": {
+          "ablation": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          },
+          "cag": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          },
+          "lift": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          }
+        },
+        "finite_fraction": 1.0,
+        "gripper_delta_from_base": 0.0011333078145980835,
+        "latency_seconds": {
+          "ablation": 0.5464448360000915,
+          "cag": 0.5934016720000272,
+          "lift": 0.5497990100000152
+        },
+        "lift_vs_ablation_first_action_rms": 0.019574638456106186,
+        "lift_vs_ablation_native_rms": 0.13186690211296082,
+        "lift_vs_cag_first_action_rms": 0.024543333798646927,
+        "lift_vs_cag_native_rms": 0.058550987392663956,
+        "range_valid_fraction": 0.8342857142857143,
+        "rotation_delta_from_base": [
+          -0.0005803108215332031,
+          0.04442504048347473,
+          -0.0167858749628067
+        ],
+        "translation_delta_from_base": [
+          -0.017476260662078857,
+          0.030390217900276184,
+          0.04521113634109497
+        ]
+      },
+      "2.00": {
+        "above_discovery_thresholds": true,
+        "conditioned_minus_empty_nonzero_step_fraction": 1.0,
+        "field_evaluations": {
+          "ablation": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          },
+          "cag": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          },
+          "lift": {
+            "conditioned": 10,
+            "empty": 10,
+            "total": 20
+          }
+        },
+        "finite_fraction": 1.0,
+        "gripper_delta_from_base": 0.0005335956811904907,
+        "latency_seconds": {
+          "ablation": 0.613448227000049,
+          "cag": 0.5948982879999676,
+          "lift": 0.5619185460000153
+        },
+        "lift_vs_ablation_first_action_rms": 0.02616921253502369,
+        "lift_vs_ablation_native_rms": 0.23129986226558685,
+        "lift_vs_cag_first_action_rms": 0.06016942486166954,
+        "lift_vs_cag_native_rms": 0.15154331922531128,
+        "range_valid_fraction": 0.7914285714285715,
+        "rotation_delta_from_base": [
+          0.00827479362487793,
+          0.06757402420043945,
+          -0.02184593677520752
+        ],
+        "translation_delta_from_base": [
+          -0.02933959662914276,
+          0.048568904399871826,
+          0.07144498825073242
+        ]
+      }
+    },
+    "shape_gate_passed": true,
+    "shapes": {
+      "conditioned_language_tokens": [
+        1,
+        48
+      ],
+      "empty_language_tokens": [
+        1,
+        48
+      ],
+      "native": [
+        1,
+        50,
+        32
+      ],
+      "policy_chunk": [
+        1,
+        50,
+        7
+      ]
+    }
+  },
+  "static_audit": {
+    "bddl_root": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_goal",
+    "partition_rule": {
+      "confirmatory": [
+        7,
+        8,
+        9
+      ],
+      "discovery": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "validation": [
+        4,
+        5,
+        6
+      ]
+    },
+    "passed": true,
+    "scene_hash_count": 1,
+    "sorted_task_count": 10,
+    "sorted_task_ids": [
+      "open_the_middle_drawer_of_the_cabinet",
+      "open_the_top_drawer_and_put_the_bowl_inside",
+      "push_the_plate_to_the_front_of_the_stove",
+      "put_the_bowl_on_the_plate",
+      "put_the_bowl_on_the_stove",
+      "put_the_bowl_on_top_of_the_cabinet",
+      "put_the_cream_cheese_in_the_bowl",
+      "put_the_wine_bottle_on_the_rack",
+      "put_the_wine_bottle_on_top_of_the_cabinet",
+      "turn_on_the_stove"
+    ]
+  },
+  "thresholds": {
+    "confirmatory_data_used": false,
+    "e_exec": 0.0,
+    "e_native": 0.0,
+    "formula": {
+      "executed": "max(100*e_exec, 0.01*s_exec, 1e-5)",
+      "native": "max(100*e_native, 0.01*s_native, 1e-5)"
+    },
+    "manifest_key": "libero_goal/open_the_top_drawer_and_put_the_bowl_inside/open_the_middle_drawer_of_the_cabinet/15000",
+    "path": "reports/lift_vla/discovery_thresholds.json",
+    "s_exec": 0.8614959120750427,
+    "s_native": 0.9567149877548218,
+    "source": "discovery_only_repeated_same_noise_base",
+    "tau_exec": 0.008614959120750427,
+    "tau_native": 0.009567149877548219,
+    "validation_data_used": false
+  },
+  "training_happened": false,
+  "validation_search_happened": false
+}
