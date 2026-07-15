@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current campaign decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -202,6 +202,6 @@ G3P is anchored to Direct Action-Head Injection of A Grounded 3D Point, with Rob
 
 The design-level five-policy comparison is Base, a closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic.
 
-The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
+The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
 
-Current stage: `epoch_4_cycle_11_g3p_proposal_frozen`. Next action: run Reviewer B attack on the frozen G3P-VLA proposal without altering the proposal during review.
+Current stage: `epoch_4_cycle_11_g3p_reviewer_attack_completed`. Next action: prepare Researcher A rebuttal accepting or resolving the G3P-VLA Reviewer B constraints before mathematical audit or implementation.

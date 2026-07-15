@@ -22,8 +22,8 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_11_g3p_proposal_frozen"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_11_g3p_reviewer_attack_completed"
     assert state["method"] == "G3P-VLA"
     assert state["method_identity"] == "G3P-VLA"
     assert state["proposal_hash"] == G3P_PROPOSAL_HASH
@@ -144,6 +144,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_11_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_11_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_11_g3p_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_11_g3p_reviewer_attack_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -420,7 +421,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert g3p["proposal_hash_file"] == "reports/g3p_vla/proposal_hash.txt"
     assert g3p["proposal_decision"] == "G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert g3p["reviewer_attack"] == "reports/g3p_vla/reviewer_attack.md"
-    assert g3p["reviewer_attack_pending"] is True
+    assert g3p["reviewer_attack_pending"] is False
+    assert g3p["reviewer_attack_completed"] is True
+    assert g3p["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert g3p["rebuttal"] == "reports/g3p_vla/researcher_rebuttal.md"
+    assert g3p["rebuttal_pending"] is True
     assert g3p["rollout_allowed"] is False
     assert g3p["closed_loop_experiment_happened"] is False
     assert g3p["training_happened"] is False
@@ -429,8 +434,18 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert g3p_proposal["proposal"] == "reports/g3p_vla/researcher_proposal.md"
     assert g3p_proposal["proposal_hash"] == G3P_PROPOSAL_HASH
     assert g3p_proposal["final_decision"] == "G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert g3p_proposal["reviewer_attack"] == "reports/g3p_vla/reviewer_attack.md"
+    assert g3p_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert g3p_proposal["reviewer_attack_completed"] is True
     assert g3p_proposal["training_happened"] is False
     assert g3p_proposal["confirmatory_test_tuning_happened"] is False
+    g3p_review = state["epoch_4_cycle_11_g3p_review"]
+    assert g3p_review["reviewer_attack"] == "reports/g3p_vla/reviewer_attack.md"
+    assert g3p_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert g3p_review["closest_prior_proxy_must_remain_transparent"] is True
+    assert g3p_review["source_gate_required_before_rollout"] is True
+    assert g3p_review["simple_heuristic_must_remain_live"] is True
+    assert g3p_review["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

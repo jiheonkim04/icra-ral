@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `11`
 
-Current stage: `epoch_4_cycle_11_g3p_proposal_frozen`
+Current stage: `epoch_4_cycle_11_g3p_reviewer_attack_completed`
 
 Allowed final states:
 
@@ -384,6 +384,6 @@ Exactly three post-EAC candidates were generated and scored in `reports/epoch_4_
 
 The selected first comparison is frozen at the design level to five policies: Base, closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic. The closest-prior proxy is a faithful transparent local proxy, not an official reproduction unless exact official equivalence is later established.
 
-The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
+The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
 
-Current decision: `G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Current stage: `epoch_4_cycle_11_g3p_proposal_frozen`. Next action: run Reviewer B attack on the frozen G3P-VLA proposal without altering the proposal during review.
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_11_g3p_reviewer_attack_completed`. Next action: prepare Researcher A rebuttal accepting or resolving the G3P-VLA Reviewer B constraints before mathematical audit or implementation.

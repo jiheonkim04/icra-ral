@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 11,
-    "current_topic": "epoch_4_cycle_11_g3p_proposal_frozen",
+    "current_topic": "epoch_4_cycle_11_g3p_reviewer_attack_completed",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "8e3bb3c",
+    "current_commit": "812c550",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_11_g3p_proposal_frozen",
+    "current_stage": "epoch_4_cycle_11_g3p_reviewer_attack_completed",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -285,9 +285,10 @@
         "epoch_4_cycle_10_eac_valid_current_formulation_kill_recorded",
         "epoch_4_cycle_11_candidate_search_pending",
         "epoch_4_cycle_11_candidate_generation_completed",
-        "epoch_4_cycle_11_g3p_proposal_frozen"
+        "epoch_4_cycle_11_g3p_proposal_frozen",
+        "epoch_4_cycle_11_g3p_reviewer_attack_completed"
     ],
-    "active_hypothesis": "G3P-VLA selected for Epoch 4 Cycle 11 as a source-gated, identity-preserving 3D spatial grounding method for frozen SmolVLA; no training, rollout, or confirmatory-test tuning has happened for G3P.",
+    "active_hypothesis": "G3P-VLA reviewer attack completed as a conditional pass requiring narrowed novelty, source-legality proof, trivial-baseline controls, and identity-preserving integration before any implementation.",
     "method_identity": "G3P-VLA",
     "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
     "closest_papers": [
@@ -307,7 +308,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -416,7 +417,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Run Reviewer B attack on the frozen G3P-VLA proposal; do not alter the proposal during review.",
+    "next_action": "Prepare Researcher A rebuttal accepting or resolving the G3P-VLA Reviewer B constraints before mathematical audit or implementation.",
     "method": "G3P-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2167,7 +2168,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_11_g3p_proposal_frozen",
+    "topic": "epoch_4_cycle_11_g3p_reviewer_attack_completed",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4268,7 +4269,11 @@
         "proposal_hash_file": "reports/g3p_vla/proposal_hash.txt",
         "proposal_decision": "G3P_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "reviewer_attack": "reports/g3p_vla/reviewer_attack.md",
-        "reviewer_attack_pending": true
+        "reviewer_attack_pending": false,
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true,
+        "rebuttal": "reports/g3p_vla/researcher_rebuttal.md",
+        "rebuttal_pending": true
     },
     "epoch_4_cycle_11_g3p_proposal": {
         "method": "G3P-VLA",
@@ -4280,6 +4285,27 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B attack before implementation, mathematical audit, training, or rollout."
+        "next_stage": "Researcher A rebuttal before mathematical audit, implementation, training, validation search, or rollout.",
+        "reviewer_attack": "reports/g3p_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true,
+        "rebuttal": "reports/g3p_vla/researcher_rebuttal.md",
+        "rebuttal_pending": true
+    },
+    "epoch_4_cycle_11_g3p_review": {
+        "method": "G3P-VLA",
+        "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
+        "reviewer_attack": "reports/g3p_vla/reviewer_attack.md",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "narrowed_novelty": "frozen SmolVLA source-gated identity-preserving local 3D point injection; no broad 3D point injection novelty claim",
+        "closest_prior_proxy_must_remain_transparent": true,
+        "source_gate_required_before_rollout": true,
+        "simple_heuristic_must_remain_live": true,
+        "next_stage": "Researcher A rebuttal accepting or resolving Reviewer B constraints."
     }
 }
