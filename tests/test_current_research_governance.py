@@ -21,6 +21,7 @@ HEST_PROPOSAL_HASH = "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD
 HASTE_PROPOSAL_HASH = "5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6"
 KITE_PROPOSAL_HASH = "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8"
 VDR_PROPOSAL_HASH = "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72"
+RAP_PROPOSAL_HASH = "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -60,11 +61,11 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_researcher_proposal_pending"
+    assert state["current_decision"] == "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_reviewer_attack_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == RAP_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
@@ -201,6 +202,8 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "epoch_4_cycle_25_candidate_generation_completed",
         "epoch_4_cycle_25_rap_candidate_selected",
         "epoch_4_cycle_25_rap_researcher_proposal_pending",
+        "epoch_4_cycle_25_rap_researcher_proposal_frozen",
+        "epoch_4_cycle_25_rap_reviewer_attack_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -209,6 +212,7 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert rap["method"] == "RAP-VLA"
     assert rap["closest_prior"] == "OptimusVLA"
     assert rap["closest_prior_official_repository"] == "https://github.com/iLearn-Lab/CVPR26-OptimusVLA"
+    assert rap["proposal_hash"] == RAP_PROPOSAL_HASH
     assert rap["policy_order"] == [
         "smolvla_base",
         "optimusvla_memory_prior_proxy",
@@ -217,6 +221,10 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "standard_lora",
     ]
     assert rap["standard_lora_required"] is True
+    rap_proposal = state["epoch_4_cycle_25_rap_researcher_proposal"]
+    assert rap_proposal["final_decision"] == "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert rap_proposal["proposal"] == "reports/rap_vla/researcher_proposal.md"
+    assert rap_proposal["proposal_hash"] == RAP_PROPOSAL_HASH
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

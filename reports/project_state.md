@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
+`RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
@@ -29,9 +29,11 @@ transparent OptimusVLA memory prior proxy, RAP full, anchor-only/no-residual
 ablation, and matched standard LoRA.
 
 No RAP training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened. Current stage:
-`epoch_4_cycle_25_rap_researcher_proposal_pending`. Next action is to write
-and freeze one RAP-VLA Researcher A proposal.
+confirmatory-test tuning has happened. The Researcher A proposal is frozen in
+`reports/rap_vla/researcher_proposal.md` with SHA-256
+`E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. Current
+stage: `epoch_4_cycle_25_rap_reviewer_attack_pending`. Next action is to run
+Reviewer B novelty and mathematical-mechanism attack.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest

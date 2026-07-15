@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 25,
-    "topic": "epoch_4_cycle_25_rap_researcher_proposal_pending",
+    "topic": "epoch_4_cycle_25_rap_reviewer_attack_pending",
     "method": "RAP-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "500dfb1",
-    "current_stage": "epoch_4_cycle_25_rap_researcher_proposal_pending",
+    "current_stage": "epoch_4_cycle_25_rap_reviewer_attack_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -497,7 +497,9 @@
         "epoch_4_cycle_25_prior_mechanism_map_completed",
         "epoch_4_cycle_25_candidate_generation_completed",
         "epoch_4_cycle_25_rap_candidate_selected",
-        "epoch_4_cycle_25_rap_researcher_proposal_pending"
+        "epoch_4_cycle_25_rap_researcher_proposal_pending",
+        "epoch_4_cycle_25_rap_researcher_proposal_frozen",
+        "epoch_4_cycle_25_rap_reviewer_attack_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -511,7 +513,7 @@
         "ManiFlow: A General Robot Manipulation Policy via Consistency Flow Training"
     ],
     "prototype_gate": "Frozen VDR Stage 0A source, visual-feature residual, action-conditioned headroom, objective gradient, identity, and persistence audit.",
-    "current_decision": "RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING",
+    "current_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -662,11 +664,11 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write and freeze the RAP-VLA Researcher A proposal without VDR repair, rerun, rescue, or threshold changes.",
+    "next_action": "Run Reviewer B novelty and mathematical-mechanism attack on the frozen RAP-VLA proposal without VDR repair or rescue.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Direct multi-horizon supervision of the generated action chunk's empirical future-state realization can reduce cumulative manipulation drift beyond hidden-state kinematics prediction and cumulative-action matching.",
     "method_identity": "RAP-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
     "prototype_protocol": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -2416,7 +2418,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_25_rap_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_25_rap_reviewer_attack_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6527,6 +6529,33 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write and freeze one RAP-VLA Researcher A proposal."
+        "next_stage": "Reviewer B novelty and mechanism attack.",
+        "proposal": "reports/rap_vla/researcher_proposal.md",
+        "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+        "proposal_hash_file": "reports/rap_vla/proposal_hash.txt",
+        "proposal_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    },
+    "epoch_4_cycle_25_rap_researcher_proposal": {
+        "method": "RAP-VLA",
+        "proposal": "reports/rap_vla/researcher_proposal.md",
+        "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+        "proposal_hash_file": "reports/rap_vla/proposal_hash.txt",
+        "final_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "closest_prior": "OptimusVLA",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2602.20200",
+        "closest_prior_official_repository": "https://github.com/iLearn-Lab/CVPR26-OptimusVLA",
+        "policy_order": [
+            "smolvla_base",
+            "optimusvla_memory_prior_proxy",
+            "rap_full",
+            "rap_anchor_only_no_residual",
+            "standard_lora"
+        ],
+        "bounded_validation_search_max_configs": 6,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Reviewer B novelty and mechanism attack."
     }
 }

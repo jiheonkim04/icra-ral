@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
+`RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -28,10 +28,12 @@ RAP's single mechanism is retrieved legal action anchors plus bounded
 residualized action-flow learning. LoRA is only identity-preserving
 implementation infrastructure. The first serious comparison is exactly Base,
 transparent OptimusVLA memory prior proxy, RAP full, anchor-only/no-residual
-ablation, and matched standard LoRA. No RAP training, validation search,
-rollout, simulator access, or confirmatory-test tuning has happened. Current
-cycle: `25`. Current stage:
-`epoch_4_cycle_25_rap_researcher_proposal_pending`.
+ablation, and matched standard LoRA. The Researcher A proposal is frozen in
+`reports/rap_vla/researcher_proposal.md` with SHA-256
+`E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. No RAP
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened. Current cycle: `25`. Current stage:
+`epoch_4_cycle_25_rap_reviewer_attack_pending`.
 
 ## Epoch 4 Cycle 19 Decision
 

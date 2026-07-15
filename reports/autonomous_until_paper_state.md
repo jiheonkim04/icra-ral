@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
+`RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `25`
 
-Current stage: `epoch_4_cycle_25_rap_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_25_rap_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 25 RAP-VLA
 
@@ -31,10 +31,12 @@ identity-preserving implementation scaffold for the residual/gate path.
 
 The first serious comparison is exactly Base, transparent OptimusVLA memory
 prior proxy, RAP full, anchor-only/no-residual ablation, and matched standard
-LoRA. No training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened for RAP. Next action: write and freeze
-one RAP-VLA Researcher A proposal without VDR repair, rerun, rescue, or
-threshold changes.
+LoRA. The RAP Researcher A proposal is frozen in
+`reports/rap_vla/researcher_proposal.md` with SHA-256
+`E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. No
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened for RAP. Next action: run Reviewer B novelty and
+mathematical-mechanism attack without VDR repair or rescue.
 
 ## Epoch 4 Cycle 24 VDR-VLA
 

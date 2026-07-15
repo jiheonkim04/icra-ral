@@ -5,10 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
+`RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
-Immediate next action: write and freeze one `RAP-VLA` Researcher A proposal
-without VDR repair, rerun, rescue, or threshold changes.
+Immediate next action: run Reviewer B novelty and mathematical-mechanism
+attack on the frozen `RAP-VLA` Researcher A proposal without VDR repair,
+rerun, rescue, or threshold changes.
 
 Cycle 25 generated exactly three candidates and selected `RAP-VLA`,
 Retrieval-Anchored Prior residualization for VLA action flows, at `94 / 100`.
@@ -20,8 +21,11 @@ LoRA is only identity-preserving implementation infrastructure.
 
 The first serious comparison is exactly Base, transparent OptimusVLA memory
 prior proxy, RAP full, anchor-only/no-residual ablation, and matched standard
-LoRA. No RAP training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened.
+LoRA. The Researcher A proposal is frozen in
+`reports/rap_vla/researcher_proposal.md` with SHA-256
+`E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. No RAP
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity
