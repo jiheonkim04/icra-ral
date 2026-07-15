@@ -15,7 +15,7 @@ COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`" in final
+    assert "Current campaign decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -208,7 +208,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert COVI_PROPOSAL_HASH in final
     assert "reports/covi_vla/reviewer_attack.md" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
-    assert "Current stage: `epoch_4_cycle_14_covi_rebuttal_pending`" in final
+    assert "reports/covi_vla/researcher_rebuttal.md" in final
+    assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -216,10 +218,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 14
-    assert state["current_stage"] == "epoch_4_cycle_14_covi_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_mathematical_audit_pending"
     assert state["method"] == "COVI-VLA"
     assert state["method_identity"] == "COVI-VLA"
     assert state["proposal_hash"] == COVI_PROPOSAL_HASH
@@ -235,7 +237,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Write Researcher A rebuttal")
+    assert state["next_action"].startswith("Write COVI mathematical mechanism audit")
     assert state["task_reset_manifest"] is None
     assert state["stage_b_manifest_json"] is None
     assert state["stage_b_partial_checkpoint"] is None
@@ -400,6 +402,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_14_covi_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_rebuttal_completed" in state["completed_stages"]
     covi = state["epoch_4_cycle_14_pre_proposal"]
     assert covi["selection_decision"] == "SELECT_COVI_VLA"
     assert covi["candidate_count"] == 3
@@ -417,6 +420,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert covi["proposal_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert covi["reviewer_attack"] == "reports/covi_vla/reviewer_attack.md"
     assert covi["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert covi["rebuttal"] == "reports/covi_vla/researcher_rebuttal.md"
+    assert covi["rebuttal_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     covi_proposal = state["epoch_4_cycle_14_covi_proposal"]
     assert covi_proposal["final_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert covi_proposal["proposal_hash"] == COVI_PROPOSAL_HASH
@@ -425,6 +430,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert covi_review["vim_proxy_must_remain_transparent"] is True
     assert covi_review["direct_two_camera_fusion_diagnostic_required"] is True
     assert covi_review["random_cutout_simple_killer_must_remain_live"] is True
+    covi_rebuttal = state["epoch_4_cycle_14_covi_rebuttal"]
+    assert covi_rebuttal["final_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert covi_rebuttal["accepted_no_privileged_inference"] is True
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"

@@ -25,8 +25,8 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_14_covi_rebuttal_pending"
+    assert state["current_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_mathematical_audit_pending"
     assert state["method"] == "COVI-VLA"
     assert state["method_identity"] == "COVI-VLA"
     assert state["proposal_hash"] == COVI_PROPOSAL_HASH
@@ -179,6 +179,7 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert "epoch_4_cycle_14_covi_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_rebuttal_completed" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -886,7 +887,11 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi["reviewer_attack"] == "reports/covi_vla/reviewer_attack.md"
     assert covi["reviewer_attack_completed"] is True
     assert covi["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert covi["rebuttal_pending"] is True
+    assert covi["rebuttal_pending"] is False
+    assert covi["rebuttal"] == "reports/covi_vla/researcher_rebuttal.md"
+    assert covi["rebuttal_completed"] is True
+    assert covi["rebuttal_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert covi["mathematical_audit_pending"] is True
     covi_proposal = state["epoch_4_cycle_14_covi_proposal"]
     assert covi_proposal["method"] == "COVI-VLA"
     assert covi_proposal["proposal"] == "reports/covi_vla/researcher_proposal.md"
@@ -896,6 +901,9 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi_proposal["reviewer_attack"] == "reports/covi_vla/reviewer_attack.md"
     assert covi_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert covi_proposal["reviewer_attack_completed"] is True
+    assert covi_proposal["researcher_rebuttal"] == "reports/covi_vla/researcher_rebuttal.md"
+    assert covi_proposal["rebuttal_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert covi_proposal["rebuttal_completed"] is True
     assert covi_proposal["closed_loop_experiment_happened"] is False
     assert covi_proposal["training_happened"] is False
     assert covi_proposal["validation_search_happened"] is False
@@ -909,6 +917,21 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi_review["direct_two_camera_fusion_diagnostic_required"] is True
     assert covi_review["random_cutout_simple_killer_must_remain_live"] is True
     assert covi_review["physical_occlusion_claim_must_be_validated"] is True
+    assert covi_review["researcher_rebuttal"] == "reports/covi_vla/researcher_rebuttal.md"
+    assert covi_review["rebuttal_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert covi_review["rebuttal_completed"] is True
+    covi_rebuttal = state["epoch_4_cycle_14_covi_rebuttal"]
+    assert covi_rebuttal["method"] == "COVI-VLA"
+    assert covi_rebuttal["proposal_hash"] == COVI_PROPOSAL_HASH
+    assert covi_rebuttal["researcher_rebuttal"] == "reports/covi_vla/researcher_rebuttal.md"
+    assert covi_rebuttal["final_decision"] == "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert covi_rebuttal["accepted_narrowed_novelty"] is True
+    assert covi_rebuttal["accepted_transparent_vim_proxy"] is True
+    assert covi_rebuttal["accepted_direct_two_camera_fusion_diagnostic"] is True
+    assert covi_rebuttal["accepted_random_cutout_simple_killer"] is True
+    assert covi_rebuttal["accepted_physical_occlusion_requirement"] is True
+    assert covi_rebuttal["accepted_identity_preserving_integration"] is True
+    assert covi_rebuttal["accepted_no_privileged_inference"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

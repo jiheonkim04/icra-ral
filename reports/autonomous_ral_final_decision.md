@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -239,4 +239,6 @@ The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_pro
 
 Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires narrowed novelty, transparent VIM proxy status, direct two-camera fusion diagnostics, physical occlusion validation, and the live random-cutout simple killer.
 
-Current stage: `epoch_4_cycle_14_covi_rebuttal_pending`. Next action: Researcher A rebuttal before mathematical mechanism audit.
+Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts all Reviewer B constraints.
+
+Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`. Next action: mathematical mechanism audit before preregistration or implementation.

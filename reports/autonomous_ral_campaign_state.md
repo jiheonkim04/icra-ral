@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `14`
 
-Current stage: `epoch_4_cycle_14_covi_rebuttal_pending`
+Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -345,4 +345,6 @@ The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_pro
 
 Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The novelty is narrowed to a frozen-SmolVLA identity-preserving complementary-feature adapter for scene-induced occlusion; the VIM proxy must remain transparent, direct two-camera fusion diagnostics are required, and `random_cutout_clean_retention_baseline` remains live.
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_14_covi_rebuttal_pending`. Next action: Researcher A rebuttal before mathematical mechanism audit. Do not rescue RAR.
+Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepted narrowed novelty, transparent VIM proxy status, direct two-camera fusion diagnostics, the random-cutout simple killer, physical occlusion validation, identity-preserving integration, and no privileged inference.
+
+Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`. Next action: mathematical mechanism audit before preregistration or implementation. Do not rescue RAR.

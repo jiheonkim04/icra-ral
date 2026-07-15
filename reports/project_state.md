@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
@@ -50,7 +50,9 @@ The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_pro
 
 Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires narrowed novelty, transparent VIM proxy status, direct two-camera fusion diagnostics, physical occlusion validation, and the live random-cutout simple killer.
 
-Exact next step: write Researcher A rebuttal before mathematical mechanism audit. Do not rescue RAR.
+Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts all Reviewer B constraints.
+
+Exact next step: write the mathematical mechanism audit before preregistration or implementation. Do not rescue RAR.
 
 ## 2026-07-13 Governance V2 Current State
 
