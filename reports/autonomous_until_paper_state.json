@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 11,
-    "current_topic": "epoch_4_cycle_11_g3p_reviewer_attack_completed",
+    "current_topic": "epoch_4_cycle_11_g3p_rebuttal_completed",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "812c550",
+    "current_commit": "f8f1885",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_11_g3p_reviewer_attack_completed",
+    "current_stage": "epoch_4_cycle_11_g3p_rebuttal_completed",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -286,9 +286,10 @@
         "epoch_4_cycle_11_candidate_search_pending",
         "epoch_4_cycle_11_candidate_generation_completed",
         "epoch_4_cycle_11_g3p_proposal_frozen",
-        "epoch_4_cycle_11_g3p_reviewer_attack_completed"
+        "epoch_4_cycle_11_g3p_reviewer_attack_completed",
+        "epoch_4_cycle_11_g3p_rebuttal_completed"
     ],
-    "active_hypothesis": "G3P-VLA reviewer attack completed as a conditional pass requiring narrowed novelty, source-legality proof, trivial-baseline controls, and identity-preserving integration before any implementation.",
+    "active_hypothesis": "G3P-VLA rebuttal accepted Reviewer B constraints and permits only mathematical mechanism audit next; no implementation, training, validation search, rollout, or confirmatory-test tuning has happened.",
     "method_identity": "G3P-VLA",
     "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
     "closest_papers": [
@@ -308,7 +309,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "current_decision": "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -417,7 +418,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Prepare Researcher A rebuttal accepting or resolving the G3P-VLA Reviewer B constraints before mathematical audit or implementation.",
+    "next_action": "Freeze the G3P-VLA mathematical mechanism audit before any implementation or Stage 0 data construction.",
     "method": "G3P-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2168,7 +2169,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_11_g3p_reviewer_attack_completed",
+    "topic": "epoch_4_cycle_11_g3p_rebuttal_completed",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4273,7 +4274,11 @@
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
         "rebuttal": "reports/g3p_vla/researcher_rebuttal.md",
-        "rebuttal_pending": true
+        "rebuttal_pending": false,
+        "rebuttal_completed": true,
+        "rebuttal_decision": "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "mathematical_audit": "reports/g3p_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_pending": true
     },
     "epoch_4_cycle_11_g3p_proposal": {
         "method": "G3P-VLA",
@@ -4285,12 +4290,16 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal before mathematical audit, implementation, training, validation search, or rollout.",
+        "next_stage": "Mathematical mechanism audit before implementation, Stage 0, training, validation search, or rollout.",
         "reviewer_attack": "reports/g3p_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
         "rebuttal": "reports/g3p_vla/researcher_rebuttal.md",
-        "rebuttal_pending": true
+        "rebuttal_pending": false,
+        "rebuttal_completed": true,
+        "rebuttal_decision": "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "mathematical_audit": "reports/g3p_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_pending": true
     },
     "epoch_4_cycle_11_g3p_review": {
         "method": "G3P-VLA",
@@ -4306,6 +4315,27 @@
         "closest_prior_proxy_must_remain_transparent": true,
         "source_gate_required_before_rollout": true,
         "simple_heuristic_must_remain_live": true,
-        "next_stage": "Researcher A rebuttal accepting or resolving Reviewer B constraints."
+        "next_stage": "Mathematical mechanism audit.",
+        "researcher_rebuttal": "reports/g3p_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "rebuttal_completed": true
+    },
+    "epoch_4_cycle_11_g3p_rebuttal": {
+        "method": "G3P-VLA",
+        "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
+        "reviewer_attack": "reports/g3p_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/g3p_vla/researcher_rebuttal.md",
+        "final_decision": "G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "rebuttal_completed": true,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "accepted_narrowed_novelty": true,
+        "accepted_source_legality_gate": true,
+        "accepted_simple_heuristic_killer": true,
+        "accepted_identity_preserving_integration": true,
+        "next_stage": "Freeze mathematical mechanism audit before any implementation or Stage 0 data construction."
     }
 }
