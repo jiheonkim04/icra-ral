@@ -2990,3 +2990,25 @@ an unchanged Base hash, and a valid disk reload.
 No adapter optimization, simulator rollout, reward, success, done flag, or
 confirmatory identity was used. Only execution of the unchanged frozen HASTE
 Stage 0A audit is pending.
+
+## 2026-07-15 - HASTE-VLA Stage 0A Adjudication
+
+Decision: `HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
+
+The hidden durable wrapper launched exactly one Linux worker, PID `295`. The
+worker exited `1` before manifest persistence when
+`canonical_json_sha256(manifest_payload)` attempted standard JSON serialization
+of NumPy displacement-normalization arrays.
+
+Independent audit found PID `295` dead, zero matching workers, one captured
+`TypeError`, and matching stderr SHA-256
+`BDD0BE9546B11ED9F82FDDA234BB8B34D81EBAD843A437A803D763628381A738`.
+No manifest, partial, feature cache, adapter checkpoint, auxiliary-head
+checkpoint, SmolVLA inference, simulator row, or confirmatory record exists.
+Persisted row count is `0`; duplicate and manifest-key acceptance are therefore
+inapplicable, and no row is accepted as evidence.
+
+This is a pre-manifest implementation failure, not a scientific result or
+scientific kill. Under the frozen protocol, do not repair, resume, rerun, or
+rescue HASTE and do not authorize Stage 0B. Continue automatically to Epoch 4
+Cycle 23 candidate generation.

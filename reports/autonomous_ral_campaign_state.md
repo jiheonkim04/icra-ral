@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `22`
+Current cycle: `23`
 
-Current stage: `epoch_4_cycle_22_haste_stage_0a_pending`
+Current stage: `epoch_4_cycle_23_candidate_search_pending`
 
 ## Epoch 4 Cycle 22 HASTE-VLA
 
@@ -24,10 +24,12 @@ Cycle 22 generated exactly three candidates and selected `HASTE-VLA` at
 The review, rebuttal, mathematical audit, preregistration, and prototype
 protocol are frozen. HASTE supervises a censored time-to-command-event hazard
 and relative cumulative arm displacement during training while retaining the
-ordinary inference path. Runner commit `3dd76f0` is pushed and passed unit,
-real-checkpoint interface, and zero-effect identity smokes. Only Stage 0A
-execution is pending; no adapter training, simulator rollout, or confirmatory
-access is authorized.
+ordinary inference path. Runner commit `3dd76f0` passed unit, real-checkpoint
+interface, and zero-effect identity smokes. Frozen execution PID `295` exited
+`1` before manifest persistence on NumPy JSON serialization. It produced no
+partial, model row, feature cache, adapter, simulator row, or confirmatory
+access. Decision: `HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`. Do not repair,
+resume, rerun, or rescue HASTE; continue to Cycle 23.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

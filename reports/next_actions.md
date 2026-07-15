@@ -1,16 +1,21 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 22 Current Action
+## 2026-07-15 Epoch 4 Cycle 23 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
-Immediate next action: after the mandatory worker/artifact prelaunch audit,
-run only the preregistered Stage 0A source, label, Base headroom,
-frozen-feature observability, identity, and persistence audit. Runner commit
-`3dd76f0` is pushed.
+Immediate next action: generate exactly three Cycle 23 candidates under the
+active prior-first performance governance, select exactly one, freeze and hash
+its proposal, complete Reviewer B attack and rebuttal, preregister, implement,
+and continue automatically.
+
+HASTE Stage 0A PID `295` exited `1` before manifest persistence on a canonical
+JSON serialization defect. It created no partial, model row, feature cache,
+adapter, or closed-loop evidence. Do not repair, resume, rerun, reinterpret, or
+rescue HASTE; Stage 0B is forbidden.
 
 HEST Stage 0A completed `160 / 160` windows with zero exceptions and exact
 artifact integrity. It failed only the frozen all-variant support gate: one

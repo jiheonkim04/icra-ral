@@ -1,17 +1,17 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 22 Current State
+## 2026-07-15 Epoch 4 Cycle 23 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `22`
+Current cycle: `23`
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
@@ -53,9 +53,15 @@ Proposal hash:
 Review, rebuttal, mathematical audit, preregistration, and prototype protocol
 are frozen under `reports/haste_vla/`. The Stage 0A runner is implemented at
 commit `3dd76f0`; its unit, real-checkpoint interface, and zero-effect identity
-smokes pass. Only frozen Stage 0A execution is pending.
+smokes passed. The frozen execution wrote PID `295` and then exited `1` before
+manifest persistence because canonical JSON hashing received NumPy arrays.
+There is no partial, manifest, feature cache, model inference, adapter, or
+closed-loop row. The independently reproduced decision is
+`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`.
 
-Current stage: `epoch_4_cycle_22_haste_stage_0a_pending`.
+This is a pre-manifest implementation failure, not a scientific kill. HASTE
+resume, rerun, repair, Stage 0B, and rescue are forbidden. Current stage:
+`epoch_4_cycle_23_candidate_search_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

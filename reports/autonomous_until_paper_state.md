@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `22`
+Current cycle: `23`
 
-Current stage: `epoch_4_cycle_22_haste_stage_0a_pending`
+Current stage: `epoch_4_cycle_23_candidate_search_pending`
 
 Allowed final states:
 
@@ -31,10 +31,15 @@ Cycle 22 generated exactly three candidates and selected `HASTE-VLA` at
 `5415BC1533A24EC55CC511DDEB014BB11D9C19F603C59D1F1D3E151E15B930A6`.
 
 The complete review and preregistration package is frozen. The Stage 0A runner
-is implemented and pushed at `3dd76f0`; unit, real-checkpoint interface, and
-zero-effect identity smokes pass. Only Stage 0A execution is pending. HASTE may
-not train an adapter, run a simulator, or read confirmatory records before its
-source, label, headroom, observability, identity, and persistence gates pass.
+was implemented and pushed at `3dd76f0`; unit, real-checkpoint interface, and
+zero-effect identity smokes passed. Frozen execution PID `295` exited `1`
+before manifest persistence because canonical JSON hashing received NumPy
+normalization arrays. No partial, feature cache, model inference, adapter,
+simulator row, or confirmatory record exists.
+
+Decision: `HASTE_STAGE_0A_IMPLEMENTATION_FAILURE`. This is not a scientific
+kill. Stage 0B, repair, resume, rerun, and HASTE rescue are forbidden. Continue
+to Cycle 23 exact-three candidate generation.
 
 ## Epoch 4 Cycle 21 HEST-VLA
 

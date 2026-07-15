@@ -50,16 +50,16 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_haste_stage_0a_pending() -> None:
+def test_active_state_records_haste_stage_0a_failure_and_cycle_23_pending() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 22
+    assert state["current_cycle"] == 23
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_22_haste_stage_0a_pending"
+    assert state["current_decision"] == "HASTE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_23_candidate_search_pending"
     assert state["method"] == "HASTE-VLA"
     assert state["method_identity"] == "HASTE-VLA"
     assert state["proposal_hash"] == HASTE_PROPOSAL_HASH
@@ -142,6 +142,10 @@ def test_active_state_records_haste_stage_0a_pending() -> None:
     assert "epoch_4_cycle_22_haste_stage_0a_implementation_pending" in state["completed_stages"]
     assert "epoch_4_cycle_22_haste_stage_0a_runner_implemented" in state["completed_stages"]
     assert "epoch_4_cycle_22_haste_stage_0a_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_22_haste_stage_0a_launched" in state["completed_stages"]
+    assert "epoch_4_cycle_22_haste_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_22_haste_implementation_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_23_candidate_search_pending" in state["completed_stages"]
     haste = state["epoch_4_cycle_22_haste_pre_stage_0a"]
     assert haste["candidate_count"] == 3
     assert haste["selected_score"] == 95
@@ -150,7 +154,17 @@ def test_active_state_records_haste_stage_0a_pending() -> None:
     assert haste["implementation_commit"] == "3dd76f0"
     assert haste["real_checkpoint_interface_smoke_passed"] is True
     assert haste["zero_effect_identity_smoke_max_error"] == 0.0
-    assert haste["stage_0a_pending"] is True
+    assert haste["stage_0a_pending"] is False
+    outcome = state["epoch_4_cycle_22_haste_stage_0a_outcome"]
+    assert outcome["final_decision"] == "HASTE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert outcome["failure_class"] == "PRE_MANIFEST_IMPLEMENTATION_FAILURE"
+    assert outcome["worker_pid"] == 295
+    assert outcome["exit_code"] == 1
+    assert outcome["persisted_row_count"] == 0
+    assert outcome["manifest_persisted"] is False
+    assert outcome["partial_persisted"] is False
+    assert outcome["stage_0b_allowed"] is False
+    assert outcome["rerun_allowed"] is False
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95

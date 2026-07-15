@@ -218,7 +218,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_22_haste_stage_0a_pending" in final
+    assert "epoch_4_cycle_23_candidate_search_pending" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -233,10 +233,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "HASTE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_decision"] == "HASTE_STAGE_0A_IMPLEMENTATION_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 22
-    assert state["current_stage"] == "epoch_4_cycle_22_haste_stage_0a_pending"
+    assert state["current_cycle"] == 23
+    assert state["current_stage"] == "epoch_4_cycle_23_candidate_search_pending"
     assert state["method"] == "HASTE-VLA"
     assert state["method_identity"] == "HASTE-VLA"
     assert state["proposal_hash"] == HASTE_PROPOSAL_HASH
@@ -253,7 +253,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Commit and push the frozen HASTE package, then implement and run only the preregistered Stage 0A audit."
+        "Generate exactly three Epoch 4 Cycle 23 candidates without HASTE repair or rescue."
     )
     assert state["prototype_protocol"] == "reports/haste_vla/prototype_protocol.md"
     hest = state["epoch_4_cycle_21_hest_stage_0a_outcome"]
@@ -266,7 +266,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert haste["candidate_count"] == 3
     assert haste["selected_score"] == 95
     assert haste["proposal_hash"] == HASTE_PROPOSAL_HASH
-    assert haste["stage_0a_pending"] is True
+    assert haste["stage_0a_pending"] is False
+    outcome = state["epoch_4_cycle_22_haste_stage_0a_outcome"]
+    assert outcome["final_decision"] == "HASTE_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert outcome["persisted_row_count"] == 0
+    assert outcome["stage_0b_allowed"] is False
+    assert outcome["rerun_allowed"] is False
     assert state["epoch_4_cycle_16_candidate_selection"]["candidate_count"] == 3
     assert state["epoch_4_cycle_16_candidate_selection"]["selected_score"] == 95
     assert state["epoch_4_cycle_16_iarc_pre_stage_0a"]["confirmatory_rows_decoded_max"] == 0
