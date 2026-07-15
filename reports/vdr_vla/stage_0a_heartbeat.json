@@ -1,0 +1,12 @@
+{
+  "completed_model_row_count": 1536,
+  "exception_count": 0,
+  "final_decision": "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "method": "VDR-VLA",
+  "phase": "complete",
+  "pid": 411,
+  "planned_model_row_count": 1536,
+  "stage": "0A",
+  "status": "completed",
+  "updated_at": "2026-07-15T16:13:51.613790+00:00"
+}

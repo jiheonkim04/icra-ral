@@ -1,19 +1,19 @@
 # Autonomous Until Paper State
 
-Date: 2026-07-15 KST
+Date: 2026-07-16 KST
 
 Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `24`
+Current cycle: `25`
 
-Current stage: `epoch_4_cycle_24_vdr_stage_0a_pending`
+Current stage: `epoch_4_cycle_25_candidate_search_pending`
 
 ## Epoch 4 Cycle 24 VDR-VLA
 
@@ -31,11 +31,19 @@ no-action-residual ablation, and matched standard LoRA.
 
 The prior map, candidate generation, Researcher A proposal, Reviewer B attack,
 Researcher A rebuttal, mathematical audit, preregistration, and prototype
-protocol are frozen under `reports/vdr_vla/`. The Stage 0A runner is
-implemented in `scripts/run_vdr_vla_stage0a.py`; serializer preflight and 10
-focused VDR tests passed. No training, validation search, rollout, simulator
-access, confirmatory-test tuning, or KITE rescue has happened. Next action:
-run only the frozen VDR Stage 0A development audit.
+protocol are frozen under `reports/vdr_vla/`. VDR Stage 0A worker PID `411`
+completed `1536 / 1536` planned development rows with runner exception count
+`0`, exact manifest/partial key equality, duplicate partial keys `0`, missing
+keys `0`, extra keys `0`, and split-overlap keys `0`.
+
+The fixed Stage 0A decision is
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. This is a
+development-only implementation/optimization failure, not a closed-loop
+scientific kill: no training, validation search, rollout, simulator access,
+or confirmatory-test tuning occurred. Stage 0B, VDR rerun, repair, rescue,
+threshold changes, clipping, and reinterpretation are forbidden. Next action:
+generate exactly three Epoch 4 Cycle 25 candidates without VDR repair or
+rescue.
 
 Allowed final states:
 

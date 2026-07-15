@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -420,8 +420,21 @@ no-action-residual ablation, and standard LoRA.
 
 Reviewer B attack, Researcher A rebuttal, mathematical audit,
 preregistration, and prototype protocol are frozen under `reports/vdr_vla/`.
-The Stage 0A runner is implemented in `scripts/run_vdr_vla_stage0a.py`, with
-serializer preflight and 10 focused VDR tests passing. No training,
-validation search, rollout, confirmatory-test access, or KITE rescue has
-happened. Current cycle: `24`. Current stage:
-`epoch_4_cycle_24_vdr_stage_0a_pending`.
+VDR Stage 0A worker PID `411` completed `1536 / 1536` development rows with
+runner exception count `0`, exact manifest/partial key equality, duplicate
+partial keys `0`, missing keys `0`, extra keys `0`, and split-overlap keys
+`0`. Attempt 1 is preserved as a pre-manifest preflight/self-worker launch
+wrapper blocker with completed rows `0`.
+
+The fixed decision is
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill.
+The blocking development gates include action-validity input `False`, static
+predictor relative improvement `-2.727311064830038`, action-residual
+relative / absolute improvement
+`1.2785489495615547e-05 / 5.777584853650097e-06`, and FutureVLA-proxy
+relative / absolute gap `-0.08671267131320196 / -0.17766005523582384`. No
+training, validation search, rollout, simulator access, confirmatory-test
+tuning, or KITE rescue occurred. Stage 0B, VDR rerun, repair, rescue,
+threshold changes, clipping, and reinterpretation are forbidden. Current
+cycle: `25`. Current stage:
+`epoch_4_cycle_25_candidate_search_pending`.

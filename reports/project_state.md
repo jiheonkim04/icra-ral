@@ -1,17 +1,17 @@
 # Project State
 
-## 2026-07-16 Epoch 4 Cycle 24 Current State
+## 2026-07-16 Epoch 4 Cycle 25 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `24`
+Current cycle: `25`
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
@@ -96,11 +96,24 @@ Cycle 24 generated exactly three candidates and selected `VDR-VLA` at
 subtracts a discovery-fitted actionless static future-feature predictor and
 supervises generated-action-conditioned prediction of the remaining dynamic
 visual residual. The frozen first comparison is Base, transparent FutureVLA
-proxy, VDR full, no-action-residual ablation, and standard LoRA. The current
-stage is `epoch_4_cycle_24_vdr_stage_0a_pending`. The Stage 0A runner is now
-implemented in `scripts/run_vdr_vla_stage0a.py`, with serializer preflight and
-10 focused VDR tests passing; next action is to run only the frozen VDR Stage
-0A development audit.
+proxy, VDR full, no-action-residual ablation, and standard LoRA.
+
+VDR Stage 0A worker PID `411` completed `1536 / 1536` development rows with
+runner exception count `0`, exact manifest/partial key equality, duplicate
+partial keys `0`, missing keys `0`, extra keys `0`, and split-overlap keys
+`0`. The fixed decision is
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill.
+The blocking development gates include action-validity input `False`, static
+predictor relative improvement `-2.727311064830038`, action-residual
+relative / absolute improvement
+`1.2785489495615547e-05 / 5.777584853650097e-06`, and FutureVLA-proxy
+relative / absolute gap `-0.08671267131320196 / -0.17766005523582384`.
+Stage 0B, VDR rerun, repair, rescue, threshold changes, clipping, and
+reinterpretation are forbidden.
+
+The current stage is `epoch_4_cycle_25_candidate_search_pending`. Next action
+is to generate exactly three Epoch 4 Cycle 25 candidates without VDR repair or
+rescue.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,

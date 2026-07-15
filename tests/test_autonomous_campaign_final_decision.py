@@ -220,7 +220,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_24_vdr_stage_0a_pending" in final
+    assert "epoch_4_cycle_25_candidate_search_pending" in final
+    assert "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
+    assert "1536 / 1536" in final
     assert "VDR-VLA" in final
     assert VDR_PROPOSAL_HASH in final
     assert "FutureVLA" in final
@@ -242,10 +244,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 24
-    assert state["current_stage"] == "epoch_4_cycle_24_vdr_stage_0a_pending"
+    assert state["current_cycle"] == 25
+    assert state["current_stage"] == "epoch_4_cycle_25_candidate_search_pending"
     assert state["method"] == "VDR-VLA"
     assert state["method_identity"] == "VDR-VLA"
     assert state["proposal_hash"] == VDR_PROPOSAL_HASH
@@ -262,7 +264,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Implement and run only the frozen VDR Stage 0A development audit without KITE repair or rescue."
+        "Generate exactly three Epoch 4 Cycle 25 candidates without VDR repair, rerun, rescue, or threshold changes."
     )
     assert state["prototype_protocol"] == "reports/vdr_vla/prototype_protocol.md"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
@@ -279,13 +281,28 @@ def test_active_campaign_state_records_governance_v2() -> None:
     ]
     assert vdr["confirmatory_test_tuning_happened"] is False
     vdr_pre = state["epoch_4_cycle_24_vdr_pre_stage_0a"]
-    assert vdr_pre["final_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert vdr_pre["stage_0a_pending"] is True
+    assert vdr_pre["final_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert vdr_pre["stage_0a_pending"] is False
     assert vdr_pre["horizons"] == [4, 12]
     assert vdr_pre["projection_dimension"] == 32
     assert vdr_pre["runner"] == "scripts/run_vdr_vla_stage0a.py"
     assert vdr_pre["runner_validation_decision"] == "VDR_STAGE_0A_RUNNER_VALIDATED_READY_TO_RUN"
     assert vdr_pre["runner_unit_tests_passed"] == 10
+    vdr_outcome = state["epoch_4_cycle_24_vdr_stage_0a_outcome"]
+    assert vdr_outcome["final_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert vdr_outcome["completed_model_row_count"] == 1536
+    assert vdr_outcome["planned_model_row_count"] == 1536
+    assert vdr_outcome["exception_count"] == 0
+    assert vdr_outcome["duplicate_manifest_key_count"] == 0
+    assert vdr_outcome["duplicate_partial_key_count"] == 0
+    assert vdr_outcome["missing_manifest_key_count"] == 0
+    assert vdr_outcome["extra_partial_key_count"] == 0
+    assert vdr_outcome["split_overlap_key_count"] == 0
+    assert vdr_outcome["key_sets_equal"] is True
+    assert vdr_outcome["stage_0b_allowed"] is False
+    assert vdr_outcome["valid_scientific_result"] is False
+    assert vdr_outcome["scientific_kill"] is False
+    assert vdr_outcome["action_validity_ok"] is False
     hest = state["epoch_4_cycle_21_hest_stage_0a_outcome"]
     assert hest["final_decision"] == "HEST_STAGE_0A_IMPLEMENTATION_FAILURE"
     assert hest["completed_window_count"] == 160

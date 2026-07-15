@@ -1,0 +1,418 @@
+{
+  "action_normalization": {
+    "mean": [
+      0.06278156489133835,
+      0.08684080839157104,
+      -0.09037306159734726,
+      0.0005407430580817163,
+      0.005643379874527454,
+      -0.0052290987223386765,
+      -0.0496407225728035
+    ],
+    "mode": "MEAN_STD",
+    "processor_step": "UnnormalizerProcessorStep",
+    "std": [
+      0.33552372455596924,
+      0.3784469962120056,
+      0.4447286128997803,
+      0.03924354165792465,
+      0.06339296698570251,
+      0.07797027379274368,
+      0.9987671375274658
+    ]
+  },
+  "adapter_training_happened": false,
+  "closed_loop_experiment_happened": false,
+  "completed_at": "2026-07-15T16:13:51.492896+00:00",
+  "completed_model_row_count": 1536,
+  "confirmatory_records_read": 0,
+  "confirmatory_test_tuning_happened": false,
+  "data_audit": {
+    "action_max": 1.0,
+    "action_min": -1.0,
+    "all_tasks_reported": true,
+    "counts": {
+      "12": {
+        "discovery": 512,
+        "validation": 256
+      },
+      "4": {
+        "discovery": 512,
+        "validation": 256
+      }
+    },
+    "demo_action_validity_ok": true,
+    "feature_action_proprio_finite_aligned": true,
+    "manifest_audit": {
+      "duplicate_manifest_key_count": 0,
+      "duplicate_partial_key_count": 0,
+      "extra_partial_key_count": 0,
+      "key_sets_equal": true,
+      "manifest_row_count": 1536,
+      "missing_manifest_key_count": 0,
+      "partial_row_count": 1536,
+      "split_overlap_key_count": 0
+    },
+    "maximum_validation_rows_per_horizon": 256,
+    "maximum_validation_rows_per_horizon_allowed": 256,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_action_residual_absolute_improvement": 5.777584853650097e-06,
+    "minimum_action_residual_relative_improvement": 1.2785489495615547e-05,
+    "minimum_discovery_rows_per_horizon": 512,
+    "minimum_future_proxy_absolute_gap": -0.17766005523582384,
+    "minimum_future_proxy_relative_improvement": -0.08671267131320196,
+    "minimum_static_predictor_relative_improvement": -2.727311064830038,
+    "minimum_validation_rows_per_horizon": 256,
+    "model_audit": {
+      "by_horizon": {
+        "12": {
+          "discovery_row_count": 512,
+          "futurevla_proxy": {
+            "absolute_mse_gap": -0.1250118617017142,
+            "future_proxy_validation_mse": 1.4416792817992818,
+            "relative_improvement": -0.08671267131320196,
+            "vdr_decomposed_validation_mse": 1.566691143500996
+          },
+          "per_task_validation": {
+            "libero_10/task_5": {
+              "normalized_discovery_mean_mse": 0.9931452072867779,
+              "normalized_model_mse": 2.8787965518292213,
+              "normalized_relative_improvement": -1.8986663085189193,
+              "raw_discovery_mean_mse": 0.9931452072867775,
+              "raw_model_mse": 2.87879655182922,
+              "row_count": 64
+            },
+            "libero_goal/task_5": {
+              "normalized_discovery_mean_mse": 1.0402164665947198,
+              "normalized_model_mse": 1.0366891178613786,
+              "normalized_relative_improvement": 0.0033909756734464835,
+              "raw_discovery_mean_mse": 1.0402164665947198,
+              "raw_model_mse": 1.0366891178613782,
+              "row_count": 64
+            },
+            "libero_object/task_3": {
+              "normalized_discovery_mean_mse": 0.7973552561729489,
+              "normalized_model_mse": 0.9789016130690466,
+              "normalized_relative_improvement": -0.22768565892129727,
+              "raw_discovery_mean_mse": 0.7973552561729487,
+              "raw_model_mse": 0.9789016130690463,
+              "row_count": 64
+            },
+            "libero_spatial/task_3": {
+              "normalized_discovery_mean_mse": 1.0506225763207346,
+              "normalized_model_mse": 1.3720561943708007,
+              "normalized_relative_improvement": -0.30594585086465786,
+              "raw_discovery_mean_mse": 1.0506225763207344,
+              "raw_model_mse": 1.3720561943708005,
+              "row_count": 64
+            }
+          },
+          "residual_probe": {
+            "absolute_huber_improvement": 5.777584853650097e-06,
+            "action_conditioned_validation_huber": 0.5463816416148005,
+            "action_conditioned_validation_mse": 1.5666911435009958,
+            "actionless_validation_huber": 0.5463874191996542,
+            "actionless_validation_mse": 1.5667111746702622,
+            "relative_improvement": 1.2785489495615547e-05
+          },
+          "residual_variance_all_positive": true,
+          "residual_variance_min": 4.439407751011102e-11,
+          "static_predictor": {
+            "normalized_discovery_mean_mse": 0.9703348765937952,
+            "normalized_model_mse": 1.566610869282612,
+            "normalized_relative_improvement": -0.6145053703335366,
+            "raw_discovery_mean_mse": 0.9703348765937951,
+            "raw_model_mse": 1.5666108692826113
+          },
+          "validation_row_count": 256
+        },
+        "4": {
+          "discovery_row_count": 512,
+          "futurevla_proxy": {
+            "absolute_mse_gap": -0.17766005523582384,
+            "future_proxy_validation_mse": 3.218226918842908,
+            "relative_improvement": -0.05520432825777877,
+            "vdr_decomposed_validation_mse": 3.395886974078732
+          },
+          "per_task_validation": {
+            "libero_10/task_5": {
+              "normalized_discovery_mean_mse": 0.9604951677560339,
+              "normalized_model_mse": 5.574081851168872,
+              "normalized_relative_improvement": -4.803341899357364,
+              "raw_discovery_mean_mse": 0.9604951677560338,
+              "raw_model_mse": 5.57408185116887,
+              "row_count": 64
+            },
+            "libero_goal/task_5": {
+              "normalized_discovery_mean_mse": 1.0212160602177125,
+              "normalized_model_mse": 2.547014335417381,
+              "normalized_relative_improvement": -1.4940993729322904,
+              "raw_discovery_mean_mse": 1.0212160602177123,
+              "raw_model_mse": 2.54701433541738,
+              "row_count": 64
+            },
+            "libero_object/task_3": {
+              "normalized_discovery_mean_mse": 0.6004263456034227,
+              "normalized_model_mse": 2.587605343208077,
+              "normalized_relative_improvement": -3.3096132642340312,
+              "raw_discovery_mean_mse": 0.6004263456034227,
+              "raw_model_mse": 2.587605343208076,
+              "row_count": 64
+            },
+            "libero_spatial/task_3": {
+              "normalized_discovery_mean_mse": 1.0619347606757026,
+              "normalized_model_mse": 2.8738896027074228,
+              "normalized_relative_improvement": -1.7062769853006643,
+              "raw_discovery_mean_mse": 1.0619347606757024,
+              "raw_model_mse": 2.8738896027074228,
+              "row_count": 64
+            }
+          },
+          "residual_probe": {
+            "absolute_huber_improvement": 1.0037204249191412e-05,
+            "action_conditioned_validation_huber": 0.9834925194561531,
+            "action_conditioned_validation_mse": 3.395886974078732,
+            "actionless_validation_huber": 0.9835025566604023,
+            "actionless_validation_mse": 3.395936302820705,
+            "relative_improvement": 1.452581484875604e-05
+          },
+          "residual_variance_all_positive": true,
+          "residual_variance_min": 1.912542144154456e-10,
+          "static_predictor": {
+            "normalized_discovery_mean_mse": 0.9110180835632179,
+            "normalized_model_mse": 3.3956477831254386,
+            "normalized_relative_improvement": -2.727311064830038,
+            "raw_discovery_mean_mse": 0.9110180835632178,
+            "raw_model_mse": 3.3956477831254372
+          },
+          "validation_row_count": 256
+        }
+      },
+      "model_hash": "E4257C25AFCA4AE55AA759E7B7FA6715E0AEB2E0FEFB3774F349B798B4F9BF89"
+    },
+    "residual_variance_all_positive": true,
+    "validation_task_counts": {
+      "libero_10/task_5": 128,
+      "libero_goal/task_5": 128,
+      "libero_object/task_3": 128,
+      "libero_spatial/task_3": 128
+    },
+    "validation_task_fractions": {
+      "libero_10/task_5": 0.25,
+      "libero_goal/task_5": 0.25,
+      "libero_object/task_3": 0.25,
+      "libero_spatial/task_3": 0.25
+    }
+  },
+  "decision_inputs": {
+    "action_residual_absolute_improvement": 5.777584853650097e-06,
+    "action_residual_relative_improvement": 1.2785489495615547e-05,
+    "action_validity_ok": false,
+    "all_tasks_reported": true,
+    "base_hash_unchanged": true,
+    "checkpoint_reload_ok": true,
+    "exception_count": 0,
+    "feature_action_proprio_finite_aligned": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_parameter_gradient_count": 0,
+    "future_proxy_absolute_gap": -0.17766005523582384,
+    "future_proxy_relative_improvement": -0.08671267131320196,
+    "gradient_ratio_at_most_100": true,
+    "identity_max_error": 0.0,
+    "manifest_integrity_ok": true,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_rows_per_horizon": 512,
+    "minimum_validation_rows_per_horizon": 256,
+    "proposal_hash_ok": true,
+    "residual_variance_all_positive": true,
+    "serializer_preflight_ok": true,
+    "source_alignment_ok": true,
+    "static_predictor_relative_improvement": -2.727311064830038,
+    "vdr_gradient_nonzero": true
+  },
+  "done_read_count": 0,
+  "elapsed_seconds_not_paper_evidence": 204.72864079475403,
+  "exception_count": 0,
+  "final_decision": "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "gradient": {
+    "finite_objectives_and_gradients": true,
+    "flow_gradient_finite_fraction": 1.0,
+    "flow_gradient_norm": 0.15258473349374724,
+    "flow_loss": 0.12537778913974762,
+    "flow_time": 0.5,
+    "frozen_parameter_gradient_count": 0,
+    "frozen_parameter_gradient_names": [],
+    "gradient_cosine": 0.3887589974785944,
+    "lambda_reference": 0.3,
+    "reference_total_loss": 0.12537778916469747,
+    "trainable_numel": 185664,
+    "trainable_parameter_count": 74,
+    "trainable_parameter_names": [
+      "base_model.model.model.action_in_proj.lora_A.default.weight",
+      "base_model.model.model.action_in_proj.lora_B.default.weight",
+      "base_model.model.model.action_out_proj.lora_A.default.weight",
+      "base_model.model.model.action_out_proj.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_B.default.weight",
+      "base_model.model.model.state_proj.lora_A.default.weight",
+      "base_model.model.model.state_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_B.default.weight"
+    ],
+    "vdr_gradient_finite_fraction": 1.0,
+    "vdr_gradient_nonzero": true,
+    "vdr_gradient_norm": 2.011301761140441e-10,
+    "vdr_loss": 8.316616839643132e-11,
+    "vdr_to_flow_gradient_ratio": 1.3181539955456041e-09
+  },
+  "identity": {
+    "adapter_checkpoint": "/mnt/c/Users/jiheo/tca_map/runs/vdr_vla/stage0a/identity_adapter",
+    "adapter_files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_model.safetensors"
+    ],
+    "base_action_finite": true,
+    "base_action_in_bounds": false,
+    "base_action_shape": [
+      50,
+      7
+    ],
+    "base_flow_shape": [
+      1,
+      50,
+      32
+    ],
+    "base_hash_unchanged": true,
+    "base_native_shape": [
+      1,
+      50,
+      7
+    ],
+    "base_parameter_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "base_parameter_hash_before": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "checkpoint_reload_ok": true,
+    "identity_max_abs_error": 0.0,
+    "initialized_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "rank": 4,
+    "reload_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "training_only_vdr_absent_from_policy_parameters": true
+  },
+  "manifest_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 1536,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 1536,
+    "split_overlap_key_count": 0
+  },
+  "manifest_hash": "F844980A4B86A85C677E9EF103C031DEE76A92C6A9ABEA1EA5FF2FFE473D21E4",
+  "method": "VDR-VLA",
+  "model_hash": "E4257C25AFCA4AE55AA759E7B7FA6715E0AEB2E0FEFB3774F349B798B4F9BF89",
+  "optimizer_step_count": 0,
+  "partial_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 1536,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 1536,
+    "split_overlap_key_count": 0
+  },
+  "planned_model_row_count": 1536,
+  "proposal_hash": "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72",
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 3,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "resumed_model_row_count": 0,
+  "reward_read_count": 0,
+  "scientific_kill": false,
+  "simulator_load_count": 0,
+  "stage": "0A",
+  "stage_0b_allowed": false,
+  "success_read_count": 0,
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "valid_scientific_result": false,
+  "validation_search_happened": false,
+  "worker_pid": 411
+}

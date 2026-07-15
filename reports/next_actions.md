@@ -1,19 +1,26 @@
 # Next Actions
 
-## 2026-07-16 Epoch 4 Cycle 24 Current Action
+## 2026-07-16 Epoch 4 Cycle 25 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
-Immediate next action: run only the frozen `VDR-VLA` Stage 0A development
-audit under `reports/vdr_vla/prototype_protocol.md`. The Stage 0A runner is
-implemented in `scripts/run_vdr_vla_stage0a.py`, with serializer preflight and
-10 focused VDR tests passing. Cycle 24 has
-already generated exactly three candidates and selected VDR at `92 / 100` with
-proposal hash
-`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`.
+Immediate next action: generate exactly three Epoch 4 Cycle 25 candidates
+under the active performance-oriented governance. Do not repair, rerun, or
+rescue `VDR-VLA`; do not change its thresholds, horizons, residual
+construction, memory construction, or action-validity interpretation.
+
+Cycle 24 generated exactly three candidates and selected VDR at `92 / 100`
+with proposal hash
+`0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72`. VDR
+Stage 0A worker PID `411` completed `1536 / 1536` development rows with
+runner exception count `0`, exact manifest/partial key equality, duplicate
+partial keys `0`, missing keys `0`, extra keys `0`, and split-overlap keys
+`0`. The fixed decision is
+`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill.
+Stage 0B is forbidden.
 
 Do not repair, rerun, or rescue KITE. Its Stage 0A completed `128 / 128`
 through a valid missing-key-only resume but retained one persistence exception
@@ -22,8 +29,9 @@ forbidden.
 
 Do not change VDR horizons `{4,12}`, projection dimension `32`, ridge `1e-4`,
 four task sources, demo splits, dynamic-residual construction, headroom bars,
-rank-4 identity path, or failure taxonomy. No adapter optimization or
-simulator access is allowed in Stage 0A.
+rank-4 identity path, or failure taxonomy. Do not reinterpret the launcher
+exit-code formatting defect or non-row heartbeat-thread stderr as a reason to
+rerun VDR.
 
 HASTE Stage 0A PID `295` exited `1` before manifest persistence on a canonical
 JSON serialization defect. It created no partial, model row, feature cache,

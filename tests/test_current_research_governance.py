@@ -52,16 +52,16 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> None:
+def test_active_state_records_vdr_stage_0a_failure_and_cycle_25_pending() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 24
+    assert state["current_cycle"] == 25
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_24_vdr_stage_0a_pending"
+    assert state["current_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_25_candidate_search_pending"
     assert state["method"] == "VDR-VLA"
     assert state["method_identity"] == "VDR-VLA"
     assert state["proposal_hash"] == VDR_PROPOSAL_HASH
@@ -193,6 +193,10 @@ def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> No
         "epoch_4_cycle_24_vdr_preregistration_frozen",
         "epoch_4_cycle_24_vdr_prototype_protocol_frozen",
         "epoch_4_cycle_24_vdr_stage_0a_pending",
+        "epoch_4_cycle_24_vdr_stage_0a_completed",
+        "epoch_4_cycle_24_vdr_stage_0a_adjudicated",
+        "epoch_4_cycle_24_vdr_implementation_or_optimization_failure_recorded",
+        "epoch_4_cycle_25_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
@@ -209,13 +213,29 @@ def test_active_state_records_kite_stage_0a_failure_and_cycle_24_pending() -> No
     ]
     assert vdr["standard_lora_required"] is True
     vdr_pre = state["epoch_4_cycle_24_vdr_pre_stage_0a"]
-    assert vdr_pre["final_decision"] == "VDR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert vdr_pre["stage_0a_pending"] is True
+    assert vdr_pre["final_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert vdr_pre["stage_0a_pending"] is False
     assert vdr_pre["vdr_coefficients"] == [0.1, 0.3, 1.0]
     assert vdr_pre["runner"] == "scripts/run_vdr_vla_stage0a.py"
     assert vdr_pre["runner_validation"] == "reports/vdr_vla/stage_0a_serializer_preflight.json"
     assert vdr_pre["runner_unit_tests_passed"] == 10
     assert vdr_pre["serializer_preflight_passed"] is True
+    vdr_outcome = state["epoch_4_cycle_24_vdr_stage_0a_outcome"]
+    assert vdr_outcome["final_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert vdr_outcome["completed_model_row_count"] == 1536
+    assert vdr_outcome["planned_model_row_count"] == 1536
+    assert vdr_outcome["exception_count"] == 0
+    assert vdr_outcome["duplicate_manifest_key_count"] == 0
+    assert vdr_outcome["duplicate_partial_key_count"] == 0
+    assert vdr_outcome["missing_manifest_key_count"] == 0
+    assert vdr_outcome["extra_partial_key_count"] == 0
+    assert vdr_outcome["split_overlap_key_count"] == 0
+    assert vdr_outcome["key_sets_equal"] is True
+    assert vdr_outcome["stage_0b_allowed"] is False
+    assert vdr_outcome["valid_scientific_result"] is False
+    assert vdr_outcome["scientific_kill"] is False
+    assert vdr_outcome["action_validity_ok"] is False
+    assert vdr_outcome["worker_pid"] == 411
     kite = state["epoch_4_cycle_23_kite_pre_stage_0a"]
     assert kite["candidate_count"] == 3
     assert kite["selected_score"] == 96
