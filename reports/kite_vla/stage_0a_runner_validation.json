@@ -1,0 +1,72 @@
+{
+  "method": "KITE-VLA",
+  "stage": "0A implementation validation",
+  "proposal_hash": "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624A152B8",
+  "scientific_result": false,
+  "runner": "scripts/run_kite_vla_stage0a.py",
+  "core_module": "tca_map/smolvla/kite_vla.py",
+  "test_file": "tests/test_kite_vla.py",
+  "serializer_preflight": {
+    "write_parse_hash_roundtrip_passed": true,
+    "numpy_array_supported": true,
+    "numpy_scalar_supported": true,
+    "path_supported": true,
+    "nonfinite_json_rejected": true
+  },
+  "development_data_smoke": {
+    "label_row_count": 11984,
+    "model_audit_row_count": 128,
+    "discovery_rows_per_horizon": 4874,
+    "validation_rows_per_horizon": 1118,
+    "sampled_task_fractions": {
+      "libero_spatial/task_3": 0.25,
+      "libero_object/task_3": 0.25,
+      "libero_goal/task_5": 0.25,
+      "libero_10/task_5": 0.25
+    },
+    "operator_rank": {
+      "5": 6,
+      "20": 6
+    },
+    "operator_validation_relative_improvement": {
+      "5": 0.9059144587642893,
+      "20": 0.9208542724043707
+    },
+    "duplicate_manifest_key_count": 0,
+    "split_overlap_key_count": 0
+  },
+  "real_checkpoint_smoke": {
+    "checkpoint": "/mnt/c/assets/checkpoints/smolvla_libero",
+    "action_normalization_mode": "MEAN_STD",
+    "explicit_processor_max_abs_error": 0.0,
+    "native_velocity_shape": [1, 50, 32],
+    "action_shape": [50, 7],
+    "identity_max_abs_error": 0.0,
+    "checkpoint_reload_ok": true,
+    "base_hash_unchanged": true,
+    "flow_loss": 0.1255863457918167,
+    "kite_loss": 0.18566206097602844,
+    "flow_gradient_norm": 0.14248453381112874,
+    "kite_gradient_norm": 0.4996565408382549,
+    "kite_to_flow_gradient_ratio": 3.506742293171115,
+    "finite_objectives_and_gradients": true,
+    "frozen_parameter_gradient_count": 0,
+    "optimizer_step_count": 0,
+    "adapter_files": {
+      "adapter_config.json": "8AE8832BC7B9A36BD52B4C4C70C04DB661EEC70A531224E5AF5F2566C7E25A25",
+      "adapter_model.safetensors": "3EE6FC28D666BC07367484EDB22C7091AE969C230B3A2C862A2E749582ADD643",
+      "README.md": "9A9A2D60DF23F9E4467C7EDB6654D9F499C39020A9AD9E7F225B120CCE3FB27B"
+    }
+  },
+  "forbidden_access_audit": {
+    "adapter_training_happened": false,
+    "optimizer_step_count": 0,
+    "simulator_load_count": 0,
+    "reward_read_count": 0,
+    "success_read_count": 0,
+    "done_read_count": 0,
+    "confirmatory_records_read": 0,
+    "closed_loop_experiment_happened": false
+  },
+  "decision": "KITE_STAGE_0A_RUNNER_VALIDATED_READY_TO_COMMIT"
+}
