@@ -4,9 +4,9 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
-Immediate next action: freeze RAR-VLA preregistration and prototype protocol before implementation, validation search, training, manifest freeze, or rollout.
+Immediate next action: implement and run the RAR Stage 0 development audit only.
 
 Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. RAR must keep the `ema_action_history_baseline` simple killer live.
 

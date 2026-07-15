@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -225,4 +225,6 @@ Researcher A rebuttal is complete in `reports/rar_vla/researcher_rebuttal.md` wi
 
 The RAR mathematical mechanism audit is frozen in `reports/rar_vla/mathematical_mechanism_audit.md` with decision `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines legal causal memory, residual/gate formulas, objective terms, gradient paths, no deterministic-action KL, EMA/history baselines, REMAC/TAS distinctions, bounded validation search, and the first five-policy comparison.
 
-Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`. Next action: freeze RAR-VLA preregistration and prototype protocol before implementation.
+The RAR preregistration and prototype protocol are frozen in `reports/rar_vla/preregistration.md` and `reports/rar_vla/prototype_protocol.md`. Stage 0 must run before validation search, training, manifest freeze, or rollout.
+
+Current stage: `epoch_4_cycle_13_rar_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.

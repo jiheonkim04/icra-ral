@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `13`
 
-Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`
+Current stage: `epoch_4_cycle_13_rar_prototype_protocol_frozen`
 
 ## Corrected Epoch 1 Result
 
@@ -333,4 +333,6 @@ Researcher A rebuttal is complete in `reports/rar_vla/researcher_rebuttal.md` wi
 
 The mathematical mechanism audit is frozen in `reports/rar_vla/mathematical_mechanism_audit.md` with decision `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Current decision: `RAR_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_13_rar_mathematical_audit_preregistered`. Next action: preregistration and prototype protocol.
+The preregistration and prototype protocol are frozen in `reports/rar_vla/preregistration.md` and `reports/rar_vla/prototype_protocol.md`.
+
+Current decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_13_rar_prototype_protocol_frozen`. Next action: implement and run the Stage 0 development audit only.

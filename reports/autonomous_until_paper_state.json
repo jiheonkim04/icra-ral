@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 13,
-    "current_topic": "epoch_4_cycle_13_rar_mathematical_audit_preregistered",
+    "current_topic": "epoch_4_cycle_13_rar_prototype_protocol_frozen",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "5efc2cd",
+    "current_commit": "acf34e4",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_13_rar_mathematical_audit_preregistered",
+    "current_stage": "epoch_4_cycle_13_rar_prototype_protocol_frozen",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -308,9 +308,11 @@
         "epoch_4_cycle_13_rar_proposal_frozen",
         "epoch_4_cycle_13_rar_reviewer_attack_completed",
         "epoch_4_cycle_13_rar_rebuttal_completed",
-        "epoch_4_cycle_13_rar_mathematical_audit_preregistered"
+        "epoch_4_cycle_13_rar_mathematical_audit_preregistered",
+        "epoch_4_cycle_13_rar_preregistration_frozen",
+        "epoch_4_cycle_13_rar_prototype_protocol_frozen"
     ],
-    "active_hypothesis": "RAR-VLA mathematical audit is preregistered: causal memory residual, zero-initialized identity-preserving gate, EMA/history killer, REMAC/TAS distinction, no deterministic-action KL.",
+    "active_hypothesis": "RAR-VLA preregistration and prototype protocol are frozen; Stage 0 development audit must run before validation search, training, manifest freeze, or rollout.",
     "method_identity": "RAR-VLA",
     "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
     "closest_papers": [
@@ -319,7 +321,7 @@
         "ABot-M0",
         "DSWAM"
     ],
-    "prototype_protocol": null,
+    "prototype_protocol": "reports/rar_vla/prototype_protocol.md",
     "running_command": null,
     "process_id": null,
     "checkpoint_path": null,
@@ -330,7 +332,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "RAR_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -439,7 +441,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze RAR-VLA preregistration and prototype protocol before implementation.",
+    "next_action": "Implement and run the RAR-VLA Stage 0 development audit only.",
     "method": "RAR-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2190,7 +2192,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_13_rar_mathematical_audit_preregistered",
+    "topic": "epoch_4_cycle_13_rar_prototype_protocol_frozen",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4795,7 +4797,7 @@
         "confirmatory_test_tuning_happened": false,
         "previous_method_stop": "CALA_STAGE_0_DESIGN_FAILURE",
         "must_not_rescue_previous_method": true,
-        "next_stage": "Freeze preregistration and prototype protocol.",
+        "next_stage": "Stage 0 development audit only.",
         "proposal": "reports/rar_vla/researcher_proposal.md",
         "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
         "proposal_hash_file": "reports/rar_vla/proposal_hash.txt",
@@ -4811,7 +4813,16 @@
         "mathematical_audit": "reports/rar_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_pending": false,
         "mathematical_audit_completed": true,
-        "mathematical_audit_decision": "RAR_MATHEMATICAL_AUDIT_PREREGISTERED"
+        "mathematical_audit_decision": "RAR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/rar_vla/preregistration.md",
+        "prototype_protocol": "reports/rar_vla/prototype_protocol.md",
+        "preregistration_pending": false,
+        "prototype_protocol_pending": false,
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true,
+        "preregistration_decision": "RAR_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol_decision": "RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "stage_0_pending": true
     },
     "epoch_4_cycle_13_rar_proposal": {
         "method": "RAR-VLA",
@@ -4888,6 +4899,42 @@
         "ema_action_history_baseline_required": true,
         "remac_tas_distinction_required": true,
         "bounded_validation_search_max_configs": 6,
-        "next_stage": "Freeze preregistration and prototype protocol before implementation."
+        "next_stage": "Freeze preregistration and prototype protocol before implementation.",
+        "preregistration": "reports/rar_vla/preregistration.md",
+        "prototype_protocol": "reports/rar_vla/prototype_protocol.md",
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true
+    },
+    "epoch_4_cycle_13_rar_preregistration": {
+        "method": "RAR-VLA",
+        "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
+        "mathematical_audit": "reports/rar_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_decision": "RAR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/rar_vla/preregistration.md",
+        "final_decision": "RAR_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "bounded_validation_search_max_configs": 6,
+        "stage_0_pending": true
+    },
+    "epoch_4_cycle_13_rar_prototype_protocol": {
+        "method": "RAR-VLA",
+        "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
+        "prototype_protocol": "reports/rar_vla/prototype_protocol.md",
+        "final_decision": "RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "first_comparison_policies": [
+            "frozen_smolvla",
+            "ar_vla_reanchored_expert_proxy",
+            "rar_full",
+            "rar_no_reanchor_memory_ablation",
+            "ema_action_history_baseline"
+        ],
+        "stage_0_next": "development_audit_only"
     }
 }

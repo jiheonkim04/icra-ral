@@ -2463,3 +2463,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: the audit freezes variables/shapes, legal causal memory, residual/gate formula, objective terms, gradient paths, small-batch magnitude checks, EMA/history baselines, REMAC/TAS distinction, bounded validation search, first five-policy comparison, and no deterministic-action KL. Proceed to preregistration and prototype protocol.
+
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Preregistration And Prototype Protocol
+
+Decision: `RAR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- preregistration: `reports/rar_vla/preregistration.md`
+- prototype protocol: `reports/rar_vla/prototype_protocol.md`
+- proposal hash: `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
