@@ -16,7 +16,7 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
-def test_active_state_records_rar_stage_0_stop_and_cycle_14_handoff() -> None:
+def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -24,10 +24,10 @@ def test_active_state_records_rar_stage_0_stop_and_cycle_14_handoff() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14"
-    assert state["current_stage"] == "epoch_4_cycle_14_candidate_search_pending"
-    assert state["method"] == "CYCLE_14_METHOD_PENDING"
-    assert state["method_identity"] == "CYCLE_14_METHOD_PENDING"
+    assert state["current_decision"] == "SELECT_COVI_VLA"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_proposal_pending"
+    assert state["method"] == "COVI-VLA"
+    assert state["method_identity"] == "COVI-VLA"
     assert state["proposal_hash"] is None
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
@@ -174,6 +174,8 @@ def test_active_state_records_rar_stage_0_stop_and_cycle_14_handoff() -> None:
     assert "epoch_4_cycle_13_rar_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_design_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_14_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_14_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_proposal_pending" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -840,6 +842,39 @@ def test_active_state_records_rar_stage_0_stop_and_cycle_14_handoff() -> None:
     assert cycle14["candidate_search_pending"] is True
     assert cycle14["previous_method"] == "RAR-VLA"
     assert cycle14["must_not_rescue_previous_method"] is True
+    covi = state["epoch_4_cycle_14_pre_proposal"]
+    assert covi["method"] == "COVI-VLA"
+    assert covi["selection_decision"] == "SELECT_COVI_VLA"
+    assert covi["candidate_generation"] == "reports/epoch_4_cycle_14_candidate_generation.md"
+    assert covi["prior_mechanism_map"] == "reports/epoch_4_cycle_14_prior_mechanism_map.md"
+    assert covi["candidate_count"] == 3
+    assert covi["closest_prior"] == "LIBERO-Occ / Viewpoint Imagination"
+    assert covi["closest_prior_url"] == "https://arxiv.org/abs/2606.10862"
+    assert covi["closest_prior_code_url"] == "https://github.com/litsh/Libero-Occ"
+    assert covi["secondary_priors"] == ["CamVLA", "STRONG-VLA"]
+    assert covi["selected_score"] == 91
+    assert covi["selected_contribution_type"] == "NEW_DEPLOYMENT_PROBLEM"
+    assert covi["first_comparison_policies"] == [
+        "frozen_smolvla_occluded",
+        "vim_view_imagination_proxy",
+        "covi_full",
+        "covi_no_imagined_view_ablation",
+        "random_cutout_clean_retention_baseline",
+    ]
+    assert covi["stage_0_required"] is True
+    assert covi["occlusion_headroom_required"] is True
+    assert covi["source_gate_required"] is True
+    assert covi["view_completion_label_health_required"] is True
+    assert covi["random_cutout_simple_killer_required"] is True
+    assert covi["identity_preserving_visual_adapter_required"] is True
+    assert covi["official_closest_prior_code_or_checkpoint_verified"] is False
+    assert covi["rollout_allowed"] is False
+    assert covi["closed_loop_experiment_happened"] is False
+    assert covi["training_happened"] is False
+    assert covi["validation_search_happened"] is False
+    assert covi["confirmatory_test_tuning_happened"] is False
+    assert covi["previous_method_stop"] == "RAR_STAGE_0_DESIGN_FAILURE"
+    assert covi["must_not_rescue_previous_method"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

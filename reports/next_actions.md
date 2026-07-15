@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
+Current decision: `SELECT_COVI_VLA`
 
-Immediate next action: generate exactly three distinct Epoch 4 Cycle 14 candidates under current governance and do not rescue RAR.
+Immediate next action: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. RAR must keep the `ema_action_history_baseline` simple killer live.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. Do not rescue RAR by changing history features, residual labels, thresholds, source gates, validation configs, or baselines. COVI must keep the `random_cutout_clean_retention_baseline` simple killer live.
 
 ## 2026-07-13 Governance V2 Current Action
 

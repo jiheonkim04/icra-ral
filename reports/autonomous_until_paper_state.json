@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 14,
-    "current_topic": "epoch_4_cycle_14_candidate_search_pending",
+    "current_topic": "epoch_4_cycle_14_covi_proposal_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "f52209a",
+    "current_commit": "fbffc0a",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_14_candidate_search_pending",
+    "current_stage": "epoch_4_cycle_14_covi_proposal_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -313,12 +313,20 @@
         "epoch_4_cycle_13_rar_prototype_protocol_frozen",
         "epoch_4_cycle_13_rar_stage_0_completed",
         "epoch_4_cycle_13_rar_design_failure_recorded",
-        "epoch_4_cycle_14_candidate_search_pending"
+        "epoch_4_cycle_14_candidate_search_pending",
+        "epoch_4_cycle_14_candidate_generation_completed",
+        "epoch_4_cycle_14_covi_proposal_pending"
     ],
-    "active_hypothesis": "RAR-VLA stopped at fixed Stage 0 as DESIGN_FAILURE because legal causal residual prediction failed to beat the zero-residual trivial baseline; Epoch 4 Cycle 14 must select a genuinely distinct method without rescuing RAR.",
-    "method_identity": "CYCLE_14_METHOD_PENDING",
+    "active_hypothesis": "COVI-VLA selected for Epoch 4 Cycle 14 as a LIBERO-Occ/VIM-anchored, identity-preserving complementary-view representation method for frozen SmolVLA under scene-induced occlusion.",
+    "method_identity": "COVI-VLA",
     "proposal_hash": null,
-    "closest_papers": [],
+    "closest_papers": [
+        "LIBERO-Occ / Viewpoint Imagination",
+        "CamVLA",
+        "STRONG-VLA",
+        "SUREFlow",
+        "DFM-VLA"
+    ],
     "prototype_protocol": null,
     "running_command": null,
     "process_id": null,
@@ -330,7 +338,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14",
+    "current_decision": "SELECT_COVI_VLA",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -439,8 +447,8 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Start Epoch 4 Cycle 14 candidate generation under current governance; generate exactly three new candidates and do not rescue RAR.",
-    "method": "CYCLE_14_METHOD_PENDING",
+    "next_action": "Freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack; do not rescue RAR.",
+    "method": "COVI-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -1629,9 +1637,9 @@
         ],
         "stage_b_pair_count_per_policy": 40
     },
-    "hypothesis": "RAR-VLA stopped at fixed Stage 0 as a pre-rollout DESIGN_FAILURE because legal causal residual prediction failed to beat the zero-residual trivial baseline; Epoch 4 Cycle 14 candidate search is pending.",
-    "novelty_claim": "Next method not yet selected after RAR Stage 0 design failure.",
-    "prototype_gate": "RAR Stage 0 produced a pre-rollout DESIGN_FAILURE; validation search, training, manifest freeze, and rollout are disallowed for RAR.",
+    "hypothesis": "COVI-VLA selected for Epoch 4 Cycle 14 as a LIBERO-Occ/VIM-anchored, identity-preserving complementary-view representation method for frozen SmolVLA under scene-induced occlusion.",
+    "novelty_claim": "COVI-VLA extends viewpoint-imagination occlusion recovery to a frozen SmolVLA setting with a bounded visual adapter, live VIM proxy, no-imagined-view ablation, and random-cutout clean-retention simple killer.",
+    "prototype_gate": "COVI Stage 0 must prove occlusion headroom, source legality, split separation, noncollapsed view-completion targets, complementary-feature predictability above simple baselines, Base passthrough, and clean retention before validation search or rollout.",
     "epoch_4_cycle_7_dagr_development_outcome": {
         "method": "DAGR-VLA",
         "proposal_hash": "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89",
@@ -2190,7 +2198,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_14_candidate_search_pending",
+    "topic": "epoch_4_cycle_14_covi_proposal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -5005,5 +5013,50 @@
         "previous_stage_0_failure_class": "DESIGN_FAILURE",
         "must_not_rescue_previous_method": true,
         "next_stage": "Generate exactly three distinct candidates under current governance."
+    },
+    "epoch_4_cycle_14_pre_proposal": {
+        "method": "COVI-VLA",
+        "selection_decision": "SELECT_COVI_VLA",
+        "candidate_generation": "reports/epoch_4_cycle_14_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_14_prior_mechanism_map.md",
+        "candidate_count": 3,
+        "closest_prior": "LIBERO-Occ / Viewpoint Imagination",
+        "closest_prior_url": "https://arxiv.org/abs/2606.10862",
+        "closest_prior_code_url": "https://github.com/litsh/Libero-Occ",
+        "secondary_priors": [
+            "CamVLA",
+            "STRONG-VLA"
+        ],
+        "reviewed_but_not_selected_priors": [
+            "SUREFlow",
+            "DFM-VLA",
+            "CamVLA",
+            "STRONG-VLA"
+        ],
+        "selected_score": 91,
+        "selected_contribution_type": "NEW_DEPLOYMENT_PROBLEM",
+        "first_comparison_policies": [
+            "frozen_smolvla_occluded",
+            "vim_view_imagination_proxy",
+            "covi_full",
+            "covi_no_imagined_view_ablation",
+            "random_cutout_clean_retention_baseline"
+        ],
+        "stage_0_required": true,
+        "occlusion_headroom_required": true,
+        "source_gate_required": true,
+        "view_completion_label_health_required": true,
+        "random_cutout_simple_killer_required": true,
+        "identity_preserving_visual_adapter_required": true,
+        "official_closest_prior_code_or_checkpoint_verified": false,
+        "closest_prior_comparison_status": "faithful_transparent_proxy_required_until_official_equivalence_is_established",
+        "rollout_allowed": false,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "previous_method_stop": "RAR_STAGE_0_DESIGN_FAILURE",
+        "must_not_rescue_previous_method": true,
+        "next_stage": "Freeze and hash COVI-VLA Researcher A proposal before Reviewer B attack."
     }
 }

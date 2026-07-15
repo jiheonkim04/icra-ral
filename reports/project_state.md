@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
+Current decision: `SELECT_COVI_VLA`
 
 Current epoch: `4`
 
@@ -44,7 +44,9 @@ The preregistration and prototype protocol are frozen in `reports/rar_vla/prereg
 
 RAR Stage 0 stopped as `DESIGN_FAILURE` in `reports/rar_vla/development_audit.json`: the residual predictability margin was `-0.03837609884238533`, with `zero_residual` beating the full legal causal probe. No training, validation search, rollout, or confirmatory-test tuning happened.
 
-Exact next step: generate exactly three distinct Epoch 4 Cycle 14 candidates under current governance. Do not rescue RAR.
+Epoch 4 Cycle 14 generated exactly three candidates in `reports/epoch_4_cycle_14_candidate_generation.md` after `reports/epoch_4_cycle_14_prior_mechanism_map.md` and selected `COVI-VLA`, Complementary Occlusion View Imagination for frozen SmolVLA, anchored to LIBERO-Occ / Viewpoint Imagination.
+
+Exact next step: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack. Do not rescue RAR.
 
 ## 2026-07-13 Governance V2 Current State
 

@@ -14,7 +14,7 @@ RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16F
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "Current campaign decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`" in final
+    assert "Current campaign decision: `SELECT_COVI_VLA`" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
     assert "FANG-VLA" in final
@@ -199,7 +199,11 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "-0.03837609884238533" in final
     assert "zero_residual" in final
     assert "Validation search, training, Stage A manifest freeze, and rollout are disallowed for this RAR formulation" in final
-    assert "Current stage: `epoch_4_cycle_14_candidate_search_pending`" in final
+    assert "Epoch 4 Cycle 14 generated exactly three post-RAR candidates" in final
+    assert "COVI-VLA" in final
+    assert "LIBERO-Occ / Viewpoint Imagination" in final
+    assert "random_cutout_clean_retention_baseline" in final
+    assert "Current stage: `epoch_4_cycle_14_covi_proposal_pending`" in final
     assert "runs/marc_vla_stage_a/20260714T171356Z" in final
 
 
@@ -207,12 +211,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14"
+    assert state["current_decision"] == "SELECT_COVI_VLA"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 14
-    assert state["current_stage"] == "epoch_4_cycle_14_candidate_search_pending"
-    assert state["method"] == "CYCLE_14_METHOD_PENDING"
-    assert state["method_identity"] == "CYCLE_14_METHOD_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_proposal_pending"
+    assert state["method"] == "COVI-VLA"
+    assert state["method_identity"] == "COVI-VLA"
     assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -226,7 +230,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"].startswith("Start Epoch 4 Cycle 14 candidate generation")
+    assert state["next_action"].startswith("Freeze and hash the COVI-VLA Researcher A proposal")
     assert state["task_reset_manifest"] is None
     assert state["stage_b_manifest_json"] is None
     assert state["stage_b_partial_checkpoint"] is None
@@ -387,6 +391,19 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_13_rar_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_13_rar_design_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_14_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_14_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_proposal_pending" in state["completed_stages"]
+    covi = state["epoch_4_cycle_14_pre_proposal"]
+    assert covi["selection_decision"] == "SELECT_COVI_VLA"
+    assert covi["candidate_count"] == 3
+    assert covi["closest_prior"] == "LIBERO-Occ / Viewpoint Imagination"
+    assert covi["first_comparison_policies"] == [
+        "frozen_smolvla_occluded",
+        "vim_view_imagination_proxy",
+        "covi_full",
+        "covi_no_imagined_view_ablation",
+        "random_cutout_clean_retention_baseline",
+    ]
     assert state["epoch_4_cycle_9_pre_stage_0"]["method"] == "PESA-VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["closest_prior"] == "PriorVLA"

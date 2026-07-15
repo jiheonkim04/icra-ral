@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
+Current campaign decision: `SELECT_COVI_VLA`
 
 This is not a terminal decision.
 
@@ -248,4 +248,8 @@ RAR Stage 0 is complete in `reports/rar_vla/development_audit.json` and `reports
 
 Do not rescue RAR by changing history features, residual labels, thresholds, validation configs, or source gates. Validation search, training, Stage A manifest freeze, and rollout are disallowed for this RAR formulation.
 
-Current stage: `epoch_4_cycle_14_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 14 candidates under current governance.
+Epoch 4 Cycle 14 generated exactly three post-RAR candidates in `reports/epoch_4_cycle_14_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_14_prior_mechanism_map.md`, and selected `COVI-VLA`, Complementary Occlusion View Imagination for frozen SmolVLA.
+
+COVI is anchored to LIBERO-Occ / Viewpoint Imagination, with CamVLA and STRONG-VLA as secondary priors. The design changes the mechanism axis from causal action-memory residuals to scene-induced partial observability: it uses legal current observations, proprioception, task/language input, Base action chunks, and an internally predicted complementary-view representation, with an identity-preserving visual adapter gate. The frozen first comparison is Base under occlusion, a VIM-style transparent proxy, COVI full, no-imagined-view ablation, and `random_cutout_clean_retention_baseline`.
+
+Current stage: `epoch_4_cycle_14_covi_proposal_pending`. Next action: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack.

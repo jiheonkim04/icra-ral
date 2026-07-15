@@ -2364,6 +2364,31 @@ Hard stop:
 
 Consequence: RAR stops before rollout as a design failure. Do not rescue RAR by changing history features, labels, thresholds, source gates, validation configs, or baselines. Proceed to Epoch 4 Cycle 14 candidate generation under current governance.
 
+## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Candidate Selection
+
+Decision: `SELECT_COVI_VLA`
+
+Execution boundary:
+
+- method: `COVI-VLA`
+- prior mechanism map: `reports/epoch_4_cycle_14_prior_mechanism_map.md`
+- candidate generation: `reports/epoch_4_cycle_14_candidate_generation.md`
+- candidates generated: `3`
+- selected score: `91 / 100`
+- selected contribution type: `NEW_DEPLOYMENT_PROBLEM`
+- closest prior: LIBERO-Occ / Viewpoint Imagination, `https://arxiv.org/abs/2606.10862`
+- reported closest-prior code: `https://github.com/litsh/Libero-Occ`
+
+Selected first comparison policies:
+
+- `frozen_smolvla_occluded`
+- `vim_view_imagination_proxy`
+- `covi_full`
+- `covi_no_imagined_view_ablation`
+- `random_cutout_clean_retention_baseline`
+
+Consequence: COVI-VLA is selected for proposal freezing. RAR remains stopped as `DESIGN_FAILURE` and must not be rescued. COVI must test scene-induced occlusion and complementary-view representation, keep the VIM proxy transparent until official equivalence is established, and keep the random-cutout clean-retention simple killer baseline live.
+
 ## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Stage 0 Development Audit
 
 Decision: `DESIGN_FAILURE`

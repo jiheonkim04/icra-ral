@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`
+Current decision: `SELECT_COVI_VLA`
 
 Current epoch: `4`
 
 Current cycle: `14`
 
-Current stage: `epoch_4_cycle_14_candidate_search_pending`
+Current stage: `epoch_4_cycle_14_covi_proposal_pending`
 
 Allowed final states:
 
@@ -416,4 +416,8 @@ The preregistration and prototype protocol are frozen in `reports/rar_vla/prereg
 
 RAR Stage 0 stopped as `DESIGN_FAILURE` in `reports/rar_vla/development_audit.json`: the residual predictability margin was `-0.03837609884238533`, with `zero_residual` beating the full legal causal probe. Source legality, split health, residual headroom, gradients, Base action validity, and identity-preserving zero delta passed. No training, validation search, rollout, or confirmatory-test tuning happened.
 
-Current decision: `RAR_STAGE_0_STOP_DESIGN_FAILURE_CONTINUE_CYCLE_14`. Current stage: `epoch_4_cycle_14_candidate_search_pending`. Next action: generate exactly three distinct Epoch 4 Cycle 14 candidates and do not rescue RAR.
+Epoch 4 Cycle 14 generated exactly three candidates in `reports/epoch_4_cycle_14_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_14_prior_mechanism_map.md` and selected `COVI-VLA`.
+
+COVI is anchored to LIBERO-Occ / Viewpoint Imagination, with CamVLA and STRONG-VLA as secondary priors. The selected first comparison is frozen at the design level to five policies: Base under occlusion, VIM-style proxy, COVI full, no-imagined-view ablation, and `random_cutout_clean_retention_baseline`.
+
+Current decision: `SELECT_COVI_VLA`. Current stage: `epoch_4_cycle_14_covi_proposal_pending`. Next action: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack. Do not rescue RAR.
