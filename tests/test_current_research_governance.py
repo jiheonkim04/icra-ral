@@ -56,8 +56,8 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0a_pending"
+    assert state["current_decision"] == "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED"
+    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0b1_implementation_pending"
     assert state["method"] == "NICE-VLA"
     assert state["method_identity"] == "NICE-VLA"
     assert state["proposal_hash"] == NICE_PROPOSAL_HASH
@@ -111,6 +111,9 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert "epoch_4_cycle_20_nice_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_20_nice_stage_0a_implementation_pending" in state["completed_stages"]
     assert "epoch_4_cycle_20_nice_stage_0a_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_20_nice_stage_0b1_protocol_frozen" in state["completed_stages"]
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95
@@ -264,7 +267,26 @@ def test_active_state_records_sparc_failure_and_frozen_nice_stage_0a() -> None:
     assert nice_pre_stage["k_step"] == 10
     assert nice_pre_stage["validation_records_read_max"] == 0
     assert nice_pre_stage["confirmatory_records_read_max"] == 0
-    assert nice_pre_stage["stage_0a_pending"] is True
+    assert nice_pre_stage["stage_0a_pending"] is False
+    nice_outcome = state["epoch_4_cycle_20_nice_stage_0a_outcome"]
+    assert nice_outcome["final_decision"] == "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED"
+    assert nice_outcome["valid_scientific_result"] is False
+    assert nice_outcome["worker_alive"] is False
+    assert nice_outcome["exit_code"] == 0
+    assert nice_outcome["completed_pair_count"] == nice_outcome["planned_pair_count"] == 128
+    assert nice_outcome["exception_count"] == 0
+    assert nice_outcome["duplicate_manifest_key_count"] == 0
+    assert nice_outcome["duplicate_result_key_count"] == 0
+    assert nice_outcome["missing_manifest_key_count"] == 0
+    assert nice_outcome["extra_result_key_count"] == 0
+    assert nice_outcome["latent_shape"] == [128, 960]
+    assert nice_outcome["action_inside_fraction"] == 1.0
+    assert nice_outcome["checkpoint_reload_max_abs_error"] == 0.0
+    assert nice_outcome["base_action_identity_max_abs_error"] == 0.0
+    assert nice_outcome["validation_records_read"] == 0
+    assert nice_outcome["confirmatory_records_read"] == 0
+    assert nice_outcome["simulator_rollout_count"] == 0
+    assert nice_outcome["stage_0b1_allowed"] is True
     pre_stage = state["epoch_4_cycle_17_famr_pre_stage_0a"]
     assert pre_stage["final_decision"] == "FAMR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
     assert pre_stage["confirmatory_observations_decoded_max"] == 0

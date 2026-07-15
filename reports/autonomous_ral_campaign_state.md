@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED`
 
 Current epoch: `4`
 
 Current cycle: `20`
 
-Current stage: `epoch_4_cycle_20_nice_stage_0a_pending`
+Current stage: `epoch_4_cycle_20_nice_stage_0b1_implementation_pending`
 
 ## Epoch 4 Cycle 20 NICE-VLA
 

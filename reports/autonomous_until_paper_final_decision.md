@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current campaign decision:
-`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED`
 
 This is not a terminal decision.
 
@@ -35,7 +35,7 @@ forbidden. Historical SPARC decision:
 Cycle 20 selected NICE-VLA from exactly three candidates and froze its
 proposal, review, rebuttal, mathematical audit, preregistration, and prototype
 protocol. Current cycle: `20`. Current stage:
-`epoch_4_cycle_20_nice_stage_0a_pending`.
+`epoch_4_cycle_20_nice_stage_0b1_implementation_pending`.
 
 ## Corrected Epoch 1 Status
 

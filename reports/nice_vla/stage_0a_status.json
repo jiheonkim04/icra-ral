@@ -1,0 +1,9 @@
+{
+  "completed_at": "2026-07-15T12:30:10.669623+00:00",
+  "completed_pair_count": 128,
+  "exception_count": 0,
+  "final_decision": "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED",
+  "pid": 382,
+  "planned_pair_count": 128,
+  "status": "completed"
+}

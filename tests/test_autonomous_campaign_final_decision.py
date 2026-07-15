@@ -216,7 +216,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
-    assert "epoch_4_cycle_20_nice_stage_0a_pending" in final
+    assert "epoch_4_cycle_20_nice_stage_0b1_implementation_pending" in final
     assert "LIFT-VLA" in final
     assert LIFT_PROPOSAL_HASH in final
     assert "training-free CAG" in final
@@ -231,10 +231,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
+    assert state["current_decision"] == "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 20
-    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0a_pending"
+    assert state["current_stage"] == "epoch_4_cycle_20_nice_stage_0b1_implementation_pending"
     assert state["method"] == "NICE-VLA"
     assert state["method_identity"] == "NICE-VLA"
     assert state["proposal_hash"] == NICE_PROPOSAL_HASH
@@ -251,8 +251,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Implement, validate, commit, and run only the frozen NICE Stage 0A source, latent, algebra, calibration, "
-        "and Base-passthrough audit."
+        "Implement, validate, commit, and run only the frozen NICE Stage 0B1 offline development audit."
     )
     assert state["prototype_protocol"] == "reports/nice_vla/prototype_protocol.md"
     assert state["epoch_4_cycle_16_candidate_selection"]["candidate_count"] == 3

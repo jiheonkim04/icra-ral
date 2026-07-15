@@ -1,0 +1,394 @@
+{
+  "action_validity": {
+    "finite_fraction": 1.0,
+    "gripper_inside_fraction": 1.0,
+    "inside_fraction": 1.0,
+    "maximum": 1.0,
+    "minimum": -1.0,
+    "rotation_inside_fraction": 1.0,
+    "translation_inside_fraction": 1.0
+  },
+  "algebra_smoke": {
+    "logdet_max_abs_error": 3.552713678800501e-15,
+    "mahalanobis_max_abs_error": 1.4210854715202004e-14,
+    "minimum_dense_eigenvalue": 0.34317380006282966,
+    "rank": 8,
+    "residual_width": 16
+  },
+  "attempt_number": 1,
+  "base_passthrough": {
+    "action_identity_max_abs_error": 0.0,
+    "base_action": [
+      0.09796886891126633,
+      0.004399307072162628,
+      -0.005929954349994659,
+      0.0011418495560064912,
+      0.011272349394857883,
+      -0.02258979342877865,
+      -1.019970417022705
+    ],
+    "passthrough_action": [
+      0.09796886891126633,
+      0.004399307072162628,
+      -0.005929954349994659,
+      0.0011418495560064912,
+      0.011272349394857883,
+      -0.02258979342877865,
+      -1.019970417022705
+    ],
+    "queue_identity_max_abs_error": 0.0,
+    "queue_shape": [
+      50,
+      7
+    ]
+  },
+  "calibration_smoke": {
+    "coverage_fixtures": {
+      "0.9": {
+        "coverage": 0.9,
+        "episode_count": 8,
+        "episodes_per_task": 4,
+        "one_indexed_rank": 8,
+        "threshold": 5.0
+      },
+      "0.95": {
+        "coverage": 0.95,
+        "episode_count": 8,
+        "episodes_per_task": 4,
+        "one_indexed_rank": 8,
+        "threshold": 5.0
+      },
+      "0.975": {
+        "coverage": 0.975,
+        "episode_count": 8,
+        "episodes_per_task": 4,
+        "one_indexed_rank": 8,
+        "threshold": 5.0
+      }
+    },
+    "episode_nearest_rank_90_expected": 18.0,
+    "episode_nearest_rank_90_fixture": 18.0,
+    "passed": true,
+    "ties_present": true
+  },
+  "closed_loop_experiment_happened": false,
+  "completed_at": "2026-07-15T12:30:10.654590+00:00",
+  "completed_pair_count": 128,
+  "confirmatory_records_read": 0,
+  "confirmatory_test_tuning_happened": false,
+  "elapsed_seconds_quarantined_from_paper_evidence": 34.484453439712524,
+  "exception_count": 0,
+  "final_decision": "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED",
+  "gates": {
+    "action_validity_passed": true,
+    "algebra_passed": true,
+    "calibration_passed": true,
+    "completed_pairs": 128,
+    "exception_count": 0,
+    "forbidden_reads_zero": true,
+    "gradient_passed": true,
+    "latent_passed": true,
+    "manifest_passed": true,
+    "passthrough_passed": true,
+    "planned_pairs": 128,
+    "reload_passed": true,
+    "source_passed": true
+  },
+  "gripper_deadband": 2.0,
+  "latent_passed": true,
+  "latent_shape_set": [
+    [
+      128,
+      960
+    ]
+  ],
+  "manifest_audit": {
+    "completed_count": 128,
+    "duplicate_manifest_key_count": 0,
+    "duplicate_result_key_count": 0,
+    "extra_result_key_count": 0,
+    "missing_manifest_key_count": 0,
+    "passed": true,
+    "planned_count": 128,
+    "split_overlap_count": 0
+  },
+  "manifest_hash": "D20CE8F1A845FBD78911C0B1ECF960A13357D60E329AF6B07F7B74097E90A592",
+  "method": "NICE-VLA",
+  "new_pair_count": 128,
+  "pid": 382,
+  "planned_pair_count": 128,
+  "prior_attempt_exception_count": 0,
+  "privileged_inference_input_count": 0,
+  "proposal_hash": "898BA577B38966D877E3EEC724EB98751BD8C2685CCD0BBA620EB6B6B9598C0A",
+  "repair_consumed": false,
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 2,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "resumed_pair_count": 0,
+  "scientific_model_training_happened": false,
+  "simulator_rollout_count": 0,
+  "source_audit": {
+    "commit_matches": true,
+    "expected_commit": "9d23a0ba6fad562d3ed1a68fc52c8a12459abb41",
+    "files": {
+      "circuit_breaker": {
+        "path": "/mnt/c/Users/jiheo/AppData/Local/Temp/vla-corrector-cycle20/src/siglip_dynamics/inference/circuit_breaker.py",
+        "sha256": "78A0E5B40D384CCB503BC86BD598F42A8F01CEEE512A68D301E3A39CC2868C3E"
+      },
+      "license": {
+        "path": "/mnt/c/Users/jiheo/AppData/Local/Temp/vla-corrector-cycle20/LICENSE",
+        "sha256": "B1573F6D552B494F1BAC1116D2373DACA84AC29F7E7F75AC65A13E41CDE029CC"
+      },
+      "mean_model": {
+        "path": "/mnt/c/Users/jiheo/AppData/Local/Temp/vla-corrector-cycle20/src/siglip_dynamics/MLP.py",
+        "sha256": "937C4D29B2D4FBE913EF27697BFBE48206F5716DA101E5AFF64C85A473AAADE4"
+      },
+      "pair_construction": {
+        "path": "/mnt/c/Users/jiheo/AppData/Local/Temp/vla-corrector-cycle20/src/siglip_dynamics/dataset.py",
+        "sha256": "831924E001B3E5A0FF6FBD1BB1530678F67021B4BAAA073C4F355BBB361679F3"
+      },
+      "training_objective": {
+        "path": "/mnt/c/Users/jiheo/AppData/Local/Temp/vla-corrector-cycle20/src/siglip_dynamics/train.py",
+        "sha256": "03A57921C2333B4F1C7819EA2820545F332F9A4A479ACFA7100E664D8636C076"
+      }
+    },
+    "license": "Apache-2.0",
+    "license_matches": true,
+    "missing": [],
+    "observed_commit": "9d23a0ba6fad562d3ed1a68fc52c8a12459abb41",
+    "repository": "https://github.com/ZJU-OmniAI/vla-corrector",
+    "symbols": {
+      "circuit_breaker": "CircuitBreaker.compute_error/get_dynamic_threshold/check",
+      "mean_model": "SiglipResidualMLP",
+      "pair_construction": "SiglipDynamicsDataset._load_quantized_frame_cache",
+      "training_objective": "_cosine_loss"
+    }
+  },
+  "source_commit": "9d23a0ba6fad562d3ed1a68fc52c8a12459abb41",
+  "source_data_audit": {
+    "planned_pair_count": 128,
+    "tasks": [
+      {
+        "demonstrations": [
+          {
+            "demo_id": 0,
+            "length": 261,
+            "sampled_frames": [
+              0,
+              8,
+              16,
+              24,
+              32,
+              40,
+              48,
+              56,
+              64,
+              72,
+              80,
+              88,
+              96,
+              104,
+              112,
+              120,
+              129,
+              137,
+              145,
+              153,
+              161,
+              169,
+              177,
+              185,
+              193,
+              201,
+              209,
+              217,
+              225,
+              233,
+              241,
+              250
+            ]
+          },
+          {
+            "demo_id": 1,
+            "length": 228,
+            "sampled_frames": [
+              0,
+              7,
+              14,
+              21,
+              28,
+              35,
+              42,
+              49,
+              56,
+              63,
+              70,
+              77,
+              84,
+              91,
+              98,
+              105,
+              112,
+              119,
+              126,
+              133,
+              140,
+              147,
+              154,
+              161,
+              168,
+              175,
+              182,
+              189,
+              196,
+              203,
+              210,
+              217
+            ]
+          }
+        ],
+        "resolved_zero_indexed_sorted_filename": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+        "source_edge_sha256": "BF31060BE5567606B71D180FE68DFC044D4F18078349AF2101603E0C8A5B5619",
+        "source_mtime_ns": 1783121960024101200,
+        "source_path": "/mnt/c/assets/data/libero/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+        "source_size_bytes": 1235470452,
+        "suite": "libero_10",
+        "task_id": 1,
+        "task_identity": "libero_10/task_1",
+        "task_language": "put the black bowl in the bottom drawer of the cabinet and close it"
+      },
+      {
+        "demonstrations": [
+          {
+            "demo_id": 0,
+            "length": 170,
+            "sampled_frames": [
+              0,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30,
+              35,
+              41,
+              46,
+              51,
+              56,
+              61,
+              66,
+              71,
+              76,
+              82,
+              87,
+              92,
+              97,
+              102,
+              107,
+              112,
+              117,
+              123,
+              128,
+              133,
+              138,
+              143,
+              148,
+              153,
+              159
+            ]
+          },
+          {
+            "demo_id": 1,
+            "length": 187,
+            "sampled_frames": [
+              0,
+              5,
+              11,
+              17,
+              22,
+              28,
+              34,
+              39,
+              45,
+              51,
+              56,
+              62,
+              68,
+              73,
+              79,
+              85,
+              90,
+              96,
+              102,
+              107,
+              113,
+              119,
+              124,
+              130,
+              136,
+              141,
+              147,
+              153,
+              158,
+              164,
+              170,
+              176
+            ]
+          }
+        ],
+        "resolved_zero_indexed_sorted_filename": "open_the_top_drawer_and_put_the_bowl_inside_demo.hdf5",
+        "source_edge_sha256": "56B0A184AD10EE0C213990617BBCB942EFD6439930345A3B82DFA7CDE3F217C3",
+        "source_mtime_ns": 1783123397874186600,
+        "source_path": "/mnt/c/assets/data/libero/libero_goal/open_the_top_drawer_and_put_the_bowl_inside_demo.hdf5",
+        "source_size_bytes": 1017886342,
+        "suite": "libero_goal",
+        "task_id": 1,
+        "task_identity": "libero_goal/task_1",
+        "task_language": "open the top drawer and put the bowl inside"
+      }
+    ]
+  },
+  "stage_0b_allowed": true,
+  "started_at": "2026-07-15T12:29:36.170153+00:00",
+  "task_outcome_read_count": 0,
+  "tiny_interface_smoke_training_happened": true,
+  "tiny_model_smoke": {
+    "action_width": 7,
+    "basis_orthonormal_max_abs_error": 4.172325134277344e-07,
+    "basis_shape": [
+      122880,
+      8
+    ],
+    "checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/nice_vla/stage0a/nice_stage0a_smoke.pt",
+    "checkpoint_reload_max_abs_error": 0.0,
+    "checkpoint_sha256": "684BDDF610746F8157C4B828FAA7E53AAAD689648E47917648186E2E17C58EC0",
+    "covariance_gradient_norm": 111.99484984493327,
+    "covariance_nll_after": 2.686427116394043,
+    "covariance_nll_before": 14.243661880493164,
+    "frozen_gradients_zero": true,
+    "frozen_mean_gradient_norm_during_covariance": 0.0,
+    "intended_gradients_finite_nonzero": true,
+    "latent_shape": [
+      128,
+      960
+    ],
+    "mean_gradient_norm": 0.17618333264480332,
+    "mean_loss_after": 0.7742438912391663,
+    "mean_loss_before": 1.007709264755249,
+    "mean_mse_before": 13.79218864440918,
+    "rank8_gradient_norm": 30.64225916445659,
+    "rank8_nll": 6.937248229980469,
+    "variance_clamped_fraction": 0.0,
+    "variance_max": 21.280946731567383,
+    "variance_median": 1.1230990886688232,
+    "variance_min": 0.003694460028782487
+  },
+  "training_happened": true,
+  "validation_records_read": 0,
+  "validation_search_happened": false
+}

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`NICE_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED`
 
 Current epoch: `4`
 
 Current cycle: `20`
 
-Current stage: `epoch_4_cycle_20_nice_stage_0a_pending`
+Current stage: `epoch_4_cycle_20_nice_stage_0b1_implementation_pending`
 
 Allowed final states:
 
@@ -611,4 +611,16 @@ and algebra/calibration smoke, exact Base passthrough, zero validation or
 confirmatory reads, and one mechanical implementation repair at most.
 
 Current cycle: `20`. Current stage:
-`epoch_4_cycle_20_nice_stage_0a_pending`.
+`epoch_4_cycle_20_nice_stage_0b1_implementation_pending`.
+
+NICE Stage 0A completed `128 / 128` discovery-only latent/action pairs with
+exit code zero, zero exceptions, and exact manifest/partial key equality. The
+official source commit/license, `[128,960]` latent mapping, 7D actions,
+gradients, diagonal and rank-8 algebra, conformal fixtures, checkpoint reload,
+and monitor-disabled Base passthrough all passed. Validation, confirmatory,
+outcome, and rollout reads were zero. This is an implementation/data pass, not
+a scientific performance result.
+
+The separate Stage 0B1 offline development protocol is frozen at
+`reports/nice_vla/stage_0b1_execution_protocol.md`. Only its fixed 1792-pair
+observability audit is authorized next.

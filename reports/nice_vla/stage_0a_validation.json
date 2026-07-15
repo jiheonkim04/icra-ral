@@ -1,0 +1,19 @@
+{
+  "accepted_without_duplicate_rows": true,
+  "final_decision": "NICE_STAGE_0A_PASS_STAGE_0B_ALLOWED",
+  "manifest_audit": {
+    "completed_count": 128,
+    "duplicate_manifest_key_count": 0,
+    "duplicate_result_key_count": 0,
+    "extra_result_key_count": 0,
+    "missing_manifest_key_count": 0,
+    "passed": true,
+    "planned_count": 128,
+    "split_overlap_count": 0
+  },
+  "manifest_hash_recomputed": true,
+  "partial_json_parsed": true,
+  "proposal_hash_recomputed": true,
+  "result_json_parsed": true,
+  "worker_completed": true
+}
