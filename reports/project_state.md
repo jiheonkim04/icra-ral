@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_COVI_VLA`
+Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
@@ -46,7 +46,9 @@ RAR Stage 0 stopped as `DESIGN_FAILURE` in `reports/rar_vla/development_audit.js
 
 Epoch 4 Cycle 14 generated exactly three candidates in `reports/epoch_4_cycle_14_candidate_generation.md` after `reports/epoch_4_cycle_14_prior_mechanism_map.md` and selected `COVI-VLA`, Complementary Occlusion View Imagination for frozen SmolVLA, anchored to LIBERO-Occ / Viewpoint Imagination.
 
-Exact next step: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack. Do not rescue RAR.
+The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_proposal.md` with proposal hash `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`.
+
+Exact next step: run Reviewer B attack on the frozen COVI proposal. Do not rescue RAR.
 
 ## 2026-07-13 Governance V2 Current State
 

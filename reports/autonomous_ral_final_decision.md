@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `SELECT_COVI_VLA`
+Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -235,4 +235,6 @@ Epoch 4 Cycle 14 generated exactly three post-RAR candidates in `reports/epoch_4
 
 COVI is anchored to LIBERO-Occ / Viewpoint Imagination, with CamVLA and STRONG-VLA as secondary priors. The design changes the mechanism axis from causal action-memory residuals to scene-induced partial observability: it uses legal current observations, proprioception, task/language input, Base action chunks, and an internally predicted complementary-view representation, with an identity-preserving visual adapter gate. The frozen first comparison is Base under occlusion, a VIM-style transparent proxy, COVI full, no-imagined-view ablation, and `random_cutout_clean_retention_baseline`.
 
-Current stage: `epoch_4_cycle_14_covi_proposal_pending`. Next action: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack.
+The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_proposal.md` with proposal hash `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`.
+
+Current stage: `epoch_4_cycle_14_covi_reviewer_attack_pending`. Next action: Reviewer B attack on the frozen COVI proposal.

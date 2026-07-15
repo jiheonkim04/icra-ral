@@ -10,6 +10,7 @@ EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A445
 G3P_PROPOSAL_HASH = "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71"
 CALA_PROPOSAL_HASH = "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76"
 RAR_PROPOSAL_HASH = "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56"
+COVI_PROPOSAL_HASH = "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -24,11 +25,11 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "SELECT_COVI_VLA"
-    assert state["current_stage"] == "epoch_4_cycle_14_covi_proposal_pending"
+    assert state["current_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_reviewer_attack_pending"
     assert state["method"] == "COVI-VLA"
     assert state["method_identity"] == "COVI-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == COVI_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -176,6 +177,7 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert "epoch_4_cycle_14_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_14_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_proposal_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -875,6 +877,21 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi["confirmatory_test_tuning_happened"] is False
     assert covi["previous_method_stop"] == "RAR_STAGE_0_DESIGN_FAILURE"
     assert covi["must_not_rescue_previous_method"] is True
+    assert covi["proposal"] == "reports/covi_vla/researcher_proposal.md"
+    assert covi["proposal_hash"] == COVI_PROPOSAL_HASH
+    assert covi["proposal_hash_file"] == "reports/covi_vla/proposal_hash.txt"
+    assert covi["proposal_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert covi["reviewer_attack_pending"] is True
+    covi_proposal = state["epoch_4_cycle_14_covi_proposal"]
+    assert covi_proposal["method"] == "COVI-VLA"
+    assert covi_proposal["proposal"] == "reports/covi_vla/researcher_proposal.md"
+    assert covi_proposal["proposal_hash"] == COVI_PROPOSAL_HASH
+    assert covi_proposal["proposal_hash_file"] == "reports/covi_vla/proposal_hash.txt"
+    assert covi_proposal["final_decision"] == "COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert covi_proposal["closed_loop_experiment_happened"] is False
+    assert covi_proposal["training_happened"] is False
+    assert covi_proposal["validation_search_happened"] is False
+    assert covi_proposal["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

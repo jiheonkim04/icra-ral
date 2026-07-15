@@ -2389,6 +2389,25 @@ Selected first comparison policies:
 
 Consequence: COVI-VLA is selected for proposal freezing. RAR remains stopped as `DESIGN_FAILURE` and must not be rescued. COVI must test scene-induced occlusion and complementary-view representation, keep the VIM proxy transparent until official equivalence is established, and keep the random-cutout clean-retention simple killer baseline live.
 
+## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Proposal Freeze
+
+Decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+
+Execution boundary:
+
+- method: `COVI-VLA`
+- proposal: `reports/covi_vla/researcher_proposal.md`
+- proposal hash: `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`
+- proposal hash file: `reports/covi_vla/proposal_hash.txt`
+- closest prior: LIBERO-Occ / Viewpoint Imagination
+- reported closest-prior code: `https://github.com/litsh/Libero-Occ`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the Researcher A proposal is frozen. Reviewer B must attack novelty, LIBERO-Occ/VIM source fidelity, random-cutout and two-camera-fusion triviality, PatchGuard overlap, privileged clean-view leakage, identity-preserving integration, and local SmolVLA visual-adapter feasibility before any implementation.
+
 ## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Stage 0 Development Audit
 
 Decision: `DESIGN_FAILURE`

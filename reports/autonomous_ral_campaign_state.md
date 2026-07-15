@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_COVI_VLA`
+Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `14`
 
-Current stage: `epoch_4_cycle_14_covi_proposal_pending`
+Current stage: `epoch_4_cycle_14_covi_reviewer_attack_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -341,4 +341,6 @@ Epoch 4 Cycle 14 generated exactly three candidates in `reports/epoch_4_cycle_14
 
 COVI is anchored to LIBERO-Occ / Viewpoint Imagination, with CamVLA and STRONG-VLA as secondary priors. The selected first comparison is frozen at the design level to five policies: Base under occlusion, VIM-style proxy, COVI full, no-imagined-view ablation, and `random_cutout_clean_retention_baseline`.
 
-Current decision: `SELECT_COVI_VLA`. Current stage: `epoch_4_cycle_14_covi_proposal_pending`. Next action: freeze and hash the COVI-VLA Researcher A proposal before Reviewer B attack. Do not rescue RAR.
+The COVI-VLA Researcher A proposal is frozen in `reports/covi_vla/researcher_proposal.md` with proposal hash `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`.
+
+Current decision: `COVI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Current stage: `epoch_4_cycle_14_covi_reviewer_attack_pending`. Next action: Reviewer B attack on the frozen COVI proposal. Do not rescue RAR.
