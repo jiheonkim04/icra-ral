@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
@@ -53,6 +53,8 @@ Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with deci
 Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts all Reviewer B constraints.
 
 The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. It keeps the narrowed COVI claim, transparent VIM proxy, direct two-camera fusion diagnostic, random-cutout simple killer, physical occlusion requirement, identity-preserving feature adapter, and no deterministic-action KL rule live.
+
+The single allowed preimplementation milestone is complete. `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md` freeze the measured official SmolVLA visual-token hook, evidence partitions, Stage 0 configuration, comparators, bootstrap decision rule, and one unresolved-result check. The next scientific artifact must be `reports/covi_vla/stage_0_result.json` or `reports/covi_vla/implementation_blocker.json`.
 
 Exact next step: freeze COVI preregistration and prototype protocol before implementation. Do not rescue RAR.
 

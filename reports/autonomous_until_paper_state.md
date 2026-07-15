@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `14`
 
-Current stage: `epoch_4_cycle_14_covi_preregistration_pending`
+Current stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`
 
 Allowed final states:
 
@@ -428,4 +428,6 @@ Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` w
 
 The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes variables and tensor shapes, the legal source gate, complementary-target construction, adapter/gate formulas, objective terms, gradient checks, direct two-camera fusion diagnostics, random-cutout simple killer, transparent VIM proxy status, and the six-configuration validation budget. No implementation, validation search, training, manifest freeze, or rollout has happened.
 
-Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_14_covi_preregistration_pending`. Next action: freeze preregistration and prototype protocol before implementation. Do not rescue RAR.
+The COVI preregistration and prototype protocol are frozen in `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md`. They freeze the measured `[64, 960]` visual-token hook, `600 / 600 / 400 / 1200` fit/one-check/validation/confirmatory record partitions, one fixed Stage 0 configuration, one unresolved-result check, and episode-cluster bootstrap false-negative safeguard. Synthetic Stage 0 occlusion is a development proxy only and cannot establish the physical-occlusion claim.
+
+Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`. Next action: implement COVI and run executable Stage 0. Do not add another planning milestone or rescue RAR.

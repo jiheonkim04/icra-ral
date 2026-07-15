@@ -17,6 +17,17 @@ def test_current_research_governance_validator_passes() -> None:
     assert validate(REPO_ROOT) == []
 
 
+def test_governance_freezes_false_negative_safeguard() -> None:
+    governance = (REPO_ROOT / "reports" / "current_research_governance.md").read_text(encoding="utf-8")
+
+    assert "False-Negative Safeguard For Pre-Rollout Decisions" in governance
+    assert "FATAL_PREIMPLEMENTATION" in governance
+    assert "ROBUST_EMPIRICAL_DESIGN_FAILURE" in governance
+    assert "UNDERPOWERED_OR_UNRESOLVED" in governance
+    assert "IMPLEMENTATION_OR_DATA_FAILURE" in governance
+    assert "exactly one" in governance
+
+
 def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
@@ -25,12 +36,12 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "COVI_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["current_stage"] == "epoch_4_cycle_14_covi_preregistration_pending"
+    assert state["current_decision"] == "COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_14_covi_stage_0_implementation_pending"
     assert state["method"] == "COVI-VLA"
     assert state["method_identity"] == "COVI-VLA"
     assert state["proposal_hash"] == COVI_PROPOSAL_HASH
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/covi_vla/prototype_protocol.md"
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -181,6 +192,8 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert "epoch_4_cycle_14_covi_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_rebuttal_completed" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_prototype_protocol_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -896,6 +909,12 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi["mathematical_audit_pending"] is False
     assert covi["mathematical_audit_completed"] is True
     assert covi["mathematical_audit_decision"] == "COVI_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert covi["preregistration"] == "reports/covi_vla/preregistration.md"
+    assert covi["prototype_protocol"] == "reports/covi_vla/prototype_protocol.md"
+    assert covi["preregistration_completed"] is True
+    assert covi["prototype_protocol_completed"] is True
+    assert covi["false_negative_safeguard_required"] is True
+    assert covi["stage_0_pending"] is True
     covi_proposal = state["epoch_4_cycle_14_covi_proposal"]
     assert covi_proposal["method"] == "COVI-VLA"
     assert covi_proposal["proposal"] == "reports/covi_vla/researcher_proposal.md"
@@ -961,8 +980,23 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert covi_audit["random_cutout_simple_killer_required"] is True
     assert covi_audit["identity_preserving_visual_adapter_required"] is True
     assert covi_audit["bounded_validation_search_max_configs"] == 6
-    assert covi_audit["preregistration_completed"] is False
-    assert covi_audit["prototype_protocol_completed"] is False
+    assert covi_audit["preregistration_completed"] is True
+    assert covi_audit["prototype_protocol_completed"] is True
+    covi_prereg = state["epoch_4_cycle_14_covi_preregistration"]
+    assert covi_prereg["final_decision"] == "COVI_PREREGISTRATION_FROZEN_STAGE_0_PENDING"
+    assert covi_prereg["reviewer_status"] == "APPROVE_WITH_FIXED_EMPIRICAL_RISKS"
+    assert covi_prereg["discovery_fit_records"] == 600
+    assert covi_prereg["discovery_one_check_records"] == 600
+    assert covi_prereg["validation_records"] == 400
+    assert covi_prereg["reserved_confirmatory_records"] == 1200
+    assert covi_prereg["visual_token_shape_per_stream"] == [64, 960]
+    assert covi_prereg["false_negative_safeguard_required"] is True
+    assert covi_prereg["one_unresolved_check_max"] == 1
+    covi_proto = state["epoch_4_cycle_14_covi_prototype_protocol"]
+    assert covi_proto["final_decision"] == "COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert covi_proto["stage_0_result"] == "reports/covi_vla/stage_0_result.json"
+    assert covi_proto["implementation_blocker"] == "reports/covi_vla/implementation_blocker.json"
+    assert covi_proto["stage_0_pending"] is True
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

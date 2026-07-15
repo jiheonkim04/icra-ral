@@ -2325,6 +2325,29 @@ Execution boundary:
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
 
+## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Preregistration And Prototype Protocol
+
+Decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+
+Execution boundary:
+
+- method: `COVI-VLA`
+- proposal hash: `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`
+- reviewer status: `APPROVE_WITH_FIXED_EMPIRICAL_RISKS`
+- preregistration: `reports/covi_vla/preregistration.md`
+- prototype protocol: `reports/covi_vla/prototype_protocol.md`
+- official visual-token hook: `[B, 64, 960]` per available stream
+- fit / one-check / validation / confirmatory records: `600 / 600 / 400 / 1200`
+- validation search happened: `False`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: executable implementation and Stage 0 are the only allowed next
+steps. A small or uncertain point estimate cannot permanently kill COVI; the
+frozen episode-bootstrap false-negative safeguard and one unresolved-result
+check apply. The synthetic Stage 0 condition is a development proxy and does
+not establish the final physical-occlusion claim.
+
 ## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Stage 0 Development Audit
 
 Decision: `DESIGN_FAILURE`

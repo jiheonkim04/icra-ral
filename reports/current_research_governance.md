@@ -446,3 +446,36 @@ Final paper comparison must include SmolVLA versus SmolVLA plus Ours and Quantiz
 ### Long-Running Execution
 
 For future long-running WSL experiments, use detached durable execution, save PID, heartbeat, logs, partial result, exact resume command, and resume only missing evaluation keys after interruption.
+
+## False-Negative Safeguard For Pre-Rollout Decisions
+
+Before any Stage 0 or pre-rollout permanent kill, Reviewer B must classify the
+evidence as exactly one of:
+
+- `FATAL_PREIMPLEMENTATION`: near-exact prior duplication, mathematically
+  invalid objective, exact trivial equivalence, essential unavailable
+  resource, or non-falsifiable mechanism.
+- `ROBUST_EMPIRICAL_DESIGN_FAILURE`: valid data and implementation, adequate
+  independent records, decisive headroom diagnostics, and uncertainty that
+  excludes a preregistered practically useful candidate advantage.
+- `UNDERPOWERED_OR_UNRESOLVED`: small point estimate, unavailable or wide
+  interval, normalization sensitivity, large subgroup variance, weak record
+  independence, or practical tie.
+- `IMPLEMENTATION_OR_DATA_FAILURE`: collapsed labels, missing contrast,
+  nonacting gradients, invalid construction, wrong checkpoint, or integration
+  defect.
+
+Only `FATAL_PREIMPLEMENTATION` and `ROBUST_EMPIRICAL_DESIGN_FAILURE` may produce
+a permanent pre-rollout kill. `UNDERPOWERED_OR_UNRESOLVED` receives exactly one
+cheap preregistered decisive check. `IMPLEMENTATION_OR_DATA_FAILURE` is not a
+scientific method kill.
+
+Before a kill, Reviewer B must record the strongest fair interpretation of the
+frozen proposal, the narrowest honest publishable claim, false-positive risk,
+false-negative risk, confidence, record count, independence analysis,
+variance or bootstrap interval, practical-effect threshold, normalization
+sensitivity, and exact evidence required for a permanent kill. Risk alone is
+not proof of failure, and unknown performance remains an empirical question.
+
+This safeguard applies to new empirical evidence. It does not reopen a method
+review that has already passed or retroactively rescue a valid frozen result.

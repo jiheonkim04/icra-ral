@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 14,
-    "current_topic": "epoch_4_cycle_14_covi_preregistration_pending",
+    "current_topic": "epoch_4_cycle_14_covi_stage_0_implementation_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "6b854de",
+    "current_commit": "1bf903b",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_14_covi_preregistration_pending",
+    "current_stage": "epoch_4_cycle_14_covi_stage_0_implementation_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -319,7 +319,9 @@
         "epoch_4_cycle_14_covi_proposal_frozen",
         "epoch_4_cycle_14_covi_reviewer_attack_completed",
         "epoch_4_cycle_14_covi_rebuttal_completed",
-        "epoch_4_cycle_14_covi_mathematical_audit_preregistered"
+        "epoch_4_cycle_14_covi_mathematical_audit_preregistered",
+        "epoch_4_cycle_14_covi_preregistration_frozen",
+        "epoch_4_cycle_14_covi_prototype_protocol_frozen"
     ],
     "active_hypothesis": "COVI-VLA selected for Epoch 4 Cycle 14 as a LIBERO-Occ/VIM-anchored, identity-preserving complementary-view representation method for frozen SmolVLA under scene-induced occlusion.",
     "method_identity": "COVI-VLA",
@@ -331,7 +333,7 @@
         "SUREFlow",
         "DFM-VLA"
     ],
-    "prototype_protocol": null,
+    "prototype_protocol": "reports/covi_vla/prototype_protocol.md",
     "running_command": null,
     "process_id": null,
     "checkpoint_path": null,
@@ -342,7 +344,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "COVI_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -451,7 +453,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze COVI preregistration and prototype protocol before implementation; do not rescue RAR.",
+    "next_action": "Implement COVI and run the frozen executable Stage 0 audit; do not add another planning milestone or rescue RAR.",
     "method": "COVI-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2202,7 +2204,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_14_covi_proposal_pending",
+    "topic": "epoch_4_cycle_14_covi_stage_0_implementation_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -5081,7 +5083,17 @@
         "training_happened_after_proposal": false,
         "validation_search_happened_after_proposal": false,
         "confirmatory_test_tuning_happened_after_proposal": false,
-        "next_stage": "Freeze preregistration and prototype protocol before implementation."
+        "preregistration": "reports/covi_vla/preregistration.md",
+        "prototype_protocol": "reports/covi_vla/prototype_protocol.md",
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true,
+        "preregistration_decision": "COVI_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol_decision": "COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "false_negative_safeguard_required": true,
+        "stage_0_result": "reports/covi_vla/stage_0_result.json",
+        "implementation_blocker": "reports/covi_vla/implementation_blocker.json",
+        "stage_0_pending": true,
+        "next_stage": "Implement COVI and run executable Stage 0."
     },
     "epoch_4_cycle_14_covi_proposal": {
         "method": "COVI-VLA",
@@ -5095,7 +5107,7 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze preregistration and prototype protocol before implementation.",
+        "next_stage": "Implement COVI and run executable Stage 0.",
         "reviewer_attack": "reports/covi_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
@@ -5121,7 +5133,7 @@
         "direct_two_camera_fusion_diagnostic_required": true,
         "random_cutout_simple_killer_must_remain_live": true,
         "physical_occlusion_claim_must_be_validated": true,
-        "next_stage": "Freeze preregistration and prototype protocol before implementation.",
+        "next_stage": "Implement COVI and run executable Stage 0.",
         "researcher_rebuttal": "reports/covi_vla/researcher_rebuttal.md",
         "rebuttal_decision": "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "rebuttal_completed": true,
@@ -5151,7 +5163,7 @@
         "mathematical_audit": "reports/covi_vla/mathematical_mechanism_audit.md",
         "mathematical_audit_decision": "COVI_MATHEMATICAL_AUDIT_PREREGISTERED",
         "mathematical_audit_completed": true,
-        "next_stage": "Freeze preregistration and prototype protocol before implementation."
+        "next_stage": "Implement COVI and run executable Stage 0."
     },
     "epoch_4_cycle_14_covi_mathematical_audit": {
         "method": "COVI-VLA",
@@ -5179,10 +5191,47 @@
             "covi_no_imagined_view_ablation",
             "random_cutout_clean_retention_baseline"
         ],
-        "next_stage": "Freeze preregistration and prototype protocol before implementation.",
+        "next_stage": "Implement COVI and run executable Stage 0.",
         "preregistration": "reports/covi_vla/preregistration.md",
         "prototype_protocol": "reports/covi_vla/prototype_protocol.md",
-        "preregistration_completed": false,
-        "prototype_protocol_completed": false
+        "preregistration_completed": true,
+        "prototype_protocol_completed": true
+    },
+    "epoch_4_cycle_14_covi_preregistration": {
+        "method": "COVI-VLA",
+        "proposal_hash": "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621",
+        "mathematical_audit": "reports/covi_vla/mathematical_mechanism_audit.md",
+        "preregistration": "reports/covi_vla/preregistration.md",
+        "final_decision": "COVI_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
+        "reviewer_status": "APPROVE_WITH_FIXED_EMPIRICAL_RISKS",
+        "discovery_fit_records": 600,
+        "discovery_one_check_records": 600,
+        "validation_records": 400,
+        "reserved_confirmatory_records": 1200,
+        "visual_token_shape_per_stream": [64, 960],
+        "bounded_validation_search_max_configs": 6,
+        "false_negative_safeguard_required": true,
+        "one_unresolved_check_max": 1,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "stage_0_pending": true
+    },
+    "epoch_4_cycle_14_covi_prototype_protocol": {
+        "method": "COVI-VLA",
+        "proposal_hash": "338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621",
+        "prototype_protocol": "reports/covi_vla/prototype_protocol.md",
+        "final_decision": "COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "reviewer_status": "APPROVE_WITH_FIXED_EMPIRICAL_RISKS",
+        "stage_0_command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe scripts\\run_covi_vla_stage0.py --mode audit",
+        "stage_0_result": "reports/covi_vla/stage_0_result.json",
+        "implementation_blocker": "reports/covi_vla/implementation_blocker.json",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "stage_0_pending": true,
+        "next_stage": "Executable COVI implementation and Stage 0 evidence."
     }
 }

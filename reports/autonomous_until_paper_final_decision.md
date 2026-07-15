@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
+Current campaign decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -260,4 +260,6 @@ Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` w
 
 The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. The audit keeps the narrowed feature-adapter claim, legal source gate, direct two-camera diagnostic, random-cutout simple killer, physical occlusion requirement, identity-preserving integration, bounded validation search, and no deterministic-action KL constraint live.
 
-Current stage: `epoch_4_cycle_14_covi_preregistration_pending`. Next action: freeze preregistration and prototype protocol before implementation.
+The COVI preregistration and prototype protocol are frozen in `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md` under `APPROVE_WITH_FIXED_EMPIRICAL_RISKS`. The measured official hook is `[64, 960]` visual tokens per stream, and the Stage 0 split is `600` fit, `600` sealed one-check, `400` validation, and `1200` untouched confirmatory records.
+
+Current stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`. Next action: implement COVI and produce executable Stage 0 evidence without another planning milestone.
