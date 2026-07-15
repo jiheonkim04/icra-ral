@@ -1,0 +1,3083 @@
+{
+  "manifest_hash": "6817CD39E1B61F67C22B0FEF98AE8F1F5E53DD97C37599F04626AFE6FF264D77",
+  "method": "HEST-VLA",
+  "partition_counts": {
+    "discovery": 128,
+    "validation": 32
+  },
+  "planned_window_count": 160,
+  "proposal_hash": "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527",
+  "rows": [
+    {
+      "action_sha256": "5438FF166960338ABF24FF2CB34DF37A0B36B633747503A2FC5CE0F71703BB93",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|0|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "6C10A0643A0249E4140A1FE3D55C47A3C34DBE94DB76A13F2A462F39B67370F7",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 24,
+      "stop": 74,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|0|24|74",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "F9B5701E553DA6AF7E6D5220AEE9FACBE42013845DF1ADCD791A8A32203AF277",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 49,
+      "stop": 99,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|0|49|99",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "D9D7FA2C005389C38BE0F042CA382D71BB955100D393BF36F0B84DFFC99CF790",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 73,
+      "stop": 123,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|0|73|123",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "2044830B0536878B11AF08CBA1AA5A0BA2FC4AFFB90E689B38D8314CFB499BC4",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 137,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|1|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "0F79F3238EBB1158DF551CB5B8EDF1F0F5217B14169FA8390C0DD50423BDC24A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 137,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 29,
+      "stop": 79,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|1|29|79",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "AA728B482ADDD81CE8C9BEBBEAC9C243A9F7AAB3D14ED113534CC4F93409B6D6",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 137,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 58,
+      "stop": 108,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|1|58|108",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "E1561E1F426CCD9E42DF916A0F00C555C0B81F8B3848E044E731B3A110A3CDAA",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 137,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 87,
+      "stop": 137,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|1|87|137",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "0673969BBE85B1AE73063AD7786A2AF0C368EB076D145C125374862232AFE903",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 125,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|2|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "5F77D591A31E769FE52FB18500B1CA405F9B3749F840CBAF57F7BC29253AD7D7",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 125,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 25,
+      "stop": 75,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|2|25|75",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "8AC704C49327640BEBB3A7D9476FED17AA3554E0493AD280694F348340B7CA7A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 125,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 50,
+      "stop": 100,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|2|50|100",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "1E5C05BEC8D517D8B41313BB3BCCB5C9DA14150A415207EFAA7602F169DCED0E",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 125,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 75,
+      "stop": 125,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|2|75|125",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "E84AD54F2572308A622A591E7C24A75EE6F71BD47FFBED79AECD89FA17D8ED2C",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 108,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|3|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "FDF251C3E5CDDBA7A89738A51A15D800DDDEC7BC7CA919BC9655BDF9461992B0",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 108,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 19,
+      "stop": 69,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|3|19|69",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "ADDFFEEF5B1BA9DE6D6939E247BC51453F53EAC0D64BB04EAF4520981A557D6C",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 108,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 39,
+      "stop": 89,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|3|39|89",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "CBBA52671228AC374ADC876D4C048AD12AB92B85AAF80DBC3BA74618751B4474",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 108,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 58,
+      "stop": 108,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|3|58|108",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "4E1F4237562F2EF59F3523AA7A7F6BE52FCEE91A9F8261AD9116EDB11B168297",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|4|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "37ADFB029E98B8FEBE547DAD8155C040C216562624CD5985ADB9B7EF20384822",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 24,
+      "stop": 74,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|4|24|74",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "FD7ACBF0B127F66F3D21511B8EE0B42D188A7309B9E97D66CCE6F253E89DFA22",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 49,
+      "stop": 99,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|4|49|99",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "3C50BA54A17BE8FB82A00F81634E302D59BF3771AFD9032DBBEE14D8A668110F",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 73,
+      "stop": 123,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|4|73|123",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "58452C6A9664F3D59A3E5A4521714994152F354667187A40D358220CF6156D91",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 130,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|5|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "3574EF920F6A5297F5ACD4F043FC6A6A6D530FF6D1D714F87F39D2498B9119EC",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 130,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 27,
+      "stop": 77,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|5|27|77",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "43382E509A88852EE35171CDB846C814046DF1C7F60A969CD23313CB78BCF24C",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 130,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 53,
+      "stop": 103,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|5|53|103",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "A7219358043CF65D241FA7C6609BF2945B35E316E5A889E6FE29D84E7BA9E0B5",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 130,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 80,
+      "stop": 130,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|5|80|130",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "BE55E6BF920E2ABA9126EDF82E692675BB439DFCF0A15129261137DA72F5524D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 124,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|6|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "D4F90CF920846698847501F494812560448661247FD7E3C4C44EE5AADB1368F6",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 124,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 25,
+      "stop": 75,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|6|25|75",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "A05CF5B8FFB640C252E7997DB2900C3FE863D7E7B161943D80117DDE04B00719",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 124,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 49,
+      "stop": 99,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|6|49|99",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "371421070C9AAEBCA06BA22F4CD5841B5F5464DB1F4643F01C91980333B3336B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 124,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 74,
+      "stop": 124,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|6|74|124",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "63078167853BB70510288A77E06E20F9D46A3D39D65145366752A8A9758B8418",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|7|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "85C63389872A94B7D8BE3A3A8EB85B40D7C96E9E6D9D6606DC4090B133CF3A56",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 24,
+      "stop": 74,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|7|24|74",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "0385DDA8F20AAD6B94BE4AFA86BF86669FAD0B2D5CD529A8E0AF524EC4A75FFB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 49,
+      "stop": 99,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|7|49|99",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "EBA49FD986519F09A5548818B676188E4DA84BF2AC48882FDEC671A2F2019AED",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 73,
+      "stop": 123,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "discovery|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|7|73|123",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "247DF9B24F8EB34CF5FC6A537AF395CB14985ED85D106250DBAC6382BE23FC4D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 133,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|8|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "57DDCD8D2B16A041B5DF9470BC04CD1459E44D5F08E4B972831B0284463E81DC",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 133,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 28,
+      "stop": 78,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|8|28|78",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "A56A5B04AC9562819FB12DF25D46E217492B69B684AB2CD7DB5A79AF90C3B471",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 133,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 55,
+      "stop": 105,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|8|55|105",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "BBE4873DACBBDB0E99BC1371259A80DA9273630DC977E6DBA85C9B768D398001",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 133,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 83,
+      "stop": 133,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|8|83|133",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "1ECC444E450FB9FBA1423CA6718EE9F8D95685DC6003EE6AF91E320DD828BAC2",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 113,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|9|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "D11A713EC7A70FCB4B3F4A5D6EA66C1BC27C28738F549A638869C0145DB7FD45",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 113,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 21,
+      "stop": 71,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|9|21|71",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "1D367B49812EFB9D8EA238EC24CD53F87F7AD65A323244FAC13EC2BE1053D7EF",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 113,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 42,
+      "stop": 92,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|9|42|92",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "C514A458E8B373D9A0D7561C278FD88EF6E6EDB391148659F6DC7346728036FE",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 113,
+      "partition": "validation",
+      "source_edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "source_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "start": 63,
+      "stop": 113,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3",
+      "window_key": "validation|libero_spatial|libero_spatial/task_3|/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5|9|63|113",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "600C7C56D9D330666FF2F866DF7289C1E24AFFB1667D7F316AB038138FE1D52F",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|0|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "097565146000097A0B0A5094A33931CB31D79FC5D7B8A71ECB3054650CC2F2C5",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 39,
+      "stop": 89,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|0|39|89",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "6B122297B4D122301AA8C6EEA18209A36A2AA5525C8677B37DDC4F5271C789FF",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 79,
+      "stop": 129,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|0|79|129",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "5FE6409DF6182708DD388D55271CBDB1BB8BD2A8580E312ADBD8D1C58EDB3E33",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 118,
+      "stop": 168,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|0|118|168",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "ACE3BDD3FE246205166036DEE7B2025D7550D3D675EC22082E942A99EF7B5518",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 150,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|1|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "A1B331D95CE004DD6B38B2A9A5AF7A7879B9419A2A350EEA7582B450605CDC33",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 150,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 33,
+      "stop": 83,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|1|33|83",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "B2C474647737701BADB1E9D3D7BF200D330EFFD724EFF04C96FA26C6354F4D9B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 150,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 67,
+      "stop": 117,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|1|67|117",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "71464275ECD8A23459F717513ECE71C282B1E8D7DC9296B1E55EB5B8BC22E6BF",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 150,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 100,
+      "stop": 150,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|1|100|150",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "E6EBBCCD4C24441ACABA28E7B6D09808024871D5CC2FDB512DBD8BA71BB27368",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 151,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|2|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "B47201E4516CFFB65C198478BCEE5F9C319AA3BA25AD516750AB76A7569033E8",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 151,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 34,
+      "stop": 84,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|2|34|84",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "6DD8F7DBAD18B2755555D2CD779D12DE0938C9E19D903DFD2C4EFF8DEA695664",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 151,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 67,
+      "stop": 117,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|2|67|117",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "4386DE7DCA47DD344192B7D567A757ACBB23564967F4920D9BB0557B342173A1",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 151,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 101,
+      "stop": 151,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|2|101|151",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "E7A8CA36D332322928993C4002405F0113CBC490EB579D9EBF52E871E371D5B1",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 158,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|3|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "ACA4F241011E176F2090CCBCF9BA367933F3F671590A2BC73DEBB520FD75673C",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 158,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 36,
+      "stop": 86,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|3|36|86",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "7BB5BA479E8CF71BF868C4C803AC899EBD42DA393F15559658B82E6AB55092CF",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 158,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 72,
+      "stop": 122,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|3|72|122",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "419CFC5ABC3F20806A1DC7CF6417A91B22A8656DB704907506D1DFFC35CD3789",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 158,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 108,
+      "stop": 158,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|3|108|158",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "F6C1EF6B3686391654AF1136B4704BEA8EA0FCDCBDB5959289A0D37C4D49A591",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 149,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|4|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "A8A015E36C6A769069B0EEEEF87B6D91FC760B71D28829EC2B2C9695BBDA9D96",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 149,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 33,
+      "stop": 83,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|4|33|83",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "E8F28A8194630075A5B787486631DBD03A411A4B3F91C5C20BA8681C892A7E4B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 149,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 66,
+      "stop": 116,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|4|66|116",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "7C3C9E30B8AE00F09D39F59971D96E6923C9759F409CB1271AC635687DEFD7EE",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 149,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 99,
+      "stop": 149,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|4|99|149",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "845F7DC84B3671C1441BE933ACE0DD4CFC55EEF2072C53C9BE9E88BEC4FC1C5D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 154,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|5|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "EF2D7F03BBCF2BD53DEE85E4141E6323F96321C8A8CEB7DC9EF1571E8BDEEDD6",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 154,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 35,
+      "stop": 85,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|5|35|85",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "A31F61C4F78681E3DA580C033B8E6D193743B71E9BDB1CAECFABCA84CA205F44",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 154,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 69,
+      "stop": 119,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|5|69|119",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "38A085996618C098F19BB25DFD383CDA79CE5879481B598289AB385F2646E3EA",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 154,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 104,
+      "stop": 154,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|5|104|154",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "DBE5666EA153C64352F6CBF7B92F06AB440A8E4BDE8B0AE2F7E76BD447795657",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 162,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|6|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "BACFB5E8A1B734013AADE5F3D744B6196CB76539B8C3192295444CA7998EC5C9",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 162,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 37,
+      "stop": 87,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|6|37|87",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "9143FF4C1B4297BDE5C6C1640FECF9B043F5DE24EF6D57B2990031875DD4E642",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 162,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 75,
+      "stop": 125,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|6|75|125",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "8113369E4A193EE586A2959FF60BF9635E40CEA3DD5FB41386F5217BF095B799",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 162,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 112,
+      "stop": 162,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|6|112|162",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "7A741B9EE783D2D708C549E6D3AAD9670859ADD8245614A50A6BC90E3A8A10A9",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|7|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "8325CC168C8DE5F7F4AA2E057340CF3F9FCA16C4A8FA41EF3F0240569C540144",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 39,
+      "stop": 89,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|7|39|89",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "15E0369C01EDB22A99397A758FA4DBD3F0CCD13566525C6197D781ED2376845E",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 79,
+      "stop": 129,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|7|79|129",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "2558084CC30677A2DF806E7C8744507CD2CC189F9B8DEAA3AE2A2804D3C4AE5A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 168,
+      "partition": "discovery",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 118,
+      "stop": 168,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "discovery|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|7|118|168",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "DD99D325374239C685944AF61624D4BAABB5EAA4B90F77AE050726536201DA0D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 155,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|8|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "65F60B5C6DEC30519B7C69442DAB218FE3B315D0A79BD1DCFD0999E260598474",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 155,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 35,
+      "stop": 85,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|8|35|85",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "9ECE5F7D6C3F0BD0C1B4E3EEFA083C276208EEEF7C8878DB2A1A6EBC6D9F5807",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 155,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 70,
+      "stop": 120,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|8|70|120",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "0A4A9746CC12C5C62A87560E1563F45D9883E69C97707E6724AC38812C3A52EB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 155,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 105,
+      "stop": 155,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|8|105|155",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "E53540C7EAA9446152BC15B5BD08BCD809A9C34566E4181D5D063C884EC6918B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 145,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|9|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "AB505F72C8C97004558EC884CB4310BED20FA3E2A00A4D85A5BB2820C11CDBC1",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 145,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 32,
+      "stop": 82,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|9|32|82",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "3110C09851F43203F398C1D495C8CE514F174DAD6DDCC8977087674CC98775EB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 145,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 63,
+      "stop": 113,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|9|63|113",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "180CB684ACE6CD0851309EFC700847BD4167CE2F434F97A4505A01707923F38B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 145,
+      "partition": "validation",
+      "source_edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "source_path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "start": 95,
+      "stop": 145,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3",
+      "window_key": "validation|libero_object|libero_object/task_3|/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5|9|95|145",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "A7790E12577C001EA2E329BC175B7E1AF6ADE2725F60D99B7A62A1EC223AA69D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 91,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|0|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "4992847FD265BA50B819EC0CC0BB1B2E8D11B1087AA0EEAEEA99803569451873",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 91,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 14,
+      "stop": 64,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|0|14|64",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "02C98763EB99A8C3D244867657DCAAAC9BA77C2093AF49EC55EF608B4DC90134",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 91,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 27,
+      "stop": 77,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|0|27|77",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "592705EB90FE80F599335902BEBEC28868E3D3A532EB3BF3DCBC3ABC7C96FA46",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 91,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 41,
+      "stop": 91,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|0|41|91",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "2B68C8A98E4BB40A206EDFD132BEC422132B958780EEF30F1448B8154F237725",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 110,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|1|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "CCDE97DB709A5CE6638C65925D9D5D56EB71A810E4C7D3FC2A9078122AF821A2",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 110,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 20,
+      "stop": 70,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|1|20|70",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "A3728F2BD13990606AF6BDEAEFE6313D6F53AB0F267DEA481C8E2C2EFC95BE6F",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 110,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 40,
+      "stop": 90,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|1|40|90",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "3B96050017FFDB239BB1C6B5A23AEB13070B63EA08C75E46E7974591A3D98ACD",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 110,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 60,
+      "stop": 110,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|1|60|110",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "84C86062F6971A9DF967B75501E00A7B870BB6C5211548B94F6FB3F6C9A722AF",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 99,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|2|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "2DC78FB4EBA69C115CD585B76BF67E6382F20FB5F7D7105BB41D5F486E8E85D6",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 99,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 16,
+      "stop": 66,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|2|16|66",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "4D03C894668085117BD32CD7900CEF9CC32039FB75E8BF1362457A729D2F2DC4",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 99,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 33,
+      "stop": 83,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|2|33|83",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "97EC77787D3DEA7CB1672AE6998C744C588AA5C8F8E88A553CEF95B9B1A2894B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 99,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 49,
+      "stop": 99,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|2|49|99",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "48994C8503C5E23FAB93806512C7EC560AFDF782DF0EE7DC6544FB1FF2CF48B9",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|3|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "8B754A22B8C1F1DC557815EE240934A7508507D22C168CD467B9DFAF35C78EB2",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 24,
+      "stop": 74,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|3|24|74",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "0DCCE27A548E9473464151C9375FD0E70AE7A2DA117D4C6A33EBCD230EF8CDD2",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 49,
+      "stop": 99,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|3|49|99",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "C47760C2BE19D70851A12750D973800F3D723508F5E5E44268DD9A4862B12D68",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 123,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 73,
+      "stop": 123,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|3|73|123",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "16100DA5E688F67D8E3A060A1CD0D77E1FBCA07A23E4414ACB149020830124D3",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 86,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|4|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "6282ACE382969D29945A4CDB8C8417424AB862346AFCB1FD2E3A95C0B813D91A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 86,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 12,
+      "stop": 62,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|4|12|62",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "761FACC4F4BA89BD85863574542CEECD2D366C8A85834001E56B5E789EBEE09A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 86,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 24,
+      "stop": 74,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|4|24|74",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "5420D8A31BE21EC79627ABCF6624380E70F66932F736F6CE201067ED1BFCD8C4",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 86,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 36,
+      "stop": 86,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|4|36|86",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "A09BBB6DFA32F985290955837FC2F4602E749031610AE39537270AD19F46D4F8",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 96,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|5|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "9D036D7E38024D024AE48EE257467D1A7FECF158EBF751CC7A8CE9CC2172274A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 96,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 15,
+      "stop": 65,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|5|15|65",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "3D2DF2882CE0AB839B024614D9B1FCBA3E6A83F3612687F62EE9B2779ABE0F71",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 96,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 31,
+      "stop": 81,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|5|31|81",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "4D6782A9F4D8E9BAFDD507432B59CED4DD4636CC9574C0EB408A784DAFA75767",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 96,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 46,
+      "stop": 96,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|5|46|96",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "3F3D40D125749B17CF866C78A9ADE9096134633576DD289EB899348930AA3675",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 102,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|6|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "B4CAA516032A83C9EBC469EBD59CF318C7ECF8E2BD455EFB47F538DB86A0BB36",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 102,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 17,
+      "stop": 67,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|6|17|67",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "2DE22BE50BC230F8347C309765660B3F37F8EA6DF5E807C84CE670B660191799",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 102,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 35,
+      "stop": 85,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|6|35|85",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "8E3000E6DF448361A41115DB9A2804F96214CF32CA546A0BCADBC2D7FA1E6E26",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 102,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 52,
+      "stop": 102,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|6|52|102",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "C282D46B15085FAC923A7894C962A0236ADC884F83BBCCD8738586680930A85D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 106,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|7|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "2BBDFD7F418D77887C3C8AE8A29D8B2AD4E2A0AEDE0D6EF74B319F4DAB92A4EB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 106,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 19,
+      "stop": 69,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|7|19|69",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "395EDD1ACF8DEBC846B988C2A1605E2DDB43CD37152721B4E8EB9741543B243B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 106,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 37,
+      "stop": 87,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|7|37|87",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "0AB4240F5096799B89BBC9763B623205B7E93276CA5FE5C924D3CB914AC14895",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 106,
+      "partition": "discovery",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 56,
+      "stop": 106,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "discovery|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|7|56|106",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "28C9A5AAEDC62C5ED13D26D78EA6C7B7C6F3186A0E2BB49F407B29954B1FDAE8",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 96,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|8|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "84684B53A91BAB97C40EE2AF5AF76DF965855F65B0DB501AC7EFB61E65DD6BEA",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 96,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 15,
+      "stop": 65,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|8|15|65",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "2A130564D0C11E97716921DC2EFE15DC90FCF5FD94700F90E5DAE2D517DE142F",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 96,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 31,
+      "stop": 81,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|8|31|81",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "39D01BD251A1F1AAA02303BBFAB7261C6E990A9ADBEE26DBE23936DB71C7AB7A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 96,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 46,
+      "stop": 96,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|8|46|96",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "7D14E51D489169C44194CE06E220B5AE8E16FC5C9AD9B01AF3B3A3D7238ECE09",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 110,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|9|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "368E3187E416054D437961E2D469AC961ED1DFF384248FF38F54D48F77F28429",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 110,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 20,
+      "stop": 70,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|9|20|70",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "D629D9EE774F61E7C7116CDE84201B61BD8DF5B931EF0116BF48187387D9ED61",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 110,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 40,
+      "stop": 90,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|9|40|90",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "066F8E67C758984C9F753458EA3E97A097BD122D9304BD2D51E56208900C28AE",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 110,
+      "partition": "validation",
+      "source_edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "source_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "start": 60,
+      "stop": 110,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5",
+      "window_key": "validation|libero_goal|libero_goal/task_5|/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5|9|60|110",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "85E263E456E811112359CE27AF1CED717F615CD56D3B6908D371369673A28954",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 388,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|0|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "CFFE90CF6112B415DCE38C4302F09415CF12991D876741D31CB8EF9AE58194CB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 388,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 113,
+      "stop": 163,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|0|113|163",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "4005ACDEB1A514C9C910ECA271E68A886A89312A017DCE6E33AE6FE0C531CE3A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 388,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 225,
+      "stop": 275,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|0|225|275",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "224473825562799E33FB4B07B7296C9CBFB9319F5D331BF7A737DC1D32C749A3",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 0,
+      "demo_key": "demo_0",
+      "episode_length": 388,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 338,
+      "stop": 388,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|0|338|388",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "23E83506E78A2D044172AABE105565EE0D739E6C396C451216D4E3B553AB9C70",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 336,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|1|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "DE3CCAED83F277519F13606EFA86E877FFEEE24A7BF8A7A1B3532D1C63154F10",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 336,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 95,
+      "stop": 145,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|1|95|145",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "9317938B3875397BB24DA47C3F2C350C1509B8B7A504D1E8F7FA288DCB45B921",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 336,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 191,
+      "stop": 241,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|1|191|241",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "61A816D0E142281E6B1477AE6C49B862D580830FB4BCEE3ED3AA6BA5472A09AC",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 1,
+      "demo_key": "demo_1",
+      "episode_length": 336,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 286,
+      "stop": 336,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|1|286|336",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "8A810F603A9A1D7555116F7EA4492370CA77588E68A884838B571D66EA5D05B0",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 255,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|2|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "F27093967E7B55ABC04F9AA1C33BA67C375F1B7551FCC0CA6A7B23EF39A1AF8B",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 255,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 68,
+      "stop": 118,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|2|68|118",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "2E1136EA08EF08B25D48DAB7EE468986E151321DFBFB470A7C39E5948279EA13",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 255,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 137,
+      "stop": 187,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|2|137|187",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "04725173F3480A8B5C91B85F70F28E6E1DFD327F63A22CA1782923035FB237D6",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 2,
+      "demo_key": "demo_2",
+      "episode_length": 255,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 205,
+      "stop": 255,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|2|205|255",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "0EBB23E6B78E089166027A28E63F42D032DE8DD40A336BEAA697A0BC27F09401",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 271,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|3|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "34FD3E5020D26EDD28D346399E0DF9619E5D914D3C355DD51650B7DF91FC830D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 271,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 74,
+      "stop": 124,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|3|74|124",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "AAF0EC167D44E6270B889D3D52FEEB80FEC3D55F0CA9266EF3C8A7F22ACFB4CB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 271,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 147,
+      "stop": 197,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|3|147|197",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "FAB3F9BA2F784215C318E7569AFCFFA5E75127213AC02138D6F3D34555E472E5",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 3,
+      "demo_key": "demo_3",
+      "episode_length": 271,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 221,
+      "stop": 271,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|3|221|271",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "5F500B5FDADCF30443C206BFC16B68C90F4DFE503EA21776E4950C91FA337E7E",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 308,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|4|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "C065465ADF41597419E8A4ACDB2CD3CB53FF2EC34E77912189AE3E51A343A406",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 308,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 86,
+      "stop": 136,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|4|86|136",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "71FAEDA72F15EFD2D159438ED16612436B8520178FD959F09EA4C7139EAA6999",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 308,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 172,
+      "stop": 222,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|4|172|222",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "4779B9A3A747EC4C465B99C992612A95CD3C4B808D98D311157194CA5EA2833D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 4,
+      "demo_key": "demo_4",
+      "episode_length": 308,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 258,
+      "stop": 308,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|4|258|308",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "6C4F28672B29ED27FF9D01EDBDA9E7F5B70169F50ED2D059090ED93193DA6F56",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 317,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|5|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "77C2D8B3D24C30EA8159B3BC4E33D4986592EC55A8A2442ABD9C3A25C804177D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 317,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 89,
+      "stop": 139,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|5|89|139",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "59F6F92BB3057DFE51F4EFE238D430CDF798958E41AAB42C7752F634FADEB99F",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 317,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 178,
+      "stop": 228,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|5|178|228",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "08224359DA86C826133FC341DBD011E8179F56AB25FB33058C2674C3B69CF965",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 5,
+      "demo_key": "demo_5",
+      "episode_length": 317,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 267,
+      "stop": 317,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|5|267|317",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "B3630BCC1FC4A4DDFFF1942239A4FBE9F7E6F5E617AEFDC0CD47E2EEC9980798",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 261,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|6|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "C369016151811F801166952C17D5F8E1C9E3F64110C459281B3F23F5E4DFFA1D",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 261,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 70,
+      "stop": 120,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|6|70|120",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "3DFFBDF19A0742C82F4027B01D86C3BB41C6DEB447CEDA3B7F3EA97331048AAD",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 261,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 141,
+      "stop": 191,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|6|141|191",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "5D7143C477C1A1D7FE16C3BE5D11CD196854C6B71978D9F86A386EB95415331A",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 6,
+      "demo_key": "demo_6",
+      "episode_length": 261,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 211,
+      "stop": 261,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|6|211|261",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "ABBD629B6151060B27C6229C7671A97FA6B6B04EBB8A71273AAC2DDECD695594",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 312,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|7|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "7D2ADEE925767EB13BFF85AC1D896B6853B2C392D21FA230A91E9D25C7F71CBB",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 312,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 87,
+      "stop": 137,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|7|87|137",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "57E8978EE615DBA16D4829B0B17B24B7714CBAACAD5E78030C3E73E5374854B6",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 312,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 175,
+      "stop": 225,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|7|175|225",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "242318E52BB66BD755F6AED0E0A992EFB87A6C78C42B79DE7D5F541859FF7806",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 7,
+      "demo_key": "demo_7",
+      "episode_length": 312,
+      "partition": "discovery",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 262,
+      "stop": 312,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "discovery|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|7|262|312",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "97F404EC06E1F9FDB497E6A8DD8D21CBCE74F904ACD8CC64937336750C9E438F",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 296,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|8|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "ABB93115C29638D7911E99E60B264232045FC2C2269F41D019AA9D5D3DFF27BA",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 296,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 82,
+      "stop": 132,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|8|82|132",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "D582CCB6B5FC3CCBD6E4F87BF7639F1606D1EC0EB458129A12DB91C1FFB0F7F1",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 296,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 164,
+      "stop": 214,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|8|164|214",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "5AAE1E961014C443009DC6DFD06ED1C6F13341AF72970FB632BFB3752D77DF55",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 8,
+      "demo_key": "demo_8",
+      "episode_length": 296,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 246,
+      "stop": 296,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|8|246|296",
+      "window_slot": 3
+    },
+    {
+      "action_sha256": "D37880A568FA417328E2BE6F030C4CE9499C8AA9B37199343CBFBA3F95A44DB3",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 230,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 0,
+      "stop": 50,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|9|0|50",
+      "window_slot": 0
+    },
+    {
+      "action_sha256": "33187BB263776D7ADB8D1224269523EE9B18EF808D068735D319BA2C09DD3A00",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 230,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 60,
+      "stop": 110,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|9|60|110",
+      "window_slot": 1
+    },
+    {
+      "action_sha256": "332A1FDDA2F0BC2106BC95C833AD8361213764CBF38C5F3876C2A0FE4BE4F7ED",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 230,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 120,
+      "stop": 170,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|9|120|170",
+      "window_slot": 2
+    },
+    {
+      "action_sha256": "BBA65E797D1784694289300ACF90A002D0985142066A3AD7341D1BD804BD981C",
+      "action_shape": [
+        50,
+        7
+      ],
+      "demo_id": 9,
+      "demo_key": "demo_9",
+      "episode_length": 230,
+      "partition": "validation",
+      "source_edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "source_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "start": 180,
+      "stop": 230,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5",
+      "window_key": "validation|libero_10|libero_10/task_5|/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5|9|180|230",
+      "window_slot": 3
+    }
+  ],
+  "sources": [
+    {
+      "edge_sha256": "AA0342769C9890AA301FFE72AB030BC2DEDD8C9F8B8A1CD8E6E64D9EBE61D32B",
+      "path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_demo.hdf5",
+      "size_bytes": 632345992,
+      "suite": "libero_spatial",
+      "task_identity": "libero_spatial/task_3"
+    },
+    {
+      "edge_sha256": "22D3E70A8BE5EED56A7774A57D27D688AFE0030921B040081AC9246F3123C7EA",
+      "path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "size_bytes": 797322420,
+      "suite": "libero_object",
+      "task_identity": "libero_object/task_3"
+    },
+    {
+      "edge_sha256": "302E41E956E1C8C02F5A741ADA64FCB723E6A861B8517F6DA645E73FAEACC278",
+      "path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+      "size_bytes": 510414285,
+      "suite": "libero_goal",
+      "task_identity": "libero_goal/task_5"
+    },
+    {
+      "edge_sha256": "AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802",
+      "path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "size_bytes": 1467540242,
+      "suite": "libero_10",
+      "task_identity": "libero_10/task_5"
+    }
+  ],
+  "stage": "0A"
+}

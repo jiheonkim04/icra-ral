@@ -1,24 +1,25 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 21 Current Action
+## 2026-07-15 Epoch 4 Cycle 22 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
 
-Immediate next action: commit and push the frozen HEST-VLA package, perform the
-required runtime-artifact and worker audit, then run only the preregistered
-CPU-only HEST Stage 0A action-source and algebra gate.
+Immediate next action: commit and push the immutable HEST Stage 0A result, then
+generate exactly three materially distinct, positive-prior-anchored Cycle 22
+candidates and select exactly one under current governance.
 
-Cycle 21 selected HEST from exactly three candidates at `93 / 100`, anchored to
-Spline Policy. The method, tasks, demo partitions, 160 source windows,
-objective, lambda, alpha search set, policies, thresholds, and decision
-taxonomy are frozen under `reports/hest_vla/`. Eight focused tests pass.
+HEST Stage 0A completed `160 / 160` windows with zero exceptions and exact
+artifact integrity. It failed only the frozen all-variant support gate: one
+validation Base row and its HEST whole-Base fallback were outside
+discovery-defined support. This is a pre-rollout implementation/prototype
+support failure, not a scientific kill.
 
-Do not load SmolVLA, CUDA, the simulator, rewards, task outcomes, video, or
-confirmatory identities in Stage 0A. Do not authorize HEST Stage 0B unless all
-frozen Stage 0A gates pass. Do not rerun or rescue NICE.
+Do not widen support, clip actions, alter fallback, change sources or
+thresholds, rerun HEST Stage 0A, or authorize Stage 0B. Do not rescue NICE or
+HEST.
 
 ## Epoch 4 Cycle 19 Historical Action
 

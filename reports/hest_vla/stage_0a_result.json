@@ -1,0 +1,86 @@
+{
+  "completed_at": "2026-07-15T13:28:11.502282+00:00",
+  "completed_window_count": 160,
+  "confirmatory_reset_identity_read_count": 0,
+  "cuda_load_count": 0,
+  "done_read_count": 0,
+  "exception_count": 0,
+  "final_decision": "HEST_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "manifest_hash": "6817CD39E1B61F67C22B0FEF98AE8F1F5E53DD97C37599F04626AFE6FF264D77",
+  "method": "HEST-VLA",
+  "planned_window_count": 160,
+  "proposal_hash": "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527",
+  "resumed_window_count": 0,
+  "reward_read_count": 0,
+  "scientific_kill": false,
+  "simulator_load_count": 0,
+  "smolvla_load_count": 0,
+  "stage": "0A",
+  "stage_0b_allowed": false,
+  "success_read_count": 0,
+  "summary": {
+    "acting_fraction": 0.8125,
+    "all_variant_support_valid": false,
+    "arm_support_noncollapsed": true,
+    "comparator_distinct": true,
+    "comparator_max_abs_delta": {
+      "moving_average": 0.16248026503704838,
+      "no_endpoint": 0.28066302314177977,
+      "spline_proxy": 1.0604350908333373
+    },
+    "discovery_arm_ranges": [
+      1.7330357142857142,
+      1.8401785714285714,
+      1.875,
+      0.28285714285714286,
+      0.4832142857142857,
+      0.345
+    ],
+    "discovery_support_lower": [
+      -0.7955357142857143,
+      -0.9375,
+      -0.9375,
+      -0.13714285714285715,
+      -0.24750000000000003,
+      -0.21964285714285714,
+      -1.0
+    ],
+    "discovery_support_upper": [
+      0.9375,
+      0.9026785714285714,
+      0.9375,
+      0.1457142857142857,
+      0.2357142857142857,
+      0.12535714285714286,
+      1.0
+    ],
+    "endpoint_max_error": 4.440892098500626e-16,
+    "fallback_counts": {
+      "None": 136,
+      "support_violation": 24
+    },
+    "first_action_max_error": 3.3306690738754696e-15,
+    "gripper_max_error": 0.0,
+    "manifest_audit": {
+      "duplicate_manifest_key_count": 0,
+      "duplicate_partial_key_count": 0,
+      "extra_partial_key_count": 0,
+      "key_sets_equal": true,
+      "manifest_row_count": 160,
+      "missing_manifest_key_count": 0,
+      "partial_row_count": 160,
+      "partition_overlap_count": 0
+    },
+    "median_energy_reduction": 0.28936200680886914,
+    "min_energy_reduction": 0.0,
+    "roundtrip_max_error": 0.0,
+    "source_finite_shape_ok": true,
+    "validation_nontransition_count": 9,
+    "validation_transition_count": 23
+  },
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "valid_scientific_result": false,
+  "video_read_count": 0,
+  "worker_alive_at_adjudication": true,
+  "worker_pid": 370
+}

@@ -1,0 +1,11 @@
+{
+  "completed_at": "2026-07-15T13:28:11.515325+00:00",
+  "completed_window_count": 160,
+  "exception_count": 0,
+  "method": "HEST-VLA",
+  "phase": "complete",
+  "pid": 370,
+  "planned_window_count": 160,
+  "stage": "0A",
+  "status": "completed"
+}

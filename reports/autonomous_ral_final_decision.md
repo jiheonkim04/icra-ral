@@ -3,7 +3,7 @@
 Date: 2026-07-15 KST
 
 Current decision:
-`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -27,8 +27,13 @@ data failure with no confirmatory access.
 Cycle 21 generated exactly three candidates and selected HEST-VLA at
 `93 / 100`, anchored to Spline Policy. Proposal hash:
 `E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
-The full protocol package and CPU-only Stage 0A runner are frozen. Current
-cycle: `21`; current stage: `epoch_4_cycle_21_hest_stage_0a_pending`.
+Stage 0A completed all `160 / 160` action windows with zero exceptions and
+exact artifact integrity. The frozen all-variant support gate failed because
+one validation Base row and HEST's required whole-Base fallback were outside
+discovery-defined support. This is a pre-rollout implementation/prototype
+support failure, not a scientific kill. Stage 0B and HEST rescue are forbidden.
+Current cycle: `22`; current stage:
+`epoch_4_cycle_22_candidate_search_pending`.
 
 The prior fixed-cycle terminal stop is procedurally invalid under the current Goal. Epoch 1 is corrected as a completed related-method set that requires an Epoch 2 pivot.
 

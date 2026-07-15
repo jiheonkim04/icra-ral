@@ -1,0 +1,13 @@
+{
+  "confirmatory_inputs_read": 0,
+  "cuda_loaded": false,
+  "manifest_hash": "6817CD39E1B61F67C22B0FEF98AE8F1F5E53DD97C37599F04626AFE6FF264D77",
+  "planned_window_count": 160,
+  "proposal_hash_ok": true,
+  "proposal_hash_recomputed": "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527",
+  "proposal_hash_registry": "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527",
+  "resumed_window_count": 0,
+  "simulator_loaded": false,
+  "smolvla_loaded": false,
+  "started_at": "2026-07-15T13:28:06.004683+00:00"
+}

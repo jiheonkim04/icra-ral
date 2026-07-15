@@ -1,0 +1,16 @@
+{
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "exception_count": 0,
+  "extra_partial_key_count": 0,
+  "final_decision": "HEST_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "key_sets_equal": true,
+  "manifest_hash_matches_partial": true,
+  "manifest_json_parsed": true,
+  "manifest_row_count": 160,
+  "missing_manifest_key_count": 0,
+  "partial_json_parsed": true,
+  "partial_row_count": 160,
+  "partition_overlap_count": 0,
+  "proposal_hash_recomputed": true
+}

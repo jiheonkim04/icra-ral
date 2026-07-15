@@ -1,17 +1,17 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 21 Current State
+## 2026-07-15 Epoch 4 Cycle 22 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `21`
+Current cycle: `22`
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
@@ -21,13 +21,19 @@ preserving the first arm action and cumulative endpoint, copying the discrete
 gripper stream exactly, and falling back to the entire Base chunk on any
 invalid transformation.
 
-The HEST proposal, Reviewer B attack, Researcher A rebuttal, mathematical
-audit, preregistration, and prototype protocol are frozen. Proposal hash:
-`E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
-The CPU-only Stage 0A runner and eight focused invariant tests are implemented;
-Stage 0A is pending. It is limited to `160` preregistered discovery/validation
-demonstration action windows and may not read SmolVLA, CUDA, simulator state,
-reward, success, done, video, or confirmatory identities.
+HEST Stage 0A completed `160 / 160` windows with zero exceptions and zero
+duplicate, missing, extra, or overlapping keys. Independent reload verified
+all persisted chunk, proposal, and manifest hashes. Endpoint, first-action,
+gripper, acting, energy, comparator-distinction, and persistence gates passed.
+The frozen support gate failed: one validation Base row was outside
+discovery-defined support, and HEST's required whole-Base fallback preserved
+that same invalid row. The raw and independently recomputed decision is
+`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`.
+
+This is a pre-rollout implementation/prototype support failure, not a
+scientific kill. No SmolVLA, CUDA, simulator, outcome, confirmatory identity,
+or closed-loop row was read. Stage 0B, rerun, threshold repair, clipping,
+support widening, and HEST rescue are forbidden.
 
 NICE remains closed unchanged as
 `NICE_STAGE_0B1_DATA_FAILURE_COLLAPSED_ACTION_REGIME_CONTRAST`. Its final
@@ -35,13 +41,13 @@ NICE remains closed unchanged as
 keys and one expected terminal exception. No NICE resume, rerun, or rescue is
 allowed.
 
-Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`.
+Current stage: `epoch_4_cycle_22_candidate_search_pending`.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,
 throughput, wall-clock, resource-utilization, and latency evidence remain
 ineligible for paper claims. NICE and HEST Stage 0A contain no closed-loop
-task-success rows.
+task-success rows. HEST Stage 0A also contains no closed-loop task-success row.
 
 ## Epoch 4 Cycles 17-19 History
 

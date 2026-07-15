@@ -49,16 +49,16 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_hest_stage_0a_pending() -> None:
+def test_active_state_records_hest_stage_0a_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 21
+    assert state["current_cycle"] == 22
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_21_hest_stage_0a_pending"
+    assert state["current_decision"] == "HEST_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_22_candidate_search_pending"
     assert state["method"] == "HEST-VLA"
     assert state["method_identity"] == "HEST-VLA"
     assert state["proposal_hash"] == HEST_PROPOSAL_HASH
@@ -124,6 +124,18 @@ def test_active_state_records_hest_stage_0a_pending() -> None:
     assert "epoch_4_cycle_21_hest_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_21_hest_stage_0a_runner_implemented" in state["completed_stages"]
     assert "epoch_4_cycle_21_hest_stage_0a_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_21_hest_stage_0a_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_21_hest_stage_0a_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_21_hest_implementation_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_22_candidate_search_pending" in state["completed_stages"]
+    hest = state["epoch_4_cycle_21_hest_stage_0a_outcome"]
+    assert hest["final_decision"] == "HEST_STAGE_0A_IMPLEMENTATION_FAILURE"
+    assert hest["planned_window_count"] == 160
+    assert hest["completed_window_count"] == 160
+    assert hest["exception_count"] == 0
+    assert hest["invalid_support_counts"]["base"] == 1
+    assert hest["invalid_support_counts"]["hest"] == 1
+    assert hest["stage_0b_allowed"] is False
     selection = state["epoch_4_cycle_16_candidate_selection"]
     assert selection["candidate_count"] == 3
     assert selection["selected_score"] == 95

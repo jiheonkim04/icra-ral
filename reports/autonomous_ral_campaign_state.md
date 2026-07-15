@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `21`
+Current cycle: `22`
 
-Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`
+Current stage: `epoch_4_cycle_22_candidate_search_pending`
 
 ## Epoch 4 Cycle 21 HEST-VLA
 
@@ -21,9 +21,15 @@ Cycle 21 generated exactly three candidates and selected `HEST-VLA` at
 `93 / 100`, anchored to Spline Policy. Proposal hash:
 `E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
 The review, rebuttal, mathematical audit, preregistration, and prototype
-protocol are frozen. The CPU-only Stage 0A runner and eight focused invariant
-tests are implemented; execution is pending. Only the fixed `160`
-discovery/validation action windows are authorized.
+protocol are frozen. Stage 0A completed `160 / 160` action windows with zero
+exceptions and exact manifest and persistence integrity. Endpoint, event,
+acting, energy, and comparator-distinction gates passed, but the frozen
+all-variant support gate failed because one validation Base row and HEST's
+whole-Base fallback were outside discovery-defined support.
+
+Decision: `HEST_STAGE_0A_IMPLEMENTATION_FAILURE`. This is a pre-rollout
+implementation/prototype support failure, not a scientific kill. Stage 0B,
+rerun, repair, and HEST rescue are forbidden. Continue to Cycle 22.
 
 ## Epoch 4 Cycle 20 NICE-VLA
 

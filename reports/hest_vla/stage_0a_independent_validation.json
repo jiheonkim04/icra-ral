@@ -1,0 +1,48 @@
+{
+  "acting_fraction": 0.8125,
+  "all_variant_support_valid": false,
+  "artifact_integrity_ok": true,
+  "completed_window_count": 160,
+  "exception_count": 0,
+  "exit_code": "0",
+  "heartbeat_status": "completed",
+  "invalid_support_counts": {
+    "base": 1,
+    "hest": 1,
+    "moving_average": 1,
+    "no_endpoint": 31,
+    "spline_proxy": 117
+  },
+  "manifest_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 160,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 160,
+    "partition_overlap_count": 0
+  },
+  "manifest_hash_persisted": "6817CD39E1B61F67C22B0FEF98AE8F1F5E53DD97C37599F04626AFE6FF264D77",
+  "manifest_hash_recomputed": "6817CD39E1B61F67C22B0FEF98AE8F1F5E53DD97C37599F04626AFE6FF264D77",
+  "median_energy_reduction": 0.28936200680886914,
+  "method": "HEST-VLA",
+  "persisted_chunk_error_count": 0,
+  "persisted_chunk_errors": [],
+  "persisted_decision": "HEST_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "planned_window_count": 160,
+  "proposal_hash_recomputed": "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527",
+  "proposal_hash_registry": "E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527",
+  "recomputed_decision": "HEST_STAGE_0A_IMPLEMENTATION_FAILURE",
+  "stage": "0A",
+  "stage_0b_allowed": false,
+  "status": "completed",
+  "valid_scientific_result": false,
+  "validation_invalid_support_counts": {
+    "base": 1,
+    "hest": 1,
+    "moving_average": 1,
+    "no_endpoint": 8,
+    "spline_proxy": 24
+  }
+}

@@ -2921,3 +2921,27 @@ not read SmolVLA, CUDA, simulator state, outcomes, or confirmatory identities.
 
 Consequence: commit and push the frozen implementation, then run only HEST
 Stage 0A. Stage 0B remains unauthorized unless every frozen gate passes.
+
+## 2026-07-15 - HEST-VLA Stage 0A Adjudication
+
+Decision: `HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
+
+HEST Stage 0A completed `160 / 160` frozen discovery/validation action windows
+with zero exceptions and zero duplicate, missing, extra, or overlapping keys.
+Independent validation reloaded all persisted chunks, recomputed proposal and
+manifest hashes, and reproduced the runner decision exactly.
+
+Passed evidence included `23 / 32` validation gripper-transition windows,
+endpoint error `4.440892098500626e-16`, first-action error
+`3.3306690738754696e-15`, exact gripper preservation, acting fraction `0.8125`,
+and median cumulative-arm energy reduction `0.28936200680886914`.
+
+The frozen all-variant support gate failed. Invalid counts were Base `1`, HEST
+`1`, MovingAverage `1`, NoEndpoint `31`, and SplineProxy `117`. The validation
+Base row outside discovery support is also the HEST row because whole-chunk
+Base fallback is mandatory.
+
+This is a pre-rollout implementation/prototype support failure, not a
+scientific kill. No SmolVLA, simulator, outcome, confirmatory identity, or
+closed-loop row was read. Stage 0B, rerun, support repair, clipping, and HEST
+rescue are forbidden. Continue automatically to Cycle 22 candidate search.

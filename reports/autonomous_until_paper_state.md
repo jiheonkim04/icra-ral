@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`HEST_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0A_PENDING`
+`HEST_STAGE_0A_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `21`
+Current cycle: `22`
 
-Current stage: `epoch_4_cycle_21_hest_stage_0a_pending`
+Current stage: `epoch_4_cycle_22_candidate_search_pending`
 
 Allowed final states:
 
@@ -30,9 +30,14 @@ Cycle 21 generated exactly three candidates and selected `HEST-VLA` at
 `93 / 100`, anchored to Spline Policy. The proposal is frozen at
 `E56B4717BDF949E1A4371457058DFC662E0D79C70D9E2FBEF35A5415FD0F0527`.
 The review, rebuttal, mathematical audit, preregistration, and prototype
-protocol are complete. The CPU-only Stage 0A runner and eight focused tests are
-implemented; only the preregistered `160` discovery/validation action windows
-may now run. Stage 0B remains unauthorized unless every Stage 0A gate passes.
+protocol are complete. Stage 0A completed `160 / 160` windows with zero
+exceptions and exact manifest and persistence integrity. The frozen
+all-variant support gate failed because one validation Base row and HEST's
+required whole-Base fallback were outside discovery-defined support.
+
+Decision: `HEST_STAGE_0A_IMPLEMENTATION_FAILURE`. This is not a scientific
+kill. Stage 0B, rerun, repair, and HEST rescue are forbidden. Continue to Cycle
+22 exact-three candidate generation.
 
 ## Epoch 4 Cycle 19 SPARC-VLA
 
