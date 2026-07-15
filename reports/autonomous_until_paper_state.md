@@ -7,13 +7,34 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `25`
 
-Current stage: `epoch_4_cycle_25_candidate_search_pending`
+Current stage: `epoch_4_cycle_25_rap_researcher_proposal_pending`
+
+## Epoch 4 Cycle 25 RAP-VLA
+
+Cycle 25 generated exactly three candidates in
+`reports/epoch_4_cycle_25_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_25_prior_mechanism_map.md`.
+
+`RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action flows, is
+selected at `94 / 100`. Its closest positive prior is OptimusVLA
+(`https://arxiv.org/abs/2602.20200`) with official repository
+`https://github.com/iLearn-Lab/CVPR26-OptimusVLA`. RAP uses retrieved legal
+demonstration action anchors from deployment-observable current features, then
+learns a bounded residual action-flow path around the anchor. LoRA is only the
+identity-preserving implementation scaffold for the residual/gate path.
+
+The first serious comparison is exactly Base, transparent OptimusVLA memory
+prior proxy, RAP full, anchor-only/no-residual ablation, and matched standard
+LoRA. No training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened for RAP. Next action: write and freeze
+one RAP-VLA Researcher A proposal without VDR repair, rerun, rescue, or
+threshold changes.
 
 ## Epoch 4 Cycle 24 VDR-VLA
 
@@ -41,9 +62,7 @@ The fixed Stage 0A decision is
 development-only implementation/optimization failure, not a closed-loop
 scientific kill: no training, validation search, rollout, simulator access,
 or confirmatory-test tuning occurred. Stage 0B, VDR rerun, repair, rescue,
-threshold changes, clipping, and reinterpretation are forbidden. Next action:
-generate exactly three Epoch 4 Cycle 25 candidates without VDR repair or
-rescue.
+threshold changes, clipping, and reinterpretation are forbidden.
 
 Allowed final states:
 

@@ -52,7 +52,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_vdr_stage_0a_failure_and_cycle_25_pending() -> None:
+def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -60,12 +60,12 @@ def test_active_state_records_vdr_stage_0a_failure_and_cycle_25_pending() -> Non
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_25_candidate_search_pending"
-    assert state["method"] == "VDR-VLA"
-    assert state["method_identity"] == "VDR-VLA"
-    assert state["proposal_hash"] == VDR_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/vdr_vla/prototype_protocol.md"
+    assert state["current_decision"] == "RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_researcher_proposal_pending"
+    assert state["method"] == "RAP-VLA"
+    assert state["method_identity"] == "RAP-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -197,8 +197,26 @@ def test_active_state_records_vdr_stage_0a_failure_and_cycle_25_pending() -> Non
         "epoch_4_cycle_24_vdr_stage_0a_adjudicated",
         "epoch_4_cycle_24_vdr_implementation_or_optimization_failure_recorded",
         "epoch_4_cycle_25_candidate_search_pending",
+        "epoch_4_cycle_25_prior_mechanism_map_completed",
+        "epoch_4_cycle_25_candidate_generation_completed",
+        "epoch_4_cycle_25_rap_candidate_selected",
+        "epoch_4_cycle_25_rap_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
+    rap = state["epoch_4_cycle_25_candidate_selection"]
+    assert rap["candidate_count"] == 3
+    assert rap["selected_score"] == 94
+    assert rap["method"] == "RAP-VLA"
+    assert rap["closest_prior"] == "OptimusVLA"
+    assert rap["closest_prior_official_repository"] == "https://github.com/iLearn-Lab/CVPR26-OptimusVLA"
+    assert rap["policy_order"] == [
+        "smolvla_base",
+        "optimusvla_memory_prior_proxy",
+        "rap_full",
+        "rap_anchor_only_no_residual",
+        "standard_lora",
+    ]
+    assert rap["standard_lora_required"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

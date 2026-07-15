@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,23 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 25 Selection
+
+Cycle 25 generated exactly three candidates after a current primary-source
+anchor pass. `RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action
+flows, is selected at `94 / 100`. Its closest positive prior is OptimusVLA,
+anchored to `https://arxiv.org/abs/2602.20200` and the official repository
+`https://github.com/iLearn-Lab/CVPR26-OptimusVLA`.
+
+RAP's single mechanism is retrieved legal action anchors plus bounded
+residualized action-flow learning. LoRA is only identity-preserving
+implementation infrastructure. The first serious comparison is exactly Base,
+transparent OptimusVLA memory prior proxy, RAP full, anchor-only/no-residual
+ablation, and matched standard LoRA. No RAP training, validation search,
+rollout, simulator access, or confirmatory-test tuning has happened. Current
+cycle: `25`. Current stage:
+`epoch_4_cycle_25_rap_researcher_proposal_pending`.
 
 ## Epoch 4 Cycle 19 Decision
 
@@ -435,6 +452,6 @@ relative / absolute improvement
 relative / absolute gap `-0.08671267131320196 / -0.17766005523582384`. No
 training, validation search, rollout, simulator access, confirmatory-test
 tuning, or KITE rescue occurred. Stage 0B, VDR rerun, repair, rescue,
-threshold changes, clipping, and reinterpretation are forbidden. Current
-cycle: `25`. Current stage:
-`epoch_4_cycle_25_candidate_search_pending`.
+threshold changes, clipping, and reinterpretation are forbidden. The campaign
+advanced to Epoch 4 Cycle 25 candidate generation without VDR repair or
+rescue.

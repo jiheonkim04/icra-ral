@@ -5,12 +5,27 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
 
-Immediate next action: generate exactly three Epoch 4 Cycle 25 candidates
-under the active performance-oriented governance. Do not repair, rerun, or
-rescue `VDR-VLA`; do not change its thresholds, horizons, residual
-construction, memory construction, or action-validity interpretation.
+Immediate next action: write and freeze one `RAP-VLA` Researcher A proposal
+without VDR repair, rerun, rescue, or threshold changes.
+
+Cycle 25 generated exactly three candidates and selected `RAP-VLA`,
+Retrieval-Anchored Prior residualization for VLA action flows, at `94 / 100`.
+The closest positive prior is OptimusVLA
+(`https://arxiv.org/abs/2602.20200`) with official repository
+`https://github.com/iLearn-Lab/CVPR26-OptimusVLA`. RAP's single mechanism is
+retrieved legal action anchors plus bounded residualized action-flow learning.
+LoRA is only identity-preserving implementation infrastructure.
+
+The first serious comparison is exactly Base, transparent OptimusVLA memory
+prior proxy, RAP full, anchor-only/no-residual ablation, and matched standard
+LoRA. No RAP training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened.
+
+Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
+horizons, residual construction, memory construction, or action-validity
+interpretation.
 
 Cycle 24 generated exactly three candidates and selected VDR at `92 / 100`
 with proposal hash

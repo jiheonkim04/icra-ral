@@ -7,11 +7,31 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`RAP_CANDIDATE_SELECTED_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `25`
+
+Cycle 25 generated exactly three candidates in
+`reports/epoch_4_cycle_25_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_25_prior_mechanism_map.md`. `RAP-VLA`,
+Retrieval-Anchored Prior residualization for VLA action flows, is selected at
+`94 / 100`. Its closest positive prior is OptimusVLA
+(`https://arxiv.org/abs/2602.20200`) with official repository
+`https://github.com/iLearn-Lab/CVPR26-OptimusVLA`.
+
+RAP uses retrieved legal demonstration action anchors from
+deployment-observable current features, then learns a bounded residual
+action-flow path around the anchor. LoRA is only the identity-preserving
+implementation scaffold. The first serious comparison is exactly Base,
+transparent OptimusVLA memory prior proxy, RAP full, anchor-only/no-residual
+ablation, and matched standard LoRA.
+
+No RAP training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened. Current stage:
+`epoch_4_cycle_25_rap_researcher_proposal_pending`. Next action is to write
+and freeze one RAP-VLA Researcher A proposal.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
@@ -111,9 +131,8 @@ relative / absolute gap `-0.08671267131320196 / -0.17766005523582384`.
 Stage 0B, VDR rerun, repair, rescue, threshold changes, clipping, and
 reinterpretation are forbidden.
 
-The current stage is `epoch_4_cycle_25_candidate_search_pending`. Next action
-is to generate exactly three Epoch 4 Cycle 25 candidates without VDR repair or
-rescue.
+The campaign advanced to Epoch 4 Cycle 25 candidate generation without VDR
+repair or rescue.
 
 Three Windows gaming and Efficiency Mode intervals are recorded in
 `reports/resource_contention_intervals.json`. Overlap or overlap-unknown timing,
