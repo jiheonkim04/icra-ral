@@ -2325,6 +2325,34 @@ Execution boundary:
 
 Consequence: Stage 0 development audit is now the only allowed next step. Validation search, training, manifest freeze, and rollout are forbidden until Stage 0 passes.
 
+## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Stage 0
+
+Decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`
+
+Execution boundary:
+
+- method: `COVI-VLA`
+- proposal hash: `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`
+- repaired result: `reports/covi_vla/stage_0_result.json`
+- invalid first result preserved: `reports/covi_vla/stage_0_result_invalid_v1.json`
+- adjudication: `reports/covi_vla/stage_0_adjudication.md`
+- discovery-fit records: `600`
+- validation records: `400`
+- confirmatory-test records decoded: `0`
+- full weighted objective-gradient ratio: `1345.9529990435792:1`
+- frozen maximum ratio: `100:1`
+- output-valid fraction: `0.2`
+- one-check happened: `False`
+- validation search happened: `False`
+- closed-loop experiment happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the frozen COVI configuration failed its objective-scale and
+action-validity gates and also lacked preregistered representation headroom.
+This is an implementation/optimization stop, not a permanent scientific
+family kill. Do not retune or rescue Cycle 14. Install the post-COVI LoRA and
+minimum-sufficient governance and continue automatically to Cycle 15.
+
 ## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Preregistration And Prototype Protocol
 
 Decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`

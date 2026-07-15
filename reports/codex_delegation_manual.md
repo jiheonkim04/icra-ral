@@ -94,7 +94,9 @@ OpenVLA-OFT INT4 is not universally prohibited. Quantized OpenVLA-OFT INT4 execu
 
 Stage A estimates direction, detects catastrophic harm, and validates the mechanism. It is not a permanent scientific kill for one- or two-episode differences. Permanent scientific kills require the statistical rules in `reports/current_research_governance.md`.
 
-Future first serious prototypes should normally use exactly five policies: Base, closest external prior or faithful transparent proxy, Ours, key ablation, and one strongest simple reviewer-killer baseline. Additional internal controls require a concrete reviewer objection and must be cheaper than moving to the prior comparison.
+Future first serious prototypes should use Base, closest external prior or faithful transparent proxy, Ours, and the key ablation. Add a fifth control only when it tests the strongest plausible alternative explanation; standard LoRA is conditional rather than automatic. Additional internal controls require distinct scientific questions and must be cheaper than moving to the prior comparison.
+
+Every proposal must separate `SCIENTIFIC_METHOD` from `LOW_COMPUTE_PARAMETERIZATION`. LoRA and QLoRA are compute infrastructure unless adaptation efficiency is the explicit research problem. Prefer one core mechanism, one primary objective, at most one necessary auxiliary term, and one key ablation. When a demonstrated adapter bottleneck prevents the unchanged method from acting, classify `LOW_COMPUTE_PARAMETERIZATION_INSUFFICIENT` and allow at most one bounded capacity adjustment without confirmatory-test access.
 
 Before expensive training or rollout, require a pre-experiment headroom and data audit, a bounded validation search budget, a mathematical objective audit, and an identity-preserving integration audit. The default validation search budget is no more than six total configurations, two seeds per lightweight configuration, two architecture choices, and three values for one critical coefficient. Save all tried configurations and negative results.
 

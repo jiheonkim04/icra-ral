@@ -1,16 +1,16 @@
 # Next Actions
 
-## 2026-07-15 Epoch 4 Cycle 14 Current Action
+## 2026-07-15 Epoch 4 Cycle 15 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
 
-Immediate next action: implement `tca_map/smolvla/covi_vla.py` and `scripts/run_covi_vla_stage0.py`, then run the frozen Stage 0 command and write `reports/covi_vla/stage_0_result.json` or an exact `reports/covi_vla/implementation_blocker.json`.
+Immediate next action: generate exactly three Epoch 4 Cycle 15 candidates under the post-COVI LoRA and minimum-sufficient design governance, score all three, and select exactly one.
 
-No additional planning/protocol milestone is allowed before executable implementation. A small COVI point estimate cannot produce a permanent kill without episode count, independence analysis, bootstrap interval, practical-effect threshold, and normalization sensitivity. An unresolved result receives exactly one frozen cheap check.
+COVI Stage 0 is complete and preserved. It stopped as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the objective-gradient ratio exceeded the frozen maximum, action validity failed, and no headroom existed. The one-check set remained sealed and no validation search or rollout ran.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. Do not rescue RAR by changing history features, residual labels, thresholds, source gates, validation configs, or baselines. COVI must keep the `random_cutout_clean_retention_baseline` simple killer live.
+Do not rescue G3P, CALA, RAR, or COVI by changing their frozen labels, objectives, thresholds, source gates, validation configs, or baselines. Cycle 15 must separate scientific novelty from low-compute parameterization, use the minimum sufficient method, and include standard LoRA only when it tests a real alternative explanation.
 
 ## 2026-07-13 Governance V2 Current Action
 

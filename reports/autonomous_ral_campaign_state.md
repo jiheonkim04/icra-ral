@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
 
 Current epoch: `4`
 
-Current cycle: `14`
+Current cycle: `15`
 
-Current stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_15_candidate_search_pending`
 
 ## Corrected Epoch 1 Result
 
@@ -351,4 +351,6 @@ The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematica
 
 The COVI preregistration and prototype protocol are frozen in `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md`. They freeze the measured `[64, 960]` visual-token hook, `600 / 600 / 400 / 1200` fit/one-check/validation/confirmatory record partitions, one fixed Stage 0 configuration, one unresolved-result check, and episode-cluster bootstrap false-negative safeguard. Synthetic Stage 0 occlusion is a development proxy only and cannot establish the physical-occlusion claim.
 
-Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`. Next action: implement COVI and run executable Stage 0. Do not add another planning milestone or rescue RAR.
+Previous decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. COVI Stage 0 then completed under its frozen protocol. The repaired admissible result is `IMPLEMENTATION_OR_DATA_FAILURE`: the full weighted objective-gradient ratio was `1345.9529990435792:1` against a frozen `100:1` maximum, only two objectives had nonzero pretraining gradients, and output validity was `0.2`. The no-imagined-view target also had no preregistered headroom. This is `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; the one-check set stayed sealed and no validation search or rollout ran.
+
+Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`. Current stage: `epoch_4_cycle_15_candidate_search_pending`. The post-COVI LoRA and minimum-sufficient comparison governance is active. Next action: generate exactly three prior-anchored Cycle 15 candidates and select one without rescuing COVI or RAR.

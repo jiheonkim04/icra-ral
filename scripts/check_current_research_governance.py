@@ -64,6 +64,12 @@ REQUIRED_POST_CAVM_GOVERNANCE_PHRASES = [
     "KEY_COMPONENT_NOT_USEFUL",
     "detached durable execution",
     "resume only missing evaluation keys",
+    "Post-COVI LoRA And Minimum-Sufficient Design Governance",
+    "SCIENTIFIC_METHOD",
+    "LOW_COMPUTE_PARAMETERIZATION",
+    "Conditional Standard-LoRA Control",
+    "The fifth policy is conditional, not mandatory",
+    "LOW_COMPUTE_PARAMETERIZATION_INSUFFICIENT",
 ]
 
 

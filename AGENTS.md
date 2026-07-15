@@ -59,6 +59,8 @@ TCA-Map, TCA-Select, ActionMap, ECHO, PhaseBarrier, CensorCredit, DICD, FEDO, GC
 
 The active campaign may run multi-stage autonomous research inside one Goal execution when risk-assessed work remains within local constraints. A failed method does not terminate the campaign. Archive it, record the failed assumption, and pivot automatically.
 
+For every future method, separate the scientific method from its low-compute parameterization. LoRA and QLoRA are implementation infrastructure unless adaptation efficiency is the explicit research problem. The default first comparison is Base, closest Prior, Ours, and the key ablation; add a fifth control only when it tests the strongest plausible alternative explanation. Standard LoRA is conditional, not automatic, and every omission must state why it does not test the claimed mechanism. Prefer one core mechanism, one primary objective, at most one necessary auxiliary term, and one key ablation. A demonstrated adapter-capacity failure is `LOW_COMPUTE_PARAMETERIZATION_INSUFFICIENT`, with at most one bounded capacity adjustment before confirmatory testing.
+
 Normal success is:
 
 `READY_TO_DRAFT_RAL_PAPER_PACKAGE`

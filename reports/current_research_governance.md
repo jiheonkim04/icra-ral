@@ -479,3 +479,95 @@ not proof of failure, and unknown performance remains an empirical question.
 
 This safeguard applies to new empirical evidence. It does not reopen a method
 review that has already passed or retroactively rescue a valid frozen result.
+
+## Post-COVI LoRA And Minimum-Sufficient Design Governance
+
+Effective after the frozen COVI Stage 0 closed on `2026-07-15`, this section
+overrides earlier generic requirements that every future first experiment use
+exactly five policies or automatically include standard LoRA. It does not
+change COVI's frozen method, comparator list, result, or adjudication.
+
+### Scientific Method Versus Low-Compute Parameterization
+
+Every future proposal must document two separate layers:
+
+1. `SCIENTIFIC_METHOD`: the new representation, objective, supervision,
+   decomposition, action generation, temporal reasoning, control mechanism,
+   or closed-loop intervention.
+2. `LOW_COMPUTE_PARAMETERIZATION`: the locally feasible realization, such as
+   LoRA, QLoRA, a lightweight adapter, a small head, frozen-feature training,
+   or cached-feature training.
+
+LoRA and QLoRA are compute-enabling implementation mechanisms, not default
+scientific contributions. Removing the words LoRA and QLoRA from a method
+description must not remove its novelty. Do not frame a method as a PEFT paper
+unless adaptation efficiency is itself the preregistered research problem.
+
+### Conditional Standard-LoRA Control
+
+Standard LoRA or QLoRA is required only when generic adaptation is a plausible
+alternative explanation, normally because Ours updates policy weights, uses
+the same PEFT scaffold, receives extra training data, or uses a new supervision
+signal or objective. In that case it is a supporting diagnostic with matched
+checkpoint, data, split, steps, optimizer, batch/accumulation, rank, target
+modules, augmentation, and checkpoint-selection rule where technically valid.
+
+Standard LoRA may be omitted when Ours is inference-only, the backbone remains
+frozen, generic adaptation does not test the claim, or the prior and ablation
+already isolate the mechanism. Every omission must include one sentence
+stating why standard LoRA does not test the claimed mechanism.
+
+When both Prior and Ours require training, hold the locally feasible
+LoRA/QLoRA or adapter scaffold constant where technically valid so the
+scientific comparison remains Prior mechanism versus Ours mechanism. Never
+label a PEFT proxy as an official reproduction when the prior fundamentally
+requires incompatible full fine-tuning; disclose the mismatch or select a
+different fair prior.
+
+### Minimum-Sufficient Method And First Experiment
+
+Prefer one core mechanism, one primary objective, at most one necessary
+auxiliary term, and one key ablation. More components require a central
+mechanism justification, observable training or inference effect, isolatable
+contribution, and compute value. Do not add modules, gates, memories, losses,
+consistency terms, or divergences merely to increase apparent depth.
+
+The default first paper-oriented comparison for future unfrozen methods is:
+
+1. Base
+2. closest external Prior or faithful transparent proxy
+3. Ours
+4. key ablation
+5. one additional control only when it tests the strongest plausible
+   alternative explanation
+
+The fifth policy is conditional, not mandatory. It may be standard LoRA,
+a simple inference baseline, a data-matched ordinary objective, or absent.
+Every baseline must have a distinct scientific question in a baseline
+rationale table; remove a baseline that has none. Earlier template inclusion
+alone is not a scientific reason.
+
+### Capacity And Identity Classification
+
+Before confirmatory rollout, verify gradients, small-subset fit, distinction
+from Base and ablation, bounded action change, clean retention, disk reload,
+legal inference sources, and adapter targets aligned with the mechanism. When
+the locally feasible adapter cannot express the unchanged scientific method,
+classify `LOW_COMPUTE_PARAMETERIZATION_INSUFFICIENT`, not a scientific method
+kill. Allow one bounded capacity adjustment only when the bottleneck is
+demonstrated, the scientific method does not change, and confirmatory-test
+identities remain untouched. Do not run broad LoRA rank or target-module
+sweeps.
+
+### Primary Paper Gate
+
+The primary effects remain same-backbone comparisons:
+
+- SmolVLA versus SmolVLA plus Ours;
+- after prototype GO, Quantized OpenVLA-OFT INT4 versus Quantized
+  OpenVLA-OFT INT4 plus Ours.
+
+A serious paper candidate must also beat the closest prior and key ablation,
+survive the strongest relevant alternative explanation, retain clean
+behavior, preserve novelty, and support the intended mechanism. Standard LoRA
+superiority is required only when standard LoRA is that relevant explanation.

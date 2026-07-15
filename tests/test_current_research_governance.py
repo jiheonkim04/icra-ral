@@ -28,20 +28,34 @@ def test_governance_freezes_false_negative_safeguard() -> None:
     assert "exactly one" in governance
 
 
-def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
+def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
+    governance = (REPO_ROOT / "reports" / "current_research_governance.md").read_text(encoding="utf-8")
+
+    assert "Post-COVI LoRA And Minimum-Sufficient Design Governance" in governance
+    assert "SCIENTIFIC_METHOD" in governance
+    assert "LOW_COMPUTE_PARAMETERIZATION" in governance
+    assert "LoRA and QLoRA are compute-enabling implementation mechanisms" in governance
+    assert "Conditional Standard-LoRA Control" in governance
+    assert "The fifth policy is conditional, not mandatory" in governance
+    assert "LOW_COMPUTE_PARAMETERIZATION_INSUFFICIENT" in governance
+    assert "SmolVLA versus SmolVLA plus Ours" in governance
+    assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
+
+
+def test_active_state_records_covi_stage_0_stop_and_cycle_15_continuation() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 14
+    assert state["current_cycle"] == 15
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_14_covi_stage_0_implementation_pending"
-    assert state["method"] == "COVI-VLA"
-    assert state["method_identity"] == "COVI-VLA"
-    assert state["proposal_hash"] == COVI_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/covi_vla/prototype_protocol.md"
+    assert state["current_decision"] == "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15"
+    assert state["current_stage"] == "epoch_4_cycle_15_candidate_search_pending"
+    assert state["method"] == "PENDING_SELECTION"
+    assert state["method_identity"] is None
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_development_audit_passed" in state["completed_stages"]
@@ -194,6 +208,16 @@ def test_active_state_records_covi_selection_after_rar_stage_0_stop() -> None:
     assert "epoch_4_cycle_14_covi_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_14_covi_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_14_covi_implementation_optimization_stop_recorded" in state["completed_stages"]
+    assert "post_covi_lora_governance_installed" in state["completed_stages"]
+    assert "epoch_4_cycle_15_candidate_search_pending" in state["completed_stages"]
+    covi_outcome = state["epoch_4_cycle_14_covi_stage_0_outcome"]
+    assert covi_outcome["final_decision"] == "COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL"
+    assert covi_outcome["objective_gradient_ratio"] == 1345.9529990435792
+    assert covi_outcome["objective_gradient_ratio_max"] == 100.0
+    assert covi_outcome["confirmatory_test_records_decoded"] == 0
+    assert covi_outcome["scientific_method_kill"] is False
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"

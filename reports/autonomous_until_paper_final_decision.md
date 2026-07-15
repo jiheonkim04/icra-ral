@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current campaign decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
 
 This is not a terminal decision.
 
@@ -262,4 +262,6 @@ The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematica
 
 The COVI preregistration and prototype protocol are frozen in `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md` under `APPROVE_WITH_FIXED_EMPIRICAL_RISKS`. The measured official hook is `[64, 960]` visual tokens per stream, and the Stage 0 split is `600` fit, `600` sealed one-check, `400` validation, and `1200` untouched confirmatory records.
 
-Current stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`. Next action: implement COVI and produce executable Stage 0 evidence without another planning milestone.
+Previous stage: `epoch_4_cycle_14_covi_stage_0_implementation_pending`. COVI Stage 0 is preserved and adjudicated as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`; no one-check, validation search, rollout, or confirmatory-test tuning occurred.
+
+Current stage: `epoch_4_cycle_15_candidate_search_pending`. Next action: generate exactly three prior-anchored candidates under the post-COVI LoRA and minimum-sufficient design governance.

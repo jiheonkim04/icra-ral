@@ -1,16 +1,16 @@
 # Project State
 
-## 2026-07-15 Epoch 4 Cycle 14 Current State
+## 2026-07-15 Epoch 4 Cycle 15 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_CONTINUE_CYCLE_15`
 
 Current epoch: `4`
 
-Current cycle: `14`
+Current cycle: `15`
 
 G3P-VLA remains stopped before rollout as `DATA_OR_SUPERVISION_FAILURE`; do not rescue it by changing material-point labels, thresholds, source gates, validation search, or Stage 0 criteria.
 
@@ -54,9 +54,11 @@ Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` w
 
 The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. It keeps the narrowed COVI claim, transparent VIM proxy, direct two-camera fusion diagnostic, random-cutout simple killer, physical occlusion requirement, identity-preserving feature adapter, and no deterministic-action KL rule live.
 
-The single allowed preimplementation milestone is complete. `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md` freeze the measured official SmolVLA visual-token hook, evidence partitions, Stage 0 configuration, comparators, bootstrap decision rule, and one unresolved-result check. The next scientific artifact must be `reports/covi_vla/stage_0_result.json` or `reports/covi_vla/implementation_blocker.json`.
+The single allowed preimplementation milestone and executable Stage 0 are complete. The first raw run is preserved as `reports/covi_vla/stage_0_result_invalid_v1.json` because its runner omitted the objective-specific gradient audit. The bounded repaired run is `reports/covi_vla/stage_0_result.json`.
 
-Exact next step: freeze COVI preregistration and prototype protocol before implementation. Do not rescue RAR.
+COVI closes as `COVI_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE_NO_SCIENTIFIC_KILL`. The repaired run found a `1345.9529990435792:1` weighted objective-gradient ratio against the frozen `100:1` maximum, only two nonzero objectives at the pretraining audit, output validity `0.2`, and no preregistered representation headroom. Confirmatory-test records decoded were zero; the one-check set remained sealed; no validation search or rollout happened.
+
+The post-COVI LoRA and minimum-sufficient comparison governance is active. Exact next step: begin Epoch 4 Cycle 15 with exactly three prior-anchored candidates. Do not rescue COVI or RAR.
 
 ## 2026-07-13 Governance V2 Current State
 
