@@ -4,9 +4,9 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run Reviewer B attack on the frozen RAR-VLA proposal before any implementation, validation search, training, manifest freeze, or rollout.
+Immediate next action: write the one allowed RAR-VLA Researcher A rebuttal accepting or resolving Reviewer B constraints before mathematical audit or implementation.
 
 Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. RAR must keep the `ema_action_history_baseline` simple killer live.
 

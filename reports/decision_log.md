@@ -2412,3 +2412,20 @@ Execution boundary:
 - confirmatory-test tuning happened: `False`
 
 Consequence: the Researcher A proposal is frozen. Reviewer B must attack novelty, AR-VLA source fidelity, action-history triviality, re-anchoring necessity, identity-preserving integration, and prior local action-history/chunk-method kills before any implementation.
+
+## 2026-07-15 - Epoch 4 Cycle 13 RAR-VLA Reviewer B Attack
+
+Decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+
+Execution boundary:
+
+- method: `RAR-VLA`
+- proposal hash: `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`
+- reviewer attack: `reports/rar_vla/reviewer_attack.md`
+- primary sources reviewed: `AR-VLA`, `REMAC`, `Temporal Action Selection`, `ReactVLA`, `DSWAM`, `ABot-M0`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: RAR is not killed before implementation, but novelty is narrowed to a frozen-SmolVLA identity-preserving AR-style residual memory adapter. The REMAC/TAS distinctions, transparent AR proxy status, Stage 0 inter-chunk and intra-chunk diagnostics, and `ema_action_history_baseline` must be accepted in Researcher A rebuttal before mathematical audit.

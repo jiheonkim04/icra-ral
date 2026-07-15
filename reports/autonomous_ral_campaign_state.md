@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `13`
 
-Current stage: `epoch_4_cycle_13_rar_proposal_frozen`
+Current stage: `epoch_4_cycle_13_rar_reviewer_attack_completed`
 
 ## Corrected Epoch 1 Result
 
@@ -327,4 +327,6 @@ Epoch 4 Cycle 13 generated exactly three candidates in `reports/epoch_4_cycle_13
 
 The RAR-VLA Researcher A proposal is frozen in `reports/rar_vla/researcher_proposal.md` with proposal hash `723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56`.
 
-Current decision: `RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Current stage: `epoch_4_cycle_13_rar_proposal_frozen`. Next action: Reviewer B attacks the frozen proposal before implementation.
+Reviewer B attack is complete in `reports/rar_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
+
+Current decision: `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage: `epoch_4_cycle_13_rar_reviewer_attack_completed`. Next action: Researcher A rebuttal.

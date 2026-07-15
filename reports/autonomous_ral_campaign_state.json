@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 13,
-    "topic": "epoch_4_cycle_13_rar_proposal_frozen",
+    "topic": "epoch_4_cycle_13_rar_reviewer_attack_completed",
     "method": "RAR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "21b7f81",
-    "current_stage": "epoch_4_cycle_13_rar_proposal_frozen",
+    "current_commit": "42f49b8",
+    "current_stage": "epoch_4_cycle_13_rar_reviewer_attack_completed",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -318,7 +318,8 @@
         "epoch_4_cycle_12_cala_design_failure_recorded",
         "epoch_4_cycle_13_candidate_search_pending",
         "epoch_4_cycle_13_candidate_generation_completed",
-        "epoch_4_cycle_13_rar_proposal_frozen"
+        "epoch_4_cycle_13_rar_proposal_frozen",
+        "epoch_4_cycle_13_rar_reviewer_attack_completed"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -334,7 +335,7 @@
         "DSWAM"
     ],
     "prototype_gate": "RAR-VLA selected; Researcher A proposal, Reviewer B attack, mathematical audit, and Stage 0 development audit are required before validation search or rollout.",
-    "current_decision": "RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -485,9 +486,9 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run Reviewer B attack on the frozen RAR-VLA proposal before any implementation, validation search, training, manifest freeze, or rollout.",
+    "next_action": "Write the one allowed RAR-VLA Researcher A rebuttal accepting or resolving Reviewer B constraints.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
-    "active_hypothesis": "RAR-VLA proposal is frozen for Reviewer B attack: AR-VLA-anchored, identity-preserving, re-anchored causal action-memory residual for frozen SmolVLA.",
+    "active_hypothesis": "RAR-VLA passed Reviewer B conditionally: novelty narrowed to a frozen-SmolVLA identity-preserving AR-style residual memory adapter, with REMAC/TAS distinctions and EMA action-history killer baseline mandatory.",
     "method_identity": "RAR-VLA",
     "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
     "prototype_protocol": null,
@@ -2239,7 +2240,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_13_rar_proposal_frozen",
+    "current_topic": "epoch_4_cycle_13_rar_reviewer_attack_completed",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4844,12 +4845,16 @@
         "confirmatory_test_tuning_happened": false,
         "previous_method_stop": "CALA_STAGE_0_DESIGN_FAILURE",
         "must_not_rescue_previous_method": true,
-        "next_stage": "Reviewer B attacks the frozen RAR-VLA proposal before implementation.",
+        "next_stage": "Researcher A rebuttal to Reviewer B constraints.",
         "proposal": "reports/rar_vla/researcher_proposal.md",
         "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
         "proposal_hash_file": "reports/rar_vla/proposal_hash.txt",
         "proposal_decision": "RAR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true
+        "reviewer_attack_pending": false,
+        "reviewer_attack": "reports/rar_vla/reviewer_attack.md",
+        "reviewer_attack_completed": true,
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "rebuttal_pending": true
     },
     "epoch_4_cycle_13_rar_proposal": {
         "method": "RAR-VLA",
@@ -4862,6 +4867,26 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B attack before implementation."
+        "next_stage": "Researcher A rebuttal.",
+        "reviewer_attack": "reports/rar_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true
+    },
+    "epoch_4_cycle_13_rar_review": {
+        "method": "RAR-VLA",
+        "proposal_hash": "723C16C3885A974E2CA12D90BC36267FA6E86827AC9D2A1E0E0E475E16FB0E56",
+        "reviewer_attack": "reports/rar_vla/reviewer_attack.md",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack_completed": true,
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "narrowed_novelty": "frozen SmolVLA identity-preserving AR-style residual memory adapter; no broad autoregressive action memory, re-anchoring, smoothing, or chunking novelty claim",
+        "closest_prior_proxy_must_remain_transparent": true,
+        "remac_tas_distinction_required": true,
+        "ema_action_history_baseline_must_remain_live": true,
+        "stage_0_inter_and_intra_chunk_diagnostics_required": true,
+        "next_stage": "Researcher A rebuttal before mathematical mechanism audit."
     }
 }
