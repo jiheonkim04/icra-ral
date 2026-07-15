@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `14`
 
-Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_14_covi_preregistration_pending`
 
 Allowed final states:
 
@@ -426,4 +426,6 @@ Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepted narrowed novelty, transparent VIM proxy status, direct two-camera fusion diagnostics, the random-cutout simple killer, physical occlusion validation, identity-preserving integration, and no privileged inference.
 
-Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`. Next action: mathematical mechanism audit before preregistration or implementation. Do not rescue RAR.
+The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes variables and tensor shapes, the legal source gate, complementary-target construction, adapter/gate formulas, objective terms, gradient checks, direct two-camera fusion diagnostics, random-cutout simple killer, transparent VIM proxy status, and the six-configuration validation budget. No implementation, validation search, training, manifest freeze, or rollout has happened.
+
+Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage: `epoch_4_cycle_14_covi_preregistration_pending`. Next action: freeze preregistration and prototype protocol before implementation. Do not rescue RAR.

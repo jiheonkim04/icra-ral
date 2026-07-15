@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
@@ -52,7 +52,9 @@ Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts all Reviewer B constraints.
 
-Exact next step: write the mathematical mechanism audit before preregistration or implementation. Do not rescue RAR.
+The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. It keeps the narrowed COVI claim, transparent VIM proxy, direct two-camera fusion diagnostic, random-cutout simple killer, physical occlusion requirement, identity-preserving feature adapter, and no deterministic-action KL rule live.
+
+Exact next step: freeze COVI preregistration and prototype protocol before implementation. Do not rescue RAR.
 
 ## 2026-07-13 Governance V2 Current State
 

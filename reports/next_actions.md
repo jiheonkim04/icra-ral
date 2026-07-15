@@ -4,9 +4,9 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: write `reports/covi_vla/mathematical_mechanism_audit.md` before preregistration or implementation.
+Immediate next action: freeze `reports/covi_vla/preregistration.md` and `reports/covi_vla/prototype_protocol.md` before implementation.
 
 Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. Do not rescue CALA by changing latent labels, prediction features, thresholds, validation configs, or source gates; CALA stopped before rollout as `DESIGN_FAILURE` because deployment-observable latent prediction lost to the `action_history_only` trivial baseline. Do not rescue RAR by changing history features, residual labels, thresholds, source gates, validation configs, or baselines. COVI must keep the `random_cutout_clean_retention_baseline` simple killer live.
 

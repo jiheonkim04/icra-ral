@@ -2442,6 +2442,23 @@ Execution boundary:
 
 Consequence: Researcher A accepted the narrowed novelty, transparent VIM proxy, direct two-camera fusion diagnostic, random-cutout simple killer, physical occlusion requirement, identity-preserving integration, and no-privileged-inference constraints. Proceed only to mathematical mechanism audit before preregistration or implementation.
 
+## 2026-07-15 - Epoch 4 Cycle 14 COVI-VLA Mathematical Audit
+
+Decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
+
+Execution boundary:
+
+- method: `COVI-VLA`
+- proposal hash: `338430D2C6CF1D82410C036D79102ED3F38B2367BB35B9AE2811161698A3E621`
+- researcher rebuttal: `reports/covi_vla/researcher_rebuttal.md`
+- mathematical audit: `reports/covi_vla/mathematical_mechanism_audit.md`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the audit freezes the legal source gate, complementary-view target construction, feature-adapter/gate formula, objective terms, gradient and scale checks, direct two-camera fusion diagnostic, transparent VIM proxy status, random-cutout simple killer, physical occlusion requirement, six-configuration validation budget, first five-policy comparison, and no deterministic-action KL. Proceed to preregistration and prototype protocol before implementation.
+
 ## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Stage 0 Development Audit
 
 Decision: `DESIGN_FAILURE`

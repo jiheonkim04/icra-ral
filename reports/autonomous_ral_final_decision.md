@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+Current decision: `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -241,4 +241,6 @@ Reviewer B attack is complete in `reports/covi_vla/reviewer_attack.md` with deci
 
 Researcher A rebuttal is complete in `reports/covi_vla/researcher_rebuttal.md` with decision `COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts all Reviewer B constraints.
 
-Current stage: `epoch_4_cycle_14_covi_mathematical_audit_pending`. Next action: mathematical mechanism audit before preregistration or implementation.
+The COVI mathematical mechanism audit is frozen in `reports/covi_vla/mathematical_mechanism_audit.md` with decision `COVI_MATHEMATICAL_AUDIT_PREREGISTERED`. The audit keeps the narrowed feature-adapter claim, legal source gate, direct two-camera diagnostic, random-cutout simple killer, physical occlusion requirement, identity-preserving integration, bounded validation search, and no deterministic-action KL constraint live.
+
+Current stage: `epoch_4_cycle_14_covi_preregistration_pending`. Next action: freeze preregistration and prototype protocol before implementation.
