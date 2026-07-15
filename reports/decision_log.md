@@ -2238,3 +2238,21 @@ Frozen first comparison:
 - `task_mean_latent_action_baseline`
 
 Consequence: CALA-VLA is selected for proposal freezing. G3P remains stopped as `DATA_OR_SUPERVISION_FAILURE` and must not be rescued by changing its point-label construction, thresholds, source gate, validation search, or Stage 0 criteria. CALA may use future 7D action segments only as discovery/validation training labels; no future actions, reset identity, success label, or privileged simulator state may enter inference.
+
+## 2026-07-15 - Epoch 4 Cycle 12 CALA-VLA Proposal Freeze
+
+Decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+
+Execution boundary:
+
+- method: `CALA-VLA`
+- proposal: `reports/cala_vla/researcher_proposal.md`
+- proposal hash: `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`
+- proposal hash file: `reports/cala_vla/proposal_hash.txt`
+- closest prior: `CAC-VLA`
+- closed-loop experiment happened: `False`
+- training happened: `False`
+- validation search happened: `False`
+- confirmatory-test tuning happened: `False`
+
+Consequence: the Researcher A proposal is frozen. Reviewer B must attack novelty, CAC source fidelity, latent-action leakage, trivial task-mean/action-history baselines, and local SmolVLA integration feasibility before any implementation.

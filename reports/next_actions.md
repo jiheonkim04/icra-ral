@@ -4,11 +4,11 @@
 
 Active governance: `reports/current_research_governance.md`
 
-Current decision: `SELECT_CALA_VLA`
+Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
-Immediate next action: freeze and hash the `CALA-VLA` Researcher A proposal before Reviewer B attack.
+Immediate next action: run Reviewer B attack on the frozen `CALA-VLA` proposal.
 
-Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA must proceed under the current performance-oriented governance: proposal hash first, Reviewer B source/novelty attack next, then rebuttal, mathematical audit, preregistration, and Stage 0 latent-label/source/identity audit before any expensive training or rollout.
+Do not rescue G3P by changing point-label thresholds, label construction, source gates, validation search, or Stage 0 criteria. CALA must proceed under the current performance-oriented governance: Reviewer B source/novelty attack next, then rebuttal, mathematical audit, preregistration, and Stage 0 latent-label/source/identity audit before any expensive training or rollout.
 
 ## 2026-07-13 Governance V2 Current Action
 

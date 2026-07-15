@@ -8,6 +8,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 PESA_PROPOSAL_HASH = "B05B1ACF7CD3514365B418E25C7E995604FCA8C117CDC0F3384F1046BAF26B63"
 EAC_PROPOSAL_HASH = "A89ED48AE9FD4D26A8DA9E3E987FACDBBD9F861D070AE135372A092A44581E4E"
 G3P_PROPOSAL_HASH = "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71"
+CALA_PROPOSAL_HASH = "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -22,11 +23,11 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "SELECT_CALA_VLA"
-    assert state["current_stage"] == "epoch_4_cycle_12_candidate_generation_completed"
+    assert state["current_decision"] == "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_12_cala_proposal_frozen"
     assert state["method"] == "CALA-VLA"
     assert state["method_identity"] == "CALA-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == CALA_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_3_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_3_fang_preregistration_frozen" in state["completed_stages"]
@@ -153,6 +154,7 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded" in state["completed_stages"]
     assert "epoch_4_cycle_12_candidate_search_pending" in state["completed_stages"]
     assert "epoch_4_cycle_12_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_12_cala_proposal_frozen" in state["completed_stages"]
     assert state["epoch_4_cycle_9_pre_stage_0"]["selection_decision"] == "SELECT_PESA_VLA"
     assert state["epoch_4_cycle_9_pre_stage_0"]["candidate_generation"] == "reports/epoch_4_cycle_9_candidate_generation.md"
     assert state["epoch_4_cycle_9_pre_stage_0"]["prior_mechanism_map"] == "reports/epoch_4_cycle_9_prior_mechanism_map.md"
@@ -545,6 +547,20 @@ def test_active_state_records_closed_rac_stage_b_without_cycle_cap() -> None:
     assert cala["training_happened"] is False
     assert cala["validation_search_happened"] is False
     assert cala["confirmatory_test_tuning_happened"] is False
+    assert cala["proposal"] == "reports/cala_vla/researcher_proposal.md"
+    assert cala["proposal_hash"] == CALA_PROPOSAL_HASH
+    assert cala["proposal_hash_file"] == "reports/cala_vla/proposal_hash.txt"
+    assert cala["proposal_decision"] == "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert cala["reviewer_attack_pending"] is True
+    cala_proposal = state["epoch_4_cycle_12_cala_proposal"]
+    assert cala_proposal["proposal"] == "reports/cala_vla/researcher_proposal.md"
+    assert cala_proposal["proposal_hash"] == CALA_PROPOSAL_HASH
+    assert cala_proposal["proposal_hash_file"] == "reports/cala_vla/proposal_hash.txt"
+    assert cala_proposal["final_decision"] == "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert cala_proposal["closed_loop_experiment_happened"] is False
+    assert cala_proposal["training_happened"] is False
+    assert cala_proposal["validation_search_happened"] is False
+    assert cala_proposal["confirmatory_test_tuning_happened"] is False
     assert state["task_reset_manifest"] is None
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["planned_episode_count"] == 50
     assert state["epoch_4_cycle_6_mtf_stage_a_manifest"]["paired_cases_per_policy"] == 10

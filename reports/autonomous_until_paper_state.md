@@ -6,13 +6,13 @@ Active governance: `reports/current_research_governance.md`
 
 Branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_CALA_VLA`
+Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `12`
 
-Current stage: `epoch_4_cycle_12_candidate_generation_completed`
+Current stage: `epoch_4_cycle_12_cala_proposal_frozen`
 
 Allowed final states:
 
@@ -390,4 +390,6 @@ G3P Stage 0 stopped as `DATA_OR_SUPERVISION_FAILURE` in `reports/g3p_vla/develop
 
 Epoch 4 Cycle 12 generated exactly three candidates in `reports/epoch_4_cycle_12_candidate_generation.md` after the prior mechanism map in `reports/epoch_4_cycle_12_prior_mechanism_map.md` and selected `CALA-VLA`.
 
-Current decision: `SELECT_CALA_VLA`. Current stage: `epoch_4_cycle_12_candidate_generation_completed`. Next action: freeze and hash the CALA-VLA Researcher A proposal before Reviewer B attack.
+The CALA-VLA Researcher A proposal is frozen in `reports/cala_vla/researcher_proposal.md` with proposal hash `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`.
+
+Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Current stage: `epoch_4_cycle_12_cala_proposal_frozen`. Next action: Reviewer B attacks novelty, CAC source fidelity, future-action leakage, trivial task-mean/action-history baselines, and local SmolVLA integration feasibility before implementation.

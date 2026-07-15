@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 12,
-    "current_topic": "epoch_4_cycle_12_candidate_generation_completed",
+    "current_topic": "epoch_4_cycle_12_cala_proposal_frozen",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "9079a25",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_12_candidate_generation_completed",
+    "current_stage": "epoch_4_cycle_12_cala_proposal_frozen",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -294,11 +294,12 @@
         "epoch_4_cycle_11_g3p_stage_0_completed",
         "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded",
         "epoch_4_cycle_12_candidate_search_pending",
-        "epoch_4_cycle_12_candidate_generation_completed"
+        "epoch_4_cycle_12_candidate_generation_completed",
+        "epoch_4_cycle_12_cala_proposal_frozen"
     ],
     "active_hypothesis": "CALA-VLA selected for Epoch 4 Cycle 12 as a CAC-VLA-anchored, identity-preserving action-latent conditioning method for frozen SmolVLA.",
     "method_identity": "CALA-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
     "closest_papers": [
         "CAC-VLA",
         "STRONG-VLA",
@@ -316,7 +317,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "SELECT_CALA_VLA",
+    "current_decision": "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -425,7 +426,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack.",
+    "next_action": "Run Reviewer B attack on the frozen CALA-VLA proposal before implementation.",
     "method": "CALA-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -4512,6 +4513,23 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack."
+        "next_stage": "Reviewer B attacks the frozen CALA-VLA proposal before implementation.",
+        "proposal": "reports/cala_vla/researcher_proposal.md",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "proposal_hash_file": "reports/cala_vla/proposal_hash.txt",
+        "proposal_decision": "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "reviewer_attack_pending": true
+    },
+    "epoch_4_cycle_12_cala_proposal": {
+        "method": "CALA-VLA",
+        "proposal": "reports/cala_vla/researcher_proposal.md",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "proposal_hash_file": "reports/cala_vla/proposal_hash.txt",
+        "final_decision": "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Reviewer B novelty, source-fidelity, leakage, and simple-baseline attack."
     }
 }

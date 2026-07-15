@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 12,
-    "topic": "epoch_4_cycle_12_candidate_generation_completed",
+    "topic": "epoch_4_cycle_12_cala_proposal_frozen",
     "method": "CALA-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "9079a25",
-    "current_stage": "epoch_4_cycle_12_candidate_generation_completed",
+    "current_stage": "epoch_4_cycle_12_cala_proposal_frozen",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -307,7 +307,8 @@
         "epoch_4_cycle_11_g3p_stage_0_completed",
         "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded",
         "epoch_4_cycle_12_candidate_search_pending",
-        "epoch_4_cycle_12_candidate_generation_completed"
+        "epoch_4_cycle_12_candidate_generation_completed",
+        "epoch_4_cycle_12_cala_proposal_frozen"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -323,7 +324,7 @@
         "VLA Grounder"
     ],
     "prototype_gate": "CALA-VLA selected; Stage 0 latent-label and identity-preservation audit required before any training, validation search, manifest freeze, or rollout.",
-    "current_decision": "SELECT_CALA_VLA",
+    "current_decision": "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_partial_checkpoint": "reports/eac_vla/stage_a_partial_result.json",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -474,7 +475,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack.",
+    "next_action": "Run Reviewer B attack on the frozen CALA-VLA proposal before implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "G3P-VLA Stage 0 stopped pre-rollout as DATA_OR_SUPERVISION_FAILURE because the material point label collapsed; do not rescue by changing thresholds or labels.",
     "method_identity": "G3P-VLA",
@@ -2228,7 +2229,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_12_candidate_generation_completed",
+    "current_topic": "epoch_4_cycle_12_cala_proposal_frozen",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4564,6 +4565,23 @@
         "training_happened": false,
         "validation_search_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze the CALA-VLA Researcher A proposal and hash it before Reviewer B attack."
+        "next_stage": "Reviewer B attacks the frozen CALA-VLA proposal before implementation.",
+        "proposal": "reports/cala_vla/researcher_proposal.md",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "proposal_hash_file": "reports/cala_vla/proposal_hash.txt",
+        "proposal_decision": "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "reviewer_attack_pending": true
+    },
+    "epoch_4_cycle_12_cala_proposal": {
+        "method": "CALA-VLA",
+        "proposal": "reports/cala_vla/researcher_proposal.md",
+        "proposal_hash": "5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76",
+        "proposal_hash_file": "reports/cala_vla/proposal_hash.txt",
+        "final_decision": "CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Reviewer B novelty, source-fidelity, leakage, and simple-baseline attack."
     }
 }

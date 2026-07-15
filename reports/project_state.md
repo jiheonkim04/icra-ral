@@ -6,7 +6,7 @@ Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
-Current decision: `SELECT_CALA_VLA`
+Current decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
@@ -18,7 +18,9 @@ Epoch 4 Cycle 12 generated exactly three candidates in `reports/epoch_4_cycle_12
 
 CALA is anchored to CAC-VLA and tests whether a Base-preserving, zero-initialized context-gated latent-action interface can improve SmolVLA beyond Base, a CAC-style proxy, a no-context-gate ablation, and a task-mean latent-action baseline. Future 7D action segments are training labels only; confirmatory inference may not use future actions or privileged state.
 
-Exact next step: freeze and hash the CALA Researcher A proposal before Reviewer B attack.
+The CALA Researcher A proposal is frozen in `reports/cala_vla/researcher_proposal.md` with proposal hash `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`.
+
+Exact next step: run Reviewer B attack on novelty, CAC source fidelity, future-action leakage, task-mean/action-history baselines, and SmolVLA integration feasibility.
 
 ## 2026-07-13 Governance V2 Current State
 

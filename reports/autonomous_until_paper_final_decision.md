@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current campaign decision: `SELECT_CALA_VLA`
+Current campaign decision: `CALA_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -216,4 +216,6 @@ CALA is anchored to CAC-VLA, with VLS and World Pilot as secondary action-interf
 
 The design-level five-policy comparison is Base, a CAC-style latent-action proxy, CALA full, no-context-gate ablation, and one simple task-mean latent-action baseline.
 
-Current stage: `epoch_4_cycle_12_candidate_generation_completed`. Next action: freeze and hash the `CALA-VLA` Researcher A proposal before Reviewer B attack.
+The CALA-VLA Researcher A proposal is frozen in `reports/cala_vla/researcher_proposal.md` with proposal hash `5B3933C9C0FD5AE5F07FDB0CEC447B48040238FB6D872D97E545E3D93E257E76`.
+
+Current stage: `epoch_4_cycle_12_cala_proposal_frozen`. Next action: Reviewer B attacks novelty, CAC source fidelity, future-action leakage, trivial task-mean/action-history baselines, and local SmolVLA integration feasibility before implementation.
