@@ -15,6 +15,7 @@ import random
 import shutil
 import subprocess
 import sys
+import threading
 import time
 import traceback
 from typing import Any, Mapping, Sequence
@@ -103,6 +104,9 @@ RUN_DIR = REPO_ROOT / "runs" / "iarc_vla" / "stage0a"
 CHECKPOINT_DIR = RUN_DIR / "micro_checkpoint"
 PARTIAL_JSON = RUN_DIR / "partial_result.json"
 STATUS_JSON = RUN_DIR / "status.json"
+HEARTBEAT_JSON = RUN_DIR / "heartbeat.json"
+CHILD_PID_FILE = RUN_DIR / "child_pid.txt"
+EXIT_CODE_FILE = RUN_DIR / "exit_code.txt"
 RESULT_JSON = REPORT_DIR / "stage_0a_result.json"
 RESULT_MD = REPORT_DIR / "stage_0a_result.md"
 GRADIENT_JSON = REPORT_DIR / "gradient_audit.json"
@@ -1343,6 +1347,20 @@ def _write_blocker(args: argparse.Namespace, exc: BaseException) -> None:
     )
 
 
+def _heartbeat_worker(stop: threading.Event) -> None:
+    while not stop.is_set():
+        _write_json(
+            HEARTBEAT_JSON,
+            {
+                "status": "running",
+                "pid": os.getpid(),
+                "time_unix": time.time(),
+                "time_local": time.strftime("%Y-%m-%dT%H:%M:%S%z", time.localtime()),
+            },
+        )
+        stop.wait(30.0)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=("audit", "one-check"), default="audit")
@@ -1352,20 +1370,36 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     _set_offline_environment()
-    if RESULT_JSON.exists():
-        existing = _read_json(RESULT_JSON)
-        print(json.dumps({"status": "existing_result", "final_decision": existing.get("final_decision")}, indent=2))
-        return 0
+    RUN_DIR.mkdir(parents=True, exist_ok=True)
+    CHILD_PID_FILE.write_text(f"{os.getpid()}\n", encoding="ascii")
+    stop_heartbeat = threading.Event()
+    heartbeat = threading.Thread(target=_heartbeat_worker, args=(stop_heartbeat,), daemon=True)
+    heartbeat.start()
+    exit_code = 1
     try:
+        if RESULT_JSON.exists():
+            existing = _read_json(RESULT_JSON)
+            print(
+                json.dumps(
+                    {"status": "existing_result", "final_decision": existing.get("final_decision")},
+                    indent=2,
+                )
+            )
+            exit_code = 0
+            return exit_code
         result = run_audit(args)
+        exit_code = 0
     except Exception as exc:  # noqa: BLE001
         _write_blocker(args, exc)
         traceback.print_exc()
-        return 1
+        return exit_code
     finally:
+        stop_heartbeat.set()
+        heartbeat.join(timeout=5.0)
+        EXIT_CODE_FILE.write_text(f"{exit_code}\n", encoding="ascii")
         gc.collect()
     print(json.dumps({"final_decision": result["final_decision"], "result": str(RESULT_JSON)}, indent=2))
-    return 0
+    return exit_code
 
 
 if __name__ == "__main__":
