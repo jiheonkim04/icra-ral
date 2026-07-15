@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 11,
-    "current_topic": "epoch_4_cycle_11_g3p_prototype_protocol_frozen",
+    "current_topic": "epoch_4_cycle_11_g3p_stage_0_completed",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "7eb8bb1",
+    "current_commit": "cec6d75",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_11_g3p_prototype_protocol_frozen",
+    "current_stage": "epoch_4_cycle_11_g3p_stage_0_completed",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -290,9 +290,12 @@
         "epoch_4_cycle_11_g3p_rebuttal_completed",
         "epoch_4_cycle_11_g3p_mathematical_audit_preregistered",
         "epoch_4_cycle_11_g3p_preregistration_frozen",
-        "epoch_4_cycle_11_g3p_prototype_protocol_frozen"
+        "epoch_4_cycle_11_g3p_prototype_protocol_frozen",
+        "epoch_4_cycle_11_g3p_stage_0_completed",
+        "epoch_4_cycle_11_g3p_data_or_supervision_failure_recorded",
+        "epoch_4_cycle_12_candidate_search_pending"
     ],
-    "active_hypothesis": "G3P-VLA preregistration and prototype protocol are frozen; next action is Stage 0 development audit only.",
+    "active_hypothesis": "G3P-VLA Stage 0 stopped pre-rollout as DATA_OR_SUPERVISION_FAILURE because the material point label collapsed; do not rescue by changing thresholds or labels.",
     "method_identity": "G3P-VLA",
     "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
     "closest_papers": [
@@ -312,7 +315,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "G3P_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+    "current_decision": "G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -421,7 +424,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Implement and run only the G3P-VLA Stage 0 development audit; do not train final policies, freeze rollout manifests, or launch rollouts before Stage 0 passes.",
+    "next_action": "Start Epoch 4 Cycle 12 candidate generation under current governance; do not rescue or retune G3P.",
     "method": "G3P-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2172,7 +2175,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_11_g3p_prototype_protocol_frozen",
+    "topic": "epoch_4_cycle_11_g3p_stage_0_completed",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -4293,7 +4296,22 @@
         "preregistration_decision": "G3P_PREREGISTRATION_FROZEN_STAGE_0_PENDING",
         "prototype_protocol_decision": "G3P_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
         "stage_0_audit": "reports/g3p_vla/development_audit.json",
-        "stage_0_pending": true
+        "stage_0_pending": false,
+        "stage_0_audit_md": "reports/g3p_vla/development_audit.md",
+        "source_gate_manifest": "reports/g3p_vla/source_gate_manifest.json",
+        "point_label_manifest": "reports/g3p_vla/point_label_manifest.json",
+        "split_manifest": "reports/g3p_vla/split_manifest.json",
+        "stage_0_completed": true,
+        "stage_0_decision": "DATA_OR_SUPERVISION_FAILURE",
+        "stage_0_failure_class": "DATA_OR_SUPERVISION_FAILURE",
+        "stage_0_hard_stop_reasons": [
+            "train material point fraction collapsed: 0.998214",
+            "validation material point fraction collapsed: 1.000000"
+        ],
+        "stage_0_training_happened": false,
+        "stage_0_closed_loop_experiment_happened": false,
+        "stage_0_confirmatory_test_tuning_happened": false,
+        "validation_search_allowed": false
     },
     "epoch_4_cycle_11_g3p_proposal": {
         "method": "G3P-VLA",
@@ -4416,6 +4434,46 @@
             "simple_2d_phase_or_nearest_object_heuristic"
         ],
         "stage_0_next": "development_audit_only",
-        "next_stage": "Implement and run G3P Stage 0 development audit only."
+        "next_stage": "Archive G3P Stage 0 data/supervision failure and start the next method cycle.",
+        "stage_0_audit": "reports/g3p_vla/development_audit.json",
+        "stage_0_decision": "DATA_OR_SUPERVISION_FAILURE",
+        "stage_0_completed": true,
+        "stage_0_passed": false
+    },
+    "epoch_4_cycle_11_g3p_development_outcome": {
+        "method": "G3P-VLA",
+        "proposal_hash": "BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71",
+        "final_decision": "DATA_OR_SUPERVISION_FAILURE",
+        "stage_0_completed": true,
+        "stage_0_passed": false,
+        "stage_0_failure_class": "DATA_OR_SUPERVISION_FAILURE",
+        "development_audit": "reports/g3p_vla/development_audit.json",
+        "development_audit_md": "reports/g3p_vla/development_audit.md",
+        "source_gate_manifest": "reports/g3p_vla/source_gate_manifest.json",
+        "point_label_manifest": "reports/g3p_vla/point_label_manifest.json",
+        "split_manifest": "reports/g3p_vla/split_manifest.json",
+        "scoreable_development_records": 2800,
+        "train_records": 1200,
+        "validation_records": 400,
+        "reserved_records_not_used": 1200,
+        "duplicate_sample_keys": 0,
+        "duplicate_frame_keys": 0,
+        "source_gate_passed": true,
+        "train_material_point_fraction": 0.9982142857142857,
+        "validation_material_point_fraction": 1.0,
+        "point_predictability_margin": 0.2136890612067978,
+        "oracle_action_headroom_l2_validation": 0.08630366897708504,
+        "initial_action_delta_p95": 0.0,
+        "base_action_validity": 1.0,
+        "hard_stop_reasons": [
+            "train material point fraction collapsed: 0.998214",
+            "validation material point fraction collapsed: 1.000000"
+        ],
+        "closed_loop_experiment_happened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "valid_closed_loop_scientific_kill": false,
+        "next_stage": "Epoch 4 Cycle 12 candidate generation under current governance."
     }
 }

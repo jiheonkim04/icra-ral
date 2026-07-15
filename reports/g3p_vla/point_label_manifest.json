@@ -1,0 +1,44 @@
+{
+  "future_phase_offset": 0.15,
+  "inference_uses_future_waypoint": false,
+  "label_source": "future_eef_waypoint_from_official_development_state",
+  "material_displacement_threshold": 0.005,
+  "train_label_summary": {
+    "coordinate_variance": [
+      0.012193284964659984,
+      0.02692965347513754,
+      0.1402154804658926
+    ],
+    "coordinate_variance_nonzero_dims": 3,
+    "displacement_norm_mean": 0.17385331887701555,
+    "displacement_norm_p95": 0.34218248868894335,
+    "invalid_point_count": 80,
+    "material_point_count": 1118,
+    "material_point_fraction_of_valid": 0.9982142857142857,
+    "max_task_valid_share": 0.025,
+    "source": "future_eef_waypoint_from_official_development_state",
+    "task_count": 40,
+    "total_records": 1200,
+    "valid_point_count": 1120,
+    "valid_point_fraction": 0.9333333333333333
+  },
+  "validation_label_summary": {
+    "coordinate_variance": [
+      0.011992391719559414,
+      0.027109811602601796,
+      0.1420020146150658
+    ],
+    "coordinate_variance_nonzero_dims": 3,
+    "displacement_norm_mean": 0.1787342452815633,
+    "displacement_norm_p95": 0.3417490838916082,
+    "invalid_point_count": 40,
+    "material_point_count": 360,
+    "material_point_fraction_of_valid": 1.0,
+    "max_task_valid_share": 0.025,
+    "source": "future_eef_waypoint_from_official_development_state",
+    "task_count": 40,
+    "total_records": 400,
+    "valid_point_count": 360,
+    "valid_point_fraction": 0.9
+  }
+}

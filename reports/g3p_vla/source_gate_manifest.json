@@ -1,0 +1,47 @@
+{
+  "dataset_feature_names": [
+    "action",
+    "episode_index",
+    "frame_index",
+    "index",
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state",
+    "task_index",
+    "timestamp"
+  ],
+  "forbidden_inference_keys": [
+    "dataset_global_index",
+    "episode_index",
+    "frame_index",
+    "future_action",
+    "future_observation",
+    "identity",
+    "object_pose",
+    "object_state",
+    "oracle_help_label",
+    "placement_pose",
+    "reward",
+    "success",
+    "target_action"
+  ],
+  "future_waypoint_labels_used_for_training_only": true,
+  "legal_inference_features": [
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state",
+    "language_or_task_instruction",
+    "base_action"
+  ],
+  "object_or_pose_feature_names": [],
+  "oracle_geometry_used_at_inference": false,
+  "privileged_object_pose_available_as_dataset_feature": false,
+  "rgb_video_available_in_dataset": true,
+  "source_gate_passed": true,
+  "state_available_in_dataset": true,
+  "used_inference_features_for_stage_0_probe": [
+    "observation.state",
+    "base_action",
+    "language_or_task_instruction_proxy"
+  ]
+}

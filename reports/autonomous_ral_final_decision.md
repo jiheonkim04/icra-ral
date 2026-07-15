@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 KST
 
-Current decision: `G3P_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+Current decision: `G3P_STAGE_0_STOP_DATA_OR_SUPERVISION_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -187,6 +187,10 @@ G3P is anchored to Direct Action-Head Injection of A Grounded 3D Point, with Rob
 
 The design-level five-policy comparison is Base, a closest-prior 3D-point proxy, G3P full, no-3D/no-injection ablation, and one simple 2D/phase/nearest-object heuristic.
 
-The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is complete in `reports/g3p_vla/researcher_rebuttal.md` with decision `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is frozen in `reports/g3p_vla/mathematical_mechanism_audit.md` with decision `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`. The preregistration and prototype protocol are frozen in `reports/g3p_vla/preregistration.md` and `reports/g3p_vla/prototype_protocol.md`. No G3P training, validation search, rollout, or confirmatory-test tuning has happened.
+The G3P-VLA Researcher A proposal is frozen in `reports/g3p_vla/researcher_proposal.md` with proposal hash `BEE3822D8F54EFBD09C1CA47A9BF126EBE694B7B6219002FF770C5794ED7AA71`. Reviewer B attack is complete in `reports/g3p_vla/reviewer_attack.md` with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is complete in `reports/g3p_vla/researcher_rebuttal.md` with decision `G3P_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is frozen in `reports/g3p_vla/mathematical_mechanism_audit.md` with decision `G3P_MATHEMATICAL_AUDIT_PREREGISTERED`. The preregistration and prototype protocol are frozen in `reports/g3p_vla/preregistration.md` and `reports/g3p_vla/prototype_protocol.md`.
 
-Current stage: `epoch_4_cycle_11_g3p_prototype_protocol_frozen`. Next action: implement and run only the G3P-VLA Stage 0 development audit.
+G3P Stage 0 completed without training, validation search, rollout, or confirmatory-test tuning. The development audit is saved in `reports/g3p_vla/development_audit.json` and summarized in `reports/g3p_vla/development_audit.md`.
+
+Final G3P Stage 0 decision: `DATA_OR_SUPERVISION_FAILURE`. The material point label collapsed with train material fraction `0.9982142857142857` and validation material fraction `1.0` under the frozen Stage 0 gate. Do not rescue G3P by changing labels or thresholds.
+
+Current stage: `epoch_4_cycle_11_g3p_stage_0_completed`. Next action: start Epoch 4 Cycle 12 candidate generation under current governance.
