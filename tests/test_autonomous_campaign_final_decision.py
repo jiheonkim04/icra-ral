@@ -32,6 +32,7 @@ AFID_PROPOSAL_HASH = "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB15
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING" in final
     assert "AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "AFID-VLA" in final
     assert "Action-Factor Instruction Densification" in final
@@ -39,10 +40,12 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/epoch_4_cycle_33_prior_mechanism_map.md" in final
     assert "reports/epoch_4_cycle_33_candidate_generation.md" in final
     assert "reports/afid_vla/researcher_proposal.md" in final
+    assert "reports/afid_vla/reviewer_attack.md" in final
     assert AFID_PROPOSAL_HASH in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "finevla_action_factor_proxy" in final
     assert "afid_no_factor_ablation" in final
-    assert "epoch_4_cycle_33_afid_reviewer_attack_pending" in final
+    assert "epoch_4_cycle_33_afid_rebuttal_pending" in final
     assert "LCG_STAGE_0_DESIGN_FAILURE" in final
     assert "LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
@@ -369,15 +372,17 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 33
-    assert state["current_stage"] == "epoch_4_cycle_33_afid_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_33_afid_rebuttal_pending"
     assert state["method"] == "AFID-VLA"
     assert state["method_identity"] == "AFID-VLA"
     assert state["proposal_hash"] == AFID_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/afid_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/afid_vla/researcher_proposal.md"
+    assert state["reviewer_attack"] == "reports/afid_vla/reviewer_attack.md"
+    assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["prototype_protocol"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -393,7 +398,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Run Reviewer B attack on the frozen AFID-VLA proposal."
+        == "Write Researcher A rebuttal accepting or rejecting the AFID Reviewer B conditions."
     )
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -1484,11 +1489,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cycle33["candidate_ids"] == ["AFID-VLA", "ACR-VLA", "GCF-VLA"]
     assert cycle33["selected_method"] == "AFID-VLA"
     assert cycle33["selected_score"] == 90
-    assert cycle33["selection_decision"] == "AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert cycle33["selection_decision"] == "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
     assert cycle33["lcg_repair_allowed"] is False
     assert cycle33["lcg_rescue_allowed"] is False
     afid = state["epoch_4_cycle_33_candidate_selection"]
-    assert afid["final_decision"] == "AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert afid["final_decision"] == "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
     assert afid["method"] == "AFID-VLA"
     assert afid["candidate_count"] == 3
     assert afid["selected_score"] == 90
@@ -1498,7 +1503,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert afid["proposal_hash_file"] == "reports/afid_vla/proposal_hash.txt"
     assert afid["proposal_hash"] == AFID_PROPOSAL_HASH
     assert afid["proposal_frozen"] is True
-    assert afid["reviewer_attack_pending"] is True
+    assert afid["reviewer_attack"] == "reports/afid_vla/reviewer_attack.md"
+    assert afid["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert afid["rebuttal_pending"] is True
     assert afid["policy_order"] == [
         "smolvla_base",
         "finevla_action_factor_proxy",
@@ -1510,9 +1517,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert afid["training_happened"] is False
     assert afid["confirmatory_test_tuning_happened"] is False
     afid_proposal = state["epoch_4_cycle_33_afid_researcher_proposal"]
-    assert afid_proposal["final_decision"] == "AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert afid_proposal["final_decision"] == "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
     assert afid_proposal["researcher_proposal"] == "reports/afid_vla/researcher_proposal.md"
     assert afid_proposal["proposal_hash"] == AFID_PROPOSAL_HASH
+    assert afid_proposal["reviewer_attack"] == "reports/afid_vla/reviewer_attack.md"
+    assert afid_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert afid_proposal["closest_prior"] == "FineVLA"
     assert afid_proposal["policy_order"] == [
         "smolvla_base",
@@ -1521,8 +1530,23 @@ def test_active_campaign_state_records_governance_v2() -> None:
         "afid_no_factor_ablation",
         "standard_lora",
     ]
-    assert afid_proposal["reviewer_attack_pending"] is True
+    assert afid_proposal["reviewer_attack_completed"] is True
+    assert afid_proposal["rebuttal_pending"] is True
     assert afid_proposal["training_happened"] is False
+    afid_review = state["epoch_4_cycle_33_afid_reviewer_attack"]
+    assert afid_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert afid_review["reviewer_attack"] == "reports/afid_vla/reviewer_attack.md"
+    assert afid_review["proposal_hash"] == AFID_PROPOSAL_HASH
+    assert afid_review["closest_prior"] == "FineVLA"
+    assert afid_review["policy_order"] == [
+        "smolvla_base",
+        "finevla_action_factor_proxy",
+        "afid_full",
+        "afid_no_factor_ablation",
+        "standard_lora",
+    ]
+    assert afid_review["rebuttal_pending"] is True
+    assert afid_review["training_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

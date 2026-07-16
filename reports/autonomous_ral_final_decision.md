@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -25,7 +25,7 @@ The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
 Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_reviewer_attack_pending`.
+`epoch_4_cycle_33_afid_rebuttal_pending`.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -35,6 +35,15 @@ decision `AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 No AFID implementation, training, validation search, rollout, or
 confirmatory-test access has happened. LCG remains closed unchanged as
 `LCG_STAGE_0_DESIGN_FAILURE`.
+
+Reviewer B attack is complete in `reports/afid_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires
+Researcher A to accept the FineVLA closest-prior boundary, a fair nonprivileged
+FineVLA proxy, frozen factor extraction rules, noncollapsed factor/mask health,
+factor observability above trivial baselines, no-factor and standard-LoRA
+controls, exact Base passthrough, and no deterministic-action KL.
+
+Immediate next action: Researcher A rebuttal.
 
 ## Epoch 4 Cycle 32 Selection
 

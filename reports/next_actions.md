@@ -5,9 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
 
-Immediate next action: run Reviewer B attack on the frozen AFID-VLA proposal.
+Immediate next action: write Researcher A rebuttal accepting or rejecting the
+AFID Reviewer B conditions.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -28,6 +29,13 @@ The AFID-VLA Researcher A proposal is frozen in
 
 No AFID implementation, training, validation search, rollout, or
 confirmatory-test access has happened. LCG repair/rescue remains disallowed.
+
+Reviewer B attack is complete in `reports/afid_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The rebuttal
+must accept or reject the FineVLA prior boundary, fair proxy requirement,
+frozen factor extraction, noncollapsed factor/mask health, factor observability
+gate, no-factor and standard-LoRA controls, exact Base passthrough, and no
+deterministic-action KL.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source

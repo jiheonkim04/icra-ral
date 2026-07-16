@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_33_afid_rebuttal_pending`
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 
@@ -40,9 +40,15 @@ The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
 `B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC`.
 
-Next action: run Reviewer B attack on the frozen AFID-VLA proposal. No AFID
-implementation, training, validation search, rollout, or confirmatory-test
-access has happened.
+Reviewer B attack is complete in `reports/afid_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires
+FineVLA to remain policy 2, a fair nonprivileged FineVLA proxy, frozen factor
+extraction rules, noncollapsed factor/mask health, factor observability above
+trivial baselines, no-factor and standard-LoRA controls, exact Base
+passthrough, and no deterministic-action KL.
+
+Next action: Researcher A rebuttal. No AFID implementation, training,
+validation search, rollout, or confirmatory-test access has happened.
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
