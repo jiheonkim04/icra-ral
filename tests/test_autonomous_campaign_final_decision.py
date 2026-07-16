@@ -31,6 +31,7 @@ LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A89
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "LCG-VLA" in final
@@ -39,9 +40,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Guidance" in final
     assert "counterfactual_action_guidance_proxy" in final
     assert "lcg_no_language_contrast_ablation" in final
-    assert "epoch_4_cycle_32_lcg_rebuttal_pending" in final
+    assert "epoch_4_cycle_32_lcg_mathematical_audit_pending" in final
     assert "reports/lcg_vla/researcher_proposal.md" in final
     assert "reports/lcg_vla/reviewer_attack.md" in final
+    assert "reports/lcg_vla/researcher_rebuttal.md" in final
     assert LCG_PROPOSAL_HASH in final
     assert "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE" in final
     assert "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -348,10 +350,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 32
-    assert state["current_stage"] == "epoch_4_cycle_32_lcg_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_mathematical_audit_pending"
     assert state["method"] == "LCG-VLA"
     assert state["method_identity"] == "LCG-VLA"
     assert state["proposal_hash"] == LCG_PROPOSAL_HASH
@@ -369,7 +371,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Write Researcher A rebuttal accepting the LCG Reviewer B conditions before mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
+        == "Freeze the LCG-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1265,7 +1267,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg["reviewer_attack_completed"] is True
     assert lcg["reviewer_attack"] == "reports/lcg_vla/reviewer_attack.md"
     assert lcg["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert lcg["researcher_rebuttal_pending"] is True
+    assert lcg["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
+    assert lcg["rebuttal_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert lcg["accepted_reviewer_conditions"] is True
+    assert lcg["mathematical_audit_pending"] is True
     assert lcg["policy_order"] == [
         "smolvla_base",
         "counterfactual_action_guidance_proxy",
@@ -1287,6 +1292,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_proposal["closest_prior"] == "Counterfactual Action Guidance"
     assert lcg_proposal["reviewer_attack"] == "reports/lcg_vla/reviewer_attack.md"
     assert lcg_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert lcg_proposal["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
+    assert lcg_proposal["rebuttal_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert lcg_proposal["accepted_reviewer_conditions"] is True
+    assert lcg_proposal["mathematical_audit_pending"] is True
     assert lcg_proposal["policy_order"] == lcg["policy_order"]
     assert lcg_proposal["training_happened"] is False
     assert lcg_proposal["validation_search_happened"] is False
@@ -1304,6 +1313,22 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_review["validation_search_happened"] is False
     assert lcg_review["closed_loop_experiment_happened"] is False
     assert lcg_review["confirmatory_test_tuning_happened"] is False
+    assert lcg_review["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
+    assert lcg_review["rebuttal_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert lcg_review["accepted_reviewer_conditions"] is True
+    assert lcg_review["mathematical_audit_pending"] is True
+    lcg_rebuttal = state["epoch_4_cycle_32_lcg_rebuttal"]
+    assert lcg_rebuttal["final_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert lcg_rebuttal["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
+    assert lcg_rebuttal["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert lcg_rebuttal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert lcg_rebuttal["accepted_reviewer_conditions"] is True
+    assert lcg_rebuttal["closest_prior"] == "Counterfactual Action Guidance"
+    assert lcg_rebuttal["mathematical_audit_pending"] is True
+    assert lcg_rebuttal["training_happened"] is False
+    assert lcg_rebuttal["validation_search_happened"] is False
+    assert lcg_rebuttal["closed_loop_experiment_happened"] is False
+    assert lcg_rebuttal["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

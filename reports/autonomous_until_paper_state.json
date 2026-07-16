@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 32,
-    "current_topic": "epoch_4_cycle_32_lcg_rebuttal_pending",
+    "current_topic": "epoch_4_cycle_32_lcg_mathematical_audit_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "73dc3c0",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_32_lcg_rebuttal_pending",
+    "current_stage": "epoch_4_cycle_32_lcg_mathematical_audit_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -641,7 +641,9 @@
         "epoch_4_cycle_32_lcg_researcher_proposal_frozen",
         "epoch_4_cycle_32_lcg_reviewer_attack_pending",
         "epoch_4_cycle_32_lcg_reviewer_attack_completed",
-        "epoch_4_cycle_32_lcg_rebuttal_pending"
+        "epoch_4_cycle_32_lcg_rebuttal_pending",
+        "epoch_4_cycle_32_lcg_rebuttal_completed",
+        "epoch_4_cycle_32_lcg_mathematical_audit_pending"
     ],
     "active_hypothesis": "A language-contrastive, identity-initialized action-cell gate can preserve frozen SmolVLA Base by default while routing bounded edits only where original-versus-null or counterfactual-instruction chunks reveal language-conditioning risk.",
     "method_identity": "LCG-VLA",
@@ -664,7 +666,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "current_decision": "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -773,7 +775,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write Researcher A rebuttal accepting the LCG Reviewer B conditions before mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
+    "next_action": "Freeze the LCG-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
     "method": "LCG-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2524,7 +2526,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_32_lcg_rebuttal_pending",
+    "topic": "epoch_4_cycle_32_lcg_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -9440,7 +9442,11 @@
         "reviewer_attack": "reports/lcg_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal_pending": true,
-        "reviewer_attack_completed": true
+        "reviewer_attack_completed": true,
+        "researcher_rebuttal": "reports/lcg_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true
     },
     "epoch_4_cycle_32_lcg_researcher_proposal": {
         "method": "LCG-VLA",
@@ -9483,7 +9489,11 @@
             "No deterministic-action KL is allowed",
             "S2C and all previous methods remain closed"
         ],
-        "reviewer_attack_completed": true
+        "reviewer_attack_completed": true,
+        "researcher_rebuttal": "reports/lcg_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true
     },
     "epoch_4_cycle_32_lcg_reviewer_attack": {
         "method": "LCG-VLA",
@@ -9509,6 +9519,34 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal must accept or resolve all Reviewer B conditions before mathematical audit."
+        "next_stage": "Researcher A rebuttal must accept or resolve all Reviewer B conditions before mathematical audit.",
+        "researcher_rebuttal": "reports/lcg_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true
+    },
+    "epoch_4_cycle_32_lcg_rebuttal": {
+        "method": "LCG-VLA",
+        "final_decision": "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "researcher_rebuttal": "reports/lcg_vla/researcher_rebuttal.md",
+        "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
+        "reviewer_attack": "reports/lcg_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "accepted_reviewer_conditions": true,
+        "accepted_novelty_boundary": "A frozen-SmolVLA, Base-preserving, identity-initialized action-cell gate that learns when deployment-observable original-versus-null language contrast permits bounded residual edits, with exact Base passthrough when the contrast is absent or unreliable.",
+        "closest_prior": "Counterfactual Action Guidance",
+        "policy_order": [
+            "smolvla_base",
+            "counterfactual_action_guidance_proxy",
+            "lcg_full",
+            "lcg_no_language_contrast_ablation",
+            "standard_lora"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "mathematical_audit_pending": true,
+        "next_stage": "Mathematical mechanism audit before preregistration, protocol, implementation, validation search, training, or rollout."
     }
 }

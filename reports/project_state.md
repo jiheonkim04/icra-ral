@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_rebuttal_pending`
+Current stage: `epoch_4_cycle_32_lcg_mathematical_audit_pending`
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
@@ -37,7 +37,10 @@ Researcher A rebuttal. Reviewer B attack is complete in
 `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; it keeps CAG as policy 2,
 narrows novelty to a frozen-SmolVLA language-contrast action-cell gate, and
 requires contrast/residual/mask noncollapse plus exact Base passthrough before
-any mathematical audit, preregistration, prototype protocol, implementation,
+progression. Researcher A rebuttal is complete in
+`reports/lcg_vla/researcher_rebuttal.md` with decision
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Next action is mathematical
+mechanism audit before preregistration, prototype protocol, implementation,
 validation search, training, rollout, or confirmatory-test access.
 
 Cycle 31 generated exactly three candidates in

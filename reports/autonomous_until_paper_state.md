@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_rebuttal_pending`
+Current stage: `epoch_4_cycle_32_lcg_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -53,9 +53,15 @@ Base-preserving learned language-contrast action-cell gate, treats the
 null-instruction branch as a transparent local proxy, and requires contrast,
 residual, and mask noncollapse before any validation search or rollout.
 
-The next stage is Researcher A rebuttal before mathematical audit,
-preregistration, prototype protocol, implementation, validation search,
-training, rollout, or confirmatory-test access.
+Researcher A rebuttal is complete in
+`reports/lcg_vla/researcher_rebuttal.md` with decision
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all Reviewer B
+conditions, keeps CAG as policy 2, defines the null branch as a transparent
+proxy, and preserves `B_t - N_t` as a gate signal rather than a residual target.
+
+The next stage is mathematical mechanism audit before preregistration,
+prototype protocol, implementation, validation search, training, rollout, or
+confirmatory-test access.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 

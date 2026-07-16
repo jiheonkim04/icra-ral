@@ -5,12 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
-Immediate next action: write Researcher A rebuttal accepting the LCG Reviewer B
-conditions. No LCG mathematical audit, preregistration, prototype protocol,
-implementation, validation search, training, rollout, or confirmatory-test
-access may happen before the rebuttal gate is recorded.
+Immediate next action: freeze the LCG-VLA mathematical mechanism audit. No LCG
+preregistration, prototype protocol, implementation, validation search,
+training, rollout, or confirmatory-test access may happen before the audit is
+recorded.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
@@ -34,6 +34,10 @@ decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The rebuttal
 must accept CAG as policy 2, null-branch proxy limits, the narrowed novelty
 boundary, contrast/residual/mask noncollapse gates, standard LoRA, no
 deterministic-action KL, and closure of S2C plus previous methods.
+
+Researcher A rebuttal is complete in
+`reports/lcg_vla/researcher_rebuttal.md` with decision
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
 Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_rebuttal_pending`.
+`epoch_4_cycle_32_lcg_mathematical_audit_pending`.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
@@ -46,6 +46,13 @@ decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
 CAG as closest prior and policy 2, rejects treating `B_t - N_t` as a residual
 target by itself, requires null-branch proxy validation, and requires
 contrast/residual/mask noncollapse before progression.
+
+Researcher A rebuttal is complete in
+`reports/lcg_vla/researcher_rebuttal.md` with decision
+`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all Reviewer B
+conditions and sends LCG to mathematical mechanism audit before any
+preregistration, prototype protocol, implementation, validation search,
+training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 31 Selection
 
