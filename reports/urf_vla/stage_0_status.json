@@ -1,0 +1,10 @@
+{
+  "completed_model_row_count": 5120,
+  "elapsed_seconds": 24.811884880065918,
+  "final_decision": "URF_STAGE_0_NO_USABLE_HEADROOM",
+  "method": "URF-VLA",
+  "pid": 322,
+  "planned_model_row_count": 5120,
+  "status": "completed",
+  "updated_utc": "2026-07-16T07:32:08.954174+00:00"
+}

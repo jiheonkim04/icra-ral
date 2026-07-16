@@ -1,0 +1,21 @@
+{
+  "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+  "created_utc": "2026-07-16T07:31:54.380416+00:00",
+  "environment_action_shape": [
+    7
+  ],
+  "environment_action_space_high": null,
+  "environment_action_space_low": null,
+  "environment_action_space_low_high_exposed": false,
+  "final_action_validity_definition": "valid iff cached/postprocessed action chunk has shape [50,7], all entries are finite, and URF predictions preserve the same shape and finite semantics",
+  "finite_checks": true,
+  "gripper_convention": "LIBERO/SmolVLA checkpoint 7D action dimension 6 after postprocessor",
+  "method": "URF-VLA",
+  "model_native_action_shape": [
+    50,
+    7
+  ],
+  "no_ad_hoc_unit_box_gate": true,
+  "postprocessor_or_unnormalizer_class": "official SmolVLA checkpoint action postprocessor from cached Base chunks",
+  "postprocessor_parameters": "inherited from verified cached Base action chunks; no URF-specific renormalization"
+}

@@ -1,0 +1,13 @@
+{
+  "closest_prior": "SUREFlow",
+  "closest_prior_official_repository": "https://github.com/tanvirnwu/SUREFlow",
+  "closest_prior_primary_source": "https://arxiv.org/abs/2607.10504",
+  "created_utc": "2026-07-16T07:31:54.373212+00:00",
+  "method": "URF-VLA",
+  "official_candidate_paths": [],
+  "official_checkpoint_count": 0,
+  "official_checkpoint_present": false,
+  "official_code_present": false,
+  "proxy_is_required_until_official_assets_verified": true,
+  "selected_prior_policy": "sureflow_uncertainty_residual_proxy"
+}

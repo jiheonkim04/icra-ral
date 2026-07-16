@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31`
 
 This is not a terminal state under the active governance.
 
@@ -89,8 +89,17 @@ reproduced hashes
 This is not a Stage 0 experimental result; no URF training, validation search,
 rollout, simulator access, or confirmatory-test tuning has happened.
 
-Current cycle: `30`. Current stage:
-`epoch_4_cycle_30_urf_stage_0_launch_pending`.
+URF Stage 0 then completed as `URF_STAGE_0_NO_USABLE_HEADROOM` in
+`reports/urf_vla/stage_0_result.json`: `5120 / 5120` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, and exact
+key-set equality. Bounded validation is not allowed because Base residual
+headroom was below the frozen `0.005` normalized Huber gate
+(`0.0033407550543043956`) and the heteroscedastic residual proxy did not beat
+homoscedastic or task/phase baselines. This is a development-only no-headroom
+stop, not a closed-loop scientific kill; URF rescue is forbidden.
+
+Current cycle: `31`. Current stage:
+`epoch_4_cycle_31_candidate_search_pending`.
 
 ## Epoch 4 Cycle 29 Selection
 

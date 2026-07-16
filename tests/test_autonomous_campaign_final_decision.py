@@ -29,6 +29,8 @@ URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABE
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31" in final
+    assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
@@ -39,7 +41,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "SUREFlow" in final
     assert "sureflow_uncertainty_residual_proxy" in final
     assert URF_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_30_urf_stage_0_launch_pending" in final
+    assert "epoch_4_cycle_31_candidate_search_pending" in final
     assert "reports/urf_vla/reviewer_attack.md" in final
     assert "reports/urf_vla/researcher_rebuttal.md" in final
     assert "reports/urf_vla/mathematical_mechanism_audit.md" in final
@@ -317,10 +319,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 30
-    assert state["current_stage"] == "epoch_4_cycle_30_urf_stage_0_launch_pending"
+    assert state["current_cycle"] == 31
+    assert state["current_stage"] == "epoch_4_cycle_31_candidate_search_pending"
     assert state["method"] == "URF-VLA"
     assert state["method_identity"] == "URF-VLA"
     assert state["proposal_hash"] == URF_PROPOSAL_HASH
@@ -995,9 +997,33 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_implementation["focused_test_result"] == "8 passed"
     assert urf_implementation["serializer_preflight_passed"] is True
     assert urf_implementation["stage_0_launch_allowed_next"] is True
-    assert urf_implementation["stage_0_final_decision"] is None
+    assert urf_implementation["stage_0_final_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM"
     assert urf_implementation["training_happened"] is False
     assert urf_implementation["closed_loop_experiment_happened"] is False
+    urf_outcome = state["epoch_4_cycle_30_urf_stage_0_outcome"]
+    assert urf_outcome["final_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM"
+    assert urf_outcome["failure_class"] == "NO_USABLE_HEADROOM"
+    assert urf_outcome["completed_model_row_count"] == urf_outcome["planned_model_row_count"] == 5120
+    assert urf_outcome["exception_count"] == 0
+    assert urf_outcome["duplicate_manifest_key_count"] == 0
+    assert urf_outcome["duplicate_partial_key_count"] == 0
+    assert urf_outcome["missing_manifest_key_count"] == 0
+    assert urf_outcome["extra_partial_key_count"] == 0
+    assert urf_outcome["split_overlap_key_count"] == 0
+    assert urf_outcome["key_sets_equal"] is True
+    assert urf_outcome["base_residual_headroom_ok"] is False
+    assert urf_outcome["hetero_beats_homoscedastic_relative"] < 0
+    assert urf_outcome["hetero_beats_task_phase_relative"] < 0
+    assert urf_outcome["bounded_validation_allowed"] is False
+    assert urf_outcome["valid_scientific_result"] is False
+    assert urf_outcome["closed_loop_experiment_happened"] is False
+    assert urf_outcome["urf_rescue_allowed"] is False
+    cycle31 = state["epoch_4_cycle_31_candidate_search"]
+    assert cycle31["candidate_search_pending"] is True
+    assert cycle31["candidate_count_required"] == 3
+    assert cycle31["candidate_count_generated"] == 0
+    assert cycle31["previous_method"] == "URF-VLA"
+    assert cycle31["previous_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

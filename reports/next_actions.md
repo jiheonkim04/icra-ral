@@ -1,15 +1,14 @@
 # Next Actions
 
-## 2026-07-16 Epoch 4 Cycle 30 Current Action
+## 2026-07-16 Epoch 4 Cycle 31 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31`
 
-Immediate next action: before launching URF Stage 0, inspect existing
-PID/heartbeat/status/partial/result/log/exit artifacts, verify no live or
-completed URF worker exists, and then run the frozen Stage 0 audit only once.
+Immediate next action: generate exactly three Epoch 4 Cycle 31 candidates under
+current governance. Do not repair, rerun, reinterpret, or rescue URF-VLA.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at
@@ -39,6 +38,14 @@ py_compile passed, focused URF tests reported `8 passed`, and
 `reports/urf_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes. No URF training, validation search, rollout, simulator
 access, or confirmatory-test tuning has happened.
+
+URF Stage 0 completed as `URF_STAGE_0_NO_USABLE_HEADROOM` with `5120 / 5120`
+model rows, exception count `0`, duplicate / missing / extra / split-overlap
+keys all `0`, and exact key-set equality. Bounded validation is not allowed:
+Base residual headroom was below the frozen `0.005` normalized Huber gate
+(`0.0033407550543043956`) and the heteroscedastic residual proxy did not beat
+homoscedastic or task/phase baselines. This is a development-only no-headroom
+stop, not a closed-loop scientific kill.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

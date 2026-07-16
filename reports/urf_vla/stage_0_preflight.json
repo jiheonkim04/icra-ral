@@ -1,0 +1,12 @@
+{
+  "action_semantics_persisted": true,
+  "cached_base_source": "verified CCIF Stage 0 Base chunks and visual features",
+  "ccif_manifest": "/mnt/c/Users/jiheo/tca_map/reports/ccif_vla/stage_0_manifest.json",
+  "ccif_partial": "/mnt/c/Users/jiheo/tca_map/reports/ccif_vla/stage_0_partial.json",
+  "created_utc": "2026-07-16T07:31:54.391709+00:00",
+  "method": "URF-VLA",
+  "no_confirmatory_records_read": true,
+  "official_prior_asset_check_persisted": true,
+  "proposal_hash_ok": true,
+  "serializer_preflight_ok": true
+}
