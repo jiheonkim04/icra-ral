@@ -31,6 +31,7 @@ LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A89
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "LCG_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
@@ -41,11 +42,12 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Guidance" in final
     assert "counterfactual_action_guidance_proxy" in final
     assert "lcg_no_language_contrast_ablation" in final
-    assert "epoch_4_cycle_32_lcg_preregistration_pending" in final
+    assert "epoch_4_cycle_32_lcg_prototype_protocol_pending" in final
     assert "reports/lcg_vla/researcher_proposal.md" in final
     assert "reports/lcg_vla/reviewer_attack.md" in final
     assert "reports/lcg_vla/researcher_rebuttal.md" in final
     assert "reports/lcg_vla/mathematical_mechanism_audit.md" in final
+    assert "reports/lcg_vla/preregistration.md" in final
     assert LCG_PROPOSAL_HASH in final
     assert "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE" in final
     assert "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -352,10 +354,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 32
-    assert state["current_stage"] == "epoch_4_cycle_32_lcg_preregistration_pending"
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_prototype_protocol_pending"
     assert state["method"] == "LCG-VLA"
     assert state["method_identity"] == "LCG-VLA"
     assert state["proposal_hash"] == LCG_PROPOSAL_HASH
@@ -373,7 +375,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze LCG-VLA preregistration before prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
+        == "Freeze LCG-VLA prototype protocol before implementation, validation search, training, rollout, or confirmatory-test access."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1274,7 +1276,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg["accepted_reviewer_conditions"] is True
     assert lcg["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
     assert lcg["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert lcg["preregistration_pending"] is True
+    assert lcg["preregistration"] == "reports/lcg_vla/preregistration.md"
+    assert lcg["preregistration_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert lcg["prototype_protocol_pending"] is True
     assert lcg["policy_order"] == [
         "smolvla_base",
         "counterfactual_action_guidance_proxy",
@@ -1301,7 +1305,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_proposal["accepted_reviewer_conditions"] is True
     assert lcg_proposal["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
     assert lcg_proposal["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert lcg_proposal["preregistration_pending"] is True
+    assert lcg_proposal["preregistration"] == "reports/lcg_vla/preregistration.md"
+    assert lcg_proposal["preregistration_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert lcg_proposal["prototype_protocol_pending"] is True
     assert lcg_proposal["policy_order"] == lcg["policy_order"]
     assert lcg_proposal["training_happened"] is False
     assert lcg_proposal["validation_search_happened"] is False
@@ -1324,7 +1330,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_review["accepted_reviewer_conditions"] is True
     assert lcg_review["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
     assert lcg_review["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert lcg_review["preregistration_pending"] is True
+    assert lcg_review["preregistration"] == "reports/lcg_vla/preregistration.md"
+    assert lcg_review["preregistration_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert lcg_review["prototype_protocol_pending"] is True
     lcg_rebuttal = state["epoch_4_cycle_32_lcg_rebuttal"]
     assert lcg_rebuttal["final_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert lcg_rebuttal["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
@@ -1334,7 +1342,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_rebuttal["closest_prior"] == "Counterfactual Action Guidance"
     assert lcg_rebuttal["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
     assert lcg_rebuttal["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert lcg_rebuttal["preregistration_pending"] is True
+    assert lcg_rebuttal["preregistration"] == "reports/lcg_vla/preregistration.md"
+    assert lcg_rebuttal["preregistration_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert lcg_rebuttal["prototype_protocol_pending"] is True
     assert lcg_rebuttal["training_happened"] is False
     assert lcg_rebuttal["validation_search_happened"] is False
     assert lcg_rebuttal["closed_loop_experiment_happened"] is False
@@ -1349,7 +1359,27 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_audit["tau_lang"] == 0.25
     assert lcg_audit["kl_between_deterministic_actions_used"] is False
     assert "LCG_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in lcg_audit["stage_0_stop_classes"]
-    assert lcg_audit["preregistration_pending"] is True
+    assert lcg_audit["preregistration"] == "reports/lcg_vla/preregistration.md"
+    assert lcg_audit["preregistration_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert lcg_audit["prototype_protocol_pending"] is True
+    lcg_prereg = state["epoch_4_cycle_32_lcg_preregistration"]
+    assert lcg_prereg["final_decision"] == "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert lcg_prereg["preregistration"] == "reports/lcg_vla/preregistration.md"
+    assert lcg_prereg["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert lcg_prereg["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
+    assert lcg_prereg["development_tasks"] == [
+        "libero_spatial/task_3",
+        "libero_object/task_3",
+        "libero_goal/task_5",
+        "libero_10/task_5",
+    ]
+    assert lcg_prereg["discovery_demo_ids"] == "0..7"
+    assert lcg_prereg["validation_demo_ids"] == "8..9"
+    assert lcg_prereg["confirmatory_identities_touched"] is False
+    assert "reports/lcg_vla/stage_0_result.json" in lcg_prereg["stage_0_artifacts"]
+    assert "LCG_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in lcg_prereg["stage_0_stop_classes"]
+    assert lcg_prereg["bounded_validation_search_max_configs"] == 6
+    assert lcg_prereg["prototype_protocol_pending"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`
+`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_preregistration_pending`
+Current stage: `epoch_4_cycle_32_lcg_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -66,8 +66,13 @@ The mathematical mechanism audit is frozen in
 proxy formula, objective coefficients, Stage 0 stop classes, and no
 deterministic-action KL.
 
-The next stage is preregistration before prototype protocol, implementation,
-validation search, training, rollout, or confirmatory-test access.
+Preregistration is frozen in `reports/lcg_vla/preregistration.md` with
+decision `LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+development tasks, discovery/validation demo IDs, Stage 0 artifacts and gates,
+worker resume keys, and the six-configuration bounded validation envelope.
+
+The next stage is prototype protocol before implementation, validation search,
+training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`
+`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_preregistration_pending`
+Current stage: `epoch_4_cycle_32_lcg_prototype_protocol_pending`
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
@@ -43,7 +43,10 @@ progression. Researcher A rebuttal is complete in
 mechanism audit before preregistration, prototype protocol, implementation,
 validation search, training, rollout, or confirmatory-test access. The audit is
 now frozen in `reports/lcg_vla/mathematical_mechanism_audit.md` with decision
-`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`; next action is preregistration.
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
+`reports/lcg_vla/preregistration.md` with decision
+`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`; next action is
+prototype protocol.
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source

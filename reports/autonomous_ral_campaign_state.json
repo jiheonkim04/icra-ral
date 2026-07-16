@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 32,
-    "topic": "epoch_4_cycle_32_lcg_preregistration_pending",
+    "topic": "epoch_4_cycle_32_lcg_prototype_protocol_pending",
     "method": "LCG-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "73dc3c0",
-    "current_stage": "epoch_4_cycle_32_lcg_preregistration_pending",
+    "current_stage": "epoch_4_cycle_32_lcg_prototype_protocol_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -658,7 +658,9 @@
         "epoch_4_cycle_32_lcg_rebuttal_completed",
         "epoch_4_cycle_32_lcg_mathematical_audit_pending",
         "epoch_4_cycle_32_lcg_mathematical_audit_preregistered",
-        "epoch_4_cycle_32_lcg_preregistration_pending"
+        "epoch_4_cycle_32_lcg_preregistration_pending",
+        "epoch_4_cycle_32_lcg_preregistration_frozen",
+        "epoch_4_cycle_32_lcg_prototype_protocol_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -675,7 +677,7 @@
         "GEAR-VLA"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "LCG_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -826,7 +828,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze LCG-VLA preregistration before prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
+    "next_action": "Freeze LCG-VLA prototype protocol before implementation, validation search, training, rollout, or confirmatory-test access.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A language-contrastive, identity-initialized action-cell gate can preserve frozen SmolVLA Base by default while routing bounded edits only where original-versus-null or counterfactual-instruction chunks reveal language-conditioning risk.",
     "method_identity": "LCG-VLA",
@@ -2580,7 +2582,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_32_lcg_preregistration_pending",
+    "current_topic": "epoch_4_cycle_32_lcg_prototype_protocol_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -9380,7 +9382,10 @@
         "mathematical_audit_pending": true,
         "mathematical_audit": "reports/lcg_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "LCG_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/lcg_vla/preregistration.md",
+        "preregistration_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_32_lcg_researcher_proposal": {
         "method": "LCG-VLA",
@@ -9430,7 +9435,10 @@
         "mathematical_audit_pending": true,
         "mathematical_audit": "reports/lcg_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "LCG_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/lcg_vla/preregistration.md",
+        "preregistration_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_32_lcg_reviewer_attack": {
         "method": "LCG-VLA",
@@ -9463,7 +9471,10 @@
         "mathematical_audit_pending": true,
         "mathematical_audit": "reports/lcg_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "LCG_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/lcg_vla/preregistration.md",
+        "preregistration_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_32_lcg_rebuttal": {
         "method": "LCG-VLA",
@@ -9490,7 +9501,10 @@
         "next_stage": "Mathematical mechanism audit before preregistration, protocol, implementation, validation search, training, or rollout.",
         "mathematical_audit": "reports/lcg_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "LCG_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/lcg_vla/preregistration.md",
+        "preregistration_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_32_lcg_mathematical_audit": {
         "method": "LCG-VLA",
@@ -9525,6 +9539,55 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "preregistration_pending": true,
-        "next_stage": "Preregistration before prototype protocol, implementation, validation search, training, or rollout."
+        "next_stage": "Preregistration before prototype protocol, implementation, validation search, training, or rollout.",
+        "preregistration": "reports/lcg_vla/preregistration.md",
+        "preregistration_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
+    },
+    "epoch_4_cycle_32_lcg_preregistration": {
+        "method": "LCG-VLA",
+        "final_decision": "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "preregistration": "reports/lcg_vla/preregistration.md",
+        "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
+        "mathematical_audit": "reports/lcg_vla/mathematical_mechanism_audit.md",
+        "development_tasks": [
+            "libero_spatial/task_3",
+            "libero_object/task_3",
+            "libero_goal/task_5",
+            "libero_10/task_5"
+        ],
+        "discovery_demo_ids": "0..7",
+        "validation_demo_ids": "8..9",
+        "confirmatory_identities_touched": false,
+        "stage_0_artifacts": [
+            "reports/lcg_vla/stage_0_preflight.json",
+            "reports/lcg_vla/stage_0_manifest.json",
+            "reports/lcg_vla/stage_0_partial.json",
+            "reports/lcg_vla/stage_0_result.json",
+            "reports/lcg_vla/stage_0_result.md",
+            "reports/lcg_vla/stage_0_adjudication.md",
+            "reports/lcg_vla/stage_0_status.json",
+            "reports/lcg_vla/stage_0_heartbeat.json",
+            "reports/lcg_vla/stage_0_pid.txt",
+            "reports/lcg_vla/stage_0_exit_code.txt",
+            "reports/lcg_vla/stage_0_action_semantics.json",
+            "reports/lcg_vla/stage_0_official_prior_asset_check.json",
+            "reports/lcg_vla/stage_0_serializer_preflight.json"
+        ],
+        "stage_0_stop_classes": [
+            "LCG_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "LCG_STAGE_0_NO_USABLE_HEADROOM",
+            "LCG_STAGE_0_DESIGN_FAILURE",
+            "LCG_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE",
+            "LCG_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "bounded_validation_search_max_configs": 6,
+        "resume_key": "(split, task_suite, task_id, demo_id, window_start, instruction_variant, policy)",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "prototype_protocol_pending": true,
+        "next_stage": "Prototype protocol before implementation, validation search, training, or rollout."
     }
 }
