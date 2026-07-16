@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_33_afid_stage_0_implementation_validated`
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 
@@ -62,9 +62,12 @@ AFID prototype protocol is frozen in
 `reports/afid_vla/prototype_protocol.md` with decision
 `AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
 
-Next action: implement and validate the AFID Stage 0 development audit runner.
-No AFID implementation, training, validation search, rollout, or
-confirmatory-test access has happened.
+AFID Stage 0 implementation validation is complete with decision
+`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`.
+
+Next action: launch the frozen AFID Stage 0 development audit after
+worker-safety checks. No AFID Stage 0 launch, training, validation search,
+rollout, or confirmatory-test access has happened.
 
 ## Epoch 4 Cycle 32 LCG-VLA
 

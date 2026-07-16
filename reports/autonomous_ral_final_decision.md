@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 This is not a terminal state under the active governance.
 
@@ -25,7 +25,7 @@ The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
 Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_stage_0_implementation_pending`.
+`epoch_4_cycle_33_afid_stage_0_implementation_validated`.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -71,6 +71,14 @@ helper/runner/test contracts, worker safety, row keys, required artifacts,
 action semantics, policy/probe rows, fixed constants, implementation checks,
 serializer preflight, and the Stage 0 decision contract. Immediate next action:
 implement and validate the AFID Stage 0 development audit runner.
+
+AFID Stage 0 implementation validation is complete with decision
+`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`. The helper
+`tca_map/smolvla/afid_vla.py`, runner `scripts/run_afid_vla_stage0.py`,
+focused tests `tests/test_afid_vla.py`, and serializer preflight
+`reports/afid_vla/stage_0_serializer_preflight.json` are validated. Immediate
+next action: launch the frozen AFID Stage 0 development audit after
+worker-safety checks.
 
 ## Epoch 4 Cycle 32 Selection
 

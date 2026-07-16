@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
-Immediate next action: implement and validate the AFID-VLA Stage 0 development
-audit runner.
+Immediate next action: launch the frozen AFID-VLA Stage 0 development audit
+after worker-safety checks.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -51,6 +51,10 @@ decision `AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 AFID prototype protocol is frozen in
 `reports/afid_vla/prototype_protocol.md` with decision
 `AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
+
+AFID Stage 0 implementation validation is complete with decision
+`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`. The validated serializer
+preflight is `reports/afid_vla/stage_0_serializer_preflight.json`.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source

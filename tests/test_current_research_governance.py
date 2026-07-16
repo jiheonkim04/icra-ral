@@ -69,8 +69,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_33_afid_stage_0_implementation_pending"
+    assert state["current_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_stage"] == "epoch_4_cycle_33_afid_stage_0_implementation_validated"
     assert state["method"] == "AFID-VLA"
     assert state["method_identity"] == "AFID-VLA"
     assert state["proposal_hash"] == AFID_PROPOSAL_HASH
@@ -89,6 +89,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         state["prototype_protocol_decision"]
         == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     )
+    assert state["stage_0_serializer_preflight"] == "reports/afid_vla/stage_0_serializer_preflight.json"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -411,6 +412,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_33_afid_prototype_protocol_pending",
         "epoch_4_cycle_33_afid_prototype_protocol_frozen",
         "epoch_4_cycle_33_afid_stage_0_implementation_pending",
+        "epoch_4_cycle_33_afid_stage_0_implementation_validated",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1586,11 +1588,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cycle33["candidate_ids"] == ["AFID-VLA", "ACR-VLA", "GCF-VLA"]
     assert cycle33["selected_method"] == "AFID-VLA"
     assert cycle33["selected_score"] == 90
-    assert cycle33["selection_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert cycle33["selection_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert cycle33["lcg_repair_allowed"] is False
     assert cycle33["lcg_rescue_allowed"] is False
     afid = state["epoch_4_cycle_33_candidate_selection"]
-    assert afid["final_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert afid["final_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert afid["method"] == "AFID-VLA"
     assert afid["candidate_count"] == 3
     assert afid["selected_score"] == 90
@@ -1613,7 +1615,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert afid["prototype_protocol_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     assert afid["preregistration_pending"] is True
     assert afid["prototype_protocol_pending"] is True
-    assert afid["stage_0_implementation_pending"] is True
+    assert afid["stage_0_implementation_pending"] is False
+    assert afid["stage_0_implementation_validated"] is True
+    assert afid["stage_0_serializer_preflight"] == "reports/afid_vla/stage_0_serializer_preflight.json"
     assert afid["policy_order"] == [
         "smolvla_base",
         "finevla_action_factor_proxy",
@@ -1627,7 +1631,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     afid_proposal = state["epoch_4_cycle_33_afid_researcher_proposal"]
     assert (
         afid_proposal["final_decision"]
-        == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+        == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     )
     assert afid_proposal["researcher_proposal"] == "reports/afid_vla/researcher_proposal.md"
     assert afid_proposal["proposal_hash"] == AFID_PROPOSAL_HASH
@@ -1656,7 +1660,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert afid_proposal["rebuttal_completed"] is True
     assert afid_proposal["preregistration_pending"] is True
     assert afid_proposal["prototype_protocol_pending"] is True
-    assert afid_proposal["stage_0_implementation_pending"] is True
+    assert afid_proposal["stage_0_implementation_pending"] is False
+    assert afid_proposal["stage_0_implementation_validated"] is True
     assert afid_proposal["training_happened"] is False
     afid_review = state["epoch_4_cycle_33_afid_reviewer_attack"]
     assert afid_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -1685,10 +1690,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     )
     assert afid_review["preregistration_pending"] is True
     assert afid_review["prototype_protocol_pending"] is True
-    assert afid_review["stage_0_implementation_pending"] is True
+    assert afid_review["stage_0_implementation_pending"] is False
+    assert afid_review["stage_0_implementation_validated"] is True
     assert afid_review["training_happened"] is False
     afid_rebuttal = state["epoch_4_cycle_33_afid_rebuttal"]
-    assert afid_rebuttal["final_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert afid_rebuttal["final_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert afid_rebuttal["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
     assert afid_rebuttal["accepted_reviewer_conditions"] is True
     assert afid_rebuttal["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
@@ -1702,10 +1708,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     )
     assert afid_rebuttal["preregistration_pending"] is True
     assert afid_rebuttal["prototype_protocol_pending"] is True
-    assert afid_rebuttal["stage_0_implementation_pending"] is True
+    assert afid_rebuttal["stage_0_implementation_pending"] is False
+    assert afid_rebuttal["stage_0_implementation_validated"] is True
     assert afid_rebuttal["training_happened"] is False
     afid_audit = state["epoch_4_cycle_33_afid_mathematical_audit"]
-    assert afid_audit["final_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert afid_audit["final_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert afid_audit["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
     assert afid_audit["proposal_hash"] == AFID_PROPOSAL_HASH
     assert afid_audit["horizon"] == 50
@@ -1722,10 +1729,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     )
     assert afid_audit["preregistration_pending"] is True
     assert afid_audit["prototype_protocol_pending"] is True
-    assert afid_audit["stage_0_implementation_pending"] is True
+    assert afid_audit["stage_0_implementation_pending"] is False
+    assert afid_audit["stage_0_implementation_validated"] is True
     assert afid_audit["training_happened"] is False
     afid_prereg = state["epoch_4_cycle_33_afid_preregistration"]
-    assert afid_prereg["final_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert afid_prereg["final_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert afid_prereg["preregistration"] == "reports/afid_vla/preregistration.md"
     assert afid_prereg["development_tasks"] == [
         "libero_spatial/task_3",
@@ -1744,22 +1752,36 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     )
     assert afid_prereg["prototype_protocol_pending"] is True
-    assert afid_prereg["stage_0_implementation_pending"] is True
+    assert afid_prereg["stage_0_implementation_pending"] is False
+    assert afid_prereg["stage_0_implementation_validated"] is True
     afid_protocol = state["epoch_4_cycle_33_afid_prototype_protocol"]
-    assert afid_protocol["final_decision"] == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert afid_protocol["final_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert afid_protocol["prototype_protocol"] == "reports/afid_vla/prototype_protocol.md"
     assert afid_protocol["helper_module"] == "tca_map/smolvla/afid_vla.py"
     assert afid_protocol["stage_0_runner"] == "scripts/run_afid_vla_stage0.py"
     assert afid_protocol["focused_tests"] == "tests/test_afid_vla.py"
     assert afid_protocol["serializer_preflight"] == "reports/afid_vla/stage_0_serializer_preflight.json"
     assert afid_protocol["stage_0_result"] == "reports/afid_vla/stage_0_result.json"
-    assert afid_protocol["stage_0_implementation_pending"] is True
+    assert afid_protocol["stage_0_implementation_pending"] is False
+    assert afid_protocol["stage_0_implementation_validated"] is True
     assert afid_protocol["training_happened"] is False
     assert afid_protocol["closed_loop_experiment_happened"] is False
+    afid_implementation = state["epoch_4_cycle_33_afid_stage_0_implementation"]
+    assert afid_implementation["final_decision"] == "AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert afid_implementation["helper_module"] == "tca_map/smolvla/afid_vla.py"
+    assert afid_implementation["stage_0_runner"] == "scripts/run_afid_vla_stage0.py"
+    assert afid_implementation["focused_tests"] == "tests/test_afid_vla.py"
+    assert afid_implementation["serializer_preflight"] == "reports/afid_vla/stage_0_serializer_preflight.json"
+    assert afid_implementation["py_compile_passed"] is True
+    assert afid_implementation["focused_tests_passed"] is True
+    assert afid_implementation["combined_regression_tests_passed"] is True
+    assert afid_implementation["governance_checker_passed"] is True
+    assert afid_implementation["stage_0_launch_happened"] is False
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_stage_0_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_33_afid_stage_0_implementation_validated" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
