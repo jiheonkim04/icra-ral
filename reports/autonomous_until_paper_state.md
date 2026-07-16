@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`MCI_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `38`
 
-Current stage: `epoch_4_cycle_38_mci_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_38_mci_preregistration_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -58,12 +58,19 @@ Researcher A rebuttal is complete in
 conditions, preserves RoVLA as policy 2, keeps
 `augmentation_only_lora_killer` live, forbids deterministic-action KL, and
 passes only to mathematical mechanism audit.
+The mathematical mechanism audit is frozen in
+`reports/mci_vla/mathematical_mechanism_audit.md` with decision
+`MCI_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes the `[N, 50, 7]` action
+shape, `d_z in {16,32}`, `lambda_c in {0.25,0.50,1.00}`, objective terms
+`L_code`, `L_act`, `L_fit`, `L_keep`, `L_var`, and `L_bound`, gradient-scale
+audit with `100:1` limit, no deterministic-action KL, and the frozen five
+policy order.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
 allowed. No MCI implementation, training, validation search, rollout, or
 confirmatory-test access has happened. Immediate next action: write the
-MCI-VLA mathematical mechanism audit.
+MCI-VLA preregistration.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

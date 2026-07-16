@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 38,
-    "current_topic": "epoch_4_cycle_38_mci_mathematical_audit_pending",
+    "current_topic": "epoch_4_cycle_38_mci_preregistration_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "c155008",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_38_mci_mathematical_audit_pending",
+    "current_stage": "epoch_4_cycle_38_mci_preregistration_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -778,7 +778,9 @@
         "epoch_4_cycle_38_mci_reviewer_attack_completed",
         "epoch_4_cycle_38_mci_rebuttal_pending",
         "epoch_4_cycle_38_mci_rebuttal_completed",
-        "epoch_4_cycle_38_mci_mathematical_audit_pending"
+        "epoch_4_cycle_38_mci_mathematical_audit_pending",
+        "epoch_4_cycle_38_mci_mathematical_audit_preregistered",
+        "epoch_4_cycle_38_mci_preregistration_pending"
     ],
     "active_hypothesis": "RoVLA-style multi-consistency invariance can make a frozen-SmolVLA adapter robust to task-preserving language, observation, proprioception, and action-evolution perturbations while preserving exact Base behavior at zero gate.",
     "method_identity": "MCI-VLA",
@@ -799,7 +801,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -908,7 +910,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write the MCI-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
     "method": "MCI-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -11297,7 +11299,12 @@
     "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
     "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "accepted_reviewer_conditions": true,
-    "mathematical_audit_pending": true,
+    "mathematical_audit_pending": false,
+    "mathematical_audit_completed": true,
+    "mathematical_audit_preregistered": true,
+    "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+    "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "preregistration_pending": true,
     "epoch_4_cycle_35_mhs_researcher_proposal": {
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
@@ -11412,7 +11419,12 @@
     "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
     "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "accepted_reviewer_conditions": true,
-    "mathematical_audit_pending": true,
+    "mathematical_audit_pending": false,
+    "mathematical_audit_completed": true,
+    "mathematical_audit_preregistered": true,
+    "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+    "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "preregistration_pending": true,
     "epoch_4_cycle_35_mhs_reviewer_attack": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -13536,13 +13548,18 @@
         "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
         "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
-        "mathematical_audit_pending": true,
+        "mathematical_audit_pending": false,
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "cspr_rescue_allowed": false,
-        "next_stage": "Write the MCI-VLA mathematical mechanism audit."
+        "next_stage": "Write the MCI-VLA preregistration."
     },
     "epoch_4_cycle_38_mci_researcher_proposal": {
         "method": "MCI-VLA",
@@ -13583,12 +13600,17 @@
         "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
         "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
-        "mathematical_audit_pending": true,
+        "mathematical_audit_pending": false,
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write the MCI-VLA mathematical mechanism audit before preregistration, implementation, validation search, rollout, or confirmatory-test access."
+        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
     },
     "epoch_4_cycle_38_mci_reviewer_attack": {
         "method": "MCI-VLA",
@@ -13620,12 +13642,17 @@
         "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
         "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
-        "mathematical_audit_pending": true,
+        "mathematical_audit_pending": false,
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write the MCI-VLA mathematical mechanism audit before preregistration, implementation, validation search, rollout, or confirmatory-test access."
+        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
     },
     "epoch_4_cycle_38_mci_rebuttal": {
         "method": "MCI-VLA",
@@ -13661,13 +13688,69 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "mathematical_audit_pending": true,
-        "next_stage": "Write the MCI-VLA mathematical mechanism audit before preregistration, implementation, validation search, rollout, or confirmatory-test access."
+        "mathematical_audit_pending": false,
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
+        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
+    },
+    "epoch_4_cycle_38_mci_mathematical_audit": {
+        "method": "MCI-VLA",
+        "proposal_hash": "88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A",
+        "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+        "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "final_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "fixed_horizon": 50,
+        "action_dim": 7,
+        "latent_dim_values": [
+            16,
+            32
+        ],
+        "lambda_c_values": [
+            0.25,
+            0.5,
+            1.0
+        ],
+        "bounded_validation_search_max_configs": 6,
+        "objective_terms": [
+            "L_code",
+            "L_act",
+            "L_fit",
+            "L_keep",
+            "L_var",
+            "L_bound"
+        ],
+        "gradient_norm_audit_required": true,
+        "objective_scale_ratio_limit": 100.0,
+        "deterministic_action_kl_allowed": false,
+        "identity_preserving_integration_required": true,
+        "first_serious_comparison_includes_closest_prior": true,
+        "policy_order": [
+            "smolvla_base",
+            "rovla_multiconsistency_proxy",
+            "mci_full",
+            "mci_no_consistency_code_ablation",
+            "augmentation_only_lora_killer"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "preregistration_pending": true,
+        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
     },
     "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
     "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "researcher_rebuttal_pending": false,
     "researcher_rebuttal_completed": true,
     "accepted_reviewer_conditions": true,
-    "mathematical_audit_pending": true
+    "mathematical_audit_pending": false,
+    "mathematical_audit_completed": true,
+    "mathematical_audit_preregistered": true,
+    "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+    "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "preregistration_pending": true
 }
