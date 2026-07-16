@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_preregistration_pending`
+Current stage: `epoch_4_cycle_34_brid_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 
@@ -64,7 +64,10 @@ The BRID mathematical mechanism audit is frozen in
 `reports/brid_vla/mathematical_mechanism_audit.md` with decision
 `BRID_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Next action is preregistration before implementation, validation search,
+BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
+decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
+Next action is prototype protocol before implementation, validation search,
 rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection

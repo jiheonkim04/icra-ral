@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_preregistration_pending`
+Current stage: `epoch_4_cycle_34_brid_prototype_protocol_pending`
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -54,7 +54,10 @@ The BRID mathematical mechanism audit is frozen in
 `reports/brid_vla/mathematical_mechanism_audit.md` with decision
 `BRID_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Next action is BRID preregistration.
+BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
+decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
+Next action is BRID prototype protocol.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three

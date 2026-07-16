@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal decision.
 
@@ -41,7 +41,7 @@ The first serious comparison is `smolvla_base`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
 Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_preregistration_pending`.
+`epoch_4_cycle_34_brid_prototype_protocol_pending`.
 
 The BRID-VLA Researcher A proposal is frozen in
 `reports/brid_vla/researcher_proposal.md` with SHA-256
@@ -70,7 +70,12 @@ variables and shapes, objective terms, gradient paths, zero-residual identity,
 residual caps, required comparisons, Stage 0 stop classes, bounded validation
 budget, and no deterministic-action KL.
 
-Immediate next action: freeze BRID preregistration before implementation.
+BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
+decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+development tasks, discovery/validation demo ids, Stage 0 artifacts, metrics,
+stop classes, bounded validation envelope, and worker resume key.
+
+Immediate next action: freeze BRID prototype protocol before implementation.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 

@@ -5,9 +5,9 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
-Immediate next action: freeze BRID preregistration before implementation.
+Immediate next action: freeze BRID prototype protocol before implementation.
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -44,6 +44,9 @@ conditions are accepted.
 The BRID mathematical mechanism audit is frozen in
 `reports/brid_vla/mathematical_mechanism_audit.md` with decision
 `BRID_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
+decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source

@@ -70,11 +70,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "BRID_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["current_stage"] == "epoch_4_cycle_34_brid_preregistration_pending"
+    assert state["current_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_34_brid_prototype_protocol_pending"
     assert state["method"] == "BRID-VLA"
     assert state["method_identity"] == "BRID-VLA"
-    assert state["next_action"] == "Freeze BRID-VLA preregistration before implementation."
+    assert state["next_action"] == "Freeze BRID-VLA prototype protocol before implementation."
     assert state["proposal_hash"] == BRID_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/brid_vla/researcher_proposal.md"
@@ -85,9 +85,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["mathematical_audit"] == "reports/brid_vla/mathematical_mechanism_audit.md"
     assert state["math_audit_decision"] == "BRID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["preregistration"] == "reports/brid_vla/preregistration.md"
-    assert state["preregistration_decision"] == "BRID_PREREGISTRATION_PENDING"
-    assert state["prototype_protocol"] is None
-    assert state["prototype_protocol_decision"] is None
+    assert state["preregistration_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["prototype_protocol"] == "reports/brid_vla/prototype_protocol.md"
+    assert state["prototype_protocol_decision"] == "BRID_PROTOTYPE_PROTOCOL_PENDING"
     assert state["stage_0_serializer_preflight"] == "reports/afid_vla/stage_0_serializer_preflight.json"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
@@ -1832,7 +1832,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection34["mathematical_audit_pending"] is False
     assert selection34["mathematical_audit"] == "reports/brid_vla/mathematical_mechanism_audit.md"
     assert selection34["math_audit_decision"] == "BRID_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert selection34["preregistration_pending"] is True
+    assert selection34["preregistration_pending"] is False
+    assert selection34["preregistration"] == "reports/brid_vla/preregistration.md"
+    assert selection34["preregistration_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert selection34["prototype_protocol_pending"] is True
     assert selection34["policy_order"] == [
         "smolvla_base",
         "diffusion_policy_action_chunk_proxy",
@@ -1872,6 +1875,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert audit34["mathematical_audit"] == "reports/brid_vla/mathematical_mechanism_audit.md"
     assert "BRID_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in audit34["stage_0_stop_classes"]
     assert audit34["deterministic_action_kl_allowed"] is False
+    assert audit34["preregistration_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    prereg34 = state["epoch_4_cycle_34_brid_preregistration"]
+    assert prereg34["final_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert prereg34["preregistration"] == "reports/brid_vla/preregistration.md"
+    assert prereg34["prototype_protocol_pending"] is True
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
@@ -1892,6 +1900,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_34_brid_mathematical_audit_pending" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_preregistration_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_prototype_protocol_pending" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
