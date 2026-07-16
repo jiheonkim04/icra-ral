@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_35_mhs_stage_0_implementation_pending`
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -58,8 +58,14 @@ the development partitions, fixed source tasks, history-window and label
 construction, Stage 0 artifacts, pass gates, stop classes, bounded validation
 search budget, and worker resume keys.
 
-Next action is to write the MHS-VLA prototype protocol before implementation,
-validation search, training, rollout, or confirmatory-test access.
+The MHS executable prototype protocol is frozen in
+`reports/mhs_vla/prototype_protocol.md` with decision
+`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Stage 0
+implementation must use `tca_map/smolvla/mhs_vla.py`,
+`scripts/run_mhs_vla_stage0.py`, and `tests/test_mhs_vla.py`.
+
+Next action is to implement the MHS-VLA Stage 0 helper, runner, focused tests,
+and serializer preflight before any Stage 0 launch.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 

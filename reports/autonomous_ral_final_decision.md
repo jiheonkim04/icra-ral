@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ small residual head only; LoRA is not the method.
 The first serious comparison is `smolvla_base`, `mtil_history_state_proxy`,
 `mhs_full`, `mhs_no_history_state_ablation`, and `standard_lora`.
 
-Current stage: `epoch_4_cycle_35_mhs_prototype_protocol_pending`.
+Current stage: `epoch_4_cycle_35_mhs_stage_0_implementation_pending`.
 
 The MHS-VLA Researcher A proposal is frozen in
 `reports/mhs_vla/researcher_proposal.md` with SHA-256
@@ -61,8 +61,14 @@ history-window construction, `m_i` and `z_i`, Stage 0 stop classes, the
 MTIL-proxy first comparison, and the six-configuration bounded validation
 envelope.
 
-Next action: write the MHS-VLA prototype protocol before implementation,
-validation search, training, rollout, or confirmatory-test access.
+The MHS executable prototype protocol is frozen in
+`reports/mhs_vla/prototype_protocol.md` with decision
+`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Stage 0
+implementation must use `tca_map/smolvla/mhs_vla.py`,
+`scripts/run_mhs_vla_stage0.py`, and `tests/test_mhs_vla.py`.
+
+Next action: implement the MHS-VLA Stage 0 helper, runner, focused tests, and
+serializer preflight before any Stage 0 launch.
 
 ## Epoch 4 Cycle 34 Candidate Selection
 
