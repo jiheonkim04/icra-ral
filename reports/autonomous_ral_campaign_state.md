@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_29_ccif_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -75,8 +75,14 @@ freezes evidence partitions, fixed source tasks and demonstrations, the
 bounded validation-search budget, first comparison policies, and confirmatory
 discipline.
 
-Next action: write the executable CCIF-VLA prototype protocol before Stage 0
-implementation.
+The executable CCIF prototype protocol is frozen in
+`reports/ccif_vla/prototype_protocol.md` with decision
+`CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. It freezes the Stage 0 runner
+contract, artifacts, worker/resume safety, fixed source data, policy/probe
+rows, mechanism constants, required metrics, and decision rule.
+
+Next action: implement and validate `scripts/run_ccif_vla_stage0.py` before
+Stage 0 execution.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 

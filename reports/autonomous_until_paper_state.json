@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 29,
-    "current_topic": "epoch_4_cycle_29_ccif_prototype_protocol_pending",
+    "current_topic": "epoch_4_cycle_29_ccif_stage_0_implementation_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "ef1f20a",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_29_ccif_prototype_protocol_pending",
+    "current_stage": "epoch_4_cycle_29_ccif_stage_0_implementation_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -581,7 +581,9 @@
         "epoch_4_cycle_29_ccif_mathematical_audit_preregistered",
         "epoch_4_cycle_29_ccif_preregistration_pending",
         "epoch_4_cycle_29_ccif_preregistration_frozen",
-        "epoch_4_cycle_29_ccif_prototype_protocol_pending"
+        "epoch_4_cycle_29_ccif_prototype_protocol_pending",
+        "epoch_4_cycle_29_ccif_prototype_protocol_frozen",
+        "epoch_4_cycle_29_ccif_stage_0_implementation_pending"
     ],
     "active_hypothesis": "A continuous coarse motor-intent field derived from legal LIBERO demonstrations can constrain bounded Base-preserving SmolVLA action residuals toward long-horizon net translation, rotation, gripper endpoint, and low-frequency waypoint structure without privileged inference inputs.",
     "method_identity": "CCIF-VLA",
@@ -593,7 +595,7 @@
         "VLAFlow",
         "ACoT-VLA"
     ],
-    "prototype_protocol": null,
+    "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
     "running_command": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -604,7 +606,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "current_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -713,7 +715,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write executable CCIF-VLA prototype protocol before Stage 0 implementation.",
+    "next_action": "Implement and validate scripts/run_ccif_vla_stage0.py before Stage 0 execution.",
     "method": "CCIF-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -7940,7 +7942,7 @@
         "preregistration": "reports/ccif_vla/preregistration.md",
         "preregistration_decision": "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
-        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_PENDING"
+        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     },
     "epoch_4_cycle_29_ccif_researcher_proposal": {
         "method": "CCIF-VLA",
@@ -7973,7 +7975,7 @@
         "preregistration": "reports/ccif_vla/preregistration.md",
         "preregistration_decision": "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
-        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_PENDING"
+        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     },
     "epoch_4_cycle_29_ccif_reviewer_attack": {
         "method": "CCIF-VLA",
@@ -8034,7 +8036,7 @@
         "preregistration": "reports/ccif_vla/preregistration.md",
         "preregistration_decision": "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
-        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_PENDING"
+        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     },
     "epoch_4_cycle_29_ccif_mathematical_audit": {
         "method": "CCIF-VLA",
@@ -8071,7 +8073,7 @@
         "preregistration_decision": "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "next_stage": "Freeze CCIF-VLA preregistration before executable prototype protocol or implementation.",
         "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
-        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_PENDING"
+        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     },
     "epoch_4_cycle_29_ccif_preregistration": {
         "method": "CCIF-VLA",
@@ -8099,7 +8101,26 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
-        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
         "next_stage": "Write executable CCIF-VLA prototype protocol before Stage 0 implementation."
+    },
+    "epoch_4_cycle_29_ccif_prototype_protocol": {
+        "method": "CCIF-VLA",
+        "final_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol": "reports/ccif_vla/prototype_protocol.md",
+        "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+        "stage_0_allowed_next": true,
+        "runner": "scripts/run_ccif_vla_stage0.py",
+        "helper_module": "tca_map/smolvla/ccif_vla.py",
+        "unit_tests": "tests/test_ccif_vla.py",
+        "stage_0_result": "reports/ccif_vla/stage_0_result.json",
+        "stage_0_partial": "reports/ccif_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/ccif_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/ccif_vla/stage_0_action_semantics.json",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Implement and validate scripts/run_ccif_vla_stage0.py before Stage 0 execution."
     }
 }

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -56,8 +56,12 @@ The CCIF mathematical mechanism audit is frozen in
 The CCIF preregistration is frozen in `reports/ccif_vla/preregistration.md`
 with decision `CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
+The executable CCIF prototype protocol is frozen in
+`reports/ccif_vla/prototype_protocol.md` with decision
+`CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
+
 Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_prototype_protocol_pending`.
+`epoch_4_cycle_29_ccif_stage_0_implementation_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 
