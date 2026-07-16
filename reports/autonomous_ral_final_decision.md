@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -25,8 +25,10 @@ ablation, and matched standard LoRA. The Researcher A proposal is frozen in
 training, validation search, rollout, simulator access, or confirmatory-test
 tuning has happened. Reviewer B attack is complete in
 `reports/rap_vla/reviewer_attack.md` with decision
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current cycle: `25`.
-Current stage: `epoch_4_cycle_25_rap_rebuttal_pending`.
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
+complete in `reports/rap_vla/researcher_rebuttal.md` with decision
+`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current cycle: `25`. Current stage:
+`epoch_4_cycle_25_rap_mathematical_audit_pending`.
 
 Epoch 4 Cycle 19 selected SPARC-VLA from exactly three candidates. Its final
 Stage 0A smoke completed `2 / 2` rows with zero exceptions and no duplicate,

@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
@@ -33,9 +33,11 @@ confirmatory-test tuning has happened. The Researcher A proposal is frozen in
 `reports/rap_vla/researcher_proposal.md` with SHA-256
 `E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. Reviewer
 B attack is complete in `reports/rap_vla/reviewer_attack.md` with decision
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Current stage:
-`epoch_4_cycle_25_rap_rebuttal_pending`. Next action is to write Researcher A
-rebuttal.
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
+complete in `reports/rap_vla/researcher_rebuttal.md` with decision
+`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Current stage:
+`epoch_4_cycle_25_rap_mathematical_audit_pending`. Next action is to write the
+mathematical mechanism audit.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest

@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 25,
-    "topic": "epoch_4_cycle_25_rap_rebuttal_pending",
+    "topic": "epoch_4_cycle_25_rap_mathematical_audit_pending",
     "method": "RAP-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "500dfb1",
-    "current_stage": "epoch_4_cycle_25_rap_rebuttal_pending",
+    "current_stage": "epoch_4_cycle_25_rap_mathematical_audit_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -501,7 +501,9 @@
         "epoch_4_cycle_25_rap_researcher_proposal_frozen",
         "epoch_4_cycle_25_rap_reviewer_attack_pending",
         "epoch_4_cycle_25_rap_reviewer_attack_completed",
-        "epoch_4_cycle_25_rap_rebuttal_pending"
+        "epoch_4_cycle_25_rap_rebuttal_pending",
+        "epoch_4_cycle_25_rap_rebuttal_completed",
+        "epoch_4_cycle_25_rap_mathematical_audit_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -515,7 +517,7 @@
         "ManiFlow: A General Robot Manipulation Policy via Consistency Flow Training"
     ],
     "prototype_gate": "Frozen VDR Stage 0A source, visual-feature residual, action-conditioned headroom, objective gradient, identity, and persistence audit.",
-    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "current_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -666,7 +668,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write RAP-VLA Researcher A rebuttal accepting or rejecting Reviewer B conditions without VDR repair or rescue.",
+    "next_action": "Write RAP-VLA mathematical mechanism audit and freeze objective/ablation formulas without VDR repair or rescue.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Direct multi-horizon supervision of the generated action chunk's empirical future-state realization can reduce cumulative manipulation drift beyond hidden-state kinematics prediction and cumulative-action matching.",
     "method_identity": "RAP-VLA",
@@ -2420,7 +2422,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_25_rap_rebuttal_pending",
+    "current_topic": "epoch_4_cycle_25_rap_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6531,13 +6533,15 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal.",
+        "next_stage": "Mathematical mechanism audit.",
         "proposal": "reports/rap_vla/researcher_proposal.md",
         "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
         "proposal_hash_file": "reports/rap_vla/proposal_hash.txt",
         "proposal_decision": "RAP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "reviewer_attack": "reports/rap_vla/reviewer_attack.md",
-        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     },
     "epoch_4_cycle_25_rap_researcher_proposal": {
         "method": "RAP-VLA",
@@ -6560,9 +6564,11 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal.",
+        "next_stage": "Mathematical mechanism audit.",
         "reviewer_attack": "reports/rap_vla/reviewer_attack.md",
-        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     },
     "epoch_4_cycle_25_rap_reviewer_attack": {
         "method": "RAP-VLA",
@@ -6584,6 +6590,24 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal."
+        "next_stage": "Mathematical mechanism audit.",
+        "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    },
+    "epoch_4_cycle_25_rap_rebuttal": {
+        "method": "RAP-VLA",
+        "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+        "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
+        "final_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "optimusvla_proxy_required": true,
+        "anchor_only_ablation_required": true,
+        "standard_lora_required": true,
+        "postprocessed_7d_action_validity_hard_gate": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Mathematical mechanism audit."
     }
 }
