@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import asdict
 from datetime import datetime, timezone
 import gc
 import hashlib
@@ -1020,7 +1021,7 @@ def _gradient_smoke(arrays: Mapping[str, np.ndarray]) -> dict[str, Any]:
             "finite_objectives_and_gradients": False,
             "ccif_gradient_nonzero": False,
             "frozen_parameter_gradient_count": 0,
-            "weighted_gradient_norm_ratio_max": float("inf"),
+            "weighted_gradient_norm_ratio_max": 1.0e12,
             "error": f"{type(exc).__name__}: {exc}",
         }
 
@@ -1368,11 +1369,12 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         proposal_ok, serializer_ok, prior_check, manifest_ok, data, identity, gradient, prior_exception_count
     )
     decision = classify_stage0(decision_inputs)
+    decision_input_payload = asdict(decision_inputs)
     validation_payload = {
         "method": "CCIF-VLA",
         "stage": "0",
         "proposal_hash": PROPOSAL_HASH,
-        "decision_inputs": decision_inputs,
+        "decision_inputs": decision_input_payload,
         "decision": decision,
         "data_audit": data,
         "identity": identity,
@@ -1400,7 +1402,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         "data_audit": data,
         "identity": identity,
         "gradient": gradient,
-        "decision_inputs": decision_inputs,
+        "decision_inputs": decision_input_payload,
         "bounded_validation_allowed": decision == "CCIF_STAGE_0_PASS_TO_BOUNDED_VALIDATION",
         "valid_scientific_result": False,
         "closed_loop_experiment_happened": False,
