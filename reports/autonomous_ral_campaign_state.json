@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 28,
-    "topic": "epoch_4_cycle_28_tsc_researcher_proposal_pending",
+    "topic": "epoch_4_cycle_28_tsc_reviewer_attack_pending",
     "method": "TSC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_28_tsc_researcher_proposal_pending",
+    "current_stage": "epoch_4_cycle_28_tsc_reviewer_attack_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -561,7 +561,9 @@
         "epoch_4_cycle_28_prior_mechanism_map_completed",
         "epoch_4_cycle_28_candidate_generation_completed",
         "epoch_4_cycle_28_tsc_candidate_selected",
-        "epoch_4_cycle_28_tsc_researcher_proposal_pending"
+        "epoch_4_cycle_28_tsc_researcher_proposal_pending",
+        "epoch_4_cycle_28_tsc_researcher_proposal_frozen",
+        "epoch_4_cycle_28_tsc_reviewer_attack_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -578,7 +580,7 @@
         "LaMem-VLA"
     ],
     "prototype_gate": "Pending TSC Stage 0 masked action-cell label health, completion headroom, prior-proxy, ablation, identity, gradient, action-validity, and retention audit.",
-    "current_decision": "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "current_decision": "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -729,11 +731,11 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze TSC-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation.",
+    "next_action": "Run Reviewer B attack for TSC-VLA before mathematical audit, preregistration, or implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A continuous temporal-spatial masked action completion field can correct sparse Base action-cell errors in SmolVLA [50,7] chunks while clamping unselected cells exactly to Base and using only deployment-observable inputs.",
     "method_identity": "TSC-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
     "prototype_protocol": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -2483,7 +2485,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_28_tsc_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_28_tsc_reviewer_attack_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7510,6 +7512,33 @@
         "cfr_repair_allowed": false,
         "cfr_rescue_allowed": false,
         "selection_decision": "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
-        "next_stage": "Freeze TSC-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
+        "proposal": "reports/tsc_vla/researcher_proposal.md",
+        "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+        "proposal_hash_file": "reports/tsc_vla/proposal_hash.txt",
+        "proposal_decision": "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "next_stage": "Run Reviewer B attack for TSC-VLA before mathematical audit, preregistration, or implementation."
+    },
+    "epoch_4_cycle_28_tsc_researcher_proposal": {
+        "method": "TSC-VLA",
+        "final_decision": "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "proposal": "reports/tsc_vla/researcher_proposal.md",
+        "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+        "proposal_hash_file": "reports/tsc_vla/proposal_hash.txt",
+        "closest_prior": "TS-Mask VLA",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2607.09818",
+        "contribution_type": "PRIOR_EXTENSION",
+        "policy_order": [
+            "smolvla_base",
+            "ts_mask_continuous_proxy_or_official_ts_mask_vla_if_installed",
+            "tsc_full",
+            "tsc_no_targeted_mask_ablation",
+            "standard_lora"
+        ],
+        "standard_lora_required": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Run Reviewer B attack for TSC-VLA before mathematical audit, preregistration, or implementation."
     }
 }

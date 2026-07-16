@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -31,8 +31,12 @@ no-targeted-mask ablation, and matched standard LoRA. No TSC training,
 validation search, rollout, simulator access, or confirmatory-test tuning has
 happened.
 
+The TSC-VLA Researcher A proposal is frozen in
+`reports/tsc_vla/researcher_proposal.md` with SHA-256
+`0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941`.
+
 Current cycle: `28`. Current stage:
-`epoch_4_cycle_28_tsc_researcher_proposal_pending`.
+`epoch_4_cycle_28_tsc_reviewer_attack_pending`.
 
 ## Epoch 4 Cycle 27 Selection
 

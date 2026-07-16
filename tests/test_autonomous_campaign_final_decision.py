@@ -21,16 +21,18 @@ VDR_PROPOSAL_HASH = "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2
 RAP_PROPOSAL_HASH = "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008"
 AMP_PROPOSAL_HASH = "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4"
 CFR_PROPOSAL_HASH = "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE"
+TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "TSC-VLA" in final
     assert "TS-Mask VLA" in final
     assert "ts_mask_continuous_proxy" in final
-    assert "epoch_4_cycle_28_tsc_researcher_proposal_pending" in final
+    assert TSC_PROPOSAL_HASH in final
+    assert "epoch_4_cycle_28_tsc_reviewer_attack_pending" in final
     assert "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
@@ -253,7 +255,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_28_tsc_researcher_proposal_pending" in final
+    assert "epoch_4_cycle_28_tsc_reviewer_attack_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -284,13 +286,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 28
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_reviewer_attack_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == TSC_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -305,7 +307,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze TSC-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
+        == "Run Reviewer B attack for TSC-VLA before mathematical audit, preregistration, or implementation."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -577,6 +579,15 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert tsc["confirmatory_test_tuning_happened"] is False
     assert tsc["first_serious_comparison_includes_closest_prior"] is True
     assert tsc["cfr_rescue_allowed"] is False
+    assert tsc["proposal"] == "reports/tsc_vla/researcher_proposal.md"
+    assert tsc["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert tsc["proposal_hash_file"] == "reports/tsc_vla/proposal_hash.txt"
+    assert tsc["proposal_decision"] == "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    tsc_proposal = state["epoch_4_cycle_28_tsc_researcher_proposal"]
+    assert tsc_proposal["final_decision"] == "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert tsc_proposal["proposal"] == "reports/tsc_vla/researcher_proposal.md"
+    assert tsc_proposal["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert tsc_proposal["closest_prior"] == "TS-Mask VLA"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

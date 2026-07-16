@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `28`
 
-Current stage: `epoch_4_cycle_28_tsc_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_28_tsc_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -40,8 +40,13 @@ installed, `tsc_full`, `tsc_no_targeted_mask_ablation`, and `standard_lora`.
 No TSC training, validation search, rollout, simulator access, or
 confirmatory-test tuning has happened.
 
-Next action: freeze TSC-VLA Researcher A proposal before Reviewer B attack,
-mathematical audit, preregistration, or implementation.
+The TSC-VLA Researcher A proposal is frozen in
+`reports/tsc_vla/researcher_proposal.md` with SHA-256
+`0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941` and
+decision `TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Next action: run Reviewer B attack for TSC-VLA before mathematical audit,
+preregistration, or implementation.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
