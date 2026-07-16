@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `28`
 
-Current stage: `epoch_4_cycle_28_tsc_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_28_tsc_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -70,8 +70,15 @@ discovery/validation/confirmatory separation, fixed Stage 0 data construction,
 label thresholds, required outputs, pass/stop classes, bounded validation search
 budget, and first closed-loop comparison policy.
 
-Next action: write executable TSC-VLA prototype protocol before Stage 0
-implementation.
+The executable TSC prototype protocol is frozen in
+`reports/tsc_vla/prototype_protocol.md` with decision
+`TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. It freezes the Stage 0 runner
+contract, artifacts, worker/resume safety, fixed data sources, action
+semantics, label construction, TS-Mask proxy definitions, mechanism audits,
+pass gates, and stop classes.
+
+Next action: implement and validate `scripts/run_tsc_vla_stage0.py` before
+Stage 0 execution.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 

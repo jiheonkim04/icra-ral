@@ -64,12 +64,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "TSC_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_prototype_protocol_pending"
+    assert state["current_decision"] == "TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_stage_0_implementation_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
     assert state["proposal_hash"] == TSC_PROPOSAL_HASH
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/tsc_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -279,6 +279,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_28_tsc_preregistration_pending",
         "epoch_4_cycle_28_tsc_preregistration_frozen",
         "epoch_4_cycle_28_tsc_prototype_protocol_pending",
+        "epoch_4_cycle_28_tsc_prototype_protocol_frozen",
+        "epoch_4_cycle_28_tsc_stage_0_implementation_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -659,6 +661,16 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert tsc_prereg["stage_0_allowed_next"] is True
     assert tsc_prereg["bounded_validation_search_max_configs"] == 6
     assert "TSC_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in tsc_prereg["stage_0_stop_classes"]
+    assert tsc_prereg["prototype_protocol"] == "reports/tsc_vla/prototype_protocol.md"
+    assert tsc_prereg["prototype_protocol_decision"] == "TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    tsc_protocol = state["epoch_4_cycle_28_tsc_prototype_protocol"]
+    assert tsc_protocol["final_decision"] == "TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert tsc_protocol["prototype_protocol"] == "reports/tsc_vla/prototype_protocol.md"
+    assert tsc_protocol["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert tsc_protocol["stage_0_allowed_next"] is True
+    assert tsc_protocol["runner"] == "scripts/run_tsc_vla_stage0.py"
+    assert tsc_protocol["stage_0_result"] == "reports/tsc_vla/stage_0_result.json"
+    assert tsc_protocol["stage_0_partial"] == "reports/tsc_vla/stage_0_partial.json"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

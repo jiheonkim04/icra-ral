@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`TSC_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -54,8 +54,12 @@ The TSC mathematical mechanism audit is frozen in
 The TSC preregistration is frozen in `reports/tsc_vla/preregistration.md` with
 decision `TSC_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
+The executable TSC prototype protocol is frozen in
+`reports/tsc_vla/prototype_protocol.md` with decision
+`TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
+
 Current cycle: `28`. Current stage:
-`epoch_4_cycle_28_tsc_prototype_protocol_pending`.
+`epoch_4_cycle_28_tsc_stage_0_implementation_pending`.
 
 ## Epoch 4 Cycle 27 Selection
 
