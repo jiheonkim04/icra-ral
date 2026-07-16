@@ -75,8 +75,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_prototype_protocol_pending"
+    assert state["current_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_38_mci_stage_0_implementation_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
@@ -92,8 +92,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "augmentation_only_lora_killer",
     ]
     assert state["next_action"] == (
-        "Write the MCI-VLA prototype protocol before implementation, "
-        "validation search, rollout, or confirmatory-test access."
+        "Implement and validate the MCI-VLA Stage 0 helper, runner, focused "
+        "tests, serializer preflight, and worker-safety checks before any "
+        "Stage 0 launch."
     )
     assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
@@ -118,7 +119,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["preregistration_frozen"] is True
     assert state["preregistration"] == "reports/mci_vla/preregistration.md"
     assert state["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["prototype_protocol_pending"] is True
+    assert state["prototype_protocol_pending"] is False
+    assert state["prototype_protocol_frozen"] is True
+    assert state["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert state["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["stage_0_implementation_pending"] is True
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
     assert cycle35["candidate_count_required"] == 3
     assert cycle35["candidate_count_generated"] == 3
@@ -346,7 +351,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert prereg36["preregistration"] == "reports/dccg_vla/preregistration.md"
     assert prereg36["final_decision"] == "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert prereg36["bounded_validation_search_max_configs"] == 6
-    assert prereg36["prototype_protocol_pending"] is True
+    assert prereg36["prototype_protocol_pending"] is False
+    assert prereg36["prototype_protocol_frozen"] is True
     protocol36 = state["epoch_4_cycle_36_dccg_prototype_protocol"]
     assert protocol36["method"] == "DCCG-VLA"
     assert protocol36["proposal_hash"] == DCCG_PROPOSAL_HASH
@@ -733,7 +739,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection38["preregistration_frozen"] is True
     assert selection38["preregistration"] == "reports/mci_vla/preregistration.md"
     assert selection38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert selection38["prototype_protocol_pending"] is True
+    assert selection38["prototype_protocol_pending"] is False
+    assert selection38["prototype_protocol_frozen"] is True
+    assert selection38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert selection38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert selection38["stage_0_implementation_pending"] is True
     assert selection38["first_serious_comparison_includes_closest_prior"] is True
     assert selection38["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection38["privileged_inference_inputs_allowed"] is False
@@ -764,7 +774,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert proposal38["preregistration_frozen"] is True
     assert proposal38["preregistration"] == "reports/mci_vla/preregistration.md"
     assert proposal38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert proposal38["prototype_protocol_pending"] is True
+    assert proposal38["prototype_protocol_pending"] is False
+    assert proposal38["prototype_protocol_frozen"] is True
+    assert proposal38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert proposal38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert proposal38["stage_0_implementation_pending"] is True
     review38 = state["epoch_4_cycle_38_mci_reviewer_attack"]
     assert review38["method"] == "MCI-VLA"
     assert review38["proposal_hash"] == MCI_PROPOSAL_HASH
@@ -784,7 +798,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert review38["preregistration_frozen"] is True
     assert review38["preregistration"] == "reports/mci_vla/preregistration.md"
     assert review38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert review38["prototype_protocol_pending"] is True
+    assert review38["prototype_protocol_pending"] is False
+    assert review38["prototype_protocol_frozen"] is True
+    assert review38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert review38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert review38["stage_0_implementation_pending"] is True
     assert len(review38["required_conditions"]) == 10
     assert review38["policy_order"] == [
         "smolvla_base",
@@ -818,7 +836,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert rebuttal38["preregistration_frozen"] is True
     assert rebuttal38["preregistration"] == "reports/mci_vla/preregistration.md"
     assert rebuttal38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert rebuttal38["prototype_protocol_pending"] is True
+    assert rebuttal38["prototype_protocol_pending"] is False
+    assert rebuttal38["prototype_protocol_frozen"] is True
+    assert rebuttal38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert rebuttal38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert rebuttal38["stage_0_implementation_pending"] is True
     assert rebuttal38["training_happened"] is False
     assert rebuttal38["validation_search_happened"] is False
     assert rebuttal38["closed_loop_experiment_happened"] is False
@@ -843,7 +865,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert audit38["preregistration_frozen"] is True
     assert audit38["preregistration"] == "reports/mci_vla/preregistration.md"
     assert audit38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert audit38["prototype_protocol_pending"] is True
+    assert audit38["prototype_protocol_pending"] is False
+    assert audit38["prototype_protocol_frozen"] is True
+    assert audit38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert audit38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert audit38["stage_0_implementation_pending"] is True
     assert audit38["training_happened"] is False
     assert audit38["validation_search_happened"] is False
     assert audit38["closed_loop_experiment_happened"] is False
@@ -863,11 +889,37 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert len(prereg38["stage_0_stop_classes"]) == 5
     assert prereg38["deterministic_action_kl_allowed"] is False
     assert prereg38["first_serious_comparison_includes_closest_prior"] is True
-    assert prereg38["prototype_protocol_pending"] is True
+    assert prereg38["prototype_protocol_pending"] is False
+    assert prereg38["prototype_protocol_frozen"] is True
+    assert prereg38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert prereg38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert prereg38["stage_0_implementation_pending"] is True
     assert prereg38["training_happened"] is False
     assert prereg38["validation_search_happened"] is False
     assert prereg38["closed_loop_experiment_happened"] is False
     assert prereg38["confirmatory_test_tuning_happened"] is False
+    protocol38 = state["epoch_4_cycle_38_mci_prototype_protocol"]
+    assert protocol38["method"] == "MCI-VLA"
+    assert protocol38["proposal_hash"] == MCI_PROPOSAL_HASH
+    assert protocol38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
+    assert protocol38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert protocol38["final_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert protocol38["helper"] == "tca_map/smolvla/mci_vla.py"
+    assert protocol38["runner"] == "scripts/run_mci_vla_stage0.py"
+    assert protocol38["focused_tests"] == "tests/test_mci_vla.py"
+    assert protocol38["serializer_preflight"] == "reports/mci_vla/stage_0_serializer_preflight.json"
+    assert protocol38["stage_0_result"] == "reports/mci_vla/stage_0_result.json"
+    assert len(protocol38["stage_0_stop_classes"]) == 5
+    assert protocol38["worker_safety_resume_required"] is True
+    assert protocol38["duplicate_key_checks_required"] is True
+    assert protocol38["manifest_completeness_required"] is True
+    assert protocol38["deterministic_action_kl_allowed"] is False
+    assert protocol38["first_serious_comparison_includes_closest_prior"] is True
+    assert protocol38["stage_0_implementation_pending"] is True
+    assert protocol38["training_happened"] is False
+    assert protocol38["validation_search_happened"] is False
+    assert protocol38["closed_loop_experiment_happened"] is False
+    assert protocol38["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -940,6 +992,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_38_mci_preregistration_pending" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_prototype_protocol_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_stage_0_implementation_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

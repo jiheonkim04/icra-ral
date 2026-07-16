@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -63,12 +63,20 @@ decision `MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It fixes
 discovery demos `0..7`, validation demos `8..9`, row minima `512 / 128`, the
 six validation-search configs, Stage 0 artifacts, metrics, pass gates, and
 stop classes before any implementation or validation search.
+The executable prototype protocol is frozen in
+`reports/mci_vla/prototype_protocol.md` with decision
+`MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It fixes the
+helper `tca_map/smolvla/mci_vla.py`, runner
+`scripts/run_mci_vla_stage0.py`, focused tests `tests/test_mci_vla.py`,
+serializer preflight artifact, worker-safety/resume contract, and Stage 0
+decision taxonomy.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
 not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI
 implementation, training, validation search, rollout, or confirmatory-test
-access has happened. The next action is to write the MCI-VLA prototype
-protocol.
+access has happened. The next action is to implement and validate the MCI-VLA
+Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety
+checks before any Stage 0 launch.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

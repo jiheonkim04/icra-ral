@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 38,
-    "topic": "epoch_4_cycle_38_mci_prototype_protocol_pending",
+    "topic": "epoch_4_cycle_38_mci_stage_0_implementation_pending",
     "method": "MCI-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "c155008",
-    "current_stage": "epoch_4_cycle_38_mci_prototype_protocol_pending",
+    "current_stage": "epoch_4_cycle_38_mci_stage_0_implementation_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -795,7 +795,9 @@
         "epoch_4_cycle_38_mci_mathematical_audit_preregistered",
         "epoch_4_cycle_38_mci_preregistration_pending",
         "epoch_4_cycle_38_mci_preregistration_frozen",
-        "epoch_4_cycle_38_mci_prototype_protocol_pending"
+        "epoch_4_cycle_38_mci_prototype_protocol_pending",
+        "epoch_4_cycle_38_mci_prototype_protocol_frozen",
+        "epoch_4_cycle_38_mci_stage_0_implementation_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -812,7 +814,7 @@
         "LIBERO-Plus"
     ],
     "prototype_gate": "MCI proposal must be frozen before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
-    "current_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "current_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -963,7 +965,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "RoVLA-style multi-consistency invariance can make a frozen-SmolVLA adapter robust to task-preserving language, observation, proprioception, and action-evolution perturbations while preserving exact Base behavior at zero gate.",
     "method_identity": "MCI-VLA",
@@ -11239,7 +11241,11 @@
     "preregistration_frozen": true,
     "preregistration": "reports/mci_vla/preregistration.md",
     "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-    "prototype_protocol_pending": true,
+    "prototype_protocol_pending": false,
+    "prototype_protocol_frozen": true,
+    "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+    "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+    "stage_0_implementation_pending": true,
     "epoch_4_cycle_35_mhs_researcher_proposal": {
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
@@ -11363,7 +11369,11 @@
     "preregistration_frozen": true,
     "preregistration": "reports/mci_vla/preregistration.md",
     "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-    "prototype_protocol_pending": true,
+    "prototype_protocol_pending": false,
+    "prototype_protocol_frozen": true,
+    "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+    "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+    "stage_0_implementation_pending": true,
     "epoch_4_cycle_35_mhs_reviewer_attack": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -12488,7 +12498,11 @@
         "stage_0_min_validation_windows": 128,
         "confirmatory_test_tuning_happened": false,
         "prototype_protocol": "reports/dccg_vla/prototype_protocol.md",
-        "prototype_protocol_pending": true,
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
         "next_stage": "Prototype protocol."
     },
     "epoch_4_cycle_36_dccg_prototype_protocol": {
@@ -13496,13 +13510,17 @@
         "preregistration_frozen": true,
         "preregistration": "reports/mci_vla/preregistration.md",
         "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "cspr_rescue_allowed": false,
-        "next_stage": "Write the MCI-VLA prototype protocol."
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
     },
     "epoch_4_cycle_38_mci_researcher_proposal": {
         "method": "MCI-VLA",
@@ -13552,12 +13570,16 @@
         "preregistration_frozen": true,
         "preregistration": "reports/mci_vla/preregistration.md",
         "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
     },
     "epoch_4_cycle_38_mci_reviewer_attack": {
         "method": "MCI-VLA",
@@ -13598,12 +13620,16 @@
         "preregistration_frozen": true,
         "preregistration": "reports/mci_vla/preregistration.md",
         "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
     },
     "epoch_4_cycle_38_mci_rebuttal": {
         "method": "MCI-VLA",
@@ -13648,8 +13674,12 @@
         "preregistration_frozen": true,
         "preregistration": "reports/mci_vla/preregistration.md",
         "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
     },
     "epoch_4_cycle_38_mci_mathematical_audit": {
         "method": "MCI-VLA",
@@ -13698,8 +13728,43 @@
         "preregistration_frozen": true,
         "preregistration": "reports/mci_vla/preregistration.md",
         "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
+    },
+    "epoch_4_cycle_38_mci_prototype_protocol": {
+        "method": "MCI-VLA",
+        "proposal_hash": "88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A",
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "final_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "helper": "tca_map/smolvla/mci_vla.py",
+        "runner": "scripts/run_mci_vla_stage0.py",
+        "focused_tests": "tests/test_mci_vla.py",
+        "serializer_preflight": "reports/mci_vla/stage_0_serializer_preflight.json",
+        "stage_0_result": "reports/mci_vla/stage_0_result.json",
+        "stage_0_stop_classes": [
+            "MCI_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "MCI_STAGE_0_NO_HEADROOM",
+            "MCI_STAGE_0_IMPLEMENTATION_FAILURE",
+            "MCI_STAGE_0_DESIGN_FAILURE",
+            "MCI_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "worker_safety_resume_required": true,
+        "duplicate_key_checks_required": true,
+        "manifest_completeness_required": true,
+        "deterministic_action_kl_allowed": false,
+        "first_serious_comparison_includes_closest_prior": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "stage_0_implementation_pending": true,
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
     },
     "epoch_4_cycle_38_mci_preregistration": {
         "method": "MCI-VLA",
@@ -13741,8 +13806,12 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "prototype_protocol_pending": true,
-        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
+        "prototype_protocol_pending": false,
+        "prototype_protocol_frozen": true,
+        "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "next_stage": "Implement and validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety checks before any Stage 0 launch."
     },
     "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
     "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -13758,5 +13827,9 @@
     "preregistration_frozen": true,
     "preregistration": "reports/mci_vla/preregistration.md",
     "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-    "prototype_protocol_pending": true
+    "prototype_protocol_pending": false,
+    "prototype_protocol_frozen": true,
+    "prototype_protocol": "reports/mci_vla/prototype_protocol.md",
+    "prototype_protocol_decision": "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+    "stage_0_implementation_pending": true
 }
