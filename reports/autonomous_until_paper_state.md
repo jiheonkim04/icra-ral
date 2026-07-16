@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_29_ccif_stage_0_launch_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -81,8 +81,18 @@ The executable CCIF prototype protocol is frozen in
 contract, artifacts, worker/resume safety, fixed source data, policy/probe
 rows, mechanism constants, required metrics, and decision rule.
 
-Next action: implement and validate `scripts/run_ccif_vla_stage0.py` before
-Stage 0 execution.
+CCIF Stage 0 implementation is now validated with helper
+`tca_map/smolvla/ccif_vla.py`, runner `scripts/run_ccif_vla_stage0.py`, and
+tests `tests/test_ccif_vla.py`. WSL py_compile passed, focused CCIF tests
+reported `9 passed`, and serializer preflight wrote
+`reports/ccif_vla/stage_0_serializer_preflight.json` with hash
+`86D9BC43FC697ECFDEA8C7F12FE0DF98CA5877E74B9D7952D2466787E8998FFE`.
+No CCIF training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened.
+
+Next action: inspect existing CCIF Stage 0 worker artifacts, then launch,
+monitor, adjudicate, or missing-key-only resume exactly under the frozen worker
+safety protocol.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 

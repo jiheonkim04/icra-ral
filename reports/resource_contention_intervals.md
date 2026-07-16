@@ -64,3 +64,31 @@ applicable to it. Its fixed scientific endpoint adjudication remains unchanged,
 but latency, throughput, wall-clock efficiency, and resource utilization are
 quarantined because overlap with the start-unknown interval cannot be excluded.
 The completed endpoint was accepted without rerun.
+
+## 2026-07-16 Goal Pause Efficiency Mode Interval 4
+
+The user reported another start-unknown interval in which Windows Efficiency
+Mode on `vmmemWSL` may have overlapped a detached WSL experiment. Efficiency
+Mode was disabled before the continuity audit, which completed at
+`2026-07-16T13:55:28+09:00`.
+
+No matching Linux VLA worker was alive. The newest durable experiment artifacts
+were the already completed TSC-VLA Stage 0 files in `reports/tsc_vla`:
+
+- PID `415`: dead;
+- heartbeat/status: `completed`;
+- exit code: `0`;
+- partial and final JSON: parsed;
+- model rows: `640 / 640`;
+- final decision: `TSC_STAGE_0_NO_USABLE_HEADROOM`;
+- exceptions: `0`;
+- duplicate manifest / partial keys: `0 / 0`;
+- missing manifest / extra partial keys: `0 / 0`;
+- manifest and partial key sets equal: `true`;
+- resume or relaunch: not performed.
+
+TSC Stage 0 contains no closed-loop task-success rows, so simulator task-success
+acceptance conditions are not applicable. The completed fixed-protocol result
+was accepted without rerun. Latency, throughput, wall-clock efficiency, and
+resource-utilization measurements overlapping this start-unknown interval, or
+whose overlap cannot be excluded, remain ineligible for final paper evidence.

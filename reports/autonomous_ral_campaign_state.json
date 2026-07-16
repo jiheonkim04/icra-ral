@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_29_ccif_stage_0_implementation_pending",
+    "current_stage": "epoch_4_cycle_29_ccif_stage_0_launch_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -596,7 +596,9 @@
         "epoch_4_cycle_29_ccif_preregistration_frozen",
         "epoch_4_cycle_29_ccif_prototype_protocol_pending",
         "epoch_4_cycle_29_ccif_prototype_protocol_frozen",
-        "epoch_4_cycle_29_ccif_stage_0_implementation_pending"
+        "epoch_4_cycle_29_ccif_stage_0_implementation_pending",
+        "epoch_4_cycle_29_ccif_stage_0_implementation_validated",
+        "epoch_4_cycle_29_ccif_stage_0_launch_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -613,7 +615,7 @@
         "ACoT-VLA"
     ],
     "prototype_gate": "Pending TSC Stage 0 masked action-cell label health, completion headroom, prior-proxy, ablation, identity, gradient, action-validity, and retention audit.",
-    "current_decision": "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+    "current_decision": "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -8050,6 +8052,30 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate scripts/run_ccif_vla_stage0.py before Stage 0 execution."
+        "implementation_decision": "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "next_stage": "Inspect worker artifacts, then launch or monitor CCIF Stage 0 under the frozen worker safety protocol."
+    },
+    "epoch_4_cycle_29_ccif_stage_0_implementation": {
+        "method": "CCIF-VLA",
+        "final_decision": "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+        "helper_module": "tca_map/smolvla/ccif_vla.py",
+        "runner": "scripts/run_ccif_vla_stage0.py",
+        "unit_tests": "tests/test_ccif_vla.py",
+        "compile_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e ./.venv/bin/python -m py_compile tca_map/smolvla/ccif_vla.py scripts/run_ccif_vla_stage0.py",
+        "compile_passed": true,
+        "focused_test_command": "wsl.exe --cd /mnt/c/Users/jiheo/tca_map -e ./.venv/bin/python -m pytest tests/test_ccif_vla.py -q",
+        "focused_test_result": "9 passed",
+        "serializer_preflight": "reports/ccif_vla/stage_0_serializer_preflight.json",
+        "serializer_preflight_hash": "86D9BC43FC697ECFDEA8C7F12FE0DF98CA5877E74B9D7952D2466787E8998FFE",
+        "serializer_preflight_passed": true,
+        "stage_0_result": "reports/ccif_vla/stage_0_result.json",
+        "stage_0_partial": "reports/ccif_vla/stage_0_partial.json",
+        "stage_0_launch_allowed_next": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Before launching CCIF Stage 0, inspect PID, heartbeat, status, partial, result, logs, and exit-code files; monitor if alive, adjudicate if completed, or resume only missing keys if dead with valid partial."
     }
 }
