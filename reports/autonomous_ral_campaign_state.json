@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 26,
-    "topic": "epoch_4_cycle_26_amp_researcher_proposal_pending",
+    "topic": "epoch_4_cycle_26_amp_reviewer_attack_pending",
     "method": "AMP-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "500dfb1",
-    "current_stage": "epoch_4_cycle_26_amp_researcher_proposal_pending",
+    "current_stage": "epoch_4_cycle_26_amp_reviewer_attack_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -518,7 +518,9 @@
         "epoch_4_cycle_26_prior_mechanism_map_completed",
         "epoch_4_cycle_26_candidate_generation_completed",
         "epoch_4_cycle_26_amp_candidate_selected",
-        "epoch_4_cycle_26_amp_researcher_proposal_pending"
+        "epoch_4_cycle_26_amp_researcher_proposal_pending",
+        "epoch_4_cycle_26_amp_researcher_proposal_frozen",
+        "epoch_4_cycle_26_amp_reviewer_attack_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -534,7 +536,7 @@
         "Robometer"
     ],
     "prototype_gate": "Frozen RAP Stage 0 retrieval-memory, anchor headroom, residual predictability, gradient, identity, action-validity, and persistence audit.",
-    "current_decision": "AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "current_decision": "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -685,11 +687,11 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze AMP-VLA Researcher A proposal before implementation.",
+    "next_action": "Run Reviewer B attack for frozen AMP-VLA proposal.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A discovery-only action manifold over LIBERO action chunks can constrain SmolVLA adapter updates to demonstrated legal action support while preserving base behavior.",
     "method_identity": "AMP-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
     "prototype_protocol": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -2439,7 +2441,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_26_amp_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_26_amp_reviewer_attack_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6865,6 +6867,34 @@
         "first_serious_comparison_includes_closest_prior": true,
         "rap_repair_allowed": false,
         "rap_rescue_allowed": false,
-        "next_stage": "Freeze AMP-VLA Researcher A proposal before implementation."
+        "next_stage": "Reviewer B attack for AMP-VLA before mathematical audit or implementation.",
+        "proposal": "reports/amp_vla/researcher_proposal.md",
+        "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+        "proposal_hash_file": "reports/amp_vla/proposal_hash.txt",
+        "proposal_decision": "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    },
+    "epoch_4_cycle_26_amp_researcher_proposal": {
+        "method": "AMP-VLA",
+        "final_decision": "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "proposal": "reports/amp_vla/researcher_proposal.md",
+        "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+        "proposal_hash_file": "reports/amp_vla/proposal_hash.txt",
+        "closest_prior": "ABot-M0",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2602.11236",
+        "closest_prior_official_repository": "https://github.com/amap-cvlab/ABot-Manipulation",
+        "contribution_type": "PRIOR_EXTENSION",
+        "policy_order": [
+            "smolvla_base",
+            "abot_m0_action_manifold_proxy",
+            "amp_full",
+            "amp_no_manifold_projection",
+            "standard_lora"
+        ],
+        "standard_lora_required": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Reviewer B attack for AMP-VLA before mathematical audit or implementation."
     }
 }

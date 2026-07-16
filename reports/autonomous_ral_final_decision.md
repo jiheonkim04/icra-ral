@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -29,8 +29,13 @@ method.
 The first serious comparison is exactly Base, transparent ABot-M0 action
 manifold proxy, AMP full, no-manifold-projection ablation, and matched
 standard LoRA. No AMP training, validation search, rollout, simulator access,
-or confirmatory-test tuning has happened. Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_researcher_proposal_pending`.
+or confirmatory-test tuning has happened.
+
+The AMP-VLA Researcher A proposal is frozen in
+`reports/amp_vla/researcher_proposal.md` with SHA-256
+`67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4`.
+Current cycle: `26`. Current stage:
+`epoch_4_cycle_26_amp_reviewer_attack_pending`.
 
 Cycle 25 generated exactly three candidates after a current primary-source
 anchor pass. `RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action

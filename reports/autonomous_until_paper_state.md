@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `26`
 
-Current stage: `epoch_4_cycle_26_amp_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_26_amp_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 26 AMP-VLA
 
@@ -34,8 +34,13 @@ infrastructure. The first serious comparison is exactly `smolvla_base`,
 `amp_no_manifold_projection`, and `standard_lora`.
 
 No AMP training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened. Next action: freeze the AMP-VLA
-Researcher A proposal before implementation.
+confirmatory-test tuning has happened.
+
+The AMP-VLA Researcher A proposal is frozen in
+`reports/amp_vla/researcher_proposal.md` with SHA-256
+`67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4`.
+Next action: run Reviewer B attack before mathematical audit or
+implementation.
 
 ## Epoch 4 Cycle 25 RAP-VLA
 
