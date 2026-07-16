@@ -18,15 +18,15 @@
     "maximum_wall_time_hours_per_cycle": 12,
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
-    "current_cycle": 36,
+    "current_cycle": 37,
     "topic": "epoch_4_cycle_36_dccg_stage_0_adjudicated",
-    "method": "DCCG-VLA",
+    "method": "CSPR-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "c155008",
-    "current_stage": "epoch_4_cycle_36_dccg_stage_0_adjudicated",
+    "current_stage": "epoch_4_cycle_37_cspr_researcher_proposal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -757,7 +757,11 @@
         "epoch_4_cycle_36_dccg_stage_0_completed",
         "epoch_4_cycle_36_dccg_stage_0_adjudicated",
         "epoch_4_cycle_36_dccg_data_failure_recorded",
-        "epoch_4_cycle_37_candidate_search_pending"
+        "epoch_4_cycle_37_candidate_search_pending",
+        "epoch_4_cycle_37_prior_mechanism_map_completed",
+        "epoch_4_cycle_37_candidate_generation_completed",
+        "epoch_4_cycle_37_cspr_candidate_selected",
+        "epoch_4_cycle_37_cspr_researcher_proposal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -778,7 +782,7 @@
         "LIBERO-Plus"
     ],
     "prototype_gate": "DCCG proposal must be frozen before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
-    "current_decision": "DCCG_STAGE_0_DATA_FAILURE",
+    "current_decision": "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -929,10 +933,10 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Generate exactly three Epoch 4 Cycle 37 candidates under current governance; DCCG repair/rescue is disallowed unless a future cycle declares a genuinely new method with new data/cache evidence.",
+    "next_action": "Freeze the CSPR-VLA Researcher A proposal before Reviewer B attack.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "LIBERO demonstration-calibrated action-coherence guidance can reduce within-chunk jitter and drift in SmolVLA while preserving exact Base behavior at zero guidance.",
-    "method_identity": "DCCG-VLA",
+    "method_identity": "CSPR-VLA",
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
     "epoch_2_cycle_2_outcome": {
@@ -2681,7 +2685,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_36_dccg_stage_0_adjudicated",
+    "current_topic": "epoch_4_cycle_37_cspr_researcher_proposal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -10957,8 +10961,8 @@
         "stage_0_no_residual_headroom": true,
         "stage_0_implementation_validated": true
     },
-    "stage_0_completed": true,
-    "stage_0_adjudicated": true,
+    "stage_0_completed": false,
+    "stage_0_adjudicated": false,
     "bounded_validation_allowed": false,
     "epoch_4_cycle_34_brid_stage_0_implementation": {
         "method": "BRID-VLA",
@@ -11040,9 +11044,9 @@
         "confirmatory_test_tuning_happened": false,
         "next_action": "Freeze the MHS-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
     },
-    "stage_0_implementation_validated": true,
+    "stage_0_implementation_validated": false,
     "full_name": "Demonstration-Calibrated Coherence Guidance for SmolVLA",
-    "closest_prior": "ACG",
+    "closest_prior": "DySL-VLA",
     "closest_prior_primary_sources": [
         "https://arxiv.org/abs/2510.22201",
         "https://arxiv.org/html/2510.22201v2",
@@ -11053,15 +11057,15 @@
     "low_compute_parameterization": "LoRA may be used only as implementation infrastructure; the scientific mechanism is demonstration-calibrated coherence guidance, not LoRA.",
     "policy_order": [
         "smolvla_base",
-        "acg_official_proxy",
-        "dccg_full",
-        "dccg_no_demo_calibration_ablation",
-        "action_smoothing_simple_killer"
+        "dysl_action_importance_proxy",
+        "cspr_full",
+        "cspr_uniform_refinement_ablation",
+        "critical_step_threshold_simple_killer"
     ],
-    "selection_decision": "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
-    "selected_score": 92,
-    "prior_mechanism_map": "reports/epoch_4_cycle_36_prior_mechanism_map.md",
-    "candidate_generation": "reports/epoch_4_cycle_36_candidate_generation.md",
+    "selection_decision": "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "selected_score": 90,
+    "prior_mechanism_map": "reports/epoch_4_cycle_37_prior_mechanism_map.md",
+    "candidate_generation": "reports/epoch_4_cycle_37_candidate_generation.md",
     "epoch_4_cycle_35_candidate_selection": {
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
@@ -11182,12 +11186,12 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
-    "proposal_hash_file": "reports/dccg_vla/proposal_hash.txt",
-    "researcher_proposal": "reports/dccg_vla/researcher_proposal.md",
+    "proposal_hash": null,
+    "proposal_hash_file": "reports/cspr_vla/proposal_hash.txt",
+    "researcher_proposal": "reports/cspr_vla/researcher_proposal.md",
     "proposal_decision": "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-    "researcher_proposal_pending": false,
-    "researcher_proposal_frozen": true,
+    "researcher_proposal_pending": true,
+    "researcher_proposal_frozen": false,
     "reviewer_attack_pending": false,
     "epoch_4_cycle_35_mhs_researcher_proposal": {
         "method": "MHS-VLA",
@@ -11296,8 +11300,8 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "reviewer_attack": "reports/dccg_vla/reviewer_attack.md",
-    "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
+    "reviewer_decision": null,
     "researcher_rebuttal_pending": false,
     "epoch_4_cycle_35_mhs_reviewer_attack": {
         "method": "MHS-VLA",
@@ -11403,8 +11407,8 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "researcher_rebuttal": "reports/dccg_vla/researcher_rebuttal.md",
-    "rebuttal_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
+    "rebuttal_decision": null,
     "mathematical_audit_pending": false,
     "epoch_4_cycle_35_mhs_rebuttal": {
         "method": "MHS-VLA",
@@ -11492,8 +11496,8 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "mathematical_audit": "reports/dccg_vla/mathematical_mechanism_audit.md",
-    "math_audit_decision": "DCCG_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
+    "math_audit_decision": null,
     "preregistration_pending": false,
     "epoch_4_cycle_35_mhs_mathematical_audit": {
         "method": "MHS-VLA",
@@ -11596,9 +11600,9 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "preregistration": "reports/dccg_vla/preregistration.md",
-    "preregistration_decision": "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-    "preregistration_frozen": true,
+    "preregistration": "reports/cspr_vla/preregistration.md",
+    "preregistration_decision": null,
+    "preregistration_frozen": false,
     "prototype_protocol_pending": false,
     "training_happened": false,
     "validation_search_happened": false,
@@ -11756,9 +11760,9 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "prototype_protocol": "reports/dccg_vla/prototype_protocol.md",
-    "prototype_protocol_decision": "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
-    "prototype_protocol_frozen": true,
+    "prototype_protocol": "reports/cspr_vla/prototype_protocol.md",
+    "prototype_protocol_decision": null,
+    "prototype_protocol_frozen": false,
     "epoch_4_cycle_35_mhs_prototype_protocol": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -11917,11 +11921,11 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "stage_0_decision": "DCCG_STAGE_0_DATA_FAILURE",
-    "stage_0_result": "reports/dccg_vla/stage_0_result.json",
+    "stage_0_decision": null,
+    "stage_0_result": null,
     "stage_0_partial": "reports/dccg_vla/stage_0_partial.json",
     "stage_0_manifest": "reports/dccg_vla/stage_0_manifest.json",
-    "stage_0_adjudication": "reports/dccg_vla/stage_0_adjudication.md",
+    "stage_0_adjudication": null,
     "valid_scientific_result": false,
     "stage_0_is_closed_loop_scientific_kill": false,
     "epoch_4_cycle_35_mhs_stage_0_outcome": {
@@ -12173,7 +12177,7 @@
         "valid_scientific_result": false,
         "stage_0_is_closed_loop_scientific_kill": false
     },
-    "reviewer_attack_completed": true,
+    "reviewer_attack_completed": false,
     "epoch_4_cycle_36_dccg_reviewer_attack": {
         "method": "DCCG-VLA",
         "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
@@ -12242,8 +12246,8 @@
         "valid_scientific_result": false,
         "stage_0_is_closed_loop_scientific_kill": false
     },
-    "researcher_rebuttal_completed": true,
-    "accepted_reviewer_conditions": true,
+    "researcher_rebuttal_completed": false,
+    "accepted_reviewer_conditions": false,
     "epoch_4_cycle_36_dccg_rebuttal": {
         "method": "DCCG-VLA",
         "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
@@ -12318,8 +12322,8 @@
         "valid_scientific_result": false,
         "stage_0_is_closed_loop_scientific_kill": false
     },
-    "mathematical_audit_completed": true,
-    "mathematical_audit_preregistered": true,
+    "mathematical_audit_completed": false,
+    "mathematical_audit_preregistered": false,
     "epoch_4_cycle_36_dccg_mathematical_audit": {
         "method": "DCCG-VLA",
         "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
@@ -12554,5 +12558,141 @@
         "decision_reason": "Frozen DCCG Stage 0 required cached SmolVLA Base chunks for discovery tasks libero_10/task_1, libero_10/task_3, libero_goal/task_1, libero_goal/task_3, libero_object/task_1, libero_spatial/task_1 and validation demos 30..39, but the available CCIF cache does not cover those identities.",
         "dccg_rescue_allowed": false,
         "next_action": "Generate exactly three Epoch 4 Cycle 37 candidates under current governance."
+    },
+    "method_full_name": "Critical-Step Selective Policy Refinement for SmolVLA",
+    "first_serious_comparison_includes_closest_prior": true,
+    "epoch_4_cycle_37_candidate_search": {
+        "current_cycle": 37,
+        "candidate_search_pending": false,
+        "candidate_count_required": 3,
+        "candidate_count_generated": 3,
+        "candidate_ids": [
+            "CSPR-VLA",
+            "PGF-VLA",
+            "POTR-VLA"
+        ],
+        "selected_method": "CSPR-VLA",
+        "selected_score": 90,
+        "selection_decision": "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "governance": "current performance-oriented governance with one genuinely new mechanism, LoRA only as implementation infrastructure, and prior-first comparison",
+        "previous_method": "DCCG-VLA",
+        "previous_decision": "DCCG_STAGE_0_DATA_FAILURE",
+        "previous_failure_class": "DATA_FAILURE",
+        "previous_stage_0_result": "reports/dccg_vla/stage_0_result.json",
+        "previous_stage_0_adjudication": "reports/dccg_vla/stage_0_adjudication.md",
+        "dccg_repair_allowed": false,
+        "dccg_rescue_allowed": false,
+        "candidate_generation": "reports/epoch_4_cycle_37_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_37_prior_mechanism_map.md",
+        "closest_prior": "DySL-VLA",
+        "closest_prior_primary_sources": [
+            "https://arxiv.org/abs/2602.22896",
+            "https://github.com/PKU-SEC-Lab/DYSL_VLA"
+        ],
+        "available_cached_smolvla_base_rows": 640,
+        "cache_covered_tasks": [
+            "libero_10/task_5",
+            "libero_goal/task_5",
+            "libero_object/task_3",
+            "libero_spatial/task_3"
+        ],
+        "cache_covered_demo_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        ],
+        "policy_order": [
+            "smolvla_base",
+            "dysl_action_importance_proxy",
+            "cspr_full",
+            "cspr_uniform_refinement_ablation",
+            "critical_step_threshold_simple_killer"
+        ],
+        "first_serious_comparison_includes_closest_prior": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_action": "Freeze the CSPR-VLA Researcher A proposal before Reviewer B attack."
+    },
+    "epoch_4_cycle_37_candidate_selection": {
+        "method": "CSPR-VLA",
+        "full_name": "Critical-Step Selective Policy Refinement for SmolVLA",
+        "selection_decision": "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "candidate_generation": "reports/epoch_4_cycle_37_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_37_prior_mechanism_map.md",
+        "candidate_count": 3,
+        "candidate_ids": [
+            "CSPR-VLA",
+            "PGF-VLA",
+            "POTR-VLA"
+        ],
+        "selected_score": 90,
+        "selected_contribution_type": "PRIOR_EXTENSION",
+        "closest_prior": "DySL-VLA",
+        "closest_prior_primary_sources": [
+            "https://arxiv.org/abs/2602.22896",
+            "https://github.com/PKU-SEC-Lab/DYSL_VLA"
+        ],
+        "closest_prior_positive_result": "DySL-VLA reports action-importance-conditioned dynamic layer skipping with official code, a 2.1% CALVIN success-length gain, 85.7x fewer trainable parameters, and 3.75x speedup at iso-accuracy.",
+        "secondary_priors": [
+            "ProgressVLA",
+            "ForesightFlow",
+            "STRONG-VLA"
+        ],
+        "scientific_method": "deployment-observable critical-step scoring over SmolVLA action chunks with zero-initialized bounded residual refinement only on high-criticality action cells",
+        "low_compute_parameterization": "LoRA may parameterize the residual/gate implementation only; LoRA is not the method claim.",
+        "policy_order": [
+            "smolvla_base",
+            "dysl_action_importance_proxy",
+            "cspr_full",
+            "cspr_uniform_refinement_ablation",
+            "critical_step_threshold_simple_killer"
+        ],
+        "closest_prior_enters_first_serious_comparison": true,
+        "first_serious_comparison_includes_closest_prior": true,
+        "standard_lora_as_scientific_mechanism_allowed": false,
+        "lora_role": "implementation infrastructure only, not the scientific mechanism",
+        "identity_preserving_integration": "zero residual and Base-passthrough gate initialization; bounded groupwise action caps required",
+        "data_source": "available cached SmolVLA Base rows and source LIBERO demonstrations for cache-covered development identities only",
+        "available_cached_smolvla_base_rows": 640,
+        "cache_covered_tasks": [
+            "libero_10/task_5",
+            "libero_goal/task_5",
+            "libero_object/task_3",
+            "libero_spatial/task_3"
+        ],
+        "cache_covered_demo_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        ],
+        "privileged_inference_inputs_allowed": false,
+        "dccg_repair_allowed": false,
+        "dccg_rescue_allowed": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "researcher_proposal_pending": true,
+        "researcher_proposal_frozen": false,
+        "researcher_proposal": "reports/cspr_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/cspr_vla/proposal_hash.txt",
+        "proposal_hash": null,
+        "next_stage": "Freeze the CSPR-VLA Researcher A proposal before Reviewer B attack."
     }
 }

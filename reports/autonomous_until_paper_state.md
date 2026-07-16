@@ -7,13 +7,49 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_STAGE_0_DATA_FAILURE`
+`CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
-Current cycle: `36`
+Current cycle: `37`
 
-Current stage: `epoch_4_cycle_36_dccg_stage_0_adjudicated`
+Current stage: `epoch_4_cycle_37_cspr_researcher_proposal_pending`
+
+## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
+
+Cycle 37 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_37_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_37_candidate_generation.md`.
+
+Selected method: `CSPR-VLA`, Critical-Step Selective Policy Refinement for
+SmolVLA, score `90 / 100`.
+
+Closest prior: DySL-VLA (`https://arxiv.org/abs/2602.22896` and
+`https://github.com/PKU-SEC-Lab/DYSL_VLA`), with positive evidence for
+action-importance-conditioned dynamic layer skipping, official code, a `2.1%`
+CALVIN success-length gain, `85.7x` fewer trainable parameters, and `3.75x`
+speedup at iso-accuracy.
+
+Frozen first comparison for the proposal stage: `smolvla_base`,
+`dysl_action_importance_proxy`, `cspr_full`,
+`cspr_uniform_refinement_ablation`, and
+`critical_step_threshold_simple_killer`.
+
+LoRA is only implementation infrastructure. The scientific mechanism is a
+critical-step score over SmolVLA action chunks plus zero-initialized bounded
+residual refinement only on high-criticality action cells. Noncritical cells
+are exact Base passthrough.
+
+The local data path is constrained to the verified cache-covered development
+identities unless a later preregistered audit proves new coverage: `640`
+cached SmolVLA Base rows across `libero_10/task_5`, `libero_goal/task_5`,
+`libero_object/task_3`, and `libero_spatial/task_3`, with demo ids `0..9`.
+DCCG remains closed as `DCCG_STAGE_0_DATA_FAILURE`; its identities, cache
+source, thresholds, and interpretation are not changed.
+
+No CSPR proposal, implementation, training, validation search, rollout,
+simulator access, or confirmatory-test tuning has happened. Immediate next
+action: freeze the CSPR-VLA Researcher A proposal before Reviewer B attack.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

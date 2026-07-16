@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`DCCG_STAGE_0_DATA_FAILURE`
+`CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,26 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
+
+Cycle 37 completed `reports/epoch_4_cycle_37_prior_mechanism_map.md`,
+generated exactly three candidates in
+`reports/epoch_4_cycle_37_candidate_generation.md`, and selected `CSPR-VLA`
+with score `90 / 100`. The closest prior is DySL-VLA, which enters the first
+serious comparison as `dysl_action_importance_proxy`.
+
+The frozen design-level comparison is `smolvla_base`,
+`dysl_action_importance_proxy`, `cspr_full`,
+`cspr_uniform_refinement_ablation`, and
+`critical_step_threshold_simple_killer`. LoRA is only implementation
+infrastructure. The scientific mechanism is critical-step selective action
+refinement with exact Base passthrough outside predicted high-criticality
+action cells.
+
+The next action is to freeze the CSPR-VLA Researcher A proposal before any
+Reviewer B attack, mathematical audit, preregistration, implementation,
+validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
