@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_rebuttal_pending`
+Current stage: `epoch_4_cycle_30_urf_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 30 URF-VLA
 
@@ -56,9 +56,17 @@ uncertainty methods as uncertainty-signal alternatives, keeps
 to Base-preserving uncertainty-routed bounded residual transport around a
 frozen SmolVLA chunk.
 
-Current next action: Researcher A rebuttal must accept or answer all URF
-Reviewer B conditions before mathematical audit, preregistration,
-implementation, or training.
+Researcher A rebuttal is complete in `reports/urf_vla/researcher_rebuttal.md`
+with decision `URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all
+Reviewer B conditions, including the SUREFlow proxy, Guided Action Flow prior
+position, flow/perturbation uncertainty alternatives, no-uncertainty ablation,
+standard LoRA simple killer, Stage 0 disagreement diagnostics, monotonic
+uncertainty strata gate, no global route gate, mathematical log-variance audit,
+no deterministic-action KL, no privileged inference inputs, and no rescue of
+CCIF/TSC/CFR/AMP/RAP/VDR.
+
+Current next action: freeze URF-VLA mathematical mechanism audit before
+preregistration, implementation, validation search, training, or rollout.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 

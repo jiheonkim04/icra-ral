@@ -1,49 +1,44 @@
 # Project State
 
-## 2026-07-16 Epoch 4 Cycle 25 Current State
+## 2026-07-16 Epoch 4 Cycle 30 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
-Current cycle: `25`
+Current cycle: `30`
 
-Cycle 25 generated exactly three candidates in
-`reports/epoch_4_cycle_25_candidate_generation.md` after the primary-source
-map in `reports/epoch_4_cycle_25_prior_mechanism_map.md`. `RAP-VLA`,
-Retrieval-Anchored Prior residualization for VLA action flows, is selected at
-`94 / 100`. Its closest positive prior is OptimusVLA
-(`https://arxiv.org/abs/2602.20200`) with official repository
-`https://github.com/iLearn-Lab/CVPR26-OptimusVLA`.
+Current stage: `epoch_4_cycle_30_urf_mathematical_audit_pending`
 
-RAP uses retrieved legal demonstration action anchors from
-deployment-observable current features, then learns a bounded residual
-action-flow path around the anchor. LoRA is only the identity-preserving
-implementation scaffold. The first serious comparison is exactly Base,
-transparent OptimusVLA memory prior proxy, RAP full, anchor-only/no-residual
-ablation, and matched standard LoRA.
+Cycle 30 generated exactly three candidates in
+`reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_30_prior_mechanism_map.md`. `URF-VLA`,
+Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, is
+selected at `92 / 100`. Its closest positive prior is SUREFlow
+(`https://arxiv.org/abs/2607.10504`) with official repository
+`https://github.com/tanvirnwu/SUREFlow`.
 
-No RAP training, validation search, rollout, simulator access, or
+URF's scientific mechanism is Base-preserving uncertainty-routed bounded
+residual transport around an already trained SmolVLA action chunk. LoRA is only
+implementation infrastructure. The first serious comparison is Base,
+`sureflow_uncertainty_residual_proxy` or official `sureflow` if installed,
+`urf_full`, `urf_no_uncertainty_route_ablation`, and `standard_lora`.
+
+No URF training, validation search, rollout, simulator access, or
 confirmatory-test tuning has happened. The Researcher A proposal is frozen in
-`reports/rap_vla/researcher_proposal.md` with SHA-256
-`E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008`. Reviewer
-B attack is complete in `reports/rap_vla/reviewer_attack.md` with decision
+`reports/urf_vla/researcher_proposal.md` with SHA-256
+`E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532`. Reviewer
+B attack is complete in `reports/urf_vla/reviewer_attack.md` with decision
 `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
-complete in `reports/rap_vla/researcher_rebuttal.md` with decision
-`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is
-frozen in `reports/rap_vla/mathematical_mechanism_audit.md` with decision
-`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
-`reports/rap_vla/preregistration.md` with decision
-`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The prototype
-protocol is frozen in `reports/rap_vla/prototype_protocol.md` with decision
-`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current stage:
-`epoch_4_cycle_25_rap_stage_0_pending`. Next action is to implement and run
-only the frozen RAP Stage 0 development audit.
+complete in `reports/urf_vla/researcher_rebuttal.md` with decision
+`URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Next action is to freeze the
+URF-VLA mathematical mechanism audit before preregistration, implementation,
+validation search, training, or rollout.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
