@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
 
 This is not a terminal decision.
 
@@ -40,8 +40,8 @@ The first serious comparison is `smolvla_base`,
 `diffusion_policy_action_chunk_proxy`, `brid_full`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
-Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_stage_0_implementation_pending`.
+Current cycle: `35`. Current stage:
+`epoch_4_cycle_35_candidate_search_pending`.
 
 The BRID-VLA Researcher A proposal is frozen in
 `reports/brid_vla/researcher_proposal.md` with SHA-256
@@ -83,8 +83,17 @@ helper module `tca_map/smolvla/brid_vla.py`, runner
 Stage 0 artifact contract, resume key, policy/probe list, caps, thresholds,
 and decision gates.
 
-Immediate next action: implement and validate the BRID-VLA Stage 0 development
-audit runner.
+BRID Stage 0 completed in `reports/brid_vla/stage_0_result.json` with decision
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`. It completed `46080 / 46080` model rows
+with exception count `0`, duplicate manifest keys `0`, duplicate partial keys
+`0`, missing keys `0`, extra keys `0`, split-overlap keys `0`, and
+`key_sets_equal = true`. This is an offline development audit result, not a
+closed-loop scientific kill. The raw Diffusion Policy action-chunk proxy had
+negative residual headroom relative to Base, so bounded validation is not
+allowed for this BRID formulation.
+
+Immediate next action: begin Epoch 4 Cycle 35 candidate search under the
+current prior-anchored governance.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 

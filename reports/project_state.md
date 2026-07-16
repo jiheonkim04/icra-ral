@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `34`
+Current cycle: `35`
 
-Current stage: `epoch_4_cycle_34_brid_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_35_candidate_search_pending`
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -61,7 +61,12 @@ BRID prototype protocol is frozen in `reports/brid_vla/prototype_protocol.md`
 with decision
 `BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
 
-Next action is BRID Stage 0 implementation and validation.
+BRID Stage 0 completed in `reports/brid_vla/stage_0_result.json` with decision
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`. It completed `46080 / 46080` model rows
+with exception count `0`, duplicate/missing/extra/split-overlap counts all
+`0`, and `key_sets_equal = true`.
+
+Next action is Epoch 4 Cycle 35 candidate search.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three

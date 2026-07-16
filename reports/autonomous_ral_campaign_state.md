@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `34`
+Current cycle: `35`
 
-Current stage: `epoch_4_cycle_34_brid_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_35_candidate_search_pending`
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 
@@ -72,9 +72,13 @@ The BRID executable prototype protocol is frozen in
 `reports/brid_vla/prototype_protocol.md` with decision
 `BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
 
-Next action is to implement and validate `tca_map/smolvla/brid_vla.py`,
-`scripts/run_brid_vla_stage0.py`, and `tests/test_brid_vla.py` before any
-validation search, rollout, or confirmatory-test access.
+BRID Stage 0 completed in `reports/brid_vla/stage_0_result.json` with decision
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`. It completed `46080 / 46080` model rows
+with exception count `0`, duplicate/missing/extra/split-overlap counts all
+`0`, and `key_sets_equal = true`. Bounded validation is disallowed for this
+BRID formulation, and the result is not a closed-loop scientific kill.
+
+Next action is Epoch 4 Cycle 35 candidate search under the current governance.
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 

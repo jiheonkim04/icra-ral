@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
 
-Immediate next action: implement and validate the BRID-VLA Stage 0 development
-audit runner.
+Immediate next action: begin Epoch 4 Cycle 35 candidate search under the
+current prior-anchored governance.
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -54,6 +54,12 @@ with decision
 `BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Stage 0
 implementation must use `tca_map/smolvla/brid_vla.py`,
 `scripts/run_brid_vla_stage0.py`, and `tests/test_brid_vla.py`.
+
+BRID Stage 0 completed in `reports/brid_vla/stage_0_result.json` with decision
+`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`. It completed `46080 / 46080` model rows
+with exception count `0`, duplicate/missing/extra/split-overlap counts all
+`0`, and `key_sets_equal = true`. Do not rescue this BRID formulation; continue
+to Cycle 35 candidate generation.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source

@@ -33,7 +33,7 @@ BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71C
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
+    assert "BRID_STAGE_0_NO_RESIDUAL_HEADROOM" in final
     assert "BRID-VLA" in final
     assert "Base-Residual Implicit Diffusion" in final
     assert "Diffusion Policy" in final
@@ -49,7 +49,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "diffusion_policy_action_chunk_proxy" in final
     assert "brid_no_base_residual_ablation" in final
-    assert "epoch_4_cycle_34_brid_stage_0_implementation_pending" in final
+    assert "epoch_4_cycle_35_candidate_search_pending" in final
+    assert "reports/brid_vla/stage_0_result.json" in final
+    assert "46080 / 46080" in final
     assert "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE" in final
     assert "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
@@ -401,13 +403,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["current_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 34
-    assert state["current_stage"] == "epoch_4_cycle_34_brid_stage_0_implementation_pending"
+    assert state["current_cycle"] == 35
+    assert state["current_stage"] == "epoch_4_cycle_35_candidate_search_pending"
     assert state["method"] == "BRID-VLA"
     assert state["method_identity"] == "BRID-VLA"
-    assert state["next_action"] == "Implement and validate the BRID-VLA Stage 0 development audit runner."
+    assert state["next_action"] == "Begin Epoch 4 Cycle 35 candidate search after BRID-VLA Stage 0 no-headroom stop."
     assert state["proposal_hash"] == BRID_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/brid_vla/researcher_proposal.md"
@@ -421,7 +423,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["preregistration_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["prototype_protocol"] == "reports/brid_vla/prototype_protocol.md"
     assert state["prototype_protocol_decision"] == "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["stage_0_implementation_pending"] is True
+    assert state["stage_0_implementation_pending"] is False
+    assert state["stage_0_implementation_validated"] is True
+    assert state["stage_0_completed"] is True
+    assert state["stage_0_adjudicated"] is True
+    assert state["stage_0_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert state["helper_module"] == "tca_map/smolvla/brid_vla.py"
     assert state["runner"] == "scripts/run_brid_vla_stage0.py"
     assert state["unit_tests"] == "tests/test_brid_vla.py"
@@ -444,7 +450,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Implement and validate the BRID-VLA Stage 0 development audit runner."
+        == "Begin Epoch 4 Cycle 35 candidate search after BRID-VLA Stage 0 no-headroom stop."
     )
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -1757,7 +1763,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cycle34["afid_rescue_allowed"] is False
     selection34 = state["epoch_4_cycle_34_candidate_selection"]
     assert selection34["method"] == "BRID-VLA"
-    assert selection34["final_decision"] == "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert selection34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
+    assert selection34["selection_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert selection34["candidate_count"] == 3
     assert selection34["selected_score"] == 94
     assert selection34["closest_prior"] == "Diffusion Policy"
@@ -1779,7 +1786,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection34["prototype_protocol_pending"] is False
     assert selection34["prototype_protocol"] == "reports/brid_vla/prototype_protocol.md"
     assert selection34["prototype_protocol_decision"] == "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert selection34["stage_0_implementation_pending"] is True
+    assert selection34["stage_0_implementation_pending"] is False
+    assert selection34["stage_0_completed"] is True
+    assert selection34["stage_0_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert selection34["helper_module"] == "tca_map/smolvla/brid_vla.py"
     assert selection34["runner"] == "scripts/run_brid_vla_stage0.py"
     assert selection34["unit_tests"] == "tests/test_brid_vla.py"
@@ -1794,7 +1803,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection34["researcher_proposal_pending"] is False
     assert selection34["researcher_proposal_frozen"] is True
     proposal34 = state["epoch_4_cycle_34_brid_researcher_proposal"]
-    assert proposal34["final_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert proposal34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert proposal34["proposal"] == "reports/brid_vla/researcher_proposal.md"
     assert proposal34["proposal_hash"] == BRID_PROPOSAL_HASH
     assert proposal34["closest_prior"] == "Diffusion Policy"
@@ -1805,7 +1814,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proposal34["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
     assert proposal34["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     review34 = state["epoch_4_cycle_34_brid_reviewer_attack"]
-    assert review34["final_decision"] == "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
+    assert review34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert review34["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
     assert review34["proposal_hash"] == BRID_PROPOSAL_HASH
     assert review34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -1813,30 +1822,53 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert review34["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
     assert review34["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     rebuttal34 = state["epoch_4_cycle_34_brid_rebuttal"]
-    assert rebuttal34["final_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert rebuttal34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert rebuttal34["accepted_reviewer_conditions"] is True
     assert rebuttal34["mathematical_audit_pending"] is False
     assert rebuttal34["math_audit_decision"] == "BRID_MATHEMATICAL_AUDIT_PREREGISTERED"
     audit34 = state["epoch_4_cycle_34_brid_mathematical_audit"]
-    assert audit34["final_decision"] == "BRID_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert audit34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert audit34["mathematical_audit"] == "reports/brid_vla/mathematical_mechanism_audit.md"
     assert "BRID_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in audit34["stage_0_stop_classes"]
     assert audit34["deterministic_action_kl_allowed"] is False
     assert audit34["preregistration_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     prereg34 = state["epoch_4_cycle_34_brid_preregistration"]
-    assert prereg34["final_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert prereg34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert prereg34["preregistration"] == "reports/brid_vla/preregistration.md"
     assert prereg34["prototype_protocol_pending"] is False
     assert prereg34["prototype_protocol"] == "reports/brid_vla/prototype_protocol.md"
     assert prereg34["prototype_protocol_decision"] == "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert prereg34["stage_0_implementation_pending"] is True
+    assert prereg34["stage_0_implementation_pending"] is False
+    assert prereg34["stage_0_completed"] is True
+    assert prereg34["stage_0_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     protocol34 = state["epoch_4_cycle_34_brid_prototype_protocol"]
-    assert protocol34["final_decision"] == "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert protocol34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert protocol34["prototype_protocol"] == "reports/brid_vla/prototype_protocol.md"
-    assert protocol34["stage_0_implementation_pending"] is True
+    assert protocol34["stage_0_implementation_pending"] is False
+    assert protocol34["stage_0_completed"] is True
+    assert protocol34["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
     assert protocol34["helper_module"] == "tca_map/smolvla/brid_vla.py"
     assert protocol34["runner"] == "scripts/run_brid_vla_stage0.py"
     assert protocol34["unit_tests"] == "tests/test_brid_vla.py"
+    implementation34 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
+    assert implementation34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
+    assert implementation34["completed_model_row_count"] == 46080
+    assert implementation34["planned_model_row_count"] == 46080
+    assert implementation34["exception_count"] == 0
+    assert implementation34["duplicate_manifest_key_count"] == 0
+    assert implementation34["duplicate_partial_key_count"] == 0
+    assert implementation34["missing_manifest_key_count"] == 0
+    assert implementation34["extra_partial_key_count"] == 0
+    assert implementation34["split_overlap_key_count"] == 0
+    assert implementation34["key_sets_equal"] is True
+    assert implementation34["bounded_validation_allowed"] is False
+    outcome34 = state["epoch_4_cycle_34_brid_stage_0_outcome"]
+    assert outcome34["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
+    assert outcome34["valid_scientific_result"] is False
+    cycle35 = state["epoch_4_cycle_35_candidate_search"]
+    assert cycle35["previous_method"] == "BRID-VLA"
+    assert cycle35["previous_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
+    assert cycle35["candidate_count_required"] == 3
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
@@ -1861,6 +1893,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_34_brid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_stage_0_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_stage_0_implementation_validated" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_stage_0_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_no_residual_headroom_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_35_candidate_search_pending" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -1,0 +1,10 @@
+{
+  "completed_model_row_count": 46080,
+  "elapsed_seconds": 9.32600998878479,
+  "final_decision": "BRID_STAGE_0_NO_RESIDUAL_HEADROOM",
+  "method": "BRID-VLA",
+  "pid": 432,
+  "planned_model_row_count": 46080,
+  "status": "completed",
+  "updated_utc": "2026-07-16T11:30:55.854762+00:00"
+}

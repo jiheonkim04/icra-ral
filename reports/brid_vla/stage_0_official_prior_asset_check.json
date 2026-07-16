@@ -1,0 +1,13 @@
+{
+  "closest_prior": "Diffusion Policy",
+  "closest_prior_official_repository": "https://github.com/real-stanford/diffusion_policy",
+  "closest_prior_project_page": "https://diffusion-policy.cs.columbia.edu/",
+  "created_utc": "2026-07-16T11:30:46.634008+00:00",
+  "method": "BRID-VLA",
+  "official_candidate_paths": [],
+  "official_checkpoint_count": 0,
+  "official_checkpoint_present": false,
+  "official_code_present": false,
+  "proxy_is_required_until_official_assets_verified": true,
+  "selected_prior_policy": "diffusion_policy_action_chunk_proxy"
+}
