@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_MATHEMATICAL_AUDIT_PREREGISTERED`
+`TSC_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `28`
 
-Current stage: `epoch_4_cycle_28_tsc_preregistration_pending`
+Current stage: `epoch_4_cycle_28_tsc_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -64,8 +64,14 @@ mask-label construction, Base-clamped action formula, objective terms,
 gradient paths, no deterministic-action KL, TS-Mask proxy requirements,
 required ablations, and Stage 0 stop classes.
 
-Next action: freeze TSC-VLA preregistration before executable prototype
-protocol or implementation.
+The TSC preregistration is frozen in `reports/tsc_vla/preregistration.md` with
+decision `TSC_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+discovery/validation/confirmatory separation, fixed Stage 0 data construction,
+label thresholds, required outputs, pass/stop classes, bounded validation search
+budget, and first closed-loop comparison policy.
+
+Next action: write executable TSC-VLA prototype protocol before Stage 0
+implementation.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
