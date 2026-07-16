@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`CFR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -44,8 +44,12 @@ Researcher A rebuttal is complete in `reports/cfr_vla/researcher_rebuttal.md`
 with decision `CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B
 conditions are accepted before mathematical audit.
 
+The CFR mathematical mechanism audit is frozen in
+`reports/cfr_vla/mathematical_mechanism_audit.md` with decision
+`CFR_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
 Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_mathematical_audit_pending`.
+`epoch_4_cycle_27_cfr_preregistration_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 

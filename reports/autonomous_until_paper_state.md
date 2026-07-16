@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`CFR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_27_cfr_preregistration_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -61,8 +61,16 @@ novelty, DFM proxy status, key ablation, standard-LoRA simple killer, official
 action-validity semantics, data/headroom gates, mathematical audit
 requirements, and no privileged inference inputs.
 
-Next action: freeze the CFR-VLA mathematical mechanism audit before
-preregistration or implementation.
+The CFR mathematical mechanism audit is frozen in
+`reports/cfr_vla/mathematical_mechanism_audit.md` with decision
+`CFR_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes variables and tensor shapes,
+continuous refinement dynamics, Huber/vector-field objectives, gradient paths,
+loss-scale audit, official action-validity semantics, no deterministic-action
+KL, DFM proxy policy, key ablation, simple killer baseline, and Stage 0 stop
+classes.
+
+Next action: freeze CFR-VLA preregistration before executable prototype
+protocol or implementation.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

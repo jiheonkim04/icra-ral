@@ -63,8 +63,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_mathematical_audit_pending"
+    assert state["current_decision"] == "CFR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_preregistration_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -251,6 +251,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_rebuttal_pending",
         "epoch_4_cycle_27_cfr_rebuttal_completed",
         "epoch_4_cycle_27_cfr_mathematical_audit_pending",
+        "epoch_4_cycle_27_cfr_mathematical_audit_preregistered",
+        "epoch_4_cycle_27_cfr_preregistration_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -461,6 +463,15 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cfr_rebuttal["accepted_simple_baseline"] == "standard_lora"
     assert cfr_rebuttal["accepted_official_action_validity_semantics"] is True
     assert cfr_rebuttal["accepted_no_privileged_inference_inputs"] is True
+    cfr_math = state["epoch_4_cycle_27_cfr_mathematical_audit"]
+    assert cfr_math["final_decision"] == "CFR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert cfr_math["mathematical_audit"] == "reports/cfr_vla/mathematical_mechanism_audit.md"
+    assert cfr_math["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr_math["kl_between_deterministic_actions_used"] is False
+    assert cfr_math["deterministic_action_kl_forbidden"] is True
+    assert cfr_math["official_action_validity_semantics_required"] is True
+    assert cfr_math["dfm_proxy_policy_2_required"] is True
+    assert "CFR_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in cfr_math["stage_0_stop_classes"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
