@@ -31,7 +31,15 @@ LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A89
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33" in final
+    assert "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "AFID-VLA" in final
+    assert "Action-Factor Instruction Densification" in final
+    assert "FineVLA" in final
+    assert "reports/epoch_4_cycle_33_prior_mechanism_map.md" in final
+    assert "reports/epoch_4_cycle_33_candidate_generation.md" in final
+    assert "finevla_action_factor_proxy" in final
+    assert "afid_no_factor_ablation" in final
+    assert "epoch_4_cycle_33_afid_researcher_proposal_pending" in final
     assert "LCG_STAGE_0_DESIGN_FAILURE" in final
     assert "LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
@@ -46,7 +54,6 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Guidance" in final
     assert "counterfactual_action_guidance_proxy" in final
     assert "lcg_no_language_contrast_ablation" in final
-    assert "epoch_4_cycle_33_candidate_search_pending" in final
     assert "reports/lcg_vla/researcher_proposal.md" in final
     assert "reports/lcg_vla/reviewer_attack.md" in final
     assert "reports/lcg_vla/researcher_rebuttal.md" in final
@@ -359,13 +366,14 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33"
+    assert state["current_decision"] == "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 33
-    assert state["current_stage"] == "epoch_4_cycle_33_candidate_search_pending"
-    assert state["method"] == "LCG-VLA"
-    assert state["method_identity"] == "LCG-VLA"
-    assert state["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_33_afid_researcher_proposal_pending"
+    assert state["method"] == "AFID-VLA"
+    assert state["method_identity"] == "AFID-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -380,9 +388,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Generate exactly three Epoch 4 Cycle 33 candidates under current governance; LCG repair and rescue are disallowed."
+        == "Freeze the AFID-VLA Researcher A proposal under current governance."
     )
-    assert state["prototype_protocol"] == "reports/lcg_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -1461,14 +1468,37 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert lcg_outcome["closed_loop_experiment_happened"] is False
     assert lcg_outcome["lcg_rescue_allowed"] is False
     cycle33 = state["epoch_4_cycle_33_candidate_search"]
-    assert cycle33["candidate_search_pending"] is True
+    assert cycle33["candidate_search_pending"] is False
     assert cycle33["candidate_count_required"] == 3
-    assert cycle33["candidate_count_generated"] == 0
+    assert cycle33["candidate_count_generated"] == 3
     assert cycle33["previous_method"] == "LCG-VLA"
     assert cycle33["previous_decision"] == "LCG_STAGE_0_DESIGN_FAILURE"
     assert cycle33["previous_stage_0_result"] == "reports/lcg_vla/stage_0_result.json"
+    assert cycle33["prior_mechanism_map"] == "reports/epoch_4_cycle_33_prior_mechanism_map.md"
+    assert cycle33["candidate_generation"] == "reports/epoch_4_cycle_33_candidate_generation.md"
+    assert cycle33["candidate_ids"] == ["AFID-VLA", "ACR-VLA", "GCF-VLA"]
+    assert cycle33["selected_method"] == "AFID-VLA"
+    assert cycle33["selected_score"] == 90
+    assert cycle33["selection_decision"] == "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert cycle33["lcg_repair_allowed"] is False
     assert cycle33["lcg_rescue_allowed"] is False
+    afid = state["epoch_4_cycle_33_candidate_selection"]
+    assert afid["final_decision"] == "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert afid["method"] == "AFID-VLA"
+    assert afid["candidate_count"] == 3
+    assert afid["selected_score"] == 90
+    assert afid["closest_prior"] == "FineVLA"
+    assert afid["closest_prior_primary_source"] == "https://arxiv.org/html/2605.27284v1"
+    assert afid["policy_order"] == [
+        "smolvla_base",
+        "finevla_action_factor_proxy",
+        "afid_full",
+        "afid_no_factor_ablation",
+        "standard_lora",
+    ]
+    assert afid["first_serious_comparison_includes_closest_prior"] is True
+    assert afid["training_happened"] is False
+    assert afid["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

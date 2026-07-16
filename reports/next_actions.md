@@ -1,14 +1,28 @@
 # Next Actions
 
-## 2026-07-16 Epoch 4 Cycle 32 Current Action
+## 2026-07-16 Epoch 4 Cycle 33 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
+`AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
-Immediate next action: generate exactly three Epoch 4 Cycle 33 candidates under
-current governance. LCG repair/rescue is disallowed.
+Immediate next action: freeze the AFID-VLA Researcher A proposal under current
+governance.
+
+Cycle 33 generated exactly three candidates in
+`reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
+mechanism map in `reports/epoch_4_cycle_33_prior_mechanism_map.md`.
+
+`AFID-VLA`, Action-Factor Instruction Densification for Base-preserving
+SmolVLA, is selected at `90 / 100`. Its closest prior is FineVLA
+(`https://arxiv.org/html/2605.27284v1`). The first serious comparison is
+`smolvla_base`, `finevla_action_factor_proxy`, `afid_full`,
+`afid_no_factor_ablation`, and `standard_lora`.
+
+LoRA may only parameterize the action-factor predictor/gate; it is not the
+scientific mechanism. No AFID training, validation search, rollout, or
+confirmatory-test access has happened. LCG repair/rescue remains disallowed.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source

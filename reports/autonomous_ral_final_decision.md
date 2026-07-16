@@ -3,11 +3,32 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
+`AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal state under the active governance.
 
 Active governance: `reports/current_research_governance.md`
+
+## Epoch 4 Cycle 33 Candidate Selection
+
+Cycle 33 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_33_candidate_generation.md`.
+
+`AFID-VLA`, Action-Factor Instruction Densification for Base-preserving
+SmolVLA, is selected at `90 / 100`. Its closest positive prior is FineVLA
+(`https://arxiv.org/html/2605.27284v1`). The method converts
+demonstration-derived action factors into a Base-preserving residual-gate
+mechanism with exact passthrough when factor confidence is low.
+
+The first serious comparison is Base, `finevla_action_factor_proxy`,
+`afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
+
+Current cycle: `33`. Current stage:
+`epoch_4_cycle_33_afid_researcher_proposal_pending`.
+
+No AFID training, validation search, rollout, or confirmatory-test access has
+happened. LCG remains closed unchanged as `LCG_STAGE_0_DESIGN_FAILURE`.
 
 ## Epoch 4 Cycle 32 Selection
 
@@ -31,8 +52,7 @@ infrastructure.
 The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
-Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_candidate_search_pending`.
+Historical next stage after LCG was Cycle 33 candidate search, now completed.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256

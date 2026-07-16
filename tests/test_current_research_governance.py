@@ -68,12 +68,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33"
-    assert state["current_stage"] == "epoch_4_cycle_33_candidate_search_pending"
-    assert state["method"] == "LCG-VLA"
-    assert state["method_identity"] == "LCG-VLA"
-    assert state["proposal_hash"] == LCG_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/lcg_vla/prototype_protocol.md"
+    assert state["current_decision"] == "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_33_afid_researcher_proposal_pending"
+    assert state["method"] == "AFID-VLA"
+    assert state["method_identity"] == "AFID-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -380,6 +380,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_32_lcg_stage_0_adjudicated",
         "epoch_4_cycle_32_lcg_design_failure_recorded",
         "epoch_4_cycle_33_candidate_search_pending",
+        "epoch_4_cycle_33_prior_mechanism_map_completed",
+        "epoch_4_cycle_33_candidate_generation_completed",
+        "epoch_4_cycle_33_afid_candidate_selected",
+        "epoch_4_cycle_33_afid_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1544,14 +1548,37 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg_outcome["closed_loop_experiment_happened"] is False
     assert lcg_outcome["lcg_rescue_allowed"] is False
     cycle33 = state["epoch_4_cycle_33_candidate_search"]
-    assert cycle33["candidate_search_pending"] is True
+    assert cycle33["candidate_search_pending"] is False
     assert cycle33["candidate_count_required"] == 3
-    assert cycle33["candidate_count_generated"] == 0
+    assert cycle33["candidate_count_generated"] == 3
     assert cycle33["previous_method"] == "LCG-VLA"
     assert cycle33["previous_decision"] == "LCG_STAGE_0_DESIGN_FAILURE"
     assert cycle33["previous_stage_0_result"] == "reports/lcg_vla/stage_0_result.json"
+    assert cycle33["prior_mechanism_map"] == "reports/epoch_4_cycle_33_prior_mechanism_map.md"
+    assert cycle33["candidate_generation"] == "reports/epoch_4_cycle_33_candidate_generation.md"
+    assert cycle33["candidate_ids"] == ["AFID-VLA", "ACR-VLA", "GCF-VLA"]
+    assert cycle33["selected_method"] == "AFID-VLA"
+    assert cycle33["selected_score"] == 90
+    assert cycle33["selection_decision"] == "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert cycle33["lcg_repair_allowed"] is False
     assert cycle33["lcg_rescue_allowed"] is False
+    afid = state["epoch_4_cycle_33_candidate_selection"]
+    assert afid["final_decision"] == "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert afid["method"] == "AFID-VLA"
+    assert afid["candidate_count"] == 3
+    assert afid["selected_score"] == 90
+    assert afid["closest_prior"] == "FineVLA"
+    assert afid["closest_prior_primary_source"] == "https://arxiv.org/html/2605.27284v1"
+    assert afid["policy_order"] == [
+        "smolvla_base",
+        "finevla_action_factor_proxy",
+        "afid_full",
+        "afid_no_factor_ablation",
+        "standard_lora",
+    ]
+    assert afid["first_serious_comparison_includes_closest_prior"] is True
+    assert afid["training_happened"] is False
+    assert afid["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

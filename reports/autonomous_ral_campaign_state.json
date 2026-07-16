@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 33,
-    "topic": "epoch_4_cycle_33_candidate_search_pending",
-    "method": "LCG-VLA",
+    "topic": "epoch_4_cycle_33_afid_researcher_proposal_pending",
+    "method": "AFID-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "73dc3c0",
-    "current_stage": "epoch_4_cycle_33_candidate_search_pending",
+    "current_commit": "9d48f36",
+    "current_stage": "epoch_4_cycle_33_afid_researcher_proposal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -668,7 +668,11 @@
         "epoch_4_cycle_32_lcg_stage_0_completed",
         "epoch_4_cycle_32_lcg_stage_0_adjudicated",
         "epoch_4_cycle_32_lcg_design_failure_recorded",
-        "epoch_4_cycle_33_candidate_search_pending"
+        "epoch_4_cycle_33_candidate_search_pending",
+        "epoch_4_cycle_33_prior_mechanism_map_completed",
+        "epoch_4_cycle_33_candidate_generation_completed",
+        "epoch_4_cycle_33_afid_candidate_selected",
+        "epoch_4_cycle_33_afid_researcher_proposal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -678,14 +682,14 @@
     "hypothesis": "A language-contrastive, identity-initialized action-cell gate can preserve frozen SmolVLA Base by default while routing bounded edits only where original-versus-null or counterfactual-instruction chunks reveal language-conditioning risk.",
     "novelty_claim": "LCG-VLA extends Counterfactual Action Guidance into a frozen-SmolVLA, identity-preserving action-cell gate learned from deployment-observable language contrast rather than treating LoRA as the method.",
     "closest_papers": [
+        "FineVLA",
+        "ACoT-VLA",
+        "GEAR-VLA",
         "Counterfactual Action Guidance",
-        "Target-Agnostic Guidance",
-        "ProgressVLA",
-        "CAC-VLA",
-        "GEAR-VLA"
+        "CAC-VLA"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33",
+    "current_decision": "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -836,12 +840,12 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Generate exactly three Epoch 4 Cycle 33 candidates under current governance; LCG repair and rescue are disallowed.",
+    "next_action": "Freeze the AFID-VLA Researcher A proposal under current governance.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
-    "active_hypothesis": "A language-contrastive, identity-initialized action-cell gate can preserve frozen SmolVLA Base by default while routing bounded edits only where original-versus-null or counterfactual-instruction chunks reveal language-conditioning risk.",
-    "method_identity": "LCG-VLA",
-    "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
-    "prototype_protocol": "reports/lcg_vla/prototype_protocol.md",
+    "active_hypothesis": "Sparse action-factor labels derived from discovery/validation LIBERO demonstrations can supervise a deployment-observable predictor and Base-preserving residual gate, improving action-relevant control while defaulting exactly to frozen SmolVLA when factor confidence is low.",
+    "method_identity": "AFID-VLA",
+    "proposal_hash": null,
+    "prototype_protocol": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
     "epoch_2_cycle_2_outcome": {
@@ -2590,7 +2594,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_33_candidate_search_pending",
+    "current_topic": "epoch_4_cycle_33_afid_researcher_proposal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7321,7 +7325,7 @@
         "cfr_rescue_allowed": false
     },
     "proposal": "reports/cfr_vla/researcher_proposal.md",
-    "proposal_hash_file": "reports/ccif_vla/proposal_hash.txt",
+    "proposal_hash_file": null,
     "epoch_4_cycle_27_cfr_researcher_proposal": {
         "method": "CFR-VLA",
         "final_decision": "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
@@ -9887,15 +9891,68 @@
     },
     "epoch_4_cycle_33_candidate_search": {
         "current_cycle": 33,
-        "candidate_search_pending": true,
+        "candidate_search_pending": false,
         "candidate_count_required": 3,
-        "candidate_count_generated": 0,
-        "governance": "post-COVI minimum-sufficient governance with one genuinely new mechanism and prior-first comparison",
+        "candidate_count_generated": 3,
+        "governance": "post-COVI minimum-sufficient governance with one genuinely new mechanism, LoRA only as infrastructure, and prior-first comparison",
         "previous_method": "LCG-VLA",
         "previous_decision": "LCG_STAGE_0_DESIGN_FAILURE",
         "previous_stage_0_result": "reports/lcg_vla/stage_0_result.json",
+        "prior_mechanism_map": "reports/epoch_4_cycle_33_prior_mechanism_map.md",
+        "candidate_generation": "reports/epoch_4_cycle_33_candidate_generation.md",
+        "candidate_ids": [
+            "AFID-VLA",
+            "ACR-VLA",
+            "GCF-VLA"
+        ],
+        "selected_method": "AFID-VLA",
+        "selected_score": 90,
+        "selection_decision": "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
-        "next_action": "Generate exactly three Epoch 4 Cycle 33 candidates under current governance; LCG repair and rescue are disallowed."
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_action": "Freeze the AFID-VLA Researcher A proposal under current governance."
+    },
+    "epoch_4_cycle_33_candidate_selection": {
+        "method": "AFID-VLA",
+        "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
+        "final_decision": "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "candidate_count": 3,
+        "selected_score": 90,
+        "closest_prior": "FineVLA",
+        "closest_prior_primary_source": "https://arxiv.org/html/2605.27284v1",
+        "closest_prior_positive_result": "Fine-grained-only improves over raw-only by +1.4 to +8.1 success-rate points, and best mixed FG:Raw ratios are around 1:2 to 1:1.",
+        "secondary_priors": [
+            "ACoT-VLA",
+            "GEAR-VLA"
+        ],
+        "candidate_generation": "reports/epoch_4_cycle_33_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_33_prior_mechanism_map.md",
+        "contribution_type": "PRIOR_EXTENSION",
+        "scientific_method": "Sparse action-factor instruction densification and Base-preserving residual gating from deployment-observable current inputs and Base action chunks.",
+        "low_compute_parameterization": "LoRA or lightweight adapters may parameterize the action-factor predictor/gate only; LoRA is not the method.",
+        "policy_order": [
+            "smolvla_base",
+            "finevla_action_factor_proxy",
+            "afid_full",
+            "afid_no_factor_ablation",
+            "standard_lora"
+        ],
+        "standard_lora_required": true,
+        "bounded_validation_search_max_configs": 6,
+        "identity_preserving_integration": "Exact Base passthrough when factor confidence is low; residual edits are gated to noncollapsed action cells only.",
+        "required_data_source": "Existing LIBERO demonstrations split into discovery and validation partitions; no privileged inference inputs.",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "first_serious_comparison_includes_closest_prior": true,
+        "lcg_repair_allowed": false,
+        "lcg_rescue_allowed": false,
+        "selection_decision": "AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "next_stage": "Freeze the AFID-VLA Researcher A proposal under current governance."
     }
 }

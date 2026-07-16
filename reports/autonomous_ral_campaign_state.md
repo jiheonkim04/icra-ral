@@ -7,13 +7,38 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
+`AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_candidate_search_pending`
+Current stage: `epoch_4_cycle_33_afid_researcher_proposal_pending`
+
+## Epoch 4 Cycle 33 AFID-VLA Selection
+
+Cycle 33 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_33_candidate_generation.md`.
+
+Selected method: `AFID-VLA`, Action-Factor Instruction Densification for
+Base-preserving SmolVLA, score `90 / 100`.
+
+Closest prior: FineVLA (`https://arxiv.org/html/2605.27284v1`), with positive
+evidence that fine-grained instruction supervision improves steerable control
+and can retain goal-level success.
+
+Frozen first comparison for the proposal stage: `smolvla_base`,
+`finevla_action_factor_proxy`, `afid_full`, `afid_no_factor_ablation`, and
+`standard_lora`.
+
+LoRA is only implementation infrastructure. The scientific mechanism is sparse
+action-factor instruction densification with a Base-preserving residual gate
+and exact passthrough when predicted factor confidence is low.
+
+Next action: freeze the AFID-VLA Researcher A proposal under current
+governance. No AFID training, validation search, rollout, or confirmatory-test
+access has happened.
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
