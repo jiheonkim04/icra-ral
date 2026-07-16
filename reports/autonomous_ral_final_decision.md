@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`CCIF_STAGE_0_DESIGN_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -53,7 +53,8 @@ The executable CCIF prototype protocol is frozen in
 `reports/ccif_vla/prototype_protocol.md` with decision
 `CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
 
-CCIF Stage 0 implementation is validated with
+CCIF Stage 0 implementation was validated as
+`CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY` with
 `tca_map/smolvla/ccif_vla.py`, `scripts/run_ccif_vla_stage0.py`, and
 `tests/test_ccif_vla.py`. WSL py_compile passed, focused CCIF tests reported
 `9 passed`, and serializer preflight wrote
@@ -61,8 +62,16 @@ CCIF Stage 0 implementation is validated with
 experimental result; no training, validation search, rollout, simulator access,
 or confirmatory-test tuning has happened.
 
-Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_stage_0_launch_pending`.
+CCIF Stage 0 then completed as `CCIF_STAGE_0_DESIGN_FAILURE` in
+`reports/ccif_vla/stage_0_result.json`: `4480 / 4480` model rows, duplicate /
+missing / extra keys all `0`, final exception count `0`, and two repaired
+resume blocker exceptions recorded separately. Bounded validation is not
+allowed because the deployment intent probe did not beat task/phase mean and
+endpoint-only diagnostics explained the signal. This is a development-only
+design failure, not a closed-loop scientific kill.
+
+Current cycle: `30`. Current stage:
+`epoch_4_cycle_30_candidate_search_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 

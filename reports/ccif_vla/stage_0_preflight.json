@@ -1,0 +1,24 @@
+{
+  "active_linux_workers": [],
+  "method": "CCIF-VLA",
+  "partial_parse_error": null,
+  "partial_summary": {
+    "completed_model_row_count": 4480,
+    "exception_count": 2,
+    "planned_model_row_count": 4480
+  },
+  "passed": true,
+  "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 4,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "result_absent": true,
+  "stage": "0",
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "written_at": "2026-07-16T06:15:21.435899+00:00"
+}

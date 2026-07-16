@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`CCIF_STAGE_0_DESIGN_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `29`
+Current cycle: `30`
 
-Current stage: `epoch_4_cycle_29_ccif_stage_0_launch_pending`
+Current stage: `epoch_4_cycle_30_candidate_search_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -90,9 +90,20 @@ reported `9 passed`, and serializer preflight wrote
 No CCIF training, validation search, rollout, simulator access, or
 confirmatory-test tuning has happened.
 
-Next action: inspect existing CCIF Stage 0 worker artifacts, then launch,
-monitor, adjudicate, or missing-key-only resume exactly under the frozen worker
-safety protocol.
+CCIF Stage 0 completed in `reports/ccif_vla/stage_0_result.json` with decision
+`CCIF_STAGE_0_DESIGN_FAILURE`. The fixed audit completed `4480 / 4480` model
+rows over `640` unique observation rows, with duplicate/missing/extra key
+counts all `0`, final exception count `0`, and two repaired resume blocker
+exceptions recorded separately. The deployment intent probe failed to beat the
+task/phase mean (`-0.5813931486058512` relative Huber improvement), and the
+endpoint-only diagnostic explained the signal. Bounded validation is not
+allowed. This is a development-only design failure, not a closed-loop
+scientific kill; no rollout, simulator load, training, validation search, or
+confirmatory-test access occurred. CCIF may not be rescued under this method
+cycle.
+
+Current next action: begin Epoch 4 Cycle 30 candidate search under the current
+positive-prior governance.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 

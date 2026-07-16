@@ -1,0 +1,21 @@
+{
+  "exception": "partial result identity does not match frozen CCIF manifest",
+  "exception_type": "RuntimeError",
+  "method": "CCIF-VLA",
+  "partial_rows_preserved": 4480,
+  "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+  "stage": "0",
+  "state": {
+    "local_started_iso": "2026-07-16T06:10:17.277043+00:00",
+    "method": "CCIF-VLA",
+    "phase": "manifest",
+    "pid": 384,
+    "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+    "stage": "0",
+    "started_at": "2026-07-16T06:10:17.277014+00:00",
+    "status": "running"
+  },
+  "status": "implementation_blocker",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_ccif_vla_stage0.py\", line 1564, in main\n    result = run(args, paths, state)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_ccif_vla_stage0.py\", line 1311, in run\n    partial_rows, prior_exception_count, prior_last_exception = _load_resume(paths[\"partial\"], rows, manifest_hash)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_ccif_vla_stage0.py\", line 694, in _load_resume\n    raise RuntimeError(\"partial result identity does not match frozen CCIF manifest\")\nRuntimeError: partial result identity does not match frozen CCIF manifest\n",
+  "written_at": "2026-07-16T06:11:34.897143+00:00"
+}

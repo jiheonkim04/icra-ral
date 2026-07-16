@@ -61,12 +61,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 29
+    assert state["current_cycle"] == 30
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
-    assert state["current_stage"] == "epoch_4_cycle_29_ccif_stage_0_launch_pending"
+    assert state["current_decision"] == "CCIF_STAGE_0_DESIGN_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_30_candidate_search_pending"
     assert state["method"] == "CCIF-VLA"
     assert state["method_identity"] == "CCIF-VLA"
     assert state["proposal_hash"] == CCIF_PROPOSAL_HASH
@@ -307,6 +307,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_29_ccif_stage_0_implementation_pending",
         "epoch_4_cycle_29_ccif_stage_0_implementation_validated",
         "epoch_4_cycle_29_ccif_stage_0_launch_pending",
+        "epoch_4_cycle_29_ccif_stage_0_completed",
+        "epoch_4_cycle_29_ccif_stage_0_adjudicated",
+        "epoch_4_cycle_29_ccif_design_failure_recorded",
+        "epoch_4_cycle_30_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -846,8 +850,23 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert ccif_implementation["focused_test_result"] == "9 passed"
     assert ccif_implementation["serializer_preflight_passed"] is True
     assert ccif_implementation["stage_0_launch_allowed_next"] is True
+    assert ccif_implementation["stage_0_final_decision"] == "CCIF_STAGE_0_DESIGN_FAILURE"
     assert ccif_implementation["training_happened"] is False
     assert ccif_implementation["closed_loop_experiment_happened"] is False
+    ccif_outcome = state["epoch_4_cycle_29_ccif_stage_0_outcome"]
+    assert ccif_outcome["final_decision"] == "CCIF_STAGE_0_DESIGN_FAILURE"
+    assert ccif_outcome["completed_model_row_count"] == ccif_outcome["planned_model_row_count"] == 4480
+    assert ccif_outcome["unique_observation_row_count"] == 640
+    assert ccif_outcome["exception_count"] == 0
+    assert ccif_outcome["resume_exception_count"] == 2
+    assert ccif_outcome["duplicate_partial_key_count"] == 0
+    assert ccif_outcome["key_sets_equal"] is True
+    assert ccif_outcome["intent_probe_beats_task_phase_mean"] is False
+    assert ccif_outcome["endpoint_only_explains_ccif"] is True
+    assert ccif_outcome["bounded_validation_allowed"] is False
+    assert ccif_outcome["valid_scientific_result"] is False
+    assert ccif_outcome["closed_loop_experiment_happened"] is False
+    assert ccif_outcome["ccif_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

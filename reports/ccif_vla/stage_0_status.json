@@ -1,0 +1,15 @@
+{
+  "completed_at": "2026-07-16T06:18:09.477920+00:00",
+  "completed_model_row_count": 4480,
+  "final_decision": "CCIF_STAGE_0_DESIGN_FAILURE",
+  "local_started_iso": "2026-07-16T06:15:21.290330+00:00",
+  "method": "CCIF-VLA",
+  "phase": "complete",
+  "pid": 398,
+  "planned_model_row_count": 4480,
+  "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+  "resumed_model_row_count": 4480,
+  "stage": "0",
+  "started_at": "2026-07-16T06:15:21.290308+00:00",
+  "status": "completed"
+}

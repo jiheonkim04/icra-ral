@@ -1,0 +1,25 @@
+{
+  "asset_exists": {
+    "alternate_repository": false,
+    "checkpoint_dir": false,
+    "inference_code": false,
+    "official_repository": false
+  },
+  "checked_paths": {
+    "alternate_repository": "/mnt/c/Users/jiheo/tca_map/third_party/coarse-to-control",
+    "checkpoint_dir": "/mnt/c/Users/jiheo/tca_map/third_party/Coarse-to-Control/checkpoints",
+    "inference_code": "/mnt/c/Users/jiheo/tca_map/third_party/Coarse-to-Control/inference.py",
+    "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/Coarse-to-Control"
+  },
+  "closest_prior": "Coarse-to-Control",
+  "comparison_position": 2,
+  "method": "CCIF-VLA",
+  "official_ready": false,
+  "policy_2_label": "coarse_to_control_continuous_proxy",
+  "proxy_deviations": [
+    "official Coarse-to-Control repository/checkpoint/inference assets are not all locally verified",
+    "Stage 0 fixes policy 2 as a transparent continuous coarse-intent-to-action proxy until official assets are installed"
+  ],
+  "stage": "0",
+  "written_at": "2026-07-16T06:15:21.457382+00:00"
+}
