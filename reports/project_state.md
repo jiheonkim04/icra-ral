@@ -7,13 +7,28 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
+`LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_candidate_search_pending`
+Current stage: `epoch_4_cycle_32_lcg_researcher_proposal_pending`
+
+Cycle 32 completed the primary-source mechanism map in
+`reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_32_candidate_generation.md`. `LCG-VLA`,
+Language-Contrastive Guidance for Base-preserving SmolVLA actions, is selected
+at `93 / 100`.
+
+LCG's closest positive prior is Counterfactual Action Guidance
+(`https://arxiv.org/abs/2602.17659`). Its scientific mechanism is an
+identity-initialized language-contrast action-cell gate around frozen SmolVLA
+Base chunks; LoRA may only parameterize the gate. The first serious comparison
+is `smolvla_base`, `counterfactual_action_guidance_proxy`, `lcg_full`,
+`lcg_no_language_contrast_ablation`, and `standard_lora`. Next action is to
+freeze the LCG-VLA Researcher A proposal before any implementation, validation
+search, training, rollout, or confirmatory-test access.
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source

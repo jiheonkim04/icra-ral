@@ -7,13 +7,42 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
+`LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_candidate_search_pending`
+Current stage: `epoch_4_cycle_32_lcg_researcher_proposal_pending`
+
+## Epoch 4 Cycle 32 LCG-VLA
+
+Cycle 32 completed the primary-source mechanism map in
+`reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_32_candidate_generation.md`. S2C remains
+closed as `S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE`; no S2C repair, rescue,
+threshold change, proxy change, task change, or reinterpretation is allowed.
+
+`LCG-VLA`, Language-Contrastive Guidance for Base-preserving SmolVLA actions,
+is selected at `93 / 100`. Its closest positive prior is Counterfactual Action
+Guidance (`https://arxiv.org/abs/2602.17659`), which reports improved
+LIBERO-CF language-following and task success plus real-world counterfactual
+failure reductions.
+
+LCG's single mechanism is an identity-initialized language-contrast action-cell
+gate around frozen SmolVLA Base chunks. It compares original-instruction
+chunks with a legal language-null or counterfactual-language branch and permits
+bounded edits only where language contrast predicts vision-shortcut risk. LoRA
+may only parameterize the gate; it is not the scientific mechanism.
+
+The first serious comparison is frozen at the design level to `smolvla_base`,
+`counterfactual_action_guidance_proxy`, `lcg_full`,
+`lcg_no_language_contrast_ablation`, and `standard_lora`.
+
+The next stage is to freeze the LCG-VLA Researcher A proposal before Reviewer
+B attack, mathematical audit, preregistration, prototype protocol,
+implementation, validation search, training, rollout, or confirmatory-test
+access.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 

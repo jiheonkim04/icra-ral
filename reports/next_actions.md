@@ -1,14 +1,28 @@
 # Next Actions
 
-## 2026-07-16 Epoch 4 Cycle 31 Current Action
+## 2026-07-16 Epoch 4 Cycle 32 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
+`LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
-Immediate next action: generate exactly three Cycle 32 candidates under current
-governance. S2C is closed and may not be repaired or rescued.
+Immediate next action: freeze the LCG-VLA Researcher A proposal under current
+governance. No LCG implementation, validation search, training, rollout, or
+confirmatory-test access may happen before the proposal, Reviewer B attack,
+mathematical audit, preregistration, and prototype protocol are frozen.
+
+Cycle 32 generated exactly three candidates in
+`reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
+mechanism map in `reports/epoch_4_cycle_32_prior_mechanism_map.md`.
+
+`LCG-VLA`, Language-Contrastive Guidance for Base-preserving SmolVLA actions,
+is selected at `93 / 100`. Its closest positive prior is Counterfactual Action
+Guidance (`https://arxiv.org/abs/2602.17659`). The frozen design-level first
+comparison is `smolvla_base`, `counterfactual_action_guidance_proxy`,
+`lcg_full`, `lcg_no_language_contrast_ablation`, and `standard_lora`. LoRA may
+only parameterize the language-contrast gate; it is not the scientific
+mechanism.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at

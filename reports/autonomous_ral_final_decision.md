@@ -3,11 +3,36 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
+`LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal state under the active governance.
 
 Active governance: `reports/current_research_governance.md`
+
+## Epoch 4 Cycle 32 Selection
+
+Cycle 32 completed the primary-source mechanism map in
+`reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_32_candidate_generation.md`. S2C remains
+preserved unchanged as `S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE`.
+
+`LCG-VLA`, Language-Contrastive Guidance for Base-preserving SmolVLA actions,
+is selected at `93 / 100`. Its closest positive prior is Counterfactual Action
+Guidance, anchored to `https://arxiv.org/abs/2602.17659`, which reports
+improved LIBERO-CF language-following and task success plus real-world
+counterfactual failure reductions.
+
+LCG compares frozen SmolVLA Base action chunks under the original instruction
+and a legal language-null or counterfactual-language branch, then learns an
+identity-initialized action-cell gate that permits bounded edits only where
+language contrast predicts vision-shortcut risk. LoRA is only implementation
+infrastructure.
+
+The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
+`lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
+
+Current cycle: `32`. Current stage:
+`epoch_4_cycle_32_lcg_researcher_proposal_pending`.
 
 ## Epoch 4 Cycle 31 Selection
 
@@ -83,8 +108,8 @@ showed no Base boundary headroom (`mean=0.001199425821980814`,
 `p75=0.0008132225130898095`) and failed mask/gripper criteria. This is not a
 closed-loop scientific kill, and S2C repair/rescue is disallowed.
 
-Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_candidate_search_pending`.
+Cycle 32 candidate search has completed and selected LCG-VLA for proposal
+freeze.
 
 ## Epoch 4 Cycle 30 Selection
 

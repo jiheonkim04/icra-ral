@@ -67,12 +67,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32"
-    assert state["current_stage"] == "epoch_4_cycle_32_candidate_search_pending"
-    assert state["method"] == "S2C-VLA"
-    assert state["method_identity"] == "S2C-VLA"
-    assert state["proposal_hash"] == S2C_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/s2c_vla/prototype_protocol.md"
+    assert state["current_decision"] == "LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_researcher_proposal_pending"
+    assert state["method"] == "LCG-VLA"
+    assert state["method_identity"] == "LCG-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -357,6 +357,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_31_s2c_stage_0_adjudicated",
         "epoch_4_cycle_31_s2c_data_or_supervision_failure_recorded",
         "epoch_4_cycle_32_candidate_search_pending",
+        "epoch_4_cycle_32_prior_mechanism_map_completed",
+        "epoch_4_cycle_32_candidate_generation_completed",
+        "epoch_4_cycle_32_lcg_candidate_selected",
+        "epoch_4_cycle_32_lcg_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1308,12 +1312,39 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert s2c_outcome["closed_loop_experiment_happened"] is False
     assert s2c_outcome["s2c_rescue_allowed"] is False
     cycle32 = state["epoch_4_cycle_32_candidate_search"]
-    assert cycle32["candidate_search_pending"] is True
+    assert cycle32["candidate_search_pending"] is False
     assert cycle32["candidate_count_required"] == 3
+    assert cycle32["candidate_count_generated"] == 3
     assert cycle32["previous_method"] == "S2C-VLA"
     assert cycle32["previous_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert cycle32["prior_mechanism_map"] == "reports/epoch_4_cycle_32_prior_mechanism_map.md"
+    assert cycle32["candidate_generation"] == "reports/epoch_4_cycle_32_candidate_generation.md"
+    assert cycle32["candidate_ids"] == ["LCG-VLA", "TAGR-VLA", "PGP-VLA"]
+    assert cycle32["selected_method"] == "LCG-VLA"
+    assert cycle32["selected_score"] == 93
+    assert cycle32["selection_decision"] == "LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert cycle32["s2c_repair_allowed"] is False
     assert cycle32["s2c_rescue_allowed"] is False
+    lcg = state["epoch_4_cycle_32_candidate_selection"]
+    assert lcg["method"] == "LCG-VLA"
+    assert lcg["candidate_count"] == 3
+    assert lcg["selected_score"] == 93
+    assert lcg["closest_prior"] == "Counterfactual Action Guidance"
+    assert lcg["closest_prior_primary_source"] == "https://arxiv.org/abs/2602.17659"
+    assert lcg["contribution_type"] == "PRIOR_EXTENSION"
+    assert lcg["policy_order"] == [
+        "smolvla_base",
+        "counterfactual_action_guidance_proxy",
+        "lcg_full",
+        "lcg_no_language_contrast_ablation",
+        "standard_lora",
+    ]
+    assert lcg["standard_lora_required"] is True
+    assert lcg["first_serious_comparison_includes_closest_prior"] is True
+    assert lcg["training_happened"] is False
+    assert lcg["validation_search_happened"] is False
+    assert lcg["closed_loop_experiment_happened"] is False
+    assert lcg["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -30,7 +30,14 @@ S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32" in final
+    assert "LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "LCG-VLA" in final
+    assert "Language-Contrastive Guidance" in final
+    assert "Counterfactual Action" in final
+    assert "Guidance" in final
+    assert "counterfactual_action_guidance_proxy" in final
+    assert "lcg_no_language_contrast_ablation" in final
+    assert "epoch_4_cycle_32_lcg_researcher_proposal_pending" in final
     assert "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE" in final
     assert "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
@@ -46,7 +53,6 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/s2c_vla/mathematical_mechanism_audit.md" in final
     assert "reports/s2c_vla/preregistration.md" in final
     assert "reports/s2c_vla/prototype_protocol.md" in final
-    assert "epoch_4_cycle_32_candidate_search_pending" in final
     assert S2C_PROPOSAL_HASH in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -337,13 +343,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32"
+    assert state["current_decision"] == "LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 32
-    assert state["current_stage"] == "epoch_4_cycle_32_candidate_search_pending"
-    assert state["method"] == "S2C-VLA"
-    assert state["method_identity"] == "S2C-VLA"
-    assert state["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_researcher_proposal_pending"
+    assert state["method"] == "LCG-VLA"
+    assert state["method_identity"] == "LCG-VLA"
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -358,9 +364,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Generate exactly three Cycle 32 candidates under current governance; S2C is closed and may not be repaired or rescued."
+        == "Freeze the LCG-VLA Researcher A proposal under current governance; no training, validation search, rollout, implementation, or confirmatory-test access before proposal, Reviewer B attack, mathematical audit, preregistration, and prototype protocol."
     )
-    assert state["prototype_protocol"] == "reports/s2c_vla/prototype_protocol.md"
+    assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -1226,12 +1232,39 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c_outcome["closed_loop_experiment_happened"] is False
     assert s2c_outcome["s2c_rescue_allowed"] is False
     cycle32 = state["epoch_4_cycle_32_candidate_search"]
-    assert cycle32["candidate_search_pending"] is True
+    assert cycle32["candidate_search_pending"] is False
     assert cycle32["candidate_count_required"] == 3
+    assert cycle32["candidate_count_generated"] == 3
     assert cycle32["previous_method"] == "S2C-VLA"
     assert cycle32["previous_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert cycle32["prior_mechanism_map"] == "reports/epoch_4_cycle_32_prior_mechanism_map.md"
+    assert cycle32["candidate_generation"] == "reports/epoch_4_cycle_32_candidate_generation.md"
+    assert cycle32["candidate_ids"] == ["LCG-VLA", "TAGR-VLA", "PGP-VLA"]
+    assert cycle32["selected_method"] == "LCG-VLA"
+    assert cycle32["selected_score"] == 93
+    assert cycle32["selection_decision"] == "LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert cycle32["s2c_repair_allowed"] is False
     assert cycle32["s2c_rescue_allowed"] is False
+    lcg = state["epoch_4_cycle_32_candidate_selection"]
+    assert lcg["method"] == "LCG-VLA"
+    assert lcg["candidate_count"] == 3
+    assert lcg["selected_score"] == 93
+    assert lcg["closest_prior"] == "Counterfactual Action Guidance"
+    assert lcg["closest_prior_primary_source"] == "https://arxiv.org/abs/2602.17659"
+    assert lcg["contribution_type"] == "PRIOR_EXTENSION"
+    assert lcg["policy_order"] == [
+        "smolvla_base",
+        "counterfactual_action_guidance_proxy",
+        "lcg_full",
+        "lcg_no_language_contrast_ablation",
+        "standard_lora",
+    ]
+    assert lcg["standard_lora_required"] is True
+    assert lcg["first_serious_comparison_includes_closest_prior"] is True
+    assert lcg["training_happened"] is False
+    assert lcg["validation_search_happened"] is False
+    assert lcg["closed_loop_experiment_happened"] is False
+    assert lcg["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
