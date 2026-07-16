@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "c155008",
-    "current_stage": "epoch_4_cycle_37_cspr_mathematical_audit_pending",
+    "current_stage": "epoch_4_cycle_37_cspr_preregistration_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -767,7 +767,9 @@
         "epoch_4_cycle_37_cspr_reviewer_attack_completed",
         "epoch_4_cycle_37_cspr_rebuttal_pending",
         "epoch_4_cycle_37_cspr_rebuttal_completed",
-        "epoch_4_cycle_37_cspr_mathematical_audit_pending"
+        "epoch_4_cycle_37_cspr_mathematical_audit_pending",
+        "epoch_4_cycle_37_cspr_mathematical_audit_preregistered",
+        "epoch_4_cycle_37_cspr_preregistration_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -788,7 +790,7 @@
         "LIBERO-Plus"
     ],
     "prototype_gate": "DCCG proposal must be frozen before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
-    "current_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -939,7 +941,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the CSPR-VLA mathematical mechanism audit before preregistration, implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Freeze the CSPR-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "LIBERO demonstration-calibrated action-coherence guidance can reduce within-chunk jitter and drift in SmolVLA while preserving exact Base behavior at zero guidance.",
     "method_identity": "CSPR-VLA",
@@ -2691,7 +2693,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_37_cspr_mathematical_audit_pending",
+    "current_topic": "epoch_4_cycle_37_cspr_preregistration_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -11415,7 +11417,7 @@
     },
     "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
     "rebuttal_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-    "mathematical_audit_pending": true,
+    "mathematical_audit_pending": false,
     "epoch_4_cycle_35_mhs_rebuttal": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -11503,8 +11505,8 @@
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
     "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
-    "math_audit_decision": null,
-    "preregistration_pending": false,
+    "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "preregistration_pending": true,
     "epoch_4_cycle_35_mhs_mathematical_audit": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -12328,8 +12330,8 @@
         "valid_scientific_result": false,
         "stage_0_is_closed_loop_scientific_kill": false
     },
-    "mathematical_audit_completed": false,
-    "mathematical_audit_preregistered": false,
+    "mathematical_audit_completed": true,
+    "mathematical_audit_preregistered": true,
     "epoch_4_cycle_36_dccg_mathematical_audit": {
         "method": "DCCG-VLA",
         "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
@@ -12699,7 +12701,7 @@
         "researcher_proposal": "reports/cspr_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/cspr_vla/proposal_hash.txt",
         "proposal_hash": "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7",
-        "next_stage": "Freeze the CSPR-VLA mathematical mechanism audit before preregistration, implementation, validation search, rollout, or confirmatory-test access.",
+        "next_stage": "Preregistration.",
         "proposal_decision": "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "reviewer_attack_pending": false,
         "reviewer_attack_completed": true,
@@ -12710,8 +12712,13 @@
         "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
         "accepted_reviewer_conditions": true,
         "rebuttal_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-        "mathematical_audit_pending": true,
-        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md"
+        "mathematical_audit_pending": false,
+        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
+        "preregistration": "reports/cspr_vla/preregistration.md"
     },
     "epoch_4_cycle_37_cspr_researcher_proposal": {
         "method": "CSPR-VLA",
@@ -12761,7 +12768,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Mathematical mechanism audit.",
+        "next_stage": "Preregistration.",
         "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal_pending": false,
@@ -12769,8 +12776,13 @@
         "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
         "accepted_reviewer_conditions": true,
         "rebuttal_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-        "mathematical_audit_pending": true,
-        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md"
+        "mathematical_audit_pending": false,
+        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
+        "preregistration": "reports/cspr_vla/preregistration.md"
     },
     "epoch_4_cycle_37_cspr_reviewer_attack": {
         "method": "CSPR-VLA",
@@ -12810,12 +12822,17 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Mathematical mechanism audit.",
+        "next_stage": "Preregistration.",
         "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
-        "mathematical_audit_pending": true,
-        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md"
+        "mathematical_audit_pending": false,
+        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
+        "preregistration": "reports/cspr_vla/preregistration.md"
     },
     "epoch_4_cycle_37_cspr_rebuttal": {
         "method": "CSPR-VLA",
@@ -12850,12 +12867,61 @@
         "identity_preserving_integration_required": true,
         "deterministic_action_kl_allowed": false,
         "closed_methods_reopened": false,
-        "mathematical_audit_pending": true,
+        "mathematical_audit_pending": false,
         "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Mathematical mechanism audit."
+        "next_stage": "Preregistration.",
+        "mathematical_audit_completed": true,
+        "mathematical_audit_preregistered": true,
+        "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration_pending": true,
+        "preregistration": "reports/cspr_vla/preregistration.md"
+    },
+    "epoch_4_cycle_37_cspr_mathematical_audit": {
+        "method": "CSPR-VLA",
+        "proposal_hash": "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7",
+        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
+        "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "final_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "fixed_variables": {
+            "H": 50,
+            "D": 7,
+            "visual_feature_dim": 960,
+            "proprio_dim": 8,
+            "action_chunk_shape": "[N, 50, 7]"
+        },
+        "policy_order": [
+            "smolvla_base",
+            "dysl_action_importance_proxy",
+            "cspr_full",
+            "cspr_uniform_refinement_ablation",
+            "critical_step_threshold_simple_killer"
+        ],
+        "bounded_validation_search_max_configs": 6,
+        "residual_cap_values_max": 3,
+        "gate_threshold_or_temperature_values_max": 2,
+        "objective_terms": [
+            "L_crit",
+            "L_fit",
+            "L_keep",
+            "L_bound"
+        ],
+        "gradient_norm_audit_required": true,
+        "identity_preserving_integration_required": true,
+        "criticality_label_health_required": true,
+        "criticality_observability_required": true,
+        "deterministic_action_kl_allowed": false,
+        "first_serious_comparison_includes_closest_prior": true,
+        "preregistration_pending": true,
+        "preregistration": "reports/cspr_vla/preregistration.md",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Preregistration."
     }
 }

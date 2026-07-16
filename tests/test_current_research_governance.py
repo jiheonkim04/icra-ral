@@ -73,8 +73,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_mathematical_audit_pending"
+    assert state["current_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_preregistration_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
@@ -89,7 +89,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "cspr_uniform_refinement_ablation",
         "critical_step_threshold_simple_killer",
     ]
-    assert state["next_action"].startswith("Freeze the CSPR-VLA mathematical mechanism audit")
+    assert state["next_action"].startswith("Freeze the CSPR-VLA preregistration")
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -105,11 +105,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["accepted_reviewer_conditions"] is True
     assert state["mathematical_audit"] == "reports/cspr_vla/mathematical_mechanism_audit.md"
-    assert state["mathematical_audit_pending"] is True
-    assert state["mathematical_audit_completed"] is False
-    assert state["math_audit_decision"] is None
+    assert state["mathematical_audit_pending"] is False
+    assert state["mathematical_audit_completed"] is True
+    assert state["math_audit_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["preregistration_pending"] is True
     assert state["preregistration"] == "reports/cspr_vla/preregistration.md"
-    assert state["preregistration_pending"] is False
     assert state["preregistration_frozen"] is False
     assert state["preregistration_decision"] is None
     assert state["prototype_protocol"] == "reports/cspr_vla/prototype_protocol.md"
@@ -446,7 +446,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection37["researcher_rebuttal_completed"] is True
     assert selection37["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert selection37["accepted_reviewer_conditions"] is True
-    assert selection37["mathematical_audit_pending"] is True
+    assert selection37["mathematical_audit_pending"] is False
     assert selection37["closest_prior_enters_first_serious_comparison"] is True
     assert selection37["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection37["privileged_inference_inputs_allowed"] is False
@@ -467,7 +467,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert proposal37["researcher_rebuttal_completed"] is True
     assert proposal37["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert proposal37["accepted_reviewer_conditions"] is True
-    assert proposal37["mathematical_audit_pending"] is True
+    assert proposal37["mathematical_audit_pending"] is False
     assert proposal37["researcher_rebuttal_pending"] is False
     assert proposal37["first_serious_comparison_includes_closest_prior"] is True
     assert proposal37["training_happened"] is False
@@ -489,7 +489,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert review37["researcher_rebuttal_completed"] is True
     assert review37["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert review37["accepted_reviewer_conditions"] is True
-    assert review37["mathematical_audit_pending"] is True
+    assert review37["mathematical_audit_pending"] is False
     assert review37["training_happened"] is False
     assert review37["validation_search_happened"] is False
     assert review37["closed_loop_experiment_happened"] is False
@@ -503,11 +503,32 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert len(rebuttal37["accepted_conditions"]) == 10
     assert rebuttal37["deterministic_action_kl_allowed"] is False
     assert rebuttal37["closed_methods_reopened"] is False
-    assert rebuttal37["mathematical_audit_pending"] is True
+    assert rebuttal37["mathematical_audit_pending"] is False
+    assert rebuttal37["mathematical_audit_completed"] is True
+    assert rebuttal37["math_audit_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert rebuttal37["preregistration_pending"] is True
     assert rebuttal37["training_happened"] is False
     assert rebuttal37["validation_search_happened"] is False
     assert rebuttal37["closed_loop_experiment_happened"] is False
     assert rebuttal37["confirmatory_test_tuning_happened"] is False
+    math37 = state["epoch_4_cycle_37_cspr_mathematical_audit"]
+    assert math37["method"] == "CSPR-VLA"
+    assert math37["proposal_hash"] == CSPR_PROPOSAL_HASH
+    assert math37["mathematical_audit"] == "reports/cspr_vla/mathematical_mechanism_audit.md"
+    assert math37["final_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert math37["fixed_variables"]["H"] == 50
+    assert math37["fixed_variables"]["D"] == 7
+    assert math37["bounded_validation_search_max_configs"] == 6
+    assert math37["gradient_norm_audit_required"] is True
+    assert math37["identity_preserving_integration_required"] is True
+    assert math37["criticality_label_health_required"] is True
+    assert math37["criticality_observability_required"] is True
+    assert math37["deterministic_action_kl_allowed"] is False
+    assert math37["preregistration_pending"] is True
+    assert math37["training_happened"] is False
+    assert math37["validation_search_happened"] is False
+    assert math37["closed_loop_experiment_happened"] is False
+    assert math37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -555,7 +576,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_37_prior_mechanism_map_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_candidate_selected" in state["completed_stages"]
-    assert "epoch_4_cycle_37_cspr_mathematical_audit_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_preregistration_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -38,9 +38,11 @@ The CSPR-VLA Researcher A proposal is frozen in
 `reports/cspr_vla/reviewer_attack.md` with decision
 `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
 complete in `reports/cspr_vla/researcher_rebuttal.md` with decision
-`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The next action is mathematical
-mechanism audit before preregistration, implementation, validation search,
-rollout, or confirmatory-test access.
+`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit
+is frozen in `reports/cspr_vla/mathematical_mechanism_audit.md` with decision
+`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`. The next action is preregistration
+before prototype protocol, implementation, validation search, rollout, or
+confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

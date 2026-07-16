@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_37_cspr_preregistration_pending`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -59,9 +59,15 @@ trivial baselines, identity preservation, objective/gradient audit, live
 access. Researcher A rebuttal is complete in
 `reports/cspr_vla/researcher_rebuttal.md` with decision
 `CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepts all ten
-Reviewer B conditions. No CSPR implementation, training, validation search,
-rollout, simulator access, or confirmatory-test tuning has happened. Immediate
-next action: freeze the CSPR-VLA mathematical mechanism audit.
+Reviewer B conditions. The mathematical mechanism audit is frozen in
+`reports/cspr_vla/mathematical_mechanism_audit.md` with decision
+`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes `H = 50`, `D = 7`,
+criticality/residual/gate formulas, objective terms `L_crit`, `L_fit`,
+`L_keep`, and `L_bound`, gradient norm audit requirements, a six-config
+validation budget, DySL proxy transparency, the simple killer, and no
+deterministic 7D-action KL. No CSPR implementation, training, validation
+search, rollout, simulator access, or confirmatory-test tuning has happened.
+Immediate next action: freeze CSPR preregistration.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
