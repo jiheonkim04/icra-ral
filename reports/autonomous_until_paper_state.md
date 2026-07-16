@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_30_urf_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 30 URF-VLA
 
@@ -81,8 +81,15 @@ tasks, residual and route construction, Stage 0 artifact paths, pass gates,
 stop classes, bounded six-configuration validation search, first five-policy
 comparison, and confirmatory tuning prohibition.
 
-Current next action: write executable URF-VLA prototype protocol before Stage 0
-implementation.
+The executable URF prototype protocol is frozen in
+`reports/urf_vla/prototype_protocol.md` with decision
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. It fixes helper, runner, and
+test paths; artifact paths; row keys; worker safety and missing-key-only resume
+rules; required Stage 0 probes; result metrics; and the frozen decision order.
+
+Current next action: implement and validate `tca_map/smolvla/urf_vla.py`,
+`scripts/run_urf_vla_stage0.py`, and `tests/test_urf_vla.py` before any Stage
+0 launch.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 

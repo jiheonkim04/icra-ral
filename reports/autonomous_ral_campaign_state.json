@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 30,
-    "topic": "epoch_4_cycle_30_urf_prototype_protocol_pending",
+    "topic": "epoch_4_cycle_30_urf_stage_0_implementation_pending",
     "method": "URF-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_30_urf_prototype_protocol_pending",
+    "current_stage": "epoch_4_cycle_30_urf_stage_0_implementation_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -616,7 +616,9 @@
         "epoch_4_cycle_30_urf_mathematical_audit_preregistered",
         "epoch_4_cycle_30_urf_preregistration_pending",
         "epoch_4_cycle_30_urf_preregistration_frozen",
-        "epoch_4_cycle_30_urf_prototype_protocol_pending"
+        "epoch_4_cycle_30_urf_prototype_protocol_pending",
+        "epoch_4_cycle_30_urf_prototype_protocol_frozen",
+        "epoch_4_cycle_30_urf_stage_0_implementation_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -631,8 +633,8 @@
         "Flow-Based VLA Uncertainty / SAVE",
         "Perturbation-Based Uncertainty For VLA Failure Detection"
     ],
-    "prototype_gate": "URF preregistration is frozen; executable prototype protocol must be written before Stage 0 implementation.",
-    "current_decision": "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "prototype_gate": "URF executable prototype protocol is frozen; Stage 0 helper, runner, and focused tests must be implemented and validated before launch.",
+    "current_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -8212,7 +8214,9 @@
         "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
         "preregistration": "reports/urf_vla/preregistration.md",
         "preregistration_decision": "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "next_stage": "Write executable URF-VLA prototype protocol before Stage 0 implementation."
+        "prototype_protocol": "reports/urf_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "next_stage": "Implement and validate URF Stage 0 helper, runner, and focused tests before launch."
     },
     "epoch_4_cycle_30_urf_researcher_proposal": {
         "method": "URF-VLA",
@@ -8245,7 +8249,9 @@
         "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
         "preregistration": "reports/urf_vla/preregistration.md",
         "preregistration_decision": "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "next_stage": "Write executable URF-VLA prototype protocol before Stage 0 implementation."
+        "prototype_protocol": "reports/urf_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "next_stage": "Implement and validate URF Stage 0 helper, runner, and focused tests before launch."
     },
     "epoch_4_cycle_30_urf_reviewer_attack": {
         "method": "URF-VLA",
@@ -8288,7 +8294,9 @@
         "mathematical_audit": "reports/urf_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
         "preregistration": "reports/urf_vla/preregistration.md",
-        "preregistration_decision": "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+        "preregistration_decision": "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol": "reports/urf_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     },
     "epoch_4_cycle_30_urf_rebuttal": {
         "method": "URF-VLA",
@@ -8330,7 +8338,9 @@
         "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
         "preregistration": "reports/urf_vla/preregistration.md",
         "preregistration_decision": "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "next_stage": "Write executable URF-VLA prototype protocol before Stage 0 implementation."
+        "prototype_protocol": "reports/urf_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "next_stage": "Implement and validate URF Stage 0 helper, runner, and focused tests before launch."
     },
     "epoch_4_cycle_30_urf_mathematical_audit": {
         "method": "URF-VLA",
@@ -8408,6 +8418,28 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "prototype_protocol": "reports/urf_vla/prototype_protocol.md",
-        "next_stage": "Write executable URF-VLA prototype protocol before Stage 0 implementation."
+        "prototype_protocol_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "next_stage": "Implement and validate URF Stage 0 helper, runner, and focused tests before launch."
+    },
+    "epoch_4_cycle_30_urf_prototype_protocol": {
+        "method": "URF-VLA",
+        "final_decision": "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol": "reports/urf_vla/prototype_protocol.md",
+        "preregistration": "reports/urf_vla/preregistration.md",
+        "proposal_hash": "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532",
+        "stage_0_allowed_next": true,
+        "helper_module": "tca_map/smolvla/urf_vla.py",
+        "runner": "scripts/run_urf_vla_stage0.py",
+        "unit_tests": "tests/test_urf_vla.py",
+        "stage_0_result": "reports/urf_vla/stage_0_result.json",
+        "stage_0_partial": "reports/urf_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/urf_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/urf_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/urf_vla/stage_0_serializer_preflight.json",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Implement and validate URF Stage 0 helper, runner, and focused tests before launch."
     }
 }

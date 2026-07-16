@@ -5,10 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
-Immediate next action: write the executable URF-VLA prototype protocol before
-Stage 0 implementation.
+Immediate next action: implement and validate `tca_map/smolvla/urf_vla.py`,
+`scripts/run_urf_vla_stage0.py`, and `tests/test_urf_vla.py` before any Stage
+0 launch.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at
@@ -30,9 +31,10 @@ rebuttal is complete in `reports/urf_vla/researcher_rebuttal.md` with decision
 frozen in `reports/urf_vla/mathematical_mechanism_audit.md` with decision
 `URF_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
 `reports/urf_vla/preregistration.md` with decision
-`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. No URF training,
-validation search, rollout, simulator access, or confirmatory-test tuning has
-happened.
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Prototype protocol is
+frozen in `reports/urf_vla/prototype_protocol.md` with decision
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. No URF training, validation
+search, rollout, simulator access, or confirmatory-test tuning has happened.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

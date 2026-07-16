@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_30_urf_stage_0_implementation_pending`
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
@@ -40,8 +40,11 @@ complete in `reports/urf_vla/researcher_rebuttal.md` with decision
 frozen in `reports/urf_vla/mathematical_mechanism_audit.md` with decision
 `URF_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
 `reports/urf_vla/preregistration.md` with decision
-`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Next action is to
-write the executable URF-VLA prototype protocol before Stage 0 implementation.
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Prototype protocol is
+frozen in `reports/urf_vla/prototype_protocol.md` with decision
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Next action is to implement
+and validate the URF Stage 0 helper, runner, and focused tests before any Stage
+0 launch.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest

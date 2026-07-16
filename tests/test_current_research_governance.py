@@ -66,8 +66,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_30_urf_prototype_protocol_pending"
+    assert state["current_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_30_urf_stage_0_implementation_pending"
     assert state["method"] == "URF-VLA"
     assert state["method_identity"] == "URF-VLA"
     assert state["proposal_hash"] == URF_PROPOSAL_HASH
@@ -326,6 +326,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_30_urf_preregistration_pending",
         "epoch_4_cycle_30_urf_preregistration_frozen",
         "epoch_4_cycle_30_urf_prototype_protocol_pending",
+        "epoch_4_cycle_30_urf_prototype_protocol_frozen",
+        "epoch_4_cycle_30_urf_stage_0_implementation_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -925,6 +927,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert urf["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert urf["preregistration"] == "reports/urf_vla/preregistration.md"
     assert urf["preregistration_decision"] == "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert urf["prototype_protocol"] == "reports/urf_vla/prototype_protocol.md"
+    assert urf["prototype_protocol_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     urf_proposal = state["epoch_4_cycle_30_urf_researcher_proposal"]
     assert urf_proposal["final_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert urf_proposal["proposal"] == "reports/urf_vla/researcher_proposal.md"
@@ -942,6 +946,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert urf_proposal["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert urf_proposal["preregistration"] == "reports/urf_vla/preregistration.md"
     assert urf_proposal["preregistration_decision"] == "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert urf_proposal["prototype_protocol"] == "reports/urf_vla/prototype_protocol.md"
+    assert urf_proposal["prototype_protocol_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     urf_review = state["epoch_4_cycle_30_urf_reviewer_attack"]
     assert urf_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert urf_review["reviewer_attack"] == "reports/urf_vla/reviewer_attack.md"
@@ -961,6 +967,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert urf_review["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert urf_review["preregistration"] == "reports/urf_vla/preregistration.md"
     assert urf_review["preregistration_decision"] == "URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert urf_review["prototype_protocol"] == "reports/urf_vla/prototype_protocol.md"
+    assert urf_review["prototype_protocol_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     urf_rebuttal = state["epoch_4_cycle_30_urf_rebuttal"]
     assert urf_rebuttal["final_decision"] == "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert urf_rebuttal["researcher_rebuttal"] == "reports/urf_vla/researcher_rebuttal.md"
@@ -1035,6 +1043,25 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert urf_prereg["closed_loop_experiment_happened"] is False
     assert urf_prereg["confirmatory_test_tuning_happened"] is False
     assert urf_prereg["prototype_protocol"] == "reports/urf_vla/prototype_protocol.md"
+    assert urf_prereg["prototype_protocol_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    urf_protocol = state["epoch_4_cycle_30_urf_prototype_protocol"]
+    assert urf_protocol["final_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert urf_protocol["prototype_protocol"] == "reports/urf_vla/prototype_protocol.md"
+    assert urf_protocol["preregistration"] == "reports/urf_vla/preregistration.md"
+    assert urf_protocol["proposal_hash"] == URF_PROPOSAL_HASH
+    assert urf_protocol["stage_0_allowed_next"] is True
+    assert urf_protocol["helper_module"] == "tca_map/smolvla/urf_vla.py"
+    assert urf_protocol["runner"] == "scripts/run_urf_vla_stage0.py"
+    assert urf_protocol["unit_tests"] == "tests/test_urf_vla.py"
+    assert urf_protocol["stage_0_result"] == "reports/urf_vla/stage_0_result.json"
+    assert urf_protocol["stage_0_partial"] == "reports/urf_vla/stage_0_partial.json"
+    assert urf_protocol["stage_0_manifest"] == "reports/urf_vla/stage_0_manifest.json"
+    assert urf_protocol["stage_0_action_semantics"] == "reports/urf_vla/stage_0_action_semantics.json"
+    assert urf_protocol["stage_0_serializer_preflight"] == "reports/urf_vla/stage_0_serializer_preflight.json"
+    assert urf_protocol["training_happened"] is False
+    assert urf_protocol["validation_search_happened"] is False
+    assert urf_protocol["closed_loop_experiment_happened"] is False
+    assert urf_protocol["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
