@@ -5,11 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: write RAP-VLA mathematical mechanism audit and freeze
-objective/ablation formulas without VDR repair, rerun, rescue, or threshold
-changes.
+Immediate next action: write and freeze RAP-VLA preregistration without VDR
+repair, rerun, rescue, or threshold changes.
 
 Cycle 25 generated exactly three candidates and selected `RAP-VLA`,
 Retrieval-Anchored Prior residualization for VLA action flows, at `94 / 100`.
@@ -30,6 +29,9 @@ tuning has happened. Reviewer B attack is complete in
 `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
 complete in `reports/rap_vla/researcher_rebuttal.md` with decision
 `RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
+The mathematical mechanism audit is frozen in
+`reports/rap_vla/mathematical_mechanism_audit.md` with decision
+`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

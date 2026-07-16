@@ -61,8 +61,8 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_mathematical_audit_pending"
+    assert state["current_decision"] == "RAP_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_preregistration_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
     assert state["proposal_hash"] == RAP_PROPOSAL_HASH
@@ -208,6 +208,8 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "epoch_4_cycle_25_rap_rebuttal_pending",
         "epoch_4_cycle_25_rap_rebuttal_completed",
         "epoch_4_cycle_25_rap_mathematical_audit_pending",
+        "epoch_4_cycle_25_rap_mathematical_audit_preregistered",
+        "epoch_4_cycle_25_rap_preregistration_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -237,6 +239,10 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert rap_rebuttal["final_decision"] == "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert rap_rebuttal["researcher_rebuttal"] == "reports/rap_vla/researcher_rebuttal.md"
     assert rap_rebuttal["accepted_reviewer_conditions"] is True
+    rap_math = state["epoch_4_cycle_25_rap_mathematical_audit"]
+    assert rap_math["final_decision"] == "RAP_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert rap_math["mathematical_audit"] == "reports/rap_vla/mathematical_mechanism_audit.md"
+    assert rap_math["kl_between_deterministic_actions_used"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

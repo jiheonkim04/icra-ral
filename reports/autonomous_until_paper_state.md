@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `25`
 
-Current stage: `epoch_4_cycle_25_rap_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_25_rap_preregistration_pending`
 
 ## Epoch 4 Cycle 25 RAP-VLA
 
@@ -39,9 +39,10 @@ tuning has happened for RAP. Reviewer B attack is complete in
 `reports/rap_vla/reviewer_attack.md` with decision
 `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
 complete in `reports/rap_vla/researcher_rebuttal.md` with decision
-`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Next action: write the mathematical
-mechanism audit and freeze objective/ablation formulas without VDR repair or
-rescue.
+`RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is
+frozen in `reports/rap_vla/mathematical_mechanism_audit.md` with decision
+`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`. Next action: write and freeze RAP-VLA
+preregistration without VDR repair or rescue.
 
 ## Epoch 4 Cycle 24 VDR-VLA
 
