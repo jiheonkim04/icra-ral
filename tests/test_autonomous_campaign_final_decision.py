@@ -228,13 +228,15 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "AMP_MATHEMATICAL_AUDIT_PREREGISTERED" in final
+    assert "reports/amp_vla/mathematical_mechanism_audit.md" in final
     assert AMP_PROPOSAL_HASH in final
     assert "RAP_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
-    assert "epoch_4_cycle_26_amp_mathematical_audit_pending" in final
+    assert "epoch_4_cycle_26_amp_preregistration_pending" in final
     assert "640 / 640" in final
     assert "optimusvla_memory_prior_proxy" in final
     assert RAP_PROPOSAL_HASH in final
@@ -261,10 +263,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_decision"] == "AMP_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 26
-    assert state["current_stage"] == "epoch_4_cycle_26_amp_mathematical_audit_pending"
+    assert state["current_stage"] == "epoch_4_cycle_26_amp_preregistration_pending"
     assert state["method"] == "AMP-VLA"
     assert state["method_identity"] == "AMP-VLA"
     assert state["proposal_hash"] == AMP_PROPOSAL_HASH
@@ -280,7 +282,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == "Write AMP-VLA mathematical mechanism audit before preregistration."
+    assert state["next_action"] == "Write AMP-VLA preregistration before prototype protocol."
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -356,6 +358,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert amp["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert amp["researcher_rebuttal"] == "reports/amp_vla/researcher_rebuttal.md"
     assert amp["rebuttal_decision"] == "AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert amp["mathematical_audit"] == "reports/amp_vla/mathematical_mechanism_audit.md"
+    assert amp["math_audit_decision"] == "AMP_MATHEMATICAL_AUDIT_PREREGISTERED"
     amp_proposal = state["epoch_4_cycle_26_amp_researcher_proposal"]
     assert amp_proposal["final_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert amp_proposal["proposal"] == "reports/amp_vla/researcher_proposal.md"
@@ -365,6 +369,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     amp_rebuttal = state["epoch_4_cycle_26_amp_rebuttal"]
     assert amp_rebuttal["final_decision"] == "AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert amp_rebuttal["accepted_reviewer_conditions"] is True
+    amp_math = state["epoch_4_cycle_26_amp_mathematical_audit"]
+    assert amp_math["final_decision"] == "AMP_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert amp_math["kl_between_deterministic_actions_used"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

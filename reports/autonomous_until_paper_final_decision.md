@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`AMP_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -49,8 +49,12 @@ LoRA, clipping/bound-only diagnostics, manifold-health gates, identity/reload
 checks, and mathematical objective audit live.
 Researcher A rebuttal is complete in `reports/amp_vla/researcher_rebuttal.md`
 with decision `AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
+The mathematical mechanism audit is frozen in
+`reports/amp_vla/mathematical_mechanism_audit.md` with decision
+`AMP_MATHEMATICAL_AUDIT_PREREGISTERED`. It forbids KL between deterministic
+actions or SmolVLA flow vectors and requires projection-vs-clipping diagnostics.
 Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_mathematical_audit_pending`.
+`epoch_4_cycle_26_amp_preregistration_pending`.
 
 ## Epoch 4 Cycle 25 Selection
 
