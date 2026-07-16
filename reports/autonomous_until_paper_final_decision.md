@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
 
 This is not a terminal decision.
 
@@ -72,11 +72,16 @@ serializer preflight artifact, worker-safety/resume contract, and Stage 0
 decision taxonomy.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
-not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI
-implementation, training, validation search, rollout, or confirmatory-test
-access has happened. The next action is to implement and validate the MCI-VLA
-Stage 0 helper, runner, focused tests, serializer preflight, and worker-safety
-checks before any Stage 0 launch.
+not repaired, rescued, relaunched, retuned, or reinterpreted. MCI Stage 0
+implementation validation is complete as
+`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`: WSL
+`py_compile` passed, focused MCI tests passed `6`, focused state/governance
+tests passed `9`, and serializer preflight hash is
+`7E7F2AFEE7A7BAC280245FA4E6F834A25E31EC240656BD81B7C44121F4C61961`.
+No MCI training, validation search, rollout, confirmatory-test access, or
+Stage 0 worker launch has happened during implementation validation. The next
+action is to launch or monitor the MCI-VLA Stage 0 worker under the frozen
+protocol without duplicating existing MCI artifacts.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `38`
 
-Current stage: `epoch_4_cycle_38_mci_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_38_mci_stage_0_launch_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -80,10 +80,15 @@ decision taxonomy.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
-allowed. No MCI implementation, training, validation search, rollout, or
-confirmatory-test access has happened. Immediate next action: implement and
-validate the MCI-VLA Stage 0 helper, runner, focused tests, serializer
-preflight, and worker-safety checks before any Stage 0 launch.
+allowed. MCI Stage 0 implementation validation is complete as
+`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`: WSL
+`py_compile` passed, focused MCI tests passed `6`, focused state/governance
+tests passed `9`, and serializer preflight hash is
+`7E7F2AFEE7A7BAC280245FA4E6F834A25E31EC240656BD81B7C44121F4C61961`.
+No MCI training, validation search, rollout, confirmatory-test access, or
+Stage 0 worker launch has happened during implementation validation.
+Immediate next action: launch or monitor the MCI-VLA Stage 0 worker under the
+frozen protocol without duplicating existing MCI artifacts.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

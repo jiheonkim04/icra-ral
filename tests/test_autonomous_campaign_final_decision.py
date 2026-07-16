@@ -33,6 +33,7 @@ DCCG_PROPOSAL_HASH = "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4
 CSPR_PROPOSAL_HASH = "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7"
 CSPR_SERIALIZER_HASH = "08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712"
 MCI_PROPOSAL_HASH = "88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A"
+MCI_SERIALIZER_HASH = "7E7F2AFEE7A7BAC280245FA4E6F834A25E31EC240656BD81B7C44121F4C61961"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
@@ -49,6 +50,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "reports/mci_vla/prototype_protocol.md" in final
     assert "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
+    assert "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING" in final
+    assert MCI_SERIALIZER_HASH in final
     assert "MCI-VLA Researcher A" in final
     assert "MCI-VLA" in final
     assert MCI_PROPOSAL_HASH in final
@@ -469,10 +472,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["current_decision"] == "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 38
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_stage_0_implementation_pending"
+    assert state["current_stage"] == "epoch_4_cycle_38_mci_stage_0_launch_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
@@ -480,9 +483,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_38_prior_mechanism_map.md"
     assert state["selection_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["next_action"] == (
-        "Implement and validate the MCI-VLA Stage 0 helper, runner, focused "
-        "tests, serializer preflight, and worker-safety checks before any "
-        "Stage 0 launch."
+        "Launch or monitor the MCI-VLA Stage 0 worker under the frozen "
+        "protocol; do not duplicate existing MCI artifacts."
     )
     assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
@@ -511,10 +513,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert state["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     assert state["prototype_protocol_frozen"] is True
-    assert state["stage_0_implementation_pending"] is True
-    assert state["stage_0_implementation_validated"] is False
+    assert state["stage_0_implementation_pending"] is False
+    assert state["stage_0_implementation_validated"] is True
+    assert state["implementation_decision"] == "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert state["stage_0_serializer_preflight_hash"] == MCI_SERIALIZER_HASH
     assert state["stage_0_pending"] is False
-    assert state["stage_0_launch_pending"] is False
+    assert state["stage_0_launch_pending"] is True
     assert state["stage_0_launched"] is False
     assert state["stage_0_completed"] is False
     assert state["stage_0_adjudicated"] is False
@@ -1152,7 +1156,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection38["prototype_protocol_frozen"] is True
     assert selection38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert selection38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert selection38["stage_0_implementation_pending"] is True
+    assert selection38["stage_0_implementation_pending"] is False
+    assert selection38["stage_0_implementation_validated"] is True
+    assert selection38["implementation_decision"] == "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
     assert selection38["first_serious_comparison_includes_closest_prior"] is True
     assert selection38["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection38["privileged_inference_inputs_allowed"] is False
@@ -1187,7 +1193,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proposal38["prototype_protocol_frozen"] is True
     assert proposal38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert proposal38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert proposal38["stage_0_implementation_pending"] is True
+    assert proposal38["stage_0_implementation_pending"] is False
+    assert proposal38["stage_0_implementation_validated"] is True
     review38 = state["epoch_4_cycle_38_mci_reviewer_attack"]
     assert review38["method"] == "MCI-VLA"
     assert review38["proposal_hash"] == MCI_PROPOSAL_HASH
@@ -1211,7 +1218,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert review38["prototype_protocol_frozen"] is True
     assert review38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert review38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert review38["stage_0_implementation_pending"] is True
+    assert review38["stage_0_implementation_pending"] is False
+    assert review38["stage_0_implementation_validated"] is True
     assert len(review38["required_conditions"]) == 10
     assert review38["policy_order"] == [
         "smolvla_base",
@@ -1249,7 +1257,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert rebuttal38["prototype_protocol_frozen"] is True
     assert rebuttal38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert rebuttal38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert rebuttal38["stage_0_implementation_pending"] is True
+    assert rebuttal38["stage_0_implementation_pending"] is False
+    assert rebuttal38["stage_0_implementation_validated"] is True
     assert rebuttal38["training_happened"] is False
     assert rebuttal38["validation_search_happened"] is False
     assert rebuttal38["closed_loop_experiment_happened"] is False
@@ -1278,7 +1287,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert audit38["prototype_protocol_frozen"] is True
     assert audit38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert audit38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert audit38["stage_0_implementation_pending"] is True
+    assert audit38["stage_0_implementation_pending"] is False
+    assert audit38["stage_0_implementation_validated"] is True
     assert audit38["training_happened"] is False
     assert audit38["validation_search_happened"] is False
     assert audit38["closed_loop_experiment_happened"] is False
@@ -1302,7 +1312,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert prereg38["prototype_protocol_frozen"] is True
     assert prereg38["prototype_protocol"] == "reports/mci_vla/prototype_protocol.md"
     assert prereg38["prototype_protocol_decision"] == "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert prereg38["stage_0_implementation_pending"] is True
+    assert prereg38["stage_0_implementation_pending"] is False
+    assert prereg38["stage_0_implementation_validated"] is True
     assert prereg38["training_happened"] is False
     assert prereg38["validation_search_happened"] is False
     assert prereg38["closed_loop_experiment_happened"] is False
@@ -1324,7 +1335,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert protocol38["manifest_completeness_required"] is True
     assert protocol38["deterministic_action_kl_allowed"] is False
     assert protocol38["first_serious_comparison_includes_closest_prior"] is True
-    assert protocol38["stage_0_implementation_pending"] is True
+    assert protocol38["stage_0_implementation_pending"] is False
+    assert protocol38["stage_0_implementation_validated"] is True
+    assert protocol38["implementation_decision"] == "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert protocol38["stage_0_serializer_preflight_hash"] == MCI_SERIALIZER_HASH
     assert protocol38["training_happened"] is False
     assert protocol38["validation_search_happened"] is False
     assert protocol38["closed_loop_experiment_happened"] is False
@@ -1350,6 +1364,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_38_mci_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_stage_0_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_stage_0_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_stage_0_implementation_validated" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_stage_0_ready" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_stage_0_launch_pending" in state["completed_stages"]
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
