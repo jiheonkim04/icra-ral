@@ -67,8 +67,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_stage_0_implementation_pending"
+    assert state["current_decision"] == "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_stage_0_launch_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -351,6 +351,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_31_s2c_prototype_protocol_pending",
         "epoch_4_cycle_31_s2c_prototype_protocol_frozen",
         "epoch_4_cycle_31_s2c_stage_0_implementation_pending",
+        "epoch_4_cycle_31_s2c_stage_0_implementation_validated",
+        "epoch_4_cycle_31_s2c_stage_0_launch_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1143,7 +1145,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert s2c["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c["proposal_hash_file"] == "reports/s2c_vla/proposal_hash.txt"
-    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_STAGE_0_IMPLEMENTATION_PENDING"
+    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_STAGE_0_LAUNCH_PENDING"
     assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
     assert s2c["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
     assert s2c["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -1268,6 +1270,23 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert s2c_protocol["validation_search_happened"] is False
     assert s2c_protocol["closed_loop_experiment_happened"] is False
     assert s2c_protocol["confirmatory_test_tuning_happened"] is False
+    assert s2c_protocol["implementation_decision"] == "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert s2c_protocol["stage_0_launch_allowed_next"] is True
+    s2c_implementation = state["epoch_4_cycle_31_s2c_stage_0_implementation"]
+    assert s2c_implementation["final_decision"] == "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert s2c_implementation["helper_module"] == "tca_map/smolvla/s2c_vla.py"
+    assert s2c_implementation["runner"] == "scripts/run_s2c_vla_stage0.py"
+    assert s2c_implementation["unit_tests"] == "tests/test_s2c_vla.py"
+    assert s2c_implementation["compile_passed"] is True
+    assert s2c_implementation["focused_test_result"] == "7 passed"
+    assert s2c_implementation["serializer_preflight"] == "reports/s2c_vla/stage_0_serializer_preflight.json"
+    assert s2c_implementation["serializer_preflight_passed"] is True
+    assert s2c_implementation["serializer_preflight_fixture_hash"] == s2c_implementation["serializer_preflight_reproduced_hash"]
+    assert s2c_implementation["stage_0_launch_allowed_next"] is True
+    assert s2c_implementation["training_happened"] is False
+    assert s2c_implementation["validation_search_happened"] is False
+    assert s2c_implementation["closed_loop_experiment_happened"] is False
+    assert s2c_implementation["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

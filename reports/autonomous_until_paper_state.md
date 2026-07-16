@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_31_s2c_stage_0_launch_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -75,8 +75,14 @@ fixes `tca_map/smolvla/s2c_vla.py`, `scripts/run_s2c_vla_stage0.py`,
 `tests/test_s2c_vla.py`, required Stage 0 artifacts, serializer preflight, and
 worker-safety checks.
 
-Current next action: implement and validate Stage 0 helper, runner, tests, and
-serializer preflight before worker-safety launch checks.
+S2C Stage 0 implementation is validated as
+`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused S2C tests reported `7 passed`, and
+`reports/s2c_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes.
+
+Current next action: run worker-safety checks and then launch frozen Stage 0
+only if no live or completed S2C worker exists.
 
 ## Epoch 4 Cycle 30 URF-VLA
 

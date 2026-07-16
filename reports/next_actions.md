@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
-Immediate next action: implement and validate S2C-VLA Stage 0 helper, runner,
-focused tests, and serializer preflight before worker-safety launch checks.
+Immediate next action: run worker-safety checks and launch frozen S2C Stage 0
+only if no live or completed S2C worker exists.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -53,6 +53,12 @@ Prototype protocol is frozen in `reports/s2c_vla/prototype_protocol.md` with
 decision `S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
 fixes helper, runner, focused tests, required Stage 0 artifacts, serializer
 preflight, and worker-safety requirements.
+
+S2C Stage 0 implementation is validated as
+`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused S2C tests reported `7 passed`, and
+`reports/s2c_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at

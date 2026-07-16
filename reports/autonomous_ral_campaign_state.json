@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 31,
-    "topic": "epoch_4_cycle_31_s2c_stage_0_implementation_pending",
+    "topic": "epoch_4_cycle_31_s2c_stage_0_launch_pending",
     "method": "S2C-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_31_s2c_stage_0_implementation_pending",
+    "current_stage": "epoch_4_cycle_31_s2c_stage_0_launch_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -640,7 +640,9 @@
         "epoch_4_cycle_31_s2c_preregistration_frozen",
         "epoch_4_cycle_31_s2c_prototype_protocol_pending",
         "epoch_4_cycle_31_s2c_prototype_protocol_frozen",
-        "epoch_4_cycle_31_s2c_stage_0_implementation_pending"
+        "epoch_4_cycle_31_s2c_stage_0_implementation_pending",
+        "epoch_4_cycle_31_s2c_stage_0_implementation_validated",
+        "epoch_4_cycle_31_s2c_stage_0_launch_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -656,7 +658,7 @@
         "Perturbation-Based Uncertainty For VLA Failure Detection"
     ],
     "prototype_gate": "URF executable prototype protocol is frozen; Stage 0 helper, runner, and focused tests must be implemented and validated before launch.",
-    "current_decision": "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+    "current_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -807,7 +809,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+    "next_action": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A Base-preserving learned overlap edit mask and tail-anchored bridge can reduce SmolVLA action-chunk boundary inconsistency while preserving unselected overlap cells and future-zone Base behavior.",
     "method_identity": "S2C-VLA",
@@ -2561,7 +2563,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_31_s2c_stage_0_implementation_pending",
+    "current_topic": "epoch_4_cycle_31_s2c_stage_0_launch_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -8629,8 +8631,8 @@
         "first_serious_comparison_includes_closest_prior": true,
         "urf_repair_allowed": false,
         "urf_rescue_allowed": false,
-        "selection_decision": "S2C_CANDIDATE_SELECTED_STAGE_0_IMPLEMENTATION_PENDING",
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+        "selection_decision": "S2C_CANDIDATE_SELECTED_STAGE_0_LAUNCH_PENDING",
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
         "proposal": "reports/s2c_vla/researcher_proposal.md",
         "proposal_hash": "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3",
         "proposal_hash_file": "reports/s2c_vla/proposal_hash.txt",
@@ -8700,7 +8702,12 @@
         "stage_0_partial": "reports/s2c_vla/stage_0_partial.json",
         "stage_0_manifest": "reports/s2c_vla/stage_0_manifest.json",
         "stage_0_action_semantics": "reports/s2c_vla/stage_0_action_semantics.json",
-        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json"
+        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "epoch_4_cycle_31_s2c_researcher_proposal": {
         "method": "S2C-VLA",
@@ -8726,7 +8733,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
         "reviewer_attack": "reports/s2c_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "accepted_novelty_boundary_required": "A Base-preserving, identity-initialized overlap edit layer for already decoded SmolVLA chunks that learns where to allow tail-anchored boundary edits while leaving unselected overlap cells and future-zone cells exactly at Base.",
@@ -8793,7 +8800,12 @@
         "stage_0_partial": "reports/s2c_vla/stage_0_partial.json",
         "stage_0_manifest": "reports/s2c_vla/stage_0_manifest.json",
         "stage_0_action_semantics": "reports/s2c_vla/stage_0_action_semantics.json",
-        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json"
+        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "reviewer_attack": "reports/s2c_vla/reviewer_attack.md",
     "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -8822,7 +8834,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
         "researcher_rebuttal": "reports/s2c_vla/researcher_rebuttal.md",
         "rebuttal_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
@@ -8874,7 +8886,12 @@
         "stage_0_partial": "reports/s2c_vla/stage_0_partial.json",
         "stage_0_manifest": "reports/s2c_vla/stage_0_manifest.json",
         "stage_0_action_semantics": "reports/s2c_vla/stage_0_action_semantics.json",
-        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json"
+        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "researcher_rebuttal": "reports/s2c_vla/researcher_rebuttal.md",
     "rebuttal_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -8917,7 +8934,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
         "conditions": [
             "ChunkFlow remains the closest prior and policy 2",
             "SEAM remains a secondary prior and optional diagnostic",
@@ -8972,7 +8989,12 @@
         "stage_0_partial": "reports/s2c_vla/stage_0_partial.json",
         "stage_0_manifest": "reports/s2c_vla/stage_0_manifest.json",
         "stage_0_action_semantics": "reports/s2c_vla/stage_0_action_semantics.json",
-        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json"
+        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
     "math_audit_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
@@ -9051,7 +9073,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
         "preregistration": "reports/s2c_vla/preregistration.md",
         "preregistration_decision": "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "stage_0_allowed_next": true,
@@ -9073,7 +9095,12 @@
         "stage_0_partial": "reports/s2c_vla/stage_0_partial.json",
         "stage_0_manifest": "reports/s2c_vla/stage_0_manifest.json",
         "stage_0_action_semantics": "reports/s2c_vla/stage_0_action_semantics.json",
-        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json"
+        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "preregistration": "reports/s2c_vla/preregistration.md",
     "preregistration_decision": "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
@@ -9121,7 +9148,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks.",
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
         "prototype_protocol": "reports/s2c_vla/prototype_protocol.md",
         "prototype_protocol_decision": "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
         "helper_module": "tca_map/smolvla/s2c_vla.py",
@@ -9131,7 +9158,12 @@
         "stage_0_partial": "reports/s2c_vla/stage_0_partial.json",
         "stage_0_manifest": "reports/s2c_vla/stage_0_manifest.json",
         "stage_0_action_semantics": "reports/s2c_vla/stage_0_action_semantics.json",
-        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json"
+        "stage_0_serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "prototype_protocol_decision": "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
     "epoch_4_cycle_31_s2c_prototype_protocol": {
@@ -9153,6 +9185,33 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks."
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution.",
+        "implementation_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "stage_0_launch_allowed_next": true,
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
+    },
+    "epoch_4_cycle_31_s2c_stage_0_implementation": {
+        "method": "S2C-VLA",
+        "final_decision": "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY",
+        "helper_module": "tca_map/smolvla/s2c_vla.py",
+        "runner": "scripts/run_s2c_vla_stage0.py",
+        "unit_tests": "tests/test_s2c_vla.py",
+        "compile_passed": true,
+        "focused_test_result": "7 passed",
+        "serializer_preflight": "reports/s2c_vla/stage_0_serializer_preflight.json",
+        "serializer_preflight_passed": true,
+        "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
+        "tensor_serialization_checked": false,
+        "stage_0_launch_allowed_next": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "simulator_load_count": 0,
+        "confirmatory_records_read": 0,
+        "next_stage": "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution."
     }
 }

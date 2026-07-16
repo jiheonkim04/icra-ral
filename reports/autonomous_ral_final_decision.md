@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 This is not a terminal state under the active governance.
 
@@ -68,8 +68,14 @@ decision `S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
 fixes helper, runner, focused tests, required Stage 0 artifacts, serializer
 preflight, and worker-safety requirements.
 
+S2C Stage 0 implementation is validated as
+`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused S2C tests reported `7 passed`, and
+`reports/s2c_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes.
+
 Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_stage_0_implementation_pending`.
+`epoch_4_cycle_31_s2c_stage_0_launch_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 
