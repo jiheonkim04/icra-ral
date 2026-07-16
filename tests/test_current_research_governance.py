@@ -59,12 +59,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 27
+    assert state["current_cycle"] == 28
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_stage_0_pending"
+    assert state["current_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert state["current_stage"] == "epoch_4_cycle_28_candidate_search_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -259,6 +259,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_stage_0_implementation_pending",
         "epoch_4_cycle_27_cfr_stage_0_runner_implemented",
         "epoch_4_cycle_27_cfr_stage_0_pending",
+        "epoch_4_cycle_27_cfr_stage_0_launched",
+        "epoch_4_cycle_27_cfr_stage_0_completed",
+        "epoch_4_cycle_27_cfr_stage_0_adjudicated",
+        "epoch_4_cycle_27_cfr_no_headroom_recorded",
+        "epoch_4_cycle_28_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -493,13 +498,78 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cfr_protocol["stage_0_result"] == "reports/cfr_vla/stage_0_result.json"
     assert cfr_protocol["runner_implemented"] is True
     assert cfr_protocol["runner_unit_tests_passed"] == 8
-    assert cfr_protocol["stage_0_pending"] is True
+    assert cfr_protocol["stage_0_pending"] is False
+    assert cfr_protocol["stage_0_completed"] is True
+    assert cfr_protocol["stage_0_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert cfr_protocol["bounded_validation_allowed"] is False
     cfr_prelaunch = state["epoch_4_cycle_27_cfr_stage_0_prelaunch"]
     assert cfr_prelaunch["final_decision"] == "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
     assert cfr_prelaunch["runner"] == "scripts/run_cfr_vla_stage0.py"
     assert cfr_prelaunch["helper_module"] == "tca_map/smolvla/cfr_vla.py"
     assert cfr_prelaunch["unit_tests_passed"] == 8
     assert cfr_prelaunch["stage_0_action_semantics"] == "reports/cfr_vla/stage_0_action_semantics.json"
+    cfr_outcome = state["epoch_4_cycle_27_cfr_stage_0_outcome"]
+    assert cfr_outcome["final_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert cfr_outcome["failure_class"] == "NO_USABLE_HEADROOM"
+    assert cfr_outcome["valid_scientific_result"] is False
+    assert cfr_outcome["scientific_kill"] is False
+    assert cfr_outcome["bounded_validation_allowed"] is False
+    assert cfr_outcome["stage_a_allowed"] is False
+    assert cfr_outcome["rerun_allowed"] is False
+    assert cfr_outcome["cfr_rescue_allowed"] is False
+    assert cfr_outcome["worker_completed"] is True
+    assert cfr_outcome["exit_code_value"] == 0
+    assert cfr_outcome["completed_model_row_count"] == 640
+    assert cfr_outcome["planned_model_row_count"] == 640
+    assert cfr_outcome["exception_count"] == 0
+    assert cfr_outcome["manifest_row_count"] == 640
+    assert cfr_outcome["partial_row_count"] == 640
+    assert cfr_outcome["duplicate_manifest_key_count"] == 0
+    assert cfr_outcome["duplicate_partial_key_count"] == 0
+    assert cfr_outcome["missing_manifest_key_count"] == 0
+    assert cfr_outcome["extra_partial_key_count"] == 0
+    assert cfr_outcome["split_overlap_key_count"] == 0
+    assert cfr_outcome["key_sets_equal"] is True
+    assert cfr_outcome["proposal_hash_ok"] is True
+    assert cfr_outcome["serializer_preflight_ok"] is True
+    assert cfr_outcome["preflight_passed"] is True
+    assert cfr_outcome["official_prior_policy_2_label"] == "dfm_vla_continuous_refinement_proxy"
+    assert cfr_outcome["official_dfm_ready"] is False
+    assert cfr_outcome["closed_loop_experiment_happened"] is False
+    assert cfr_outcome["simulator_load_count"] == 0
+    assert cfr_outcome["confirmatory_records_read"] == 0
+    assert cfr_outcome["training_happened"] is False
+    assert cfr_outcome["validation_search_happened"] is False
+    assert cfr_outcome["feature_action_proprio_finite_aligned"] is True
+    assert cfr_outcome["base_to_expert_residual_variance_all_positive"] is True
+    assert cfr_outcome["residual_probe_relative_improvement"] == -6.04941221711208
+    assert cfr_outcome["residual_probe_absolute_huber_improvement"] == -0.11968147462337628
+    assert cfr_outcome["dfm_proxy_headroom_relative_improvement"] == -6.068176722319228
+    assert cfr_outcome["dfm_proxy_headroom_absolute_huber_improvement"] == -0.11975307303185317
+    assert cfr_outcome["cfr_prediction_huber"] == 0.141970899740119
+    assert cfr_outcome["dfm_proxy_huber"] == 0.022217826708265838
+    assert cfr_outcome["no_iterative_prediction_huber"] == 0.14195415377508339
+    assert cfr_outcome["iterative_cfr_distinct_from_no_iterative"] is True
+    assert cfr_outcome["action_validity_ok"] is True
+    assert cfr_outcome["base_action_valid_under_official_semantics"] is True
+    assert cfr_outcome["identity_max_abs_error"] == 0.0
+    assert cfr_outcome["checkpoint_reload_ok"] is True
+    assert cfr_outcome["finite_objectives_and_gradients"] is True
+    assert cfr_outcome["cfr_gradient_nonzero"] is True
+    assert cfr_outcome["frozen_parameter_gradient_count"] == 0
+    assert cfr_outcome["resource_contention_interval_count"] == 3
+    assert cfr_outcome["resource_overlap_interval_ids"] == []
+    assert cfr_outcome["resource_unresolved_interval_ids"] == []
+    assert cfr_outcome["timing_throughput_resource_evidence_eligible_for_paper"] is False
+    cycle28 = state["epoch_4_cycle_28_candidate_search"]
+    assert cycle28["candidate_search_pending"] is True
+    assert cycle28["candidate_count_required"] == 3
+    assert cycle28["candidate_count_generated"] == 0
+    assert cycle28["previous_method"] == "CFR-VLA"
+    assert cycle28["previous_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert cycle28["cfr_repair_allowed"] is False
+    assert cycle28["cfr_rescue_allowed"] is False
+    assert cycle28["selection_decision"] == "EPOCH_4_CYCLE_28_CANDIDATE_SEARCH_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

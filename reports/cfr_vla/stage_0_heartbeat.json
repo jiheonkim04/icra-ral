@@ -1,0 +1,14 @@
+{
+  "completed_model_row_count": 640,
+  "exception_count": 0,
+  "final_decision": "CFR_STAGE_0_NO_USABLE_HEADROOM",
+  "method": "CFR-VLA",
+  "phase": "complete",
+  "pid": 310,
+  "planned_model_row_count": 640,
+  "proposal_hash": "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE",
+  "stage": "0",
+  "started_at": "2026-07-16T03:01:01.638981+00:00",
+  "status": "completed",
+  "updated_at": "2026-07-16T03:07:52.539381+00:00"
+}

@@ -72,7 +72,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Epoch 4 Cycle 7 generated exactly three post-MTF candidates" in final
     assert "DAGR-VLA" in final
     assert "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89" in final
-    assert "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH" in final
+    assert "CFR_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH" in final
     assert "dagr_a020_route_mlp" in final
@@ -248,10 +248,12 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_27_cfr_stage_0_pending" in final
+    assert "epoch_4_cycle_28_candidate_search_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
+    assert "-6.04941221711208" in final
+    assert "-6.068176722319228" in final
     assert "optimusvla_memory_prior_proxy" in final
     assert RAP_PROPOSAL_HASH in final
     assert "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
@@ -277,10 +279,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
+    assert state["current_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 27
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_stage_0_pending"
+    assert state["current_cycle"] == 28
+    assert state["current_stage"] == "epoch_4_cycle_28_candidate_search_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -298,7 +300,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules."
+        == "Generate exactly three Epoch 4 Cycle 28 candidates; do not repair or rescue CFR-VLA."
     )
     assert state["prototype_protocol"] == "reports/cfr_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -495,13 +497,59 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cfr_protocol["stage_0_result"] == "reports/cfr_vla/stage_0_result.json"
     assert cfr_protocol["runner_implemented"] is True
     assert cfr_protocol["runner_unit_tests_passed"] == 8
-    assert cfr_protocol["stage_0_pending"] is True
+    assert cfr_protocol["stage_0_pending"] is False
+    assert cfr_protocol["stage_0_completed"] is True
+    assert cfr_protocol["stage_0_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert cfr_protocol["bounded_validation_allowed"] is False
     cfr_prelaunch = state["epoch_4_cycle_27_cfr_stage_0_prelaunch"]
     assert cfr_prelaunch["final_decision"] == "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
     assert cfr_prelaunch["runner"] == "scripts/run_cfr_vla_stage0.py"
     assert cfr_prelaunch["helper_module"] == "tca_map/smolvla/cfr_vla.py"
     assert cfr_prelaunch["unit_tests_passed"] == 8
     assert cfr_prelaunch["stage_0_action_semantics"] == "reports/cfr_vla/stage_0_action_semantics.json"
+    cfr_outcome = state["epoch_4_cycle_27_cfr_stage_0_outcome"]
+    assert cfr_outcome["final_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert cfr_outcome["failure_class"] == "NO_USABLE_HEADROOM"
+    assert cfr_outcome["valid_scientific_result"] is False
+    assert cfr_outcome["scientific_kill"] is False
+    assert cfr_outcome["bounded_validation_allowed"] is False
+    assert cfr_outcome["stage_a_allowed"] is False
+    assert cfr_outcome["rerun_allowed"] is False
+    assert cfr_outcome["cfr_rescue_allowed"] is False
+    assert cfr_outcome["worker_completed"] is True
+    assert cfr_outcome["exit_code_value"] == 0
+    assert cfr_outcome["completed_model_row_count"] == 640
+    assert cfr_outcome["planned_model_row_count"] == 640
+    assert cfr_outcome["exception_count"] == 0
+    assert cfr_outcome["duplicate_manifest_key_count"] == 0
+    assert cfr_outcome["duplicate_partial_key_count"] == 0
+    assert cfr_outcome["missing_manifest_key_count"] == 0
+    assert cfr_outcome["extra_partial_key_count"] == 0
+    assert cfr_outcome["split_overlap_key_count"] == 0
+    assert cfr_outcome["key_sets_equal"] is True
+    assert cfr_outcome["official_prior_policy_2_label"] == "dfm_vla_continuous_refinement_proxy"
+    assert cfr_outcome["closed_loop_experiment_happened"] is False
+    assert cfr_outcome["simulator_load_count"] == 0
+    assert cfr_outcome["confirmatory_records_read"] == 0
+    assert cfr_outcome["training_happened"] is False
+    assert cfr_outcome["validation_search_happened"] is False
+    assert cfr_outcome["residual_probe_relative_improvement"] == -6.04941221711208
+    assert cfr_outcome["dfm_proxy_headroom_relative_improvement"] == -6.068176722319228
+    assert cfr_outcome["action_validity_ok"] is True
+    assert cfr_outcome["base_action_valid_under_official_semantics"] is True
+    assert cfr_outcome["checkpoint_reload_ok"] is True
+    assert cfr_outcome["finite_objectives_and_gradients"] is True
+    assert cfr_outcome["cfr_gradient_nonzero"] is True
+    assert cfr_outcome["timing_throughput_resource_evidence_eligible_for_paper"] is False
+    cycle28 = state["epoch_4_cycle_28_candidate_search"]
+    assert cycle28["candidate_search_pending"] is True
+    assert cycle28["candidate_count_required"] == 3
+    assert cycle28["candidate_count_generated"] == 0
+    assert cycle28["previous_method"] == "CFR-VLA"
+    assert cycle28["previous_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert cycle28["cfr_repair_allowed"] is False
+    assert cycle28["cfr_rescue_allowed"] is False
+    assert cycle28["selection_decision"] == "EPOCH_4_CYCLE_28_CANDIDATE_SEARCH_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

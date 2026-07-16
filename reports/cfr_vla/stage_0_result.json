@@ -1,0 +1,527 @@
+{
+  "action_normalization": {
+    "mean": [
+      0.06278156489133835,
+      0.08684080839157104,
+      -0.09037306159734726,
+      0.0005407430580817163,
+      0.005643379874527454,
+      -0.0052290987223386765,
+      -0.0496407225728035
+    ],
+    "mode": "MEAN_STD",
+    "processor_step": "UnnormalizerProcessorStep",
+    "std": [
+      0.33552372455596924,
+      0.3784469962120056,
+      0.4447286128997803,
+      0.03924354165792465,
+      0.06339296698570251,
+      0.07797027379274368,
+      0.9987671375274658
+    ]
+  },
+  "action_semantics": {
+    "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+    "environment_action_shape": [
+      7
+    ],
+    "environment_action_space_high": null,
+    "environment_action_space_low": null,
+    "environment_action_space_low_high_exposed": false,
+    "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy",
+    "finite_checks_required": true,
+    "gripper_convention": "LIBERO/SmolVLA checkpoint action dimension 6 after postprocessor",
+    "method": "CFR-VLA",
+    "model_native_action_shape": [
+      50,
+      7
+    ],
+    "postprocessor_action_mean_shape": [
+      7
+    ],
+    "postprocessor_action_std_shape": [
+      7
+    ],
+    "postprocessor_mode": "MEAN_STD",
+    "postprocessor_step": "UnnormalizerProcessorStep",
+    "same_definition_applies_to_policies": [
+      "smolvla_base",
+      "dfm_vla_continuous_refinement_proxy",
+      "cfr_full",
+      "cfr_no_iterative_refinement",
+      "standard_lora"
+    ],
+    "stage": "0",
+    "written_at": "2026-07-16T03:07:30.325476+00:00"
+  },
+  "adapter_training_happened": false,
+  "bounded_validation_allowed": false,
+  "closed_loop_experiment_happened": false,
+  "completed_at": "2026-07-16T03:07:52.463224+00:00",
+  "completed_model_row_count": 640,
+  "confirmatory_records_read": 0,
+  "confirmatory_test_tuning_happened": false,
+  "data_audit": {
+    "all_tasks_reported": true,
+    "base_to_expert_residual_huber": 0.02111801311762386,
+    "base_to_expert_residual_variance_all_positive": true,
+    "base_to_expert_residual_variance_by_action_dim": [
+      0.029636781315056097,
+      0.02419193485711261,
+      0.0565326502365159,
+      0.0007241300101700438,
+      0.0026183858953820653,
+      0.000831075372313404,
+      0.22806466090406188
+    ],
+    "cfr_dfm_delta_norm_mean": 10.420555732831495,
+    "cfr_prediction_huber": 0.141970899740119,
+    "counts": {
+      "discovery": 512,
+      "validation": 128
+    },
+    "demo_action_validity_ok": true,
+    "dfm_headroom_absolute_huber_gate": 0.005,
+    "dfm_headroom_relative_gate": 0.05,
+    "dfm_proxy_headroom_absolute_huber_improvement": -0.11975307303185317,
+    "dfm_proxy_headroom_relative_improvement": -6.068176722319228,
+    "dfm_proxy_huber": 0.022217826708265838,
+    "feature_action_proprio_finite_aligned": true,
+    "iterative_cfr_distinct_from_no_iterative": true,
+    "iterative_cfr_no_iter_delta_norm_mean": 0.0012605338975995787,
+    "manifest_audit": {
+      "duplicate_manifest_key_count": 0,
+      "duplicate_partial_key_count": 0,
+      "extra_partial_key_count": 0,
+      "key_sets_equal": true,
+      "manifest_row_count": 640,
+      "missing_manifest_key_count": 0,
+      "partial_row_count": 640,
+      "split_overlap_key_count": 0
+    },
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 512,
+    "minimum_validation_windows": 128,
+    "model_audit": {
+      "base_to_expert_residual_huber": 0.02111801311762386,
+      "base_to_expert_residual_variance_all_positive": true,
+      "base_to_expert_residual_variance_by_action_dim": [
+        0.029636781315056097,
+        0.02419193485711261,
+        0.0565326502365159,
+        0.0007241300101700438,
+        0.0026183858953820653,
+        0.000831075372313404,
+        0.22806466090406188
+      ],
+      "cfr_dfm_delta_norm_mean": 10.420555732831495,
+      "cfr_prediction_huber": 0.141970899740119,
+      "dfm_bins": 16,
+      "dfm_proxy_headroom": {
+        "absolute_huber_improvement": -0.11975307303185317,
+        "baseline_huber": 0.022217826708265838,
+        "baseline_mse": 0.051827682540904356,
+        "prediction_huber": 0.141970899740119,
+        "prediction_mse": 0.36632721930737083,
+        "relative_mse_improvement": -6.068176722319228
+      },
+      "dfm_proxy_huber": 0.022217826708265838,
+      "discovery_row_count": 512,
+      "iterative_cfr_distinct_from_no_iterative": true,
+      "iterative_cfr_no_iter_delta_norm_mean": 0.0012605338975995787,
+      "minimum_discovery_row_count": 512,
+      "minimum_validation_row_count": 128,
+      "model_hash": "4CF1BCA3093BF34A05CF0489F2F114E545F8BBA80F91479B58E8BF958472F504",
+      "no_iterative_ablation": {
+        "absolute_huber_improvement": -1.6745965035619426e-05,
+        "baseline_huber": 0.14195415377508339,
+        "baseline_mse": 0.3662721661112944,
+        "prediction_huber": 0.141970899740119,
+        "prediction_mse": 0.36632721930737083,
+        "relative_mse_improvement": -0.00015030679688538408
+      },
+      "no_iterative_prediction_huber": 0.14195415377508339,
+      "refinement_steps": 3,
+      "residual_probe": {
+        "absolute_huber_improvement": -0.11968147462337628,
+        "baseline_huber": 0.02228942511674272,
+        "baseline_mse": 0.05196564025836518,
+        "prediction_huber": 0.141970899740119,
+        "prediction_mse": 0.36632721930737083,
+        "relative_mse_improvement": -6.04941221711208
+      },
+      "task_phase_baseline": {
+        "absolute_huber_improvement": -0.0011714119991188612,
+        "baseline_huber": 0.02111801311762386,
+        "baseline_mse": 0.050523349711033956,
+        "prediction_huber": 0.02228942511674272,
+        "prediction_mse": 0.05196564025836518,
+        "relative_mse_improvement": -0.028547009562515893
+      },
+      "validation_row_count": 128
+    },
+    "no_iterative_prediction_huber": 0.14195415377508339,
+    "residual_absolute_huber_gate": 0.005,
+    "residual_probe_absolute_huber_improvement": -0.11968147462337628,
+    "residual_probe_relative_improvement": -6.04941221711208,
+    "residual_relative_gate": 0.05,
+    "validation_task_counts": {
+      "libero_10/task_5": 32,
+      "libero_goal/task_5": 32,
+      "libero_object/task_3": 32,
+      "libero_spatial/task_3": 32
+    },
+    "validation_task_fractions": {
+      "libero_10/task_5": 0.25,
+      "libero_goal/task_5": 0.25,
+      "libero_object/task_3": 0.25,
+      "libero_spatial/task_3": 0.25
+    }
+  },
+  "decision_inputs": {
+    "action_validity_ok": true,
+    "all_tasks_reported": true,
+    "base_hash_unchanged": true,
+    "base_to_expert_residual_variance_all_positive": true,
+    "cfr_gradient_nonzero": true,
+    "checkpoint_reload_ok": true,
+    "confirmatory_records_read": 0,
+    "dfm_proxy_headroom_absolute_huber_improvement": -0.11975307303185317,
+    "dfm_proxy_headroom_relative_improvement": -6.068176722319228,
+    "done_read_count": 0,
+    "exception_count": 0,
+    "feature_action_proprio_finite_aligned": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_parameter_gradient_count": 0,
+    "gradient_ratio_at_most_100": true,
+    "identity_max_error": 0.0,
+    "iterative_cfr_distinct_from_no_iterative": true,
+    "manifest_integrity_ok": true,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 512,
+    "minimum_validation_windows": 128,
+    "official_prior_asset_check_persisted": true,
+    "proposal_hash_ok": true,
+    "residual_probe_absolute_huber_improvement": -0.11968147462337628,
+    "residual_probe_relative_improvement": -6.04941221711208,
+    "reward_read_count": 0,
+    "serializer_preflight_ok": true,
+    "source_alignment_ok": true,
+    "success_read_count": 0
+  },
+  "done_read_count": 0,
+  "elapsed_seconds_not_paper_evidence": 408.0109317302704,
+  "exception_count": 0,
+  "final_decision": "CFR_STAGE_0_NO_USABLE_HEADROOM",
+  "gradient": {
+    "L_cfr_target": 0.7942742109298706,
+    "L_clean": 0.070277139544487,
+    "L_flow": 0.1250530332326889,
+    "cfr_gradient_finite_fraction": 1.0,
+    "cfr_gradient_nonzero": true,
+    "cfr_gradient_norm": 0.16623518552422056,
+    "cfr_loss": 0.9263549447059631,
+    "cfr_to_flow_gradient_ratio": 0.8014772463405999,
+    "finite_objectives_and_gradients": true,
+    "flow_gradient_finite_fraction": 1.0,
+    "flow_gradient_norm": 0.20741098550610182,
+    "flow_loss": 0.1250530332326889,
+    "flow_time": 0.5,
+    "frozen_parameter_gradient_count": 0,
+    "frozen_parameter_gradient_names": [],
+    "gradient_cosine": 0.6546205834891796,
+    "gradient_row_key": "validation|libero_10|libero_10/task_5|AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802|8|0|3|cfr_full|cfr_stage0_continuous_full_chunk_refinement",
+    "trainable_numel": 185664,
+    "trainable_parameter_count": 74,
+    "trainable_parameter_names": [
+      "base_model.model.model.action_in_proj.lora_A.default.weight",
+      "base_model.model.model.action_in_proj.lora_B.default.weight",
+      "base_model.model.model.action_out_proj.lora_A.default.weight",
+      "base_model.model.model.action_out_proj.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_B.default.weight",
+      "base_model.model.model.state_proj.lora_A.default.weight",
+      "base_model.model.model.state_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_B.default.weight"
+    ]
+  },
+  "identity": {
+    "activation_context": "validation|libero_10|libero_10/task_5|AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802|8|0|3|cfr_full|cfr_stage0_continuous_full_chunk_refinement",
+    "adapter_checkpoint": "/mnt/c/Users/jiheo/tca_map/runs/cfr_vla/stage0/identity_adapter",
+    "adapter_files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_model.safetensors"
+    ],
+    "base_action": [
+      [
+        0.046936847269535065,
+        -0.23239529132843018,
+        0.025791101157665253,
+        -0.003341174218803644,
+        0.021411921828985214,
+        -0.005228493362665176,
+        -1.0204758644104004
+      ],
+      [
+        0.03844868764281273,
+        -0.255643755197525,
+        0.04420763999223709,
+        -0.001665465533733368,
+        0.016785817220807076,
+        -0.006274252664297819,
+        -1.020656943321228
+      ],
+      [
+        0.021972298622131348,
+        -0.30051565170288086,
+        0.0495869442820549,
+        -0.0012480826117098331,
+        0.02177559956908226,
+        -0.01085707824677229,
+        -1.0115050077438354
+      ]
+    ],
+    "base_action_finite": true,
+    "base_action_shape": [
+      50,
+      7
+    ],
+    "base_action_valid_under_official_semantics": true,
+    "base_flow_shape": [
+      1,
+      50,
+      32
+    ],
+    "base_hash_unchanged": true,
+    "base_native_shape": [
+      1,
+      50,
+      7
+    ],
+    "base_parameter_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "base_parameter_hash_before": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "cfr_gate_value": 1.0,
+    "cfr_residual_norm": 12.970264488432417,
+    "changed_dimensions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "checkpoint_reload_ok": true,
+    "dfm_proxy_action_diagnostic": [
+      [
+        0.01527994113145296,
+        -0.20823286218630088,
+        0.0060412481312568465,
+        0.0023886730076366517,
+        0.02673751278074233,
+        -0.00426709126619684,
+        -1.0181238825504597
+      ],
+      [
+        0.025877736734819953,
+        -0.23394404284901665,
+        0.0025156043781029026,
+        -0.00018105681784512108,
+        0.029273604723942147,
+        0.0017947787668269393,
+        -1.010463413825402
+      ],
+      [
+        0.006747066514505138,
+        -0.28637711085460993,
+        0.017800072316940013,
+        0.0022547855211145548,
+        0.02451712263015273,
+        0.002775378204390895,
+        -1.005708574331724
+      ]
+    ],
+    "gripper_delta_norm": 10.780191209448347,
+    "identity_max_abs_error": 0.0,
+    "initialized_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "ours_action_diagnostic": [
+      [
+        0.7703600065680154,
+        -0.5460599070050107,
+        0.7048972468731575,
+        0.061374078760597445,
+        0.022016691367677334,
+        0.0031299334472066308,
+        -0.7929695776849705
+      ],
+      [
+        0.7825085091271583,
+        -0.41638618455326126,
+        0.4607505619207181,
+        0.03178118235186633,
+        0.006339489589096692,
+        -0.011148526500804529,
+        -2.3284529905462
+      ],
+      [
+        0.7532296020079317,
+        -0.42812042665890065,
+        0.37424453036524924,
+        0.02887836070274557,
+        -0.030660810269429482,
+        -0.04255059237400113,
+        -1.7238714707761238
+      ]
+    ],
+    "projection_delta_norm": 12.970264488432417,
+    "rank": 4,
+    "reload_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "rotation_delta_norm": 1.2169752269651568,
+    "training_only_cfr_absent_from_policy_parameters": true,
+    "translation_delta_norm": 7.1087417792867305
+  },
+  "manifest_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 640,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 640,
+    "split_overlap_key_count": 0
+  },
+  "manifest_hash": "0CBA48473DDF5DB010B7A2FDA5ECD445D66A1D21417833765781D67AAE5002DF",
+  "method": "CFR-VLA",
+  "model_hash": "4CF1BCA3093BF34A05CF0489F2F114E545F8BBA80F91479B58E8BF958472F504",
+  "official_prior_asset_check": {
+    "checked_at": "2026-07-16T03:01:04.680188+00:00",
+    "closest_prior": "DFM-VLA",
+    "deviations": [
+      "official DFM-VLA repository/checkpoint/inference assets are not all locally verified",
+      "Stage 0 fixes policy 2 as a transparent iterative full-sequence refinement proxy until official assets are installed"
+    ],
+    "method": "CFR-VLA",
+    "observed_paths": {
+      "asset_repository": "/mnt/c/assets/DFM-VLA",
+      "checkpoint_dir": "/mnt/c/assets/checkpoints/dfm_vla",
+      "inference_code": "/mnt/c/assets/dfm_vla/inference",
+      "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/DFM-VLA",
+      "training_code": "/mnt/c/assets/dfm_vla/training"
+    },
+    "official_ready": false,
+    "path_exists": {
+      "asset_repository": false,
+      "checkpoint_dir": false,
+      "inference_code": false,
+      "official_repository": false,
+      "training_code": false
+    },
+    "policy_2_label": "dfm_vla_continuous_refinement_proxy"
+  },
+  "optimizer_step_count": 0,
+  "partial_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 640,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 640,
+    "split_overlap_key_count": 0
+  },
+  "planned_model_row_count": 640,
+  "proposal_hash": "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE",
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 3,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "resumed_model_row_count": 0,
+  "reward_read_count": 0,
+  "scientific_kill": false,
+  "simulator_load_count": 0,
+  "stage": "0",
+  "success_read_count": 0,
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "valid_scientific_result": false,
+  "validation_search_happened": false,
+  "worker_pid": 310
+}

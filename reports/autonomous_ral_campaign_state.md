@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
+`CFR_STAGE_0_NO_USABLE_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `27`
+Current cycle: `28`
 
-Current stage: `epoch_4_cycle_27_cfr_stage_0_pending`
+Current stage: `epoch_4_cycle_28_candidate_search_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -91,6 +91,20 @@ validation search, rollout, simulator access, or confirmatory-test tuning has
 happened. Next action: check existing CFR Stage 0 PID/status/heartbeat,
 partial/result/log/exit-code artifacts, then launch, monitor, resume, or
 adjudicate strictly according to the frozen worker/resume rules.
+
+CFR Stage 0 completed from Linux worker PID `310` with exit code `0`.
+The fixed protocol produced `640 / 640` rows, exception count `0`, duplicate
+manifest keys `0`, duplicate partial keys `0`, missing manifest keys `0`, extra
+partial keys `0`, split overlap keys `0`, and key sets equal `true`.
+The final decision is `CFR_STAGE_0_NO_USABLE_HEADROOM`: CFR residual-probe
+relative/absolute Huber gain was `-6.04941221711208 / -0.11968147462337628`;
+CFR-minus-DFM-proxy headroom was
+`-6.068176722319228 / -0.11975307303185317`. The result is a development-only
+no-headroom stop, not a closed-loop scientific kill. Bounded validation,
+Stage A, rescue, and threshold/method changes are disallowed.
+
+Next action: generate exactly three Epoch 4 Cycle 28 candidates; do not repair
+or rescue CFR-VLA.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

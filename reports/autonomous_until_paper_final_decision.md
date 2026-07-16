@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
+`CFR_STAGE_0_NO_USABLE_HEADROOM`
 
 This is not a terminal decision.
 
@@ -67,8 +67,16 @@ helper module `tca_map/smolvla/cfr_vla.py`; focused CFR tests pass (`8` tests).
 No CFR training, validation search, rollout, simulator access, or
 confirmatory-test tuning has happened.
 
-Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_stage_0_pending`.
+CFR Stage 0 completed from Linux worker PID `310` with exit code `0`, `640 /
+640` rows, exception count `0`, duplicate/missing/extra/split-overlap counts
+all `0`, and key sets equal `true`. The final decision is
+`CFR_STAGE_0_NO_USABLE_HEADROOM`, driven by negative residual-probe gain
+(`-6.04941221711208 / -0.11968147462337628`) and negative CFR-minus-DFM
+headroom (`-6.068176722319228 / -0.11975307303185317`). This is a
+development-only no-headroom stop, not a closed-loop scientific kill.
+
+Current cycle: `28`. Current stage:
+`epoch_4_cycle_28_candidate_search_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 
