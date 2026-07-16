@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
+`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
-Immediate next action: write the DCCG-VLA preregistration and prototype
-protocol before implementation, validation search, rollout, or
-confirmatory-test access.
+Immediate next action: implement and validate the DCCG-VLA Stage 0 helper,
+runner, serializer preflight, and focused tests before any Stage 0 launch,
+validation search, rollout, or confirmatory-test access.
 
 DCCG-VLA was selected from exactly three Cycle 36 candidates in
 `reports/epoch_4_cycle_36_candidate_generation.md`. ACG is the closest prior
@@ -29,6 +29,12 @@ Researcher A rebuttal is complete in
 The mathematical mechanism audit is frozen in
 `reports/dccg_vla/mathematical_mechanism_audit.md` with decision
 `DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+The preregistration is frozen in `reports/dccg_vla/preregistration.md` with
+decision `DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The
+executable prototype protocol is frozen in
+`reports/dccg_vla/prototype_protocol.md` with decision
+`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
 
 MHS-VLA remains closed under its frozen Stage 0 protocol as a
 development-only DATA_OR_SUPERVISION_FAILURE. Do not rescue MHS by changing

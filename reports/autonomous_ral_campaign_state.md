@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
+`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_preregistration_pending`
+Current stage: `epoch_4_cycle_36_dccg_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
@@ -62,9 +62,15 @@ The mathematical mechanism audit is frozen in
 `reports/dccg_vla/mathematical_mechanism_audit.md` with decision
 `DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Immediate next action: write the DCCG-VLA preregistration and prototype
-protocol before implementation, validation search, rollout, or
-confirmatory-test access.
+The preregistration is frozen in `reports/dccg_vla/preregistration.md` with
+decision `DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The
+executable prototype protocol is frozen in
+`reports/dccg_vla/prototype_protocol.md` with decision
+`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
+
+Immediate next action: implement and validate the DCCG-VLA Stage 0 helper,
+runner, serializer preflight, and focused tests before any Stage 0 launch,
+validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

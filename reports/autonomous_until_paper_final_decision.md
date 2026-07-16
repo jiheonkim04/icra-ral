@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
+`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -31,9 +31,10 @@ rebuttal is complete in `reports/dccg_vla/researcher_rebuttal.md` with
 decision `DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical
 mechanism audit is frozen in
 `reports/dccg_vla/mathematical_mechanism_audit.md` with decision
-`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`; the next action is preregistration
-and prototype protocol before any implementation, validation search, rollout,
-or confirmatory access.
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`. The preregistration and prototype
+protocol are frozen in `reports/dccg_vla/preregistration.md` and
+`reports/dccg_vla/prototype_protocol.md`; the next action is Stage 0
+implementation before any validation search, rollout, or confirmatory access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

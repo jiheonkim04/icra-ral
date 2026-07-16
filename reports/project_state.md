@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
+`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_preregistration_pending`
+Current stage: `epoch_4_cycle_36_dccg_stage_0_implementation_pending`
 
 Cycle 36 generated exactly three candidates and selected `DCCG-VLA` at
 `92 / 100`. The closest prior is ACG; the first serious comparison is
@@ -36,9 +36,12 @@ The mathematical mechanism audit is frozen in
 `reports/dccg_vla/mathematical_mechanism_audit.md` with decision
 `DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Next action: write the preregistration and prototype protocol. No DCCG
-implementation, training, validation search, rollout, or confirmatory-test
-access has happened.
+The preregistration is frozen in `reports/dccg_vla/preregistration.md` and the
+executable prototype protocol is frozen in
+`reports/dccg_vla/prototype_protocol.md`.
+
+Next action: implement and validate Stage 0. No DCCG implementation, training,
+validation search, rollout, or confirmatory-test access has happened.
 
 ## 2026-07-16 Epoch 4 Cycle 35 Prior State
 
