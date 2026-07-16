@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -34,7 +34,7 @@ The first serious comparison is `smolvla_base`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
 Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_reviewer_attack_pending`.
+`epoch_4_cycle_34_brid_rebuttal_pending`.
 
 The BRID-VLA Researcher A proposal is frozen in
 `reports/brid_vla/researcher_proposal.md` with SHA-256
@@ -45,7 +45,14 @@ No BRID implementation, training, validation search, rollout, or
 confirmatory-test access has happened. AFID remains closed unchanged as
 `AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`.
 
-Immediate next action: Reviewer B attack on the frozen BRID-VLA proposal.
+Reviewer B attack is complete in `reports/brid_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
+Diffusion Policy as the closest prior and policy 2, narrows novelty to
+Base-residual diffusion with exact zero-residual identity integration, and
+requires raw diffusion proxy, no-Base-residual ablation, standard LoRA,
+residual/score noncollapse, clean retention, and no deterministic-action KL.
+
+Immediate next action: Researcher A rebuttal.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 

@@ -70,18 +70,18 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_34_brid_reviewer_attack_pending"
+    assert state["current_decision"] == "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_34_brid_rebuttal_pending"
     assert state["method"] == "BRID-VLA"
     assert state["method_identity"] == "BRID-VLA"
-    assert state["next_action"] == "Run Reviewer B attack on the frozen BRID-VLA Researcher A proposal."
+    assert state["next_action"] == "Write the BRID-VLA Researcher A rebuttal before mathematical audit."
     assert state["proposal_hash"] == BRID_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/brid_vla/researcher_proposal.md"
     assert state["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
-    assert state["reviewer_decision"] == "BRID_REVIEWER_ATTACK_PENDING"
-    assert state["researcher_rebuttal"] is None
-    assert state["rebuttal_decision"] is None
+    assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
+    assert state["rebuttal_decision"] == "BRID_REBUTTAL_PENDING"
     assert state["mathematical_audit"] is None
     assert state["math_audit_decision"] is None
     assert state["preregistration"] is None
@@ -1824,6 +1824,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection34["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
     assert selection34["proposal_hash"] == BRID_PROPOSAL_HASH
     assert selection34["proposal_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert selection34["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
+    assert selection34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert selection34["rebuttal_pending"] is True
     assert selection34["policy_order"] == [
         "smolvla_base",
         "diffusion_policy_action_chunk_proxy",
@@ -1839,8 +1842,16 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert proposal34["proposal"] == "reports/brid_vla/researcher_proposal.md"
     assert proposal34["proposal_hash"] == BRID_PROPOSAL_HASH
     assert proposal34["closest_prior"] == "Diffusion Policy"
-    assert proposal34["reviewer_attack_pending"] is True
+    assert proposal34["reviewer_attack_pending"] is False
+    assert proposal34["reviewer_attack_completed"] is True
+    assert proposal34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert proposal34["researcher_proposal_frozen"] is True
+    review34 = state["epoch_4_cycle_34_brid_reviewer_attack"]
+    assert review34["final_decision"] == "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
+    assert review34["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
+    assert review34["proposal_hash"] == BRID_PROPOSAL_HASH
+    assert review34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert review34["researcher_rebuttal_pending"] is True
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
@@ -1855,6 +1866,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_34_brid_researcher_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_researcher_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_reviewer_attack_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_rebuttal_pending" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

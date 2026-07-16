@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 34,
-    "current_topic": "epoch_4_cycle_34_brid_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_34_brid_rebuttal_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "6a840a2",
+    "current_commit": "3aeac5f",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_34_brid_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_34_brid_rebuttal_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -682,7 +682,9 @@
         "epoch_4_cycle_34_brid_candidate_selected",
         "epoch_4_cycle_34_brid_researcher_proposal_pending",
         "epoch_4_cycle_34_brid_researcher_proposal_frozen",
-        "epoch_4_cycle_34_brid_reviewer_attack_pending"
+        "epoch_4_cycle_34_brid_reviewer_attack_pending",
+        "epoch_4_cycle_34_brid_reviewer_attack_completed",
+        "epoch_4_cycle_34_brid_rebuttal_pending"
     ],
     "active_hypothesis": "A Base-conditioned residual diffusion score field can learn bounded useful corrections around frozen SmolVLA action chunks while preserving exact Base behavior by default.",
     "method_identity": "BRID-VLA",
@@ -701,7 +703,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -810,7 +812,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Run Reviewer B attack on the frozen BRID-VLA Researcher A proposal.",
+    "next_action": "Write the BRID-VLA Researcher A rebuttal before mathematical audit.",
     "method": "BRID-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -8934,7 +8936,7 @@
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
-    "reviewer_decision": "BRID_REVIEWER_ATTACK_PENDING",
+    "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "epoch_4_cycle_31_s2c_reviewer_attack": {
         "method": "S2C-VLA",
         "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -9019,8 +9021,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "researcher_rebuttal": null,
-    "rebuttal_decision": null,
+    "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
+    "rebuttal_decision": "BRID_REBUTTAL_PENDING",
     "epoch_4_cycle_31_s2c_rebuttal": {
         "method": "S2C-VLA",
         "final_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -10593,14 +10595,18 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "researcher_proposal_pending": false,
-        "next_stage": "Reviewer B attack on the frozen BRID-VLA Researcher A proposal.",
+        "next_stage": "Researcher A rebuttal accepting or rejecting Reviewer B conditions before mathematical audit.",
         "proposal": "reports/brid_vla/researcher_proposal.md",
         "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
         "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
         "proposal_decision": "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true,
-        "researcher_proposal_frozen": true
+        "reviewer_attack_pending": false,
+        "researcher_proposal_frozen": true,
+        "reviewer_attack_completed": true,
+        "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "rebuttal_pending": true
     },
     "epoch_4_cycle_34_brid_researcher_proposal": {
         "method": "BRID-VLA",
@@ -10631,7 +10637,7 @@
         "confirmatory_test_tuning_happened": false,
         "afid_repair_allowed": false,
         "afid_rescue_allowed": false,
-        "reviewer_attack_pending": true,
+        "reviewer_attack_pending": false,
         "reviewer_conditions_for_attack": [
             "Diffusion Policy remains the closest prior and policy 2",
             "The raw action-chunk diffusion baseline is a transparent local proxy unless official Diffusion Policy assets are installed and verified under the same scaffold",
@@ -10642,8 +10648,55 @@
             "No deterministic-action KL is allowed",
             "AFID and all previous methods remain closed"
         ],
-        "next_stage": "Reviewer B attack on BRID novelty, Diffusion Policy prior boundary, residual data viability, objective scale, identity preservation, and decisive experiment feasibility.",
+        "next_stage": "Researcher A rebuttal accepting or rejecting Reviewer B conditions before mathematical audit.",
         "researcher_proposal_pending": false,
-        "researcher_proposal_frozen": true
+        "researcher_proposal_frozen": true,
+        "reviewer_attack_completed": true,
+        "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal_pending": true
+    },
+    "epoch_4_cycle_34_brid_reviewer_attack": {
+        "method": "BRID-VLA",
+        "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
+        "proposal": "reports/brid_vla/researcher_proposal.md",
+        "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
+        "final_decision": "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "closest_prior": "Diffusion Policy",
+        "closest_prior_primary_sources": [
+            "https://diffusion-policy.cs.columbia.edu/",
+            "https://github.com/real-stanford/diffusion_policy"
+        ],
+        "closest_three_primary_anchors": [
+            "Diffusion Policy",
+            "FAST / FAST+",
+            "ACT / action chunking"
+        ],
+        "required_policy_order": [
+            "smolvla_base",
+            "diffusion_policy_action_chunk_proxy",
+            "brid_full",
+            "brid_no_base_residual_ablation",
+            "standard_lora"
+        ],
+        "conditions_for_researcher_a": [
+            "Diffusion Policy remains the closest prior and policy 2",
+            "The raw action-chunk diffusion baseline is a transparent local proxy unless official Diffusion Policy assets are installed and verified under the same scaffold",
+            "BRID novelty is narrowed to Base-residual diffusion with zero-residual identity integration and bounded residual caps",
+            "Residual target construction, noise identity construction, and action caps must be frozen before Stage 0",
+            "Residual targets and score targets must be noncollapsed across tasks and phases",
+            "Score prediction must beat trivial validation baselines before denoising can be treated as an observable mechanism",
+            "The raw diffusion proxy, no-Base-residual ablation, and standard LoRA remain required",
+            "Clean retention and exact Base passthrough are mandatory",
+            "No deterministic-action KL is allowed",
+            "AFID and all previous methods remain closed"
+        ],
+        "researcher_rebuttal_pending": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal accepting or rejecting Reviewer B conditions before mathematical audit."
     }
 }

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_34_brid_rebuttal_pending`
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 
@@ -45,6 +45,17 @@ decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 Next action: Reviewer B attack on the frozen BRID-VLA proposal. No BRID
 implementation, training, validation search, rollout, or confirmatory-test
 access has happened.
+
+Reviewer B attack is complete in `reports/brid_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires
+Diffusion Policy to remain policy 2, a transparent raw action-chunk diffusion
+proxy, a no-Base-residual ablation, matched standard LoRA, residual and score
+target noncollapse, exact Base passthrough, clean retention, and no
+deterministic-action KL.
+
+Next action is Researcher A rebuttal before mathematical audit,
+preregistration, implementation, validation search, rollout, or
+confirmatory-test access.
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 

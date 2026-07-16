@@ -5,9 +5,9 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
 
-Immediate next action: Reviewer B attack on the frozen BRID-VLA proposal.
+Immediate next action: Researcher A rebuttal.
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -29,6 +29,13 @@ The BRID-VLA Researcher A proposal is frozen in
 decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No BRID
 implementation, training, validation search, rollout, or confirmatory-test
 access has happened.
+
+Reviewer B attack is complete in `reports/brid_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The rebuttal
+must accept or reject the Diffusion Policy closest-prior boundary, transparent
+raw action-chunk diffusion proxy, no-Base-residual ablation, matched standard
+LoRA, residual/score noncollapse gates, exact Base passthrough, clean
+retention, and no deterministic-action KL.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
