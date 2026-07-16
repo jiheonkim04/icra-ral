@@ -71,8 +71,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_35_mhs_stage_0_implementation_pending"
+    assert state["current_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_stage"] == "epoch_4_cycle_35_mhs_stage_0_ready"
     assert state["method"] == "MHS-VLA"
     assert state["method_identity"] == "MHS-VLA"
     assert state["closest_prior"] == "MTIL"
@@ -87,7 +87,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "mhs_no_history_state_ablation",
         "standard_lora",
     ]
-    assert state["next_action"].startswith("Implement MHS-VLA Stage 0")
+    assert state["next_action"].startswith("Run MHS-VLA worker-safety checks")
     assert state["proposal_hash"] == MHS_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mhs_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
@@ -102,8 +102,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["prototype_protocol"] == "reports/mhs_vla/prototype_protocol.md"
     assert state["prototype_protocol_decision"] == "MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     assert state["prototype_protocol_pending"] is False
-    assert state["stage_0_implementation_pending"] is True
-    assert state["stage_0_implementation_validated"] is False
+    assert state["stage_0_implementation_pending"] is False
+    assert state["stage_0_implementation_validated"] is True
+    assert state["stage_0_pending"] is True
+    assert state["stage_0_serializer_preflight"] == "reports/mhs_vla/stage_0_serializer_preflight.json"
     assert state["stage_0_completed"] is False
     assert state["stage_0_adjudicated"] is False
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
@@ -115,7 +117,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     mhs = state["epoch_4_cycle_35_candidate_selection"]
     assert mhs["method"] == "MHS-VLA"
     assert mhs["closest_prior"] == "MTIL"
-    assert mhs["final_decision"] == "MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert mhs["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert mhs["proposal_hash"] == MHS_PROPOSAL_HASH
     assert mhs["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
     assert mhs["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
@@ -136,10 +138,24 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert mhs["preregistration_frozen"] is True
     assert mhs["prototype_protocol_pending"] is False
     assert mhs["prototype_protocol_frozen"] is True
-    assert mhs["stage_0_implementation_pending"] is True
+    assert mhs["stage_0_implementation_pending"] is False
+    assert mhs["stage_0_implementation_validated"] is True
+    assert mhs["stage_0_pending"] is True
+    assert mhs["serializer_preflight"] == "reports/mhs_vla/stage_0_serializer_preflight.json"
     assert mhs["training_happened"] is False
     assert mhs["validation_search_happened"] is False
     assert mhs["closed_loop_experiment_happened"] is False
+    impl35 = state["epoch_4_cycle_35_mhs_stage_0_implementation"]
+    assert impl35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert impl35["helper"] == "tca_map/smolvla/mhs_vla.py"
+    assert impl35["runner"] == "scripts/run_mhs_vla_stage0.py"
+    assert impl35["focused_tests"] == "tests/test_mhs_vla.py"
+    assert impl35["serializer_preflight"] == "reports/mhs_vla/stage_0_serializer_preflight.json"
+    assert impl35["py_compile_passed"] is True
+    assert impl35["serializer_preflight_passed"] is True
+    assert impl35["focused_mhs_tests_passed"] == 6
+    assert impl35["focused_governance_tests_passed"] == 15
+    assert impl35["governance_check_passed"] is True
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -164,6 +180,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_35_mhs_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_stage_0_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_stage_0_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_stage_0_implementation_validated" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_stage_0_ready" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

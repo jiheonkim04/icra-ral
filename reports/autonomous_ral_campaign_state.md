@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_35_mhs_stage_0_ready`
 
 ## Epoch 4 Cycle 35 MHS-VLA Candidate Selection
 
@@ -69,8 +69,15 @@ The MHS executable prototype protocol is frozen in
 implementation must use `tca_map/smolvla/mhs_vla.py`,
 `scripts/run_mhs_vla_stage0.py`, and `tests/test_mhs_vla.py`.
 
-Next action: implement the MHS-VLA Stage 0 helper, runner, focused tests, and
-serializer preflight before any Stage 0 launch.
+MHS Stage 0 implementation validation is complete with decision
+`MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused MHS tests reported `6 passed`, combined focused governance tests
+reported `15 passed`, and
+`reports/mhs_vla/stage_0_serializer_preflight.json` has a matching fixture and
+reproduced hash.
+
+Next action: run worker-safety checks, then launch or resume the frozen MHS
+Stage 0 development audit without duplicating completed rows.
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 

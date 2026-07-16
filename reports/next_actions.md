@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
-Immediate next action: implement the MHS-VLA Stage 0 helper, runner, focused
-tests, and serializer preflight before any Stage 0 launch.
+Immediate next action: run worker-safety checks, then launch or resume the
+frozen MHS Stage 0 development audit without duplicating completed rows.
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -51,6 +51,10 @@ decision `MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 The MHS executable prototype protocol is frozen in
 `reports/mhs_vla/prototype_protocol.md` with decision
 `MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
+
+MHS Stage 0 implementation validation is complete with decision
+`MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`; the helper, runner,
+focused tests, and serializer preflight are implemented.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 
