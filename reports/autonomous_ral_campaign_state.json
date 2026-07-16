@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_29_ccif_researcher_proposal_pending",
+    "current_stage": "epoch_4_cycle_29_ccif_reviewer_attack_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -584,7 +584,9 @@
         "epoch_4_cycle_29_prior_mechanism_map_completed",
         "epoch_4_cycle_29_candidate_generation_completed",
         "epoch_4_cycle_29_ccif_candidate_selected",
-        "epoch_4_cycle_29_ccif_researcher_proposal_pending"
+        "epoch_4_cycle_29_ccif_researcher_proposal_pending",
+        "epoch_4_cycle_29_ccif_researcher_proposal_frozen",
+        "epoch_4_cycle_29_ccif_reviewer_attack_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -601,7 +603,7 @@
         "ACoT-VLA"
     ],
     "prototype_gate": "Pending TSC Stage 0 masked action-cell label health, completion headroom, prior-proxy, ablation, identity, gradient, action-validity, and retention audit.",
-    "current_decision": "CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "current_decision": "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -752,11 +754,11 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze CCIF-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation.",
+    "next_action": "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A continuous coarse motor-intent field derived from legal LIBERO demonstrations can constrain bounded Base-preserving SmolVLA action residuals toward long-horizon net translation, rotation, gripper endpoint, and low-frequency waypoint structure without privileged inference inputs.",
     "method_identity": "CCIF-VLA",
-    "proposal_hash": null,
+    "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
     "prototype_protocol": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -2506,7 +2508,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_29_ccif_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_29_ccif_reviewer_attack_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7237,7 +7239,7 @@
         "cfr_rescue_allowed": false
     },
     "proposal": "reports/cfr_vla/researcher_proposal.md",
-    "proposal_hash_file": "reports/cfr_vla/proposal_hash.txt",
+    "proposal_hash_file": "reports/ccif_vla/proposal_hash.txt",
     "epoch_4_cycle_27_cfr_researcher_proposal": {
         "method": "CFR-VLA",
         "final_decision": "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
@@ -7846,9 +7848,36 @@
         "tsc_rescue_allowed": false,
         "selection_decision": "CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
         "proposal": "reports/ccif_vla/researcher_proposal.md",
-        "proposal_hash": null,
+        "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
         "proposal_hash_file": "reports/ccif_vla/proposal_hash.txt",
-        "proposal_decision": "CCIF_PROPOSAL_PENDING",
-        "next_stage": "Freeze CCIF-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
+        "proposal_decision": "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "next_stage": "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation.",
+        "reviewer_attack": "reports/ccif_vla/reviewer_attack.md",
+        "reviewer_decision": "CCIF_REVIEWER_ATTACK_PENDING"
+    },
+    "epoch_4_cycle_29_ccif_researcher_proposal": {
+        "method": "CCIF-VLA",
+        "final_decision": "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "proposal": "reports/ccif_vla/researcher_proposal.md",
+        "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+        "proposal_hash_file": "reports/ccif_vla/proposal_hash.txt",
+        "closest_prior": "Coarse-to-Control",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2606.07107",
+        "contribution_type": "PRIOR_EXTENSION",
+        "policy_order": [
+            "smolvla_base",
+            "coarse_to_control_continuous_proxy",
+            "ccif_full",
+            "ccif_no_coarse_intent_ablation",
+            "standard_lora"
+        ],
+        "standard_lora_required": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "reviewer_attack": "reports/ccif_vla/reviewer_attack.md",
+        "reviewer_decision": "CCIF_REVIEWER_ATTACK_PENDING",
+        "next_stage": "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation."
     }
 }

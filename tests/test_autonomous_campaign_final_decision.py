@@ -22,16 +22,18 @@ RAP_PROPOSAL_HASH = "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783
 AMP_PROPOSAL_HASH = "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4"
 CFR_PROPOSAL_HASH = "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE"
 TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941"
+CCIF_PROPOSAL_HASH = "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "CCIF-VLA" in final
     assert "Coarse-to-Control" in final
     assert "coarse_to_control_continuous_proxy" in final
-    assert "epoch_4_cycle_29_ccif_researcher_proposal_pending" in final
+    assert CCIF_PROPOSAL_HASH in final
+    assert "epoch_4_cycle_29_ccif_reviewer_attack_pending" in final
     assert "TSC_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "TSC-VLA" in final
     assert "TS-Mask VLA" in final
@@ -291,13 +293,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 29
-    assert state["current_stage"] == "epoch_4_cycle_29_ccif_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_29_ccif_reviewer_attack_pending"
     assert state["method"] == "CCIF-VLA"
     assert state["method_identity"] == "CCIF-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == CCIF_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -312,7 +314,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze CCIF-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
+        == "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -683,8 +685,20 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert ccif["first_serious_comparison_includes_closest_prior"] is True
     assert ccif["tsc_rescue_allowed"] is False
     assert ccif["proposal"] == "reports/ccif_vla/researcher_proposal.md"
-    assert ccif["proposal_hash"] is None
-    assert ccif["proposal_decision"] == "CCIF_PROPOSAL_PENDING"
+    assert ccif["proposal_hash"] == CCIF_PROPOSAL_HASH
+    assert ccif["proposal_hash_file"] == "reports/ccif_vla/proposal_hash.txt"
+    assert ccif["proposal_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert ccif["reviewer_attack"] == "reports/ccif_vla/reviewer_attack.md"
+    assert ccif["reviewer_decision"] == "CCIF_REVIEWER_ATTACK_PENDING"
+    ccif_proposal = state["epoch_4_cycle_29_ccif_researcher_proposal"]
+    assert ccif_proposal["final_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert ccif_proposal["proposal"] == "reports/ccif_vla/researcher_proposal.md"
+    assert ccif_proposal["proposal_hash"] == CCIF_PROPOSAL_HASH
+    assert ccif_proposal["closest_prior"] == "Coarse-to-Control"
+    assert ccif_proposal["training_happened"] is False
+    assert ccif_proposal["validation_search_happened"] is False
+    assert ccif_proposal["closed_loop_experiment_happened"] is False
+    assert ccif_proposal["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

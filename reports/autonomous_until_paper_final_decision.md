@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -35,11 +35,16 @@ implementation infrastructure.
 
 The first serious comparison is exactly Base,
 `coarse_to_control_continuous_proxy`, CCIF full, no-coarse-intent ablation, and
-matched standard LoRA. No CCIF proposal hash, training, validation search,
-rollout, simulator access, or confirmatory-test tuning has happened.
+matched standard LoRA.
+
+The CCIF-VLA Researcher A proposal is frozen in
+`reports/ccif_vla/researcher_proposal.md` with SHA-256
+`2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1`. No CCIF
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened.
 
 Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_researcher_proposal_pending`.
+`epoch_4_cycle_29_ccif_reviewer_attack_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 

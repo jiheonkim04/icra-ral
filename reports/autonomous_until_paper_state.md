@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_29_ccif_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -36,12 +36,17 @@ scientific method is continuous coarse intent field conditioning.
 
 The first serious comparison is frozen at the design level to exactly
 `smolvla_base`, `coarse_to_control_continuous_proxy`, `ccif_full`,
-`ccif_no_coarse_intent_ablation`, and `standard_lora`. No CCIF proposal hash,
-training, validation search, rollout, simulator access, or confirmatory-test
-tuning exists yet.
+`ccif_no_coarse_intent_ablation`, and `standard_lora`.
 
-Next action: freeze the CCIF-VLA Researcher A proposal before Reviewer B
-attack, mathematical audit, preregistration, or implementation.
+The CCIF-VLA Researcher A proposal is frozen in
+`reports/ccif_vla/researcher_proposal.md` with SHA-256
+`2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1` and
+decision `CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No CCIF training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Next action: run Reviewer B attack for CCIF-VLA before mathematical audit,
+preregistration, or implementation.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
