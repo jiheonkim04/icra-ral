@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 33,
-    "current_topic": "epoch_4_cycle_33_afid_preregistration_pending",
+    "current_topic": "epoch_4_cycle_33_afid_prototype_protocol_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "52fc5e8",
+    "current_commit": "46c0715",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_33_afid_preregistration_pending",
+    "current_stage": "epoch_4_cycle_33_afid_prototype_protocol_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -667,7 +667,9 @@
         "epoch_4_cycle_33_afid_rebuttal_completed",
         "epoch_4_cycle_33_afid_mathematical_audit_pending",
         "epoch_4_cycle_33_afid_mathematical_audit_preregistered",
-        "epoch_4_cycle_33_afid_preregistration_pending"
+        "epoch_4_cycle_33_afid_preregistration_pending",
+        "epoch_4_cycle_33_afid_preregistration_frozen",
+        "epoch_4_cycle_33_afid_prototype_protocol_pending"
     ],
     "active_hypothesis": "Sparse action-factor labels derived from discovery/validation LIBERO demonstrations can supervise a deployment-observable predictor and Base-preserving residual gate, improving action-relevant control while defaulting exactly to frozen SmolVLA when factor confidence is low.",
     "method_identity": "AFID-VLA",
@@ -690,7 +692,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -799,7 +801,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze the AFID-VLA preregistration before prototype protocol or implementation.",
+    "next_action": "Freeze the AFID-VLA prototype protocol before implementation.",
     "method": "AFID-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2550,7 +2552,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_33_afid_preregistration_pending",
+    "topic": "epoch_4_cycle_33_afid_prototype_protocol_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -9217,8 +9219,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "preregistration": "reports/s2c_vla/preregistration.md",
-    "preregistration_decision": "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "preregistration": "reports/afid_vla/preregistration.md",
+    "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "epoch_4_cycle_31_s2c_preregistration": {
         "method": "S2C-VLA",
         "final_decision": "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
@@ -9986,19 +9988,19 @@
         ],
         "selected_method": "AFID-VLA",
         "selected_score": 90,
-        "selection_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "selection_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_action": "Freeze the AFID-VLA preregistration before prototype protocol or implementation."
+        "next_action": "Freeze the AFID-VLA prototype protocol before implementation."
     },
     "epoch_4_cycle_33_candidate_selection": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
-        "final_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "final_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "candidate_count": 3,
         "selected_score": 90,
         "closest_prior": "FineVLA",
@@ -10031,8 +10033,8 @@
         "first_serious_comparison_includes_closest_prior": true,
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
-        "selection_decision": "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
-        "next_stage": "Freeze the AFID-VLA preregistration before prototype protocol or implementation.",
+        "selection_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "next_stage": "Freeze the AFID-VLA prototype protocol before implementation.",
         "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
         "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
@@ -10047,13 +10049,16 @@
         "mathematical_audit_pending": true,
         "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/afid_vla/preregistration.md",
+        "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
     "epoch_4_cycle_33_afid_researcher_proposal": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
-        "final_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "final_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
         "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
@@ -10083,7 +10088,7 @@
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
         "reviewer_attack_pending": true,
-        "next_stage": "Freeze the AFID-VLA preregistration before prototype protocol or implementation.",
+        "next_stage": "Freeze the AFID-VLA prototype protocol before implementation.",
         "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
@@ -10094,7 +10099,10 @@
         "mathematical_audit_pending": true,
         "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/afid_vla/preregistration.md",
+        "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_33_afid_reviewer_attack": {
         "method": "AFID-VLA",
@@ -10129,19 +10137,22 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze the AFID-VLA preregistration before prototype protocol or implementation.",
+        "next_stage": "Freeze the AFID-VLA prototype protocol before implementation.",
         "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
         "rebuttal_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "rebuttal_completed": true,
         "mathematical_audit_pending": true,
         "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/afid_vla/preregistration.md",
+        "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_33_afid_rebuttal": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
-        "final_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "final_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
         "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -10163,15 +10174,18 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze the AFID-VLA preregistration before prototype protocol or implementation.",
+        "next_stage": "Freeze the AFID-VLA prototype protocol before implementation.",
         "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true
+        "preregistration_pending": true,
+        "preregistration": "reports/afid_vla/preregistration.md",
+        "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
     },
     "epoch_4_cycle_33_afid_mathematical_audit": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
-        "final_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "final_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
         "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
         "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
@@ -10212,6 +10226,69 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze the AFID-VLA preregistration before prototype protocol or implementation."
+        "next_stage": "Freeze the AFID-VLA prototype protocol before implementation.",
+        "preregistration": "reports/afid_vla/preregistration.md",
+        "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true
+    },
+    "epoch_4_cycle_33_afid_preregistration": {
+        "method": "AFID-VLA",
+        "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
+        "final_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "preregistration": "reports/afid_vla/preregistration.md",
+        "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
+        "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
+        "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
+        "development_tasks": [
+            "libero_spatial/task_3",
+            "libero_object/task_3",
+            "libero_goal/task_5",
+            "libero_10/task_5"
+        ],
+        "discovery_demo_ids": "0..7",
+        "validation_demo_ids": "8..9",
+        "confirmatory_identities_touched": false,
+        "stage_0_artifacts": [
+            "reports/afid_vla/stage_0_preflight.json",
+            "reports/afid_vla/stage_0_manifest.json",
+            "reports/afid_vla/stage_0_partial.json",
+            "reports/afid_vla/stage_0_result.json",
+            "reports/afid_vla/stage_0_result.md",
+            "reports/afid_vla/stage_0_adjudication.md",
+            "reports/afid_vla/stage_0_status.json",
+            "reports/afid_vla/stage_0_heartbeat.json",
+            "reports/afid_vla/stage_0_pid.txt",
+            "reports/afid_vla/stage_0_exit_code.txt",
+            "reports/afid_vla/stage_0_action_semantics.json",
+            "reports/afid_vla/stage_0_official_prior_asset_check.json",
+            "reports/afid_vla/stage_0_serializer_preflight.json"
+        ],
+        "stage_0_stop_classes": [
+            "AFID_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "AFID_STAGE_0_NO_USABLE_HEADROOM",
+            "AFID_STAGE_0_DESIGN_FAILURE",
+            "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE",
+            "AFID_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "bounded_validation_search_max_configs": 6,
+        "resume_key": "(split, task_suite, task_id, demo_id, window_start, factor_key, policy)",
+        "policy_order": [
+            "smolvla_base",
+            "finevla_action_factor_proxy",
+            "afid_full",
+            "afid_no_factor_ablation",
+            "standard_lora"
+        ],
+        "prototype_protocol_pending": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze the AFID-VLA prototype protocol before implementation."
     }
 }

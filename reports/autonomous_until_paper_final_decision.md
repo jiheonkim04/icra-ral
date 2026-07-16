@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal decision.
 
@@ -40,7 +40,7 @@ The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
 Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_preregistration_pending`.
+`epoch_4_cycle_33_afid_prototype_protocol_pending`.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -72,6 +72,12 @@ The AFID mathematical mechanism audit is frozen in
 thresholds, tensor shapes, factor-mask construction, identity-preserving gate,
 FineVLA proxy rules, objective scales, no deterministic-action KL, and Stage 0
 stop classes. Immediate next action: freeze AFID preregistration.
+
+AFID preregistration is frozen in `reports/afid_vla/preregistration.md` with
+decision `AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+development tasks, discovery/validation demo ids, Stage 0 artifacts, metrics,
+stop classes, bounded validation envelope, and worker resume key. Immediate
+next action: freeze AFID prototype protocol before implementation.
 
 ## Epoch 4 Cycle 32 Selection
 

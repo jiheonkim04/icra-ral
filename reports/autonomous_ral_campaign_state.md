@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_preregistration_pending`
+Current stage: `epoch_4_cycle_33_afid_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 
@@ -55,8 +55,11 @@ The AFID mathematical mechanism audit is frozen in
 `reports/afid_vla/mathematical_mechanism_audit.md` with decision
 `AFID_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Next action: freeze the AFID preregistration. No AFID implementation, training,
-validation search, rollout, or confirmatory-test access has happened.
+AFID preregistration is frozen in `reports/afid_vla/preregistration.md` with
+decision `AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
+Next action: freeze the AFID prototype protocol. No AFID implementation,
+training, validation search, rollout, or confirmatory-test access has happened.
 
 ## Epoch 4 Cycle 32 LCG-VLA
 

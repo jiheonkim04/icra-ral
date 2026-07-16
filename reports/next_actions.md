@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`
+`AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
-Immediate next action: freeze the AFID-VLA preregistration before prototype
-protocol or implementation.
+Immediate next action: freeze the AFID-VLA prototype protocol before
+implementation.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -44,6 +44,9 @@ conditions are accepted.
 The AFID mathematical mechanism audit is frozen in
 `reports/afid_vla/mathematical_mechanism_audit.md` with decision
 `AFID_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+AFID preregistration is frozen in `reports/afid_vla/preregistration.md` with
+decision `AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
