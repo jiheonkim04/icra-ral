@@ -72,8 +72,8 @@ DCCG Stage 0 implementation validation is complete. The helper
 `tca_map/smolvla/dccg_vla.py`, runner `scripts/run_dccg_vla_stage0.py`,
 focused tests `tests/test_dccg_vla.py`, and
 `reports/dccg_vla/stage_0_serializer_preflight.json` are validated. Focused
-DCCG tests passed (`5 passed`), focused governance tests passed (`14 passed`),
-and the campaign regression suite passed (`47 passed`). No DCCG Stage 0 worker,
+DCCG tests passed (`6 passed`), focused governance tests passed (`14 passed`),
+and the campaign regression suite passed (`48 passed`). No DCCG Stage 0 worker,
 training, validation search, rollout, simulator load, reward/success/done read,
 or confirmatory-test access occurred during implementation validation.
 

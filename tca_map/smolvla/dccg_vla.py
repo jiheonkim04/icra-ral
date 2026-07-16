@@ -505,9 +505,6 @@ def classify_stage0(inputs: Stage0DecisionInputs) -> str:
         or not inputs.action_semantics_ok
         or not inputs.base_chunks_valid
         or not inputs.exact_base_passthrough_ok
-        or not inputs.finite_nonzero_gradients
-        or not inputs.normalized_action_validity_ok
-        or not inputs.postprocessed_action_validity_ok
         or inputs.reward_read_count
         or inputs.success_read_count
         or inputs.done_read_count
@@ -529,6 +526,12 @@ def classify_stage0(inputs: Stage0DecisionInputs) -> str:
         or inputs.maximum_validation_task_fraction > 0.40
     ):
         return "DCCG_STAGE_0_DATA_FAILURE"
+    if (
+        not inputs.finite_nonzero_gradients
+        or not inputs.normalized_action_validity_ok
+        or not inputs.postprocessed_action_validity_ok
+    ):
+        return "DCCG_STAGE_0_IMPLEMENTATION_FAILURE"
     if inputs.base_acg_headroom < ACG_HEADROOM_MIN:
         return "DCCG_STAGE_0_NO_HEADROOM"
     if (

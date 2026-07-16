@@ -3,7 +3,7 @@ from pathlib import Path
 
 import numpy as np
 
-from scripts.run_dccg_vla_stage0 import CONFIG_LABEL, POLICY_PROBE, _serializer_preflight
+from scripts.run_dccg_vla_stage0 import CONFIG_LABEL, POLICY_PROBE, _serializer_preflight, main as dccg_stage0_main
 from tca_map.smolvla.dccg_vla import (
     ACTION_DIM,
     FEATURE_COUNT,
@@ -56,6 +56,36 @@ def test_runner_serializer_preflight_writes_parses_and_reproduces_hash(tmp_path:
     assert persisted["fixture"]["manifest_row"]["probe_label"] == POLICY_PROBE
     assert persisted["fixture"]["config_label"] == CONFIG_LABEL
     assert persisted["fixture"]["decision"] == "DCCG_STAGE_0_PASS_TO_VALIDATION_SEARCH"
+
+
+def test_runner_stage0_missing_cache_records_data_failure(tmp_path: Path) -> None:
+    (tmp_path / "proposal_hash.txt").write_text(PROPOSAL_HASH, encoding="utf-8")
+    exit_code = dccg_stage0_main(
+        [
+            "--report-root",
+            str(tmp_path),
+            "--ccif-partial",
+            str(tmp_path / "missing_partial.json"),
+            "--ccif-manifest",
+            str(tmp_path / "missing_manifest.json"),
+        ]
+    )
+    assert exit_code == 0
+    result = json.loads((tmp_path / "stage_0_result.json").read_text(encoding="utf-8"))
+    manifest = json.loads((tmp_path / "stage_0_manifest.json").read_text(encoding="utf-8"))
+    partial = json.loads((tmp_path / "stage_0_partial.json").read_text(encoding="utf-8"))
+    status = json.loads((tmp_path / "stage_0_status.json").read_text(encoding="utf-8"))
+    assert result["final_decision"] == "DCCG_STAGE_0_DATA_FAILURE"
+    assert result["valid_scientific_result"] is False
+    assert result["completed_model_row_count"] == 0
+    assert result["planned_model_row_count"] == 0
+    assert result["exception_count"] == 0
+    assert result["manifest_summary"]["key_sets_equal"] is True
+    assert result["cache_coverage"]["matching_frozen_dccg_rows"] == 0
+    assert manifest["rows"] == []
+    assert partial["rows"] == []
+    assert status["state"] == "completed"
+    assert (tmp_path / "stage_0_exit_code.txt").read_text(encoding="utf-8").strip() == "0"
 
 
 def _manifest_row(split: str, demo: int, start: int, policy: str = "dccg_full") -> dict[str, object]:

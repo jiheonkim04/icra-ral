@@ -719,9 +719,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert impl36["serializer_preflight_passed"] is True
     assert impl36["serializer_preflight_fixture_hash"] == impl36["serializer_preflight_reproduced_hash"]
     assert impl36["py_compile_passed"] is True
-    assert impl36["focused_dccg_tests_passed"] == 5
+    assert impl36["focused_dccg_tests_passed"] == 6
     assert impl36["focused_governance_tests_passed"] == 14
-    assert impl36["campaign_regression_tests_passed"] == 47
+    assert impl36["campaign_regression_tests_passed"] == 48
     assert impl36["stage_0_implementation_validated"] is True
     assert impl36["stage_0_pending"] is True
     assert impl36["stage_0_launched"] is False

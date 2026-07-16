@@ -38,8 +38,8 @@ protocol are frozen in `reports/dccg_vla/preregistration.md` and
 implementation validation is complete: `tca_map/smolvla/dccg_vla.py`,
 `scripts/run_dccg_vla_stage0.py`, `tests/test_dccg_vla.py`, and
 `reports/dccg_vla/stage_0_serializer_preflight.json` are validated. Focused
-DCCG tests passed (`5 passed`), focused governance tests passed (`14 passed`),
-and the campaign regression suite passed (`47 passed`). No DCCG Stage 0 worker,
+DCCG tests passed (`6 passed`), focused governance tests passed (`14 passed`),
+and the campaign regression suite passed (`48 passed`). No DCCG Stage 0 worker,
 training, validation search, rollout, simulator load, reward/success/done read,
 or confirmatory-test access occurred during implementation validation. The next
 action is DCCG Stage 0 worker-safety, duplicate-key, manifest, and preflight
