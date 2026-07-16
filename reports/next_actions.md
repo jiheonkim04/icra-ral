@@ -5,10 +5,23 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31`
+`S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
-Immediate next action: generate exactly three Epoch 4 Cycle 31 candidates under
-current governance. Do not repair, rerun, reinterpret, or rescue URF-VLA.
+Immediate next action: freeze the S2C-VLA Researcher A proposal before Reviewer
+B attack, mathematical audit, preregistration, prototype protocol,
+implementation, validation search, training, or rollout.
+
+Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
+Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
+`95 / 100`. Its closest positive prior is ChunkFlow
+(`https://arxiv.org/html/2607.12992v1`, project page
+`https://cytoderm-ai.github.io/chunkflow`).
+
+The frozen design-level first comparison is Base, `chunkflow_overlap_proxy` or
+official ChunkFlow if installed, `s2c_full`,
+`s2c_no_learned_overlap_mask_ablation`, and `standard_lora`. No S2C proposal,
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at

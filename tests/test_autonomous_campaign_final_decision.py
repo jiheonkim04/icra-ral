@@ -29,7 +29,10 @@ URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABE
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31" in final
+    assert "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "S2C-VLA" in final
+    assert "ChunkFlow" in final
+    assert "epoch_4_cycle_31_s2c_researcher_proposal_pending" in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
@@ -319,13 +322,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31"
+    assert state["current_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 31
-    assert state["current_stage"] == "epoch_4_cycle_31_candidate_search_pending"
-    assert state["method"] == "URF-VLA"
-    assert state["method_identity"] == "URF-VLA"
-    assert state["proposal_hash"] == URF_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_researcher_proposal_pending"
+    assert state["method"] == "S2C-VLA"
+    assert state["method_identity"] == "S2C-VLA"
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -1019,11 +1022,33 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_outcome["closed_loop_experiment_happened"] is False
     assert urf_outcome["urf_rescue_allowed"] is False
     cycle31 = state["epoch_4_cycle_31_candidate_search"]
-    assert cycle31["candidate_search_pending"] is True
+    assert cycle31["candidate_search_pending"] is False
     assert cycle31["candidate_count_required"] == 3
-    assert cycle31["candidate_count_generated"] == 0
+    assert cycle31["candidate_count_generated"] == 3
     assert cycle31["previous_method"] == "URF-VLA"
     assert cycle31["previous_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM"
+    assert cycle31["selected_method"] == "S2C-VLA"
+    assert cycle31["selected_score"] == 95
+    assert cycle31["selection_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    s2c = state["epoch_4_cycle_31_candidate_selection"]
+    assert s2c["candidate_count"] == 3
+    assert s2c["selected_score"] == 95
+    assert s2c["method"] == "S2C-VLA"
+    assert s2c["closest_prior"] == "ChunkFlow"
+    assert s2c["closest_prior_primary_source"] == "https://arxiv.org/html/2607.12992v1"
+    assert s2c["policy_order"] == [
+        "smolvla_base",
+        "chunkflow_overlap_proxy",
+        "s2c_full",
+        "s2c_no_learned_overlap_mask_ablation",
+        "standard_lora",
+    ]
+    assert s2c["standard_lora_required"] is True
+    assert s2c["training_happened"] is False
+    assert s2c["validation_search_happened"] is False
+    assert s2c["closed_loop_experiment_happened"] is False
+    assert s2c["confirmatory_test_tuning_happened"] is False
+    assert s2c["first_serious_comparison_includes_closest_prior"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

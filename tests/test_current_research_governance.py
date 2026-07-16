@@ -66,11 +66,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31"
-    assert state["current_stage"] == "epoch_4_cycle_31_candidate_search_pending"
-    assert state["method"] == "URF-VLA"
-    assert state["method_identity"] == "URF-VLA"
-    assert state["proposal_hash"] == URF_PROPOSAL_HASH
+    assert state["current_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_researcher_proposal_pending"
+    assert state["method"] == "S2C-VLA"
+    assert state["method_identity"] == "S2C-VLA"
+    assert state["proposal_hash"] is None
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
@@ -334,6 +334,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_30_urf_stage_0_adjudicated",
         "epoch_4_cycle_30_urf_no_headroom_recorded",
         "epoch_4_cycle_31_candidate_search_pending",
+        "epoch_4_cycle_31_prior_mechanism_map_completed",
+        "epoch_4_cycle_31_candidate_generation_completed",
+        "epoch_4_cycle_31_s2c_candidate_selected",
+        "epoch_4_cycle_31_s2c_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1096,11 +1100,33 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert urf_outcome["closed_loop_experiment_happened"] is False
     assert urf_outcome["urf_rescue_allowed"] is False
     cycle31 = state["epoch_4_cycle_31_candidate_search"]
-    assert cycle31["candidate_search_pending"] is True
+    assert cycle31["candidate_search_pending"] is False
     assert cycle31["candidate_count_required"] == 3
-    assert cycle31["candidate_count_generated"] == 0
+    assert cycle31["candidate_count_generated"] == 3
     assert cycle31["previous_method"] == "URF-VLA"
     assert cycle31["previous_decision"] == "URF_STAGE_0_NO_USABLE_HEADROOM"
+    assert cycle31["selected_method"] == "S2C-VLA"
+    assert cycle31["selected_score"] == 95
+    assert cycle31["selection_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    s2c = state["epoch_4_cycle_31_candidate_selection"]
+    assert s2c["candidate_count"] == 3
+    assert s2c["selected_score"] == 95
+    assert s2c["method"] == "S2C-VLA"
+    assert s2c["closest_prior"] == "ChunkFlow"
+    assert s2c["closest_prior_primary_source"] == "https://arxiv.org/html/2607.12992v1"
+    assert s2c["policy_order"] == [
+        "smolvla_base",
+        "chunkflow_overlap_proxy",
+        "s2c_full",
+        "s2c_no_learned_overlap_mask_ablation",
+        "standard_lora",
+    ]
+    assert s2c["standard_lora_required"] is True
+    assert s2c["training_happened"] is False
+    assert s2c["validation_search_happened"] is False
+    assert s2c["closed_loop_experiment_happened"] is False
+    assert s2c["confirmatory_test_tuning_happened"] is False
+    assert s2c["first_serious_comparison_includes_closest_prior"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

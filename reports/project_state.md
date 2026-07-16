@@ -7,13 +7,33 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31`
+`S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_candidate_search_pending`
+Current stage: `epoch_4_cycle_31_s2c_researcher_proposal_pending`
+
+Cycle 31 generated exactly three candidates in
+`reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_31_prior_mechanism_map.md`. `S2C-VLA`,
+Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, is
+selected at `95 / 100`. Its closest positive prior is ChunkFlow
+(`https://arxiv.org/html/2607.12992v1`) with project page
+`https://cytoderm-ai.github.io/chunkflow`.
+
+S2C's scientific mechanism is a Base-preserving learned overlap edit mask and
+tail-anchored bridge for SmolVLA action-chunk boundary consistency. LoRA is
+only implementation infrastructure. The first serious comparison is Base,
+`chunkflow_overlap_proxy` or official ChunkFlow if installed, `s2c_full`,
+`s2c_no_learned_overlap_mask_ablation`, and `standard_lora`.
+
+No S2C proposal, training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened. Next action is to freeze the S2C-VLA
+Researcher A proposal before Reviewer B attack, mathematical audit,
+preregistration, prototype protocol, implementation, validation search,
+training, or rollout.
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source

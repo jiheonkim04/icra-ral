@@ -7,13 +7,41 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_STAGE_0_NO_USABLE_HEADROOM_CONTINUE_CYCLE_31`
+`S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_candidate_search_pending`
+Current stage: `epoch_4_cycle_31_s2c_researcher_proposal_pending`
+
+## Epoch 4 Cycle 31 S2C-VLA
+
+Cycle 31 generated exactly three candidates in
+`reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source
+mechanism map in `reports/epoch_4_cycle_31_prior_mechanism_map.md`. URF remains
+closed as `URF_STAGE_0_NO_USABLE_HEADROOM`; no URF repair, rescue, threshold
+change, proxy change, task change, or reinterpretation is allowed.
+
+`S2C-VLA`, Seam-Supervised Chunk Consistency for Base-preserving SmolVLA
+execution, is selected at `95 / 100`. Its closest positive prior is ChunkFlow
+(`https://arxiv.org/html/2607.12992v1`, project page
+`https://cytoderm-ai.github.io/chunkflow`), which reports `93.4%` LIBERO
+long-horizon success with improved boundary jump, high-frequency energy,
+smoothness metrics, and low-latency inference.
+
+S2C's single mechanism is a Base-preserving learned overlap edit mask and
+tail-anchored bridge for SmolVLA action-chunk boundary consistency. LoRA may
+only be implementation infrastructure; the scientific method is
+execution-indexed chunk consistency.
+
+The first serious comparison is frozen at the design level to `smolvla_base`,
+`chunkflow_overlap_proxy` or official ChunkFlow if installed, `s2c_full`,
+`s2c_no_learned_overlap_mask_ablation`, and `standard_lora`.
+
+Current next action: freeze the S2C-VLA Researcher A proposal before Reviewer B
+attack, mathematical audit, preregistration, prototype protocol,
+implementation, validation search, training, or rollout.
 
 ## Epoch 4 Cycle 30 URF-VLA
 
