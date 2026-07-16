@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_27_cfr_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -75,8 +75,14 @@ discovery/validation/confirmatory partitions, fixed development tasks, Stage 0
 audit outputs, stop classes, bounded six-configuration validation search, first
 five-policy comparison, Stage A/B policy, and confirmatory tuning prohibition.
 
-Next action: write the executable CFR-VLA prototype protocol before Stage 0
-implementation.
+The executable prototype protocol is frozen in
+`reports/cfr_vla/prototype_protocol.md` with decision
+`CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. It freezes the Stage 0 runner
+contract, artifact paths, worker/resume safety, data sources, action semantics,
+mechanism audits, proxy definitions, hard pass gates, and stop classes.
+
+Next action: implement and validate `scripts/run_cfr_vla_stage0.py` before
+execution.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

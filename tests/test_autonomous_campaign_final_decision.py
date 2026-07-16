@@ -72,7 +72,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Epoch 4 Cycle 7 generated exactly three post-MTF candidates" in final
     assert "DAGR-VLA" in final
     assert "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89" in final
-    assert "CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
+    assert "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
     assert "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH" in final
     assert "dagr_a020_route_mlp" in final
@@ -248,7 +248,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_27_cfr_prototype_protocol_pending" in final
+    assert "epoch_4_cycle_27_cfr_stage_0_implementation_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -277,10 +277,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_decision"] == "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 27
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_prototype_protocol_pending"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_stage_0_implementation_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -298,9 +298,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Write executable CFR-VLA prototype protocol before Stage 0 implementation."
+        == "Implement and validate CFR-VLA Stage 0 runner before execution."
     )
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/cfr_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -486,6 +486,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cfr_prereg["proposal_hash"] == CFR_PROPOSAL_HASH
     assert cfr_prereg["stage_0_allowed_next"] is True
     assert cfr_prereg["bounded_validation_search_max_configs"] == 6
+    cfr_protocol = state["epoch_4_cycle_27_cfr_prototype_protocol"]
+    assert cfr_protocol["final_decision"] == "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert cfr_protocol["prototype_protocol"] == "reports/cfr_vla/prototype_protocol.md"
+    assert cfr_protocol["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr_protocol["stage_0_allowed_next"] is True
+    assert cfr_protocol["runner"] == "scripts/run_cfr_vla_stage0.py"
+    assert cfr_protocol["stage_0_result"] == "reports/cfr_vla/stage_0_result.json"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
