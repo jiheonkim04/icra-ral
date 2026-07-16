@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-07-16T12:45:36.471854+00:00",
+  "exception": "Out of range float values are not JSON compliant: inf",
+  "exception_type": "ValueError",
+  "final_decision": "MHS_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "method": "MHS-VLA",
+  "stage_0_is_closed_loop_scientific_kill": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_mhs_vla_stage0.py\", line 960, in run\n    result = _run_cached_audit(args, paths, preflight)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_mhs_vla_stage0.py\", line 926, in _run_cached_audit\n    _write_json(paths[\"result_json\"], result)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_mhs_vla_stage0.py\", line 118, in _write_json\n    json.dumps(dict(payload), indent=2, sort_keys=True, allow_nan=False, default=json_default) + \"\\n\",\n  File \"/usr/lib/python3.10/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 201, in encode\n    chunks = list(chunks)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 431, in _iterencode\n    yield from _iterencode_dict(o, _current_indent_level)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 405, in _iterencode_dict\n    yield from chunks\n  File \"/usr/lib/python3.10/json/encoder.py\", line 397, in _iterencode_dict\n    yield _floatstr(value)\n  File \"/usr/lib/python3.10/json/encoder.py\", line 239, in floatstr\n    raise ValueError(\nValueError: Out of range float values are not JSON compliant: inf\n",
+  "valid_scientific_result": false
+}

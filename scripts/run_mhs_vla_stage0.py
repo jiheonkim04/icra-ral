@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import asdict, is_dataclass
 from datetime import datetime, timezone
 import json
 import os
@@ -114,8 +115,9 @@ def _utc_now() -> str:
 def _write_json(path: Path, payload: Mapping[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
+    ready = _json_ready(dict(payload))
     temporary.write_text(
-        json.dumps(dict(payload), indent=2, sort_keys=True, allow_nan=False, default=json_default) + "\n",
+        json.dumps(ready, indent=2, sort_keys=True, allow_nan=False, default=json_default) + "\n",
         encoding="utf-8",
     )
     for attempt in range(40):
@@ -126,6 +128,22 @@ def _write_json(path: Path, payload: Mapping[str, Any]) -> None:
             if attempt == 39:
                 raise
             time.sleep(0.1)
+
+
+def _json_ready(value: Any) -> Any:
+    if is_dataclass(value):
+        return _json_ready(asdict(value))
+    if isinstance(value, Mapping):
+        return {str(key): _json_ready(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_ready(item) for item in value]
+    if isinstance(value, np.ndarray):
+        return _json_ready(value.tolist())
+    if isinstance(value, np.generic):
+        return _json_ready(value.item())
+    if isinstance(value, float):
+        return value if np.isfinite(value) else None
+    return value
 
 
 def _write_text(path: Path, value: str) -> None:
@@ -574,7 +592,7 @@ def _validation_task_fraction(records: Sequence[Mapping[str, Any]]) -> float:
 
 def _safe_masked_mean(values: np.ndarray, mask: np.ndarray) -> float:
     if not np.any(mask):
-        return float("inf")
+        return 0.0
     return float(np.mean(values[mask]))
 
 
@@ -807,8 +825,42 @@ def _run_cached_audit(args: argparse.Namespace, paths: Mapping[str, Path], prefl
         exception_count=source_exceptions,
         last_exception=last_exception,
     )
-    _write_json(paths["manifest"], manifest)
-    _write_json(paths["partial"], partial)
+    resumed_from_existing_partial = False
+    resumed_existing_row_count = 0
+    resumed_missing_row_count = 0
+    if args.resume and paths["manifest"].is_file() and paths["partial"].is_file():
+        existing_manifest = _read_json(paths["manifest"])
+        existing_partial = _read_json(paths["partial"])
+        existing_rows = list(existing_partial.get("rows", []))
+        existing_integrity = validate_manifest(manifest_rows, existing_rows)
+        if (
+            existing_integrity["duplicate_partial_key_count"] != 0
+            or existing_integrity["extra_partial_key_count"] != 0
+            or existing_integrity["split_overlap_key_count"] != 0
+        ):
+            raise ValueError(f"existing MHS partial is not resumable: {existing_integrity}")
+        expected_keys = [mhs_row_key(row) for row in manifest_rows]
+        existing_keys = {str(row["row_key"]) for row in existing_rows}
+        new_rows_by_key = {str(row["row_key"]): row for row in partial_rows}
+        missing_keys = [key for key in expected_keys if key not in existing_keys]
+        merged_rows = existing_rows + [new_rows_by_key[key] for key in missing_keys]
+        partial_rows = merged_rows
+        partial = _partial_payload(
+            str(existing_manifest.get("manifest_hash", manifest["manifest_hash"])),
+            len(manifest_rows),
+            partial_rows,
+            exception_count=source_exceptions,
+            last_exception=last_exception,
+        )
+        manifest_integrity = validate_manifest(manifest_rows, partial_rows)
+        resumed_from_existing_partial = True
+        resumed_existing_row_count = len(existing_rows)
+        resumed_missing_row_count = len(missing_keys)
+        if missing_keys:
+            _write_json(paths["partial"], partial)
+    else:
+        _write_json(paths["manifest"], manifest)
+        _write_json(paths["partial"], partial)
 
     discovery_windows = sum(1 for record in accepted_records if record["split"] == "discovery")
     validation_windows = sum(1 for record in accepted_records if record["split"] == "validation")
@@ -877,6 +929,9 @@ def _run_cached_audit(args: argparse.Namespace, paths: Mapping[str, Path], prefl
         "planned_model_row_count": len(manifest_rows),
         "exception_count": source_exceptions,
         "last_exception": last_exception,
+        "resumed_from_existing_partial": resumed_from_existing_partial,
+        "resumed_existing_row_count": resumed_existing_row_count,
+        "resumed_missing_row_count": resumed_missing_row_count,
         "manifest_row_count": manifest_integrity["manifest_row_count"],
         "partial_row_count": manifest_integrity["partial_row_count"],
         **manifest_integrity,

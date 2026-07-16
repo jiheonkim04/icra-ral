@@ -34,26 +34,20 @@ MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
-    assert "MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
-    assert "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
-    assert "MHS_MATHEMATICAL_AUDIT_PREREGISTERED" in final
+    assert "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE" in final
+    assert "Generate exactly three Epoch 4 Cycle 36 candidates" in final
     assert "MHS-VLA" in final
-    assert "Mamba History State" in final
-    assert "MTIL" in final
-    assert "reports/epoch_4_cycle_35_prior_mechanism_map.md" in final
-    assert "reports/epoch_4_cycle_35_candidate_generation.md" in final
-    assert "reports/mhs_vla/researcher_proposal.md" in final
-    assert "reports/mhs_vla/reviewer_attack.md" in final
-    assert "reports/mhs_vla/researcher_rebuttal.md" in final
-    assert "reports/mhs_vla/mathematical_mechanism_audit.md" in final
-    assert "reports/mhs_vla/preregistration.md" in final
-    assert "reports/mhs_vla/prototype_protocol.md" in final
-    assert "reports/mhs_vla/stage_0_serializer_preflight.json" in final
-    assert MHS_PROPOSAL_HASH in final
-    assert "mtil_history_state_proxy" in final
-    assert "mhs_no_history_state_ablation" in final
-    assert "epoch_4_cycle_35_mhs_stage_0_ready" in final
+    assert "reports/mhs_vla/stage_0_result.json" in final
+    assert "reports/mhs_vla/stage_0_adjudication.md" in final
+    assert "reports/mhs_vla/stage_0_partial.json" in final
+    assert "reports/mhs_vla/stage_0_attempt_1_blocker.json" in final
+    assert "5193 / 5193" in final
+    assert "filled `0` missing keys" in final
+    assert "duplicate manifest keys `0`" in final
+    assert "`0` positive labels" in final
+    assert "`114` negative labels" in final
+    assert "labels_noncollapsed=false" in final
+    assert "valid_scientific_result=false" in final
     assert "BRID_STAGE_0_NO_RESIDUAL_HEADROOM" in final
     assert "BRID-VLA" in final
     assert "Base-Residual Implicit Diffusion" in final
@@ -424,16 +418,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 35
-    assert state["current_stage"] == "epoch_4_cycle_35_mhs_stage_0_ready"
+    assert state["current_cycle"] == 36
+    assert state["current_stage"] == "epoch_4_cycle_36_candidate_search_pending"
     assert state["method"] == "MHS-VLA"
     assert state["method_identity"] == "MHS-VLA"
     assert state["closest_prior"] == "MTIL"
-    assert state["candidate_generation"] == "reports/epoch_4_cycle_35_candidate_generation.md"
-    assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_35_prior_mechanism_map.md"
-    assert state["next_action"].startswith("Run MHS-VLA worker-safety checks")
+    assert state["candidate_generation"] == "reports/epoch_4_cycle_36_candidate_generation.md"
+    assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_36_prior_mechanism_map.md"
+    assert state["next_action"].startswith("Generate exactly three Epoch 4 Cycle 36 candidates")
     assert state["proposal_hash"] == MHS_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mhs_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
@@ -450,17 +444,18 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prototype_protocol_pending"] is False
     assert state["stage_0_implementation_pending"] is False
     assert state["stage_0_implementation_validated"] is True
-    assert state["stage_0_pending"] is True
+    assert state["stage_0_pending"] is False
     assert state["stage_0_serializer_preflight"] == "reports/mhs_vla/stage_0_serializer_preflight.json"
-    assert state["stage_0_completed"] is False
-    assert state["stage_0_adjudicated"] is False
+    assert state["stage_0_completed"] is True
+    assert state["stage_0_adjudicated"] is True
+    assert state["stage_0_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
     assert cycle35["candidate_count_required"] == 3
     assert cycle35["candidate_count_generated"] == 3
     assert cycle35["selected_method"] == "MHS-VLA"
     assert cycle35["selection_decision"] == "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     mhs = state["epoch_4_cycle_35_candidate_selection"]
-    assert mhs["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert mhs["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert mhs["proposal_hash"] == MHS_PROPOSAL_HASH
     assert mhs["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
     assert mhs["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
@@ -476,23 +471,23 @@ def test_active_campaign_state_records_governance_v2() -> None:
         "standard_lora",
     ]
     proposal35 = state["epoch_4_cycle_35_mhs_researcher_proposal"]
-    assert proposal35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert proposal35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert proposal35["proposal_hash"] == MHS_PROPOSAL_HASH
     assert proposal35["reviewer_attack_completed"] is True
     review35 = state["epoch_4_cycle_35_mhs_reviewer_attack"]
-    assert review35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert review35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert review35["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
     assert review35["researcher_rebuttal_completed"] is True
     rebuttal35 = state["epoch_4_cycle_35_mhs_rebuttal"]
-    assert rebuttal35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert rebuttal35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert rebuttal35["researcher_rebuttal"] == "reports/mhs_vla/researcher_rebuttal.md"
     assert rebuttal35["accepted_reviewer_conditions"] is True
     math35 = state["epoch_4_cycle_35_mhs_mathematical_audit"]
-    assert math35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert math35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert math35["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
     assert math35["fixed_constants"]["K"] == 50
     prereg35 = state["epoch_4_cycle_35_mhs_preregistration"]
-    assert prereg35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert prereg35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert prereg35["preregistration"] == "reports/mhs_vla/preregistration.md"
     assert prereg35["policy_order"] == [
         "smolvla_base",
@@ -503,7 +498,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     ]
     assert prereg35["bounded_validation_search_max_configs"] == 6
     proto35 = state["epoch_4_cycle_35_mhs_prototype_protocol"]
-    assert proto35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert proto35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert proto35["prototype_protocol"] == "reports/mhs_vla/prototype_protocol.md"
     assert proto35["required_helper"] == "tca_map/smolvla/mhs_vla.py"
     assert proto35["required_runner"] == "scripts/run_mhs_vla_stage0.py"
@@ -511,9 +506,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proto35["serializer_preflight"] == "reports/mhs_vla/stage_0_serializer_preflight.json"
     assert proto35["stage_0_implementation_pending"] is False
     assert proto35["stage_0_implementation_validated"] is True
-    assert proto35["stage_0_pending"] is True
+    assert proto35["stage_0_pending"] is False
     impl35 = state["epoch_4_cycle_35_mhs_stage_0_implementation"]
-    assert impl35["final_decision"] == "MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert impl35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert impl35["helper"] == "tca_map/smolvla/mhs_vla.py"
     assert impl35["runner"] == "scripts/run_mhs_vla_stage0.py"
     assert impl35["focused_tests"] == "tests/test_mhs_vla.py"
@@ -524,7 +519,34 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert impl35["focused_governance_tests_passed"] == 15
     assert impl35["governance_check_passed"] is True
     assert impl35["stage_0_implementation_validated"] is True
-    assert impl35["stage_0_pending"] is True
+    assert impl35["stage_0_pending"] is False
+    assert impl35["stage_0_completed"] is True
+    assert impl35["completed_model_row_count"] == 5193
+    assert impl35["planned_model_row_count"] == 5193
+    assert impl35["exception_count"] == 0
+    assert impl35["duplicate_manifest_key_count"] == 0
+    assert impl35["duplicate_partial_key_count"] == 0
+    assert impl35["missing_manifest_key_count"] == 0
+    assert impl35["extra_partial_key_count"] == 0
+    assert impl35["split_overlap_key_count"] == 0
+    assert impl35["key_sets_equal"] is True
+    assert impl35["validation_unmasked_label_count"] == 114
+    assert impl35["validation_positive_count"] == 0
+    assert impl35["validation_negative_count"] == 114
+    assert impl35["labels_noncollapsed"] is False
+    assert impl35["resumed_from_existing_partial"] is True
+    assert impl35["resumed_existing_row_count"] == 5193
+    assert impl35["resumed_missing_row_count"] == 0
+    outcome35 = state["epoch_4_cycle_35_mhs_stage_0_outcome"]
+    assert outcome35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert outcome35["valid_scientific_result"] is False
+    assert outcome35["stage_0_is_closed_loop_scientific_kill"] is False
+    cycle36 = state["epoch_4_cycle_36_candidate_search"]
+    assert cycle36["candidate_search_pending"] is True
+    assert cycle36["candidate_count_required"] == 3
+    assert cycle36["candidate_count_generated"] == 0
+    assert cycle36["previous_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert cycle36["mhs_rescue_allowed"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"

@@ -1,0 +1,10 @@
+{
+  "completed_model_row_count": 5193,
+  "elapsed_seconds": 10.39913034439087,
+  "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+  "method": "MHS-VLA",
+  "pid": 451,
+  "planned_model_row_count": 5193,
+  "status": "completed",
+  "updated_utc": "2026-07-16T12:50:30.445542+00:00"
+}

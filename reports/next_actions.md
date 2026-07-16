@@ -1,62 +1,39 @@
 # Next Actions
 
-## 2026-07-16 Epoch 4 Cycle 35 Current Action
+## 2026-07-16 Epoch 4 Cycle 36 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE`
 
-Immediate next action: run worker-safety checks, then launch or resume the
-frozen MHS Stage 0 development audit without duplicating completed rows.
+Immediate next action: Generate exactly three Epoch 4 Cycle 36 candidates under current governance, with one genuinely new mechanism, LoRA only as implementation infrastructure, and the closest prior entering the first serious comparison.
 
-Cycle 35 completed the primary-source prior mechanism map in
-`reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
-candidates in `reports/epoch_4_cycle_35_candidate_generation.md`.
+MHS-VLA remains closed under its frozen Stage 0 protocol as a
+development-only DATA_OR_SUPERVISION_FAILURE. Do not rescue MHS by changing
+labels, thresholds, memory construction, tasks, identities, or validation gates.
 
-`MHS-VLA`, Mamba History State for Base-preserving SmolVLA, is selected at
-`95 / 100`. Its closest prior is MTIL (`https://arxiv.org/abs/2505.12410`,
-`https://arxiv.org/html/2505.12410v3`, and
-`https://github.com/yulinzhouZYL/MTIL`). The first serious comparison is
-`smolvla_base`, `mtil_history_state_proxy`, `mhs_full`,
-`mhs_no_history_state_ablation`, and `standard_lora`.
+Cycle 35 MHS-VLA Stage 0 completed as `MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE` in
+`reports/mhs_vla/stage_0_result.json` and
+`reports/mhs_vla/stage_0_adjudication.md`.
 
-LoRA may only parameterize the history encoder or residual head; it is not the
-scientific mechanism.
+The first finalization attempt wrote a valid `reports/mhs_vla/stage_0_partial.json`
+but failed while serializing an undefined `inf` metric. The worker was not alive
+afterward. The resume path reused the existing partial with `5193 / 5193` rows,
+filled `0` missing keys, and produced the final result without duplicating rows.
+The attempt-1 blocker is preserved in
+`reports/mhs_vla/stage_0_attempt_1_blocker.json`.
 
-The MHS-VLA Researcher A proposal is frozen in
-`reports/mhs_vla/researcher_proposal.md` with SHA-256
-`BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3` and
-decision `MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+Manifest checks passed: duplicate manifest keys `0`, duplicate partial keys `0`,
+missing manifest keys `0`, extra partial keys `0`, split-overlap keys `0`, and
+key sets equal `true`. Exception count was `0`.
 
-Reviewer B attack is complete in `reports/mhs_vla/reviewer_attack.md` with
-decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires MTIL
-or a transparent MTIL proxy as policy 2, a no-history-state ablation, standard
-LoRA, noncollapsed history labels, history-over-current-frame predictability,
-exact Base passthrough, bounded action deltas, clean retention, and no
-privileged inference input.
-
-Researcher A rebuttal is complete in
-`reports/mhs_vla/researcher_rebuttal.md` with decision
-`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B conditions are
-accepted.
-
-The MHS mathematical mechanism audit is frozen in
-`reports/mhs_vla/mathematical_mechanism_audit.md` with decision
-`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`.
-
-The MHS preregistration is frozen in `reports/mhs_vla/preregistration.md` with
-decision `MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
-
-The MHS executable prototype protocol is frozen in
-`reports/mhs_vla/prototype_protocol.md` with decision
-`MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
-
-MHS Stage 0 implementation validation is complete with decision
-`MHS_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`; the helper, runner,
-focused tests, and serializer preflight are implemented.
-
-BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
+The frozen label/contrast gate failed before bounded validation or rollout:
+validation label health had `0` positive labels and `114` negative labels across
+`114` unmasked validation labels, so `labels_noncollapsed=false`. This is a
+development-only data/supervision failure, not a closed-loop scientific kill;
+`valid_scientific_result=false` and MHS rescue by changing labels, thresholds,
+memory construction, tasks, or identities is disallowed.
 
 ## 2026-07-16 Epoch 4 Cycle 34 Prior Action
 

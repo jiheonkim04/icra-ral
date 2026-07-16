@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-07-16T12:42:43.173930+00:00",
+  "created_utc": "2026-07-16T12:50:20.088221+00:00",
   "fixture": {
     "action_delta_summary": {
       "action_deltas_bounded": true,
@@ -28153,6 +28153,7 @@
     "no_deterministic_action_kl": true,
     "policy_probe": "mhs_stage0_history_state_residual_gate",
     "predictability": {
+      "bce_defined": true,
       "current_frame_bce": 9.210340371976267,
       "history_bce": 4.093540168100736,
       "history_predictability_margin": -3.565612090748939,
@@ -28246,12 +28247,12 @@
       "z_iqr_valid": true
     }
   },
-  "fixture_hash": "1ABB572AD275D78496E857DC4B9B88FC231DB1B49CBDE0F07C44AF180C205EE3",
+  "fixture_hash": "8AFFD14381D6D2E6A49D0177A51DF3509AD508468B3AFE1A848F031F51F48F30",
   "method": "MHS-VLA",
   "parsed": true,
   "passed": true,
   "path": "/mnt/c/Users/jiheo/tca_map/reports/mhs_vla/stage_0_serializer_preflight.json",
   "proposal_hash": "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3",
-  "reproduced_hash": "1ABB572AD275D78496E857DC4B9B88FC231DB1B49CBDE0F07C44AF180C205EE3",
+  "reproduced_hash": "8AFFD14381D6D2E6A49D0177A51DF3509AD508468B3AFE1A848F031F51F48F30",
   "tensor_serialization_checked": true
 }

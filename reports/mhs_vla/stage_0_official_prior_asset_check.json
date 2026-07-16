@@ -1,0 +1,11 @@
+{
+  "closest_prior": "MTIL",
+  "closest_prior_arxiv": "https://arxiv.org/abs/2505.12410",
+  "closest_prior_official_repository": "https://github.com/yulinzhouZYL/MTIL",
+  "created_utc": "2026-07-16T12:50:20.148758+00:00",
+  "method": "MHS-VLA",
+  "official_candidate_paths": [],
+  "official_code_present": false,
+  "proxy_is_required_until_official_assets_verified": true,
+  "selected_prior_policy": "mtil_history_state_proxy"
+}

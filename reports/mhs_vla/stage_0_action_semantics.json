@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-07-16T12:50:20.154901+00:00",
+  "environment_action_shape": [
+    7
+  ],
+  "environment_action_space_high": null,
+  "environment_action_space_low": null,
+  "environment_action_space_low_high_exposed": false,
+  "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy/probe",
+  "finite_checks": true,
+  "gripper_convention": "LIBERO/SmolVLA checkpoint 7D action dimension 6 after postprocessor",
+  "history_action_shape": [
+    8,
+    7
+  ],
+  "method": "MHS-VLA",
+  "model_native_action_shape": [
+    50,
+    7
+  ],
+  "no_ad_hoc_unit_box_gate": true,
+  "postprocessor_or_unnormalizer_class": "official SmolVLA checkpoint action postprocessor from cached Base chunks",
+  "same_definition_applies_to_policies": [
+    "smolvla_base",
+    "mtil_history_state_proxy",
+    "mhs_full",
+    "mhs_no_history_state_ablation",
+    "standard_lora",
+    "history_oracle_diagnostic",
+    "current_frame_baseline_diagnostic",
+    "task_only_baseline_diagnostic",
+    "majority_baseline_diagnostic"
+  ]
+}

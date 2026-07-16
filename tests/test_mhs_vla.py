@@ -3,7 +3,7 @@ from pathlib import Path
 
 import numpy as np
 
-from scripts.run_mhs_vla_stage0 import CONFIG_LABEL, POLICY_PROBE, _serializer_preflight
+from scripts.run_mhs_vla_stage0 import CONFIG_LABEL, POLICY_PROBE, _safe_masked_mean, _serializer_preflight, _write_json
 from tca_map.smolvla.mhs_vla import (
     ACTION_DIM,
     HISTORY_LENGTH,
@@ -59,6 +59,23 @@ def test_runner_serializer_preflight_writes_parses_and_reproduces_hash(tmp_path:
     assert persisted["fixture"]["manifest_row"]["probe_label"] == POLICY_PROBE
     assert persisted["fixture"]["config_label"] == CONFIG_LABEL
     assert persisted["fixture"]["decision"] == "MHS_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+
+
+def test_json_writer_and_empty_masks_are_resume_safe(tmp_path: Path) -> None:
+    assert _safe_masked_mean(np.asarray([1.0]), np.asarray([False])) == 0.0
+    diagnostics = history_predictability_diagnostics(
+        np.asarray([0, 1]),
+        np.asarray([False, False]),
+        ["libero_goal/task_5", "libero_goal/task_5"],
+        np.asarray([-1, -1]),
+        np.asarray([-1, -1]),
+    )
+    assert diagnostics["bce_defined"] is False
+    assert np.isfinite(diagnostics["history_bce"])
+    path = tmp_path / "strict.json"
+    _write_json(path, {"finite": 1.0, "undefined": float("inf")})
+    persisted = json.loads(path.read_text(encoding="utf-8"))
+    assert persisted == {"finite": 1.0, "undefined": None}
 
 
 def _manifest_row(split: str, demo: int, start: int, policy: str = "mhs_full") -> dict[str, object]:

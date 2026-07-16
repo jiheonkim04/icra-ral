@@ -404,8 +404,9 @@ def history_predictability_diagnostics(
         return {
             "history_predictability_margin": 0.0,
             "history_predictable": False,
-            "history_bce": float("inf"),
-            "strongest_baseline_bce": float("inf"),
+            "history_bce": 0.0,
+            "strongest_baseline_bce": 0.0,
+            "bce_defined": False,
         }
     target = m[valid_indexes]
     majority_p = float(np.mean(target))
@@ -437,6 +438,7 @@ def history_predictability_diagnostics(
         "strongest_baseline_bce": strongest,
         "history_predictability_margin": float(margin),
         "history_predictable": bool(margin >= HISTORY_PREDICTABILITY_MARGIN_MIN),
+        "bce_defined": True,
     }
 
 
