@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -39,7 +39,14 @@ The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
 Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_researcher_proposal_pending`.
+`epoch_4_cycle_32_lcg_reviewer_attack_pending`.
+
+The LCG-VLA Researcher A proposal is frozen in
+`reports/lcg_vla/researcher_proposal.md` with SHA-256
+`F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E` and
+decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No LCG implementation,
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened.
 
 ## Epoch 4 Cycle 31 Selection
 

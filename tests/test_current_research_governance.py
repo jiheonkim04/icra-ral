@@ -28,6 +28,7 @@ TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6
 CCIF_PROPOSAL_HASH = "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1"
 URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532"
 S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3"
+LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -67,11 +68,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_32_lcg_researcher_proposal_pending"
+    assert state["current_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_reviewer_attack_pending"
     assert state["method"] == "LCG-VLA"
     assert state["method_identity"] == "LCG-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == LCG_PROPOSAL_HASH
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
@@ -361,6 +362,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_32_candidate_generation_completed",
         "epoch_4_cycle_32_lcg_candidate_selected",
         "epoch_4_cycle_32_lcg_researcher_proposal_pending",
+        "epoch_4_cycle_32_lcg_researcher_proposal_frozen",
+        "epoch_4_cycle_32_lcg_reviewer_attack_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1332,6 +1335,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg["closest_prior"] == "Counterfactual Action Guidance"
     assert lcg["closest_prior_primary_source"] == "https://arxiv.org/abs/2602.17659"
     assert lcg["contribution_type"] == "PRIOR_EXTENSION"
+    assert lcg["proposal"] == "reports/lcg_vla/researcher_proposal.md"
+    assert lcg["proposal_hash_file"] == "reports/lcg_vla/proposal_hash.txt"
+    assert lcg["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert lcg["proposal_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert lcg["reviewer_attack_pending"] is True
     assert lcg["policy_order"] == [
         "smolvla_base",
         "counterfactual_action_guidance_proxy",
@@ -1345,6 +1353,18 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg["validation_search_happened"] is False
     assert lcg["closed_loop_experiment_happened"] is False
     assert lcg["confirmatory_test_tuning_happened"] is False
+    lcg_proposal = state["epoch_4_cycle_32_lcg_researcher_proposal"]
+    assert lcg_proposal["final_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert lcg_proposal["proposal"] == "reports/lcg_vla/researcher_proposal.md"
+    assert lcg_proposal["proposal_hash_file"] == "reports/lcg_vla/proposal_hash.txt"
+    assert lcg_proposal["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert lcg_proposal["closest_prior"] == "Counterfactual Action Guidance"
+    assert lcg_proposal["policy_order"] == lcg["policy_order"]
+    assert lcg_proposal["training_happened"] is False
+    assert lcg_proposal["validation_search_happened"] is False
+    assert lcg_proposal["closed_loop_experiment_happened"] is False
+    assert lcg_proposal["confirmatory_test_tuning_happened"] is False
+    assert lcg_proposal["reviewer_attack_pending"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

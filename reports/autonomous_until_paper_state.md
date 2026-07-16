@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_32_lcg_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -39,10 +39,16 @@ The first serious comparison is frozen at the design level to `smolvla_base`,
 `counterfactual_action_guidance_proxy`, `lcg_full`,
 `lcg_no_language_contrast_ablation`, and `standard_lora`.
 
-The next stage is to freeze the LCG-VLA Researcher A proposal before Reviewer
-B attack, mathematical audit, preregistration, prototype protocol,
-implementation, validation search, training, rollout, or confirmatory-test
-access.
+The LCG-VLA Researcher A proposal is frozen in
+`reports/lcg_vla/researcher_proposal.md` with SHA-256
+`F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E` and
+decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No LCG implementation,
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened.
+
+The next stage is Reviewer B attack before mathematical audit,
+preregistration, prototype protocol, implementation, validation search,
+training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
