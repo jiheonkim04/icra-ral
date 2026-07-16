@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -45,12 +45,18 @@ transformation generators, requires transformation/label health and
 deployment-time observability, keeps `augmentation_only_lora_killer` live,
 requires Base identity and objective/gradient audits, and blocks hidden
 confirmatory access or contaminated resource metrics.
+Researcher A rebuttal is complete in
+`reports/mci_vla/researcher_rebuttal.md` with decision
+`MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all ten Reviewer B
+conditions, preserves RoVLA as policy 2, keeps
+`augmentation_only_lora_killer` live, forbids deterministic-action KL, and
+passes only to mathematical mechanism audit.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
 not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI
 implementation, training, validation search, rollout, or confirmatory-test
-access has happened. The next action is to write the MCI-VLA Researcher A
-rebuttal.
+access has happened. The next action is to write the MCI-VLA mathematical
+mechanism audit.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

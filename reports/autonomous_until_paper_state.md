@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `38`
 
-Current stage: `epoch_4_cycle_38_mci_rebuttal_pending`
+Current stage: `epoch_4_cycle_38_mci_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -52,12 +52,18 @@ transformation generators, requires transformation/label health and
 deployment-time observability, keeps `augmentation_only_lora_killer` live,
 requires Base identity and objective/gradient audits, and blocks hidden
 confirmatory access or contaminated resource metrics.
+Researcher A rebuttal is complete in
+`reports/mci_vla/researcher_rebuttal.md` with decision
+`MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all ten Reviewer B
+conditions, preserves RoVLA as policy 2, keeps
+`augmentation_only_lora_killer` live, forbids deterministic-action KL, and
+passes only to mathematical mechanism audit.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
 allowed. No MCI implementation, training, validation search, rollout, or
 confirmatory-test access has happened. Immediate next action: write the
-MCI-VLA Researcher A rebuttal.
+MCI-VLA mathematical mechanism audit.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

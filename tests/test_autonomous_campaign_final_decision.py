@@ -41,6 +41,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "reports/mci_vla/reviewer_attack.md" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "reports/mci_vla/researcher_rebuttal.md" in final
+    assert "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "MCI-VLA Researcher A" in final
     assert "MCI-VLA" in final
     assert MCI_PROPOSAL_HASH in final
@@ -461,10 +463,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_decision"] == "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 38
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_38_mci_mathematical_audit_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
@@ -472,9 +474,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_38_prior_mechanism_map.md"
     assert state["selection_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["next_action"] == (
-        "Write the MCI-VLA Researcher A rebuttal accepting or resolving every "
-        "Reviewer B condition before mathematical audit, preregistration, "
-        "implementation, validation search, rollout, or confirmatory-test access."
+        "Write the MCI-VLA mathematical mechanism audit before preregistration, "
+        "prototype protocol, implementation, validation search, rollout, or "
+        "confirmatory-test access."
     )
     assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
@@ -485,9 +487,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["reviewer_attack_completed"] is True
     assert state["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
     assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["researcher_rebuttal_pending"] is True
-    assert state["researcher_rebuttal_completed"] is False
-    assert state["researcher_rebuttal"] is None
+    assert state["researcher_rebuttal_pending"] is False
+    assert state["researcher_rebuttal_completed"] is True
+    assert state["researcher_rebuttal"] == "reports/mci_vla/researcher_rebuttal.md"
+    assert state["rebuttal_decision"] == "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["accepted_reviewer_conditions"] is True
+    assert state["mathematical_audit_pending"] is True
     assert state["prototype_protocol"] is None
     assert state["prototype_protocol_pending"] is False
     assert state["prototype_protocol_frozen"] is False
@@ -1114,7 +1119,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection38["reviewer_attack_completed"] is True
     assert selection38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
     assert selection38["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert selection38["researcher_rebuttal_pending"] is True
+    assert selection38["researcher_rebuttal_pending"] is False
+    assert selection38["researcher_rebuttal_completed"] is True
+    assert selection38["researcher_rebuttal"] == "reports/mci_vla/researcher_rebuttal.md"
+    assert selection38["rebuttal_decision"] == "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert selection38["accepted_reviewer_conditions"] is True
+    assert selection38["mathematical_audit_pending"] is True
     assert selection38["first_serious_comparison_includes_closest_prior"] is True
     assert selection38["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection38["privileged_inference_inputs_allowed"] is False
@@ -1131,13 +1141,23 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proposal38["reviewer_attack_completed"] is True
     assert proposal38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
     assert proposal38["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert proposal38["researcher_rebuttal_pending"] is True
+    assert proposal38["researcher_rebuttal_pending"] is False
+    assert proposal38["researcher_rebuttal_completed"] is True
+    assert proposal38["researcher_rebuttal"] == "reports/mci_vla/researcher_rebuttal.md"
+    assert proposal38["rebuttal_decision"] == "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert proposal38["accepted_reviewer_conditions"] is True
+    assert proposal38["mathematical_audit_pending"] is True
     review38 = state["epoch_4_cycle_38_mci_reviewer_attack"]
     assert review38["method"] == "MCI-VLA"
     assert review38["proposal_hash"] == MCI_PROPOSAL_HASH
     assert review38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
     assert review38["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert review38["researcher_rebuttal_pending"] is True
+    assert review38["researcher_rebuttal_pending"] is False
+    assert review38["researcher_rebuttal_completed"] is True
+    assert review38["researcher_rebuttal"] == "reports/mci_vla/researcher_rebuttal.md"
+    assert review38["rebuttal_decision"] == "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert review38["accepted_reviewer_conditions"] is True
+    assert review38["mathematical_audit_pending"] is True
     assert len(review38["required_conditions"]) == 10
     assert review38["policy_order"] == [
         "smolvla_base",
@@ -1150,6 +1170,23 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert review38["validation_search_happened"] is False
     assert review38["closed_loop_experiment_happened"] is False
     assert review38["confirmatory_test_tuning_happened"] is False
+    rebuttal38 = state["epoch_4_cycle_38_mci_rebuttal"]
+    assert rebuttal38["method"] == "MCI-VLA"
+    assert rebuttal38["proposal_hash"] == MCI_PROPOSAL_HASH
+    assert rebuttal38["researcher_rebuttal"] == "reports/mci_vla/researcher_rebuttal.md"
+    assert rebuttal38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
+    assert rebuttal38["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert rebuttal38["final_decision"] == "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert rebuttal38["accepted_reviewer_conditions"] is True
+    assert len(rebuttal38["accepted_conditions"]) == 10
+    assert rebuttal38["deterministic_action_kl_allowed"] is False
+    assert rebuttal38["standard_lora_as_scientific_mechanism_allowed"] is False
+    assert rebuttal38["privileged_inference_inputs_allowed"] is False
+    assert rebuttal38["mathematical_audit_pending"] is True
+    assert rebuttal38["training_happened"] is False
+    assert rebuttal38["validation_search_happened"] is False
+    assert rebuttal38["closed_loop_experiment_happened"] is False
+    assert rebuttal38["confirmatory_test_tuning_happened"] is False
     assert "epoch_4_cycle_37_cspr_stage_0_launched" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_adjudicated" in state["completed_stages"]
@@ -1163,6 +1200,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_38_mci_reviewer_attack_pending" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_rebuttal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_mathematical_audit_pending" in state["completed_stages"]
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
