@@ -205,6 +205,23 @@ def test_resume_preserves_prior_exception_and_validates_feature_hash(tmp_path: P
     assert last_exception == "transient feature extraction failure"
 
 
+def test_resume_ignores_zero_row_premanifest_blocker_without_repeating_rows(tmp_path: Path) -> None:
+    manifest_row = _manifest_row("discovery", 0, 1)
+    partial = _partial_payload(
+        None,
+        None,
+        [],
+        exception_count=1,
+        last_exception="pre-manifest wrapper quoting failure",
+    )
+    path = tmp_path / "partial.json"
+    path.write_text(json.dumps(partial), encoding="utf-8")
+    rows, exception_count, last_exception = _load_resume(path, [manifest_row], "MANIFEST")
+    assert rows == []
+    assert exception_count == 0
+    assert last_exception is None
+
+
 def _healthy_inputs(**overrides: object) -> Stage0DecisionInputs:
     values: dict[str, object] = {
         "proposal_hash_ok": True,

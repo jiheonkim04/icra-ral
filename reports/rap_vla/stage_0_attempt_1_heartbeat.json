@@ -1,0 +1,12 @@
+{
+  "completed_model_row_count": 0,
+  "exception_count": 1,
+  "method": "RAP-VLA",
+  "phase": "implementation_blocker",
+  "pid": 394,
+  "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+  "stage": "0",
+  "started_at": "2026-07-16T00:44:58.286592+00:00",
+  "status": "failed",
+  "updated_at": "2026-07-16T00:45:01.015006+00:00"
+}

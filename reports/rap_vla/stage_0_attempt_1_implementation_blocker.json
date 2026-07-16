@@ -1,0 +1,20 @@
+{
+  "exception": "RAP Stage 0 preflight failed: {'passed': False, 'missing_paths': [], 'cuda_available': True, 'cuda_device': 'NVIDIA GeForce RTX 5080', 'proposal_hash_file': 'E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008', 'proposal_hash_observed': 'E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008', 'partial_summary': None, 'partial_parse_error': None, 'result_absent': True, 'active_rap_linux_workers': [{'pid': 388, 'command': 'bash -lc /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_rap_vla_stage0.py > reports/rap_vla/stage_0_stdout.log 2> reports/rap_vla/stage_0_stderr.log; code=0; printf %sn  > reports/rap_vla/stage_0_exit_code.txt'}], 'resource_evidence': {'registry_interval_count': 3, 'overlap_interval_ids': [], 'unresolved_interval_ids': [], 'timing_throughput_resource_evidence_eligible': True, 'closed_loop_success_row_policy': 'not_applicable_stage_0a_no_rollout', 'policy': 'timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap'}}",
+  "exception_type": "RuntimeError",
+  "method": "RAP-VLA",
+  "partial_rows_preserved": 0,
+  "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+  "stage": "0",
+  "state": {
+    "method": "RAP-VLA",
+    "phase": "startup",
+    "pid": 394,
+    "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+    "stage": "0",
+    "started_at": "2026-07-16T00:44:58.286592+00:00",
+    "status": "starting"
+  },
+  "status": "implementation_blocker",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_rap_vla_stage0.py\", line 1384, in main\n    result = run(args, paths, state)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_rap_vla_stage0.py\", line 1114, in run\n    raise RuntimeError(f\"RAP Stage 0 preflight failed: {preflight}\")\nRuntimeError: RAP Stage 0 preflight failed: {'passed': False, 'missing_paths': [], 'cuda_available': True, 'cuda_device': 'NVIDIA GeForce RTX 5080', 'proposal_hash_file': 'E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008', 'proposal_hash_observed': 'E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008', 'partial_summary': None, 'partial_parse_error': None, 'result_absent': True, 'active_rap_linux_workers': [{'pid': 388, 'command': 'bash -lc /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_rap_vla_stage0.py > reports/rap_vla/stage_0_stdout.log 2> reports/rap_vla/stage_0_stderr.log; code=0; printf %sn  > reports/rap_vla/stage_0_exit_code.txt'}], 'resource_evidence': {'registry_interval_count': 3, 'overlap_interval_ids': [], 'unresolved_interval_ids': [], 'timing_throughput_resource_evidence_eligible': True, 'closed_loop_success_row_policy': 'not_applicable_stage_0a_no_rollout', 'policy': 'timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap'}}\n",
+  "written_at": "2026-07-16T00:45:01.007517+00:00"
+}

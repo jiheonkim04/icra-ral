@@ -485,9 +485,13 @@ def _load_resume(path: Path, manifest_rows: Sequence[Mapping[str, Any]], manifes
     if not path.is_file():
         return [], 0, None
     partial = _read_json(path)
-    if partial.get("method") != "RAP-VLA" or partial.get("proposal_hash") != PROPOSAL_HASH or partial.get("manifest_hash") != manifest_hash:
+    if partial.get("method") != "RAP-VLA" or partial.get("proposal_hash") != PROPOSAL_HASH:
         raise RuntimeError("partial result identity does not match frozen RAP proposal/manifest")
     rows = list(partial.get("rows") or [])
+    if partial.get("manifest_hash") is None and not rows:
+        return [], 0, None
+    if partial.get("manifest_hash") != manifest_hash:
+        raise RuntimeError("partial result identity does not match frozen RAP manifest")
     audit = validate_manifest(manifest_rows, rows)
     if audit["duplicate_partial_key_count"] or audit["extra_partial_key_count"]:
         raise RuntimeError(f"partial contains duplicate or off-manifest keys: {audit}")
@@ -1075,11 +1079,17 @@ def _preflight(paths: Mapping[str, Path], started_unix: float) -> dict[str, Any]
         except Exception as exc:
             partial_parse_error = f"{type(exc).__name__}: {exc}"
     registry = _read_json(RESOURCE_REGISTRY) if RESOURCE_REGISTRY.is_file() else {"intervals": []}
-    workers = [
-        worker
-        for worker in _active_linux_workers()
-        if "run_rap_vla_stage0.py" in str(worker.get("command", ""))
-    ]
+    parent_pid = os.getppid()
+    workers = []
+    for worker in _active_linux_workers():
+        command = str(worker.get("command", ""))
+        if "run_rap_vla_stage0.py" not in command:
+            continue
+        if int(worker.get("pid", -1)) == parent_pid:
+            continue
+        if command.lstrip().startswith(("bash -lc ", "/bin/bash -lc ")):
+            continue
+        workers.append(worker)
     return {
         "passed": bool(
             not missing
