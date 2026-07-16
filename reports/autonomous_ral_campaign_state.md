@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_27_cfr_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -37,13 +37,17 @@ The first serious comparison is frozen at the design level to exactly
 `smolvla_base`, `dfm_vla_continuous_refinement_proxy` or official `dfm_vla` if
 installed, `cfr_full`, `cfr_no_iterative_refinement`, and `standard_lora`.
 
-No CFR proposal, training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened. AMP remains closed unchanged as
+The CFR-VLA Researcher A proposal is frozen in
+`reports/cfr_vla/researcher_proposal.md` with SHA-256
+`9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE` and
+decision `CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No CFR training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened. AMP remains closed unchanged as
 `AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`; no AMP repair, rescue,
 threshold change, clipping, or reinterpretation is allowed.
 
-Next action: freeze the CFR-VLA Researcher A proposal before Reviewer B attack,
-mathematical audit, preregistration, or implementation.
+Next action: Reviewer B attack for CFR-VLA before mathematical audit,
+preregistration, or implementation.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

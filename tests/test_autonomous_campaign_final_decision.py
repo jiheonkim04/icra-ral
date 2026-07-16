@@ -20,6 +20,7 @@ KITE_PROPOSAL_HASH = "FA00DE56D14E4C69388BE1642F7D52153841D58E77FD5A3F5C68B6C624
 VDR_PROPOSAL_HASH = "0229EBC15901F4FE1EDD3839AB6B984AFA3E0E99836B5C88CF21F2C7DE2B3E72"
 RAP_PROPOSAL_HASH = "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008"
 AMP_PROPOSAL_HASH = "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4"
+CFR_PROPOSAL_HASH = "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
@@ -241,12 +242,13 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
     assert "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
-    assert "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "CFR-VLA" in final
     assert "DFM-VLA" in final
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
-    assert "epoch_4_cycle_27_cfr_researcher_proposal_pending" in final
+    assert CFR_PROPOSAL_HASH in final
+    assert "epoch_4_cycle_27_cfr_reviewer_attack_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -275,13 +277,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 27
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_reviewer_attack_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == CFR_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -296,7 +298,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze CFR-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
+        == "Run Reviewer B attack for CFR-VLA before mathematical audit, preregistration, or implementation."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -442,6 +444,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cfr["validation_search_happened"] is False
     assert cfr["closed_loop_experiment_happened"] is False
     assert cfr["confirmatory_test_tuning_happened"] is False
+    assert cfr["proposal"] == "reports/cfr_vla/researcher_proposal.md"
+    assert cfr["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr["proposal_hash_file"] == "reports/cfr_vla/proposal_hash.txt"
+    assert cfr["proposal_decision"] == "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    cfr_proposal = state["epoch_4_cycle_27_cfr_researcher_proposal"]
+    assert cfr_proposal["final_decision"] == "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert cfr_proposal["proposal"] == "reports/cfr_vla/researcher_proposal.md"
+    assert cfr_proposal["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr_proposal["closed_loop_experiment_happened"] is False
+    assert cfr_proposal["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

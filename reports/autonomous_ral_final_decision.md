@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -27,12 +27,14 @@ infrastructure, not the scientific method.
 
 The first serious comparison is exactly Base,
 `dfm_vla_continuous_refinement_proxy` or official `dfm_vla` if installed, CFR
-full, no-iterative-refinement ablation, and matched standard LoRA. No CFR
-proposal, training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened.
+full, no-iterative-refinement ablation, and matched standard LoRA. The CFR
+proposal is frozen in `reports/cfr_vla/researcher_proposal.md` with SHA-256
+`9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE`. No CFR
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened.
 
 Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_researcher_proposal_pending`.
+`epoch_4_cycle_27_cfr_reviewer_attack_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 
