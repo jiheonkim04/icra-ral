@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: freeze the AFID-VLA mathematical mechanism audit before
-preregistration or implementation.
+Immediate next action: freeze the AFID-VLA preregistration before prototype
+protocol or implementation.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -40,6 +40,10 @@ deterministic-action KL.
 Researcher A rebuttal is complete in `reports/afid_vla/researcher_rebuttal.md`
 with decision `AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B
 conditions are accepted.
+
+The AFID mathematical mechanism audit is frozen in
+`reports/afid_vla/mathematical_mechanism_audit.md` with decision
+`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source

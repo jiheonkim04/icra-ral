@@ -69,8 +69,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_33_afid_mathematical_audit_pending"
+    assert state["current_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_33_afid_preregistration_pending"
     assert state["method"] == "AFID-VLA"
     assert state["method_identity"] == "AFID-VLA"
     assert state["proposal_hash"] == AFID_PROPOSAL_HASH
@@ -80,6 +80,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
     assert state["rebuttal_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
+    assert state["math_audit_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
@@ -397,6 +399,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_33_afid_rebuttal_pending",
         "epoch_4_cycle_33_afid_rebuttal_completed",
         "epoch_4_cycle_33_afid_mathematical_audit_pending",
+        "epoch_4_cycle_33_afid_mathematical_audit_preregistered",
+        "epoch_4_cycle_33_afid_preregistration_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1572,11 +1576,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cycle33["candidate_ids"] == ["AFID-VLA", "ACR-VLA", "GCF-VLA"]
     assert cycle33["selected_method"] == "AFID-VLA"
     assert cycle33["selected_score"] == 90
-    assert cycle33["selection_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert cycle33["selection_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert cycle33["lcg_repair_allowed"] is False
     assert cycle33["lcg_rescue_allowed"] is False
     afid = state["epoch_4_cycle_33_candidate_selection"]
-    assert afid["final_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert afid["final_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert afid["method"] == "AFID-VLA"
     assert afid["candidate_count"] == 3
     assert afid["selected_score"] == 90
@@ -1591,7 +1595,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert afid["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
     assert afid["rebuttal_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert afid["rebuttal_completed"] is True
-    assert afid["mathematical_audit_pending"] is True
+    assert afid["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
+    assert afid["math_audit_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert afid["preregistration_pending"] is True
     assert afid["policy_order"] == [
         "smolvla_base",
         "finevla_action_factor_proxy",
@@ -1603,13 +1609,15 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert afid["training_happened"] is False
     assert afid["confirmatory_test_tuning_happened"] is False
     afid_proposal = state["epoch_4_cycle_33_afid_researcher_proposal"]
-    assert afid_proposal["final_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert afid_proposal["final_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert afid_proposal["researcher_proposal"] == "reports/afid_vla/researcher_proposal.md"
     assert afid_proposal["proposal_hash"] == AFID_PROPOSAL_HASH
     assert afid_proposal["reviewer_attack"] == "reports/afid_vla/reviewer_attack.md"
     assert afid_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert afid_proposal["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
     assert afid_proposal["rebuttal_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert afid_proposal["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
+    assert afid_proposal["math_audit_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert afid_proposal["closest_prior"] == "FineVLA"
     assert afid_proposal["policy_order"] == [
         "smolvla_base",
@@ -1620,7 +1628,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     ]
     assert afid_proposal["reviewer_attack_completed"] is True
     assert afid_proposal["rebuttal_completed"] is True
-    assert afid_proposal["mathematical_audit_pending"] is True
+    assert afid_proposal["preregistration_pending"] is True
     assert afid_proposal["training_happened"] is False
     afid_review = state["epoch_4_cycle_33_afid_reviewer_attack"]
     assert afid_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -1638,14 +1646,29 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert afid_review["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
     assert afid_review["rebuttal_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert afid_review["rebuttal_completed"] is True
-    assert afid_review["mathematical_audit_pending"] is True
+    assert afid_review["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
+    assert afid_review["math_audit_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert afid_review["preregistration_pending"] is True
     assert afid_review["training_happened"] is False
     afid_rebuttal = state["epoch_4_cycle_33_afid_rebuttal"]
-    assert afid_rebuttal["final_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert afid_rebuttal["final_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert afid_rebuttal["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
     assert afid_rebuttal["accepted_reviewer_conditions"] is True
-    assert afid_rebuttal["mathematical_audit_pending"] is True
+    assert afid_rebuttal["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
+    assert afid_rebuttal["math_audit_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert afid_rebuttal["preregistration_pending"] is True
     assert afid_rebuttal["training_happened"] is False
+    afid_audit = state["epoch_4_cycle_33_afid_mathematical_audit"]
+    assert afid_audit["final_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert afid_audit["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
+    assert afid_audit["proposal_hash"] == AFID_PROPOSAL_HASH
+    assert afid_audit["horizon"] == 50
+    assert afid_audit["action_dim"] == 7
+    assert afid_audit["tau_conf"] == 0.60
+    assert afid_audit["kl_between_deterministic_actions_used"] is False
+    assert "AFID_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in afid_audit["stage_0_stop_classes"]
+    assert afid_audit["preregistration_pending"] is True
+    assert afid_audit["training_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_33_afid_preregistration_pending`
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
@@ -44,9 +44,12 @@ Researcher A rebuttal is complete in `reports/afid_vla/researcher_rebuttal.md`
 with decision `AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
 Reviewer B conditions.
 
-Next action: freeze the AFID mathematical mechanism audit. No AFID
-implementation, training, validation search, rollout, or confirmatory-test
-access has happened.
+The AFID mathematical mechanism audit is frozen in
+`reports/afid_vla/mathematical_mechanism_audit.md` with decision
+`AFID_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Next action: freeze the AFID preregistration. No AFID implementation, training,
+validation search, rollout, or confirmatory-test access has happened.
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
