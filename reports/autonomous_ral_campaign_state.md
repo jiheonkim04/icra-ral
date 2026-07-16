@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_37_cspr_stage_0_launch_pending`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -72,13 +72,18 @@ cache-covered rows, Stage 0 artifacts and stop classes, first comparison
 policies, a six-configuration validation-search budget, worker resume keys,
 and no deterministic 7D-action KL. The executable prototype protocol is frozen
 in `reports/cspr_vla/prototype_protocol.md` with decision
-`CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It requires `tca_map/smolvla/cspr_vla.py`,
-`scripts/run_cspr_vla_stage0.py`, `tests/test_cspr_vla.py`, serializer
-preflight, action-semantics validation, DySL prior asset/proxy inspection,
-duplicate-key checks, and worker-resume safety before any launch. No CSPR
-implementation, training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened. Immediate next action: implement and
-validate Stage 0.
+`CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Stage 0 implementation validation is complete:
+`tca_map/smolvla/cspr_vla.py`, `scripts/run_cspr_vla_stage0.py`, and
+`tests/test_cspr_vla.py` are implemented; serializer preflight passed in
+`reports/cspr_vla/stage_0_serializer_preflight.json` with fixture hash
+`08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712`; py_compile passed; focused CSPR tests passed (`6 passed`);
+focused state tests passed (`9 passed`); governance check passed; and the
+CSPR-inclusive campaign regression suite passed (`54 passed`). No CSPR Stage
+0 worker, training, validation search, rollout, simulator load,
+reward/success/done read, or confirmatory-test access occurred during
+implementation validation. Immediate next action: Stage 0 launch precheck
+and single frozen runner execution if no existing result, live worker, or
+resumable partial blocks launch.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

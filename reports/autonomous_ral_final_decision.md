@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
 
 This is not a terminal decision.
 
@@ -44,9 +44,15 @@ is frozen in `reports/cspr_vla/mathematical_mechanism_audit.md` with decision
 `reports/cspr_vla/preregistration.md` with decision
 `CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The executable
 prototype protocol is frozen in `reports/cspr_vla/prototype_protocol.md`
-with decision `CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. The next action is Stage 0 implementation
-validation before any worker launch, validation search, rollout, or
-confirmatory-test access.
+with decision `CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. CSPR Stage 0 implementation validation
+is complete with serializer preflight hash `08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712`, focused CSPR tests
+passed (`6 passed`), focused state tests passed (`9 passed`), governance
+check passed, and the CSPR-inclusive regression suite passed (`54 passed`).
+No CSPR Stage 0 worker, training, validation search, rollout, simulator
+load, reward/success/done read, or confirmatory-test access occurred during
+implementation validation. The next action is Stage 0 launch precheck and
+single frozen runner execution if no existing result, live worker, or
+resumable partial blocks launch.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

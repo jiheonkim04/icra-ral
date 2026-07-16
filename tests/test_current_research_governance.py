@@ -34,6 +34,7 @@ BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71C
 MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3"
 DCCG_PROPOSAL_HASH = "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E"
 CSPR_PROPOSAL_HASH = "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7"
+CSPR_SERIALIZER_HASH = "08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -73,8 +74,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_stage_0_implementation_pending"
+    assert state["current_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_stage_0_launch_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
@@ -89,7 +90,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "cspr_uniform_refinement_ablation",
         "critical_step_threshold_simple_killer",
     ]
-    assert state["next_action"].startswith("Implement and validate the CSPR-VLA Stage 0")
+    assert state["next_action"].startswith("Run the CSPR-VLA Stage 0 launch precheck")
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -116,14 +117,16 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["prototype_protocol_pending"] is False
     assert state["prototype_protocol_frozen"] is True
     assert state["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["stage_0_implementation_pending"] is True
-    assert state["stage_0_implementation_validated"] is False
-    assert state["stage_0_pending"] is False
+    assert state["stage_0_implementation_pending"] is False
+    assert state["stage_0_implementation_validated"] is True
+    assert state["stage_0_pending"] is True
+    assert state["stage_0_launch_pending"] is True
+    assert state["stage_0_launched"] is False
     assert state["stage_0_completed"] is False
     assert state["stage_0_adjudicated"] is False
     assert state["stage_0_decision"] is None
-    assert state["stage_0_result"] is None
-    assert state["stage_0_adjudication"] is None
+    assert state["stage_0_result"] == "reports/cspr_vla/stage_0_result.json"
+    assert state["stage_0_adjudication"] == "reports/cspr_vla/stage_0_adjudication.md"
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
     assert cycle35["candidate_count_required"] == 3
     assert cycle35["candidate_count_generated"] == 3
@@ -530,7 +533,13 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert math37["prototype_protocol_pending"] is False
     assert math37["prototype_protocol_frozen"] is True
     assert math37["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert math37["stage_0_implementation_pending"] is True
+    assert math37["stage_0_implementation_pending"] is False
+    assert math37["stage_0_implementation_validated"] is True
+    assert math37["implementation_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert math37["stage_0_pending"] is True
+    assert math37["stage_0_launch_pending"] is True
+    assert math37["stage_0_launched"] is False
+    assert math37["stage_0_serializer_preflight_hash"] == CSPR_SERIALIZER_HASH
     assert math37["training_happened"] is False
     assert math37["validation_search_happened"] is False
     assert math37["closed_loop_experiment_happened"] is False
@@ -553,7 +562,13 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert prereg37["prototype_protocol_pending"] is False
     assert prereg37["prototype_protocol_frozen"] is True
     assert prereg37["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert prereg37["stage_0_implementation_pending"] is True
+    assert prereg37["stage_0_implementation_pending"] is False
+    assert prereg37["stage_0_implementation_validated"] is True
+    assert prereg37["implementation_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert prereg37["stage_0_pending"] is True
+    assert prereg37["stage_0_launch_pending"] is True
+    assert prereg37["stage_0_launched"] is False
+    assert prereg37["stage_0_serializer_preflight_hash"] == CSPR_SERIALIZER_HASH
     assert prereg37["training_happened"] is False
     assert prereg37["validation_search_happened"] is False
     assert prereg37["closed_loop_experiment_happened"] is False
@@ -587,13 +602,41 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert protocol37["manifest_completeness_required"] is True
     assert protocol37["deterministic_action_kl_allowed"] is False
     assert protocol37["first_serious_comparison_includes_closest_prior"] is True
-    assert protocol37["stage_0_implementation_pending"] is True
-    assert protocol37["stage_0_implementation_validated"] is False
-    assert protocol37["stage_0_pending"] is False
+    assert protocol37["stage_0_implementation_pending"] is False
+    assert protocol37["stage_0_implementation_validated"] is True
+    assert protocol37["implementation_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert protocol37["stage_0_pending"] is True
+    assert protocol37["stage_0_launch_pending"] is True
+    assert protocol37["stage_0_launched"] is False
+    assert protocol37["stage_0_serializer_preflight_hash"] == CSPR_SERIALIZER_HASH
     assert protocol37["training_happened"] is False
     assert protocol37["validation_search_happened"] is False
     assert protocol37["closed_loop_experiment_happened"] is False
     assert protocol37["confirmatory_test_tuning_happened"] is False
+    impl37 = state["epoch_4_cycle_37_cspr_stage_0_implementation"]
+    assert impl37["final_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert impl37["helper"] == "tca_map/smolvla/cspr_vla.py"
+    assert impl37["runner"] == "scripts/run_cspr_vla_stage0.py"
+    assert impl37["focused_tests"] == "tests/test_cspr_vla.py"
+    assert impl37["serializer_preflight"] == "reports/cspr_vla/stage_0_serializer_preflight.json"
+    assert impl37["serializer_preflight_passed"] is True
+    assert impl37["serializer_preflight_fixture_hash"] == CSPR_SERIALIZER_HASH
+    assert impl37["serializer_preflight_reproduced_hash"] == CSPR_SERIALIZER_HASH
+    assert impl37["py_compile_passed"] is True
+    assert impl37["focused_cspr_tests_passed"] == 6
+    assert impl37["focused_state_tests_passed"] == 9
+    assert impl37["focused_implementation_validation_tests_passed"] == 15
+    assert impl37["governance_check_passed"] is True
+    assert impl37["campaign_regression_tests_passed"] == 54
+    assert impl37["stage_0_implementation_validated"] is True
+    assert impl37["stage_0_pending"] is True
+    assert impl37["stage_0_launch_pending"] is True
+    assert impl37["stage_0_launched"] is False
+    assert impl37["no_stage_0_worker_launched_by_implementation_validation"] is True
+    assert impl37["training_happened"] is False
+    assert impl37["validation_search_happened"] is False
+    assert impl37["closed_loop_experiment_happened"] is False
+    assert impl37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -644,6 +687,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_37_cspr_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_implementation_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_stage_0_runner_implemented" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_stage_0_implementation_validated" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_stage_0_ready" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
