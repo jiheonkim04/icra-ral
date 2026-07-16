@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -47,8 +47,12 @@ no-iterative ablation, standard-LoRA killer baseline, official action-validity
 semantics, residual/headroom gates, mathematical audit, and no-privileged-input
 conditions.
 
+Researcher A rebuttal is complete in `reports/cfr_vla/researcher_rebuttal.md`
+with decision `CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B
+conditions are accepted before mathematical audit.
+
 Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_rebuttal_pending`.
+`epoch_4_cycle_27_cfr_mathematical_audit_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 

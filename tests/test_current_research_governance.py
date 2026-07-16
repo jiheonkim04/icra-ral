@@ -63,8 +63,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_rebuttal_pending"
+    assert state["current_decision"] == "CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_mathematical_audit_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -249,6 +249,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_reviewer_attack_pending",
         "epoch_4_cycle_27_cfr_reviewer_attack_completed",
         "epoch_4_cycle_27_cfr_rebuttal_pending",
+        "epoch_4_cycle_27_cfr_rebuttal_completed",
+        "epoch_4_cycle_27_cfr_mathematical_audit_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -450,6 +452,15 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "standard_lora remains the single simple reviewer-killer baseline" in cfr_review["conditions"]
     assert cfr_review["closed_loop_experiment_happened"] is False
     assert cfr_review["confirmatory_test_tuning_happened"] is False
+    cfr_rebuttal = state["epoch_4_cycle_27_cfr_rebuttal"]
+    assert cfr_rebuttal["final_decision"] == "CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert cfr_rebuttal["researcher_rebuttal"] == "reports/cfr_vla/researcher_rebuttal.md"
+    assert cfr_rebuttal["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr_rebuttal["accepted_reviewer_conditions"] is True
+    assert cfr_rebuttal["accepted_key_ablation"] == "cfr_no_iterative_refinement"
+    assert cfr_rebuttal["accepted_simple_baseline"] == "standard_lora"
+    assert cfr_rebuttal["accepted_official_action_validity_semantics"] is True
+    assert cfr_rebuttal["accepted_no_privileged_inference_inputs"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

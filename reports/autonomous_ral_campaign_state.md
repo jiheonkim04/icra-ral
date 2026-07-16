@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_rebuttal_pending`
+Current stage: `epoch_4_cycle_27_cfr_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -55,8 +55,14 @@ validity semantics before Stage 0, require residual/headroom health, require
 mathematical objective and gradient-scale audits, and forbid privileged
 inference inputs.
 
-Next action: Researcher A rebuttal for CFR-VLA before mathematical audit,
-preregistration, or implementation.
+Researcher A rebuttal is complete in `reports/cfr_vla/researcher_rebuttal.md`
+with decision `CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts narrowed
+novelty, DFM proxy status, key ablation, standard-LoRA simple killer, official
+action-validity semantics, data/headroom gates, mathematical audit
+requirements, and no privileged inference inputs.
+
+Next action: freeze the CFR-VLA mathematical mechanism audit before
+preregistration or implementation.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

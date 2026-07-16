@@ -72,7 +72,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Epoch 4 Cycle 7 generated exactly three post-MTF candidates" in final
     assert "DAGR-VLA" in final
     assert "BDE0EC67ACE8EC457CE6495D723EE476064F3D80946151326B11F0B5A1AFEF89" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "DAGR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "AUDIT_PASS_PROCEED_TO_VALIDATION_SEARCH" in final
     assert "dagr_a020_route_mlp" in final
@@ -248,7 +248,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_27_cfr_rebuttal_pending" in final
+    assert "epoch_4_cycle_27_cfr_mathematical_audit_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -277,10 +277,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_decision"] == "CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 27
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_mathematical_audit_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -298,7 +298,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Researcher A rebuttal must accept or answer all CFR Reviewer B conditions before mathematical audit."
+        == "Freeze CFR-VLA mathematical mechanism audit before preregistration or implementation."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -462,6 +462,15 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "official action-validity semantics must be defined before Stage 0 and shared across policies" in cfr_review["conditions"]
     assert cfr_review["closed_loop_experiment_happened"] is False
     assert cfr_review["confirmatory_test_tuning_happened"] is False
+    cfr_rebuttal = state["epoch_4_cycle_27_cfr_rebuttal"]
+    assert cfr_rebuttal["final_decision"] == "CFR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert cfr_rebuttal["researcher_rebuttal"] == "reports/cfr_vla/researcher_rebuttal.md"
+    assert cfr_rebuttal["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr_rebuttal["accepted_reviewer_conditions"] is True
+    assert cfr_rebuttal["accepted_key_ablation"] == "cfr_no_iterative_refinement"
+    assert cfr_rebuttal["accepted_simple_baseline"] == "standard_lora"
+    assert cfr_rebuttal["accepted_official_action_validity_semantics"] is True
+    assert cfr_rebuttal["accepted_no_privileged_inference_inputs"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
