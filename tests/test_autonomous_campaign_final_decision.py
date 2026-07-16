@@ -32,13 +32,16 @@ MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A
 DCCG_PROPOSAL_HASH = "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E"
 CSPR_PROPOSAL_HASH = "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7"
 CSPR_SERIALIZER_HASH = "08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712"
+MCI_PROPOSAL_HASH = "88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "MCI-VLA" in final
+    assert MCI_PROPOSAL_HASH in final
+    assert "reports/mci_vla/researcher_proposal.md" in final
     assert "Multi-Consistency Invariance" in final
     assert "RoVLA" in final
     assert "reports/epoch_4_cycle_38_prior_mechanism_map.md" in final
@@ -455,26 +458,27 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 38
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_38_mci_reviewer_attack_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_38_candidate_generation.md"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_38_prior_mechanism_map.md"
-    assert state["selection_decision"] == "MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["selection_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["next_action"] == (
-        "Write and hash the MCI-VLA Researcher A proposal before Reviewer B attack, "
-        "mathematical audit, preregistration, implementation, validation search, "
-        "rollout, or confirmatory-test access."
+        "Write the MCI-VLA Reviewer B attack before rebuttal, mathematical audit, "
+        "preregistration, implementation, validation search, rollout, or "
+        "confirmatory-test access."
     )
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/mci_vla/researcher_proposal.md"
-    assert state["researcher_proposal_pending"] is True
-    assert state["researcher_proposal_frozen"] is False
+    assert state["researcher_proposal_pending"] is False
+    assert state["researcher_proposal_frozen"] is True
+    assert state["reviewer_attack_pending"] is True
     assert state["prototype_protocol"] is None
     assert state["prototype_protocol_pending"] is False
     assert state["prototype_protocol_frozen"] is False
@@ -1091,14 +1095,27 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection38["candidate_count"] == 3
     assert selection38["selected_score"] == 92
     assert selection38["selected_contribution_type"] == "PRIOR_EXTENSION"
-    assert selection38["researcher_proposal_pending"] is True
-    assert selection38["researcher_proposal_frozen"] is False
+    assert selection38["researcher_proposal_pending"] is False
+    assert selection38["researcher_proposal_frozen"] is True
     assert selection38["researcher_proposal"] == "reports/mci_vla/researcher_proposal.md"
-    assert selection38["proposal_hash"] is None
+    assert selection38["proposal_hash"] == MCI_PROPOSAL_HASH
     assert selection38["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
+    assert selection38["proposal_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert selection38["reviewer_attack_pending"] is True
     assert selection38["first_serious_comparison_includes_closest_prior"] is True
     assert selection38["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection38["privileged_inference_inputs_allowed"] is False
+    proposal38 = state["epoch_4_cycle_38_mci_researcher_proposal"]
+    assert proposal38["method"] == "MCI-VLA"
+    assert proposal38["final_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert proposal38["researcher_proposal"] == "reports/mci_vla/researcher_proposal.md"
+    assert proposal38["proposal_hash"] == MCI_PROPOSAL_HASH
+    assert proposal38["closest_prior"] == "RoVLA"
+    assert proposal38["first_serious_comparison_includes_closest_prior"] is True
+    assert proposal38["researcher_proposal_pending"] is False
+    assert proposal38["researcher_proposal_frozen"] is True
+    assert proposal38["reviewer_attack_pending"] is True
+    assert proposal38["reviewer_attack_completed"] is False
     assert "epoch_4_cycle_37_cspr_stage_0_launched" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_adjudicated" in state["completed_stages"]
@@ -1108,6 +1125,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_38_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_candidate_selected" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_researcher_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_researcher_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_reviewer_attack_pending" in state["completed_stages"]
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -33,11 +33,16 @@ multi-consistency invariance: a zero-gated Base-preserving consistency-code
 adapter around frozen SmolVLA features and action chunks, trained only from
 deployment-observable LIBERO demonstration inputs.
 
+The MCI-VLA Researcher A proposal is frozen in
+`reports/mci_vla/researcher_proposal.md` with SHA-256
+`88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A` and
+decision `MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
-not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI proposal,
+not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI
 implementation, training, validation search, rollout, or confirmatory-test
-access has happened. The next action is to write and hash the MCI-VLA
-Researcher A proposal.
+access has happened. The next action is to write the MCI-VLA Reviewer B
+attack.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

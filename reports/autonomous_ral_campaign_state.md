@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `38`
 
-Current stage: `epoch_4_cycle_38_mci_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_38_mci_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -40,11 +40,16 @@ RoVLA-anchored consistency-code adapter around frozen SmolVLA features and
 action chunks, initialized as exact Base passthrough with a zero gate and
 groupwise action-delta caps.
 
+The MCI-VLA Researcher A proposal is frozen in
+`reports/mci_vla/researcher_proposal.md` with SHA-256
+`88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A` and
+decision `MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
-allowed. No MCI proposal, implementation, training, validation search, rollout,
-or confirmatory-test access has happened. Immediate next action: write and
-hash the MCI-VLA Researcher A proposal.
+allowed. No MCI implementation, training, validation search, rollout, or
+confirmatory-test access has happened. Immediate next action: write the
+MCI-VLA Reviewer B attack.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
