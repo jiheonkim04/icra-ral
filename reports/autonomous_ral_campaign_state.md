@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
 
 Current epoch: `4`
 
-Current cycle: `32`
+Current cycle: `33`
 
-Current stage: `epoch_4_cycle_32_lcg_stage_0_ready`
+Current stage: `epoch_4_cycle_33_candidate_search_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -83,6 +83,17 @@ focused LCG tests reported `6 passed`, and
 `reports/lcg_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes. The next step is worker-safety inspection and then LCG Stage
 0 launch or adjudication without duplicate execution.
+
+LCG Stage 0 completed as `LCG_STAGE_0_DESIGN_FAILURE` in
+`reports/lcg_vla/stage_0_result.json`: `5120 / 5120` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, and exact
+key-set equality. The frozen design gates failed because the language gate
+activated nearly everywhere (`0.99978125`) and `standard_lora_proxy` explained
+or exceeded LCG (`lora_explains=true`). This is a development-only Stage 0
+stop, not a closed-loop scientific kill. LCG may not be repaired or rescued.
+
+Current next action: generate exactly three Epoch 4 Cycle 33 candidates under
+current governance.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 

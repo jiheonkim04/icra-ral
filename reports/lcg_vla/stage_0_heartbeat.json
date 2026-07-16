@@ -1,0 +1,11 @@
+{
+  "final_decision": "LCG_STAGE_0_DESIGN_FAILURE",
+  "method": "LCG-VLA",
+  "phase": "complete",
+  "pid": 393,
+  "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
+  "stage": "0",
+  "started_utc": "2026-07-16T09:23:32.658112+00:00",
+  "status": "completed",
+  "updated_utc": "2026-07-16T09:23:45.540811+00:00"
+}

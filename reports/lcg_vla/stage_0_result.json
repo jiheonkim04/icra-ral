@@ -1,0 +1,239 @@
+{
+  "action_dimension": 7,
+  "action_semantics": {
+    "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+    "created_utc": "2026-07-16T09:23:32.737854+00:00",
+    "environment_action_shape": [
+      7
+    ],
+    "environment_action_space_high": null,
+    "environment_action_space_low": null,
+    "environment_action_space_low_high_exposed": false,
+    "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy",
+    "finite_checks_required": true,
+    "gripper_convention": "LIBERO/SmolVLA checkpoint action dimension 6 after postprocessor",
+    "method": "LCG-VLA",
+    "model_native_action_shape": [
+      50,
+      7
+    ],
+    "postprocessor_action_mean_shape": [
+      7
+    ],
+    "postprocessor_action_std_shape": [
+      7
+    ],
+    "postprocessor_mode": "MEAN_STD",
+    "postprocessor_step": "UnnormalizerProcessorStep",
+    "same_definition_applies_to_policies": [
+      "smolvla_base",
+      "counterfactual_action_guidance_proxy",
+      "lcg_full",
+      "lcg_no_language_contrast_ablation",
+      "standard_lora_proxy",
+      "contrast_magnitude_only_gate",
+      "task_phase_residual",
+      "masked_residual_oracle_diagnostic"
+    ],
+    "source_semantics": "/mnt/c/Users/jiheo/tca_map/reports/ccif_vla/stage_0_action_semantics.json",
+    "stage": "0",
+    "written_at": "2026-07-16T06:16:33.674050+00:00"
+  },
+  "action_validity_ok": true,
+  "best_cag_proxy_beta": 0.25,
+  "best_cag_proxy_score": 0.0035714564022131397,
+  "cag_huber_by_beta": {
+    "0.25": 0.0035714564022131397,
+    "0.5": 0.0039249292162195255,
+    "1.0": 0.004688045544147488
+  },
+  "cag_proxy_residual_headroom": -0.06905664861944819,
+  "clean_retention_ok": true,
+  "closed_loop_experiment_happened": false,
+  "completed_model_row_count": 5120,
+  "confirmatory_records_read": 0,
+  "contrast_health": {
+    "contrast_noncollapsed": true,
+    "contrast_residual_spearman": 0.08669033798150913,
+    "contrast_std": 0.3723238215698506,
+    "residual_labels_noncollapsed": true,
+    "residual_std": 0.22181917609273047
+  },
+  "contrast_positive_fraction": 0.7273883928571429,
+  "contrast_probe_beats_task_phase_baseline": true,
+  "contrast_probe_relative_improvement": 0.03411053480752453,
+  "contrast_residual_spearman": 0.08669033798150913,
+  "contrast_scale": {
+    "action_dimension": 7,
+    "discovery_row_count": 512,
+    "kind": "discovery_abs_p75_per_action_dim",
+    "scale": [
+      0.26626757562945724,
+      0.5385905597888518,
+      0.5227927503326688,
+      0.022429136992892985,
+      0.04533794455621216,
+      0.020230398679850624,
+      0.6530566072182835
+    ],
+    "tau_lang": 0.25
+  },
+  "created_utc": "2026-07-16T09:23:45.511354+00:00",
+  "decision_inputs": {
+    "action_validity_ok": true,
+    "all_tasks_reported": true,
+    "best_cag_proxy_score": 0.0035714564022131397,
+    "cag_coefficient_equivalence": false,
+    "cag_proxy_residual_headroom": -0.06905664861944819,
+    "clean_retention_ok": true,
+    "closed_loop_experiment_happened": false,
+    "confirmatory_records_read": 0,
+    "contrast_noncollapsed": true,
+    "contrast_positive_fraction": 0.7273883928571429,
+    "contrast_probe_beats_task_phase_baseline": true,
+    "contrast_probe_relative_improvement": 0.03411053480752453,
+    "contrast_residual_spearman": 0.08669033798150913,
+    "done_read_count": 0,
+    "exception_count": 0,
+    "expected_parameter_gradient_nonzero": true,
+    "feature_action_proprio_finite_aligned": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_base_gradient_count": 0,
+    "gate_activation_fraction": 0.99978125,
+    "identity_max_abs_error": 0.0,
+    "inactive_gate_max_abs_error": 0.0,
+    "language_mask_all_one": false,
+    "language_mask_all_zero": false,
+    "lcg_beats_cag_proxy_relative": 0.012147783586062604,
+    "lora_explains": true,
+    "manifest_integrity_ok": true,
+    "masked_residual_headroom": 0.14506162295759614,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 512,
+    "minimum_validation_windows": 128,
+    "no_language_ablation_explains": false,
+    "official_prior_asset_check_persisted": true,
+    "proposal_hash_ok": true,
+    "residual_labels_noncollapsed": true,
+    "reward_read_count": 0,
+    "serializer_preflight_ok": true,
+    "simulator_load_count": 0,
+    "source_alignment_ok": true,
+    "split_integrity_ok": true,
+    "success_read_count": 0,
+    "training_happened": false,
+    "validation_search_happened": false,
+    "weighted_gradient_norm_ratio_max": 1.0
+  },
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "exception_count": 0,
+  "expected_parameter_gradient_nonzero": true,
+  "extra_partial_key_count": 0,
+  "final_decision": "LCG_STAGE_0_DESIGN_FAILURE",
+  "frozen_base_gradient_count": 0,
+  "gate_activation_fraction": 0.99978125,
+  "gradient": {
+    "expected_parameter_gradient_nonzero": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_base_gradient_count": 0,
+    "scalar_gain_gradient": -0.0025142244619900805,
+    "update_mean_square": 0.0010834644351130525,
+    "weighted_gradient_norm_ratio_max": 1.0
+  },
+  "horizon": 50,
+  "huber_by_policy": {
+    "contrast_magnitude_only_gate": 0.003546571672218802,
+    "counterfactual_action_guidance_proxy": 0.0035714564022131397,
+    "lcg_full": 0.0035280711227519967,
+    "lcg_no_language_contrast_ablation": 0.0036526654963039153,
+    "masked_residual_oracle_diagnostic": 0.0028561397042232077,
+    "smolvla_base": 0.0033407550543043956,
+    "standard_lora_proxy": 0.0034386640397656683,
+    "task_phase_residual": 0.0036526654963039153
+  },
+  "identity": {
+    "checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/lcg_vla/stage0/identity_gate/identity_lcg_gate.npz",
+    "checkpoint_reload_ok": true,
+    "identity_max_abs_error": 0.0,
+    "reloaded_identity_max_abs_error": 0.0
+  },
+  "identity_max_abs_error": 0.0,
+  "inactive_gate_max_abs_error": 0.0,
+  "key_sets_equal": true,
+  "language_mask_all_one": false,
+  "language_mask_all_zero": false,
+  "lcg_beats_cag_proxy_relative": 0.012147783586062604,
+  "lora_explains": true,
+  "manifest_hash": "FFA911254719F7008F63ACCEC3EC82007DA60F03EA20B0C0372755063F7387A7",
+  "manifest_row_count": 5120,
+  "mask_health": {
+    "contrast_positive_fraction": 0.7273883928571429,
+    "language_mask_all_one": false,
+    "language_mask_all_zero": false,
+    "language_mask_noncollapsed": true
+  },
+  "masked_residual_headroom": 0.14506162295759614,
+  "method": "LCG-VLA",
+  "missing_manifest_key_count": 0,
+  "no_language_ablation_explains": false,
+  "null_instruction": "",
+  "official_prior_asset_check": {
+    "asset_exists": {
+      "alternate_repository": false,
+      "checkpoint_dir": false,
+      "official_repository": false
+    },
+    "checked_paths": {
+      "alternate_repository": "/mnt/c/Users/jiheo/tca_map/third_party/counterfactual-action-guidance",
+      "checkpoint_dir": "/mnt/c/Users/jiheo/tca_map/third_party/CounterfactualActionGuidance/checkpoints",
+      "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/CounterfactualActionGuidance"
+    },
+    "closest_prior": "Counterfactual Action Guidance",
+    "closest_prior_primary_source": "https://arxiv.org/abs/2602.17659",
+    "comparison_position": 2,
+    "created_utc": "2026-07-16T09:23:32.727306+00:00",
+    "method": "LCG-VLA",
+    "official_ready": false,
+    "policy_2_label": "counterfactual_action_guidance_proxy",
+    "proxy_deviations": [
+      "official CAG repository/checkpoint assets are not locally verified",
+      "Stage 0 fixes policy 2 as a transparent original-minus-null action proxy"
+    ],
+    "stage": "0"
+  },
+  "partial_row_count": 5120,
+  "planned_model_row_count": 5120,
+  "policy_probe": "lcg_stage0_language_contrast_guidance",
+  "preflight_passed": true,
+  "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
+  "proposal_hash_ok": true,
+  "resume_exception_count": 0,
+  "resume_last_exception": null,
+  "serializer_preflight_ok": true,
+  "simulator_load_count": 0,
+  "split_counts": {
+    "discovery": 512,
+    "validation": 128
+  },
+  "split_overlap_key_count": 0,
+  "stage": "0",
+  "stage_0_is_closed_loop_scientific_kill": false,
+  "task_counts": {
+    "libero_10/task_5": 160,
+    "libero_goal/task_5": 160,
+    "libero_object/task_3": 160,
+    "libero_spatial/task_3": 160
+  },
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "training_happened": false,
+  "valid_scientific_result": false,
+  "validation_search_happened": false,
+  "validation_task_counts": {
+    "libero_10/task_5": 32,
+    "libero_goal/task_5": 32,
+    "libero_object/task_3": 32,
+    "libero_spatial/task_3": 32
+  },
+  "weighted_gradient_norm_ratio_max": 1.0
+}

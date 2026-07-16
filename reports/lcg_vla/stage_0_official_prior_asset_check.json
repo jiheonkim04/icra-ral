@@ -1,0 +1,24 @@
+{
+  "asset_exists": {
+    "alternate_repository": false,
+    "checkpoint_dir": false,
+    "official_repository": false
+  },
+  "checked_paths": {
+    "alternate_repository": "/mnt/c/Users/jiheo/tca_map/third_party/counterfactual-action-guidance",
+    "checkpoint_dir": "/mnt/c/Users/jiheo/tca_map/third_party/CounterfactualActionGuidance/checkpoints",
+    "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/CounterfactualActionGuidance"
+  },
+  "closest_prior": "Counterfactual Action Guidance",
+  "closest_prior_primary_source": "https://arxiv.org/abs/2602.17659",
+  "comparison_position": 2,
+  "created_utc": "2026-07-16T09:23:32.727306+00:00",
+  "method": "LCG-VLA",
+  "official_ready": false,
+  "policy_2_label": "counterfactual_action_guidance_proxy",
+  "proxy_deviations": [
+    "official CAG repository/checkpoint assets are not locally verified",
+    "Stage 0 fixes policy 2 as a transparent original-minus-null action proxy"
+  ],
+  "stage": "0"
+}

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
 
 This is not a terminal decision.
 
@@ -38,8 +38,8 @@ infrastructure.
 The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
-Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_stage_0_ready`.
+Current cycle: `33`. Current stage:
+`epoch_4_cycle_33_candidate_search_pending`.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
@@ -83,6 +83,15 @@ focused LCG tests reported `6 passed`, and
 `reports/lcg_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes. The next step is worker-safety inspection and then LCG Stage
 0 launch or adjudication without duplicate execution.
+
+LCG Stage 0 completed as `LCG_STAGE_0_DESIGN_FAILURE` in
+`reports/lcg_vla/stage_0_result.json`: `5120 / 5120` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, and exact
+key-set equality. The frozen design gates failed because the language gate
+activated nearly everywhere (`0.99978125`) and `standard_lora_proxy` explained
+or exceeded LCG (`lora_explains=true`). This is a development-only Stage 0
+stop, not a closed-loop scientific kill. LCG repair/rescue is disallowed, and
+the campaign proceeds to Cycle 33 candidate search.
 
 ## Epoch 4 Cycle 31 Selection
 

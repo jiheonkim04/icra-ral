@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
 
 Current epoch: `4`
 
-Current cycle: `32`
+Current cycle: `33`
 
-Current stage: `epoch_4_cycle_32_lcg_stage_0_ready`
+Current stage: `epoch_4_cycle_33_candidate_search_pending`
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
@@ -52,8 +52,11 @@ prototype protocol. Prototype protocol is frozen in
 implementation is validated as
 `LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
 focused LCG tests reported `6 passed`, and serializer preflight hashes match.
-Next action is worker-safety inspection before LCG Stage 0 launch or
-adjudication without duplicate execution.
+LCG Stage 0 completed as `LCG_STAGE_0_DESIGN_FAILURE` with `5120 / 5120`
+rows, zero exceptions, exact manifest/partial key equality, near-everywhere
+gate activation (`0.99978125`), and `lora_explains=true`. This is
+development-only, not a closed-loop scientific kill; LCG repair/rescue is
+disallowed. Next action is Cycle 33 candidate generation.
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source

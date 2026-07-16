@@ -5,12 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33`
 
-Immediate next action: run LCG Stage 0 worker-safety checks and then launch or
-adjudicate the existing Stage 0 artifacts without duplicate execution. No LCG
-validation search, training, rollout, or confirmatory-test access may happen
-before the frozen Stage 0 result is accepted.
+Immediate next action: generate exactly three Epoch 4 Cycle 33 candidates under
+current governance. LCG repair/rescue is disallowed.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
@@ -54,6 +52,13 @@ LCG Stage 0 implementation is validated as
 focused LCG tests reported `6 passed`, and
 `reports/lcg_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes.
+
+LCG Stage 0 completed as `LCG_STAGE_0_DESIGN_FAILURE` in
+`reports/lcg_vla/stage_0_result.json`: `5120 / 5120` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, exact
+key-set equality, near-everywhere gate activation (`0.99978125`), and
+`lora_explains=true`. This is development-only, not a closed-loop scientific
+kill.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at

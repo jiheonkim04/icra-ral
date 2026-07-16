@@ -1,0 +1,39 @@
+{
+  "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+  "created_utc": "2026-07-16T09:23:32.737854+00:00",
+  "environment_action_shape": [
+    7
+  ],
+  "environment_action_space_high": null,
+  "environment_action_space_low": null,
+  "environment_action_space_low_high_exposed": false,
+  "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy",
+  "finite_checks_required": true,
+  "gripper_convention": "LIBERO/SmolVLA checkpoint action dimension 6 after postprocessor",
+  "method": "LCG-VLA",
+  "model_native_action_shape": [
+    50,
+    7
+  ],
+  "postprocessor_action_mean_shape": [
+    7
+  ],
+  "postprocessor_action_std_shape": [
+    7
+  ],
+  "postprocessor_mode": "MEAN_STD",
+  "postprocessor_step": "UnnormalizerProcessorStep",
+  "same_definition_applies_to_policies": [
+    "smolvla_base",
+    "counterfactual_action_guidance_proxy",
+    "lcg_full",
+    "lcg_no_language_contrast_ablation",
+    "standard_lora_proxy",
+    "contrast_magnitude_only_gate",
+    "task_phase_residual",
+    "masked_residual_oracle_diagnostic"
+  ],
+  "source_semantics": "/mnt/c/Users/jiheo/tca_map/reports/ccif_vla/stage_0_action_semantics.json",
+  "stage": "0",
+  "written_at": "2026-07-16T06:16:33.674050+00:00"
+}

@@ -64,12 +64,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 32
+    assert state["current_cycle"] == 33
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
-    assert state["current_stage"] == "epoch_4_cycle_32_lcg_stage_0_ready"
+    assert state["current_decision"] == "LCG_STAGE_0_DESIGN_FAILURE_RECORDED_CONTINUE_CYCLE_33"
+    assert state["current_stage"] == "epoch_4_cycle_33_candidate_search_pending"
     assert state["method"] == "LCG-VLA"
     assert state["method_identity"] == "LCG-VLA"
     assert state["proposal_hash"] == LCG_PROPOSAL_HASH
@@ -376,6 +376,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_32_lcg_stage_0_implementation_pending",
         "epoch_4_cycle_32_lcg_stage_0_implementation_validated",
         "epoch_4_cycle_32_lcg_stage_0_ready",
+        "epoch_4_cycle_32_lcg_stage_0_completed",
+        "epoch_4_cycle_32_lcg_stage_0_adjudicated",
+        "epoch_4_cycle_32_lcg_design_failure_recorded",
+        "epoch_4_cycle_33_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1523,6 +1527,31 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg_implementation["validation_search_happened"] is False
     assert lcg_implementation["closed_loop_experiment_happened"] is False
     assert lcg_implementation["confirmatory_test_tuning_happened"] is False
+    lcg_outcome = state["epoch_4_cycle_32_lcg_stage_0_outcome"]
+    assert lcg_outcome["final_decision"] == "LCG_STAGE_0_DESIGN_FAILURE"
+    assert lcg_outcome["completed_model_row_count"] == lcg_outcome["planned_model_row_count"] == 5120
+    assert lcg_outcome["exception_count"] == 0
+    assert lcg_outcome["duplicate_manifest_key_count"] == 0
+    assert lcg_outcome["duplicate_partial_key_count"] == 0
+    assert lcg_outcome["missing_manifest_key_count"] == 0
+    assert lcg_outcome["extra_partial_key_count"] == 0
+    assert lcg_outcome["split_overlap_key_count"] == 0
+    assert lcg_outcome["key_sets_equal"] is True
+    assert lcg_outcome["gate_activation_fraction"] == 0.99978125
+    assert lcg_outcome["lora_explains"] is True
+    assert lcg_outcome["bounded_validation_allowed"] is False
+    assert lcg_outcome["valid_scientific_result"] is False
+    assert lcg_outcome["closed_loop_experiment_happened"] is False
+    assert lcg_outcome["lcg_rescue_allowed"] is False
+    cycle33 = state["epoch_4_cycle_33_candidate_search"]
+    assert cycle33["candidate_search_pending"] is True
+    assert cycle33["candidate_count_required"] == 3
+    assert cycle33["candidate_count_generated"] == 0
+    assert cycle33["previous_method"] == "LCG-VLA"
+    assert cycle33["previous_decision"] == "LCG_STAGE_0_DESIGN_FAILURE"
+    assert cycle33["previous_stage_0_result"] == "reports/lcg_vla/stage_0_result.json"
+    assert cycle33["lcg_repair_allowed"] is False
+    assert cycle33["lcg_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
