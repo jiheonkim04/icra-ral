@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -39,10 +39,11 @@ happened.
 
 Reviewer B attack is complete in `reports/ccif_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; Researcher A
-rebuttal is pending.
+rebuttal is complete in `reports/ccif_vla/researcher_rebuttal.md` with
+decision `CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
 Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_rebuttal_pending`.
+`epoch_4_cycle_29_ccif_mathematical_audit_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 

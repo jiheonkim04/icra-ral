@@ -65,8 +65,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["current_stage"] == "epoch_4_cycle_29_ccif_rebuttal_pending"
+    assert state["current_decision"] == "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_stage"] == "epoch_4_cycle_29_ccif_mathematical_audit_pending"
     assert state["method"] == "CCIF-VLA"
     assert state["method_identity"] == "CCIF-VLA"
     assert state["proposal_hash"] == CCIF_PROPOSAL_HASH
@@ -297,6 +297,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_29_ccif_reviewer_attack_pending",
         "epoch_4_cycle_29_ccif_reviewer_attack_completed",
         "epoch_4_cycle_29_ccif_rebuttal_pending",
+        "epoch_4_cycle_29_ccif_rebuttal_completed",
+        "epoch_4_cycle_29_ccif_mathematical_audit_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -757,7 +759,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert ccif["reviewer_attack"] == "reports/ccif_vla/reviewer_attack.md"
     assert ccif["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert ccif["researcher_rebuttal"] == "reports/ccif_vla/researcher_rebuttal.md"
-    assert ccif["rebuttal_decision"] == "CCIF_REBUTTAL_PENDING"
+    assert ccif["rebuttal_decision"] == "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert ccif["mathematical_audit"] == "reports/ccif_vla/mathematical_mechanism_audit.md"
+    assert ccif["math_audit_decision"] == "CCIF_MATHEMATICAL_AUDIT_PENDING"
     ccif_proposal = state["epoch_4_cycle_29_ccif_researcher_proposal"]
     assert ccif_proposal["final_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert ccif_proposal["proposal"] == "reports/ccif_vla/researcher_proposal.md"
@@ -780,6 +784,18 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert ccif_review["validation_search_happened"] is False
     assert ccif_review["closed_loop_experiment_happened"] is False
     assert ccif_review["confirmatory_test_tuning_happened"] is False
+    assert ccif_review["rebuttal_decision"] == "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    ccif_rebuttal = state["epoch_4_cycle_29_ccif_rebuttal"]
+    assert ccif_rebuttal["final_decision"] == "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert ccif_rebuttal["researcher_rebuttal"] == "reports/ccif_vla/researcher_rebuttal.md"
+    assert ccif_rebuttal["proposal_hash"] == CCIF_PROPOSAL_HASH
+    assert ccif_rebuttal["accepted_reviewer_conditions"] is True
+    assert ccif_rebuttal["accepted_key_ablation"] == "ccif_no_coarse_intent_ablation"
+    assert ccif_rebuttal["accepted_simple_baseline"] == "standard_lora"
+    assert ccif_rebuttal["accepted_task_phase_mean_intent_diagnostic"] is True
+    assert ccif_rebuttal["accepted_endpoint_only_intent_diagnostic"] is True
+    assert ccif_rebuttal["accepted_no_privileged_inference_inputs"] is True
+    assert ccif_rebuttal["math_audit_decision"] == "CCIF_MATHEMATICAL_AUDIT_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

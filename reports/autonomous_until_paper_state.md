@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_rebuttal_pending`
+Current stage: `epoch_4_cycle_29_ccif_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -53,8 +53,15 @@ strawman, keeps `ccif_no_coarse_intent_ablation` and `standard_lora` live,
 requires task/phase mean and endpoint-only intent diagnostics, freezes intent
 construction before implementation, and forbids privileged inference inputs.
 
-Next action: Researcher A rebuttal must accept or answer all CCIF Reviewer B
-conditions before mathematical audit.
+Researcher A rebuttal is complete in
+`reports/ccif_vla/researcher_rebuttal.md` with decision
+`CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts narrowed novelty,
+the Coarse-to-Control proxy, the no-intent ablation, standard LoRA, cheap
+intent diagnostics, intent-construction freeze, identity-preserving reload,
+and no privileged inference.
+
+Next action: freeze the CCIF-VLA mathematical mechanism audit before
+preregistration or implementation.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
