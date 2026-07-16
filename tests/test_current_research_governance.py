@@ -75,8 +75,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_38_mci_rebuttal_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
@@ -92,16 +92,22 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "augmentation_only_lora_killer",
     ]
     assert state["next_action"] == (
-        "Write the MCI-VLA Reviewer B attack before rebuttal, mathematical audit, "
-        "preregistration, implementation, validation search, rollout, or "
-        "confirmatory-test access."
+        "Write the MCI-VLA Researcher A rebuttal accepting or resolving every "
+        "Reviewer B condition before mathematical audit, preregistration, "
+        "implementation, validation search, rollout, or confirmatory-test access."
     )
     assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/mci_vla/researcher_proposal.md"
     assert state["researcher_proposal_pending"] is False
     assert state["researcher_proposal_frozen"] is True
-    assert state["reviewer_attack_pending"] is True
+    assert state["reviewer_attack_pending"] is False
+    assert state["reviewer_attack_completed"] is True
+    assert state["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
+    assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["researcher_rebuttal_pending"] is True
+    assert state["researcher_rebuttal_completed"] is False
+    assert state["researcher_rebuttal"] is None
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
     assert cycle35["candidate_count_required"] == 3
     assert cycle35["candidate_count_generated"] == 3
@@ -698,7 +704,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection38["proposal_hash"] == MCI_PROPOSAL_HASH
     assert selection38["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
     assert selection38["proposal_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert selection38["reviewer_attack_pending"] is True
+    assert selection38["reviewer_attack_pending"] is False
+    assert selection38["reviewer_attack_completed"] is True
+    assert selection38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
+    assert selection38["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert selection38["researcher_rebuttal_pending"] is True
     assert selection38["first_serious_comparison_includes_closest_prior"] is True
     assert selection38["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection38["privileged_inference_inputs_allowed"] is False
@@ -711,8 +721,29 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert proposal38["first_serious_comparison_includes_closest_prior"] is True
     assert proposal38["researcher_proposal_pending"] is False
     assert proposal38["researcher_proposal_frozen"] is True
-    assert proposal38["reviewer_attack_pending"] is True
-    assert proposal38["reviewer_attack_completed"] is False
+    assert proposal38["reviewer_attack_pending"] is False
+    assert proposal38["reviewer_attack_completed"] is True
+    assert proposal38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
+    assert proposal38["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert proposal38["researcher_rebuttal_pending"] is True
+    review38 = state["epoch_4_cycle_38_mci_reviewer_attack"]
+    assert review38["method"] == "MCI-VLA"
+    assert review38["proposal_hash"] == MCI_PROPOSAL_HASH
+    assert review38["reviewer_attack"] == "reports/mci_vla/reviewer_attack.md"
+    assert review38["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert review38["researcher_rebuttal_pending"] is True
+    assert len(review38["required_conditions"]) == 10
+    assert review38["policy_order"] == [
+        "smolvla_base",
+        "rovla_multiconsistency_proxy",
+        "mci_full",
+        "mci_no_consistency_code_ablation",
+        "augmentation_only_lora_killer",
+    ]
+    assert review38["training_happened"] is False
+    assert review38["validation_search_happened"] is False
+    assert review38["closed_loop_experiment_happened"] is False
+    assert review38["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -777,6 +808,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_38_mci_researcher_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_researcher_proposal_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_reviewer_attack_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_reviewer_attack_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_rebuttal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

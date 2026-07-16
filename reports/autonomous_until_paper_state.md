@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `38`
 
-Current stage: `epoch_4_cycle_38_mci_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_38_mci_rebuttal_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -44,12 +44,20 @@ The MCI-VLA Researcher A proposal is frozen in
 `reports/mci_vla/researcher_proposal.md` with SHA-256
 `88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A` and
 decision `MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+Reviewer B attack is complete in `reports/mci_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It keeps RoVLA
+as policy 2, narrows novelty to Base-preserving multi-consistency invariance,
+requires a mechanism-faithful transparent RoVLA proxy, freezes legal
+transformation generators, requires transformation/label health and
+deployment-time observability, keeps `augmentation_only_lora_killer` live,
+requires Base identity and objective/gradient audits, and blocks hidden
+confirmatory access or contaminated resource metrics.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
 allowed. No MCI implementation, training, validation search, rollout, or
 confirmatory-test access has happened. Immediate next action: write the
-MCI-VLA Reviewer B attack.
+MCI-VLA Researcher A rebuttal.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

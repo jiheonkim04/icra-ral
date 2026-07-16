@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -37,12 +37,20 @@ The MCI-VLA Researcher A proposal is frozen in
 `reports/mci_vla/researcher_proposal.md` with SHA-256
 `88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A` and
 decision `MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+Reviewer B attack is complete in `reports/mci_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It keeps RoVLA
+as policy 2, narrows novelty to Base-preserving multi-consistency invariance,
+requires a mechanism-faithful transparent RoVLA proxy, freezes legal
+transformation generators, requires transformation/label health and
+deployment-time observability, keeps `augmentation_only_lora_killer` live,
+requires Base identity and objective/gradient audits, and blocks hidden
+confirmatory access or contaminated resource metrics.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
 not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI
 implementation, training, validation search, rollout, or confirmatory-test
-access has happened. The next action is to write the MCI-VLA Reviewer B
-attack.
+access has happened. The next action is to write the MCI-VLA Researcher A
+rebuttal.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
