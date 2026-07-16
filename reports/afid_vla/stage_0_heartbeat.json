@@ -1,0 +1,11 @@
+{
+  "final_decision": "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE",
+  "method": "AFID-VLA",
+  "phase": "complete",
+  "pid": 375,
+  "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
+  "stage": "0",
+  "started_utc": "2026-07-16T10:26:27.732067+00:00",
+  "status": "completed",
+  "updated_utc": "2026-07-16T10:26:41.419837+00:00"
+}

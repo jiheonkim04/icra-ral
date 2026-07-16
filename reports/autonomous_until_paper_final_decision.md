@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`
 
 This is not a terminal decision.
 
@@ -39,8 +39,8 @@ only implementation infrastructure.
 The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
-Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_stage_0_implementation_validated`.
+Current cycle: `34`. Current stage:
+`epoch_4_cycle_34_candidate_search_pending`.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -94,6 +94,14 @@ focused tests `tests/test_afid_vla.py`, and serializer preflight
 `reports/afid_vla/stage_0_serializer_preflight.json` are validated. Immediate
 next action: launch the frozen AFID Stage 0 development audit after
 worker-safety checks.
+
+AFID Stage 0 completed in `reports/afid_vla/stage_0_result.json` and is
+adjudicated in `reports/afid_vla/stage_0_adjudication.md` with decision
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`. It completed
+`5120 / 5120` rows with zero exceptions and zero duplicate/missing/extra keys.
+This is a development-only stop, not a closed-loop scientific result. AFID
+repair/rescue is disallowed for this formulation. Immediate next action:
+generate exactly three Epoch 4 Cycle 34 candidates under current governance.
 
 ## Epoch 4 Cycle 32 Selection
 

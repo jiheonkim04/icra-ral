@@ -1,0 +1,24 @@
+{
+  "asset_exists": {
+    "alternate_repository": false,
+    "checkpoint_dir": false,
+    "official_repository": false
+  },
+  "checked_paths": {
+    "alternate_repository": "/mnt/c/Users/jiheo/tca_map/third_party/finevla",
+    "checkpoint_dir": "/mnt/c/Users/jiheo/tca_map/third_party/FineVLA/checkpoints",
+    "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/FineVLA"
+  },
+  "closest_prior": "FineVLA",
+  "closest_prior_primary_source": "https://arxiv.org/html/2605.27284v1",
+  "comparison_position": 2,
+  "created_utc": "2026-07-16T10:26:27.798397+00:00",
+  "method": "AFID-VLA",
+  "official_ready": false,
+  "policy_2_label": "finevla_action_factor_proxy",
+  "proxy_deviations": [
+    "official FineVLA repository/checkpoint assets are not locally verified",
+    "Stage 0 fixes policy 2 as a transparent action-factor proxy under the frozen SmolVLA backbone"
+  ],
+  "stage": "0"
+}

@@ -1,14 +1,14 @@
 # Next Actions
 
-## 2026-07-16 Epoch 4 Cycle 33 Current Action
+## 2026-07-16 Epoch 4 Cycle 34 Current Action
 
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`
 
-Immediate next action: launch the frozen AFID-VLA Stage 0 development audit
-after worker-safety checks.
+Immediate next action: generate exactly three Epoch 4 Cycle 34 candidates under
+current governance. AFID repair/rescue is disallowed for this formulation.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -55,6 +55,11 @@ AFID prototype protocol is frozen in
 AFID Stage 0 implementation validation is complete with decision
 `AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`. The validated serializer
 preflight is `reports/afid_vla/stage_0_serializer_preflight.json`.
+
+AFID Stage 0 completed in `reports/afid_vla/stage_0_result.json` and is
+adjudicated in `reports/afid_vla/stage_0_adjudication.md` with decision
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`. It completed
+`5120 / 5120` rows with zero exceptions and zero duplicate/missing/extra keys.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source

@@ -1,0 +1,320 @@
+{
+  "action_deltas_bounded": false,
+  "action_dimension": 7,
+  "action_semantics": {
+    "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+    "created_utc": "2026-07-16T10:26:27.810822+00:00",
+    "environment_action_shape": [
+      7
+    ],
+    "environment_action_space_high": null,
+    "environment_action_space_low": null,
+    "environment_action_space_low_high_exposed": false,
+    "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy",
+    "finite_checks_required": true,
+    "gripper_convention": "LIBERO/SmolVLA checkpoint action dimension 6 after postprocessor",
+    "method": "AFID-VLA",
+    "model_native_action_shape": [
+      50,
+      7
+    ],
+    "postprocessor_action_mean_shape": [
+      7
+    ],
+    "postprocessor_action_std_shape": [
+      7
+    ],
+    "postprocessor_mode": "MEAN_STD",
+    "postprocessor_step": "UnnormalizerProcessorStep",
+    "same_definition_applies_to_policies": [
+      "smolvla_base",
+      "finevla_action_factor_proxy",
+      "afid_full",
+      "afid_no_factor_ablation",
+      "standard_lora",
+      "factor_conditioned_oracle_diagnostic",
+      "task_phase_residual_diagnostic",
+      "mask_only_residual_diagnostic"
+    ],
+    "source_semantics": "/mnt/c/Users/jiheo/tca_map/reports/ccif_vla/stage_0_action_semantics.json",
+    "stage": "0",
+    "written_at": "2026-07-16T06:16:33.674050+00:00"
+  },
+  "action_validity_ok": true,
+  "afid_differs_from_base": true,
+  "afid_differs_from_finevla_proxy": true,
+  "afid_differs_from_no_factor": true,
+  "afid_differs_from_standard_lora": true,
+  "clean_retention_ok": true,
+  "closed_loop_experiment_happened": false,
+  "completed_model_row_count": 5120,
+  "confirmatory_records_read": 0,
+  "created_utc": "2026-07-16T10:26:41.389007+00:00",
+  "decision_inputs": {
+    "action_deltas_bounded": false,
+    "action_semantics_ok": true,
+    "action_validity_ok": true,
+    "afid_differs_from_base": true,
+    "afid_differs_from_finevla_proxy": true,
+    "afid_differs_from_no_factor": true,
+    "afid_differs_from_standard_lora": true,
+    "base_chunks_valid": true,
+    "clean_retention_ok": true,
+    "closed_loop_experiment_happened": false,
+    "confirmatory_records_read": 0,
+    "done_read_count": 0,
+    "exception_count": 0,
+    "expected_parameter_gradient_nonzero": true,
+    "factor_conditioned_oracle_reduction": 0.14932795099984086,
+    "factor_labels_noncollapsed": true,
+    "factor_mask_global_positive_fraction": 0.48727678571428573,
+    "factor_predictor_beats_majority": false,
+    "factor_predictor_beats_task_phase": false,
+    "finevla_proxy_residual_headroom": 0.16468672613404625,
+    "finite_objectives_and_gradients": true,
+    "frozen_base_gradient_count": 0,
+    "gate_activation_fraction": 0.12573660714285714,
+    "identity_max_abs_error": 0.0,
+    "inactive_gate_max_abs_error": 0.0,
+    "manifest_integrity_ok": true,
+    "official_prior_asset_check_persisted": true,
+    "proposal_hash_ok": true,
+    "reward_read_count": 0,
+    "serializer_preflight_ok": true,
+    "simulator_load_count": 0,
+    "source_alignment_ok": true,
+    "success_read_count": 0,
+    "training_happened": false,
+    "usable_factor_count": 2,
+    "validation_search_happened": false,
+    "validation_task_mask_fraction_max": 0.5921428571428572,
+    "validation_task_mask_fraction_min": 0.40383928571428573,
+    "weighted_gradient_norm_ratio_max": 1.0
+  },
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "exception_count": 0,
+  "expected_parameter_gradient_nonzero": true,
+  "extra_partial_key_count": 0,
+  "factor_conditioned_oracle_reduction": 0.14932795099984086,
+  "factor_label_health": {
+    "factors": {
+      "axis": {
+        "class_count": 4,
+        "counts": {
+          "0": 496,
+          "1": 10583,
+          "2": 7284,
+          "3": 13637
+        },
+        "largest_class_fraction": 0.42615625,
+        "noncollapsed": true,
+        "normalized_entropy": 0.8157794842793173
+      },
+      "direction": {
+        "class_count": 3,
+        "counts": {
+          "-1": 15447,
+          "0": 160,
+          "1": 16393
+        },
+        "largest_class_fraction": 0.51228125,
+        "noncollapsed": true,
+        "normalized_entropy": 0.6560287800050905
+      },
+      "grip_bin": {
+        "class_count": 3,
+        "counts": {
+          "-1": 1063,
+          "0": 30192,
+          "1": 745
+        },
+        "largest_class_fraction": 0.9435,
+        "noncollapsed": false,
+        "normalized_entropy": 0.232575987078638
+      },
+      "grip_type": {
+        "class_count": 2,
+        "counts": {
+          "0": 30192,
+          "1": 1808
+        },
+        "largest_class_fraction": 0.9435,
+        "noncollapsed": false,
+        "normalized_entropy": 0.3133916126646087
+      },
+      "rotation": {
+        "class_count": 2,
+        "counts": {
+          "0": 4938,
+          "1": 27062
+        },
+        "largest_class_fraction": 0.8456875,
+        "noncollapsed": false,
+        "normalized_entropy": 0.620527937043137
+      },
+      "termination": {
+        "class_count": 2,
+        "counts": {
+          "0": 31992,
+          "1": 8
+        },
+        "largest_class_fraction": 0.99975,
+        "noncollapsed": false,
+        "normalized_entropy": 0.003352074743410207
+      }
+    },
+    "usable_factor_count": 2
+  },
+  "factor_predictor_metrics": {
+    "accuracy": 0.5223883928571429,
+    "accuracy_improvement_over_majority": 0.009665178571428568,
+    "confusion": {
+      "fn": 18696,
+      "fp": 2701,
+      "tn": 20269,
+      "tp": 3134
+    },
+    "macro_f1": 0.44054638533827817,
+    "macro_f1_improvement_over_majority": -0.05945361466172183,
+    "majority_accuracy": 0.5127232142857143,
+    "majority_macro_f1": 0.5
+  },
+  "final_decision": "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE",
+  "finevla_proxy_residual_headroom": 0.16468672613404625,
+  "frozen_base_gradient_count": 0,
+  "gate_activation_fraction": 0.12573660714285714,
+  "gradient": {
+    "expected_parameter_gradient_nonzero": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_base_gradient_count": 0,
+    "scalar_gain_gradient": -3.08259030199054e-05,
+    "update_mean_square": 1.9267765237799848e-05,
+    "weighted_gradient_norm_ratio_max": 1.0
+  },
+  "horizon": 50,
+  "huber_by_policy": {
+    "afid_full": 0.0033438900569266413,
+    "afid_no_factor_ablation": 0.003478178299559307,
+    "factor_conditioned_oracle_diagnostic": 0.002841886947252758,
+    "finevla_action_factor_proxy": 0.0034021809974359484,
+    "mask_only_residual_diagnostic": 0.0034135587351318553,
+    "smolvla_base": 0.0033407550543043956,
+    "standard_lora": 0.0034386640397656683,
+    "task_phase_residual_diagnostic": 0.0036526654963039153
+  },
+  "identity": {
+    "checkpoint_path": "/mnt/c/Users/jiheo/tca_map/runs/afid_vla/stage0/identity_gate/identity_fixture.npz",
+    "checkpoint_reload_ok": true,
+    "reloaded_identity_max_abs_error": 0.0
+  },
+  "identity_max_abs_error": 0.0,
+  "inactive_gate_max_abs_error": 0.0,
+  "key_sets_equal": true,
+  "manifest_hash": "7FB9D33A121ADB3DA27AE5DCF12F0150D00C37DD9FA54195B66E813038B1623F",
+  "manifest_row_count": 5120,
+  "mask_health": {
+    "factor_mask_all_one": false,
+    "factor_mask_all_zero": false,
+    "factor_mask_global_positive_fraction": 0.48727678571428573,
+    "factor_mask_noncollapsed": true,
+    "factor_mask_positive_fraction_by_task": {
+      "libero_10/task_5": 0.48473214285714283,
+      "libero_goal/task_5": 0.5921428571428572,
+      "libero_object/task_3": 0.40383928571428573,
+      "libero_spatial/task_3": 0.46839285714285717
+    },
+    "validation_task_mask_fraction_max": 0.5921428571428572,
+    "validation_task_mask_fraction_min": 0.40383928571428573
+  },
+  "maximum_validation_task_fraction": 0.25,
+  "method": "AFID-VLA",
+  "missing_manifest_key_count": 0,
+  "official_prior_asset_check": {
+    "asset_exists": {
+      "alternate_repository": false,
+      "checkpoint_dir": false,
+      "official_repository": false
+    },
+    "checked_paths": {
+      "alternate_repository": "/mnt/c/Users/jiheo/tca_map/third_party/finevla",
+      "checkpoint_dir": "/mnt/c/Users/jiheo/tca_map/third_party/FineVLA/checkpoints",
+      "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/FineVLA"
+    },
+    "closest_prior": "FineVLA",
+    "closest_prior_primary_source": "https://arxiv.org/html/2605.27284v1",
+    "comparison_position": 2,
+    "created_utc": "2026-07-16T10:26:27.798397+00:00",
+    "method": "AFID-VLA",
+    "official_ready": false,
+    "policy_2_label": "finevla_action_factor_proxy",
+    "proxy_deviations": [
+      "official FineVLA repository/checkpoint assets are not locally verified",
+      "Stage 0 fixes policy 2 as a transparent action-factor proxy under the frozen SmolVLA backbone"
+    ],
+    "stage": "0"
+  },
+  "partial_row_count": 5120,
+  "planned_model_row_count": 5120,
+  "policy_probe": "afid_stage0_action_factor_densification",
+  "preflight_passed": true,
+  "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
+  "proposal_hash_ok": true,
+  "residual_scale": {
+    "action_dimension": 7,
+    "discovery_row_count": 512,
+    "kind": "discovery_abs_p75_per_action_dim",
+    "scale": [
+      0.17823518674288477,
+      0.1385461573622056,
+      0.20608857018606996,
+      0.027023377650350865,
+      0.052552759828312055,
+      0.026638388641710795,
+      0.013508707284927368
+    ],
+    "tau_residual_mask": 0.5
+  },
+  "resume_exception_count": 0,
+  "resume_last_exception": null,
+  "serializer_preflight_ok": true,
+  "simulator_load_count": 0,
+  "split_counts": {
+    "discovery": 512,
+    "validation": 128
+  },
+  "split_overlap_key_count": 0,
+  "stage": "0",
+  "stage_0_is_closed_loop_scientific_kill": false,
+  "task_counts": {
+    "libero_10/task_5": 160,
+    "libero_goal/task_5": 160,
+    "libero_object/task_3": 160,
+    "libero_spatial/task_3": 160
+  },
+  "task_phase_mask_baseline_metrics": {
+    "accuracy": 0.5484375,
+    "accuracy_improvement_over_majority": 0.0357142857142857,
+    "confusion": {
+      "fn": 9305,
+      "fp": 10925,
+      "tn": 12045,
+      "tp": 12525
+    },
+    "macro_f1": 0.548385656516692,
+    "macro_f1_improvement_over_majority": 0.04838565651669202,
+    "majority_accuracy": 0.5127232142857143,
+    "majority_macro_f1": 0.5
+  },
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "training_happened": false,
+  "valid_scientific_result": false,
+  "validation_search_happened": false,
+  "validation_task_counts": {
+    "libero_10/task_5": 32,
+    "libero_goal/task_5": 32,
+    "libero_object/task_3": 32,
+    "libero_spatial/task_3": 32
+  },
+  "weighted_gradient_norm_ratio_max": 1.0
+}

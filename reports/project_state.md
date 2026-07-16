@@ -1,19 +1,19 @@
 # Project State
 
-## 2026-07-16 Epoch 4 Cycle 33 Current State
+## 2026-07-16 Epoch 4 Cycle 34 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `33`
+Current cycle: `34`
 
-Current stage: `epoch_4_cycle_33_afid_stage_0_implementation_validated`
+Current stage: `epoch_4_cycle_34_candidate_search_pending`
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
@@ -58,9 +58,13 @@ AFID prototype protocol is frozen in
 AFID Stage 0 implementation validation is complete with decision
 `AFID_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`.
 
-Next action: launch the frozen AFID Stage 0 development audit after
-worker-safety checks. No AFID Stage 0 launch, training, validation search,
-rollout, or confirmatory-test access has happened.
+AFID Stage 0 completed in `reports/afid_vla/stage_0_result.json` and is
+adjudicated in `reports/afid_vla/stage_0_adjudication.md` with decision
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`. It completed
+`5120 / 5120` rows with zero exceptions and zero duplicate/missing/extra keys.
+
+Next action: generate exactly three Epoch 4 Cycle 34 candidates under current
+governance. AFID repair/rescue is disallowed for this formulation.
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
