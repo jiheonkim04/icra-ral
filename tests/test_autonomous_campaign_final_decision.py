@@ -241,7 +241,12 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
     assert "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
-    assert "epoch_4_cycle_27_candidate_search_pending" in final
+    assert "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "CFR-VLA" in final
+    assert "DFM-VLA" in final
+    assert "Continuous Full-Chunk Refinement" in final
+    assert "dfm_vla_continuous_refinement_proxy" in final
+    assert "epoch_4_cycle_27_cfr_researcher_proposal_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -270,13 +275,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_decision"] == "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 27
-    assert state["current_stage"] == "epoch_4_cycle_27_candidate_search_pending"
-    assert state["method"] == "AMP-VLA"
-    assert state["method_identity"] == "AMP-VLA"
-    assert state["proposal_hash"] == AMP_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_researcher_proposal_pending"
+    assert state["method"] == "CFR-VLA"
+    assert state["method_identity"] == "CFR-VLA"
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -289,8 +294,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == "Generate exactly three Cycle 27 candidates without AMP repair or rescue."
-    assert state["prototype_protocol"] == "reports/amp_vla/prototype_protocol.md"
+    assert (
+        state["next_action"]
+        == "Freeze CFR-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
+    )
+    assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -407,6 +415,33 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert amp_outcome["action_validity_ok"] is False
     assert amp_outcome["base_action_in_bounds"] is False
     assert amp_outcome["bounded_validation_allowed"] is False
+    cycle27 = state["epoch_4_cycle_27_candidate_search"]
+    assert cycle27["candidate_search_pending"] is False
+    assert cycle27["candidate_count_required"] == 3
+    assert cycle27["candidate_count_generated"] == 3
+    assert cycle27["selected_method"] == "CFR-VLA"
+    assert cycle27["selected_score"] == 92
+    assert cycle27["selection_decision"] == "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    cfr = state["epoch_4_cycle_27_candidate_selection"]
+    assert cfr["candidate_count"] == 3
+    assert cfr["selected_score"] == 92
+    assert cfr["method"] == "CFR-VLA"
+    assert cfr["closest_prior"] == "DFM-VLA"
+    assert cfr["closest_prior_primary_source"] == "https://arxiv.org/html/2603.26320v1"
+    assert cfr["closest_prior_project_page"] == "https://chris1220313648.github.io/DFM-VLA/"
+    assert cfr["policy_order"] == [
+        "smolvla_base",
+        "dfm_vla_continuous_refinement_proxy_or_official_dfm_vla_if_installed",
+        "cfr_full",
+        "cfr_no_iterative_refinement",
+        "standard_lora",
+    ]
+    assert cfr["standard_lora_required"] is True
+    assert cfr["first_serious_comparison_includes_closest_prior"] is True
+    assert cfr["training_happened"] is False
+    assert cfr["validation_search_happened"] is False
+    assert cfr["closed_loop_experiment_happened"] is False
+    assert cfr["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

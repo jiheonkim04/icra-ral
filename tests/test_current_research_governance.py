@@ -62,12 +62,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_27_candidate_search_pending"
-    assert state["method"] == "AMP-VLA"
-    assert state["method_identity"] == "AMP-VLA"
-    assert state["proposal_hash"] == AMP_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/amp_vla/prototype_protocol.md"
+    assert state["current_decision"] == "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_researcher_proposal_pending"
+    assert state["method"] == "CFR-VLA"
+    assert state["method_identity"] == "CFR-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -240,6 +240,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_26_amp_stage_0_completed",
         "epoch_4_cycle_26_amp_implementation_failure_recorded",
         "epoch_4_cycle_27_candidate_search_pending",
+        "epoch_4_cycle_27_prior_mechanism_map_completed",
+        "epoch_4_cycle_27_candidate_generation_completed",
+        "epoch_4_cycle_27_cfr_candidate_selected",
+        "epoch_4_cycle_27_cfr_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -393,6 +397,36 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert amp_outcome["abot_proxy_headroom_relative_improvement"] == -2.663165575108502
     assert amp_outcome["bounded_validation_allowed"] is False
     assert amp_outcome["amp_rescue_allowed"] is False
+    cycle27 = state["epoch_4_cycle_27_candidate_search"]
+    assert cycle27["candidate_search_pending"] is False
+    assert cycle27["candidate_count_required"] == 3
+    assert cycle27["candidate_count_generated"] == 3
+    assert cycle27["amp_repair_allowed"] is False
+    assert cycle27["selected_method"] == "CFR-VLA"
+    assert cycle27["selected_score"] == 92
+    assert cycle27["selection_decision"] == "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    cfr = state["epoch_4_cycle_27_candidate_selection"]
+    assert cfr["candidate_count"] == 3
+    assert cfr["selected_score"] == 92
+    assert cfr["method"] == "CFR-VLA"
+    assert cfr["closest_prior"] == "DFM-VLA"
+    assert cfr["closest_prior_primary_source"] == "https://arxiv.org/html/2603.26320v1"
+    assert cfr["closest_prior_project_page"] == "https://chris1220313648.github.io/DFM-VLA/"
+    assert cfr["contribution_type"] == "PRIOR_EXTENSION"
+    assert cfr["policy_order"] == [
+        "smolvla_base",
+        "dfm_vla_continuous_refinement_proxy_or_official_dfm_vla_if_installed",
+        "cfr_full",
+        "cfr_no_iterative_refinement",
+        "standard_lora",
+    ]
+    assert cfr["standard_lora_required"] is True
+    assert cfr["first_serious_comparison_includes_closest_prior"] is True
+    assert cfr["training_happened"] is False
+    assert cfr["validation_search_happened"] is False
+    assert cfr["closed_loop_experiment_happened"] is False
+    assert cfr["confirmatory_test_tuning_happened"] is False
+    assert cfr["amp_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -7,13 +7,43 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_candidate_search_pending`
+Current stage: `epoch_4_cycle_27_cfr_researcher_proposal_pending`
+
+## Epoch 4 Cycle 27 CFR-VLA
+
+Cycle 27 generated exactly three candidates in
+`reports/epoch_4_cycle_27_candidate_generation.md` after the primary-source
+mechanism map in `reports/epoch_4_cycle_27_prior_mechanism_map.md`.
+
+`CFR-VLA`, Continuous Full-Chunk Refinement for VLA action-flow decoding, is
+selected at `92 / 100`. Its closest positive prior is DFM-VLA
+(`https://arxiv.org/html/2603.26320v1`) with project page
+`https://chris1220313648.github.io/DFM-VLA/`.
+
+CFR learns a bounded continuous residual velocity/refinement field over the
+full `[50,7]` SmolVLA action chunk. Starting from a Base decoded chunk, it
+applies fixed iterative full-chunk refinement before execution. LoRA may only
+be identity-preserving implementation infrastructure; the scientific mechanism
+is iterative continuous full-chunk refinement, not LoRA, not adaptive chunk
+size, and not AMP-style action-manifold projection.
+
+The first serious comparison is frozen at the design level to exactly
+`smolvla_base`, `dfm_vla_continuous_refinement_proxy` or official `dfm_vla` if
+installed, `cfr_full`, `cfr_no_iterative_refinement`, and `standard_lora`.
+
+No CFR proposal, training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened. AMP remains closed unchanged as
+`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`; no AMP repair, rescue,
+threshold change, clipping, or reinterpretation is allowed.
+
+Next action: freeze the CFR-VLA Researcher A proposal before Reviewer B attack,
+mathematical audit, preregistration, or implementation.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

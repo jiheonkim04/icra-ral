@@ -3,11 +3,36 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal state under the active governance.
 
 Active governance: `reports/current_research_governance.md`
+
+## Epoch 4 Cycle 27 Selection
+
+Cycle 27 generated exactly three candidates in
+`reports/epoch_4_cycle_27_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_27_prior_mechanism_map.md`.
+
+`CFR-VLA`, Continuous Full-Chunk Refinement for VLA action-flow decoding, is
+selected at `92 / 100`. Its closest positive prior is DFM-VLA, anchored to
+`https://arxiv.org/html/2603.26320v1` and project page
+`https://chris1220313648.github.io/DFM-VLA/`.
+
+CFR's single mechanism is a bounded continuous residual velocity/refinement
+field over the full `[50,7]` SmolVLA action chunk, applied iteratively from a
+Base decoded chunk before execution. LoRA is only the implementation
+infrastructure, not the scientific method.
+
+The first serious comparison is exactly Base,
+`dfm_vla_continuous_refinement_proxy` or official `dfm_vla` if installed, CFR
+full, no-iterative-refinement ablation, and matched standard LoRA. No CFR
+proposal, training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened.
+
+Current cycle: `27`. Current stage:
+`epoch_4_cycle_27_cfr_researcher_proposal_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 
