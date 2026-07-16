@@ -27,12 +27,12 @@ TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "TSC_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "TSC-VLA" in final
     assert "TS-Mask VLA" in final
     assert "ts_mask_continuous_proxy" in final
     assert TSC_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_28_tsc_mathematical_audit_pending" in final
+    assert "epoch_4_cycle_28_tsc_preregistration_pending" in final
     assert "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
@@ -255,7 +255,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_28_tsc_mathematical_audit_pending" in final
+    assert "epoch_4_cycle_28_tsc_preregistration_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -286,10 +286,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_decision"] == "TSC_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 28
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_mathematical_audit_pending"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_preregistration_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
     assert state["proposal_hash"] == TSC_PROPOSAL_HASH
@@ -307,7 +307,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze TSC-VLA mathematical mechanism audit before preregistration or implementation."
+        == "Freeze TSC-VLA preregistration before executable prototype protocol or implementation."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -597,6 +597,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert tsc_rebuttal["researcher_rebuttal"] == "reports/tsc_vla/researcher_rebuttal.md"
     assert tsc_rebuttal["accepted_reviewer_conditions"] is True
     assert tsc_rebuttal["accepted_key_ablation"] == "tsc_no_targeted_mask_ablation"
+    tsc_math = state["epoch_4_cycle_28_tsc_mathematical_audit"]
+    assert tsc_math["final_decision"] == "TSC_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert tsc_math["mathematical_audit"] == "reports/tsc_vla/mathematical_mechanism_audit.md"
+    assert tsc_math["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert tsc_math["kl_between_deterministic_actions_used"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

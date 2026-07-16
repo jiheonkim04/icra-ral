@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`TSC_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `28`
 
-Current stage: `epoch_4_cycle_28_tsc_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_28_tsc_preregistration_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -57,8 +57,15 @@ Researcher A rebuttal is complete in
 `TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all Reviewer B
 conditions before mathematical audit.
 
-Next action: freeze TSC-VLA mathematical mechanism audit before preregistration
-or implementation.
+The TSC mathematical mechanism audit is frozen in
+`reports/tsc_vla/mathematical_mechanism_audit.md` with decision
+`TSC_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes variables, tensor shapes,
+mask-label construction, Base-clamped action formula, objective terms,
+gradient paths, no deterministic-action KL, TS-Mask proxy requirements,
+required ablations, and Stage 0 stop classes.
+
+Next action: freeze TSC-VLA preregistration before executable prototype
+protocol or implementation.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 

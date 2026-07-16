@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 28,
-    "current_topic": "epoch_4_cycle_28_tsc_mathematical_audit_pending",
+    "current_topic": "epoch_4_cycle_28_tsc_preregistration_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "ef1f20a",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_28_tsc_mathematical_audit_pending",
+    "current_stage": "epoch_4_cycle_28_tsc_preregistration_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -554,7 +554,9 @@
         "epoch_4_cycle_28_tsc_reviewer_attack_completed",
         "epoch_4_cycle_28_tsc_rebuttal_pending",
         "epoch_4_cycle_28_tsc_rebuttal_completed",
-        "epoch_4_cycle_28_tsc_mathematical_audit_pending"
+        "epoch_4_cycle_28_tsc_mathematical_audit_pending",
+        "epoch_4_cycle_28_tsc_mathematical_audit_preregistered",
+        "epoch_4_cycle_28_tsc_preregistration_pending"
     ],
     "active_hypothesis": "A continuous temporal-spatial masked action completion field can correct sparse Base action-cell errors in SmolVLA [50,7] chunks while clamping unselected cells exactly to Base and using only deployment-observable inputs.",
     "method_identity": "TSC-VLA",
@@ -577,7 +579,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "TSC_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -686,7 +688,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze TSC-VLA mathematical mechanism audit before preregistration or implementation.",
+    "next_action": "Freeze TSC-VLA preregistration before executable prototype protocol or implementation.",
     "method": "TSC-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -7661,6 +7663,31 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze TSC-VLA mathematical mechanism audit before preregistration or implementation."
+        "mathematical_audit": "reports/tsc_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "TSC_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "next_stage": "Freeze TSC-VLA preregistration before executable prototype protocol or implementation."
+    },
+    "epoch_4_cycle_28_tsc_mathematical_audit": {
+        "method": "TSC-VLA",
+        "final_decision": "TSC_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit": "reports/tsc_vla/mathematical_mechanism_audit.md",
+        "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+        "kl_between_deterministic_actions_used": false,
+        "deterministic_action_kl_forbidden": true,
+        "official_action_validity_semantics_required": true,
+        "ts_mask_proxy_policy_2_required": true,
+        "identity_preserving_integration_required": true,
+        "stage_0_stop_classes": [
+            "TSC_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "TSC_STAGE_0_NO_USABLE_HEADROOM",
+            "TSC_STAGE_0_DESIGN_FAILURE",
+            "TSC_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "TSC_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze TSC-VLA preregistration before executable prototype protocol or implementation."
     }
 }

@@ -64,8 +64,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_mathematical_audit_pending"
+    assert state["current_decision"] == "TSC_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_preregistration_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
     assert state["proposal_hash"] == TSC_PROPOSAL_HASH
@@ -275,6 +275,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_28_tsc_rebuttal_pending",
         "epoch_4_cycle_28_tsc_rebuttal_completed",
         "epoch_4_cycle_28_tsc_mathematical_audit_pending",
+        "epoch_4_cycle_28_tsc_mathematical_audit_preregistered",
+        "epoch_4_cycle_28_tsc_preregistration_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -640,6 +642,14 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert tsc_rebuttal["accepted_key_ablation"] == "tsc_no_targeted_mask_ablation"
     assert tsc_rebuttal["accepted_simple_baseline"] == "standard_lora"
     assert tsc_rebuttal["accepted_no_privileged_inference_inputs"] is True
+    tsc_math = state["epoch_4_cycle_28_tsc_mathematical_audit"]
+    assert tsc_math["final_decision"] == "TSC_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert tsc_math["mathematical_audit"] == "reports/tsc_vla/mathematical_mechanism_audit.md"
+    assert tsc_math["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert tsc_math["kl_between_deterministic_actions_used"] is False
+    assert tsc_math["deterministic_action_kl_forbidden"] is True
+    assert tsc_math["ts_mask_proxy_policy_2_required"] is True
+    assert "TSC_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in tsc_math["stage_0_stop_classes"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
