@@ -7,13 +7,35 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `26`
 
-Current stage: `epoch_4_cycle_26_candidate_search_pending`
+Current stage: `epoch_4_cycle_26_amp_researcher_proposal_pending`
+
+## Epoch 4 Cycle 26 AMP-VLA
+
+Cycle 26 generated exactly three candidates in
+`reports/epoch_4_cycle_26_candidate_generation.md` after the primary-source
+mechanism map in `reports/epoch_4_cycle_26_prior_mechanism_map.md`.
+
+`AMP-VLA`, Action-Manifold Projection for VLA action-flow adaptation, is
+selected at `95 / 100`. Its closest positive prior is ABot-M0
+(`https://arxiv.org/abs/2602.11236`) with official repository
+`https://github.com/amap-cvlab/ABot-Manipulation`.
+
+AMP learns a discovery-only low-dimensional action manifold over LIBERO action
+chunks and constrains SmolVLA adaptation through an identity-preserving
+projection or bounded gated residual. LoRA is only implementation
+infrastructure. The first serious comparison is exactly `smolvla_base`,
+`abot_m0_action_manifold_proxy`, `amp_full`,
+`amp_no_manifold_projection`, and `standard_lora`.
+
+No AMP training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened. Next action: freeze the AMP-VLA
+Researcher A proposal before implementation.
 
 ## Epoch 4 Cycle 25 RAP-VLA
 
@@ -64,8 +86,7 @@ gate is postprocessed action validity (`action_validity_ok = false`,
 failed (`-3.830674623085068` relative improvement and
 `-0.07385385182729762` absolute Huber improvement). Bounded validation,
 RAP rerun, repair, rescue, clipping, threshold changes, and reinterpretation
-are forbidden. Next action: generate exactly three Epoch 4 Cycle 26 candidates
-under the active governance.
+are forbidden. RAP remains closed while Cycle 26 proceeds with AMP-VLA.
 
 ## Epoch 4 Cycle 24 VDR-VLA
 

@@ -53,7 +53,7 @@ def test_post_covi_lora_and_minimum_sufficient_governance_is_active() -> None:
     assert "Quantized OpenVLA-OFT INT4 plus Ours" in governance
 
 
-def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
+def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
@@ -61,12 +61,12 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_26_candidate_search_pending"
-    assert state["method"] == "RAP-VLA"
-    assert state["method_identity"] == "RAP-VLA"
-    assert state["proposal_hash"] == RAP_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
+    assert state["current_decision"] == "AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_26_amp_researcher_proposal_pending"
+    assert state["method"] == "AMP-VLA"
+    assert state["method_identity"] == "AMP-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -219,6 +219,10 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "epoch_4_cycle_25_rap_stage_0_adjudicated",
         "epoch_4_cycle_25_rap_implementation_or_optimization_failure_recorded",
         "epoch_4_cycle_26_candidate_search_pending",
+        "epoch_4_cycle_26_prior_mechanism_map_completed",
+        "epoch_4_cycle_26_candidate_generation_completed",
+        "epoch_4_cycle_26_amp_candidate_selected",
+        "epoch_4_cycle_26_amp_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -282,9 +286,30 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert rap_outcome["bounded_validation_allowed"] is False
     assert rap_outcome["rap_rescue_allowed"] is False
     cycle26 = state["epoch_4_cycle_26_candidate_search"]
-    assert cycle26["candidate_search_pending"] is True
+    assert cycle26["candidate_search_pending"] is False
     assert cycle26["candidate_count_required"] == 3
+    assert cycle26["candidate_count_generated"] == 3
     assert cycle26["rap_repair_allowed"] is False
+    assert cycle26["selected_method"] == "AMP-VLA"
+    assert cycle26["selected_score"] == 95
+    assert cycle26["selection_decision"] == "AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    amp = state["epoch_4_cycle_26_candidate_selection"]
+    assert amp["candidate_count"] == 3
+    assert amp["selected_score"] == 95
+    assert amp["method"] == "AMP-VLA"
+    assert amp["closest_prior"] == "ABot-M0"
+    assert amp["closest_prior_primary_source"] == "https://arxiv.org/abs/2602.11236"
+    assert amp["closest_prior_official_repository"] == "https://github.com/amap-cvlab/ABot-Manipulation"
+    assert amp["policy_order"] == [
+        "smolvla_base",
+        "abot_m0_action_manifold_proxy",
+        "amp_full",
+        "amp_no_manifold_projection",
+        "standard_lora",
+    ]
+    assert amp["standard_lora_required"] is True
+    assert amp["first_serious_comparison_includes_closest_prior"] is True
+    assert amp["rap_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

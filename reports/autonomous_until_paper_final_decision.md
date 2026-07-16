@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+`AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,29 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 26 Selection
+
+Cycle 26 generated exactly three candidates in
+`reports/epoch_4_cycle_26_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_26_prior_mechanism_map.md`.
+
+`AMP-VLA`, Action-Manifold Projection for VLA action-flow adaptation, is
+selected at `95 / 100`. Its closest positive prior is ABot-M0, anchored to
+`https://arxiv.org/abs/2602.11236` and the official repository
+`https://github.com/amap-cvlab/ABot-Manipulation`.
+
+AMP's single mechanism is a discovery-only low-dimensional action manifold
+over LIBERO action chunks, used to constrain a SmolVLA adapter through an
+identity-preserving projection or bounded gated residual. LoRA is only the
+implementation infrastructure for that residual/gate path, not the scientific
+method.
+
+The first serious comparison is exactly Base, transparent ABot-M0 action
+manifold proxy, AMP full, no-manifold-projection ablation, and matched
+standard LoRA. No AMP training, validation search, rollout, simulator access,
+or confirmatory-test tuning has happened. Current cycle: `26`. Current stage:
+`epoch_4_cycle_26_amp_researcher_proposal_pending`.
 
 ## Epoch 4 Cycle 25 Selection
 
@@ -59,8 +82,8 @@ false`). Retrieval-anchor headroom was positive (`0.23865551292280293`
 relative MSE improvement), but the residual probe failed
 (`-3.830674623085068` relative improvement and `-0.07385385182729762`
 absolute Huber improvement). Bounded validation, RAP rerun, repair, rescue,
-clipping, threshold changes, and reinterpretation are forbidden. Current
-cycle: `26`. Current stage: `epoch_4_cycle_26_candidate_search_pending`.
+clipping, threshold changes, and reinterpretation are forbidden. RAP remains
+closed while Cycle 26 proceeds with AMP-VLA.
 
 ## Epoch 4 Cycle 19 Decision
 

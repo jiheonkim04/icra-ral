@@ -222,12 +222,15 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
     assert "COVI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "RAP-VLA" in final
+    assert "AMP-VLA" in final
+    assert "ABot-M0" in final
+    assert "AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
     assert "RAP_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
-    assert "epoch_4_cycle_26_candidate_search_pending" in final
+    assert "epoch_4_cycle_26_amp_researcher_proposal_pending" in final
     assert "640 / 640" in final
     assert "optimusvla_memory_prior_proxy" in final
     assert RAP_PROPOSAL_HASH in final
@@ -254,13 +257,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_decision"] == "AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 26
-    assert state["current_stage"] == "epoch_4_cycle_26_candidate_search_pending"
-    assert state["method"] == "RAP-VLA"
-    assert state["method_identity"] == "RAP-VLA"
-    assert state["proposal_hash"] == RAP_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_26_amp_researcher_proposal_pending"
+    assert state["method"] == "AMP-VLA"
+    assert state["method_identity"] == "AMP-VLA"
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -273,10 +276,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == (
-        "Generate exactly three Epoch 4 Cycle 26 candidates under current governance without RAP repair or rescue."
-    )
-    assert state["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
+    assert state["next_action"] == "Freeze AMP-VLA Researcher A proposal before implementation."
+    assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -326,7 +327,25 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert rap_outcome["action_validity_ok"] is False
     assert rap_outcome["base_action_in_bounds"] is False
     assert rap_outcome["official_prior_policy_2_label"] == "optimusvla_memory_prior_proxy"
-    assert state["epoch_4_cycle_26_candidate_search"]["candidate_count_required"] == 3
+    cycle26 = state["epoch_4_cycle_26_candidate_search"]
+    assert cycle26["candidate_search_pending"] is False
+    assert cycle26["candidate_count_required"] == 3
+    assert cycle26["candidate_count_generated"] == 3
+    assert cycle26["selected_method"] == "AMP-VLA"
+    assert cycle26["selection_decision"] == "AMP_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    amp = state["epoch_4_cycle_26_candidate_selection"]
+    assert amp["candidate_count"] == 3
+    assert amp["selected_score"] == 95
+    assert amp["method"] == "AMP-VLA"
+    assert amp["closest_prior"] == "ABot-M0"
+    assert amp["policy_order"] == [
+        "smolvla_base",
+        "abot_m0_action_manifold_proxy",
+        "amp_full",
+        "amp_no_manifold_projection",
+        "standard_lora",
+    ]
+    assert amp["standard_lora_required"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
