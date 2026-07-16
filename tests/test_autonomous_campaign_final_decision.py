@@ -50,8 +50,10 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "reports/mci_vla/prototype_protocol.md" in final
     assert "MCI_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
-    assert "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING" in final
-    assert MCI_SERIALIZER_HASH in final
+    assert "MCI_STAGE_0_IMPLEMENTATION_FAILURE" in final
+    assert "MCI_STAGE_0_NO_HEADROOM" in final
+    assert "324.58415151749057" in final
+    assert "Cycle 39 candidates" in final
     assert "MCI-VLA Researcher A" in final
     assert "MCI-VLA" in final
     assert MCI_PROPOSAL_HASH in final
@@ -472,10 +474,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert state["current_decision"] == "MCI_STAGE_0_IMPLEMENTATION_FAILURE"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 38
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_stage_0_launch_pending"
+    assert state["current_cycle"] == 39
+    assert state["current_stage"] == "epoch_4_cycle_39_candidate_search_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
@@ -483,8 +485,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_38_prior_mechanism_map.md"
     assert state["selection_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["next_action"] == (
-        "Launch or monitor the MCI-VLA Stage 0 worker under the frozen "
-        "protocol; do not duplicate existing MCI artifacts."
+        "Generate exactly three Cycle 39 candidates under the current "
+        "governance; do not rescue or retune MCI-VLA."
     )
     assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
@@ -518,17 +520,30 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["implementation_decision"] == "MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
     assert state["stage_0_serializer_preflight_hash"] == MCI_SERIALIZER_HASH
     assert state["stage_0_pending"] is False
-    assert state["stage_0_launch_pending"] is True
-    assert state["stage_0_launched"] is False
-    assert state["stage_0_completed"] is False
-    assert state["stage_0_adjudicated"] is False
-    assert state["stage_0_decision"] is None
-    assert state["raw_stage_0_runner_decision"] is None
+    assert state["stage_0_launch_pending"] is False
+    assert state["stage_0_launched"] is True
+    assert state["stage_0_completed"] is True
+    assert state["stage_0_adjudicated"] is True
+    assert state["stage_0_decision"] == "MCI_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert state["raw_stage_0_runner_decision"] == "MCI_STAGE_0_NO_HEADROOM"
     assert state["valid_scientific_result"] is False
     assert state["stage_0_is_closed_loop_scientific_kill"] is False
     assert state["cspr_rescue_allowed"] is False
-    assert state["stage_0_result"] is None
-    assert state["stage_0_adjudication"] is None
+    assert state["mci_rescue_allowed"] is False
+    assert state["stage_0_result"] == "reports/mci_vla/stage_0_result.json"
+    assert state["stage_0_adjudication"] == "reports/mci_vla/stage_0_adjudication.md"
+    assert state["completed_model_row_count"] == 17280
+    assert state["planned_model_row_count"] == 17280
+    assert state["exception_count"] == 0
+    assert state["duplicate_manifest_key_count"] == 0
+    assert state["duplicate_partial_key_count"] == 0
+    assert state["missing_manifest_key_count"] == 0
+    assert state["extra_partial_key_count"] == 0
+    assert state["split_overlap_key_count"] == 0
+    assert state["key_sets_equal"] is True
+    assert state["weighted_gradient_norm_ratio_max"] == 324.58415151749057
+    assert state["objective_scale_limit"] == 100.0
+    assert state["adjudication_corrected_decision"] is True
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
     assert cycle35["candidate_count_required"] == 3
     assert cycle35["candidate_count_generated"] == 3

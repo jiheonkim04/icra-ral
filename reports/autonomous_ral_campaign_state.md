@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
+`MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `38`
+Current cycle: `39`
 
-Current stage: `epoch_4_cycle_38_mci_stage_0_launch_pending`
+Current stage: `epoch_4_cycle_39_candidate_search_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -80,15 +80,16 @@ decision taxonomy.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
-allowed. MCI Stage 0 implementation validation is complete as
-`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`: WSL
-`py_compile` passed, focused MCI tests passed `6`, focused state/governance
-tests passed `9`, and serializer preflight hash is
-`7E7F2AFEE7A7BAC280245FA4E6F834A25E31EC240656BD81B7C44121F4C61961`.
-No MCI training, validation search, rollout, confirmatory-test access, or
-Stage 0 worker launch has happened during implementation validation.
-Immediate next action: launch or monitor the MCI-VLA Stage 0 worker under the
-frozen protocol without duplicating existing MCI artifacts.
+allowed. MCI Stage 0 completed `17280 / 17280` rows with `0` exceptions,
+duplicate manifest keys `0`, duplicate partial keys `0`, missing keys `0`,
+extra keys `0`, split-overlap keys `0`, and key-set equality `true`. The raw
+runner decision was `MCI_STAGE_0_NO_HEADROOM`, but adjudication corrected the
+final decision to `MCI_STAGE_0_IMPLEMENTATION_FAILURE` because
+`weighted_gradient_norm_ratio_max = 324.58415151749057` exceeded the frozen
+objective-scale limit `100.0`. This is not a closed-loop scientific result or
+scientific kill. No MCI rescue, retuning, threshold change, or rerun is
+allowed. Immediate next action: generate exactly three Cycle 39 candidates
+under the current governance.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

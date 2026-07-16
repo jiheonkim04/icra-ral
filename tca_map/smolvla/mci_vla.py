@@ -679,13 +679,6 @@ def classify_stage0(inputs: Stage0DecisionInputs) -> str:
     ):
         return "MCI_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     if (
-        inputs.consistency_predictability_margin < PREDICTABILITY_MARGIN_MIN
-        or inputs.base_transformed_pair_headroom <= 0.0
-        or inputs.rovla_residual_headroom <= 0.0
-        or inputs.augmentation_residual_headroom <= 0.0
-    ):
-        return "MCI_STAGE_0_NO_HEADROOM"
-    if (
         inputs.identity_reload_error > IDENTITY_TOLERANCE
         or not inputs.exact_base_passthrough_ok
         or not inputs.finite_nonzero_gradients
@@ -696,6 +689,13 @@ def classify_stage0(inputs: Stage0DecisionInputs) -> str:
         or not inputs.clean_retention_ok
     ):
         return "MCI_STAGE_0_IMPLEMENTATION_FAILURE"
+    if (
+        inputs.consistency_predictability_margin < PREDICTABILITY_MARGIN_MIN
+        or inputs.base_transformed_pair_headroom <= 0.0
+        or inputs.rovla_residual_headroom <= 0.0
+        or inputs.augmentation_residual_headroom <= 0.0
+    ):
+        return "MCI_STAGE_0_NO_HEADROOM"
     if (
         inputs.representation_dims_fraction_above_floor < 0.80
         or not inputs.mci_beats_comparators

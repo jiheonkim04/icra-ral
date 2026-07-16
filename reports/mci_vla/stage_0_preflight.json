@@ -1,0 +1,25 @@
+{
+  "action_semantics_persisted": true,
+  "closed_loop_experiment_happened": false,
+  "confirmatory_records_read": 0,
+  "created_utc": "2026-07-16T16:55:35.466276+00:00",
+  "method": "MCI-VLA",
+  "official_prior_asset_check_persisted": true,
+  "preflight_passed": true,
+  "proposal_hash_ok": true,
+  "required_source_docs_exist": true,
+  "selected_prior_policy": "rovla_multiconsistency_proxy",
+  "serializer_preflight_ok": true,
+  "simulator_load_count": 0,
+  "source_doc_status": {
+    "missing_source_docs": [],
+    "required_source_docs": [
+      "reports/mci_vla/researcher_proposal.md",
+      "reports/mci_vla/reviewer_attack.md",
+      "reports/mci_vla/researcher_rebuttal.md",
+      "reports/mci_vla/mathematical_mechanism_audit.md",
+      "reports/mci_vla/preregistration.md",
+      "reports/mci_vla/prototype_protocol.md"
+    ]
+  }
+}

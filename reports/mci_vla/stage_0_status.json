@@ -1,0 +1,8 @@
+{
+  "adjudication_corrected_decision": true,
+  "final_decision": "MCI_STAGE_0_IMPLEMENTATION_FAILURE",
+  "method": "MCI-VLA",
+  "raw_runner_decision": "MCI_STAGE_0_NO_HEADROOM",
+  "state": "completed",
+  "updated_utc": "2026-07-16T16:55:48.856142+00:00"
+}

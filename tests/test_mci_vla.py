@@ -178,6 +178,10 @@ def test_stage0_decision_taxonomy() -> None:
     assert classify_stage0(_healthy_inputs(rovla_residual_headroom=0.0)) == "MCI_STAGE_0_NO_HEADROOM"
     assert classify_stage0(_healthy_inputs(mci_beats_comparators=False)) == "MCI_STAGE_0_DESIGN_FAILURE"
     assert classify_stage0(_healthy_inputs(finite_nonzero_gradients=False)) == "MCI_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert (
+        classify_stage0(_healthy_inputs(augmentation_residual_headroom=0.0, weighted_gradient_norm_ratio_max=324.0))
+        == "MCI_STAGE_0_IMPLEMENTATION_FAILURE"
+    )
     assert classify_stage0(_healthy_inputs(confirmatory_records_read=1)) == "MCI_STAGE_0_IMPLEMENTATION_FAILURE"
 
 

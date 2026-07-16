@@ -1,0 +1,18 @@
+{
+  "closest_prior": "RoVLA",
+  "closest_prior_official_repository": "https://github.com/HCPLab-SYSU/RoVLA",
+  "closest_prior_preprint": "https://arxiv.org/abs/2605.19678",
+  "created_utc": "2026-07-16T16:55:35.440856+00:00",
+  "method": "MCI-VLA",
+  "official_candidate_paths": [],
+  "official_checkpoint_count": 0,
+  "official_checkpoint_present": false,
+  "official_code_present": false,
+  "proxy_is_required_until_official_assets_verified": true,
+  "selected_prior_policy": "rovla_multiconsistency_proxy",
+  "transparent_proxy_mismatch_list": [
+    "official RoVLA checkpoint/assets unavailable locally",
+    "using transparent deterministic multi-consistency proxy",
+    "proxy preserves instruction, observation/proprioception, and action-evolution consistency axes"
+  ]
+}

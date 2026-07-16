@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
+`MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -73,15 +73,15 @@ decision taxonomy.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
 not repaired, rescued, relaunched, retuned, or reinterpreted. MCI Stage 0
-implementation validation is complete as
-`MCI_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`: WSL
-`py_compile` passed, focused MCI tests passed `6`, focused state/governance
-tests passed `9`, and serializer preflight hash is
-`7E7F2AFEE7A7BAC280245FA4E6F834A25E31EC240656BD81B7C44121F4C61961`.
-No MCI training, validation search, rollout, confirmatory-test access, or
-Stage 0 worker launch has happened during implementation validation. The next
-action is to launch or monitor the MCI-VLA Stage 0 worker under the frozen
-protocol without duplicating existing MCI artifacts.
+completed `17280 / 17280` rows with `0` exceptions and clean manifest/partial
+key checks. The raw runner decision was `MCI_STAGE_0_NO_HEADROOM`, but
+adjudication corrected the final decision to
+`MCI_STAGE_0_IMPLEMENTATION_FAILURE` because
+`weighted_gradient_norm_ratio_max = 324.58415151749057` exceeded the frozen
+objective-scale limit `100.0`. This is not a closed-loop scientific result or
+scientific kill. No MCI rescue, retuning, threshold change, or rerun is
+allowed. The next action is to generate exactly three Cycle 39 candidates
+under the current governance.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
