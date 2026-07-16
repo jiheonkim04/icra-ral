@@ -34,6 +34,7 @@ MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "MHS_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "MHS-VLA" in final
     assert "Mamba History State" in final
@@ -44,10 +45,11 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/mhs_vla/reviewer_attack.md" in final
     assert "reports/mhs_vla/researcher_rebuttal.md" in final
     assert "reports/mhs_vla/mathematical_mechanism_audit.md" in final
+    assert "reports/mhs_vla/preregistration.md" in final
     assert MHS_PROPOSAL_HASH in final
     assert "mtil_history_state_proxy" in final
     assert "mhs_no_history_state_ablation" in final
-    assert "epoch_4_cycle_35_mhs_preregistration_pending" in final
+    assert "epoch_4_cycle_35_mhs_prototype_protocol_pending" in final
     assert "BRID_STAGE_0_NO_RESIDUAL_HEADROOM" in final
     assert "BRID-VLA" in final
     assert "Base-Residual Implicit Diffusion" in final
@@ -418,16 +420,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 35
-    assert state["current_stage"] == "epoch_4_cycle_35_mhs_preregistration_pending"
+    assert state["current_stage"] == "epoch_4_cycle_35_mhs_prototype_protocol_pending"
     assert state["method"] == "MHS-VLA"
     assert state["method_identity"] == "MHS-VLA"
     assert state["closest_prior"] == "MTIL"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_35_candidate_generation.md"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_35_prior_mechanism_map.md"
-    assert state["next_action"].startswith("Write MHS-VLA preregistration")
+    assert state["next_action"].startswith("Write MHS-VLA prototype protocol")
     assert state["proposal_hash"] == MHS_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mhs_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
@@ -437,6 +439,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["rebuttal_decision"] == "MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
     assert state["math_audit_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["preregistration"] == "reports/mhs_vla/preregistration.md"
+    assert state["preregistration_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["prototype_protocol_pending"] is True
     assert state["stage_0_implementation_pending"] is False
     assert state["stage_0_implementation_validated"] is False
     assert state["stage_0_completed"] is False
@@ -447,12 +452,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cycle35["selected_method"] == "MHS-VLA"
     assert cycle35["selection_decision"] == "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     mhs = state["epoch_4_cycle_35_candidate_selection"]
-    assert mhs["final_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert mhs["final_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert mhs["proposal_hash"] == MHS_PROPOSAL_HASH
     assert mhs["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
     assert mhs["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
     assert mhs["researcher_rebuttal"] == "reports/mhs_vla/researcher_rebuttal.md"
     assert mhs["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
+    assert mhs["preregistration"] == "reports/mhs_vla/preregistration.md"
     assert mhs["policy_order"] == [
         "smolvla_base",
         "mtil_history_state_proxy",
@@ -461,21 +467,32 @@ def test_active_campaign_state_records_governance_v2() -> None:
         "standard_lora",
     ]
     proposal35 = state["epoch_4_cycle_35_mhs_researcher_proposal"]
-    assert proposal35["final_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert proposal35["final_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert proposal35["proposal_hash"] == MHS_PROPOSAL_HASH
     assert proposal35["reviewer_attack_completed"] is True
     review35 = state["epoch_4_cycle_35_mhs_reviewer_attack"]
-    assert review35["final_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert review35["final_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert review35["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
     assert review35["researcher_rebuttal_completed"] is True
     rebuttal35 = state["epoch_4_cycle_35_mhs_rebuttal"]
-    assert rebuttal35["final_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert rebuttal35["final_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert rebuttal35["researcher_rebuttal"] == "reports/mhs_vla/researcher_rebuttal.md"
     assert rebuttal35["accepted_reviewer_conditions"] is True
     math35 = state["epoch_4_cycle_35_mhs_mathematical_audit"]
-    assert math35["final_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert math35["final_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert math35["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
     assert math35["fixed_constants"]["K"] == 50
+    prereg35 = state["epoch_4_cycle_35_mhs_preregistration"]
+    assert prereg35["final_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert prereg35["preregistration"] == "reports/mhs_vla/preregistration.md"
+    assert prereg35["policy_order"] == [
+        "smolvla_base",
+        "mtil_history_state_proxy",
+        "mhs_full",
+        "mhs_no_history_state_ablation",
+        "standard_lora",
+    ]
+    assert prereg35["bounded_validation_search_max_configs"] == 6
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`
+`MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ small residual head only; LoRA is not the method.
 The first serious comparison is `smolvla_base`, `mtil_history_state_proxy`,
 `mhs_full`, `mhs_no_history_state_ablation`, and `standard_lora`.
 
-Current stage: `epoch_4_cycle_35_mhs_preregistration_pending`.
+Current stage: `epoch_4_cycle_35_mhs_prototype_protocol_pending`.
 
 The MHS-VLA Researcher A proposal is frozen in
 `reports/mhs_vla/researcher_proposal.md` with SHA-256
@@ -55,9 +55,14 @@ The MHS mathematical mechanism audit is frozen in
 `reports/mhs_vla/mathematical_mechanism_audit.md` with decision
 `MHS_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Next action: write the MHS-VLA preregistration before prototype protocol,
-implementation, validation search, training, rollout, or confirmatory-test
-access.
+The MHS preregistration is frozen in `reports/mhs_vla/preregistration.md` with
+decision `MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+history-window construction, `m_i` and `z_i`, Stage 0 stop classes, the
+MTIL-proxy first comparison, and the six-configuration bounded validation
+envelope.
+
+Next action: write the MHS-VLA prototype protocol before implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 34 Candidate Selection
 

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`
+`MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_preregistration_pending`
+Current stage: `epoch_4_cycle_35_mhs_prototype_protocol_pending`
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -52,9 +52,14 @@ The MHS mathematical mechanism audit is frozen in
 `reports/mhs_vla/mathematical_mechanism_audit.md` with decision
 `MHS_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
-Next action is to write the MHS-VLA preregistration before prototype protocol,
-implementation, validation search, training, rollout, or confirmatory-test
-access.
+The MHS preregistration is frozen in `reports/mhs_vla/preregistration.md` with
+decision `MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+the development partitions, fixed source tasks, history-window and label
+construction, Stage 0 artifacts, pass gates, stop classes, bounded validation
+search budget, and worker resume keys.
+
+Next action is to write the MHS-VLA prototype protocol before implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 
