@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -40,7 +40,7 @@ The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
 Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_rebuttal_pending`.
+`epoch_4_cycle_33_afid_mathematical_audit_pending`.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -59,6 +59,12 @@ factor observability above trivial baselines, no-factor and standard-LoRA
 controls, exact Base passthrough, and no deterministic-action KL.
 
 Immediate next action: Researcher A rebuttal.
+
+Researcher A rebuttal is complete in `reports/afid_vla/researcher_rebuttal.md`
+with decision `AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepts
+all Reviewer B conditions. Immediate next action: freeze the AFID mathematical
+mechanism audit before preregistration, implementation, validation search, or
+rollout.
 
 ## Epoch 4 Cycle 32 Selection
 

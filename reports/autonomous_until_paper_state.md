@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_rebuttal_pending`
+Current stage: `epoch_4_cycle_33_afid_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 
@@ -47,8 +47,13 @@ extraction rules, noncollapsed factor/mask health, factor observability above
 trivial baselines, no-factor and standard-LoRA controls, exact Base
 passthrough, and no deterministic-action KL.
 
-Next action: Researcher A rebuttal. No AFID implementation, training,
-validation search, rollout, or confirmatory-test access has happened.
+Researcher A rebuttal is complete in `reports/afid_vla/researcher_rebuttal.md`
+with decision `AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
+Reviewer B conditions.
+
+Next action: freeze the AFID mathematical mechanism audit. No AFID
+implementation, training, validation search, rollout, or confirmatory-test
+access has happened.
 
 ## Epoch 4 Cycle 32 LCG-VLA
 

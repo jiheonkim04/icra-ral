@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 33,
-    "topic": "epoch_4_cycle_33_afid_rebuttal_pending",
+    "topic": "epoch_4_cycle_33_afid_mathematical_audit_pending",
     "method": "AFID-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "5fd4fd7",
-    "current_stage": "epoch_4_cycle_33_afid_rebuttal_pending",
+    "current_commit": "e01edc6",
+    "current_stage": "epoch_4_cycle_33_afid_mathematical_audit_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -676,7 +676,9 @@
         "epoch_4_cycle_33_afid_researcher_proposal_frozen",
         "epoch_4_cycle_33_afid_reviewer_attack_pending",
         "epoch_4_cycle_33_afid_reviewer_attack_completed",
-        "epoch_4_cycle_33_afid_rebuttal_pending"
+        "epoch_4_cycle_33_afid_rebuttal_pending",
+        "epoch_4_cycle_33_afid_rebuttal_completed",
+        "epoch_4_cycle_33_afid_mathematical_audit_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -693,7 +695,7 @@
         "CAC-VLA"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
+    "current_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -844,7 +846,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write Researcher A rebuttal accepting or rejecting the AFID Reviewer B conditions.",
+    "next_action": "Freeze the AFID-VLA mathematical mechanism audit before preregistration or implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "Sparse action-factor labels derived from discovery/validation LIBERO demonstrations can supervise a deployment-observable predictor and Base-preserving residual gate, improving action-relevant control while defaulting exactly to frozen SmolVLA when factor confidence is low.",
     "method_identity": "AFID-VLA",
@@ -2598,7 +2600,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_33_afid_rebuttal_pending",
+    "current_topic": "epoch_4_cycle_33_afid_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -8933,8 +8935,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "researcher_rebuttal": "reports/s2c_vla/researcher_rebuttal.md",
-    "rebuttal_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
+    "rebuttal_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "epoch_4_cycle_31_s2c_rebuttal": {
         "method": "S2C-VLA",
         "final_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -9911,19 +9913,19 @@
         ],
         "selected_method": "AFID-VLA",
         "selected_score": 90,
-        "selection_decision": "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
+        "selection_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_action": "Write Researcher A rebuttal accepting or rejecting the AFID Reviewer B conditions."
+        "next_action": "Freeze the AFID-VLA mathematical mechanism audit before preregistration or implementation."
     },
     "epoch_4_cycle_33_candidate_selection": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
-        "final_decision": "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
+        "final_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "candidate_count": 3,
         "selected_score": 90,
         "closest_prior": "FineVLA",
@@ -9957,7 +9959,7 @@
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
         "selection_decision": "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
-        "next_stage": "Write Researcher A rebuttal accepting or rejecting the AFID Reviewer B conditions.",
+        "next_stage": "Freeze the AFID-VLA mathematical mechanism audit before preregistration or implementation.",
         "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
         "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
@@ -9965,13 +9967,17 @@
         "reviewer_attack_pending": true,
         "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
-        "rebuttal_pending": true
+        "rebuttal_pending": true,
+        "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "rebuttal_completed": true,
+        "mathematical_audit_pending": true
     },
     "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
     "epoch_4_cycle_33_afid_researcher_proposal": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
-        "final_decision": "AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
+        "final_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
         "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
@@ -10001,11 +10007,15 @@
         "lcg_repair_allowed": false,
         "lcg_rescue_allowed": false,
         "reviewer_attack_pending": true,
-        "next_stage": "Write Researcher A rebuttal accepting or rejecting the AFID Reviewer B conditions.",
+        "next_stage": "Freeze the AFID-VLA mathematical mechanism audit before preregistration or implementation.",
         "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
-        "rebuttal_pending": true
+        "rebuttal_pending": true,
+        "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "rebuttal_completed": true,
+        "mathematical_audit_pending": true
     },
     "epoch_4_cycle_33_afid_reviewer_attack": {
         "method": "AFID-VLA",
@@ -10040,6 +10050,37 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write Researcher A rebuttal accepting or rejecting the AFID Reviewer B conditions."
+        "next_stage": "Freeze the AFID-VLA mathematical mechanism audit before preregistration or implementation.",
+        "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "rebuttal_completed": true,
+        "mathematical_audit_pending": true
+    },
+    "epoch_4_cycle_33_afid_rebuttal": {
+        "method": "AFID-VLA",
+        "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
+        "final_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
+        "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
+        "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
+        "closest_prior": "FineVLA",
+        "accepted_reviewer_conditions": true,
+        "accepted_novelty_boundary": "Frozen-SmolVLA Base-preserving residual gate driven by deployment-observable predictions of compact action-factor labels derived from development-only demonstrations.",
+        "policy_order": [
+            "smolvla_base",
+            "finevla_action_factor_proxy",
+            "afid_full",
+            "afid_no_factor_ablation",
+            "standard_lora"
+        ],
+        "mathematical_audit_pending": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze the AFID-VLA mathematical mechanism audit before preregistration or implementation."
     }
 }

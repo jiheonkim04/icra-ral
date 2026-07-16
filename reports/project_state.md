@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_rebuttal_pending`
+Current stage: `epoch_4_cycle_33_afid_mathematical_audit_pending`
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
@@ -40,8 +40,13 @@ factor/mask health, factor observability above trivial baselines, no-factor
 and standard-LoRA controls, exact Base passthrough, and no deterministic-action
 KL.
 
-Next action: Researcher A rebuttal. No AFID implementation, training,
-validation search, rollout, or confirmatory-test access has happened.
+Researcher A rebuttal is complete in `reports/afid_vla/researcher_rebuttal.md`
+with decision `AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
+Reviewer B conditions.
+
+Next action: freeze the AFID mathematical mechanism audit. No AFID
+implementation, training, validation search, rollout, or confirmatory-test
+access has happened.
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three

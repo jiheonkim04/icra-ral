@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
-Immediate next action: write Researcher A rebuttal accepting or rejecting the
-AFID Reviewer B conditions.
+Immediate next action: freeze the AFID-VLA mathematical mechanism audit before
+preregistration or implementation.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -36,6 +36,10 @@ must accept or reject the FineVLA prior boundary, fair proxy requirement,
 frozen factor extraction, noncollapsed factor/mask health, factor observability
 gate, no-factor and standard-LoRA controls, exact Base passthrough, and no
 deterministic-action KL.
+
+Researcher A rebuttal is complete in `reports/afid_vla/researcher_rebuttal.md`
+with decision `AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B
+conditions are accepted.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
