@@ -62,8 +62,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "AMP_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["current_stage"] == "epoch_4_cycle_26_amp_preregistration_pending"
+    assert state["current_decision"] == "AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_26_amp_prototype_protocol_pending"
     assert state["method"] == "AMP-VLA"
     assert state["method_identity"] == "AMP-VLA"
     assert state["proposal_hash"] == AMP_PROPOSAL_HASH
@@ -232,6 +232,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_26_amp_mathematical_audit_pending",
         "epoch_4_cycle_26_amp_mathematical_audit_preregistered",
         "epoch_4_cycle_26_amp_preregistration_pending",
+        "epoch_4_cycle_26_amp_preregistration_frozen",
+        "epoch_4_cycle_26_amp_prototype_protocol_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -329,6 +331,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert amp["rebuttal_decision"] == "AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert amp["mathematical_audit"] == "reports/amp_vla/mathematical_mechanism_audit.md"
     assert amp["math_audit_decision"] == "AMP_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert amp["preregistration"] == "reports/amp_vla/preregistration.md"
+    assert amp["preregistration_decision"] == "AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     amp_proposal = state["epoch_4_cycle_26_amp_researcher_proposal"]
     assert amp_proposal["final_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert amp_proposal["proposal_hash"] == AMP_PROPOSAL_HASH
@@ -349,6 +353,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert amp_math["mathematical_audit"] == "reports/amp_vla/mathematical_mechanism_audit.md"
     assert amp_math["kl_between_deterministic_actions_used"] is False
     assert amp_math["projection_vs_clipping_diagnostic_required"] is True
+    amp_prereg = state["epoch_4_cycle_26_amp_preregistration"]
+    assert amp_prereg["final_decision"] == "AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert amp_prereg["preregistration"] == "reports/amp_vla/preregistration.md"
+    assert amp_prereg["stage_0_allowed_next"] is True
+    assert amp_prereg["bounded_validation_search_max_configs"] == 6
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

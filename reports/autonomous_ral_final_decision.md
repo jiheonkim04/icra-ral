@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AMP_MATHEMATICAL_AUDIT_PREREGISTERED`
+`AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -46,8 +46,10 @@ The mathematical mechanism audit is frozen in
 `reports/amp_vla/mathematical_mechanism_audit.md` with decision
 `AMP_MATHEMATICAL_AUDIT_PREREGISTERED`. It forbids KL between deterministic
 actions or SmolVLA flow vectors and requires projection-vs-clipping diagnostics.
+Preregistration is frozen in `reports/amp_vla/preregistration.md` with decision
+`AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_preregistration_pending`.
+`epoch_4_cycle_26_amp_prototype_protocol_pending`.
 
 Cycle 25 generated exactly three candidates after a current primary-source
 anchor pass. `RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action
