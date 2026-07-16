@@ -73,8 +73,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_prototype_protocol_pending"
+    assert state["current_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_stage_0_implementation_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
@@ -89,7 +89,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "cspr_uniform_refinement_ablation",
         "critical_step_threshold_simple_killer",
     ]
-    assert state["next_action"].startswith("Freeze the CSPR-VLA executable prototype protocol")
+    assert state["next_action"].startswith("Implement and validate the CSPR-VLA Stage 0")
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -113,10 +113,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["preregistration_frozen"] is True
     assert state["preregistration_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["prototype_protocol"] == "reports/cspr_vla/prototype_protocol.md"
-    assert state["prototype_protocol_pending"] is True
-    assert state["prototype_protocol_frozen"] is False
-    assert state["prototype_protocol_decision"] is None
-    assert state["stage_0_implementation_pending"] is False
+    assert state["prototype_protocol_pending"] is False
+    assert state["prototype_protocol_frozen"] is True
+    assert state["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["stage_0_implementation_pending"] is True
     assert state["stage_0_implementation_validated"] is False
     assert state["stage_0_pending"] is False
     assert state["stage_0_completed"] is False
@@ -527,7 +527,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert math37["preregistration_pending"] is False
     assert math37["preregistration_frozen"] is True
     assert math37["preregistration_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert math37["prototype_protocol_pending"] is True
+    assert math37["prototype_protocol_pending"] is False
+    assert math37["prototype_protocol_frozen"] is True
+    assert math37["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert math37["stage_0_implementation_pending"] is True
     assert math37["training_happened"] is False
     assert math37["validation_search_happened"] is False
     assert math37["closed_loop_experiment_happened"] is False
@@ -547,11 +550,50 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "CSPR_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in prereg37["stop_classes"]
     assert prereg37["deterministic_action_kl_allowed"] is False
     assert prereg37["first_serious_comparison_includes_closest_prior"] is True
-    assert prereg37["prototype_protocol_pending"] is True
+    assert prereg37["prototype_protocol_pending"] is False
+    assert prereg37["prototype_protocol_frozen"] is True
+    assert prereg37["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert prereg37["stage_0_implementation_pending"] is True
     assert prereg37["training_happened"] is False
     assert prereg37["validation_search_happened"] is False
     assert prereg37["closed_loop_experiment_happened"] is False
     assert prereg37["confirmatory_test_tuning_happened"] is False
+    protocol37 = state["epoch_4_cycle_37_cspr_prototype_protocol"]
+    assert protocol37["method"] == "CSPR-VLA"
+    assert protocol37["proposal_hash"] == CSPR_PROPOSAL_HASH
+    assert protocol37["prototype_protocol"] == "reports/cspr_vla/prototype_protocol.md"
+    assert protocol37["final_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert protocol37["required_helper"] == "tca_map/smolvla/cspr_vla.py"
+    assert protocol37["required_runner"] == "scripts/run_cspr_vla_stage0.py"
+    assert protocol37["required_tests"] == "tests/test_cspr_vla.py"
+    assert len(protocol37["required_artifacts"]) == 13
+    assert protocol37["policy_order"] == [
+        "smolvla_base",
+        "dysl_action_importance_proxy",
+        "cspr_full",
+        "cspr_uniform_refinement_ablation",
+        "critical_step_threshold_simple_killer",
+    ]
+    assert protocol37["diagnostic_rows"] == [
+        "criticality_label_health_diagnostic",
+        "criticality_predictability_diagnostic",
+        "identity_passthrough_reload_diagnostic",
+        "objective_gradient_scale_diagnostic",
+    ]
+    assert protocol37["expected_discovery_rows"] == 512
+    assert protocol37["expected_validation_rows"] == 128
+    assert protocol37["worker_safety_resume_required"] is True
+    assert protocol37["duplicate_key_checks_required"] is True
+    assert protocol37["manifest_completeness_required"] is True
+    assert protocol37["deterministic_action_kl_allowed"] is False
+    assert protocol37["first_serious_comparison_includes_closest_prior"] is True
+    assert protocol37["stage_0_implementation_pending"] is True
+    assert protocol37["stage_0_implementation_validated"] is False
+    assert protocol37["stage_0_pending"] is False
+    assert protocol37["training_happened"] is False
+    assert protocol37["validation_search_happened"] is False
+    assert protocol37["closed_loop_experiment_happened"] is False
+    assert protocol37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -600,6 +642,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_37_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_candidate_selected" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_prototype_protocol_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_prototype_protocol_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_stage_0_implementation_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

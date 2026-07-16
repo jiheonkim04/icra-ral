@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -42,8 +42,10 @@ complete in `reports/cspr_vla/researcher_rebuttal.md` with decision
 is frozen in `reports/cspr_vla/mathematical_mechanism_audit.md` with decision
 `CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`. The preregistration is frozen in
 `reports/cspr_vla/preregistration.md` with decision
-`CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The next action is
-prototype protocol before implementation, validation search, rollout, or
+`CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The executable
+prototype protocol is frozen in `reports/cspr_vla/prototype_protocol.md`
+with decision `CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. The next action is Stage 0 implementation
+validation before any worker launch, validation search, rollout, or
 confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
