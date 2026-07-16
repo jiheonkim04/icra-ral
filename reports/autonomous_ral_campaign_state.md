@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`URF_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_30_urf_preregistration_pending`
 
 ## Epoch 4 Cycle 30 URF-VLA
 
@@ -65,8 +65,16 @@ uncertainty strata gate, no global route gate, mathematical log-variance audit,
 no deterministic-action KL, no privileged inference inputs, and no rescue of
 CCIF/TSC/CFR/AMP/RAP/VDR.
 
-Current next action: freeze URF-VLA mathematical mechanism audit before
-preregistration, implementation, validation search, training, or rollout.
+The URF mathematical mechanism audit is frozen in
+`reports/urf_vla/mathematical_mechanism_audit.md` with decision
+`URF_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines `[B,50,7]` residual and log
+variance tensors, normalized residual scales, explicit uncertainty-dependent
+route logits, heteroscedastic residual pseudo-NLL, route BCE, clean retention,
+gradient and magnitude audits, uncertainty monotonicity diagnostics, no
+deterministic-action KL, and the fixed Stage 0 stop classes.
+
+Current next action: freeze URF-VLA preregistration before prototype protocol,
+implementation, validation search, training, or rollout.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 

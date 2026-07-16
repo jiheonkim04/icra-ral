@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`URF_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -64,8 +64,16 @@ uncertainty strata gate, no global route gate, mathematical log-variance audit,
 no deterministic-action KL, no privileged inference inputs, and no rescue of
 CCIF/TSC/CFR/AMP/RAP/VDR.
 
+The URF mathematical mechanism audit is frozen in
+`reports/urf_vla/mathematical_mechanism_audit.md` with decision
+`URF_MATHEMATICAL_AUDIT_PREREGISTERED`. It defines `[B,50,7]` residual and log
+variance tensors, normalized residual scales, explicit uncertainty-dependent
+route logits, heteroscedastic residual pseudo-NLL, route BCE, clean retention,
+gradient and magnitude audits, uncertainty monotonicity diagnostics, no
+deterministic-action KL, and the fixed Stage 0 stop classes.
+
 Current cycle: `30`. Current stage:
-`epoch_4_cycle_30_urf_mathematical_audit_pending`.
+`epoch_4_cycle_30_urf_preregistration_pending`.
 
 ## Epoch 4 Cycle 29 Selection
 

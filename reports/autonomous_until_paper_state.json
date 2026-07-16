@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 30,
-    "current_topic": "epoch_4_cycle_30_urf_mathematical_audit_pending",
+    "current_topic": "epoch_4_cycle_30_urf_preregistration_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "ef1f20a",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_30_urf_mathematical_audit_pending",
+    "current_stage": "epoch_4_cycle_30_urf_preregistration_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -599,7 +599,9 @@
         "epoch_4_cycle_30_urf_reviewer_attack_completed",
         "epoch_4_cycle_30_urf_rebuttal_pending",
         "epoch_4_cycle_30_urf_rebuttal_completed",
-        "epoch_4_cycle_30_urf_mathematical_audit_pending"
+        "epoch_4_cycle_30_urf_mathematical_audit_pending",
+        "epoch_4_cycle_30_urf_mathematical_audit_preregistered",
+        "epoch_4_cycle_30_urf_preregistration_pending"
     ],
     "active_hypothesis": "A heteroscedastic residual-flow field can route bounded Base-preserving SmolVLA action corrections only where predicted residual uncertainty supports intervention, retaining Base behavior elsewhere.",
     "method_identity": "URF-VLA",
@@ -621,7 +623,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -8275,7 +8277,9 @@
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/urf_vla/researcher_rebuttal.md",
         "rebuttal_decision": "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-        "next_stage": "Freeze URF-VLA mathematical mechanism audit before preregistration, implementation, validation search, training, or rollout."
+        "mathematical_audit": "reports/urf_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "next_stage": "Freeze URF-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout."
     },
     "epoch_4_cycle_30_urf_researcher_proposal": {
         "method": "URF-VLA",
@@ -8304,7 +8308,9 @@
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/urf_vla/researcher_rebuttal.md",
         "rebuttal_decision": "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
-        "next_stage": "Freeze URF-VLA mathematical mechanism audit before preregistration, implementation, validation search, training, or rollout."
+        "mathematical_audit": "reports/urf_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "next_stage": "Freeze URF-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout."
     },
     "epoch_4_cycle_30_urf_reviewer_attack": {
         "method": "URF-VLA",
@@ -8341,9 +8347,11 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze URF-VLA mathematical mechanism audit before preregistration, implementation, validation search, training, or rollout.",
+        "next_stage": "Freeze URF-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout.",
         "researcher_rebuttal": "reports/urf_vla/researcher_rebuttal.md",
-        "rebuttal_decision": "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+        "rebuttal_decision": "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "mathematical_audit": "reports/urf_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     },
     "epoch_4_cycle_30_urf_rebuttal": {
         "method": "URF-VLA",
@@ -8382,6 +8390,43 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "mathematical_audit": "reports/urf_vla/mathematical_mechanism_audit.md",
-        "next_stage": "Freeze URF-VLA mathematical mechanism audit before preregistration, implementation, validation search, training, or rollout."
+        "math_audit_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "next_stage": "Freeze URF-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout."
+    },
+    "epoch_4_cycle_30_urf_mathematical_audit": {
+        "method": "URF-VLA",
+        "final_decision": "URF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit": "reports/urf_vla/mathematical_mechanism_audit.md",
+        "researcher_rebuttal": "reports/urf_vla/researcher_rebuttal.md",
+        "reviewer_attack": "reports/urf_vla/reviewer_attack.md",
+        "proposal_hash": "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532",
+        "residual_horizon": 50,
+        "action_dimension": 7,
+        "log_variance_semantics": "ell_theta parameterizes log variance in normalized residual units",
+        "uncertainty_enters_route_gate": true,
+        "deterministic_action_kl_forbidden": true,
+        "first_serious_comparison": [
+            "smolvla_base",
+            "sureflow_uncertainty_residual_proxy",
+            "urf_full",
+            "urf_no_uncertainty_route_ablation",
+            "standard_lora"
+        ],
+        "stage_0_stop_classes": [
+            "URF_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "URF_STAGE_0_NO_USABLE_HEADROOM",
+            "URF_STAGE_0_DESIGN_FAILURE",
+            "URF_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "URF_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "requires_uncertainty_strata_monotonicity": true,
+        "requires_no_global_route_gate": true,
+        "requires_identity_reload_error_max": 1e-06,
+        "requires_official_action_validity_semantics": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze URF-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout."
     }
 }

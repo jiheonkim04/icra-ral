@@ -31,13 +31,15 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
 
     assert "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
+    assert "URF_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "URF-VLA" in final
     assert "SUREFlow" in final
     assert "sureflow_uncertainty_residual_proxy" in final
     assert URF_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_30_urf_mathematical_audit_pending" in final
+    assert "epoch_4_cycle_30_urf_preregistration_pending" in final
     assert "reports/urf_vla/reviewer_attack.md" in final
     assert "reports/urf_vla/researcher_rebuttal.md" in final
+    assert "reports/urf_vla/mathematical_mechanism_audit.md" in final
     assert "Guided Action Flow" in final
     assert "CCIF_STAGE_0_DESIGN_FAILURE" in final
     assert "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -310,10 +312,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 30
-    assert state["current_stage"] == "epoch_4_cycle_30_urf_mathematical_audit_pending"
+    assert state["current_stage"] == "epoch_4_cycle_30_urf_preregistration_pending"
     assert state["method"] == "URF-VLA"
     assert state["method_identity"] == "URF-VLA"
     assert state["proposal_hash"] == URF_PROPOSAL_HASH
@@ -843,6 +845,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert urf["researcher_rebuttal"] == "reports/urf_vla/researcher_rebuttal.md"
     assert urf["rebuttal_decision"] == "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert urf["mathematical_audit"] == "reports/urf_vla/mathematical_mechanism_audit.md"
+    assert urf["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     urf_proposal = state["epoch_4_cycle_30_urf_researcher_proposal"]
     assert urf_proposal["final_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert urf_proposal["proposal"] == "reports/urf_vla/researcher_proposal.md"
@@ -856,6 +860,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert urf_proposal["researcher_rebuttal"] == "reports/urf_vla/researcher_rebuttal.md"
     assert urf_proposal["rebuttal_decision"] == "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert urf_proposal["mathematical_audit"] == "reports/urf_vla/mathematical_mechanism_audit.md"
+    assert urf_proposal["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     urf_review = state["epoch_4_cycle_30_urf_reviewer_attack"]
     assert urf_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert urf_review["reviewer_attack"] == "reports/urf_vla/reviewer_attack.md"
@@ -871,6 +877,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_review["confirmatory_test_tuning_happened"] is False
     assert urf_review["researcher_rebuttal"] == "reports/urf_vla/researcher_rebuttal.md"
     assert urf_review["rebuttal_decision"] == "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert urf_review["mathematical_audit"] == "reports/urf_vla/mathematical_mechanism_audit.md"
+    assert urf_review["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
     urf_rebuttal = state["epoch_4_cycle_30_urf_rebuttal"]
     assert urf_rebuttal["final_decision"] == "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert urf_rebuttal["researcher_rebuttal"] == "reports/urf_vla/researcher_rebuttal.md"
@@ -889,6 +897,31 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_rebuttal["closed_loop_experiment_happened"] is False
     assert urf_rebuttal["confirmatory_test_tuning_happened"] is False
     assert urf_rebuttal["mathematical_audit"] == "reports/urf_vla/mathematical_mechanism_audit.md"
+    assert urf_rebuttal["math_audit_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
+    urf_math = state["epoch_4_cycle_30_urf_mathematical_audit"]
+    assert urf_math["final_decision"] == "URF_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert urf_math["mathematical_audit"] == "reports/urf_vla/mathematical_mechanism_audit.md"
+    assert urf_math["proposal_hash"] == URF_PROPOSAL_HASH
+    assert urf_math["residual_horizon"] == 50
+    assert urf_math["action_dimension"] == 7
+    assert urf_math["uncertainty_enters_route_gate"] is True
+    assert urf_math["deterministic_action_kl_forbidden"] is True
+    assert urf_math["first_serious_comparison"] == [
+        "smolvla_base",
+        "sureflow_uncertainty_residual_proxy",
+        "urf_full",
+        "urf_no_uncertainty_route_ablation",
+        "standard_lora",
+    ]
+    assert "URF_STAGE_0_DESIGN_FAILURE" in urf_math["stage_0_stop_classes"]
+    assert urf_math["requires_uncertainty_strata_monotonicity"] is True
+    assert urf_math["requires_no_global_route_gate"] is True
+    assert urf_math["requires_identity_reload_error_max"] == 1e-06
+    assert urf_math["requires_official_action_validity_semantics"] is True
+    assert urf_math["training_happened"] is False
+    assert urf_math["validation_search_happened"] is False
+    assert urf_math["closed_loop_experiment_happened"] is False
+    assert urf_math["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
