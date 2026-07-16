@@ -23,11 +23,18 @@ AMP_PROPOSAL_HASH = "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232D
 CFR_PROPOSAL_HASH = "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE"
 TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941"
 CCIF_PROPOSAL_HASH = "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1"
+URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
+    assert "URF-VLA" in final
+    assert "SUREFlow" in final
+    assert "sureflow_uncertainty_residual_proxy" in final
+    assert URF_PROPOSAL_HASH in final
+    assert "epoch_4_cycle_30_urf_reviewer_attack_pending" in final
     assert "CCIF_STAGE_0_DESIGN_FAILURE" in final
     assert "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
@@ -40,7 +47,6 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Coarse-to-Control" in final
     assert "coarse_to_control_continuous_proxy" in final
     assert CCIF_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_30_candidate_search_pending" in final
     assert "TSC_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "TSC-VLA" in final
     assert "TS-Mask VLA" in final
@@ -300,13 +306,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CCIF_STAGE_0_DESIGN_FAILURE"
+    assert state["current_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 30
-    assert state["current_stage"] == "epoch_4_cycle_30_candidate_search_pending"
-    assert state["method"] == "CCIF-VLA"
-    assert state["method_identity"] == "CCIF-VLA"
-    assert state["proposal_hash"] == CCIF_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_30_urf_reviewer_attack_pending"
+    assert state["method"] == "URF-VLA"
+    assert state["method_identity"] == "URF-VLA"
+    assert state["proposal_hash"] == URF_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -321,9 +327,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Implement and validate scripts/run_ccif_vla_stage0.py before Stage 0 execution."
+        == "Run Reviewer B attack for URF-VLA before mathematical audit, preregistration, implementation, or training."
     )
-    assert state["prototype_protocol"] == "reports/ccif_vla/prototype_protocol.md"
+    assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -794,6 +800,52 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert ccif_outcome["valid_scientific_result"] is False
     assert ccif_outcome["closed_loop_experiment_happened"] is False
     assert ccif_outcome["ccif_rescue_allowed"] is False
+    cycle30 = state["epoch_4_cycle_30_candidate_search"]
+    assert cycle30["candidate_search_pending"] is False
+    assert cycle30["candidate_count_required"] == 3
+    assert cycle30["candidate_count_generated"] == 3
+    assert cycle30["previous_method"] == "CCIF-VLA"
+    assert cycle30["previous_decision"] == "CCIF_STAGE_0_DESIGN_FAILURE"
+    assert cycle30["ccif_repair_allowed"] is False
+    assert cycle30["ccif_rescue_allowed"] is False
+    assert cycle30["selected_method"] == "URF-VLA"
+    assert cycle30["selected_score"] == 92
+    assert cycle30["selection_decision"] == "URF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    urf = state["epoch_4_cycle_30_candidate_selection"]
+    assert urf["candidate_count"] == 3
+    assert urf["selected_score"] == 92
+    assert urf["method"] == "URF-VLA"
+    assert urf["closest_prior"] == "SUREFlow"
+    assert urf["closest_prior_primary_source"] == "https://arxiv.org/abs/2607.10504"
+    assert urf["closest_prior_official_repository"] == "https://github.com/tanvirnwu/SUREFlow"
+    assert urf["policy_order"] == [
+        "smolvla_base",
+        "sureflow_uncertainty_residual_proxy",
+        "urf_full",
+        "urf_no_uncertainty_route_ablation",
+        "standard_lora",
+    ]
+    assert urf["standard_lora_required"] is True
+    assert urf["training_happened"] is False
+    assert urf["validation_search_happened"] is False
+    assert urf["closed_loop_experiment_happened"] is False
+    assert urf["confirmatory_test_tuning_happened"] is False
+    assert urf["first_serious_comparison_includes_closest_prior"] is True
+    assert urf["proposal"] == "reports/urf_vla/researcher_proposal.md"
+    assert urf["proposal_hash"] == URF_PROPOSAL_HASH
+    assert urf["proposal_hash_file"] == "reports/urf_vla/proposal_hash.txt"
+    assert urf["proposal_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    urf_proposal = state["epoch_4_cycle_30_urf_researcher_proposal"]
+    assert urf_proposal["final_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert urf_proposal["proposal"] == "reports/urf_vla/researcher_proposal.md"
+    assert urf_proposal["proposal_hash"] == URF_PROPOSAL_HASH
+    assert urf_proposal["closest_prior"] == "SUREFlow"
+    assert urf_proposal["standard_lora_required"] is True
+    assert urf_proposal["training_happened"] is False
+    assert urf_proposal["validation_search_happened"] is False
+    assert urf_proposal["closed_loop_experiment_happened"] is False
+    assert urf_proposal["confirmatory_test_tuning_happened"] is False
+    assert urf_proposal["reviewer_decision"] == "URF_REVIEWER_ATTACK_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CCIF_STAGE_0_DESIGN_FAILURE`
+`URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,39 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 30 Selection
+
+Cycle 30 generated exactly three candidates in
+`reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_30_prior_mechanism_map.md`. CCIF remains
+preserved unchanged as `CCIF_STAGE_0_DESIGN_FAILURE`.
+
+`URF-VLA`, Uncertainty-Routed Residual Flow for Base-preserving SmolVLA
+chunks, is selected at `92 / 100`. Its closest positive prior is SUREFlow,
+anchored to `https://arxiv.org/abs/2607.10504` and official repository
+`https://github.com/tanvirnwu/SUREFlow`, which reports `92.5%` average LIBERO
+success and LIBERO-PRO robustness with a 179M uncertainty-aware residual-flow
+VLA.
+
+URF predicts a heteroscedastic residual-flow field around the frozen SmolVLA
+Base action chunk and routes bounded residual transport only where predicted
+residual uncertainty supports intervention. LoRA is only implementation
+infrastructure.
+
+The first serious comparison is Base, `sureflow_uncertainty_residual_proxy` or
+official `sureflow` if installed, URF full, no-uncertainty-route ablation, and
+matched standard LoRA.
+
+The URF-VLA Researcher A proposal is frozen in
+`reports/urf_vla/researcher_proposal.md` with SHA-256
+`E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532` and
+decision `URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No URF training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Current cycle: `30`. Current stage:
+`epoch_4_cycle_30_urf_reviewer_attack_pending`.
 
 ## Epoch 4 Cycle 29 Selection
 
@@ -76,9 +109,6 @@ resume blocker exceptions recorded separately. Bounded validation is not
 allowed because the deployment intent probe did not beat task/phase mean and
 endpoint-only diagnostics explained the signal. This is a development-only
 design failure, not a closed-loop scientific kill.
-
-Current cycle: `30`. Current stage:
-`epoch_4_cycle_30_candidate_search_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 

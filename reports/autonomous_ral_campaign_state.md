@@ -7,13 +7,48 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_STAGE_0_DESIGN_FAILURE`
+`URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_candidate_search_pending`
+Current stage: `epoch_4_cycle_30_urf_reviewer_attack_pending`
+
+## Epoch 4 Cycle 30 URF-VLA
+
+Cycle 30 generated exactly three candidates in
+`reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
+mechanism map in `reports/epoch_4_cycle_30_prior_mechanism_map.md`. CCIF
+remains closed as `CCIF_STAGE_0_DESIGN_FAILURE`; no CCIF repair, rescue,
+threshold change, proxy change, task change, or reinterpretation is allowed.
+
+`URF-VLA`, Uncertainty-Routed Residual Flow for Base-preserving SmolVLA
+chunks, is selected at `92 / 100`. Its closest positive prior is SUREFlow
+(`https://arxiv.org/abs/2607.10504`, official repository
+`https://github.com/tanvirnwu/SUREFlow`), which reports `92.5%` average LIBERO
+success and LIBERO-PRO robustness with a 179M uncertainty-aware residual-flow
+VLA.
+
+URF predicts a heteroscedastic residual-flow field around the frozen SmolVLA
+Base action chunk and routes bounded residual transport only where predicted
+residual uncertainty supports intervention. LoRA may only be implementation
+infrastructure; the scientific method is uncertainty-routed residual transport.
+
+The first serious comparison is frozen at the design level to exactly
+`smolvla_base`, `sureflow_uncertainty_residual_proxy` or official `sureflow`
+if installed, `urf_full`, `urf_no_uncertainty_route_ablation`, and
+`standard_lora`.
+
+The URF-VLA Researcher A proposal is frozen in
+`reports/urf_vla/researcher_proposal.md` with SHA-256
+`E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532` and
+decision `URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No URF training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Current next action: run Reviewer B attack for URF-VLA before mathematical
+audit, preregistration, implementation, or training.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
