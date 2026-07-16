@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 36,
-    "current_topic": "epoch_4_cycle_36_dccg_rebuttal_pending",
+    "current_topic": "epoch_4_cycle_36_dccg_mathematical_audit_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "112e3b6",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_36_dccg_rebuttal_pending",
+    "current_stage": "epoch_4_cycle_36_dccg_mathematical_audit_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -728,7 +728,9 @@
         "epoch_4_cycle_36_dccg_researcher_proposal_frozen",
         "epoch_4_cycle_36_dccg_reviewer_attack_pending",
         "epoch_4_cycle_36_dccg_reviewer_attack_completed",
-        "epoch_4_cycle_36_dccg_rebuttal_pending"
+        "epoch_4_cycle_36_dccg_rebuttal_pending",
+        "epoch_4_cycle_36_dccg_rebuttal_completed",
+        "epoch_4_cycle_36_dccg_mathematical_audit_pending"
     ],
     "active_hypothesis": "LIBERO demonstration-calibrated action-coherence guidance can reduce within-chunk jitter and drift in SmolVLA while preserving exact Base behavior at zero guidance.",
     "method_identity": "DCCG-VLA",
@@ -753,7 +755,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "current_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -862,7 +864,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write the DCCG-VLA Researcher A rebuttal accepting or resolving every Reviewer B condition before mathematical audit, preregistration, prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Write the DCCG-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
     "method": "DCCG-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2613,7 +2615,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_36_dccg_rebuttal_pending",
+    "topic": "epoch_4_cycle_36_dccg_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -11353,7 +11355,7 @@
     },
     "reviewer_attack": "reports/dccg_vla/reviewer_attack.md",
     "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
-    "researcher_rebuttal_pending": true,
+    "researcher_rebuttal_pending": false,
     "epoch_4_cycle_35_mhs_reviewer_attack": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -11459,8 +11461,8 @@
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
     "researcher_rebuttal": "reports/dccg_vla/researcher_rebuttal.md",
-    "rebuttal_decision": null,
-    "mathematical_audit_pending": false,
+    "rebuttal_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "mathematical_audit_pending": true,
     "epoch_4_cycle_35_mhs_rebuttal": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -12122,13 +12124,17 @@
         "mathematical_audit": "reports/dccg_vla/mathematical_mechanism_audit.md",
         "preregistration": "reports/dccg_vla/preregistration.md",
         "prototype_protocol": "reports/dccg_vla/prototype_protocol.md",
-        "next_stage": "Researcher A rebuttal.",
+        "next_stage": "Mathematical mechanism audit.",
         "reviewer_attack_pending": false,
         "proposal_decision": "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "reviewer_attack_completed": true,
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/dccg_vla/researcher_rebuttal.md",
-        "researcher_rebuttal_pending": true
+        "researcher_rebuttal_pending": false,
+        "researcher_rebuttal_completed": true,
+        "rebuttal_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true
     },
     "epoch_4_cycle_36_dccg_researcher_proposal": {
         "method": "DCCG-VLA",
@@ -12157,11 +12163,16 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal.",
+        "next_stage": "Mathematical mechanism audit.",
         "reviewer_attack_completed": true,
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/dccg_vla/researcher_rebuttal.md",
-        "researcher_rebuttal_pending": true
+        "researcher_rebuttal_pending": false,
+        "researcher_rebuttal_completed": true,
+        "rebuttal_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit": "reports/dccg_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_pending": true
     },
     "reviewer_attack_completed": true,
     "epoch_4_cycle_36_dccg_reviewer_attack": {
@@ -12171,7 +12182,7 @@
         "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "reviewer_attack_completed": true,
         "researcher_rebuttal": "reports/dccg_vla/researcher_rebuttal.md",
-        "researcher_rebuttal_pending": true,
+        "researcher_rebuttal_pending": false,
         "required_conditions": [
             "ACG remains policy 2 and action smoothing remains policy 5",
             "no demonstration time index or privileged phase at inference",
@@ -12196,6 +12207,58 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal."
+        "next_stage": "Mathematical mechanism audit.",
+        "researcher_rebuttal_completed": true,
+        "rebuttal_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit": "reports/dccg_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_pending": true
+    },
+    "researcher_rebuttal_completed": true,
+    "accepted_reviewer_conditions": true,
+    "epoch_4_cycle_36_dccg_rebuttal": {
+        "method": "DCCG-VLA",
+        "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
+        "researcher_rebuttal": "reports/dccg_vla/researcher_rebuttal.md",
+        "reviewer_attack": "reports/dccg_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "final_decision": "DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "accepted_conditions": [
+            "ACG remains policy 2 and action smoothing remains policy 5",
+            "no demonstration time index or privileged phase at inference",
+            "differentiable or subgradient-safe coherence guidance audit required",
+            "gripper-event preservation is a hard pre-rollout gate",
+            "normalized and postprocessed action validity checks required",
+            "no-headroom, ACG dominance, smoothing dominance, or ablation dominance are valid stops",
+            "official/proxy ACG provenance must be transparent",
+            "no deterministic-action KL",
+            "no confirmatory-test tuning",
+            "no rescue of MHS, NICE, or other closed methods"
+        ],
+        "policy_order": [
+            "smolvla_base",
+            "acg_official_proxy",
+            "dccg_full",
+            "dccg_no_demo_calibration_ablation",
+            "action_smoothing_simple_killer"
+        ],
+        "accepted_closest_prior_policy_2": "acg_official_proxy",
+        "accepted_simple_killer_policy_5": "action_smoothing_simple_killer",
+        "accepted_no_privileged_inference": true,
+        "accepted_differentiable_or_subgradient_safe_guidance_audit": true,
+        "accepted_gripper_event_preservation_gate": true,
+        "accepted_normalized_and_postprocessed_action_validity": true,
+        "accepted_no_headroom_and_dominance_stops": true,
+        "accepted_transparent_acg_provenance": true,
+        "deterministic_action_kl_allowed": false,
+        "confirmatory_test_tuning_happened": false,
+        "closed_methods_reopened": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "mathematical_audit": "reports/dccg_vla/mathematical_mechanism_audit.md",
+        "mathematical_audit_pending": true,
+        "next_stage": "Mathematical mechanism audit."
     }
 }

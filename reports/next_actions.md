@@ -5,10 +5,9 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
-Immediate next action: write the DCCG-VLA Researcher A rebuttal accepting or
-resolving every Reviewer B condition before any mathematical audit,
+Immediate next action: write the DCCG-VLA mathematical mechanism audit before
 preregistration, prototype protocol, implementation, validation search,
 rollout, or confirmatory-test access.
 
@@ -22,6 +21,10 @@ The DCCG-VLA Researcher A proposal is frozen in
 
 Reviewer B attack is complete in `reports/dccg_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
+
+Researcher A rebuttal is complete in
+`reports/dccg_vla/researcher_rebuttal.md` with decision
+`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
 MHS-VLA remains closed under its frozen Stage 0 protocol as a
 development-only DATA_OR_SUPERVISION_FAILURE. Do not rescue MHS by changing

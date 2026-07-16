@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_rebuttal_pending`
+Current stage: `epoch_4_cycle_36_dccg_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
@@ -52,9 +52,15 @@ postprocessed action validity checks, valid no-headroom/prior/simple-killer
 stops, transparent ACG provenance, no deterministic-action KL, no
 confirmatory-test tuning, and no rescue of closed methods.
 
-Immediate next action: write the DCCG-VLA Researcher A rebuttal before any
-mathematical audit, preregistration, prototype protocol, implementation,
-validation search, rollout, or confirmatory-test access.
+Researcher A rebuttal is complete in
+`reports/dccg_vla/researcher_rebuttal.md` with decision
+`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The rebuttal accepts every
+Reviewer B condition and does not authorize implementation, validation search,
+rollout, or confirmatory-test access.
+
+Immediate next action: write the DCCG-VLA mathematical mechanism audit before
+preregistration, prototype protocol, implementation, validation search,
+rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 
