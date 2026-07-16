@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 Current epoch: `4`
 
-Current cycle: `26`
+Current cycle: `27`
 
-Current stage: `epoch_4_cycle_26_amp_stage_0_pending`
+Current stage: `epoch_4_cycle_27_candidate_search_pending`
 
 ## Epoch 4 Cycle 26 AMP-VLA
 
@@ -33,8 +33,7 @@ infrastructure. The first serious comparison is exactly `smolvla_base`,
 `abot_m0_action_manifold_proxy`, `amp_full`,
 `amp_no_manifold_projection`, and `standard_lora`.
 
-No AMP training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened.
+No AMP closed-loop rollout, simulator access, or confirmatory-test tuning has happened.
 
 The AMP-VLA Researcher A proposal is frozen in
 `reports/amp_vla/researcher_proposal.md` with SHA-256
@@ -49,8 +48,29 @@ with decision `AMP_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is
 frozen in `reports/amp_vla/preregistration.md` with decision
 `AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The executable
 prototype protocol is frozen in `reports/amp_vla/prototype_protocol.md` with
-decision `AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Next action:
-implement and validate the AMP-VLA Stage 0 runner before execution.
+decision `AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
+
+AMP Stage 0 completed under the frozen protocol in
+`reports/amp_vla/stage_0_result.json`. Worker PID `379` completed `1280 /
+1280` planned development rows with exception count `0`, exact
+manifest/partial key equality, duplicate partial keys `0`, missing keys `0`,
+extra keys `0`, and split-overlap keys `0`. No simulator rollout, reward,
+success, done, confirmatory identity access, training, validation search, or
+confirmatory-test tuning occurred.
+
+The final Stage 0 decision is
+`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. The development audit
+found healthy manifest/source/feature alignment, positive manifold coordinate
+variance, distinct projection paths, finite nonzero AMP gradients, base hash
+retention, and exact identity/reload (`0.0` max error). The method still failed
+the frozen Stage 0 gates because postprocessed Base action validity was false
+(`base_action_in_bounds = false`, so `action_validity_ok = false`) and the
+deployment-input coordinate/headroom probes were negative: coordinate relative
+improvement `-4.947553385520279`, AMP-minus-ABot-proxy relative improvement
+`-2.663165575108502`. This is a development-only implementation/optimization
+stop, not a closed-loop scientific kill. Bounded validation is not allowed.
+Next action: generate exactly three Cycle 27 candidates without AMP repair or
+rescue.
 
 ## Epoch 4 Cycle 25 RAP-VLA
 

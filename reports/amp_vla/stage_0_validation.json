@@ -1,0 +1,19 @@
+{
+  "duplicate_manifest_key_count": 0,
+  "duplicate_partial_key_count": 0,
+  "exception_count": 0,
+  "extra_partial_key_count": 0,
+  "final_decision": "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "key_sets_equal": true,
+  "manifest_json_parsed": true,
+  "manifest_row_count": 1280,
+  "missing_manifest_key_count": 0,
+  "official_prior_asset_check_persisted": true,
+  "partial_json_parsed": true,
+  "partial_row_count": 1280,
+  "proposal_hash_ok": true,
+  "result_decision_recomputed": "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "serializer_preflight_ok": true,
+  "split_overlap_key_count": 0,
+  "worker_completed": true
+}

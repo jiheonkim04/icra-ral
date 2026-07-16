@@ -1,0 +1,24 @@
+{
+  "active_amp_linux_workers": [],
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 5080",
+  "missing_paths": [],
+  "partial_parse_error": null,
+  "partial_summary": {
+    "completed_model_row_count": 0,
+    "exception_count": 1,
+    "planned_model_row_count": null
+  },
+  "passed": true,
+  "proposal_hash_file": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+  "proposal_hash_observed": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 3,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "result_absent": true
+}

@@ -58,12 +58,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 26
+    assert state["current_cycle"] == 27
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_26_amp_stage_0_pending"
+    assert state["current_decision"] == "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_27_candidate_search_pending"
     assert state["method"] == "AMP-VLA"
     assert state["method_identity"] == "AMP-VLA"
     assert state["proposal_hash"] == AMP_PROPOSAL_HASH
@@ -236,6 +236,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_26_amp_prototype_protocol_pending",
         "epoch_4_cycle_26_amp_prototype_protocol_frozen",
         "epoch_4_cycle_26_amp_stage_0_pending",
+        "epoch_4_cycle_26_amp_stage_0_runner_implemented",
+        "epoch_4_cycle_26_amp_stage_0_completed",
+        "epoch_4_cycle_26_amp_implementation_failure_recorded",
+        "epoch_4_cycle_27_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -367,6 +371,28 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert amp_protocol["prototype_protocol"] == "reports/amp_vla/prototype_protocol.md"
     assert amp_protocol["stage_0_allowed_next"] is True
     assert amp_protocol["runner"] == "scripts/run_amp_vla_stage0.py"
+    assert amp_protocol["stage_0_completed"] is True
+    assert amp_protocol["stage_0_decision"] == "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert amp_protocol["bounded_validation_allowed"] is False
+    amp_outcome = state["epoch_4_cycle_26_amp_stage_0_outcome"]
+    assert amp_outcome["final_decision"] == "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert amp_outcome["completed_model_row_count"] == 1280
+    assert amp_outcome["planned_model_row_count"] == 1280
+    assert amp_outcome["exception_count"] == 0
+    assert amp_outcome["duplicate_manifest_key_count"] == 0
+    assert amp_outcome["duplicate_partial_key_count"] == 0
+    assert amp_outcome["missing_manifest_key_count"] == 0
+    assert amp_outcome["extra_partial_key_count"] == 0
+    assert amp_outcome["split_overlap_key_count"] == 0
+    assert amp_outcome["key_sets_equal"] is True
+    assert amp_outcome["official_prior_policy_2_label"] == "abot_m0_action_manifold_proxy"
+    assert amp_outcome["official_abot_ready"] is False
+    assert amp_outcome["action_validity_ok"] is False
+    assert amp_outcome["base_action_in_bounds"] is False
+    assert amp_outcome["coordinate_probe_relative_improvement"] == -4.947553385520279
+    assert amp_outcome["abot_proxy_headroom_relative_improvement"] == -2.663165575108502
+    assert amp_outcome["bounded_validation_allowed"] is False
+    assert amp_outcome["amp_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

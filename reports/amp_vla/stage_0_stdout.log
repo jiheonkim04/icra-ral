@@ -1,0 +1,87 @@
+Loading  /mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+[amp-stage0] rows 16/1280
+[amp-stage0] rows 32/1280
+[amp-stage0] rows 48/1280
+[amp-stage0] rows 64/1280
+[amp-stage0] rows 80/1280
+[amp-stage0] rows 96/1280
+[amp-stage0] rows 112/1280
+[amp-stage0] rows 128/1280
+[amp-stage0] rows 144/1280
+[amp-stage0] rows 160/1280
+[amp-stage0] rows 176/1280
+[amp-stage0] rows 192/1280
+[amp-stage0] rows 208/1280
+[amp-stage0] rows 224/1280
+[amp-stage0] rows 240/1280
+[amp-stage0] rows 256/1280
+[amp-stage0] rows 272/1280
+[amp-stage0] rows 288/1280
+[amp-stage0] rows 304/1280
+[amp-stage0] rows 320/1280
+[amp-stage0] rows 336/1280
+[amp-stage0] rows 352/1280
+[amp-stage0] rows 368/1280
+[amp-stage0] rows 384/1280
+[amp-stage0] rows 400/1280
+[amp-stage0] rows 416/1280
+[amp-stage0] rows 432/1280
+[amp-stage0] rows 448/1280
+[amp-stage0] rows 464/1280
+[amp-stage0] rows 480/1280
+[amp-stage0] rows 496/1280
+[amp-stage0] rows 512/1280
+[amp-stage0] rows 528/1280
+[amp-stage0] rows 544/1280
+[amp-stage0] rows 560/1280
+[amp-stage0] rows 576/1280
+[amp-stage0] rows 592/1280
+[amp-stage0] rows 608/1280
+[amp-stage0] rows 624/1280
+[amp-stage0] rows 640/1280
+[amp-stage0] rows 656/1280
+[amp-stage0] rows 672/1280
+[amp-stage0] rows 688/1280
+[amp-stage0] rows 704/1280
+[amp-stage0] rows 720/1280
+[amp-stage0] rows 736/1280
+[amp-stage0] rows 752/1280
+[amp-stage0] rows 768/1280
+[amp-stage0] rows 784/1280
+[amp-stage0] rows 800/1280
+[amp-stage0] rows 816/1280
+[amp-stage0] rows 832/1280
+[amp-stage0] rows 848/1280
+[amp-stage0] rows 864/1280
+[amp-stage0] rows 880/1280
+[amp-stage0] rows 896/1280
+[amp-stage0] rows 912/1280
+[amp-stage0] rows 928/1280
+[amp-stage0] rows 944/1280
+[amp-stage0] rows 960/1280
+[amp-stage0] rows 976/1280
+[amp-stage0] rows 992/1280
+[amp-stage0] rows 1008/1280
+[amp-stage0] rows 1024/1280
+[amp-stage0] rows 1040/1280
+[amp-stage0] rows 1056/1280
+[amp-stage0] rows 1072/1280
+[amp-stage0] rows 1088/1280
+[amp-stage0] rows 1104/1280
+[amp-stage0] rows 1120/1280
+[amp-stage0] rows 1136/1280
+[amp-stage0] rows 1152/1280
+[amp-stage0] rows 1168/1280
+[amp-stage0] rows 1184/1280
+[amp-stage0] rows 1200/1280
+[amp-stage0] rows 1216/1280
+[amp-stage0] rows 1232/1280
+[amp-stage0] rows 1248/1280
+[amp-stage0] rows 1264/1280
+[amp-stage0] rows 1280/1280
+Loading  /mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+{"final_decision": "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE", "result": "/mnt/c/Users/jiheo/tca_map/reports/amp_vla/stage_0_result.json"}

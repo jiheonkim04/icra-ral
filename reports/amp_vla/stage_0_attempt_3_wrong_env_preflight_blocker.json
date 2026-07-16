@@ -1,0 +1,20 @@
+{
+  "exception": "AMP Stage 0 preflight failed: {'passed': False, 'missing_paths': [], 'cuda_available': False, 'cuda_device': None, 'proposal_hash_file': '67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4', 'proposal_hash_observed': '67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4', 'partial_summary': None, 'partial_parse_error': None, 'result_absent': True, 'active_amp_linux_workers': [], 'resource_evidence': {'registry_interval_count': 3, 'overlap_interval_ids': [], 'unresolved_interval_ids': [], 'timing_throughput_resource_evidence_eligible': True, 'closed_loop_success_row_policy': 'not_applicable_stage_0a_no_rollout', 'policy': 'timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap'}}",
+  "exception_type": "RuntimeError",
+  "method": "AMP-VLA",
+  "partial_rows_preserved": 0,
+  "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+  "stage": "0",
+  "state": {
+    "method": "AMP-VLA",
+    "phase": "startup",
+    "pid": 373,
+    "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+    "stage": "0",
+    "started_at": "2026-07-16T01:53:35.658380+00:00",
+    "status": "starting"
+  },
+  "status": "implementation_blocker",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_amp_vla_stage0.py\", line 1567, in main\n    result = run(args, paths, state)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_amp_vla_stage0.py\", line 1297, in run\n    raise RuntimeError(f\"AMP Stage 0 preflight failed: {preflight}\")\nRuntimeError: AMP Stage 0 preflight failed: {'passed': False, 'missing_paths': [], 'cuda_available': False, 'cuda_device': None, 'proposal_hash_file': '67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4', 'proposal_hash_observed': '67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4', 'partial_summary': None, 'partial_parse_error': None, 'result_absent': True, 'active_amp_linux_workers': [], 'resource_evidence': {'registry_interval_count': 3, 'overlap_interval_ids': [], 'unresolved_interval_ids': [], 'timing_throughput_resource_evidence_eligible': True, 'closed_loop_success_row_policy': 'not_applicable_stage_0a_no_rollout', 'policy': 'timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap'}}\n",
+  "written_at": "2026-07-16T01:53:46.064573+00:00"
+}

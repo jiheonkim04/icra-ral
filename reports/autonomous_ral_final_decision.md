@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal state under the active governance.
 
@@ -51,8 +51,16 @@ Preregistration is frozen in `reports/amp_vla/preregistration.md` with decision
 The executable prototype protocol is frozen in
 `reports/amp_vla/prototype_protocol.md` with decision
 `AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
-Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_stage_0_pending`.
+
+AMP Stage 0 completed in `reports/amp_vla/stage_0_result.json`: `1280 /
+1280` development rows, exception count `0`, duplicate/missing/extra/split
+overlap counts all `0`, and final decision
+`AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`. Bounded validation is not
+allowed. This is not a closed-loop scientific kill; it is a frozen Stage 0
+implementation/optimization stop driven by failed postprocessed action-validity
+(`base_action_in_bounds = false`) plus negative coordinate/headroom probes.
+Current cycle: `27`. Current stage:
+`epoch_4_cycle_27_candidate_search_pending`.
 
 Cycle 25 generated exactly three candidates after a current primary-source
 anchor pass. `RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action

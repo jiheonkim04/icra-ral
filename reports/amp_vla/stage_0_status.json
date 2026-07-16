@@ -1,0 +1,14 @@
+{
+  "completed_at": "2026-07-16T01:58:14.753941+00:00",
+  "completed_model_row_count": 1280,
+  "exception_count": 0,
+  "final_decision": "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "method": "AMP-VLA",
+  "phase": "complete",
+  "pid": 379,
+  "planned_model_row_count": 1280,
+  "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+  "stage": "0",
+  "started_at": "2026-07-16T01:55:33.849319+00:00",
+  "status": "completed"
+}

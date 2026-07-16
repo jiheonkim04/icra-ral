@@ -1,0 +1,555 @@
+{
+  "action_normalization": {
+    "mean": [
+      0.06278156489133835,
+      0.08684080839157104,
+      -0.09037306159734726,
+      0.0005407430580817163,
+      0.005643379874527454,
+      -0.0052290987223386765,
+      -0.0496407225728035
+    ],
+    "mode": "MEAN_STD",
+    "processor_step": "UnnormalizerProcessorStep",
+    "std": [
+      0.33552372455596924,
+      0.3784469962120056,
+      0.4447286128997803,
+      0.03924354165792465,
+      0.06339296698570251,
+      0.07797027379274368,
+      0.9987671375274658
+    ]
+  },
+  "adapter_training_happened": false,
+  "bounded_validation_allowed": false,
+  "closed_loop_experiment_happened": false,
+  "completed_at": "2026-07-16T01:58:14.699789+00:00",
+  "completed_model_row_count": 1280,
+  "confirmatory_records_read": 0,
+  "confirmatory_test_tuning_happened": false,
+  "data_audit": {
+    "abot_headroom_absolute_huber_gate": 0.005,
+    "abot_headroom_relative_gate": 0.05,
+    "abot_proxy_headroom_absolute_huber_improvement": -0.06543489509656372,
+    "abot_proxy_headroom_relative_improvement": -2.663165575108502,
+    "all_tasks_reported": true,
+    "clipping_explains_projection": false,
+    "coordinate_absolute_huber_gate": 0.005,
+    "coordinate_probe_absolute_huber_improvement": -0.734562737811128,
+    "coordinate_probe_relative_improvement": -4.947553385520279,
+    "coordinate_relative_gate": 0.05,
+    "coordinate_variance_all_positive": true,
+    "counts": {
+      "discovery": 1024,
+      "validation": 256
+    },
+    "demo_action_validity_ok": true,
+    "feature_action_proprio_finite_aligned": true,
+    "manifest_audit": {
+      "duplicate_manifest_key_count": 0,
+      "duplicate_partial_key_count": 0,
+      "extra_partial_key_count": 0,
+      "key_sets_equal": true,
+      "manifest_row_count": 1280,
+      "missing_manifest_key_count": 0,
+      "partial_row_count": 1280,
+      "split_overlap_key_count": 0
+    },
+    "manifold_reconstruction_absolute_huber_gate": 0.01,
+    "manifold_reconstruction_absolute_huber_improvement": 0.013776857972464113,
+    "manifold_reconstruction_relative_gate": 0.1,
+    "manifold_reconstruction_relative_improvement": 0.5053951881820213,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 1024,
+    "minimum_validation_windows": 256,
+    "model_audit": {
+      "latent_dim_audits": {
+        "16": {
+          "abot_proxy_headroom": {
+            "absolute_huber_improvement": -0.06543489509656372,
+            "baseline_huber": 0.0288138630874977,
+            "baseline_mse": 0.060363964370659946,
+            "prediction_huber": 0.09424875818406142,
+            "prediction_mse": 0.22112319625967766,
+            "relative_mse_improvement": -2.663165575108502
+          },
+          "abot_proxy_huber": 0.0288138630874977,
+          "amp_prediction_huber": 0.09424875818406142,
+          "clipping_diagnostic": {
+            "abot_proxy_manifold_distance": 1.1036823747357931e-31,
+            "amp_manifold_distance": 3.132528578368614e-31,
+            "amp_validation_huber": 0.09424875818406142,
+            "clipped_abot_manifold_distance": 2.1453653438320918e-05,
+            "clipped_abot_validation_huber": 0.02875614788605264,
+            "clipping_explains_projection": false
+          },
+          "coordinate_probe": {
+            "absolute_huber_improvement": -0.734562737811128,
+            "baseline_huber": 0.2724759432878051,
+            "baseline_mse": 0.6166830763740321,
+            "prediction_huber": 1.0070386810989331,
+            "prediction_mse": 3.6677555186814352,
+            "relative_mse_improvement": -4.947553385520279
+          },
+          "coordinate_variance_all_positive": true,
+          "coordinate_variance_by_dim": [
+            28.636000053096403,
+            14.42622834280267,
+            5.863830874166504,
+            4.81424285816156,
+            3.3022649490657265,
+            2.210155496899078,
+            1.332976676946741,
+            1.1964663483553934,
+            1.095119660264311,
+            0.8520659291162765,
+            0.7336296289754609,
+            0.6822284192432525,
+            0.45338630711043104,
+            0.44128463421193054,
+            0.38797332602267526,
+            0.3405394899518695
+          ],
+          "discovery_row_count": 512,
+          "latent_dim": 16,
+          "manifold_reconstruction": {
+            "absolute_huber_improvement": 0.021798471842352396,
+            "baseline_huber": 0.02870312702228724,
+            "baseline_mse": 0.06047524242291575,
+            "prediction_huber": 0.006904655179934846,
+            "prediction_mse": 0.013821606552171831,
+            "relative_mse_improvement": 0.771450167069782
+          },
+          "model_hash": "BEC50A0150CA3F9C75271F6515C09A2EBE43C0F7184FA495AB1CD18AEF17553D",
+          "projection_delta_norm_mean": 8.283767170365968,
+          "projection_path_distinct": true,
+          "validation_row_count": 128
+        },
+        "8": {
+          "abot_proxy_headroom": {
+            "absolute_huber_improvement": -0.04295774938680828,
+            "baseline_huber": 0.03114715024864487,
+            "baseline_mse": 0.06428630464868135,
+            "prediction_huber": 0.07410489963545315,
+            "prediction_mse": 0.16378453393246237,
+            "relative_mse_improvement": -1.5477360197872556
+          },
+          "abot_proxy_huber": 0.03114715024864487,
+          "amp_prediction_huber": 0.07410489963545315,
+          "clipping_diagnostic": {
+            "abot_proxy_manifold_distance": 8.049773489364556e-32,
+            "amp_manifold_distance": 1.9529923832385744e-31,
+            "amp_validation_huber": 0.07410489963545315,
+            "clipped_abot_manifold_distance": 0.00011936637933965835,
+            "clipped_abot_validation_huber": 0.030874943653450424,
+            "clipping_explains_projection": false
+          },
+          "coordinate_probe": {
+            "absolute_huber_improvement": -0.4101583553096837,
+            "baseline_huber": 0.1616308439098646,
+            "baseline_mse": 0.3419641963907985,
+            "prediction_huber": 0.5717891992195483,
+            "prediction_mse": 1.6891477758984013,
+            "relative_mse_improvement": -3.9395457001821157
+          },
+          "coordinate_variance_all_positive": true,
+          "coordinate_variance_by_dim": [
+            28.636000053096403,
+            14.42622834280267,
+            5.863830874166504,
+            4.81424285816156,
+            3.3022649490657265,
+            2.210155496899078,
+            1.332976676946741,
+            1.1964663483553934
+          ],
+          "discovery_row_count": 512,
+          "latent_dim": 8,
+          "manifold_reconstruction": {
+            "absolute_huber_improvement": 0.013776857972464113,
+            "baseline_huber": 0.02870312702228724,
+            "baseline_mse": 0.06047524242291575,
+            "prediction_huber": 0.014926269049823127,
+            "prediction_mse": 0.029911345898232886,
+            "relative_mse_improvement": 0.5053951881820213
+          },
+          "model_hash": "7BA907113343256101A8C1B68FDD6C7BC843EEBBF90F9A918853EFB10BAA83ED",
+          "projection_delta_norm_mean": 6.604412843797569,
+          "projection_path_distinct": true,
+          "validation_row_count": 128
+        }
+      },
+      "latent_dims": [
+        8,
+        16
+      ],
+      "minimum_discovery_row_count": 512,
+      "minimum_validation_row_count": 128,
+      "model_hash": "6E67E1738D096074EE9C7E7458421F6D8459EF6E95CA38F45A58C56FD0B7494C"
+    },
+    "projection_delta_norm_mean_by_latent": {
+      "16": 8.283767170365968,
+      "8": 6.604412843797569
+    },
+    "projection_path_distinct": true,
+    "validation_task_counts": {
+      "libero_10/task_5": 64,
+      "libero_goal/task_5": 64,
+      "libero_object/task_3": 64,
+      "libero_spatial/task_3": 64
+    },
+    "validation_task_fractions": {
+      "libero_10/task_5": 0.25,
+      "libero_goal/task_5": 0.25,
+      "libero_object/task_3": 0.25,
+      "libero_spatial/task_3": 0.25
+    }
+  },
+  "decision_inputs": {
+    "abot_proxy_headroom_absolute_huber_improvement": -0.06543489509656372,
+    "abot_proxy_headroom_relative_improvement": -2.663165575108502,
+    "action_validity_ok": false,
+    "all_tasks_reported": true,
+    "amp_gradient_nonzero": true,
+    "base_hash_unchanged": true,
+    "checkpoint_reload_ok": true,
+    "clipping_explains_projection": false,
+    "coordinate_probe_absolute_huber_improvement": -0.734562737811128,
+    "coordinate_probe_relative_improvement": -4.947553385520279,
+    "coordinate_variance_all_positive": true,
+    "exception_count": 0,
+    "feature_action_proprio_finite_aligned": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_parameter_gradient_count": 0,
+    "gradient_ratio_at_most_100": true,
+    "identity_max_error": 0.0,
+    "manifest_integrity_ok": true,
+    "manifold_reconstruction_absolute_huber_improvement": 0.013776857972464113,
+    "manifold_reconstruction_relative_improvement": 0.5053951881820213,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 1024,
+    "minimum_validation_windows": 256,
+    "official_prior_asset_check_persisted": true,
+    "projection_path_distinct": true,
+    "proposal_hash_ok": true,
+    "serializer_preflight_ok": true,
+    "source_alignment_ok": true
+  },
+  "done_read_count": 0,
+  "elapsed_seconds_not_paper_evidence": 158.407240152359,
+  "exception_count": 0,
+  "final_decision": "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "gradient": {
+    "L_clean": 0.07326144725084305,
+    "L_coord": 0.5477386116981506,
+    "L_flow": 0.13263633847236633,
+    "L_proj": 0.29857078194618225,
+    "amp_gradient_finite_fraction": 1.0,
+    "amp_gradient_nonzero": true,
+    "amp_gradient_norm": 0.4560751177827911,
+    "amp_loss": 0.986271858215332,
+    "amp_to_flow_gradient_ratio": 2.5613033381127868,
+    "finite_objectives_and_gradients": true,
+    "flow_gradient_finite_fraction": 1.0,
+    "flow_gradient_norm": 0.1780636877312764,
+    "flow_loss": 0.13263633847236633,
+    "flow_time": 0.5,
+    "frozen_parameter_gradient_count": 0,
+    "frozen_parameter_gradient_names": [],
+    "gradient_cosine": 0.39961420396950437,
+    "gradient_latent_dim": 8,
+    "gradient_row_key": "validation|libero_10|libero_10/task_5|AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802|8|0|8|amp_stage0_action_manifold_projection",
+    "trainable_numel": 185664,
+    "trainable_parameter_count": 74,
+    "trainable_parameter_names": [
+      "base_model.model.model.action_in_proj.lora_A.default.weight",
+      "base_model.model.model.action_in_proj.lora_B.default.weight",
+      "base_model.model.model.action_out_proj.lora_A.default.weight",
+      "base_model.model.model.action_out_proj.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_B.default.weight",
+      "base_model.model.model.state_proj.lora_A.default.weight",
+      "base_model.model.model.state_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_B.default.weight"
+    ]
+  },
+  "identity": {
+    "abot_proxy_action_diagnostic": [
+      [
+        0.12787134900707128,
+        -0.259042807653926,
+        -0.18053888519948097,
+        0.0033416100092515076,
+        -0.008211210062886394,
+        -0.01234888524892953,
+        -0.964451220825983
+      ],
+      [
+        0.12774204179283993,
+        -0.27218531223349274,
+        -0.19362437263749022,
+        0.003961597779601386,
+        -0.008819471444040924,
+        -0.012626886767886028,
+        -0.9979990297739796
+      ],
+      [
+        0.12719783039331958,
+        -0.28524091370376187,
+        -0.20532796948801796,
+        0.004235068329960621,
+        -0.008675405513320973,
+        -0.01243989650011728,
+        -1.0251506536640171
+      ]
+    ],
+    "activation_context": "validation|libero_10|libero_10/task_5|AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802|8|0|8|amp_stage0_action_manifold_projection",
+    "adapter_checkpoint": "/mnt/c/Users/jiheo/tca_map/runs/amp_vla/stage0/identity_adapter",
+    "adapter_files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_model.safetensors"
+    ],
+    "amp_gate_value": 0.0,
+    "amp_residual_norm": 6.002988872941867,
+    "base_action": [
+      [
+        0.03492043912410736,
+        -0.17707207798957825,
+        0.05015803128480911,
+        -0.01126167830079794,
+        0.015931425616145134,
+        -0.01131235808134079,
+        -1.0312047004699707
+      ],
+      [
+        0.024373378604650497,
+        -0.28960344195365906,
+        0.06169205158948898,
+        -0.0017638765275478363,
+        0.03397274389863014,
+        -0.006547957193106413,
+        -1.0071866512298584
+      ],
+      [
+        0.03305843472480774,
+        -0.41662830114364624,
+        0.08324860781431198,
+        -0.0012873928062617779,
+        0.04209991544485092,
+        -0.008079775609076023,
+        -1.0106470584869385
+      ]
+    ],
+    "base_action_finite": true,
+    "base_action_in_bounds": false,
+    "base_action_shape": [
+      50,
+      7
+    ],
+    "base_flow_shape": [
+      1,
+      50,
+      32
+    ],
+    "base_hash_unchanged": true,
+    "base_native_shape": [
+      1,
+      50,
+      7
+    ],
+    "base_parameter_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "base_parameter_hash_before": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "changed_dimensions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "checkpoint_reload_ok": true,
+    "gripper_delta_norm": 4.900459670177653,
+    "identity_max_abs_error": 0.0,
+    "initialized_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "ours_action_diagnostic": [
+      [
+        0.4905507319644635,
+        -0.17622648854870393,
+        -0.16234494367139743,
+        0.009657370465517517,
+        0.0064089405032729295,
+        -0.015432915866113596,
+        -1.3791000011820809
+      ],
+      [
+        0.4851080482586821,
+        -0.20319249377638696,
+        -0.2087165616811135,
+        0.011958787517047357,
+        0.0029247769871911596,
+        -0.016770870101571526,
+        -1.5260714239597362
+      ],
+      [
+        0.4656012559709636,
+        -0.2407590008448678,
+        -0.2579988484872183,
+        0.014459653034133883,
+        0.001949830036196698,
+        -0.017007275000183703,
+        -1.60225397570262
+      ]
+    ],
+    "projection_delta_norm": 6.002988872941867,
+    "rank": 4,
+    "reload_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "rotation_delta_norm": 0.2892123110933553,
+    "training_only_amp_absent_from_policy_parameters": true,
+    "translation_delta_norm": 3.4551015424641625
+  },
+  "manifest_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 1280,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 1280,
+    "split_overlap_key_count": 0
+  },
+  "manifest_hash": "A06285C845D472F1411EDEEDA862216F38152EFF80D3D3F68B033CDFA2DE13BB",
+  "method": "AMP-VLA",
+  "model_hash": "6E67E1738D096074EE9C7E7458421F6D8459EF6E95CA38F45A58C56FD0B7494C",
+  "official_prior_asset_check": {
+    "checked_at": "2026-07-16T01:55:36.473215+00:00",
+    "closest_prior": "ABot-M0",
+    "deviations": [
+      "official ABot-M0 repository/checkpoint/inference assets are not all locally verified",
+      "Stage 0 fixes policy 2 as a transparent action-manifold proxy until official assets are installed"
+    ],
+    "method": "AMP-VLA",
+    "observed_paths": {
+      "asset_repository": "/mnt/c/assets/ABot-Manipulation",
+      "checkpoint_dir": "/mnt/c/assets/checkpoints/abot_m0",
+      "inference_code": "/mnt/c/assets/abot_m0/inference",
+      "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/ABot-Manipulation",
+      "training_code": "/mnt/c/assets/abot_m0/training"
+    },
+    "official_ready": false,
+    "path_exists": {
+      "asset_repository": false,
+      "checkpoint_dir": false,
+      "inference_code": false,
+      "official_repository": false,
+      "training_code": false
+    },
+    "policy_2_label": "abot_m0_action_manifold_proxy"
+  },
+  "optimizer_step_count": 0,
+  "partial_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 1280,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 1280,
+    "split_overlap_key_count": 0
+  },
+  "planned_model_row_count": 1280,
+  "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 3,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "resumed_model_row_count": 0,
+  "reward_read_count": 0,
+  "scientific_kill": false,
+  "simulator_load_count": 0,
+  "stage": "0",
+  "success_read_count": 0,
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "valid_scientific_result": false,
+  "validation_search_happened": false,
+  "worker_pid": 379
+}
