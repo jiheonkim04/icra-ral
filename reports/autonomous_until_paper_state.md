@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
+`TSC_STAGE_0_NO_USABLE_HEADROOM`
 
 Current epoch: `4`
 
-Current cycle: `28`
+Current cycle: `29`
 
-Current stage: `epoch_4_cycle_28_tsc_stage_0_pending`
+Current stage: `epoch_4_cycle_29_candidate_search_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -89,6 +89,26 @@ happened.
 Next action: check existing TSC Stage 0 PID, heartbeat/status, partial, result,
 logs, and exit-code artifacts before launching or adjudicating Stage 0 under
 the frozen resume rules.
+
+TSC Stage 0 completed under the frozen protocol in
+`reports/tsc_vla/stage_0_result.json` with decision
+`TSC_STAGE_0_NO_USABLE_HEADROOM`. The worker completed `640 / 640` planned
+development rows with exception count `0`, exit code `0`, duplicate manifest
+keys `0`, duplicate partial keys `0`, missing keys `0`, extra keys `0`,
+split-overlap keys `0`, and exact manifest/partial key-set equality.
+
+The no-headroom stop is development-only, not a closed-loop scientific kill.
+TSC full improved validation Huber only weakly over the TS-Mask proxy
+(`0.010570183991642059` relative, `0.00018146866814880425` absolute Huber) and
+over the no-targeted-mask ablation (`0.01502019039472744` relative,
+`0.00019155778220941375` absolute Huber), below the frozen `5%` relative or
+`0.005` absolute gate. The structured mask probe also lost to both baselines:
+structured BCE `3.845927165246039`, trivial BCE `0.5102969729338862`, and
+magnitude-only BCE `0.7535353061465139`.
+
+Bounded validation, Stage A rollout, threshold repair, task change, proxy
+change, or TSC rescue is forbidden. Next action: generate exactly three Epoch 4
+Cycle 29 candidates.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 

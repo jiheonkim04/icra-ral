@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-07-16T04:07:32.322035+00:00",
+  "closest_prior": "TS-Mask VLA",
+  "deviations": [
+    "official TS-Mask VLA repository/checkpoint/inference assets are not all locally verified",
+    "Stage 0 fixes policy 2 as a transparent local continuous TS-Mask-style proxy until official assets are installed"
+  ],
+  "method": "TSC-VLA",
+  "observed_paths": {
+    "asset_repository": "/mnt/c/assets/TS-Mask-VLA",
+    "checkpoint_dir": "/mnt/c/assets/checkpoints/ts_mask_vla",
+    "inference_code": "/mnt/c/assets/ts_mask_vla/inference",
+    "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/TS-Mask-VLA",
+    "training_code": "/mnt/c/assets/ts_mask_vla/training"
+  },
+  "official_ready": false,
+  "path_exists": {
+    "asset_repository": false,
+    "checkpoint_dir": false,
+    "inference_code": false,
+    "official_repository": false,
+    "training_code": false
+  },
+  "policy_2_label": "ts_mask_continuous_proxy"
+}

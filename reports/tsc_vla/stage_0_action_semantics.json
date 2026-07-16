@@ -1,0 +1,34 @@
+{
+  "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+  "environment_action_shape": [
+    7
+  ],
+  "environment_action_space_high": null,
+  "environment_action_space_low": null,
+  "environment_action_space_low_high_exposed": false,
+  "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy",
+  "finite_checks_required": true,
+  "gripper_convention": "LIBERO/SmolVLA checkpoint action dimension 6 after postprocessor",
+  "method": "TSC-VLA",
+  "model_native_action_shape": [
+    50,
+    7
+  ],
+  "postprocessor_action_mean_shape": [
+    7
+  ],
+  "postprocessor_action_std_shape": [
+    7
+  ],
+  "postprocessor_mode": "MEAN_STD",
+  "postprocessor_step": "UnnormalizerProcessorStep",
+  "same_definition_applies_to_policies": [
+    "smolvla_base",
+    "ts_mask_continuous_proxy",
+    "tsc_full",
+    "tsc_no_targeted_mask_ablation",
+    "standard_lora"
+  ],
+  "stage": "0",
+  "written_at": "2026-07-16T04:13:55.177800+00:00"
+}

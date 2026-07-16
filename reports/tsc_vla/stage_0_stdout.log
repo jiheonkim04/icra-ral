@@ -1,0 +1,47 @@
+Loading  /mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+[tsc-stage0] rows 16/640
+[tsc-stage0] rows 32/640
+[tsc-stage0] rows 48/640
+[tsc-stage0] rows 64/640
+[tsc-stage0] rows 80/640
+[tsc-stage0] rows 96/640
+[tsc-stage0] rows 112/640
+[tsc-stage0] rows 128/640
+[tsc-stage0] rows 144/640
+[tsc-stage0] rows 160/640
+[tsc-stage0] rows 176/640
+[tsc-stage0] rows 192/640
+[tsc-stage0] rows 208/640
+[tsc-stage0] rows 224/640
+[tsc-stage0] rows 240/640
+[tsc-stage0] rows 256/640
+[tsc-stage0] rows 272/640
+[tsc-stage0] rows 288/640
+[tsc-stage0] rows 304/640
+[tsc-stage0] rows 320/640
+[tsc-stage0] rows 336/640
+[tsc-stage0] rows 352/640
+[tsc-stage0] rows 368/640
+[tsc-stage0] rows 384/640
+[tsc-stage0] rows 400/640
+[tsc-stage0] rows 416/640
+[tsc-stage0] rows 432/640
+[tsc-stage0] rows 448/640
+[tsc-stage0] rows 464/640
+[tsc-stage0] rows 480/640
+[tsc-stage0] rows 496/640
+[tsc-stage0] rows 512/640
+[tsc-stage0] rows 528/640
+[tsc-stage0] rows 544/640
+[tsc-stage0] rows 560/640
+[tsc-stage0] rows 576/640
+[tsc-stage0] rows 592/640
+[tsc-stage0] rows 608/640
+[tsc-stage0] rows 624/640
+[tsc-stage0] rows 640/640
+Loading  /mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+{"final_decision": "TSC_STAGE_0_NO_USABLE_HEADROOM", "result": "/mnt/c/Users/jiheo/tca_map/reports/tsc_vla/stage_0_result.json"}

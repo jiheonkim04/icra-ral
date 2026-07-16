@@ -1,0 +1,626 @@
+{
+  "action_normalization": {
+    "mean": [
+      0.06278156489133835,
+      0.08684080839157104,
+      -0.09037306159734726,
+      0.0005407430580817163,
+      0.005643379874527454,
+      -0.0052290987223386765,
+      -0.0496407225728035
+    ],
+    "mode": "MEAN_STD",
+    "processor_step": "UnnormalizerProcessorStep",
+    "std": [
+      0.33552372455596924,
+      0.3784469962120056,
+      0.4447286128997803,
+      0.03924354165792465,
+      0.06339296698570251,
+      0.07797027379274368,
+      0.9987671375274658
+    ]
+  },
+  "action_semantics": {
+    "action_bound_validity_rule": "not_used_without_official_environment_bounds",
+    "environment_action_shape": [
+      7
+    ],
+    "environment_action_space_high": null,
+    "environment_action_space_low": null,
+    "environment_action_space_low_high_exposed": false,
+    "final_action_validity_definition": "valid iff postprocessed action chunk has shape [50,7], all entries are finite, and the same SmolVLA postprocessor statistics are used for every policy",
+    "finite_checks_required": true,
+    "gripper_convention": "LIBERO/SmolVLA checkpoint action dimension 6 after postprocessor",
+    "method": "TSC-VLA",
+    "model_native_action_shape": [
+      50,
+      7
+    ],
+    "postprocessor_action_mean_shape": [
+      7
+    ],
+    "postprocessor_action_std_shape": [
+      7
+    ],
+    "postprocessor_mode": "MEAN_STD",
+    "postprocessor_step": "UnnormalizerProcessorStep",
+    "same_definition_applies_to_policies": [
+      "smolvla_base",
+      "ts_mask_continuous_proxy",
+      "tsc_full",
+      "tsc_no_targeted_mask_ablation",
+      "standard_lora"
+    ],
+    "stage": "0",
+    "written_at": "2026-07-16T04:13:55.177800+00:00"
+  },
+  "adapter_training_happened": false,
+  "bounded_validation_allowed": false,
+  "closed_loop_experiment_happened": false,
+  "completed_at": "2026-07-16T04:14:20.118822+00:00",
+  "completed_model_row_count": 640,
+  "confirmatory_records_read": 0,
+  "confirmatory_test_tuning_happened": false,
+  "data_audit": {
+    "action_delta_summary": {
+      "changed_cell_fraction": 0.38174107142857144,
+      "changed_dimensions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "delta_abs_max": 0.37780222978874156,
+      "delta_finite": true,
+      "gripper_delta": {
+        "max": 0.37780222978874156,
+        "mean": 0.023318706978779042,
+        "p95": 0.1262059902672276
+      },
+      "rotation_delta": {
+        "max": 0.04274273603596487,
+        "mean": 0.004866942097962113,
+        "p95": 0.01474464910948248
+      },
+      "translation_delta": {
+        "max": 0.22101170489352376,
+        "mean": 0.025625712206752898,
+        "p95": 0.07906810434241265
+      }
+    },
+    "all_tasks_reported": true,
+    "base_to_expert_huber": 0.02129898481487545,
+    "changed_cell_fraction": 0.38174107142857144,
+    "counts": {
+      "discovery": 512,
+      "validation": 128
+    },
+    "deltas_finite_and_bounded": true,
+    "demo_action_validity_ok": true,
+    "discovery_mask_positive_rate": 0.2,
+    "feature_action_proprio_finite_aligned": true,
+    "headroom_absolute_huber_gate": 0.005,
+    "headroom_relative_gate": 0.05,
+    "labels_noncollapsed_discovery": true,
+    "labels_noncollapsed_validation": true,
+    "magnitude_only_mask_bce": 0.7535353061465139,
+    "manifest_audit": {
+      "duplicate_manifest_key_count": 0,
+      "duplicate_partial_key_count": 0,
+      "extra_partial_key_count": 0,
+      "key_sets_equal": true,
+      "manifest_row_count": 640,
+      "missing_manifest_key_count": 0,
+      "partial_row_count": 640,
+      "split_overlap_key_count": 0
+    },
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 512,
+    "minimum_validation_windows": 128,
+    "model_audit": {
+      "action_delta_summary": {
+        "changed_cell_fraction": 0.38174107142857144,
+        "changed_dimensions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "delta_abs_max": 0.37780222978874156,
+        "delta_finite": true,
+        "gripper_delta": {
+          "max": 0.37780222978874156,
+          "mean": 0.023318706978779042,
+          "p95": 0.1262059902672276
+        },
+        "rotation_delta": {
+          "max": 0.04274273603596487,
+          "mean": 0.004866942097962113,
+          "p95": 0.01474464910948248
+        },
+        "translation_delta": {
+          "max": 0.22101170489352376,
+          "mean": 0.025625712206752898,
+          "p95": 0.07906810434241265
+        }
+      },
+      "base_to_expert_huber": 0.02129898481487545,
+      "diagnostic_alpha": 0.1,
+      "discovery_negative_mask_cell_count": 143360,
+      "discovery_positive_mask_cell_count": 35840,
+      "discovery_row_count": 512,
+      "label_stats": {
+        "mask_quantile": 0.8,
+        "negative_count": 143360,
+        "positive_count": 35840,
+        "positive_rate": 0.2,
+        "scale_by_action_dim": [
+          0.09544838978147506,
+          0.0657024511525631,
+          0.09865971582712443,
+          0.010280955096443051,
+          0.026233433904494556,
+          0.012712020250405581,
+          0.007545189691543579
+        ],
+        "tau": 2.3729876611406775
+      },
+      "magnitude_only_mask_bce": 0.7535353061465139,
+      "mask_quantile": 0.8,
+      "mask_threshold": 0.5,
+      "model_hash": "5A9CCE6626C9ADC3BE1A11438E7BF75F5229B8811EE828704F032B56230690C1",
+      "no_targeted_ablation_huber": 0.021204703630146888,
+      "structured_mask_bce": 3.845927165246039,
+      "structured_mask_beats_magnitude": false,
+      "structured_mask_beats_trivial": false,
+      "trivial_majority_mask_bce": 0.5102969729338862,
+      "ts_mask_proxy_huber": 0.02119461451608628,
+      "tsc_ablation_delta_norm_mean": 0.43414018039700664,
+      "tsc_distinct_from_prior_and_ablation": true,
+      "tsc_full_huber": 0.021013145847937474,
+      "tsc_prior_delta_norm_mean": 0.45572854732824986,
+      "tsc_vs_base": {
+        "absolute_huber_improvement": 0.0002858389669379742,
+        "baseline_huber": 0.02129898481487545,
+        "baseline_mse": 0.050984544786008834,
+        "prediction_huber": 0.021013145847937474,
+        "prediction_mse": 0.05003301708543952,
+        "relative_mse_improvement": 0.018663061611377367
+      },
+      "tsc_vs_no_targeted_ablation": {
+        "absolute_huber_improvement": 0.00019155778220941375,
+        "baseline_huber": 0.021204703630146888,
+        "baseline_mse": 0.05079598241256345,
+        "prediction_huber": 0.021013145847937474,
+        "prediction_mse": 0.05003301708543952,
+        "relative_mse_improvement": 0.01502019039472744
+      },
+      "tsc_vs_ts_mask_proxy": {
+        "absolute_huber_improvement": 0.00018146866814880425,
+        "baseline_huber": 0.02119461451608628,
+        "baseline_mse": 0.05056752513006631,
+        "prediction_huber": 0.021013145847937474,
+        "prediction_mse": 0.05003301708543952,
+        "relative_mse_improvement": 0.010570183991642059
+      },
+      "unselected_cell_clamp_max_error": 0.0,
+      "validation_negative_mask_cell_count": 35246,
+      "validation_positive_mask_cell_count": 9554,
+      "validation_row_count": 128
+    },
+    "no_targeted_ablation_huber": 0.021204703630146888,
+    "structured_mask_bce": 3.845927165246039,
+    "structured_mask_beats_magnitude": false,
+    "structured_mask_beats_trivial": false,
+    "trivial_majority_mask_bce": 0.5102969729338862,
+    "ts_mask_proxy_huber": 0.02119461451608628,
+    "tsc_beats_ablation_absolute_huber": 0.00019155778220941375,
+    "tsc_beats_ablation_relative": 0.01502019039472744,
+    "tsc_beats_prior_absolute_huber": 0.00018146866814880425,
+    "tsc_beats_prior_relative": 0.010570183991642059,
+    "tsc_distinct_from_prior_and_ablation": true,
+    "tsc_full_huber": 0.021013145847937474,
+    "unselected_cell_clamp_max_error": 0.0,
+    "validation_mask_positive_rate": 0.21325892857142856,
+    "validation_task_counts": {
+      "libero_10/task_5": 32,
+      "libero_goal/task_5": 32,
+      "libero_object/task_3": 32,
+      "libero_spatial/task_3": 32
+    },
+    "validation_task_fractions": {
+      "libero_10/task_5": 0.25,
+      "libero_goal/task_5": 0.25,
+      "libero_object/task_3": 0.25,
+      "libero_spatial/task_3": 0.25
+    }
+  },
+  "decision_inputs": {
+    "action_validity_ok": true,
+    "all_tasks_reported": true,
+    "base_hash_unchanged": true,
+    "changed_cell_fraction": 0.38174107142857144,
+    "checkpoint_reload_ok": true,
+    "confirmatory_records_read": 0,
+    "deltas_finite_and_bounded": true,
+    "done_read_count": 0,
+    "exception_count": 0,
+    "feature_action_proprio_finite_aligned": true,
+    "finite_objectives_and_gradients": true,
+    "frozen_parameter_gradient_count": 0,
+    "gradient_ratio_at_most_100": true,
+    "identity_max_error": 0.0,
+    "labels_noncollapsed_discovery": true,
+    "labels_noncollapsed_validation": true,
+    "manifest_integrity_ok": true,
+    "maximum_validation_task_fraction": 0.25,
+    "minimum_discovery_windows": 512,
+    "minimum_validation_windows": 128,
+    "official_prior_asset_check_persisted": true,
+    "proposal_hash_ok": true,
+    "reward_read_count": 0,
+    "serializer_preflight_ok": true,
+    "source_alignment_ok": true,
+    "structured_mask_beats_magnitude": false,
+    "structured_mask_beats_trivial": false,
+    "success_read_count": 0,
+    "tsc_beats_ablation_absolute_huber": 0.00019155778220941375,
+    "tsc_beats_ablation_relative": 0.01502019039472744,
+    "tsc_beats_prior_absolute_huber": 0.00018146866814880425,
+    "tsc_beats_prior_relative": 0.010570183991642059,
+    "tsc_distinct_from_prior_and_ablation": true,
+    "tsc_gradient_nonzero": true,
+    "unselected_cell_clamp_max_error": 0.0
+  },
+  "done_read_count": 0,
+  "elapsed_seconds_not_paper_evidence": 408.17589950561523,
+  "exception_count": 0,
+  "final_decision": "TSC_STAGE_0_NO_USABLE_HEADROOM",
+  "gradient": {
+    "L_clean": 0.06950805336236954,
+    "L_flow": 0.12448493391275406,
+    "L_tsc_target": 0.006361256819218397,
+    "finite_objectives_and_gradients": true,
+    "flow_gradient_finite_fraction": 1.0,
+    "flow_gradient_norm": 0.16646737394647312,
+    "flow_loss": 0.12448493391275406,
+    "flow_time": 0.5,
+    "frozen_parameter_gradient_count": 0,
+    "frozen_parameter_gradient_names": [],
+    "gradient_cosine": 0.9902797329279519,
+    "gradient_row_key": "validation|libero_10|libero_10/task_5|AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802|8|0|tsc_full|tsc_stage0_temporal_spatial_masked_completion",
+    "trainable_numel": 185664,
+    "trainable_parameter_count": 74,
+    "trainable_parameter_names": [
+      "base_model.model.model.action_in_proj.lora_A.default.weight",
+      "base_model.model.model.action_in_proj.lora_B.default.weight",
+      "base_model.model.model.action_out_proj.lora_A.default.weight",
+      "base_model.model.model.action_out_proj.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_in.lora_B.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_A.default.weight",
+      "base_model.model.model.action_time_mlp_out.lora_B.default.weight",
+      "base_model.model.model.state_proj.lora_A.default.weight",
+      "base_model.model.model.state_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.1.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.10.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.11.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.12.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.13.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.14.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.15.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.2.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.3.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.4.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.5.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.6.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.7.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.8.self_attn.v_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.q_proj.lora_B.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_A.default.weight",
+      "base_model.model.model.vlm_with_expert.lm_expert.layers.9.self_attn.v_proj.lora_B.default.weight"
+    ],
+    "tsc_gradient_finite_fraction": 1.0,
+    "tsc_gradient_nonzero": true,
+    "tsc_gradient_norm": 0.17194735306467007,
+    "tsc_loss": 0.13779699802398682,
+    "tsc_to_flow_gradient_ratio": 1.032919238096223
+  },
+  "identity": {
+    "activation_context": "validation|libero_10|libero_10/task_5|AC36444C7F22EB5E7AC2B7EBA78165EE235E29F583D98580CBC2FA4F3B525802|8|0|tsc_full|tsc_stage0_temporal_spatial_masked_completion",
+    "adapter_checkpoint": "/mnt/c/Users/jiheo/tca_map/runs/tsc_vla/stage0/identity_adapter",
+    "adapter_files": [
+      "README.md",
+      "adapter_config.json",
+      "adapter_model.safetensors"
+    ],
+    "base_action": [
+      [
+        0.007291149348020554,
+        -0.21894952654838562,
+        0.05121362954378128,
+        -0.0011191051453351974,
+        0.0234394371509552,
+        -0.001133275218307972,
+        -1.040614366531372
+      ],
+      [
+        -0.006849914789199829,
+        -0.28179308772087097,
+        0.05310482531785965,
+        -0.001323480624705553,
+        0.022732127457857132,
+        -0.0052589853294193745,
+        -1.029295802116394
+      ],
+      [
+        0.0004335232079029083,
+        -0.3351016938686371,
+        0.05634754151105881,
+        -0.0004643718129955232,
+        0.02149892970919609,
+        -0.008396477438509464,
+        -1.0251878499984741
+      ]
+    ],
+    "base_action_finite": true,
+    "base_action_shape": [
+      50,
+      7
+    ],
+    "base_action_valid_under_official_semantics": true,
+    "base_flow_shape": [
+      1,
+      50,
+      32
+    ],
+    "base_hash_unchanged": true,
+    "base_native_shape": [
+      1,
+      50,
+      7
+    ],
+    "base_parameter_hash_after": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "base_parameter_hash_before": "C41ED383AD6E94980E4FCD8B34AA6A94A3EEAA1B96E80DECA93145947BD92DA6",
+    "changed_dimensions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "checkpoint_reload_ok": true,
+    "gripper_delta_norm": 0.47539261669921035,
+    "identity_max_abs_error": 0.0,
+    "initialized_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "mask_positive_count": 147,
+    "mask_positive_fraction": 0.42,
+    "no_targeted_ablation_action_diagnostic": [
+      [
+        0.02819846197962761,
+        -0.23111030459403992,
+        0.010273553431034088,
+        -0.0017012478783726692,
+        0.008053982630372047,
+        -0.0070815300568938255,
+        -1.0260791778564453
+      ],
+      [
+        0.025150850415229797,
+        -0.318133948299422,
+        0.03473825007677078,
+        -0.001043334137648344,
+        0.015840431675314903,
+        -0.007008944638073444,
+        -1.007140874862671
+      ],
+      [
+        0.03528282046318054,
+        -0.3438582277980578,
+        0.04818861931562424,
+        -0.0008886217256076634,
+        0.03087257593870163,
+        -0.007025906350463629,
+        -1.0088090896606445
+      ]
+    ],
+    "ours_action_diagnostic": [
+      [
+        0.02819846197962761,
+        -0.23111030459403992,
+        0.049991600465317115,
+        -0.0017012478783726692,
+        0.004796382812182984,
+        -0.0070815300568938255,
+        -1.0260791778564453
+      ],
+      [
+        0.025150850415229797,
+        -0.31740254163742065,
+        0.04494857752336631,
+        0.0043543145251543,
+        0.012293804646800554,
+        -0.007008944638073444,
+        -1.007140874862671
+      ],
+      [
+        0.041862441798265454,
+        -0.3438582277980578,
+        0.04580578900357936,
+        -0.0008886217256076634,
+        0.03087257593870163,
+        -0.007025906350463629,
+        -1.103652641813245
+      ]
+    ],
+    "rank": 4,
+    "reload_max_abs_errors": {
+      "actions": 0.0,
+      "flow": 0.0,
+      "native": 0.0
+    },
+    "rotation_delta_norm": 0.048393559167275835,
+    "training_only_tsc_absent_from_policy_parameters": true,
+    "translation_delta_norm": 0.2508239480836865,
+    "ts_mask_proxy_action_diagnostic": [
+      [
+        0.02819846197962761,
+        -0.23111030459403992,
+        0.010273553431034088,
+        -0.0017012478783726692,
+        0.008053982630372047,
+        -0.0070815300568938255,
+        -1.0260791778564453
+      ],
+      [
+        0.025150850415229797,
+        -0.31740254163742065,
+        0.03473825007677078,
+        0.0043543145251543,
+        0.012293804646800554,
+        -0.008886720764550585,
+        -1.007140874862671
+      ],
+      [
+        0.03528282046318054,
+        -0.34985366463661194,
+        0.04818861931562424,
+        -0.0008886217256076634,
+        0.03087257593870163,
+        -0.007025906350463629,
+        -1.0088090896606445
+      ]
+    ],
+    "tsc_gate_value": 1.0,
+    "tsc_residual_norm": 0.5396783574623748
+  },
+  "manifest_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 640,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 640,
+    "split_overlap_key_count": 0
+  },
+  "manifest_hash": "A77E8FA207151036C00E2A4C087533D76DC57EDA25874A0ED10501CE6B43FE6C",
+  "method": "TSC-VLA",
+  "model_hash": "5A9CCE6626C9ADC3BE1A11438E7BF75F5229B8811EE828704F032B56230690C1",
+  "official_prior_asset_check": {
+    "checked_at": "2026-07-16T04:07:32.322035+00:00",
+    "closest_prior": "TS-Mask VLA",
+    "deviations": [
+      "official TS-Mask VLA repository/checkpoint/inference assets are not all locally verified",
+      "Stage 0 fixes policy 2 as a transparent local continuous TS-Mask-style proxy until official assets are installed"
+    ],
+    "method": "TSC-VLA",
+    "observed_paths": {
+      "asset_repository": "/mnt/c/assets/TS-Mask-VLA",
+      "checkpoint_dir": "/mnt/c/assets/checkpoints/ts_mask_vla",
+      "inference_code": "/mnt/c/assets/ts_mask_vla/inference",
+      "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/TS-Mask-VLA",
+      "training_code": "/mnt/c/assets/ts_mask_vla/training"
+    },
+    "official_ready": false,
+    "path_exists": {
+      "asset_repository": false,
+      "checkpoint_dir": false,
+      "inference_code": false,
+      "official_repository": false,
+      "training_code": false
+    },
+    "policy_2_label": "ts_mask_continuous_proxy"
+  },
+  "optimizer_step_count": 0,
+  "partial_audit": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 640,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 640,
+    "split_overlap_key_count": 0
+  },
+  "planned_model_row_count": 640,
+  "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+  "resource_evidence": {
+    "closed_loop_success_row_policy": "not_applicable_stage_0a_no_rollout",
+    "overlap_interval_ids": [],
+    "policy": "timing, throughput, wall-clock efficiency, and resource utilization are excluded on unknown or positive overlap",
+    "registry_interval_count": 3,
+    "timing_throughput_resource_evidence_eligible": true,
+    "unresolved_interval_ids": []
+  },
+  "resumed_model_row_count": 0,
+  "reward_read_count": 0,
+  "scientific_kill": false,
+  "simulator_load_count": 0,
+  "stage": "0",
+  "success_read_count": 0,
+  "timing_throughput_resource_evidence_eligible_for_paper": false,
+  "valid_scientific_result": false,
+  "validation_search_happened": false,
+  "worker_pid": 415
+}

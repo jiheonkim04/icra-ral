@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
+`TSC_STAGE_0_NO_USABLE_HEADROOM`
 
 This is not a terminal decision.
 
@@ -63,8 +63,14 @@ helper module `tca_map/smolvla/tsc_vla.py`; focused TSC tests pass
 (`8 passed`) and `reports/tsc_vla/stage_0_serializer_preflight.json` is
 persisted.
 
-Current cycle: `28`. Current stage:
-`epoch_4_cycle_28_tsc_stage_0_pending`.
+TSC Stage 0 completed `640 / 640` rows with exception count `0`, exit code `0`,
+and decision `TSC_STAGE_0_NO_USABLE_HEADROOM`. Manifest/partial duplicate,
+missing, extra, and split-overlap counts are all `0`, with exact key-set
+equality. This is a development no-headroom stop, not a closed-loop scientific
+kill, and TSC rescue is forbidden.
+
+Current cycle: `29`. Current stage:
+`epoch_4_cycle_29_candidate_search_pending`.
 
 ## Epoch 4 Cycle 27 Selection
 

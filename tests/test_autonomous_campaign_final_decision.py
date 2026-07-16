@@ -27,12 +27,12 @@ TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH" in final
+    assert "TSC_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "TSC-VLA" in final
     assert "TS-Mask VLA" in final
     assert "ts_mask_continuous_proxy" in final
     assert TSC_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_28_tsc_stage_0_pending" in final
+    assert "epoch_4_cycle_29_candidate_search_pending" in final
     assert "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
@@ -255,7 +255,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_28_tsc_stage_0_pending" in final
+    assert "epoch_4_cycle_29_candidate_search_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -286,10 +286,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
+    assert state["current_decision"] == "TSC_STAGE_0_NO_USABLE_HEADROOM"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 28
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_stage_0_pending"
+    assert state["current_cycle"] == 29
+    assert state["current_stage"] == "epoch_4_cycle_29_candidate_search_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
     assert state["proposal_hash"] == TSC_PROPOSAL_HASH
@@ -307,7 +307,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Check existing TSC Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules."
+        == "Generate exactly three Epoch 4 Cycle 29 candidates; do not repair or rescue TSC-VLA."
     )
     assert state["prototype_protocol"] == "reports/tsc_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -623,13 +623,29 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert tsc_protocol["py_compile_passed"] is True
     assert tsc_protocol["serializer_preflight"] == "reports/tsc_vla/stage_0_serializer_preflight.json"
     assert tsc_protocol["serializer_preflight_passed"] is True
-    assert tsc_protocol["stage_0_pending"] is True
+    assert tsc_protocol["stage_0_pending"] is False
+    assert tsc_protocol["stage_0_completed"] is True
+    assert tsc_protocol["stage_0_decision"] == "TSC_STAGE_0_NO_USABLE_HEADROOM"
+    assert tsc_protocol["bounded_validation_allowed"] is False
     tsc_prelaunch = state["epoch_4_cycle_28_tsc_stage_0_prelaunch"]
     assert tsc_prelaunch["final_decision"] == "TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
     assert tsc_prelaunch["runner"] == "scripts/run_tsc_vla_stage0.py"
     assert tsc_prelaunch["unit_tests_passed"] == 8
     assert tsc_prelaunch["serializer_preflight_passed"] is True
     assert tsc_prelaunch["stage_0_pending"] is True
+    tsc_outcome = state["epoch_4_cycle_28_tsc_stage_0_outcome"]
+    assert tsc_outcome["final_decision"] == "TSC_STAGE_0_NO_USABLE_HEADROOM"
+    assert tsc_outcome["completed_model_row_count"] == 640
+    assert tsc_outcome["planned_model_row_count"] == 640
+    assert tsc_outcome["exception_count"] == 0
+    assert tsc_outcome["duplicate_manifest_key_count"] == 0
+    assert tsc_outcome["duplicate_partial_key_count"] == 0
+    assert tsc_outcome["missing_manifest_key_count"] == 0
+    assert tsc_outcome["extra_partial_key_count"] == 0
+    assert tsc_outcome["split_overlap_key_count"] == 0
+    assert tsc_outcome["key_sets_equal"] is True
+    assert tsc_outcome["bounded_validation_allowed"] is False
+    assert tsc_outcome["scientific_kill"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

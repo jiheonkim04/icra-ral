@@ -1,0 +1,14 @@
+{
+  "completed_model_row_count": 640,
+  "exception_count": 0,
+  "final_decision": "TSC_STAGE_0_NO_USABLE_HEADROOM",
+  "method": "TSC-VLA",
+  "phase": "complete",
+  "pid": 415,
+  "planned_model_row_count": 640,
+  "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+  "stage": "0",
+  "started_at": "2026-07-16T04:07:28.739612+00:00",
+  "status": "completed",
+  "updated_at": "2026-07-16T04:14:20.178596+00:00"
+}
