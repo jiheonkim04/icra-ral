@@ -25,8 +25,8 @@
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "2bee52b",
-    "current_stage": "epoch_4_cycle_34_brid_prototype_protocol_pending",
+    "current_commit": "925e936",
+    "current_stage": "epoch_4_cycle_34_brid_stage_0_implementation_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -703,7 +703,9 @@
         "epoch_4_cycle_34_brid_mathematical_audit_preregistered",
         "epoch_4_cycle_34_brid_preregistration_pending",
         "epoch_4_cycle_34_brid_preregistration_frozen",
-        "epoch_4_cycle_34_brid_prototype_protocol_pending"
+        "epoch_4_cycle_34_brid_prototype_protocol_pending",
+        "epoch_4_cycle_34_brid_prototype_protocol_frozen",
+        "epoch_4_cycle_34_brid_stage_0_implementation_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -716,7 +718,7 @@
         "Diffusion Policy"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "current_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -867,7 +869,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze BRID-VLA prototype protocol before implementation.",
+    "next_action": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A Base-conditioned residual diffusion score field can learn bounded useful corrections around frozen SmolVLA action chunks while preserving exact Base behavior by default.",
     "method_identity": "BRID-VLA",
@@ -2621,7 +2623,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_34_brid_prototype_protocol_pending",
+    "current_topic": "epoch_4_cycle_34_brid_stage_0_implementation_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7492,7 +7494,7 @@
         "stage_0_decision": "CFR_STAGE_0_NO_USABLE_HEADROOM",
         "bounded_validation_allowed": false
     },
-    "runner": "scripts/run_tsc_vla_stage0.py",
+    "runner": "scripts/run_brid_vla_stage0.py",
     "epoch_4_cycle_27_cfr_stage_0_prelaunch": {
         "method": "CFR-VLA",
         "final_decision": "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH",
@@ -7514,7 +7516,7 @@
         "confirmatory_test_tuning_happened": false,
         "next_stage": "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules."
     },
-    "stage_0_result": "reports/afid_vla/stage_0_result.json",
+    "stage_0_result": "reports/brid_vla/stage_0_result.json",
     "stage_0_validation": "reports/tsc_vla/stage_0_validation.json",
     "stage_0_decision": "TSC_STAGE_0_NO_USABLE_HEADROOM",
     "epoch_4_cycle_27_cfr_stage_0_outcome": {
@@ -9228,7 +9230,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_PENDING",
+    "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+    "stage_0_implementation_pending": true,
     "epoch_4_cycle_31_s2c_prototype_protocol": {
         "method": "S2C-VLA",
         "final_decision": "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
@@ -10387,7 +10390,7 @@
         "afid_repair_allowed": false,
         "afid_rescue_allowed": false
     },
-    "stage_0_serializer_preflight": "reports/afid_vla/stage_0_serializer_preflight.json",
+    "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json",
     "stage_0_serializer_preflight_hash": "CFBE8FD439765E118829D7A293A0743801AF69303A6B6EDD76B2626890C4E2F9",
     "epoch_4_cycle_33_afid_stage_0_implementation": {
         "method": "AFID-VLA",
@@ -10530,7 +10533,7 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "researcher_proposal_pending": false,
-        "next_stage": "Freeze BRID-VLA prototype protocol before implementation.",
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
         "proposal": "reports/brid_vla/researcher_proposal.md",
         "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
@@ -10552,8 +10555,18 @@
         "preregistration_pending": false,
         "preregistration": "reports/brid_vla/preregistration.md",
         "preregistration_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "prototype_protocol": "reports/brid_vla/prototype_protocol.md"
+        "prototype_protocol_pending": false,
+        "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json"
     },
     "epoch_4_cycle_34_brid_researcher_proposal": {
         "method": "BRID-VLA",
@@ -10595,7 +10608,7 @@
             "No deterministic-action KL is allowed",
             "AFID and all previous methods remain closed"
         ],
-        "next_stage": "Freeze BRID-VLA prototype protocol before implementation.",
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
         "researcher_proposal_pending": false,
         "researcher_proposal_frozen": true,
         "reviewer_attack_completed": true,
@@ -10611,8 +10624,18 @@
         "preregistration_pending": false,
         "preregistration": "reports/brid_vla/preregistration.md",
         "preregistration_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "prototype_protocol": "reports/brid_vla/prototype_protocol.md"
+        "prototype_protocol_pending": false,
+        "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json"
     },
     "epoch_4_cycle_34_brid_reviewer_attack": {
         "method": "BRID-VLA",
@@ -10655,7 +10678,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze BRID-VLA prototype protocol before implementation.",
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
         "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
         "rebuttal_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
@@ -10665,8 +10688,18 @@
         "preregistration_pending": false,
         "preregistration": "reports/brid_vla/preregistration.md",
         "preregistration_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "prototype_protocol": "reports/brid_vla/prototype_protocol.md"
+        "prototype_protocol_pending": false,
+        "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json"
     },
     "epoch_4_cycle_34_brid_rebuttal": {
         "method": "BRID-VLA",
@@ -10690,13 +10723,23 @@
         "confirmatory_test_tuning_happened": false,
         "mathematical_audit_pending": false,
         "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md",
-        "next_stage": "Freeze BRID-VLA prototype protocol before implementation.",
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
         "math_audit_decision": "BRID_MATHEMATICAL_AUDIT_PREREGISTERED",
         "preregistration_pending": false,
         "preregistration": "reports/brid_vla/preregistration.md",
         "preregistration_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "prototype_protocol": "reports/brid_vla/prototype_protocol.md"
+        "prototype_protocol_pending": false,
+        "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json"
     },
     "epoch_4_cycle_34_brid_mathematical_audit": {
         "method": "BRID-VLA",
@@ -10728,10 +10771,20 @@
         "confirmatory_test_tuning_happened": false,
         "preregistration_pending": false,
         "preregistration": "reports/brid_vla/preregistration.md",
-        "next_stage": "Freeze BRID-VLA prototype protocol before implementation.",
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
         "preregistration_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
-        "prototype_protocol_pending": true,
-        "prototype_protocol": "reports/brid_vla/prototype_protocol.md"
+        "prototype_protocol_pending": false,
+        "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json"
     },
     "epoch_4_cycle_34_brid_preregistration": {
         "method": "BRID-VLA",
@@ -10776,8 +10829,45 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "prototype_protocol_pending": true,
+        "prototype_protocol_pending": false,
         "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
-        "next_stage": "Freeze BRID-VLA prototype protocol before implementation."
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner.",
+        "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json"
+    },
+    "helper_module": "tca_map/smolvla/brid_vla.py",
+    "unit_tests": "tests/test_brid_vla.py",
+    "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+    "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+    "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+    "epoch_4_cycle_34_brid_prototype_protocol": {
+        "method": "BRID-VLA",
+        "final_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+        "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
+        "preregistration": "reports/brid_vla/preregistration.md",
+        "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
+        "stage_0_allowed_next": false,
+        "stage_0_implementation_pending": true,
+        "helper_module": "tca_map/smolvla/brid_vla.py",
+        "runner": "scripts/run_brid_vla_stage0.py",
+        "unit_tests": "tests/test_brid_vla.py",
+        "stage_0_result": "reports/brid_vla/stage_0_result.json",
+        "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
+        "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
+        "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
+        "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Implement and validate the BRID-VLA Stage 0 development audit runner."
     }
 }

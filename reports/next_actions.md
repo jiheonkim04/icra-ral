@@ -5,9 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
-Immediate next action: freeze BRID prototype protocol before implementation.
+Immediate next action: implement and validate the BRID-VLA Stage 0 development
+audit runner.
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -47,6 +48,12 @@ The BRID mathematical mechanism audit is frozen in
 
 BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
 decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
+BRID prototype protocol is frozen in `reports/brid_vla/prototype_protocol.md`
+with decision
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Stage 0
+implementation must use `tca_map/smolvla/brid_vla.py`,
+`scripts/run_brid_vla_stage0.py`, and `tests/test_brid_vla.py`.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source

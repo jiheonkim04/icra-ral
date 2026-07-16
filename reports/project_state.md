@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_34_brid_stage_0_implementation_pending`
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -36,9 +36,9 @@ The BRID-VLA Researcher A proposal is frozen in
 `2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2` and
 decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
-Next action: Reviewer B attack on the frozen BRID-VLA proposal. No BRID
+At proposal freeze time, the next action was Reviewer B attack. No BRID
 implementation, training, validation search, rollout, or confirmatory-test
-access has happened.
+access had happened.
 
 Reviewer B attack is complete in `reports/brid_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
@@ -57,7 +57,11 @@ The BRID mathematical mechanism audit is frozen in
 BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
 decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
-Next action is BRID prototype protocol.
+BRID prototype protocol is frozen in `reports/brid_vla/prototype_protocol.md`
+with decision
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
+
+Next action is BRID Stage 0 implementation and validation.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three

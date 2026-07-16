@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -41,7 +41,7 @@ The first serious comparison is `smolvla_base`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
 Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_prototype_protocol_pending`.
+`epoch_4_cycle_34_brid_stage_0_implementation_pending`.
 
 The BRID-VLA Researcher A proposal is frozen in
 `reports/brid_vla/researcher_proposal.md` with SHA-256
@@ -75,7 +75,16 @@ decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
 development tasks, discovery/validation demo ids, Stage 0 artifacts, metrics,
 stop classes, bounded validation envelope, and worker resume key.
 
-Immediate next action: freeze BRID prototype protocol before implementation.
+The BRID executable prototype protocol is frozen in
+`reports/brid_vla/prototype_protocol.md` with decision
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It freezes the
+helper module `tca_map/smolvla/brid_vla.py`, runner
+`scripts/run_brid_vla_stage0.py`, focused tests `tests/test_brid_vla.py`,
+Stage 0 artifact contract, resume key, policy/probe list, caps, thresholds,
+and decision gates.
+
+Immediate next action: implement and validate the BRID-VLA Stage 0 development
+audit runner.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 

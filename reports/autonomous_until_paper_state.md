@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_34_brid_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 
@@ -42,9 +42,9 @@ The BRID-VLA Researcher A proposal is frozen in
 `2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2` and
 decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
-Next action: Reviewer B attack on the frozen BRID-VLA proposal. No BRID
+At proposal freeze time, the next action was Reviewer B attack. No BRID
 implementation, training, validation search, rollout, or confirmatory-test
-access has happened.
+access had happened.
 
 Reviewer B attack is complete in `reports/brid_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires
@@ -57,8 +57,9 @@ Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
 with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
 Reviewer B conditions.
 
-Next action is the mathematical mechanism audit before preregistration,
-implementation, validation search, rollout, or confirmatory-test access.
+At rebuttal completion time, the next action was the mathematical mechanism
+audit before preregistration, implementation, validation search, rollout, or
+confirmatory-test access.
 
 The BRID mathematical mechanism audit is frozen in
 `reports/brid_vla/mathematical_mechanism_audit.md` with decision
@@ -67,8 +68,13 @@ The BRID mathematical mechanism audit is frozen in
 BRID preregistration is frozen in `reports/brid_vla/preregistration.md` with
 decision `BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
-Next action is prototype protocol before implementation, validation search,
-rollout, or confirmatory-test access.
+The BRID executable prototype protocol is frozen in
+`reports/brid_vla/prototype_protocol.md` with decision
+`BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
+
+Next action is to implement and validate `tca_map/smolvla/brid_vla.py`,
+`scripts/run_brid_vla_stage0.py`, and `tests/test_brid_vla.py` before any
+validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 
