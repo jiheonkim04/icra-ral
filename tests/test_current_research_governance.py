@@ -66,8 +66,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_30_urf_stage_0_implementation_pending"
+    assert state["current_decision"] == "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_stage"] == "epoch_4_cycle_30_urf_stage_0_launch_pending"
     assert state["method"] == "URF-VLA"
     assert state["method_identity"] == "URF-VLA"
     assert state["proposal_hash"] == URF_PROPOSAL_HASH
@@ -328,6 +328,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_30_urf_prototype_protocol_pending",
         "epoch_4_cycle_30_urf_prototype_protocol_frozen",
         "epoch_4_cycle_30_urf_stage_0_implementation_pending",
+        "epoch_4_cycle_30_urf_stage_0_implementation_validated",
+        "epoch_4_cycle_30_urf_stage_0_launch_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1062,6 +1064,15 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert urf_protocol["validation_search_happened"] is False
     assert urf_protocol["closed_loop_experiment_happened"] is False
     assert urf_protocol["confirmatory_test_tuning_happened"] is False
+    urf_implementation = state["epoch_4_cycle_30_urf_stage_0_implementation"]
+    assert urf_implementation["final_decision"] == "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert urf_implementation["compile_passed"] is True
+    assert urf_implementation["focused_test_result"] == "8 passed"
+    assert urf_implementation["serializer_preflight_passed"] is True
+    assert urf_implementation["stage_0_launch_allowed_next"] is True
+    assert urf_implementation["stage_0_final_decision"] is None
+    assert urf_implementation["training_happened"] is False
+    assert urf_implementation["closed_loop_experiment_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

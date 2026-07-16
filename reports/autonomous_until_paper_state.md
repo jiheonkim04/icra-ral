@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_30_urf_stage_0_launch_pending`
 
 ## Epoch 4 Cycle 30 URF-VLA
 
@@ -87,9 +87,12 @@ The executable URF prototype protocol is frozen in
 test paths; artifact paths; row keys; worker safety and missing-key-only resume
 rules; required Stage 0 probes; result metrics; and the frozen decision order.
 
-Current next action: implement and validate `tca_map/smolvla/urf_vla.py`,
-`scripts/run_urf_vla_stage0.py`, and `tests/test_urf_vla.py` before any Stage
-0 launch.
+URF Stage 0 implementation is validated as
+`URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused URF tests reported `8 passed`, and
+`reports/urf_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes. Current next action is to run worker-safety checks and then
+launch the frozen Stage 0 audit only if no live or completed URF worker exists.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 

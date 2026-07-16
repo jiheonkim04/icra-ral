@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
-Immediate next action: implement and validate `tca_map/smolvla/urf_vla.py`,
-`scripts/run_urf_vla_stage0.py`, and `tests/test_urf_vla.py` before any Stage
-0 launch.
+Immediate next action: before launching URF Stage 0, inspect existing
+PID/heartbeat/status/partial/result/log/exit artifacts, verify no live or
+completed URF worker exists, and then run the frozen Stage 0 audit only once.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at
@@ -33,8 +33,12 @@ frozen in `reports/urf_vla/mathematical_mechanism_audit.md` with decision
 `reports/urf_vla/preregistration.md` with decision
 `URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Prototype protocol is
 frozen in `reports/urf_vla/prototype_protocol.md` with decision
-`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. No URF training, validation
-search, rollout, simulator access, or confirmatory-test tuning has happened.
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. URF Stage 0 implementation is
+validated as `URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL
+py_compile passed, focused URF tests reported `8 passed`, and
+`reports/urf_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes. No URF training, validation search, rollout, simulator
+access, or confirmatory-test tuning has happened.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

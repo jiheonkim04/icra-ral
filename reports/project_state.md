@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_30_urf_stage_0_launch_pending`
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
@@ -42,9 +42,12 @@ frozen in `reports/urf_vla/mathematical_mechanism_audit.md` with decision
 `reports/urf_vla/preregistration.md` with decision
 `URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Prototype protocol is
 frozen in `reports/urf_vla/prototype_protocol.md` with decision
-`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Next action is to implement
-and validate the URF Stage 0 helper, runner, and focused tests before any Stage
-0 launch.
+`URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. URF Stage 0 implementation is
+validated as `URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL
+py_compile passed, focused URF tests reported `8 passed`, and
+`reports/urf_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes. Next action is to run worker-safety checks and then launch
+the frozen Stage 0 audit only if no live or completed URF worker exists.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest

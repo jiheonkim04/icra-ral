@@ -29,6 +29,7 @@ URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABE
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "URF_MATHEMATICAL_AUDIT_PREREGISTERED" in final
@@ -38,7 +39,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "SUREFlow" in final
     assert "sureflow_uncertainty_residual_proxy" in final
     assert URF_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_30_urf_stage_0_implementation_pending" in final
+    assert "epoch_4_cycle_30_urf_stage_0_launch_pending" in final
     assert "reports/urf_vla/reviewer_attack.md" in final
     assert "reports/urf_vla/researcher_rebuttal.md" in final
     assert "reports/urf_vla/mathematical_mechanism_audit.md" in final
@@ -316,10 +317,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "URF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_decision"] == "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 30
-    assert state["current_stage"] == "epoch_4_cycle_30_urf_stage_0_implementation_pending"
+    assert state["current_stage"] == "epoch_4_cycle_30_urf_stage_0_launch_pending"
     assert state["method"] == "URF-VLA"
     assert state["method_identity"] == "URF-VLA"
     assert state["proposal_hash"] == URF_PROPOSAL_HASH
@@ -988,6 +989,15 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_protocol["validation_search_happened"] is False
     assert urf_protocol["closed_loop_experiment_happened"] is False
     assert urf_protocol["confirmatory_test_tuning_happened"] is False
+    urf_implementation = state["epoch_4_cycle_30_urf_stage_0_implementation"]
+    assert urf_implementation["final_decision"] == "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert urf_implementation["compile_passed"] is True
+    assert urf_implementation["focused_test_result"] == "8 passed"
+    assert urf_implementation["serializer_preflight_passed"] is True
+    assert urf_implementation["stage_0_launch_allowed_next"] is True
+    assert urf_implementation["stage_0_final_decision"] is None
+    assert urf_implementation["training_happened"] is False
+    assert urf_implementation["closed_loop_experiment_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
