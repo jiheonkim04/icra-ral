@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_MATHEMATICAL_AUDIT_PREREGISTERED`
+`CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_preregistration_pending`
+Current stage: `epoch_4_cycle_27_cfr_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -69,8 +69,14 @@ loss-scale audit, official action-validity semantics, no deterministic-action
 KL, DFM proxy policy, key ablation, simple killer baseline, and Stage 0 stop
 classes.
 
-Next action: freeze CFR-VLA preregistration before executable prototype
-protocol or implementation.
+The CFR preregistration is frozen in `reports/cfr_vla/preregistration.md` with
+decision `CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+discovery/validation/confirmatory partitions, fixed development tasks, Stage 0
+audit outputs, stop classes, bounded six-configuration validation search, first
+five-policy comparison, Stage A/B policy, and confirmatory tuning prohibition.
+
+Next action: write the executable CFR-VLA prototype protocol before Stage 0
+implementation.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 

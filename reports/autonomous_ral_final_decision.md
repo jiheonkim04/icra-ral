@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CFR_MATHEMATICAL_AUDIT_PREREGISTERED`
+`CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -48,8 +48,11 @@ The CFR mathematical mechanism audit is frozen in
 `reports/cfr_vla/mathematical_mechanism_audit.md` with decision
 `CFR_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
+The CFR preregistration is frozen in `reports/cfr_vla/preregistration.md` with
+decision `CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
 Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_preregistration_pending`.
+`epoch_4_cycle_27_cfr_prototype_protocol_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 

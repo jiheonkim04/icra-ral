@@ -63,8 +63,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CFR_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_preregistration_pending"
+    assert state["current_decision"] == "CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_prototype_protocol_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -253,6 +253,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_mathematical_audit_pending",
         "epoch_4_cycle_27_cfr_mathematical_audit_preregistered",
         "epoch_4_cycle_27_cfr_preregistration_pending",
+        "epoch_4_cycle_27_cfr_preregistration_frozen",
+        "epoch_4_cycle_27_cfr_prototype_protocol_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -472,6 +474,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cfr_math["official_action_validity_semantics_required"] is True
     assert cfr_math["dfm_proxy_policy_2_required"] is True
     assert "CFR_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in cfr_math["stage_0_stop_classes"]
+    cfr_prereg = state["epoch_4_cycle_27_cfr_preregistration"]
+    assert cfr_prereg["final_decision"] == "CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert cfr_prereg["preregistration"] == "reports/cfr_vla/preregistration.md"
+    assert cfr_prereg["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert cfr_prereg["stage_0_allowed_next"] is True
+    assert cfr_prereg["bounded_validation_search_max_configs"] == 6
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
