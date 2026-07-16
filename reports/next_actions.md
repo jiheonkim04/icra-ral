@@ -5,10 +5,25 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`
+`BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
-Immediate next action: generate exactly three Epoch 4 Cycle 34 candidates under
-current governance. AFID repair/rescue is disallowed for this formulation.
+Immediate next action: freeze the BRID-VLA Researcher A proposal before
+Reviewer B attack.
+
+Cycle 34 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_34_candidate_generation.md`.
+
+`BRID-VLA`, Base-Residual Implicit Diffusion for SmolVLA action chunks, is
+selected at `94 / 100`. Its closest prior is Diffusion Policy
+(`https://diffusion-policy.cs.columbia.edu/` and
+`https://github.com/real-stanford/diffusion_policy`). The first serious
+comparison is `smolvla_base`, `diffusion_policy_action_chunk_proxy`,
+`brid_full`, `brid_no_base_residual_ablation`, and `standard_lora`.
+
+LoRA may only parameterize the residual score network; it is not the
+scientific mechanism. No BRID proposal, implementation, training, validation
+search, rollout, or confirmatory-test access has happened yet.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source
@@ -60,6 +75,7 @@ AFID Stage 0 completed in `reports/afid_vla/stage_0_result.json` and is
 adjudicated in `reports/afid_vla/stage_0_adjudication.md` with decision
 `AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`. It completed
 `5120 / 5120` rows with zero exceptions and zero duplicate/missing/extra keys.
+AFID repair/rescue is disallowed for this formulation.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source

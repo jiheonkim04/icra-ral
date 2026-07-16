@@ -32,6 +32,15 @@ AFID_PROPOSAL_HASH = "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB15
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "BRID-VLA" in final
+    assert "Base-Residual Implicit Diffusion" in final
+    assert "Diffusion Policy" in final
+    assert "reports/epoch_4_cycle_34_prior_mechanism_map.md" in final
+    assert "reports/epoch_4_cycle_34_candidate_generation.md" in final
+    assert "diffusion_policy_action_chunk_proxy" in final
+    assert "brid_no_base_residual_ablation" in final
+    assert "epoch_4_cycle_34_brid_researcher_proposal_pending" in final
     assert "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE" in final
     assert "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
@@ -54,7 +63,6 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "finevla_action_factor_proxy" in final
     assert "afid_no_factor_ablation" in final
-    assert "epoch_4_cycle_34_candidate_search_pending" in final
     assert "reports/afid_vla/stage_0_serializer_preflight.json" in final
     assert "reports/afid_vla/stage_0_result.json" in final
     assert "reports/afid_vla/stage_0_adjudication.md" in final
@@ -384,12 +392,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE"
+    assert state["current_decision"] == "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 34
-    assert state["current_stage"] == "epoch_4_cycle_34_candidate_search_pending"
-    assert state["method"] == "TBD"
-    assert state["method_identity"] == "epoch_4_cycle_34_candidate_search_pending"
+    assert state["current_stage"] == "epoch_4_cycle_34_brid_researcher_proposal_pending"
+    assert state["method"] == "BRID-VLA"
+    assert state["method_identity"] == "BRID-VLA"
+    assert state["next_action"] == "Freeze the BRID-VLA Researcher A proposal before Reviewer B attack."
     assert state["proposal_hash"] == AFID_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/afid_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/afid_vla/researcher_proposal.md"
@@ -421,7 +430,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Generate exactly three Epoch 4 Cycle 34 candidates under current governance; AFID repair/rescue is disallowed."
+        == "Freeze the BRID-VLA Researcher A proposal before Reviewer B attack."
     )
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -1718,14 +1727,35 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert afid_outcome["valid_scientific_result"] is False
     assert afid_outcome["closed_loop_experiment_happened"] is False
     cycle34 = state["epoch_4_cycle_34_candidate_search"]
-    assert cycle34["candidate_search_pending"] is True
+    assert cycle34["candidate_search_pending"] is False
     assert cycle34["candidate_count_required"] == 3
-    assert cycle34["candidate_count_generated"] == 0
+    assert cycle34["candidate_count_generated"] == 3
     assert cycle34["previous_method"] == "AFID-VLA"
     assert cycle34["previous_decision"] == "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE"
     assert cycle34["previous_stage_0_result"] == "reports/afid_vla/stage_0_result.json"
+    assert cycle34["prior_mechanism_map"] == "reports/epoch_4_cycle_34_prior_mechanism_map.md"
+    assert cycle34["candidate_generation"] == "reports/epoch_4_cycle_34_candidate_generation.md"
+    assert cycle34["candidate_ids"] == ["BRID-VLA", "FART-VLA", "RACT-VLA"]
+    assert cycle34["selected_method"] == "BRID-VLA"
+    assert cycle34["selected_score"] == 94
+    assert cycle34["selection_decision"] == "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert cycle34["afid_repair_allowed"] is False
     assert cycle34["afid_rescue_allowed"] is False
+    selection34 = state["epoch_4_cycle_34_candidate_selection"]
+    assert selection34["method"] == "BRID-VLA"
+    assert selection34["final_decision"] == "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert selection34["candidate_count"] == 3
+    assert selection34["selected_score"] == 94
+    assert selection34["closest_prior"] == "Diffusion Policy"
+    assert selection34["policy_order"] == [
+        "smolvla_base",
+        "diffusion_policy_action_chunk_proxy",
+        "brid_full",
+        "brid_no_base_residual_ablation",
+        "standard_lora",
+    ]
+    assert selection34["first_serious_comparison_includes_closest_prior"] is True
+    assert selection34["researcher_proposal_pending"] is True
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
@@ -1734,7 +1764,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_33_afid_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_stage_0_adjudicated" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_implementation_failure_recorded" in state["completed_stages"]
-    assert "epoch_4_cycle_34_candidate_search_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_34_prior_mechanism_map_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_34_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_candidate_selected" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_researcher_proposal_pending" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

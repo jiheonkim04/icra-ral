@@ -7,13 +7,33 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`
+`BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_candidate_search_pending`
+Current stage: `epoch_4_cycle_34_brid_researcher_proposal_pending`
+
+Cycle 34 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_34_candidate_generation.md`.
+
+`BRID-VLA`, Base-Residual Implicit Diffusion for SmolVLA action chunks, is
+selected at `94 / 100`. Its closest prior is Diffusion Policy
+(`https://diffusion-policy.cs.columbia.edu/` and
+`https://github.com/real-stanford/diffusion_policy`). BRID's scientific
+mechanism is a Base-conditioned residual score field over frozen SmolVLA
+action chunks with a zero-residual identity path and bounded action caps; LoRA
+is only infrastructure.
+
+The first serious comparison is `smolvla_base`,
+`diffusion_policy_action_chunk_proxy`, `brid_full`,
+`brid_no_base_residual_ablation`, and `standard_lora`.
+
+Next action: freeze the BRID-VLA Researcher A proposal before Reviewer B
+attack. No BRID proposal, implementation, training, validation search, rollout,
+or confirmatory-test access has happened yet.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
@@ -63,8 +83,9 @@ adjudicated in `reports/afid_vla/stage_0_adjudication.md` with decision
 `AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`. It completed
 `5120 / 5120` rows with zero exceptions and zero duplicate/missing/extra keys.
 
-Next action: generate exactly three Epoch 4 Cycle 34 candidates under current
-governance. AFID repair/rescue is disallowed for this formulation.
+Historical next action was to generate exactly three Epoch 4 Cycle 34
+candidates under current governance; that candidate selection is now complete.
+AFID repair/rescue is disallowed for this formulation.
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three

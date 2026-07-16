@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`
+`BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,40 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 34 Candidate Selection
+
+Cycle 34 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_34_candidate_generation.md`.
+
+`BRID-VLA`, Base-Residual Implicit Diffusion for SmolVLA action chunks, is
+selected at `94 / 100`. Its closest positive prior is Diffusion Policy
+(`https://diffusion-policy.cs.columbia.edu/` and
+`https://github.com/real-stanford/diffusion_policy`), which reports conditional
+action-sequence denoising results across 12 tasks and four manipulation
+benchmarks with an average success-rate improvement of `46.9%`, plus official
+code, configs, logs, and checkpoints.
+
+BRID's single new mechanism is a Base-conditioned residual score field over
+frozen SmolVLA action chunks. It preserves Base identity by default through a
+zero-residual passthrough path and bounded action-delta caps. LoRA or a
+lightweight adapter may parameterize the residual score network, but LoRA is
+only implementation infrastructure.
+
+The first serious comparison is `smolvla_base`,
+`diffusion_policy_action_chunk_proxy`, `brid_full`,
+`brid_no_base_residual_ablation`, and `standard_lora`.
+
+Current cycle: `34`. Current stage:
+`epoch_4_cycle_34_brid_researcher_proposal_pending`.
+
+No BRID proposal, implementation, training, validation search, rollout, or
+confirmatory-test access has happened yet. AFID remains closed unchanged as
+`AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`.
+
+Immediate next action: freeze the BRID-VLA Researcher A proposal before
+Reviewer B attack.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 
@@ -39,8 +73,7 @@ only implementation infrastructure.
 The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
-Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_candidate_search_pending`.
+Historical next stage after AFID was Cycle 34 candidate search, now completed.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -100,8 +133,9 @@ adjudicated in `reports/afid_vla/stage_0_adjudication.md` with decision
 `AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`. It completed
 `5120 / 5120` rows with zero exceptions and zero duplicate/missing/extra keys.
 This is a development-only stop, not a closed-loop scientific result. AFID
-repair/rescue is disallowed for this formulation. Immediate next action:
-generate exactly three Epoch 4 Cycle 34 candidates under current governance.
+repair/rescue is disallowed for this formulation. Historical next action was to
+generate exactly three Epoch 4 Cycle 34 candidates under current governance;
+that candidate selection is now complete.
 
 ## Epoch 4 Cycle 32 Selection
 
