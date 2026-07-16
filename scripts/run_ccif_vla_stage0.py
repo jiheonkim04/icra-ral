@@ -1365,8 +1365,9 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
     _write_json(paths["heartbeat"], {**state, "updated_at": _utc_now()})
     identity = _identity_audit(paths, arrays, models)
     gradient = _gradient_smoke(arrays)
+    current_exception_count = 0
     decision_inputs = _decision_inputs(
-        proposal_ok, serializer_ok, prior_check, manifest_ok, data, identity, gradient, prior_exception_count
+        proposal_ok, serializer_ok, prior_check, manifest_ok, data, identity, gradient, current_exception_count
     )
     decision = classify_stage0(decision_inputs)
     decision_input_payload = asdict(decision_inputs)
@@ -1392,7 +1393,10 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
         "result_created_at": _utc_now(),
         "completed_model_row_count": len(partial_rows),
         "planned_model_row_count": len(rows),
-        "exception_count": int(prior_exception_count),
+        "exception_count": int(current_exception_count),
+        "resume_exception_count": int(prior_exception_count),
+        "resume_last_exception": prior_last_exception,
+        "implementation_blocker_repaired_before_final_result": bool(prior_exception_count),
         "manifest_row_count": partial_audit["manifest_row_count"],
         "partial_row_count": partial_audit["partial_row_count"],
         "official_prior_asset_check": prior_check,
@@ -1448,7 +1452,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
     _write_text(paths["adjudication"], _adjudication_markdown(result))
     _write_json(
         paths["partial"],
-        _partial_payload(manifest_hash, len(rows), partial_rows, exception_count=prior_exception_count, last_exception=prior_last_exception),
+        _partial_payload(manifest_hash, len(rows), partial_rows, exception_count=current_exception_count, last_exception=None),
     )
     state.update({"status": "completed", "phase": "complete", "completed_model_row_count": len(partial_rows)})
     _write_json(paths["status"], {**state, "completed_at": _utc_now(), "final_decision": decision})
