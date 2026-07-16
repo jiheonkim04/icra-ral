@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 38,
-    "topic": "epoch_4_cycle_38_mci_preregistration_pending",
+    "topic": "epoch_4_cycle_38_mci_prototype_protocol_pending",
     "method": "MCI-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "c155008",
-    "current_stage": "epoch_4_cycle_38_mci_preregistration_pending",
+    "current_stage": "epoch_4_cycle_38_mci_prototype_protocol_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -793,7 +793,9 @@
         "epoch_4_cycle_38_mci_rebuttal_completed",
         "epoch_4_cycle_38_mci_mathematical_audit_pending",
         "epoch_4_cycle_38_mci_mathematical_audit_preregistered",
-        "epoch_4_cycle_38_mci_preregistration_pending"
+        "epoch_4_cycle_38_mci_preregistration_pending",
+        "epoch_4_cycle_38_mci_preregistration_frozen",
+        "epoch_4_cycle_38_mci_prototype_protocol_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -810,7 +812,7 @@
         "LIBERO-Plus"
     ],
     "prototype_gate": "MCI proposal must be frozen before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
-    "current_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -961,7 +963,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "RoVLA-style multi-consistency invariance can make a frozen-SmolVLA adapter robust to task-preserving language, observation, proprioception, and action-evolution perturbations while preserving exact Base behavior at zero gate.",
     "method_identity": "MCI-VLA",
@@ -11233,7 +11235,11 @@
     "mathematical_audit_preregistered": true,
     "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
     "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-    "preregistration_pending": true,
+    "preregistration_pending": false,
+    "preregistration_frozen": true,
+    "preregistration": "reports/mci_vla/preregistration.md",
+    "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "prototype_protocol_pending": true,
     "epoch_4_cycle_35_mhs_researcher_proposal": {
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
@@ -11353,7 +11359,11 @@
     "mathematical_audit_preregistered": true,
     "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
     "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-    "preregistration_pending": true,
+    "preregistration_pending": false,
+    "preregistration_frozen": true,
+    "preregistration": "reports/mci_vla/preregistration.md",
+    "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "prototype_protocol_pending": true,
     "epoch_4_cycle_35_mhs_reviewer_attack": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -13482,13 +13492,17 @@
         "mathematical_audit_preregistered": true,
         "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
+        "preregistration_pending": false,
+        "preregistration_frozen": true,
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "cspr_rescue_allowed": false,
-        "next_stage": "Write the MCI-VLA preregistration."
+        "next_stage": "Write the MCI-VLA prototype protocol."
     },
     "epoch_4_cycle_38_mci_researcher_proposal": {
         "method": "MCI-VLA",
@@ -13534,12 +13548,16 @@
         "mathematical_audit_preregistered": true,
         "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
+        "preregistration_pending": false,
+        "preregistration_frozen": true,
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
+        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
     },
     "epoch_4_cycle_38_mci_reviewer_attack": {
         "method": "MCI-VLA",
@@ -13576,12 +13594,16 @@
         "mathematical_audit_preregistered": true,
         "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
+        "preregistration_pending": false,
+        "preregistration_frozen": true,
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
+        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
     },
     "epoch_4_cycle_38_mci_rebuttal": {
         "method": "MCI-VLA",
@@ -13622,8 +13644,12 @@
         "mathematical_audit_preregistered": true,
         "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
-        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
+        "preregistration_pending": false,
+        "preregistration_frozen": true,
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
     },
     "epoch_4_cycle_38_mci_mathematical_audit": {
         "method": "MCI-VLA",
@@ -13668,8 +13694,55 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "preregistration_pending": true,
-        "next_stage": "Write the MCI-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
+        "preregistration_pending": false,
+        "preregistration_frozen": true,
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
+    },
+    "epoch_4_cycle_38_mci_preregistration": {
+        "method": "MCI-VLA",
+        "proposal_hash": "88CB11CC6236D19BA05602217C65C1819A68BEA53B041E17BA12796403BA0B9A",
+        "preregistration": "reports/mci_vla/preregistration.md",
+        "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "final_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "discovery_demo_ids": "0..7",
+        "validation_demo_ids": "8..9",
+        "discovery_min_rows": 512,
+        "validation_min_rows": 128,
+        "policy_order": [
+            "smolvla_base",
+            "rovla_multiconsistency_proxy",
+            "mci_full",
+            "mci_no_consistency_code_ablation",
+            "augmentation_only_lora_killer"
+        ],
+        "bounded_validation_search_max_configs": 6,
+        "bounded_validation_search_configs": [
+            "mci_lc025_dz16",
+            "mci_lc025_dz32",
+            "mci_lc050_dz16",
+            "mci_lc050_dz32",
+            "mci_lc100_dz16",
+            "mci_lc100_dz32"
+        ],
+        "stage_0_stop_classes": [
+            "MCI_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "MCI_STAGE_0_NO_HEADROOM",
+            "MCI_STAGE_0_IMPLEMENTATION_FAILURE",
+            "MCI_STAGE_0_DESIGN_FAILURE",
+            "MCI_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "deterministic_action_kl_allowed": false,
+        "first_serious_comparison_includes_closest_prior": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "prototype_protocol_pending": true,
+        "next_stage": "Write the MCI-VLA prototype protocol before implementation, validation search, rollout, or confirmatory-test access."
     },
     "researcher_rebuttal": "reports/mci_vla/researcher_rebuttal.md",
     "rebuttal_decision": "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -13681,5 +13754,9 @@
     "mathematical_audit_preregistered": true,
     "mathematical_audit": "reports/mci_vla/mathematical_mechanism_audit.md",
     "math_audit_decision": "MCI_MATHEMATICAL_AUDIT_PREREGISTERED",
-    "preregistration_pending": true
+    "preregistration_pending": false,
+    "preregistration_frozen": true,
+    "preregistration": "reports/mci_vla/preregistration.md",
+    "preregistration_decision": "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "prototype_protocol_pending": true
 }

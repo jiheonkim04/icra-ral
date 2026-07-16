@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MCI_MATHEMATICAL_AUDIT_PREREGISTERED`
+`MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `38`
 
-Current stage: `epoch_4_cycle_38_mci_preregistration_pending`
+Current stage: `epoch_4_cycle_38_mci_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -65,12 +65,17 @@ shape, `d_z in {16,32}`, `lambda_c in {0.25,0.50,1.00}`, objective terms
 `L_code`, `L_act`, `L_fit`, `L_keep`, `L_var`, and `L_bound`, gradient-scale
 audit with `100:1` limit, no deterministic-action KL, and the frozen five
 policy order.
+The preregistration is frozen in `reports/mci_vla/preregistration.md` with
+decision `MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It fixes
+discovery demos `0..7`, validation demos `8..9`, row minima `512 / 128`, the
+six validation-search configs, Stage 0 artifacts, metrics, pass gates, and
+stop classes before any implementation or validation search.
 
 CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
 CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
 allowed. No MCI implementation, training, validation search, rollout, or
 confirmatory-test access has happened. Immediate next action: write the
-MCI-VLA preregistration.
+MCI-VLA prototype protocol.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

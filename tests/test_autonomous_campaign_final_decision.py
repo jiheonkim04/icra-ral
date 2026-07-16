@@ -45,6 +45,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "MCI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/mci_vla/mathematical_mechanism_audit.md" in final
     assert "MCI_MATHEMATICAL_AUDIT_PREREGISTERED" in final
+    assert "reports/mci_vla/preregistration.md" in final
+    assert "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "MCI-VLA Researcher A" in final
     assert "MCI-VLA" in final
     assert MCI_PROPOSAL_HASH in final
@@ -465,10 +467,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "MCI_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 38
-    assert state["current_stage"] == "epoch_4_cycle_38_mci_preregistration_pending"
+    assert state["current_stage"] == "epoch_4_cycle_38_mci_prototype_protocol_pending"
     assert state["method"] == "MCI-VLA"
     assert state["method_identity"] == "MCI-VLA"
     assert state["closest_prior"] == "RoVLA"
@@ -476,9 +478,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_38_prior_mechanism_map.md"
     assert state["selection_decision"] == "MCI_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["next_action"] == (
-        "Write the MCI-VLA preregistration before prototype protocol, "
-        "implementation, validation search, rollout, or "
-        "confirmatory-test access."
+        "Write the MCI-VLA prototype protocol before implementation, "
+        "validation search, rollout, or confirmatory-test access."
     )
     assert state["proposal_hash"] == MCI_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mci_vla/proposal_hash.txt"
@@ -499,9 +500,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["mathematical_audit_preregistered"] is True
     assert state["mathematical_audit"] == "reports/mci_vla/mathematical_mechanism_audit.md"
     assert state["math_audit_decision"] == "MCI_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["preregistration_pending"] is True
+    assert state["preregistration_pending"] is False
+    assert state["preregistration_frozen"] is True
+    assert state["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert state["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["prototype_protocol_pending"] is True
     assert state["prototype_protocol"] is None
-    assert state["prototype_protocol_pending"] is False
     assert state["prototype_protocol_frozen"] is False
     assert state["prototype_protocol_decision"] is None
     assert state["stage_0_implementation_pending"] is False
@@ -1136,7 +1140,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection38["mathematical_audit_preregistered"] is True
     assert selection38["mathematical_audit"] == "reports/mci_vla/mathematical_mechanism_audit.md"
     assert selection38["math_audit_decision"] == "MCI_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert selection38["preregistration_pending"] is True
+    assert selection38["preregistration_pending"] is False
+    assert selection38["preregistration_frozen"] is True
+    assert selection38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert selection38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert selection38["prototype_protocol_pending"] is True
     assert selection38["first_serious_comparison_includes_closest_prior"] is True
     assert selection38["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection38["privileged_inference_inputs_allowed"] is False
@@ -1163,7 +1171,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proposal38["mathematical_audit_preregistered"] is True
     assert proposal38["mathematical_audit"] == "reports/mci_vla/mathematical_mechanism_audit.md"
     assert proposal38["math_audit_decision"] == "MCI_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert proposal38["preregistration_pending"] is True
+    assert proposal38["preregistration_pending"] is False
+    assert proposal38["preregistration_frozen"] is True
+    assert proposal38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert proposal38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert proposal38["prototype_protocol_pending"] is True
     review38 = state["epoch_4_cycle_38_mci_reviewer_attack"]
     assert review38["method"] == "MCI-VLA"
     assert review38["proposal_hash"] == MCI_PROPOSAL_HASH
@@ -1179,7 +1191,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert review38["mathematical_audit_preregistered"] is True
     assert review38["mathematical_audit"] == "reports/mci_vla/mathematical_mechanism_audit.md"
     assert review38["math_audit_decision"] == "MCI_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert review38["preregistration_pending"] is True
+    assert review38["preregistration_pending"] is False
+    assert review38["preregistration_frozen"] is True
+    assert review38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert review38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert review38["prototype_protocol_pending"] is True
     assert len(review38["required_conditions"]) == 10
     assert review38["policy_order"] == [
         "smolvla_base",
@@ -1209,7 +1225,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert rebuttal38["mathematical_audit_preregistered"] is True
     assert rebuttal38["mathematical_audit"] == "reports/mci_vla/mathematical_mechanism_audit.md"
     assert rebuttal38["math_audit_decision"] == "MCI_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert rebuttal38["preregistration_pending"] is True
+    assert rebuttal38["preregistration_pending"] is False
+    assert rebuttal38["preregistration_frozen"] is True
+    assert rebuttal38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert rebuttal38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert rebuttal38["prototype_protocol_pending"] is True
     assert rebuttal38["training_happened"] is False
     assert rebuttal38["validation_search_happened"] is False
     assert rebuttal38["closed_loop_experiment_happened"] is False
@@ -1230,11 +1250,35 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert audit38["deterministic_action_kl_allowed"] is False
     assert audit38["identity_preserving_integration_required"] is True
     assert audit38["first_serious_comparison_includes_closest_prior"] is True
-    assert audit38["preregistration_pending"] is True
+    assert audit38["preregistration_pending"] is False
+    assert audit38["preregistration_frozen"] is True
+    assert audit38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert audit38["preregistration_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert audit38["prototype_protocol_pending"] is True
     assert audit38["training_happened"] is False
     assert audit38["validation_search_happened"] is False
     assert audit38["closed_loop_experiment_happened"] is False
     assert audit38["confirmatory_test_tuning_happened"] is False
+    prereg38 = state["epoch_4_cycle_38_mci_preregistration"]
+    assert prereg38["method"] == "MCI-VLA"
+    assert prereg38["proposal_hash"] == MCI_PROPOSAL_HASH
+    assert prereg38["preregistration"] == "reports/mci_vla/preregistration.md"
+    assert prereg38["mathematical_audit"] == "reports/mci_vla/mathematical_mechanism_audit.md"
+    assert prereg38["final_decision"] == "MCI_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert prereg38["discovery_demo_ids"] == "0..7"
+    assert prereg38["validation_demo_ids"] == "8..9"
+    assert prereg38["discovery_min_rows"] == 512
+    assert prereg38["validation_min_rows"] == 128
+    assert prereg38["bounded_validation_search_max_configs"] == 6
+    assert len(prereg38["bounded_validation_search_configs"]) == 6
+    assert len(prereg38["stage_0_stop_classes"]) == 5
+    assert prereg38["deterministic_action_kl_allowed"] is False
+    assert prereg38["first_serious_comparison_includes_closest_prior"] is True
+    assert prereg38["prototype_protocol_pending"] is True
+    assert prereg38["training_happened"] is False
+    assert prereg38["validation_search_happened"] is False
+    assert prereg38["closed_loop_experiment_happened"] is False
+    assert prereg38["confirmatory_test_tuning_happened"] is False
     assert "epoch_4_cycle_37_cspr_stage_0_launched" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_stage_0_adjudicated" in state["completed_stages"]
@@ -1252,6 +1296,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_38_mci_mathematical_audit_pending" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_mathematical_audit_preregistered" in state["completed_stages"]
     assert "epoch_4_cycle_38_mci_preregistration_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_preregistration_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_38_mci_prototype_protocol_pending" in state["completed_stages"]
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
