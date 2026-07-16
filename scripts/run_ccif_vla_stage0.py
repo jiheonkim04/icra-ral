@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import gc
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -72,8 +73,6 @@ from scripts.run_cfr_vla_stage0 import (  # noqa: E402
     _evenly_spaced,
     _load_base_chunk,
     _load_feature,
-    _load_or_decode_base_chunk,
-    _load_or_extract_feature,
     _problem_language,
     _proprio_from_obs,
     _read_json,
@@ -83,10 +82,18 @@ from scripts.run_cfr_vla_stage0 import (  # noqa: E402
     _write_text,
 )
 from scripts.run_famr_vla_stage0 import (  # noqa: E402
+    HF_HOME,
+    VLM_PATH,
+    _apply_official_env_image_processor,
     _active_linux_workers,
-    _load_policy_and_processors,
+    _preprocess,
+    _raw_sample,
     _resource_evidence,
     _set_offline_environment,
+)
+from scripts.run_vdr_vla_stage0a import (  # noqa: E402
+    _core_policy,
+    _decoded_chunk,
 )
 
 
@@ -335,6 +342,136 @@ def _write_action_semantics(path: Path, action_stats: Mapping[str, Any]) -> dict
     return semantics
 
 
+def _stable_seed(identity: str, purpose: str) -> int:
+    digest = hashlib.sha256(f"{SEED}|{purpose}|{identity}".encode("utf-8")).digest()
+    return int.from_bytes(digest[:8], "big") % (2**63 - 1)
+
+
+def _noise(identity: str, purpose: str, shape: Sequence[int], device: str) -> Any:
+    import torch
+
+    generator = torch.Generator(device="cpu")
+    generator.manual_seed(_stable_seed(identity, purpose))
+    return torch.randn(tuple(shape), generator=generator, dtype=torch.float32).to(device)
+
+
+def _policy_device(policy: Any) -> str:
+    import torch
+
+    try:
+        return str(next(_core_policy(policy).model.parameters()).device)
+    except StopIteration:
+        return "cuda" if torch.cuda.is_available() else "cpu"
+
+
+def _load_policy_and_processors_for_ccif(checkpoint: Path) -> tuple[Any, Any, Any, Any]:
+    import torch
+    import lerobot.policies.smolvla.configuration_smolvla  # noqa: F401
+    from lerobot.configs.policies import PreTrainedConfig
+    from lerobot.policies.factory import make_pre_post_processors
+    from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    config = PreTrainedConfig.from_pretrained(checkpoint, local_files_only=True, cache_dir=HF_HOME)
+    config.device = device
+    config.load_vlm_weights = True
+    config.compile_model = False
+    config.push_to_hub = False
+    config.vlm_model_name = str(VLM_PATH)
+    if hasattr(config, "chunk_size"):
+        config.chunk_size = CHUNK_SIZE
+    policy = SmolVLAPolicy.from_pretrained(
+        checkpoint,
+        config=config,
+        local_files_only=True,
+        cache_dir=HF_HOME,
+        token=False,
+        strict=False,
+    )
+    policy.to(device)
+    policy.eval()
+    preprocessor, postprocessor = make_pre_post_processors(
+        config,
+        pretrained_path=str(checkpoint),
+        preprocessor_overrides={
+            "tokenizer_processor": {"tokenizer_name": str(VLM_PATH)},
+            "device_processor": {"device": device},
+        },
+        postprocessor_overrides={"device_processor": {"device": device}},
+    )
+    return policy, preprocessor, postprocessor, config
+
+
+def _visual_feature_path(feature_dir: Path, feature_key: str) -> Path:
+    digest = hashlib.sha256(feature_key.encode("utf-8")).hexdigest().upper()
+    return feature_dir / f"{digest}.npz"
+
+
+def _save_feature(path: Path, feature: np.ndarray) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(".tmp.npz")
+    np.savez_compressed(temporary, feature=np.asarray(feature, dtype=np.float16))
+    temporary.replace(path)
+
+
+def _save_base_chunk(path: Path, chunk: np.ndarray) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(".tmp.npz")
+    np.savez_compressed(temporary, base_chunk=np.asarray(chunk, dtype=np.float32))
+    temporary.replace(path)
+
+
+def _prepare_images_for_ccif(policy: Any, images: Sequence[Any]) -> Any:
+    import torch
+    from lerobot.policies.smolvla.modeling_smolvla import resize_with_pad
+
+    device = _policy_device(policy)
+    tensors = []
+    for image in images:
+        value = image if torch.is_tensor(image) else torch.as_tensor(np.asarray(image).copy())
+        if value.ndim != 3:
+            raise RuntimeError(f"expected CHW/HWC image, got {tuple(value.shape)}")
+        if value.shape[-1] in (1, 3):
+            value = value.permute(2, 0, 1)
+        value = value.float()
+        if float(value.max()) > 1.0:
+            value = value / 255.0
+        tensors.append(value)
+    batch = torch.stack(tensors).to(device)
+    resize_cfg = getattr(_core_policy(policy).config, "resize_imgs_with_padding", None)
+    if resize_cfg is not None:
+        batch = resize_with_pad(batch, *resize_cfg, pad_value=0)
+    dtype = next(_core_policy(policy).model.parameters()).dtype
+    return (batch * 2.0 - 1.0).to(dtype=dtype)
+
+
+def _extract_visual_feature_for_ccif(policy: Any, row: Mapping[str, Any], frame_index: int) -> np.ndarray:
+    import h5py
+    import torch
+
+    with h5py.File(str(row["source_path"]), "r") as handle:
+        demo = handle["data"][f"demo_{int(row['demo_id'])}"]
+        observations = demo["obs"]
+        agent, wrist = _apply_official_env_image_processor(
+            observations["agentview_rgb"][frame_index], observations["eye_in_hand_rgb"][frame_index]
+        )
+    prepared = _prepare_images_for_ccif(policy, (agent, wrist))
+    with torch.no_grad():
+        tokens = _core_policy(policy).model.vlm_with_expert.embed_image(prepared).float().cpu()
+    if tokens.shape[:2] != (2, 64) or tokens.shape[2] != VISUAL_FEATURE_DIM:
+        raise RuntimeError(f"unexpected CCIF visual token shape {tuple(tokens.shape)}")
+    return torch.cat((tokens[0], tokens[1]), dim=0).mean(dim=0).numpy().astype(np.float32)
+
+
+def _load_or_extract_feature_for_ccif(policy: Any, paths: Mapping[str, Path], row: Mapping[str, Any]) -> tuple[Path, np.ndarray]:
+    path = _visual_feature_path(paths["feature_dir"], str(row["feature_key"]))
+    if path.is_file():
+        return path, _load_feature(path)
+    feature = _extract_visual_feature_for_ccif(policy, row, int(row["frame_index"]))
+    _save_feature(path, feature)
+    return path, _load_feature(path)
+
+
 def _build_manifest(data_root: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     import h5py
 
@@ -454,9 +591,22 @@ def _base_chunk_for_feature(
     path = _base_chunk_path(paths["base_chunk_dir"], str(row["feature_key"]))
     if path.is_file():
         return path, _load_base_chunk(path)
+    import torch
+
     decode_row = dict(row)
     decode_row["row_key"] = str(row["feature_key"])
-    return _load_or_decode_base_chunk(policy, preprocessor, postprocessor, paths, decode_row)
+    raw = _raw_sample(decode_row)
+    batch = _preprocess(preprocessor, raw)
+    core = _core_policy(policy)
+    device = _policy_device(policy)
+    shape = (1, core.config.chunk_size, core.config.max_action_dim)
+    noise = _noise(str(row["feature_key"]), "base_decode", shape, device)
+    _, base_actions = _decoded_chunk(policy, batch, postprocessor, noise)
+    del batch, noise
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    _save_base_chunk(path, np.asarray(base_actions[:CHUNK_SIZE, :ACTION_DIM], dtype=np.float32))
+    return path, _load_base_chunk(path)
 
 
 def _partial_row(
@@ -1123,7 +1273,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
 
     state.update({"phase": "load_policy", "status": "running"})
     _write_json(paths["heartbeat"], {**state, "updated_at": _utc_now()})
-    policy, preprocessor, postprocessor, _ = _load_policy_and_processors(paths["checkpoint"])
+    policy, preprocessor, postprocessor, _ = _load_policy_and_processors_for_ccif(paths["checkpoint"])
     action_stats = _action_stats(postprocessor)
     action_semantics = _write_action_semantics(paths["action_semantics"], action_stats)
 
@@ -1177,7 +1327,7 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
     for row in rows:
         if str(row["row_key"]) in completed:
             continue
-        feature_path, feature = _load_or_extract_feature(policy, paths, row)
+        feature_path, feature = _load_or_extract_feature_for_ccif(policy, paths, row)
         base_path, base_chunk = _base_chunk_for_feature(policy, preprocessor, postprocessor, paths, row)
         partial_rows.append(_partial_row(row, feature_path, feature, base_path, base_chunk))
         completed.add(str(row["row_key"]))
