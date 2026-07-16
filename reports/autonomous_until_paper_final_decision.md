@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
 
 This is not a terminal decision.
 
@@ -58,8 +58,13 @@ The executable TSC prototype protocol is frozen in
 `reports/tsc_vla/prototype_protocol.md` with decision
 `TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
 
+The TSC Stage 0 runner is implemented in `scripts/run_tsc_vla_stage0.py` with
+helper module `tca_map/smolvla/tsc_vla.py`; focused TSC tests pass
+(`8 passed`) and `reports/tsc_vla/stage_0_serializer_preflight.json` is
+persisted.
+
 Current cycle: `28`. Current stage:
-`epoch_4_cycle_28_tsc_stage_0_implementation_pending`.
+`epoch_4_cycle_28_tsc_stage_0_pending`.
 
 ## Epoch 4 Cycle 27 Selection
 

@@ -64,8 +64,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_stage_0_implementation_pending"
+    assert state["current_decision"] == "TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_stage_0_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
     assert state["proposal_hash"] == TSC_PROPOSAL_HASH
@@ -281,6 +281,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_28_tsc_prototype_protocol_pending",
         "epoch_4_cycle_28_tsc_prototype_protocol_frozen",
         "epoch_4_cycle_28_tsc_stage_0_implementation_pending",
+        "epoch_4_cycle_28_tsc_stage_0_runner_implemented",
+        "epoch_4_cycle_28_tsc_stage_0_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -671,6 +673,20 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert tsc_protocol["runner"] == "scripts/run_tsc_vla_stage0.py"
     assert tsc_protocol["stage_0_result"] == "reports/tsc_vla/stage_0_result.json"
     assert tsc_protocol["stage_0_partial"] == "reports/tsc_vla/stage_0_partial.json"
+    assert tsc_protocol["runner_implemented"] is True
+    assert tsc_protocol["helper_module"] == "tca_map/smolvla/tsc_vla.py"
+    assert tsc_protocol["runner_validation"] == "tests/test_tsc_vla.py"
+    assert tsc_protocol["runner_unit_tests_passed"] == 8
+    assert tsc_protocol["py_compile_passed"] is True
+    assert tsc_protocol["serializer_preflight"] == "reports/tsc_vla/stage_0_serializer_preflight.json"
+    assert tsc_protocol["serializer_preflight_passed"] is True
+    assert tsc_protocol["stage_0_pending"] is True
+    tsc_prelaunch = state["epoch_4_cycle_28_tsc_stage_0_prelaunch"]
+    assert tsc_prelaunch["final_decision"] == "TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
+    assert tsc_prelaunch["runner"] == "scripts/run_tsc_vla_stage0.py"
+    assert tsc_prelaunch["unit_tests_passed"] == 8
+    assert tsc_prelaunch["serializer_preflight_passed"] is True
+    assert tsc_prelaunch["stage_0_pending"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`TSC_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
 
 Current epoch: `4`
 
 Current cycle: `28`
 
-Current stage: `epoch_4_cycle_28_tsc_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_28_tsc_stage_0_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -79,8 +79,16 @@ contract, artifacts, worker/resume safety, fixed data sources, action
 semantics, label construction, TS-Mask proxy definitions, mechanism audits,
 pass gates, and stop classes.
 
-Next action: implement and validate `scripts/run_tsc_vla_stage0.py` before
-Stage 0 execution.
+The TSC Stage 0 runner is implemented in `scripts/run_tsc_vla_stage0.py` with
+helper module `tca_map/smolvla/tsc_vla.py`. Focused TSC tests pass
+(`8 passed`), `py_compile` passes, and the serializer preflight is persisted in
+`reports/tsc_vla/stage_0_serializer_preflight.json`. No TSC training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Next action: check existing TSC Stage 0 PID, heartbeat/status, partial, result,
+logs, and exit-code artifacts before launching or adjudicating Stage 0 under
+the frozen resume rules.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
