@@ -5,12 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: freeze the LCG-VLA mathematical mechanism audit. No LCG
-preregistration, prototype protocol, implementation, validation search,
-training, rollout, or confirmatory-test access may happen before the audit is
-recorded.
+Immediate next action: freeze LCG-VLA preregistration. No LCG prototype
+protocol, implementation, validation search, training, rollout, or
+confirmatory-test access may happen before preregistration is recorded.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
@@ -38,6 +37,10 @@ deterministic-action KL, and closure of S2C plus previous methods.
 Researcher A rebuttal is complete in
 `reports/lcg_vla/researcher_rebuttal.md` with decision
 `LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
+
+The mathematical mechanism audit is frozen in
+`reports/lcg_vla/mathematical_mechanism_audit.md` with decision
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at

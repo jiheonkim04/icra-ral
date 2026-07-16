@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_32_lcg_preregistration_pending`
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
@@ -41,7 +41,9 @@ progression. Researcher A rebuttal is complete in
 `reports/lcg_vla/researcher_rebuttal.md` with decision
 `LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Next action is mathematical
 mechanism audit before preregistration, prototype protocol, implementation,
-validation search, training, rollout, or confirmatory-test access.
+validation search, training, rollout, or confirmatory-test access. The audit is
+now frozen in `reports/lcg_vla/mathematical_mechanism_audit.md` with decision
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`; next action is preregistration.
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source

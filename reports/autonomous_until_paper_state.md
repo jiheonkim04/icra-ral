@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_32_lcg_preregistration_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -59,9 +59,15 @@ Researcher A rebuttal is complete in
 conditions, keeps CAG as policy 2, defines the null branch as a transparent
 proxy, and preserves `B_t - N_t` as a gate signal rather than a residual target.
 
-The next stage is mathematical mechanism audit before preregistration,
-prototype protocol, implementation, validation search, training, rollout, or
-confirmatory-test access.
+The mathematical mechanism audit is frozen in
+`reports/lcg_vla/mathematical_mechanism_audit.md` with decision
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes `l_null = ""`, `H=50`,
+`D=7`, language-contrast mask threshold `0.25`, action-group caps, the CAG
+proxy formula, objective coefficients, Stage 0 stop classes, and no
+deterministic-action KL.
+
+The next stage is preregistration before prototype protocol, implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 

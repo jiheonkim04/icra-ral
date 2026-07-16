@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
 Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_mathematical_audit_pending`.
+`epoch_4_cycle_32_lcg_preregistration_pending`.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
@@ -53,6 +53,12 @@ Researcher A rebuttal is complete in
 conditions and sends LCG to mathematical mechanism audit before any
 preregistration, prototype protocol, implementation, validation search,
 training, rollout, or confirmatory-test access.
+
+The mathematical mechanism audit is frozen in
+`reports/lcg_vla/mathematical_mechanism_audit.md` with decision
+`LCG_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes the language-null branch,
+contrast mask, CAG proxy, objective, gradient checks, Stage 0 stop classes, and
+no deterministic-action KL.
 
 ## Epoch 4 Cycle 31 Selection
 

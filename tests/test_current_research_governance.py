@@ -68,8 +68,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_32_lcg_mathematical_audit_pending"
+    assert state["current_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_preregistration_pending"
     assert state["method"] == "LCG-VLA"
     assert state["method_identity"] == "LCG-VLA"
     assert state["proposal_hash"] == LCG_PROPOSAL_HASH
@@ -368,6 +368,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_32_lcg_rebuttal_pending",
         "epoch_4_cycle_32_lcg_rebuttal_completed",
         "epoch_4_cycle_32_lcg_mathematical_audit_pending",
+        "epoch_4_cycle_32_lcg_mathematical_audit_preregistered",
+        "epoch_4_cycle_32_lcg_preregistration_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1350,7 +1352,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
     assert lcg["rebuttal_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert lcg["accepted_reviewer_conditions"] is True
-    assert lcg["mathematical_audit_pending"] is True
+    assert lcg["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
+    assert lcg["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert lcg["preregistration_pending"] is True
     assert lcg["policy_order"] == [
         "smolvla_base",
         "counterfactual_action_guidance_proxy",
@@ -1375,7 +1379,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg_proposal["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
     assert lcg_proposal["rebuttal_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert lcg_proposal["accepted_reviewer_conditions"] is True
-    assert lcg_proposal["mathematical_audit_pending"] is True
+    assert lcg_proposal["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
+    assert lcg_proposal["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert lcg_proposal["preregistration_pending"] is True
     assert lcg_proposal["policy_order"] == lcg["policy_order"]
     assert lcg_proposal["training_happened"] is False
     assert lcg_proposal["validation_search_happened"] is False
@@ -1396,7 +1402,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg_review["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
     assert lcg_review["rebuttal_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert lcg_review["accepted_reviewer_conditions"] is True
-    assert lcg_review["mathematical_audit_pending"] is True
+    assert lcg_review["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
+    assert lcg_review["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert lcg_review["preregistration_pending"] is True
     lcg_rebuttal = state["epoch_4_cycle_32_lcg_rebuttal"]
     assert lcg_rebuttal["final_decision"] == "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert lcg_rebuttal["researcher_rebuttal"] == "reports/lcg_vla/researcher_rebuttal.md"
@@ -1404,11 +1412,24 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg_rebuttal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert lcg_rebuttal["accepted_reviewer_conditions"] is True
     assert lcg_rebuttal["closest_prior"] == "Counterfactual Action Guidance"
-    assert lcg_rebuttal["mathematical_audit_pending"] is True
+    assert lcg_rebuttal["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
+    assert lcg_rebuttal["math_audit_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert lcg_rebuttal["preregistration_pending"] is True
     assert lcg_rebuttal["training_happened"] is False
     assert lcg_rebuttal["validation_search_happened"] is False
     assert lcg_rebuttal["closed_loop_experiment_happened"] is False
     assert lcg_rebuttal["confirmatory_test_tuning_happened"] is False
+    lcg_audit = state["epoch_4_cycle_32_lcg_mathematical_audit"]
+    assert lcg_audit["final_decision"] == "LCG_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert lcg_audit["mathematical_audit"] == "reports/lcg_vla/mathematical_mechanism_audit.md"
+    assert lcg_audit["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert lcg_audit["null_instruction"] == ""
+    assert lcg_audit["horizon"] == 50
+    assert lcg_audit["action_dim"] == 7
+    assert lcg_audit["tau_lang"] == 0.25
+    assert lcg_audit["kl_between_deterministic_actions_used"] is False
+    assert "LCG_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in lcg_audit["stage_0_stop_classes"]
+    assert lcg_audit["preregistration_pending"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
