@@ -36,7 +36,7 @@ CSPR_PROPOSAL_HASH = "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E2
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "DCCG_STAGE_0_DATA_FAILURE" in final
     assert "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "reports/dccg_vla/stage_0_result.json" in final
@@ -45,6 +45,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert CSPR_PROPOSAL_HASH in final
     assert "reports/cspr_vla/researcher_proposal.md" in final
     assert "reports/cspr_vla/reviewer_attack.md" in final
+    assert "reports/cspr_vla/researcher_rebuttal.md" in final
     assert "DCCG-VLA" in final
     assert "reports/epoch_4_cycle_37_prior_mechanism_map.md" in final
     assert "reports/epoch_4_cycle_36_prior_mechanism_map.md" in final
@@ -79,7 +80,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/brid_vla/preregistration.md" in final
     assert "reports/brid_vla/prototype_protocol.md" in final
     assert BRID_PROPOSAL_HASH in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "diffusion_policy_action_chunk_proxy" in final
     assert "brid_no_base_residual_ablation" in final
     assert "epoch_4_cycle_35_candidate_search_pending" in final
@@ -104,7 +105,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/afid_vla/preregistration.md" in final
     assert "reports/afid_vla/prototype_protocol.md" in final
     assert AFID_PROPOSAL_HASH in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "finevla_action_factor_proxy" in final
     assert "afid_no_factor_ablation" in final
     assert "reports/afid_vla/stage_0_serializer_preflight.json" in final
@@ -116,7 +117,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "LCG_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "LCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "LCG-VLA" in final
     assert "Language-Contrastive Guidance" in final
@@ -137,7 +138,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "S2C_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED" in final
     assert "S2C-VLA" in final
     assert "ChunkFlow" in final
@@ -171,7 +172,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "CCIF-VLA" in final
     assert "Coarse-to-Control" in final
@@ -268,7 +269,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Prior-Expert Spectral Adaptation" in final
     assert PESA_PROPOSAL_HASH in final
     assert "reports/pesa_vla/reviewer_attack.md" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/pesa_vla/researcher_rebuttal.md" in final
     assert "PESA_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/pesa_vla/mathematical_mechanism_audit.md" in final
@@ -286,7 +287,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "fixed short-replan simple killer" in final
     assert EAC_PROPOSAL_HASH in final
     assert "reports/eac_vla/reviewer_attack.md" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/eac_vla/researcher_rebuttal.md" in final
     assert "EAC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/eac_vla/mathematical_mechanism_audit.md" in final
@@ -355,7 +356,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/rar_vla/researcher_proposal.md" in final
     assert RAR_PROPOSAL_HASH in final
     assert "reports/rar_vla/reviewer_attack.md" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "REMAC/TAS distinctions" in final
     assert "reports/rar_vla/researcher_rebuttal.md" in final
     assert "RAR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
@@ -375,7 +376,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/covi_vla/researcher_proposal.md" in final
     assert COVI_PROPOSAL_HASH in final
     assert "reports/covi_vla/reviewer_attack.md" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/researcher_rebuttal.md" in final
     assert "COVI_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "reports/covi_vla/mathematical_mechanism_audit.md" in final
@@ -384,7 +385,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "AMP-VLA" in final
     assert "ABot-M0" in final
     assert "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "AMP_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "reports/amp_vla/mathematical_mechanism_audit.md" in final
@@ -399,7 +400,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
     assert "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
-    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "CFR-VLA" in final
     assert "DFM-VLA" in final
     assert "Continuous Full-Chunk Refinement" in final
@@ -436,17 +437,17 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 37
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_mathematical_audit_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_37_candidate_generation.md"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_37_prior_mechanism_map.md"
     assert state["selection_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["next_action"].startswith("Write the CSPR-VLA Researcher A rebuttal")
+    assert state["next_action"].startswith("Freeze the CSPR-VLA mathematical mechanism audit")
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -457,12 +458,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["reviewer_attack_completed"] is True
     assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["researcher_rebuttal"] == "reports/cspr_vla/researcher_rebuttal.md"
-    assert state["researcher_rebuttal_pending"] is True
-    assert state["researcher_rebuttal_completed"] is False
-    assert state["rebuttal_decision"] is None
-    assert state["accepted_reviewer_conditions"] is False
+    assert state["researcher_rebuttal_pending"] is False
+    assert state["researcher_rebuttal_completed"] is True
+    assert state["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["accepted_reviewer_conditions"] is True
     assert state["mathematical_audit"] == "reports/cspr_vla/mathematical_mechanism_audit.md"
-    assert state["mathematical_audit_pending"] is False
+    assert state["mathematical_audit_pending"] is True
     assert state["mathematical_audit_completed"] is False
     assert state["math_audit_decision"] is None
     assert state["preregistration"] == "reports/cspr_vla/preregistration.md"
@@ -807,7 +808,11 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection37["reviewer_attack_pending"] is False
     assert selection37["reviewer_attack_completed"] is True
     assert selection37["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert selection37["researcher_rebuttal_pending"] is True
+    assert selection37["researcher_rebuttal_pending"] is False
+    assert selection37["researcher_rebuttal_completed"] is True
+    assert selection37["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert selection37["accepted_reviewer_conditions"] is True
+    assert selection37["mathematical_audit_pending"] is True
     assert selection37["closest_prior_enters_first_serious_comparison"] is True
     assert selection37["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection37["privileged_inference_inputs_allowed"] is False
@@ -824,7 +829,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proposal37["reviewer_attack_pending"] is False
     assert proposal37["reviewer_attack_completed"] is True
     assert proposal37["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert proposal37["researcher_rebuttal_pending"] is True
+    assert proposal37["researcher_rebuttal_pending"] is False
+    assert proposal37["researcher_rebuttal_completed"] is True
+    assert proposal37["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert proposal37["accepted_reviewer_conditions"] is True
+    assert proposal37["mathematical_audit_pending"] is True
+    assert proposal37["researcher_rebuttal_pending"] is False
     assert proposal37["first_serious_comparison_includes_closest_prior"] is True
     assert proposal37["training_happened"] is False
     assert proposal37["validation_search_happened"] is False
@@ -841,11 +851,29 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert review37["criticality_observability_required"] is True
     assert review37["identity_preserving_integration_required"] is True
     assert review37["deterministic_action_kl_allowed"] is False
-    assert review37["researcher_rebuttal_pending"] is True
+    assert review37["researcher_rebuttal_pending"] is False
+    assert review37["researcher_rebuttal_completed"] is True
+    assert review37["rebuttal_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert review37["accepted_reviewer_conditions"] is True
+    assert review37["mathematical_audit_pending"] is True
     assert review37["training_happened"] is False
     assert review37["validation_search_happened"] is False
     assert review37["closed_loop_experiment_happened"] is False
     assert review37["confirmatory_test_tuning_happened"] is False
+    rebuttal37 = state["epoch_4_cycle_37_cspr_rebuttal"]
+    assert rebuttal37["method"] == "CSPR-VLA"
+    assert rebuttal37["proposal_hash"] == CSPR_PROPOSAL_HASH
+    assert rebuttal37["researcher_rebuttal"] == "reports/cspr_vla/researcher_rebuttal.md"
+    assert rebuttal37["final_decision"] == "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert rebuttal37["accepted_reviewer_conditions"] is True
+    assert len(rebuttal37["accepted_conditions"]) == 10
+    assert rebuttal37["deterministic_action_kl_allowed"] is False
+    assert rebuttal37["closed_methods_reopened"] is False
+    assert rebuttal37["mathematical_audit_pending"] is True
+    assert rebuttal37["training_happened"] is False
+    assert rebuttal37["validation_search_happened"] is False
+    assert rebuttal37["closed_loop_experiment_happened"] is False
+    assert rebuttal37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"

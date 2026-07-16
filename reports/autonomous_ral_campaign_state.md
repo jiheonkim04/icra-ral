@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_rebuttal_pending`
+Current stage: `epoch_4_cycle_37_cspr_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -56,9 +56,12 @@ refinement, requires transparent DySL proxy provenance, cache identity freeze,
 noncollapsed criticality labels, deployment-observable criticality above
 trivial baselines, identity preservation, objective/gradient audit, live
 `critical_step_threshold_simple_killer`, and no hidden confirmatory-test
-access. No CSPR implementation, training, validation search, rollout,
-simulator access, or confirmatory-test tuning has happened. Immediate next
-action: Researcher A rebuttal.
+access. Researcher A rebuttal is complete in
+`reports/cspr_vla/researcher_rebuttal.md` with decision
+`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepts all ten
+Reviewer B conditions. No CSPR implementation, training, validation search,
+rollout, simulator access, or confirmatory-test tuning has happened. Immediate
+next action: freeze the CSPR-VLA mathematical mechanism audit.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

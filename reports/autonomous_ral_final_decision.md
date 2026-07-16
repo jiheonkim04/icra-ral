@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -36,9 +36,11 @@ The CSPR-VLA Researcher A proposal is frozen in
 `reports/cspr_vla/researcher_proposal.md` with SHA-256
 `CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7`. Reviewer B attack is complete in
 `reports/cspr_vla/reviewer_attack.md` with decision
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The next action is
-Researcher A rebuttal before mathematical audit, preregistration,
-implementation, validation search, rollout, or confirmatory-test access.
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A rebuttal is
+complete in `reports/cspr_vla/researcher_rebuttal.md` with decision
+`CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The next action is mathematical
+mechanism audit before preregistration, implementation, validation search,
+rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
