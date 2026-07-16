@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_32_lcg_rebuttal_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -46,7 +46,14 @@ decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No LCG implementation,
 training, validation search, rollout, simulator access, or confirmatory-test
 tuning has happened.
 
-The next stage is Reviewer B attack before mathematical audit,
+Reviewer B attack is complete in `reports/lcg_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
+CAG as the closest prior and policy 2, narrows novelty to a frozen-SmolVLA
+Base-preserving learned language-contrast action-cell gate, treats the
+null-instruction branch as a transparent local proxy, and requires contrast,
+residual, and mask noncollapse before any validation search or rollout.
+
+The next stage is Researcher A rebuttal before mathematical audit,
 preregistration, prototype protocol, implementation, validation search,
 training, rollout, or confirmatory-test access.
 

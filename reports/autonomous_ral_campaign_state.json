@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 32,
-    "topic": "epoch_4_cycle_32_lcg_reviewer_attack_pending",
+    "topic": "epoch_4_cycle_32_lcg_rebuttal_pending",
     "method": "LCG-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "73dc3c0",
-    "current_stage": "epoch_4_cycle_32_lcg_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_32_lcg_rebuttal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -652,7 +652,9 @@
         "epoch_4_cycle_32_lcg_candidate_selected",
         "epoch_4_cycle_32_lcg_researcher_proposal_pending",
         "epoch_4_cycle_32_lcg_researcher_proposal_frozen",
-        "epoch_4_cycle_32_lcg_reviewer_attack_pending"
+        "epoch_4_cycle_32_lcg_reviewer_attack_pending",
+        "epoch_4_cycle_32_lcg_reviewer_attack_completed",
+        "epoch_4_cycle_32_lcg_rebuttal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -669,7 +671,7 @@
         "GEAR-VLA"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -820,7 +822,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run Reviewer B attack on the frozen LCG-VLA proposal before mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
+    "next_action": "Write Researcher A rebuttal accepting the LCG Reviewer B conditions before mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A language-contrastive, identity-initialized action-cell gate can preserve frozen SmolVLA Base by default while routing bounded edits only where original-versus-null or counterfactual-instruction chunks reveal language-conditioning risk.",
     "method_identity": "LCG-VLA",
@@ -2574,7 +2576,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_32_lcg_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_32_lcg_rebuttal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -9363,14 +9365,18 @@
         "proposal_hash_file": "reports/lcg_vla/proposal_hash.txt",
         "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
         "proposal_decision": "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true
+        "reviewer_attack_pending": false,
+        "reviewer_attack": "reports/lcg_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal_pending": true,
+        "reviewer_attack_completed": true
     },
     "epoch_4_cycle_32_lcg_researcher_proposal": {
         "method": "LCG-VLA",
         "proposal": "reports/lcg_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/lcg_vla/proposal_hash.txt",
         "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
-        "final_decision": "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "final_decision": "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED",
         "closest_prior": "Counterfactual Action Guidance",
         "closest_prior_primary_source": "https://arxiv.org/abs/2602.17659",
         "scientific_method": "Identity-initialized language-contrast action-cell gate around frozen SmolVLA Base chunks.",
@@ -9389,7 +9395,49 @@
         "confirmatory_test_tuning_happened": false,
         "s2c_repair_allowed": false,
         "s2c_rescue_allowed": false,
-        "reviewer_attack_pending": true,
-        "next_stage": "Reviewer B attack on novelty, prior boundary, data viability, objective scale, identity preservation, and decisive experiment feasibility."
+        "reviewer_attack_pending": false,
+        "next_stage": "Researcher A rebuttal must accept or resolve all Reviewer B conditions before mathematical audit.",
+        "reviewer_attack": "reports/lcg_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "accepted_novelty_boundary_required": "A frozen-SmolVLA, Base-preserving, identity-initialized action-cell gate that learns when deployment-observable original-versus-null language contrast permits bounded residual edits, with exact Base passthrough when the contrast is absent or unreliable.",
+        "reviewer_conditions": [
+            "CAG remains the closest prior and policy 2",
+            "The null-instruction branch is only a transparent local proxy unless official CAG assets are installed and verified",
+            "LCG novelty is narrowed to a frozen-SmolVLA Base-preserving learned language-contrast action-cell gate",
+            "B_t - N_t may gate edits but cannot by itself be treated as the correct residual target",
+            "Counterfactual instruction alternatives must come only from discovery/validation text with zero confirmatory overlap",
+            "Stage 0 must prove contrast, residual, and mask noncollapse",
+            "CAG proxy, no-language-contrast ablation, and standard LoRA remain required",
+            "Clean retention and exact Base passthrough are mandatory",
+            "No deterministic-action KL is allowed",
+            "S2C and all previous methods remain closed"
+        ],
+        "reviewer_attack_completed": true
+    },
+    "epoch_4_cycle_32_lcg_reviewer_attack": {
+        "method": "LCG-VLA",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack": "reports/lcg_vla/reviewer_attack.md",
+        "proposal_hash": "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E",
+        "closest_prior": "Counterfactual Action Guidance",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2602.17659",
+        "accepted_novelty_boundary_required": "A frozen-SmolVLA, Base-preserving, identity-initialized action-cell gate that learns when deployment-observable original-versus-null language contrast permits bounded residual edits, with exact Base passthrough when the contrast is absent or unreliable.",
+        "conditions": [
+            "CAG remains the closest prior and policy 2",
+            "The null-instruction branch is only a transparent local proxy unless official CAG assets are installed and verified",
+            "LCG novelty is narrowed to a frozen-SmolVLA Base-preserving learned language-contrast action-cell gate",
+            "B_t - N_t may gate edits but cannot by itself be treated as the correct residual target",
+            "Counterfactual instruction alternatives must come only from discovery/validation text with zero confirmatory overlap",
+            "Stage 0 must prove contrast, residual, and mask noncollapse",
+            "CAG proxy, no-language-contrast ablation, and standard LoRA remain required",
+            "Clean retention and exact Base passthrough are mandatory",
+            "No deterministic-action KL is allowed",
+            "S2C and all previous methods remain closed"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal must accept or resolve all Reviewer B conditions before mathematical audit."
     }
 }

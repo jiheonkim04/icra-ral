@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
 Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_reviewer_attack_pending`.
+`epoch_4_cycle_32_lcg_rebuttal_pending`.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
@@ -40,6 +40,12 @@ The LCG-VLA Researcher A proposal is frozen in
 decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No LCG implementation,
 training, validation search, rollout, simulator access, or confirmatory-test
 tuning has happened.
+
+Reviewer B attack is complete in `reports/lcg_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
+CAG as closest prior and policy 2, rejects treating `B_t - N_t` as a residual
+target by itself, requires null-branch proxy validation, and requires
+contrast/residual/mask noncollapse before progression.
 
 ## Epoch 4 Cycle 31 Selection
 

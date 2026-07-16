@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_32_lcg_rebuttal_pending`
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
@@ -32,9 +32,13 @@ The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
 `F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E` and
 decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Next action is
-Reviewer B attack before any mathematical audit, preregistration, prototype
-protocol, implementation, validation search, training, rollout, or
-confirmatory-test access.
+Researcher A rebuttal. Reviewer B attack is complete in
+`reports/lcg_vla/reviewer_attack.md` with decision
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; it keeps CAG as policy 2,
+narrows novelty to a frozen-SmolVLA language-contrast action-cell gate, and
+requires contrast/residual/mask noncollapse plus exact Base passthrough before
+any mathematical audit, preregistration, prototype protocol, implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source

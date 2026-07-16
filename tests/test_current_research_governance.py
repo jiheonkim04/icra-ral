@@ -68,8 +68,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_32_lcg_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_32_lcg_rebuttal_pending"
     assert state["method"] == "LCG-VLA"
     assert state["method_identity"] == "LCG-VLA"
     assert state["proposal_hash"] == LCG_PROPOSAL_HASH
@@ -364,6 +364,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_32_lcg_researcher_proposal_pending",
         "epoch_4_cycle_32_lcg_researcher_proposal_frozen",
         "epoch_4_cycle_32_lcg_reviewer_attack_pending",
+        "epoch_4_cycle_32_lcg_reviewer_attack_completed",
+        "epoch_4_cycle_32_lcg_rebuttal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1339,7 +1341,11 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg["proposal_hash_file"] == "reports/lcg_vla/proposal_hash.txt"
     assert lcg["proposal_hash"] == LCG_PROPOSAL_HASH
     assert lcg["proposal_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert lcg["reviewer_attack_pending"] is True
+    assert lcg["reviewer_attack_pending"] is False
+    assert lcg["reviewer_attack_completed"] is True
+    assert lcg["reviewer_attack"] == "reports/lcg_vla/reviewer_attack.md"
+    assert lcg["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert lcg["researcher_rebuttal_pending"] is True
     assert lcg["policy_order"] == [
         "smolvla_base",
         "counterfactual_action_guidance_proxy",
@@ -1354,17 +1360,30 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert lcg["closed_loop_experiment_happened"] is False
     assert lcg["confirmatory_test_tuning_happened"] is False
     lcg_proposal = state["epoch_4_cycle_32_lcg_researcher_proposal"]
-    assert lcg_proposal["final_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert lcg_proposal["final_decision"] == "LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
     assert lcg_proposal["proposal"] == "reports/lcg_vla/researcher_proposal.md"
     assert lcg_proposal["proposal_hash_file"] == "reports/lcg_vla/proposal_hash.txt"
     assert lcg_proposal["proposal_hash"] == LCG_PROPOSAL_HASH
     assert lcg_proposal["closest_prior"] == "Counterfactual Action Guidance"
+    assert lcg_proposal["reviewer_attack"] == "reports/lcg_vla/reviewer_attack.md"
+    assert lcg_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert lcg_proposal["policy_order"] == lcg["policy_order"]
     assert lcg_proposal["training_happened"] is False
     assert lcg_proposal["validation_search_happened"] is False
     assert lcg_proposal["closed_loop_experiment_happened"] is False
     assert lcg_proposal["confirmatory_test_tuning_happened"] is False
-    assert lcg_proposal["reviewer_attack_pending"] is True
+    assert lcg_proposal["reviewer_attack_pending"] is False
+    assert lcg_proposal["reviewer_attack_completed"] is True
+    lcg_review = state["epoch_4_cycle_32_lcg_reviewer_attack"]
+    assert lcg_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert lcg_review["reviewer_attack"] == "reports/lcg_vla/reviewer_attack.md"
+    assert lcg_review["proposal_hash"] == LCG_PROPOSAL_HASH
+    assert lcg_review["closest_prior"] == "Counterfactual Action Guidance"
+    assert len(lcg_review["conditions"]) == 10
+    assert lcg_review["training_happened"] is False
+    assert lcg_review["validation_search_happened"] is False
+    assert lcg_review["closed_loop_experiment_happened"] is False
+    assert lcg_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

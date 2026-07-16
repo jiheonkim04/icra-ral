@@ -5,12 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run Reviewer B attack on the frozen LCG-VLA proposal.
-No LCG mathematical audit, preregistration, prototype protocol, implementation,
-validation search, training, rollout, or confirmatory-test access may happen
-before the attack and rebuttal gates are recorded.
+Immediate next action: write Researcher A rebuttal accepting the LCG Reviewer B
+conditions. No LCG mathematical audit, preregistration, prototype protocol,
+implementation, validation search, training, rollout, or confirmatory-test
+access may happen before the rebuttal gate is recorded.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
@@ -28,6 +28,12 @@ The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
 `F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E` and
 decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Reviewer B attack is complete in `reports/lcg_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The rebuttal
+must accept CAG as policy 2, null-branch proxy limits, the narrowed novelty
+boundary, contrast/residual/mask noncollapse gates, standard LoRA, no
+deterministic-action KL, and closure of S2C plus previous methods.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
