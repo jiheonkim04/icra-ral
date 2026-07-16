@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_29_ccif_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_29_ccif_rebuttal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -586,7 +586,9 @@
         "epoch_4_cycle_29_ccif_candidate_selected",
         "epoch_4_cycle_29_ccif_researcher_proposal_pending",
         "epoch_4_cycle_29_ccif_researcher_proposal_frozen",
-        "epoch_4_cycle_29_ccif_reviewer_attack_pending"
+        "epoch_4_cycle_29_ccif_reviewer_attack_pending",
+        "epoch_4_cycle_29_ccif_reviewer_attack_completed",
+        "epoch_4_cycle_29_ccif_rebuttal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -603,7 +605,7 @@
         "ACoT-VLA"
     ],
     "prototype_gate": "Pending TSC Stage 0 masked action-cell label health, completion headroom, prior-proxy, ablation, identity, gradient, action-validity, and retention audit.",
-    "current_decision": "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -754,7 +756,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation.",
+    "next_action": "Researcher A rebuttal must accept or answer all CCIF Reviewer B conditions before mathematical audit.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A continuous coarse motor-intent field derived from legal LIBERO demonstrations can constrain bounded Base-preserving SmolVLA action residuals toward long-horizon net translation, rotation, gripper endpoint, and low-frequency waypoint structure without privileged inference inputs.",
     "method_identity": "CCIF-VLA",
@@ -2508,7 +2510,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_29_ccif_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_29_ccif_rebuttal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7853,7 +7855,9 @@
         "proposal_decision": "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "next_stage": "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation.",
         "reviewer_attack": "reports/ccif_vla/reviewer_attack.md",
-        "reviewer_decision": "CCIF_REVIEWER_ATTACK_PENDING"
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/ccif_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "CCIF_REBUTTAL_PENDING"
     },
     "epoch_4_cycle_29_ccif_researcher_proposal": {
         "method": "CCIF-VLA",
@@ -7877,7 +7881,40 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "reviewer_attack": "reports/ccif_vla/reviewer_attack.md",
-        "reviewer_decision": "CCIF_REVIEWER_ATTACK_PENDING",
-        "next_stage": "Run Reviewer B attack for CCIF-VLA before mathematical audit, preregistration, or implementation."
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "next_stage": "Researcher A rebuttal must accept or answer all CCIF Reviewer B conditions before mathematical audit.",
+        "researcher_rebuttal": "reports/ccif_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "CCIF_REBUTTAL_PENDING"
+    },
+    "epoch_4_cycle_29_ccif_reviewer_attack": {
+        "method": "CCIF-VLA",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack": "reports/ccif_vla/reviewer_attack.md",
+        "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+        "closest_prior": "Coarse-to-Control",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2606.07107",
+        "independent_closest_current_papers": [
+            "Coarse-to-Control",
+            "CAC-VLA",
+            "CF-VLA",
+            "Libra-VLA"
+        ],
+        "conditions": [
+            "CCIF novelty narrowed to Base-preserving continuous coarse-intent residual constraint",
+            "coarse_to_control_continuous_proxy remains policy 2 unless official Coarse-to-Control assets are installed and verified",
+            "prior proxy must not be a strawman and must use same legal inputs, labels, split, and comparable optimizer budget",
+            "ccif_no_coarse_intent_ablation remains the key ablation",
+            "matched standard_lora remains the mandatory simple reviewer-killer",
+            "Stage 0 includes task/phase mean intent and endpoint-only intent diagnostics",
+            "intent labels, waypoint count, normalization, residual cap, and pass gates frozen before implementation",
+            "offline action L2 alone cannot select a configuration or support a paper claim",
+            "identity-preserving initialization and disk reload reproduce Base within 1e-6",
+            "no privileged inference input, confirmatory-test tuning, task/reset change, or TSC rescue"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal must accept or answer all CCIF Reviewer B conditions before mathematical audit."
     }
 }

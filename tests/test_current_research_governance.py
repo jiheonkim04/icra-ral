@@ -65,8 +65,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_29_ccif_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_29_ccif_rebuttal_pending"
     assert state["method"] == "CCIF-VLA"
     assert state["method_identity"] == "CCIF-VLA"
     assert state["proposal_hash"] == CCIF_PROPOSAL_HASH
@@ -295,6 +295,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_29_ccif_researcher_proposal_pending",
         "epoch_4_cycle_29_ccif_researcher_proposal_frozen",
         "epoch_4_cycle_29_ccif_reviewer_attack_pending",
+        "epoch_4_cycle_29_ccif_reviewer_attack_completed",
+        "epoch_4_cycle_29_ccif_rebuttal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -753,7 +755,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert ccif["proposal_hash_file"] == "reports/ccif_vla/proposal_hash.txt"
     assert ccif["proposal_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert ccif["reviewer_attack"] == "reports/ccif_vla/reviewer_attack.md"
-    assert ccif["reviewer_decision"] == "CCIF_REVIEWER_ATTACK_PENDING"
+    assert ccif["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert ccif["researcher_rebuttal"] == "reports/ccif_vla/researcher_rebuttal.md"
+    assert ccif["rebuttal_decision"] == "CCIF_REBUTTAL_PENDING"
     ccif_proposal = state["epoch_4_cycle_29_ccif_researcher_proposal"]
     assert ccif_proposal["final_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert ccif_proposal["proposal"] == "reports/ccif_vla/researcher_proposal.md"
@@ -763,6 +767,19 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert ccif_proposal["validation_search_happened"] is False
     assert ccif_proposal["closed_loop_experiment_happened"] is False
     assert ccif_proposal["confirmatory_test_tuning_happened"] is False
+    assert ccif_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    ccif_review = state["epoch_4_cycle_29_ccif_reviewer_attack"]
+    assert ccif_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert ccif_review["reviewer_attack"] == "reports/ccif_vla/reviewer_attack.md"
+    assert ccif_review["proposal_hash"] == CCIF_PROPOSAL_HASH
+    assert ccif_review["closest_prior"] == "Coarse-to-Control"
+    assert "CAC-VLA" in ccif_review["independent_closest_current_papers"]
+    assert "ccif_no_coarse_intent_ablation remains the key ablation" in ccif_review["conditions"]
+    assert "matched standard_lora remains the mandatory simple reviewer-killer" in ccif_review["conditions"]
+    assert ccif_review["training_happened"] is False
+    assert ccif_review["validation_search_happened"] is False
+    assert ccif_review["closed_loop_experiment_happened"] is False
+    assert ccif_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

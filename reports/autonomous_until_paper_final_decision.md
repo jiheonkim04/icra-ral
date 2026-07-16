@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -39,12 +39,17 @@ matched standard LoRA.
 
 The CCIF-VLA Researcher A proposal is frozen in
 `reports/ccif_vla/researcher_proposal.md` with SHA-256
-`2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1`. No CCIF
-training, validation search, rollout, simulator access, or confirmatory-test
-tuning has happened.
+`2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1` and
+decision `CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No CCIF training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Reviewer B attack is complete in `reports/ccif_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; Researcher A
+rebuttal is pending.
 
 Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_reviewer_attack_pending`.
+`epoch_4_cycle_29_ccif_rebuttal_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 

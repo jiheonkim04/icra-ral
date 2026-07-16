@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_29_ccif_rebuttal_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -45,8 +45,16 @@ decision `CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No CCIF training,
 validation search, rollout, simulator access, or confirmatory-test tuning has
 happened.
 
-Next action: run Reviewer B attack for CCIF-VLA before mathematical audit,
-preregistration, or implementation.
+Reviewer B attack is complete in `reports/ccif_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It narrows CCIF
+novelty to Base-preserving continuous coarse-intent residual constraint, keeps
+`coarse_to_control_continuous_proxy` as policy 2, requires that proxy not be a
+strawman, keeps `ccif_no_coarse_intent_ablation` and `standard_lora` live,
+requires task/phase mean and endpoint-only intent diagnostics, freezes intent
+construction before implementation, and forbids privileged inference inputs.
+
+Next action: Researcher A rebuttal must accept or answer all CCIF Reviewer B
+conditions before mathematical audit.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
