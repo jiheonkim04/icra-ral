@@ -72,8 +72,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_36_dccg_stage_0_implementation_pending"
+    assert state["current_decision"] == "DCCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_36_dccg_stage_0_launch_pending"
     assert state["method"] == "DCCG-VLA"
     assert state["method_identity"] == "DCCG-VLA"
     assert state["closest_prior"] == "ACG"
@@ -88,7 +88,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "dccg_no_demo_calibration_ablation",
         "action_smoothing_simple_killer",
     ]
-    assert state["next_action"].startswith("Implement and validate the DCCG-VLA Stage 0")
+    assert state["next_action"].startswith("Run DCCG-VLA Stage 0 worker-safety")
     assert state["proposal_hash"] == DCCG_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/dccg_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/dccg_vla/researcher_proposal.md"
@@ -115,10 +115,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["prototype_protocol_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     assert state["prototype_protocol_pending"] is False
     assert state["prototype_protocol_frozen"] is True
-    assert state["stage_0_implementation_pending"] is True
-    assert state["stage_0_implementation_validated"] is False
-    assert state["stage_0_pending"] is False
-    assert state["stage_0_serializer_preflight"] is None
+    assert state["stage_0_implementation_pending"] is False
+    assert state["stage_0_implementation_validated"] is True
+    assert state["stage_0_pending"] is True
+    assert state["stage_0_serializer_preflight"] == "reports/dccg_vla/stage_0_serializer_preflight.json"
     assert state["stage_0_completed"] is False
     assert state["stage_0_adjudicated"] is False
     assert state["stage_0_decision"] is None
@@ -229,7 +229,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection36["preregistration_decision"] == "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert selection36["prototype_protocol"] == "reports/dccg_vla/prototype_protocol.md"
     assert selection36["prototype_protocol_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert selection36["stage_0_implementation_pending"] is True
+    assert selection36["stage_0_implementation_pending"] is False
+    assert selection36["stage_0_implementation_validated"] is True
+    assert selection36["stage_0_pending"] is True
     assert selection36["first_serious_comparison_includes_closest_prior"] is True
     proposal36 = state["epoch_4_cycle_36_dccg_researcher_proposal"]
     assert proposal36["method"] == "DCCG-VLA"
@@ -250,7 +252,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert proposal36["preregistration_decision"] == "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert proposal36["prototype_protocol"] == "reports/dccg_vla/prototype_protocol.md"
     assert proposal36["prototype_protocol_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert proposal36["stage_0_implementation_pending"] is True
+    assert proposal36["stage_0_implementation_pending"] is False
+    assert proposal36["stage_0_implementation_validated"] is True
+    assert proposal36["stage_0_pending"] is True
     assert proposal36["policy_order"] == [
         "smolvla_base",
         "acg_official_proxy",
@@ -276,7 +280,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert review36["preregistration_decision"] == "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert review36["prototype_protocol"] == "reports/dccg_vla/prototype_protocol.md"
     assert review36["prototype_protocol_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert review36["stage_0_implementation_pending"] is True
+    assert review36["stage_0_implementation_pending"] is False
+    assert review36["stage_0_implementation_validated"] is True
+    assert review36["stage_0_pending"] is True
     assert len(review36["required_conditions"]) == 10
     assert review36["policy_order"] == [
         "smolvla_base",
@@ -305,7 +311,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert rebuttal36["preregistration_decision"] == "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert rebuttal36["prototype_protocol"] == "reports/dccg_vla/prototype_protocol.md"
     assert rebuttal36["prototype_protocol_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert rebuttal36["stage_0_implementation_pending"] is True
+    assert rebuttal36["stage_0_implementation_pending"] is False
+    assert rebuttal36["stage_0_implementation_validated"] is True
+    assert rebuttal36["stage_0_pending"] is True
     math36 = state["epoch_4_cycle_36_dccg_mathematical_audit"]
     assert math36["method"] == "DCCG-VLA"
     assert math36["proposal_hash"] == DCCG_PROPOSAL_HASH
@@ -322,7 +330,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert math36["preregistration_decision"] == "DCCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert math36["prototype_protocol"] == "reports/dccg_vla/prototype_protocol.md"
     assert math36["prototype_protocol_decision"] == "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    assert math36["stage_0_implementation_pending"] is True
+    assert math36["stage_0_implementation_pending"] is False
+    assert math36["stage_0_implementation_validated"] is True
+    assert math36["stage_0_pending"] is True
     prereg36 = state["epoch_4_cycle_36_dccg_preregistration"]
     assert prereg36["method"] == "DCCG-VLA"
     assert prereg36["proposal_hash"] == DCCG_PROPOSAL_HASH
@@ -341,7 +351,26 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert protocol36["worker_safety_resume_required"] is True
     assert protocol36["duplicate_key_checks_required"] is True
     assert protocol36["manifest_completeness_required"] is True
-    assert protocol36["stage_0_implementation_pending"] is True
+    assert protocol36["stage_0_implementation_pending"] is False
+    assert protocol36["stage_0_implementation_validated"] is True
+    assert protocol36["stage_0_pending"] is True
+    assert protocol36["serializer_preflight"] == "reports/dccg_vla/stage_0_serializer_preflight.json"
+    impl36 = state["epoch_4_cycle_36_dccg_stage_0_implementation"]
+    assert impl36["final_decision"] == "DCCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert impl36["helper"] == "tca_map/smolvla/dccg_vla.py"
+    assert impl36["runner"] == "scripts/run_dccg_vla_stage0.py"
+    assert impl36["focused_tests"] == "tests/test_dccg_vla.py"
+    assert impl36["serializer_preflight"] == "reports/dccg_vla/stage_0_serializer_preflight.json"
+    assert impl36["serializer_preflight_passed"] is True
+    assert impl36["serializer_preflight_fixture_hash"] == impl36["serializer_preflight_reproduced_hash"]
+    assert impl36["py_compile_passed"] is True
+    assert impl36["focused_dccg_tests_passed"] == 5
+    assert impl36["focused_governance_tests_passed"] == 14
+    assert impl36["campaign_regression_tests_passed"] == 47
+    assert impl36["stage_0_implementation_validated"] is True
+    assert impl36["stage_0_pending"] is True
+    assert impl36["stage_0_launched"] is False
+    assert impl36["no_stage_0_worker_launched_by_implementation_validation"] is True
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080

@@ -1,0 +1,166 @@
+{
+  "created_utc": "2026-07-16T13:56:25.670825+00:00",
+  "fixture": {
+    "action_delta_summary": {
+      "action_deltas_bounded": true,
+      "changed_cell_fraction": 0.30857142857142855,
+      "gripper_delta_max": 0.025,
+      "gripper_delta_p95": 0.013373082765610889,
+      "rotation_delta_max": 0.0,
+      "rotation_delta_p95": 0.0,
+      "translation_delta_max": 0.001999999999983619,
+      "translation_delta_p95": 0.0019999999992582358
+    },
+    "action_dimension": 7,
+    "action_validity_summary": {
+      "action_validity_ok": true,
+      "finite_fraction": 1.0,
+      "normalized_range_max": 0.36337308276561087,
+      "normalized_range_min": -0.018063361122055505,
+      "shape": [
+        1,
+        50,
+        7
+      ]
+    },
+    "coherence_energy": [
+      9068.815310500238
+    ],
+    "coherence_features": [
+      [
+        0.0009305977690719243,
+        2.6699654586494854e-05,
+        1.6356863666343292e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.577834962762679,
+        0.0006037536410054382,
+        22.000008315273362,
+        3.9999933477757788
+      ],
+      [
+        0.001003392004894055,
+        2.5992795941499428e-05,
+        1.6880531448441417e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.574279273001866,
+        0.0008337882081208722,
+        22.000008315273362,
+        3.9999933477757788
+      ],
+      [
+        0.0010773802634542714,
+        2.5930098294151238e-05,
+        1.7016606594505886e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.5706574041996808,
+        0.0009895904339587587,
+        22.000008315273362,
+        3.9999933477757788
+      ],
+      [
+        0.0011523478806328127,
+        2.6588031683901295e-05,
+        1.6374004638494973e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.566979888114773,
+        0.0010219263504686138,
+        22.000008315273362,
+        3.9999933477757788
+      ]
+    ],
+    "config_label": "dccg_frozen_stage0_c0",
+    "decision": "DCCG_STAGE_0_PASS_TO_VALIDATION_SEARCH",
+    "decision_inputs": {
+      "action_semantics_ok": true,
+      "base_acg_headroom": 0.05,
+      "base_chunks_valid": true,
+      "bins_noncollapsed": true,
+      "clean_retention_ok": true,
+      "closed_loop_experiment_happened": false,
+      "confirmatory_records_read": 0,
+      "dccg_differs_from_ablation": true,
+      "dccg_differs_from_acg": true,
+      "dccg_differs_from_base": true,
+      "dccg_differs_from_smoothing": true,
+      "done_read_count": 0,
+      "enough_discovery_windows": true,
+      "enough_validation_windows": true,
+      "exact_base_passthrough_ok": true,
+      "exception_count": 0,
+      "features_noncollapsed": true,
+      "finite_nonzero_gradients": true,
+      "gate_activation_fraction": 0.25,
+      "gripper_event_preservation_ok": true,
+      "manifest_integrity_ok": true,
+      "maximum_validation_task_fraction": 0.25,
+      "normalized_action_validity_ok": true,
+      "official_prior_asset_check_persisted": true,
+      "postprocessed_action_validity_ok": true,
+      "preflight_passed": true,
+      "proposal_hash_ok": true,
+      "reward_read_count": 0,
+      "serializer_preflight_ok": true,
+      "simulator_load_count": 0,
+      "source_alignment_ok": true,
+      "success_read_count": 0,
+      "training_happened": false,
+      "validation_search_happened": false,
+      "validation_task_coverage_ok": true
+    },
+    "feature_count": 10,
+    "global_energy": [
+      9076.331264285649
+    ],
+    "gradient_norm_mean": 4008055.100837805,
+    "horizon": 50,
+    "manifest_row": {
+      "bin_key": "libero_goal|q1|t1|r0|g1|c1",
+      "config_label": "dccg_frozen_stage0_c0",
+      "demo_id": 0,
+      "policy": "smolvla_base",
+      "probe_label": "dccg_stage0_demonstration_calibrated_coherence_guidance",
+      "row_key": "discovery|libero_goal|libero_goal/task_5|0|12|libero_goal|q1|t1|r0|g1|c1|smolvla_base|dccg_frozen_stage0_c0|dccg_stage0_demonstration_calibrated_coherence_guidance",
+      "split": "discovery",
+      "task_id": "libero_goal/task_5",
+      "task_suite": "libero_goal",
+      "window_start": 12
+    },
+    "manifest_summary": {
+      "duplicate_manifest_key_count": 0,
+      "duplicate_partial_key_count": 0,
+      "extra_partial_key_count": 0,
+      "key_sets_equal": true,
+      "manifest_row_count": 2,
+      "missing_manifest_key_count": 0,
+      "partial_row_count": 2,
+      "split_overlap_key_count": 0
+    },
+    "method": "DCCG-VLA",
+    "policy_rows": [
+      "smolvla_base",
+      "acg_official_proxy",
+      "dccg_full",
+      "dccg_no_demo_calibration_ablation",
+      "action_smoothing_simple_killer",
+      "expert_demo_coherence_diagnostic",
+      "synthetic_jitter_diagnostic",
+      "synthetic_pause_diagnostic",
+      "synthetic_gripper_corruption_diagnostic"
+    ],
+    "probe_label": "dccg_stage0_demonstration_calibrated_coherence_guidance",
+    "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E"
+  },
+  "fixture_hash": "CD7CFAF08DE9474AE837CE12645B4230A8574836DA4C30294F915F9C2BF7C8B7",
+  "method": "DCCG-VLA",
+  "parsed": true,
+  "passed": true,
+  "reproduced_hash": "CD7CFAF08DE9474AE837CE12645B4230A8574836DA4C30294F915F9C2BF7C8B7"
+}

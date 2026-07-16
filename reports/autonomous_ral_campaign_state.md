@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`DCCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_36_dccg_stage_0_launch_pending`
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
@@ -68,9 +68,18 @@ executable prototype protocol is frozen in
 `reports/dccg_vla/prototype_protocol.md` with decision
 `DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
 
-Immediate next action: implement and validate the DCCG-VLA Stage 0 helper,
-runner, serializer preflight, and focused tests before any Stage 0 launch,
-validation search, rollout, or confirmatory-test access.
+DCCG Stage 0 implementation validation is complete. The helper
+`tca_map/smolvla/dccg_vla.py`, runner `scripts/run_dccg_vla_stage0.py`,
+focused tests `tests/test_dccg_vla.py`, and
+`reports/dccg_vla/stage_0_serializer_preflight.json` are validated. Focused
+DCCG tests passed (`5 passed`), focused governance tests passed (`14 passed`),
+and the campaign regression suite passed (`47 passed`). No DCCG Stage 0 worker,
+training, validation search, rollout, simulator load, reward/success/done read,
+or confirmatory-test access occurred during implementation validation.
+
+Immediate next action: run DCCG-VLA Stage 0 worker-safety, duplicate-key,
+manifest, and preflight checks; then launch the frozen Stage 0 only if no
+existing DCCG worker, final result, or valid resumable partial already exists.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 
