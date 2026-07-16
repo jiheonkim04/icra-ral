@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_34_brid_preregistration_pending`
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -50,7 +50,11 @@ Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
 with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
 Reviewer B conditions.
 
-Next action is the BRID mathematical mechanism audit.
+The BRID mathematical mechanism audit is frozen in
+`reports/brid_vla/mathematical_mechanism_audit.md` with decision
+`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Next action is BRID preregistration.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three

@@ -5,10 +5,9 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: freeze the BRID mathematical mechanism audit before
-preregistration.
+Immediate next action: freeze BRID preregistration before implementation.
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -41,6 +40,10 @@ retention, and no deterministic-action KL.
 Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
 with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B
 conditions are accepted.
+
+The BRID mathematical mechanism audit is frozen in
+`reports/brid_vla/mathematical_mechanism_audit.md` with decision
+`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
 Cycle 33 generated exactly three candidates in
 `reports/epoch_4_cycle_33_candidate_generation.md` after the primary-source

@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -34,7 +34,7 @@ The first serious comparison is `smolvla_base`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
 Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_mathematical_audit_pending`.
+`epoch_4_cycle_34_brid_preregistration_pending`.
 
 The BRID-VLA Researcher A proposal is frozen in
 `reports/brid_vla/researcher_proposal.md` with SHA-256
@@ -56,8 +56,14 @@ Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
 with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepts
 all Reviewer B conditions.
 
-Immediate next action: freeze the BRID mathematical mechanism audit before
-preregistration.
+The BRID mathematical mechanism audit is frozen in
+`reports/brid_vla/mathematical_mechanism_audit.md` with decision
+`BRID_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes residual diffusion
+variables and shapes, objective terms, gradient paths, zero-residual identity,
+residual caps, required comparisons, Stage 0 stop classes, bounded validation
+budget, and no deterministic-action KL.
+
+Immediate next action: freeze BRID preregistration before implementation.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 
