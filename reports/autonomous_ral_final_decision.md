@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -32,8 +32,10 @@ infrastructure. The scientific mechanism is critical-step selective action
 refinement with exact Base passthrough outside predicted high-criticality
 action cells.
 
-The next action is to freeze the CSPR-VLA Researcher A proposal before any
-Reviewer B attack, mathematical audit, preregistration, implementation,
+The CSPR-VLA Researcher A proposal is frozen in
+`reports/cspr_vla/researcher_proposal.md` with SHA-256
+`CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7` and decision `CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. The next action is Reviewer B
+attack before rebuttal, mathematical audit, preregistration, implementation,
 validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection

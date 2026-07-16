@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_37_cspr_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -47,9 +47,13 @@ cached SmolVLA Base rows across `libero_10/task_5`, `libero_goal/task_5`,
 DCCG remains closed as `DCCG_STAGE_0_DATA_FAILURE`; its identities, cache
 source, thresholds, and interpretation are not changed.
 
-No CSPR proposal, implementation, training, validation search, rollout,
-simulator access, or confirmatory-test tuning has happened. Immediate next
-action: freeze the CSPR-VLA Researcher A proposal before Reviewer B attack.
+The CSPR-VLA Researcher A proposal is frozen in
+`reports/cspr_vla/researcher_proposal.md` with SHA-256
+`CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7` and decision `CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No CSPR implementation,
+training, validation search, rollout, simulator access, or confirmatory-test
+tuning has happened. Immediate next action: write the CSPR-VLA Reviewer B
+attack before rebuttal, mathematical audit, preregistration, implementation,
+validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

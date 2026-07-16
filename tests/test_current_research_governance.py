@@ -33,6 +33,7 @@ AFID_PROPOSAL_HASH = "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB15
 BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2"
 MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3"
 DCCG_PROPOSAL_HASH = "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E"
+CSPR_PROPOSAL_HASH = "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -72,14 +73,14 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_researcher_proposal_pending"
+    assert state["current_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_reviewer_attack_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_37_prior_mechanism_map.md"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_37_candidate_generation.md"
-    assert state["selection_decision"] == "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["selection_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["selected_score"] == 90
     assert state["policy_order"] == [
         "smolvla_base",
@@ -88,14 +89,14 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "cspr_uniform_refinement_ablation",
         "critical_step_threshold_simple_killer",
     ]
-    assert state["next_action"].startswith("Freeze the CSPR-VLA Researcher A proposal")
-    assert state["proposal_hash"] is None
+    assert state["next_action"].startswith("Write the CSPR-VLA Reviewer B attack")
+    assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
-    assert state["researcher_proposal_pending"] is True
-    assert state["researcher_proposal_frozen"] is False
+    assert state["researcher_proposal_pending"] is False
+    assert state["researcher_proposal_frozen"] is True
     assert state["reviewer_attack"] == "reports/cspr_vla/reviewer_attack.md"
-    assert state["reviewer_attack_pending"] is False
+    assert state["reviewer_attack_pending"] is True
     assert state["reviewer_attack_completed"] is False
     assert state["reviewer_decision"] is None
     assert state["researcher_rebuttal"] == "reports/cspr_vla/researcher_rebuttal.md"
@@ -409,7 +410,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cycle37["candidate_ids"] == ["CSPR-VLA", "PGF-VLA", "POTR-VLA"]
     assert cycle37["selected_method"] == "CSPR-VLA"
     assert cycle37["selected_score"] == 90
-    assert cycle37["selection_decision"] == "CSPR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert cycle37["selection_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert cycle37["closest_prior"] == "DySL-VLA"
     assert cycle37["available_cached_smolvla_base_rows"] == 640
     assert cycle37["cache_covered_tasks"] == [
@@ -434,10 +435,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection37["closest_prior"] == "DySL-VLA"
     assert selection37["candidate_count"] == 3
     assert selection37["selected_score"] == 90
-    assert selection37["researcher_proposal_pending"] is True
-    assert selection37["researcher_proposal_frozen"] is False
-    assert selection37["proposal_hash"] is None
+    assert selection37["researcher_proposal_pending"] is False
+    assert selection37["researcher_proposal_frozen"] is True
+    assert selection37["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert selection37["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
+    assert selection37["reviewer_attack_pending"] is True
+    assert selection37["reviewer_attack_completed"] is False
     assert selection37["closest_prior_enters_first_serious_comparison"] is True
     assert selection37["standard_lora_as_scientific_mechanism_allowed"] is False
     assert selection37["privileged_inference_inputs_allowed"] is False
@@ -445,6 +448,19 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert selection37["validation_search_happened"] is False
     assert selection37["closed_loop_experiment_happened"] is False
     assert selection37["confirmatory_test_tuning_happened"] is False
+    proposal37 = state["epoch_4_cycle_37_cspr_researcher_proposal"]
+    assert proposal37["method"] == "CSPR-VLA"
+    assert proposal37["final_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert proposal37["proposal_hash"] == CSPR_PROPOSAL_HASH
+    assert proposal37["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
+    assert proposal37["researcher_proposal_frozen"] is True
+    assert proposal37["reviewer_attack_pending"] is True
+    assert proposal37["reviewer_attack_completed"] is False
+    assert proposal37["first_serious_comparison_includes_closest_prior"] is True
+    assert proposal37["training_happened"] is False
+    assert proposal37["validation_search_happened"] is False
+    assert proposal37["closed_loop_experiment_happened"] is False
+    assert proposal37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -492,7 +508,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_37_prior_mechanism_map_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_candidate_selected" in state["completed_stages"]
-    assert "epoch_4_cycle_37_cspr_researcher_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_reviewer_attack_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
