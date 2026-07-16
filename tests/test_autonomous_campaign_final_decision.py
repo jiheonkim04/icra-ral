@@ -30,10 +30,12 @@ S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
+    assert "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED" in final
     assert "S2C-VLA" in final
     assert "ChunkFlow" in final
-    assert "epoch_4_cycle_31_s2c_reviewer_attack_pending" in final
+    assert "reports/s2c_vla/reviewer_attack.md" in final
+    assert "epoch_4_cycle_31_s2c_rebuttal_pending" in final
     assert S2C_PROPOSAL_HASH in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -324,10 +326,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 31
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_rebuttal_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -1054,17 +1056,32 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c["proposal_hash_file"] == "reports/s2c_vla/proposal_hash.txt"
-    assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_REBUTTAL_PENDING"
+    assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
+    assert s2c["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
+    assert s2c["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert "already decoded SmolVLA chunks" in s2c["accepted_novelty_boundary_required"]
     s2c_proposal = state["epoch_4_cycle_31_s2c_researcher_proposal"]
-    assert s2c_proposal["final_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert s2c_proposal["final_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
     assert s2c_proposal["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c_proposal["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c_proposal["closest_prior"] == "ChunkFlow"
+    assert s2c_proposal["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
+    assert s2c_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert s2c_proposal["standard_lora_required"] is True
     assert s2c_proposal["training_happened"] is False
     assert s2c_proposal["validation_search_happened"] is False
     assert s2c_proposal["closed_loop_experiment_happened"] is False
     assert s2c_proposal["confirmatory_test_tuning_happened"] is False
+    s2c_review = state["epoch_4_cycle_31_s2c_reviewer_attack"]
+    assert s2c_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert s2c_review["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert s2c_review["closest_prior"] == "ChunkFlow"
+    assert "ChunkFlow remains the closest prior and policy 2" in s2c_review["conditions"]
+    assert s2c_review["training_happened"] is False
+    assert s2c_review["validation_search_happened"] is False
+    assert s2c_review["closed_loop_experiment_happened"] is False
+    assert s2c_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

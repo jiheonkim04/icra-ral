@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -41,12 +41,18 @@ standard LoRA.
 The S2C-VLA Researcher A proposal is frozen in
 `reports/s2c_vla/researcher_proposal.md` with SHA-256
 `399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3` and
-decision `S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No S2C training,
-validation search, rollout, simulator access, or confirmatory-test tuning has
-happened.
+decision `S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED`.
+
+Reviewer B attack is complete in `reports/s2c_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It accepts S2C
+only as a frozen-SmolVLA, Base-preserving learned overlap edit layer; keeps
+ChunkFlow as policy 2; keeps SEAM as a secondary prior; requires previous-tail
+inference to use only executed or committed Base/S2C tail; and preserves
+standard LoRA as the simple control. No S2C training, validation search,
+rollout, simulator access, or confirmatory-test tuning has happened.
 
 Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_reviewer_attack_pending`.
+`epoch_4_cycle_31_s2c_rebuttal_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 

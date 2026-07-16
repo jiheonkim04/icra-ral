@@ -67,8 +67,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_rebuttal_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -341,6 +341,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_31_s2c_researcher_proposal_pending",
         "epoch_4_cycle_31_s2c_researcher_proposal_frozen",
         "epoch_4_cycle_31_s2c_reviewer_attack_pending",
+        "epoch_4_cycle_31_s2c_reviewer_attack_completed",
+        "epoch_4_cycle_31_s2c_rebuttal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1133,17 +1135,32 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert s2c["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c["proposal_hash_file"] == "reports/s2c_vla/proposal_hash.txt"
-    assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_REBUTTAL_PENDING"
+    assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
+    assert s2c["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
+    assert s2c["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert "already decoded SmolVLA chunks" in s2c["accepted_novelty_boundary_required"]
     s2c_proposal = state["epoch_4_cycle_31_s2c_researcher_proposal"]
-    assert s2c_proposal["final_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert s2c_proposal["final_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
     assert s2c_proposal["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c_proposal["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c_proposal["closest_prior"] == "ChunkFlow"
+    assert s2c_proposal["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
+    assert s2c_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert s2c_proposal["standard_lora_required"] is True
     assert s2c_proposal["training_happened"] is False
     assert s2c_proposal["validation_search_happened"] is False
     assert s2c_proposal["closed_loop_experiment_happened"] is False
     assert s2c_proposal["confirmatory_test_tuning_happened"] is False
+    s2c_review = state["epoch_4_cycle_31_s2c_reviewer_attack"]
+    assert s2c_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert s2c_review["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert s2c_review["closest_prior"] == "ChunkFlow"
+    assert "ChunkFlow remains the closest prior and policy 2" in s2c_review["conditions"]
+    assert s2c_review["training_happened"] is False
+    assert s2c_review["validation_search_happened"] is False
+    assert s2c_review["closed_loop_experiment_happened"] is False
+    assert s2c_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

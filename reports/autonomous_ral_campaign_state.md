@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_31_s2c_rebuttal_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -42,11 +42,17 @@ The first serious comparison is frozen at the design level to `smolvla_base`,
 The S2C-VLA Researcher A proposal is frozen in
 `reports/s2c_vla/researcher_proposal.md` with SHA-256
 `399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3` and
-decision `S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No S2C training,
+decision `S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED`.
+
+Reviewer B attack is complete in `reports/s2c_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It narrows S2C
+to a frozen-SmolVLA Base-preserving learned overlap edit layer, keeps ChunkFlow
+as policy 2, keeps SEAM secondary, forbids expert future-tail inference, and
+requires gripper/event protection plus standard LoRA control. No S2C training,
 validation search, rollout, simulator access, or confirmatory-test tuning has
 happened.
 
-Current next action: run Reviewer B attack before rebuttal, mathematical audit,
+Current next action: freeze Researcher A rebuttal before mathematical audit,
 preregistration, prototype protocol, implementation, validation search,
 training, or rollout.
 

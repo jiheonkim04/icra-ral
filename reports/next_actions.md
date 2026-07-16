@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run Reviewer B attack on S2C-VLA before rebuttal,
-mathematical audit, preregistration, prototype protocol, implementation,
-validation search, training, or rollout.
+Immediate next action: freeze Researcher A rebuttal to the S2C-VLA Reviewer B
+conditions before mathematical audit, preregistration, prototype protocol,
+implementation, validation search, training, or rollout.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -25,6 +25,13 @@ with SHA-256
 `399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3`. No S2C
 training, validation search, rollout, simulator access, or confirmatory-test
 tuning has happened.
+
+Reviewer B attack is complete in `reports/s2c_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The rebuttal
+must accept the narrowed frozen-SmolVLA edit-layer novelty boundary, ChunkFlow
+as policy 2, SEAM as secondary prior, no expert future-tail inference, gripper
+and legitimate-discontinuity protection, standard LoRA control, no
+deterministic-action KL, and no rescue of URF or previous closed methods.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at
