@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`
+`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
-Immediate next action: freeze S2C-VLA preregistration before prototype
-protocol, implementation, validation search, training, or rollout.
+Immediate next action: freeze S2C-VLA prototype protocol before
+implementation, validation search, training, or rollout.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -43,6 +43,11 @@ The mathematical mechanism audit is frozen in
 `S2C_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes `H=50`, stride `10`, overlap
 `K=10`, deterministic bridge target, learned effective edit mask, group caps,
 objective coefficients, Stage 0 gates, and no deterministic-action KL.
+
+Preregistration is frozen in `reports/s2c_vla/preregistration.md` with
+decision `S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+development tasks, discovery/validation demo IDs, Stage 0 artifacts and gates,
+bounded validation search limits, and worker resume keys.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at

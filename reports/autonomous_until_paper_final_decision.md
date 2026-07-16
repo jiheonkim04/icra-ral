@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`
+`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal decision.
 
@@ -65,8 +65,13 @@ overlap `K=10`, the deterministic tail-anchored bridge target, the learned
 effective edit mask, action-group caps, objective coefficients, no
 deterministic-action KL, and Stage 0 pass/stop gates.
 
+Preregistration is frozen in `reports/s2c_vla/preregistration.md` with
+decision `S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+development partitions, Stage 0 artifacts, pass/stop gates, bounded validation
+budget, worker resume keys, and the five-policy prior-first comparison.
+
 Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_preregistration_pending`.
+`epoch_4_cycle_31_s2c_prototype_protocol_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 

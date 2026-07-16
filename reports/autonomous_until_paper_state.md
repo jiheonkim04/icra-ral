@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`
+`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_preregistration_pending`
+Current stage: `epoch_4_cycle_31_s2c_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -64,8 +64,13 @@ The mathematical mechanism audit is frozen in
 overlap `K=10`, objective coefficients, Stage 0 gates, and forbids
 deterministic-action KL.
 
-Current next action: freeze preregistration before prototype protocol,
-implementation, validation search, training, or rollout.
+Preregistration is frozen in `reports/s2c_vla/preregistration.md` with
+decision `S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+development tasks, discovery/validation demo IDs, Stage 0 artifacts and gates,
+bounded validation search limits, and worker resume keys.
+
+Current next action: freeze prototype protocol before implementation,
+validation search, training, or rollout.
 
 ## Epoch 4 Cycle 30 URF-VLA
 
