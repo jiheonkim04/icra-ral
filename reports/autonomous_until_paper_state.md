@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_rebuttal_pending`
+Current stage: `epoch_4_cycle_31_s2c_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -52,7 +52,13 @@ requires gripper/event protection plus standard LoRA control. No S2C training,
 validation search, rollout, simulator access, or confirmatory-test tuning has
 happened.
 
-Current next action: freeze Researcher A rebuttal before mathematical audit,
+Researcher A rebuttal is complete in
+`reports/s2c_vla/researcher_rebuttal.md` with decision
+`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all Reviewer B
+conditions, defines the deployment previous-tail rule, and keeps URF plus all
+previous closed methods closed.
+
+Current next action: freeze mathematical mechanism audit before
 preregistration, prototype protocol, implementation, validation search,
 training, or rollout.
 

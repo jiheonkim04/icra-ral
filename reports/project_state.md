@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_rebuttal_pending`
+Current stage: `epoch_4_cycle_31_s2c_mathematical_audit_pending`
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source
@@ -37,9 +37,11 @@ attack is complete in `reports/s2c_vla/reviewer_attack.md` with decision
 policy 2, narrows novelty to a frozen-SmolVLA Base-preserving learned overlap
 edit layer, forbids expert future-tail inference, and requires standard LoRA.
 No S2C training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened. Next action is Researcher A rebuttal
-before mathematical audit, preregistration, prototype protocol, implementation,
-validation search, training, or rollout.
+confirmatory-test tuning has happened. Researcher A rebuttal is complete in
+`reports/s2c_vla/researcher_rebuttal.md` with decision
+`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Next action is mathematical audit
+before preregistration, prototype protocol, implementation, validation search,
+training, or rollout.
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source

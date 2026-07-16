@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal decision.
 
@@ -51,8 +51,15 @@ inference to use only executed or committed Base/S2C tail; and preserves
 standard LoRA as the simple control. No S2C training, validation search,
 rollout, simulator access, or confirmatory-test tuning has happened.
 
+Researcher A rebuttal is complete in
+`reports/s2c_vla/researcher_rebuttal.md` with decision
+`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all Reviewer B
+conditions, defines deployment previous-tail construction, preserves ChunkFlow
+as the closest prior, and sends S2C to mathematical audit before any
+implementation or validation search.
+
 Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_rebuttal_pending`.
+`epoch_4_cycle_31_s2c_mathematical_audit_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 
