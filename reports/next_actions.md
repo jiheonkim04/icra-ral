@@ -5,12 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run the independent Reviewer B attack on the frozen
-DCCG-VLA proposal before any rebuttal, mathematical audit, preregistration,
-prototype protocol, implementation, validation search, rollout, or
-confirmatory-test access.
+Immediate next action: write the DCCG-VLA Researcher A rebuttal accepting or
+resolving every Reviewer B condition before any mathematical audit,
+preregistration, prototype protocol, implementation, validation search,
+rollout, or confirmatory-test access.
 
 DCCG-VLA was selected from exactly three Cycle 36 candidates in
 `reports/epoch_4_cycle_36_candidate_generation.md`. ACG is the closest prior
@@ -19,6 +19,9 @@ and must enter the first serious comparison as `acg_official_proxy`.
 The DCCG-VLA Researcher A proposal is frozen in
 `reports/dccg_vla/researcher_proposal.md` with SHA-256
 `AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`.
+
+Reviewer B attack is complete in `reports/dccg_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
 
 MHS-VLA remains closed under its frozen Stage 0 protocol as a
 development-only DATA_OR_SUPERVISION_FAILURE. Do not rescue MHS by changing

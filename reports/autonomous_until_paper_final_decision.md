@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -22,12 +22,13 @@ Cycle 36 completed `reports/epoch_4_cycle_36_prior_mechanism_map.md`,
 generated exactly three candidates in
 `reports/epoch_4_cycle_36_candidate_generation.md`, and selected `DCCG-VLA`
 with score `92 / 100`. The closest prior is ACG, which enters the first
-serious comparison as `acg_official_proxy`. The next action is to freeze the
-DCCG-VLA Researcher A proposal and proposal hash before any implementation,
-validation search, rollout, or confirmatory access. The proposal is now frozen
-in `reports/dccg_vla/researcher_proposal.md` with SHA-256
-`AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`;
-the next action is Reviewer B attack.
+serious comparison as `acg_official_proxy`. The DCCG-VLA Researcher A proposal
+is frozen in `reports/dccg_vla/researcher_proposal.md` with SHA-256
+`AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`.
+Reviewer B attack is complete in `reports/dccg_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; the next action
+is Researcher A rebuttal before any mathematical audit, implementation,
+validation search, rollout, or confirmatory access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_36_dccg_rebuttal_pending`
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
@@ -43,9 +43,18 @@ The DCCG-VLA Researcher A proposal is frozen in
 `AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`
 and decision `DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
-Immediate next action: run the independent Reviewer B attack before any
-rebuttal, mathematical audit, preregistration, prototype protocol,
-implementation, validation search, rollout, or confirmatory-test access.
+Reviewer B attack is complete in `reports/dccg_vla/reviewer_attack.md`
+with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It
+requires Researcher A to accept ACG as policy 2, action smoothing as policy 5,
+no privileged demonstration time index at inference, differentiable or
+subgradient-safe coherence guidance, gripper-event preservation, normalized and
+postprocessed action validity checks, valid no-headroom/prior/simple-killer
+stops, transparent ACG provenance, no deterministic-action KL, no
+confirmatory-test tuning, and no rescue of closed methods.
+
+Immediate next action: write the DCCG-VLA Researcher A rebuttal before any
+mathematical audit, preregistration, prototype protocol, implementation,
+validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 
