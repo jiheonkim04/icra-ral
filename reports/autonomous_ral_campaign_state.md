@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_31_s2c_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -39,9 +39,16 @@ The first serious comparison is frozen at the design level to `smolvla_base`,
 `chunkflow_overlap_proxy` or official ChunkFlow if installed, `s2c_full`,
 `s2c_no_learned_overlap_mask_ablation`, and `standard_lora`.
 
-Current next action: freeze the S2C-VLA Researcher A proposal before Reviewer B
-attack, mathematical audit, preregistration, prototype protocol,
-implementation, validation search, training, or rollout.
+The S2C-VLA Researcher A proposal is frozen in
+`reports/s2c_vla/researcher_proposal.md` with SHA-256
+`399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3` and
+decision `S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No S2C training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Current next action: run Reviewer B attack before rebuttal, mathematical audit,
+preregistration, prototype protocol, implementation, validation search,
+training, or rollout.
 
 ## Epoch 4 Cycle 30 URF-VLA
 

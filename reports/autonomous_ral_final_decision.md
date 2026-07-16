@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -31,11 +31,15 @@ The first serious comparison is Base, `chunkflow_overlap_proxy` or official
 ChunkFlow if installed, S2C full, no-learned-overlap-mask ablation, and matched
 standard LoRA.
 
-No S2C proposal, training, validation search, rollout, simulator access, or
-confirmatory-test tuning has happened.
+The S2C-VLA Researcher A proposal is frozen in
+`reports/s2c_vla/researcher_proposal.md` with SHA-256
+`399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3` and
+decision `S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No S2C training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
 
 Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_researcher_proposal_pending`.
+`epoch_4_cycle_31_s2c_reviewer_attack_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 

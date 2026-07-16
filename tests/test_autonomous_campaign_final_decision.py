@@ -24,15 +24,17 @@ CFR_PROPOSAL_HASH = "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF
 TSC_PROPOSAL_HASH = "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941"
 CCIF_PROPOSAL_HASH = "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1"
 URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532"
+S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "S2C-VLA" in final
     assert "ChunkFlow" in final
-    assert "epoch_4_cycle_31_s2c_researcher_proposal_pending" in final
+    assert "epoch_4_cycle_31_s2c_reviewer_attack_pending" in final
+    assert S2C_PROPOSAL_HASH in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
@@ -322,13 +324,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 31
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_reviewer_attack_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
-    assert state["proposal_hash"] is None
+    assert state["proposal_hash"] == S2C_PROPOSAL_HASH
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -1049,6 +1051,20 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c["closed_loop_experiment_happened"] is False
     assert s2c["confirmatory_test_tuning_happened"] is False
     assert s2c["first_serious_comparison_includes_closest_prior"] is True
+    assert s2c["proposal"] == "reports/s2c_vla/researcher_proposal.md"
+    assert s2c["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert s2c["proposal_hash_file"] == "reports/s2c_vla/proposal_hash.txt"
+    assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    s2c_proposal = state["epoch_4_cycle_31_s2c_researcher_proposal"]
+    assert s2c_proposal["final_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert s2c_proposal["proposal"] == "reports/s2c_vla/researcher_proposal.md"
+    assert s2c_proposal["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert s2c_proposal["closest_prior"] == "ChunkFlow"
+    assert s2c_proposal["standard_lora_required"] is True
+    assert s2c_proposal["training_happened"] is False
+    assert s2c_proposal["validation_search_happened"] is False
+    assert s2c_proposal["closed_loop_experiment_happened"] is False
+    assert s2c_proposal["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
-Immediate next action: freeze the S2C-VLA Researcher A proposal before Reviewer
-B attack, mathematical audit, preregistration, prototype protocol,
-implementation, validation search, training, or rollout.
+Immediate next action: run Reviewer B attack on S2C-VLA before rebuttal,
+mathematical audit, preregistration, prototype protocol, implementation,
+validation search, training, or rollout.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -19,7 +19,10 @@ Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
 
 The frozen design-level first comparison is Base, `chunkflow_overlap_proxy` or
 official ChunkFlow if installed, `s2c_full`,
-`s2c_no_learned_overlap_mask_ablation`, and `standard_lora`. No S2C proposal,
+`s2c_no_learned_overlap_mask_ablation`, and `standard_lora`. The S2C-VLA
+Researcher A proposal is frozen in `reports/s2c_vla/researcher_proposal.md`
+with SHA-256
+`399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3`. No S2C
 training, validation search, rollout, simulator access, or confirmatory-test
 tuning has happened.
 
