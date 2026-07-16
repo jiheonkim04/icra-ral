@@ -31,6 +31,7 @@ S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486
 LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E"
 AFID_PROPOSAL_HASH = "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC"
 BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2"
+MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3"
 
 
 def test_current_research_governance_validator_passes() -> None:
@@ -70,8 +71,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_35_mhs_researcher_proposal_pending"
+    assert state["current_decision"] == "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_35_mhs_reviewer_attack_pending"
     assert state["method"] == "MHS-VLA"
     assert state["method_identity"] == "MHS-VLA"
     assert state["closest_prior"] == "MTIL"
@@ -86,7 +87,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "mhs_no_history_state_ablation",
         "standard_lora",
     ]
-    assert state["next_action"].startswith("Freeze the MHS-VLA Researcher A proposal")
+    assert state["next_action"].startswith("Run Reviewer B attack on MHS-VLA")
+    assert state["proposal_hash"] == MHS_PROPOSAL_HASH
+    assert state["proposal_hash_file"] == "reports/mhs_vla/proposal_hash.txt"
+    assert state["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
     assert state["stage_0_implementation_pending"] is False
     assert state["stage_0_implementation_validated"] is False
     assert state["stage_0_completed"] is False
@@ -100,8 +104,13 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     mhs = state["epoch_4_cycle_35_candidate_selection"]
     assert mhs["method"] == "MHS-VLA"
     assert mhs["closest_prior"] == "MTIL"
+    assert mhs["final_decision"] == "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert mhs["proposal_hash"] == MHS_PROPOSAL_HASH
+    assert mhs["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
     assert mhs["first_serious_comparison_includes_closest_prior"] is True
-    assert mhs["researcher_proposal_pending"] is True
+    assert mhs["researcher_proposal_pending"] is False
+    assert mhs["researcher_proposal_frozen"] is True
+    assert mhs["reviewer_attack_pending"] is True
     assert mhs["training_happened"] is False
     assert mhs["validation_search_happened"] is False
     assert mhs["closed_loop_experiment_happened"] is False
@@ -117,6 +126,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_35_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_candidate_selected" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_researcher_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_researcher_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_reviewer_attack_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

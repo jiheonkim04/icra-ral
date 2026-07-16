@@ -5,12 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
-Immediate next action: freeze the MHS-VLA Researcher A proposal before Reviewer
-B attack, mathematical audit, preregistration, prototype protocol,
-implementation, validation search, training, rollout, or confirmatory-test
-access.
+Immediate next action: run Reviewer B attack on MHS-VLA before rebuttal,
+mathematical audit, preregistration, prototype protocol, implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -25,6 +24,11 @@ candidates in `reports/epoch_4_cycle_35_candidate_generation.md`.
 
 LoRA may only parameterize the history encoder or residual head; it is not the
 scientific mechanism.
+
+The MHS-VLA Researcher A proposal is frozen in
+`reports/mhs_vla/researcher_proposal.md` with SHA-256
+`BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3` and
+decision `MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 

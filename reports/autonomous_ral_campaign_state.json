@@ -25,8 +25,8 @@
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "7348dd9",
-    "current_stage": "epoch_4_cycle_35_mhs_researcher_proposal_pending",
+    "current_commit": "9600e50",
+    "current_stage": "epoch_4_cycle_35_mhs_reviewer_attack_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -714,7 +714,9 @@
         "epoch_4_cycle_35_prior_mechanism_map_completed",
         "epoch_4_cycle_35_candidate_generation_completed",
         "epoch_4_cycle_35_mhs_candidate_selected",
-        "epoch_4_cycle_35_mhs_researcher_proposal_pending"
+        "epoch_4_cycle_35_mhs_researcher_proposal_pending",
+        "epoch_4_cycle_35_mhs_researcher_proposal_frozen",
+        "epoch_4_cycle_35_mhs_reviewer_attack_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -727,7 +729,7 @@
         "Diffusion Policy"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "current_decision": "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -878,7 +880,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze the MHS-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
+    "next_action": "Run Reviewer B attack on MHS-VLA before rebuttal, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A Base-conditioned residual diffusion score field can learn bounded useful corrections around frozen SmolVLA action chunks while preserving exact Base behavior by default.",
     "method_identity": "MHS-VLA",
@@ -2630,7 +2632,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_35_mhs_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_35_mhs_reviewer_attack_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -11014,7 +11016,7 @@
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
         "selection_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
-        "final_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "final_decision": "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "selected_score": 95,
         "candidate_count": 3,
         "candidate_generation": "reports/epoch_4_cycle_35_candidate_generation.md",
@@ -11041,9 +11043,9 @@
         "first_serious_comparison_includes_closest_prior": true,
         "standard_lora_required": true,
         "bounded_validation_search_max_configs": 6,
-        "researcher_proposal_pending": true,
-        "researcher_proposal_frozen": false,
-        "reviewer_attack_pending": false,
+        "researcher_proposal_pending": false,
+        "researcher_proposal_frozen": true,
+        "reviewer_attack_pending": true,
         "mathematical_audit_pending": false,
         "preregistration_pending": false,
         "prototype_protocol_pending": false,
@@ -11053,6 +11055,55 @@
         "confirmatory_test_tuning_happened": false,
         "brid_repair_allowed": false,
         "brid_rescue_allowed": false,
-        "next_stage": "Freeze the MHS-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
+        "next_stage": "Run Reviewer B attack on MHS-VLA before rebuttal, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
+        "proposal": "reports/mhs_vla/researcher_proposal.md",
+        "researcher_proposal": "reports/mhs_vla/researcher_proposal.md",
+        "proposal_hash": "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3",
+        "proposal_hash_file": "reports/mhs_vla/proposal_hash.txt",
+        "proposal_decision": "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    },
+    "proposal_hash": "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3",
+    "proposal_hash_file": "reports/mhs_vla/proposal_hash.txt",
+    "researcher_proposal": "reports/mhs_vla/researcher_proposal.md",
+    "proposal_decision": "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "researcher_proposal_pending": false,
+    "researcher_proposal_frozen": true,
+    "reviewer_attack_pending": true,
+    "epoch_4_cycle_35_mhs_researcher_proposal": {
+        "method": "MHS-VLA",
+        "full_name": "Mamba History State for Base-preserving SmolVLA",
+        "final_decision": "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "proposal": "reports/mhs_vla/researcher_proposal.md",
+        "researcher_proposal": "reports/mhs_vla/researcher_proposal.md",
+        "proposal_hash": "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3",
+        "proposal_hash_file": "reports/mhs_vla/proposal_hash.txt",
+        "candidate_generation": "reports/epoch_4_cycle_35_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_35_prior_mechanism_map.md",
+        "closest_prior": "MTIL",
+        "closest_prior_primary_sources": [
+            "https://arxiv.org/abs/2505.12410",
+            "https://arxiv.org/html/2505.12410v3",
+            "https://github.com/yulinzhouZYL/MTIL"
+        ],
+        "selection_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "proposal_decision": "MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "reviewer_attack_pending": true,
+        "researcher_rebuttal_pending": false,
+        "mathematical_audit_pending": false,
+        "preregistration_pending": false,
+        "prototype_protocol_pending": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "first_serious_comparison_includes_closest_prior": true,
+        "policy_order": [
+            "smolvla_base",
+            "mtil_history_state_proxy",
+            "mhs_full",
+            "mhs_no_history_state_ablation",
+            "standard_lora"
+        ],
+        "next_stage": "Run Reviewer B attack on MHS-VLA before rebuttal, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
     }
 }

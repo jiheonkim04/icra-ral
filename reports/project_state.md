@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_35_mhs_reviewer_attack_pending`
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -31,10 +31,14 @@ The first serious comparison is `smolvla_base`,
 `mtil_history_state_proxy`, `mhs_full`,
 `mhs_no_history_state_ablation`, and `standard_lora`.
 
-Next action is to freeze the MHS-VLA Researcher A proposal before Reviewer B
-attack, mathematical audit, preregistration, prototype protocol,
-implementation, validation search, training, rollout, or confirmatory-test
-access.
+The MHS-VLA Researcher A proposal is frozen in
+`reports/mhs_vla/researcher_proposal.md` with SHA-256
+`BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3` and
+decision `MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Next action is to run Reviewer B attack on MHS-VLA before rebuttal,
+mathematical audit, preregistration, prototype protocol, implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 
