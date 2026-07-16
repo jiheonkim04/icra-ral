@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `26`
 
-Current stage: `epoch_4_cycle_26_amp_rebuttal_pending`
+Current stage: `epoch_4_cycle_26_amp_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 26 AMP-VLA
 
@@ -42,8 +42,9 @@ The AMP-VLA Researcher A proposal is frozen in
 and decision `AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 Reviewer B attack is complete in `reports/amp_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Next action:
-write the Researcher A rebuttal accepting or answering all Reviewer B
-conditions before mathematical audit or implementation.
+Researcher A rebuttal is complete in `reports/amp_vla/researcher_rebuttal.md`
+with decision `AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Next action: write
+the mathematical mechanism audit before preregistration or implementation.
 
 ## Epoch 4 Cycle 25 RAP-VLA
 

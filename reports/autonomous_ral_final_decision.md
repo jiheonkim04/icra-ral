@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -40,8 +40,10 @@ decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The required
 conditions keep the ABot-M0 proxy, no-projection ablation, matched standard
 LoRA, clipping/bound-only diagnostics, manifold-health gates, identity/reload
 checks, and mathematical objective audit live.
+Researcher A rebuttal is complete in `reports/amp_vla/researcher_rebuttal.md`
+with decision `AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_rebuttal_pending`.
+`epoch_4_cycle_26_amp_mathematical_audit_pending`.
 
 Cycle 25 generated exactly three candidates after a current primary-source
 anchor pass. `RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action
