@@ -64,12 +64,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "TSC_STAGE_0_NO_USABLE_HEADROOM"
-    assert state["current_stage"] == "epoch_4_cycle_29_candidate_search_pending"
-    assert state["method"] == "TSC-VLA"
-    assert state["method_identity"] == "TSC-VLA"
-    assert state["proposal_hash"] == TSC_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/tsc_vla/prototype_protocol.md"
+    assert state["current_decision"] == "CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_29_ccif_researcher_proposal_pending"
+    assert state["method"] == "CCIF-VLA"
+    assert state["method_identity"] == "CCIF-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -288,6 +288,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_28_tsc_stage_0_adjudicated",
         "epoch_4_cycle_28_tsc_no_headroom_recorded",
         "epoch_4_cycle_29_candidate_search_pending",
+        "epoch_4_cycle_29_prior_mechanism_map_completed",
+        "epoch_4_cycle_29_candidate_generation_completed",
+        "epoch_4_cycle_29_ccif_candidate_selected",
+        "epoch_4_cycle_29_ccif_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -710,6 +714,40 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert tsc_outcome["structured_mask_beats_magnitude"] is False
     assert tsc_outcome["bounded_validation_allowed"] is False
     assert tsc_outcome["scientific_kill"] is False
+    cycle29 = state["epoch_4_cycle_29_candidate_search"]
+    assert cycle29["candidate_search_pending"] is False
+    assert cycle29["candidate_count_required"] == 3
+    assert cycle29["candidate_count_generated"] == 3
+    assert cycle29["previous_method"] == "TSC-VLA"
+    assert cycle29["previous_decision"] == "TSC_STAGE_0_NO_USABLE_HEADROOM"
+    assert cycle29["tsc_repair_allowed"] is False
+    assert cycle29["tsc_rescue_allowed"] is False
+    assert cycle29["selected_method"] == "CCIF-VLA"
+    assert cycle29["selected_score"] == 92
+    assert cycle29["selection_decision"] == "CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    ccif = state["epoch_4_cycle_29_candidate_selection"]
+    assert ccif["candidate_count"] == 3
+    assert ccif["selected_score"] == 92
+    assert ccif["method"] == "CCIF-VLA"
+    assert ccif["closest_prior"] == "Coarse-to-Control"
+    assert ccif["closest_prior_primary_source"] == "https://arxiv.org/abs/2606.07107"
+    assert ccif["policy_order"] == [
+        "smolvla_base",
+        "coarse_to_control_continuous_proxy",
+        "ccif_full",
+        "ccif_no_coarse_intent_ablation",
+        "standard_lora",
+    ]
+    assert ccif["standard_lora_required"] is True
+    assert ccif["training_happened"] is False
+    assert ccif["validation_search_happened"] is False
+    assert ccif["closed_loop_experiment_happened"] is False
+    assert ccif["confirmatory_test_tuning_happened"] is False
+    assert ccif["first_serious_comparison_includes_closest_prior"] is True
+    assert ccif["tsc_rescue_allowed"] is False
+    assert ccif["proposal"] == "reports/ccif_vla/researcher_proposal.md"
+    assert ccif["proposal_hash"] is None
+    assert ccif["proposal_decision"] == "CCIF_PROPOSAL_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

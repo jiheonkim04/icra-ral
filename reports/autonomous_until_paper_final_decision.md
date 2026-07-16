@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`TSC_STAGE_0_NO_USABLE_HEADROOM`
+`CCIF_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,31 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 29 Selection
+
+Cycle 29 generated exactly three candidates in
+`reports/epoch_4_cycle_29_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_29_prior_mechanism_map.md`. TSC remains preserved
+unchanged as `TSC_STAGE_0_NO_USABLE_HEADROOM`.
+
+`CCIF-VLA`, Continuous Coarse Intent Field for base-preserving VLA chunks, is
+selected at `92 / 100`. Its closest positive prior is Coarse-to-Control,
+anchored to `https://arxiv.org/abs/2606.07107`, which reports `97.9%` average
+LIBERO success.
+
+CCIF predicts a deployment-observable continuous coarse motor-intent field from
+current inputs and the Base decoded chunk, then conditions a bounded
+identity-preserving residual action field on that intent. LoRA is only
+implementation infrastructure.
+
+The first serious comparison is exactly Base,
+`coarse_to_control_continuous_proxy`, CCIF full, no-coarse-intent ablation, and
+matched standard LoRA. No CCIF proposal hash, training, validation search,
+rollout, simulator access, or confirmatory-test tuning has happened.
+
+Current cycle: `29`. Current stage:
+`epoch_4_cycle_29_ccif_researcher_proposal_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 
