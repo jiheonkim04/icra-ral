@@ -224,8 +224,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "RAP-VLA" in final
     assert "RAP_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
+    assert "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
     assert "OptimusVLA" in final
-    assert "epoch_4_cycle_25_rap_prototype_protocol_pending" in final
+    assert "epoch_4_cycle_25_rap_stage_0_pending" in final
     assert RAP_PROPOSAL_HASH in final
     assert "VDR_STAGE_0A_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "1536 / 1536" in final
@@ -250,10 +251,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_decision"] == "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 25
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_prototype_protocol_pending"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_stage_0_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
     assert state["proposal_hash"] == RAP_PROPOSAL_HASH
@@ -270,9 +271,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert state["next_action"] == (
-        "Write and freeze RAP-VLA prototype protocol without VDR repair or rescue."
+        "Implement and run only the frozen RAP-VLA Stage 0 development audit without VDR repair or rescue."
     )
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -304,6 +305,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert rap_preregistration["final_decision"] == "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert rap_preregistration["preregistration"] == "reports/rap_vla/preregistration.md"
     assert rap_preregistration["stage_0_allowed_next"] is True
+    rap_protocol = state["epoch_4_cycle_25_rap_prototype_protocol"]
+    assert rap_protocol["final_decision"] == "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert rap_protocol["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
+    assert rap_protocol["stage_0_allowed_next"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

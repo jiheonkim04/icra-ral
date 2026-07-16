@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
-Immediate next action: write and freeze RAP-VLA prototype protocol without VDR
-repair, rerun, rescue, or threshold changes.
+Immediate next action: implement and run only the frozen RAP-VLA Stage 0
+development audit without VDR repair, rerun, rescue, or threshold changes.
 
 Cycle 25 generated exactly three candidates and selected `RAP-VLA`,
 Retrieval-Anchored Prior residualization for VLA action flows, at `94 / 100`.
@@ -34,6 +34,8 @@ The mathematical mechanism audit is frozen in
 `RAP_MATHEMATICAL_AUDIT_PREREGISTERED`.
 Preregistration is frozen in `reports/rap_vla/preregistration.md` with
 decision `RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+The prototype protocol is frozen in `reports/rap_vla/prototype_protocol.md`
+with decision `RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

@@ -61,12 +61,12 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_prototype_protocol_pending"
+    assert state["current_decision"] == "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_25_rap_stage_0_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
     assert state["proposal_hash"] == RAP_PROPOSAL_HASH
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -212,6 +212,8 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "epoch_4_cycle_25_rap_preregistration_pending",
         "epoch_4_cycle_25_rap_preregistration_frozen",
         "epoch_4_cycle_25_rap_prototype_protocol_pending",
+        "epoch_4_cycle_25_rap_prototype_protocol_frozen",
+        "epoch_4_cycle_25_rap_stage_0_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -249,6 +251,11 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert rap_preregistration["final_decision"] == "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert rap_preregistration["preregistration"] == "reports/rap_vla/preregistration.md"
     assert rap_preregistration["stage_0_allowed_next"] is True
+    rap_protocol = state["epoch_4_cycle_25_rap_prototype_protocol"]
+    assert rap_protocol["final_decision"] == "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+    assert rap_protocol["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
+    assert rap_protocol["stage_0_allowed_next"] is True
+    assert rap_protocol["runner"] == "scripts/run_rap_vla_stage0.py"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

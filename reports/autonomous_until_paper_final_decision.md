@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -40,8 +40,10 @@ complete in `reports/rap_vla/researcher_rebuttal.md` with decision
 frozen in `reports/rap_vla/mathematical_mechanism_audit.md` with decision
 `RAP_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
 `reports/rap_vla/preregistration.md` with decision
-`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Current cycle: `25`.
-Current stage: `epoch_4_cycle_25_rap_prototype_protocol_pending`.
+`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The prototype
+protocol is frozen in `reports/rap_vla/prototype_protocol.md` with decision
+`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current cycle: `25`.
+Current stage: `epoch_4_cycle_25_rap_stage_0_pending`.
 
 ## Epoch 4 Cycle 19 Decision
 
