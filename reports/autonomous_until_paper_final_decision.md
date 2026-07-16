@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CSPR_STAGE_0_IMPLEMENTATION_FAILURE`
+`MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -15,6 +15,29 @@ Allowed terminal decisions:
 - `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
+
+## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
+
+Cycle 38 completed `reports/epoch_4_cycle_38_prior_mechanism_map.md`,
+generated exactly three candidates in
+`reports/epoch_4_cycle_38_candidate_generation.md`, and selected `MCI-VLA`,
+Multi-Consistency Invariance for Base-preserving SmolVLA, with score
+`92 / 100`. The closest prior is RoVLA, which enters the first serious
+comparison as `rovla_multiconsistency_proxy`.
+
+The frozen design-level comparison is `smolvla_base`,
+`rovla_multiconsistency_proxy`, `mci_full`,
+`mci_no_consistency_code_ablation`, and `augmentation_only_lora_killer`.
+LoRA is only implementation infrastructure. The scientific mechanism is
+multi-consistency invariance: a zero-gated Base-preserving consistency-code
+adapter around frozen SmolVLA features and action chunks, trained only from
+deployment-observable LIBERO demonstration inputs.
+
+CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; it is
+not repaired, rescued, relaunched, retuned, or reinterpreted. No MCI proposal,
+implementation, training, validation search, rollout, or confirmatory-test
+access has happened. The next action is to write and hash the MCI-VLA
+Researcher A proposal.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

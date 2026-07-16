@@ -7,13 +7,44 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_STAGE_0_IMPLEMENTATION_FAILURE`
+`MCI_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
-Current cycle: `37`
+Current cycle: `38`
 
-Current stage: `epoch_4_cycle_37_cspr_stage_0_adjudicated`
+Current stage: `epoch_4_cycle_38_mci_researcher_proposal_pending`
+
+## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
+
+Cycle 38 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_38_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_38_candidate_generation.md`.
+
+Selected method: `MCI-VLA`, Multi-Consistency Invariance for Base-preserving
+SmolVLA, score `92 / 100`.
+
+Closest prior: RoVLA (`https://arxiv.org/abs/2605.19678`,
+`https://arxiv.org/html/2605.19678v1`, and
+`https://github.com/HCPLab-SYSU/RoVLA`), with positive evidence for
+multi-consistency robustness under instructional, observational, and
+action-evolution perturbations on LIBERO-Plus, RoboTwin 2.0, and real-world
+tasks.
+
+Frozen first comparison for the proposal stage: `smolvla_base`,
+`rovla_multiconsistency_proxy`, `mci_full`,
+`mci_no_consistency_code_ablation`, and `augmentation_only_lora_killer`.
+
+LoRA is only implementation infrastructure. The scientific mechanism is a
+RoVLA-anchored consistency-code adapter around frozen SmolVLA features and
+action chunks, initialized as exact Base passthrough with a zero gate and
+groupwise action-delta caps.
+
+CSPR remains closed unchanged as `CSPR_STAGE_0_IMPLEMENTATION_FAILURE`; no
+CSPR repair, rescue, relaunch, threshold change, or reinterpretation is
+allowed. No MCI proposal, implementation, training, validation search, rollout,
+or confirmatory-test access has happened. Immediate next action: write and
+hash the MCI-VLA Researcher A proposal.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
