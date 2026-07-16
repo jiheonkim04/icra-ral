@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 25,
-    "current_topic": "epoch_4_cycle_25_rap_preregistration_pending",
+    "current_topic": "epoch_4_cycle_25_rap_prototype_protocol_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "500dfb1",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_25_rap_preregistration_pending",
+    "current_stage": "epoch_4_cycle_25_rap_prototype_protocol_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -492,7 +492,9 @@
         "epoch_4_cycle_25_rap_rebuttal_completed",
         "epoch_4_cycle_25_rap_mathematical_audit_pending",
         "epoch_4_cycle_25_rap_mathematical_audit_preregistered",
-        "epoch_4_cycle_25_rap_preregistration_pending"
+        "epoch_4_cycle_25_rap_preregistration_pending",
+        "epoch_4_cycle_25_rap_preregistration_frozen",
+        "epoch_4_cycle_25_rap_prototype_protocol_pending"
     ],
     "active_hypothesis": "Dynamic future-feature residuals unexplained by an actionless static predictor can align SmolVLA generated action chunks with motor-induced visual consequences.",
     "method_identity": "RAP-VLA",
@@ -512,7 +514,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -621,7 +623,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Write and freeze RAP-VLA preregistration without VDR repair or rescue.",
+    "next_action": "Write and freeze RAP-VLA prototype protocol without VDR repair or rescue.",
     "method": "RAP-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2372,7 +2374,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_25_rap_preregistration_pending",
+    "topic": "epoch_4_cycle_25_rap_prototype_protocol_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6606,7 +6608,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "proposal": "reports/rap_vla/researcher_proposal.md",
         "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
         "proposal_hash_file": "reports/rap_vla/proposal_hash.txt",
@@ -6616,7 +6618,9 @@
         "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
         "rebuttal_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/rap_vla/mathematical_mechanism_audit.md",
-        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED"
+        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/rap_vla/preregistration.md",
+        "preregistration_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     },
     "epoch_4_cycle_25_rap_researcher_proposal": {
         "method": "RAP-VLA",
@@ -6639,13 +6643,15 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "reviewer_attack": "reports/rap_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
         "rebuttal_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/rap_vla/mathematical_mechanism_audit.md",
-        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED"
+        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/rap_vla/preregistration.md",
+        "preregistration_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     },
     "epoch_4_cycle_25_rap_reviewer_attack": {
         "method": "RAP-VLA",
@@ -6667,11 +6673,13 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "researcher_rebuttal": "reports/rap_vla/researcher_rebuttal.md",
         "rebuttal_decision": "RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/rap_vla/mathematical_mechanism_audit.md",
-        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED"
+        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/rap_vla/preregistration.md",
+        "preregistration_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     },
     "epoch_4_cycle_25_rap_rebuttal": {
         "method": "RAP-VLA",
@@ -6687,9 +6695,11 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "mathematical_audit": "reports/rap_vla/mathematical_mechanism_audit.md",
-        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED"
+        "mathematical_audit_decision": "RAP_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/rap_vla/preregistration.md",
+        "preregistration_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     },
     "epoch_4_cycle_25_rap_mathematical_audit": {
         "method": "RAP-VLA",
@@ -6715,6 +6725,27 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration."
+        "next_stage": "Prototype protocol.",
+        "preregistration": "reports/rap_vla/preregistration.md",
+        "preregistration_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    },
+    "epoch_4_cycle_25_rap_preregistration": {
+        "method": "RAP-VLA",
+        "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+        "preregistration": "reports/rap_vla/preregistration.md",
+        "final_decision": "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "stage_0_allowed_next": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "policy_order": [
+            "smolvla_base",
+            "optimusvla_memory_prior_proxy",
+            "rap_full",
+            "rap_anchor_only_no_residual",
+            "standard_lora"
+        ],
+        "next_stage": "Prototype protocol."
     }
 }

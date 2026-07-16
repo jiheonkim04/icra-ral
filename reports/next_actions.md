@@ -5,9 +5,9 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`
+`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
-Immediate next action: write and freeze RAP-VLA preregistration without VDR
+Immediate next action: write and freeze RAP-VLA prototype protocol without VDR
 repair, rerun, rescue, or threshold changes.
 
 Cycle 25 generated exactly three candidates and selected `RAP-VLA`,
@@ -32,6 +32,8 @@ complete in `reports/rap_vla/researcher_rebuttal.md` with decision
 The mathematical mechanism audit is frozen in
 `reports/rap_vla/mathematical_mechanism_audit.md` with decision
 `RAP_MATHEMATICAL_AUDIT_PREREGISTERED`.
+Preregistration is frozen in `reports/rap_vla/preregistration.md` with
+decision `RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

@@ -7,7 +7,7 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`
+`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
@@ -37,9 +37,11 @@ B attack is complete in `reports/rap_vla/reviewer_attack.md` with decision
 complete in `reports/rap_vla/researcher_rebuttal.md` with decision
 `RAP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is
 frozen in `reports/rap_vla/mathematical_mechanism_audit.md` with decision
-`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`. Current stage:
-`epoch_4_cycle_25_rap_preregistration_pending`. Next action is to write and
-freeze preregistration.
+`RAP_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
+`reports/rap_vla/preregistration.md` with decision
+`RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Current stage:
+`epoch_4_cycle_25_rap_prototype_protocol_pending`. Next action is to write and
+freeze prototype protocol.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
