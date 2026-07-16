@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_29_ccif_preregistration_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -60,8 +60,16 @@ the Coarse-to-Control proxy, the no-intent ablation, standard LoRA, cheap
 intent diagnostics, intent-construction freeze, identity-preserving reload,
 and no privileged inference.
 
-Next action: freeze the CCIF-VLA mathematical mechanism audit before
-preregistration or implementation.
+The CCIF mathematical mechanism audit is frozen in
+`reports/ccif_vla/mathematical_mechanism_audit.md` with decision
+`CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`. It freezes the `m = 31` coarse-intent
+vector, waypoint indices `[9, 19, 34, 49]`, intent template, residual/gate
+formula, objective terms and gradient paths, no deterministic-action KL,
+Coarse-to-Control proxy requirements, no-intent ablation, cheap intent
+diagnostics, identity-preserving integration, and Stage 0 stop classes.
+
+Next action: freeze CCIF-VLA preregistration before executable prototype
+protocol or implementation.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 

@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_29_ccif_mathematical_audit_pending",
+    "current_stage": "epoch_4_cycle_29_ccif_preregistration_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -590,7 +590,9 @@
         "epoch_4_cycle_29_ccif_reviewer_attack_completed",
         "epoch_4_cycle_29_ccif_rebuttal_pending",
         "epoch_4_cycle_29_ccif_rebuttal_completed",
-        "epoch_4_cycle_29_ccif_mathematical_audit_pending"
+        "epoch_4_cycle_29_ccif_mathematical_audit_pending",
+        "epoch_4_cycle_29_ccif_mathematical_audit_preregistered",
+        "epoch_4_cycle_29_ccif_preregistration_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -607,7 +609,7 @@
         "ACoT-VLA"
     ],
     "prototype_gate": "Pending TSC Stage 0 masked action-cell label health, completion headroom, prior-proxy, ablation, identity, gradient, action-validity, and retention audit.",
-    "current_decision": "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -758,7 +760,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Freeze CCIF-VLA mathematical mechanism audit before preregistration or implementation.",
+    "next_action": "Freeze CCIF-VLA preregistration before executable prototype protocol or implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A continuous coarse motor-intent field derived from legal LIBERO demonstrations can constrain bounded Base-preserving SmolVLA action residuals toward long-horizon net translation, rotation, gripper endpoint, and low-frequency waypoint structure without privileged inference inputs.",
     "method_identity": "CCIF-VLA",
@@ -2512,7 +2514,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_29_ccif_mathematical_audit_pending",
+    "current_topic": "epoch_4_cycle_29_ccif_preregistration_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7861,7 +7863,9 @@
         "researcher_rebuttal": "reports/ccif_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/ccif_vla/mathematical_mechanism_audit.md",
-        "math_audit_decision": "CCIF_MATHEMATICAL_AUDIT_PENDING"
+        "math_audit_decision": "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/ccif_vla/preregistration.md",
+        "preregistration_decision": "CCIF_PREREGISTRATION_PENDING"
     },
     "epoch_4_cycle_29_ccif_researcher_proposal": {
         "method": "CCIF-VLA",
@@ -7890,7 +7894,9 @@
         "researcher_rebuttal": "reports/ccif_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "mathematical_audit": "reports/ccif_vla/mathematical_mechanism_audit.md",
-        "math_audit_decision": "CCIF_MATHEMATICAL_AUDIT_PENDING"
+        "math_audit_decision": "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "preregistration": "reports/ccif_vla/preregistration.md",
+        "preregistration_decision": "CCIF_PREREGISTRATION_PENDING"
     },
     "epoch_4_cycle_29_ccif_reviewer_attack": {
         "method": "CCIF-VLA",
@@ -7946,7 +7952,44 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "mathematical_audit": "reports/ccif_vla/mathematical_mechanism_audit.md",
-        "math_audit_decision": "CCIF_MATHEMATICAL_AUDIT_PENDING",
-        "next_stage": "Freeze CCIF-VLA mathematical mechanism audit before preregistration or implementation."
+        "math_audit_decision": "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "next_stage": "Freeze CCIF-VLA preregistration before executable prototype protocol or implementation.",
+        "preregistration": "reports/ccif_vla/preregistration.md",
+        "preregistration_decision": "CCIF_PREREGISTRATION_PENDING"
+    },
+    "epoch_4_cycle_29_ccif_mathematical_audit": {
+        "method": "CCIF-VLA",
+        "final_decision": "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit": "reports/ccif_vla/mathematical_mechanism_audit.md",
+        "proposal_hash": "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87E7FAA1",
+        "intent_dimension": 31,
+        "waypoint_count": 4,
+        "waypoint_indices": [
+            9,
+            19,
+            34,
+            49
+        ],
+        "kl_between_deterministic_actions_used": false,
+        "deterministic_action_kl_forbidden": true,
+        "official_action_validity_semantics_required": true,
+        "coarse_to_control_proxy_policy_2_required": true,
+        "identity_preserving_integration_required": true,
+        "task_phase_mean_intent_diagnostic_required": true,
+        "endpoint_only_intent_diagnostic_required": true,
+        "stage_0_stop_classes": [
+            "CCIF_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "CCIF_STAGE_0_NO_USABLE_HEADROOM",
+            "CCIF_STAGE_0_DESIGN_FAILURE",
+            "CCIF_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "CCIF_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "preregistration": "reports/ccif_vla/preregistration.md",
+        "preregistration_decision": "CCIF_PREREGISTRATION_PENDING",
+        "next_stage": "Freeze CCIF-VLA preregistration before executable prototype protocol or implementation."
     }
 }

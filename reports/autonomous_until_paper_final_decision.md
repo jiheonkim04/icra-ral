@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -49,8 +49,12 @@ decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`; Researcher A
 rebuttal is complete in `reports/ccif_vla/researcher_rebuttal.md` with
 decision `CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
+The CCIF mathematical mechanism audit is frozen in
+`reports/ccif_vla/mathematical_mechanism_audit.md` with decision
+`CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
 Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_mathematical_audit_pending`.
+`epoch_4_cycle_29_ccif_preregistration_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 
