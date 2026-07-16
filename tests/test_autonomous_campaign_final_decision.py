@@ -27,20 +27,23 @@ URF_PROPOSAL_HASH = "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABE
 S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3"
 LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E"
 AFID_PROPOSAL_HASH = "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC"
+BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "BRID-VLA" in final
     assert "Base-Residual Implicit Diffusion" in final
     assert "Diffusion Policy" in final
     assert "reports/epoch_4_cycle_34_prior_mechanism_map.md" in final
     assert "reports/epoch_4_cycle_34_candidate_generation.md" in final
+    assert "reports/brid_vla/researcher_proposal.md" in final
+    assert BRID_PROPOSAL_HASH in final
     assert "diffusion_policy_action_chunk_proxy" in final
     assert "brid_no_base_residual_ablation" in final
-    assert "epoch_4_cycle_34_brid_researcher_proposal_pending" in final
+    assert "epoch_4_cycle_34_brid_reviewer_attack_pending" in final
     assert "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE" in final
     assert "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
@@ -392,29 +395,26 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 34
-    assert state["current_stage"] == "epoch_4_cycle_34_brid_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_34_brid_reviewer_attack_pending"
     assert state["method"] == "BRID-VLA"
     assert state["method_identity"] == "BRID-VLA"
-    assert state["next_action"] == "Freeze the BRID-VLA Researcher A proposal before Reviewer B attack."
-    assert state["proposal_hash"] == AFID_PROPOSAL_HASH
-    assert state["proposal_hash_file"] == "reports/afid_vla/proposal_hash.txt"
-    assert state["researcher_proposal"] == "reports/afid_vla/researcher_proposal.md"
-    assert state["reviewer_attack"] == "reports/afid_vla/reviewer_attack.md"
-    assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["researcher_rebuttal"] == "reports/afid_vla/researcher_rebuttal.md"
-    assert state["rebuttal_decision"] == "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["mathematical_audit"] == "reports/afid_vla/mathematical_mechanism_audit.md"
-    assert state["math_audit_decision"] == "AFID_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["preregistration"] == "reports/afid_vla/preregistration.md"
-    assert state["preregistration_decision"] == "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["prototype_protocol"] == "reports/afid_vla/prototype_protocol.md"
-    assert (
-        state["prototype_protocol_decision"]
-        == "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
-    )
+    assert state["next_action"] == "Run Reviewer B attack on the frozen BRID-VLA Researcher A proposal."
+    assert state["proposal_hash"] == BRID_PROPOSAL_HASH
+    assert state["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
+    assert state["researcher_proposal"] == "reports/brid_vla/researcher_proposal.md"
+    assert state["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
+    assert state["reviewer_decision"] == "BRID_REVIEWER_ATTACK_PENDING"
+    assert state["researcher_rebuttal"] is None
+    assert state["rebuttal_decision"] is None
+    assert state["mathematical_audit"] is None
+    assert state["math_audit_decision"] is None
+    assert state["preregistration"] is None
+    assert state["preregistration_decision"] is None
+    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol_decision"] is None
     assert state["stage_0_serializer_preflight"] == "reports/afid_vla/stage_0_serializer_preflight.json"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
@@ -430,7 +430,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze the BRID-VLA Researcher A proposal before Reviewer B attack."
+        == "Run Reviewer B attack on the frozen BRID-VLA Researcher A proposal."
     )
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -1747,6 +1747,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection34["candidate_count"] == 3
     assert selection34["selected_score"] == 94
     assert selection34["closest_prior"] == "Diffusion Policy"
+    assert selection34["proposal"] == "reports/brid_vla/researcher_proposal.md"
+    assert selection34["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
+    assert selection34["proposal_hash"] == BRID_PROPOSAL_HASH
+    assert selection34["proposal_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert selection34["policy_order"] == [
         "smolvla_base",
         "diffusion_policy_action_chunk_proxy",
@@ -1755,7 +1759,15 @@ def test_active_campaign_state_records_governance_v2() -> None:
         "standard_lora",
     ]
     assert selection34["first_serious_comparison_includes_closest_prior"] is True
-    assert selection34["researcher_proposal_pending"] is True
+    assert selection34["researcher_proposal_pending"] is False
+    assert selection34["researcher_proposal_frozen"] is True
+    proposal34 = state["epoch_4_cycle_34_brid_researcher_proposal"]
+    assert proposal34["final_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert proposal34["proposal"] == "reports/brid_vla/researcher_proposal.md"
+    assert proposal34["proposal_hash"] == BRID_PROPOSAL_HASH
+    assert proposal34["closest_prior"] == "Diffusion Policy"
+    assert proposal34["reviewer_attack_pending"] is True
+    assert proposal34["researcher_proposal_frozen"] is True
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
@@ -1768,6 +1780,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_34_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_candidate_selected" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_researcher_proposal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_researcher_proposal_frozen" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_reviewer_attack_pending" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

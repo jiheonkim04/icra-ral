@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_34_brid_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 
@@ -37,9 +37,14 @@ LoRA is only implementation infrastructure. The scientific mechanism is a
 Base-conditioned residual score field over frozen SmolVLA action chunks with a
 zero-residual identity path and bounded action caps.
 
-Next action: freeze the BRID-VLA Researcher A proposal before Reviewer B
-attack. No BRID proposal, implementation, training, validation search, rollout,
-or confirmatory-test access has happened yet.
+The BRID-VLA Researcher A proposal is frozen in
+`reports/brid_vla/researcher_proposal.md` with SHA-256
+`2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2` and
+decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Next action: Reviewer B attack on the frozen BRID-VLA proposal. No BRID
+implementation, training, validation search, rollout, or confirmatory-test
+access has happened.
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 

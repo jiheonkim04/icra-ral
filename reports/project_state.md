@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_34_brid_reviewer_attack_pending`
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -31,9 +31,14 @@ The first serious comparison is `smolvla_base`,
 `diffusion_policy_action_chunk_proxy`, `brid_full`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
-Next action: freeze the BRID-VLA Researcher A proposal before Reviewer B
-attack. No BRID proposal, implementation, training, validation search, rollout,
-or confirmatory-test access has happened yet.
+The BRID-VLA Researcher A proposal is frozen in
+`reports/brid_vla/researcher_proposal.md` with SHA-256
+`2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2` and
+decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Next action: Reviewer B attack on the frozen BRID-VLA proposal. No BRID
+implementation, training, validation search, rollout, or confirmatory-test
+access has happened.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three

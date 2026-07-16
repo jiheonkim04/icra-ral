@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 34,
-    "current_topic": "epoch_4_cycle_34_brid_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_34_brid_reviewer_attack_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "f392a33",
+    "current_commit": "6a840a2",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_34_brid_researcher_proposal_pending",
+    "current_stage": "epoch_4_cycle_34_brid_reviewer_attack_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -680,19 +680,17 @@
         "epoch_4_cycle_34_prior_mechanism_map_completed",
         "epoch_4_cycle_34_candidate_generation_completed",
         "epoch_4_cycle_34_brid_candidate_selected",
-        "epoch_4_cycle_34_brid_researcher_proposal_pending"
+        "epoch_4_cycle_34_brid_researcher_proposal_pending",
+        "epoch_4_cycle_34_brid_researcher_proposal_frozen",
+        "epoch_4_cycle_34_brid_reviewer_attack_pending"
     ],
-    "active_hypothesis": "Sparse action-factor labels derived from discovery/validation LIBERO demonstrations can supervise a deployment-observable predictor and Base-preserving residual gate, improving action-relevant control while defaulting exactly to frozen SmolVLA when factor confidence is low.",
+    "active_hypothesis": "A Base-conditioned residual diffusion score field can learn bounded useful corrections around frozen SmolVLA action chunks while preserving exact Base behavior by default.",
     "method_identity": "BRID-VLA",
-    "proposal_hash": "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC",
+    "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
     "closest_papers": [
-        "FineVLA",
-        "ACoT-VLA",
-        "GEAR-VLA",
-        "Counterfactual Action Guidance",
-        "CAC-VLA"
+        "Diffusion Policy"
     ],
-    "prototype_protocol": "reports/afid_vla/prototype_protocol.md",
+    "prototype_protocol": null,
     "running_command": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -703,7 +701,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "current_decision": "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -812,7 +810,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze the BRID-VLA Researcher A proposal before Reviewer B attack.",
+    "next_action": "Run Reviewer B attack on the frozen BRID-VLA Researcher A proposal.",
     "method": "BRID-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -7417,7 +7415,7 @@
         "cfr_rescue_allowed": false
     },
     "proposal": "reports/afid_vla/researcher_proposal.md",
-    "proposal_hash_file": "reports/afid_vla/proposal_hash.txt",
+    "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
     "epoch_4_cycle_27_cfr_researcher_proposal": {
         "method": "CFR-VLA",
         "final_decision": "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
@@ -8935,8 +8933,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "reviewer_attack": "reports/afid_vla/reviewer_attack.md",
-    "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
+    "reviewer_decision": "BRID_REVIEWER_ATTACK_PENDING",
     "epoch_4_cycle_31_s2c_reviewer_attack": {
         "method": "S2C-VLA",
         "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -9021,8 +9019,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "researcher_rebuttal": "reports/afid_vla/researcher_rebuttal.md",
-    "rebuttal_decision": "AFID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "researcher_rebuttal": null,
+    "rebuttal_decision": null,
     "epoch_4_cycle_31_s2c_rebuttal": {
         "method": "S2C-VLA",
         "final_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -9124,8 +9122,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "mathematical_audit": "reports/afid_vla/mathematical_mechanism_audit.md",
-    "math_audit_decision": "AFID_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "mathematical_audit": null,
+    "math_audit_decision": null,
     "epoch_4_cycle_31_s2c_mathematical_audit": {
         "method": "S2C-VLA",
         "final_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
@@ -9230,8 +9228,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "preregistration": "reports/afid_vla/preregistration.md",
-    "preregistration_decision": "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "preregistration": null,
+    "preregistration_decision": null,
     "epoch_4_cycle_31_s2c_preregistration": {
         "method": "S2C-VLA",
         "final_decision": "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
@@ -9293,7 +9291,7 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "prototype_protocol_decision": "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
+    "prototype_protocol_decision": null,
     "epoch_4_cycle_31_s2c_prototype_protocol": {
         "method": "S2C-VLA",
         "final_decision": "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
@@ -10079,7 +10077,7 @@
         "afid_repair_allowed": false,
         "afid_rescue_allowed": false
     },
-    "researcher_proposal": "reports/afid_vla/researcher_proposal.md",
+    "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
     "epoch_4_cycle_33_afid_researcher_proposal": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
@@ -10594,7 +10592,58 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "researcher_proposal_pending": true,
-        "next_stage": "Freeze the BRID-VLA Researcher A proposal before Reviewer B attack."
+        "researcher_proposal_pending": false,
+        "next_stage": "Reviewer B attack on the frozen BRID-VLA Researcher A proposal.",
+        "proposal": "reports/brid_vla/researcher_proposal.md",
+        "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
+        "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
+        "proposal_decision": "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "reviewer_attack_pending": true,
+        "researcher_proposal_frozen": true
+    },
+    "epoch_4_cycle_34_brid_researcher_proposal": {
+        "method": "BRID-VLA",
+        "proposal": "reports/brid_vla/researcher_proposal.md",
+        "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
+        "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
+        "final_decision": "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "closest_prior": "Diffusion Policy",
+        "closest_prior_primary_sources": [
+            "https://diffusion-policy.cs.columbia.edu/",
+            "https://github.com/real-stanford/diffusion_policy"
+        ],
+        "scientific_method": "Base-conditioned residual score field over frozen SmolVLA action chunks with zero-residual identity path and bounded action caps.",
+        "low_compute_parameterization": "LoRA or lightweight adapters may parameterize the residual score network only; LoRA is not the method.",
+        "policy_order": [
+            "smolvla_base",
+            "diffusion_policy_action_chunk_proxy",
+            "brid_full",
+            "brid_no_base_residual_ablation",
+            "standard_lora"
+        ],
+        "standard_lora_required": true,
+        "bounded_validation_search_max_configs": 6,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "afid_repair_allowed": false,
+        "afid_rescue_allowed": false,
+        "reviewer_attack_pending": true,
+        "reviewer_conditions_for_attack": [
+            "Diffusion Policy remains the closest prior and policy 2",
+            "The raw action-chunk diffusion baseline is a transparent local proxy unless official Diffusion Policy assets are installed and verified under the same scaffold",
+            "BRID novelty is limited to Base-residual diffusion with zero-residual identity integration and bounded residual caps",
+            "The no-Base-residual ablation and standard LoRA remain required",
+            "Stage 0 must prove residual noncollapse, score predictability, identity initialization, bounded action deltas, and clean retention",
+            "No privileged inference inputs or confirmatory-test identities may be used",
+            "No deterministic-action KL is allowed",
+            "AFID and all previous methods remain closed"
+        ],
+        "next_stage": "Reviewer B attack on BRID novelty, Diffusion Policy prior boundary, residual data viability, objective scale, identity preservation, and decisive experiment feasibility.",
+        "researcher_proposal_pending": false,
+        "researcher_proposal_frozen": true
     }
 }

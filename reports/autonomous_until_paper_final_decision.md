@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`BRID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -41,14 +41,18 @@ The first serious comparison is `smolvla_base`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
 Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_researcher_proposal_pending`.
+`epoch_4_cycle_34_brid_reviewer_attack_pending`.
 
-No BRID proposal, implementation, training, validation search, rollout, or
-confirmatory-test access has happened yet. AFID remains closed unchanged as
+The BRID-VLA Researcher A proposal is frozen in
+`reports/brid_vla/researcher_proposal.md` with SHA-256
+`2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2` and
+decision `BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+No BRID implementation, training, validation search, rollout, or
+confirmatory-test access has happened. AFID remains closed unchanged as
 `AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE`.
 
-Immediate next action: freeze the BRID-VLA Researcher A proposal before
-Reviewer B attack.
+Immediate next action: Reviewer B attack on the frozen BRID-VLA proposal.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 
