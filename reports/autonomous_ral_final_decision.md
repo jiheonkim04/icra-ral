@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal state under the active governance.
 
@@ -51,8 +51,15 @@ conditions, defines deployment previous-tail construction, preserves ChunkFlow
 as the closest prior, and sends S2C to mathematical audit before any
 implementation or validation search.
 
+The mathematical mechanism audit is frozen in
+`reports/s2c_vla/mathematical_mechanism_audit.md` with decision
+`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes `H=50`, stride `10`,
+overlap `K=10`, the deterministic tail-anchored bridge target, the learned
+effective edit mask, action-group caps, objective coefficients, no
+deterministic-action KL, and Stage 0 pass/stop gates.
+
 Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_mathematical_audit_pending`.
+`epoch_4_cycle_31_s2c_preregistration_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 

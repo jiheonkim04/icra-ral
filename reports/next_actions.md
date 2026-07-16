@@ -5,11 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: freeze S2C-VLA mathematical mechanism audit before
-preregistration, prototype protocol, implementation, validation search,
-training, or rollout.
+Immediate next action: freeze S2C-VLA preregistration before prototype
+protocol, implementation, validation search, training, or rollout.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -38,6 +37,12 @@ Researcher A rebuttal is complete in
 `S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts those conditions and
 defines the deployment previous-tail rule, Stage 0 headroom gate, gripper-event
 protection, and bounded decoding resume keys.
+
+The mathematical mechanism audit is frozen in
+`reports/s2c_vla/mathematical_mechanism_audit.md` with decision
+`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes `H=50`, stride `10`, overlap
+`K=10`, deterministic bridge target, learned effective edit mask, group caps,
+objective coefficients, Stage 0 gates, and no deterministic-action KL.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at

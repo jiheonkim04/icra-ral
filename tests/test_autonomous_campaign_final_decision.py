@@ -30,6 +30,7 @@ S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "S2C_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED" in final
@@ -37,7 +38,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "ChunkFlow" in final
     assert "reports/s2c_vla/reviewer_attack.md" in final
     assert "reports/s2c_vla/researcher_rebuttal.md" in final
-    assert "epoch_4_cycle_31_s2c_mathematical_audit_pending" in final
+    assert "reports/s2c_vla/mathematical_mechanism_audit.md" in final
+    assert "epoch_4_cycle_31_s2c_preregistration_pending" in final
     assert S2C_PROPOSAL_HASH in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -328,10 +330,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_decision"] == "S2C_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 31
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_mathematical_audit_pending"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_preregistration_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -1058,7 +1060,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c["proposal_hash_file"] == "reports/s2c_vla/proposal_hash.txt"
-    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_MATHEMATICAL_AUDIT_PENDING"
+    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_PREREGISTRATION_PENDING"
     assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
     assert s2c["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
     assert s2c["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -1106,6 +1108,31 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c_rebuttal["validation_search_happened"] is False
     assert s2c_rebuttal["closed_loop_experiment_happened"] is False
     assert s2c_rebuttal["confirmatory_test_tuning_happened"] is False
+    assert s2c_rebuttal["mathematical_audit"] == "reports/s2c_vla/mathematical_mechanism_audit.md"
+    assert s2c_rebuttal["math_audit_decision"] == "S2C_MATHEMATICAL_AUDIT_PREREGISTERED"
+    s2c_math = state["epoch_4_cycle_31_s2c_mathematical_audit"]
+    assert s2c_math["final_decision"] == "S2C_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert s2c_math["mathematical_audit"] == "reports/s2c_vla/mathematical_mechanism_audit.md"
+    assert s2c_math["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert s2c_math["chunk_horizon"] == 50
+    assert s2c_math["replanning_stride"] == 10
+    assert s2c_math["overlap_length"] == 10
+    assert s2c_math["action_dimension"] == 7
+    assert s2c_math["deterministic_action_kl_forbidden"] is True
+    assert s2c_math["first_serious_comparison"] == [
+        "smolvla_base",
+        "chunkflow_overlap_proxy",
+        "s2c_full",
+        "s2c_no_learned_overlap_mask_ablation",
+        "standard_lora",
+    ]
+    assert "S2C_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in s2c_math["stage_0_stop_classes"]
+    assert s2c_math["future_zone_drift_max"] == 0.0
+    assert s2c_math["gripper_event_destruction_max"] == 0
+    assert s2c_math["training_happened"] is False
+    assert s2c_math["validation_search_happened"] is False
+    assert s2c_math["closed_loop_experiment_happened"] is False
+    assert s2c_math["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

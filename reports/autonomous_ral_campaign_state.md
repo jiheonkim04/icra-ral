@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_31_s2c_preregistration_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -58,9 +58,14 @@ Researcher A rebuttal is complete in
 conditions, defines the deployment previous-tail rule, and keeps URF plus all
 previous closed methods closed.
 
-Current next action: freeze mathematical mechanism audit before
-preregistration, prototype protocol, implementation, validation search,
-training, or rollout.
+The mathematical mechanism audit is frozen in
+`reports/s2c_vla/mathematical_mechanism_audit.md` with decision
+`S2C_MATHEMATICAL_AUDIT_PREREGISTERED`. It fixes `H=50`, stride `10`,
+overlap `K=10`, objective coefficients, Stage 0 gates, and forbids
+deterministic-action KL.
+
+Current next action: freeze preregistration before prototype protocol,
+implementation, validation search, training, or rollout.
 
 ## Epoch 4 Cycle 30 URF-VLA
 

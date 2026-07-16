@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 31,
-    "topic": "epoch_4_cycle_31_s2c_mathematical_audit_pending",
+    "topic": "epoch_4_cycle_31_s2c_preregistration_pending",
     "method": "S2C-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_31_s2c_mathematical_audit_pending",
+    "current_stage": "epoch_4_cycle_31_s2c_preregistration_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -634,7 +634,9 @@
         "epoch_4_cycle_31_s2c_reviewer_attack_completed",
         "epoch_4_cycle_31_s2c_rebuttal_pending",
         "epoch_4_cycle_31_s2c_rebuttal_completed",
-        "epoch_4_cycle_31_s2c_mathematical_audit_pending"
+        "epoch_4_cycle_31_s2c_mathematical_audit_pending",
+        "epoch_4_cycle_31_s2c_mathematical_audit_preregistered",
+        "epoch_4_cycle_31_s2c_preregistration_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -650,7 +652,7 @@
         "Perturbation-Based Uncertainty For VLA Failure Detection"
     ],
     "prototype_gate": "URF executable prototype protocol is frozen; Stage 0 helper, runner, and focused tests must be implemented and validated before launch.",
-    "current_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+    "current_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -2555,7 +2557,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_31_s2c_mathematical_audit_pending",
+    "current_topic": "epoch_4_cycle_31_s2c_preregistration_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -8623,8 +8625,8 @@
         "first_serious_comparison_includes_closest_prior": true,
         "urf_repair_allowed": false,
         "urf_rescue_allowed": false,
-        "selection_decision": "S2C_CANDIDATE_SELECTED_MATHEMATICAL_AUDIT_PENDING",
-        "next_stage": "Freeze S2C-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, training, or rollout.",
+        "selection_decision": "S2C_CANDIDATE_SELECTED_PREREGISTRATION_PENDING",
+        "next_stage": "Freeze S2C-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout.",
         "proposal": "reports/s2c_vla/researcher_proposal.md",
         "proposal_hash": "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3",
         "proposal_hash_file": "reports/s2c_vla/proposal_hash.txt",
@@ -8652,7 +8654,28 @@
         "accepted_secondary_prior": "SEAM",
         "accepted_key_ablation": "s2c_no_learned_overlap_mask_ablation",
         "accepted_simple_baseline": "standard_lora",
-        "deterministic_action_kl_forbidden": true
+        "deterministic_action_kl_forbidden": true,
+        "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "chunk_horizon": 50,
+        "replanning_stride": 10,
+        "overlap_length": 10,
+        "action_dimension": 7,
+        "future_zone_exact_base": true,
+        "first_serious_comparison": [
+            "smolvla_base",
+            "chunkflow_overlap_proxy",
+            "s2c_full",
+            "s2c_no_learned_overlap_mask_ablation",
+            "standard_lora"
+        ],
+        "stage_0_stop_classes": [
+            "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "S2C_STAGE_0_NO_ADJACENT_BOUNDARY_HEADROOM",
+            "S2C_STAGE_0_DESIGN_FAILURE",
+            "S2C_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "S2C_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ]
     },
     "epoch_4_cycle_31_s2c_researcher_proposal": {
         "method": "S2C-VLA",
@@ -8678,7 +8701,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze S2C-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, training, or rollout.",
+        "next_stage": "Freeze S2C-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout.",
         "reviewer_attack": "reports/s2c_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "accepted_novelty_boundary_required": "A Base-preserving, identity-initialized overlap edit layer for already decoded SmolVLA chunks that learns where to allow tail-anchored boundary edits while leaving unselected overlap cells and future-zone cells exactly at Base.",
@@ -8702,7 +8725,28 @@
         "accepted_secondary_prior": "SEAM",
         "accepted_key_ablation": "s2c_no_learned_overlap_mask_ablation",
         "accepted_simple_baseline": "standard_lora",
-        "deterministic_action_kl_forbidden": true
+        "deterministic_action_kl_forbidden": true,
+        "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "chunk_horizon": 50,
+        "replanning_stride": 10,
+        "overlap_length": 10,
+        "action_dimension": 7,
+        "future_zone_exact_base": true,
+        "first_serious_comparison": [
+            "smolvla_base",
+            "chunkflow_overlap_proxy",
+            "s2c_full",
+            "s2c_no_learned_overlap_mask_ablation",
+            "standard_lora"
+        ],
+        "stage_0_stop_classes": [
+            "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "S2C_STAGE_0_NO_ADJACENT_BOUNDARY_HEADROOM",
+            "S2C_STAGE_0_DESIGN_FAILURE",
+            "S2C_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "S2C_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ]
     },
     "reviewer_attack": "reports/s2c_vla/reviewer_attack.md",
     "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -8731,7 +8775,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze S2C-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, training, or rollout.",
+        "next_stage": "Freeze S2C-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout.",
         "researcher_rebuttal": "reports/s2c_vla/researcher_rebuttal.md",
         "rebuttal_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
@@ -8740,7 +8784,28 @@
         "accepted_secondary_prior": "SEAM",
         "accepted_key_ablation": "s2c_no_learned_overlap_mask_ablation",
         "accepted_simple_baseline": "standard_lora",
-        "deterministic_action_kl_forbidden": true
+        "deterministic_action_kl_forbidden": true,
+        "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "chunk_horizon": 50,
+        "replanning_stride": 10,
+        "overlap_length": 10,
+        "action_dimension": 7,
+        "future_zone_exact_base": true,
+        "first_serious_comparison": [
+            "smolvla_base",
+            "chunkflow_overlap_proxy",
+            "s2c_full",
+            "s2c_no_learned_overlap_mask_ablation",
+            "standard_lora"
+        ],
+        "stage_0_stop_classes": [
+            "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "S2C_STAGE_0_NO_ADJACENT_BOUNDARY_HEADROOM",
+            "S2C_STAGE_0_DESIGN_FAILURE",
+            "S2C_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "S2C_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ]
     },
     "researcher_rebuttal": "reports/s2c_vla/researcher_rebuttal.md",
     "rebuttal_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -8783,7 +8848,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Freeze S2C-VLA mathematical mechanism audit before preregistration, prototype protocol, implementation, validation search, training, or rollout.",
+        "next_stage": "Freeze S2C-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout.",
         "conditions": [
             "ChunkFlow remains the closest prior and policy 2",
             "SEAM remains a secondary prior and optional diagnostic",
@@ -8795,6 +8860,106 @@
             "Standard LoRA remains required",
             "No deterministic-action KL is allowed",
             "URF and all previous methods remain closed"
+        ],
+        "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "chunk_horizon": 50,
+        "replanning_stride": 10,
+        "overlap_length": 10,
+        "action_dimension": 7,
+        "future_zone_exact_base": true,
+        "first_serious_comparison": [
+            "smolvla_base",
+            "chunkflow_overlap_proxy",
+            "s2c_full",
+            "s2c_no_learned_overlap_mask_ablation",
+            "standard_lora"
+        ],
+        "stage_0_stop_classes": [
+            "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "S2C_STAGE_0_NO_ADJACENT_BOUNDARY_HEADROOM",
+            "S2C_STAGE_0_DESIGN_FAILURE",
+            "S2C_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "S2C_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
         ]
+    },
+    "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
+    "math_audit_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "epoch_4_cycle_31_s2c_mathematical_audit": {
+        "method": "S2C-VLA",
+        "final_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "mathematical_audit": "reports/s2c_vla/mathematical_mechanism_audit.md",
+        "proposal_hash": "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486DC5B3",
+        "researcher_rebuttal": "reports/s2c_vla/researcher_rebuttal.md",
+        "reviewer_attack": "reports/s2c_vla/reviewer_attack.md",
+        "chunk_horizon": 50,
+        "replanning_stride": 10,
+        "overlap_length": 10,
+        "action_dimension": 7,
+        "action_groups": {
+            "translation": [
+                0,
+                1,
+                2
+            ],
+            "rotation": [
+                3,
+                4,
+                5
+            ],
+            "gripper": [
+                6
+            ]
+        },
+        "bridge_coefficients": {
+            "lambda_tail": 1.0,
+            "lambda_d1": 0.25,
+            "lambda_d2": 0.1
+        },
+        "objective_coefficients": {
+            "demo": 1.0,
+            "tail": 0.5,
+            "d1": 0.25,
+            "d2": 0.1,
+            "mask": 0.02,
+            "event": 1.0
+        },
+        "group_caps_normalized": {
+            "translation": 0.02,
+            "rotation": 0.05,
+            "gripper": 0.25,
+            "gripper_event_default": 0.0
+        },
+        "base_boundary_headroom_mean_min": 0.0025,
+        "base_boundary_headroom_p75_min": 0.005,
+        "chunkflow_residual_headroom_min_relative": 0.02,
+        "identity_reload_error_max": 1e-06,
+        "mask_positive_fraction_min": 0.02,
+        "mask_positive_fraction_max": 0.8,
+        "future_zone_drift_max": 0.0,
+        "required_action_validity": 1.0,
+        "s2c_vs_chunkflow_min_relative": 0.02,
+        "s2c_vs_no_mask_min_relative": 0.05,
+        "gripper_event_destruction_max": 0,
+        "deterministic_action_kl_forbidden": true,
+        "first_serious_comparison": [
+            "smolvla_base",
+            "chunkflow_overlap_proxy",
+            "s2c_full",
+            "s2c_no_learned_overlap_mask_ablation",
+            "standard_lora"
+        ],
+        "stage_0_stop_classes": [
+            "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+            "S2C_STAGE_0_NO_ADJACENT_BOUNDARY_HEADROOM",
+            "S2C_STAGE_0_DESIGN_FAILURE",
+            "S2C_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+            "S2C_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze S2C-VLA preregistration before prototype protocol, implementation, validation search, training, or rollout."
     }
 }
