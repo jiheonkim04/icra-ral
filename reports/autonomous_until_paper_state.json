@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 36,
-    "current_topic": "epoch_4_cycle_36_dccg_researcher_proposal_pending",
+    "current_topic": "epoch_4_cycle_36_dccg_reviewer_attack_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "112e3b6",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_36_dccg_researcher_proposal_pending",
+    "current_stage": "epoch_4_cycle_36_dccg_reviewer_attack_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -724,7 +724,9 @@
         "epoch_4_cycle_36_prior_mechanism_map_completed",
         "epoch_4_cycle_36_candidate_generation_completed",
         "epoch_4_cycle_36_dccg_candidate_selected",
-        "epoch_4_cycle_36_dccg_researcher_proposal_pending"
+        "epoch_4_cycle_36_dccg_researcher_proposal_pending",
+        "epoch_4_cycle_36_dccg_researcher_proposal_frozen",
+        "epoch_4_cycle_36_dccg_reviewer_attack_pending"
     ],
     "active_hypothesis": "LIBERO demonstration-calibrated action-coherence guidance can reduce within-chunk jitter and drift in SmolVLA while preserving exact Base behavior at zero guidance.",
     "method_identity": "DCCG-VLA",
@@ -749,7 +751,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "current_decision": "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -858,7 +860,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze the DCCG-VLA Researcher A proposal and proposal hash before Reviewer B attack; do not implement, train, run validation search, rollout, or access confirmatory identities before the proposal is frozen.",
+    "next_action": "Run the independent Reviewer B attack on the frozen DCCG-VLA proposal before any rebuttal, mathematical audit, preregistration, prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
     "method": "DCCG-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -2609,7 +2611,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_36_dccg_researcher_proposal_pending",
+    "topic": "epoch_4_cycle_36_dccg_reviewer_attack_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -11233,13 +11235,13 @@
         "failure_class": "DATA_OR_SUPERVISION_FAILURE",
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
-    "proposal_hash": null,
+    "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
     "proposal_hash_file": "reports/dccg_vla/proposal_hash.txt",
     "researcher_proposal": "reports/dccg_vla/researcher_proposal.md",
-    "proposal_decision": "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
-    "researcher_proposal_pending": true,
-    "researcher_proposal_frozen": false,
-    "reviewer_attack_pending": false,
+    "proposal_decision": "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "researcher_proposal_pending": false,
+    "researcher_proposal_frozen": true,
+    "reviewer_attack_pending": true,
     "epoch_4_cycle_35_mhs_researcher_proposal": {
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
@@ -12061,7 +12063,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_action": "Freeze the DCCG-VLA Researcher A proposal and proposal hash before Reviewer B attack; do not implement, train, run validation search, rollout, or access confirmatory identities before the proposal is frozen."
+        "next_action": "Run the independent Reviewer B attack on the frozen DCCG-VLA proposal before any rebuttal, mathematical audit, preregistration, prototype protocol, implementation, validation search, rollout, or confirmatory-test access."
     },
     "epoch_4_cycle_36_candidate_selection": {
         "method": "DCCG-VLA",
@@ -12109,15 +12111,46 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "researcher_proposal_pending": true,
-        "researcher_proposal_frozen": false,
+        "researcher_proposal_pending": false,
+        "researcher_proposal_frozen": true,
         "researcher_proposal": "reports/dccg_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/dccg_vla/proposal_hash.txt",
-        "proposal_hash": null,
+        "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
         "reviewer_attack": "reports/dccg_vla/reviewer_attack.md",
         "mathematical_audit": "reports/dccg_vla/mathematical_mechanism_audit.md",
         "preregistration": "reports/dccg_vla/preregistration.md",
         "prototype_protocol": "reports/dccg_vla/prototype_protocol.md",
-        "next_stage": "Freeze the DCCG-VLA Researcher A proposal and hash before Reviewer B attack."
+        "next_stage": "Independent Reviewer B attack.",
+        "reviewer_attack_pending": true,
+        "proposal_decision": "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    },
+    "epoch_4_cycle_36_dccg_researcher_proposal": {
+        "method": "DCCG-VLA",
+        "proposal": "reports/dccg_vla/researcher_proposal.md",
+        "researcher_proposal": "reports/dccg_vla/researcher_proposal.md",
+        "proposal_hash_file": "reports/dccg_vla/proposal_hash.txt",
+        "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
+        "final_decision": "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+        "closest_prior": "ACG",
+        "policy_order": [
+            "smolvla_base",
+            "acg_official_proxy",
+            "dccg_full",
+            "dccg_no_demo_calibration_ablation",
+            "action_smoothing_simple_killer"
+        ],
+        "candidate_generation": "reports/epoch_4_cycle_36_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_36_prior_mechanism_map.md",
+        "first_serious_comparison_includes_closest_prior": true,
+        "lora_role": "implementation infrastructure only, not the scientific mechanism",
+        "researcher_proposal_pending": false,
+        "researcher_proposal_frozen": true,
+        "reviewer_attack": "reports/dccg_vla/reviewer_attack.md",
+        "reviewer_attack_pending": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Independent Reviewer B attack."
     }
 }

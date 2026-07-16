@@ -29,15 +29,18 @@ LCG_PROPOSAL_HASH = "F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A89
 AFID_PROPOSAL_HASH = "B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC"
 BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2"
 MHS_PROPOSAL_HASH = "BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3"
+DCCG_PROPOSAL_HASH = "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E"
 
 
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
     assert "DCCG-VLA" in final
     assert "reports/epoch_4_cycle_36_prior_mechanism_map.md" in final
     assert "reports/epoch_4_cycle_36_candidate_generation.md" in final
+    assert "reports/dccg_vla/researcher_proposal.md" in final
+    assert DCCG_PROPOSAL_HASH in final
     assert "acg_official_proxy" in final
     assert "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE" in final
     assert "MHS-VLA" in final
@@ -422,22 +425,23 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_decision"] == "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 36
-    assert state["current_stage"] == "epoch_4_cycle_36_dccg_researcher_proposal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_36_dccg_reviewer_attack_pending"
     assert state["method"] == "DCCG-VLA"
     assert state["method_identity"] == "DCCG-VLA"
     assert state["closest_prior"] == "ACG"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_36_candidate_generation.md"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_36_prior_mechanism_map.md"
-    assert state["next_action"].startswith("Freeze the DCCG-VLA Researcher A proposal")
-    assert state["proposal_hash"] is None
+    assert state["next_action"].startswith("Run the independent Reviewer B attack")
+    assert state["proposal_hash"] == DCCG_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/dccg_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/dccg_vla/researcher_proposal.md"
-    assert state["researcher_proposal_pending"] is True
-    assert state["researcher_proposal_frozen"] is False
+    assert state["researcher_proposal_pending"] is False
+    assert state["researcher_proposal_frozen"] is True
     assert state["reviewer_attack"] == "reports/dccg_vla/reviewer_attack.md"
+    assert state["reviewer_attack_pending"] is True
     assert state["reviewer_decision"] is None
     assert state["researcher_rebuttal"] == "reports/dccg_vla/researcher_rebuttal.md"
     assert state["rebuttal_decision"] is None
@@ -571,9 +575,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection36["closest_prior"] == "ACG"
     assert selection36["candidate_count"] == 3
     assert selection36["selected_score"] == 92
-    assert selection36["proposal_hash"] is None
-    assert selection36["researcher_proposal_pending"] is True
+    assert selection36["proposal_hash"] == DCCG_PROPOSAL_HASH
+    assert selection36["researcher_proposal_pending"] is False
+    assert selection36["researcher_proposal_frozen"] is True
+    assert selection36["reviewer_attack_pending"] is True
     assert selection36["first_serious_comparison_includes_closest_prior"] is True
+    proposal36 = state["epoch_4_cycle_36_dccg_researcher_proposal"]
+    assert proposal36["method"] == "DCCG-VLA"
+    assert proposal36["proposal_hash"] == DCCG_PROPOSAL_HASH
+    assert proposal36["final_decision"] == "DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert proposal36["reviewer_attack_pending"] is True
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"

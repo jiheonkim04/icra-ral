@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -24,7 +24,10 @@ generated exactly three candidates in
 with score `92 / 100`. The closest prior is ACG, which enters the first
 serious comparison as `acg_official_proxy`. The next action is to freeze the
 DCCG-VLA Researcher A proposal and proposal hash before any implementation,
-validation search, rollout, or confirmatory access.
+validation search, rollout, or confirmatory access. The proposal is now frozen
+in `reports/dccg_vla/researcher_proposal.md` with SHA-256
+`AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`;
+the next action is Reviewer B attack.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

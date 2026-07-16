@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_36_dccg_reviewer_attack_pending`
 
 Cycle 36 generated exactly three candidates and selected `DCCG-VLA` at
 `92 / 100`. The closest prior is ACG; the first serious comparison is
@@ -21,9 +21,13 @@ Cycle 36 generated exactly three candidates and selected `DCCG-VLA` at
 `dccg_no_demo_calibration_ablation`, and
 `action_smoothing_simple_killer`.
 
-Next action: freeze the DCCG-VLA Researcher A proposal and proposal hash
-before Reviewer B attack. No DCCG implementation, training, validation search,
-rollout, or confirmatory-test access has happened.
+The DCCG-VLA Researcher A proposal is frozen in
+`reports/dccg_vla/researcher_proposal.md` with SHA-256
+`AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`.
+
+Next action: run the independent Reviewer B attack. No DCCG implementation,
+training, validation search, rollout, or confirmatory-test access has
+happened.
 
 ## 2026-07-16 Epoch 4 Cycle 35 Prior State
 

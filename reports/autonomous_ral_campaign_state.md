@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_36_dccg_reviewer_attack_pending`
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
@@ -38,9 +38,14 @@ LoRA is only implementation infrastructure. The scientific mechanism is a
 LIBERO demonstration-calibrated continuous action-coherence guidance direction
 for SmolVLA action generation, with exact Base behavior at zero guidance.
 
-Immediate next action: Freeze the DCCG-VLA Researcher A proposal and proposal
-hash before Reviewer B attack; do not implement, train, run validation search,
-rollout, or access confirmatory identities before the proposal is frozen.
+The DCCG-VLA Researcher A proposal is frozen in
+`reports/dccg_vla/researcher_proposal.md` with SHA-256
+`AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E`
+and decision `DCCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Immediate next action: run the independent Reviewer B attack before any
+rebuttal, mathematical audit, preregistration, prototype protocol,
+implementation, validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 
