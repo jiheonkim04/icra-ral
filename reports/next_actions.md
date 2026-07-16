@@ -5,9 +5,9 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
-Immediate next action: run Reviewer B attack on MHS-VLA before rebuttal,
+Immediate next action: write the MHS-VLA Researcher A rebuttal before
 mathematical audit, preregistration, prototype protocol, implementation,
 validation search, training, rollout, or confirmatory-test access.
 
@@ -29,6 +29,13 @@ The MHS-VLA Researcher A proposal is frozen in
 `reports/mhs_vla/researcher_proposal.md` with SHA-256
 `BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3` and
 decision `MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+Reviewer B attack is complete in `reports/mhs_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It requires MTIL
+or a transparent MTIL proxy as policy 2, a no-history-state ablation, standard
+LoRA, noncollapsed history labels, history-over-current-frame predictability,
+exact Base passthrough, bounded action deltas, clean retention, and no
+privileged inference input.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 

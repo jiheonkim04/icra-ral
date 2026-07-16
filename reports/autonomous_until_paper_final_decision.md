@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -40,15 +40,22 @@ The first serious comparison is `smolvla_base`, `mtil_history_state_proxy`,
 `mhs_full`, `mhs_no_history_state_ablation`, and `standard_lora`.
 
 Current cycle: `35`. Current stage:
-`epoch_4_cycle_35_mhs_reviewer_attack_pending`.
+`epoch_4_cycle_35_mhs_rebuttal_pending`.
 
 The MHS-VLA Researcher A proposal is frozen in
 `reports/mhs_vla/researcher_proposal.md` with SHA-256
 `BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3` and
 decision `MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
-Next action: run Reviewer B attack on MHS-VLA before rebuttal, mathematical
-audit, preregistration, prototype protocol, implementation, validation search,
+Reviewer B attack is complete in `reports/mhs_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
+MTIL as closest prior and requires a transparent `mtil_history_state_proxy`, a
+no-history-state ablation, standard LoRA, noncollapsed history labels,
+history-over-current-frame predictability, exact Base passthrough, bounded
+action deltas, clean retention, and no privileged inference input.
+
+Next action: write the MHS-VLA Researcher A rebuttal before mathematical audit,
+preregistration, prototype protocol, implementation, validation search,
 training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 34 Candidate Selection

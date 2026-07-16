@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_35_mhs_rebuttal_pending`
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -36,9 +36,16 @@ The MHS-VLA Researcher A proposal is frozen in
 `BBDF67AE3EC4BD9D025707A8BB3A5008BAB5EB5C691D02D44516157802A87BF3` and
 decision `MHS_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
-Next action is to run Reviewer B attack on MHS-VLA before rebuttal,
-mathematical audit, preregistration, prototype protocol, implementation,
-validation search, training, rollout, or confirmatory-test access.
+Reviewer B attack is complete in `reports/mhs_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
+MTIL as closest prior and requires a transparent `mtil_history_state_proxy`, a
+no-history-state ablation, standard LoRA, noncollapsed history labels,
+history-over-current-frame predictability, exact Base passthrough, bounded
+action deltas, clean retention, and no privileged inference input.
+
+Next action is to write the MHS-VLA Researcher A rebuttal before mathematical
+audit, preregistration, prototype protocol, implementation, validation search,
+training, rollout, or confirmatory-test access.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 
