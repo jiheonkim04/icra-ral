@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
 
 This is not a terminal decision.
 
@@ -62,8 +62,13 @@ The executable prototype protocol is frozen in
 `reports/cfr_vla/prototype_protocol.md` with decision
 `CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
 
+The CFR Stage 0 runner is implemented in `scripts/run_cfr_vla_stage0.py` with
+helper module `tca_map/smolvla/cfr_vla.py`; focused CFR tests pass (`8` tests).
+No CFR training, validation search, rollout, simulator access, or
+confirmatory-test tuning has happened.
+
 Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_stage_0_implementation_pending`.
+`epoch_4_cycle_27_cfr_stage_0_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 

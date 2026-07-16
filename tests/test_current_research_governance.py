@@ -63,8 +63,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_stage_0_implementation_pending"
+    assert state["current_decision"] == "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_stage_0_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -257,6 +257,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_prototype_protocol_pending",
         "epoch_4_cycle_27_cfr_prototype_protocol_frozen",
         "epoch_4_cycle_27_cfr_stage_0_implementation_pending",
+        "epoch_4_cycle_27_cfr_stage_0_runner_implemented",
+        "epoch_4_cycle_27_cfr_stage_0_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -489,6 +491,15 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cfr_protocol["stage_0_allowed_next"] is True
     assert cfr_protocol["runner"] == "scripts/run_cfr_vla_stage0.py"
     assert cfr_protocol["stage_0_result"] == "reports/cfr_vla/stage_0_result.json"
+    assert cfr_protocol["runner_implemented"] is True
+    assert cfr_protocol["runner_unit_tests_passed"] == 8
+    assert cfr_protocol["stage_0_pending"] is True
+    cfr_prelaunch = state["epoch_4_cycle_27_cfr_stage_0_prelaunch"]
+    assert cfr_prelaunch["final_decision"] == "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH"
+    assert cfr_prelaunch["runner"] == "scripts/run_cfr_vla_stage0.py"
+    assert cfr_prelaunch["helper_module"] == "tca_map/smolvla/cfr_vla.py"
+    assert cfr_prelaunch["unit_tests_passed"] == 8
+    assert cfr_prelaunch["stage_0_action_semantics"] == "reports/cfr_vla/stage_0_action_semantics.json"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

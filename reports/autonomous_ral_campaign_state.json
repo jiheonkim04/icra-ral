@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_27_cfr_stage_0_implementation_pending",
+    "current_stage": "epoch_4_cycle_27_cfr_stage_0_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -550,7 +550,9 @@
         "epoch_4_cycle_27_cfr_preregistration_frozen",
         "epoch_4_cycle_27_cfr_prototype_protocol_pending",
         "epoch_4_cycle_27_cfr_prototype_protocol_frozen",
-        "epoch_4_cycle_27_cfr_stage_0_implementation_pending"
+        "epoch_4_cycle_27_cfr_stage_0_implementation_pending",
+        "epoch_4_cycle_27_cfr_stage_0_runner_implemented",
+        "epoch_4_cycle_27_cfr_stage_0_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -567,7 +569,7 @@
         "Multi-view-VLA / Action Manifold Learning"
     ],
     "prototype_gate": "Frozen RAP Stage 0 retrieval-memory, anchor headroom, residual predictability, gradient, identity, action-validity, and persistence audit.",
-    "current_decision": "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+    "current_decision": "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -718,7 +720,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Implement and validate CFR-VLA Stage 0 runner before execution.",
+    "next_action": "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A bounded iterative continuous refinement field over full SmolVLA action chunks can correct Base decoded chunk errors using only deployment-observable inputs and demonstration residual supervision while preserving identity at initialization.",
     "method_identity": "CFR-VLA",
@@ -2472,7 +2474,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_27_cfr_stage_0_implementation_pending",
+    "current_topic": "epoch_4_cycle_27_cfr_stage_0_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7178,7 +7180,7 @@
         "amp_repair_allowed": false,
         "amp_rescue_allowed": false,
         "selection_decision": "CFR_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
-        "next_stage": "Implement and validate CFR-VLA Stage 0 runner before execution.",
+        "next_stage": "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules.",
         "proposal": "reports/cfr_vla/researcher_proposal.md",
         "proposal_hash": "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE",
         "proposal_hash_file": "reports/cfr_vla/proposal_hash.txt",
@@ -7192,7 +7194,11 @@
         "preregistration": "reports/cfr_vla/preregistration.md",
         "preregistration_decision": "CFR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
         "prototype_protocol": "reports/cfr_vla/prototype_protocol.md",
-        "prototype_protocol_decision": "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
+        "prototype_protocol_decision": "CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "runner": "scripts/run_cfr_vla_stage0.py",
+        "runner_validation": "tests/test_cfr_vla.py",
+        "runner_unit_tests_passed": 8,
+        "stage_0_pending": true
     },
     "proposal": "reports/cfr_vla/researcher_proposal.md",
     "proposal_hash_file": "reports/cfr_vla/proposal_hash.txt",
@@ -7316,6 +7322,33 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Implement and validate CFR-VLA Stage 0 runner before execution."
+        "next_stage": "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules.",
+        "runner_implemented": true,
+        "runner_validation": "tests/test_cfr_vla.py",
+        "runner_unit_tests_passed": 8,
+        "stage_0_pending": true,
+        "stage_0_action_semantics": "reports/cfr_vla/stage_0_action_semantics.json"
+    },
+    "runner": "scripts/run_cfr_vla_stage0.py",
+    "epoch_4_cycle_27_cfr_stage_0_prelaunch": {
+        "method": "CFR-VLA",
+        "final_decision": "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH",
+        "proposal_hash": "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE",
+        "runner": "scripts/run_cfr_vla_stage0.py",
+        "helper_module": "tca_map/smolvla/cfr_vla.py",
+        "unit_tests": "tests/test_cfr_vla.py",
+        "unit_tests_passed": 8,
+        "py_compile_passed": true,
+        "serializer_preflight_unit_tested": true,
+        "stage_0_manifest": "reports/cfr_vla/stage_0_manifest.json",
+        "stage_0_partial": "reports/cfr_vla/stage_0_partial.json",
+        "stage_0_result": "reports/cfr_vla/stage_0_result.json",
+        "stage_0_action_semantics": "reports/cfr_vla/stage_0_action_semantics.json",
+        "stage_0_pending": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules."
     }
 }

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_27_cfr_stage_0_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -83,6 +83,14 @@ mechanism audits, proxy definitions, hard pass gates, and stop classes.
 
 Next action: implement and validate `scripts/run_cfr_vla_stage0.py` before
 execution.
+
+The CFR Stage 0 runner is now implemented in `scripts/run_cfr_vla_stage0.py`
+with helper module `tca_map/smolvla/cfr_vla.py`. The focused CFR runner/helper
+tests in `tests/test_cfr_vla.py` pass (`8` tests), and no CFR training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened. Next action: check existing CFR Stage 0 PID/status/heartbeat,
+partial/result/log/exit-code artifacts, then launch, monitor, resume, or
+adjudicate strictly according to the frozen worker/resume rules.
 
 ## Epoch 4 Cycle 26 AMP-VLA
 
