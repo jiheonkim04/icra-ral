@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_36_dccg_preregistration_pending`
 
 Cycle 36 generated exactly three candidates and selected `DCCG-VLA` at
 `92 / 100`. The closest prior is ACG; the first serious comparison is
@@ -32,9 +32,13 @@ Researcher A rebuttal is complete in
 `reports/dccg_vla/researcher_rebuttal.md` with decision
 `DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
 
-Next action: write the mathematical mechanism audit. No DCCG implementation,
-training, validation search, rollout, or confirmatory-test access has
-happened.
+The mathematical mechanism audit is frozen in
+`reports/dccg_vla/mathematical_mechanism_audit.md` with decision
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Next action: write the preregistration and prototype protocol. No DCCG
+implementation, training, validation search, rollout, or confirmatory-test
+access has happened.
 
 ## 2026-07-16 Epoch 4 Cycle 35 Prior State
 

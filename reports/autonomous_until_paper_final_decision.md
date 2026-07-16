@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -28,9 +28,12 @@ is frozen in `reports/dccg_vla/researcher_proposal.md` with SHA-256
 Reviewer B attack is complete in `reports/dccg_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A
 rebuttal is complete in `reports/dccg_vla/researcher_rebuttal.md` with
-decision `DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; the next action is the
-mathematical mechanism audit before any implementation, validation search,
-rollout, or confirmatory access.
+decision `DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical
+mechanism audit is frozen in
+`reports/dccg_vla/mathematical_mechanism_audit.md` with decision
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`; the next action is preregistration
+and prototype protocol before any implementation, validation search, rollout,
+or confirmatory access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

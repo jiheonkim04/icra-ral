@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`
 
-Immediate next action: write the DCCG-VLA mathematical mechanism audit before
-preregistration, prototype protocol, implementation, validation search,
-rollout, or confirmatory-test access.
+Immediate next action: write the DCCG-VLA preregistration and prototype
+protocol before implementation, validation search, rollout, or
+confirmatory-test access.
 
 DCCG-VLA was selected from exactly three Cycle 36 candidates in
 `reports/epoch_4_cycle_36_candidate_generation.md`. ACG is the closest prior
@@ -25,6 +25,10 @@ decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`.
 Researcher A rebuttal is complete in
 `reports/dccg_vla/researcher_rebuttal.md` with decision
 `DCCG_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`.
+
+The mathematical mechanism audit is frozen in
+`reports/dccg_vla/mathematical_mechanism_audit.md` with decision
+`DCCG_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
 MHS-VLA remains closed under its frozen Stage 0 protocol as a
 development-only DATA_OR_SUPERVISION_FAILURE. Do not rescue MHS by changing
