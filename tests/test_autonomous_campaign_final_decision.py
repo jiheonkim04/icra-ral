@@ -28,6 +28,7 @@ CCIF_PROPOSAL_HASH = "2AFC40F050FD7F0D28507344358CBCB70BF27CC901C57474A501D3EB87
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "CCIF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
@@ -36,7 +37,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Coarse-to-Control" in final
     assert "coarse_to_control_continuous_proxy" in final
     assert CCIF_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_29_ccif_preregistration_pending" in final
+    assert "epoch_4_cycle_29_ccif_prototype_protocol_pending" in final
     assert "TSC_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "TSC-VLA" in final
     assert "TS-Mask VLA" in final
@@ -296,10 +297,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_decision"] == "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 29
-    assert state["current_stage"] == "epoch_4_cycle_29_ccif_preregistration_pending"
+    assert state["current_stage"] == "epoch_4_cycle_29_ccif_prototype_protocol_pending"
     assert state["method"] == "CCIF-VLA"
     assert state["method_identity"] == "CCIF-VLA"
     assert state["proposal_hash"] == CCIF_PROPOSAL_HASH
@@ -317,7 +318,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Freeze CCIF-VLA preregistration before executable prototype protocol or implementation."
+        == "Write executable CCIF-VLA prototype protocol before Stage 0 implementation."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -698,7 +699,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert ccif["mathematical_audit"] == "reports/ccif_vla/mathematical_mechanism_audit.md"
     assert ccif["math_audit_decision"] == "CCIF_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert ccif["preregistration"] == "reports/ccif_vla/preregistration.md"
-    assert ccif["preregistration_decision"] == "CCIF_PREREGISTRATION_PENDING"
+    assert ccif["preregistration_decision"] == "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     ccif_proposal = state["epoch_4_cycle_29_ccif_researcher_proposal"]
     assert ccif_proposal["final_decision"] == "CCIF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert ccif_proposal["proposal"] == "reports/ccif_vla/researcher_proposal.md"
@@ -746,6 +747,17 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert ccif_math["task_phase_mean_intent_diagnostic_required"] is True
     assert ccif_math["endpoint_only_intent_diagnostic_required"] is True
     assert "CCIF_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in ccif_math["stage_0_stop_classes"]
+    assert ccif_math["preregistration_decision"] == "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    ccif_prereg = state["epoch_4_cycle_29_ccif_preregistration"]
+    assert ccif_prereg["final_decision"] == "CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert ccif_prereg["preregistration"] == "reports/ccif_vla/preregistration.md"
+    assert ccif_prereg["proposal_hash"] == CCIF_PROPOSAL_HASH
+    assert ccif_prereg["stage_0_allowed_next"] is True
+    assert ccif_prereg["bounded_validation_search_max_configs"] == 6
+    assert ccif_prereg["intent_dimension"] == 31
+    assert ccif_prereg["waypoint_indices"] == [9, 19, 34, 49]
+    assert ccif_prereg["prototype_protocol"] == "reports/ccif_vla/prototype_protocol.md"
+    assert ccif_prereg["prototype_protocol_decision"] == "CCIF_PROTOTYPE_PROTOCOL_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

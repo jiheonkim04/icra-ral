@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`
+`CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -46,8 +46,11 @@ The CCIF mathematical mechanism audit is frozen in
 `reports/ccif_vla/mathematical_mechanism_audit.md` with decision
 `CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`.
 
+The CCIF preregistration is frozen in `reports/ccif_vla/preregistration.md`
+with decision `CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
 Current cycle: `29`. Current stage:
-`epoch_4_cycle_29_ccif_preregistration_pending`.
+`epoch_4_cycle_29_ccif_prototype_protocol_pending`.
 
 ## Epoch 4 Cycle 28 Selection
 

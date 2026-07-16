@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CCIF_MATHEMATICAL_AUDIT_PREREGISTERED`
+`CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `29`
 
-Current stage: `epoch_4_cycle_29_ccif_preregistration_pending`
+Current stage: `epoch_4_cycle_29_ccif_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 
@@ -68,8 +68,15 @@ formula, objective terms and gradient paths, no deterministic-action KL,
 Coarse-to-Control proxy requirements, no-intent ablation, cheap intent
 diagnostics, identity-preserving integration, and Stage 0 stop classes.
 
-Next action: freeze CCIF-VLA preregistration before executable prototype
-protocol or implementation.
+The CCIF preregistration is frozen in `reports/ccif_vla/preregistration.md`
+with decision `CCIF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It
+freezes evidence partitions, fixed source tasks and demonstrations, the
+`m = 31` intent definition, Stage 0 artifacts, pass gates, stop classes,
+bounded validation-search budget, first comparison policies, and confirmatory
+discipline.
+
+Next action: write the executable CCIF-VLA prototype protocol before Stage 0
+implementation.
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
