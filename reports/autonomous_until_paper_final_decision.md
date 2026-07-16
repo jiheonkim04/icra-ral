@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE`
+`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal decision.
 
@@ -16,10 +16,15 @@ Allowed terminal decisions:
 - `HARD_EXTERNAL_BLOCKER`
 - `SAFETY_RESOURCE_STOP`
 
-## Epoch 4 Cycle 36 Candidate Search
+## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
-Cycle 36 candidate search is pending after MHS-VLA Stage 0 stopped as a
-development-only DATA_OR_SUPERVISION_FAILURE. Generate exactly three Epoch 4 Cycle 36 candidates under current governance, with one genuinely new mechanism, LoRA only as implementation infrastructure, and the closest prior entering the first serious comparison.
+Cycle 36 completed `reports/epoch_4_cycle_36_prior_mechanism_map.md`,
+generated exactly three candidates in
+`reports/epoch_4_cycle_36_candidate_generation.md`, and selected `DCCG-VLA`
+with score `92 / 100`. The closest prior is ACG, which enters the first
+serious comparison as `acg_official_proxy`. The next action is to freeze the
+DCCG-VLA Researcher A proposal and proposal hash before any implementation,
+validation search, rollout, or confirmatory access.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

@@ -5,9 +5,15 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE`
+`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
-Immediate next action: Generate exactly three Epoch 4 Cycle 36 candidates under current governance, with one genuinely new mechanism, LoRA only as implementation infrastructure, and the closest prior entering the first serious comparison.
+Immediate next action: Freeze the DCCG-VLA Researcher A proposal and proposal
+hash before Reviewer B attack; do not implement, train, run validation search,
+rollout, or access confirmatory identities before the proposal is frozen.
+
+DCCG-VLA was selected from exactly three Cycle 36 candidates in
+`reports/epoch_4_cycle_36_candidate_generation.md`. ACG is the closest prior
+and must enter the first serious comparison as `acg_official_proxy`.
 
 MHS-VLA remains closed under its frozen Stage 0 protocol as a
 development-only DATA_OR_SUPERVISION_FAILURE. Do not rescue MHS by changing

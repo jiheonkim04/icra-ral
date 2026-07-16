@@ -7,15 +7,23 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE`
+`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_candidate_search_pending`
+Current stage: `epoch_4_cycle_36_dccg_researcher_proposal_pending`
 
-Cycle 36 candidate search is pending. Generate exactly three Epoch 4 Cycle 36 candidates under current governance, with one genuinely new mechanism, LoRA only as implementation infrastructure, and the closest prior entering the first serious comparison.
+Cycle 36 generated exactly three candidates and selected `DCCG-VLA` at
+`92 / 100`. The closest prior is ACG; the first serious comparison is
+`smolvla_base`, `acg_official_proxy`, `dccg_full`,
+`dccg_no_demo_calibration_ablation`, and
+`action_smoothing_simple_killer`.
+
+Next action: freeze the DCCG-VLA Researcher A proposal and proposal hash
+before Reviewer B attack. No DCCG implementation, training, validation search,
+rollout, or confirmatory-test access has happened.
 
 ## 2026-07-16 Epoch 4 Cycle 35 Prior State
 

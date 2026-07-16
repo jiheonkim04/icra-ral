@@ -7,23 +7,40 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE`
+`DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_candidate_search_pending`
+Current stage: `epoch_4_cycle_36_dccg_researcher_proposal_pending`
 
-## Epoch 4 Cycle 36 Candidate Search
+## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
-Cycle 36 is pending candidate generation after the MHS-VLA Stage 0
-DATA_OR_SUPERVISION_FAILURE. Candidate generation must produce exactly three
-candidates and preserve the current design constraint: one genuinely new
-scientific mechanism, LoRA only as implementation infrastructure, and the
-closest positive external prior entering the first serious comparison.
+Cycle 36 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_36_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_36_candidate_generation.md`.
 
-Immediate next action: Generate exactly three Epoch 4 Cycle 36 candidates under current governance, with one genuinely new mechanism, LoRA only as implementation infrastructure, and the closest prior entering the first serious comparison.
+Selected method: `DCCG-VLA`, Demonstration-Calibrated Coherence Guidance for
+SmolVLA, score `92 / 100`.
+
+Closest prior: ACG (`https://arxiv.org/abs/2510.22201` and
+`https://github.com/DAVIAN-Robotics/ACG`), with positive evidence that
+training-free perturbation guidance improves action coherence and manipulation
+success on flow-based VLA-style policies.
+
+Frozen first comparison for the proposal stage: `smolvla_base`,
+`acg_official_proxy`, `dccg_full`,
+`dccg_no_demo_calibration_ablation`, and
+`action_smoothing_simple_killer`.
+
+LoRA is only implementation infrastructure. The scientific mechanism is a
+LIBERO demonstration-calibrated continuous action-coherence guidance direction
+for SmolVLA action generation, with exact Base behavior at zero guidance.
+
+Immediate next action: Freeze the DCCG-VLA Researcher A proposal and proposal
+hash before Reviewer B attack; do not implement, train, run validation search,
+rollout, or access confirmatory identities before the proposal is frozen.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

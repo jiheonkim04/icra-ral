@@ -71,44 +71,46 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
-    assert state["current_stage"] == "epoch_4_cycle_36_candidate_search_pending"
-    assert state["method"] == "MHS-VLA"
-    assert state["method_identity"] == "MHS-VLA"
-    assert state["closest_prior"] == "MTIL"
+    assert state["current_decision"] == "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_36_dccg_researcher_proposal_pending"
+    assert state["method"] == "DCCG-VLA"
+    assert state["method_identity"] == "DCCG-VLA"
+    assert state["closest_prior"] == "ACG"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_36_prior_mechanism_map.md"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_36_candidate_generation.md"
-    assert state["selection_decision"] == "EPOCH_4_CYCLE_36_CANDIDATE_SEARCH_PENDING"
-    assert state["selected_score"] is None
+    assert state["selection_decision"] == "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["selected_score"] == 92
     assert state["policy_order"] == [
         "smolvla_base",
-        "mtil_history_state_proxy",
-        "mhs_full",
-        "mhs_no_history_state_ablation",
-        "standard_lora",
+        "acg_official_proxy",
+        "dccg_full",
+        "dccg_no_demo_calibration_ablation",
+        "action_smoothing_simple_killer",
     ]
-    assert state["next_action"].startswith("Generate exactly three Epoch 4 Cycle 36 candidates")
-    assert state["proposal_hash"] == MHS_PROPOSAL_HASH
-    assert state["proposal_hash_file"] == "reports/mhs_vla/proposal_hash.txt"
-    assert state["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
-    assert state["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
-    assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["researcher_rebuttal"] == "reports/mhs_vla/researcher_rebuttal.md"
-    assert state["rebuttal_decision"] == "MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
-    assert state["math_audit_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["preregistration"] == "reports/mhs_vla/preregistration.md"
-    assert state["preregistration_decision"] == "MHS_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["prototype_protocol"] == "reports/mhs_vla/prototype_protocol.md"
-    assert state["prototype_protocol_decision"] == "MHS_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["next_action"].startswith("Freeze the DCCG-VLA Researcher A proposal")
+    assert state["proposal_hash"] is None
+    assert state["proposal_hash_file"] == "reports/dccg_vla/proposal_hash.txt"
+    assert state["researcher_proposal"] == "reports/dccg_vla/researcher_proposal.md"
+    assert state["researcher_proposal_pending"] is True
+    assert state["researcher_proposal_frozen"] is False
+    assert state["reviewer_attack"] == "reports/dccg_vla/reviewer_attack.md"
+    assert state["reviewer_decision"] is None
+    assert state["researcher_rebuttal"] == "reports/dccg_vla/researcher_rebuttal.md"
+    assert state["rebuttal_decision"] is None
+    assert state["mathematical_audit"] == "reports/dccg_vla/mathematical_mechanism_audit.md"
+    assert state["math_audit_decision"] is None
+    assert state["preregistration"] == "reports/dccg_vla/preregistration.md"
+    assert state["preregistration_decision"] is None
+    assert state["prototype_protocol"] == "reports/dccg_vla/prototype_protocol.md"
+    assert state["prototype_protocol_decision"] is None
     assert state["prototype_protocol_pending"] is False
     assert state["stage_0_implementation_pending"] is False
-    assert state["stage_0_implementation_validated"] is True
+    assert state["stage_0_implementation_validated"] is False
     assert state["stage_0_pending"] is False
-    assert state["stage_0_serializer_preflight"] == "reports/mhs_vla/stage_0_serializer_preflight.json"
-    assert state["stage_0_completed"] is True
-    assert state["stage_0_adjudicated"] is True
-    assert state["stage_0_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert state["stage_0_serializer_preflight"] is None
+    assert state["stage_0_completed"] is False
+    assert state["stage_0_adjudicated"] is False
+    assert state["stage_0_decision"] is None
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
     assert cycle35["candidate_count_required"] == 3
     assert cycle35["candidate_count_generated"] == 3
@@ -176,10 +178,31 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert outcome35["final_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
     assert outcome35["valid_scientific_result"] is False
     cycle36 = state["epoch_4_cycle_36_candidate_search"]
-    assert cycle36["candidate_search_pending"] is True
+    assert cycle36["candidate_search_pending"] is False
     assert cycle36["candidate_count_required"] == 3
-    assert cycle36["candidate_count_generated"] == 0
+    assert cycle36["candidate_count_generated"] == 3
+    assert cycle36["candidate_ids"] == ["DCCG-VLA", "DAF-VLA", "VIRG-VLA"]
+    assert cycle36["selected_method"] == "DCCG-VLA"
+    assert cycle36["selected_score"] == 92
+    assert cycle36["selection_decision"] == "DCCG_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert cycle36["closest_prior"] == "ACG"
+    assert cycle36["policy_order"] == [
+        "smolvla_base",
+        "acg_official_proxy",
+        "dccg_full",
+        "dccg_no_demo_calibration_ablation",
+        "action_smoothing_simple_killer",
+    ]
+    assert cycle36["first_serious_comparison_includes_closest_prior"] is True
     assert cycle36["previous_decision"] == "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    selection36 = state["epoch_4_cycle_36_candidate_selection"]
+    assert selection36["method"] == "DCCG-VLA"
+    assert selection36["closest_prior"] == "ACG"
+    assert selection36["candidate_count"] == 3
+    assert selection36["selected_score"] == 92
+    assert selection36["proposal_hash"] is None
+    assert selection36["researcher_proposal_pending"] is True
+    assert selection36["first_serious_comparison_includes_closest_prior"] is True
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -207,6 +230,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_35_mhs_stage_0_runner_implemented" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_stage_0_implementation_validated" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_stage_0_ready" in state["completed_stages"]
+    assert "epoch_4_cycle_36_prior_mechanism_map_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_36_candidate_generation_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_36_dccg_candidate_selected" in state["completed_stages"]
+    assert "epoch_4_cycle_36_dccg_researcher_proposal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
