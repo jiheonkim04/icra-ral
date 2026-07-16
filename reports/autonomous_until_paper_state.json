@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 37,
-    "current_topic": "epoch_4_cycle_37_cspr_preregistration_pending",
+    "current_topic": "epoch_4_cycle_37_cspr_prototype_protocol_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "current_commit": "c155008",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_37_cspr_preregistration_pending",
+    "current_stage": "epoch_4_cycle_37_cspr_prototype_protocol_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -756,7 +756,9 @@
         "epoch_4_cycle_37_cspr_rebuttal_completed",
         "epoch_4_cycle_37_cspr_mathematical_audit_pending",
         "epoch_4_cycle_37_cspr_mathematical_audit_preregistered",
-        "epoch_4_cycle_37_cspr_preregistration_pending"
+        "epoch_4_cycle_37_cspr_preregistration_pending",
+        "epoch_4_cycle_37_cspr_preregistration_frozen",
+        "epoch_4_cycle_37_cspr_prototype_protocol_pending"
     ],
     "active_hypothesis": "LIBERO demonstration-calibrated action-coherence guidance can reduce within-chunk jitter and drift in SmolVLA while preserving exact Base behavior at zero guidance.",
     "method_identity": "CSPR-VLA",
@@ -781,7 +783,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+    "current_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -890,7 +892,7 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Freeze the CSPR-VLA preregistration before prototype protocol, implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Freeze the CSPR-VLA executable prototype protocol before implementation, validation search, rollout, or confirmatory-test access.",
     "method": "CSPR-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
@@ -11577,7 +11579,7 @@
     },
     "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
     "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
-    "preregistration_pending": true,
+    "preregistration_pending": false,
     "epoch_4_cycle_35_mhs_mathematical_audit": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -11680,9 +11682,9 @@
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
     "preregistration": "reports/cspr_vla/preregistration.md",
-    "preregistration_decision": null,
-    "preregistration_frozen": false,
-    "prototype_protocol_pending": false,
+    "preregistration_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "preregistration_frozen": true,
+    "prototype_protocol_pending": true,
     "training_happened": false,
     "validation_search_happened": false,
     "closed_loop_experiment_happened": false,
@@ -12772,7 +12774,7 @@
         "researcher_proposal": "reports/cspr_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/cspr_vla/proposal_hash.txt",
         "proposal_hash": "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7",
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "proposal_decision": "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
         "reviewer_attack_pending": false,
         "reviewer_attack_completed": true,
@@ -12788,8 +12790,12 @@
         "mathematical_audit_completed": true,
         "mathematical_audit_preregistered": true,
         "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
-        "preregistration": "reports/cspr_vla/preregistration.md"
+        "preregistration_pending": false,
+        "preregistration": "reports/cspr_vla/preregistration.md",
+        "preregistration_frozen": true,
+        "preregistration_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "prototype_protocol": "reports/cspr_vla/prototype_protocol.md"
     },
     "epoch_4_cycle_37_cspr_researcher_proposal": {
         "method": "CSPR-VLA",
@@ -12839,7 +12845,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
         "researcher_rebuttal_pending": false,
@@ -12852,8 +12858,12 @@
         "mathematical_audit_completed": true,
         "mathematical_audit_preregistered": true,
         "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
-        "preregistration": "reports/cspr_vla/preregistration.md"
+        "preregistration_pending": false,
+        "preregistration": "reports/cspr_vla/preregistration.md",
+        "preregistration_frozen": true,
+        "preregistration_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "prototype_protocol": "reports/cspr_vla/prototype_protocol.md"
     },
     "epoch_4_cycle_37_cspr_reviewer_attack": {
         "method": "CSPR-VLA",
@@ -12893,7 +12903,7 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
         "rebuttal_decision": "CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
         "accepted_reviewer_conditions": true,
@@ -12902,8 +12912,12 @@
         "mathematical_audit_completed": true,
         "mathematical_audit_preregistered": true,
         "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
-        "preregistration": "reports/cspr_vla/preregistration.md"
+        "preregistration_pending": false,
+        "preregistration": "reports/cspr_vla/preregistration.md",
+        "preregistration_frozen": true,
+        "preregistration_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "prototype_protocol": "reports/cspr_vla/prototype_protocol.md"
     },
     "epoch_4_cycle_37_cspr_rebuttal": {
         "method": "CSPR-VLA",
@@ -12944,12 +12958,16 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration.",
+        "next_stage": "Prototype protocol.",
         "mathematical_audit_completed": true,
         "mathematical_audit_preregistered": true,
         "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
-        "preregistration_pending": true,
-        "preregistration": "reports/cspr_vla/preregistration.md"
+        "preregistration_pending": false,
+        "preregistration": "reports/cspr_vla/preregistration.md",
+        "preregistration_frozen": true,
+        "preregistration_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "prototype_protocol": "reports/cspr_vla/prototype_protocol.md"
     },
     "epoch_4_cycle_37_cspr_mathematical_audit": {
         "method": "CSPR-VLA",
@@ -12987,12 +13005,93 @@
         "criticality_observability_required": true,
         "deterministic_action_kl_allowed": false,
         "first_serious_comparison_includes_closest_prior": true,
-        "preregistration_pending": true,
+        "preregistration_pending": false,
         "preregistration": "reports/cspr_vla/preregistration.md",
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Preregistration."
+        "next_stage": "Prototype protocol.",
+        "preregistration_frozen": true,
+        "preregistration_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol_pending": true,
+        "prototype_protocol": "reports/cspr_vla/prototype_protocol.md"
+    },
+    "epoch_4_cycle_37_cspr_preregistration": {
+        "method": "CSPR-VLA",
+        "proposal_hash": "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7",
+        "preregistration": "reports/cspr_vla/preregistration.md",
+        "mathematical_audit": "reports/cspr_vla/mathematical_mechanism_audit.md",
+        "math_audit_decision": "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED",
+        "final_decision": "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "policy_order": [
+            "smolvla_base",
+            "dysl_action_importance_proxy",
+            "cspr_full",
+            "cspr_uniform_refinement_ablation",
+            "critical_step_threshold_simple_killer"
+        ],
+        "discovery_tasks": [
+            "libero_10/task_5",
+            "libero_goal/task_5",
+            "libero_object/task_3",
+            "libero_spatial/task_3"
+        ],
+        "validation_tasks": [
+            "libero_10/task_5",
+            "libero_goal/task_5",
+            "libero_object/task_3",
+            "libero_spatial/task_3"
+        ],
+        "discovery_demo_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "validation_demo_ids": [
+            8,
+            9
+        ],
+        "expected_discovery_rows": 512,
+        "expected_validation_rows": 128,
+        "bounded_validation_search_max_configs": 6,
+        "stage_0_default_cap_group": "mid",
+        "stage_0_default_tau_quantile": 0.95,
+        "stage_0_required_artifacts": [
+            "reports/cspr_vla/stage_0_preflight.json",
+            "reports/cspr_vla/stage_0_manifest.json",
+            "reports/cspr_vla/stage_0_partial.json",
+            "reports/cspr_vla/stage_0_result.json",
+            "reports/cspr_vla/stage_0_result.md",
+            "reports/cspr_vla/stage_0_adjudication.md",
+            "reports/cspr_vla/stage_0_status.json",
+            "reports/cspr_vla/stage_0_heartbeat.json",
+            "reports/cspr_vla/stage_0_pid.txt",
+            "reports/cspr_vla/stage_0_exit_code.txt",
+            "reports/cspr_vla/stage_0_action_semantics.json",
+            "reports/cspr_vla/stage_0_official_prior_asset_check.json",
+            "reports/cspr_vla/stage_0_serializer_preflight.json"
+        ],
+        "stop_classes": [
+            "CSPR_STAGE_0_DATA_FAILURE",
+            "CSPR_STAGE_0_NO_USABLE_HEADROOM",
+            "CSPR_STAGE_0_DESIGN_FAILURE",
+            "CSPR_STAGE_0_IMPLEMENTATION_FAILURE",
+            "CSPR_STAGE_0_PASS_TO_BOUNDED_VALIDATION"
+        ],
+        "deterministic_action_kl_allowed": false,
+        "first_serious_comparison_includes_closest_prior": true,
+        "prototype_protocol_pending": true,
+        "prototype_protocol": "reports/cspr_vla/prototype_protocol.md",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Prototype protocol."
     }
 }

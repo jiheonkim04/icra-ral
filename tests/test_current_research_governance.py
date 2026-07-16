@@ -73,8 +73,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_preregistration_pending"
+    assert state["current_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_prototype_protocol_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
@@ -89,7 +89,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "cspr_uniform_refinement_ablation",
         "critical_step_threshold_simple_killer",
     ]
-    assert state["next_action"].startswith("Freeze the CSPR-VLA preregistration")
+    assert state["next_action"].startswith("Freeze the CSPR-VLA executable prototype protocol")
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -108,12 +108,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["mathematical_audit_pending"] is False
     assert state["mathematical_audit_completed"] is True
     assert state["math_audit_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["preregistration_pending"] is True
+    assert state["preregistration_pending"] is False
     assert state["preregistration"] == "reports/cspr_vla/preregistration.md"
-    assert state["preregistration_frozen"] is False
-    assert state["preregistration_decision"] is None
+    assert state["preregistration_frozen"] is True
+    assert state["preregistration_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["prototype_protocol"] == "reports/cspr_vla/prototype_protocol.md"
-    assert state["prototype_protocol_pending"] is False
+    assert state["prototype_protocol_pending"] is True
     assert state["prototype_protocol_frozen"] is False
     assert state["prototype_protocol_decision"] is None
     assert state["stage_0_implementation_pending"] is False
@@ -506,7 +506,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert rebuttal37["mathematical_audit_pending"] is False
     assert rebuttal37["mathematical_audit_completed"] is True
     assert rebuttal37["math_audit_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert rebuttal37["preregistration_pending"] is True
+    assert rebuttal37["preregistration_pending"] is False
     assert rebuttal37["training_happened"] is False
     assert rebuttal37["validation_search_happened"] is False
     assert rebuttal37["closed_loop_experiment_happened"] is False
@@ -524,11 +524,34 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert math37["criticality_label_health_required"] is True
     assert math37["criticality_observability_required"] is True
     assert math37["deterministic_action_kl_allowed"] is False
-    assert math37["preregistration_pending"] is True
+    assert math37["preregistration_pending"] is False
+    assert math37["preregistration_frozen"] is True
+    assert math37["preregistration_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert math37["prototype_protocol_pending"] is True
     assert math37["training_happened"] is False
     assert math37["validation_search_happened"] is False
     assert math37["closed_loop_experiment_happened"] is False
     assert math37["confirmatory_test_tuning_happened"] is False
+    prereg37 = state["epoch_4_cycle_37_cspr_preregistration"]
+    assert prereg37["method"] == "CSPR-VLA"
+    assert prereg37["proposal_hash"] == CSPR_PROPOSAL_HASH
+    assert prereg37["preregistration"] == "reports/cspr_vla/preregistration.md"
+    assert prereg37["final_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert prereg37["expected_discovery_rows"] == 512
+    assert prereg37["expected_validation_rows"] == 128
+    assert prereg37["bounded_validation_search_max_configs"] == 6
+    assert prereg37["stage_0_default_cap_group"] == "mid"
+    assert prereg37["stage_0_default_tau_quantile"] == 0.95
+    assert len(prereg37["stage_0_required_artifacts"]) == 13
+    assert "CSPR_STAGE_0_DATA_FAILURE" in prereg37["stop_classes"]
+    assert "CSPR_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in prereg37["stop_classes"]
+    assert prereg37["deterministic_action_kl_allowed"] is False
+    assert prereg37["first_serious_comparison_includes_closest_prior"] is True
+    assert prereg37["prototype_protocol_pending"] is True
+    assert prereg37["training_happened"] is False
+    assert prereg37["validation_search_happened"] is False
+    assert prereg37["closed_loop_experiment_happened"] is False
+    assert prereg37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["completed_model_row_count"] == 46080
@@ -576,7 +599,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_37_prior_mechanism_map_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_37_cspr_candidate_selected" in state["completed_stages"]
-    assert "epoch_4_cycle_37_cspr_preregistration_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

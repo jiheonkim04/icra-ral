@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`
+`CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal decision.
 
@@ -40,8 +40,10 @@ The CSPR-VLA Researcher A proposal is frozen in
 complete in `reports/cspr_vla/researcher_rebuttal.md` with decision
 `CSPR_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit
 is frozen in `reports/cspr_vla/mathematical_mechanism_audit.md` with decision
-`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`. The next action is preregistration
-before prototype protocol, implementation, validation search, rollout, or
+`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`. The preregistration is frozen in
+`reports/cspr_vla/preregistration.md` with decision
+`CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The next action is
+prototype protocol before implementation, validation search, rollout, or
 confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection

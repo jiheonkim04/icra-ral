@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_MATHEMATICAL_AUDIT_PREREGISTERED`
+`CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_preregistration_pending`
+Current stage: `epoch_4_cycle_37_cspr_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -65,9 +65,14 @@ Reviewer B conditions. The mathematical mechanism audit is frozen in
 criticality/residual/gate formulas, objective terms `L_crit`, `L_fit`,
 `L_keep`, and `L_bound`, gradient norm audit requirements, a six-config
 validation budget, DySL proxy transparency, the simple killer, and no
-deterministic 7D-action KL. No CSPR implementation, training, validation
-search, rollout, simulator access, or confirmatory-test tuning has happened.
-Immediate next action: freeze CSPR preregistration.
+deterministic 7D-action KL. The preregistration is frozen in `reports/cspr_vla/preregistration.md`
+with decision `CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It
+fixes discovery demos `0..7`, validation demos `8..9`, expected `512 / 128`
+cache-covered rows, Stage 0 artifacts and stop classes, first comparison
+policies, a six-configuration validation-search budget, worker resume keys,
+and no deterministic 7D-action KL. No CSPR implementation, training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened. Immediate next action: freeze the executable prototype protocol.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

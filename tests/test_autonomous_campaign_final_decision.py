@@ -36,7 +36,7 @@ CSPR_PROPOSAL_HASH = "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E2
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED" in final
+    assert "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "DCCG_STAGE_0_DATA_FAILURE" in final
     assert "DCCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "reports/dccg_vla/stage_0_result.json" in final
@@ -47,6 +47,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/cspr_vla/reviewer_attack.md" in final
     assert "reports/cspr_vla/researcher_rebuttal.md" in final
     assert "reports/cspr_vla/mathematical_mechanism_audit.md" in final
+    assert "reports/cspr_vla/preregistration.md" in final
     assert "DCCG-VLA" in final
     assert "reports/epoch_4_cycle_37_prior_mechanism_map.md" in final
     assert "reports/epoch_4_cycle_36_prior_mechanism_map.md" in final
@@ -438,17 +439,17 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 37
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_preregistration_pending"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_prototype_protocol_pending"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_37_candidate_generation.md"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_37_prior_mechanism_map.md"
     assert state["selection_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["next_action"].startswith("Freeze the CSPR-VLA preregistration")
+    assert state["next_action"].startswith("Freeze the CSPR-VLA executable prototype protocol")
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -467,12 +468,12 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["mathematical_audit_pending"] is False
     assert state["mathematical_audit_completed"] is True
     assert state["math_audit_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["preregistration_pending"] is True
+    assert state["preregistration_pending"] is False
     assert state["preregistration"] == "reports/cspr_vla/preregistration.md"
-    assert state["preregistration_frozen"] is False
-    assert state["preregistration_decision"] is None
+    assert state["preregistration_frozen"] is True
+    assert state["preregistration_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
     assert state["prototype_protocol"] == "reports/cspr_vla/prototype_protocol.md"
-    assert state["prototype_protocol_pending"] is False
+    assert state["prototype_protocol_pending"] is True
     assert state["prototype_protocol_frozen"] is False
     assert state["prototype_protocol_decision"] is None
     assert state["stage_0_implementation_pending"] is False
@@ -873,7 +874,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert rebuttal37["mathematical_audit_pending"] is False
     assert rebuttal37["mathematical_audit_completed"] is True
     assert rebuttal37["math_audit_decision"] == "CSPR_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert rebuttal37["preregistration_pending"] is True
+    assert rebuttal37["preregistration_pending"] is False
     assert rebuttal37["training_happened"] is False
     assert rebuttal37["validation_search_happened"] is False
     assert rebuttal37["closed_loop_experiment_happened"] is False
@@ -891,11 +892,34 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert math37["criticality_label_health_required"] is True
     assert math37["criticality_observability_required"] is True
     assert math37["deterministic_action_kl_allowed"] is False
-    assert math37["preregistration_pending"] is True
+    assert math37["preregistration_pending"] is False
+    assert math37["preregistration_frozen"] is True
+    assert math37["preregistration_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert math37["prototype_protocol_pending"] is True
     assert math37["training_happened"] is False
     assert math37["validation_search_happened"] is False
     assert math37["closed_loop_experiment_happened"] is False
     assert math37["confirmatory_test_tuning_happened"] is False
+    prereg37 = state["epoch_4_cycle_37_cspr_preregistration"]
+    assert prereg37["method"] == "CSPR-VLA"
+    assert prereg37["proposal_hash"] == CSPR_PROPOSAL_HASH
+    assert prereg37["preregistration"] == "reports/cspr_vla/preregistration.md"
+    assert prereg37["final_decision"] == "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert prereg37["expected_discovery_rows"] == 512
+    assert prereg37["expected_validation_rows"] == 128
+    assert prereg37["bounded_validation_search_max_configs"] == 6
+    assert prereg37["stage_0_default_cap_group"] == "mid"
+    assert prereg37["stage_0_default_tau_quantile"] == 0.95
+    assert len(prereg37["stage_0_required_artifacts"]) == 13
+    assert "CSPR_STAGE_0_DATA_FAILURE" in prereg37["stop_classes"]
+    assert "CSPR_STAGE_0_PASS_TO_BOUNDED_VALIDATION" in prereg37["stop_classes"]
+    assert prereg37["deterministic_action_kl_allowed"] is False
+    assert prereg37["first_serious_comparison_includes_closest_prior"] is True
+    assert prereg37["prototype_protocol_pending"] is True
+    assert prereg37["training_happened"] is False
+    assert prereg37["validation_search_happened"] is False
+    assert prereg37["closed_loop_experiment_happened"] is False
+    assert prereg37["confirmatory_test_tuning_happened"] is False
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
