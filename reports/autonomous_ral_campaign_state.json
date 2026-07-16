@@ -26,7 +26,7 @@
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "c155008",
-    "current_stage": "epoch_4_cycle_37_cspr_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_37_cspr_rebuttal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -763,7 +763,9 @@
         "epoch_4_cycle_37_cspr_candidate_selected",
         "epoch_4_cycle_37_cspr_researcher_proposal_pending",
         "epoch_4_cycle_37_cspr_researcher_proposal_frozen",
-        "epoch_4_cycle_37_cspr_reviewer_attack_pending"
+        "epoch_4_cycle_37_cspr_reviewer_attack_pending",
+        "epoch_4_cycle_37_cspr_reviewer_attack_completed",
+        "epoch_4_cycle_37_cspr_rebuttal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -784,7 +786,7 @@
         "LIBERO-Plus"
     ],
     "prototype_gate": "DCCG proposal must be frozen before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
-    "current_decision": "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -935,7 +937,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write the CSPR-VLA Reviewer B attack before rebuttal, mathematical audit, preregistration, implementation, validation search, rollout, or confirmatory-test access.",
+    "next_action": "Write the CSPR-VLA Researcher A rebuttal accepting or resolving every Reviewer B condition before mathematical audit, preregistration, implementation, validation search, rollout, or confirmatory-test access.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "LIBERO demonstration-calibrated action-coherence guidance can reduce within-chunk jitter and drift in SmolVLA while preserving exact Base behavior at zero guidance.",
     "method_identity": "CSPR-VLA",
@@ -2687,7 +2689,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_37_cspr_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_37_cspr_rebuttal_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -11194,7 +11196,7 @@
     "proposal_decision": "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
     "researcher_proposal_pending": false,
     "researcher_proposal_frozen": true,
-    "reviewer_attack_pending": true,
+    "reviewer_attack_pending": false,
     "epoch_4_cycle_35_mhs_researcher_proposal": {
         "method": "MHS-VLA",
         "full_name": "Mamba History State for Base-preserving SmolVLA",
@@ -11303,8 +11305,8 @@
         "data_failure_reason": "Validation labels collapsed: 0 positive labels among 114 unmasked validation labels, so the frozen MHS Stage 0 label/contrast gate failed before bounded validation or rollout."
     },
     "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
-    "reviewer_decision": null,
-    "researcher_rebuttal_pending": false,
+    "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+    "researcher_rebuttal_pending": true,
     "epoch_4_cycle_35_mhs_reviewer_attack": {
         "method": "MHS-VLA",
         "final_decision": "MHS_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
@@ -12179,7 +12181,7 @@
         "valid_scientific_result": false,
         "stage_0_is_closed_loop_scientific_kill": false
     },
-    "reviewer_attack_completed": false,
+    "reviewer_attack_completed": true,
     "epoch_4_cycle_36_dccg_reviewer_attack": {
         "method": "DCCG-VLA",
         "proposal_hash": "AE5DBB13F0B4C19E3DD8BD054433DCFBCC301F4C4293D7B98883D76CA4A1390E",
@@ -12695,11 +12697,16 @@
         "researcher_proposal": "reports/cspr_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/cspr_vla/proposal_hash.txt",
         "proposal_hash": "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7",
-        "next_stage": "Write the CSPR-VLA Reviewer B attack before rebuttal, mathematical audit, preregistration, implementation, validation search, rollout, or confirmatory-test access.",
+        "next_stage": "Write the CSPR-VLA Researcher A rebuttal accepting or resolving every Reviewer B condition before mathematical audit, preregistration, implementation, validation search, rollout, or confirmatory-test access.",
         "proposal_decision": "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "reviewer_attack_pending": true,
-        "reviewer_attack_completed": false,
-        "reviewer_attack": "reports/cspr_vla/reviewer_attack.md"
+        "reviewer_attack_pending": false,
+        "reviewer_attack_completed": true,
+        "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal_pending": true,
+        "researcher_rebuttal_completed": false,
+        "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
+        "accepted_reviewer_conditions": false
     },
     "epoch_4_cycle_37_cspr_researcher_proposal": {
         "method": "CSPR-VLA",
@@ -12743,12 +12750,58 @@
         ],
         "researcher_proposal_pending": false,
         "researcher_proposal_frozen": true,
-        "reviewer_attack_pending": true,
-        "reviewer_attack_completed": false,
+        "reviewer_attack_pending": false,
+        "reviewer_attack_completed": true,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Reviewer B attack."
+        "next_stage": "Researcher A rebuttal.",
+        "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal_pending": true,
+        "researcher_rebuttal_completed": false,
+        "researcher_rebuttal": "reports/cspr_vla/researcher_rebuttal.md",
+        "accepted_reviewer_conditions": false
+    },
+    "epoch_4_cycle_37_cspr_reviewer_attack": {
+        "method": "CSPR-VLA",
+        "proposal_hash": "CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7",
+        "researcher_proposal": "reports/cspr_vla/researcher_proposal.md",
+        "reviewer_attack": "reports/cspr_vla/reviewer_attack.md",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "required_conditions": [
+            "DySL-VLA remains policy 2 in the first serious comparison",
+            "novelty is narrowed to critical-step selective action refinement for frozen SmolVLA action chunks",
+            "DySL proxy provenance and official/proxy mismatch must be transparent",
+            "local cache identities are frozen before Stage 0 and DCCG identities are not reinterpreted",
+            "criticality label health must be noncollapsed before training",
+            "criticality must be deployment-observable above trivial baselines",
+            "identity-preserving Base passthrough, reload, bounded delta, action validity, and clean retention are required",
+            "objective scale and gradient norms must be audited; no deterministic 7D-action KL",
+            "critical_step_threshold_simple_killer remains policy 5",
+            "no hidden confirmatory-test access or confirmatory-test tuning"
+        ],
+        "policy_order": [
+            "smolvla_base",
+            "dysl_action_importance_proxy",
+            "cspr_full",
+            "cspr_uniform_refinement_ablation",
+            "critical_step_threshold_simple_killer"
+        ],
+        "dySL_proxy_must_be_transparent": true,
+        "criticality_label_health_required": true,
+        "criticality_observability_required": true,
+        "identity_preserving_integration_required": true,
+        "deterministic_action_kl_allowed": false,
+        "simple_killer_policy_5": "critical_step_threshold_simple_killer",
+        "first_serious_comparison_includes_closest_prior": true,
+        "researcher_rebuttal_pending": true,
+        "researcher_rebuttal_completed": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal."
     }
 }

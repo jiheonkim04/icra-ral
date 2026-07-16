@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_37_cspr_rebuttal_pending`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -49,11 +49,16 @@ source, thresholds, and interpretation are not changed.
 
 The CSPR-VLA Researcher A proposal is frozen in
 `reports/cspr_vla/researcher_proposal.md` with SHA-256
-`CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7` and decision `CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No CSPR implementation,
-training, validation search, rollout, simulator access, or confirmatory-test
-tuning has happened. Immediate next action: write the CSPR-VLA Reviewer B
-attack before rebuttal, mathematical audit, preregistration, implementation,
-validation search, rollout, or confirmatory-test access.
+`CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7` and decision `CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. Reviewer B attack is complete in `reports/cspr_vla/reviewer_attack.md`
+with decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It keeps
+DySL-VLA as policy 2, narrows novelty to critical-step selective action
+refinement, requires transparent DySL proxy provenance, cache identity freeze,
+noncollapsed criticality labels, deployment-observable criticality above
+trivial baselines, identity preservation, objective/gradient audit, live
+`critical_step_threshold_simple_killer`, and no hidden confirmatory-test
+access. No CSPR implementation, training, validation search, rollout,
+simulator access, or confirmatory-test tuning has happened. Immediate next
+action: Researcher A rebuttal.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

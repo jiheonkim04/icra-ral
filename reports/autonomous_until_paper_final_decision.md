@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal decision.
 
@@ -34,9 +34,11 @@ action cells.
 
 The CSPR-VLA Researcher A proposal is frozen in
 `reports/cspr_vla/researcher_proposal.md` with SHA-256
-`CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7` and decision `CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. The next action is Reviewer B
-attack before rebuttal, mathematical audit, preregistration, implementation,
-validation search, rollout, or confirmatory-test access.
+`CC83324F9AB37DAEEF4E2BA158C821F336383A8C4F96ADFFF4DE7B79E276D0D7`. Reviewer B attack is complete in
+`reports/cspr_vla/reviewer_attack.md` with decision
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The next action is
+Researcher A rebuttal before mathematical audit, preregistration,
+implementation, validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
