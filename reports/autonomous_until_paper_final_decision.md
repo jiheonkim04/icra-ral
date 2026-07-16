@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 This is not a terminal decision.
 
@@ -55,8 +55,11 @@ The mathematical mechanism audit is frozen in
 actions or SmolVLA flow vectors and requires projection-vs-clipping diagnostics.
 Preregistration is frozen in `reports/amp_vla/preregistration.md` with decision
 `AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+The executable prototype protocol is frozen in
+`reports/amp_vla/prototype_protocol.md` with decision
+`AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
 Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_prototype_protocol_pending`.
+`epoch_4_cycle_26_amp_stage_0_pending`.
 
 ## Epoch 4 Cycle 25 Selection
 

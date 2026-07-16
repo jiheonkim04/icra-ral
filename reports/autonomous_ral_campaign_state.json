@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 26,
-    "topic": "epoch_4_cycle_26_amp_prototype_protocol_pending",
+    "topic": "epoch_4_cycle_26_amp_stage_0_pending",
     "method": "AMP-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "500dfb1",
-    "current_stage": "epoch_4_cycle_26_amp_prototype_protocol_pending",
+    "current_stage": "epoch_4_cycle_26_amp_stage_0_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -528,7 +528,9 @@
         "epoch_4_cycle_26_amp_mathematical_audit_preregistered",
         "epoch_4_cycle_26_amp_preregistration_pending",
         "epoch_4_cycle_26_amp_preregistration_frozen",
-        "epoch_4_cycle_26_amp_prototype_protocol_pending"
+        "epoch_4_cycle_26_amp_prototype_protocol_pending",
+        "epoch_4_cycle_26_amp_prototype_protocol_frozen",
+        "epoch_4_cycle_26_amp_stage_0_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -544,7 +546,7 @@
         "Robometer"
     ],
     "prototype_gate": "Frozen RAP Stage 0 retrieval-memory, anchor headroom, residual predictability, gradient, identity, action-validity, and persistence audit.",
-    "current_decision": "AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+    "current_decision": "AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -695,12 +697,12 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write AMP-VLA executable prototype protocol before Stage 0 implementation.",
+    "next_action": "Implement and validate AMP-VLA Stage 0 runner before execution.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A discovery-only action manifold over LIBERO action chunks can constrain SmolVLA adapter updates to demonstrated legal action support while preserving base behavior.",
     "method_identity": "AMP-VLA",
     "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
-    "prototype_protocol": null,
+    "prototype_protocol": "reports/amp_vla/prototype_protocol.md",
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
     "epoch_2_cycle_2_outcome": {
@@ -2449,7 +2451,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_26_amp_prototype_protocol_pending",
+    "current_topic": "epoch_4_cycle_26_amp_stage_0_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -6875,7 +6877,7 @@
         "first_serious_comparison_includes_closest_prior": true,
         "rap_repair_allowed": false,
         "rap_rescue_allowed": false,
-        "next_stage": "Write executable prototype protocol before Stage 0 implementation.",
+        "next_stage": "Implement and validate AMP-VLA Stage 0 runner before execution.",
         "proposal": "reports/amp_vla/researcher_proposal.md",
         "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
         "proposal_hash_file": "reports/amp_vla/proposal_hash.txt",
@@ -6887,7 +6889,9 @@
         "mathematical_audit": "reports/amp_vla/mathematical_mechanism_audit.md",
         "math_audit_decision": "AMP_MATHEMATICAL_AUDIT_PREREGISTERED",
         "preregistration": "reports/amp_vla/preregistration.md",
-        "preregistration_decision": "AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+        "preregistration_decision": "AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
+        "prototype_protocol": "reports/amp_vla/prototype_protocol.md",
+        "prototype_protocol_decision": "AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
     },
     "epoch_4_cycle_26_amp_researcher_proposal": {
         "method": "AMP-VLA",
@@ -6994,5 +6998,20 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "next_stage": "Write executable prototype protocol before Stage 0 implementation."
+    },
+    "epoch_4_cycle_26_amp_prototype_protocol": {
+        "method": "AMP-VLA",
+        "final_decision": "AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING",
+        "prototype_protocol": "reports/amp_vla/prototype_protocol.md",
+        "proposal_hash": "67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4",
+        "stage_0_allowed_next": true,
+        "runner": "scripts/run_amp_vla_stage0.py",
+        "stage_0_result": "reports/amp_vla/stage_0_result.json",
+        "stage_0_partial": "reports/amp_vla/stage_0_partial.json",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Implement and validate AMP-VLA Stage 0 runner before any detached execution."
     }
 }

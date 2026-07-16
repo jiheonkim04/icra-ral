@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `26`
 
-Current stage: `epoch_4_cycle_26_amp_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_26_amp_stage_0_pending`
 
 ## Epoch 4 Cycle 26 AMP-VLA
 
@@ -47,8 +47,10 @@ with decision `AMP_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical
 mechanism audit is frozen in `reports/amp_vla/mathematical_mechanism_audit.md`
 with decision `AMP_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is
 frozen in `reports/amp_vla/preregistration.md` with decision
-`AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Next action: write
-the executable prototype protocol before Stage 0 implementation.
+`AMP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The executable
+prototype protocol is frozen in `reports/amp_vla/prototype_protocol.md` with
+decision `AMP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Next action:
+implement and validate the AMP-VLA Stage 0 runner before execution.
 
 ## Epoch 4 Cycle 25 RAP-VLA
 
