@@ -690,9 +690,10 @@ def _load_resume(
     rows = list(partial.get("rows") or [])
     if partial.get("manifest_hash") is None and not rows:
         return [], 0, None
-    if partial.get("manifest_hash") != manifest_hash:
-        raise RuntimeError("partial result identity does not match frozen CCIF manifest")
     audit = validate_manifest(manifest_rows, rows)
+    if partial.get("manifest_hash") != manifest_hash:
+        if not rows or not audit["key_sets_equal"] or audit["duplicate_partial_key_count"] or audit["extra_partial_key_count"]:
+            raise RuntimeError("partial result identity does not match frozen CCIF manifest")
     if audit["duplicate_partial_key_count"] or audit["extra_partial_key_count"]:
         raise RuntimeError(f"partial contains duplicate or off-manifest keys: {audit}")
     for row in rows:
@@ -1296,14 +1297,15 @@ def run(args: argparse.Namespace, paths: Mapping[str, Path], state: dict[str, An
             "validation_demos": "8..9",
             "confirmatory_identities_read": 0,
         },
-        "created_at": _utc_now(),
     }
     manifest_hash = canonical_json_sha256(manifest_payload)
     manifest_payload["manifest_hash"] = manifest_hash
+    manifest_payload["created_at"] = _utc_now()
     _write_json(paths["manifest"], manifest_payload)
     parsed = _read_json(paths["manifest"])
     parsed_without_hash = dict(parsed)
     parsed_without_hash.pop("manifest_hash")
+    parsed_without_hash.pop("created_at", None)
     if canonical_json_sha256(parsed_without_hash) != manifest_hash:
         raise RuntimeError("persisted CCIF manifest hash did not reproduce")
     manifest_audit = validate_manifest(rows, [{"row_key": row["row_key"]} for row in rows])

@@ -180,6 +180,9 @@ def test_resume_validates_feature_and_base_chunk_hashes(tmp_path: Path) -> None:
     assert rows == [completed]
     assert exception_count == 1
     assert last_exception == "transient"
+    legacy_rows, legacy_exception_count, _ = _load_resume(path, [manifest_row], "STABLE_MANIFEST")
+    assert legacy_rows == [completed]
+    assert legacy_exception_count == 1
 
 
 def _healthy_inputs(**overrides: object) -> Stage0DecisionInputs:
