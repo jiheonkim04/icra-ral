@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
 
 This is not a terminal decision.
 
@@ -81,8 +81,17 @@ focused S2C tests reported `7 passed`, and
 `reports/s2c_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes.
 
-Current cycle: `31`. Current stage:
-`epoch_4_cycle_31_s2c_stage_0_launch_pending`.
+S2C Stage 0 completed as `S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE` in
+`reports/s2c_vla/stage_0_result.json`: `885 / 885` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, and exact
+key-set equality. The development audit found `177` adjacent pairs, but task
+coverage was insufficient for the frozen validation gate; secondary gates also
+showed no Base boundary headroom (`mean=0.001199425821980814`,
+`p75=0.0008132225130898095`) and failed mask/gripper criteria. This is not a
+closed-loop scientific kill, and S2C repair/rescue is disallowed.
+
+Current cycle: `32`. Current stage:
+`epoch_4_cycle_32_candidate_search_pending`.
 
 ## Epoch 4 Cycle 30 Selection
 

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
 
 Current epoch: `4`
 
-Current cycle: `31`
+Current cycle: `32`
 
-Current stage: `epoch_4_cycle_31_s2c_stage_0_launch_pending`
+Current stage: `epoch_4_cycle_32_candidate_search_pending`
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source
@@ -48,8 +48,11 @@ frozen in `reports/s2c_vla/prototype_protocol.md` with decision
 `S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Stage 0
 implementation is validated as `S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`:
 py_compile passed, focused S2C tests reported `7 passed`, and serializer
-preflight hashes match. Next action is worker-safety checks before launching
-frozen Stage 0.
+preflight hashes match. S2C Stage 0 completed as
+`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE` with `885 / 885` rows, zero
+exceptions, exact key-set equality, `177` adjacent pairs, insufficient task
+coverage, no Base boundary headroom, and failed mask/gripper criteria. S2C is
+closed without rescue. Next action is Cycle 32 candidate generation.
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
 
 Current epoch: `4`
 
-Current cycle: `31`
+Current cycle: `32`
 
-Current stage: `epoch_4_cycle_31_s2c_stage_0_launch_pending`
+Current stage: `epoch_4_cycle_32_candidate_search_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -81,8 +81,16 @@ focused S2C tests reported `7 passed`, and
 `reports/s2c_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes.
 
-Current next action: run worker-safety checks and then launch frozen Stage 0
-only if no live or completed S2C worker exists.
+S2C Stage 0 completed as `S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE` in
+`reports/s2c_vla/stage_0_result.json`: `885 / 885` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, and exact
+key-set equality. It found `177` adjacent pairs, but failed the frozen data
+coverage gate; secondary gates also failed no-headroom and mask/gripper
+criteria. This is development-only, not a closed-loop scientific kill. S2C may
+not be repaired or rescued.
+
+Current next action: generate exactly three Cycle 32 candidates under current
+governance.
 
 ## Epoch 4 Cycle 30 URF-VLA
 

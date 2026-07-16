@@ -1,0 +1,13 @@
+{
+  "closest_prior": "ChunkFlow",
+  "closest_prior_primary_source": "https://arxiv.org/html/2607.12992v1",
+  "closest_prior_project_page": "https://cytoderm-ai.github.io/chunkflow",
+  "created_utc": "2026-07-16T08:22:43.213190+00:00",
+  "method": "S2C-VLA",
+  "official_candidate_paths": [],
+  "official_checkpoint_count": 0,
+  "official_checkpoint_present": false,
+  "official_code_present": false,
+  "proxy_is_required_until_official_assets_verified": true,
+  "selected_prior_policy": "chunkflow_overlap_proxy"
+}

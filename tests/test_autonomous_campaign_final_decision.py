@@ -30,6 +30,8 @@ S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32" in final
+    assert "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE" in final
     assert "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
@@ -44,7 +46,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/s2c_vla/mathematical_mechanism_audit.md" in final
     assert "reports/s2c_vla/preregistration.md" in final
     assert "reports/s2c_vla/prototype_protocol.md" in final
-    assert "epoch_4_cycle_31_s2c_stage_0_launch_pending" in final
+    assert "epoch_4_cycle_32_candidate_search_pending" in final
     assert S2C_PROPOSAL_HASH in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -335,10 +337,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
+    assert state["current_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32"
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 31
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_stage_0_launch_pending"
+    assert state["current_cycle"] == 32
+    assert state["current_stage"] == "epoch_4_cycle_32_candidate_search_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -356,7 +358,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Before launching S2C Stage 0, inspect PID/heartbeat/status/partial/result/log/exit artifacts and avoid duplicate execution."
+        == "Generate exactly three Cycle 32 candidates under current governance; S2C is closed and may not be repaired or rescued."
     )
     assert state["prototype_protocol"] == "reports/s2c_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1207,6 +1209,29 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c_implementation["validation_search_happened"] is False
     assert s2c_implementation["closed_loop_experiment_happened"] is False
     assert s2c_implementation["confirmatory_test_tuning_happened"] is False
+    s2c_outcome = state["epoch_4_cycle_31_s2c_stage_0_outcome"]
+    assert s2c_outcome["final_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert s2c_outcome["completed_model_row_count"] == s2c_outcome["planned_model_row_count"] == 885
+    assert s2c_outcome["exception_count"] == 0
+    assert s2c_outcome["duplicate_manifest_key_count"] == 0
+    assert s2c_outcome["duplicate_partial_key_count"] == 0
+    assert s2c_outcome["missing_manifest_key_count"] == 0
+    assert s2c_outcome["extra_partial_key_count"] == 0
+    assert s2c_outcome["split_overlap_key_count"] == 0
+    assert s2c_outcome["key_sets_equal"] is True
+    assert s2c_outcome["adjacent_pair_count"] == 177
+    assert s2c_outcome["base_boundary_headroom_ok"] is False
+    assert s2c_outcome["bounded_validation_allowed"] is False
+    assert s2c_outcome["valid_scientific_result"] is False
+    assert s2c_outcome["closed_loop_experiment_happened"] is False
+    assert s2c_outcome["s2c_rescue_allowed"] is False
+    cycle32 = state["epoch_4_cycle_32_candidate_search"]
+    assert cycle32["candidate_search_pending"] is True
+    assert cycle32["candidate_count_required"] == 3
+    assert cycle32["previous_method"] == "S2C-VLA"
+    assert cycle32["previous_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert cycle32["s2c_repair_allowed"] is False
+    assert cycle32["s2c_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

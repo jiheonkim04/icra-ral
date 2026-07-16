@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
+`S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32`
 
-Immediate next action: run worker-safety checks and launch frozen S2C Stage 0
-only if no live or completed S2C worker exists.
+Immediate next action: generate exactly three Cycle 32 candidates under current
+governance. S2C is closed and may not be repaired or rescued.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -59,6 +59,12 @@ S2C Stage 0 implementation is validated as
 focused S2C tests reported `7 passed`, and
 `reports/s2c_vla/stage_0_serializer_preflight.json` has matching fixture and
 reproduced hashes.
+
+S2C Stage 0 completed as `S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE` in
+`reports/s2c_vla/stage_0_result.json`: `885 / 885` model rows, exception
+count `0`, duplicate / missing / extra / split-overlap keys all `0`, exact
+key-set equality, `177` adjacent pairs, insufficient task coverage, no Base
+boundary headroom, and failed mask/gripper criteria.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at

@@ -63,12 +63,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 31
+    assert state["current_cycle"] == 32
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "S2C_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY"
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_stage_0_launch_pending"
+    assert state["current_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE_CONTINUE_CYCLE_32"
+    assert state["current_stage"] == "epoch_4_cycle_32_candidate_search_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -353,6 +353,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_31_s2c_stage_0_implementation_pending",
         "epoch_4_cycle_31_s2c_stage_0_implementation_validated",
         "epoch_4_cycle_31_s2c_stage_0_launch_pending",
+        "epoch_4_cycle_31_s2c_stage_0_completed",
+        "epoch_4_cycle_31_s2c_stage_0_adjudicated",
+        "epoch_4_cycle_31_s2c_data_or_supervision_failure_recorded",
+        "epoch_4_cycle_32_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -1287,6 +1291,29 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert s2c_implementation["validation_search_happened"] is False
     assert s2c_implementation["closed_loop_experiment_happened"] is False
     assert s2c_implementation["confirmatory_test_tuning_happened"] is False
+    s2c_outcome = state["epoch_4_cycle_31_s2c_stage_0_outcome"]
+    assert s2c_outcome["final_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert s2c_outcome["completed_model_row_count"] == s2c_outcome["planned_model_row_count"] == 885
+    assert s2c_outcome["exception_count"] == 0
+    assert s2c_outcome["duplicate_manifest_key_count"] == 0
+    assert s2c_outcome["duplicate_partial_key_count"] == 0
+    assert s2c_outcome["missing_manifest_key_count"] == 0
+    assert s2c_outcome["extra_partial_key_count"] == 0
+    assert s2c_outcome["split_overlap_key_count"] == 0
+    assert s2c_outcome["key_sets_equal"] is True
+    assert s2c_outcome["adjacent_pair_count"] == 177
+    assert s2c_outcome["base_boundary_headroom_ok"] is False
+    assert s2c_outcome["bounded_validation_allowed"] is False
+    assert s2c_outcome["valid_scientific_result"] is False
+    assert s2c_outcome["closed_loop_experiment_happened"] is False
+    assert s2c_outcome["s2c_rescue_allowed"] is False
+    cycle32 = state["epoch_4_cycle_32_candidate_search"]
+    assert cycle32["candidate_search_pending"] is True
+    assert cycle32["candidate_count_required"] == 3
+    assert cycle32["previous_method"] == "S2C-VLA"
+    assert cycle32["previous_decision"] == "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE"
+    assert cycle32["s2c_repair_allowed"] is False
+    assert cycle32["s2c_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

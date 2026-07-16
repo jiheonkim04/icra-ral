@@ -1,0 +1,10 @@
+{
+  "completed_model_row_count": 885,
+  "elapsed_seconds": 8.42130708694458,
+  "final_decision": "S2C_STAGE_0_DATA_OR_SUPERVISION_FAILURE",
+  "method": "S2C-VLA",
+  "pid": 379,
+  "planned_model_row_count": 885,
+  "status": "completed",
+  "updated_utc": "2026-07-16T08:22:51.581732+00:00"
+}
