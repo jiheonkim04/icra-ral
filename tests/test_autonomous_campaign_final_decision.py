@@ -33,6 +33,15 @@ BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71C
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "MHS-VLA" in final
+    assert "Mamba History State" in final
+    assert "MTIL" in final
+    assert "reports/epoch_4_cycle_35_prior_mechanism_map.md" in final
+    assert "reports/epoch_4_cycle_35_candidate_generation.md" in final
+    assert "mtil_history_state_proxy" in final
+    assert "mhs_no_history_state_ablation" in final
+    assert "epoch_4_cycle_35_mhs_researcher_proposal_pending" in final
     assert "BRID_STAGE_0_NO_RESIDUAL_HEADROOM" in final
     assert "BRID-VLA" in final
     assert "Base-Residual Implicit Diffusion" in final
@@ -403,39 +412,37 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
+    assert state["current_decision"] == "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 35
-    assert state["current_stage"] == "epoch_4_cycle_35_candidate_search_pending"
-    assert state["method"] == "BRID-VLA"
-    assert state["method_identity"] == "BRID-VLA"
-    assert state["next_action"] == "Begin Epoch 4 Cycle 35 candidate search after BRID-VLA Stage 0 no-headroom stop."
-    assert state["proposal_hash"] == BRID_PROPOSAL_HASH
-    assert state["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
-    assert state["researcher_proposal"] == "reports/brid_vla/researcher_proposal.md"
-    assert state["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
-    assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert state["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
-    assert state["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["mathematical_audit"] == "reports/brid_vla/mathematical_mechanism_audit.md"
-    assert state["math_audit_decision"] == "BRID_MATHEMATICAL_AUDIT_PREREGISTERED"
-    assert state["preregistration"] == "reports/brid_vla/preregistration.md"
-    assert state["preregistration_decision"] == "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
-    assert state["prototype_protocol"] == "reports/brid_vla/prototype_protocol.md"
-    assert state["prototype_protocol_decision"] == "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_35_mhs_researcher_proposal_pending"
+    assert state["method"] == "MHS-VLA"
+    assert state["method_identity"] == "MHS-VLA"
+    assert state["closest_prior"] == "MTIL"
+    assert state["candidate_generation"] == "reports/epoch_4_cycle_35_candidate_generation.md"
+    assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_35_prior_mechanism_map.md"
+    assert state["next_action"].startswith("Freeze the MHS-VLA Researcher A proposal")
     assert state["stage_0_implementation_pending"] is False
-    assert state["stage_0_implementation_validated"] is True
-    assert state["stage_0_completed"] is True
-    assert state["stage_0_adjudicated"] is True
-    assert state["stage_0_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
-    assert state["helper_module"] == "tca_map/smolvla/brid_vla.py"
-    assert state["runner"] == "scripts/run_brid_vla_stage0.py"
-    assert state["unit_tests"] == "tests/test_brid_vla.py"
-    assert state["stage_0_serializer_preflight"] == "reports/brid_vla/stage_0_serializer_preflight.json"
-    assert state["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
-    assert state["stage_0_partial"] == "reports/brid_vla/stage_0_partial.json"
-    assert state["stage_0_manifest"] == "reports/brid_vla/stage_0_manifest.json"
-    assert state["stage_0_action_semantics"] == "reports/brid_vla/stage_0_action_semantics.json"
+    assert state["stage_0_implementation_validated"] is False
+    assert state["stage_0_completed"] is False
+    assert state["stage_0_adjudicated"] is False
+    cycle35 = state["epoch_4_cycle_35_candidate_search"]
+    assert cycle35["candidate_count_required"] == 3
+    assert cycle35["candidate_count_generated"] == 3
+    assert cycle35["selected_method"] == "MHS-VLA"
+    assert cycle35["selection_decision"] == "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    mhs = state["epoch_4_cycle_35_candidate_selection"]
+    assert mhs["policy_order"] == [
+        "smolvla_base",
+        "mtil_history_state_proxy",
+        "mhs_full",
+        "mhs_no_history_state_ablation",
+        "standard_lora",
+    ]
+    brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
+    assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
+    assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
+    assert brid_stage0["completed_model_row_count"] == 46080
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -448,10 +455,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert (
-        state["next_action"]
-        == "Begin Epoch 4 Cycle 35 candidate search after BRID-VLA Stage 0 no-headroom stop."
-    )
+    assert state["epoch_4_cycle_34_brid_stage_0_outcome"]["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94

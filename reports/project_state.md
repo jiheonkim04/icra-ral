@@ -1,19 +1,44 @@
 # Project State
 
-## 2026-07-16 Epoch 4 Cycle 34 Current State
+## 2026-07-16 Epoch 4 Cycle 35 Current State
 
 Active governance: `reports/current_research_governance.md`
 
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
+`MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_candidate_search_pending`
+Current stage: `epoch_4_cycle_35_mhs_researcher_proposal_pending`
+
+Cycle 35 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_35_candidate_generation.md`.
+
+`MHS-VLA`, Mamba History State for Base-preserving SmolVLA, is selected at
+`95 / 100`. Its closest prior is MTIL (`https://arxiv.org/abs/2505.12410`,
+`https://arxiv.org/html/2505.12410v3`, and
+`https://github.com/yulinzhouZYL/MTIL`). MHS's scientific mechanism is a
+deployment-observable recurrent history state used to gate bounded residual
+corrections around frozen SmolVLA Base action chunks. LoRA is only
+implementation infrastructure.
+
+The first serious comparison is `smolvla_base`,
+`mtil_history_state_proxy`, `mhs_full`,
+`mhs_no_history_state_ablation`, and `standard_lora`.
+
+Next action is to freeze the MHS-VLA Researcher A proposal before Reviewer B
+attack, mathematical audit, preregistration, prototype protocol,
+implementation, validation search, training, rollout, or confirmatory-test
+access.
+
+BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
+
+## 2026-07-16 Epoch 4 Cycle 34 Prior State
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three

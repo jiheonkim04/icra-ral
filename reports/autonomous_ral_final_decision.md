@@ -3,11 +3,40 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
+`MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal state under the active governance.
 
 Active governance: `reports/current_research_governance.md`
+
+## Epoch 4 Cycle 35 Candidate Selection
+
+Cycle 35 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_35_candidate_generation.md`.
+
+Selected method: `MHS-VLA`, Mamba History State for Base-preserving SmolVLA,
+score `95 / 100`.
+
+Closest prior: MTIL (`https://arxiv.org/abs/2505.12410`,
+`https://arxiv.org/html/2505.12410v3`, and
+`https://github.com/yulinzhouZYL/MTIL`), which reports full-history
+state-space imitation learning that outperforms ACT and Diffusion Policy on
+ACT, Robomimic, LIBERO, and real-world sequential manipulation tasks.
+
+MHS's scientific mechanism is a deployment-observable recurrent history state
+used to gate bounded residual corrections around frozen SmolVLA Base action
+chunks. LoRA or lightweight adapters may parameterize the history encoder or
+small residual head only; LoRA is not the method.
+
+The first serious comparison is `smolvla_base`, `mtil_history_state_proxy`,
+`mhs_full`, `mhs_no_history_state_ablation`, and `standard_lora`.
+
+Current stage: `epoch_4_cycle_35_mhs_researcher_proposal_pending`.
+
+Next action: freeze the MHS-VLA Researcher A proposal before Reviewer B attack,
+mathematical audit, preregistration, prototype protocol, implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 34 Candidate Selection
 

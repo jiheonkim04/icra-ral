@@ -7,13 +7,38 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_STAGE_0_NO_RESIDUAL_HEADROOM`
+`MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_candidate_search_pending`
+Current stage: `epoch_4_cycle_35_mhs_researcher_proposal_pending`
+
+## Epoch 4 Cycle 35 MHS-VLA Candidate Selection
+
+Cycle 35 completed the primary-source prior mechanism map in
+`reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
+candidates in `reports/epoch_4_cycle_35_candidate_generation.md`.
+
+Selected method: `MHS-VLA`, Mamba History State for Base-preserving SmolVLA,
+score `95 / 100`.
+
+Closest prior: MTIL (`https://arxiv.org/abs/2505.12410`,
+`https://arxiv.org/html/2505.12410v3`, and
+`https://github.com/yulinzhouZYL/MTIL`).
+
+Frozen first comparison for the proposal stage: `smolvla_base`,
+`mtil_history_state_proxy`, `mhs_full`,
+`mhs_no_history_state_ablation`, and `standard_lora`.
+
+LoRA is only implementation infrastructure. The scientific mechanism is a
+deployment-observable recurrent history state used to gate bounded residual
+corrections around frozen SmolVLA Base action chunks.
+
+Next action: freeze the MHS-VLA Researcher A proposal before Reviewer B attack,
+mathematical audit, preregistration, prototype protocol, implementation,
+validation search, training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 

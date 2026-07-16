@@ -12,13 +12,13 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 35,
-    "current_topic": "epoch_4_cycle_35_candidate_search_pending",
+    "current_topic": "epoch_4_cycle_35_mhs_researcher_proposal_pending",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "7dba9e9",
+    "current_commit": "7348dd9",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_35_candidate_search_pending",
+    "current_stage": "epoch_4_cycle_35_mhs_researcher_proposal_pending",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -697,15 +697,17 @@
         "epoch_4_cycle_34_brid_stage_0_completed",
         "epoch_4_cycle_34_brid_stage_0_adjudicated",
         "epoch_4_cycle_34_brid_no_residual_headroom_recorded",
-        "epoch_4_cycle_35_candidate_search_pending"
+        "epoch_4_cycle_35_candidate_search_pending",
+        "epoch_4_cycle_35_prior_mechanism_map_completed",
+        "epoch_4_cycle_35_candidate_generation_completed",
+        "epoch_4_cycle_35_mhs_candidate_selected",
+        "epoch_4_cycle_35_mhs_researcher_proposal_pending"
     ],
     "active_hypothesis": "A Base-conditioned residual diffusion score field can learn bounded useful corrections around frozen SmolVLA action chunks while preserving exact Base behavior by default.",
-    "method_identity": "BRID-VLA",
-    "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
+    "method_identity": "MHS-VLA",
     "closest_papers": [
         "Diffusion Policy"
     ],
-    "prototype_protocol": "reports/brid_vla/prototype_protocol.md",
     "running_command": null,
     "process_id": null,
     "checkpoint_path": "/mnt/c/assets/checkpoints/smolvla_libero",
@@ -716,7 +718,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "BRID_STAGE_0_NO_RESIDUAL_HEADROOM",
+    "current_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -825,8 +827,8 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Begin Epoch 4 Cycle 35 candidate search after BRID-VLA Stage 0 no-headroom stop.",
-    "method": "BRID-VLA",
+    "next_action": "Freeze the MHS-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access.",
+    "method": "MHS-VLA",
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -7430,7 +7432,6 @@
         "cfr_rescue_allowed": false
     },
     "proposal": "reports/afid_vla/researcher_proposal.md",
-    "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
     "epoch_4_cycle_27_cfr_researcher_proposal": {
         "method": "CFR-VLA",
         "final_decision": "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
@@ -7570,7 +7571,6 @@
         "stage_0_decision": "CFR_STAGE_0_NO_USABLE_HEADROOM",
         "bounded_validation_allowed": false
     },
-    "runner": "scripts/run_brid_vla_stage0.py",
     "epoch_4_cycle_27_cfr_stage_0_prelaunch": {
         "method": "CFR-VLA",
         "final_decision": "CFR_STAGE_0_RUNNER_IMPLEMENTED_READY_TO_LAUNCH",
@@ -7592,9 +7592,7 @@
         "confirmatory_test_tuning_happened": false,
         "next_stage": "Check existing CFR Stage 0 artifacts/PID, then launch or adjudicate Stage 0 according to resume rules."
     },
-    "stage_0_result": "reports/brid_vla/stage_0_result.json",
     "stage_0_validation": "reports/tsc_vla/stage_0_validation.json",
-    "stage_0_decision": "BRID_STAGE_0_NO_RESIDUAL_HEADROOM",
     "epoch_4_cycle_27_cfr_stage_0_outcome": {
         "method": "CFR-VLA",
         "proposal_hash": "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF3D0AE",
@@ -8948,8 +8946,6 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
-    "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "epoch_4_cycle_31_s2c_reviewer_attack": {
         "method": "S2C-VLA",
         "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
@@ -9034,8 +9030,6 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
-    "rebuttal_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "epoch_4_cycle_31_s2c_rebuttal": {
         "method": "S2C-VLA",
         "final_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -9137,8 +9131,6 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md",
-    "math_audit_decision": "BRID_MATHEMATICAL_AUDIT_PREREGISTERED",
     "epoch_4_cycle_31_s2c_mathematical_audit": {
         "method": "S2C-VLA",
         "final_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
@@ -9243,8 +9235,6 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "preregistration": "reports/brid_vla/preregistration.md",
-    "preregistration_decision": "BRID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
     "epoch_4_cycle_31_s2c_preregistration": {
         "method": "S2C-VLA",
         "final_decision": "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING",
@@ -9306,7 +9296,6 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "prototype_protocol_decision": "BRID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING",
     "stage_0_implementation_pending": false,
     "epoch_4_cycle_31_s2c_prototype_protocol": {
         "method": "S2C-VLA",
@@ -10093,7 +10082,6 @@
         "afid_repair_allowed": false,
         "afid_rescue_allowed": false
     },
-    "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
     "epoch_4_cycle_33_afid_researcher_proposal": {
         "method": "AFID-VLA",
         "full_name": "Action-Factor Instruction Densification for Base-preserving SmolVLA",
@@ -10466,7 +10454,6 @@
         "afid_repair_allowed": false,
         "afid_rescue_allowed": false
     },
-    "stage_0_serializer_preflight": "reports/brid_vla/stage_0_serializer_preflight.json",
     "stage_0_serializer_preflight_hash": "CFBE8FD439765E118829D7A293A0743801AF69303A6B6EDD76B2626890C4E2F9",
     "epoch_4_cycle_33_afid_stage_0_implementation": {
         "method": "AFID-VLA",
@@ -10499,7 +10486,6 @@
         "afid_repair_allowed": false,
         "afid_rescue_allowed": false
     },
-    "stage_0_adjudication": "reports/brid_vla/stage_0_adjudication.md",
     "afid_repair_allowed": false,
     "afid_rescue_allowed": false,
     "epoch_4_cycle_33_afid_stage_0_outcome": {
@@ -10962,11 +10948,6 @@
         "stage_0_no_residual_headroom": true,
         "stage_0_implementation_validated": true
     },
-    "helper_module": "tca_map/smolvla/brid_vla.py",
-    "unit_tests": "tests/test_brid_vla.py",
-    "stage_0_partial": "reports/brid_vla/stage_0_partial.json",
-    "stage_0_manifest": "reports/brid_vla/stage_0_manifest.json",
-    "stage_0_action_semantics": "reports/brid_vla/stage_0_action_semantics.json",
     "epoch_4_cycle_34_brid_prototype_protocol": {
         "method": "BRID-VLA",
         "final_decision": "BRID_STAGE_0_NO_RESIDUAL_HEADROOM",
@@ -10996,10 +10977,9 @@
         "stage_0_no_residual_headroom": true,
         "stage_0_implementation_validated": true
     },
-    "stage_0_completed": true,
-    "stage_0_adjudicated": true,
+    "stage_0_completed": false,
+    "stage_0_adjudicated": false,
     "bounded_validation_allowed": false,
-    "stage_0_no_residual_headroom": true,
     "epoch_4_cycle_34_brid_stage_0_implementation": {
         "method": "BRID-VLA",
         "final_decision": "BRID_STAGE_0_NO_RESIDUAL_HEADROOM",
@@ -11056,11 +11036,94 @@
         "previous_method": "BRID-VLA",
         "previous_decision": "BRID_STAGE_0_NO_RESIDUAL_HEADROOM",
         "previous_stage_0_result": "reports/brid_vla/stage_0_result.json",
-        "candidate_generation_pending": true,
+        "previous_stage_0_adjudication": "reports/brid_vla/stage_0_adjudication.md",
+        "brid_repair_allowed": false,
+        "brid_rescue_allowed": false,
+        "current_cycle": 35,
+        "governance": "post-COVI minimum-sufficient governance with one genuinely new mechanism, LoRA only as implementation infrastructure, and prior-first comparison",
+        "prior_mechanism_map": "reports/epoch_4_cycle_35_prior_mechanism_map.md",
+        "candidate_generation": "reports/epoch_4_cycle_35_candidate_generation.md",
+        "candidate_search_pending": false,
         "candidate_count_required": 3,
-        "new_mechanism_required": true,
-        "closest_prior_required_in_first_serious_comparison": true,
-        "next_stage": "Generate exactly three Cycle 35 candidates under current governance."
+        "candidate_count_generated": 3,
+        "candidate_ids": [
+            "MHS-VLA",
+            "VQRM-VLA",
+            "IBER-VLA"
+        ],
+        "selected_method": "MHS-VLA",
+        "selected_score": 95,
+        "selection_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_action": "Freeze the MHS-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
     },
-    "stage_0_implementation_validated": true
+    "stage_0_implementation_validated": false,
+    "full_name": "Mamba History State for Base-preserving SmolVLA",
+    "closest_prior": "MTIL",
+    "closest_prior_primary_sources": [
+        "https://arxiv.org/abs/2505.12410",
+        "https://arxiv.org/html/2505.12410v3",
+        "https://github.com/yulinzhouZYL/MTIL"
+    ],
+    "scientific_method": "Deployment-observable recurrent history state used to gate bounded residual corrections around frozen SmolVLA Base action chunks.",
+    "low_compute_parameterization": "LoRA or lightweight adapters may parameterize the history encoder or residual head only; LoRA is not the method.",
+    "policy_order": [
+        "smolvla_base",
+        "mtil_history_state_proxy",
+        "mhs_full",
+        "mhs_no_history_state_ablation",
+        "standard_lora"
+    ],
+    "selection_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+    "selected_score": 95,
+    "prior_mechanism_map": "reports/epoch_4_cycle_35_prior_mechanism_map.md",
+    "candidate_generation": "reports/epoch_4_cycle_35_candidate_generation.md",
+    "epoch_4_cycle_35_candidate_selection": {
+        "method": "MHS-VLA",
+        "full_name": "Mamba History State for Base-preserving SmolVLA",
+        "selection_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "final_decision": "MHS_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING",
+        "selected_score": 95,
+        "candidate_count": 3,
+        "candidate_generation": "reports/epoch_4_cycle_35_candidate_generation.md",
+        "prior_mechanism_map": "reports/epoch_4_cycle_35_prior_mechanism_map.md",
+        "closest_prior": "MTIL",
+        "closest_prior_positive_result": "MTIL reports full-history state-space imitation learning that outperforms ACT and Diffusion Policy on ACT, Robomimic, LIBERO, and real-world sequential manipulation tasks.",
+        "closest_prior_primary_sources": [
+            "https://arxiv.org/abs/2505.12410",
+            "https://arxiv.org/html/2505.12410v3",
+            "https://github.com/yulinzhouZYL/MTIL"
+        ],
+        "contribution_type": "PRIOR_EXTENSION",
+        "scientific_method": "Deployment-observable recurrent history state used to gate bounded residual corrections around frozen SmolVLA Base action chunks.",
+        "low_compute_parameterization": "LoRA or lightweight adapters may parameterize the history encoder or residual head only; LoRA is not the method.",
+        "required_data_source": "Existing LIBERO demonstrations and cached SmolVLA Base chunks; no privileged inference inputs.",
+        "identity_preserving_integration": "zero residual branch and Base-passthrough gate initialization with per-group action caps",
+        "policy_order": [
+            "smolvla_base",
+            "mtil_history_state_proxy",
+            "mhs_full",
+            "mhs_no_history_state_ablation",
+            "standard_lora"
+        ],
+        "first_serious_comparison_includes_closest_prior": true,
+        "standard_lora_required": true,
+        "bounded_validation_search_max_configs": 6,
+        "researcher_proposal_pending": true,
+        "researcher_proposal_frozen": false,
+        "reviewer_attack_pending": false,
+        "mathematical_audit_pending": false,
+        "preregistration_pending": false,
+        "prototype_protocol_pending": false,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "brid_repair_allowed": false,
+        "brid_rescue_allowed": false,
+        "next_stage": "Freeze the MHS-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, prototype protocol, implementation, validation search, training, rollout, or confirmatory-test access."
+    }
 }
