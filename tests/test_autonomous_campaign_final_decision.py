@@ -30,6 +30,7 @@ S2C_PROPOSAL_HASH = "399A3960F9FF9AFA8EDA7C3F743A95C3FD4DC711644C2398630F1E68486
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "S2C_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
@@ -41,7 +42,8 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/s2c_vla/researcher_rebuttal.md" in final
     assert "reports/s2c_vla/mathematical_mechanism_audit.md" in final
     assert "reports/s2c_vla/preregistration.md" in final
-    assert "epoch_4_cycle_31_s2c_prototype_protocol_pending" in final
+    assert "reports/s2c_vla/prototype_protocol.md" in final
+    assert "epoch_4_cycle_31_s2c_stage_0_implementation_pending" in final
     assert S2C_PROPOSAL_HASH in final
     assert "URF_STAGE_0_NO_USABLE_HEADROOM" in final
     assert "URF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
@@ -332,10 +334,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING"
+    assert state["current_decision"] == "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 31
-    assert state["current_stage"] == "epoch_4_cycle_31_s2c_prototype_protocol_pending"
+    assert state["current_stage"] == "epoch_4_cycle_31_s2c_stage_0_implementation_pending"
     assert state["method"] == "S2C-VLA"
     assert state["method_identity"] == "S2C-VLA"
     assert state["proposal_hash"] == S2C_PROPOSAL_HASH
@@ -353,9 +355,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Run Reviewer B attack for URF-VLA before mathematical audit, preregistration, implementation, or training."
+        == "Implement and validate S2C-VLA Stage 0 helper, runner, focused tests, and serializer preflight before worker-safety launch checks."
     )
-    assert state["prototype_protocol"] is None
+    assert state["prototype_protocol"] == "reports/s2c_vla/prototype_protocol.md"
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -1062,7 +1064,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c["proposal"] == "reports/s2c_vla/researcher_proposal.md"
     assert s2c["proposal_hash"] == S2C_PROPOSAL_HASH
     assert s2c["proposal_hash_file"] == "reports/s2c_vla/proposal_hash.txt"
-    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_PROTOTYPE_PROTOCOL_PENDING"
+    assert s2c["selection_decision"] == "S2C_CANDIDATE_SELECTED_STAGE_0_IMPLEMENTATION_PENDING"
     assert s2c["proposal_decision"] == "S2C_PROPOSAL_FROZEN_REVIEWER_ATTACK_COMPLETED"
     assert s2c["reviewer_attack"] == "reports/s2c_vla/reviewer_attack.md"
     assert s2c["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
@@ -1167,6 +1169,26 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert s2c_prereg["validation_search_happened"] is False
     assert s2c_prereg["closed_loop_experiment_happened"] is False
     assert s2c_prereg["confirmatory_test_tuning_happened"] is False
+    assert s2c_prereg["prototype_protocol"] == "reports/s2c_vla/prototype_protocol.md"
+    assert s2c_prereg["prototype_protocol_decision"] == "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    s2c_protocol = state["epoch_4_cycle_31_s2c_prototype_protocol"]
+    assert s2c_protocol["final_decision"] == "S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
+    assert s2c_protocol["prototype_protocol"] == "reports/s2c_vla/prototype_protocol.md"
+    assert s2c_protocol["preregistration"] == "reports/s2c_vla/preregistration.md"
+    assert s2c_protocol["proposal_hash"] == S2C_PROPOSAL_HASH
+    assert s2c_protocol["stage_0_allowed_next"] is True
+    assert s2c_protocol["helper_module"] == "tca_map/smolvla/s2c_vla.py"
+    assert s2c_protocol["runner"] == "scripts/run_s2c_vla_stage0.py"
+    assert s2c_protocol["unit_tests"] == "tests/test_s2c_vla.py"
+    assert s2c_protocol["stage_0_result"] == "reports/s2c_vla/stage_0_result.json"
+    assert s2c_protocol["stage_0_partial"] == "reports/s2c_vla/stage_0_partial.json"
+    assert s2c_protocol["stage_0_manifest"] == "reports/s2c_vla/stage_0_manifest.json"
+    assert s2c_protocol["stage_0_action_semantics"] == "reports/s2c_vla/stage_0_action_semantics.json"
+    assert s2c_protocol["stage_0_serializer_preflight"] == "reports/s2c_vla/stage_0_serializer_preflight.json"
+    assert s2c_protocol["training_happened"] is False
+    assert s2c_protocol["validation_search_happened"] is False
+    assert s2c_protocol["closed_loop_experiment_happened"] is False
+    assert s2c_protocol["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

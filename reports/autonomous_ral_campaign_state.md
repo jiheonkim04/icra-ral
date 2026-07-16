@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_31_s2c_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
@@ -69,8 +69,14 @@ decision `S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
 development tasks, discovery/validation demo IDs, Stage 0 artifacts and gates,
 bounded validation search limits, and worker resume keys.
 
-Current next action: freeze prototype protocol before implementation,
-validation search, training, or rollout.
+Prototype protocol is frozen in `reports/s2c_vla/prototype_protocol.md` with
+decision `S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
+fixes `tca_map/smolvla/s2c_vla.py`, `scripts/run_s2c_vla_stage0.py`,
+`tests/test_s2c_vla.py`, required Stage 0 artifacts, serializer preflight, and
+worker-safety checks.
+
+Current next action: implement and validate Stage 0 helper, runner, tests, and
+serializer preflight before worker-safety launch checks.
 
 ## Epoch 4 Cycle 30 URF-VLA
 

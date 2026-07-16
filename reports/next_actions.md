@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
-Immediate next action: freeze S2C-VLA prototype protocol before
-implementation, validation search, training, or rollout.
+Immediate next action: implement and validate S2C-VLA Stage 0 helper, runner,
+focused tests, and serializer preflight before worker-safety launch checks.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at
@@ -48,6 +48,11 @@ Preregistration is frozen in `reports/s2c_vla/preregistration.md` with
 decision `S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
 development tasks, discovery/validation demo IDs, Stage 0 artifacts and gates,
 bounded validation search limits, and worker resume keys.
+
+Prototype protocol is frozen in `reports/s2c_vla/prototype_protocol.md` with
+decision `S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
+fixes helper, runner, focused tests, required Stage 0 artifacts, serializer
+preflight, and worker-safety requirements.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at

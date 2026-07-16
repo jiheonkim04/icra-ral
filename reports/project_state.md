@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `31`
 
-Current stage: `epoch_4_cycle_31_s2c_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_31_s2c_stage_0_implementation_pending`
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source
@@ -43,9 +43,10 @@ confirmatory-test tuning has happened. Researcher A rebuttal is complete in
 `reports/s2c_vla/mathematical_mechanism_audit.md` with decision
 `S2C_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
 `reports/s2c_vla/preregistration.md` with decision
-`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Next action is
-prototype protocol before implementation, validation search, training, or
-rollout.
+`S2C_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Prototype protocol is
+frozen in `reports/s2c_vla/prototype_protocol.md` with decision
+`S2C_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. Next action is
+Stage 0 implementation before validation search, training, or rollout.
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
