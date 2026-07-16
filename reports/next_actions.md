@@ -5,12 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
-Immediate next action: implement and validate the LCG-VLA Stage 0 helper,
-runner, focused tests, and serializer preflight. No LCG Stage 0 launch,
+Immediate next action: run LCG Stage 0 worker-safety checks and then launch or
+adjudicate the existing Stage 0 artifacts without duplicate execution. No LCG
 validation search, training, rollout, or confirmatory-test access may happen
-before implementation validation and worker-safety checks are recorded.
+before the frozen Stage 0 result is accepted.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
@@ -48,6 +48,12 @@ Preregistration is frozen in `reports/lcg_vla/preregistration.md` with decision
 
 Prototype protocol is frozen in `reports/lcg_vla/prototype_protocol.md` with
 decision `LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
+
+LCG Stage 0 implementation is validated as
+`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused LCG tests reported `6 passed`, and
+`reports/lcg_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at

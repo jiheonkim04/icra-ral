@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 This is not a terminal state under the active governance.
 
@@ -32,14 +32,14 @@ The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
 Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_stage_0_implementation_pending`.
+`epoch_4_cycle_32_lcg_stage_0_ready`.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
 `F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E` and
 decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No LCG implementation,
-training, validation search, rollout, simulator access, or confirmatory-test
-tuning has happened.
+Stage 0 launch, validation search, training, rollout, simulator access, or
+confirmatory-test tuning has happened at proposal-freeze time.
 
 Reviewer B attack is complete in `reports/lcg_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
@@ -69,6 +69,13 @@ Prototype protocol is frozen in `reports/lcg_vla/prototype_protocol.md` with
 decision `LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
 fixes helper, runner, focused tests, required Stage 0 artifacts, serializer
 preflight, and worker-safety requirements.
+
+LCG Stage 0 implementation is validated as
+`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused LCG tests reported `6 passed`, and
+`reports/lcg_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes. The next step is worker-safety inspection and then LCG Stage
+0 launch or adjudication without duplicate execution.
 
 ## Epoch 4 Cycle 31 Selection
 

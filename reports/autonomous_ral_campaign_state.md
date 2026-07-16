@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
+`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_stage_0_implementation_pending`
+Current stage: `epoch_4_cycle_32_lcg_stage_0_ready`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -43,8 +43,8 @@ The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
 `F0D980AA0760F143D781C723DB632BC324C1E18F390D9C33C5DA94F3A897D11E` and
 decision `LCG_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No LCG implementation,
-training, validation search, rollout, simulator access, or confirmatory-test
-tuning has happened.
+Stage 0 launch, validation search, training, rollout, simulator access, or
+confirmatory-test tuning has happened at proposal-freeze time.
 
 Reviewer B attack is complete in `reports/lcg_vla/reviewer_attack.md` with
 decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
@@ -77,8 +77,12 @@ fixes `tca_map/smolvla/lcg_vla.py`, `scripts/run_lcg_vla_stage0.py`,
 `tests/test_lcg_vla.py`, required Stage 0 artifacts, serializer preflight, and
 worker-safety checks.
 
-The next stage is Stage 0 implementation validation before any Stage 0 launch,
-validation search, training, rollout, or confirmatory-test access.
+LCG Stage 0 implementation is validated as
+`LCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY`: WSL py_compile passed,
+focused LCG tests reported `6 passed`, and
+`reports/lcg_vla/stage_0_serializer_preflight.json` has matching fixture and
+reproduced hashes. The next step is worker-safety inspection and then LCG Stage
+0 launch or adjudication without duplicate execution.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 
