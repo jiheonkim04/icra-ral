@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ The first serious comparison is Base, `counterfactual_action_guidance_proxy`,
 `lcg_full`, `lcg_no_language_contrast_ablation`, and matched `standard_lora`.
 
 Current cycle: `32`. Current stage:
-`epoch_4_cycle_32_lcg_prototype_protocol_pending`.
+`epoch_4_cycle_32_lcg_stage_0_implementation_pending`.
 
 The LCG-VLA Researcher A proposal is frozen in
 `reports/lcg_vla/researcher_proposal.md` with SHA-256
@@ -64,6 +64,11 @@ Preregistration is frozen in `reports/lcg_vla/preregistration.md` with
 decision `LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
 development partitions, Stage 0 artifacts, pass/stop gates, worker resume keys,
 and bounded validation search limits.
+
+Prototype protocol is frozen in `reports/lcg_vla/prototype_protocol.md` with
+decision `LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
+fixes helper, runner, focused tests, required Stage 0 artifacts, serializer
+preflight, and worker-safety requirements.
 
 ## Epoch 4 Cycle 31 Selection
 

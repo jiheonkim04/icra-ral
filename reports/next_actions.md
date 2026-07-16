@@ -5,11 +5,12 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
-Immediate next action: freeze the LCG-VLA prototype protocol. No LCG
-implementation, validation search, training, rollout, or confirmatory-test
-access may happen before the prototype protocol is recorded.
+Immediate next action: implement and validate the LCG-VLA Stage 0 helper,
+runner, focused tests, and serializer preflight. No LCG Stage 0 launch,
+validation search, training, rollout, or confirmatory-test access may happen
+before implementation validation and worker-safety checks are recorded.
 
 Cycle 32 generated exactly three candidates in
 `reports/epoch_4_cycle_32_candidate_generation.md` after the primary-source
@@ -44,6 +45,9 @@ The mathematical mechanism audit is frozen in
 
 Preregistration is frozen in `reports/lcg_vla/preregistration.md` with decision
 `LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`.
+
+Prototype protocol is frozen in `reports/lcg_vla/prototype_protocol.md` with
+decision `LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`.
 
 Cycle 31 generated exactly three candidates and selected `S2C-VLA`,
 Seam-Supervised Chunk Consistency for Base-preserving SmolVLA execution, at

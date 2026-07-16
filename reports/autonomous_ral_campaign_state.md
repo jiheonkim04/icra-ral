@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_32_lcg_stage_0_implementation_pending`
 
 ## Epoch 4 Cycle 32 LCG-VLA
 
@@ -71,8 +71,14 @@ decision `LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
 development tasks, discovery/validation demo IDs, Stage 0 artifacts and gates,
 worker resume keys, and the six-configuration bounded validation envelope.
 
-The next stage is prototype protocol before implementation, validation search,
-training, rollout, or confirmatory-test access.
+Prototype protocol is frozen in `reports/lcg_vla/prototype_protocol.md` with
+decision `LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It
+fixes `tca_map/smolvla/lcg_vla.py`, `scripts/run_lcg_vla_stage0.py`,
+`tests/test_lcg_vla.py`, required Stage 0 artifacts, serializer preflight, and
+worker-safety checks.
+
+The next stage is Stage 0 implementation validation before any Stage 0 launch,
+validation search, training, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 31 S2C-VLA
 

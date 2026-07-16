@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `32`
 
-Current stage: `epoch_4_cycle_32_lcg_prototype_protocol_pending`
+Current stage: `epoch_4_cycle_32_lcg_stage_0_implementation_pending`
 
 Cycle 32 completed the primary-source mechanism map in
 `reports/epoch_4_cycle_32_prior_mechanism_map.md` and generated exactly three
@@ -46,7 +46,10 @@ now frozen in `reports/lcg_vla/mathematical_mechanism_audit.md` with decision
 `LCG_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
 `reports/lcg_vla/preregistration.md` with decision
 `LCG_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`; next action is
-prototype protocol.
+prototype protocol. Prototype protocol is frozen in
+`reports/lcg_vla/prototype_protocol.md` with decision
+`LCG_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`; next action is
+Stage 0 implementation validation.
 
 Cycle 31 generated exactly three candidates in
 `reports/epoch_4_cycle_31_candidate_generation.md` after the primary-source
