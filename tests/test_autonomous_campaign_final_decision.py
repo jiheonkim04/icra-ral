@@ -26,6 +26,11 @@ CFR_PROPOSAL_HASH = "9E2FC510B2D97C869F18BE6C5B339CE034DD98223802078358320AA8BEF
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
+    assert "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING" in final
+    assert "TSC-VLA" in final
+    assert "TS-Mask VLA" in final
+    assert "ts_mask_continuous_proxy" in final
+    assert "epoch_4_cycle_28_tsc_researcher_proposal_pending" in final
     assert "SPARC_STAGE_0A_IMPLEMENTATION_OR_PROTOTYPE_ACTION_VALIDITY_FAILURE_NO_SCIENTIFIC_KILL" in final
     assert "This is not a terminal decision." in final
     assert "READY_TO_DRAFT_RAL_PAPER_PACKAGE" in final
@@ -248,7 +253,7 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_28_candidate_search_pending" in final
+    assert "epoch_4_cycle_28_tsc_researcher_proposal_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -279,13 +284,13 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
+    assert state["current_decision"] == "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 28
-    assert state["current_stage"] == "epoch_4_cycle_28_candidate_search_pending"
-    assert state["method"] == "CFR-VLA"
-    assert state["method_identity"] == "CFR-VLA"
-    assert state["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_researcher_proposal_pending"
+    assert state["method"] == "TSC-VLA"
+    assert state["method_identity"] == "TSC-VLA"
+    assert state["proposal_hash"] is None
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
     assert state["epoch_2_cycle_3_outcome"]["final_decision"] == "STAGE_B_PERMANENT_KILL_USEFUL_IMPROVEMENT_EXCLUDED"
@@ -300,9 +305,9 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Generate exactly three Epoch 4 Cycle 28 candidates; do not repair or rescue CFR-VLA."
+        == "Freeze TSC-VLA Researcher A proposal before Reviewer B attack, mathematical audit, preregistration, or implementation."
     )
-    assert state["prototype_protocol"] == "reports/cfr_vla/prototype_protocol.md"
+    assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
     assert rap["selected_score"] == 94
@@ -542,14 +547,36 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cfr_outcome["cfr_gradient_nonzero"] is True
     assert cfr_outcome["timing_throughput_resource_evidence_eligible_for_paper"] is False
     cycle28 = state["epoch_4_cycle_28_candidate_search"]
-    assert cycle28["candidate_search_pending"] is True
+    assert cycle28["candidate_search_pending"] is False
     assert cycle28["candidate_count_required"] == 3
-    assert cycle28["candidate_count_generated"] == 0
+    assert cycle28["candidate_count_generated"] == 3
     assert cycle28["previous_method"] == "CFR-VLA"
     assert cycle28["previous_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
     assert cycle28["cfr_repair_allowed"] is False
     assert cycle28["cfr_rescue_allowed"] is False
-    assert cycle28["selection_decision"] == "EPOCH_4_CYCLE_28_CANDIDATE_SEARCH_PENDING"
+    assert cycle28["selected_method"] == "TSC-VLA"
+    assert cycle28["selected_score"] == 91
+    assert cycle28["selection_decision"] == "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    tsc = state["epoch_4_cycle_28_candidate_selection"]
+    assert tsc["candidate_count"] == 3
+    assert tsc["selected_score"] == 91
+    assert tsc["method"] == "TSC-VLA"
+    assert tsc["closest_prior"] == "TS-Mask VLA"
+    assert tsc["closest_prior_primary_source"] == "https://arxiv.org/abs/2607.09818"
+    assert tsc["policy_order"] == [
+        "smolvla_base",
+        "ts_mask_continuous_proxy_or_official_ts_mask_vla_if_installed",
+        "tsc_full",
+        "tsc_no_targeted_mask_ablation",
+        "standard_lora",
+    ]
+    assert tsc["standard_lora_required"] is True
+    assert tsc["training_happened"] is False
+    assert tsc["validation_search_happened"] is False
+    assert tsc["closed_loop_experiment_happened"] is False
+    assert tsc["confirmatory_test_tuning_happened"] is False
+    assert tsc["first_serious_comparison_includes_closest_prior"] is True
+    assert tsc["cfr_rescue_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

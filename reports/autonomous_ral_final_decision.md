@@ -3,11 +3,36 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CFR_STAGE_0_NO_USABLE_HEADROOM`
+`TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
 
 This is not a terminal state under the active governance.
 
 Active governance: `reports/current_research_governance.md`
+
+## Epoch 4 Cycle 28 Selection
+
+Cycle 28 generated exactly three candidates in
+`reports/epoch_4_cycle_28_candidate_generation.md` after the primary-source
+map in `reports/epoch_4_cycle_28_prior_mechanism_map.md`. CFR remains preserved
+unchanged as `CFR_STAGE_0_NO_USABLE_HEADROOM`.
+
+`TSC-VLA`, Temporal-Spatial masked action completion for continuous VLA chunks,
+is selected at `91 / 100`. Its closest positive prior is TS-Mask VLA,
+anchored to `https://arxiv.org/abs/2607.09818`.
+
+TSC predicts a deployment-observable sparse time-dimension action-cell error
+mask over the Base decoded `[50,7]` SmolVLA chunk and runs continuous masked
+completion that changes only selected cells while clamping all unselected cells
+exactly to Base. LoRA is only implementation infrastructure.
+
+The first serious comparison is exactly Base,
+`ts_mask_continuous_proxy` or official `ts_mask_vla` if installed, TSC full,
+no-targeted-mask ablation, and matched standard LoRA. No TSC training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
+
+Current cycle: `28`. Current stage:
+`epoch_4_cycle_28_tsc_researcher_proposal_pending`.
 
 ## Epoch 4 Cycle 27 Selection
 

@@ -63,12 +63,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
-    assert state["current_stage"] == "epoch_4_cycle_28_candidate_search_pending"
-    assert state["method"] == "CFR-VLA"
-    assert state["method_identity"] == "CFR-VLA"
-    assert state["proposal_hash"] == CFR_PROPOSAL_HASH
-    assert state["prototype_protocol"] == "reports/cfr_vla/prototype_protocol.md"
+    assert state["current_decision"] == "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_researcher_proposal_pending"
+    assert state["method"] == "TSC-VLA"
+    assert state["method_identity"] == "TSC-VLA"
+    assert state["proposal_hash"] is None
+    assert state["prototype_protocol"] is None
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]
@@ -264,6 +264,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_stage_0_adjudicated",
         "epoch_4_cycle_27_cfr_no_headroom_recorded",
         "epoch_4_cycle_28_candidate_search_pending",
+        "epoch_4_cycle_28_prior_mechanism_map_completed",
+        "epoch_4_cycle_28_candidate_generation_completed",
+        "epoch_4_cycle_28_tsc_candidate_selected",
+        "epoch_4_cycle_28_tsc_researcher_proposal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -562,14 +566,44 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cfr_outcome["resource_unresolved_interval_ids"] == []
     assert cfr_outcome["timing_throughput_resource_evidence_eligible_for_paper"] is False
     cycle28 = state["epoch_4_cycle_28_candidate_search"]
-    assert cycle28["candidate_search_pending"] is True
+    assert cycle28["candidate_search_pending"] is False
     assert cycle28["candidate_count_required"] == 3
-    assert cycle28["candidate_count_generated"] == 0
+    assert cycle28["candidate_count_generated"] == 3
     assert cycle28["previous_method"] == "CFR-VLA"
     assert cycle28["previous_decision"] == "CFR_STAGE_0_NO_USABLE_HEADROOM"
     assert cycle28["cfr_repair_allowed"] is False
     assert cycle28["cfr_rescue_allowed"] is False
-    assert cycle28["selection_decision"] == "EPOCH_4_CYCLE_28_CANDIDATE_SEARCH_PENDING"
+    assert cycle28["selected_method"] == "TSC-VLA"
+    assert cycle28["selected_score"] == 91
+    assert cycle28["candidate_generation"] == "reports/epoch_4_cycle_28_candidate_generation.md"
+    assert cycle28["prior_mechanism_map"] == "reports/epoch_4_cycle_28_prior_mechanism_map.md"
+    assert cycle28["selection_decision"] == "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
+    tsc = state["epoch_4_cycle_28_candidate_selection"]
+    assert tsc["candidate_count"] == 3
+    assert tsc["selected_score"] == 91
+    assert tsc["method"] == "TSC-VLA"
+    assert tsc["closest_prior"] == "TS-Mask VLA"
+    assert tsc["closest_prior_primary_source"] == "https://arxiv.org/abs/2607.09818"
+    assert tsc["candidate_generation"] == "reports/epoch_4_cycle_28_candidate_generation.md"
+    assert tsc["prior_mechanism_map"] == "reports/epoch_4_cycle_28_prior_mechanism_map.md"
+    assert tsc["contribution_type"] == "PRIOR_EXTENSION"
+    assert tsc["policy_order"] == [
+        "smolvla_base",
+        "ts_mask_continuous_proxy_or_official_ts_mask_vla_if_installed",
+        "tsc_full",
+        "tsc_no_targeted_mask_ablation",
+        "standard_lora",
+    ]
+    assert tsc["standard_lora_required"] is True
+    assert tsc["bounded_validation_search_max_configs"] == 6
+    assert tsc["training_happened"] is False
+    assert tsc["validation_search_happened"] is False
+    assert tsc["closed_loop_experiment_happened"] is False
+    assert tsc["confirmatory_test_tuning_happened"] is False
+    assert tsc["first_serious_comparison_includes_closest_prior"] is True
+    assert tsc["cfr_repair_allowed"] is False
+    assert tsc["cfr_rescue_allowed"] is False
+    assert tsc["selection_decision"] == "TSC_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING"
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
