@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_mathematical_audit_pending`
+Current stage: `epoch_4_cycle_35_mhs_preregistration_pending`
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -48,9 +48,13 @@ Researcher A rebuttal is complete in
 `MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B conditions are
 accepted.
 
-Next action is to write the MHS-VLA mathematical mechanism audit before
-preregistration, prototype protocol, implementation, validation search,
-training, rollout, or confirmatory-test access.
+The MHS mathematical mechanism audit is frozen in
+`reports/mhs_vla/mathematical_mechanism_audit.md` with decision
+`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Next action is to write the MHS-VLA preregistration before prototype protocol,
+implementation, validation search, training, rollout, or confirmatory-test
+access.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 

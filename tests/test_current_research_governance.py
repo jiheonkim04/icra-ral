@@ -71,8 +71,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
-    assert state["current_stage"] == "epoch_4_cycle_35_mhs_mathematical_audit_pending"
+    assert state["current_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
+    assert state["current_stage"] == "epoch_4_cycle_35_mhs_preregistration_pending"
     assert state["method"] == "MHS-VLA"
     assert state["method_identity"] == "MHS-VLA"
     assert state["closest_prior"] == "MTIL"
@@ -87,7 +87,7 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "mhs_no_history_state_ablation",
         "standard_lora",
     ]
-    assert state["next_action"].startswith("Write MHS-VLA mathematical mechanism audit")
+    assert state["next_action"].startswith("Write MHS-VLA preregistration")
     assert state["proposal_hash"] == MHS_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/mhs_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
@@ -95,6 +95,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["researcher_rebuttal"] == "reports/mhs_vla/researcher_rebuttal.md"
     assert state["rebuttal_decision"] == "MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
+    assert state["math_audit_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert state["stage_0_implementation_pending"] is False
     assert state["stage_0_implementation_validated"] is False
     assert state["stage_0_completed"] is False
@@ -108,11 +110,12 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     mhs = state["epoch_4_cycle_35_candidate_selection"]
     assert mhs["method"] == "MHS-VLA"
     assert mhs["closest_prior"] == "MTIL"
-    assert mhs["final_decision"] == "MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert mhs["final_decision"] == "MHS_MATHEMATICAL_AUDIT_PREREGISTERED"
     assert mhs["proposal_hash"] == MHS_PROPOSAL_HASH
     assert mhs["researcher_proposal"] == "reports/mhs_vla/researcher_proposal.md"
     assert mhs["reviewer_attack"] == "reports/mhs_vla/reviewer_attack.md"
     assert mhs["researcher_rebuttal"] == "reports/mhs_vla/researcher_rebuttal.md"
+    assert mhs["mathematical_audit"] == "reports/mhs_vla/mathematical_mechanism_audit.md"
     assert mhs["first_serious_comparison_includes_closest_prior"] is True
     assert mhs["researcher_proposal_pending"] is False
     assert mhs["researcher_proposal_frozen"] is True
@@ -120,7 +123,9 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert mhs["reviewer_attack_completed"] is True
     assert mhs["researcher_rebuttal_pending"] is False
     assert mhs["researcher_rebuttal_completed"] is True
-    assert mhs["mathematical_audit_pending"] is True
+    assert mhs["mathematical_audit_pending"] is False
+    assert mhs["mathematical_audit_preregistered"] is True
+    assert mhs["preregistration_pending"] is True
     assert mhs["training_happened"] is False
     assert mhs["validation_search_happened"] is False
     assert mhs["closed_loop_experiment_happened"] is False
@@ -142,6 +147,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert "epoch_4_cycle_35_mhs_rebuttal_pending" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_rebuttal_completed" in state["completed_stages"]
     assert "epoch_4_cycle_35_mhs_mathematical_audit_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_mathematical_audit_preregistered" in state["completed_stages"]
+    assert "epoch_4_cycle_35_mhs_preregistration_pending" in state["completed_stages"]
     assert "epoch_4_cycle_16_candidate_generation_completed" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_prototype_protocol_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_16_iarc_stage_0a_implementation_pending" in state["completed_stages"]

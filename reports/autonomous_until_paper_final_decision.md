@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
+`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`
 
 This is not a terminal decision.
 
@@ -40,7 +40,7 @@ The first serious comparison is `smolvla_base`, `mtil_history_state_proxy`,
 `mhs_full`, `mhs_no_history_state_ablation`, and `standard_lora`.
 
 Current cycle: `35`. Current stage:
-`epoch_4_cycle_35_mhs_mathematical_audit_pending`.
+`epoch_4_cycle_35_mhs_preregistration_pending`.
 
 The MHS-VLA Researcher A proposal is frozen in
 `reports/mhs_vla/researcher_proposal.md` with SHA-256
@@ -59,9 +59,13 @@ Researcher A rebuttal is complete in
 `MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B conditions are
 accepted.
 
-Next action: write the MHS-VLA mathematical mechanism audit before
-preregistration, prototype protocol, implementation, validation search,
-training, rollout, or confirmatory-test access.
+The MHS mathematical mechanism audit is frozen in
+`reports/mhs_vla/mathematical_mechanism_audit.md` with decision
+`MHS_MATHEMATICAL_AUDIT_PREREGISTERED`.
+
+Next action: write the MHS-VLA preregistration before prototype protocol,
+implementation, validation search, training, rollout, or confirmatory-test
+access.
 
 ## Epoch 4 Cycle 34 Candidate Selection
 
