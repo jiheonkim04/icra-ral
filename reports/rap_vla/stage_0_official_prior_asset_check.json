@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-07-16T00:48:35.997575+00:00",
+  "closest_prior": "OptimusVLA",
+  "deviations": [
+    "official OptimusVLA repository/checkpoint/memory/evaluation assets are not all locally verified",
+    "Stage 0 can only fix policy 2 as a transparent memory-prior proxy until official assets are installed"
+  ],
+  "method": "RAP-VLA",
+  "observed_paths": {
+    "asset_repository": "/mnt/c/assets/OptimusVLA",
+    "checkpoint_dir": "/mnt/c/assets/checkpoints/optimusvla",
+    "evaluation_code": "/mnt/c/assets/optimusvla/eval",
+    "memory_dir": "/mnt/c/assets/optimusvla/memory",
+    "official_repository": "/mnt/c/Users/jiheo/tca_map/third_party/CVPR26-OptimusVLA"
+  },
+  "official_ready": false,
+  "path_exists": {
+    "asset_repository": false,
+    "checkpoint_dir": false,
+    "evaluation_code": false,
+    "memory_dir": false,
+    "official_repository": false
+  },
+  "policy_2_label": "optimusvla_memory_prior_proxy"
+}

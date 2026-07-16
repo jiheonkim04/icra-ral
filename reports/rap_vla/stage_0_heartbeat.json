@@ -1,0 +1,14 @@
+{
+  "completed_model_row_count": 640,
+  "exception_count": 0,
+  "final_decision": "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "method": "RAP-VLA",
+  "phase": "complete",
+  "pid": 287,
+  "planned_model_row_count": 640,
+  "proposal_hash": "E9C3672544E486E4D5BAA883917F8429DB0FB36982F3F5944AC26A85783D1008",
+  "stage": "0",
+  "started_at": "2026-07-16T00:48:33.437385+00:00",
+  "status": "completed",
+  "updated_at": "2026-07-16T00:50:24.588464+00:00"
+}

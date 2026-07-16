@@ -57,12 +57,12 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     state = json.loads((REPO_ROOT / "reports" / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["current_epoch"] == 4
-    assert state["current_cycle"] == 25
+    assert state["current_cycle"] == 26
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_25_rap_stage_0_pending"
+    assert state["current_decision"] == "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert state["current_stage"] == "epoch_4_cycle_26_candidate_search_pending"
     assert state["method"] == "RAP-VLA"
     assert state["method_identity"] == "RAP-VLA"
     assert state["proposal_hash"] == RAP_PROPOSAL_HASH
@@ -214,6 +214,11 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
         "epoch_4_cycle_25_rap_prototype_protocol_pending",
         "epoch_4_cycle_25_rap_prototype_protocol_frozen",
         "epoch_4_cycle_25_rap_stage_0_pending",
+        "epoch_4_cycle_25_rap_stage_0_launched",
+        "epoch_4_cycle_25_rap_stage_0_completed",
+        "epoch_4_cycle_25_rap_stage_0_adjudicated",
+        "epoch_4_cycle_25_rap_implementation_or_optimization_failure_recorded",
+        "epoch_4_cycle_26_candidate_search_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -256,6 +261,30 @@ def test_active_state_records_rap_selection_and_vdr_stage_0a_failure() -> None:
     assert rap_protocol["prototype_protocol"] == "reports/rap_vla/prototype_protocol.md"
     assert rap_protocol["stage_0_allowed_next"] is True
     assert rap_protocol["runner"] == "scripts/run_rap_vla_stage0.py"
+    assert rap_protocol["stage_0_completed"] is True
+    assert rap_protocol["stage_0_decision"] == "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    rap_outcome = state["epoch_4_cycle_25_rap_stage_0_outcome"]
+    assert rap_outcome["final_decision"] == "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE"
+    assert rap_outcome["completed_model_row_count"] == 640
+    assert rap_outcome["planned_model_row_count"] == 640
+    assert rap_outcome["exception_count"] == 0
+    assert rap_outcome["duplicate_manifest_key_count"] == 0
+    assert rap_outcome["duplicate_partial_key_count"] == 0
+    assert rap_outcome["missing_manifest_key_count"] == 0
+    assert rap_outcome["extra_partial_key_count"] == 0
+    assert rap_outcome["split_overlap_key_count"] == 0
+    assert rap_outcome["key_sets_equal"] is True
+    assert rap_outcome["official_prior_policy_2_label"] == "optimusvla_memory_prior_proxy"
+    assert rap_outcome["action_validity_ok"] is False
+    assert rap_outcome["base_action_in_bounds"] is False
+    assert rap_outcome["anchor_relative_improvement"] == 0.23865551292280293
+    assert rap_outcome["residual_probe_relative_improvement"] == -3.830674623085068
+    assert rap_outcome["bounded_validation_allowed"] is False
+    assert rap_outcome["rap_rescue_allowed"] is False
+    cycle26 = state["epoch_4_cycle_26_candidate_search"]
+    assert cycle26["candidate_search_pending"] is True
+    assert cycle26["candidate_count_required"] == 3
+    assert cycle26["rap_repair_allowed"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

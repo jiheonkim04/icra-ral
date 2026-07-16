@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`
+`RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -42,8 +42,25 @@ frozen in `reports/rap_vla/mathematical_mechanism_audit.md` with decision
 `reports/rap_vla/preregistration.md` with decision
 `RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. The prototype
 protocol is frozen in `reports/rap_vla/prototype_protocol.md` with decision
-`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`. Current cycle: `25`.
-Current stage: `epoch_4_cycle_25_rap_stage_0_pending`.
+`RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING`.
+
+RAP Stage 0 completed under the frozen protocol. Worker PID `287` completed
+`640 / 640` planned development rows with exception count `0`, exact
+manifest/partial key equality, duplicate partial keys `0`, missing keys `0`,
+extra keys `0`, and split-overlap keys `0`. The OptimusVLA comparison status
+is fixed as `optimusvla_memory_prior_proxy`.
+
+The fixed decision is
+`RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`, not a scientific kill.
+No training, validation search, rollout, simulator access, or
+confirmatory-test tuning occurred. The hard blocking gate is postprocessed
+action validity (`action_validity_ok = false`, `base_action_in_bounds =
+false`). Retrieval-anchor headroom was positive (`0.23865551292280293`
+relative MSE improvement), but the residual probe failed
+(`-3.830674623085068` relative improvement and `-0.07385385182729762`
+absolute Huber improvement). Bounded validation, RAP rerun, repair, rescue,
+clipping, threshold changes, and reinterpretation are forbidden. Current
+cycle: `26`. Current stage: `epoch_4_cycle_26_candidate_search_pending`.
 
 ## Epoch 4 Cycle 19 Decision
 

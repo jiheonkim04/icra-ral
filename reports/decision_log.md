@@ -3080,3 +3080,34 @@ scientific kill. No optimizer step, simulator load, outcome read,
 confirmatory access, or closed-loop experiment occurred. Do not run Stage 0B,
 rerun, clip, retune, reinterpret, or rescue KITE. Continue automatically to
 Epoch 4 Cycle 24 exact-three candidate generation.
+
+## 2026-07-16 - RAP-VLA Stage 0 Adjudication
+
+Decision: `RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`
+
+RAP Stage 0 completed under the frozen protocol. Worker PID `287` completed
+`640 / 640` development rows with exit code `0` and runner exception count
+`0`. The manifest and partial audits passed with duplicate manifest keys `0`,
+duplicate partial keys `0`, missing keys `0`, extra keys `0`, split-overlap
+keys `0`, and exact key-set equality. Attempt 1 is preserved as a
+pre-manifest parent-wrapper preflight blocker with completed rows `0`;
+attempt 2 is preserved as a launcher no-op in which Python never started.
+
+The OptimusVLA prior status is fixed as `optimusvla_memory_prior_proxy`
+because official repository, checkpoint, memory, and evaluation assets were
+not all locally verified before interpretation. Retrieval-anchor headroom
+passed with relative MSE improvement `0.23865551292280293`; median top-k
+unique demonstrations was `5.0`, and top-1 source fraction was `0.0234375`.
+
+The residual probe failed (`-3.830674623085068` relative improvement and
+`-0.07385385182729762` absolute Huber improvement), but the final taxonomy is
+implementation/optimization failure because the earlier hard postprocessed
+action-validity gate failed (`action_validity_ok = false`,
+`base_action_in_bounds = false`). Identity/reload error was `0.0`, RAP
+gradients were finite and nonzero, and frozen Base gradient count was `0`.
+
+This is not a closed-loop scientific result or scientific kill. No training,
+validation search, rollout, simulator access, reward/success/done read, or
+confirmatory-test tuning occurred. Bounded validation, RAP rerun, repair,
+rescue, clipping, threshold changes, and reinterpretation are forbidden.
+Continue automatically to Epoch 4 Cycle 26 exact-three candidate generation.
