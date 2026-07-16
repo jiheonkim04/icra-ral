@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
+`CSPR_STAGE_0_IMPLEMENTATION_FAILURE`
 
 This is not a terminal decision.
 
@@ -48,11 +48,17 @@ with decision `CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. C
 is complete with serializer preflight hash `08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712`, focused CSPR tests
 passed (`6 passed`), focused state tests passed (`9 passed`), governance
 check passed, and the CSPR-inclusive regression suite passed (`54 passed`).
-No CSPR Stage 0 worker, training, validation search, rollout, simulator
-load, reward/success/done read, or confirmatory-test access occurred during
-implementation validation. The next action is Stage 0 launch precheck and
-single frozen runner execution if no existing result, live worker, or
-resumable partial blocks launch.
+CSPR Stage 0 then ran once under the frozen runner and completed in
+`reports/cspr_vla/stage_0_result.json`. The final adjudicated decision is
+`CSPR_STAGE_0_IMPLEMENTATION_FAILURE`: rows completed/planned were
+`5760 / 5760`, exception count was `0`, duplicate/missing/extra and
+split-overlap counts were all `0`, and key sets were equal. The raw runner
+decision was `CSPR_STAGE_0_DESIGN_FAILURE`, but adjudication corrected it
+without rerunning rows because `weighted_gradient_norm_ratio_max =
+129.38210738906673` exceeds the frozen `100.0` objective-scale limit. This
+is a development-only implementation failure, not a closed-loop scientific
+kill. CSPR repair/rescue is disallowed. The next action is to generate
+exactly three Epoch 4 Cycle 38 candidates under current governance.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

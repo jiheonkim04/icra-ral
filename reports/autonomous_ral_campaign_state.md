@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
+`CSPR_STAGE_0_IMPLEMENTATION_FAILURE`
 
 Current epoch: `4`
 
 Current cycle: `37`
 
-Current stage: `epoch_4_cycle_37_cspr_stage_0_launch_pending`
+Current stage: `epoch_4_cycle_37_cspr_stage_0_adjudicated`
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
@@ -78,12 +78,18 @@ in `reports/cspr_vla/prototype_protocol.md` with decision
 `reports/cspr_vla/stage_0_serializer_preflight.json` with fixture hash
 `08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F570782823D43D712`; py_compile passed; focused CSPR tests passed (`6 passed`);
 focused state tests passed (`9 passed`); governance check passed; and the
-CSPR-inclusive campaign regression suite passed (`54 passed`). No CSPR Stage
-0 worker, training, validation search, rollout, simulator load,
-reward/success/done read, or confirmatory-test access occurred during
-implementation validation. Immediate next action: Stage 0 launch precheck
-and single frozen runner execution if no existing result, live worker, or
-resumable partial blocks launch.
+CSPR-inclusive campaign regression suite passed (`54 passed`). CSPR Stage 0 then ran once under the frozen runner and completed in
+`reports/cspr_vla/stage_0_result.json`, with partial/manifest rows
+`5760 / 5760`, exception count `0`, duplicate/missing/extra keys `0`,
+split-overlap keys `0`, and equal key sets. The raw runner decision was
+`CSPR_STAGE_0_DESIGN_FAILURE`, but adjudication corrected the final decision
+to `CSPR_STAGE_0_IMPLEMENTATION_FAILURE` because the persisted
+`weighted_gradient_norm_ratio_max = 129.38210738906673` exceeds the frozen
+`100.0` objective-scale limit, which the protocol classifies as an
+implementation failure. No rows were rerun for this adjudication correction.
+This is a development-only implementation failure, not a closed-loop
+scientific kill. CSPR repair/rescue is disallowed. Immediate next action:
+generate exactly three Epoch 4 Cycle 38 candidates under current governance.
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 

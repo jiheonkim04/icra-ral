@@ -647,14 +647,6 @@ def classify_stage0(inputs: Stage0DecisionInputs) -> str:
     ):
         return "CSPR_STAGE_0_NO_USABLE_HEADROOM"
     if (
-        not inputs.cspr_beats_comparators
-        or not inputs.cspr_differs_from_base
-        or not inputs.cspr_differs_from_ablation
-        or inputs.simple_killer_explains_gain
-        or not (0.02 <= inputs.intervention_fraction <= 0.80)
-    ):
-        return "CSPR_STAGE_0_DESIGN_FAILURE"
-    if (
         inputs.identity_reload_error > IDENTITY_TOLERANCE
         or not inputs.finite_nonzero_gradients
         or inputs.frozen_base_gradient_count != 0
@@ -664,4 +656,12 @@ def classify_stage0(inputs: Stage0DecisionInputs) -> str:
         or not inputs.clean_retention_ok
     ):
         return "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    if (
+        not inputs.cspr_beats_comparators
+        or not inputs.cspr_differs_from_base
+        or not inputs.cspr_differs_from_ablation
+        or inputs.simple_killer_explains_gain
+        or not (0.02 <= inputs.intervention_fraction <= 0.80)
+    ):
+        return "CSPR_STAGE_0_DESIGN_FAILURE"
     return "CSPR_STAGE_0_PASS_TO_BOUNDED_VALIDATION"

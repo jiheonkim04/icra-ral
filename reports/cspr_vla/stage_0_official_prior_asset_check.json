@@ -1,0 +1,14 @@
+{
+  "closest_prior": "DySL-VLA",
+  "closest_prior_official_repository": "https://github.com/PKU-SEC-Lab/DYSL_VLA",
+  "closest_prior_preprint": "https://arxiv.org/abs/2602.22896",
+  "created_utc": "2026-07-16T15:20:19.141603+00:00",
+  "method": "CSPR-VLA",
+  "official_candidate_paths": [],
+  "official_checkpoint_count": 0,
+  "official_checkpoint_present": false,
+  "official_code_present": false,
+  "proxy_is_required_until_official_assets_verified": true,
+  "proxy_may_not_use_cspr_learned_residual_action_correction": true,
+  "selected_prior_policy": "dysl_action_importance_proxy"
+}

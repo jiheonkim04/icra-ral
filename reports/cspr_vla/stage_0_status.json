@@ -1,0 +1,8 @@
+{
+  "adjudication_corrected_decision": true,
+  "final_decision": "CSPR_STAGE_0_IMPLEMENTATION_FAILURE",
+  "method": "CSPR-VLA",
+  "raw_runner_decision": "CSPR_STAGE_0_DESIGN_FAILURE",
+  "state": "completed",
+  "updated_utc": "2026-07-16T15:20:36.237748+00:00"
+}

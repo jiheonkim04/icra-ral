@@ -37,7 +37,7 @@ CSPR_SERIALIZER_HASH = "08694408CD78CD3DB3DB71091FDBB8151E8F401813E4A41F57078282
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING" in final
+    assert "CSPR_STAGE_0_IMPLEMENTATION_FAILURE" in final
     assert "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "CSPR_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "DCCG_STAGE_0_DATA_FAILURE" in final
@@ -52,6 +52,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/cspr_vla/mathematical_mechanism_audit.md" in final
     assert "reports/cspr_vla/preregistration.md" in final
     assert "reports/cspr_vla/prototype_protocol.md" in final
+    assert "reports/cspr_vla/stage_0_result.json" in final
+    assert "5760 / 5760" in final
+    assert "weighted_gradient_norm_ratio_max" in final
     assert "DCCG-VLA" in final
     assert "reports/epoch_4_cycle_37_prior_mechanism_map.md" in final
     assert "reports/epoch_4_cycle_36_prior_mechanism_map.md" in final
@@ -443,17 +446,20 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
+    assert state["current_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 37
-    assert state["current_stage"] == "epoch_4_cycle_37_cspr_stage_0_launch_pending"
+    assert state["current_stage"] == "epoch_4_cycle_37_cspr_stage_0_adjudicated"
     assert state["method"] == "CSPR-VLA"
     assert state["method_identity"] == "CSPR-VLA"
     assert state["closest_prior"] == "DySL-VLA"
     assert state["candidate_generation"] == "reports/epoch_4_cycle_37_candidate_generation.md"
     assert state["prior_mechanism_map"] == "reports/epoch_4_cycle_37_prior_mechanism_map.md"
     assert state["selection_decision"] == "CSPR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["next_action"].startswith("Run the CSPR-VLA Stage 0 launch precheck")
+    assert state["next_action"] == (
+        "Generate exactly three Epoch 4 Cycle 38 candidates under current governance; "
+        "CSPR repair/rescue is disallowed."
+    )
     assert state["proposal_hash"] == CSPR_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/cspr_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/cspr_vla/researcher_proposal.md"
@@ -482,12 +488,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["prototype_protocol_decision"] == "CSPR_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING"
     assert state["stage_0_implementation_pending"] is False
     assert state["stage_0_implementation_validated"] is True
-    assert state["stage_0_pending"] is True
-    assert state["stage_0_launch_pending"] is True
-    assert state["stage_0_launched"] is False
-    assert state["stage_0_completed"] is False
-    assert state["stage_0_adjudicated"] is False
-    assert state["stage_0_decision"] is None
+    assert state["stage_0_pending"] is False
+    assert state["stage_0_launch_pending"] is False
+    assert state["stage_0_launched"] is True
+    assert state["stage_0_completed"] is True
+    assert state["stage_0_adjudicated"] is True
+    assert state["stage_0_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert state["raw_stage_0_runner_decision"] == "CSPR_STAGE_0_DESIGN_FAILURE"
+    assert state["valid_scientific_result"] is False
+    assert state["stage_0_is_closed_loop_scientific_kill"] is False
+    assert state["cspr_rescue_allowed"] is False
     assert state["stage_0_result"] == "reports/cspr_vla/stage_0_result.json"
     assert state["stage_0_adjudication"] == "reports/cspr_vla/stage_0_adjudication.md"
     cycle35 = state["epoch_4_cycle_35_candidate_search"]
@@ -907,9 +917,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert math37["stage_0_implementation_pending"] is False
     assert math37["stage_0_implementation_validated"] is True
     assert math37["implementation_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
-    assert math37["stage_0_pending"] is True
-    assert math37["stage_0_launch_pending"] is True
-    assert math37["stage_0_launched"] is False
+    assert math37["stage_0_pending"] is False
+    assert math37["stage_0_launch_pending"] is False
+    assert math37["stage_0_launched"] is True
+    assert math37["stage_0_completed"] is True
+    assert math37["stage_0_adjudicated"] is True
+    assert math37["stage_0_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert math37["raw_stage_0_runner_decision"] == "CSPR_STAGE_0_DESIGN_FAILURE"
+    assert math37["valid_scientific_result"] is False
+    assert math37["stage_0_is_closed_loop_scientific_kill"] is False
+    assert math37["cspr_rescue_allowed"] is False
     assert math37["stage_0_serializer_preflight_hash"] == CSPR_SERIALIZER_HASH
     assert math37["training_happened"] is False
     assert math37["validation_search_happened"] is False
@@ -936,9 +953,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert prereg37["stage_0_implementation_pending"] is False
     assert prereg37["stage_0_implementation_validated"] is True
     assert prereg37["implementation_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
-    assert prereg37["stage_0_pending"] is True
-    assert prereg37["stage_0_launch_pending"] is True
-    assert prereg37["stage_0_launched"] is False
+    assert prereg37["stage_0_pending"] is False
+    assert prereg37["stage_0_launch_pending"] is False
+    assert prereg37["stage_0_launched"] is True
+    assert prereg37["stage_0_completed"] is True
+    assert prereg37["stage_0_adjudicated"] is True
+    assert prereg37["stage_0_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert prereg37["raw_stage_0_runner_decision"] == "CSPR_STAGE_0_DESIGN_FAILURE"
+    assert prereg37["valid_scientific_result"] is False
+    assert prereg37["stage_0_is_closed_loop_scientific_kill"] is False
+    assert prereg37["cspr_rescue_allowed"] is False
     assert prereg37["stage_0_serializer_preflight_hash"] == CSPR_SERIALIZER_HASH
     assert prereg37["training_happened"] is False
     assert prereg37["validation_search_happened"] is False
@@ -976,9 +1000,16 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert protocol37["stage_0_implementation_pending"] is False
     assert protocol37["stage_0_implementation_validated"] is True
     assert protocol37["implementation_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING"
-    assert protocol37["stage_0_pending"] is True
-    assert protocol37["stage_0_launch_pending"] is True
-    assert protocol37["stage_0_launched"] is False
+    assert protocol37["stage_0_pending"] is False
+    assert protocol37["stage_0_launch_pending"] is False
+    assert protocol37["stage_0_launched"] is True
+    assert protocol37["stage_0_completed"] is True
+    assert protocol37["stage_0_adjudicated"] is True
+    assert protocol37["stage_0_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert protocol37["raw_stage_0_runner_decision"] == "CSPR_STAGE_0_DESIGN_FAILURE"
+    assert protocol37["valid_scientific_result"] is False
+    assert protocol37["stage_0_is_closed_loop_scientific_kill"] is False
+    assert protocol37["cspr_rescue_allowed"] is False
     assert protocol37["stage_0_serializer_preflight_hash"] == CSPR_SERIALIZER_HASH
     assert protocol37["training_happened"] is False
     assert protocol37["validation_search_happened"] is False
@@ -1000,14 +1031,58 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert impl37["governance_check_passed"] is True
     assert impl37["campaign_regression_tests_passed"] == 54
     assert impl37["stage_0_implementation_validated"] is True
-    assert impl37["stage_0_pending"] is True
-    assert impl37["stage_0_launch_pending"] is True
-    assert impl37["stage_0_launched"] is False
+    assert impl37["stage_0_pending"] is False
+    assert impl37["stage_0_launch_pending"] is False
+    assert impl37["stage_0_launched"] is True
+    assert impl37["stage_0_completed"] is True
+    assert impl37["stage_0_adjudicated"] is True
+    assert impl37["stage_0_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert impl37["raw_stage_0_runner_decision"] == "CSPR_STAGE_0_DESIGN_FAILURE"
+    assert impl37["valid_scientific_result"] is False
+    assert impl37["stage_0_is_closed_loop_scientific_kill"] is False
+    assert impl37["cspr_rescue_allowed"] is False
     assert impl37["no_stage_0_worker_launched_by_implementation_validation"] is True
     assert impl37["training_happened"] is False
     assert impl37["validation_search_happened"] is False
     assert impl37["closed_loop_experiment_happened"] is False
     assert impl37["confirmatory_test_tuning_happened"] is False
+    outcome37 = state["epoch_4_cycle_37_cspr_stage_0_outcome"]
+    assert outcome37["final_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert outcome37["raw_runner_decision"] == "CSPR_STAGE_0_DESIGN_FAILURE"
+    assert outcome37["failure_class"] == "IMPLEMENTATION_FAILURE"
+    assert outcome37["stage_0_result"] == "reports/cspr_vla/stage_0_result.json"
+    assert outcome37["stage_0_partial"] == "reports/cspr_vla/stage_0_partial.json"
+    assert outcome37["stage_0_manifest"] == "reports/cspr_vla/stage_0_manifest.json"
+    assert outcome37["stage_0_adjudication"] == "reports/cspr_vla/stage_0_adjudication.md"
+    assert outcome37["completed_model_row_count"] == 5760
+    assert outcome37["planned_model_row_count"] == 5760
+    assert outcome37["exception_count"] == 0
+    assert outcome37["duplicate_manifest_key_count"] == 0
+    assert outcome37["duplicate_partial_key_count"] == 0
+    assert outcome37["missing_manifest_key_count"] == 0
+    assert outcome37["extra_partial_key_count"] == 0
+    assert outcome37["split_overlap_key_count"] == 0
+    assert outcome37["key_sets_equal"] is True
+    assert outcome37["weighted_gradient_norm_ratio_max"] == 129.38210738906673
+    assert outcome37["objective_scale_limit"] == 100.0
+    assert outcome37["adjudication_corrected_decision"] is True
+    assert outcome37["rows_rerun_for_adjudication_correction"] is False
+    assert outcome37["valid_scientific_result"] is False
+    assert outcome37["stage_0_is_closed_loop_scientific_kill"] is False
+    assert outcome37["cspr_rescue_allowed"] is False
+    cycle38 = state["epoch_4_cycle_38_candidate_search"]
+    assert cycle38["candidate_search_pending"] is True
+    assert cycle38["candidate_count_required"] == 3
+    assert cycle38["previous_method"] == "CSPR-VLA"
+    assert cycle38["previous_decision"] == "CSPR_STAGE_0_IMPLEMENTATION_FAILURE"
+    assert cycle38["cspr_rescue_allowed"] is False
+    assert cycle38["candidate_generation"] == "reports/epoch_4_cycle_38_candidate_generation.md"
+    assert cycle38["prior_mechanism_map"] == "reports/epoch_4_cycle_38_prior_mechanism_map.md"
+    assert "epoch_4_cycle_37_cspr_stage_0_launched" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_stage_0_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_stage_0_adjudicated" in state["completed_stages"]
+    assert "epoch_4_cycle_37_cspr_implementation_failure_recorded" in state["completed_stages"]
+    assert "epoch_4_cycle_38_candidate_search_pending" in state["completed_stages"]
     brid_stage0 = state["epoch_4_cycle_34_brid_stage_0_implementation"]
     assert brid_stage0["final_decision"] == "BRID_STAGE_0_NO_RESIDUAL_HEADROOM"
     assert brid_stage0["stage_0_result"] == "reports/brid_vla/stage_0_result.json"
