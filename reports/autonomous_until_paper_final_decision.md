@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 This is not a terminal decision.
 
@@ -40,10 +40,16 @@ The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
 Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_researcher_proposal_pending`.
+`epoch_4_cycle_33_afid_reviewer_attack_pending`.
 
-No AFID training, validation search, rollout, or confirmatory-test access has
-happened. LCG remains closed unchanged as `LCG_STAGE_0_DESIGN_FAILURE`.
+The AFID-VLA Researcher A proposal is frozen in
+`reports/afid_vla/researcher_proposal.md` with SHA-256
+`B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC` and
+decision `AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+
+No AFID implementation, training, validation search, rollout, or
+confirmatory-test access has happened. LCG remains closed unchanged as
+`LCG_STAGE_0_DESIGN_FAILURE`.
 
 ## Epoch 4 Cycle 32 Selection
 

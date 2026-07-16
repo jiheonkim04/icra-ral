@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AFID_CANDIDATE_SELECTED_RESEARCHER_PROPOSAL_PENDING`
+`AFID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `33`
 
-Current stage: `epoch_4_cycle_33_afid_researcher_proposal_pending`
+Current stage: `epoch_4_cycle_33_afid_reviewer_attack_pending`
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three
@@ -29,8 +29,12 @@ The first serious comparison is `smolvla_base`,
 `finevla_action_factor_proxy`, `afid_full`, `afid_no_factor_ablation`, and
 `standard_lora`.
 
-Next action: freeze the AFID-VLA Researcher A proposal under current
-governance. No AFID training, validation search, rollout, or confirmatory-test
+The AFID-VLA Researcher A proposal is frozen in
+`reports/afid_vla/researcher_proposal.md` with SHA-256
+`B5D1EE12FF2D0280511452DA7FE55295740FD9942A8BE293F444C8EB157062BC`.
+
+Next action: run Reviewer B attack on the frozen AFID-VLA proposal. No AFID
+implementation, training, validation search, rollout, or confirmatory-test
 access has happened.
 
 Cycle 32 completed the primary-source mechanism map in
