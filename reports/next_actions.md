@@ -5,11 +5,11 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
-Immediate next action: write the MHS-VLA Researcher A rebuttal before
-mathematical audit, preregistration, prototype protocol, implementation,
-validation search, training, rollout, or confirmatory-test access.
+Immediate next action: write the MHS-VLA mathematical mechanism audit before
+preregistration, prototype protocol, implementation, validation search,
+training, rollout, or confirmatory-test access.
 
 Cycle 35 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_35_prior_mechanism_map.md` and generated exactly three
@@ -36,6 +36,11 @@ or a transparent MTIL proxy as policy 2, a no-history-state ablation, standard
 LoRA, noncollapsed history labels, history-over-current-frame predictability,
 exact Base passthrough, bounded action deltas, clean retention, and no
 privileged inference input.
+
+Researcher A rebuttal is complete in
+`reports/mhs_vla/researcher_rebuttal.md` with decision
+`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B conditions are
+accepted.
 
 BRID remains closed unchanged as `BRID_STAGE_0_NO_RESIDUAL_HEADROOM`.
 

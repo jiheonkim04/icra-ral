@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -32,7 +32,7 @@ small residual head only; LoRA is not the method.
 The first serious comparison is `smolvla_base`, `mtil_history_state_proxy`,
 `mhs_full`, `mhs_no_history_state_ablation`, and `standard_lora`.
 
-Current stage: `epoch_4_cycle_35_mhs_rebuttal_pending`.
+Current stage: `epoch_4_cycle_35_mhs_mathematical_audit_pending`.
 
 The MHS-VLA Researcher A proposal is frozen in
 `reports/mhs_vla/researcher_proposal.md` with SHA-256
@@ -46,7 +46,12 @@ no-history-state ablation, standard LoRA, noncollapsed history labels,
 history-over-current-frame predictability, exact Base passthrough, bounded
 action deltas, clean retention, and no privileged inference input.
 
-Next action: write the MHS-VLA Researcher A rebuttal before mathematical audit,
+Researcher A rebuttal is complete in
+`reports/mhs_vla/researcher_rebuttal.md` with decision
+`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B conditions are
+accepted.
+
+Next action: write the MHS-VLA mathematical mechanism audit before
 preregistration, prototype protocol, implementation, validation search,
 training, rollout, or confirmatory-test access.
 

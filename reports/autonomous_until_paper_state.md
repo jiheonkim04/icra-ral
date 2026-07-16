@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
+`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `35`
 
-Current stage: `epoch_4_cycle_35_mhs_rebuttal_pending`
+Current stage: `epoch_4_cycle_35_mhs_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 35 MHS-VLA Candidate Selection
 
@@ -48,7 +48,12 @@ no-history-state ablation, standard LoRA, noncollapsed history labels,
 history-over-current-frame predictability, exact Base passthrough, bounded
 action deltas, clean retention, and no privileged inference input.
 
-Next action: write the MHS-VLA Researcher A rebuttal before mathematical audit,
+Researcher A rebuttal is complete in
+`reports/mhs_vla/researcher_rebuttal.md` with decision
+`MHS_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`; all Reviewer B conditions are
+accepted.
+
+Next action: write the MHS-VLA mathematical mechanism audit before
 preregistration, prototype protocol, implementation, validation search,
 training, rollout, or confirmatory-test access.
 
