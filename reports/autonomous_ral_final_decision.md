@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -33,9 +33,15 @@ or confirmatory-test tuning has happened.
 
 The AMP-VLA Researcher A proposal is frozen in
 `reports/amp_vla/researcher_proposal.md` with SHA-256
-`67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4`.
+`67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4`
+and decision `AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+Reviewer B attack is complete in `reports/amp_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. The required
+conditions keep the ABot-M0 proxy, no-projection ablation, matched standard
+LoRA, clipping/bound-only diagnostics, manifold-health gates, identity/reload
+checks, and mathematical objective audit live.
 Current cycle: `26`. Current stage:
-`epoch_4_cycle_26_amp_reviewer_attack_pending`.
+`epoch_4_cycle_26_amp_rebuttal_pending`.
 
 Cycle 25 generated exactly three candidates after a current primary-source
 anchor pass. `RAP-VLA`, Retrieval-Anchored Prior residualization for VLA action

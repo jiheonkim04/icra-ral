@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `26`
 
-Current stage: `epoch_4_cycle_26_amp_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_26_amp_rebuttal_pending`
 
 ## Epoch 4 Cycle 26 AMP-VLA
 
@@ -38,9 +38,12 @@ confirmatory-test tuning has happened.
 
 The AMP-VLA Researcher A proposal is frozen in
 `reports/amp_vla/researcher_proposal.md` with SHA-256
-`67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4`.
-Next action: run Reviewer B attack before mathematical audit or
-implementation.
+`67ACC693C706B76BC9FB84F9E59BA3DF9C0463A0BAFABE539312D0E232DFE9A4`
+and decision `AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
+Reviewer B attack is complete in `reports/amp_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Next action:
+write the Researcher A rebuttal accepting or answering all Reviewer B
+conditions before mathematical audit or implementation.
 
 ## Epoch 4 Cycle 25 RAP-VLA
 

@@ -62,8 +62,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_26_amp_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_26_amp_rebuttal_pending"
     assert state["method"] == "AMP-VLA"
     assert state["method_identity"] == "AMP-VLA"
     assert state["proposal_hash"] == AMP_PROPOSAL_HASH
@@ -226,6 +226,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_26_amp_researcher_proposal_pending",
         "epoch_4_cycle_26_amp_researcher_proposal_frozen",
         "epoch_4_cycle_26_amp_reviewer_attack_pending",
+        "epoch_4_cycle_26_amp_reviewer_attack_completed",
+        "epoch_4_cycle_26_amp_rebuttal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -317,11 +319,18 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert amp["proposal_hash"] == AMP_PROPOSAL_HASH
     assert amp["proposal_hash_file"] == "reports/amp_vla/proposal_hash.txt"
     assert amp["proposal_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert amp["reviewer_attack"] == "reports/amp_vla/reviewer_attack.md"
+    assert amp["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     amp_proposal = state["epoch_4_cycle_26_amp_researcher_proposal"]
     assert amp_proposal["final_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert amp_proposal["proposal_hash"] == AMP_PROPOSAL_HASH
     assert amp_proposal["closed_loop_experiment_happened"] is False
     assert amp_proposal["confirmatory_test_tuning_happened"] is False
+    amp_review = state["epoch_4_cycle_26_amp_reviewer_attack"]
+    assert amp_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert amp_review["reviewer_attack"] == "reports/amp_vla/reviewer_attack.md"
+    assert amp_review["proposal_hash"] == AMP_PROPOSAL_HASH
+    assert "no-projection ablation and matched standard LoRA remain live" in amp_review["conditions"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

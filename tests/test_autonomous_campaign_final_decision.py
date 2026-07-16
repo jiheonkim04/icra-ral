@@ -226,13 +226,14 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "AMP-VLA" in final
     assert "ABot-M0" in final
     assert "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert AMP_PROPOSAL_HASH in final
     assert "RAP_MATHEMATICAL_AUDIT_PREREGISTERED" in final
     assert "RAP_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
     assert "RAP_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
-    assert "epoch_4_cycle_26_amp_reviewer_attack_pending" in final
+    assert "epoch_4_cycle_26_amp_rebuttal_pending" in final
     assert "640 / 640" in final
     assert "optimusvla_memory_prior_proxy" in final
     assert RAP_PROPOSAL_HASH in final
@@ -259,10 +260,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 26
-    assert state["current_stage"] == "epoch_4_cycle_26_amp_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_26_amp_rebuttal_pending"
     assert state["method"] == "AMP-VLA"
     assert state["method_identity"] == "AMP-VLA"
     assert state["proposal_hash"] == AMP_PROPOSAL_HASH
@@ -278,7 +279,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["final_decision"] == "STAGE_2B_EXPANDED_NON_GO_NO_THIRD_EXPANSION"
     assert state["epoch_4_cycle_2_outcome"]["cavm_full_successes"] == 24
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
-    assert state["next_action"] == "Run Reviewer B attack for frozen AMP-VLA proposal."
+    assert state["next_action"] == "Write Researcher A rebuttal for AMP-VLA Reviewer B conditions."
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -350,9 +351,14 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert amp["standard_lora_required"] is True
     assert amp["proposal_hash"] == AMP_PROPOSAL_HASH
     assert amp["proposal_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert amp["reviewer_attack"] == "reports/amp_vla/reviewer_attack.md"
+    assert amp["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     amp_proposal = state["epoch_4_cycle_26_amp_researcher_proposal"]
     assert amp_proposal["final_decision"] == "AMP_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert amp_proposal["proposal"] == "reports/amp_vla/researcher_proposal.md"
+    amp_review = state["epoch_4_cycle_26_amp_reviewer_attack"]
+    assert amp_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert amp_review["proposal_hash"] == AMP_PROPOSAL_HASH
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
