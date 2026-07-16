@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_MATHEMATICAL_AUDIT_PREREGISTERED`
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_preregistration_pending`
+Current stage: `epoch_4_cycle_30_urf_prototype_protocol_pending`
 
 ## Epoch 4 Cycle 30 URF-VLA
 
@@ -73,8 +73,15 @@ route logits, heteroscedastic residual pseudo-NLL, route BCE, clean retention,
 gradient and magnitude audits, uncertainty monotonicity diagnostics, no
 deterministic-action KL, and the fixed Stage 0 stop classes.
 
-Current next action: freeze URF-VLA preregistration before prototype protocol,
-implementation, validation search, training, or rollout.
+The URF preregistration is frozen in `reports/urf_vla/preregistration.md` with
+decision `URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+the discovery/validation/confirmatory partitions, fixed LIBERO development
+tasks, residual and route construction, Stage 0 artifact paths, pass gates,
+stop classes, bounded six-configuration validation search, first five-policy
+comparison, and confirmatory tuning prohibition.
+
+Current next action: write executable URF-VLA prototype protocol before Stage 0
+implementation.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 

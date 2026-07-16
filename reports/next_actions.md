@@ -5,10 +5,10 @@
 Active governance: `reports/current_research_governance.md`
 
 Current decision:
-`URF_MATHEMATICAL_AUDIT_PREREGISTERED`
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
-Immediate next action: freeze the URF-VLA preregistration before prototype
-protocol, implementation, validation search, training, or rollout.
+Immediate next action: write the executable URF-VLA prototype protocol before
+Stage 0 implementation.
 
 Cycle 30 generated exactly three candidates and selected `URF-VLA`,
 Uncertainty-Routed Residual Flow for Base-preserving SmolVLA chunks, at
@@ -28,8 +28,11 @@ decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Researcher A
 rebuttal is complete in `reports/urf_vla/researcher_rebuttal.md` with decision
 `URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is
 frozen in `reports/urf_vla/mathematical_mechanism_audit.md` with decision
-`URF_MATHEMATICAL_AUDIT_PREREGISTERED`. No URF training, validation search,
-rollout, simulator access, or confirmatory-test tuning has happened.
+`URF_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
+`reports/urf_vla/preregistration.md` with decision
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. No URF training,
+validation search, rollout, simulator access, or confirmatory-test tuning has
+happened.
 
 Do not repair, rerun, or rescue `VDR-VLA`; do not change its thresholds,
 horizons, residual construction, memory construction, or action-validity

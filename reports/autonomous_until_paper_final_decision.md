@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`URF_MATHEMATICAL_AUDIT_PREREGISTERED`
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 This is not a terminal decision.
 
@@ -72,8 +72,15 @@ route logits, heteroscedastic residual pseudo-NLL, route BCE, clean retention,
 gradient and magnitude audits, uncertainty monotonicity diagnostics, no
 deterministic-action KL, and the fixed Stage 0 stop classes.
 
+The URF preregistration is frozen in `reports/urf_vla/preregistration.md` with
+decision `URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
+the discovery/validation/confirmatory partitions, fixed LIBERO development
+tasks, residual and route construction, Stage 0 artifact paths, pass gates,
+stop classes, bounded six-configuration validation search, first five-policy
+comparison, and confirmatory tuning prohibition.
+
 Current cycle: `30`. Current stage:
-`epoch_4_cycle_30_urf_preregistration_pending`.
+`epoch_4_cycle_30_urf_prototype_protocol_pending`.
 
 ## Epoch 4 Cycle 29 Selection
 

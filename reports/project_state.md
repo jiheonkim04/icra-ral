@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_MATHEMATICAL_AUDIT_PREREGISTERED`
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_preregistration_pending`
+Current stage: `epoch_4_cycle_30_urf_prototype_protocol_pending`
 
 Cycle 30 generated exactly three candidates in
 `reports/epoch_4_cycle_30_candidate_generation.md` after the primary-source
@@ -38,9 +38,10 @@ B attack is complete in `reports/urf_vla/reviewer_attack.md` with decision
 complete in `reports/urf_vla/researcher_rebuttal.md` with decision
 `URF_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. The mathematical mechanism audit is
 frozen in `reports/urf_vla/mathematical_mechanism_audit.md` with decision
-`URF_MATHEMATICAL_AUDIT_PREREGISTERED`. Next action is to freeze the URF-VLA
-preregistration before prototype protocol, implementation, validation search,
-training, or rollout.
+`URF_MATHEMATICAL_AUDIT_PREREGISTERED`. Preregistration is frozen in
+`reports/urf_vla/preregistration.md` with decision
+`URF_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. Next action is to
+write the executable URF-VLA prototype protocol before Stage 0 implementation.
 
 Cycle 21 generated exactly three candidates and selected `HEST-VLA`, Hybrid
 Event-Spline Trajectories, with `93 / 100`. Spline Policy is the closest
