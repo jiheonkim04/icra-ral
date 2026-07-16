@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`DCCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
+`DCCG_STAGE_0_DATA_FAILURE`
 
 This is not a terminal decision.
 
@@ -41,9 +41,20 @@ implementation validation is complete: `tca_map/smolvla/dccg_vla.py`,
 DCCG tests passed (`6 passed`), focused governance tests passed (`14 passed`),
 and the campaign regression suite passed (`48 passed`). No DCCG Stage 0 worker,
 training, validation search, rollout, simulator load, reward/success/done read,
-or confirmatory-test access occurred during implementation validation. The next
-action is DCCG Stage 0 worker-safety, duplicate-key, manifest, and preflight
-checks before any frozen Stage 0 launch.
+or confirmatory-test access occurred during implementation validation. The DCCG
+Stage 0 launch precheck found no existing DCCG worker, final result, or valid
+resumable partial, so the frozen Stage 0 runner was executed once.
+
+DCCG Stage 0 completed in `reports/dccg_vla/stage_0_result.json` and is
+adjudicated in `reports/dccg_vla/stage_0_adjudication.md` with decision
+`DCCG_STAGE_0_DATA_FAILURE`. The available CCIF cached SmolVLA Base chunks had
+`0` rows matching the frozen DCCG task/demo identities, so Stage 0 wrote `0 / 0`
+completed/planned rows. Exception count was `0`, duplicate/missing/extra and
+split-overlap counts were all `0`, and key sets were equal. This is a
+development-only data/cache coverage failure, not a closed-loop scientific
+kill. DCCG rescue by changing frozen identities, cache source, thresholds, or
+protocol is disallowed. The next action is to generate exactly three Epoch 4
+Cycle 37 candidates under current governance.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

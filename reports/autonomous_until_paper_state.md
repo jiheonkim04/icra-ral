@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`DCCG_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_LAUNCH_PENDING`
+`DCCG_STAGE_0_DATA_FAILURE`
 
 Current epoch: `4`
 
 Current cycle: `36`
 
-Current stage: `epoch_4_cycle_36_dccg_stage_0_launch_pending`
+Current stage: `epoch_4_cycle_36_dccg_stage_0_adjudicated`
 
 ## Epoch 4 Cycle 36 DCCG-VLA Candidate Selection
 
@@ -77,9 +77,23 @@ and the campaign regression suite passed (`48 passed`). No DCCG Stage 0 worker,
 training, validation search, rollout, simulator load, reward/success/done read,
 or confirmatory-test access occurred during implementation validation.
 
-Immediate next action: run DCCG-VLA Stage 0 worker-safety, duplicate-key,
-manifest, and preflight checks; then launch the frozen Stage 0 only if no
-existing DCCG worker, final result, or valid resumable partial already exists.
+The DCCG Stage 0 launch precheck found no existing DCCG worker, final result,
+or valid resumable partial, so the frozen Stage 0 runner was executed once.
+
+DCCG Stage 0 completed in `reports/dccg_vla/stage_0_result.json` and is
+adjudicated in `reports/dccg_vla/stage_0_adjudication.md` with decision
+`DCCG_STAGE_0_DATA_FAILURE`. The runner wrote `0 / 0` completed/planned rows
+because the available CCIF cached SmolVLA Base chunks contained `0` rows for
+the frozen DCCG task/demo identities. Exception count was `0`; duplicate
+manifest keys, duplicate partial keys, missing keys, extra keys, and
+split-overlap keys were all `0`, with key sets equal `true`.
+
+This is a development-only data/cache coverage failure, not a closed-loop
+scientific kill. DCCG repair or rescue by changing frozen task/demo identities,
+cache source, thresholds, or protocol is disallowed in this method cycle.
+
+Immediate next action: generate exactly three Epoch 4 Cycle 37 candidates under
+current governance.
 
 ## Epoch 4 Cycle 35 MHS-VLA Outcome
 

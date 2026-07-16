@@ -1,0 +1,9 @@
+{
+  "closest_prior": "ACG",
+  "created_utc": "2026-07-16T14:11:53.317240+00:00",
+  "local_policy_2_label": "acg_official_proxy",
+  "method": "DCCG-VLA",
+  "official_assets_checked": false,
+  "official_repository": "https://github.com/DAVIAN-Robotics/ACG",
+  "transparent_proxy_required_if_official_assets_unavailable": true
+}

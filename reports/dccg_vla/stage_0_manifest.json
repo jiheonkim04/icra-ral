@@ -1,0 +1,14 @@
+{
+  "manifest_summary": {
+    "duplicate_manifest_key_count": 0,
+    "duplicate_partial_key_count": 0,
+    "extra_partial_key_count": 0,
+    "key_sets_equal": true,
+    "manifest_row_count": 0,
+    "missing_manifest_key_count": 0,
+    "partial_row_count": 0,
+    "split_overlap_key_count": 0
+  },
+  "method": "DCCG-VLA",
+  "rows": []
+}
