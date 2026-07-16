@@ -64,8 +64,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_28_tsc_reviewer_attack_pending"
+    assert state["current_decision"] == "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["current_stage"] == "epoch_4_cycle_28_tsc_mathematical_audit_pending"
     assert state["method"] == "TSC-VLA"
     assert state["method_identity"] == "TSC-VLA"
     assert state["proposal_hash"] == TSC_PROPOSAL_HASH
@@ -271,6 +271,10 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_28_tsc_researcher_proposal_pending",
         "epoch_4_cycle_28_tsc_researcher_proposal_frozen",
         "epoch_4_cycle_28_tsc_reviewer_attack_pending",
+        "epoch_4_cycle_28_tsc_reviewer_attack_completed",
+        "epoch_4_cycle_28_tsc_rebuttal_pending",
+        "epoch_4_cycle_28_tsc_rebuttal_completed",
+        "epoch_4_cycle_28_tsc_mathematical_audit_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -621,6 +625,21 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert tsc_proposal["validation_search_happened"] is False
     assert tsc_proposal["closed_loop_experiment_happened"] is False
     assert tsc_proposal["confirmatory_test_tuning_happened"] is False
+    tsc_review = state["epoch_4_cycle_28_tsc_reviewer_attack"]
+    assert tsc_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert tsc_review["reviewer_attack"] == "reports/tsc_vla/reviewer_attack.md"
+    assert tsc_review["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert "ts_mask_continuous_proxy or official TS-Mask VLA remains policy 2" in tsc_review["conditions"]
+    assert "no privileged inference input and no confirmatory-test tuning" in tsc_review["conditions"]
+    tsc_rebuttal = state["epoch_4_cycle_28_tsc_rebuttal"]
+    assert tsc_rebuttal["final_decision"] == "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert tsc_rebuttal["researcher_rebuttal"] == "reports/tsc_vla/researcher_rebuttal.md"
+    assert tsc_rebuttal["proposal_hash"] == TSC_PROPOSAL_HASH
+    assert tsc_rebuttal["accepted_reviewer_conditions"] is True
+    assert tsc_rebuttal["accepted_closest_prior_proxy"] == "ts_mask_continuous_proxy_or_official_ts_mask_vla_if_installed"
+    assert tsc_rebuttal["accepted_key_ablation"] == "tsc_no_targeted_mask_ablation"
+    assert tsc_rebuttal["accepted_simple_baseline"] == "standard_lora"
+    assert tsc_rebuttal["accepted_no_privileged_inference_inputs"] is True
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

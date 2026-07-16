@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 28,
-    "topic": "epoch_4_cycle_28_tsc_reviewer_attack_pending",
+    "topic": "epoch_4_cycle_28_tsc_mathematical_audit_pending",
     "method": "TSC-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_28_tsc_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_28_tsc_mathematical_audit_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -563,7 +563,11 @@
         "epoch_4_cycle_28_tsc_candidate_selected",
         "epoch_4_cycle_28_tsc_researcher_proposal_pending",
         "epoch_4_cycle_28_tsc_researcher_proposal_frozen",
-        "epoch_4_cycle_28_tsc_reviewer_attack_pending"
+        "epoch_4_cycle_28_tsc_reviewer_attack_pending",
+        "epoch_4_cycle_28_tsc_reviewer_attack_completed",
+        "epoch_4_cycle_28_tsc_rebuttal_pending",
+        "epoch_4_cycle_28_tsc_rebuttal_completed",
+        "epoch_4_cycle_28_tsc_mathematical_audit_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -580,7 +584,7 @@
         "LaMem-VLA"
     ],
     "prototype_gate": "Pending TSC Stage 0 masked action-cell label health, completion headroom, prior-proxy, ablation, identity, gradient, action-validity, and retention audit.",
-    "current_decision": "TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "current_decision": "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -731,7 +735,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Run Reviewer B attack for TSC-VLA before mathematical audit, preregistration, or implementation.",
+    "next_action": "Freeze TSC-VLA mathematical mechanism audit before preregistration or implementation.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A continuous temporal-spatial masked action completion field can correct sparse Base action-cell errors in SmolVLA [50,7] chunks while clamping unselected cells exactly to Base and using only deployment-observable inputs.",
     "method_identity": "TSC-VLA",
@@ -2485,7 +2489,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_28_tsc_reviewer_attack_pending",
+    "current_topic": "epoch_4_cycle_28_tsc_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -7539,6 +7543,53 @@
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Run Reviewer B attack for TSC-VLA before mathematical audit, preregistration, or implementation."
+        "reviewer_attack": "reports/tsc_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "researcher_rebuttal": "reports/tsc_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "next_stage": "Freeze TSC-VLA mathematical mechanism audit before preregistration or implementation."
+    },
+    "epoch_4_cycle_28_tsc_reviewer_attack": {
+        "method": "TSC-VLA",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack": "reports/tsc_vla/reviewer_attack.md",
+        "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+        "closest_prior": "TS-Mask VLA",
+        "conditions": [
+            "TSC novelty narrowed to Base-clamped continuous action-cell completion",
+            "ts_mask_continuous_proxy or official TS-Mask VLA remains policy 2",
+            "proxy must not be a strawman",
+            "tsc_no_targeted_mask_ablation remains the key ablation",
+            "matched standard LoRA remains required unless frozen before results",
+            "Stage 0 tests 2D mask value against simpler residual gates or magnitude-only masks",
+            "error-label thresholds frozen before decisive Stage 0",
+            "offline action L2 not sole validation score or paper claim",
+            "report Base/TSC actions, changed cells, mask rate, deltas, validity, and clean retention",
+            "no privileged inference input and no confirmatory-test tuning"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal must accept or answer all TSC Reviewer B conditions before mathematical audit."
+    },
+    "epoch_4_cycle_28_tsc_rebuttal": {
+        "method": "TSC-VLA",
+        "final_decision": "TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "researcher_rebuttal": "reports/tsc_vla/researcher_rebuttal.md",
+        "proposal_hash": "0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941",
+        "accepted_reviewer_conditions": true,
+        "accepted_novelty_boundary": "Base-clamped continuous temporal-spatial action-cell completion around a frozen SmolVLA [50,7] chunk",
+        "accepted_closest_prior_proxy": "ts_mask_continuous_proxy_or_official_ts_mask_vla_if_installed",
+        "accepted_key_ablation": "tsc_no_targeted_mask_ablation",
+        "accepted_simple_baseline": "standard_lora",
+        "accepted_error_threshold_freeze": true,
+        "accepted_offline_l2_is_diagnostic_only": true,
+        "accepted_no_privileged_inference_inputs": true,
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Freeze TSC-VLA mathematical mechanism audit before preregistration or implementation."
     }
 }

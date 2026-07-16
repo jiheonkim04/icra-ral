@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `28`
 
-Current stage: `epoch_4_cycle_28_tsc_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_28_tsc_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 28 TSC-VLA
 
@@ -45,8 +45,20 @@ The TSC-VLA Researcher A proposal is frozen in
 `0DF143D2D8773D7ABF4FC76AB7CC083FE7EE65DF84EA06631E67C2445F6DC941` and
 decision `TSC_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`.
 
-Next action: run Reviewer B attack for TSC-VLA before mathematical audit,
-preregistration, or implementation.
+Reviewer B attack is complete in `reports/tsc_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It narrows TSC
+novelty to Base-clamped continuous action-cell completion, requires a faithful
+TS-Mask proxy as policy 2, keeps `tsc_no_targeted_mask_ablation` and
+`standard_lora` live, requires threshold-freeze and simple residual-gate
+diagnostics, and forbids privileged inference inputs.
+
+Researcher A rebuttal is complete in
+`reports/tsc_vla/researcher_rebuttal.md` with decision
+`TSC_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. It accepts all Reviewer B
+conditions before mathematical audit.
+
+Next action: freeze TSC-VLA mathematical mechanism audit before preregistration
+or implementation.
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
