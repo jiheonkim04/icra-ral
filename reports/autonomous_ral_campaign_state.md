@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `30`
 
-Current stage: `epoch_4_cycle_30_urf_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_30_urf_rebuttal_pending`
 
 ## Epoch 4 Cycle 30 URF-VLA
 
@@ -47,8 +47,18 @@ decision `URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`. No URF training,
 validation search, rollout, simulator access, or confirmatory-test tuning has
 happened.
 
-Current next action: run Reviewer B attack for URF-VLA before mathematical
-audit, preregistration, implementation, or training.
+Reviewer B attack is complete in `reports/urf_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It preserves
+SUREFlow as the closest prior, adds Guided Action Flow as the closest
+frozen-SmolVLA action-intervention prior, treats flow-based and perturbation
+uncertainty methods as uncertainty-signal alternatives, keeps
+`urf_no_uncertainty_route_ablation` and `standard_lora` live, and narrows URF
+to Base-preserving uncertainty-routed bounded residual transport around a
+frozen SmolVLA chunk.
+
+Current next action: Researcher A rebuttal must accept or answer all URF
+Reviewer B conditions before mathematical audit, preregistration,
+implementation, or training.
 
 ## Epoch 4 Cycle 29 CCIF-VLA
 

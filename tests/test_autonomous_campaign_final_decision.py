@@ -34,7 +34,9 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "SUREFlow" in final
     assert "sureflow_uncertainty_residual_proxy" in final
     assert URF_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_30_urf_reviewer_attack_pending" in final
+    assert "epoch_4_cycle_30_urf_rebuttal_pending" in final
+    assert "reports/urf_vla/reviewer_attack.md" in final
+    assert "Guided Action Flow" in final
     assert "CCIF_STAGE_0_DESIGN_FAILURE" in final
     assert "CCIF_STAGE_0_IMPLEMENTATION_VALIDATED_STAGE_0_READY" in final
     assert "CCIF_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_PENDING" in final
@@ -306,10 +308,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 30
-    assert state["current_stage"] == "epoch_4_cycle_30_urf_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_30_urf_rebuttal_pending"
     assert state["method"] == "URF-VLA"
     assert state["method_identity"] == "URF-VLA"
     assert state["proposal_hash"] == URF_PROPOSAL_HASH
@@ -835,6 +837,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf["proposal_hash"] == URF_PROPOSAL_HASH
     assert urf["proposal_hash_file"] == "reports/urf_vla/proposal_hash.txt"
     assert urf["proposal_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert urf["reviewer_attack"] == "reports/urf_vla/reviewer_attack.md"
+    assert urf["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     urf_proposal = state["epoch_4_cycle_30_urf_researcher_proposal"]
     assert urf_proposal["final_decision"] == "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert urf_proposal["proposal"] == "reports/urf_vla/researcher_proposal.md"
@@ -845,7 +849,20 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert urf_proposal["validation_search_happened"] is False
     assert urf_proposal["closed_loop_experiment_happened"] is False
     assert urf_proposal["confirmatory_test_tuning_happened"] is False
-    assert urf_proposal["reviewer_decision"] == "URF_REVIEWER_ATTACK_PENDING"
+    assert urf_proposal["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    urf_review = state["epoch_4_cycle_30_urf_reviewer_attack"]
+    assert urf_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert urf_review["reviewer_attack"] == "reports/urf_vla/reviewer_attack.md"
+    assert urf_review["proposal_hash"] == URF_PROPOSAL_HASH
+    assert urf_review["closest_prior"] == "SUREFlow"
+    assert "Guided Action Flow" in urf_review["independent_closest_current_papers"]
+    assert "urf_no_uncertainty_route_ablation remains the key ablation" in urf_review["conditions"]
+    assert "standard_lora remains the first simple reviewer-killer" in urf_review["conditions"]
+    assert "No deterministic-action KL is allowed" in urf_review["conditions"]
+    assert urf_review["training_happened"] is False
+    assert urf_review["validation_search_happened"] is False
+    assert urf_review["closed_loop_experiment_happened"] is False
+    assert urf_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

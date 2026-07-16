@@ -19,14 +19,14 @@
     "maximum_single_uncheckpointed_command_hours": 4,
     "current_epoch": 4,
     "current_cycle": 30,
-    "topic": "epoch_4_cycle_30_urf_reviewer_attack_pending",
+    "topic": "epoch_4_cycle_30_urf_rebuttal_pending",
     "method": "URF-VLA",
     "branch": "codex/autonomous-until-paper-governance-v2",
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
     "current_commit": "ef1f20a",
-    "current_stage": "epoch_4_cycle_30_urf_reviewer_attack_pending",
+    "current_stage": "epoch_4_cycle_30_urf_rebuttal_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -608,7 +608,9 @@
         "epoch_4_cycle_30_urf_candidate_selected",
         "epoch_4_cycle_30_urf_researcher_proposal_pending",
         "epoch_4_cycle_30_urf_researcher_proposal_frozen",
-        "epoch_4_cycle_30_urf_reviewer_attack_pending"
+        "epoch_4_cycle_30_urf_reviewer_attack_pending",
+        "epoch_4_cycle_30_urf_reviewer_attack_completed",
+        "epoch_4_cycle_30_urf_rebuttal_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -619,15 +621,12 @@
     "novelty_claim": "URF-VLA extends SUREFlow-style uncertainty-aware residual flow into an identity-preserving SmolVLA overlay whose uncertainty field routes which Base action cells may receive bounded residual transport.",
     "closest_papers": [
         "SUREFlow",
-        "VLA-IAP",
-        "ReactVLA",
-        "Let It Be Simple",
-        "ACoT-VLA",
-        "ZR-0",
-        "RynnVLA-002"
+        "Guided Action Flow",
+        "Flow-Based VLA Uncertainty / SAVE",
+        "Perturbation-Based Uncertainty For VLA Failure Detection"
     ],
-    "prototype_gate": "Pending URF Reviewer B attack, mathematical audit, preregistration, and Stage 0 residual-uncertainty headroom / routing / identity / action-validity audit.",
-    "current_decision": "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
+    "prototype_gate": "URF Reviewer B attack is complete; Researcher A rebuttal must accept all conditions before mathematical audit, preregistration, and Stage 0 residual-uncertainty headroom / routing / identity / action-validity audit.",
+    "current_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -8199,7 +8198,9 @@
         "proposal_hash": "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532",
         "proposal_hash_file": "reports/urf_vla/proposal_hash.txt",
         "proposal_decision": "URF_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING",
-        "next_stage": "Run Reviewer B attack for URF-VLA before mathematical audit, preregistration, implementation, or training."
+        "reviewer_attack": "reports/urf_vla/reviewer_attack.md",
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "next_stage": "Researcher A rebuttal must accept or answer all URF Reviewer B conditions before mathematical audit, preregistration, implementation, or training."
     },
     "epoch_4_cycle_30_urf_researcher_proposal": {
         "method": "URF-VLA",
@@ -8225,7 +8226,44 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "reviewer_attack": "reports/urf_vla/reviewer_attack.md",
-        "reviewer_decision": "URF_REVIEWER_ATTACK_PENDING",
-        "next_stage": "Run Reviewer B attack for URF-VLA before mathematical audit, preregistration, implementation, or training."
+        "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "next_stage": "Researcher A rebuttal must accept or answer all URF Reviewer B conditions before mathematical audit, preregistration, implementation, or training."
+    },
+    "epoch_4_cycle_30_urf_reviewer_attack": {
+        "method": "URF-VLA",
+        "final_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
+        "reviewer_attack": "reports/urf_vla/reviewer_attack.md",
+        "proposal_hash": "E78829E736C3F22451E72574092221904ACBE4C4BE0BDA7FA046832DABED3532",
+        "closest_prior": "SUREFlow",
+        "closest_prior_primary_source": "https://arxiv.org/abs/2607.10504",
+        "closest_prior_official_repository": "https://github.com/tanvirnwu/SUREFlow",
+        "independent_closest_current_papers": [
+            "SUREFlow",
+            "Guided Action Flow",
+            "Uncertainty Quantification for Flow-Based Vision-Language-Action Models",
+            "Perturbation-Based Uncertainty for Failure Detection in Vision-Language-Action Models"
+        ],
+        "accepted_novelty_boundary_required": "Base-preserving uncertainty-routed bounded residual transport around an already trained SmolVLA action chunk, initialized to exact Base passthrough and trained from existing demonstrations without rollout-success labels.",
+        "conditions": [
+            "URF novelty is narrowed to Base-preserving uncertainty-routed bounded residual transport around a frozen SmolVLA chunk",
+            "SUREFlow remains the closest prior and policy 2 unless official SUREFlow assets are locally installed and verified",
+            "The SUREFlow proxy must be heteroscedastic and not a strawman",
+            "Guided Action Flow must be listed as the closest frozen-SmolVLA action-intervention prior",
+            "Flow-Based VLA UQ / SAVE and perturbation-based uncertainty must be treated as uncertainty-signal alternatives",
+            "urf_no_uncertainty_route_ablation remains the key ablation",
+            "standard_lora remains the first simple reviewer-killer",
+            "Stage 0 must include task/phase residual, residual-magnitude, stochastic disagreement, or perturbation disagreement diagnostics where cheap",
+            "Stage 0 must prove uncertainty strata are noncollapsed and monotonic with residual error on validation",
+            "The route gate must not be globally active; all-zero and all-one routing are design failures",
+            "Mathematical audit must define log-variance semantics, scale, gradient paths, floors/ceilings, gate mapping, and group-wise action units",
+            "No deterministic-action KL is allowed",
+            "No privileged inference inputs or confirmatory-test tuning are allowed",
+            "CCIF, TSC, CFR, AMP, RAP, and VDR may not be rescued or reinterpreted"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "next_stage": "Researcher A rebuttal must accept or answer all URF Reviewer B conditions before mathematical audit, preregistration, implementation, or training."
     }
 }
