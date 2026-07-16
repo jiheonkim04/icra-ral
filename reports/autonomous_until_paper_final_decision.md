@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current campaign decision:
-`AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`
+`AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`
 
 This is not a terminal decision.
 
@@ -40,7 +40,7 @@ The first serious comparison is Base, `finevla_action_factor_proxy`,
 `afid_full`, `afid_no_factor_ablation`, and `standard_lora`.
 
 Current cycle: `33`. Current stage:
-`epoch_4_cycle_33_afid_prototype_protocol_pending`.
+`epoch_4_cycle_33_afid_stage_0_implementation_pending`.
 
 The AFID-VLA Researcher A proposal is frozen in
 `reports/afid_vla/researcher_proposal.md` with SHA-256
@@ -78,6 +78,14 @@ decision `AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING`. It freezes
 development tasks, discovery/validation demo ids, Stage 0 artifacts, metrics,
 stop classes, bounded validation envelope, and worker resume key. Immediate
 next action: freeze AFID prototype protocol before implementation.
+
+AFID prototype protocol is frozen in
+`reports/afid_vla/prototype_protocol.md` with decision
+`AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING`. It freezes
+helper/runner/test contracts, worker safety, row keys, required artifacts,
+action semantics, policy/probe rows, fixed constants, implementation checks,
+serializer preflight, and the Stage 0 decision contract. Immediate next action:
+implement and validate the AFID Stage 0 development audit runner.
 
 ## Epoch 4 Cycle 32 Selection
 
