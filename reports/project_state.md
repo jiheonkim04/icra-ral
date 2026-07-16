@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_rebuttal_pending`
+Current stage: `epoch_4_cycle_34_brid_mathematical_audit_pending`
 
 Cycle 34 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_34_prior_mechanism_map.md` and generated exactly three
@@ -46,7 +46,11 @@ Diffusion Policy as closest prior and requires a raw diffusion proxy,
 no-Base-residual ablation, matched standard LoRA, residual/score noncollapse,
 exact Base passthrough, clean retention, and no deterministic-action KL.
 
-Next action is Researcher A rebuttal.
+Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
+with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
+Reviewer B conditions.
+
+Next action is the BRID mathematical mechanism audit.
 
 Cycle 33 completed the primary-source prior mechanism map in
 `reports/epoch_4_cycle_33_prior_mechanism_map.md` and generated exactly three

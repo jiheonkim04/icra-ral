@@ -25,8 +25,8 @@
     "current_branch": "codex/autonomous-until-paper-governance-v2",
     "campaign_branch_from_prompt": "codex/autonomous-dual-review-ral-research",
     "cycle_branch_alias_from_prompt": "codex/ral-cycle-03-gcap-vla",
-    "current_commit": "3aeac5f",
-    "current_stage": "epoch_4_cycle_34_brid_rebuttal_pending",
+    "current_commit": "df7afe3",
+    "current_stage": "epoch_4_cycle_34_brid_mathematical_audit_pending",
     "completed_stages": [
         "repository_state_verified",
         "historical_evidence_inspected",
@@ -697,7 +697,9 @@
         "epoch_4_cycle_34_brid_researcher_proposal_frozen",
         "epoch_4_cycle_34_brid_reviewer_attack_pending",
         "epoch_4_cycle_34_brid_reviewer_attack_completed",
-        "epoch_4_cycle_34_brid_rebuttal_pending"
+        "epoch_4_cycle_34_brid_rebuttal_pending",
+        "epoch_4_cycle_34_brid_rebuttal_completed",
+        "epoch_4_cycle_34_brid_mathematical_audit_pending"
     ],
     "running_command": null,
     "start_time": "2026-07-12T17:00:40.0826929+09:00",
@@ -710,7 +712,7 @@
         "Diffusion Policy"
     ],
     "prototype_gate": "LCG proposal must be frozen before Reviewer B attack, audit, protocol, implementation, or rollout.",
-    "current_decision": "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING",
+    "current_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "stage_a_partial_checkpoint": null,
     "stage_a_result_json": null,
     "stage_a_result_md": null,
@@ -861,7 +863,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "next_action": "Write the BRID-VLA Researcher A rebuttal before mathematical audit.",
+    "next_action": "Freeze the BRID-VLA mathematical mechanism audit before preregistration.",
     "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
     "active_hypothesis": "A Base-conditioned residual diffusion score field can learn bounded useful corrections around frozen SmolVLA action chunks while preserving exact Base behavior by default.",
     "method_identity": "BRID-VLA",
@@ -2615,7 +2617,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "current_topic": "epoch_4_cycle_34_brid_rebuttal_pending",
+    "current_topic": "epoch_4_cycle_34_brid_mathematical_audit_pending",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -8951,7 +8953,7 @@
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
     "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
-    "rebuttal_decision": "BRID_REBUTTAL_PENDING",
+    "rebuttal_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
     "epoch_4_cycle_31_s2c_rebuttal": {
         "method": "S2C-VLA",
         "final_decision": "S2C_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
@@ -9053,8 +9055,8 @@
         "serializer_preflight_fixture_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D",
         "serializer_preflight_reproduced_hash": "99896EAA12F2B11D4729B35D3B51F4EF6C9C88390950D63022168324BF926C1D"
     },
-    "mathematical_audit": null,
-    "math_audit_decision": null,
+    "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md",
+    "math_audit_decision": "BRID_MATHEMATICAL_AUDIT_PENDING",
     "epoch_4_cycle_31_s2c_mathematical_audit": {
         "method": "S2C-VLA",
         "final_decision": "S2C_MATHEMATICAL_AUDIT_PREREGISTERED",
@@ -10524,7 +10526,7 @@
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
         "researcher_proposal_pending": false,
-        "next_stage": "Researcher A rebuttal accepting or rejecting Reviewer B conditions before mathematical audit.",
+        "next_stage": "Freeze the BRID-VLA mathematical mechanism audit before preregistration.",
         "proposal": "reports/brid_vla/researcher_proposal.md",
         "researcher_proposal": "reports/brid_vla/researcher_proposal.md",
         "proposal_hash_file": "reports/brid_vla/proposal_hash.txt",
@@ -10535,7 +10537,13 @@
         "reviewer_attack_completed": true,
         "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
-        "rebuttal_pending": true
+        "rebuttal_pending": true,
+        "researcher_rebuttal_pending": false,
+        "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true,
+        "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md"
     },
     "epoch_4_cycle_34_brid_researcher_proposal": {
         "method": "BRID-VLA",
@@ -10577,13 +10585,18 @@
             "No deterministic-action KL is allowed",
             "AFID and all previous methods remain closed"
         ],
-        "next_stage": "Researcher A rebuttal accepting or rejecting Reviewer B conditions before mathematical audit.",
+        "next_stage": "Freeze the BRID-VLA mathematical mechanism audit before preregistration.",
         "researcher_proposal_pending": false,
         "researcher_proposal_frozen": true,
         "reviewer_attack_completed": true,
         "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
         "reviewer_decision": "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED",
-        "researcher_rebuttal_pending": true
+        "researcher_rebuttal_pending": false,
+        "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true,
+        "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md"
     },
     "epoch_4_cycle_34_brid_reviewer_attack": {
         "method": "BRID-VLA",
@@ -10621,11 +10634,40 @@
             "No deterministic-action KL is allowed",
             "AFID and all previous methods remain closed"
         ],
-        "researcher_rebuttal_pending": true,
+        "researcher_rebuttal_pending": false,
         "training_happened": false,
         "validation_search_happened": false,
         "closed_loop_experiment_happened": false,
         "confirmatory_test_tuning_happened": false,
-        "next_stage": "Researcher A rebuttal accepting or rejecting Reviewer B conditions before mathematical audit."
+        "next_stage": "Freeze the BRID-VLA mathematical mechanism audit before preregistration.",
+        "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
+        "rebuttal_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "mathematical_audit_pending": true,
+        "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md"
+    },
+    "epoch_4_cycle_34_brid_rebuttal": {
+        "method": "BRID-VLA",
+        "researcher_rebuttal": "reports/brid_vla/researcher_rebuttal.md",
+        "proposal": "reports/brid_vla/researcher_proposal.md",
+        "reviewer_attack": "reports/brid_vla/reviewer_attack.md",
+        "proposal_hash": "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71CBC5CA2",
+        "final_decision": "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT",
+        "accepted_reviewer_conditions": true,
+        "closest_prior": "Diffusion Policy",
+        "policy_order": [
+            "smolvla_base",
+            "diffusion_policy_action_chunk_proxy",
+            "brid_full",
+            "brid_no_base_residual_ablation",
+            "standard_lora"
+        ],
+        "training_happened": false,
+        "validation_search_happened": false,
+        "closed_loop_experiment_happened": false,
+        "confirmatory_test_tuning_happened": false,
+        "mathematical_audit_pending": true,
+        "mathematical_audit": "reports/brid_vla/mathematical_mechanism_audit.md",
+        "next_stage": "Freeze the BRID-VLA mathematical mechanism audit before preregistration."
     }
 }

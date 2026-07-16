@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 Current epoch: `4`
 
 Current cycle: `34`
 
-Current stage: `epoch_4_cycle_34_brid_rebuttal_pending`
+Current stage: `epoch_4_cycle_34_brid_mathematical_audit_pending`
 
 ## Epoch 4 Cycle 34 BRID-VLA Candidate Selection
 
@@ -53,9 +53,12 @@ proxy, a no-Base-residual ablation, matched standard LoRA, residual and score
 target noncollapse, exact Base passthrough, clean retention, and no
 deterministic-action KL.
 
-Next action is Researcher A rebuttal before mathematical audit,
-preregistration, implementation, validation search, rollout, or
-confirmatory-test access.
+Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
+with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`, accepting all
+Reviewer B conditions.
+
+Next action is the mathematical mechanism audit before preregistration,
+implementation, validation search, rollout, or confirmatory-test access.
 
 ## Epoch 4 Cycle 33 AFID-VLA Selection
 

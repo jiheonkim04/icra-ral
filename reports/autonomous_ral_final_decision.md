@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING`
+`BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`
 
 This is not a terminal state under the active governance.
 
@@ -34,7 +34,7 @@ The first serious comparison is `smolvla_base`,
 `brid_no_base_residual_ablation`, and `standard_lora`.
 
 Current cycle: `34`. Current stage:
-`epoch_4_cycle_34_brid_rebuttal_pending`.
+`epoch_4_cycle_34_brid_mathematical_audit_pending`.
 
 The BRID-VLA Researcher A proposal is frozen in
 `reports/brid_vla/researcher_proposal.md` with SHA-256
@@ -52,7 +52,12 @@ Base-residual diffusion with exact zero-residual identity integration, and
 requires raw diffusion proxy, no-Base-residual ablation, standard LoRA,
 residual/score noncollapse, clean retention, and no deterministic-action KL.
 
-Immediate next action: Researcher A rebuttal.
+Researcher A rebuttal is complete in `reports/brid_vla/researcher_rebuttal.md`
+with decision `BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT`. Researcher A accepts
+all Reviewer B conditions.
+
+Immediate next action: freeze the BRID mathematical mechanism audit before
+preregistration.
 
 ## Epoch 4 Cycle 33 Candidate Selection
 

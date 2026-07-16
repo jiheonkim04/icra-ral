@@ -33,7 +33,7 @@ BRID_PROPOSAL_HASH = "2D4769CF126DF0580029486F7D64EF3C09D435571589F87C569F60A71C
 def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     final = (REPORTS / "autonomous_until_paper_final_decision.md").read_text(encoding="utf-8")
 
-    assert "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING" in final
+    assert "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT" in final
     assert "BRID-VLA" in final
     assert "Base-Residual Implicit Diffusion" in final
     assert "Diffusion Policy" in final
@@ -41,11 +41,12 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "reports/epoch_4_cycle_34_candidate_generation.md" in final
     assert "reports/brid_vla/researcher_proposal.md" in final
     assert "reports/brid_vla/reviewer_attack.md" in final
+    assert "reports/brid_vla/researcher_rebuttal.md" in final
     assert BRID_PROPOSAL_HASH in final
     assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "diffusion_policy_action_chunk_proxy" in final
     assert "brid_no_base_residual_ablation" in final
-    assert "epoch_4_cycle_34_brid_rebuttal_pending" in final
+    assert "epoch_4_cycle_34_brid_mathematical_audit_pending" in final
     assert "AFID_STAGE_0_IMPLEMENTATION_OR_OBJECTIVE_SCALE_FAILURE" in final
     assert "AFID_PROTOTYPE_PROTOCOL_FROZEN_STAGE_0_IMPLEMENTATION_PENDING" in final
     assert "AFID_PREREGISTRATION_FROZEN_PROTOTYPE_PROTOCOL_PENDING" in final
@@ -397,22 +398,22 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
+    assert state["current_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 34
-    assert state["current_stage"] == "epoch_4_cycle_34_brid_rebuttal_pending"
+    assert state["current_stage"] == "epoch_4_cycle_34_brid_mathematical_audit_pending"
     assert state["method"] == "BRID-VLA"
     assert state["method_identity"] == "BRID-VLA"
-    assert state["next_action"] == "Write the BRID-VLA Researcher A rebuttal before mathematical audit."
+    assert state["next_action"] == "Freeze the BRID-VLA mathematical mechanism audit before preregistration."
     assert state["proposal_hash"] == BRID_PROPOSAL_HASH
     assert state["proposal_hash_file"] == "reports/brid_vla/proposal_hash.txt"
     assert state["researcher_proposal"] == "reports/brid_vla/researcher_proposal.md"
     assert state["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
     assert state["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
-    assert state["rebuttal_decision"] == "BRID_REBUTTAL_PENDING"
-    assert state["mathematical_audit"] is None
-    assert state["math_audit_decision"] is None
+    assert state["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert state["mathematical_audit"] == "reports/brid_vla/mathematical_mechanism_audit.md"
+    assert state["math_audit_decision"] == "BRID_MATHEMATICAL_AUDIT_PENDING"
     assert state["preregistration"] is None
     assert state["preregistration_decision"] is None
     assert state["prototype_protocol"] is None
@@ -432,7 +433,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Write the BRID-VLA Researcher A rebuttal before mathematical audit."
+        == "Freeze the BRID-VLA mathematical mechanism audit before preregistration."
     )
     rap = state["epoch_4_cycle_25_candidate_selection"]
     assert rap["candidate_count"] == 3
@@ -1755,7 +1756,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert selection34["proposal_decision"] == "BRID_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
     assert selection34["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
     assert selection34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert selection34["rebuttal_pending"] is True
+    assert selection34["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
+    assert selection34["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert selection34["accepted_reviewer_conditions"] is True
+    assert selection34["mathematical_audit_pending"] is True
     assert selection34["policy_order"] == [
         "smolvla_base",
         "diffusion_policy_action_chunk_proxy",
@@ -1775,12 +1779,20 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert proposal34["reviewer_attack_completed"] is True
     assert proposal34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert proposal34["researcher_proposal_frozen"] is True
+    assert proposal34["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
+    assert proposal34["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
     review34 = state["epoch_4_cycle_34_brid_reviewer_attack"]
     assert review34["final_decision"] == "BRID_REVIEWER_ATTACK_COMPLETED_REBUTTAL_PENDING"
     assert review34["reviewer_attack"] == "reports/brid_vla/reviewer_attack.md"
     assert review34["proposal_hash"] == BRID_PROPOSAL_HASH
     assert review34["reviewer_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
-    assert review34["researcher_rebuttal_pending"] is True
+    assert review34["researcher_rebuttal_pending"] is False
+    assert review34["researcher_rebuttal"] == "reports/brid_vla/researcher_rebuttal.md"
+    assert review34["rebuttal_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    rebuttal34 = state["epoch_4_cycle_34_brid_rebuttal"]
+    assert rebuttal34["final_decision"] == "BRID_REBUTTAL_PASS_TO_MATHEMATICAL_AUDIT"
+    assert rebuttal34["accepted_reviewer_conditions"] is True
+    assert rebuttal34["mathematical_audit_pending"] is True
     assert "epoch_4_cycle_33_afid_preregistration_frozen" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_pending" in state["completed_stages"]
     assert "epoch_4_cycle_33_afid_prototype_protocol_frozen" in state["completed_stages"]
@@ -1797,6 +1809,8 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert "epoch_4_cycle_34_brid_reviewer_attack_pending" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_reviewer_attack_completed" in state["completed_stages"]
     assert "epoch_4_cycle_34_brid_rebuttal_pending" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_rebuttal_completed" in state["completed_stages"]
+    assert "epoch_4_cycle_34_brid_mathematical_audit_pending" in state["completed_stages"]
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92
