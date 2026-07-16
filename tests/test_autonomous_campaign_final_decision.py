@@ -242,13 +242,13 @@ def test_active_campaign_final_decision_is_nonterminal_pivot() -> None:
     assert "RAP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
     assert "OptimusVLA" in final
     assert "AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE" in final
-    assert "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING" in final
+    assert "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED" in final
     assert "CFR-VLA" in final
     assert "DFM-VLA" in final
     assert "Continuous Full-Chunk Refinement" in final
     assert "dfm_vla_continuous_refinement_proxy" in final
     assert CFR_PROPOSAL_HASH in final
-    assert "epoch_4_cycle_27_cfr_reviewer_attack_pending" in final
+    assert "epoch_4_cycle_27_cfr_rebuttal_pending" in final
     assert "1280 /" in final
     assert "base_action_in_bounds = false" in final
     assert "640 / 640" in final
@@ -277,10 +277,10 @@ def test_active_campaign_state_records_governance_v2() -> None:
     state = json.loads((REPORTS / "autonomous_until_paper_state.json").read_text(encoding="utf-8-sig"))
 
     assert state["governance_file"] == "reports/current_research_governance.md"
-    assert state["current_decision"] == "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
     assert state["current_epoch"] == 4
     assert state["current_cycle"] == 27
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_reviewer_attack_pending"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_rebuttal_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -298,7 +298,7 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert state["epoch_4_cycle_2_outcome"]["nearest_success_replay_successes"] == 23
     assert (
         state["next_action"]
-        == "Run Reviewer B attack for CFR-VLA before mathematical audit, preregistration, or implementation."
+        == "Researcher A rebuttal must accept or answer all CFR Reviewer B conditions before mathematical audit."
     )
     assert state["prototype_protocol"] is None
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -454,6 +454,14 @@ def test_active_campaign_state_records_governance_v2() -> None:
     assert cfr_proposal["proposal_hash"] == CFR_PROPOSAL_HASH
     assert cfr_proposal["closed_loop_experiment_happened"] is False
     assert cfr_proposal["confirmatory_test_tuning_happened"] is False
+    cfr_review = state["epoch_4_cycle_27_cfr_reviewer_attack"]
+    assert cfr_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert cfr_review["reviewer_attack"] == "reports/cfr_vla/reviewer_attack.md"
+    assert cfr_review["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert "DFM-VLA proxy or official DFM-VLA remains policy 2" in cfr_review["conditions"]
+    assert "official action-validity semantics must be defined before Stage 0 and shared across policies" in cfr_review["conditions"]
+    assert cfr_review["closed_loop_experiment_happened"] is False
+    assert cfr_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

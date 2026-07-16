@@ -63,8 +63,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert state["current_branch"] == "codex/autonomous-until-paper-governance-v2"
     assert state["maximum_method_cycles"] is None
     assert state["global_no_method_terminal_allowed"] is False
-    assert state["current_decision"] == "CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING"
-    assert state["current_stage"] == "epoch_4_cycle_27_cfr_reviewer_attack_pending"
+    assert state["current_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert state["current_stage"] == "epoch_4_cycle_27_cfr_rebuttal_pending"
     assert state["method"] == "CFR-VLA"
     assert state["method_identity"] == "CFR-VLA"
     assert state["proposal_hash"] == CFR_PROPOSAL_HASH
@@ -247,6 +247,8 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
         "epoch_4_cycle_27_cfr_researcher_proposal_pending",
         "epoch_4_cycle_27_cfr_researcher_proposal_frozen",
         "epoch_4_cycle_27_cfr_reviewer_attack_pending",
+        "epoch_4_cycle_27_cfr_reviewer_attack_completed",
+        "epoch_4_cycle_27_cfr_rebuttal_pending",
     ):
         assert stage in state["completed_stages"]
     rap = state["epoch_4_cycle_25_candidate_selection"]
@@ -440,6 +442,14 @@ def test_active_state_records_amp_selection_and_rap_stage_0_failure() -> None:
     assert cfr_proposal["proposal_hash"] == CFR_PROPOSAL_HASH
     assert cfr_proposal["closed_loop_experiment_happened"] is False
     assert cfr_proposal["confirmatory_test_tuning_happened"] is False
+    cfr_review = state["epoch_4_cycle_27_cfr_reviewer_attack"]
+    assert cfr_review["final_decision"] == "REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED"
+    assert cfr_review["reviewer_attack"] == "reports/cfr_vla/reviewer_attack.md"
+    assert cfr_review["proposal_hash"] == CFR_PROPOSAL_HASH
+    assert "DFM-VLA proxy or official DFM-VLA remains policy 2" in cfr_review["conditions"]
+    assert "standard_lora remains the single simple reviewer-killer baseline" in cfr_review["conditions"]
+    assert cfr_review["closed_loop_experiment_happened"] is False
+    assert cfr_review["confirmatory_test_tuning_happened"] is False
     vdr = state["epoch_4_cycle_24_candidate_selection"]
     assert vdr["candidate_count"] == 3
     assert vdr["selected_score"] == 92

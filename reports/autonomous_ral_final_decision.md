@@ -3,7 +3,7 @@
 Date: 2026-07-16 KST
 
 Current decision:
-`CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 This is not a terminal state under the active governance.
 
@@ -33,8 +33,15 @@ proposal is frozen in `reports/cfr_vla/researcher_proposal.md` with SHA-256
 training, validation search, rollout, simulator access, or confirmatory-test
 tuning has happened.
 
+Reviewer B attack is complete in `reports/cfr_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. It conditionally
+passes CFR only if Researcher A accepts the narrowed novelty, DFM proxy,
+no-iterative ablation, standard-LoRA killer baseline, official action-validity
+semantics, residual/headroom gates, mathematical audit, and no-privileged-input
+conditions.
+
 Current cycle: `27`. Current stage:
-`epoch_4_cycle_27_cfr_reviewer_attack_pending`.
+`epoch_4_cycle_27_cfr_rebuttal_pending`.
 
 ## Epoch 4 Cycle 26 Selection
 

@@ -7,13 +7,13 @@ Active governance: `reports/current_research_governance.md`
 Current branch: `codex/autonomous-until-paper-governance-v2`
 
 Current decision:
-`CFR_PROPOSAL_FROZEN_REVIEWER_ATTACK_PENDING`
+`REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`
 
 Current epoch: `4`
 
 Current cycle: `27`
 
-Current stage: `epoch_4_cycle_27_cfr_reviewer_attack_pending`
+Current stage: `epoch_4_cycle_27_cfr_rebuttal_pending`
 
 ## Epoch 4 Cycle 27 CFR-VLA
 
@@ -46,7 +46,16 @@ happened. AMP remains closed unchanged as
 `AMP_STAGE_0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE`; no AMP repair, rescue,
 threshold change, clipping, or reinterpretation is allowed.
 
-Next action: Reviewer B attack for CFR-VLA before mathematical audit,
+Reviewer B attack is complete in `reports/cfr_vla/reviewer_attack.md` with
+decision `REVIEWER_ATTACK_CONDITIONAL_PASS_REBUTTAL_REQUIRED`. Required
+conditions keep the DFM proxy or official DFM-VLA as policy 2, narrow novelty
+to continuous Base-start identity-preserving refinement, keep
+`cfr_no_iterative_refinement` and `standard_lora` live, require official action
+validity semantics before Stage 0, require residual/headroom health, require
+mathematical objective and gradient-scale audits, and forbid privileged
+inference inputs.
+
+Next action: Researcher A rebuttal for CFR-VLA before mathematical audit,
 preregistration, or implementation.
 
 ## Epoch 4 Cycle 26 AMP-VLA
