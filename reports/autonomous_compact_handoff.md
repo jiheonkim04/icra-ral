@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_xvla_task6_ours_candidate_selected`
-- Current decision: `TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED`
+- Current stage: `epoch_5_mpr_xvla_training_config_frozen_no_training`
+- Current decision: `MPR_XVLA_TRAINING_SPEC_FROZEN_PREOPT_GATES_PENDING`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -173,10 +173,22 @@ Selected task6 candidate:
 - No task6 optimizer step, checkpoint, training, or closed-loop Ours evaluation
   has happened.
 
+Frozen no-training spec:
+`runs/xvla_prior/epoch5_mpr_xvla_training_spec_v1.json`
+
+- Result SHA-256: `5ee2b5d49887d187f5da81cb0d14d0e48feaab2e46dc8ff1ac65bd671808cc98`
+- Module/test SHA-256:
+  `d33de054b3e6df2c4ae9552a9b2a2b789f832bd1dff4a3cb2c0aef28b7304c94` /
+  `01541afd2022c5f75ad7916c7d01dd4ab37d849f39605997648751f9ce28022c`
+- Arms: `mpr_xvla_rank8_lambda2_lr1e4_steps64` and
+  `uniform_task6_xvla_rank8_lambda0_lr1e4_steps64`.
+- At freeze: training/optimizer/checkpoint/closed-loop Ours all false.
+- Data-adapter and one-batch no-optimizer gradient smokes still pending.
+
 ## Immediate Next Gate
 
-Freeze a no-training task6 `MPR-XVLA` training spec with exactly two arms:
-primary `MPR-XVLA` and uniform-weight X-VLA LoRA/QLoRA ablation.
+Run the pre-optimizer task6 `MPR-XVLA` gates: tiny X-VLA-format data-adapter
+smoke, then one-batch no-optimizer gradient smoke.
 
 Still prohibited: BR-XVLA rescue/retune, broad search, generic local heads,
 residual gates, memory, verifiers, cached-feature probes, proxy-only methods,
@@ -194,11 +206,11 @@ and closed-loop Ours evaluation before an offline gate.
 ## Current Validation Status
 
 - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-- Handoff line count: 210, under the 250-line cap.
+- Handoff line count: 222, under the 250-line cap.
 - Task-6 candidate-design validation:
   - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-  - py_compile: pass for OpenVLA gate, task6 data audit, and focused tests
-  - pytest: `8 passed`
+  - py_compile: pass for OpenVLA gate, task6 data audit, MPR-XVLA spec, and tests
+  - pytest: `11 passed`
   - `git diff --check`: pass with LF/CRLF warnings only
   - `scripts/99_tree_check.ps1`: pass
 - Scan launcher syntax: pass via WSL `bash -n`

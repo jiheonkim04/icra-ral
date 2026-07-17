@@ -58,7 +58,9 @@ available. A task6 spatial data audit then passed, and the required
 Quantized OpenVLA-OFT INT4 second-prior screen did not solve either shared
 residual. Exactly two task6 candidates were generated; `MPR-XVLA` was selected
 as the first narrow candidate. No task6 optimizer step, checkpoint, training, or
-closed-loop Ours evaluation has happened.
+closed-loop Ours evaluation has happened. The no-training `MPR-XVLA` two-arm
+training spec is now frozen; pre-optimizer data-adapter and gradient smokes are
+still pending.
 
 ## Validation Commands
 
@@ -92,6 +94,18 @@ Task6 candidate-design validation:
   `tests\test_openvla_oft_int4_gate.py`, and
   `tests\test_xvla_task6_data_audit.py`;
 - focused pytest: `8 passed`;
+- `git diff --check`: pass with LF/CRLF warnings only;
+- `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
+  execution-policy bypass.
+
+`MPR-XVLA` training-spec freeze validation:
+
+- JSON parse: pass via
+  `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`;
+- compact handoff: 222 lines, under the 250-line cap;
+- py-compile: pass for OpenVLA gate, task6 data audit, MPR-XVLA training spec,
+  and focused tests;
+- focused pytest: `11 passed`;
 - `git diff --check`: pass with LF/CRLF warnings only;
 - `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
   execution-policy bypass.
@@ -1525,3 +1539,34 @@ fix.
 
 No task6 optimizer step, checkpoint write, training run, or closed-loop Ours
 evaluation has happened.
+
+## `MPR-XVLA` Training Spec Freeze
+
+Status: `FROZEN_PASS_NO_TRAINING`.
+
+Decision: `MPR_XVLA_TRAINING_SPEC_FROZEN_PREOPT_GATES_PENDING`.
+
+Artifact: `runs/xvla_prior/epoch5_mpr_xvla_training_spec_v1.json`,
+SHA-256 `5ee2b5d49887d187f5da81cb0d14d0e48feaab2e46dc8ff1ac65bd671808cc98`.
+
+Module: `tca_map/xvla_task6/training_spec.py`, SHA-256
+`d33de054b3e6df2c4ae9552a9b2a2b789f832bd1dff4a3cb2c0aef28b7304c94`.
+
+Test: `tests/test_mpr_xvla_training_spec.py`, SHA-256
+`01541afd2022c5f75ad7916c7d01dd4ab37d849f39605997648751f9ce28022c`.
+
+The interface audit keeps the first task6 adaptation attempt to exactly two
+arms:
+
+| Arm | Role | Lambda | Max optimizer steps |
+|---|---|---:|---:|
+| `mpr_xvla_rank8_lambda2_lr1e4_steps64` | primary selected method | 2.0 | 64 |
+| `uniform_task6_xvla_rank8_lambda0_lr1e4_steps64` | uniform-weight ablation | 0.0 | 64 |
+
+At freeze time: training false, optimizer step false, checkpoint false, and
+closed-loop Ours evaluation false.
+
+Important interface caveat: raw LIBERO HDF5 is not a direct official X-VLA
+training input. The required tiny X-VLA-format task6 data-adapter smoke and
+one-batch no-optimizer gradient smoke are still pending before any optimizer
+step is allowed.
