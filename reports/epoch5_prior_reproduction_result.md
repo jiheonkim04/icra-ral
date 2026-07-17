@@ -4,7 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`.
+Current decision: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -37,8 +37,8 @@ After X-VLA solved the task-8 residual, a fresh task-1 residual was found and
 matched against SmolVLA base. The shared failure `20260727` now has positive
 task-level expert headroom, again with same-reset HDF5 evidence unavailable.
 The task1 basket data audit then passed, and exactly two narrow Ours candidates
-were generated. `BR-XVLA` is selected and its no-training two-arm spec is now
-frozen pending an X-VLA-format data-adapter smoke.
+were generated. `BR-XVLA` is selected, its no-training two-arm spec is frozen,
+and a tiny X-VLA-format data-adapter smoke now passes.
 
 ## Validation Commands
 
@@ -1096,3 +1096,30 @@ Important interface caveat: raw LIBERO HDF5 is not a direct official X-VLA
 training input. Before any optimizer step, the next gate must materialize a
 tiny X-VLA-format data-adapter smoke artifact and then run a one-batch
 no-optimizer gradient smoke.
+
+## `BR-XVLA` Data-Adapter Smoke
+
+Status: `PASS`.
+
+Decision: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS`.
+
+Artifact:
+`runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`.
+
+Module: `tca_map/xvla_task1/data_adapter_smoke.py`.
+
+The smoke converted `demo_0` and `demo_48` into X-VLA's official LIBERO HDF5
+contract, then instantiated X-VLA's `InfiniteDataReader` and pulled one sample.
+
+| Reader output | Shape / value |
+|---|---|
+| action | `30 x 20` |
+| proprio | `20` |
+| image input | `3 x 3 x 224 x 224` |
+| image mask | `3` |
+| domain id dtype | `torch.int64` |
+| local `mmengine.fileio` shim used | true |
+
+No training, model load, backward pass, optimizer step, checkpoint, or closed-
+loop Ours evaluation happened. Next gate: one-batch no-optimizer gradient
+smoke.

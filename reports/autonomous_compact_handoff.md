@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_br_xvla_training_spec_frozen`
-- Current decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`
+- Current stage: `epoch_5_br_xvla_data_adapter_smoke_complete`
+- Current decision: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -280,11 +280,21 @@ BR-XVLA no-training spec:
 - official interface: `C:\assets\repos\X-VLA\peft_train.py`, PEFT LoRA rank 8
   alpha 16, two arms only (`lambda=2` primary, `lambda=0` ablation);
 - training/optimizer/checkpoint at freeze: false/false/false;
-- raw LIBERO HDF5 is not direct X-VLA trainer input; data-adapter and
-  one-batch no-optimizer gradient-smoke gates remain closed.
+- raw LIBERO HDF5 is not direct X-VLA trainer input.
 
-Next: materialize tiny X-VLA-format data-adapter smoke, then one-batch
-no-optimizer gradient smoke. Keep scope to `20260727`; do not use `20260725`.
+BR-XVLA data-adapter smoke:
+
+- module: `tca_map/xvla_task1/data_adapter_smoke.py`;
+- artifact:
+  `runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`;
+- result: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS`;
+- converted `demo_0` and `demo_48`; official X-VLA reader sample shapes:
+  action 30x20, proprio 20, image input 3x3x224x224, mask 3;
+- local `mmengine.fileio` shim used because installed envs lack `mmengine`;
+- no model load/training/backward/optimizer/checkpoint.
+
+Next: one-batch no-optimizer gradient smoke. Keep scope to `20260727`; do not
+use `20260725`; do not call `optimizer.step`.
 
 ## Prohibitions
 
