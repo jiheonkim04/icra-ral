@@ -215,11 +215,21 @@ Expert replay on `libero_goal/task_9`, reset identity `20260727`: completed with
 
 Interpretation: recoverability is positive only at task level, not same-reset oracle. A valid comparable second prior is now required before any Ours proposal.
 
+## Post-Calibration 20260727 Goal Second Prior
+
+Durable result:
+`reports/post_calibration_libero_goal_20260727_second_prior_result.json`
+`reports/post_calibration_libero_goal_20260727_second_prior_result.md`
+
+Quantized OpenVLA-OFT INT4 on `libero_goal/task_9`, reset identity `20260727`: valid `libero_goal_no_noops` support, 1/1 completed, 1/1 succeeded, 0 infrastructure failures, reward `1.0`, done at step `139`, 17 action chunks, result SHA `e900a9105643c2d658d8bddba1a31d8797a35c9c0168511438492ba17e21f4b0`, video SHA `b8a67445a5e744c51124f29768eff88b1ae773991169f96bc51f8e614804bf0d`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: the second prior solved this shared residual. `libero_goal/task_9` identity `20260727` is not an Ours target.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run a valid comparable second-prior gate for `libero_goal/task_9`, reset identity `20260727`. Do not run candidate generation, Ours design, LoRA/QLoRA training, or any training until second prior is checked.
+Continue bounded official-prior residual mining on a non-redundant condition. Do not design or train Ours for `libero_goal/task_9` identity `20260727`.
 
 ## Validation To Run Before Commit
 

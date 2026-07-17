@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T03:29:40+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_second_prior_launch": "fc2124e9dbdffba15389a6ba35de302c65c063d9",
+  "decision": "POST_CALIBRATION_LIBERO_GOAL_IDENTITY20260727_SECOND_PRIOR_SOLVED_NO_OURS_TARGET",
+  "suite": "libero_goal",
+  "task_id": 9,
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "initial_state_sha256": "73ecfa5d9d3d2323b0641386784a54abbe1ce25a61ded6c7444158bbcccf0714",
+  "instruction": "put the wine bottle on the rack",
+  "run_dir": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "SECOND_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "quantized_openvla_oft_int4",
+    "variant": "int4",
+    "full_precision_claim": false,
+    "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+    "model_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "valid_support_check": {
+      "runtime_unnormalization_key": "libero_goal_no_noops",
+      "dataset_statistics_contains_libero_goal_no_noops": true,
+      "dataset_statistics_contains_libero_spatial_no_noops": true,
+      "dataset_statistics_contains_libero_object_no_noops": true,
+      "dataset_statistics_contains_libero_10_no_noops": true,
+      "dataset_statistics_contains_libero_90_no_noops": false,
+      "no_unsupported_proxy_used": true
+    },
+    "windows_launcher_pid": 14124,
+    "cuda_peak_mib": 5589.641,
+    "simulator_episode_count": 1,
+    "model_forward_count": 17,
+    "model_forward_count_source": "episode.action_chunk_count"
+  },
+  "matched_gate_references": {
+    "xvla_prior_report_json": "reports/post_calibration_libero_goal_20260727_prior_scan_result.json",
+    "smolvla_base_report_json": "reports/post_calibration_libero_goal_20260727_base_gate_result.json",
+    "headroom_report_json": "reports/post_calibration_libero_goal_20260727_headroom_result.json",
+    "xvla_task9_result_sha256": "78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec",
+    "smolvla_base_result_sha256": "107d7cb0ff1b31ba98be98b9230fdc859218172a0d1c260f2f88751b8a2d0d5f",
+    "headroom_result_sha256": "df3bbadf2c886144fa0c274e0c9f8f4761674d05294c0dc77ffae22fd043f399",
+    "same_suite_task_identity_and_initial_state": true
+  },
+  "result": {
+    "completed_episode_count": 1,
+    "successful_episode_count": 1,
+    "infrastructure_failure_count": 0,
+    "success": true,
+    "done": true,
+    "final_reward": 1.0,
+    "steps": 139,
+    "max_steps": 300,
+    "num_steps_wait": 10,
+    "action_chunk_count": 17,
+    "load_seconds": 24.674,
+    "elapsed_seconds": 47.231,
+    "initial_state_sha256_runtime": "73ecfa5d9d3d2323b0641386784a54abbe1ce25a61ded6c7444158bbcccf0714",
+    "initial_state_hash_matches_manifest": true,
+    "unnormalization_key": "libero_goal_no_noops",
+    "video_path": "./rollouts/2026_07_18/2026_07_18-03_27_56--openvla_oft--episode=110000--success=True--task=put_the_wine_bottle_on_the_rack.mp4",
+    "video_sha256": "b8a67445a5e744c51124f29768eff88b1ae773991169f96bc51f8e614804bf0d",
+    "second_prior_solved_residual": true,
+    "ours_candidate_authorized": false,
+    "training_authorized": false
+  },
+  "policy_latency_seconds": {
+    "count": 17,
+    "mean": 0.529075,
+    "max": 1.462905
+  },
+  "environment_latency_seconds": {
+    "count": 140,
+    "mean": 0.128842,
+    "max": 1.730647
+  },
+  "cuda_memory": {
+    "allocated_mib": 4831.414,
+    "max_allocated_mib": 5589.641
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/result.json",
+      "sha256": "e900a9105643c2d658d8bddba1a31d8797a35c9c0168511438492ba17e21f4b0",
+      "length_bytes": 9067
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/stdout.log",
+      "sha256": "f3aae9cc65804c89b3724445d6916fe3aae01ed3d67b3534166b044d1d2707a3",
+      "length_bytes": 3434
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/stderr.log",
+      "sha256": "10c41a4dfdf2fe3a7f0379eccfdfe9405822f9c5f10bce2067159591c74a54ad",
+      "length_bytes": 8024
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/exit_code.txt",
+      "sha256": "9585fbece5c402088f2d6a2def7e60d1c7ffecc24b16d32d5823a064b008935b",
+      "length_bytes": 6,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/resume_command.ps1",
+      "sha256": "46239a70f32047165a58980ff976987fcef20afbbcced316394b20088e4e27f9",
+      "length_bytes": 937
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/launcher_started_at.txt",
+      "sha256": "624cb5c0682126e6a74c988929de0b5e3b1d1a6ff16597ecd2172c7aad36ed55",
+      "length_bytes": 38,
+      "launcher_started_at": "2026-07-18T03:27:37.7530202+09:00"
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/worker_started_at.txt",
+      "sha256": "69ca6c979103105562598ae51563e775acc17847b599ec9b7ca0aa41376f7a1d",
+      "length_bytes": 38,
+      "worker_started_at": "2026-07-18T03:27:38.0300679+09:00"
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_goal_task9_openvla_int4_20260727_openvlaenv_20260718T032737KST/windows_launcher_pid.txt",
+      "sha256": "e0a8456ea93d548d293024e677c43b54be4b007d58d98d00c03e8c624767e39a",
+      "length_bytes": 10,
+      "windows_launcher_pid": 14124
+    },
+    {
+      "path": "rollouts/2026_07_18/2026_07_18-03_27_56--openvla_oft--episode=110000--success=True--task=put_the_wine_bottle_on_the_rack.mp4",
+      "sha256": "b8a67445a5e744c51124f29768eff88b1ae773991169f96bc51f8e614804bf0d",
+      "length_bytes": 52392
+    },
+    {
+      "path": "tca_map/openvla_oft_int4_gate.py",
+      "sha256": "c2c20652cccc23afcc0e22a5a727712779a5fc9c824f149741159136b1a0c082",
+      "length_bytes": 55565
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10/dataset_statistics.json",
+      "sha256": "6ec6ef68d0d5bae4cb5f9fc9acb715a22b9f4545e9e9b300d0d88695cd7afec3"
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10/config.json",
+      "sha256": "bcb688a66f3e94a42311b77d37b7e1484886701f7b2aa8e36d165dfccac92ae6"
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10/lora_adapter/adapter_config.json",
+      "sha256": "dfcbad210b6c953252f5c959c694a033c2df9a0092e14ef67ee4e24c0256c5a7"
+    }
+  ],
+  "next_action": "Do not design or train Ours for libero_goal/task_9 identity 20260727. Continue bounded official-prior residual mining on a non-redundant condition."
+}
