@@ -196,16 +196,34 @@ Decision: `R2P_XVLA_OPTIMIZER_GATE_FROZEN_TRAINING_NOT_LAUNCHED`
 
 The optimizer-step contract is frozen but not armed. Exact arms and output dirs are fixed under `runs/xvla_prior/epoch5_r2p_xvla_task5_training/`; required pre-step writes are `worker.pid`, `training_status.json`, `heartbeat.json`, and `frozen_spec_snapshot.json`; offline flags must be enforced; no third task5 config, downloads, residual-reward checkpoint selection, privileged inference input, or closed-loop rollout is allowed.
 
-Reason not armed: task5 `train_lora` and offline-validation runners are not implemented/tested yet. No training, optimizer, checkpoint, or rollout happened.
+Reason not armed at this point: task5 `train_lora` and offline-validation runners were not implemented/tested yet. No training, optimizer, checkpoint, or rollout happened.
+
+## R2P-XVLA Train LoRA Runner
+
+Reports:
+
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_train_lora_runner_result.json`
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_train_lora_runner_result.md`
+
+Decision: `R2P_XVLA_TRAIN_LORA_RUNNER_IMPLEMENTED_TESTED_NOT_LAUNCHED`
+
+Tracked code/tests:
+
+- `tca_map/xvla_spatial_task5/train_lora.py`
+- `tests/test_r2p_xvla_train_lora.py`
+
+The runner now loads the frozen spec, accepts only the two frozen arms, rejects downloads, enforces the exact output root, rejects max steps above 64, writes worker/status/heartbeat/spec/log/exit/result artifacts when launched, materializes official X-VLA reader clips without residual-reset sampling, uses frozen phase-weighted loss, and limits checkpoints to steps `16/32/64`. It does not launch training by itself and it performs no closed-loop rollout or residual-reward checkpoint selection.
+
+Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bundle pytest `14 passed` with the existing SciPy/NumPy warning. No model load, optimizer, checkpoint, simulator, download, or Ours rollout happened in this implementation gate.
 
 ## Immediate Next Action
 
-Implement and validate a spec-locked `R2P-XVLA` `train_lora` runner under the frozen optimizer gate. Do not launch training until runner tests pass and the gate can be armed.
+Implement and validate the spec-locked `R2P-XVLA` offline validation runner. Do not launch training until that runner passes tests and the frozen optimizer gate is explicitly armed.
 
 ## Validation To Run Before Commit
 
 - Parse new candidate/spec/data-adapter/gradient/optimizer-gate JSON and existing target-chain JSON.
 - Check `reports/autonomous_compact_handoff.md` line count is under 250.
-- `py_compile` and focused pytest for task5 spec/data-adapter/gradient files.
+- `py_compile` and focused pytest for task5 spec/data-adapter/gradient/train_lora files.
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:40:20+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_train_lora_runner_implementation": "f165990aadef5285cfda9be6ce3a0ffe25cc6c92",
+  "decision": "R2P_XVLA_TRAIN_LORA_RUNNER_IMPLEMENTED_TESTED_NOT_LAUNCHED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "initial_index": 16,
+  "initial_state_sha256": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "CODE_AND_TEST_ONLY_TRAINING_RUNNER_IMPLEMENTATION",
+    "evidence_role": "TRAINING_RUNNER_IMPLEMENTATION_GATE",
+    "artifact_status": "TRACKED_RUNNER_CODE_TESTED_NO_RUNTIME_TRAINING_ARTIFACT",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": false,
+    "peft_lora_attached": false,
+    "forward_happened": false,
+    "backward_happened": false,
+    "optimizer_created": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0
+  },
+  "frozen_gate_reference": {
+    "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_optimizer_gate_result.json",
+    "sha256": "b489c9e56a540da1187c87cfaf1c167c6c58c7b6cb9e90eca629aae778e94482",
+    "decision": "R2P_XVLA_OPTIMIZER_GATE_FROZEN_TRAINING_NOT_LAUNCHED"
+  },
+  "tracked_artifacts": {
+    "runner": {
+      "path": "tca_map/xvla_spatial_task5/train_lora.py",
+      "sha256": "21383b13a046f3cf928dcbd47b88e37222d32c589079df3d8f6e7aab1fe554c9"
+    },
+    "tests": {
+      "path": "tests/test_r2p_xvla_train_lora.py",
+      "sha256": "656194bd21cabe8f40b19777f129e3c786e7e1d7b270dc32da690ad922d6db40"
+    }
+  },
+  "runner_contracts_implemented": {
+    "loads_and_validates_frozen_spec": true,
+    "accepts_only_exactly_one_frozen_arm_id": true,
+    "frozen_arms": [
+      "r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+      "uniform_task5_xvla_rank8_lambda0_lr1e4_steps64"
+    ],
+    "rejects_downloads_before_runtime_artifacts": true,
+    "enforces_offline_environment_on_runtime_path": true,
+    "rejects_output_root_outside_frozen_path": true,
+    "rejects_max_steps_above_frozen_64_step_limit": true,
+    "rejects_nonpositive_max_steps_override": true,
+    "writes_worker_pid_before_model_load": true,
+    "writes_training_status_before_optimizer_creation": true,
+    "writes_heartbeat_before_first_optimizer_step": true,
+    "writes_frozen_spec_snapshot_before_first_optimizer_step": true,
+    "writes_stdout_stderr_exit_code_result_and_git_commit_when_launched": true,
+    "materializes_official_xvla_reader_clip_without_residual_reset_sampling": true,
+    "uses_phase_weighted_loss_from_frozen_arm": true,
+    "saves_checkpoints_only_at_frozen_steps_16_32_64": true,
+    "closed_loop_rollout_during_training": false,
+    "privileged_state_at_inference": false,
+    "residual_reward_checkpoint_selection": false
+  },
+  "validation": [
+    {
+      "command": "wsl.exe -- bash -lc \"cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m py_compile tca_map/xvla_spatial_task5/train_lora.py tests/test_r2p_xvla_train_lora.py\"",
+      "exit_code": 0,
+      "result": "passed"
+    },
+    {
+      "command": "wsl.exe -- bash -lc \"cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m pytest -q tests/test_r2p_xvla_train_lora.py\"",
+      "exit_code": 0,
+      "result": "6 passed, 1 existing SciPy/NumPy warning"
+    },
+    {
+      "command": "wsl.exe -- bash -lc \"cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m pytest -q tests/test_xvla_spatial_task5_training_spec.py tests/test_r2p_xvla_data_adapter_smoke.py tests/test_r2p_xvla_gradient_smoke.py tests/test_r2p_xvla_train_lora.py\"",
+      "exit_code": 0,
+      "result": "14 passed, 1 existing SciPy/NumPy warning"
+    }
+  ],
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_created": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "downloads_performed": false
+  },
+  "remaining_blocker_before_training_launch": "The R2P-XVLA offline validation runner is still not implemented or tested, so the frozen optimizer gate remains unarmed.",
+  "next_action": "Implement and validate the spec-locked R2P-XVLA offline validation runner. Do not launch training until that runner passes tests and the frozen gate is explicitly armed."
+}
