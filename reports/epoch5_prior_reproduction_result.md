@@ -1778,3 +1778,15 @@ Result: 10/10 tasks completed with zero infrastructure failures; 9/10
 succeeded. The only failure was task 6, the already-archived `MPR-XVLA` target.
 Therefore this scan reconfirms the task6 residual but does not provide a fresh
 post-MPR target.
+
+Two additional neighboring reset identities were scanned with the same
+prior-only worker:
+
+| Reset identity | Initial-state index | Summary artifact | SHA-256 | Result |
+|---:|---:|---|---|---|
+| `20260730` | `19` | `runs/xvla_prior/failure_scan_libero10_identity20260730_post_mpr_20260717T2217KST/scan_summary.json` | `1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2` | 10/10 succeeded, zero infrastructure failures |
+| `20260729` | `18` | `runs/xvla_prior/failure_scan_libero10_identity20260729_post_mpr_20260717T2222KST/scan_summary.json` | `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653` | 10/10 succeeded, zero infrastructure failures |
+
+Interpretation: identities `20260730` and `20260729` are saturated by X-VLA on
+LIBERO-10, and identity `20260731` only repeats the archived task6 residual.
+No new post-MPR residual target has been found yet.

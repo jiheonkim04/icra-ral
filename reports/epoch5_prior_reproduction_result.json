@@ -4,7 +4,7 @@
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
   "stage": "epoch_5_post_mpr_residual_mining_no_fresh_target_yet",
-  "decision": "POST_MPR_XVLA_SCAN_20260731_ONLY_ARCHIVED_TASK6_RESIDUAL",
+  "decision": "POST_MPR_XVLA_SCANS_20260729_20260730_SATURATED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -54,6 +54,8 @@
   "task6_mpr_xvla_no_pass_recorded": true,
   "task6_prc_xvla_post_mpr_elevation_rejected": true,
   "post_mpr_xvla_prior_failure_scan_20260731_happened": true,
+  "post_mpr_xvla_prior_failure_scan_20260730_happened": true,
+  "post_mpr_xvla_prior_failure_scan_20260729_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -2732,6 +2734,46 @@
     "closed_loop_ours_evaluation_happened": false,
     "interpretation": "The scan reconfirmed the already-archived task6 X-VLA failure at identity 20260731 and found no fresh residual target at this identity."
   },
+  "post_mpr_xvla_prior_failure_scans_saturated": {
+    "status": "COMPLETE_NO_FRESH_TARGET",
+    "decision": "POST_MPR_XVLA_SCANS_20260729_20260730_SATURATED",
+    "purpose": "Bounded official-prior residual mining after the identity-20260731 scan found only archived task6.",
+    "launcher": "Windows Start-Process wsl.exe hidden foreground-worker",
+    "worker_script": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+    "scans": [
+      {
+        "reset_identity": 20260730,
+        "initial_state_index": 19,
+        "output_root": "runs/xvla_prior/failure_scan_libero10_identity20260730_post_mpr_20260717T2217KST",
+        "manifest_sha256": "b9961dd3c17fd2e92a48558bccf6c9aae8020840f81475b952e505af8a69b694",
+        "summary_sha256": "1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2",
+        "task6_result_sha256": "9c2cb2d7042f3d5c0863db29b5146b4abd270c3cd1bec931229993f9e2a763a3",
+        "task9_result_sha256": "4a4d21e175ccf68cd18bf35aacf3ed5ff02191603a87730e8a9fec29301aeaf1",
+        "completed_task_count": 10,
+        "successful_task_count": 10,
+        "failure_task_ids": [],
+        "infrastructure_failure_task_ids": []
+      },
+      {
+        "reset_identity": 20260729,
+        "initial_state_index": 18,
+        "output_root": "runs/xvla_prior/failure_scan_libero10_identity20260729_post_mpr_20260717T2222KST",
+        "manifest_sha256": "19280e0257f18a747e046a4a9e757ca176e5aae937c41897a922ccecd7082771",
+        "summary_sha256": "d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653",
+        "task6_result_sha256": "2ffdd643e2b76ed069ef8e6534972c753afb55e999f63c19f46421eafd37faef",
+        "task9_result_sha256": "c1a406dcbff9a4b1b8f24caf22ca141b45501aaeb11fd7001d39faaed979abb4",
+        "completed_task_count": 10,
+        "successful_task_count": 10,
+        "failure_task_ids": [],
+        "infrastructure_failure_task_ids": []
+      }
+    ],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "interpretation": "Both neighboring reset identities were saturated by X-VLA-Libero on all LIBERO-10 tasks, so neither provides a fresh post-MPR residual target."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -2783,5 +2825,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection because the primary did not beat the uniform-weight X-VLA LoRA ablation on phase-1 validation loss. PRC-XVLA is not elevated because there is no independent evidence that red-mug distractor confusion is the residual mechanism. The post-MPR X-VLA prior scan at identity 20260731 found only the already-archived task6 failure. Continue bounded official-prior residual mining on a new reset identity for a fresh condition with mechanism-specific evidence before any new Ours proposal."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection because the primary did not beat the uniform-weight X-VLA LoRA ablation on phase-1 validation loss. PRC-XVLA is not elevated because there is no independent evidence that red-mug distractor confusion is the residual mechanism. Post-MPR X-VLA prior scans at identities 20260731, 20260730, and 20260729 found no fresh target: 20260731 only reconfirmed archived task6, while 20260730 and 20260729 were saturated. Continue bounded official-prior residual mining on a new reset identity or switch prior ecosystem only with an explicit residual-mining rationale before any new Ours proposal."
 }

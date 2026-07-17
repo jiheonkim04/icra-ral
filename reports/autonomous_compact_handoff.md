@@ -7,7 +7,7 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
 - Current stage: `epoch_5_post_mpr_residual_mining_no_fresh_target_yet`
-- Current decision: `POST_MPR_XVLA_SCAN_20260731_ONLY_ARCHIVED_TASK6_RESIDUAL`
+- Current decision: `POST_MPR_XVLA_SCANS_20260729_20260730_SATURATED`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -193,10 +193,16 @@ MPR-XVLA candidate/training:
 
 ## Immediate Next Decision
 
-Post-MPR scan: identity `20260731`, tasks `0..9`, completed 10/10 with zero
-infra failures; only task 6 failed. Summary:
+Post-MPR scans:
+
+- Identity `20260731`, tasks `0..9`: completed 10/10, zero infra failures,
+  only task 6 failed. Summary:
 `runs/xvla_prior/failure_scan_libero10_identity20260731_post_mpr_20260717T2209KST/scan_summary.json`
 (`673d244ce013dd4b5d3bc32d4b733295a2a3c1c2c7da56180313100c4c5bf7cf`).
+- Identity `20260730`: saturated 10/10, summary SHA
+  `1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2`.
+- Identity `20260729`: saturated 10/10, summary SHA
+  `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653`.
 
 Do not retune/rescue MPR-XVLA from the no-pass. Continue bounded official-prior
 residual mining on a new identity for a fresh condition; still avoid broad
