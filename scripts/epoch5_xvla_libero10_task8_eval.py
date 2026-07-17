@@ -25,6 +25,10 @@ from typing import Any
 
 import numpy as np
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from tca_map.xvla_task1.train_lora import XVLA_CACHE_DIR, _prepare_xvla_imports
 
 XVLA_ROOT = "/mnt/c/assets/repos/X-VLA"
