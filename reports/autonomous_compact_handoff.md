@@ -193,13 +193,23 @@ Durable result:
 
 X-VLA official-prior scan on `libero_goal`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 9/10 succeeded, task `9` failed cleanly, 0 infrastructure failures, summary SHA `6b08b4bec25019854d5914e28d73f43b8f6b54565122016f2a0a110da4ead6ef`, task-9 result SHA `78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec`, exit code `0`, no training/Ours/checkpoint/optimizer step.
 
-Interpretation: `libero_goal/task_9` identity `20260727` is a first-prior residual only. It does not authorize Ours; next gate is matched SmolVLA Base on the same task/reset.
+Interpretation: `libero_goal/task_9` identity `20260727` is a first-prior residual only. It does not authorize Ours; matched SmolVLA Base was required on the same task/reset.
+
+## Post-Calibration 20260727 Goal Base Gate
+
+Durable result:
+`reports/post_calibration_libero_goal_20260727_base_gate_result.json`
+`reports/post_calibration_libero_goal_20260727_base_gate_result.md`
+
+SmolVLA frozen Base on `libero_goal/task_9`, reset identity `20260727`: 1/1 completed, 0/1 succeeded, 0 infrastructure failures, 300 steps, 6 action chunks, max reward `0.0`, result SHA `107d7cb0ff1b31ba98be98b9230fdc859218172a0d1c260f2f88751b8a2d0d5f`, video SHA `2a513ee00761b9e39b9fca429be1625f0decb52a92870681da0928498d41b914`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_goal/task_9` identity `20260727` is now a shared X-VLA first-prior and SmolVLA Base clean residual. It still does not authorize Ours; next gates are expert headroom, then a valid comparable second prior if recoverability is positive.
 
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run matched SmolVLA Base diagnostic for `libero_goal/task_9`, reset identity `20260727`. Do not run headroom, second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until Base is checked.
+Run expert-headroom diagnostic for `libero_goal/task_9`, reset identity `20260727`. Do not run second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until headroom is checked. If headroom is positive, run a valid comparable second-prior gate before Ours.
 
 ## Validation To Run Before Commit
 
