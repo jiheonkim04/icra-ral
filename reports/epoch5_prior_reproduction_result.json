@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_br_xvla_closed_loop_residual_screen_complete",
-  "decision": "BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED_ABLATION_SUCCEEDED",
+  "stage": "epoch_5_xvla_prior_residual_mining_after_br_xvla_no_pass_complete",
+  "decision": "X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -35,6 +35,9 @@
   "task1_br_xvla_offline_validation_happened": true,
   "task1_br_xvla_closed_loop_ours_evaluation_happened": true,
   "br_xvla_runtime_dependency_repair_happened": true,
+  "post_brxvla_xvla_prior_failure_scan_happened": true,
+  "post_brxvla_xvla_prior_failure_scan_training_happened": false,
+  "post_brxvla_xvla_prior_failure_scan_ours_design_happened": false,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -117,6 +120,16 @@
     "full_closed_loop_result_decision": "BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED",
     "full_closed_loop_exit_code_artifact": "INVALID_NEWLINE_ONLY_DUE_UNESCAPED_DOLLAR_WRAPPER_BUG",
     "launcher_wrapper_fix": "Escaped WSL bash dollar signs in launch_training_gate.py and launch_closed_loop_residual.py after the result; rerun validation pending."
+  },
+  "validation_after_post_brxvla_xvla_prior_scan_report_update": {
+    "json_parse": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m json.tool",
+    "compact_handoff_lines": 134,
+    "launcher_bash_n": "PASS for scripts/launch_xvla_prior_failure_scan_identity_detached.sh via WSL Ubuntu-22.04",
+    "runner_py_compile": "PASS for scripts/epoch5_xvla_libero10_task8_eval.py via official-smolvla-libero WSL env",
+    "focused_pytest": "NO_FOCUSED_TESTS_FOUND for scan launcher/runner path",
+    "git_diff_check": "PASS with LF/CRLF warnings only",
+    "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1",
+    "direct_tree_check_invocation": "BLOCKED_BY_LOCAL_POWERSHELL_EXECUTION_POLICY"
   },
   "validation_after_training_spec_freeze": {
     "training_spec_json_parse": "PASS",
@@ -1792,6 +1805,172 @@
     },
     "interpretation": "The same-run X-VLA prior reproduced the residual failure, but BR-XVLA primary also failed while the uniform-weight ablation succeeded. This invalidates the BR-XVLA mechanism-specific claim for this frozen configuration and identity. Do not retune BR-XVLA from this result; archive it as a validation no-pass and pivot under official-prior-first governance."
   },
+  "post_brxvla_xvla_prior_failure_scan_20260725": {
+    "status": "COMPLETE_FAILURES_FOUND_BASE_MATCH_PENDING",
+    "decision": "X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING",
+    "purpose": "official-prior residual mining only after BR-XVLA no-pass; do not treat prior failures or successes as Ours",
+    "stage": "epoch_5_xvla_prior_residual_mining_after_br_xvla_no_pass",
+    "policy": "X-VLA-Libero",
+    "task_suite": "libero_10",
+    "reset_identity": 20260725,
+    "initial_state_index": 14,
+    "task_count": 10,
+    "completed_task_count": 10,
+    "successful_task_count": 8,
+    "failure_task_ids": [
+      1,
+      6
+    ],
+    "infrastructure_failure_task_ids": [],
+    "run_dir": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST",
+    "git_commit_for_scan_run": "5835ef3bafad1027e9e4ed6dcf5943383d2a9714",
+    "launcher": "scripts/launch_xvla_prior_failure_scan_identity_detached.sh",
+    "launcher_sha256": "abf19670014523ccc704d34a632e035784c0dc25810a7cffd9bfe6fe3f562059",
+    "runner": "scripts/epoch5_xvla_libero10_task8_eval.py",
+    "runner_sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6",
+    "manifest": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/scan_manifest.json",
+    "manifest_sha256": "5adbc60144dde3f49a1c8cd82f5bcdc2f82c184447d5fb799843a0fbeef3eacc",
+    "summary": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/scan_summary.json",
+    "summary_sha256": "c2ff073b74efb5e9af9db0bc6254aaa9dd735aaaf0c6635fcf93dfe35d07a16a",
+    "scan_exit_code": 0,
+    "finished_at": "2026-07-17T20:22:49+09:00",
+    "eval_horizon": 900,
+    "settle_steps": 10,
+    "denoise_steps": 10,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "closed_loop_prior_rollout_happened": true,
+    "invalid_infrastructure_attempts": [
+      {
+        "run_dir": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_20260717T2010KST",
+        "git_commit_for_attempt": "62713d5",
+        "exit_code": 1,
+        "classification": "INVALID_INFRASTRUCTURE_BLOCKED",
+        "blocker": "X-VLA source imported serving-only dependency fastapi before import shims were applied",
+        "evidence": "task_0/result.json recorded ModuleNotFoundError: No module named 'fastapi'",
+        "manifest_sha256": "e06976185a510bd683472b143841e03bc5454d6c692945607b2a2cc78b9d0c15",
+        "summary_sha256": "af4c13e3c803f9104db805751d2c9e47f5d108b005453d6299a9f0c1be111c86"
+      },
+      {
+        "run_dir": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired_20260717T2018KST",
+        "git_commit_for_attempt": "5a90911",
+        "exit_code": 1,
+        "classification": "INVALID_INFRASTRUCTURE_BLOCKED",
+        "blocker": "script-by-path execution did not put the repository root on sys.path",
+        "evidence": "task_0/stderr.log recorded ModuleNotFoundError: No module named 'tca_map'",
+        "manifest_sha256": "a882b18e0171ec878599fe27a4398da7160285f207db33e48e9a876847f1e882",
+        "summary_sha256": "592ee629e3f946ce1f1db36797ba8cc79cad37f7c70dd2097be951557368db67"
+      }
+    ],
+    "results": [
+      {
+        "task_id": 0,
+        "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+        "success": true,
+        "steps": 273,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_0/result.json",
+        "artifact_sha256": "82982a04579106feb1743550a152b9218ae393780dc1afbb33d0e1cbc8add335"
+      },
+      {
+        "task_id": 1,
+        "task_description": "put both the cream cheese box and the butter in the basket",
+        "success": false,
+        "steps": 900,
+        "final_reward": 0.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_1/result.json",
+        "artifact_sha256": "2ea148d59590e58944a519f6836731f497109bd899dbb1ff7b7e9f69afff4892"
+      },
+      {
+        "task_id": 2,
+        "task_description": "turn on the stove and put the moka pot on it",
+        "success": true,
+        "steps": 238,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_2/result.json",
+        "artifact_sha256": "a296e316ef2bccb32af3c384a2175264c5f03d51f98b2715efabafa4e922aa07"
+      },
+      {
+        "task_id": 3,
+        "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+        "success": true,
+        "steps": 221,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_3/result.json",
+        "artifact_sha256": "c930a4e2c82c95a75ad0281701d8920a4315881cf0a9c18aae5fedb582a0a1ee"
+      },
+      {
+        "task_id": 4,
+        "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+        "success": true,
+        "steps": 219,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_4/result.json",
+        "artifact_sha256": "c12a7c882a5a356f06b716946a501c12c6bb3ec9aa01618fa6a0bca21d66d425"
+      },
+      {
+        "task_id": 5,
+        "task_description": "pick up the book and place it in the back compartment of the caddy",
+        "success": true,
+        "steps": 180,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_5/result.json",
+        "artifact_sha256": "415462bd814ef63907641ce97e04a0b758ee506f02fdf1389e583ee035e5a6f9"
+      },
+      {
+        "task_id": 6,
+        "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+        "success": false,
+        "steps": 900,
+        "final_reward": 0.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_6/result.json",
+        "artifact_sha256": "9c0f98a5a3bdf835844aedd43f772100f9c1a259e8b1c7c60b0956c5f0efcf70"
+      },
+      {
+        "task_id": 7,
+        "task_description": "put both the alphabet soup and the cream cheese box in the basket",
+        "success": true,
+        "steps": 270,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_7/result.json",
+        "artifact_sha256": "d26cc2e9d98eed624044babd0bb834e5523517b9d4b57b1ce7196cd213f3ef9d"
+      },
+      {
+        "task_id": 8,
+        "task_description": "put both moka pots on the stove",
+        "success": true,
+        "steps": 368,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_8/result.json",
+        "artifact_sha256": "770aef57710ce826eb805e2709c2cea750de13683cef8e6e12e344d0502ddc42"
+      },
+      {
+        "task_id": 9,
+        "task_description": "put the yellow and white mug in the microwave and close it",
+        "success": true,
+        "steps": 244,
+        "final_reward": 1.0,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST/task_9/result.json",
+        "artifact_sha256": "98cbfe23a6045eb31a24a913b5aa207f4c28f0dda146c314ecef3132c38e8246"
+      }
+    ],
+    "candidate_implications": [
+      {
+        "task_id": 1,
+        "classification": "KNOWN_XVLA_REGRESSION_NOT_ACTIVE_OURS_TARGET",
+        "reason": "The earlier matched task-1 diagnostic already showed SmolVLA base succeeds on identity 20260725 while X-VLA fails."
+      },
+      {
+        "task_id": 6,
+        "classification": "FRESH_OFFICIAL_PRIOR_FAILURE_BASE_MATCH_PENDING",
+        "reason": "This single-identity X-VLA failure may become a residual condition only after matched base/prior and recoverable-headroom checks."
+      }
+    ],
+    "interpretation": "The repaired scan cleanly completed and found two X-VLA prior failures at reset identity 20260725. This is residual mining only: no Ours method, training, optimizer step, checkpoint, or closed-loop Ours evaluation happened. Task 1 is already a known X-VLA regression identity where SmolVLA base succeeded, so it is not an active Ours target. Task 6 is the only fresh candidate from this scan and requires matched Base/Prior and headroom diagnostics before any method design."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -1843,5 +2022,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Archive BR-XVLA as a validation no-pass: primary failed on the frozen residual identity while uniform ablation succeeded. Do not retune BR-XVLA from this result. Next pivot under official-prior-first governance to a new residual/condition or prior-anchored route, without reopening MCI/CSPR/R2R/CR-LightVLA/ATCD or generating generic local heads."
+  "next_action": "Use the completed post-BR-XVLA X-VLA prior scan only as residual-mining evidence. Do not retune BR-XVLA, do not treat task-1 identity 20260725 as an Ours target, and do not design Ours yet. The next authorized scientific step is a matched Base/Prior plus headroom diagnostic for the fresh task-6 identity-20260725 X-VLA failure, or a documented no-go if base/prior/headroom structure is not usable."
 }

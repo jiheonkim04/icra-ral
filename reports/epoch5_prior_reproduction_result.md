@@ -4,7 +4,8 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision: `BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED_ABLATION_SUCCEEDED`.
+Current decision:
+`X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -44,6 +45,13 @@ passed. The subsequent frozen closed-loop residual screen on identity
 `20260727` did not pass: the same-run X-VLA prior failed, the `BR-XVLA` primary
 also failed, and the uniform-weight ablation succeeded.
 
+After archiving BR-XVLA as a validation no-pass, a detached X-VLA prior-only
+scan over all LIBERO-10 tasks at reset identity `20260725` completed cleanly.
+It found X-VLA failures on task 1 and task 6. Task 1 is already a known
+X-VLA-regression identity where SmolVLA base succeeded, so it is not an active
+Ours target. Task 6 is the only fresh candidate from this scan, and it requires
+matched Base/Prior plus recoverable-headroom diagnostics before any Ours design.
+
 ## Validation Commands
 
 Focused OpenVLA artifact validation:
@@ -53,6 +61,18 @@ C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pytest tests\test_openvla_o
 ```
 
 Observed after manifest-control patches: `5 passed`.
+
+Post-BR-XVLA scan report validation:
+
+- JSON parse: pass via
+  `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`;
+- compact handoff: 134 lines, under the 250-line cap;
+- scan launcher syntax: pass via WSL `bash -n`;
+- X-VLA runner py-compile: pass via the official WSL environment;
+- focused scan tests: none found;
+- `git diff --check`: pass with LF/CRLF warnings only;
+- `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
+  execution-policy bypass.
 
 ## Recovered Hard-Slice Evidence
 
@@ -1264,7 +1284,63 @@ in the Windows-to-WSL `bash -lc` wrapper. The launcher code is patched after
 this run to escape `$?` and `$status` for future exit-code writes; this caveat
 does not change the closed-loop policy outcomes above.
 
-Next action: pivot under official-prior-first governance to a new residual,
-condition, or prior-anchored route. Do not reopen or retune MCI, CSPR, R2R,
-CR-LightVLA, ATCD, or BR-XVLA from this result, and do not treat the uniform
-ablation success as an Ours result.
+## Post-BR-XVLA X-VLA Prior Residual-Mining Scan
+
+Status: `COMPLETE_FAILURES_FOUND_BASE_MATCH_PENDING`.
+
+Decision:
+`X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING`.
+
+This scan was official-prior residual mining only. It did not train, step an
+optimizer, write a checkpoint, design Ours, or run closed-loop Ours evaluation.
+It only executed the unmodified X-VLA prior across LIBERO-10 tasks at reset
+identity `20260725`.
+
+Repaired completed run:
+`runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired2_20260717T2022KST`.
+
+| Artifact | SHA-256 |
+|---|---|
+| Scan manifest | `5adbc60144dde3f49a1c8cd82f5bcdc2f82c184447d5fb799843a0fbeef3eacc` |
+| Scan summary | `c2ff073b74efb5e9af9db0bc6254aaa9dd735aaaf0c6635fcf93dfe35d07a16a` |
+| Launcher script | `abf19670014523ccc704d34a632e035784c0dc25810a7cffd9bfe6fe3f562059` |
+| Runner script | `2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6` |
+
+Run metadata:
+
+- commit: `5835ef3bafad1027e9e4ed6dcf5943383d2a9714`;
+- policy: `X-VLA-Libero`;
+- suite: `libero_10`;
+- reset identity: `20260725`, initial-state index `14`;
+- horizon: `900`, settle steps `10`, denoise steps `10`;
+- exit code: `0`;
+- finished: `2026-07-17T20:22:49+09:00`;
+- completed tasks: `10/10`;
+- successes: `8/10`;
+- infrastructure failures: `0`.
+
+| Task | Success | Steps | Interpretation |
+|---:|---:|---:|---|
+| 0 | true | 273 | prior succeeds |
+| 1 | false | 900 | known X-VLA regression; SmolVLA base previously succeeded on this identity |
+| 2 | true | 238 | prior succeeds |
+| 3 | true | 221 | prior succeeds |
+| 4 | true | 219 | prior succeeds |
+| 5 | true | 180 | prior succeeds |
+| 6 | false | 900 | fresh prior failure; matched Base/Prior and headroom pending |
+| 7 | true | 270 | prior succeeds |
+| 8 | true | 368 | prior succeeds |
+| 9 | true | 244 | prior succeeds |
+
+Invalid infrastructure attempts preserved for audit:
+
+| Run | Classification | Cause |
+|---|---|---|
+| `runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_20260717T2010KST` | `INVALID_INFRASTRUCTURE_BLOCKED` | X-VLA serving-only dependency import reached `fastapi` before import shims. |
+| `runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired_20260717T2018KST` | `INVALID_INFRASTRUCTURE_BLOCKED` | Script-by-path execution lacked repo root on `sys.path`, causing `No module named 'tca_map'`. |
+
+Next action: use this scan only as residual-mining evidence. Do not retune
+BR-XVLA, do not treat task-1 identity `20260725` as an Ours target, and do not
+design Ours yet. The next authorized scientific step is a matched Base/Prior
+plus headroom diagnostic for the fresh task-6 identity-`20260725` X-VLA
+failure, or a documented no-go if that structure is not usable.
