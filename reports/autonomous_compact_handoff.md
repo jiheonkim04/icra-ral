@@ -216,14 +216,21 @@ The runner now loads the frozen spec, accepts only the two frozen arms, rejects 
 
 Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bundle pytest `14 passed` with the existing SciPy/NumPy warning. No model load, optimizer, checkpoint, simulator, download, or Ours rollout happened in this implementation gate.
 
+## R2P-XVLA Offline Validation Runner
+
+Reports:
+
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_offline_validation_runner_result.json`
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_offline_validation_runner_result.md`
+
+Decision: `R2P_XVLA_OFFLINE_VALIDATION_RUNNER_IMPLEMENTED_TESTED_NOT_LAUNCHED`
+
+Tracked code/tests: `tca_map/xvla_spatial_task5/offline_validate.py`, `tests/test_r2p_xvla_offline_validate.py`.
+
+The runner fixes validation to demos `40..49`, rejects downloads and output-path drift, expects frozen step-64 primary/uniform adapters, uses a common R2P phase-weighted metric for Primary vs Uniform, checks source degradation/action delta/CUDA bounds, and writes worker/status/heartbeat/log/exit/result artifacts when launched. It performs no closed-loop rollout, residual-reward checkpoint selection, or privileged inference-state use.
+
+Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bundle pytest `20 passed` with the existing SciPy/NumPy warning. No model/adapters were loaded and no offline validation runtime, optimizer, checkpoint, simulator, download, or Ours rollout happened.
+
 ## Immediate Next Action
 
-Implement and validate the spec-locked `R2P-XVLA` offline validation runner. Do not launch training until that runner passes tests and the frozen optimizer gate is explicitly armed.
-
-## Validation To Run Before Commit
-
-- Parse new candidate/spec/data-adapter/gradient/optimizer-gate JSON and existing target-chain JSON.
-- Check `reports/autonomous_compact_handoff.md` line count is under 250.
-- `py_compile` and focused pytest for task5 spec/data-adapter/gradient/train_lora files.
-- `git diff --check`
-- `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`
+Record the explicit R2P-XVLA frozen optimizer-gate arming decision. Do not change the frozen config; only after arming may bounded training launch under the existing gate.
