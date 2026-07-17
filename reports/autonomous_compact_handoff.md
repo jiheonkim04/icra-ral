@@ -193,29 +193,24 @@ MPR-XVLA candidate/training:
 
 ## Immediate Next Decision
 
-Post-MPR scans:
+Post-MPR scans: the local X-VLA `libero_10` identity grid is exhausted for
+fresh targets. Identity `20260731` only failed archived task6
+(`673d244ce013dd4b5d3bc32d4b733295a2a3c1c2c7da56180313100c4c5bf7cf`);
+identities `20260726`, `20260727`, `20260728`, `20260729`, and `20260730`
+were saturated 10/10. Earlier focused task1 failure at `20260727` remains
+preserved as instability evidence, not overwritten.
 
-- Identity `20260731`, tasks `0..9`: completed 10/10, zero infra failures,
-  only task 6 failed. Summary:
-`runs/xvla_prior/failure_scan_libero10_identity20260731_post_mpr_20260717T2209KST/scan_summary.json`
-(`673d244ce013dd4b5d3bc32d4b733295a2a3c1c2c7da56180313100c4c5bf7cf`).
-- Identity `20260730`: saturated 10/10, summary SHA
-  `1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2`.
-- Identity `20260729`: saturated 10/10, summary SHA
-  `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653`.
-- Identity `20260728`: saturated 10/10, summary SHA
-  `aee8345e213ace165e11891da43c389d91ef361c93535971363037bd4d4ff08c`.
-- Identity `20260726`: saturated 10/10, summary SHA
-  `d671ceff291db297ddcb6d25bf676f3648d74be1e84d8382383125510fc674cd`.
-- Identity `20260727`: saturated 10/10, summary SHA
-  `67135954320bba7363f28cddae76cc107a61f0374d4b36083e03c1681cefea55`;
-  earlier focused task1 failure at 20260727 remains preserved as instability
-  evidence, not overwritten.
+Cross-suite scan: `libero_goal`, identity `20260724`, tasks `0..9`, completed
+10/10 with zero infra failures. Manifest SHA
+`cae6e68500db7d041de202b03070dd9e8a14773a19967b11a3e0727b47273b4c`;
+summary SHA `77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4`.
+Worker commit `9117b00e9c1335b54c9b10929e95b10282a99827`; no training,
+optimizer step, checkpoint, or closed-loop Ours evaluation. The output path has
+`+09:00ST` from a PowerShell timestamp-token slip but completed normally.
 
-Do not retune/rescue MPR-XVLA. Do not launch more X-VLA identity-grid scans
-without a new preregistered condition. Next official-prior-first move should
-select a new residual source or prior ecosystem with explicit feasibility
-rationale before any Ours proposal.
+Do not retune/rescue MPR-XVLA. Do not launch more X-VLA `libero_10`
+identity-grid scans. Next preregistered residual source: prior-only
+`libero_object` scan, before any Ours proposal.
 
 ## Report Set
 
@@ -235,5 +230,7 @@ rationale before any Ours proposal.
   - `scripts/99_tree_check.ps1`: pass
 - Repaired offline run completed under official WSL env in 50.325s.
 - Handoff line count remains under 250; recheck before committing.
+- `libero_goal` report update validation passed: JSON parse, `git diff --check`
+  warnings only, tree check pass, handoff 236 lines.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.

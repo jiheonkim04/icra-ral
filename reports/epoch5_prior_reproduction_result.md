@@ -1761,7 +1761,7 @@ contrast-method rescue.
 
 Status: `COMPLETE_NO_FRESH_TARGET`.
 
-Decision: `POST_MPR_XVLA_SCAN_20260731_ONLY_TASK6_FAILED`.
+Decision: `POST_MPR_XVLA_LIBERO_GOAL_SATURATED_NEXT_OBJECT_SCAN`.
 
 Bounded official-prior residual mining was run with X-VLA-Libero at reset
 identity `20260731` across `libero_10` tasks `0..9`. This was launched via a
@@ -1798,3 +1798,28 @@ are saturated in these all-task scans. The `20260727` all-task scan succeeded
 on task1 even though the earlier focused task1 diagnostic failed that identity;
 both records are preserved as stochastic/protocol-sensitivity evidence rather
 than rewriting the historical task1 residual.
+
+After the LIBERO-10 identity grid was exhausted, a preregistered cross-suite
+scan was run on local official `libero_goal` tasks at identity `20260724` using
+the same prior-only worker. The worker script was first generalized to accept a
+`TASK_SUITE` argument in commit `9117b00e9c1335b54c9b10929e95b10282a99827`.
+
+| Reset identity | Suite | Summary artifact | SHA-256 | Result |
+|---:|---|---|---|---|
+| `20260724` | `libero_goal` | `runs/xvla_prior/failure_scan_libero_goal_identity20260724_post_mpr_20260717T225050+09:00ST/scan_summary.json` | `77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4` | 10/10 succeeded, zero infrastructure failures |
+
+Manifest SHA-256:
+`cae6e68500db7d041de202b03070dd9e8a14773a19967b11a3e0727b47273b4c`.
+Task-0 result SHA-256:
+`d40460474724b19ef179415dd0c1f70ed9bdad4fb2eedbb2f7535c8e1025cfb4`.
+Task-9 result SHA-256:
+`9eb0094203f6522bf4a5804a7ba6ab3f59a67d9594e0c51db04bef817120951b`.
+No training, optimizer step, checkpoint, or closed-loop Ours evaluation
+happened. The timestamp contains `+09:00ST` because PowerShell interpreted the
+launch format token `K`; WSL/DrvFS encoded the path safely and the worker
+completed normally.
+
+Interpretation: `libero_goal` at identity `20260724` is saturated for X-VLA and
+does not provide a fresh residual target. The next preregistered local residual
+source is a prior-only `libero_object` scan, not any `MPR-XVLA` rescue or new
+Ours proposal.
