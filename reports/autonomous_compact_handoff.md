@@ -208,9 +208,16 @@ Worker commit `9117b00e9c1335b54c9b10929e95b10282a99827`; no training,
 optimizer step, checkpoint, or closed-loop Ours evaluation. The output path has
 `+09:00ST` from a PowerShell timestamp-token slip but completed normally.
 
+Cross-suite scan: `libero_object`, identity `20260724`, tasks `0..9`,
+completed 10/10 with zero infra failures. Manifest SHA
+`7f07453fb4e2f2fae83312b41e8f64ccbe9e18d93acf8e982ba540ba9df5012d`;
+summary SHA `5c521e9f229a5e046e06d389e33bd72888e354a4e98e794bff3c7c10097c2808`.
+Commit `b15fed5efbcf22f0cebf5505aa879f1849b31493`; no training,
+optimizer step, checkpoint, or closed-loop Ours evaluation.
+
 Do not retune/rescue MPR-XVLA. Do not launch more X-VLA `libero_10`
 identity-grid scans. Next preregistered residual source: prior-only
-`libero_object` scan, before any Ours proposal.
+`libero_spatial` scan, before any Ours proposal.
 
 ## Report Set
 
@@ -232,5 +239,7 @@ identity-grid scans. Next preregistered residual source: prior-only
 - Handoff line count remains under 250; recheck before committing.
 - `libero_goal` report update validation passed: JSON parse, `git diff --check`
   warnings only, tree check pass, handoff 236 lines.
+- `libero_object` report update validation passed: JSON parse, `git diff --check`
+  warnings only, tree check pass, handoff 245 lines.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.

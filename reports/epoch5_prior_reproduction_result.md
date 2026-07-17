@@ -1761,7 +1761,7 @@ contrast-method rescue.
 
 Status: `COMPLETE_NO_FRESH_TARGET`.
 
-Decision: `POST_MPR_XVLA_LIBERO_GOAL_SATURATED_NEXT_OBJECT_SCAN`.
+Decision: `POST_MPR_XVLA_LIBERO_OBJECT_SATURATED_NEXT_SPATIAL_SCAN`.
 
 Bounded official-prior residual mining was run with X-VLA-Libero at reset
 identity `20260731` across `libero_10` tasks `0..9`. This was launched via a
@@ -1807,19 +1807,28 @@ the same prior-only worker. The worker script was first generalized to accept a
 | Reset identity | Suite | Summary artifact | SHA-256 | Result |
 |---:|---|---|---|---|
 | `20260724` | `libero_goal` | `runs/xvla_prior/failure_scan_libero_goal_identity20260724_post_mpr_20260717T225050+09:00ST/scan_summary.json` | `77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4` | 10/10 succeeded, zero infrastructure failures |
+| `20260724` | `libero_object` | `runs/xvla_prior/failure_scan_libero_object_identity20260724_post_mpr_20260717T225758KST/scan_summary.json` | `5c521e9f229a5e046e06d389e33bd72888e354a4e98e794bff3c7c10097c2808` | 10/10 succeeded, zero infrastructure failures |
 
-Manifest SHA-256:
+`libero_goal` manifest SHA-256:
 `cae6e68500db7d041de202b03070dd9e8a14773a19967b11a3e0727b47273b4c`.
 Task-0 result SHA-256:
 `d40460474724b19ef179415dd0c1f70ed9bdad4fb2eedbb2f7535c8e1025cfb4`.
 Task-9 result SHA-256:
 `9eb0094203f6522bf4a5804a7ba6ab3f59a67d9594e0c51db04bef817120951b`.
-No training, optimizer step, checkpoint, or closed-loop Ours evaluation
-happened. The timestamp contains `+09:00ST` because PowerShell interpreted the
-launch format token `K`; WSL/DrvFS encoded the path safely and the worker
-completed normally.
 
-Interpretation: `libero_goal` at identity `20260724` is saturated for X-VLA and
-does not provide a fresh residual target. The next preregistered local residual
-source is a prior-only `libero_object` scan, not any `MPR-XVLA` rescue or new
-Ours proposal.
+`libero_object` manifest SHA-256:
+`7f07453fb4e2f2fae83312b41e8f64ccbe9e18d93acf8e982ba540ba9df5012d`.
+Task-0 result SHA-256:
+`ea2f6acd69c5d4a8ffec2b0ba5c814d741a07a6574a6b6e4ab9ab9ab2a3356a7`.
+Task-9 result SHA-256:
+`eaeec1e60614c572c06e1292d9c8682eaefd83e312515e5e5265ff5f14c02107`.
+
+No training, optimizer step, checkpoint, or closed-loop Ours evaluation
+happened in either cross-suite scan. The `libero_goal` timestamp contains
+`+09:00ST` because PowerShell interpreted the launch format token `K`;
+WSL/DrvFS encoded the path safely and the worker completed normally.
+
+Interpretation: `libero_goal` and `libero_object` at identity `20260724` are
+saturated for X-VLA and do not provide a fresh residual target. The next
+preregistered local residual source is a prior-only `libero_spatial` scan, not
+any `MPR-XVLA` rescue or new Ours proposal.
