@@ -343,21 +343,22 @@ Decision: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
 The two preselected fallback ecosystems are not immediately runnable with the
 current local assets:
 
-- pi0.5 / OpenPI LIBERO: official repo reachable at main
-  `15a9616a00943ada6c20a0f158e3adb39df2ccac`, but no local checkout,
-  checkpoint, `uv`, Docker, `gsutil`, `gcloud`, `openpi`, or JAX. Official
-  docs list `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and recommend
-  Docker for LIBERO evaluation.
-- PCD / PCD-LeRobot: official repos reachable at main
-  `cec18b820daeadfdaf080c030a1b5eb080ff75cd` and
-  `519b4a814e85bf9b786677d90b0ff07218729bb2`, but no local checkout or
-  checkpoints. Checked WSL env lacks SAM2/GroundingDINO/OpenPI, and the
-  official README requires segmentation/inpainting dependencies plus
-  extra/manual checkpoint downloads.
+- pi0.5 / OpenPI LIBERO: source cloned at
+  `C:\assets\repos\openpi`, main
+  `15a9616a00943ada6c20a0f158e3adb39df2ccac`. A Python 3.11 + uv bootstrap
+  and `/home/jiheon/venvs/openpi-uv` environment were created. OpenPI import,
+  `pi05_libero` config load, and JAX CUDA detection passed. The public
+  `gs://openpi-assets/checkpoints/pi05_libero` checkpoint was downloaded
+  locally, but random-input policy restore/inference exited `137` under current
+  WSL memory before result JSON.
+- PCD / PCD-LeRobot: source cloned/inspected at
+  `C:\assets\repos\PCD` and `C:\assets\repos\PCD-LeRobot`; official setup
+  still requires SAM2/GroundingDINO/Inpaint-Anything plus extra/manual
+  checkpoints.
 
-Decision: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+Decision: `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`.
 
-Next step requires user choice before external setup expansion: bounded OpenPI
-pi0.5 inference setup/checkpoint download, bounded PCD/PCD-LeRobot dependency
-and checkpoint setup, or a new prior-selection strategy. Closed-loop Ours
-rollout is disallowed for the trained `R2R-OFT` checkpoints.
+Next step: record the OpenPI local resource blocker. A fair OpenPI rollout now
+requires a larger-memory or remote/lab runtime path. PCD remains setup-blocked
+by dependency/checkpoint assets. Closed-loop Ours rollout is disallowed for the
+trained `R2R-OFT` checkpoints.

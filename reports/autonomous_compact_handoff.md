@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_fallback_prior_preflight_requires_external_setup`
-- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`; `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`
+- Current stage: `epoch_5_openpi_pi05_local_policy_load_exit_137`
+- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`; `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -205,20 +205,24 @@ Simple control after offline no-pass:
 
 ## Next Action
 
-Fallback prior preflight:
+Fallback prior status:
 
-- pi0.5/OpenPI: official repo reachable, but no local checkout/checkpoint,
-  `uv`, Docker, `gsutil`, `gcloud`, `openpi`, or JAX. Official docs list
-  `>8 GB` inference and `>22.5 GB` LoRA fine-tuning.
-- PCD/PCD-LeRobot: official repos reachable, but no local checkout/checkpoints;
-  checked env lacks SAM2/GroundingDINO/OpenPI, and official setup needs
-  segmentation/inpainting deps plus extra/manual checkpoints.
-- decision: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+- OpenPI source cloned at `C:\assets\repos\openpi`, main `15a9616a...`.
+- User-local env created: `/home/jiheon/venvs/openpi-uv` (about 7.8 GiB).
+- OpenPI import/config/JAX CUDA smoke passed; Torch warns RTX 5080 `sm_120` is
+  unsupported by its CUDA 12.6 wheel, but the OpenPI path is JAX-first.
+- Public `pi05_libero` checkpoint downloaded to
+  `/home/jiheon/assets/checkpoints/openpi` (about 12 GiB, 16 files).
+- Policy restore/inference smoke:
+  `runs/openpi_pi05_setup/policy_smoke_rerun_20260717/exit_code.txt`, exit
+  `137`, no result JSON; likely local WSL memory/resource kill.
+- PCD/PCD-LeRobot source cloned/inspected, but still needs
+  SAM2/GroundingDINO/Inpaint-Anything and extra/manual checkpoints.
 
-Next requires user choice before external setup expansion: bounded OpenPI
-pi0.5 inference setup/checkpoint download, bounded PCD setup/download, or a new
-prior-selection strategy. Do not run closed-loop Ours for `R2R-OFT`; do not add
-a third local candidate around the same OpenVLA task-8 residual.
+Next: record OpenPI as local-resource-blocked, not scientifically killed. A
+fair OpenPI rollout needs larger-memory or remote/lab runtime. Do not run
+closed-loop Ours for `R2R-OFT`; do not add a third local candidate around the
+same OpenVLA task-8 residual.
 
 ## Prohibitions
 

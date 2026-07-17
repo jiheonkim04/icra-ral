@@ -92,11 +92,13 @@ rollout.
 
 | Ecosystem | Official source state | Local state | Blocking issue | Classification |
 |---|---|---|---|---|
-| pi0.5 / OpenPI LIBERO | `Physical-Intelligence/openpi` reachable at main `15a9616a00943ada6c20a0f158e3adb39df2ccac`; official README lists `gs://openpi-assets/checkpoints/pi05_libero`, `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and Docker as recommended LIBERO workflow | no `C:\assets\repos\openpi`; no local pi0.5 checkpoint; no `uv`, Docker, `gsutil`, `gcloud`, `openpi`, or JAX in the checked WSL paths; RTX 5080 has 16,303 MiB VRAM | official inference may be possible only after new user-local setup and checkpoint download; official LoRA fine-tuning is over local VRAM budget | `FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL` |
-| PCD / PCD-LeRobot | `pcd-robot/PCD` main `cec18b820daeadfdaf080c030a1b5eb080ff75cd`; `pcd-robot/PCD-LeRobot` main `519b4a814e85bf9b786677d90b0ff07218729bb2`; official READMEs require SAM2, GroundingDINO, Inpaint-Anything/big-lama, and extra pretrained checkpoints | no local PCD checkout; checked OpenVLA WSL env has LeRobot, OpenCV, and diffusers, but no `sam2`, `groundingdino`, or `openpi`; no matching local checkpoints found | official method requires segmentation/inpainting dependency setup and manual/extra checkpoint downloads before a fair prior run | `FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL` |
+| pi0.5 / OpenPI LIBERO | `Physical-Intelligence/openpi` cloned at main `15a9616a00943ada6c20a0f158e3adb39df2ccac`; official README lists `gs://openpi-assets/checkpoints/pi05_libero`, `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and Docker as recommended LIBERO workflow | source at `C:\assets\repos\openpi`; isolated env `/home/jiheon/venvs/openpi-uv` created with Python 3.11/JAX/Torch/OpenPI; official checkpoint downloaded to `/home/jiheon/assets/checkpoints/openpi`; one random-input policy-load smoke exited `137` during restore/inference under current WSL memory | official source/env/checkpoint are present, but policy instantiation is blocked by local memory/resource kill before JSON result; no closed-loop rollout happened | `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL` |
+| PCD / PCD-LeRobot | `pcd-robot/PCD` cloned at main `cec18b820daeadfdaf080c030a1b5eb080ff75cd`; `pcd-robot/PCD-LeRobot` object database inspected at main `519b4a814e85bf9b786677d90b0ff07218729bb2`; official READMEs require SAM2, GroundingDINO, Inpaint-Anything/big-lama, and extra pretrained checkpoints | source checkouts now exist under `C:\assets\repos`; checked OpenVLA WSL env has LeRobot, OpenCV, and diffusers, but no `sam2`, `groundingdino`, or `openpi`; no matching local vision/inpainting checkpoints found | official method still requires segmentation/inpainting dependency setup and manual/extra checkpoint downloads before a fair prior run | `FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL` |
 
-Decision: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+Decision: `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`.
 
-This is not a paper-method result and not a kill of either external prior. It
-only records that the remaining preselected prior ecosystems are not immediately
-runnable under the current local assets without expanding setup/download scope.
+This is not a paper-method result and not a kill of either external prior.
+OpenPI progressed from source preflight to local source/env/checkpoint
+availability, but current local WSL memory killed policy restore/inference
+before a usable prior rollout. PCD remains source-inspected but blocked before
+fair execution by dependency and checkpoint requirements.

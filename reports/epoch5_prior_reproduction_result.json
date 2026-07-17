@@ -3,7 +3,7 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_fallback_prior_preflight_requires_external_setup",
+  "stage": "epoch_5_openpi_pi05_local_policy_load_exit_137",
   "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -571,9 +571,9 @@
   },
   "fallback_prior_preflight": {
     "status": "REQUIRES_EXTERNAL_SETUP",
-    "decision": "FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP",
+    "decision": "OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL",
     "not_scientific_kill": true,
-    "checked_before_download_install_or_rollout": true,
+    "checked_before_rollout": true,
     "openpi_pi05_libero": {
       "official_repo": "https://github.com/Physical-Intelligence/openpi",
       "official_repo_main_head": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
@@ -584,16 +584,46 @@
         "full_finetuning_gpu_memory": ">70 GB",
         "libero_workflow": "Docker recommended"
       },
-      "local_repo_present": false,
-      "local_checkpoint_present": false,
-      "uv_present": false,
+      "local_repo_present": true,
+      "local_repo_path": "C:\\assets\\repos\\openpi",
+      "local_checkpoint_present": true,
+      "local_checkpoint_path": "/home/jiheon/assets/checkpoints/openpi/openpi-assets/checkpoints/pi05_libero",
+      "local_checkpoint_file_count": 16,
+      "local_checkpoint_size": "about 12 GiB",
+      "uv_present": true,
+      "bootstrap_env": "/home/jiheon/miniconda3-official/envs/openpi-py311",
+      "openpi_env": "/home/jiheon/venvs/openpi-uv",
+      "openpi_env_size": "about 7.8 GiB",
+      "uv_cache_size": "about 7.9 GiB",
       "docker_present": false,
       "gsutil_present": false,
       "gcloud_present": false,
-      "openpi_python_package_present": false,
-      "jax_present_in_checked_paths": false,
+      "openpi_python_package_present": true,
+      "jax_present_in_checked_paths": true,
+      "jax_cuda_device_detected": true,
+      "torch_cuda_warning": "torch 2.7.1+cu126 warns RTX 5080 sm_120 is unsupported by the wheel",
+      "uv_sync_initial": {
+        "artifact": "runs/openpi_pi05_setup/uv_sync_20260717/exit_code.txt",
+        "exit_code": 1,
+        "reason": "source-built evdev failed because WSL Linux input headers were missing"
+      },
+      "uv_sync_workaround": {
+        "artifact": "runs/openpi_pi05_setup/uv_sync_evdev_binary_20260717/exit_code.txt",
+        "sync_exit": 0,
+        "evdev_binary_exit": 0,
+        "deviation": "used uv sync --no-install-package evdev followed by evdev-binary==1.9.2"
+      },
+      "policy_smoke": {
+        "script": "scripts/openpi_pi05_policy_smoke.py",
+        "runner": "scripts/openpi_pi05_policy_smoke_runner.sh",
+        "artifact": "runs/openpi_pi05_setup/policy_smoke_rerun_20260717/exit_code.txt",
+        "exit_code": 137,
+        "result_json_written": false,
+        "closed_loop_rollout_happened": false,
+        "classification": "LOCAL_RESOURCE_BLOCKER_DURING_POLICY_RESTORE_OR_INFERENCE"
+      },
       "gpu": "NVIDIA GeForce RTX 5080, 16303 MiB total",
-      "classification": "FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL"
+      "classification": "OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL"
     },
     "pcd": {
       "official_repo": "https://github.com/pcd-robot/PCD",
@@ -602,8 +632,10 @@
       "official_lerobot_repo_main_head": "519b4a814e85bf9b786677d90b0ff07218729bb2",
       "official_real_repo": "https://github.com/pcd-robot/PCD-real",
       "official_real_repo_main_head": "369300e3df09ef02f854ad5d83810b7b54111928",
-      "local_repo_present": false,
-      "local_lerobot_repo_present": false,
+      "local_repo_present": true,
+      "local_repo_path": "C:\\assets\\repos\\PCD",
+      "local_lerobot_repo_present": true,
+      "local_lerobot_repo_path": "C:\\assets\\repos\\PCD-LeRobot",
       "local_checkpoints_present": false,
       "sam2_present": false,
       "groundingdino_present": false,
@@ -623,5 +655,5 @@
     }
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Requires user choice before external setup expansion: approve bounded OpenPI pi0.5 inference setup/checkpoint download, approve bounded PCD/PCD-LeRobot dependency-and-checkpoint setup, or authorize a new prior-selection strategy. Closed-loop Ours rollout is disallowed for trained R2R-OFT checkpoints, and no third local candidate should be added around the same OpenVLA task-8 residual."
+  "next_action": "Record OpenPI pi0.5 as local-resource-blocked after source/env/checkpoint setup and exit-137 policy-load smoke; a fair OpenPI rollout needs a larger-memory or remote/lab runtime path. PCD remains source-inspected but dependency/checkpoint blocked. Closed-loop Ours rollout is disallowed for trained R2R-OFT checkpoints, and no third local candidate should be added around the same OpenVLA task-8 residual."
 }

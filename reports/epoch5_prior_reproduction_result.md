@@ -454,16 +454,36 @@ before any download, install, or rollout.
 
 | Ecosystem | Local readiness result | Decision |
 |---|---|---|
-| pi0.5 / OpenPI LIBERO | Official repo reachable at main `15a9616a00943ada6c20a0f158e3adb39df2ccac`, but no local OpenPI checkout/checkpoint/tooling. Checked WSL paths lack `uv`, Docker, `gsutil`, `gcloud`, `openpi`, and JAX. Official docs list `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and recommend Docker for LIBERO evaluation. | requires external setup/checkpoint download; not a scientific kill |
-| PCD / PCD-LeRobot | Official repos reachable at main `cec18b820daeadfdaf080c030a1b5eb080ff75cd` and `519b4a814e85bf9b786677d90b0ff07218729bb2`, but no local checkout/checkpoints. Checked WSL env lacks SAM2/GroundingDINO/OpenPI; official README requires segmentation/inpainting dependencies and extra/manual checkpoint downloads. | requires external setup/checkpoint download; not a scientific kill |
+| pi0.5 / OpenPI LIBERO | Official source cloned at `C:\assets\repos\openpi`, main `15a9616a00943ada6c20a0f158e3adb39df2ccac`. A user-local Python 3.11 + uv bootstrap was created, then OpenPI dependencies synced to `/home/jiheon/venvs/openpi-uv` using an `evdev-binary` workaround after source-built `evdev` failed on missing WSL Linux headers. JAX sees the RTX 5080. The public `pi05_libero` checkpoint was downloaded, but random-input policy restore/inference was killed with exit code `137`. | source/env/checkpoint present; local memory/resource blocker before usable prior rollout; not a scientific kill |
+| PCD / PCD-LeRobot | Source cloned/inspected at `C:\assets\repos\PCD` and `C:\assets\repos\PCD-LeRobot`; PCD requires Simpler/OpenVLA/Octo/pi0 plus Grounded-SAM2, SAM2, GroundingDINO, and big-lama/Inpaint-Anything assets. Checked WSL env still lacks SAM2/GroundingDINO and no matching vision/inpainting checkpoints are local. | requires dependency/checkpoint setup before fair prior run; not a scientific kill |
 
-Gate result: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+OpenPI artifacts:
+
+- source: `C:\assets\repos\openpi`;
+- bootstrap env: `/home/jiheon/miniconda3-official/envs/openpi-py311`;
+- OpenPI env: `/home/jiheon/venvs/openpi-uv`, about 7.8 GiB;
+- uv cache: `/home/jiheon/.cache/uv`, about 7.9 GiB;
+- checkpoint cache: `/home/jiheon/assets/checkpoints/openpi`, about 12 GiB,
+  16 files under `openpi-assets/checkpoints/pi05_libero`;
+- initial `uv sync` artifact:
+  `runs/openpi_pi05_setup/uv_sync_20260717/exit_code.txt`, exit `1`, missing
+  Linux input headers for source-built `evdev`;
+- workaround `uv sync --no-install-package evdev` plus `evdev-binary==1.9.2`:
+  `runs/openpi_pi05_setup/uv_sync_evdev_binary_20260717/exit_code.txt`,
+  `sync_exit=0`, `evdev_binary_exit=0`;
+- policy smoke rerun:
+  `runs/openpi_pi05_setup/policy_smoke_rerun_20260717/exit_code.txt`, exit
+  `137`, no result JSON.
+
+Gate result: `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`.
 
 ## Next Decision
 
-The next action requires a user choice before expanding external setup: either
-approve a bounded OpenPI pi0.5 inference setup/checkpoint download, approve a
-bounded PCD/PCD-LeRobot dependency-and-checkpoint setup, or authorize a new
-prior-selection strategy. Closed-loop Ours rollout is disallowed for the trained
-`R2R-OFT` checkpoints, and no third local candidate should be added around the
-same OpenVLA task-8 residual.
+The next action is to record the OpenPI local resource blocker and avoid
+claiming a pi0.5 prior result. A fair OpenPI rollout would require a larger WSL
+memory/GPU-compatible runtime path or remote/lab execution. PCD remains the
+only preselected fallback not yet setup-attempted beyond source inspection, but
+it requires substantial vision/inpainting dependencies and checkpoint assets.
+Closed-loop Ours rollout is still disallowed for the trained `R2R-OFT`
+checkpoints, and no third local candidate should be added around the same
+OpenVLA task-8 residual.
