@@ -161,45 +161,13 @@ Durable results: `reports/post_calibration_libero_goal_20260726_prior_scan_resul
 
 X-VLA official-prior scans on `libero_goal`, `libero_object`, and `libero_spatial`, reset identity `20260726`, tasks `0..9`: each completed 10/10, succeeded 10/10, had 0 infrastructure failures, and had no training/Ours/checkpoint/optimizer step. Summary SHAs: goal `831d1c0565f8a12587fd21d60baa92e499083ecca100a159cf24b6ca50b5c23b`; object `f7c2426b1ae19a8420fed2f5e4dcb7628cdd04157934efbed7b48892473dcf49`; spatial `a21cd76d789a04d4a1befc51d7fa78d7d396a84bbb18a89ba57e1b61eaa45979`.
 
-## Post-Calibration 20260727 Goal Scan
+## Post-Calibration 20260727 Goal Chain
 
-Durable result:
-`reports/post_calibration_libero_goal_20260727_prior_scan_result.json`
-`reports/post_calibration_libero_goal_20260727_prior_scan_result.md`
+Durable results: `reports/post_calibration_libero_goal_20260727_prior_scan_result.*`, `reports/post_calibration_libero_goal_20260727_base_gate_result.*`, `reports/post_calibration_libero_goal_20260727_headroom_result.*`, and `reports/post_calibration_libero_goal_20260727_second_prior_result.*`.
 
-X-VLA official-prior scan on `libero_goal`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 9/10 succeeded, task `9` failed cleanly, 0 infrastructure failures, summary SHA `6b08b4bec25019854d5914e28d73f43b8f6b54565122016f2a0a110da4ead6ef`, task-9 result SHA `78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+X-VLA found clean `libero_goal/task_9` residual at identity `20260727`; SmolVLA Base also failed; task-level headroom was positive but same-reset HDF5 was unavailable; Quantized OpenVLA-OFT INT4 then solved it with valid `libero_goal_no_noops` support. Result SHAs: X-VLA task9 `78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec`; Base `107d7cb0ff1b31ba98be98b9230fdc859218172a0d1c260f2f88751b8a2d0d5f`; headroom `df3bbadf2c886144fa0c274e0c9f8f4761674d05294c0dc77ffae22fd043f399`; second prior `e900a9105643c2d658d8bddba1a31d8797a35c9c0168511438492ba17e21f4b0`.
 
-Interpretation: `libero_goal/task_9` identity `20260727` is a first-prior residual only. It does not authorize Ours; matched SmolVLA Base was required on the same task/reset.
-
-## Post-Calibration 20260727 Goal Base Gate
-
-Durable result:
-`reports/post_calibration_libero_goal_20260727_base_gate_result.json`
-`reports/post_calibration_libero_goal_20260727_base_gate_result.md`
-
-SmolVLA frozen Base on `libero_goal/task_9`, reset identity `20260727`: 1/1 completed, 0/1 succeeded, 0 infrastructure failures, 300 steps, 6 action chunks, max reward `0.0`, result SHA `107d7cb0ff1b31ba98be98b9230fdc859218172a0d1c260f2f88751b8a2d0d5f`, video SHA `2a513ee00761b9e39b9fca429be1625f0decb52a92870681da0928498d41b914`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_goal/task_9` identity `20260727` is now a shared X-VLA first-prior and SmolVLA Base clean residual. It still does not authorize Ours; next gates are expert headroom, then a valid comparable second prior if recoverability is positive.
-
-## Post-Calibration 20260727 Goal Headroom
-
-Durable result:
-`reports/post_calibration_libero_goal_20260727_headroom_result.json`
-`reports/post_calibration_libero_goal_20260727_headroom_result.md`
-
-Expert replay on `libero_goal/task_9`, reset identity `20260727`: completed with exit code `0`; decision `TASK9_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`; selected nearest HDF5 `demo_9` with L2 `0.30316867`; exact selected-demo replay succeeded at reward/done/success index `140`; zero-action control failed; no same-reset HDF5 init-state hash matched the residual. Result SHA `df3bbadf2c886144fa0c274e0c9f8f4761674d05294c0dc77ffae22fd043f399`. No training/Ours/checkpoint/optimizer step.
-
-Interpretation: recoverability is positive only at task level, not same-reset oracle. A valid comparable second prior is now required before any Ours proposal.
-
-## Post-Calibration 20260727 Goal Second Prior
-
-Durable result:
-`reports/post_calibration_libero_goal_20260727_second_prior_result.json`
-`reports/post_calibration_libero_goal_20260727_second_prior_result.md`
-
-Quantized OpenVLA-OFT INT4 on `libero_goal/task_9`, reset identity `20260727`: valid `libero_goal_no_noops` support, 1/1 completed, 1/1 succeeded, 0 infrastructure failures, reward `1.0`, done at step `139`, 17 action chunks, result SHA `e900a9105643c2d658d8bddba1a31d8797a35c9c0168511438492ba17e21f4b0`, video SHA `b8a67445a5e744c51124f29768eff88b1ae773991169f96bc51f8e614804bf0d`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: the second prior solved this shared residual. `libero_goal/task_9` identity `20260727` is not an Ours target.
+Interpretation: `libero_goal/task_9` identity `20260727` is closed as second-prior-solved and is not an Ours target.
 
 ## Post-Second-Prior 20260727 Object Scan
 
@@ -231,11 +199,21 @@ SmolVLA frozen Base on `libero_spatial/task_5`, reset identity `20260727`: 1/1 c
 
 Interpretation: `libero_spatial/task_5` identity `20260727` is now a shared X-VLA first-prior and SmolVLA Base clean residual. It still does not authorize Ours; next gate is expert headroom.
 
+## Post-Second-Prior 20260727 Spatial Headroom
+
+Durable result:
+`reports/post_secondprior_libero_spatial_20260727_headroom_result.json`
+`reports/post_secondprior_libero_spatial_20260727_headroom_result.md`
+
+Expert replay on `libero_spatial/task_5`, reset identity `20260727`: completed with exit code `0`; decision `TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`; selected nearest HDF5 `demo_9` with L2 `2.984242906`; exact selected-demo replay succeeded at reward/done/success index `93`; zero-action control failed; no same-reset HDF5 init-state hash matched the residual. Result SHA `42c0b9e287904a7781cf077397c64578a3a5fb7ab651f30f85f810f18eb44fb9`. No training/Ours/checkpoint/optimizer step.
+
+Interpretation: recoverability is positive only at task level, not same-reset oracle. A valid comparable second prior is now required before any Ours proposal.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run expert-headroom diagnostic for `libero_spatial/task_5`, reset identity `20260727`. Do not run second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until headroom is checked.
+Run a valid comparable second-prior gate for `libero_spatial/task_5`, reset identity `20260727`. Do not run candidate generation, Ours design, LoRA/QLoRA training, or any training until second prior is checked.
 
 ## Validation To Run Before Commit
 
