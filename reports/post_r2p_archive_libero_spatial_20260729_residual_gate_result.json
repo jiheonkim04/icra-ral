@@ -1,0 +1,283 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_libero_spatial_20260729_residual_gate.v1",
+  "created_at_kst": "2026-07-18T06:24:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "b2f1bd097370ce98b27c9f014bb92b7922e5152a",
+  "stage": "epoch_5_official_prior_residual_search_after_r2p_archive",
+  "decision": "POST_R2P_ARCHIVE_LIBERO_SPATIAL_TASK4_IDENTITY20260729_SECOND_PRIOR_SOLVES_NO_OURS_TARGET",
+  "suite": "libero_spatial",
+  "reset_identity": 20260729,
+  "task_id": 4,
+  "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "run_dirs": {
+    "xvla_prior_scan": "runs/xvla_prior/failure_scan_libero_spatial_identity20260729_post_r2p_archive_20260718T0612KST",
+    "smolvla_base_gate": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260729_officialenv_20260718T0616KST",
+    "expert_headroom_gate": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260729_20260718T0618KST",
+    "openvla_int4_second_prior_gate": "runs/openvla_oft_int4/diagnostic_spatial_task4_openvla_int4_20260729_openvlaenv_20260718T0620KST"
+  },
+  "summary": {
+    "xvla_scan_completed_tasks": 10,
+    "xvla_scan_successful_tasks": 9,
+    "xvla_failure_task_ids": [
+      4
+    ],
+    "smolvla_base_task4_success": false,
+    "expert_headroom_decision": "TASK4_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "openvla_int4_task4_success": true,
+    "candidate_generation_authorized": false,
+    "training_authorized": false,
+    "ours_rollout_authorized": false,
+    "reason_no_ours_target": "The matched second prior, Quantized OpenVLA-OFT INT4, solved the only shared Base/X-VLA failure for this suite/identity."
+  },
+  "execution_classifications": [
+    {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "FIRST_PRIOR",
+      "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+      "policy": "X-VLA-Libero",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 25960,
+      "wsl_worker_pid": 402,
+      "simulator_episode_count": 10,
+      "model_forward_count": 66,
+      "peak_vram_mib": 3518.634
+    },
+    {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "BASE",
+      "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+      "policy": "frozen_base",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 19652,
+      "wsl_worker_pid": 305,
+      "simulator_episode_count": 1,
+      "model_forward_count": 6,
+      "peak_vram_mb": 926.638
+    },
+    {
+      "execution_type": "EXPERT_ACTION_REPLAY",
+      "evidence_role": "ORACLE",
+      "artifact_status": "NOT_APPLICABLE",
+      "policy": "HDF5 expert replay diagnostic",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 15720,
+      "wsl_worker_pid": 302,
+      "simulator_episode_count": 3,
+      "vla_model_loaded": false
+    },
+    {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "QUANTIZED_OFFICIAL_CHECKPOINT_INFERENCE",
+      "policy": "quantized_openvla_oft_int4",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 27456,
+      "wsl_worker_pid": 405,
+      "simulator_episode_count": 1,
+      "model_forward_count": 15,
+      "peak_vram_mib": 5600.467,
+      "unnormalization_key": "libero_spatial_no_noops"
+    }
+  ],
+  "xvla_scan_task_results": [
+    {
+      "task_id": 0,
+      "success": true,
+      "steps": 83,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "2596fe4ef5cb12bbe5e70313c76cf99435721965ccda60bc1da8a698e8184dfc"
+    },
+    {
+      "task_id": 1,
+      "success": true,
+      "steps": 111,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "58e518d0dcb546f5be9492f464cd304d73492da267763673446b4eaecf41f74c"
+    },
+    {
+      "task_id": 2,
+      "success": true,
+      "steps": 100,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "24f85f60d071a11692f116ecc911af7276151f1f13c13dd9664400320fa2b4a1"
+    },
+    {
+      "task_id": 3,
+      "success": true,
+      "steps": 84,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "84cb372d4a447948626b59bbfb707624408931b533a3bf62ccdf1f254a17fbc0"
+    },
+    {
+      "task_id": 4,
+      "success": false,
+      "steps": 900,
+      "final_reward": 0.0,
+      "action_chunk_count": 30,
+      "result_sha256": "03fc8aa99c22b785d4d2d92eb1d2d9d7a5df69c592b90db43c96454dd2b1f3e6"
+    },
+    {
+      "task_id": 5,
+      "success": true,
+      "steps": 136,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "e9be83f72115447cc00e9d854c82f5d4f271e25b7da1bd4ac4fb9abb6fb0baf8"
+    },
+    {
+      "task_id": 6,
+      "success": true,
+      "steps": 107,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "26dad76025cc4f3599ffa6c72a63e98cb69766c14adf5b88fd55be21903a5d91"
+    },
+    {
+      "task_id": 7,
+      "success": true,
+      "steps": 117,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "b3b04408fbaf49c7f6fee3d8c4bb5809881dc7bd917340d17d3b13110580e753"
+    },
+    {
+      "task_id": 8,
+      "success": true,
+      "steps": 96,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "bba4eddb26865c405d85581004f06ab2cd28c744407714f02b072b6277c84bb1"
+    },
+    {
+      "task_id": 9,
+      "success": true,
+      "steps": 122,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "0b39323455cd433c56ccaaf0616be6b9b1a4cdca544e100805a33284956e2b34"
+    }
+  ],
+  "base_gate": {
+    "success": false,
+    "steps": 280,
+    "max_reward": 0.0,
+    "sum_reward": 0.0,
+    "action_chunks_generated": 6,
+    "initial_state_sha256": "aa414e9c1b365ba49f5754f04a6d22fe76579e537cc0532defd2b143c8162449",
+    "video_path": "runs/xvla_prior/smolvla_spatial_task4_id20260729_videos/frozen_base/libero_spatial/task_4_identity_20260729.mp4",
+    "video_sha256": "e429475057ef278286e039fceff74e3e17fd2250086df805b1a900047ca20667"
+  },
+  "headroom_gate": {
+    "decision": "TASK4_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "computed_initial_state_sha256": "aa414e9c1b365ba49f5754f04a6d22fe76579e537cc0532defd2b143c8162449",
+    "computed_hash_matches_expected": true,
+    "demo_count": 50,
+    "same_reset_demo_match_count": 0,
+    "selected_demo": "demo_2",
+    "selection_reason": "nearest_hdf5_demo_init_state_by_l2_no_hash_match",
+    "nearest_l2_to_benchmark_residual_init": 0.324024762,
+    "zero_action_exact_selected_demo_init_success": false,
+    "hdf5_expert_exact_selected_demo_init_success": true,
+    "hdf5_expert_exact_first_success_index": 143,
+    "hdf5_expert_default_reset_success": true
+  },
+  "second_prior_gate": {
+    "policy": "quantized_openvla_oft_int4",
+    "success": true,
+    "steps": 127,
+    "max_steps": 220,
+    "done": true,
+    "final_reward": 1.0,
+    "action_chunk_count": 15,
+    "load_seconds": 19.556,
+    "elapsed_seconds": 41.6,
+    "peak_vram_mib": 5600.467,
+    "unnormalization_key": "libero_spatial_no_noops",
+    "policy_latency_mean_seconds": 0.549555,
+    "policy_latency_max_seconds": 1.769808,
+    "environment_latency_mean_seconds": 0.134335,
+    "environment_latency_max_seconds": 2.020539,
+    "initial_state_sha256": "aa414e9c1b365ba49f5754f04a6d22fe76579e537cc0532defd2b143c8162449",
+    "video_path": "rollouts/2026_07_18/2026_07_18-06_21_02--openvla_oft--episode=110000--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+    "video_sha256": "f42248e5948d3a066130aee0c950d5154cac7ebac65be3f50d74a17ba18f0c83",
+    "quantized": true,
+    "full_precision_claim": false,
+    "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED"
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260729_post_r2p_archive_20260718T0612KST/scan_summary.json",
+      "sha256": "45b245d81a764bd3e40995ae06b84631d00bc8d9f52ff5ad206c806d9e44af71",
+      "length_bytes": 6706
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260729_post_r2p_archive_20260718T0612KST/scan_manifest.json",
+      "sha256": "353756be3d192461c999069fd72c535af0c1d76aff948ea515a404ce35d40cd3",
+      "length_bytes": 740
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260729_post_r2p_archive_20260718T0612KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260729_officialenv_20260718T0616KST/result.json",
+      "sha256": "345e9b3a683b1a61204b40c5df8e53c925b9f5e0f168c9183986185c65fee22d",
+      "length_bytes": 6018
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260729_20260718T0618KST/result.json",
+      "sha256": "1d0cd0679516b54402e3700ac0f007c5ee129b30f18d8de66dc2e4532b5f2fd9",
+      "length_bytes": 51721
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task4_openvla_int4_20260729_openvlaenv_20260718T0620KST/result.json",
+      "sha256": "a457f0abddaaaacf50be15d2834b2f9d0b7e91cf29da16c6b28e9fb4b938cfc4",
+      "length_bytes": 9167
+    },
+    {
+      "path": "runs/xvla_prior/smolvla_spatial_task4_id20260729_videos/frozen_base/libero_spatial/task_4_identity_20260729.mp4",
+      "sha256": "e429475057ef278286e039fceff74e3e17fd2250086df805b1a900047ca20667",
+      "length_bytes": 76930
+    },
+    {
+      "path": "rollouts/2026_07_18/2026_07_18-06_21_02--openvla_oft--episode=110000--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4",
+      "sha256": "f42248e5948d3a066130aee0c950d5154cac7ebac65be3f50d74a17ba18f0c83",
+      "length_bytes": 72805
+    },
+    {
+      "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+      "sha256": "bcade790ddce333b1bd9d0d38f5336fa4c12f6d19e47c2b046cce89ddfd31c4c"
+    },
+    {
+      "path": "scripts/epoch5_xvla_libero10_task8_eval.py",
+      "sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6"
+    },
+    {
+      "path": "tca_map/smolvla/exact_hard_slice_rollout.py",
+      "sha256": "3ca3b09f93ca69f8e779a687b6d00389e2642da6e8c2a08739524c34c3e8fabf"
+    },
+    {
+      "path": "scripts/epoch5_expert_headroom.py",
+      "sha256": "f9d3411d2fa44e86d70a6c5505a927c024cc4050e2d9bb487f360d7298f96657"
+    },
+    {
+      "path": "tca_map/openvla_oft_int4_gate.py",
+      "sha256": "c2c20652cccc23afcc0e22a5a727712779a5fc9c824f149741159136b1a0c082"
+    }
+  ],
+  "next_action": "Do not generate candidates for libero_spatial/task_4 identity 20260729 because the matched second prior solved it. Continue official-prior-first residual search with the next fresh suite/identity slice, e.g. libero_goal identity 20260730 remaining tasks other than already-solved task3."
+}
