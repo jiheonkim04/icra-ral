@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_atcd_teacher_signal_audit_complete",
-  "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH",
+  "stage": "epoch_5_second_pass_fallback_preflight_complete",
+  "decision": "SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -691,7 +691,7 @@
         "official_repo": "https://github.com/Ariostgx/ript-vla",
         "official_checkpoints": "https://huggingface.co/tanshh97/RIPT_VLA/tree/main",
         "score": 76,
-        "status": "fallback_not_started"
+        "status": "fallback_preflight_blocked_for_current_residual"
       },
       {
         "rank": 3,
@@ -699,7 +699,7 @@
         "paper": "https://arxiv.org/abs/2605.06175",
         "official_repo": "https://github.com/YuhuaJiang2002/VLA-GSE",
         "score": 71,
-        "status": "fallback_not_started"
+        "status": "fallback_preflight_resource_blocked"
       }
     ],
     "excluded_from_exact_three": [
@@ -915,6 +915,47 @@
       "decision": "CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO"
     }
   },
+  "second_pass_fallback_prior_preflight": {
+    "status": "COMPLETE",
+    "decision": "SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO",
+    "ript_vla": {
+      "official_repo": "https://github.com/Ariostgx/ript-vla",
+      "local_repo_present": true,
+      "local_repo_path": "C:\\assets\\repos\\ript-vla",
+      "local_repo_head": "440990e8864e12e4578b490ff6359e4f2c49ae3e",
+      "hf_repo": "tanshh97/RIPT_VLA",
+      "hf_revision": "57532f4abbf81b89a8ff6a642a996fc54b6a6a10",
+      "hf_file_count": 32,
+      "hf_total_bytes": 6635348819,
+      "hf_total_gib": 6.179650145582855,
+      "source_import_smoke": true,
+      "import_env": "/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python",
+      "openvla_oft_path_status": "blocked_for_current_residual",
+      "openvla_oft_blocker": "official OpenVLA-OFT RIPT scripts/checkpoints cover LIBERO goal/spatial/object/long suites, not the current libero_10 task-8 both-moka residual; training a new RIPT adapter is interactive RL and README recommends 4 GPUs for OpenVLA-OFT RIPT",
+      "quest_path_status": "not_fair_comparator_for_current_residual",
+      "quest_checkpoint_note": "QueST checkpoints are small and importable, but the model zoo has LIBERO_90 and suite checkpoints rather than an exact libero_10 both-moka prior; LIBERO_90 contains related single-moka tasks, not the current both-moka task",
+      "checkpoint_download_happened": false,
+      "training_happened": false,
+      "closed_loop_rollout_happened": false,
+      "classification": "RIPT_VLA_FALLBACK_NOT_COMPARABLE_OR_RESOURCE_BLOCKED"
+    },
+    "vla_gse": {
+      "official_repo": "https://github.com/YuhuaJiang2002/VLA-GSE",
+      "local_repo_present": true,
+      "local_repo_path": "C:\\assets\\repos\\VLA-GSE",
+      "local_repo_head": "200cdc245880322f2bef7b24ec506063a0f35e8c",
+      "source_only_preflight": true,
+      "checkpoint_present": false,
+      "requires_base_vlm": "Qwen/Qwen3-VL-4B-Instruct",
+      "requires_lerobot_libero_data": true,
+      "training_default": "8-GPU training on combined LIBERO train set, README says about 48 hours on 8x A100 for 80k steps",
+      "evaluation_requires": "two-process policy server plus LIBERO/LIBERO-plus client and a trained checkpoint",
+      "checkpoint_download_happened": false,
+      "training_happened": false,
+      "closed_loop_rollout_happened": false,
+      "classification": "VLA_GSE_SOURCE_ONLY_RESOURCE_BLOCKED"
+    }
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -966,5 +1007,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Do not train or roll out ATCD from this audit. The offline teacher signal is complementary but below the preregistered relative-gain threshold. Open a new bounded method-selection cycle around the same cross-prior complementarity without retuning on tested reset identities."
+  "next_action": "Start a third exact-three official-prior ecosystem selection pass. Do not train or roll out ATCD, do not retune on tested task-8 identities, and do not claim RIPT-VLA or VLA-GSE prior results from source-only/resource-blocked preflights."
 }

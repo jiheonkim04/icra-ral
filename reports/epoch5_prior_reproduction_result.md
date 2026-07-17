@@ -739,3 +739,59 @@ frozen threshold to justify a bounded QLoRA distillation run. Do not train or
 roll out ATCD from this audit. The next scientific action is a new bounded
 method-selection cycle around the same cross-prior complementarity, without
 retuning on the tested reset identities.
+
+## Second-Pass Fallback Prior Preflight
+
+Decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`.
+
+After LightVLA produced a valid complementary prior diagnostic but the two
+bounded LightVLA/OpenVLA method attempts (`CR-LightVLA`, `ATCD`) did not reach a
+prototype-go path, the remaining second-pass prior ecosystems were preflighted
+before any new method design.
+
+### RIPT-VLA
+
+Source-only status:
+
+- official repo: `https://github.com/Ariostgx/ript-vla`;
+- local clone: `C:\assets\repos\ript-vla`;
+- local HEAD: `440990e8864e12e4578b490ff6359e4f2c49ae3e`;
+- checkpoint repo: `tanshh97/RIPT_VLA`, revision
+  `57532f4abbf81b89a8ff6a642a996fc54b6a6a10`;
+- checkpoint metadata: 32 files, `6,635,348,819` bytes (`6.180` GiB);
+- import smoke passed in the existing OpenVLA runtime:
+  `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`;
+- checkpoint download, training, rollout: none.
+
+Blocker: the official OpenVLA-OFT RIPT assets and scripts cover LIBERO
+Goal/Spatial/Object/Long suites, not the current `libero_10/task_8`
+both-moka residual. Training a new OpenVLA-OFT RIPT adapter is interactive RL,
+and the official README recommends 4 GPUs for OpenVLA-OFT RIPT. The QueST
+checkpoint path is lighter and importable, but the model zoo does not provide
+an exact `libero_10` both-moka prior; LIBERO-90 contains related single-moka
+tasks, not the matched residual.
+
+Classification: `RIPT_VLA_FALLBACK_NOT_COMPARABLE_OR_RESOURCE_BLOCKED`.
+
+### VLA-GSE
+
+Source-only status:
+
+- official repo: `https://github.com/YuhuaJiang2002/VLA-GSE`;
+- local clone: `C:\assets\repos\VLA-GSE`;
+- local HEAD: `200cdc245880322f2bef7b24ec506063a0f35e8c`;
+- checkpoint download, training, rollout: none.
+
+Blocker: VLA-GSE is an 8-GPU PEFT training framework around
+`Qwen/Qwen3-VL-4B-Instruct` and LeRobot-format LIBERO data. The README's
+reference setup trains for 80k steps and reports about 48 hours on 8 A100 GPUs.
+Evaluation requires a trained checkpoint plus a two-process policy-server /
+LIBERO-client setup. No local trained VLA-GSE checkpoint is present.
+
+Classification: `VLA_GSE_SOURCE_ONLY_RESOURCE_BLOCKED`.
+
+Second-pass conclusion: the exact-three second-pass ecosystem set is exhausted
+locally. LightVLA was executable but no method reached prototype-go evidence;
+RIPT-VLA and VLA-GSE are not fair executable prior results for the current
+residual under local resources. The next action is a third exact-three
+official-prior ecosystem selection pass.

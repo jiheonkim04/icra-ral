@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_atcd_teacher_signal_audit_complete`
-- Current decision: `ATCD_TEACHER_SIGNAL_NOT_ENOUGH`
+- Current stage: `epoch_5_second_pass_fallback_preflight_complete`
+- Current decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -117,63 +117,15 @@ Audit result:
 - action range: [-1.0, 1.0], 7D finite;
 - residual init-state hash overlap: 0.
 
-QLoRA gradient smoke result:
+R2R-OFT execution summary:
 
-- artifact:
-  `runs/openvla_oft_int4/epoch5_r2r_oft_qlora_gradient_smoke.json`;
-- pass: true; one-batch backward feasibility only;
-- rank/alpha 4/8, lambda 2.0, weighted loss 0.99609375;
-- trainable LoRA params 13,853,536; nonzero-gradient tensors 425;
-- training / optimizer step / checkpoint: false / false / false.
-
-Training config freeze:
-
-- artifact:
+- data audit and one-batch QLoRA gradient smoke passed;
+- frozen spec:
   `runs/openvla_oft_int4/epoch5_r2r_oft_training_spec_v1.json`;
-- SHA-256:
-  `1875b93f9249597c026f20b0bea32b13751a2df366612b209d6df96eb6870ddb`;
-- arms: primary `r2r_oft_rank4_lambda2_lr2e4_steps64`, ablation
-  `uniform_oft_rank4_lambda0_lr2e4_steps64`;
-- max steps: 64 per arm; VLA LoRA adapters only; prior head/projector frozen;
-- selection: offline before closed-loop; residual resets `20260721` and
-  `20260722` cannot be used for selection or retuning.
-
-Trainer/launcher validation:
-
-- files: `tca_map/r2r_oft/train_qlora.py`,
-  `tca_map/r2r_oft/launch_training.py`,
-  `tests/test_r2r_oft_train_qlora.py`;
-- focused tests: 14 passed;
-- dry-run launch manifest:
-  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/launch_manifest.json`;
-- dry-run training / optimizer step: false / false.
-- runtime: `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`.
-
-Frozen training completed:
-
-- primary result:
-  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result.json`;
-- ablation result:
-  `runs/openvla_oft_int4/epoch5_r2r_oft_training/uniform_oft_rank4_lambda0_lr2e4_steps64/result.json`;
-- both arms: 64/64 optimizer steps, checkpoints at 16/32/64, peak CUDA
-  8,370.589 MiB.
-
-Offline validation:
-
-- fixed validation chunks: 24 from demos 40..49, phase counts 0/1/2 = 6/12/6;
-- step 16: primary phase-1 L1 0.3845006649692853, ablation 0.38416459163029987,
-  max delta 1.002685546875, FAIL;
-- step 32: primary phase-1 L1 0.2876454995324214, ablation 0.29051600955426693,
-  max delta 1.010009765625, FAIL;
-- step 64: primary phase-1 L1 0.2626503886034091, ablation 0.2789938536783059,
-  max delta 1.0028839111328125, FAIL;
-- closed-loop Ours rollout: disallowed.
-
-Simple control after offline no-pass:
-`runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json` tested
-OpenVLA-OFT INT4 with `num_open_loop_steps=4`; result 5/8, failures
-`20260718`, `20260720`, `20260721`; decision
-`SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
+- primary and uniform-ablation arms both completed 64 optimizer steps;
+- fixed offline validation at steps 16/32/64 failed the action-delta gate;
+- closed-loop Ours rollout was disallowed;
+- simple 4-step OpenVLA-OFT requery control scored 5/8, not selected.
 
 ## Second-Pass LightVLA Prior
 
@@ -235,8 +187,27 @@ ATCD teacher-signal audit:
 - no training / optimizer / checkpoint / rollout;
 - decision: `ATCD_TEACHER_SIGNAL_NOT_ENOUGH` because relative gain < 0.03.
 
-Next: do not train or roll out ATCD. Open a new bounded method-selection cycle
-around the same cross-prior complementarity without retuning on tested reset
+Second-pass fallback prior preflight:
+
+- RIPT-VLA: official source cloned at `C:\assets\repos\ript-vla`, HEAD
+  `440990e8864e12e4578b490ff6359e4f2c49ae3e`; HF repo
+  `tanshh97/RIPT_VLA` revision `57532f4...`, 32 files / 6.180 GiB metadata;
+  source import smoke passed in the OpenVLA runtime; no checkpoint download,
+  training, or rollout.
+- RIPT blocker: OpenVLA-OFT RIPT assets cover LIBERO Goal/Spatial/Object/Long,
+  not the current `libero_10/task_8` both-moka residual; new OpenVLA-OFT RIPT is
+  interactive RL with official 4-GPU recommendation. QueST checkpoints are
+  lighter but not an exact both-moka prior.
+- VLA-GSE: official source cloned at `C:\assets\repos\VLA-GSE`, HEAD
+  `200cdc245880322f2bef7b24ec506063a0f35e8c`; no trained checkpoint present; no
+  checkpoint download, training, or rollout.
+- VLA-GSE blocker: Qwen3-VL + LeRobot-format LIBERO PEFT framework with
+  8-GPU/80k-step reference training and two-process policy-server evaluation.
+- decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`.
+
+Next: start a third exact-three official-prior ecosystem selection pass. Do not
+train or roll out ATCD; do not claim RIPT-VLA or VLA-GSE prior results from
+source-only/resource-blocked preflights; do not retune on tested task-8
 identities.
 
 ## Prohibitions

@@ -476,3 +476,23 @@ oracle-gain threshold of `0.03`. Therefore no ATCD training or rollout is
 authorized from this audit. The next plan step is a new bounded method-selection
 cycle around the same cross-prior complementarity, still without retuning on
 the tested reset identities.
+
+## Completed Second-Pass Fallback Prior Preflight
+
+Execution status: `COMPLETE_BLOCKED`
+
+The remaining second-pass exact-three prior ecosystems were checked after the
+LightVLA-derived method attempts did not produce prototype-go evidence.
+
+| Ecosystem | Local result | Decision |
+|---|---|---|
+| RIPT-VLA | Official source cloned at `C:\assets\repos\ript-vla`, HEAD `440990e8864e12e4578b490ff6359e4f2c49ae3e`; HF model metadata is 32 files / 6.180 GiB. Source imports in the existing OpenVLA runtime. OpenVLA-OFT RIPT assets cover LIBERO Goal/Spatial/Object/Long, not the current `libero_10/task_8` residual, and new RIPT training is interactive RL with official 4-GPU recommendation. QueST checkpoints are small but not an exact both-moka `libero_10` prior. | `RIPT_VLA_FALLBACK_NOT_COMPARABLE_OR_RESOURCE_BLOCKED` |
+| VLA-GSE | Official source cloned at `C:\assets\repos\VLA-GSE`, HEAD `200cdc245880322f2bef7b24ec506063a0f35e8c`. No local trained checkpoint. Official setup uses `Qwen/Qwen3-VL-4B-Instruct`, LeRobot-format LIBERO data, 8-GPU training, and a policy-server evaluation stack. | `VLA_GSE_SOURCE_ONLY_RESOURCE_BLOCKED` |
+
+No checkpoint download, training, or rollout was run for these fallbacks.
+
+Decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`.
+
+Next step: start a third exact-three official-prior ecosystem selection pass.
+Do not claim RIPT-VLA or VLA-GSE prior results from these source-only/resource
+preflights.
