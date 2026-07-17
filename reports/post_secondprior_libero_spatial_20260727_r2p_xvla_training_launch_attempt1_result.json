@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:58:11+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_launch_attempt": "41ee42e749d55f119c04053d137584f0b69f38a8",
+  "decision": "R2P_XVLA_TRAINING_LAUNCH_ATTEMPT1_ENVIRONMENT_FAILURE_NO_TRAINING",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "failure_class": "ENVIRONMENT_DEPENDENCY_FAILURE",
+  "failure_reason": "Launch used repo .venv, which lacks peft; the prior gradient smoke used /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python.",
+  "archived_runtime_root": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST",
+  "original_runtime_root": "runs/xvla_prior/epoch5_r2p_xvla_task5_training",
+  "runtime_root_archived_to_preserve_evidence": true,
+  "training_happened": false,
+  "optimizer_created": false,
+  "optimizer_step_happened": false,
+  "optimizer_steps_completed": 0,
+  "checkpoint_written": false,
+  "offline_validation_runtime_happened": false,
+  "closed_loop_ours_evaluation_happened": false,
+  "simulator_rollout_happened": false,
+  "downloads_performed": false,
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST/gate_result.json",
+      "sha256": "321e2809abc0773ba94b62ce4d2636f8051007942c54166089aa5f016d230dd0"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST/gate_heartbeat.json",
+      "sha256": "f5fa8389743cc0af90a61dbae69e65a104e16f304339c4a86b85fd4c6a1c0184"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST/gate_exit_code.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "exit_code": 1
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST/r2p_xvla_rank8_phase_weights_lr1e4_steps64/result.json",
+      "sha256": "cfb70d1d424b7a1f328049763c38e32c3eb932360ab7e7db090ae15400a2ca70"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST/r2p_xvla_rank8_phase_weights_lr1e4_steps64/stderr.log",
+      "sha256": "53a5512cab6e64b294b2be1b9a155b5130ea76561e64c86890311c0e37123034"
+    }
+  ],
+  "relaunch_allowed_after_rearming": true,
+  "next_action": "Re-arm with /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python and relaunch only if output root is clear and no task5 worker is active."
+}

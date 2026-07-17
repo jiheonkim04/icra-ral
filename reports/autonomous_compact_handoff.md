@@ -235,6 +235,8 @@ Sequential gate runner: `tca_map/xvla_spatial_task5/training_gate.py` with `test
 
 Arming report: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gate_arming_result.json`; decision `R2P_XVLA_OPTIMIZER_GATE_ARMED_TRAINING_LAUNCH_AUTHORIZED`; prelaunch clean except pre-existing untracked rollout dirs.
 
+Attempt 1 failed before training due missing `peft` in repo `.venv`; archived at `runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST`; report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_launch_attempt1_result.json`. Re-armed with `/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python`.
+
 ## Immediate Next Action
 
-Launch the armed sequential training gate exactly as recorded in the arming report, then monitor initial worker PID/heartbeat/status/log/exit artifacts. Do not change the frozen config.
+Relaunch the sequential training gate with the repaired interpreter, then monitor initial worker PID/heartbeat/status/log/exit artifacts. Do not change the frozen config.

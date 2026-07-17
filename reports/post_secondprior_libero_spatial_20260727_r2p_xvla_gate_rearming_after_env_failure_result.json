@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:58:11+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_rearming": "41ee42e749d55f119c04053d137584f0b69f38a8",
+  "decision": "R2P_XVLA_GATE_REARMED_AFTER_ENVIRONMENT_FAILURE",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "repaired_interpreter": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+  "interpreter_package_check": {
+    "peft": "0.19.1",
+    "torch": "2.10.0+cu128",
+    "transformers": "4.57.6",
+    "h5py": "3.16.0",
+    "numpy": "2.2.6"
+  },
+  "prelaunch_snapshot_after_archive": {
+    "task5_worker_process_found": false,
+    "training_output_root_exists": false,
+    "archived_failed_attempt_exists": true
+  },
+  "armed_contract": {
+    "command": "cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.training_gate",
+    "output_root": "runs/xvla_prior/epoch5_r2p_xvla_task5_training",
+    "offline_output": "runs/xvla_prior/epoch5_r2p_xvla_task5_offline_validation_step0064.json",
+    "allow_download": false,
+    "max_steps_override": null,
+    "closed_loop_rollout_authorized": false,
+    "new_config_authorized": false
+  },
+  "training_launch_authorized_after_this_report": true,
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "offline_validation_runtime_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "downloads_performed": false
+  },
+  "next_action": "Relaunch the sequential training gate with the repaired interpreter and monitor initial heartbeat/status."
+}
