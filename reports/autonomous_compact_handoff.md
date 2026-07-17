@@ -209,11 +209,21 @@ Expert replay on `libero_spatial/task_5`, reset identity `20260727`: completed w
 
 Interpretation: recoverability is positive only at task level, not same-reset oracle. A valid comparable second prior is now required before any Ours proposal.
 
+## Post-Second-Prior 20260727 Spatial Second Prior
+
+Durable result:
+`reports/post_secondprior_libero_spatial_20260727_second_prior_result.json`
+`reports/post_secondprior_libero_spatial_20260727_second_prior_result.md`
+
+Quantized OpenVLA-OFT INT4 on `libero_spatial/task_5`, reset identity `20260727`: valid `libero_spatial_no_noops` support, 1/1 completed, 0/1 succeeded, 0 infrastructure failures, reward `0.0`, 230 steps including 10 wait steps, 28 action chunks, result SHA `ac550a1cf3c779495f645c6a9f9cf10d336d99723ddefdc872b803e19a69b0f1`, video SHA `83c8db433af3c9dfeeb030b4dbd062980c9ba8e347221019576efc91ebdbd2fb`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_spatial/task_5` identity `20260727` now has matched X-VLA failure, matched SmolVLA Base failure, task-level headroom positive, and clean comparable second-prior failure. It remains a potential target, but candidate generation/training still waits for a local data/supervision audit.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run a valid comparable second-prior gate for `libero_spatial/task_5`, reset identity `20260727`. Do not run candidate generation, Ours design, LoRA/QLoRA training, or any training until second prior is checked.
+Run a local data/supervision audit for `libero_spatial/task_5` before candidate generation, Ours design, LoRA/QLoRA training, or any training.
 
 ## Validation To Run Before Commit
 

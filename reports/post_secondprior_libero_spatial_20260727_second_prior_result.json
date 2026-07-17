@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T03:53:30+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_second_prior_launch": "d5afbe0f3ced6528f89e756e10892e5a58a2d56f",
+  "decision": "POST_SECONDPRIOR_LIBERO_SPATIAL_IDENTITY20260727_SECOND_PRIOR_CLEAN_FAILURE_TARGET_REMAINS",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "initial_state_sha256": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "run_dir": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "SECOND_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "quantized_openvla_oft_int4",
+    "variant": "int4",
+    "full_precision_claim": false,
+    "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+    "model_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "valid_support_check": {
+      "runtime_unnormalization_key": "libero_spatial_no_noops",
+      "dataset_statistics_contains_libero_spatial_no_noops": true,
+      "no_unsupported_proxy_used": true
+    },
+    "windows_launcher_pid": 16052,
+    "cuda_peak_mib": 5598.559,
+    "simulator_episode_count": 1,
+    "model_forward_count": 28,
+    "model_forward_count_source": "episode.action_chunk_count"
+  },
+  "matched_gate_references": {
+    "xvla_prior_report_json": "reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json",
+    "smolvla_base_report_json": "reports/post_secondprior_libero_spatial_20260727_base_gate_result.json",
+    "headroom_report_json": "reports/post_secondprior_libero_spatial_20260727_headroom_result.json",
+    "xvla_task5_result_sha256": "9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be",
+    "smolvla_base_result_sha256": "353e3d66bd98696f2a5d64e86f3eb72295b61b18091aba56fdda09da0b3e0941",
+    "headroom_result_sha256": "42c0b9e287904a7781cf077397c64578a3a5fb7ab651f30f85f810f18eb44fb9",
+    "same_suite_task_identity_and_initial_state": true
+  },
+  "result": {
+    "completed_episode_count": 1,
+    "successful_episode_count": 0,
+    "infrastructure_failure_count": 0,
+    "success": false,
+    "done": false,
+    "final_reward": 0.0,
+    "steps": 230,
+    "max_steps": 220,
+    "num_steps_wait": 10,
+    "action_chunk_count": 28,
+    "load_seconds": 15.374,
+    "elapsed_seconds": 52.916,
+    "initial_state_sha256_runtime": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+    "initial_state_hash_matches_manifest": true,
+    "unnormalization_key": "libero_spatial_no_noops",
+    "video_path": "./rollouts/2026_07_18/2026_07_18-03_51_44--openvla_oft--episode=110000--success=False--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4",
+    "video_sha256": "83c8db433af3c9dfeeb030b4dbd062980c9ba8e347221019576efc91ebdbd2fb",
+    "second_prior_solved_residual": false,
+    "second_prior_clean_failure": true,
+    "ours_candidate_authorized": false,
+    "training_authorized": false
+  },
+  "policy_latency_seconds": {
+    "count": 28,
+    "mean": 0.569677,
+    "max": 3.160983
+  },
+  "environment_latency_seconds": {
+    "count": 230,
+    "mean": 0.138662,
+    "max": 3.308415
+  },
+  "cuda_memory": {
+    "allocated_mib": 4831.414,
+    "max_allocated_mib": 5598.559
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/result.json",
+      "sha256": "ac550a1cf3c779495f645c6a9f9cf10d336d99723ddefdc872b803e19a69b0f1",
+      "length_bytes": 11116
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/stdout.log",
+      "sha256": "196d8d00afcd3c9c91265b658dc2899509caf6d1f00e8400168d643992107ce9",
+      "length_bytes": 3480
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/stderr.log",
+      "sha256": "846de4905c3c27b2a7eba786e34fb4c5b31a2e7b9f0432d56c9ff3efd029a431",
+      "length_bytes": 7872
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/exit_code.txt",
+      "sha256": "9585fbece5c402088f2d6a2def7e60d1c7ffecc24b16d32d5823a064b008935b",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/resume_command.ps1",
+      "sha256": "100b83cc5ce4648c9da6d74c3dfca76e81aec86d9500e2ccb8a1adf9b35c0b73",
+      "length_bytes": 949
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/worker_started_at.txt",
+      "sha256": "96028734587592f10bbb7052a872cf57c554db0325f2e718cfebc38ae670eae1",
+      "worker_started_at": "2026-07-18T03:51:25.6765417+09:00"
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/windows_launcher_pid.txt",
+      "sha256": "341b917e02ade366cc4a41eb854e2af5ff1c21c2be75b3da2fdcd13a996c92d9",
+      "windows_launcher_pid": 16052
+    },
+    {
+      "path": "rollouts/2026_07_18/2026_07_18-03_51_44--openvla_oft--episode=110000--success=False--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4",
+      "sha256": "83c8db433af3c9dfeeb030b4dbd062980c9ba8e347221019576efc91ebdbd2fb",
+      "length_bytes": 96494
+    },
+    {
+      "path": "tca_map/openvla_oft_int4_gate.py",
+      "sha256": "c2c20652cccc23afcc0e22a5a727712779a5fc9c824f149741159136b1a0c082",
+      "length_bytes": 55565
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10/dataset_statistics.json",
+      "sha256": "6ec6ef68d0d5bae4cb5f9fc9acb715a22b9f4545e9e9b300d0d88695cd7afec3"
+    }
+  ],
+  "next_action": "Run a local data/supervision audit for libero_spatial/task_5 before any candidate generation, Ours design, LoRA/QLoRA training, or training."
+}
