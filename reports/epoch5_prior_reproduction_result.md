@@ -1888,6 +1888,7 @@ After spatial task 5 failed the second-prior gate, a bounded local official
 | Suite | Summary artifact | SHA-256 | Result |
 |---|---|---|---|
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST/scan_summary.json` | `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f` | 10/10 succeeded, zero infrastructure failures |
+| `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks10_19_post_secondprior_20260717T235259KST/scan_summary.json` | `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed` | actual tasks 10..29 succeeded 20/20, zero infrastructure failures |
 
 Manifest SHA-256:
 `aa6e77ec348f44e635c36fe5ff84cf83a56598ed074209a22a026b9cd113e503`.
@@ -1899,3 +1900,13 @@ Task-9 result SHA-256:
 No training, optimizer step, checkpoint, or closed-loop Ours evaluation
 happened. Interpretation: this LIBERO-90 shard is saturated for X-VLA and does
 not provide a fresh residual target.
+
+Follow-on shard note: the second output root says `tasks10_19`, but the worker's
+fourth argument is `TASK_COUNT`; the launch used `start_task_id=10,
+task_count=20`, so the actual completed task range is `10..29`. Manifest
+SHA-256:
+`a08af2ec6fa1ee98a632f56828aa5eb4e6e79fd507a08555452513f56aaf13ae`.
+Task-10 result SHA-256:
+`79d06407d1f6ad34a6b1559877e297b19bb6cdcbfbc0f57855045681787f0536`.
+Task-29 result SHA-256:
+`ad36b2f9f03ce297cc9ec3c49e7fbed16abd059ee1dd02bb651ec7c21dffc3f7`.
