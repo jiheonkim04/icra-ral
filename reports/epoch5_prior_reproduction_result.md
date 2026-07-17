@@ -4,7 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Decision: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`
+Decision: `R2R_OFT_TRAINING_CONFIG_FROZEN`
 
 Epoch 5 has now completed the selected-prior-first diagnostic sequence without
 designing Ours, training, downloading assets, or attempting full-BF16
@@ -288,9 +288,47 @@ gradients within local VRAM.
 
 Gate result: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`.
 
+## `R2R-OFT` Bounded Training Configuration Freeze
+
+Status: `FROZEN_PASS`
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_r2r_oft_training_spec_v1.json`.
+
+SHA-256:
+`1875b93f9249597c026f20b0bea32b13751a2df366612b209d6df96eb6870ddb`.
+
+The first optimizer-step training attempt is now constrained to exactly two
+arms:
+
+| Arm | Role | Rank / alpha | Lambda | Max optimizer steps |
+|---|---|---:|---:|---:|
+| `r2r_oft_rank4_lambda2_lr2e4_steps64` | primary selected method | 4 / 8 | 2.0 | 64 |
+| `uniform_oft_rank4_lambda0_lr2e4_steps64` | uniform-weight ablation | 4 / 8 | 0.0 | 64 |
+
+Shared constraints:
+
+- single local CUDA 16 GB, INT4 prior load only;
+- no full-BF16 OpenVLA-OFT load;
+- two OpenVLA-OFT images, proprioception, continuous L1, 8-step 7D chunks;
+- train demos `0..39`, validation demos `40..49`;
+- deterministic phase cycle `[1, 0, 1, 2]`;
+- trainable components: VLA LoRA adapters only;
+- frozen components: prior action head and prior proprio projector;
+- save/evaluate at steps `16`, `32`, and `64`;
+- maximum CUDA peak memory: 14,500 MiB;
+- maximum wall time: 90 minutes per arm.
+
+Selection is offline-first. The residual reset identities `20260721` and
+`20260722` must not be used for model selection or retuning. Closed-loop
+evaluation on the frozen residual manifest is allowed only after an offline
+gate; if it fails, no new configuration may be generated from those resets.
+
+Gate result: `R2R_OFT_TRAINING_CONFIG_FROZEN`.
+
 ## Next Decision
 
-The next action is to freeze a bounded `R2R-OFT` training configuration,
-resumability contract, and validation-selection metric before any optimizer-step
-training. Preserve the caveat that current upper/headroom evidence is
-task-level, not same-reset.
+The next action is to implement or launch only the frozen two-arm training plan
+in a detached WSL job, recording PID, log path, heartbeat, and commit before the
+first optimizer step. Preserve the caveat that current upper/headroom evidence
+is task-level, not same-reset.

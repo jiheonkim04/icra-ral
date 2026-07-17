@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_r2r_oft_qlora_gradient_smoke_passed",
-  "decision": "R2R_OFT_QLORA_GRADIENT_SMOKE_PASS",
+  "stage": "epoch_5_r2r_oft_training_config_frozen",
+  "decision": "R2R_OFT_TRAINING_CONFIG_FROZEN",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
@@ -14,6 +14,7 @@
   "qlora_gradient_smoke_happened": true,
   "optimizer_step_happened": false,
   "checkpoint_written": false,
+  "training_config_frozen": true,
   "new_download_happened": false,
   "residual_simulator_rollout_happened_after_preregistration": true,
   "headroom_simulator_replay_happened": true,
@@ -34,6 +35,12 @@
     "git_diff_check": "PASS",
     "governance_check": "PASS",
     "tree_check": "PASS"
+  },
+  "validation_after_training_spec_freeze": {
+    "training_spec_json_parse": "PASS",
+    "pytest_command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_r2r_oft_training_spec.py tests\\test_r2r_oft_data_audit.py tests\\test_openvla_oft_int4_gate.py -q",
+    "pytest_exit_code": 0,
+    "pytest_stdout_summary": "11 passed"
   },
   "official_sources": {
     "project_page": "https://openvla-oft.github.io/",
@@ -335,6 +342,62 @@
     "checkpoint_written": false,
     "decision": "R2R_OFT_QLORA_GRADIENT_SMOKE_PASS"
   },
+  "r2r_oft_training_config_freeze": {
+    "status": "FROZEN_PASS",
+    "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_training_spec_v1.json",
+    "artifact_sha256": "1875b93f9249597c026f20b0bea32b13751a2df366612b209d6df96eb6870ddb",
+    "training_happened_at_freeze": false,
+    "optimizer_step_happened_at_freeze": false,
+    "checkpoint_written_at_freeze": false,
+    "max_total_training_arms": 2,
+    "arms": [
+      {
+        "arm_id": "r2r_oft_rank4_lambda2_lr2e4_steps64",
+        "role": "primary_selected_method",
+        "lora_rank": 4,
+        "lora_alpha": 8,
+        "phase_weight_lambda": 2.0,
+        "learning_rate": 0.0002,
+        "max_optimizer_steps": 64
+      },
+      {
+        "arm_id": "uniform_oft_rank4_lambda0_lr2e4_steps64",
+        "role": "uniform_weight_ablation",
+        "lora_rank": 4,
+        "lora_alpha": 8,
+        "phase_weight_lambda": 0.0,
+        "learning_rate": 0.0002,
+        "max_optimizer_steps": 64
+      }
+    ],
+    "shared_constraints": {
+      "load_in_4bit": true,
+      "full_bf16_attempted": false,
+      "train_demo_indices": "0..39",
+      "validation_demo_indices": "40..49",
+      "phase_cycle": [
+        1,
+        0,
+        1,
+        2
+      ],
+      "trainable_components": [
+        "vla_lora_adapters"
+      ],
+      "frozen_components": [
+        "prior_action_head",
+        "prior_proprio_projector"
+      ],
+      "max_cuda_peak_mib": 14500
+    },
+    "selection_policy": {
+      "selection_source": "offline_validation_only_before_closed_loop",
+      "residual_resets_used_for_model_selection": false,
+      "retuning_on_residual_reset_identities_allowed": false,
+      "third_configuration_allowed": false
+    },
+    "decision": "R2R_OFT_TRAINING_CONFIG_FROZEN"
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Freeze bounded R2R-OFT training configuration, resumability contract, and validation-selection metric before any optimizer-step training, preserving the task-level-not-same-reset headroom caveat."
+  "next_action": "Implement or launch only the frozen two-arm R2R-OFT training plan in a detached WSL job, recording PID, log path, heartbeat, and commit before the first optimizer step, while preserving the task-level-not-same-reset headroom caveat."
 }

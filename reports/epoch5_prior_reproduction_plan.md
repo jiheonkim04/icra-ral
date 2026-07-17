@@ -157,7 +157,7 @@ identity mismatch must be carried into Ours design and claims.
 
 ## Current Gate Result
 
-Decision: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`.
+Decision: `R2R_OFT_TRAINING_CONFIG_FROZEN`.
 
 Ours design is now permitted only for the exact task-8 residual limitation and
 must generate at most two candidates. Do not broaden into a generic method
@@ -233,5 +233,33 @@ Summary:
 
 Decision: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`.
 
-Next step: freeze bounded `R2R-OFT` training configuration, resumability, and
-validation-selection rules before any optimizer-step training.
+## Frozen `R2R-OFT` Bounded Training Configuration
+
+Execution status: `FROZEN_PASS`
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_r2r_oft_training_spec_v1.json`.
+
+SHA-256:
+`1875b93f9249597c026f20b0bea32b13751a2df366612b209d6df96eb6870ddb`.
+
+Frozen matrix:
+
+1. `r2r_oft_rank4_lambda2_lr2e4_steps64`: primary selected method.
+2. `uniform_oft_rank4_lambda0_lr2e4_steps64`: uniform-weight ablation.
+
+Both arms use rank-4 / alpha-8 LoRA, the same train/validation split, the same
+deterministic phase cycle `[1, 0, 1, 2]`, INT4 prior loading, no full-BF16
+OpenVLA-OFT load, and a 64-step optimizer limit. Only VLA LoRA adapters are
+trainable; the prior action head and proprio projector are frozen.
+
+Selection is offline-first. The residual reset identities `20260721` and
+`20260722` are disallowed for model selection or retuning. Closed-loop
+evaluation on the frozen residual manifest may happen only after the offline
+gate and may not create a third configuration.
+
+Decision: `R2R_OFT_TRAINING_CONFIG_FROZEN`.
+
+Next step: implement or launch only this frozen two-arm training plan in a
+detached WSL job, recording PID, log path, heartbeat, and commit before the
+first optimizer step.

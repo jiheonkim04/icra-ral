@@ -84,8 +84,9 @@ so Ours claims must stay narrow and explicitly carry that caveat.
 
 ## Next Action
 
-Freeze bounded `R2R-OFT` training configuration, resumability, and
-validation-selection rules before any optimizer-step training.
+Implement or launch only the frozen two-arm `R2R-OFT` training plan in a
+detached WSL job. Record PID, log path, heartbeat, and commit before the first
+optimizer step.
 
 Selected method:
 
@@ -138,6 +139,21 @@ QLoRA gradient smoke result:
 - gradient global norm: 4.082890925442449;
 - CUDA allocated/peak: 5,917.196 / 8,121.43 MiB;
 - training run / optimizer step / checkpoint written: false / false / false.
+
+Training config freeze:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training_spec_v1.json`;
+- SHA-256:
+  `1875b93f9249597c026f20b0bea32b13751a2df366612b209d6df96eb6870ddb`;
+- arms: primary `r2r_oft_rank4_lambda2_lr2e4_steps64`, ablation
+  `uniform_oft_rank4_lambda0_lr2e4_steps64`;
+- max steps: 64 per arm;
+- trainable: VLA LoRA adapters only;
+- frozen: prior action head and proprio projector;
+- selection: offline validation before closed-loop;
+- residual resets `20260721` and `20260722` cannot be used for selection or
+  retuning.
 
 ## Prohibitions
 
