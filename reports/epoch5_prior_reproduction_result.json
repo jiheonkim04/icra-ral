@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-17",
+  "branch": "codex/epoch5-official-prior-first",
+  "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
+  "stage": "epoch_5_official_prior_ecosystem_selection",
+  "decision": "OPENVLA_OFT_PRIOR_REPRODUCTION_RECOVERED_AND_VALIDATED_RESIDUAL_PENDING",
+  "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
+  "ordinary_cycle_39_method_search_superseded": true,
+  "mci_rescue_or_retune_happened": false,
+  "new_method_candidate_generated": false,
+  "training_happened": false,
+  "new_rollout_happened": false,
+  "new_download_happened": false,
+  "focused_validation": {
+    "command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_openvla_oft_int4_gate.py -q",
+    "exit_code": 0,
+    "stdout_summary": "4 passed in 0.10s"
+  },
+  "official_sources": {
+    "project_page": "https://openvla-oft.github.io/",
+    "paper": "https://arxiv.org/abs/2502.19645",
+    "code": "https://github.com/moojink/openvla-oft",
+    "libero_instructions": "https://github.com/moojink/openvla-oft/blob/main/LIBERO.md",
+    "combined_checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10"
+  },
+  "local_prior_artifacts": {
+    "result_json": "reports/openvla_oft_quantized_hard_slice_result.json",
+    "manifest_json": "reports/openvla_oft_quantized_hard_slice_manifest.json",
+    "openvla_run_json": "runs/openvla_oft_int4/hard_slice_openvla_int4.json",
+    "smolvla_base_run_json": "runs/openvla_oft_int4/hard_slice_smolvla_exact.json",
+    "policy_load_report": "reports/openvla_oft_int4_policy_load_result.md",
+    "memory_preflight_report": "reports/openvla_oft_int4_memory_preflight.md"
+  },
+  "local_checkpoint": {
+    "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "du_size": "15G",
+    "visible_size_gib_from_prior_result": 14.845,
+    "revision_from_prior_result": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7"
+  },
+  "matched_diagnostic": {
+    "condition": "existing hard-slice exact-init diagnostic",
+    "openvla_oft_int4_successes": 20,
+    "openvla_oft_int4_total": 20,
+    "smolvla_frozen_base_successes": 11,
+    "smolvla_frozen_base_total": 20,
+    "prior_positive_effect": true,
+    "residual_gap_remaining_on_this_condition": false,
+    "condition_saturated_by_prior": true
+  },
+  "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
+  "next_action": "Preregister and run a bounded residual-gap diagnostic for OpenVLA-OFT before designing Ours; if no residual remains, move to pi0.5/OpenPI."
+}

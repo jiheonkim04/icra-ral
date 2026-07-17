@@ -1,13 +1,29 @@
 # Autonomous RA-L Decision
 
-Date: 2026-07-16 KST
+Date: 2026-07-17 KST
 
 Current decision:
-`MCI_STAGE_0_IMPLEMENTATION_FAILURE`
+`STRATEGIC_NEW_EPOCH_OFFICIAL_PRIOR_FIRST`
 
 This is not a terminal decision.
 
 Active governance: `reports/current_research_governance.md`
+
+Current epoch: `5`
+
+Current cycle: `0`
+
+Current stage: `epoch_5_official_prior_ecosystem_selection`
+
+## Epoch 5 Official-Prior-First Transition
+
+Epoch 5 supersedes the pending Cycle 39 local candidate search by strategic
+reset, not by a scientific kill. The selected prior ecosystem is OpenVLA-OFT on
+LIBERO, with pi0.5/OpenPI LIBERO and Policy Contrastive Decoding retained as
+ordered fallbacks.
+
+No new Ours method candidate is authorized yet. The current next action is a
+bounded residual-gap diagnostic for the selected official prior ecosystem.
 
 Allowed terminal decisions:
 
@@ -80,8 +96,9 @@ adjudication corrected the final decision to
 `weighted_gradient_norm_ratio_max = 324.58415151749057` exceeded the frozen
 objective-scale limit `100.0`. This is not a closed-loop scientific result or
 scientific kill. No MCI rescue, retuning, threshold change, or rerun is
-allowed. The next action is to generate exactly three Cycle 39 candidates
-under the current governance.
+allowed. That Cycle 39 candidate search is now superseded by the Epoch 5
+official-prior-first strategy reset; do not generate three local method
+candidates from this section.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 

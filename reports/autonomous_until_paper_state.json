@@ -10,15 +10,15 @@
     "maximum_total_gpu_time_hours": 24,
     "maximum_wall_time_hours_per_cycle": 12,
     "maximum_single_uncheckpointed_command_hours": 4,
-    "current_epoch": 4,
-    "current_cycle": 39,
-    "current_topic": "epoch_4_cycle_39_candidate_search_pending",
-    "current_branch": "codex/autonomous-until-paper-governance-v2",
-    "current_commit": "c155008",
+    "current_epoch": 5,
+    "current_cycle": 0,
+    "current_topic": "epoch_5_official_prior_ecosystem_selection",
+    "current_branch": "codex/epoch5-official-prior-first",
+    "current_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
     "base_research_branch": "codex/censorcredit-one-repair-and-final-method",
     "base_research_commit": "06cf915aefa57eb0c86160fb991a763b3ed323b2",
     "expected_main_commit": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
-    "current_stage": "epoch_4_cycle_39_candidate_search_pending",
+    "current_stage": "epoch_5_official_prior_ecosystem_selection",
     "completed_stages": [
         "starting_state_verified",
         "historical_evidence_inspected",
@@ -793,7 +793,8 @@
         "epoch_4_cycle_38_mci_stage_0_completed",
         "epoch_4_cycle_38_mci_stage_0_adjudicated",
         "epoch_4_cycle_38_mci_implementation_failure_recorded",
-        "epoch_4_cycle_39_candidate_search_pending"
+        "epoch_4_cycle_39_candidate_search_superseded_by_epoch_5",
+        "epoch_5_official_prior_ecosystem_selection_started"
     ],
     "active_hypothesis": "RoVLA-style multi-consistency invariance can make a frozen-SmolVLA adapter robust to task-preserving language, observation, proprioception, and action-evolution perturbations while preserving exact Base behavior at zero gate.",
     "method_identity": "MCI-VLA",
@@ -814,7 +815,7 @@
     "download_amount_gib_this_epoch": 0.0,
     "download_amount_gib_campaign": 14.845,
     "disk_free_bytes": 382861287424,
-    "current_decision": "MCI_STAGE_0_IMPLEMENTATION_FAILURE",
+    "current_decision": "STRATEGIC_NEW_EPOCH_OFFICIAL_PRIOR_FIRST",
     "stage_a_result_json": null,
     "stage_a_result_md": null,
     "stage_b_partial_checkpoint": null,
@@ -915,7 +916,7 @@
         "mechanism_active": true,
         "kill_reason": "PTC full was exactly 0.30 task-balanced success below the strongest baseline with zero exceptions and active transition mechanism."
     },
-    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2",
+    "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/epoch5-official-prior-first",
     "latest_verified_prior_decision": "NO_VALID_CENSORCREDIT_REPAIR_FINAL_METHOD_KILLED",
     "valid_final_states": [
         "READY_TO_DRAFT_RAL_PAPER_PACKAGE",
@@ -923,8 +924,8 @@
         "HARD_EXTERNAL_BLOCKER",
         "SAFETY_RESOURCE_STOP"
     ],
-    "next_action": "Generate exactly three Cycle 39 candidates under the current governance; do not rescue or retune MCI-VLA.",
-    "method": "MCI-VLA",
+    "next_action": "Select exactly three official external-prior ecosystems, score them, select one ecosystem, and attempt official-prior reproduction before designing any Ours method.",
+    "method": null,
     "epoch_2_cycle_2_outcome": {
         "method": "SACF-VLA",
         "valid_current_formulation_kill": true,
@@ -2674,7 +2675,7 @@
         "exact_resume_command": "cd /d C:\\Users\\jiheo\\tca_map && git switch codex/autonomous-until-paper-governance-v2 && wsl -d Ubuntu-22.04 bash -lc \"cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_dagr_vla_stage_a.py --mode stage-b\"",
         "next_stage": "Run frozen DAGR Stage B official WSL rollout."
     },
-    "topic": "epoch_4_cycle_39_candidate_search_pending",
+    "topic": "epoch_5_official_prior_ecosystem_selection",
     "epoch_4_cycle_7_dagr_stage_b_outcome": {
         "method": "DAGR-VLA",
         "config_id": "dagr_a020_route_mlp",
@@ -14168,11 +14169,34 @@
         "mci_rescue_allowed": false
     },
     "epoch_4_cycle_39_candidate_search": {
-        "candidate_search_pending": true,
+        "candidate_search_pending": false,
         "candidate_count_required": 3,
         "previous_method": "MCI-VLA",
         "previous_decision": "MCI_STAGE_0_IMPLEMENTATION_FAILURE",
         "mci_rescue_allowed": false,
-        "next_stage": "Generate exactly three Cycle 39 candidates under the current governance."
+        "superseded_by": "epoch_5_official_prior_ecosystem_selection",
+        "superseded_reason": "User accepted full-history audit and corrected strategy to OFFICIAL-PRIOR-FIRST METHOD DEVELOPMENT; this is not a scientific kill.",
+        "next_stage": "Do not generate ordinary Cycle 39 local method candidates."
+    },
+    "epoch_5_official_prior_ecosystem_selection": {
+        "started": true,
+        "current_stage": "epoch_5_official_prior_ecosystem_selection",
+        "current_decision": "STRATEGIC_NEW_EPOCH_OFFICIAL_PRIOR_FIRST",
+        "audit_report": "reports/autonomous_research_full_history_audit.md",
+        "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
+        "branch": "codex/epoch5-official-prior-first",
+        "previous_method": "MCI-VLA",
+        "previous_decision": "MCI_STAGE_0_IMPLEMENTATION_FAILURE",
+        "mci_rescue_allowed": false,
+        "ordinary_exact_three_local_method_search_superseded": true,
+        "method_candidate_generation_allowed": false,
+        "required_next_artifacts": [
+            "reports/epoch5_prior_ecosystem_selection.md",
+            "reports/epoch5_prior_reproduction_plan.md",
+            "reports/epoch5_prior_reproduction_result.md",
+            "reports/epoch5_prior_reproduction_result.json",
+            "reports/autonomous_compact_handoff.md"
+        ],
+        "next_action": "Search primary literature and official artifacts; select exactly three prior ecosystems; choose one for official-prior reproduction before any Ours design."
     }
 }

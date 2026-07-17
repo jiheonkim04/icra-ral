@@ -1,19 +1,34 @@
 # Autonomous RA-L Campaign State
 
-Date: 2026-07-16 KST
+Date: 2026-07-17 KST
 
 Active governance: `reports/current_research_governance.md`
 
-Current branch: `codex/autonomous-until-paper-governance-v2`
+Current branch: `codex/epoch5-official-prior-first`
 
 Current decision:
-`MCI_STAGE_0_IMPLEMENTATION_FAILURE`
+`STRATEGIC_NEW_EPOCH_OFFICIAL_PRIOR_FIRST`
 
-Current epoch: `4`
+Current epoch: `5`
 
-Current cycle: `39`
+Current cycle: `0`
 
-Current stage: `epoch_4_cycle_39_candidate_search_pending`
+Current stage: `epoch_5_official_prior_ecosystem_selection`
+
+## Epoch 5 Official-Prior-First Transition
+
+Epoch 5 supersedes the pending Cycle 39 local candidate search by strategic
+reset, not by a scientific kill. The current artifacts are
+`reports/epoch5_prior_ecosystem_selection.md`,
+`reports/epoch5_prior_reproduction_plan.md`,
+`reports/epoch5_prior_reproduction_result.md`,
+`reports/epoch5_prior_reproduction_result.json`, and the compact handoff
+`reports/autonomous_compact_handoff.md`.
+
+No new Ours method candidate is authorized yet. The current next action is a
+bounded residual-gap diagnostic for the selected official prior ecosystem, then
+fallback to the preregistered second or third prior only if the selected prior
+cannot provide a runnable matched Base/Prior diagnostic.
 
 ## Epoch 4 Cycle 38 MCI-VLA Candidate Selection
 
@@ -88,8 +103,9 @@ final decision to `MCI_STAGE_0_IMPLEMENTATION_FAILURE` because
 `weighted_gradient_norm_ratio_max = 324.58415151749057` exceeded the frozen
 objective-scale limit `100.0`. This is not a closed-loop scientific result or
 scientific kill. No MCI rescue, retuning, threshold change, or rerun is
-allowed. Immediate next action: generate exactly three Cycle 39 candidates
-under the current governance.
+allowed. That Cycle 39 candidate search is now superseded by the Epoch 5
+official-prior-first strategy reset; do not generate three local method
+candidates from this section.
 
 ## Epoch 4 Cycle 37 CSPR-VLA Candidate Selection
 
