@@ -175,14 +175,24 @@ X-VLA official-prior scan on `libero_object`, reset identity `20260726`, tasks `
 
 Interpretation: `libero_object` identity `20260726` is saturated and creates no Ours target.
 
+## Post-Calibration 20260726 Spatial Scan
+
+Durable result:
+`reports/post_calibration_libero_spatial_20260726_prior_scan_result.json`
+`reports/post_calibration_libero_spatial_20260726_prior_scan_result.md`
+
+X-VLA official-prior scan on `libero_spatial`, reset identity `20260726`, tasks `0..9`: 10/10 completed, 10/10 succeeded, 0 infrastructure failures, summary SHA `a21cd76d789a04d4a1befc51d7fa78d7d396a84bbb18a89ba57e1b61eaa45979`, manifest SHA `b65c6033ff477c3c6eebc0ea8d6e0f4a64121164b41417f1754bb35e62d4d2bb`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: supported `libero_goal`/`libero_object`/`libero_spatial` identity `20260726` scans are saturated and create no Ours target.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now. The saturated `20260725` supported-suite sweep and saturated `libero_goal`/`libero_object` identity `20260726` scans should not be re-run.
+Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now. The saturated `20260725` and `20260726` supported-suite sweeps should not be re-run.
 
 ## Validation To Run Before Commit
 
-- JSON parse: `reports/task75_local_evidence_manifest.json`, `reports/task75_second_prior_result.json`, `reports/post_task75_spatial_prior_scan_result.json`, `reports/post_calibration_libero_goal_prior_scan_result.json`, `reports/post_calibration_libero_object_prior_scan_result.json`, `reports/post_calibration_libero_goal_20260726_prior_scan_result.json`, `reports/post_calibration_libero_object_20260726_prior_scan_result.json`, `reports/epoch5_prior_reproduction_result.json`
+- JSON parse: task75 result/manifest, all `reports/post_calibration_*_prior_scan_result.json`, and `reports/epoch5_prior_reproduction_result.json`
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`
