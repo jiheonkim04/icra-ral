@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import h5py
 import numpy as np
 
+from tca_map.xvla_task1 import data_adapter_smoke
 from tca_map.xvla_task1.data_adapter_smoke import build_abs_action_6d, materialize_xvla_demo
 
 
@@ -42,3 +44,20 @@ def test_materialize_xvla_demo_writes_official_libero_keys(tmp_path: Path) -> No
     with h5py.File(output, "r") as handle:
         assert set(handle.keys()) == {"abs_action_6d", "agentview_rgb", "eye_in_hand_rgb", "language_instruction"}
         assert handle["language_instruction"][()].decode()
+
+
+def test_mmengine_fileio_shim_has_importlib_specs(monkeypatch) -> None:
+    monkeypatch.delitem(sys.modules, "mmengine", raising=False)
+    monkeypatch.delitem(sys.modules, "mmengine.fileio", raising=False)
+    original_find_spec = data_adapter_smoke.importlib.util.find_spec
+
+    def fake_find_spec(name: str, *args, **kwargs):
+        if name == "mmengine":
+            return None
+        return original_find_spec(name, *args, **kwargs)
+
+    monkeypatch.setattr(data_adapter_smoke.importlib.util, "find_spec", fake_find_spec)
+
+    assert data_adapter_smoke._install_mmengine_fileio_shim_if_needed() is True
+    assert sys.modules["mmengine"].__spec__ is not None
+    assert sys.modules["mmengine.fileio"].__spec__ is not None

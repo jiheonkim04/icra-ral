@@ -9,6 +9,7 @@ optimizer step.
 from __future__ import annotations
 
 import argparse
+import importlib.machinery
 import importlib.util
 import json
 import os
@@ -124,8 +125,13 @@ def materialize_adapter(source_hdf5: Path, output_dir: Path, demo_names: list[st
 
 
 def _install_mmengine_fileio_shim_if_needed() -> bool:
-    if importlib.util.find_spec("mmengine") is not None:
-        return False
+    try:
+        if importlib.util.find_spec("mmengine") is not None:
+            return False
+    except ValueError:
+        module = sys.modules.get("mmengine")
+        if module is None or getattr(module, "__spec__", None) is not None:
+            raise
 
     def _get(path: str) -> bytes:
         return Path(path).read_bytes()
@@ -149,13 +155,17 @@ def _install_mmengine_fileio_shim_if_needed() -> bool:
         return str(Path(parts[0]).joinpath(*parts[1:]))
 
     mmengine = types.ModuleType("mmengine")
-    mmengine.fileio = types.SimpleNamespace(  # type: ignore[attr-defined]
-        get=_get,
-        isdir=_isdir,
-        list_dir_or_file=_list_dir_or_file,
-        join_path=_join_path,
-    )
+    mmengine.__spec__ = importlib.machinery.ModuleSpec("mmengine", loader=None, is_package=True)
+    mmengine.__path__ = []  # type: ignore[attr-defined]
+    fileio = types.ModuleType("mmengine.fileio")
+    fileio.__spec__ = importlib.machinery.ModuleSpec("mmengine.fileio", loader=None)
+    fileio.get = _get  # type: ignore[attr-defined]
+    fileio.isdir = _isdir  # type: ignore[attr-defined]
+    fileio.list_dir_or_file = _list_dir_or_file  # type: ignore[attr-defined]
+    fileio.join_path = _join_path  # type: ignore[attr-defined]
+    mmengine.fileio = fileio  # type: ignore[attr-defined]
     sys.modules["mmengine"] = mmengine
+    sys.modules["mmengine.fileio"] = fileio
     return True
 
 
