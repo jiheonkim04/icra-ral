@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:52:58+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_training_gate_runner_implementation": "5f80f84df133385295d8bc11a44aee6e5f6b6a96",
+  "decision": "R2P_XVLA_SEQUENTIAL_TRAINING_GATE_IMPLEMENTED_TESTED_NOT_LAUNCHED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "CODE_AND_TEST_ONLY_SEQUENTIAL_TRAINING_GATE_IMPLEMENTATION",
+    "evidence_role": "TRAINING_LAUNCH_ORCHESTRATION_GATE",
+    "artifact_status": "TRACKED_GATE_CODE_TESTED_NO_RUNTIME_TRAINING_ARTIFACT",
+    "vla_model_loaded": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "offline_validation_runtime_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0
+  },
+  "tracked_artifacts": {
+    "runner": {
+      "path": "tca_map/xvla_spatial_task5/training_gate.py",
+      "sha256": "114b24869bffece3893feaf810b897f208da4397df80f659190a63d95ba6c713"
+    },
+    "tests": {
+      "path": "tests/test_r2p_xvla_training_gate.py",
+      "sha256": "91672b819bf4358501fcecc752524b2a5712b9f6a9b195cdaeffd7f922b36e38"
+    }
+  },
+  "runner_contracts_implemented": {
+    "runs_frozen_arms_in_spec_order": true,
+    "runs_offline_validation_after_full_64_step_arms": true,
+    "skips_offline_validation_only_for_debug_max_step_override": true,
+    "rejects_downloads_before_runtime_artifacts": true,
+    "writes_gate_worker_pid_status_heartbeat_exit_result": true,
+    "training_runner_keeps_output_root_guard": true,
+    "offline_runner_keeps_output_path_guard": true,
+    "closed_loop_rollout": false,
+    "residual_reward_checkpoint_selection": false
+  },
+  "validation": [
+    {
+      "command": "wsl.exe -- bash -lc \"cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m py_compile tca_map/xvla_spatial_task5/training_gate.py tests/test_r2p_xvla_training_gate.py\"",
+      "exit_code": 0,
+      "result": "passed"
+    },
+    {
+      "command": "wsl.exe -- bash -lc \"cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m pytest -q tests/test_r2p_xvla_training_gate.py\"",
+      "exit_code": 0,
+      "result": "3 passed, 1 existing SciPy/NumPy warning"
+    },
+    {
+      "command": "wsl.exe -- bash -lc \"cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m pytest -q tests/test_xvla_spatial_task5_training_spec.py tests/test_r2p_xvla_data_adapter_smoke.py tests/test_r2p_xvla_gradient_smoke.py tests/test_r2p_xvla_train_lora.py tests/test_r2p_xvla_offline_validate.py tests/test_r2p_xvla_training_gate.py\"",
+      "exit_code": 0,
+      "result": "23 passed, 1 existing SciPy/NumPy warning"
+    }
+  ],
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "offline_validation_runtime_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "downloads_performed": false
+  },
+  "next_action": "Record the explicit R2P-XVLA frozen optimizer-gate arming decision, then launch the sequential gate only if worker/output preflight remains clean."
+}

@@ -231,6 +231,8 @@ The runner fixes validation to demos `40..49`, rejects downloads and output-path
 
 Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bundle pytest `20 passed` with the existing SciPy/NumPy warning. No model/adapters were loaded and no offline validation runtime, optimizer, checkpoint, simulator, download, or Ours rollout happened.
 
+Sequential gate runner: `tca_map/xvla_spatial_task5/training_gate.py` with `tests/test_r2p_xvla_training_gate.py`; report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_runner_result.json`; decision `R2P_XVLA_SEQUENTIAL_TRAINING_GATE_IMPLEMENTED_TESTED_NOT_LAUNCHED`; expanded task5 bundle pytest `23 passed`. No training/runtime happened.
+
 ## Immediate Next Action
 
 Record the explicit R2P-XVLA frozen optimizer-gate arming decision. Do not change the frozen config; only after arming may bounded training launch under the existing gate.
