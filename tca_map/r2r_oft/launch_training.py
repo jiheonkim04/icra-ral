@@ -72,12 +72,12 @@ def build_launch_command(config: LaunchConfig) -> dict[str, Any]:
     launcher_stderr = f"{arm_dir_rel}/launcher_stderr.log"
     worker_pid = f"{arm_dir_rel}/worker_pid.txt"
     bash_command = (
-        f"cd {shlex.quote(repo_wsl)} && "
-        f"mkdir -p {shlex.quote(output_root_wsl + '/' + config.arm_id)} && "
+        f"cd {shlex.quote(repo_wsl)} || exit 90; "
+        f"mkdir -p {shlex.quote(output_root_wsl + '/' + config.arm_id)} || exit 91; "
         f"nohup bash -lc {shlex.quote(inner)} > {shlex.quote(launcher_stdout)} 2> {shlex.quote(launcher_stderr)} & "
         "pid=$!; "
-        f"echo $pid > {shlex.quote(worker_pid)}; "
-        "echo $pid"
+        f"printf '%s\\n' \"$pid\" > {shlex.quote(worker_pid)}; "
+        "printf '%s\\n' \"$pid\""
     )
     return {
         "arm": arm,
