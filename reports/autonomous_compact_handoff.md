@@ -137,14 +137,32 @@ X-VLA official-prior scan on `libero_goal`, reset identity `20260725`, tasks `0.
 
 Interpretation: `libero_goal` identity `20260725` is saturated and does not create an Ours target.
 
+## Post-Calibration Object Scan
+
+Durable result:
+`reports/post_calibration_libero_object_prior_scan_result.json`
+`reports/post_calibration_libero_object_prior_scan_result.md`
+
+X-VLA official-prior scan on `libero_object`, reset identity `20260725`, tasks `0..9`:
+
+- completed 10/10 tasks;
+- succeeded 10/10 tasks;
+- infrastructure failures: 0;
+- summary SHA `3640595f3d4549007d7c80e3546c8575ea9d2b8a5af019db227ec7c2bf4609b7`;
+- manifest SHA `0a3b39a1b4b6b66139b26bbd7f817c1b7cf7aa5f23b8bb2dcb08d2e64c824e0e`;
+- exit code `0`;
+- no training, optimizer step, checkpoint write, Ours design, or Ours rollout.
+
+Interpretation: supported `libero_goal`/`libero_object`/`libero_spatial` identity `20260725` scans are saturated and create no Ours target.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now. The saturated spatial and goal `20260725` scans should not be re-run.
+Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now. The saturated spatial, goal, and object `20260725` scans should not be re-run.
 
 ## Validation To Run Before Commit
 
-- JSON parse: `reports/task75_local_evidence_manifest.json`, `reports/task75_second_prior_result.json`, `reports/post_task75_spatial_prior_scan_result.json`, `reports/post_calibration_libero_goal_prior_scan_result.json`, `reports/epoch5_prior_reproduction_result.json`
+- JSON parse: `reports/task75_local_evidence_manifest.json`, `reports/task75_second_prior_result.json`, `reports/post_task75_spatial_prior_scan_result.json`, `reports/post_calibration_libero_goal_prior_scan_result.json`, `reports/post_calibration_libero_object_prior_scan_result.json`, `reports/epoch5_prior_reproduction_result.json`
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`
