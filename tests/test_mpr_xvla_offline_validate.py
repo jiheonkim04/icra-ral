@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import inspect
 from pathlib import Path
 
 import h5py
 import numpy as np
 
 from tca_map.xvla_task6.offline_validate import (
+    _evaluate_policy_rows,
     _summarize_action_delta,
     _summarize_policy_rows,
     select_fixed_validation_clips,
@@ -75,3 +77,9 @@ def test_task6_summarize_action_delta_against_prior() -> None:
 
     assert delta["fixed_chunk_mean_abs_action_delta"] == 0.375
     assert delta["fixed_chunk_max_abs_action_delta"] == 1.0
+
+
+def test_task6_evaluate_policy_rows_receives_frozen_spec() -> None:
+    signature = inspect.signature(_evaluate_policy_rows)
+
+    assert "spec" in signature.parameters

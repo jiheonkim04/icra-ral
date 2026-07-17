@@ -195,6 +195,7 @@ def _evaluate_policy_rows(
     phase_weight_lambda: float,
     clips: list[dict[str, Any]],
     config: OfflineValidationConfig,
+    spec: dict[str, Any],
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     started = time.monotonic()
     model = None
@@ -342,6 +343,7 @@ def run_offline_validation(config: OfflineValidationConfig) -> dict[str, Any]:
                 phase_weight_lambda=float(phase_lambda),
                 clips=clips,
                 config=config,
+                spec=spec,
             )
             all_rows[label] = rows
             runtimes[label] = runtime
