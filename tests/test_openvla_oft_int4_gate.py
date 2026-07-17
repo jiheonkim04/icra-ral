@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 REPORTS = REPO_ROOT / "reports"
@@ -69,3 +71,28 @@ def test_decision_report_blocks_libero_pro_and_method_design() -> None:
     assert "full-precision OpenVLA-OFT claim" in decision
     assert "LIBERO-PRO justified now: `false`" in decision
     assert "stop method design" in decision
+
+
+def test_epoch5_residual_manifest_controls_are_explicit_and_matched() -> None:
+    from tca_map import openvla_oft_int4_gate as openvla
+    from tca_map.smolvla import exact_hard_slice_rollout as smolvla
+
+    task_specs = "libero_10:8:epoch5_two_moka_pots,libero_10:9:epoch5_microwave_close"
+    reset_ids = "20260716,20260717"
+
+    assert openvla._parse_task_specs(task_specs) == [
+        {"suite": "libero_10", "task_id": 8, "role": "epoch5_two_moka_pots"},
+        {"suite": "libero_10", "task_id": 9, "role": "epoch5_microwave_close"},
+    ]
+    assert smolvla._parse_task_specs(task_specs) == openvla._parse_task_specs(task_specs)
+    assert openvla._parse_reset_identities(reset_ids) == [20260716, 20260717]
+    assert smolvla._parse_reset_identities(reset_ids) == [20260716, 20260717]
+
+    assert openvla._identity_to_initial_state_index(20260711) == 0
+    assert openvla._identity_to_initial_state_index(20260716) == 5
+    assert smolvla._identity_to_initial_state_index(20260760) == 49
+
+    with pytest.raises(ValueError):
+        openvla._identity_to_initial_state_index(20260761)
+    with pytest.raises(ValueError):
+        smolvla._parse_reset_identities("20260716,20260716")

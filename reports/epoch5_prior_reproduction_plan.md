@@ -61,3 +61,56 @@ Do not design Ours yet. The next scientific step is to preregister and run a sma
 - language-grounding or visual-feedback cases motivated by the OpenVLA-OFT paper's own qualitative discussion.
 
 If no residual remains, move to pi0.5/OpenPI as the second-ranked ecosystem rather than inventing a proxy-only local method.
+
+## Preregistered Residual Diagnostic: `epoch5_libero10_residual_v1`
+
+The first residual diagnostic is a bounded LIBERO-10 long-horizon expansion
+using official LIBERO tasks that were not in the saturated hard-slice result.
+
+Rationale:
+
+- OpenVLA-OFT reports very strong but non-perfect LIBERO performance, so a
+  residual, if locally accessible, is most likely to appear on long-horizon
+  LIBERO-10 tasks rather than already-saturated spatial/control tasks.
+- Task IDs `8` and `9` are official LIBERO-10 tasks, share the selected
+  OpenVLA-OFT checkpoint's action/observation semantics, and were not evaluated
+  in the recovered hard-slice condition.
+- Reset labels `20260716..20260723` map to official initial-state indices
+  `5..12`, disjoint from the recovered hard-slice indices `0..4`.
+
+Frozen manifest:
+
+| Field | Value |
+|---|---|
+| Label | `epoch5_libero10_residual_v1` |
+| Tasks | `libero_10/task_8` "put both moka pots on the stove"; `libero_10/task_9` "put the yellow and white mug in the microwave and close it" |
+| Reset identities | `20260716,20260717,20260718,20260719,20260720,20260721,20260722,20260723` |
+| Episodes per policy | `16` |
+| Policies | SmolVLA frozen-base exact-init; Quantized OpenVLA-OFT INT4 |
+| Matched row SHA-256 | `13642c7bed5e7d5944f7377e9848aeec1b9090be96d110362b53bc9cd9a3b3b2` |
+| OpenVLA manifest | `runs/openvla_oft_int4/epoch5_libero10_residual_openvla_manifest.json` |
+| SmolVLA manifest | `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_manifest.json` |
+
+Execution boundaries:
+
+- no new download;
+- no training or fine-tuning;
+- no full-BF16 OpenVLA-OFT load;
+- no Ours method, method candidate, or local proxy;
+- stop after two identical infrastructure failures, matching the existing
+  runner safety behavior.
+
+Decision rules:
+
+- `RESIDUAL_FOUND_PRIOR_POSITIVE`: Base has meaningful failure, OpenVLA-OFT
+  improves over Base, and OpenVLA-OFT leaves at least one measured failure.
+- `PRIOR_SATURATED_NEXT_CONDITION`: OpenVLA-OFT succeeds on all 16 episodes;
+  do not design Ours for this condition.
+- `PRIOR_NOT_POSITIVE_ON_CONDITION`: OpenVLA-OFT does not improve over Base;
+  do not design Ours from this condition.
+- `INFRASTRUCTURE_BLOCKED`: simulator/model execution fails under the safety
+  rules; repair only the runner or move to the next selected prior ecosystem.
+
+If residual is found, run the smallest available upper-bound/headroom check
+before any Ours design. If no residual remains, preregister the next
+claim-specific condition or fall back to pi0.5/OpenPI.

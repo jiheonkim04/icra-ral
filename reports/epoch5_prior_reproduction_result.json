@@ -48,6 +48,54 @@
     "residual_gap_remaining_on_this_condition": false,
     "condition_saturated_by_prior": true
   },
+  "residual_diagnostic_preregistration": {
+    "status": "PREREGISTERED_NOT_RUN",
+    "label": "epoch5_libero10_residual_v1",
+    "tasks": [
+      {
+        "suite": "libero_10",
+        "task_id": 8,
+        "instruction": "put both moka pots on the stove"
+      },
+      {
+        "suite": "libero_10",
+        "task_id": 9,
+        "instruction": "put the yellow and white mug in the microwave and close it"
+      }
+    ],
+    "reset_identities": [
+      20260716,
+      20260717,
+      20260718,
+      20260719,
+      20260720,
+      20260721,
+      20260722,
+      20260723
+    ],
+    "initial_state_indices": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "episodes_per_policy": 16,
+    "policies": [
+      "smolvla_frozen_base_exact_init",
+      "quantized_openvla_oft_int4"
+    ],
+    "matched_row_sha256": "13642c7bed5e7d5944f7377e9848aeec1b9090be96d110362b53bc9cd9a3b3b2",
+    "openvla_manifest_path": "runs/openvla_oft_int4/epoch5_libero10_residual_openvla_manifest.json",
+    "smolvla_manifest_path": "runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_manifest.json",
+    "downloads_happened": false,
+    "training_happened": false,
+    "full_bf16_attempted": false,
+    "ours_design_authorized": false
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
   "next_action": "Preregister and run a bounded residual-gap diagnostic for OpenVLA-OFT before designing Ours; if no residual remains, move to pi0.5/OpenPI."
 }

@@ -32,6 +32,8 @@ from tca_map.smolvla.official_wsl_libero_rollout import (
 
 
 RESET_IDENTITIES = [20260711, 20260712, 20260713, 20260714, 20260715]
+RESET_IDENTITY_BASE = 20260711
+MAX_OFFICIAL_INITIAL_STATE_COUNT = 50
 HARD_SLICE_TASKS = [
     {"suite": "libero_spatial", "task_id": 4, "role": "hard_slice_stable_grasp"},
     {"suite": "libero_10", "task_id": 4, "role": "hard_slice_long_horizon"},
@@ -64,19 +66,62 @@ def _init_state_sha256(initial_state: Any) -> str:
 
 
 def _identity_to_initial_state_index(identity: int) -> int:
-    if int(identity) not in RESET_IDENTITIES:
-        raise ValueError(f"unknown reset identity: {identity}")
-    return RESET_IDENTITIES.index(int(identity))
+    index = int(identity) - RESET_IDENTITY_BASE
+    if index < 0 or index >= MAX_OFFICIAL_INITIAL_STATE_COUNT:
+        raise ValueError(f"identity {identity} maps to invalid official initial state index {index}")
+    return index
 
 
-def build_manifest() -> dict[str, Any]:
+def _parse_reset_identities(raw: str | None) -> list[int]:
+    if not raw:
+        return list(RESET_IDENTITIES)
+    identities = [int(item.strip()) for item in raw.split(",") if item.strip()]
+    if not identities:
+        raise ValueError("reset identity list is empty")
+    for identity in identities:
+        _identity_to_initial_state_index(identity)
+    if len(set(identities)) != len(identities):
+        raise ValueError(f"duplicate reset identities: {identities}")
+    return identities
+
+
+def _parse_task_specs(raw: str | None) -> list[dict[str, Any]]:
+    if not raw:
+        return [dict(item) for item in HARD_SLICE_TASKS]
+    specs: list[dict[str, Any]] = []
+    for chunk in raw.split(","):
+        text = chunk.strip()
+        if not text:
+            continue
+        parts = text.split(":")
+        if len(parts) not in {2, 3}:
+            raise ValueError("task specs must be comma-separated suite:task_id[:role] entries")
+        suite, task_id_text = parts[:2]
+        role = parts[2] if len(parts) == 3 else f"{suite}_task_{task_id_text}"
+        specs.append({"suite": suite.strip(), "task_id": int(task_id_text), "role": role.strip()})
+    if not specs:
+        raise ValueError("task spec list is empty")
+    seen = {(str(item["suite"]), int(item["task_id"])) for item in specs}
+    if len(seen) != len(specs):
+        raise ValueError(f"duplicate task specs: {raw}")
+    return specs
+
+
+def _manifest_label(args: argparse.Namespace | None = None) -> str:
+    return str(getattr(args, "manifest_label", "") or "hard_slice")
+
+
+def build_manifest(args: argparse.Namespace | None = None) -> dict[str, Any]:
     from libero.libero import benchmark
 
     benchmark_dict = benchmark.get_benchmark_dict()
+    task_specs = _parse_task_specs(getattr(args, "task_specs", "") if args is not None else "")
+    reset_identities = _parse_reset_identities(getattr(args, "reset_identities", "") if args is not None else "")
+    manifest_label = _manifest_label(args)
     episodes = []
     tasks = []
     planned_index = 0
-    for task_spec in HARD_SLICE_TASKS:
+    for task_spec in task_specs:
         suite = str(task_spec["suite"])
         task_id = int(task_spec["task_id"])
         task_suite = benchmark_dict[suite]()
@@ -91,7 +136,7 @@ def build_manifest() -> dict[str, Any]:
                 "initial_state_count": int(len(initial_states)),
             }
         )
-        for identity in RESET_IDENTITIES:
+        for identity in reset_identities:
             init_index = _identity_to_initial_state_index(identity)
             initial_state = initial_states[init_index]
             initial_array = np.asarray(initial_state)
@@ -115,9 +160,10 @@ def build_manifest() -> dict[str, Any]:
     payload = {
         "schema_version": 1,
         "date_kst": "2026-07-11",
+        "manifest_label": manifest_label,
         "policy": "frozen_base",
-        "reset_identities": list(RESET_IDENTITIES),
-        "identity_mapping_rule": "reset identity labels 20260711..20260715 map to official LIBERO initial_state indices 0..4 per task",
+        "reset_identities": list(reset_identities),
+        "identity_mapping_rule": "reset identity label 20260711 + n maps to official LIBERO initial_state index n per task",
         "exact_init_control": "fresh LiberoEnv per episode with episode_index set to initial_state_index before reset",
         "tasks": tasks,
         "planned_episode_count": len(episodes),
@@ -160,7 +206,7 @@ def run_rollout(args: argparse.Namespace) -> dict[str, Any]:
 
     _set_runtime_env(args)
     started = time.monotonic()
-    manifest = build_manifest()
+    manifest = build_manifest(args)
     report: dict[str, Any] = {
         "schema_version": 1,
         "date_kst": "2026-07-11",
@@ -277,6 +323,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--lora-root", default="/home/jiheon/assets/checkpoints/smolvla_libero_lora/rank4")
     parser.add_argument("--libero-config-dir", default="/home/jiheon/.libero")
     parser.add_argument("--video-dir", default="runs/openvla_oft_int4/smolvla_exact_videos")
+    parser.add_argument(
+        "--task-specs",
+        default="",
+        help="Optional comma-separated suite:task_id[:role] entries for manifest-controlled rollouts.",
+    )
+    parser.add_argument(
+        "--reset-identities",
+        default="",
+        help="Optional comma-separated reset labels; 20260711+n maps to official LIBERO initial_state index n.",
+    )
+    parser.add_argument("--manifest-label", default="")
     parser.add_argument("--out", default="")
     return parser.parse_args(argv)
 
@@ -284,7 +341,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     if args.command == "manifest":
-        payload = build_manifest()
+        payload = build_manifest(args)
     elif args.command == "rollout":
         payload = run_rollout(args)
     else:  # pragma: no cover

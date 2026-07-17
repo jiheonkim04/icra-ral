@@ -34,6 +34,8 @@ DEFAULT_OPENVLA_REPO = Path("/mnt/c/assets/repos/openvla-oft")
 DEFAULT_LIBERO_REPO = Path("/home/jiheon/assets/repos/LIBERO")
 DEFAULT_RUN_DIR = Path("runs/openvla_oft_int4")
 RESET_IDENTITIES = [20260711, 20260712, 20260713, 20260714, 20260715]
+RESET_IDENTITY_BASE = 20260711
+MAX_OFFICIAL_INITIAL_STATE_COUNT = 50
 HARD_SLICE_TASKS = [
     {"suite": "libero_spatial", "task_id": 4, "role": "hard_slice_stable_grasp"},
     {"suite": "libero_10", "task_id": 4, "role": "hard_slice_long_horizon"},
@@ -200,9 +202,49 @@ def _init_state_sha256(initial_state: Any) -> str:
 
 
 def _identity_to_initial_state_index(identity: int) -> int:
-    if int(identity) not in RESET_IDENTITIES:
-        raise ValueError(f"unknown reset identity: {identity}")
-    return RESET_IDENTITIES.index(int(identity))
+    index = int(identity) - RESET_IDENTITY_BASE
+    if index < 0 or index >= MAX_OFFICIAL_INITIAL_STATE_COUNT:
+        raise ValueError(f"identity {identity} maps to invalid official initial state index {index}")
+    return index
+
+
+def _parse_reset_identities(raw: str | None) -> list[int]:
+    if not raw:
+        return list(RESET_IDENTITIES)
+    identities = [int(item.strip()) for item in raw.split(",") if item.strip()]
+    if not identities:
+        raise ValueError("reset identity list is empty")
+    for identity in identities:
+        _identity_to_initial_state_index(identity)
+    if len(set(identities)) != len(identities):
+        raise ValueError(f"duplicate reset identities: {identities}")
+    return identities
+
+
+def _parse_task_specs(raw: str | None) -> list[dict[str, Any]]:
+    if not raw:
+        return [dict(item) for item in HARD_SLICE_TASKS]
+    specs: list[dict[str, Any]] = []
+    for chunk in raw.split(","):
+        text = chunk.strip()
+        if not text:
+            continue
+        parts = text.split(":")
+        if len(parts) not in {2, 3}:
+            raise ValueError("task specs must be comma-separated suite:task_id[:role] entries")
+        suite, task_id_text = parts[:2]
+        role = parts[2] if len(parts) == 3 else f"{suite}_task_{task_id_text}"
+        specs.append({"suite": suite.strip(), "task_id": int(task_id_text), "role": role.strip()})
+    if not specs:
+        raise ValueError("task spec list is empty")
+    seen = {(str(item["suite"]), int(item["task_id"])) for item in specs}
+    if len(seen) != len(specs):
+        raise ValueError(f"duplicate task specs: {raw}")
+    return specs
+
+
+def _manifest_label(args: argparse.Namespace) -> str:
+    return str(getattr(args, "manifest_label", "") or "hard_slice")
 
 
 def build_environment_lock(args: argparse.Namespace) -> dict[str, Any]:
@@ -781,10 +823,13 @@ def build_hard_slice_manifest(args: argparse.Namespace) -> dict[str, Any]:
     from libero.libero import benchmark
 
     benchmark_dict = benchmark.get_benchmark_dict()
+    task_specs = _parse_task_specs(getattr(args, "task_specs", ""))
+    reset_identities = _parse_reset_identities(getattr(args, "reset_identities", ""))
+    manifest_label = _manifest_label(args)
     episodes = []
     tasks = []
     episode_index = 0
-    for task_spec in HARD_SLICE_TASKS:
+    for task_spec in task_specs:
         suite = str(task_spec["suite"])
         task_id = int(task_spec["task_id"])
         task_suite = benchmark_dict[suite]()
@@ -798,7 +843,7 @@ def build_hard_slice_manifest(args: argparse.Namespace) -> dict[str, Any]:
             "initial_state_count": int(len(initial_states)),
         }
         tasks.append(task_record)
-        for identity in RESET_IDENTITIES:
+        for identity in reset_identities:
             init_index = _identity_to_initial_state_index(identity)
             initial_state = initial_states[init_index]
             initial_array = np.asarray(initial_state)
@@ -822,11 +867,12 @@ def build_hard_slice_manifest(args: argparse.Namespace) -> dict[str, Any]:
     payload = {
         "schema_version": 1,
         "date_kst": "2026-07-11",
+        "manifest_label": manifest_label,
         "policy": "quantized_openvla_oft_int4",
         "quantized": True,
         "full_precision_claim": False,
-        "reset_identities": list(RESET_IDENTITIES),
-        "identity_mapping_rule": "reset identity labels 20260711..20260715 map to official LIBERO initial_state indices 0..4 per task",
+        "reset_identities": list(reset_identities),
+        "identity_mapping_rule": "reset identity label 20260711 + n maps to official LIBERO initial_state index n per task",
         "prior_smolvla_reuse_status": "not_reused_without_matched_exact_init_rerun",
         "prior_smolvla_identity_caveat": (
             "Earlier LeRobot runs used reset_seed labels, but LiberoEnv increments init_state_id on explicit reset "
@@ -835,7 +881,7 @@ def build_hard_slice_manifest(args: argparse.Namespace) -> dict[str, Any]:
         ),
         "tasks": tasks,
         "planned_episode_count": len(episodes),
-        "max_total_episode_budget_with_smolvla": 40,
+        "max_total_episode_budget_with_smolvla": 2 * len(episodes),
         "episodes": episodes,
     }
     payload["canonical_payload_sha256"] = hashlib.sha256(
@@ -1149,6 +1195,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--task-suite-name", default="libero_spatial")
     parser.add_argument("--task-id", type=int, default=4)
     parser.add_argument("--initial-state-index", type=int, default=0)
+    parser.add_argument(
+        "--task-specs",
+        default="",
+        help="Optional comma-separated suite:task_id[:role] entries for manifest-controlled rollouts.",
+    )
+    parser.add_argument(
+        "--reset-identities",
+        default="",
+        help="Optional comma-separated reset labels; 20260711+n maps to official LIBERO initial_state index n.",
+    )
+    parser.add_argument("--manifest-label", default="")
     parser.add_argument("--video-index", type=int, default=1)
     parser.add_argument("--seed", type=int, default=20260712)
     args = parser.parse_args(argv)

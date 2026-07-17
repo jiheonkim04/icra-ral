@@ -54,11 +54,15 @@ But this condition is saturated by the prior. There is no residual gap on that c
 
 ## Next Action
 
-Preregister and run a bounded residual-gap diagnostic for OpenVLA-OFT. Candidate residuals must come from official-prior limits or benchmark stressors, not a new acronym:
+Run the preregistered bounded residual-gap diagnostic for OpenVLA-OFT. Candidate residuals must come from official-prior limits or benchmark stressors, not a new acronym.
 
-- LIBERO-PRO-style perturbation if locally accessible;
-- official LIBERO task subset where OpenVLA-OFT is not saturated;
-- language-grounding or visual-feedback stressor motivated by OpenVLA-OFT's paper discussion.
+Frozen first diagnostic: `epoch5_libero10_residual_v1`.
+
+- Tasks: `libero_10/task_8` and `libero_10/task_9`.
+- Reset identities: `20260716..20260723` -> official initial-state indices `5..12`.
+- Episodes: `16` SmolVLA frozen-base exact-init and `16` Quantized OpenVLA-OFT INT4.
+- Matched row SHA-256: `13642c7bed5e7d5944f7377e9848aeec1b9090be96d110362b53bc9cd9a3b3b2`.
+- No downloads, training, full-BF16 load, Ours design, or proxy prior.
 
 If no residual remains, move to second-ranked ecosystem: pi0.5/OpenPI.
 

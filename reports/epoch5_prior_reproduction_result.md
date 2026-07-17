@@ -55,3 +55,20 @@ However, this condition is not usable for Ours design because the prior leaves n
 ## Next Decision
 
 Do not design Ours yet. The next step is a bounded residual-gap diagnostic for the selected prior. If OpenVLA-OFT remains saturated on all locally feasible conditions, move to the second-ranked ecosystem, pi0.5/OpenPI, instead of creating a proxy-only method.
+
+## Residual Diagnostic Preregistration
+
+Status: `PREREGISTERED_NOT_RUN`
+
+The next diagnostic is frozen as `epoch5_libero10_residual_v1`:
+
+- tasks: `libero_10/task_8` and `libero_10/task_9`;
+- reset identities: `20260716..20260723`, mapping to official initial-state
+  indices `5..12`;
+- planned episodes: `16` SmolVLA frozen-base exact-init and `16` Quantized
+  OpenVLA-OFT INT4;
+- matched row SHA-256:
+  `13642c7bed5e7d5944f7377e9848aeec1b9090be96d110362b53bc9cd9a3b3b2`;
+- no downloads, training, full-BF16 load, Ours design, or proxy prior.
+
+Decision rules are recorded in `reports/epoch5_prior_reproduction_plan.md`.
