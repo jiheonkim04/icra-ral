@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_third_pass_xvla_prior_diagnostic_complete",
-  "decision": "X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET",
+  "stage": "epoch_5_xvla_failure_scan_libero10_identity20260724_complete",
+  "decision": "NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -1003,7 +1003,8 @@
     "status": "COMPLETE",
     "decision": "X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET",
     "runner": "scripts/epoch5_xvla_libero10_task8_eval.py",
-    "runner_sha256": "1b0c6d43450a7c5320221308fe461f974c093d1fd2c0fd15d900a89b4f0bd077",
+    "runner_sha256_at_task8_run": "1b0c6d43450a7c5320221308fe461f974c093d1fd2c0fd15d900a89b4f0bd077",
+    "current_generalized_runner_sha256": "262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3",
     "source_repo": "C:\\assets\\repos\\X-VLA",
     "source_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
     "model_id": "2toINF/X-VLA-Libero",
@@ -1075,6 +1076,96 @@
     },
     "interpretation": "The current task-8 residual is not a valid Ours target because an executable official third-pass prior solves all frozen reset identities."
   },
+  "post_xvla_residual_search": {
+    "status": "COMPLETE_NO_CANDIDATE",
+    "decision": "NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND",
+    "purpose": "fresh official-prior failure-mining scan after X-VLA solved the current task-8 residual",
+    "runner": "scripts/epoch5_xvla_libero10_task8_eval.py",
+    "runner_sha256": "262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3",
+    "run_dir": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST",
+    "policy": "X-VLA-Libero",
+    "task_suite": "libero_10",
+    "reset_identity": 20260724,
+    "initial_state_index": 13,
+    "task_count": 10,
+    "completed_count": 10,
+    "success_count": 10,
+    "infrastructure_failure_count": 0,
+    "benchmark_claim": false,
+    "results": [
+      {
+        "task_id": 0,
+        "success": true,
+        "steps": 260,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_0/result.json",
+        "artifact_sha256": "61c5ee0df6a3ede5f70167517b4c1eef6c709a9d17073cc5534a8c6c93e1a300"
+      },
+      {
+        "task_id": 1,
+        "success": true,
+        "steps": 234,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_1/result.json",
+        "artifact_sha256": "709b9be9dc7769ce477c4dd7b0d6b0aa14404d94a1fabca54cfcae6525859415"
+      },
+      {
+        "task_id": 2,
+        "success": true,
+        "steps": 259,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_2/result.json",
+        "artifact_sha256": "948fd8a9c8c3569072a08adc163ce5de0bb3682dc8849a1277524685b14e4ef7"
+      },
+      {
+        "task_id": 3,
+        "success": true,
+        "steps": 229,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_3/result.json",
+        "artifact_sha256": "6cf217f0013711f7d5ba58f977d6fc6e246267ab467b7c9d1a5a37215609302d"
+      },
+      {
+        "task_id": 4,
+        "success": true,
+        "steps": 224,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_4/result.json",
+        "artifact_sha256": "88eb7dfc26489f7eb3bbe115145762f27fb47fd27b957c035a7bd413d716e5d2"
+      },
+      {
+        "task_id": 5,
+        "success": true,
+        "steps": 182,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_5/result.json",
+        "artifact_sha256": "c4fb43d2cfb32f526ba39bb05a4448d0fc21aceb0c84ef6dd494c0d9e1524935"
+      },
+      {
+        "task_id": 6,
+        "success": true,
+        "steps": 283,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_6/result.json",
+        "artifact_sha256": "96c65abec87cce5f7a549141b3137e18aae81dca304e4c8ea2e0e63e57876075"
+      },
+      {
+        "task_id": 7,
+        "success": true,
+        "steps": 250,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_7/result.json",
+        "artifact_sha256": "692727d2f498494d9b891a6d8dafc26f0b20089c938c1f1866b54be9d0009c85"
+      },
+      {
+        "task_id": 8,
+        "success": true,
+        "steps": 378,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_8/result.json",
+        "artifact_sha256": "07e383934ecf816a091ac0e57bbd89884977c69e4d495a93f8c26fcdbd90901a"
+      },
+      {
+        "task_id": 9,
+        "success": true,
+        "steps": 261,
+        "artifact": "runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST/task_9/result.json",
+        "artifact_sha256": "f70fc01f9dd42a95a94129f14e61c467404f4f6edf9175c3a3e672f5cb378da6"
+      }
+    ],
+    "interpretation": "A one-identity scan over all LIBERO-10 tasks did not find an X-VLA residual candidate. This is not a benchmark claim; it only blocks immediate reuse of identity 20260724 as a residual-mining seed."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -1126,5 +1217,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Do not design Ours on the current libero_10/task_8 residual: X-VLA-Libero solved all frozen task-8 reset identities as an official prior. If continuing Epoch 5, select a new residual condition against the latest executable official prior set, with X-VLA included as a prior baseline."
+  "next_action": "Do not design Ours on the current libero_10/task_8 residual. The first fresh X-VLA LIBERO-10 single-identity scan at reset identity 20260724 found no new residual candidate. If continuing Epoch 5, broaden residual search to additional identities or suites against the latest executable official-prior set, with X-VLA included as a prior baseline."
 }

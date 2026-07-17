@@ -31,9 +31,10 @@ MODEL_REVISION = "129e71460678b7236cee6fc9707f09d9fa0c3590"
 SOURCE_HEAD = "6bc2513f5f1cbec715cc668b414392a6cae5c671"
 IDENTITIES = list(range(20260716, 20260724))
 INITIAL_STATE_INDICES = {identity: index for identity, index in zip(IDENTITIES, range(5, 13))}
-TASK_SUITE_NAME = "libero_10"
-TASK_ID = 8
-TASK_DESCRIPTION = "put both moka pots on the stove"
+DEFAULT_TASK_SUITE_NAME = "libero_10"
+DEFAULT_TASK_ID = 8
+DEFAULT_TASK_DESCRIPTION = "put both moka pots on the stove"
+DEFAULT_IDENTITY_BASE = 20260711
 EPS = 1e-6
 
 
@@ -206,16 +207,26 @@ def parse_identities(raw: str) -> list[int]:
     if not raw:
         return list(IDENTITIES)
     out = [int(item.strip()) for item in raw.split(",") if item.strip()]
-    for identity in out:
-        if identity not in INITIAL_STATE_INDICES:
-            raise ValueError(f"identity {identity} not in frozen residual set")
     return out
+
+
+def identity_to_initial_state_index(identity: int, identity_base: int = DEFAULT_IDENTITY_BASE) -> int:
+    if identity in INITIAL_STATE_INDICES:
+        return int(INITIAL_STATE_INDICES[identity])
+    index = int(identity) - int(identity_base)
+    if index < 0:
+        raise ValueError(f"identity {identity} maps to negative initial-state index {index}")
+    return index
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-dir", required=True)
     parser.add_argument("--identities", default="")
+    parser.add_argument("--task-suite", default=DEFAULT_TASK_SUITE_NAME)
+    parser.add_argument("--task-id", type=int, default=DEFAULT_TASK_ID)
+    parser.add_argument("--task-description", default="")
+    parser.add_argument("--identity-base", type=int, default=DEFAULT_IDENTITY_BASE)
     parser.add_argument("--eval-horizon", type=int, default=900)
     parser.add_argument("--settle-steps", type=int, default=10)
     parser.add_argument("--denoise-steps", type=int, default=10)
@@ -240,6 +251,9 @@ def main(argv: list[str] | None = None) -> int:
 
     started = time.monotonic()
     identities = parse_identities(args.identities)
+    initial_state_indices = {identity: identity_to_initial_state_index(identity, args.identity_base) for identity in identities}
+    task_suite_name = str(args.task_suite)
+    task_id = int(args.task_id)
     report: dict[str, Any] = {
         "schema_version": 1,
         "method": "third_pass_official_prior_diagnostic",
@@ -248,11 +262,12 @@ def main(argv: list[str] | None = None) -> int:
         "model_revision": MODEL_REVISION,
         "source_repo": "C:\\assets\\repos\\X-VLA",
         "source_repo_head": SOURCE_HEAD,
-        "task_suite": TASK_SUITE_NAME,
-        "task_id": TASK_ID,
-        "task_description": TASK_DESCRIPTION,
+        "task_suite": task_suite_name,
+        "task_id": task_id,
+        "task_description": args.task_description or None,
         "reset_identities": identities,
-        "initial_state_indices": {str(k): int(INITIAL_STATE_INDICES[k]) for k in identities},
+        "initial_state_indices": {str(k): int(v) for k, v in initial_state_indices.items()},
+        "identity_mapping_rule": f"initial_state_index = reset_identity - {int(args.identity_base)} unless identity is in the frozen task-8 map",
         "official_protocol": {
             "environment": "libero.libero.envs.OffScreenRenderEnv",
             "camera_heights": 256,
@@ -301,15 +316,17 @@ def main(argv: list[str] | None = None) -> int:
         report["model_type"] = type(policy.model).__name__
         report["cuda_memory_after_load"] = cuda_memory(torch)
 
-        task_suite = benchmark.get_benchmark_dict()[TASK_SUITE_NAME]()
-        task = task_suite.get_task(TASK_ID)
+        task_suite = benchmark.get_benchmark_dict()[task_suite_name]()
+        task = task_suite.get_task(task_id)
+        task_description = args.task_description or str(getattr(task, "language", ""))
+        report["task_description"] = task_description
         bddl_file = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
-        initial_states = task_suite.get_task_init_states(TASK_ID)
+        initial_states = task_suite.get_task_init_states(task_id)
 
         for identity in identities:
             beat(heartbeat, f"episode_{identity}")
             row_started = time.monotonic()
-            index = INITIAL_STATE_INDICES[identity]
+            index = initial_state_indices[identity]
             row: dict[str, Any] = {
                 "reset_identity": int(identity),
                 "initial_state_index": int(index),
@@ -335,7 +352,7 @@ def main(argv: list[str] | None = None) -> int:
                 for step in range(int(args.eval_horizon)):
                     obs["robo_ori"] = policy.action_processor.mat_to_rotate6d(env.env.robots[0].controller.ee_ori_mat)
                     obs["robo_pos"] = np.asarray(env.env.robots[0].controller.ee_pos, dtype=np.float32)
-                    action = policy.step(obs, TASK_DESCRIPTION)
+                    action = policy.step(obs, task_description)
                     env_started = time.monotonic()
                     obs, reward, done, info = env.step(action)
                     env_latencies.append(time.monotonic() - env_started)

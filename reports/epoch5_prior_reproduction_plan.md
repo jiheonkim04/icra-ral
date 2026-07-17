@@ -531,3 +531,20 @@ OpenVLA-OFT failures `20260721` and `20260722` and the LightVLA failures
 `20260716` and `20260723`. A fair continuation must select a new residual
 condition against the latest executable official-prior set, with X-VLA included
 as a prior baseline.
+
+## Completed Post-X-VLA Residual Search Scan
+
+Execution status: `COMPLETE_NO_CANDIDATE`
+
+The X-VLA runner was generalized for residual search and used for a fresh
+single-identity scan over all LIBERO-10 tasks:
+
+| Scan | Suite | Tasks | Reset identity | Initial-state index | Successes | Infrastructure failures |
+|---|---|---:|---:|---:|---:|---:|
+| `runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST` | `libero_10` | 10 | `20260724` | 13 | 10/10 | 0 |
+
+Decision: `NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND`.
+
+This is not a benchmark claim. It only says the first fresh X-VLA residual
+mining seed did not expose a failure. Next search must broaden to more
+identities or additional suites before any Ours design is allowed.

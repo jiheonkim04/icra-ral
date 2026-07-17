@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_third_pass_xvla_prior_diagnostic_complete`
-- Current decision: `X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET`
+- Current stage: `epoch_5_xvla_failure_scan_libero10_identity20260724_complete`
+- Current decision: `NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -226,9 +226,15 @@ Third-pass X-VLA prior:
 - interpretation: current task-8 residual is solved by an executable official
   prior; no Ours target remains on this residual.
 
-Next: do not design Ours on the current `libero_10/task_8` residual. If the
-campaign continues, select a new residual condition against the latest
-executable official-prior set, with X-VLA included as a prior baseline.
+Post-X-VLA residual scan: generalized runner SHA
+`262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3`; scan
+`runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST`
+tested X-VLA on LIBERO-10 tasks 0..9 at reset identity `20260724` / init index
+13; result 10/10 successes, 0 infrastructure failures; no new residual found.
+
+Next: do not design Ours on the current `libero_10/task_8` residual or on
+identity `20260724`. Broaden residual search to more identities or suites
+against the latest executable official-prior set, with X-VLA included.
 
 ## Prohibitions
 

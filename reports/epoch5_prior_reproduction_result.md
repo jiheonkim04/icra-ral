@@ -862,3 +862,41 @@ third-pass prior. Therefore no Ours method should be designed, trained, or
 reported on this residual. If Epoch 5 continues, it must select a new residual
 condition against the latest executable official prior set, with X-VLA included
 as a prior baseline.
+
+## Post-X-VLA Residual Search Scan
+
+Decision: `NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND`.
+
+After X-VLA solved the frozen task-8 residual, the runner was generalized for
+fresh residual search. Current generalized runner SHA-256:
+`262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3`.
+
+Scan scope:
+
+- policy: `X-VLA-Libero`;
+- suite: `libero_10`;
+- tasks: `0..9`;
+- reset identity: `20260724`;
+- mapped official initial-state index: `13`;
+- protocol: same X-VLA absolute-controller protocol as above;
+- run directory:
+  `runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST`;
+- benchmark claim: false; this was only failure mining for a new residual.
+
+| Task | Success | Steps |
+|---:|---:|---:|
+| 0 | true | 260 |
+| 1 | true | 234 |
+| 2 | true | 259 |
+| 3 | true | 229 |
+| 4 | true | 224 |
+| 5 | true | 182 |
+| 6 | true | 283 |
+| 7 | true | 250 |
+| 8 | true | 378 |
+| 9 | true | 261 |
+
+Summary: 10/10 tasks completed and 10/10 succeeded with zero infrastructure
+failures. This scan did not find a new X-VLA residual candidate at identity
+`20260724`. If Epoch 5 continues, residual search must broaden to more
+identities or additional suites before any Ours design is allowed.
