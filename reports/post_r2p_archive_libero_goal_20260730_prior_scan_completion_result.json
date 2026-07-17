@@ -1,0 +1,388 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_libero_goal_20260730_completion.v1",
+  "created_at_kst": "2026-07-18T06:35:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "82aa47cf6011dd3f063429e990aa155a7d06b9bc",
+  "stage": "epoch_5_official_prior_residual_search_after_r2p_archive",
+  "decision": "POST_R2P_ARCHIVE_LIBERO_GOAL_IDENTITY20260730_NO_SHARED_RESIDUAL_TASK2_BASE_SOLVED",
+  "suite": "libero_goal",
+  "reset_identity": 20260730,
+  "run_dirs": [
+    "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST",
+    "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST",
+    "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST"
+  ],
+  "task3_reference": {
+    "xvla_repeated_residual_report_json": "reports/post_r2p_archive_libero_goal_task3_20260729_31_xvla_repeated_residual_result.json",
+    "xvla_success": true,
+    "xvla_steps": 179,
+    "xvla_final_reward": 1.0,
+    "xvla_action_chunk_count": 6,
+    "base_gate_needed": false,
+    "shared_base_and_first_prior_residual": false
+  },
+  "execution_classification": {
+    "first_prior": {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "FIRST_PRIOR",
+      "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+      "official_closed_loop_success_measured": true,
+      "policy": "X-VLA-Libero",
+      "model_family": "XVLA",
+      "model_id": "2toINF/X-VLA-Libero",
+      "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+      "source_repo": "C:\\assets\\repos\\X-VLA",
+      "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+      "runtime_dependency_versions": {
+        "torch": "2.10.0+cu128",
+        "transformers": "4.57.6",
+        "peft": "0.19.1",
+        "timm": "1.0.12"
+      },
+      "cuda_device": "NVIDIA GeForce RTX 5080",
+      "segment_0_2_windows_launcher_pid": 26324,
+      "segment_0_2_wsl_worker_pid": 404,
+      "segment_4_9_windows_launcher_pid": 26636,
+      "segment_4_9_wsl_worker_pid": 1117,
+      "first_prior_peak_vram_mib": 3518.634,
+      "new_first_prior_simulator_episode_count": 9,
+      "referenced_task3_first_prior_episode_count": 1,
+      "first_prior_model_forward_count_new_scan": 59,
+      "first_prior_model_forward_count_full_identity_with_referenced_task3": 65,
+      "model_forward_count_source": "sum of episode.action_chunk_count",
+      "eval_horizon": 900,
+      "settle_steps": 10,
+      "denoise_steps": 10,
+      "absolute_controller": true
+    },
+    "base_gate": {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "BASE",
+      "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+      "official_closed_loop_success_measured": true,
+      "policy": "frozen_base",
+      "model_family": "SmolVLA",
+      "policy_class": "SmolVLAPolicy",
+      "official_path": "LeRobot SmolVLA policy, processors, postprocessors, and LIBERO env wrapper",
+      "peft_used": false,
+      "control_mode": "relative",
+      "old_custom_libero_7d_route_used": false,
+      "paligemma_import_stub_used": false,
+      "cuda_device": "NVIDIA GeForce RTX 5080",
+      "windows_launcher_pid": 22748,
+      "wsl_worker_pid": 302,
+      "peak_vram_mb": 926.638,
+      "simulator_episode_count": 1,
+      "model_forward_count": 2,
+      "model_forward_count_source": "episode.action_chunks_generated"
+    }
+  },
+  "summary": {
+    "xvla_tasks_succeeded": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "xvla_tasks_failed": [
+      2
+    ],
+    "base_solved_xvla_failed_tasks": [
+      2
+    ],
+    "shared_base_and_first_prior_residual_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "candidate_generation_authorized": false,
+    "training_authorized": false,
+    "ours_rollout_authorized": false,
+    "second_prior_gate_authorized": false
+  },
+  "task_results": [
+    {
+      "task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 117,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "27368cf7772b0d36c76cba53dc11452282650f4389cdb8417b8a5079c03b9179"
+    },
+    {
+      "task_id": 1,
+      "instruction": "put the bowl on the stove",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 88,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "188b06fbef1e4e35b662a8745f20378970baae9487cddab9641b307dfe5514b5"
+    },
+    {
+      "task_id": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "xvla_success": false,
+      "base_success": true,
+      "base_gate_needed": true,
+      "shared_residual": false,
+      "xvla_steps": 900,
+      "xvla_final_reward": 0.0,
+      "xvla_action_chunk_count": 30,
+      "base_steps": 86,
+      "base_final_reward": 1.0,
+      "base_action_chunk_count": 2,
+      "xvla_result_sha256": "bf36cc2ed4beabfb37a344ee64a44f4fcbc154ca1addb086dacc7c80ffc11fc0",
+      "base_result_sha256": "b3f122e14aa7a78b28e506278da32385111b6f18117b48f663b06f1f70809740",
+      "base_video_sha256": "3d7bce7727cec86e22e4fc7b8fc5c8a4dec0294008d2047052c392ac1050a9ad"
+    },
+    {
+      "task_id": 3,
+      "instruction": "open the top drawer and put the bowl inside",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 179,
+      "final_reward": 1.0,
+      "action_chunk_count": 6,
+      "result_reference": "reports/post_r2p_archive_libero_goal_task3_20260729_31_xvla_repeated_residual_result.json"
+    },
+    {
+      "task_id": 4,
+      "instruction": "put the bowl on top of the cabinet",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 84,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "ee0ebdfbf30cafd2fccb53bdb3d4e6bcb03edcdcfe6cf96384599ee43db98f15"
+    },
+    {
+      "task_id": 5,
+      "instruction": "push the plate to the front of the stove",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 137,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "cdaaba3b5a941058c10f7ce945a336d052b7c645559e0ae7da6464638ee3370f"
+    },
+    {
+      "task_id": 6,
+      "instruction": "put the cream cheese in the bowl",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 81,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "66ddfef8f1f59b1d13a1859a5edaecd9a5d1f850522601787a0d15a64feb01e1"
+    },
+    {
+      "task_id": 7,
+      "instruction": "turn on the stove",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 77,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "0fde4307cf1adf8189f9dbb30c64bed2e11fbd2a52db4d5d9a79180f67f99623"
+    },
+    {
+      "task_id": 8,
+      "instruction": "put the bowl on the plate",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 79,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "fd7c4c09c0f2abc6d2578462a5ccdfafdda5cbf28e44df191dcc9ee82da3c824"
+    },
+    {
+      "task_id": 9,
+      "instruction": "put the wine bottle on the rack",
+      "xvla_success": true,
+      "base_gate_needed": false,
+      "steps": 149,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "75959bf35723da5fcef834cc64cacb1f0556e52f1f0d0abc5e518e0c5351d5fd"
+    }
+  ],
+  "comparator_role_calibration": {
+    "calibration_steer": "C:\\Users\\jiheo\\.codex\\attachments\\26b76617-3593-486a-94a8-802adf5a2359\\pasted-text.txt",
+    "frozen_protocol_decision": "No shared residual for libero_goal identity 20260730 because the only X-VLA failure, task2, was solved by matched SmolVLA Base. No second-prior, candidate, training, or Ours gate is reached.",
+    "calibrated_scientific_interpretation": "Same conclusion under comparator-role calibration. Base is not a generic score competitor here; its role is to test whether the first-prior failure is also a backbone failure. Because Base solves task2 and X-VLA solves task3 at this identity, there is no coherent residual target and no Ours paper claim to adjudicate.",
+    "comparator_role_table": [
+      {
+        "comparator": "SmolVLA Base",
+        "scientific_question": "Does the first-prior failure also fail on the frozen backbone under the matched reset?",
+        "matched_result": "Base solved task2 at identity 20260730 in 86 steps, reward 1.0.",
+        "uncertainty": "Single matched reset diagnostic; sufficient for this gate because a Base success closes shared-residual status.",
+        "does_it_block_the_claim": true,
+        "reason": "It blocks treating task2 as a shared Base/Prior residual and therefore blocks method development for this identity."
+      },
+      {
+        "comparator": "X-VLA first prior",
+        "scientific_question": "Does the closest official prior already solve the task/reset under the local matched protocol?",
+        "matched_result": "X-VLA solved tasks 0,1,3,4,5,6,7,8,9 and failed task2.",
+        "uncertainty": "Single reset per task diagnostic; used only for residual search, not paper-scale performance claims.",
+        "does_it_block_the_claim": false,
+        "reason": "The task2 failure is not sufficient because Base solved the same reset; the task3 reference is a first-prior success."
+      },
+      {
+        "comparator": "OpenVLA-OFT INT4 second prior",
+        "scientific_question": "Would a second official prior also fail after Base and first prior both fail?",
+        "matched_result": "Not run for identity 20260730.",
+        "uncertainty": "Not applicable.",
+        "does_it_block_the_claim": false,
+        "reason": "Second-prior gate is not authorized when the Base gate already resolves the only first-prior failure."
+      },
+      {
+        "comparator": "Ours",
+        "scientific_question": "Does a proposed method improve the backbone/prior on a repeated residual?",
+        "matched_result": "No Ours method exists and no Ours rollout occurred.",
+        "uncertainty": "Not applicable.",
+        "does_it_block_the_claim": false,
+        "reason": "No claim is opened because no repeated shared residual is present."
+      }
+    ],
+    "residual_gate_statuses": {
+      "BASE_CLAIM_STATUS": "NO_OURS_CLAIM_OPENED_BASE_SOLVED_ONLY_FIRST_PRIOR_FAILURE",
+      "PRIOR_ADVANCE_STATUS": "NOT_APPLICABLE_NO_OURS_NO_SHARED_RESIDUAL",
+      "ABLATION_COMPONENT_STATUS": "NOT_APPLICABLE_NO_COMPONENT",
+      "SIMPLE_EXPLANATION_STATUS": "NOT_APPLICABLE_NO_METHOD",
+      "CLEAN_RETENTION_STATUS": "NOT_APPLICABLE_NO_METHOD",
+      "GENERALIZATION_STATUS": "NOT_APPLICABLE_NO_METHOD"
+    },
+    "paper_candidate_status": {
+      "applies": false,
+      "reason": "No Ours method or paper candidate was evaluated; this diagnostic only decides whether a shared residual exists for possible future method development.",
+      "overall_paper_candidate_status_returned": false
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST/scan_summary.json",
+      "sha256": "adb71ca257217864499e7f92d6c8d814b5ae335460d2385821e84afe3d9c051b",
+      "length_bytes": 2342
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST/scan_manifest.json",
+      "sha256": "25a838fe08f3da0d401f3e7f1c24f49f6a391922933eb80fddbe77171e4019fe",
+      "length_bytes": 736
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST/exact_resume_command.txt",
+      "sha256": "46f3a92027ff396be7e78f641d333d636b63721300f828f2c5d9e1a71ad38b84",
+      "length_bytes": 253
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST/windows_launcher_pid.txt",
+      "sha256": "5c29c3c002d010b34e157f42aabe440dd82910ec95677bc77db591783ec3b558",
+      "length_bytes": 7
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks0_2_post_r2p_archive_20260718T0626KST/scan_worker_pid.txt",
+      "sha256": "f8bf41177a5f5e808a7ccb648b51080b031f15ca8018d91a576263d6cc626eb6",
+      "length_bytes": 4
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST/scan_summary.json",
+      "sha256": "17c1861e745df9ee8b9407f80553475297733a06b9d397e279a7b8855b4b3e8c",
+      "length_bytes": 4053
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST/scan_manifest.json",
+      "sha256": "8c2214c0a9786079599cffa4ca766fc0de719d5d934a3cabba0ca0357dd6b676",
+      "length_bytes": 736
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST/exact_resume_command.txt",
+      "sha256": "12e3750a037649be0a073caf75975f8a52d796cd42b836b00e3e364037111eb9",
+      "length_bytes": 253
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST/windows_launcher_pid.txt",
+      "sha256": "9994e37f3985eb0529b0dd010f5d9e9481a7565f386c30148bfbb98f23e0f7b1",
+      "length_bytes": 7
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260730_tasks4_9_post_r2p_archive_20260718T0628KST/scan_worker_pid.txt",
+      "sha256": "ec702be12ab72de43ea520ef3b7e4f7b3ed3b8f4db3aca7222634e7f0bead5ad",
+      "length_bytes": 5
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/result.json",
+      "sha256": "b3f122e14aa7a78b28e506278da32385111b6f18117b48f663b06f1f70809740",
+      "length_bytes": 5755
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/resume_command.txt",
+      "sha256": "42d6ba275e1c721a037742dbba734945a9726b53b83b4ea7befaf5c56aa31960",
+      "length_bytes": 168
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/stdout.log",
+      "sha256": "88eee89a4dfead52bba0438e9f83a10dd5b973a32833f70da85ec9a94b7074a4",
+      "length_bytes": 425
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/stderr.log",
+      "sha256": "f54fc0a27e71d201b211eafb2187df7ec80a9025a3d39b9b7a89aaf44e02420c",
+      "length_bytes": 722
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/windows_launcher_pid.txt",
+      "sha256": "ca0b551035714b657bdfd82d826ed744c7c1f8ea92cf311ecec22bda8c9198b0",
+      "length_bytes": 7
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task2_id20260730_officialenv_20260718T0630KST/wsl_worker_pid.txt",
+      "sha256": "32b3ce24b7c6d0da5bcededbf47646e98aa83d61196dc598c02e2404ae3f03a7",
+      "length_bytes": 4
+    },
+    {
+      "path": "runs/xvla_prior/smolvla_goal_task2_id20260730_videos/frozen_base/libero_goal/task_2_identity_20260730.mp4",
+      "sha256": "3d7bce7727cec86e22e4fc7b8fc5c8a4dec0294008d2047052c392ac1050a9ad",
+      "length_bytes": 27026
+    },
+    {
+      "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+      "sha256": "bcade790ddce333b1bd9d0d38f5336fa4c12f6d19e47c2b046cce89ddfd31c4c"
+    },
+    {
+      "path": "scripts/epoch5_xvla_libero10_task8_eval.py",
+      "sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6"
+    }
+  ],
+  "next_action": "Continue official-prior-first residual search with a fresh suite/identity pair, e.g. libero_object identity 20260730; no candidate generation, training, or Ours rollout is authorized."
+}
