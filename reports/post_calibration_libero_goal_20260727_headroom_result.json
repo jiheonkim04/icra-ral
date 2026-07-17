@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T03:24:27+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_headroom_launch": "d009dc905b3ed3556b27944da6ef1b8ec952e8f6",
+  "decision": "TASK9_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+  "suite": "libero_goal",
+  "task_id": 9,
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "initial_state_sha256": "73ecfa5d9d3d2323b0641386784a54abbe1ce25a61ded6c7444158bbcccf0714",
+  "instruction": "put the wine bottle on the rack",
+  "run_dir": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST",
+  "execution_classification": {
+    "execution_type": "EXPERT_REPLAY_DIAGNOSTIC",
+    "evidence_role": "HEADROOM",
+    "artifact_status": "LOCAL_HDF5_TASK_LEVEL_HEADROOM_NOT_SAME_RESET",
+    "official_closed_loop_success_measured": false,
+    "benchmark_claim_made": false,
+    "vla_model_loaded": false,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "hdf5_path": "/mnt/c/assets/data/libero/libero_goal/put_the_wine_bottle_on_the_rack_demo.hdf5",
+    "script": "scripts/epoch5_expert_headroom.py",
+    "windows_launcher_pid": 20468
+  },
+  "matched_residual_reference": {
+    "xvla_prior_report_json": "reports/post_calibration_libero_goal_20260727_prior_scan_result.json",
+    "smolvla_base_report_json": "reports/post_calibration_libero_goal_20260727_base_gate_result.json",
+    "shared_residual_confirmed": true,
+    "xvla_task9_result_sha256": "78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec",
+    "smolvla_base_result_sha256": "107d7cb0ff1b31ba98be98b9230fdc859218172a0d1c260f2f88751b8a2d0d5f"
+  },
+  "result": {
+    "completed": true,
+    "exit_code": 0,
+    "computed_initial_state_sha256": "73ecfa5d9d3d2323b0641386784a54abbe1ce25a61ded6c7444158bbcccf0714",
+    "computed_hash_matches_expected": true,
+    "same_benchmark_reset_as_residual_failure": false,
+    "same_reset_headroom_available": false,
+    "task_level_expert_headroom_positive": true,
+    "upper_headroom_indicates_recoverability": "TASK_LEVEL_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "zero_action_succeeded": false,
+    "default_reset_expert_replay_succeeded": true,
+    "exact_replay_success": true,
+    "exact_replay_reward_sum": 1.0,
+    "exact_replay_first_positive_reward_index": 140,
+    "exact_replay_first_done_index": 140,
+    "exact_replay_first_success_index": 140,
+    "after_set_state_l2_to_selected_hdf5_init": 0.0,
+    "elapsed_seconds": 36.891,
+    "reason_same_reset_unavailable": "No task-9 HDF5 demo init_state SHA-256 matched the residual benchmark initial-state SHA-256."
+  },
+  "selected_demo": {
+    "demo_name": "demo_9",
+    "selection_reason": "nearest_hdf5_demo_init_state_by_l2_no_hash_match",
+    "init_state_sha256": "d466c20e1d5e589c52c1fa92ec33a6b4df06d55e09f76bff3315d6c296d41bfa",
+    "l2_to_benchmark_residual_init": 0.30316867,
+    "steps": 169,
+    "first_reward_index": 168,
+    "first_done_index": 168,
+    "first_signal_index": 168,
+    "action_stats": {
+      "shape": [169, 7],
+      "finite": true,
+      "max_abs": 1.0,
+      "clip_rate_if_env_adapter_applied": 0.0
+    }
+  },
+  "variant_results": [
+    {
+      "variant": "zero_action_exact_selected_demo_init",
+      "claim_role": "negative_control",
+      "final_success": false,
+      "done_seen": false,
+      "reward_sum": 0.0,
+      "after_set_state_l2_to_hdf5_init": 0.0
+    },
+    {
+      "variant": "hdf5_expert_replay_exact_selected_demo_init",
+      "claim_role": "task_level_expert_headroom",
+      "final_success": true,
+      "done_seen": true,
+      "reward_sum": 1.0,
+      "first_positive_reward_index": 140,
+      "first_done_index": 140,
+      "first_success_index": 140,
+      "after_set_state_l2_to_hdf5_init": 0.0
+    },
+    {
+      "variant": "hdf5_expert_replay_default_reset",
+      "claim_role": "init_state_control",
+      "final_success": true,
+      "done_seen": true,
+      "reward_sum": 1.0,
+      "first_positive_reward_index": 140,
+      "first_done_index": 140,
+      "first_success_index": 140
+    }
+  ],
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/result.json",
+      "sha256": "df3bbadf2c886144fa0c274e0c9f8f4761674d05294c0dc77ffae22fd043f399",
+      "length_bytes": 48062
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/stdout.log",
+      "sha256": "d1cb1e8325939e28ee522941cd8d5bb3954eb6ba077445bc31193524ce49b254",
+      "length_bytes": 99952
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/stderr.log",
+      "sha256": "6315d77d31503a034100b4316aefca1f6967c73a55e0fad24867520202129a0c",
+      "length_bytes": 1444
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/exit_code.txt",
+      "sha256": "9585fbece5c402088f2d6a2def7e60d1c7ffecc24b16d32d5823a064b008935b",
+      "length_bytes": 6,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/resume_command.ps1",
+      "sha256": "bfdf082389892d1d81aefc4f38e156a25e8b4495b4a9b6756dff3420bc41e8e4",
+      "length_bytes": 1137
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/launcher_started_at.txt",
+      "sha256": "34bef31f56784035ab892b603d5c4a66c5ed9096739b9282058ae950eba32f14",
+      "length_bytes": 38,
+      "launcher_started_at": "2026-07-18T03:22:38.0920212+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/worker_started_at.txt",
+      "sha256": "eef371aea39dc6d488b2cb09c0d4d99f3e05139abda958d7804eba4546612d34",
+      "length_bytes": 38,
+      "worker_started_at": "2026-07-18T03:22:38.3208859+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032238KST/windows_launcher_pid.txt",
+      "sha256": "c4daf6d8c889026012d3665dcc742a3666103526ee8d9183865c0b7417414cdf",
+      "length_bytes": 10,
+      "windows_launcher_pid": 20468
+    }
+  ],
+  "launch_notes": [
+    "Earlier launch directory diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T031948KST stopped after a quoting error opened a Python REPL; no result.json was produced.",
+    "Earlier launch directory diagnostic_libero_goal_task9_expert_headroom_20260727_20260718T032203KST exited before result.json because PYTHONPATH was missing; no scientific headroom result was produced."
+  ],
+  "next_action": "Run a valid comparable second-prior gate for libero_goal/task_9 reset identity 20260727 before any candidate generation, Ours design, LoRA/QLoRA training, or training."
+}

@@ -205,11 +205,21 @@ SmolVLA frozen Base on `libero_goal/task_9`, reset identity `20260727`: 1/1 comp
 
 Interpretation: `libero_goal/task_9` identity `20260727` is now a shared X-VLA first-prior and SmolVLA Base clean residual. It still does not authorize Ours; next gates are expert headroom, then a valid comparable second prior if recoverability is positive.
 
+## Post-Calibration 20260727 Goal Headroom
+
+Durable result:
+`reports/post_calibration_libero_goal_20260727_headroom_result.json`
+`reports/post_calibration_libero_goal_20260727_headroom_result.md`
+
+Expert replay on `libero_goal/task_9`, reset identity `20260727`: completed with exit code `0`; decision `TASK9_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`; selected nearest HDF5 `demo_9` with L2 `0.30316867`; exact selected-demo replay succeeded at reward/done/success index `140`; zero-action control failed; no same-reset HDF5 init-state hash matched the residual. Result SHA `df3bbadf2c886144fa0c274e0c9f8f4761674d05294c0dc77ffae22fd043f399`. No training/Ours/checkpoint/optimizer step.
+
+Interpretation: recoverability is positive only at task level, not same-reset oracle. A valid comparable second prior is now required before any Ours proposal.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run expert-headroom diagnostic for `libero_goal/task_9`, reset identity `20260727`. Do not run second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until headroom is checked. If headroom is positive, run a valid comparable second-prior gate before Ours.
+Run a valid comparable second-prior gate for `libero_goal/task_9`, reset identity `20260727`. Do not run candidate generation, Ours design, LoRA/QLoRA training, or any training until second prior is checked.
 
 ## Validation To Run Before Commit
 
