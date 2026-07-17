@@ -900,3 +900,43 @@ Summary: 10/10 tasks completed and 10/10 succeeded with zero infrastructure
 failures. This scan did not find a new X-VLA residual candidate at identity
 `20260724`. If Epoch 5 continues, residual search must broaden to more
 identities or additional suites before any Ours design is allowed.
+
+## New X-VLA Residual Candidate: LIBERO-10 Task 1
+
+Decision: `X_VLA_LIBERO10_TASK1_RESIDUAL_FOUND_MATCHED_BASE_PENDING`.
+
+The next broadened scan tested `libero_10/task_1` across identities
+`20260724..20260731`. This produced a clean official-prior residual candidate.
+
+- policy: `X-VLA-Libero`;
+- task: `libero_10/task_1`, “put both the cream cheese box and the butter in
+  the basket”;
+- reset identities: `20260724..20260731`;
+- official initial-state indices: `13..20`;
+- artifact:
+  `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json`;
+- artifact SHA-256:
+  `279807f3b729032e55a921bda03d512cda243b6fbd1e4db76dd5b97384fee77d`;
+- runner SHA-256:
+  `262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3`;
+- training / optimizer / checkpoint / Ours design: false / false / false /
+  false.
+
+| Reset identity | Initial-state index | X-VLA success | Steps |
+|---:|---:|---:|---:|
+| 20260724 | 13 | true | 231 |
+| 20260725 | 14 | false | 900 |
+| 20260726 | 15 | true | 243 |
+| 20260727 | 16 | false | 900 |
+| 20260728 | 17 | true | 249 |
+| 20260729 | 18 | true | 250 |
+| 20260730 | 19 | true | 243 |
+| 20260731 | 20 | true | 240 |
+
+Summary: X-VLA completed 8/8 episodes with 6/8 successes and zero
+infrastructure failures. Failures: `20260725` and `20260727`.
+
+Interpretation: this is a valid official-prior residual candidate, but it is
+not yet an Ours target. The next required step is a matched Base/Prior
+diagnostic on this same task/reset window, followed by residual headroom
+verification before any method design.

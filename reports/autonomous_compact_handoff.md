@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_xvla_failure_scan_libero10_identity20260724_complete`
-- Current decision: `NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND`
+- Current stage: `epoch_5_xvla_libero10_task1_residual_candidate_found`
+- Current decision: `X_VLA_LIBERO10_TASK1_RESIDUAL_FOUND_MATCHED_BASE_PENDING`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -189,27 +189,16 @@ ATCD teacher-signal audit:
 
 Second-pass fallback prior preflight:
 
-- RIPT-VLA: official source cloned at `C:\assets\repos\ript-vla`, HEAD
-  `440990e8864e12e4578b490ff6359e4f2c49ae3e`; HF repo
-  `tanshh97/RIPT_VLA` revision `57532f4...`, 32 files / 6.180 GiB metadata;
-  source import smoke passed in the OpenVLA runtime; no checkpoint download,
-  training, or rollout.
-- RIPT blocker: OpenVLA-OFT RIPT assets cover LIBERO Goal/Spatial/Object/Long,
-  not the current `libero_10/task_8` both-moka residual; new OpenVLA-OFT RIPT is
-  interactive RL with official 4-GPU recommendation. QueST checkpoints are
-  lighter but not an exact both-moka prior.
-- VLA-GSE: official source cloned at `C:\assets\repos\VLA-GSE`, HEAD
-  `200cdc245880322f2bef7b24ec506063a0f35e8c`; no trained checkpoint present; no
-  checkpoint download, training, or rollout.
-- VLA-GSE blocker: Qwen3-VL + LeRobot-format LIBERO PEFT framework with
-  8-GPU/80k-step reference training and two-process policy-server evaluation.
+- RIPT-VLA source/HF metadata checked; source import smoke passed, but official
+  assets do not cover the current task-8 residual and new RIPT is 4-GPU RL.
+- VLA-GSE source checked; no local trained checkpoint; reference setup is
+  Qwen3-VL + LeRobot-format LIBERO with 8-GPU/80k-step training and server eval.
 - decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`.
 
 Third-pass X-VLA prior:
 
-- exact-three candidates: X-VLA, VLA-0, VLA-JEPA; selected X-VLA because
-  `2toINF/X-VLA-Libero` is the lightest executable LIBERO-relevant official
-  checkpoint (3.280 GiB vs VLA-0 21.459 GiB and VLA-JEPA 22.961 GiB).
+- exact-three candidates: X-VLA, VLA-0, VLA-JEPA; selected X-VLA
+  (`2toINF/X-VLA-Libero`, 3.280 GiB).
 - source: `C:\assets\repos\X-VLA` HEAD
   `6bc2513f5f1cbec715cc668b414392a6cae5c671`; model revision
   `129e71460678b7236cee6fc9707f09d9fa0c3590`.
@@ -226,19 +215,24 @@ Third-pass X-VLA prior:
 - interpretation: current task-8 residual is solved by an executable official
   prior; no Ours target remains on this residual.
 
-Post-X-VLA residual scan: generalized runner SHA
-`262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3`; scan
-`runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST`
-tested X-VLA on LIBERO-10 tasks 0..9 at reset identity `20260724` / init index
-13; result 10/10 successes, 0 infrastructure failures; no new residual found.
+Post-X-VLA residual search:
 
-Next: do not design Ours on the current `libero_10/task_8` residual or on
-identity `20260724`. Broaden residual search to more identities or suites
-against the latest executable official-prior set, with X-VLA included.
+- generalized runner SHA:
+  `262644e9a7d62834103496fd0fb7a740b5c359407af3ed1f8a647b6d155b0ff3`.
+- LIBERO-10 task scan at identity `20260724` found 10/10 X-VLA successes.
+- focused task-1 sweep artifact:
+  `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json`;
+  X-VLA result 6/8, failures `20260725`, `20260727`, infra failures 0.
+- task-1 description: put both the cream cheese box and the butter in the
+  basket; identities `20260724..20260731`, initial-state indices `13..20`.
+
+Next: run matched Base/Prior diagnostic on `libero_10/task_1` identities
+`20260724..20260731`, then headroom. Do not design/train/retune Ours yet.
 
 ## Prohibitions
 
-- Do not design outside the task-8 residual.
+- Do not design Ours before matched Base/Prior diagnostics and headroom for the
+  currently selected residual candidate.
 - Do not generate three local method candidates.
 - Do not reopen CAVM, CALA, RAR, MCI, CSPR, or governance-closed routes.
 - Do not create generic cached-feature residuals, gates, history heads,

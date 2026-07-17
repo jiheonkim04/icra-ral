@@ -548,3 +548,19 @@ Decision: `NO_NEW_XVLA_LIBERO10_SINGLE_IDENTITY_RESIDUAL_FOUND`.
 This is not a benchmark claim. It only says the first fresh X-VLA residual
 mining seed did not expose a failure. Next search must broaden to more
 identities or additional suites before any Ours design is allowed.
+
+## New Residual Candidate: X-VLA LIBERO-10 Task 1
+
+Execution status: `OFFICIAL_PRIOR_RESIDUAL_FOUND`
+
+Focused X-VLA sweep:
+
+| Policy | Task | Identities | Successes | Failures | Infrastructure failures | Artifact |
+|---|---|---|---:|---|---:|---|
+| X-VLA-Libero | `libero_10/task_1` | `20260724..20260731` | 6/8 | `20260725`, `20260727` | 0 | `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json` |
+
+Decision: `X_VLA_LIBERO10_TASK1_RESIDUAL_FOUND_MATCHED_BASE_PENDING`.
+
+Next step: run the matched Base/Prior diagnostic on this exact task/reset
+window. Do not design, train, or retune Ours until the matched base result and
+residual headroom are verified.
