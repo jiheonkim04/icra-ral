@@ -1,8 +1,8 @@
 # Epoch 5 Task-1 Ours Candidate Design
 
-Status: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED_NO_TRAINING`.
+Status: `BR_XVLA_OFFLINE_VALIDATION_COMPLETE`.
 
-Decision: `BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING`.
+Decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING`.
 
 ## Preconditions
 
@@ -57,10 +57,16 @@ two-object completion residual while preserving non-residual phases.
   configuration from that failure.
 
 Update: the no-training `BR-XVLA` spec is frozen at
-`runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`, and the tiny
-X-VLA-format data-adapter smoke passed at
-`runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`.
-The one-batch no-optimizer gradient smoke passed at
+`runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`, the tiny X-VLA-format
+data-adapter smoke passed at
+`runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`,
+and the one-batch no-optimizer gradient smoke passed at
 `runs/xvla_prior/br_xvla_gradient_smoke_20260717T190919KST/result.json`.
-Next action is the bounded two-arm training launcher/offline-validation gate;
-closed-loop Ours evaluation remains disallowed until offline validation passes.
+
+The bounded two-arm training/offline-validation gate then passed:
+`runs/xvla_prior/epoch5_br_xvla_training/gate_result.json` and
+`runs/xvla_prior/epoch5_br_xvla_offline_validation_step0064.json`.
+The primary-vs-uniform phase-1 offline-loss margin is only
+`4.967053751942781e-8`, so this is an offline screen pass, not closed-loop
+evidence of superiority. Next action is to freeze and prepare the closed-loop
+residual-manifest evaluation on `20260727` only; do not retune from that result.

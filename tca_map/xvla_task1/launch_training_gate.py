@@ -58,9 +58,9 @@ def build_launch_command(config: LaunchGateConfig) -> dict[str, Any]:
         f"--num-validation-chunks {int(config.num_validation_chunks)} "
         f"--denoise-steps {int(config.denoise_steps)}"
         f"{max_steps_args}; "
-        "code=$?; "
-        f"echo $code > {shlex.quote((config.output_root / 'gate_exit_code.txt').as_posix())}; "
-        "exit $code"
+        "status=$?; "
+        f"printf '%s\\n' \"$status\" > {shlex.quote((config.output_root / 'gate_exit_code.txt').as_posix())}; "
+        "exit \"$status\""
     )
     return {
         "repo_wsl": repo_wsl,

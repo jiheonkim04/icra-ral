@@ -4,15 +4,15 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision: `BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING`.
+Current decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
 Epoch 5 completed the selected-prior-first diagnostic sequence before Ours
-design, then generated exactly two Ours candidates and selected `R2R-OFT`.
-Bounded optimizer-step training happened only after the training spec was
-frozen. No new download, full-BF16 OpenVLA-OFT attempt, or closed-loop Ours
-evaluation has happened.
+design, then generated exactly two task-8 Ours candidates and selected
+`R2R-OFT`. Bounded optimizer-step training happened only after its training
+spec was frozen. No full-BF16 OpenVLA-OFT attempt or closed-loop task-8 Ours
+evaluation happened.
 After the `R2R-OFT` offline no-pass, the preregistered simple alternative
 `shorter OpenVLA-OFT action-chunk requery without training` was run on the
 task-8 residual resets. It did not beat the original 8-step OpenVLA-OFT prior:
@@ -37,9 +37,11 @@ After X-VLA solved the task-8 residual, a fresh task-1 residual was found and
 matched against SmolVLA base. The shared failure `20260727` now has positive
 task-level expert headroom, again with same-reset HDF5 evidence unavailable.
 The task1 basket data audit then passed, and exactly two narrow Ours candidates
-were generated. `BR-XVLA` is selected, its no-training two-arm spec is frozen,
-the tiny X-VLA-format data-adapter smoke passes, and the one-batch
-no-optimizer gradient smoke now passes.
+were generated. `BR-XVLA` is selected, its no-training two-arm spec was frozen,
+the tiny X-VLA-format data-adapter smoke passed, the one-batch no-optimizer
+gradient smoke passed, and the bounded two-arm training/offline-validation gate
+now passes. This is still offline evidence only: no closed-loop `BR-XVLA`
+evaluation has happened.
 
 ## Validation Commands
 
@@ -1068,16 +1070,17 @@ Detailed artifact: `reports/epoch5_task1_ours_candidate_design.md`.
 | `BR-XVLA`: Basket-Remaining Reweighted X-VLA | `PRIOR_EXTENSION` | LoRA/QLoRA-adapt X-VLA-Libero with phase-balanced imitation, upweighting chunks where exactly one target object is in/near the basket and the other remains out. | 86/100 | SELECTED |
 | `OCB-XVLA`: Object-Contrast Basket X-VLA | `PRIOR_EXTENSION` | Balance cream-cheese-first and butter-first object-order supervision. | 73/100 | NOT SELECTED |
 
-No optimizer-step training, checkpoint, or closed-loop Ours evaluation has
-happened for `BR-XVLA`. Its spec, data-adapter smoke, and no-optimizer gradient
-smoke now pass. Next action is the bounded training launcher/offline validation
-gate under the frozen two-arm spec.
+Bounded optimizer-step training and checkpoint writes have now happened for
+`BR-XVLA` only inside the frozen two-arm training gate. Closed-loop Ours
+evaluation has not happened. Next action is to freeze and prepare the narrow
+closed-loop residual-manifest evaluation on `20260727`; do not retune from that
+result.
 
 ## `BR-XVLA` Training Spec Freeze
 
 Status: `FROZEN_PASS_NO_TRAINING`.
 
-Decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`.
+Decision: `BR_XVLA_TRAINING_SPEC_FROZEN_PREOPT_GATES_COMPLETE`.
 
 Artifact: `runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`.
 
@@ -1167,6 +1170,55 @@ conservative path (`_supports_sdpa=False`, missing-`lm_head`
 
 Gate result: `BR_XVLA_GRADIENT_SMOKE_PASS`.
 
-Next gate: prepare the bounded two-arm BR-XVLA training launcher and offline
-validation path. Closed-loop Ours evaluation remains disallowed until offline
-validation passes.
+## `BR-XVLA` Frozen Two-Arm Training / Offline Validation Gate
+
+Status: `COMPLETE_OFFLINE_PASS`.
+
+Gate decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION`.
+
+Launch manifest:
+`runs/xvla_prior/epoch5_br_xvla_training/gate_launch_manifest.json`,
+SHA-256 `abe8cafc194e42bfec7462f9f2825d2158dd6e9a53fd8efa8d20fdc65631eebc`.
+
+Gate result:
+`runs/xvla_prior/epoch5_br_xvla_training/gate_result.json`,
+SHA-256 `3af1afc6a152aae8d8fafe5dfc43a19fe9ff2174236d2f263067b1f3cace2a76`.
+
+Offline validation result:
+`runs/xvla_prior/epoch5_br_xvla_offline_validation_step0064.json`,
+SHA-256 `119723e76e769589442fd0e04d4c26e2fe1b9fc4d825ab47ce7abd6e56ec747a`.
+
+The detached gate ran from commit
+`06d03d8147df53e54837605e079427eb4f66adfa`, completed in
+150.81154718000005 seconds, and wrote exit code `0`. A launcher bookkeeping bug
+initially wrote a newline-only exit-code file; the run result itself completed,
+the artifact now records `0`, and the launcher is fixed to write future exit
+codes with `printf`.
+
+| Arm | Result artifact | SHA-256 | Steps | Checkpoint | Last loss | Peak CUDA MiB |
+|---|---|---|---:|---|---:|---:|
+| `br_xvla_rank8_lambda2_lr1e4_steps64` | `runs/xvla_prior/epoch5_br_xvla_training/br_xvla_rank8_lambda2_lr1e4_steps64/result.json` | `e6f8c641c4f8c931ff769bf6da11b7cfc9cdc62e90bab985896d6f9870d3ee05` | 64 | `checkpoints/step_0064/adapter` | 0.7570973634719849 | 5,350.398 |
+| `uniform_xvla_rank8_lambda0_lr1e4_steps64` | `runs/xvla_prior/epoch5_br_xvla_training/uniform_xvla_rank8_lambda0_lr1e4_steps64/result.json` | `da9492c600a84a6742f3b10e2d414c0b910da0f8434cc0b41211c76f15c1c4f0` | 64 | `checkpoints/step_0064/adapter` | 0.7570974826812744 | 5,351.867 |
+
+Offline validation used 24 fixed validation chunks with phase counts
+`{0: 6, 1: 12, 2: 6}`, `denoise_steps=10`, `local_files_only=true`, and no
+closed-loop rollout.
+
+| Policy | Mean loss | Phase-0 loss | Phase-1 loss | Phase-2 loss |
+|---|---:|---:|---:|---:|
+| X-VLA prior base | 3.495260993639628 | 4.755821585655212 | 3.107213238875071 | 3.0107959111531577 |
+| `BR-XVLA` primary | 1.258300895492236 | 2.165877252817154 | 1.0268368770678837 | 0.8136525750160217 |
+| Uniform ablation | 1.2583009228110313 | 2.1658771137396493 | 1.0268369267384212 | 0.8136527240276337 |
+
+The predefined offline screen passes because the primary beats the uniform
+ablation numerically on phase-1 loss and does not degrade the clean phase
+relative to the prior. The phase-1 margin versus uniform is only
+`4.967053751942781e-8`, so this should be treated as a narrow offline validation
+pass, not as robust evidence that the BR weighting mechanism beats uniform
+adaptation. Both trained adapters are much lower-loss than the unadapted X-VLA
+prior on the fixed offline chunks.
+
+Closed-loop `BR-XVLA` evaluation has not happened. Next gate: freeze the
+closed-loop residual-manifest evaluation on identity `20260727` only, run it
+without retuning from the result, and do not broaden to confirmatory evaluation
+or new method search yet.

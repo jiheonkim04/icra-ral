@@ -5,11 +5,11 @@ Updated: 2026-07-17 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- Pre-update HEAD: `330230f96f208ba1aeb4879904552d65bd42fd21`
+- Latest implementation commit before this report update: `06d03d8147df53e54837605e079427eb4f66adfa`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_br_xvla_gradient_smoke_complete`
-- Current decision: `BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING`
+- Current stage: `epoch_5_br_xvla_offline_validation_complete`
+- Current decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING`
 - Selected current method: `BR-XVLA`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
@@ -19,8 +19,7 @@ Updated: 2026-07-17 KST
 ## Audit Anchor
 
 - Audit report: `reports/autonomous_research_full_history_audit.md`
-- Audit accepted as evidence; the embedded generic Cycle 39 resume prompt is not the active plan.
-- Audit refresh commit on this branch: `330230f96f208ba1aeb4879904552d65bd42fd21`
+- Audit accepted as evidence; the embedded generic Cycle 39 prompt is not active.
 - Audit established 0 valid PROTOTYPE_GO methods, 0 official-prior Ours wins, and no second-backbone Ours result.
 
 ## Epoch 5 Report Set
@@ -31,11 +30,11 @@ Updated: 2026-07-17 KST
 - Reproduction result JSON: `reports/epoch5_prior_reproduction_result.json`
 - Task-1 candidate design: `reports/epoch5_task1_ours_candidate_design.md`
 
-## Prior Sequence So Far
+## Prior Sequence
 
 OpenVLA-OFT INT4:
 
-- Selected first because official code/checkpoints were accessible.
+- First selected official prior because code/checkpoints were accessible.
 - Hard-slice diagnostic: OpenVLA-OFT INT4 20/20, SmolVLA base 11/20.
 - Residual diagnostic: OpenVLA-OFT INT4 14/16 vs SmolVLA base 7/16.
 - R2R-OFT was tried under a bounded spec, but offline validation did not pass; no closed-loop Ours GO.
@@ -84,85 +83,112 @@ Candidate design:
 - Exactly two candidates were generated around the task-1 residual.
 - Selected: `BR-XVLA`, score 86/100.
 - Not selected: `OCB-XVLA`, score 73/100.
-- Mechanism: LoRA/QLoRA-adapt X-VLA-Libero with phase-balanced imitation, upweighting chunks where exactly one target is already in/near the basket and the remaining target still needs completion.
+- Mechanism: phase-balanced LoRA/QLoRA adaptation of X-VLA-Libero, upweighting chunks where exactly one target is already in/near the basket and the remaining target still needs completion.
 - LoRA/QLoRA is infrastructure, not the contribution.
 
-Frozen BR-XVLA spec:
+## BR-XVLA Pre-Training Gates
+
+Frozen spec:
 
 - Artifact: `runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`
-- Primary arm: `br_xvla_rank8_alpha16_phase3_lr2e4_steps64`
-- Control arm: `uniform_xvla_rank8_alpha16_phase1_lr2e4_steps64`
+- Primary arm: `br_xvla_rank8_lambda2_lr1e4_steps64`
+- Control arm: `uniform_xvla_rank8_lambda0_lr1e4_steps64`
 - Max total arms: 2; max optimizer steps per arm: 64.
 - At freeze time: no optimizer step, no checkpoint, no closed-loop Ours.
 
-## BR-XVLA Data-Adapter Smoke
+Data-adapter smoke:
 
-- Module: `tca_map/xvla_task1/data_adapter_smoke.py`
-- Test: `tests/test_br_xvla_data_adapter_smoke.py`
 - Artifact: `runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`
 - Decision: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS`
 - Meaning: a tiny converted task-1 dataset satisfies X-VLA's official LIBERO reader contract.
-- Caveat: a minimal local `mmengine.fileio` shim was used for the smoke only.
+- Caveat: a minimal local `mmengine.fileio` shim was used.
 
-## BR-XVLA One-Batch Gradient Smoke
+Gradient smoke:
 
-- Module: `tca_map/xvla_task1/gradient_smoke.py`
-- Test: `tests/test_br_xvla_gradient_smoke.py`
 - Artifact: `runs/xvla_prior/br_xvla_gradient_smoke_20260717T190919KST/result.json`
-- Reported artifact SHA-256: `d661576639c86fd4657abe983968b8aa3969e934d8de082de3337cb56e7802cd`
+- SHA-256: `d661576639c86fd4657abe983968b8aa3969e934d8de082de3337cb56e7802cd`
 - Decision: `BR_XVLA_GRADIENT_SMOKE_PASS`
 - Model: `2toINF/X-VLA-Libero`, revision `129e71460678b7236cee6fc9707f09d9fa0c3590`
 - `local_files_only`: true
-- Clip: `demo_0`, start 115, end 211, 96 steps, one-target fraction 1.0
-- Loss total: 2.6243011951446533
-- Weighted loss: 7.872903823852539
-- Phase weight: 3.0
 - Trainable parameters: 11,868,760
 - Grad tensors finite/nonzero: 537/271
 - Gradient global norm: 1239.7495099257394
 - CUDA peak allocated: 5,260.354 MiB
-- Policy booleans: model loaded true, PEFT LoRA attached true, forward true, backward true.
-- Policy booleans: optimizer created false, optimizer step false, checkpoint false, training false, closed-loop Ours false.
+- No optimizer, checkpoint, training run, or closed-loop Ours evaluation happened in this smoke.
 
-Runtime repairs for the smoke:
+## BR-XVLA Bounded Training / Offline Gate
 
-- Installed X-VLA requirements dependency `timm==1.0.12` in `official-smolvla-libero`.
-- Added import-only optional server shims for `fastapi`, `uvicorn`, and `json_numpy`.
-- Added compatibility patches for X-VLA under Transformers 4.57.6:
-  - `Florence2ForConditionalGeneration._supports_sdpa = False`
-  - safe `get_output_embeddings` handling for missing `lm_head`
+Full gate:
+
+- Launch manifest: `runs/xvla_prior/epoch5_br_xvla_training/gate_launch_manifest.json`
+- Launch manifest SHA-256: `abe8cafc194e42bfec7462f9f2825d2158dd6e9a53fd8efa8d20fdc65631eebc`
+- Gate result: `runs/xvla_prior/epoch5_br_xvla_training/gate_result.json`
+- Gate result SHA-256: `3af1afc6a152aae8d8fafe5dfc43a19fe9ff2174236d2f263067b1f3cace2a76`
+- Decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION`
+- Success: true
+- Gate exit code: 0
+- Closed-loop Ours evaluation happened: false
+- Gate commit: `06d03d8147df53e54837605e079427eb4f66adfa`
+- Elapsed: 150.81154718000005 seconds
+
+Training arms:
+
+- Primary result: `runs/xvla_prior/epoch5_br_xvla_training/br_xvla_rank8_lambda2_lr1e4_steps64/result.json`
+- Primary SHA-256: `e6f8c641c4f8c931ff769bf6da11b7cfc9cdc62e90bab985896d6f9870d3ee05`
+- Primary steps/checkpoint: 64 / `checkpoints/step_0064/adapter`
+- Uniform result: `runs/xvla_prior/epoch5_br_xvla_training/uniform_xvla_rank8_lambda0_lr1e4_steps64/result.json`
+- Uniform SHA-256: `da9492c600a84a6742f3b10e2d414c0b910da0f8434cc0b41211c76f15c1c4f0`
+- Uniform steps/checkpoint: 64 / `checkpoints/step_0064/adapter`
+
+Offline validation:
+
+- Result: `runs/xvla_prior/epoch5_br_xvla_offline_validation_step0064.json`
+- SHA-256: `119723e76e769589442fd0e04d4c26e2fe1b9fc4d825ab47ce7abd6e56ec747a`
+- Fixed chunks: 24; phase counts `{0: 6, 1: 12, 2: 6}`; denoise steps 10.
+- X-VLA prior mean/phase-1 loss: 3.495260993639628 / 3.107213238875071.
+- BR-XVLA mean/phase-1 loss: 1.258300895492236 / 1.0268368770678837.
+- Uniform mean/phase-1 loss: 1.2583009228110313 / 1.0268369267384212.
+- Primary-vs-uniform phase-1 margin: `4.967053751942781e-8`.
+- Interpretation: offline gate passes numerically, but the ablation margin is tiny; do not treat this as robust closed-loop superiority.
+
+Launcher note:
+
+- Full gate result was complete, but the launcher initially wrote a newline-only `gate_exit_code.txt`.
+- The run artifact has been corrected to `0`, and `tca_map/xvla_task1/launch_training_gate.py` now uses `printf` for future exit-code writes.
 
 ## Validation Status
 
-- `py_compile` for `gradient_smoke.py` and `test_br_xvla_gradient_smoke.py`: pass.
-- Focused pytest suite: `9 passed`.
-- JSON/report validation must be rerun after the handoff line-count replacement.
-- Keep this file under 250 lines.
+- JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`.
+- Handoff line count: 197, under the 250-line cap.
+- `py_compile`: pass for BR-XVLA data adapter, training, offline validation, gate, and launcher modules.
+- Focused pytest: `19 passed`.
+- `git diff --check`: pass with LF/CRLF warnings only.
+- `scripts/99_tree_check.ps1`: pass.
 
 ## Immediate Next Gate
 
-Prepare the bounded two-arm BR-XVLA training launcher and offline-validation path.
+Prepare and freeze the narrow closed-loop residual-manifest evaluation on identity `20260727` only.
 
 Allowed next:
 
-- Implement launcher/offline validation under the frozen spec.
-- Optimizer steps only inside that bounded training gate.
-- Preserve artifacts, logs, heartbeats, exit codes, and resume commands for long jobs.
+- Validate current reports/code, commit, and push this report update.
+- Build a frozen closed-loop residual-manifest evaluation protocol for `20260727`.
+- Run closed-loop `BR-XVLA` only after the protocol is frozen; do not use the result for retuning.
 
 Still disallowed:
 
-- Closed-loop Ours evaluation before offline validation passes.
+- Broad confirmatory evaluation before the residual-manifest screen.
 - New generic method candidates.
 - Retuning/rescuing MCI/CSPR/R2R/CR-LightVLA/ATCD.
 - Treating X-VLA, OpenVLA-OFT INT4, or any prior diagnostic success as an Ours result.
+- Treating the tiny offline primary-vs-uniform margin as closed-loop evidence.
 - Full-model fine-tuning or making LoRA/QLoRA the headline contribution.
 
 ## Commit Scope To Finish This Turn
 
 Stage and commit only:
 
-- `tca_map/xvla_task1/gradient_smoke.py`
-- `tests/test_br_xvla_gradient_smoke.py`
+- `tca_map/xvla_task1/launch_training_gate.py`
 - `reports/epoch5_prior_reproduction_result.md`
 - `reports/epoch5_prior_reproduction_result.json`
 - `reports/epoch5_task1_ours_candidate_design.md`

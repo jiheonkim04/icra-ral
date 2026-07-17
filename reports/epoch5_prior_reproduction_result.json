@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_br_xvla_gradient_smoke_complete",
-  "decision": "BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING",
+  "stage": "epoch_5_br_xvla_offline_validation_complete",
+  "decision": "BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -31,6 +31,9 @@
   "task1_br_xvla_training_spec_frozen": true,
   "task1_br_xvla_data_adapter_smoke_happened": true,
   "task1_br_xvla_gradient_smoke_happened": true,
+  "task1_br_xvla_training_gate_happened": true,
+  "task1_br_xvla_offline_validation_happened": true,
+  "task1_br_xvla_closed_loop_ours_evaluation_happened": false,
   "br_xvla_runtime_dependency_repair_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
@@ -88,6 +91,18 @@
     "focused_pytest_stdout_summary": "9 passed",
     "runtime_dependency_repair": "Installed X-VLA requirements dependency timm==1.0.12 into official-smolvla-libero; no optimizer/checkpoint/training was run by the install.",
     "gradient_smoke_exit_code": 0
+  },
+  "validation_after_br_xvla_training_gate": {
+    "json_parse": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m json.tool",
+    "compact_handoff_lines": 197,
+    "py_compile": "PASS for BR-XVLA data adapter, train_lora, offline_validate, training_gate, and launch_training_gate",
+    "focused_pytest_command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_br_xvla_train_lora.py tests/test_br_xvla_offline_validate.py tests/test_br_xvla_launch_training_gate.py tests/test_br_xvla_data_adapter_smoke.py tests/test_br_xvla_gradient_smoke.py tests/test_br_xvla_training_spec.py tests/test_xvla_task1_data_audit.py -q",
+    "focused_pytest_stdout_summary": "19 passed",
+    "git_diff_check": "PASS with LF/CRLF warnings only",
+    "tree_check": "PASS via scripts/99_tree_check.ps1",
+    "launcher_dry_run": "PASS before full launch",
+    "one_step_two_arm_training_gate_smoke": "PASS before full launch",
+    "full_gate_exit_code": 0
   },
   "validation_after_training_spec_freeze": {
     "training_spec_json_parse": "PASS",
@@ -1455,7 +1470,7 @@
     "optimizer_step_happened": false,
     "checkpoint_written": false,
     "closed_loop_ours_evaluation_happened": false,
-    "next_action": "BR-XVLA spec, data-adapter smoke, and no-optimizer gradient smoke have passed. Next implement/validate the bounded training launcher/offline gate; do not run closed-loop Ours yet."
+    "next_action": "BR-XVLA bounded two-arm training and offline validation gate have passed. Next prepare a frozen closed-loop residual-manifest evaluation on 20260727 only; do not retune from it."
   },
   "br_xvla_training_spec": {
     "status": "FROZEN_PASS_NO_TRAINING",
@@ -1481,7 +1496,7 @@
     "local_data_adapter_required_before_gradient_smoke": true,
     "raw_libero_hdf5_is_not_direct_official_xvla_training_input": true,
     "optimizer_step_allowed_before_all_gates": false,
-    "next_action": "Data-adapter and no-optimizer gradient smokes passed; next bounded training launcher/offline validation gate may be prepared under the frozen two-arm spec."
+    "next_action": "Bounded two-arm training and offline validation have completed under this frozen spec. Next prepare a frozen closed-loop residual-manifest evaluation on 20260727 only; no additional tuning is authorized from that result."
   },
   "br_xvla_data_adapter_smoke": {
     "status": "PASS",
@@ -1615,7 +1630,84 @@
       "training_run_happened": false,
       "closed_loop_ours_evaluation_happened": false
     },
-    "interpretation": "The selected BR-XVLA path can load cached X-VLA-Libero, attach PEFT LoRA, consume the task1 X-VLA-format adapter, compute the basket-remaining weighted supervised loss, and backpropagate finite nonzero trainable gradients without creating an optimizer, stepping, writing a checkpoint, training, or running closed-loop Ours evaluation."
+    "interpretation": "The selected BR-XVLA path can load cached X-VLA-Libero, attach PEFT LoRA, consume the task1 X-VLA-format adapter, compute the basket-remaining weighted supervised loss, and backpropagate finite nonzero trainable gradients without creating an optimizer, stepping, writing a checkpoint, training, or running closed-loop Ours evaluation. This gate is superseded by the completed bounded two-arm training and offline validation gate."
+  },
+  "br_xvla_training_gate": {
+    "status": "COMPLETE_OFFLINE_PASS",
+    "decision": "BR_XVLA_OFFLINE_PASS_BEATS_ABLATION",
+    "git_commit_for_gate_run": "06d03d8147df53e54837605e079427eb4f66adfa",
+    "method": "BR-XVLA",
+    "launch_manifest": "runs/xvla_prior/epoch5_br_xvla_training/gate_launch_manifest.json",
+    "launch_manifest_sha256": "abe8cafc194e42bfec7462f9f2825d2158dd6e9a53fd8efa8d20fdc65631eebc",
+    "gate_result": "runs/xvla_prior/epoch5_br_xvla_training/gate_result.json",
+    "gate_result_sha256": "3af1afc6a152aae8d8fafe5dfc43a19fe9ff2174236d2f263067b1f3cace2a76",
+    "gate_elapsed_seconds": 150.81154718000005,
+    "gate_exit_code": 0,
+    "launcher_exit_code_recording_fix_pending_commit": true,
+    "offline_result": "runs/xvla_prior/epoch5_br_xvla_offline_validation_step0064.json",
+    "offline_result_sha256": "119723e76e769589442fd0e04d4c26e2fe1b9fc4d825ab47ce7abd6e56ec747a",
+    "offline_success": true,
+    "offline_num_chunks": 24,
+    "offline_validation_phase_counts": {
+      "0": 6,
+      "1": 12,
+      "2": 6
+    },
+    "offline_denoise_steps": 10,
+    "offline_local_files_only": true,
+    "offline_cuda_peak_mib": 3573.601,
+    "primary_passes_offline_gate": true,
+    "primary_beats_uniform_ablation_on_phase1_loss": true,
+    "primary_phase1_margin_vs_uniform_loss": 4.967053751942781e-8,
+    "primary_clean_phase_relative_degradation_vs_prior": -0.6163671213295119,
+    "primary_delta_vs_prior_mean_abs_action": 0.07180073575542703,
+    "primary_delta_vs_prior_max_abs_action": 0.5688383281230927,
+    "offline_loss_summary": {
+      "xvla_prior_base": {
+        "mean_loss_total": 3.495260993639628,
+        "phase_0_mean_loss_total": 4.755821585655212,
+        "phase_1_mean_loss_total": 3.107213238875071,
+        "phase_2_mean_loss_total": 3.0107959111531577
+      },
+      "br_xvla_primary": {
+        "mean_loss_total": 1.258300895492236,
+        "phase_0_mean_loss_total": 2.165877252817154,
+        "phase_1_mean_loss_total": 1.0268368770678837,
+        "phase_2_mean_loss_total": 0.8136525750160217
+      },
+      "uniform_xvla_ablation": {
+        "mean_loss_total": 1.2583009228110313,
+        "phase_0_mean_loss_total": 2.1658771137396493,
+        "phase_1_mean_loss_total": 1.0268369267384212,
+        "phase_2_mean_loss_total": 0.8136527240276337
+      }
+    },
+    "training_arms": {
+      "br_xvla_rank8_lambda2_lr1e4_steps64": {
+        "role": "primary_selected_method",
+        "result": "runs/xvla_prior/epoch5_br_xvla_training/br_xvla_rank8_lambda2_lr1e4_steps64/result.json",
+        "result_sha256": "e6f8c641c4f8c931ff769bf6da11b7cfc9cdc62e90bab985896d6f9870d3ee05",
+        "optimizer_steps_completed": 64,
+        "checkpoint_written": true,
+        "checkpoint_adapter": "runs/xvla_prior/epoch5_br_xvla_training/br_xvla_rank8_lambda2_lr1e4_steps64/checkpoints/step_0064/adapter",
+        "last_loss_total": 0.7570973634719849,
+        "last_weighted_loss": 0.7570973634719849,
+        "max_cuda_allocated_mib": 5350.398
+      },
+      "uniform_xvla_rank8_lambda0_lr1e4_steps64": {
+        "role": "uniform_weight_ablation",
+        "result": "runs/xvla_prior/epoch5_br_xvla_training/uniform_xvla_rank8_lambda0_lr1e4_steps64/result.json",
+        "result_sha256": "da9492c600a84a6742f3b10e2d414c0b910da0f8434cc0b41211c76f15c1c4f0",
+        "optimizer_steps_completed": 64,
+        "checkpoint_written": true,
+        "checkpoint_adapter": "runs/xvla_prior/epoch5_br_xvla_training/uniform_xvla_rank8_lambda0_lr1e4_steps64/checkpoints/step_0064/adapter",
+        "last_loss_total": 0.7570974826812744,
+        "last_weighted_loss": 0.7570974826812744,
+        "max_cuda_allocated_mib": 5351.867
+      }
+    },
+    "closed_loop_ours_evaluation_happened": false,
+    "interpretation": "The frozen BR-XVLA two-arm training gate completed and the primary arm numerically passed the predefined offline screen. The primary-vs-uniform phase-1 loss margin is extremely small, so this is only an offline validation pass and not closed-loop evidence. The next authorized step is a frozen closed-loop residual-manifest evaluation on identity 20260727 without retuning from the result."
   },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
@@ -1668,5 +1760,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Prepare the bounded BR-XVLA training launcher/offline validation gate under the frozen two-arm spec. Optimizer steps may occur only in that bounded training gate; closed-loop Ours evaluation remains disallowed until offline validation passes."
+  "next_action": "Prepare and freeze the narrow BR-XVLA closed-loop residual-manifest evaluation on identity 20260727 only. Do not retune from that result, do not broaden to confirmatory evaluation yet, and do not generate new method candidates."
 }
