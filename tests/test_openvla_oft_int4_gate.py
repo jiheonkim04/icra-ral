@@ -96,3 +96,26 @@ def test_epoch5_residual_manifest_controls_are_explicit_and_matched() -> None:
         openvla._identity_to_initial_state_index(20260761)
     with pytest.raises(ValueError):
         smolvla._parse_reset_identities("20260716,20260716")
+
+
+def test_openvla_optional_json_numpy_shim_has_patch_and_spec(monkeypatch) -> None:
+    import sys
+
+    from tca_map import openvla_oft_int4_gate as openvla
+
+    monkeypatch.delitem(sys.modules, "json_numpy", raising=False)
+    original_find_spec = openvla.importlib.util.find_spec
+
+    def fake_find_spec(name: str, *args, **kwargs):
+        if name == "json_numpy":
+            return None
+        return original_find_spec(name, *args, **kwargs)
+
+    monkeypatch.setattr(openvla.importlib.util, "find_spec", fake_find_spec)
+
+    used = openvla.install_openvla_optional_import_shims()
+
+    assert used == ["json_numpy"]
+    assert sys.modules["json_numpy"].__spec__ is not None
+    assert sys.modules["json_numpy"].__spec__.name == "json_numpy"
+    assert callable(sys.modules["json_numpy"].patch)

@@ -6,14 +6,15 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_xvla_task6_matched_residual_headroom_complete`
-- Current decision: `TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`
+- Current stage: `epoch_5_xvla_task6_ours_candidate_selected`
+- Current decision: `TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
   - `5a90911` repair X-VLA optional import boundary
   - `5835ef3` repair X-VLA runner path import
   - `19177fe` record repaired post-BR-XVLA X-VLA prior scan
+  - `e1d67fb` record task6 matched residual headroom
 - Audit report: `reports/autonomous_research_full_history_audit.md`
 - Audit accepted as evidence; the embedded Cycle 39 prompt is not active.
 - Paper status: no PROTOTYPE_GO, no official-prior Ours win, no second-backbone Ours result.
@@ -47,7 +48,9 @@ X-VLA:
 - Official X-VLA-Libero loaded from cached HF assets.
 - Task-8 residual was solved by X-VLA; no Ours target there.
 - Task-1 shared residual led to BR-XVLA; BR-XVLA is now closed as a validation no-pass.
-- Task-6 now has matched Base/Prior residual structure and task-level headroom.
+- Task-6 now has matched Base/Prior residual structure, task-level headroom,
+  spatial data-health, OpenVLA-OFT INT4 second-prior no-solve evidence, and a
+  selected candidate design.
 
 ## BR-XVLA Closed-Loop No-Pass
 
@@ -131,22 +134,53 @@ Invalid launcher caveat:
 
 - `runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2040KST`: invalid launcher no-result/no-rollout due WSL background session teardown.
 
+## Task-6 Data Audit, Second-Prior Screen, and Candidate
+
+Spatial data audit:
+`runs/xvla_prior/diagnostic_task6_spatial_data_audit_20260717T2115KST/result.json`
+
+- Result SHA-256: `71178809c5290ae6b4083e34fdf3aa49a4b259bb42f26b2561628acaeb3800fd`
+- Source/test SHA-256:
+  `0accb6887839178fca565b18d8a691ed78fa2b515b90f8cf5d986085e1b779c8` /
+  `6486a6a83bc2c6354a7e64a962a55c505b48ccf45bf5f798c91a6d1a43bb1155`
+- 50 demos, 12,756 steps, 12,406 chunks; train/val mug-done-pudding-remaining
+  chunks 5,518 / 1,372.
+- All demos mug-first; red mug stays off-plate; residual init overlap 0.
+- Privileged simulator state is training-label-only; inference remains X-VLA
+  RGB/proprio/instruction.
+
+Quantized OpenVLA-OFT INT4 second-prior screen:
+`runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_openvlaenv_20260717T2114KST/result.json`
+
+- Result SHA-256: `c897000b299d2d8fd356bb467a574971dd8d11843c0d06ecdd7698d765cd233b`
+- Runtime: `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`
+- Completed 2/2, successes 0/2, infra failures 0, elapsed 208.769s.
+- `20260725`: false, 530 steps, reward 0.0.
+- `20260731`: false, 530 steps, reward 0.0.
+- Invalid wrong-runtime attempts:
+  - `...20260717T2130KST`: missing `json_numpy`, no result.
+  - `...repaired_20260717T2135KST`: missing TensorFlow, no result.
+
+Selected task6 candidate:
+`reports/epoch5_task6_ours_candidate_design.md`
+
+- Exactly two candidates generated: `MPR-XVLA` selected, `PRC-XVLA` not selected.
+- `MPR-XVLA`: Mug-placed / Pudding-right Reweighted X-VLA.
+- Core objective: upweight HDF5 chunks where mug-on-plate is true and
+  pudding-right is false; LoRA/QLoRA only as infrastructure.
+- Mandatory first spec arms: primary `MPR-XVLA` and uniform-weight X-VLA
+  LoRA/QLoRA ablation.
+- No task6 optimizer step, checkpoint, training, or closed-loop Ours evaluation
+  has happened.
+
 ## Immediate Next Gate
 
-Perform narrow task-6 residual characterization, then generate at most two Ours
-candidates around the exact X-VLA task-6 residual.
+Freeze a no-training task6 `MPR-XVLA` training spec with exactly two arms:
+primary `MPR-XVLA` and uniform-weight X-VLA LoRA/QLoRA ablation.
 
-Still required:
-
-- no BR-XVLA rescue/retune;
-- no broad search;
-- no generic local head, residual gate, memory, verifier, cached-feature probe,
-  or proxy-only method;
-- one core mechanism, LoRA/QLoRA only as infrastructure;
-- preserve discovery/validation/confirmatory split.
-
-Do not treat X-VLA gains, X-VLA failures, headroom, or any prior-only result as
-Ours.
+Still prohibited: BR-XVLA rescue/retune, broad search, generic local heads,
+residual gates, memory, verifiers, cached-feature probes, proxy-only methods,
+and closed-loop Ours evaluation before an offline gate.
 
 ## Report Set
 
@@ -155,12 +189,18 @@ Ours.
 - Reproduction result: `reports/epoch5_prior_reproduction_result.md`
 - Reproduction result JSON: `reports/epoch5_prior_reproduction_result.json`
 - Task-1 candidate design: `reports/epoch5_task1_ours_candidate_design.md`
+- Task-6 candidate design: `reports/epoch5_task6_ours_candidate_design.md`
 
 ## Current Validation Status
 
 - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-- Handoff line count: 134, under the 250-line cap
-- Task-6 update validation pending in this working tree.
+- Handoff line count: 210, under the 250-line cap.
+- Task-6 candidate-design validation:
+  - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
+  - py_compile: pass for OpenVLA gate, task6 data audit, and focused tests
+  - pytest: `8 passed`
+  - `git diff --check`: pass with LF/CRLF warnings only
+  - `scripts/99_tree_check.ps1`: pass
 - Scan launcher syntax: pass via WSL `bash -n`
 - X-VLA runner py-compile: pass via official WSL env
 - Focused scan tests: none found

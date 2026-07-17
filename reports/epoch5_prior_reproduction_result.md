@@ -5,7 +5,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 ## Result
 
 Current decision:
-`TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+`TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -54,7 +54,11 @@ Base/Prior window now confirms usable residual structure: X-VLA improves over
 SmolVLA base (`6/8` versus `3/8`) while leaving shared residual failures at
 `20260725` and `20260731`. Both shared failures have positive task-level HDF5
 expert replay headroom, but no same-reset HDF5 demo init-state match was
-available.
+available. A task6 spatial data audit then passed, and the required
+Quantized OpenVLA-OFT INT4 second-prior screen did not solve either shared
+residual. Exactly two task6 candidates were generated; `MPR-XVLA` was selected
+as the first narrow candidate. No task6 optimizer step, checkpoint, training, or
+closed-loop Ours evaluation has happened.
 
 ## Validation Commands
 
@@ -74,6 +78,20 @@ Post-BR-XVLA scan report validation:
 - scan launcher syntax: pass via WSL `bash -n`;
 - X-VLA runner py-compile: pass via the official WSL environment;
 - focused scan tests: none found;
+- `git diff --check`: pass with LF/CRLF warnings only;
+- `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
+  execution-policy bypass.
+
+Task6 candidate-design validation:
+
+- JSON parse: pass via
+  `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`;
+- compact handoff: 210 lines, under the 250-line cap;
+- py-compile: pass for `tca_map\openvla_oft_int4_gate.py`,
+  `tca_map\xvla_task6\data_audit.py`,
+  `tests\test_openvla_oft_int4_gate.py`, and
+  `tests\test_xvla_task6_data_audit.py`;
+- focused pytest: `8 passed`;
 - `git diff --check`: pass with LF/CRLF warnings only;
 - `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
   execution-policy bypass.
@@ -1412,7 +1430,98 @@ but it is weaker than a same-reset oracle. It authorizes narrow task-6 residual
 characterization and at most two candidates around the exact X-VLA task-6
 residual; it does not authorize a broad method search or BR-XVLA retuning.
 
-Next action: perform narrow task-6 residual characterization, then generate at
-most two Ours candidates around this exact X-VLA task-6 residual. Do not create
-generic local heads, residual gates, memory, verifier/proxy-only methods, or
-any BR-XVLA rescue/retune.
+## Task-6 Spatial Data Audit
+
+Status: `COMPLETE_DATA_HEALTH_PASS`.
+
+Decision: `TASK6_SPATIAL_DATA_HEALTH_PASS_PREDESIGN_READY`.
+
+Artifact:
+`runs/xvla_prior/diagnostic_task6_spatial_data_audit_20260717T2115KST/result.json`,
+SHA-256 `71178809c5290ae6b4083e34fdf3aa49a4b259bb42f26b2561628acaeb3800fd`.
+
+Source:
+`tca_map/xvla_task6/data_audit.py`, SHA-256
+`0accb6887839178fca565b18d8a691ed78fa2b515b90f8cf5d986085e1b779c8`.
+
+The audit is CPU/HDF5-only: no model load, no training, no optimizer step, no
+checkpoint write, and no simulator rollout.
+
+| Split | Demos | Chunks | Phase-0 chunks | Mug done / pudding remaining | Phase-2 chunks |
+|---|---:|---:|---:|---:|---:|
+| Train | 40 | 9,929 | 3,803 | 5,518 | 608 |
+| Validation | 10 | 2,477 | 950 | 1,372 | 155 |
+
+Dataset checks:
+
+- 50 demos, 12,756 steps, 12,406 chunks.
+- Actions are finite 7D values in the LIBERO controller range `[-1, 1]`.
+- All 50 demos have terminal reward and done signals.
+- All 50 demos complete the mug-on-plate subgoal before the pudding-right
+  subgoal.
+- The red mug remains off-plate as a distractor.
+- Residual init-state overlap is zero for hashes
+  `47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82` and
+  `4f63fc206bad261b4721178ee1859e47c3111c119b2ef428e8d296ae7c0069e3`.
+- Privileged simulator state is used only to create training labels; inference
+  remains X-VLA RGB/proprio/instruction only.
+
+## Task-6 Quantized OpenVLA-OFT INT4 Second-Prior Screen
+
+Status: `COMPLETE_SECOND_PRIOR_RESIDUAL_SURVIVED`.
+
+Decision: `TASK6_NOT_SOLVED_BY_OPENVLA_OFT_INT4`.
+
+The valid screen used the OpenVLA-compatible runtime
+`/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python` after two invalid
+wrong-runtime attempts.
+
+Valid artifact:
+`runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_openvlaenv_20260717T2114KST/result.json`,
+SHA-256 `c897000b299d2d8fd356bb467a574971dd8d11843c0d06ecdd7698d765cd233b`.
+
+| Policy | Completed | Successes | Infrastructure failures | Elapsed seconds |
+|---|---:|---:|---:|---:|
+| Quantized OpenVLA-OFT INT4 | 2/2 | 0/2 | 0 | 208.769 |
+
+| Reset identity | Initial-state index | Success | Steps | Final reward | Video |
+|---:|---:|---:|---:|---:|---|
+| `20260725` | 14 | false | 530 | 0.0 | `./rollouts/2026_07_17/2026_07_17-21_14_55--openvla_oft--episode=110000--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocola.mp4` |
+| `20260731` | 20 | false | 530 | 0.0 | `./rollouts/2026_07_17/2026_07_17-21_14_55--openvla_oft--episode=110001--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocola.mp4` |
+
+Invalid attempts preserved for audit:
+
+| Run | Classification | Cause |
+|---|---|---|
+| `runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_20260717T2130KST` | `INVALID_RUNTIME_ENV_MISSING_OPENVLA_DEPENDENCY` | Wrong WSL runtime lacked `json_numpy`; no `result.json`. |
+| `runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_repaired_20260717T2135KST` | `INVALID_RUNTIME_ENV_MISSING_OPENVLA_DEPENDENCY` | Same wrong runtime then lacked TensorFlow; no `result.json`. |
+
+Interpretation: task6 is not already fully solved by Quantized OpenVLA-OFT INT4
+on the two shared X-VLA/SmolVLA Base residual identities. Candidate design is
+therefore authorized by the second-prior screen.
+
+## Task-6 Ours Candidate Design
+
+Status: `MPR_XVLA_CANDIDATE_SELECTED_PRETRAINING_SPEC_PENDING`.
+
+Decision: `TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED`.
+
+Detailed artifact: `reports/epoch5_task6_ours_candidate_design.md`.
+
+Exactly two candidates were considered around the exact measured task6
+residual:
+
+| Candidate | Contribution type | Core mechanism | Score | Decision |
+|---|---|---|---:|---|
+| `MPR-XVLA`: Mug-placed / Pudding-right Reweighted X-VLA | `PRIOR_EXTENSION` | LoRA/QLoRA-adapt X-VLA-Libero with phase-balanced imitation, upweighting chunks where the white mug is already on the plate and the chocolate pudding still needs the right-of-plate relation. | 88/100 | SELECTED |
+| `PRC-XVLA`: Pudding-Right Contrast X-VLA | `PRIOR_EXTENSION` | Add relation/distractor contrast around pudding-right-of-plate versus red-mug/plate distractor geometry during adaptation. | 74/100 | NOT SELECTED |
+
+`MPR-XVLA` is selected because it is the narrowest mechanism supported by the
+data audit and residual gates. The first frozen training spec, if created, must
+include exactly two arms: primary `MPR-XVLA` and a uniform-weight X-VLA
+LoRA/QLoRA ablation. The uniform ablation is mandatory because the task1
+BR-XVLA screen showed that uniform adaptation can explain an apparent residual
+fix.
+
+No task6 optimizer step, checkpoint write, training run, or closed-loop Ours
+evaluation has happened.

@@ -10,6 +10,8 @@ from __future__ import annotations
 import argparse
 from collections import deque
 import hashlib
+import importlib.machinery
+import importlib.util
 import json
 import os
 import platform
@@ -18,6 +20,7 @@ import subprocess
 import sys
 import time
 import traceback
+import types
 from pathlib import Path
 from typing import Any
 
@@ -62,6 +65,38 @@ def _json_default(value: Any) -> Any:
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True, default=_json_default) + "\n", encoding="utf-8")
+
+
+def _module_is_available(name: str) -> bool:
+    try:
+        return importlib.util.find_spec(name) is not None
+    except ValueError:
+        module = sys.modules.get(name)
+        if module is not None and getattr(module, "__spec__", None) is None:
+            return False
+        raise
+
+
+def _make_import_shim(name: str, *, is_package: bool = False) -> types.ModuleType:
+    module = types.ModuleType(name)
+    module.__spec__ = importlib.machinery.ModuleSpec(name, loader=None, is_package=is_package)
+    if is_package:
+        module.__path__ = []  # type: ignore[attr-defined]
+    return module
+
+
+def install_openvla_optional_import_shims() -> list[str]:
+    """Install import-only shims for optional OpenVLA-OFT eval dependencies."""
+
+    used: list[str] = []
+    if not _module_is_available("json_numpy"):
+        json_numpy = _make_import_shim("json_numpy")
+        json_numpy.patch = lambda: None  # type: ignore[attr-defined]
+        json_numpy.dumps = json.dumps  # type: ignore[attr-defined]
+        json_numpy.loads = json.loads  # type: ignore[attr-defined]
+        sys.modules["json_numpy"] = json_numpy
+        used.append("json_numpy")
+    return used
 
 
 def _round(value: float | None, digits: int = 6) -> float | None:
@@ -458,6 +493,7 @@ def load_smoke(args: argparse.Namespace) -> dict[str, Any]:
     import torch
 
     sys.path.insert(0, str(Path(args.openvla_repo)))
+    optional_import_shims_used = install_openvla_optional_import_shims()
     import experiments.robot.openvla_utils as official_openvla_utils
 
     # Preserve the exact downloaded checkpoint files and checksums. The
@@ -493,6 +529,7 @@ def load_smoke(args: argparse.Namespace) -> dict[str, Any]:
     report: dict[str, Any] = {
         "schema_version": 1,
         "variant": "int4" if args.load_in_4bit else "int8" if args.load_in_8bit else "forbidden_full_precision",
+        "optional_import_shims_used": optional_import_shims_used,
         "config": cfg.__dict__.copy(),
         "hard_rules": {
             "cpu_offload_allowed": False,
@@ -598,6 +635,7 @@ def episode_smoke(args: argparse.Namespace) -> dict[str, Any]:
     from libero.libero import benchmark
 
     sys.path.insert(0, str(Path(args.openvla_repo)))
+    optional_import_shims_used = install_openvla_optional_import_shims()
     import experiments.robot.openvla_utils as official_openvla_utils
 
     official_openvla_utils.update_auto_map = lambda pretrained_checkpoint: None
@@ -642,6 +680,7 @@ def episode_smoke(args: argparse.Namespace) -> dict[str, Any]:
     report: dict[str, Any] = {
         "schema_version": 1,
         "variant": "int4" if args.load_in_4bit else "int8" if args.load_in_8bit else "forbidden_full_precision",
+        "optional_import_shims_used": optional_import_shims_used,
         "config": cfg.__dict__.copy(),
         "task_suite_name": str(args.task_suite_name),
         "task_id": int(args.task_id),
@@ -896,6 +935,7 @@ def hard_slice_rollout(args: argparse.Namespace) -> dict[str, Any]:
     from libero.libero import benchmark
 
     sys.path.insert(0, str(Path(args.openvla_repo)))
+    optional_import_shims_used = install_openvla_optional_import_shims()
     import experiments.robot.openvla_utils as official_openvla_utils
 
     official_openvla_utils.update_auto_map = lambda pretrained_checkpoint: None
@@ -944,6 +984,7 @@ def hard_slice_rollout(args: argparse.Namespace) -> dict[str, Any]:
         "schema_version": 1,
         "variant": "int4" if args.load_in_4bit else "int8" if args.load_in_8bit else "forbidden_full_precision",
         "policy": "quantized_openvla_oft_int4" if args.load_in_4bit else "quantized_openvla_oft_int8",
+        "optional_import_shims_used": optional_import_shims_used,
         "quantized": True,
         "full_precision_claim": False,
         "config": cfg.__dict__.copy(),

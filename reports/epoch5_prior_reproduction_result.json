@@ -3,12 +3,12 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_xvla_task6_matched_residual_headroom_complete",
-  "decision": "TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+  "stage": "epoch_5_xvla_task6_ours_candidate_selected",
+  "decision": "TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
-  "current_selected_ours_method": "BR-XVLA",
+  "current_selected_ours_method": "MPR-XVLA",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
   "new_method_candidate_generated": true,
@@ -40,7 +40,9 @@
   "post_brxvla_xvla_prior_failure_scan_ours_design_happened": false,
   "task6_matched_base_prior_diagnostic_happened": true,
   "task6_headroom_diagnostic_happened": true,
-  "task6_ours_design_happened": false,
+  "task6_spatial_data_audit_happened": true,
+  "task6_second_prior_openvla_int4_check_happened": true,
+  "task6_ours_design_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -140,6 +142,15 @@
     "headroom_script_py_compile_windows": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m py_compile scripts\\epoch5_expert_headroom.py",
     "headroom_script_py_compile_wsl_official": "PASS via /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile scripts/epoch5_expert_headroom.py",
     "focused_pytest": "NO_FOCUSED_TESTS_RUN; script validation was py_compile only",
+    "git_diff_check": "PASS with LF/CRLF warnings only",
+    "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1"
+  },
+  "validation_after_task6_candidate_design_update": {
+    "json_parse": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m json.tool reports\\epoch5_prior_reproduction_result.json",
+    "compact_handoff_lines": 210,
+    "py_compile": "PASS for tca_map\\openvla_oft_int4_gate.py, tca_map\\xvla_task6\\data_audit.py, tests\\test_openvla_oft_int4_gate.py, and tests\\test_xvla_task6_data_audit.py",
+    "focused_pytest_command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_openvla_oft_int4_gate.py tests\\test_xvla_task6_data_audit.py -q",
+    "focused_pytest_stdout_summary": "8 passed",
     "git_diff_check": "PASS with LF/CRLF warnings only",
     "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1"
   },
@@ -2202,6 +2213,215 @@
     ],
     "interpretation": "Both shared task-6 residual failures have positive task-level expert replay evidence, but neither has same-reset HDF5 evidence. This is enough to avoid a no-headroom/no-recoverability stop, but it is not an Ours result and not a same-reset oracle."
   },
+  "task6_spatial_data_audit": {
+    "status": "COMPLETE_DATA_HEALTH_PASS",
+    "decision": "TASK6_SPATIAL_DATA_HEALTH_PASS_PREDESIGN_READY",
+    "script": "tca_map/xvla_task6/data_audit.py",
+    "script_sha256": "0accb6887839178fca565b18d8a691ed78fa2b515b90f8cf5d986085e1b779c8",
+    "test": "tests/test_xvla_task6_data_audit.py",
+    "test_sha256": "6486a6a83bc2c6354a7e64a962a55c505b48ccf45bf5f798c91a6d1a43bb1155",
+    "artifact": "runs/xvla_prior/diagnostic_task6_spatial_data_audit_20260717T2115KST/result.json",
+    "artifact_sha256": "71178809c5290ae6b4083e34fdf3aa49a4b259bb42f26b2561628acaeb3800fd",
+    "scope": "CPU/HDF5-only spatial data-health audit before task6 Ours design",
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "simulator_rollout_happened": false,
+    "model_load_happened": false,
+    "dataset_summary": {
+      "demo_count": 50,
+      "total_steps": 12756,
+      "total_chunks": 12406,
+      "action_dim_values": [
+        7
+      ],
+      "actions_finite": true,
+      "action_min": -1.0,
+      "action_max": 1.0,
+      "terminal_reward_demos": 50,
+      "terminal_done_demos": 50,
+      "subgoal_order_counts": {
+        "mug_first": 50,
+        "pudding_first": 0,
+        "same_step": 0,
+        "missing": 0
+      }
+    },
+    "split_summary": {
+      "train": {
+        "demo_count": 40,
+        "step_count": 10209,
+        "chunk_count": 9929,
+        "phase_chunk_counts": {
+          "0": 3803,
+          "1": 5518,
+          "2": 608
+        },
+        "mug_done_pudding_remaining_chunks": 5518,
+        "pudding_done_mug_remaining_chunks": 0,
+        "demos_with_mug_done_pudding_remaining_chunks": 40
+      },
+      "validation": {
+        "demo_count": 10,
+        "step_count": 2547,
+        "chunk_count": 2477,
+        "phase_chunk_counts": {
+          "0": 950,
+          "1": 1372,
+          "2": 155
+        },
+        "mug_done_pudding_remaining_chunks": 1372,
+        "pudding_done_mug_remaining_chunks": 0,
+        "demos_with_mug_done_pudding_remaining_chunks": 10
+      }
+    },
+    "residual_overlap": {
+      "overlap_count": 0,
+      "overlap_hashes": [],
+      "residual_initial_state_sha256": [
+        "47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82",
+        "4f63fc206bad261b4721178ee1859e47c3111c119b2ef428e8d296ae7c0069e3"
+      ]
+    },
+    "gate_checks": {
+      "passes_data_health_gate": true,
+      "actions_are_7d": true,
+      "actions_are_finite": true,
+      "actions_within_libero_controller_range_with_margin": true,
+      "all_demos_complete_mug_before_pudding": true,
+      "red_mug_stays_off_plate_distractor": true,
+      "phase_labels_not_collapsed": true,
+      "train_has_mug_done_pudding_remaining_chunks": true,
+      "validation_has_mug_done_pudding_remaining_chunks": true,
+      "initial_states_do_not_overlap_residual_failures": true,
+      "privileged_state_used_only_for_training_labels": true
+    },
+    "deployment_input_policy": {
+      "allowed_inference_inputs": [
+        "agentview_rgb",
+        "wrist_rgb",
+        "proprioception",
+        "instruction"
+      ],
+      "privileged_state_at_inference": false,
+      "training_only_phase_label_source": "HDF5 simulator state; no object-state inference inputs"
+    },
+    "interpretation": "The task6 HDF5 data has non-collapsed mug-done/pudding-remaining phases in both train and validation splits, with all demos mug-first and no residual init-state overlap. This supports narrow candidate design but is not itself an Ours result."
+  },
+  "task6_second_prior_openvla_int4_check": {
+    "status": "COMPLETE_SECOND_PRIOR_RESIDUAL_SURVIVED",
+    "decision": "TASK6_NOT_SOLVED_BY_OPENVLA_OFT_INT4",
+    "purpose": "Verify that the shared task6 X-VLA/SmolVLA Base residual is not already fully solved by Quantized OpenVLA-OFT INT4 before task6 Ours design.",
+    "policy": "quantized_openvla_oft_int4",
+    "variant": "int4",
+    "full_precision_claim": false,
+    "gate_script": "tca_map/openvla_oft_int4_gate.py",
+    "gate_script_sha256": "c2c20652cccc23afcc0e22a5a727712779a5fc9c824f149741159136b1a0c082",
+    "gate_test": "tests/test_openvla_oft_int4_gate.py",
+    "gate_test_sha256": "a01f6522e0ee5784a36d285a74b1d516a9ccaceeed2b8ffe145954277ee6a620",
+    "runtime_python": "/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python",
+    "artifact": "runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_openvlaenv_20260717T2114KST/result.json",
+    "artifact_sha256": "c897000b299d2d8fd356bb467a574971dd8d11843c0d06ecdd7698d765cd233b",
+    "manifest_label": "epoch5_task6_openvla_int4_residual_check",
+    "manifest_canonical_payload_sha256": "a56adc5618a080e798609020e66e11451b8ebe45b0eccc3c309e3fbfad513704",
+    "completed": 2,
+    "successes": 0,
+    "failures": [
+      20260725,
+      20260731
+    ],
+    "infrastructure_failures": 0,
+    "elapsed_seconds": 208.769,
+    "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+    "optional_import_shims_used": [],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "episodes": [
+      {
+        "reset_identity": 20260725,
+        "initial_state_index": 14,
+        "initial_state_sha256": "47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82",
+        "success": false,
+        "steps": 530,
+        "final_reward": 0.0,
+        "action_chunk_count": 65,
+        "video_path": "./rollouts/2026_07_17/2026_07_17-21_14_55--openvla_oft--episode=110000--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocola.mp4",
+        "exception": null
+      },
+      {
+        "reset_identity": 20260731,
+        "initial_state_index": 20,
+        "initial_state_sha256": "4f63fc206bad261b4721178ee1859e47c3111c119b2ef428e8d296ae7c0069e3",
+        "success": false,
+        "steps": 530,
+        "final_reward": 0.0,
+        "action_chunk_count": 65,
+        "video_path": "./rollouts/2026_07_17/2026_07_17-21_14_55--openvla_oft--episode=110001--success=False--task=put_the_white_mug_on_the_plate_and_put_the_chocola.mp4",
+        "exception": null
+      }
+    ],
+    "invalid_attempts": [
+      {
+        "run_dir": "runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_20260717T2130KST",
+        "classification": "INVALID_RUNTIME_ENV_MISSING_OPENVLA_DEPENDENCY",
+        "reason": "Wrong WSL runtime environment lacked json_numpy; no result.json was produced."
+      },
+      {
+        "run_dir": "runs/openvla_oft_int4/diagnostic_task6_residual_openvla_int4_20260725_20260731_repaired_20260717T2135KST",
+        "classification": "INVALID_RUNTIME_ENV_MISSING_OPENVLA_DEPENDENCY",
+        "reason": "Same wrong WSL runtime then lacked TensorFlow; no result.json was produced. TensorFlow was not shimmed because OpenVLA image preprocessing depends on it."
+      }
+    ],
+    "interpretation": "Quantized OpenVLA-OFT INT4 completed the two shared task6 residual identities with no infrastructure failures and failed both. Therefore the residual is not already solved by this prior screen, and task6 Ours candidate design is authorized."
+  },
+  "xvla_task6_ours_candidate_design": {
+    "status": "MPR_XVLA_CANDIDATE_SELECTED_PRETRAINING_SPEC_PENDING",
+    "decision": "TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED",
+    "artifact": "reports/epoch5_task6_ours_candidate_design.md",
+    "artifact_sha256": "3edd43204fd8c9dee082ae880c0bd53b5d66c34883be48da9f876ec6f5fcc4d3",
+    "selected_method": "MPR-XVLA",
+    "selected_method_full_name": "Mug-placed / Pudding-right Reweighted X-VLA",
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "candidate_count": 2,
+    "candidates": [
+      {
+        "name": "MPR-XVLA",
+        "full_name": "Mug-placed / Pudding-right Reweighted X-VLA",
+        "contribution_type": "PRIOR_EXTENSION",
+        "core_mechanism": "LoRA/QLoRA-adapt X-VLA-Libero with a phase-balanced imitation objective that upweights chunks where the white mug is already on the plate and the chocolate pudding still needs the right-of-plate relation.",
+        "score": 88,
+        "decision": "SELECTED"
+      },
+      {
+        "name": "PRC-XVLA",
+        "full_name": "Pudding-Right Contrast X-VLA",
+        "contribution_type": "PRIOR_EXTENSION",
+        "core_mechanism": "Add relation/distractor contrast around pudding-right-of-plate versus red-mug/plate distractor geometry during adaptation.",
+        "score": 74,
+        "decision": "NOT_SELECTED",
+        "reason_not_selected": "Adds broader relation-contrast complexity before evidence that red-mug distractor confusion is the primary residual axis."
+      }
+    ],
+    "selected_objective": "L(theta) = mean_t (1 + lambda * m_t) * ||pi_theta(x_t) - a*||_1, where m_t marks training-only HDF5 chunks with mug-on-plate true and pudding-right false.",
+    "first_training_spec_constraints": {
+      "allowed_arms": [
+        "MPR-XVLA primary",
+        "uniform-weight X-VLA LoRA/QLoRA ablation"
+      ],
+      "uniform_ablation_required": true,
+      "why_uniform_ablation_required": "BR-XVLA closed-loop screen showed that a uniform ablation can succeed when the selected weighting fails.",
+      "residual_identities_for_model_selection": "DISALLOWED",
+      "privileged_state_at_inference": false,
+      "closed_loop_ours_before_offline_gate": "DISALLOWED",
+      "retune_from_failed_closed_loop": "DISALLOWED"
+    },
+    "interpretation": "MPR-XVLA is a narrow task6 prior extension candidate selected only after matched Base/Prior residual, task-level headroom, data-health, and Quantized OpenVLA-OFT INT4 second-prior gates. It is not yet trained and is not an Ours result."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -2253,5 +2473,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 now has matched Base/Prior residual structure plus positive task-level headroom with same-reset HDF5 unavailable. The next authorized scientific step is narrow task-6 residual characterization followed by at most two Ours candidates around the exact X-VLA task-6 residual; no broad search, BR-XVLA retune, generic local head, residual gate, memory, verifier, cached-feature probe, or proxy-only method."
+  "next_action": "Task 6 now has selected candidate MPR-XVLA after matched Base/Prior residual, task-level headroom, spatial data-health, and Quantized OpenVLA-OFT INT4 second-prior gates. The next authorized step is a frozen no-training task6 MPR-XVLA training spec with exactly two arms: primary MPR-XVLA and uniform-weight X-VLA LoRA/QLoRA ablation. No optimizer step, checkpoint, training, or closed-loop Ours evaluation is authorized until that spec is frozen and validated."
 }
