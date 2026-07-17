@@ -221,11 +221,21 @@ X-VLA official-prior scan on `libero_spatial`, reset identity `20260727`, tasks 
 
 Interpretation: `libero_spatial/task_5` identity `20260727` is a first-prior residual only. It does not authorize Ours; next gate is matched SmolVLA Base on the same task/reset.
 
+## Post-Second-Prior 20260727 Spatial Base Gate
+
+Durable result:
+`reports/post_secondprior_libero_spatial_20260727_base_gate_result.json`
+`reports/post_secondprior_libero_spatial_20260727_base_gate_result.md`
+
+SmolVLA frozen Base on `libero_spatial/task_5`, reset identity `20260727`: 1/1 completed, 0/1 succeeded, 0 infrastructure failures, 280 steps, 6 action chunks, max reward `0.0`, result SHA `353e3d66bd98696f2a5d64e86f3eb72295b61b18091aba56fdda09da0b3e0941`, video SHA `b06bed4febfc09e6891e56e677297683e74f25992d29ac1dfe1282d47aa2ff59`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_spatial/task_5` identity `20260727` is now a shared X-VLA first-prior and SmolVLA Base clean residual. It still does not authorize Ours; next gate is expert headroom.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run matched SmolVLA Base diagnostic for `libero_spatial/task_5`, reset identity `20260727`. Do not run headroom, second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until Base is checked.
+Run expert-headroom diagnostic for `libero_spatial/task_5`, reset identity `20260727`. Do not run second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until headroom is checked.
 
 ## Validation To Run Before Commit
 
