@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:55:04+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_arming": "11bc6f3689d21b8f6ad2bba5f03e89f0bccbd3eb",
+  "decision": "R2P_XVLA_OPTIMIZER_GATE_ARMED_TRAINING_LAUNCH_AUTHORIZED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY_FROZEN_GATE_ARMING",
+    "evidence_role": "TRAINING_LAUNCH_AUTHORIZATION",
+    "artifact_status": "TRACKED_ARMING_REPORT_NO_TRAINING_RUNTIME",
+    "vla_model_loaded": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "offline_validation_runtime_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0
+  },
+  "prerequisite_references": {
+    "train_lora_runner": {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_train_lora_runner_result.json",
+      "sha256": "f3011ca4cb68f3f43a2db87397a76dcb80834825774bf99d9609e5c428682628"
+    },
+    "offline_validation_runner": {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_offline_validation_runner_result.json",
+      "sha256": "f116c7b21743a4f3f3d81632725497bcff5f1351bffa969d77470a53ffb3ebe9"
+    },
+    "sequential_training_gate_runner": {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_runner_result.json",
+      "sha256": "9898d148785ead4c9398f46f815433df649a896d0ed0c51e91893ffab0fc5650"
+    }
+  },
+  "prelaunch_snapshot": {
+    "git_status_short_branch": [
+      "## codex/epoch5-official-prior-first...origin/codex/epoch5-official-prior-first",
+      "?? rollouts/2026_07_17/",
+      "?? rollouts/2026_07_18/"
+    ],
+    "task5_worker_process_found": false,
+    "training_output_root_exists": false,
+    "offline_validation_output_exists": false,
+    "gpu_memory_used_mib": 1748,
+    "gpu_memory_total_mib": 16303,
+    "gpu_utilization_percent": 2
+  },
+  "armed_contract": {
+    "training_must_use": "tca_map.xvla_spatial_task5.training_gate",
+    "command": "cd /mnt/c/Users/jiheo/tca_map && ./.venv/bin/python -m tca_map.xvla_spatial_task5.training_gate",
+    "output_root": "runs/xvla_prior/epoch5_r2p_xvla_task5_training",
+    "offline_output": "runs/xvla_prior/epoch5_r2p_xvla_task5_offline_validation_step0064.json",
+    "max_steps_override": null,
+    "num_validation_chunks": 24,
+    "allow_download": false,
+    "device_index": 0,
+    "frozen_training_arms_in_order": [
+      "r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+      "uniform_task5_xvla_rank8_lambda0_lr1e4_steps64"
+    ],
+    "closed_loop_rollout_authorized": false,
+    "residual_reward_checkpoint_selection_authorized": false,
+    "new_config_authorized": false
+  },
+  "training_launch_authorized_after_this_report": true,
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "offline_validation_runtime_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "downloads_performed": false
+  },
+  "next_action": "Launch the armed sequential training gate, then monitor the initial worker PID, heartbeat, status, stdout/stderr, and exit artifacts."
+}

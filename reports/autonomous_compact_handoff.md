@@ -233,6 +233,8 @@ Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bu
 
 Sequential gate runner: `tca_map/xvla_spatial_task5/training_gate.py` with `tests/test_r2p_xvla_training_gate.py`; report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_runner_result.json`; decision `R2P_XVLA_SEQUENTIAL_TRAINING_GATE_IMPLEMENTED_TESTED_NOT_LAUNCHED`; expanded task5 bundle pytest `23 passed`. No training/runtime happened.
 
+Arming report: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gate_arming_result.json`; decision `R2P_XVLA_OPTIMIZER_GATE_ARMED_TRAINING_LAUNCH_AUTHORIZED`; prelaunch clean except pre-existing untracked rollout dirs.
+
 ## Immediate Next Action
 
-Record the explicit R2P-XVLA frozen optimizer-gate arming decision. Do not change the frozen config; only after arming may bounded training launch under the existing gate.
+Launch the armed sequential training gate exactly as recorded in the arming report, then monitor initial worker PID/heartbeat/status/log/exit artifacts. Do not change the frozen config.
