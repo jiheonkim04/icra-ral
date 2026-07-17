@@ -1,0 +1,181 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_libero_spatial_prior_scan.v1",
+  "created_at_kst": "2026-07-18T05:58:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan": "e6b1fac4f1b939b7a115700c8ad70f347a6e7eb7",
+  "stage": "epoch_5_official_prior_residual_search_after_r2p_archive",
+  "decision": "POST_R2P_ARCHIVE_LIBERO_SPATIAL_IDENTITY20260728_XVLA_PRIOR_SATURATED_NO_RESIDUAL",
+  "suite": "libero_spatial",
+  "reset_identity": 20260728,
+  "run_dir": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "model_family": "XVLA",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_repo": "C:\\assets\\repos\\X-VLA",
+    "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_launcher_pid": 11236,
+    "wsl_worker_pid": 307,
+    "peak_vram_mib": 3518.634,
+    "simulator_episode_count": 10,
+    "model_forward_count": 39,
+    "model_forward_count_source": "sum of per-task episode.action_chunk_count",
+    "eval_horizon": 900,
+    "settle_steps": 10,
+    "denoise_steps": 10,
+    "absolute_controller": true
+  },
+  "summary": {
+    "completed_task_count": 10,
+    "successful_task_count": 10,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "candidate_generation_authorized": false,
+    "base_gate_authorized": false,
+    "second_prior_gate_authorized": false
+  },
+  "task_results": [
+    {
+      "task_id": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "success": true,
+      "steps": 74,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "d84ac86c9c6ef62e613d7f260af7e211022e0e8ffcedcbf00d223d2c62737f33"
+    },
+    {
+      "task_id": 1,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "success": true,
+      "steps": 106,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "f63946d8ce41cad251c2428e144db73c2935683712124d95547fa4e2f63658aa"
+    },
+    {
+      "task_id": 2,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "success": true,
+      "steps": 95,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "c75b94a1d1db76c6d3d936e6aaa3ef5ea0a39f641cc36b67027ab8b44beea038"
+    },
+    {
+      "task_id": 3,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "success": true,
+      "steps": 87,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "20883b0920a9bedb729de724d6316ef17e5a81c4b6e9d7eecdf5b205f0f72da1"
+    },
+    {
+      "task_id": 4,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "success": true,
+      "steps": 135,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "a6a30e49071b305e7be53fc6b0a7df860b4c02b8304cfc597c4b35e1a973fdbc"
+    },
+    {
+      "task_id": 5,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "success": true,
+      "steps": 92,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "0b10950ce171caa4e50d935f218040f9c173e0c3b10766086ded18550ab346bb"
+    },
+    {
+      "task_id": 6,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "success": true,
+      "steps": 107,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "e54aef3413190bfc8622b4b2c873deaed464cd9871549c57b24fddc37c4223ae"
+    },
+    {
+      "task_id": 7,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "success": true,
+      "steps": 117,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "94ed82e8ba506f45ff47ac7c0b76349ee92d3a32e282ef05984f0f5dfa919601"
+    },
+    {
+      "task_id": 8,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "success": true,
+      "steps": 104,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "ea8c06fde92a2c55c4cc5982ee450f9a268cde7799a6492524b3f2da19cf7a66"
+    },
+    {
+      "task_id": 9,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "success": true,
+      "steps": 118,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "190a35d859ba9c82d090d67a1beff767ba2da2c2c4d8d1cf1fb0f71efc80a873"
+    }
+  ],
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST/scan_summary.json",
+      "sha256": "96af89488c452054a950ea09b796c3a5bcd7d6bb6b270d6ea9de3bfbbf2d9823",
+      "length_bytes": 6672
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST/scan_manifest.json",
+      "sha256": "a6d27d337c9481d3d1e3d454a89f2fc0255bc064aef9a97636c90e0a27f8b642",
+      "length_bytes": 740
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST/exact_resume_command.txt",
+      "sha256": "ac6acbacb2a94eb92994a909550434f17d43bc8eb801346330214e976a704f6f",
+      "length_bytes": 251
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST/scan_worker_pid.txt",
+      "sha256": "0b38a7d76ddb1e72289ec2ed4ca71fea3eaf19c47787b55619639c2594de0cf2",
+      "length_bytes": 4
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260728_post_r2p_archive_20260718T0553KST/windows_launcher_pid.txt",
+      "sha256": "06633d317f2b2ed51b8093693eab19b8253ec06202fb7f548553da7a22ba0bfd",
+      "length_bytes": 7
+    },
+    {
+      "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+      "sha256": "bcade790ddce333b1bd9d0d38f5336fa4c12f6d19e47c2b046cce89ddfd31c4c"
+    },
+    {
+      "path": "scripts/epoch5_xvla_libero10_task8_eval.py",
+      "sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6"
+    }
+  ],
+  "next_action": "No Base/headroom/second-prior gate is needed because X-VLA solved all tasks. Continue official-prior-first residual search with libero_goal identity 20260729 remaining tasks 0..2 and 4..9; task3 was already screened and Base-solved."
+}

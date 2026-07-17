@@ -1,0 +1,181 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_libero_object_prior_scan.v1",
+  "created_at_kst": "2026-07-18T05:53:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan": "e6b1fac4f1b939b7a115700c8ad70f347a6e7eb7",
+  "stage": "epoch_5_official_prior_residual_search_after_r2p_archive",
+  "decision": "POST_R2P_ARCHIVE_LIBERO_OBJECT_IDENTITY20260728_XVLA_PRIOR_SATURATED_NO_RESIDUAL",
+  "suite": "libero_object",
+  "reset_identity": 20260728,
+  "run_dir": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "model_family": "XVLA",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_repo": "C:\\assets\\repos\\X-VLA",
+    "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_launcher_pid": 21000,
+    "wsl_worker_pid": 314,
+    "peak_vram_mib": 3518.634,
+    "simulator_episode_count": 10,
+    "model_forward_count": 48,
+    "model_forward_count_source": "sum of per-task episode.action_chunk_count",
+    "eval_horizon": 900,
+    "settle_steps": 10,
+    "denoise_steps": 10,
+    "absolute_controller": true
+  },
+  "summary": {
+    "completed_task_count": 10,
+    "successful_task_count": 10,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "candidate_generation_authorized": false,
+    "base_gate_authorized": false,
+    "second_prior_gate_authorized": false
+  },
+  "task_results": [
+    {
+      "task_id": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "success": true,
+      "steps": 146,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "f271bb77a5e433b2f0e7964408cd6b37b692ed31611a117afad4f79bbad55999"
+    },
+    {
+      "task_id": 1,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "success": true,
+      "steps": 131,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "a045c52d26ee02299b6f8d0fc1f20f2e870d15ac06f0b299b38d6776975f6aa6"
+    },
+    {
+      "task_id": 2,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "success": true,
+      "steps": 118,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "5213747c4ad570f26118230f444b3439a8a5f5de8e950e7e688806c5014e93ba"
+    },
+    {
+      "task_id": 3,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "success": true,
+      "steps": 144,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "e90886b33ab7ce36db7a732f13b5e10a5f251e110d49fbfd0fbdbd0d00b7d725"
+    },
+    {
+      "task_id": 4,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "success": true,
+      "steps": 150,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "22b0c30a55221c2a2ff13efbc545820ebecdc368ca9be1162e85d59965074013"
+    },
+    {
+      "task_id": 5,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "success": true,
+      "steps": 120,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "53144daa8ea7470b98e5a543cfb36f2b3f6aad496dad07fbcb2e9fe895efaa11"
+    },
+    {
+      "task_id": 6,
+      "instruction": "pick up the butter and place it in the basket",
+      "success": true,
+      "steps": 149,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "8a24f4f02eb6013a346394f37a80683cee54f4b994de24442570012197f708d5"
+    },
+    {
+      "task_id": 7,
+      "instruction": "pick up the milk and place it in the basket",
+      "success": true,
+      "steps": 127,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "82e785d771fa353899ad6a9191719b483bdcb865c26d0813a9b6927d0b51c7a1"
+    },
+    {
+      "task_id": 8,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "success": true,
+      "steps": 148,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "15a78073a5d90b7414d7ce4a9bc238f806baef86f47fb1ba949576967cafc1c8"
+    },
+    {
+      "task_id": 9,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "success": true,
+      "steps": 121,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "7efd86c5fd69aae6d84bd8e478895d4b076c70c4b5c1088c28d7dc1dc0c4da8c"
+    }
+  ],
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST/scan_summary.json",
+      "sha256": "2ea8ca13c880a3327b621d22d8f688b99ea30368cb58a2e70a4b785969d51271",
+      "length_bytes": 6448
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST/scan_manifest.json",
+      "sha256": "07016c05bebd1d21975295f5985955fab72a9e3f7dec34a395e3a9193db06a0b",
+      "length_bytes": 739
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST/exact_resume_command.txt",
+      "sha256": "b18e8305e75d1adb7c125f974f4af841d67f86a448bcdb3fa5a2d5c71caa8853",
+      "length_bytes": 249
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST/scan_worker_pid.txt",
+      "sha256": "79d03872c65b8680b09df96eeb31d4713d439108f1bad6a0bf53369a4bb30c7a",
+      "length_bytes": 4
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260728_post_r2p_archive_20260718T0549KST/windows_launcher_pid.txt",
+      "sha256": "9f899994a20c9e12205e2b2941c51ed540aff218cdf13e8a3d6023fbc4046431",
+      "length_bytes": 7
+    },
+    {
+      "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+      "sha256": "bcade790ddce333b1bd9d0d38f5336fa4c12f6d19e47c2b046cce89ddfd31c4c"
+    },
+    {
+      "path": "scripts/epoch5_xvla_libero10_task8_eval.py",
+      "sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6"
+    }
+  ],
+  "next_action": "No Base/headroom/second-prior gate is needed because X-VLA solved all tasks. Continue official-prior-first residual search with the next fresh suite/identity pair, starting with libero_spatial identity 20260728."
+}
