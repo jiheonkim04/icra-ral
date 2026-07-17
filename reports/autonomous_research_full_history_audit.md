@@ -1,43 +1,69 @@
 # Autonomous VLA Research - Full History Audit
 
-This report is the mandatory Phase A audit before any new candidate generation, implementation, training, or rollout. Evidence precedence follows the current Goal instruction, `reports/current_research_governance.md`, `AGENTS.md`, current result artifacts, current campaign state, git history, and historical reports. Missing facts are recorded as `NOT_RECORDED` rather than guessed.
+This report is the mandatory Phase A audit before any new candidate generation, implementation, training, or rollout. It was first created at commit `b0ecb6e` and refreshed on the live `codex/epoch5-official-prior-first` branch after the repository moved into an official-prior-first Epoch 5. Evidence precedence follows the current Goal instruction, `reports/current_research_governance.md`, `AGENTS.md`, current result artifacts, current campaign state, git history, and historical reports. Missing facts are recorded as `NOT_RECORDED` rather than guessed.
 
 ## 1. Executive Summary
 
-No paper-ready method exists. No valid `PROTOTYPE_GO` method exists. The repository contains substantial reusable infrastructure and a large body of negative, invalid, underpowered, and diagnostic evidence, but it does not contain `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
+No paper-ready method exists. No valid `PROTOTYPE_GO` method exists. The repository contains substantial reusable infrastructure and a large body of negative, invalid, underpowered, and diagnostic evidence, but it does not contain `READY_TO_DRAFT_RAL_PAPER_PACKAGE`. The current Epoch 5 work is an official-prior-first diagnostic, not an Ours method and not a paper result.
 
-Route count: 73 distinct research routes were found, consisting of 26 historical or diagnostic routes plus 47 formal autonomous method proposals. Implemented route count: 70 of 73 have code-level or runner-level implementation evidence; `SafeLoRA-VLA`, `TG-VLA`, and `ISAC-VLA` did not reach an implemented local experiment. Trained route count: 31 have verified training or checkpoint artifacts; 23 of those are in the formal 47-method campaign. Closed-loop Stage A count: 17 formal autonomous methods reached Stage A; 19 route-level methods reached Stage-A-equivalent closed-loop evidence when historical prototypes are included. Stage B count: 10 formal autonomous methods reached Stage B; 11 route-level methods reached Stage-B-equivalent closed-loop evidence when the repaired PhaseBarrier prototype is included. Second-backbone Ours count: 0.
+Route count remains 73 distinct research routes, consisting of 26 historical or diagnostic routes plus 47 formal autonomous method proposals. The existing OpenVLA-OFT diagnostic route now has an Epoch 5 continuation, but it is not counted as an additional Ours method. Implemented route count remains 70 of 73 with code-level or runner-level implementation evidence; `SafeLoRA-VLA`, `TG-VLA`, and `ISAC-VLA` did not reach an implemented local experiment. Trained route count remains 31 with verified training or checkpoint artifacts; 23 of those are in the formal 47-method campaign. Closed-loop Stage A count remains 17 formal autonomous methods; 19 route-level methods reached Stage-A-equivalent closed-loop evidence when historical prototypes are included. Stage B count remains 10 formal autonomous methods; 11 route-level methods reached Stage-B-equivalent closed-loop evidence when the repaired PhaseBarrier prototype is included. Second-backbone Ours count remains 0.
 
-Outcome totals used in this audit: 26 valid scientific kills, 31 non-scientific failures, and 9 underpowered or unresolved results. Seven additional rows are infrastructure, diagnostic, no-claim, or preimplementation rejections and are not counted as scientific failures. The current active stage is `epoch_4_cycle_39_candidate_search_pending`; the previous method is `MCI-VLA`, closed as `MCI_STAGE_0_IMPLEMENTATION_FAILURE`.
+Outcome totals used in this audit remain 26 valid scientific kills, 31 non-scientific failures, and 9 underpowered or unresolved results. Seven additional rows are infrastructure, diagnostic, no-claim, or preimplementation rejections and are not counted as scientific failures. The current active stage is Epoch 5 official-prior-first residual diagnosis: selected prior `OpenVLA-OFT on LIBERO`; previous method `MCI-VLA` remains closed as `MCI_STAGE_0_IMPLEMENTATION_FAILURE`.
 
 The strongest result obtained is `CAVM-VLA`: after one allowed expansion, full reached 24/58 versus nearest-success memory 23/58, Base 22/58, and no-contrast 21/58. It is the best near-miss, but the effect is a one-episode advantage, no third expansion is allowed, and no second-backbone or external-prior confirmation exists.
 
-The campaign is not paper-ready mainly because: no method beats Base, closest prior/proxy, key ablation, and simple reviewer-killer control in a valid Stage B; external-prior comparisons were usually local proxies, not official reproductions; many late methods died before rollout from data, headroom, objective-scale, or implementation failures; the search repeatedly favored lightweight frozen-SmolVLA attachments; and there is no same-method Quantized OpenVLA-OFT INT4 plus Ours result.
+The campaign is not paper-ready mainly because: no method beats Base, closest prior/proxy, key ablation, and simple reviewer-killer control in a valid Stage B; official-prior comparison arrived only as an Epoch 5 diagnostic after the prior method cycle; many late methods died before rollout from data, headroom, objective-scale, or implementation failures; the search repeatedly favored lightweight frozen-SmolVLA attachments; and there is still no same-method Quantized OpenVLA-OFT INT4 plus Ours result. Epoch 5 has found a promising prior-positive residual slice, OpenVLA-OFT INT4 14/16 versus SmolVLA Base 7/16, but the upper/headroom check and all Ours-side evidence are not yet complete.
 
 ## 2. Audit Snapshot
 
 | Field | Value |
 |---|---|
-| Snapshot timestamp | 2026-07-17T03:26:32.4080667+09:00 |
-| Audit branch | `codex/full-history-audit-before-resume` |
-| Scientific HEAD at audit start | `bc15132d74741c5b03c253c9bc062d8c5aaa5ddc` |
-| HEAD commit subject | `Adjudicate MCI-VLA Stage 0 result` |
-| Git status at audit start | clean, `## codex/full-history-audit-before-resume` |
+| Snapshot timestamp | 2026-07-17T12:45:29.5487505+09:00 |
+| Audit branch | `codex/epoch5-official-prior-first` |
+| Scientific HEAD at audit refresh | `ffb55f57e1cd978a35d0d84c9ede487559e02fa0` |
+| HEAD commit subject | `Preregister epoch 5 OpenVLA residual diagnostic` |
+| Git status at audit refresh | `## codex/epoch5-official-prior-first...origin/codex/epoch5-official-prior-first`; modified `tca_map/smolvla/official_wsl_libero_rollout.py`; untracked `scripts/launch_epoch5_residual_job.sh`; untracked `rollouts/2026_07_17/` OpenVLA videos |
 | `main` HEAD | `8dc4de2fdbf576ace8bdf3699d190b761553c1fa` |
-| Local/remote branch inventory | 256 local branches, 196 remote branches, 452 all-branch lines |
+| Prior audit commit | `b0ecb6ea5f6eba2953b5bd842883c0474d634dff` (`Add full history research audit`) |
+| New commits after prior audit | `d268a83` (`Start epoch 5 official-prior-first campaign`), `ffb55f5` (`Preregister epoch 5 OpenVLA residual diagnostic`) |
+| Local/remote branch inventory | hundreds of branch refs; current branch is already pushed to `origin/codex/epoch5-official-prior-first` |
 | Unmerged branch with unique work | `codex/execspec-repair-state0-state1`; one historical ExecSpec state1 kill-gate commit, superseded by later ExecSpec state2/3/3.5 evidence |
 | Active Windows Python research worker | none detected |
-| Active WSL Python research worker | none detected; only system `networkd-dispatcher` and unattended-upgrades Python services |
-| CUDA compute snapshot | RTX 5080, 16,303 MiB total, 2,412 MiB used, 13,568 MiB free, 10 percent GPU utilization, 36 C; listed compute apps were desktop/system processes, not research Python |
-| RAM snapshot | 24,288,100 KiB visible, 5,361,388 KiB free |
-| Disk snapshot | C: 999,134,588,928 bytes total, 320,565,641,216 bytes free |
-| Current epoch/cycle/stage | epoch 4, cycle 39, `epoch_4_cycle_39_candidate_search_pending` |
-| Current/previous method | `MCI-VLA` |
-| Current/previous decision | `MCI_STAGE_0_IMPLEMENTATION_FAILURE` |
-| Current next action in state | Generate exactly three Cycle 39 candidates; do not rescue or retune MCI-VLA |
+| Active WSL Python research worker | none at refreshed snapshot; the previously active SmolVLA residual worker exited during the audit |
+| Worker classification | `COMPLETED_DURING_AUDIT_WITHOUT_INTERVENTION`; launcher PID `394`, child Python PID `399`, exit code `0`, finished `2026-07-17T12:40:48+09:00` |
+| Worker heartbeat/status | last observed heartbeat `2026-07-17T12:40:18+09:00`; `runs/openvla_oft_int4/epoch5_libero10_residual_v1/smolvla_exit_code.txt` is `0` |
+| CUDA compute snapshot | RTX 5080, 16,303 MiB total, 2,309 MiB used, GPU utilization 10 percent, 37 C; no active research Python compute app listed after SmolVLA exit |
+| RAM snapshot | WSL: 11 GiB total, 3.8 GiB used, 7.0 GiB available; swap 3.0 GiB |
+| Disk snapshot | `/mnt/c`: 931 GiB total, 633 GiB used, 298 GiB available; `/home`: 1007 GiB total, 41 GiB used, 916 GiB available |
+| Current epoch/cycle/stage | Epoch 5 official-prior-first residual diagnostic; state JSON still names `epoch_5_official_prior_ecosystem_selection` |
+| Current selected prior | `OpenVLA-OFT on LIBERO`, quantized INT4 local diagnostic, not full-precision claim |
+| Current/previous method | current route is prior diagnostic only; previous Ours method `MCI-VLA` |
+| Current/previous decision | previous Ours decision `MCI_STAGE_0_IMPLEMENTATION_FAILURE`; current prior decision `OPENVLA_OFT_PRIOR_REPRODUCTION_RECOVERED_AND_VALIDATED_RESIDUAL_PENDING` |
+| Current next action in state | stale state says select three official-prior ecosystems; current artifacts already selected OpenVLA-OFT, preregistered `epoch5_libero10_residual_v1`, and completed matched Base/Prior residual execution |
 | Checkpoint path in state | `/mnt/c/assets/checkpoints/smolvla_libero` |
 | Current MCI result paths | `reports/mci_vla/stage_0_result.json`, `reports/mci_vla/stage_0_partial.json`, `reports/mci_vla/stage_0_manifest.json`, `reports/mci_vla/stage_0_adjudication.md` |
-| State-file commit caveat | `reports/autonomous_until_paper_state.json` records stale `current_commit` `c155008`; live HEAD/result artifacts are newer and authoritative |
+| Current Epoch 5 report paths | `reports/epoch5_prior_ecosystem_selection.md`, `reports/epoch5_prior_reproduction_plan.md`, `reports/epoch5_prior_reproduction_result.md`, `reports/epoch5_prior_reproduction_result.json`, `reports/autonomous_compact_handoff.md` |
+| Current residual artifacts | OpenVLA result `runs/openvla_oft_int4/epoch5_libero10_residual_openvla_int4.json`; SmolVLA result `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_exact.json`; OpenVLA manifest `runs/openvla_oft_int4/epoch5_libero10_residual_openvla_manifest.json`; SmolVLA manifest `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_manifest.json` |
+| State-file commit caveat | `reports/autonomous_until_paper_state.json` and `reports/autonomous_ral_campaign_state.json` record stale `current_commit` `b0ecb6e`; live HEAD, Epoch 5 reports, and run artifacts are newer and authoritative |
+
+Current Epoch 5 delta at the snapshot:
+
+| Item | Evidence | Audit interpretation |
+|---|---|---|
+| Prior selection | `reports/epoch5_prior_ecosystem_selection.md` | OpenVLA-OFT selected first; pi0.5/OpenPI and PCD remain fallback ecosystems |
+| Recovered prior hard slice | `reports/openvla_oft_quantized_hard_slice_result.json` | OpenVLA-OFT INT4 20/20 versus matched SmolVLA frozen Base 11/20; prior positive but saturated |
+| Residual preregistration | `reports/epoch5_prior_reproduction_plan.md` | `epoch5_libero10_residual_v1` frozen before residual evaluation |
+| OpenVLA residual result | `runs/openvla_oft_int4/epoch5_libero10_residual_openvla_int4.json` | completed 16/16, succeeded 14/16, no infrastructure failures; prior leaves two failures on task 8 |
+| SmolVLA matched Base residual result | `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_exact.json` | completed 16/16, succeeded 7/16, no infrastructure failures; exit code `0` |
+| Matched manifests | OpenVLA manifest SHA-256 `b2de1d683d7ab0c5aff7462857f0366bd72c9208c98b2e8566e6a42a296b5adf`; SmolVLA manifest SHA-256 `6defb7769a75b595bc8456e6938254d7185d2b03fd94a4bda4fd0a95464a837c` | both have label `epoch5_libero10_residual_v1`, 16 episodes, tasks 8/9, resets `20260716..20260723`, and identical first/last initial-state hashes |
+| OpenVLA residual per-task outcome | task 8: 6/8; task 9: 8/8 | residual exists for prior on task 8 |
+| SmolVLA Base per-task outcome | task 8: 3/8; task 9: 4/8 | Base has meaningful failure on both tasks |
+| Matched Base/Prior outcome | OpenVLA 14/16 versus SmolVLA 7/16 | prior improves over Base and leaves residual failures; upper/headroom check remains unrun |
+| Worker completion | `runs/openvla_oft_int4/epoch5_libero10_residual_v1/smolvla_finished_at.txt` | finished during audit at `2026-07-17T12:40:48+09:00`; audit read the result but did not launch follow-up work |
+| Uncommitted scientific support code | `scripts/launch_epoch5_residual_job.sh`, `tca_map/smolvla/official_wsl_libero_rollout.py` diff | launcher chooses separate OpenVLA and official SmolVLA envs; optional PaliGemma stub is local compatibility support |
+| Untracked rollout videos | `rollouts/2026_07_17/*.mp4` | 16 OpenVLA videos match the residual OpenVLA run; leave uncommitted unless explicitly curated |
+
+The SmolVLA JSON at `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_exact.json` was initially treated as stale while the worker was active. It became interpretable only after `smolvla_exit_code.txt` appeared with exit code `0`; the audit then recorded the clean 7/16 Base result. No upper/headroom check or Ours work was started.
 
 ## 3. Major Infrastructure Milestones
 
@@ -53,10 +79,14 @@ The campaign is not paper-ready mainly because: no method beats Base, closest pr
 | Official closed-loop baseline/LoRA pilot | `54a80ff` | `reports/official_smolvla_libero_closed_loop_pilot.md` | Base 75 percent, LoRA seeds 83.3/66.7/75 over 12 each | valid infrastructure | no method claim |
 | Quantized OpenVLA-OFT INT4 | `5c2a364` | `reports/openvla_oft_int4_hard_slice_result.md` | 20/20 hard-slice diagnostic where SmolVLA hard slice was 2/10 across two task groups | valid diagnostic | not Ours-on-second-backbone |
 | Cross-backbone exact-state evaluation | `5c2a364` | `reports/openvla_oft_int4_hard_slice_result.md` | OpenVLA-OFT did not reproduce the same hard failures | valid diagnostic | blocks overclaiming SmolVLA-only failures |
+| Official-prior-first branch pivot | `d268a83` | `reports/epoch5_prior_ecosystem_selection.md` | selected OpenVLA-OFT before Ours; preserved pi0.5/OpenPI and PCD as fallbacks | valid strategy correction | process infrastructure, not a method |
+| Residual-condition manifest control | `ffb55f5` | `reports/epoch5_prior_reproduction_plan.md`, `tests/test_openvla_oft_int4_gate.py` | frozen task/reset identities and manifest labels for OpenVLA/SmolVLA matched residual run | valid infrastructure | prerequisite before Ours, not paper method |
+| OpenVLA-OFT residual diagnostic | uncommitted run artifacts after `ffb55f5` | `runs/openvla_oft_int4/epoch5_libero10_residual_openvla_int4.json`, `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_exact.json` | OpenVLA-OFT INT4 14/16 versus SmolVLA Base 7/16, matched manifests, no infrastructure failures | valid matched Base/Prior diagnostic; upper/headroom pending | prior diagnostic only |
+| Epoch 5 durable worker launcher | uncommitted local file | `scripts/launch_epoch5_residual_job.sh` | detached WSL launcher writes PID, heartbeat, stdout/stderr, exit code, finished time, and resume command; separates OpenVLA and SmolVLA envs | useful but not yet committed | operational infrastructure |
 | Partial checkpoint/resume infrastructure | `c4607b8` and later | `reports/pse_vla/stage_b_partial_result.json` plus many partials | 52 tracked partial JSON files, 23 exit-code files, 21 heartbeats, 29 PID files | valid operational infrastructure | infrastructure only |
 | Durable WSL worker launchers | `e344233`, `9556599` | `scripts/*launch*`, `reports/*heartbeat*` | durable workers, heartbeats, missing-key-only resume behavior | valid for future long runs | infrastructure only |
 
-Tracked-file inventory at audit time: 2,634 tracked files; 1,769 under `reports`, 274 under `scripts`, 237 under `tests`, 199 under `tca_map`, 103 under `runs`, 25 under `configs`, and 21 under `rollouts`. Machine-readable artifact inventory: 157 `*_result.json` files, 90 manifest JSON files, 19 state JSON files, 52 partial JSON files, 23 exit-code files, 21 heartbeat files, 29 PID files, and 97 checkpoint/checkpoint-related tracked paths.
+Tracked-file inventory at audit refresh: 2,640 tracked files; 1,775 under `reports`, 274 under `scripts`, 237 under `tests`, 199 under `tca_map`, 103 under `runs`, 25 under `configs`, and 21 under `rollouts`. Current untracked files include the Epoch 5 launcher and 16 OpenVLA residual videos. Machine-readable artifact inventory under tracked `reports` includes 152 `*_result.json` files, 72 manifest JSON files, 34 state JSON files, and 52 partial JSON files; earlier all-ref inventory was higher because it included historical refs and tracked run artifacts outside `reports`.
 
 ## 4. Master Method Ledger
 
@@ -86,7 +116,7 @@ Legend: `Impl`, `Trained`, `GPU`, `Sim`, `S0`, `SA`, `SB`, and `2BB` are Yes/No/
 | 20 | historical | Post-canonical residual mining | residual after canonicalization | residual correction | canonical residual mining | historical current history | Yes | No | No | No | NA | No | No | No | clean-paraphrase delta -0.000748, oracle headroom -0.137013 | no-headroom diagnostic | VALID_HISTORICAL | No | No | `reports/final_autonomous_method_decision.md` |
 | 21 | historical | FCAR | feature-conditioned adaptive residual | residual correction | residual adapter policies | historical current history | Yes | Yes | Yes | No | NA | No | No | No | full 0.100145, static merge 0.09118, rank4 LoRA 0.07619, Base 0.123998 | killed | VALID_HISTORICAL | Yes | No | `reports/final_autonomous_method_decision.md` |
 | 22 | historical | ECHO | effect-conditioned headroom search | candidate ranking/verifier | effect-conditioned repair | `8dc4de2` on main-era history | Yes | No | No | No | NA | No | No | No | 12 groups, 96 candidates; Base/oracle/random all 0.8333; recoverable failures 0 | no-headroom diagnostic | VALID_HISTORICAL | No | No | `reports/implementation_v2_final_decision.md` |
-| 23 | historical | Quantized OpenVLA-OFT INT4 diagnostic | second-backbone hard-slice check | infrastructure/diagnostic | OpenVLA-OFT | `5c2a364` | Yes | No | Yes | Yes | NA | No | No | Yes | OpenVLA hard slice 20/20 while matched SmolVLA hard slice 2/10 | diagnostic only | VALID_CANONICAL | No | No | `reports/openvla_oft_quantized_hard_slice_result.md` |
+| 23 | historical plus epoch5 | Quantized OpenVLA-OFT INT4 diagnostic | second-backbone hard-slice and residual-prior check | infrastructure/diagnostic | OpenVLA-OFT | `5c2a364`, `d268a83`, `ffb55f5` | Yes | No | Yes | Yes | NA | No | No | Yes | recovered hard slice OpenVLA 20/20 vs matched SmolVLA 11/20; Epoch 5 residual OpenVLA 14/16 vs matched SmolVLA Base 7/16 | diagnostic only, upper/headroom pending | VALID_CANONICAL_PARTIAL | No | No | `reports/openvla_oft_quantized_hard_slice_result.md`, `reports/epoch5_prior_reproduction_result.md`, `runs/openvla_oft_int4/epoch5_libero10_residual_openvla_int4.json`, `runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_exact.json` |
 | 24 | historical | PhaseBarrier-VLA | phase barrier intervention | action filtering/damping | phase barrier control | historical current history | Yes | Yes | Yes | Yes | NA | Yes | Yes | No | valid bounded repair full 0/20 vs Base 8/20, ablation 9/20, global damping 0 | killed | VALID_CANONICAL | Yes | No | `reports/phase_barrier_bounded_repair_result.json` |
 | 25 | historical | CensorCredit-VLA | censored credit supervision | supervision/credit | censored credit assignment | historical current history | Yes | Yes | Yes | Yes | NA | Yes | No | No | initial full 0.5 vs baseline 0 but uncensored ablation 0.5; later 24/24 identical labels | data/label failure | INVALID_QUARANTINED | No | No | `reports/censor_credit_empirical_postmortem.md` |
 | 26 | historical | ISAC-VLA | intervention state/action correction | supervision/action generation | SDP, TORL, ConRFT-like intervention learning | historical current history | No | No | No | No | NA | No | No | No | killed before implementation as near-exact prior/resource mismatch | preimplementation rejection | UNKNOWN | No | No | `reports/all_killed_routes_summary.md` |
@@ -174,6 +204,11 @@ Legend: `Impl`, `Trained`, `GPU`, `Sim`, `S0`, `SA`, `SB`, and `2BB` are Yes/No/
 | 2026-07-15 to 2026-07-16 | many | G3P through DCCG | stage0-heavy methods | data, headroom, implementation failures | process pivoted to pre-rollout audits after repeated rollout losses |
 | 2026-07-17 | `dcfcfa6` | CSPR Stage 0 adjudicated | CSPR | gradient-scale implementation failure | no scientific result |
 | 2026-07-17 | `bc15132` | MCI Stage 0 adjudicated | MCI | objective-scale violation at 324.58 vs limit 100 | current campaign paused at cycle 39 candidate search |
+| 2026-07-17 | `b0ecb6e` | first full-history audit committed | audit | 73 routes, 26 valid scientific kills, 31 non-scientific failures, 9 unresolved | recommended resetting candidate-selection strategy |
+| 2026-07-17 | `d268a83` | Epoch 5 official-prior-first branch started | prior selection | selected OpenVLA-OFT and validated saturated 20/20 prior slice | implements the audit recommendation's spirit by anchoring before Ours |
+| 2026-07-17 | `ffb55f5` | residual diagnostic preregistered | OpenVLA-OFT prior | tasks 8/9, resets `20260716..20260723`, 16 episodes per policy | freezes matched Base/Prior comparison before interpretation |
+| 2026-07-17 | uncommitted run artifact | OpenVLA residual side completed | OpenVLA-OFT prior | 14/16 success, task 8 residual failures at reset identities `20260721` and `20260722` | prior leaves residual on frozen condition |
+| 2026-07-17 | uncommitted run artifact | SmolVLA matched Base completed during audit | matched Base | 7/16 success, exit code 0, no infrastructure failures | Base fails meaningfully and prior improves; upper/headroom remains pending |
 
 ## 6. Valid Scientific Kills
 
@@ -252,11 +287,13 @@ Positive offline metrics alone were not ranked. CensorCredit had an apparent pos
 
 ## 10. External-Prior Comparison Audit
 
-Among the 47 formal autonomous methods, official external-prior reproduction count is 0. Transparent or local proxy comparison count is 26. No external-prior experiment count is 21. These counts are route-level formal-campaign counts; historical routes often used conceptual baselines but not comparable official prior implementations.
+Among the 47 formal autonomous Ours methods, official external-prior reproduction count remains 0. Transparent or local proxy comparison count is 26. No external-prior experiment count is 21. These counts are formal Ours-method counts; historical routes often used conceptual baselines but not comparable official prior implementations.
 
 Serious methods did name closest priors, especially after governance tightened. However, the comparison was usually a proxy: APEX proxy for FEDO, CAG/null for SACF, SV-deviation for RCV, success-memory for CAVM, AFIL for FANG, Reflective proxy for RAC, FrameSkip for MTF, DAM for DAGR, OpenVLA L1 proxy for MARC, AAC proxy for EAC, and ROVLA-style multi-consistency proxy for MCI. Published numbers were generally not treated as direct baselines in later reports, but the absence of official prior code/checkpoint execution leaves a reviewer-facing gap.
 
-Fairness summary: later proposals disclosed proxy status more consistently; earlier routes sometimes treated literature as motivation rather than an executable comparator; no formal method produced a direct official-prior reproduction under matched LIBERO/SmolVLA semantics.
+Epoch 5 changes the process state but not the Ours evidence state: it selected OpenVLA-OFT before designing any method, validated an existing official-stack INT4 hard-slice diagnostic, and completed a matched residual diagnostic during this audit. That is one official-prior diagnostic route, not an official-prior win by Ours. The hard-slice prior was positive but saturated at 20/20; the residual diagnostic found OpenVLA-OFT INT4 14/16 versus matched SmolVLA Base 7/16, so the Base/Prior residual structure is present, but upper/headroom remains pending.
+
+Fairness summary: later proposals disclosed proxy status more consistently; earlier routes sometimes treated literature as motivation rather than an executable comparator; no formal Ours method produced a direct official-prior reproduction under matched LIBERO/SmolVLA semantics. The current branch is the first serious correction toward official-prior-first comparison, but it must finish the upper/headroom check before any Ours design.
 
 ## 11. LoRA / Low-Compute Strategy Audit
 
@@ -284,21 +321,24 @@ Failure attribution: many failures were not caused by LoRA capacity because the 
 | Route-level Stage-B-equivalent count | 11 | formal 10 plus PhaseBarrier repaired prototype |
 | Trained checkpoint route count | 31 | 23 formal plus 8 historical routes |
 | Second-backbone Ours count | 0 | OpenVLA INT4 was diagnostic only |
+| Official-prior diagnostic route count | 1 | OpenVLA-OFT INT4 diagnostic, including hard-slice and current residual-prior work |
+| Official-prior Ours comparison count | 0 | no Ours method has been run against official OpenVLA-OFT, pi0.5/OpenPI, or PCD |
+| Completed matched Base/Prior diagnostic count | 1 | `epoch5_libero10_residual_v1`; OpenVLA 14/16, SmolVLA Base 7/16, no infrastructure failures |
 | Paper-candidate GO count | 0 | no valid `PROTOTYPE_GO` |
 
-Loss breakdown from ledger: 3 exact-prior/resource/preimplementation rejections; 5 no-headroom or condition-too-severe candidate failures counted as non-scientific; 8 data/supervision failures; 14 implementation/optimization failures; 11 simple-baseline/key-ablation/clean-retention scientific kills in formal Stage A/B; 5 underpowered formal/historical closed-loop archives; 4 broader historical valid kills from offline or replay evidence; and 7 infrastructure/diagnostic/no-claim rows. Conversion rates: selected formal proposal to Stage A, 17/47 = 36.2 percent; selected formal proposal to Stage B, 10/47 = 21.3 percent; Stage A to Stage B, 10/17 = 58.8 percent; Stage B to GO, 0/10 = 0 percent; selected formal proposal to second-backbone Ours, 0/47 = 0 percent.
+Loss breakdown from ledger: 3 exact-prior/resource/preimplementation rejections; 5 no-headroom or condition-too-severe candidate failures counted as non-scientific; 8 data/supervision failures; 14 implementation/optimization failures; 11 simple-baseline/key-ablation/clean-retention scientific kills in formal Stage A/B; 5 underpowered formal/historical closed-loop archives; 4 broader historical valid kills from offline or replay evidence; and 7 infrastructure/diagnostic/no-claim rows. Conversion rates: selected formal proposal to Stage A, 17/47 = 36.2 percent; selected formal proposal to Stage B, 10/47 = 21.3 percent; Stage A to Stage B, 10/17 = 58.8 percent; Stage B to GO, 0/10 = 0 percent; selected formal proposal to second-backbone Ours, 0/47 = 0 percent. Epoch 5 is not in the formal-method funnel yet because it is still prior reproduction and residual discovery.
 
 ## 13. Compute and Operational Audit
 
-Current campaign state records 5.21 GPU hours and 14.845 GiB downloaded for the current autonomous campaign, but repo-wide GPU hours are `NOT_RECORDED`. The state start for the current autonomous campaign is 2026-07-12T16:32+09:00; the full repository campaign spans from first commit 2026-06-27T10:30:15+09:00 to audit snapshot 2026-07-17T03:26:32+09:00, about 19.7 wall-clock days.
+Current campaign state records 5.21 GPU hours and 14.845 GiB downloaded for the current autonomous campaign, but repo-wide GPU hours are `NOT_RECORDED`. The state start for the current autonomous campaign is 2026-07-12T16:32+09:00; the full repository campaign spans from first commit 2026-06-27T10:30:15+09:00 to refreshed audit snapshot 2026-07-17T12:45:29+09:00, about 20.1 wall-clock days.
 
-Simulator episodes: formal autonomous method pipeline has 3,380 clearly countable paired closed-loop episodes from final artifacts: 890 Stage A/2a episodes plus 2,490 Stage B/2b episodes. Canonical non-quarantined route-level lower bound is at least 3,572 episodes after adding PhaseBarrier valid repair 100, official baseline pilot/smoke 52, and OpenVLA/SmolVLA hard-slice diagnostic 40. Including original exploratory PhaseBarrier/CensorCredit attempts gives at least 3,592, but repo-wide exact total is `NOT_RECORDED` because replay branches, invalid attempts, and partial reruns are not globally normalized.
+Simulator episodes: formal autonomous method pipeline has 3,380 clearly countable paired closed-loop episodes from final artifacts: 890 Stage A/2a episodes plus 2,490 Stage B/2b episodes. Canonical non-quarantined route-level lower bound is at least 3,604 completed episodes after adding PhaseBarrier valid repair 100, official baseline pilot/smoke 52, OpenVLA/SmolVLA hard-slice diagnostic 40, and the completed Epoch 5 residual Base/Prior diagnostic 32. Including original exploratory PhaseBarrier/CensorCredit attempts gives at least 3,624, but repo-wide exact total is `NOT_RECORDED` because replay branches, invalid attempts, and partial reruns are not globally normalized.
 
 Assets and storage: `C:\assets\data` is about 93.545 GiB, `hf_home` 1.902 GiB, `datasets` 1.862 GiB, `checkpoints` 1.696 GiB, and `repos` 1.028 GiB. WSL model assets include OpenVLA-OFT around 15 GiB and SmolVLA around 865 MiB. Largest known campaign download in state is 14.845 GiB for OpenVLA-related assets.
 
-Operational interruptions: at least one Codex context exhaustion is known because this audit resumes from an exhausted previous thread; exact context compaction/restart count is `NOT_RECORDED`. Approval interruptions are `NOT_RECORDED`. Duplicate or avoidable rerun classes include official LoRA regeneration/drift due missing checkpoints/unpinned RNG, invalid retrained PhaseBarrier repair, COVI invalid v1 plus repair, PCAV expansion name error/resume, VDR self-worker confusion, RAP launcher preflight failure, KITE resume, and SPARC capture reset.
+Operational interruptions: at least one Codex context exhaustion is known because this audit resumes from an exhausted previous thread; exact context compaction/restart count is `NOT_RECORDED`. Approval interruptions are `NOT_RECORDED`. Duplicate or avoidable rerun classes include official LoRA regeneration/drift due missing checkpoints/unpinned RNG, invalid retrained PhaseBarrier repair, COVI invalid v1 plus repair, PCAV expansion name error/resume, VDR self-worker confusion, RAP launcher preflight failure, KITE resume, SPARC capture reset, and two wrong-environment SmolVLA residual attempts that left stale failure JSON before the launcher was corrected to the official SmolVLA env.
 
-Git/commit scale: 802 commits exist across all refs; 798 are ancestors of audit-start HEAD. Approximate all-ref churn is dominated by generated report artifacts: `reports` +12,257,382/-31,110 lines across 4,695 file touches; `tca_map` +103,360/-737; `scripts` +83,016/-616; `tests` +44,551/-3,284.
+Git/commit scale: 805 commits exist across all refs; 801 are ancestors of refreshed audit HEAD. Approximate all-ref churn is dominated by generated report artifacts: `reports` +12,257,382/-31,110 lines across 4,695 file touches in the prior audit's all-ref sample; exact refreshed churn is `NOT_RECORDED` because the current audit run did not regenerate the expensive all-ref diffstat.
 
 ## 14. Repetition and Search-Space Audit
 
@@ -322,6 +362,8 @@ Ranked causes by impact:
 
 Scientific difficulty dominates the outcome, but process/governance also mattered: early broad search before official simulator stabilization and later proxy-heavy comparisons created many honest negative artifacts without producing a reviewer-ready positive result.
 
+Epoch 5 corrects one high-impact process failure, namely late/missing external-prior comparison, but it does not remove the scientific gap. The current OpenVLA-OFT residual diagnostic is encouraging because it has the desired Base/Prior residual structure: Base fails meaningfully, OpenVLA improves, and OpenVLA leaves failures. A paper method still needs an upper/teacher/oracle headroom check showing the residual is recoverable, an Ours mechanism, key ablation, clean retention, adequate paired statistics, and second-condition support. None of those Ours-side requirements exists at this audit snapshot.
+
 ## 16. False-Negative Audit
 
 Potential false negatives exist, but none should drive immediate continuation. CAVM is the strongest: full 24/58 beat nearest-success 23/58, Base 22/58, and ablation 21/58. Missing evidence is a larger preregistered confirmation and second-backbone result, but current governance allows no third expansion after one 58-pair expansion. CALA and RAR had small Stage 0 margins without closed-loop confidence analysis; missing evidence is a cheap decisive paired validation or uncertainty analysis. DICD and GCAP were underpowered Stage A archives, but later related methods tested richer temporal and goal-conditioned variants.
@@ -330,7 +372,7 @@ Reviewer B overreach risk is real mainly for Stage 0 point-estimate stops, not f
 
 ## 17. Paper-Readiness Checklist
 
-Nearest method used for checklist: CAVM-VLA, because it is the strongest valid near-miss.
+Nearest Ours method used for checklist: CAVM-VLA, because it is the strongest valid Ours near-miss. Epoch 5 OpenVLA-OFT is not used as the checklist method because it is a selected external prior, not Ours.
 
 | Requirement | Status | Gap |
 |---|---|---|
@@ -341,7 +383,7 @@ Nearest method used for checklist: CAVM-VLA, because it is the strongest valid n
 | Relevant simple control | PARTIAL | nearest-success and Base tested |
 | Clean retention | PARTIAL | no paper-grade clean-retention package |
 | Adequate paired statistics | MISSING | one-episode gain after allowed expansion |
-| Quantized OpenVLA-OFT INT4 + Ours | MISSING | diagnostic OpenVLA exists, no CAVM on OpenVLA |
+| Quantized OpenVLA-OFT INT4 + Ours | MISSING | diagnostic OpenVLA exists; current Epoch 5 prior diagnostic is not CAVM/Ours |
 | Second claim-specific condition | MISSING | not run |
 | Efficiency | PARTIAL | local compute known, no final method efficiency table |
 | Reproducibility | PARTIAL | artifacts exist, not a paper package |
@@ -353,13 +395,26 @@ Exact gap to `READY_TO_DRAFT_RAL_PAPER_PACKAGE`: no `PROTOTYPE_GO`, no official-
 
 Progress likely occurred between user-visible updates because the previous thread exhausted context while the repo kept accumulating durable artifacts. Notable hidden or easy-to-miss events: CSPR and MCI completed immediately before this audit, both as Stage 0 implementation failures; DCCG/MHS/S2C ended as data or cache coverage failures; multiple late stage0-heavy cycles did not reach rollout; COVI v1 was invalid then repaired; PhaseBarrier had an invalid retrained positive result quarantined and a valid bounded repair that killed the component; CensorCredit looked positive until the label/head identity postmortem; EAC had a promising Stage A but failed/tied in Stage B; CAVM remained the strongest near-miss but is governance-closed after one expansion.
 
-Automatic pivots included FEDO and GCAP in the initial autonomous set and many epoch 4 candidate selections. Branch audit found `codex/execspec-repair-state0-state1` with one unique historical ExecSpec state1 kill-gate commit absent from HEAD, but later ExecSpec state2/3/3.5 artifacts in current history supersede it. At audit start there was no uncommitted scientific work and no active research worker. The only local work created by this run is this audit report.
+Automatic pivots included FEDO and GCAP in the initial autonomous set and many epoch 4 candidate selections. Branch audit found `codex/execspec-repair-state0-state1` with one unique historical ExecSpec state1 kill-gate commit absent from HEAD, but later ExecSpec state2/3/3.5 artifacts in current history supersede it.
+
+Events after the first full-history audit that may be easy to miss:
+
+- The prior audit itself was committed as `b0ecb6e` and recommended `RESET_CANDIDATE_SELECTION_STRATEGY`.
+- The branch then moved to `codex/epoch5-official-prior-first`, so this refreshed audit stays on the current branch rather than switching.
+- Epoch 5 selected OpenVLA-OFT before any Ours design and explicitly superseded ordinary Cycle 39 method search.
+- The recovered OpenVLA hard-slice evidence is prior-positive but saturated: OpenVLA-OFT INT4 20/20 versus matched SmolVLA Base 11/20.
+- A residual diagnostic was preregistered at `ffb55f5`; the selected condition is LIBERO-10 task 8/task 9, resets `20260716..20260723`.
+- OpenVLA-OFT residual execution completed after preregistration: 14/16, with residual failures on task 8 reset identities `20260721` and `20260722`.
+- The first SmolVLA residual attempts failed because the launcher used the OpenVLA environment; those are environment failures, not Base scientific results.
+- The SmolVLA residual worker was active when this audit began and then completed cleanly during the audit: 7/16, exit code 0, using the official SmolVLA env.
+- Local uncommitted work exists: a SmolVLA import-compatibility shim, an Epoch 5 residual launcher, and 16 OpenVLA rollout videos.
+- This refreshed audit report is the only user-facing report created by the Phase A audit run.
 
 ## 19. Recommended Strategic Decision
 
-Recommendation: `RESET_CANDIDATE_SELECTION_STRATEGY`.
+Recommendation: `CONTINUE_CURRENT_CYCLE`.
 
-Justification: continuing the current candidate-selection style would likely produce another cached-feature head, residual gate, verifier, or local proxy that dies in Stage 0 or loses to Base/ablation. Resetting the gates alone is insufficient because many failures are not overly harsh gates; they are weak candidate anchoring, no headroom, collapsed labels, and proxy-only prior comparisons. A bounded reopen is not the best next action because the strongest reopen candidate, CAVM, already used its allowed expansion, while CALA/RAR lack enough novelty and closed-loop promise to outrank a better candidate search. A strategic new epoch may follow, but the immediate decision is to reset selection criteria before generating the next exact-three candidates.
+Justification: the earlier audit's `RESET_CANDIDATE_SELECTION_STRATEGY` recommendation has already been acted on by moving to Epoch 5 official-prior-first. The current cycle is not another cached-feature Ours method; it is a selected external-prior diagnostic with frozen matched Base/Prior identities. The matched residual diagnostic completed during this audit and found OpenVLA-OFT INT4 14/16 versus SmolVLA Base 7/16. Continuing is justified only in the narrow sense of recording that result in the existing Epoch 5 reports and running or preregistering the smallest upper/teacher/oracle headroom check. It does not authorize Ours design, new training, a new method candidate, or a fallback ecosystem until recoverable headroom is adjudicated.
 
 ## 20. Exact Resume Plan
 
@@ -368,28 +423,28 @@ Justification: continuing the current candidate-selection style would likely pro
 ```text
 Resume the autonomous VLA research campaign in C:\Users\jiheo\tca_map after the full-history audit.
 
-Branch: codex/full-history-audit-before-resume
-Last scientific HEAD before audit report: bc15132d74741c5b03c253c9bc062d8c5aaa5ddc
-Current scientific state: epoch 4, cycle 39, epoch_4_cycle_39_candidate_search_pending
+Branch: codex/epoch5-official-prior-first
+Last scientific HEAD before refreshed audit report: ffb55f57e1cd978a35d0d84c9ede487559e02fa0
+Current scientific state: Epoch 5 official-prior-first residual diagnostic complete for matched Base/Prior; upper/headroom pending
 Previous method: MCI-VLA
 Previous decision: MCI_STAGE_0_IMPLEMENTATION_FAILURE
-Selected audit recommendation: RESET_CANDIDATE_SELECTION_STRATEGY
+Selected audit recommendation: CONTINUE_CURRENT_CYCLE
 
 Exact next scientific action:
-Generate exactly three Cycle 39 candidates under reports/current_research_governance.md, but reset candidate selection strategy before scoring. Each candidate must start from a strong positive external prior or a clearly justified exception, identify official code/checkpoint status, reconstruct the prior mechanism, and show a local fair comparison path. Do not implement, train, or rollout until the three candidates are documented, scored, and one is selected.
+Resume only by recording the completed `epoch5_libero10_residual_v1` matched diagnostic in the existing Epoch 5 reports and compact handoff: OpenVLA-OFT INT4 14/16, SmolVLA Base 7/16, matched manifests, no infrastructure failures, Base/Prior residual structure present. Then run or preregister the smallest upper/teacher/oracle headroom check for the residual condition before any Ours design. If upper/headroom fails, classify the condition as not recoverable or too severe under the preregistered rules. If upper/headroom passes, only then proceed to Ours candidate design under official-prior-first governance.
 
 Prohibited repeats:
-Do not rescue or retune MCI-VLA or CSPR-VLA. Do not propose another generic cached-feature residual, small frozen-policy gate, history head, verifier, visual canonicalizer, memory lookup, no-headroom probe, or proxy-only prior unless it changes at least two core dimensions and has clear headroom. Do not treat OpenVLA INT4 diagnostic success as an Ours result.
+Do not rescue or retune MCI-VLA or CSPR-VLA. Do not generate an Ours method, train, download, or launch a new candidate before upper/headroom evidence is complete. Do not treat OpenVLA-OFT INT4 diagnostic success as an Ours result. Do not reinterpret the wrong-env SmolVLA attempts as Base scientific results. Do not switch branches, stash, reset, or clean the uncommitted scientific work without explicit user approval.
 
 Time-to-evidence requirement:
-Before implementation, require a cheap evidence plan that can falsify the candidate within one bounded development audit or Stage A. Prefer less than 4 hours for prior/headroom/data-health evidence and less than 12 hours to a decisive prototype stop or Stage A launch decision. Record GPU, disk, download, and resume paths.
+The current time-to-evidence target is a single upper/headroom answer. Preserve the matched Base/Prior table, worker PID, heartbeat, exit code, stderr/stdout summaries, manifest SHA-256s, per-task success counts, and stale/invalid attempts separately. If the headroom check fails from environment/runtime causes, classify it as infrastructure-blocked and repair only the runner/env within the existing preregistered boundary.
 
 LoRA role:
-Use LoRA/QLoRA only as low-compute parameterization. Keep the scientific mechanism separable from PEFT. Include standard LoRA only when it is a real alternative explanation or shared scaffold control. If adapter capacity is the bottleneck, classify LOW_COMPUTE_PARAMETERIZATION_INSUFFICIENT and allow at most one bounded capacity adjustment before confirmatory testing.
+Use LoRA/QLoRA only as low-compute parameterization after an actual Ours mechanism is authorized. For the current step, no LoRA training is authorized; this is Base/Prior/upper evidence collection only. If a later Ours mechanism uses adapters, keep the scientific mechanism separable from PEFT and include standard LoRA only when it is a real alternative explanation or shared scaffold control.
 
 Reviewer false-negative safeguards:
-For any Stage 0 or pre-rollout stop, classify evidence as FATAL_PREIMPLEMENTATION, ROBUST_EMPIRICAL_DESIGN_FAILURE, UNDERPOWERED_OR_UNRESOLVED, or IMPLEMENTATION_OR_DATA_FAILURE. Do not kill on tiny point estimates without uncertainty, collapsed labels, missing headroom, or implementation defects. Preserve the strongest fair interpretation and the narrowest publishable claim.
+For the current diagnostic, do not call the prior condition dead from stale files, wrong-env failures, or tiny point estimates without exact paired manifests. Classify outcomes as `RESIDUAL_FOUND_PRIOR_POSITIVE`, `PRIOR_SATURATED_NEXT_CONDITION`, `PRIOR_NOT_POSITIVE_ON_CONDITION`, or `INFRASTRUCTURE_BLOCKED` as preregistered. Preserve the strongest fair interpretation and the narrowest publishable claim.
 
 Conditions for implementation and rollout:
-Implementation may start only after source, runner, focused tests, data/contrast health, problem headroom, objective-scale audit, identity-preserving integration, prior/proxy fairness, and resource risk are documented. Closed-loop rollout may start only after checkpoint reload, finite gradients when applicable, bounded action deltas, full-vs-ablation difference, clean retention, no privileged inference signal, exact paired manifest, and frozen decision thresholds.
+Ours implementation may start only after selected-prior evidence satisfies Base fails -> Prior improves -> residual remains -> upper/headroom says recoverable. Closed-loop Ours rollout may start only after source, runner, focused tests, exact paired manifest, checkpoint reload, finite gradients when applicable, bounded action deltas, full-vs-ablation difference, clean retention, no privileged inference signal, prior fairness, resource risk, and frozen decision thresholds are documented.
 ```
