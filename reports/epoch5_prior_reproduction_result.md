@@ -498,3 +498,129 @@ a larger-memory/remote OpenPI runtime, substantial PCD dependency/checkpoint
 setup on adequate GPU resources, or a new prior-ecosystem selection beyond the
 initial three. Closed-loop Ours rollout is still disallowed for the trained
 `R2R-OFT` checkpoints.
+
+## Second-Pass Prior Preflight: LightVLA on LIBERO-10
+
+Decision: `SECOND_PASS_SELECTED_LIGHTVLA_LIBERO10_PRIOR_PREFLIGHT`.
+
+The second official-prior selection pass chose LightVLA as the next executable
+prior ecosystem after the initial OpenVLA-OFT/OpenPI/PCD set was exhausted
+locally.
+
+Local source/import status:
+
+- official source cloned to `C:\assets\repos\LightVLA`;
+- local source HEAD: `a4680fda5ffe73029190ac97328aa34b0e87a45a`;
+- official eval module:
+  `C:\assets\repos\LightVLA\experiments\robot\libero\run_libero_eval.py`;
+- existing WSL env:
+  `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`;
+- import smoke: `GenerateConfig` imports after installing lightweight missing
+  package `joblib`;
+- CUDA detected: `NVIDIA GeForce RTX 5080`;
+- caveat: local stack uses PyTorch `2.10.0+cu128`, not the exact LightVLA
+  reported PyTorch `2.2.0` / H20 environment.
+
+Selected checkpoint:
+
+- repo: `TTJiang/LightVLA-libero-10`;
+- revision: `d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7`;
+- metadata size: `15,454,705,546` bytes (`14.393` GiB);
+- local target:
+  `/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10`;
+- download run:
+  `runs/lightvla_prior/download_lightvla_libero10_20260717T1520KST`.
+
+Execution status: `COMPLETE_BOUNDED_PRIOR_DIAGNOSTIC`.
+
+Download and load evidence:
+
+- checkpoint download run:
+  `runs/lightvla_prior/download_lightvla_libero10_20260717T1520KST`;
+- download exit code: `0`;
+- local checkpoint directory:
+  `/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10`;
+- local checkpoint disk use after official loader modifications: about `15G`,
+  `49` files;
+- selected checkpoint metadata before load: 21 files,
+  `15,454,705,546` bytes (`14.393` GiB), revision
+  `d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7`;
+- 4-bit load artifact:
+  `runs/lightvla_prior/load_lightvla_libero10_20260717T1528KST/result_4bit.json`,
+  SHA-256
+  `5bc9ab4d45f99775433576d95397e97c80d4c89cc9f09dcc8bcd9945f5ff4312`;
+- loaded classes: `OpenVLAForActionPrediction`, `L1RegressionActionHead`,
+  `ProprioProjector`, `PrismaticProcessor`;
+- peak CUDA allocation during load: `4,993,455,616` bytes.
+
+Caveat: LightVLA's official local-path loader copies repository code into the
+checkpoint directory after creating timestamped backups. This happened during
+the load/episode diagnostics; the checkpoint path should therefore be treated
+as a local execution directory, not a pristine Hugging Face snapshot.
+
+The official `run_task` scheduler waits for more than 20 GB free VRAM, which is
+impossible on the local 16 GB RTX 5080. The bounded diagnostic bypassed only
+that scheduler and called the official LightVLA functions directly:
+`GenerateConfig`, `initialize_model`, `get_libero_env`, and `run_episode`.
+
+One-episode residual checks:
+
+| Reset identity | Prior context | Result artifact | Success |
+|---:|---|---|---|
+| `20260721` | OpenVLA-OFT INT4 failed this reset | `runs/lightvla_prior/diagnostic_lightvla_libero10_task8_20260721_20260717T1530KST/result.json` | true |
+| `20260722` | OpenVLA-OFT INT4 failed this reset | `runs/lightvla_prior/diagnostic_lightvla_libero10_task8_20260722_20260717T1533KST/result.json` | true |
+
+Full matched task-8 diagnostic:
+
+- artifact:
+  `runs/lightvla_prior/diagnostic_lightvla_libero10_task8_all_20260717T1535KST/result.json`;
+- SHA-256:
+  `9f272655ec89f7504328e6a1e148ee538a44ce95dcfece6d253a668568ab2dcf`;
+- imported module:
+  `/mnt/c/assets/repos/LightVLA/experiments/robot/libero/run_libero_eval.py`;
+- completed episodes: `8/8`;
+- successes: `6/8`;
+- failures: `20260716`, `20260723`;
+- peak CUDA allocation: `5,350,705,152` bytes;
+- load time in batch run: `41.993` seconds.
+
+| Reset identity | Initial-state index | SmolVLA frozen base | OpenVLA-OFT INT4 | LightVLA 4-bit |
+|---:|---:|---|---|---|
+| `20260716` | 5 | fail | success | fail |
+| `20260717` | 6 | fail | success | success |
+| `20260718` | 7 | success | success | success |
+| `20260719` | 8 | success | success | success |
+| `20260720` | 9 | success | success | success |
+| `20260721` | 10 | fail | fail | success |
+| `20260722` | 11 | fail | fail | success |
+| `20260723` | 12 | fail | success | fail |
+
+Interpretation:
+
+- LightVLA is prior-positive versus SmolVLA on the task-8 matched slice:
+  `3/8 -> 6/8`.
+- LightVLA solves both original OpenVLA-OFT INT4 residual failures
+  (`20260721`, `20260722`).
+- LightVLA does not dominate OpenVLA-OFT INT4 on this slice: both are `6/8`,
+  but their failures are disjoint.
+- The residual is therefore a cross-prior complementarity condition, not a
+  simple LightVLA-only residual that OpenVLA-OFT cannot solve.
+- An oracle that selects the successful policy between OpenVLA-OFT INT4 and
+  LightVLA on each reset would be `8/8`, providing recoverable headroom for a
+  future mechanism, but no Ours design or training has happened in this
+  second-pass prior stage.
+
+Two invalid batch-launch attempts are preserved in the same run directory:
+
+- `*.invalid_initialize_model_signature_20260717T1539KST`: wrong call
+  signature during runner setup;
+- `*.invalid_imported_openvla_oft_20260717T1542KST`: Python imported the older
+  `/mnt/c/assets/repos/openvla-oft` evaluation module because the runner was
+  executed by absolute path before `PYTHONPATH` was pinned to LightVLA.
+
+Decision: `LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND`.
+
+Next action: update the structured report state and compact handoff. Do not
+call the LightVLA result an Ours result. If method design begins later, it must
+target the measured cross-prior complementarity and preserve held-out reset
+discipline.

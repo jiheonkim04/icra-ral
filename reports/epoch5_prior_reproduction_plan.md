@@ -364,3 +364,57 @@ Next step: strategic decision. A fair continuation needs larger-memory/remote
 OpenPI, substantial PCD setup on adequate GPU resources, or a new
 prior-ecosystem selection beyond the initial three. Closed-loop Ours rollout is
 disallowed for the trained `R2R-OFT` checkpoints.
+
+## Second-Pass Selected Prior: LightVLA on LIBERO-10
+
+Decision: `SECOND_PASS_SELECTED_LIGHTVLA_LIBERO10_PRIOR_PREFLIGHT`.
+
+This is still prior reproduction/preflight, not Ours design.
+
+Selected official prior:
+
+- paper: `The Better You Learn, The Smarter You Prune`, arXiv `2509.12594`;
+- official repository: `https://github.com/LiAutoAD/LightVLA`;
+- local checkout: `C:\assets\repos\LightVLA`, HEAD
+  `a4680fda5ffe73029190ac97328aa34b0e87a45a`;
+- official checkpoint selected for first execution:
+  `TTJiang/LightVLA-libero-10`, Hugging Face revision
+  `d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7`;
+- metadata size: `15,454,705,546` bytes (`14.393` GiB);
+- local download target:
+  `/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10`;
+- official evaluation entry point:
+  `experiments/robot/libero/run_libero_eval.py`;
+- bounded run directory:
+  `runs/lightvla_prior/download_lightvla_libero10_20260717T1520KST`.
+
+Preflight gates:
+
+1. Source/import gate: official eval config imports in the existing
+   `/home/jiheon/venvs/openvla-oft-int4-rtx5080` environment after installing
+   lightweight missing package `joblib`. The stack is not a numerically exact
+   official environment because local PyTorch is `2.10.0+cu128` while LightVLA
+   reports Python `3.10.14`, PyTorch `2.2.0`, and a custom transformers
+   `4.40.1` fork on NVIDIA H20.
+2. Checkpoint gate: complete. The selected checkpoint downloaded to
+   `/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10`;
+   the download run exited `0`.
+3. Load gate: complete. `load_in_4bit=True` loaded on the local RTX 5080 with
+   about 4.99 GB peak CUDA allocation.
+4. Bounded diagnostic gate: complete. LightVLA was run on the matched
+   `libero_10/task_8` reset identities `20260716..20260723`.
+
+Bounded diagnostic result:
+
+| Policy | Task-8 successes | Failed reset identities |
+|---|---:|---|
+| SmolVLA frozen base | 3/8 | `20260716`, `20260717`, `20260721`, `20260722`, `20260723` |
+| OpenVLA-OFT INT4 | 6/8 | `20260721`, `20260722` |
+| LightVLA 4-bit | 6/8 | `20260716`, `20260723` |
+
+Decision: `LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND`.
+
+Do not train LightVLA locally, do not retune OpenVLA-OFT, and do not write a
+LightVLA-inspired method as though this were already Ours. The measured
+second-pass residual is cross-prior complementarity: LightVLA solves the two
+OpenVLA-OFT failures, while OpenVLA-OFT solves the two LightVLA failures.

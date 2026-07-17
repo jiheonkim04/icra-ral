@@ -103,3 +103,46 @@ progressed to local source/env/checkpoint availability, but current local WSL
 memory killed policy restore/inference before a usable prior rollout. PCD is
 source-inspected but blocked before fair execution by dependency, checkpoint,
 and multi-GPU evaluation requirements.
+
+## Second Official-Prior Selection Pass
+
+Date: 2026-07-17 KST.
+
+Because the initial exact-three prior ecosystems are now exhausted locally, the
+campaign does not return to local Ours design. It opens a second official-prior
+selection pass with exactly three external prior ecosystems and again requires
+official artifacts before any method proposal.
+
+| Rank | Ecosystem | Primary paper | Official artifacts | Positive closed-loop evidence | Benchmark/action semantics | Local feasibility | Residual gap | Second path | Score |
+|---:|---|---|---|---|---|---|---|---|---:|
+| 1 | LightVLA on LIBERO-10 | "The Better You Learn, The Smarter You Prune", arXiv 2509.12594 | archived official `LiAutoAD/LightVLA` repo, MIT license, `TTJiang/LightVLA-libero-*` Hugging Face checkpoints | reports 59.1% FLOP reduction, 38.2% latency reduction, and 2.6% task-success improvement on LIBERO; official README says one ~16GB GPU for LIBERO inference | OpenVLA-OFT-derived LIBERO, 7D action chunks, center crop required, four suite-specific checkpoints | source cloned locally at `C:\assets\repos\LightVLA`, HEAD `a4680fda5ffe73029190ac97328aa34b0e87a45a`; existing OpenVLA-OFT INT4 env imports the official eval config after adding `joblib`; LIBERO-10 checkpoint metadata is 14.393 GiB | likely: performance/efficiency prior may still fail the existing LIBERO-10 task-8 residual or may expose token-pruning sensitivity under the exact OpenVLA-OFT residual identities | compare against OpenVLA-OFT INT4 and later port token-pruning diagnostics to SmolVLA attention/vision-token path if prototype evidence appears | 83 |
+| 2 | RIPT-VLA on LIBERO | "Interactive Post-Training for Vision-Language-Action Models", arXiv 2505.17016 | official `Ariostgx/ript-vla` repo and `tanshh97/RIPT_VLA` Hugging Face model zoo | reports 97.5% success on LIBERO suites with OpenVLA-OFT + RIPT and 94.3% on LIBERO-90 with QueST + RIPT | LIBERO suites, sparse binary reward post-training, QueST and OpenVLA-OFT paths | checkpoints are public and total model-zoo listing is about 6.64 GiB, but official quick-start recommends at least 3 GPUs for RIPT training; local single-GPU reproduction likely limited to checkpoint/eval smoke | meaningful: sparse-reward post-training may improve task success but could still leave brittle residuals or resource-limited evaluation gaps | second path via QueST small checkpoints or OpenVLA-OFT LoRA-adapter comparison if evaluation can be bounded | 76 |
+| 3 | VLA-GSE on LIBERO-Plus/LIBERO | "VLA-GSE: Boosting Parameter-Efficient Fine-Tuning in VLA with Generalized and Specialized Experts", arXiv 2605.06175 | official `YuhuaJiang2002/VLA-GSE` repo; code includes policy-server evaluation path | reports 81.2% average zero-shot success on LIBERO-Plus and 82.5% real-world success under distribution shifts while updating 2.51% of parameters | LIBERO-Plus/LIBERO-style VLA PEFT, generalized and specialized routed experts | source is public, but no local checkout/checkpoints yet; likely requires a new 4B VLA/PEFT training-serving stack before fair execution | meaningful: PEFT adaptation/retention gap is aligned with the audit's LoRA strategy, but no immediate local checkpoint path is verified | second path via SmolVLA/OpenVLA expert-routing adaptation only after official behavior is executable | 71 |
+
+Decision: `SECOND_PASS_SELECTED_LIGHTVLA_LIBERO10_PRIOR_PREFLIGHT`.
+
+Primary sources checked for this pass:
+
+- LightVLA paper: https://arxiv.org/abs/2509.12594
+- LightVLA project/repo: https://github.com/LiAutoAD/LightVLA
+- LightVLA LIBERO instructions: https://github.com/LiAutoAD/LightVLA/blob/main/LIBERO.md
+- LightVLA checkpoints: https://huggingface.co/TTJiang/models?search=lightvla
+- RIPT-VLA repo/model zoo: https://github.com/Ariostgx/ript-vla and
+  https://huggingface.co/tanshh97/RIPT_VLA/tree/main
+- VLA-GSE paper/repo: https://arxiv.org/abs/2605.06175 and
+  https://github.com/YuhuaJiang2002/VLA-GSE
+- PriorVLA was not selected into the executable exact-three set because the
+  official repository currently says code will be released soon:
+  https://github.com/xinyuguo1566/PriorVLA
+
+The selected prior is LightVLA on LIBERO-10. The first local action is not an
+Ours candidate; it is a bounded official prior preflight and, if the checkpoint
+loads, a small matched residual diagnostic against the existing OpenVLA-OFT
+LIBERO-10 residual identities.
+
+Execution update: the bounded LightVLA diagnostic completed. LightVLA 4-bit
+loaded from `TTJiang/LightVLA-libero-10` and scored 6/8 on the matched
+`libero_10/task_8` reset identities. It solved OpenVLA-OFT INT4's two failures
+(`20260721`, `20260722`) but failed `20260716` and `20260723`, which
+OpenVLA-OFT solved. The selected prior therefore exposes a cross-prior
+complementarity residual, not a standalone Ours result.

@@ -3,9 +3,10 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_all_three_prior_ecosystems_no_go_or_blocked",
-  "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED",
+  "stage": "epoch_5_second_pass_lightvla_prior_diagnostic_complete",
+  "decision": "LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
+  "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
   "new_method_candidate_generated": true,
@@ -19,7 +20,7 @@
   "fallback_prior_preflight_happened": true,
   "training_config_frozen": true,
   "trainer_launcher_validated": true,
-  "new_download_happened": false,
+  "new_download_happened": true,
   "residual_simulator_rollout_happened_after_preregistration": true,
   "headroom_simulator_replay_happened": true,
   "full_bf16_attempted": false,
@@ -665,6 +666,167 @@
       "classification": "PCD_OFFICIAL_PRIOR_LOCAL_RESOURCE_BLOCKED_NOT_SCIENTIFIC_KILL"
     }
   },
+  "second_pass_prior_selection": {
+    "decision": "LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND",
+    "date_kst": "2026-07-17",
+    "exact_three": [
+      {
+        "rank": 1,
+        "ecosystem": "LightVLA on LIBERO-10",
+        "paper": "https://arxiv.org/abs/2509.12594",
+        "official_repo": "https://github.com/LiAutoAD/LightVLA",
+        "official_repo_head": "a4680fda5ffe73029190ac97328aa34b0e87a45a",
+        "official_checkpoints": "https://huggingface.co/TTJiang/models?search=lightvla",
+        "selected_checkpoint": "TTJiang/LightVLA-libero-10",
+        "selected_checkpoint_revision": "d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7",
+        "selected_checkpoint_bytes": 15454705546,
+        "selected_checkpoint_gib": 14.393,
+        "score": 83,
+        "status": "selected_for_preflight"
+      },
+      {
+        "rank": 2,
+        "ecosystem": "RIPT-VLA on LIBERO",
+        "paper": "https://arxiv.org/abs/2505.17016",
+        "official_repo": "https://github.com/Ariostgx/ript-vla",
+        "official_checkpoints": "https://huggingface.co/tanshh97/RIPT_VLA/tree/main",
+        "score": 76,
+        "status": "fallback_not_started"
+      },
+      {
+        "rank": 3,
+        "ecosystem": "VLA-GSE on LIBERO-Plus/LIBERO",
+        "paper": "https://arxiv.org/abs/2605.06175",
+        "official_repo": "https://github.com/YuhuaJiang2002/VLA-GSE",
+        "score": 71,
+        "status": "fallback_not_started"
+      }
+    ],
+    "excluded_from_exact_three": [
+      {
+        "ecosystem": "PriorVLA",
+        "reason": "official GitHub repository currently says code will be released soon, so there is no executable local artifact for this pass"
+      }
+    ],
+    "local_preflight": {
+      "source_cloned": true,
+      "source_path": "C:\\assets\\repos\\LightVLA",
+      "import_env": "/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python",
+      "joblib_installed_for_import": true,
+      "eval_config_import": true,
+      "local_torch": "2.10.0+cu128",
+      "official_reported_stack": "Python 3.10.14, PyTorch 2.2.0, custom transformers 4.40.1 fork on NVIDIA H20",
+      "gpu": "NVIDIA GeForce RTX 5080, 16303 MiB total",
+      "checkpoint_download": {
+        "status": "complete",
+        "run_dir": "runs/lightvla_prior/download_lightvla_libero10_20260717T1520KST",
+        "exit_code": 0,
+        "target": "/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10",
+        "selected_checkpoint_revision": "d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7",
+        "selected_checkpoint_bytes": 15454705546,
+        "selected_checkpoint_gib": 14.393,
+        "local_du_after_loader_modifications": "15G",
+        "local_file_count_after_loader_modifications": 49,
+        "loader_modification_caveat": "official local-path loader copied LightVLA repo code into the checkpoint directory and created timestamped backups"
+      },
+      "model_load_happened": true,
+      "model_load": {
+        "status": "pass_4bit",
+        "artifact": "runs/lightvla_prior/load_lightvla_libero10_20260717T1528KST/result_4bit.json",
+        "artifact_sha256": "5bc9ab4d45f99775433576d95397e97c80d4c89cc9f09dcc8bcd9945f5ff4312",
+        "model_class": "OpenVLAForActionPrediction",
+        "action_head_class": "L1RegressionActionHead",
+        "proprio_projector_class": "ProprioProjector",
+        "processor_class": "PrismaticProcessor",
+        "cuda_max_allocated_bytes": 4993455616
+      },
+      "closed_loop_rollout_happened": true,
+      "scheduler_bypassed_reason": "official LightVLA run_task waits for >20000 MB free VRAM, impossible on local 16GB RTX 5080; diagnostic bypassed only scheduler and called official GenerateConfig/initialize_model/get_libero_env/run_episode directly",
+      "single_residual_episode_diagnostics": [
+        {
+          "reset_identity": 20260721,
+          "initial_state_index": 10,
+          "artifact": "runs/lightvla_prior/diagnostic_lightvla_libero10_task8_20260721_20260717T1530KST/result.json",
+          "artifact_sha256": "37ea35e5182db15adb131260a838471626ff1ff5d0292e7d3403398e05bef774",
+          "success": true
+        },
+        {
+          "reset_identity": 20260722,
+          "initial_state_index": 11,
+          "artifact": "runs/lightvla_prior/diagnostic_lightvla_libero10_task8_20260722_20260717T1533KST/result.json",
+          "artifact_sha256": "e325e3d78e006cbe8f4e4ab9fa636dfe3b27928ebf317e3734cf1327a83dbc10",
+          "success": true
+        }
+      ],
+      "matched_task8_diagnostic": {
+        "status": "complete",
+        "artifact": "runs/lightvla_prior/diagnostic_lightvla_libero10_task8_all_20260717T1535KST/result.json",
+        "artifact_sha256": "9f272655ec89f7504328e6a1e148ee538a44ce95dcfece6d253a668568ab2dcf",
+        "task": "libero_10/task_8",
+        "instruction": "put both moka pots on the stove",
+        "reset_identities": [
+          20260716,
+          20260717,
+          20260718,
+          20260719,
+          20260720,
+          20260721,
+          20260722,
+          20260723
+        ],
+        "initial_state_indices": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "completed_episode_count": 8,
+        "lightvla_successes": 6,
+        "lightvla_failures": [
+          20260716,
+          20260723
+        ],
+        "smolvla_successes": 3,
+        "smolvla_failures": [
+          20260716,
+          20260717,
+          20260721,
+          20260722,
+          20260723
+        ],
+        "openvla_oft_int4_successes": 6,
+        "openvla_oft_int4_failures": [
+          20260721,
+          20260722
+        ],
+        "lightvla_solves_openvla_oft_failures": [
+          20260721,
+          20260722
+        ],
+        "openvla_oft_solves_lightvla_failures": [
+          20260716,
+          20260723
+        ],
+        "oracle_openvla_or_lightvla_successes": 8,
+        "oracle_openvla_or_lightvla_total": 8,
+        "prior_positive_vs_smolvla": true,
+        "lightvla_dominates_openvla_oft_int4": false,
+        "residual_type": "cross_prior_complementarity",
+        "run_libero_eval_file": "/mnt/c/assets/repos/LightVLA/experiments/robot/libero/run_libero_eval.py",
+        "load_elapsed_s": 41.993,
+        "cuda_max_allocated_bytes": 5350705152
+      },
+      "invalid_batch_attempts_preserved": [
+        "runs/lightvla_prior/diagnostic_lightvla_libero10_task8_all_20260717T1535KST/*.invalid_initialize_model_signature_20260717T1539KST",
+        "runs/lightvla_prior/diagnostic_lightvla_libero10_task8_all_20260717T1535KST/*.invalid_imported_openvla_oft_20260717T1542KST"
+      ],
+      "ours_design_happened": false
+    }
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Strategic decision required: the initial three prior ecosystems are exhausted locally (OpenVLA route no-go; OpenPI resource-blocked after source/env/checkpoint setup and exit-137 policy-load smoke; PCD source-inspected but dependency/checkpoint/multi-GPU blocked). Do not run closed-loop Ours for R2R-OFT or add a third local OpenVLA task-8 candidate."
+  "next_action": "Do not claim Ours. Treat LightVLA as a second-pass official prior with a measured cross-prior complementarity residual on LIBERO-10 task 8. The next scientific decision is whether to design at most two candidates around that exact complementarity residual under the official-prior-first rules, with no retuning on held-out reset identities."
 }

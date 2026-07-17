@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_all_three_prior_ecosystems_no_go_or_blocked`
-- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`; `ALL_THREE_PRIOR_ECOSYSTEMS_EXECUTION_BLOCKED_OR_NO_GO`
+- Current stage: `epoch_5_second_pass_lightvla_prior_diagnostic_complete`
+- Current decision: `LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -104,10 +104,6 @@ Selected method:
 - Second-backbone path: same phase-weighted sampler/objective on SmolVLA
   adapter/QLoRA path.
 
-Audit must report phase counts, demo coverage, split integrity, action ranges,
-chunk validity, and whether phase labels are decodable without privileged
-deployment inputs.
-
 Audit result:
 
 - artifact:
@@ -162,14 +158,6 @@ Trainer/launcher validation:
 - dry-run training / optimizer step: false / false.
 - runtime: `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`.
 
-First primary launch attempt:
-
-- commit: `c25fc46792eda395a2af5167306fb8c4f071744a`;
-- artifact:
-  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result_failed_missing_rich_20260717T1341KST.json`;
-- status: failed before training due wrong WSL env missing `rich`;
-- training / optimizer steps / checkpoint: false / 0 / false.
-
 Frozen training completed:
 
 - primary result:
@@ -203,28 +191,47 @@ Simple control after offline no-pass:
   `20260721`, `20260722`;
 - decision: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
 
-## Next Action
+## Second-Pass LightVLA Prior
 
-Fallback prior status:
+Initial exact-three status:
 
-- OpenPI source cloned at `C:\assets\repos\openpi`, main `15a9616a...`.
-- User-local env created: `/home/jiheon/venvs/openpi-uv` (about 7.8 GiB).
-- OpenPI import/config/JAX CUDA smoke passed; Torch warns RTX 5080 `sm_120` is
-  unsupported by its CUDA 12.6 wheel, but the OpenPI path is JAX-first.
-- Public `pi05_libero` checkpoint downloaded to
-  `/home/jiheon/assets/checkpoints/openpi` (about 12 GiB, 16 files).
-- Policy restore/inference smoke:
-  `runs/openpi_pi05_setup/policy_smoke_rerun_20260717/exit_code.txt`, exit
-  `137`, no result JSON; likely local WSL memory/resource kill.
-- PCD/PCD-LeRobot source cloned/inspected. Official default PCD uses
-  TensorFlow CUDA, JAX CUDA 11, PyTorch CUDA 11.8, SimplerEnv, OpenVLA/Octo/pi0,
-  SAM2/GroundingDINO/Inpaint-Anything, extra/manual checkpoints, and
-  `num_gpus=8`; local fair execution blocked.
+- OpenVLA route: executed; `R2R-OFT` offline no-pass; short requery not selected.
+- OpenPI/pi0.5: source/env/checkpoint present, but policy restore/inference
+  smoke exited `137`; no rollout.
+- PCD/PCD-LeRobot: source-inspected, but fair execution blocked by dependencies,
+  checkpoints, and multi-GPU evaluation requirements.
 
-Next: strategic decision. The initial three prior ecosystems are exhausted
-locally: OpenVLA route no-go, OpenPI resource-blocked, PCD resource-blocked. Do
-not run closed-loop Ours for `R2R-OFT`; do not add a third local candidate
-around the same OpenVLA task-8 residual.
+Second exact-three selected LightVLA first:
+
+- source: `C:\assets\repos\LightVLA`, HEAD
+  `a4680fda5ffe73029190ac97328aa34b0e87a45a`;
+- checkpoint: `TTJiang/LightVLA-libero-10`, revision
+  `d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7`;
+- download run:
+  `runs/lightvla_prior/download_lightvla_libero10_20260717T1520KST`, exit `0`;
+- local checkpoint: `/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10`;
+- caveat: official loader copied source files/backups into the checkpoint
+  directory, so local file count is now 49 and the directory is not pristine;
+- load artifact:
+  `runs/lightvla_prior/load_lightvla_libero10_20260717T1528KST/result_4bit.json`;
+- load result: 4-bit pass, `OpenVLAForActionPrediction` +
+  `L1RegressionActionHead`, peak CUDA about 4.99 GB.
+
+LightVLA task-8 matched diagnostic:
+
+- artifact:
+  `runs/lightvla_prior/diagnostic_lightvla_libero10_task8_all_20260717T1535KST/result.json`;
+- status: completed, 8/8 episodes, no infrastructure failure;
+- SmolVLA frozen base: 3/8, failures `20260716`, `20260717`, `20260721`,
+  `20260722`, `20260723`;
+- OpenVLA-OFT INT4: 6/8, failures `20260721`, `20260722`;
+- LightVLA 4-bit: 6/8, failures `20260716`, `20260723`;
+- LightVLA solved both OpenVLA failures, while OpenVLA solved both LightVLA
+  failures; oracle OpenVLA-or-LightVLA would be 8/8.
+
+Next: do not claim Ours. If the campaign now designs a method, it must be at
+most two candidates around this exact cross-prior complementarity residual,
+with held-out reset discipline and no MCI/R2R rescue.
 
 ## Prohibitions
 
