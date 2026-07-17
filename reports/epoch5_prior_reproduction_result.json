@@ -3,7 +3,7 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_openpi_pi05_local_policy_load_exit_137",
+  "stage": "epoch_5_all_three_prior_ecosystems_no_go_or_blocked",
   "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -571,7 +571,7 @@
   },
   "fallback_prior_preflight": {
     "status": "REQUIRES_EXTERNAL_SETUP",
-    "decision": "OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL",
+    "decision": "ALL_THREE_PRIOR_ECOSYSTEMS_EXECUTION_BLOCKED_OR_NO_GO",
     "not_scientific_kill": true,
     "checked_before_rollout": true,
     "openpi_pi05_libero": {
@@ -646,14 +646,25 @@
         "diffusers"
       ],
       "external_setup_required": [
+        "TensorFlow CUDA",
+        "JAX CUDA 11",
+        "PyTorch CUDA 11.8",
+        "SimplerEnv/ManiSkill2_real2sim",
         "SAM2",
         "GroundingDINO",
         "Inpaint-Anything/big-lama",
+        "SigLIP",
+        "T5-base",
+        "Octo-base",
+        "OpenVLA-7B",
         "extra pretrained checkpoints"
       ],
-      "classification": "FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL"
+      "official_default_num_gpus": 8,
+      "contrast_openvla_n_trajs": 100,
+      "default_eval_scripts": "C:\\assets\\repos\\PCD\\scripts\\inference\\default",
+      "classification": "PCD_OFFICIAL_PRIOR_LOCAL_RESOURCE_BLOCKED_NOT_SCIENTIFIC_KILL"
     }
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Record OpenPI pi0.5 as local-resource-blocked after source/env/checkpoint setup and exit-137 policy-load smoke; a fair OpenPI rollout needs a larger-memory or remote/lab runtime path. PCD remains source-inspected but dependency/checkpoint blocked. Closed-loop Ours rollout is disallowed for trained R2R-OFT checkpoints, and no third local candidate should be added around the same OpenVLA task-8 residual."
+  "next_action": "Strategic decision required: the initial three prior ecosystems are exhausted locally (OpenVLA route no-go; OpenPI resource-blocked after source/env/checkpoint setup and exit-137 policy-load smoke; PCD source-inspected but dependency/checkpoint/multi-GPU blocked). Do not run closed-loop Ours for R2R-OFT or add a third local OpenVLA task-8 candidate."
 }

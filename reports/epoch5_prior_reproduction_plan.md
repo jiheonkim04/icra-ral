@@ -353,12 +353,14 @@ current local assets:
   WSL memory before result JSON.
 - PCD / PCD-LeRobot: source cloned/inspected at
   `C:\assets\repos\PCD` and `C:\assets\repos\PCD-LeRobot`; official setup
-  still requires SAM2/GroundingDINO/Inpaint-Anything plus extra/manual
-  checkpoints.
+  still requires TensorFlow CUDA, JAX CUDA 11, PyTorch CUDA 11.8,
+  Grounded-SAM2, SAM2, GroundingDINO, Inpaint-Anything/big-lama, Octo,
+  OpenVLA-7B, SigLIP, T5, and extra/manual checkpoints. Official default
+  evaluation uses `num_gpus=8`.
 
-Decision: `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`.
+Decision: `ALL_THREE_PRIOR_ECOSYSTEMS_EXECUTION_BLOCKED_OR_NO_GO`.
 
-Next step: record the OpenPI local resource blocker. A fair OpenPI rollout now
-requires a larger-memory or remote/lab runtime path. PCD remains setup-blocked
-by dependency/checkpoint assets. Closed-loop Ours rollout is disallowed for the
-trained `R2R-OFT` checkpoints.
+Next step: strategic decision. A fair continuation needs larger-memory/remote
+OpenPI, substantial PCD setup on adequate GPU resources, or a new
+prior-ecosystem selection beyond the initial three. Closed-loop Ours rollout is
+disallowed for the trained `R2R-OFT` checkpoints.

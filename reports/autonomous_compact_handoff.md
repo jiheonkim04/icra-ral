@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_openpi_pi05_local_policy_load_exit_137`
-- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`; `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`
+- Current stage: `epoch_5_all_three_prior_ecosystems_no_go_or_blocked`
+- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`; `ALL_THREE_PRIOR_ECOSYSTEMS_EXECUTION_BLOCKED_OR_NO_GO`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -216,13 +216,15 @@ Fallback prior status:
 - Policy restore/inference smoke:
   `runs/openpi_pi05_setup/policy_smoke_rerun_20260717/exit_code.txt`, exit
   `137`, no result JSON; likely local WSL memory/resource kill.
-- PCD/PCD-LeRobot source cloned/inspected, but still needs
-  SAM2/GroundingDINO/Inpaint-Anything and extra/manual checkpoints.
+- PCD/PCD-LeRobot source cloned/inspected. Official default PCD uses
+  TensorFlow CUDA, JAX CUDA 11, PyTorch CUDA 11.8, SimplerEnv, OpenVLA/Octo/pi0,
+  SAM2/GroundingDINO/Inpaint-Anything, extra/manual checkpoints, and
+  `num_gpus=8`; local fair execution blocked.
 
-Next: record OpenPI as local-resource-blocked, not scientifically killed. A
-fair OpenPI rollout needs larger-memory or remote/lab runtime. Do not run
-closed-loop Ours for `R2R-OFT`; do not add a third local candidate around the
-same OpenVLA task-8 residual.
+Next: strategic decision. The initial three prior ecosystems are exhausted
+locally: OpenVLA route no-go, OpenPI resource-blocked, PCD resource-blocked. Do
+not run closed-loop Ours for `R2R-OFT`; do not add a third local candidate
+around the same OpenVLA task-8 residual.
 
 ## Prohibitions
 

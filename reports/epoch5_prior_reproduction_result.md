@@ -455,7 +455,7 @@ before any download, install, or rollout.
 | Ecosystem | Local readiness result | Decision |
 |---|---|---|
 | pi0.5 / OpenPI LIBERO | Official source cloned at `C:\assets\repos\openpi`, main `15a9616a00943ada6c20a0f158e3adb39df2ccac`. A user-local Python 3.11 + uv bootstrap was created, then OpenPI dependencies synced to `/home/jiheon/venvs/openpi-uv` using an `evdev-binary` workaround after source-built `evdev` failed on missing WSL Linux headers. JAX sees the RTX 5080. The public `pi05_libero` checkpoint was downloaded, but random-input policy restore/inference was killed with exit code `137`. | source/env/checkpoint present; local memory/resource blocker before usable prior rollout; not a scientific kill |
-| PCD / PCD-LeRobot | Source cloned/inspected at `C:\assets\repos\PCD` and `C:\assets\repos\PCD-LeRobot`; PCD requires Simpler/OpenVLA/Octo/pi0 plus Grounded-SAM2, SAM2, GroundingDINO, and big-lama/Inpaint-Anything assets. Checked WSL env still lacks SAM2/GroundingDINO and no matching vision/inpainting checkpoints are local. | requires dependency/checkpoint setup before fair prior run; not a scientific kill |
+| PCD / PCD-LeRobot | Source cloned/inspected at `C:\assets\repos\PCD` and `C:\assets\repos\PCD-LeRobot`; PCD requires Simpler/OpenVLA/Octo/pi0 plus TensorFlow CUDA, JAX CUDA 11, PyTorch CUDA 11.8, Grounded-SAM2, SAM2, GroundingDINO, Octo, OpenVLA-7B, SigLIP, T5, and big-lama/Inpaint-Anything assets. Official default evaluation uses `num_gpus=8`; contrast OpenVLA uses `n_trajs=100` and tracking/Grounded-SAM search. | local single-GPU/dependency/checkpoint blocked before fair prior run; not a scientific kill |
 
 OpenPI artifacts:
 
@@ -475,15 +475,26 @@ OpenPI artifacts:
   `runs/openpi_pi05_setup/policy_smoke_rerun_20260717/exit_code.txt`, exit
   `137`, no result JSON.
 
-Gate result: `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`.
+PCD artifacts:
+
+- source: `C:\assets\repos\PCD`, main
+  `cec18b820daeadfdaf080c030a1b5eb080ff75cd`;
+- LeRobot source/object DB: `C:\assets\repos\PCD-LeRobot`, main
+  `519b4a814e85bf9b786677d90b0ff07218729bb2`;
+- official install script:
+  `C:\assets\repos\PCD\scripts\install_dependencies.sh`;
+- official checkpoint script:
+  `C:\assets\repos\PCD\scripts\download_pretrained_weights.sh`;
+- default evaluation scripts under
+  `C:\assets\repos\PCD\scripts\inference\default\`.
+
+Gate result: `ALL_THREE_PRIOR_ECOSYSTEMS_EXECUTION_BLOCKED_OR_NO_GO`.
 
 ## Next Decision
 
-The next action is to record the OpenPI local resource blocker and avoid
-claiming a pi0.5 prior result. A fair OpenPI rollout would require a larger WSL
-memory/GPU-compatible runtime path or remote/lab execution. PCD remains the
-only preselected fallback not yet setup-attempted beyond source inspection, but
-it requires substantial vision/inpainting dependencies and checkpoint assets.
-Closed-loop Ours rollout is still disallowed for the trained `R2R-OFT`
-checkpoints, and no third local candidate should be added around the same
-OpenVLA task-8 residual.
+The next action is strategic: do not claim a pi0.5 or PCD prior result, and do
+not add a third local OpenVLA task-8 candidate. A fair continuation needs either
+a larger-memory/remote OpenPI runtime, substantial PCD dependency/checkpoint
+setup on adequate GPU resources, or a new prior-ecosystem selection beyond the
+initial three. Closed-loop Ours rollout is still disallowed for the trained
+`R2R-OFT` checkpoints.

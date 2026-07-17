@@ -93,12 +93,13 @@ rollout.
 | Ecosystem | Official source state | Local state | Blocking issue | Classification |
 |---|---|---|---|---|
 | pi0.5 / OpenPI LIBERO | `Physical-Intelligence/openpi` cloned at main `15a9616a00943ada6c20a0f158e3adb39df2ccac`; official README lists `gs://openpi-assets/checkpoints/pi05_libero`, `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and Docker as recommended LIBERO workflow | source at `C:\assets\repos\openpi`; isolated env `/home/jiheon/venvs/openpi-uv` created with Python 3.11/JAX/Torch/OpenPI; official checkpoint downloaded to `/home/jiheon/assets/checkpoints/openpi`; one random-input policy-load smoke exited `137` during restore/inference under current WSL memory | official source/env/checkpoint are present, but policy instantiation is blocked by local memory/resource kill before JSON result; no closed-loop rollout happened | `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL` |
-| PCD / PCD-LeRobot | `pcd-robot/PCD` cloned at main `cec18b820daeadfdaf080c030a1b5eb080ff75cd`; `pcd-robot/PCD-LeRobot` object database inspected at main `519b4a814e85bf9b786677d90b0ff07218729bb2`; official READMEs require SAM2, GroundingDINO, Inpaint-Anything/big-lama, and extra pretrained checkpoints | source checkouts now exist under `C:\assets\repos`; checked OpenVLA WSL env has LeRobot, OpenCV, and diffusers, but no `sam2`, `groundingdino`, or `openpi`; no matching local vision/inpainting checkpoints found | official method still requires segmentation/inpainting dependency setup and manual/extra checkpoint downloads before a fair prior run | `FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL` |
+| PCD / PCD-LeRobot | `pcd-robot/PCD` cloned at main `cec18b820daeadfdaf080c030a1b5eb080ff75cd`; `pcd-robot/PCD-LeRobot` object database inspected at main `519b4a814e85bf9b786677d90b0ff07218729bb2`; official READMEs require SAM2, GroundingDINO, Inpaint-Anything/big-lama, and extra pretrained checkpoints | source checkouts now exist under `C:\assets\repos`; checked OpenVLA WSL env has LeRobot, OpenCV, and diffusers, but no `sam2`, `groundingdino`, or local vision/inpainting checkpoints; official default PCD evaluation uses `num_gpus=8` and sweeps OpenVLA/Octo/pi0 across SimplerEnv tasks | official method requires multi-stack CUDA dependency setup, manual/extra checkpoints, and substantially more GPU than the local single RTX 5080 path before a fair prior run | `PCD_OFFICIAL_PRIOR_LOCAL_RESOURCE_BLOCKED_NOT_SCIENTIFIC_KILL` |
 
-Decision: `OPENPI_PI05_LOCAL_POLICY_LOAD_EXIT_137_NOT_SCIENTIFIC_KILL`.
+Decision: `ALL_THREE_PRIOR_ECOSYSTEMS_EXECUTION_BLOCKED_OR_NO_GO`.
 
 This is not a paper-method result and not a kill of either external prior.
-OpenPI progressed from source preflight to local source/env/checkpoint
-availability, but current local WSL memory killed policy restore/inference
-before a usable prior rollout. PCD remains source-inspected but blocked before
-fair execution by dependency and checkpoint requirements.
+OpenVLA-OFT was executed and produced an R2R/simple-control no-go. OpenPI
+progressed to local source/env/checkpoint availability, but current local WSL
+memory killed policy restore/inference before a usable prior rollout. PCD is
+source-inspected but blocked before fair execution by dependency, checkpoint,
+and multi-GPU evaluation requirements.
