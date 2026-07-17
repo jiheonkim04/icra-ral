@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_task6_mpr_xvla_offline_selection_not_passed`
-- Current decision: `MPR_XVLA_OFFLINE_SELECTION_NOT_PASSED_NO_CLOSED_LOOP`
+- Current stage: `epoch_5_task6_post_mpr_residual_mining_next`
+- Current decision: `TASK6_MPR_ARCHIVED_PRC_NOT_ELIGIBLE_RESIDUAL_MINING_NEXT`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -54,7 +54,8 @@ X-VLA:
 - Task-8 residual was solved by X-VLA; no Ours target there.
 - Task-1 shared residual led to BR-XVLA; BR-XVLA is now closed as a validation no-pass.
 - Task-6 has matched Base/Prior residual, task-level headroom, spatial data
-  health, OpenVLA-OFT INT4 no-solve evidence, and MPR-XVLA offline no-pass.
+  health, OpenVLA-OFT INT4 no-solve evidence, and MPR-XVLA offline no-pass;
+  PRC-XVLA was not elevated due lack of red-mug confusion evidence.
 
 ## BR-XVLA Closed-Loop No-Pass
 
@@ -192,8 +193,9 @@ MPR-XVLA candidate/training:
 ## Immediate Next Decision
 
 Do not retune/rescue MPR-XVLA from the no-pass. Return to the official-prior
-task6 residual with a fresh bounded candidate decision; still avoid broad
-search, generic local heads/gates/memory/verifiers/proxy-only methods.
+residual-mining loop for a fresh condition with mechanism-specific failure
+evidence; still avoid broad search, generic local heads/gates/memory/verifiers,
+proxy-only methods, and PRC without independent distractor-confusion evidence.
 
 ## Report Set
 

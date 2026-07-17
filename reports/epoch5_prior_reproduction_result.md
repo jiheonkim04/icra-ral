@@ -5,7 +5,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 ## Result
 
 Current decision:
-`TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED`.
+`TASK6_MPR_ARCHIVED_PRC_NOT_ELIGIBLE_RESIDUAL_MINING_NEXT`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -1748,3 +1748,11 @@ same behavior fractionally better on the targeted phase. Therefore the
 selection gate blocks closed-loop `MPR-XVLA` evaluation from this configuration.
 This is not a paper-candidate result and should not be rescued by retuning the
 same MPR setup.
+
+The runner-up `PRC-XVLA` is not elevated after the `MPR-XVLA` no-pass. The
+original candidate design required evidence that red-mug/plate distractor
+confusion was the mechanism, but the surviving evidence only shows that the red
+mug is a stable off-plate distractor in demonstrations. It does not show that
+the official prior failures are caused by red-mug confusion. The next action is
+therefore bounded official-prior residual mining for a fresh condition, not a
+contrast-method rescue.

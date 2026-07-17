@@ -1,9 +1,9 @@
 # Epoch 5 Task-6 Ours Candidate Design
 
-Status: `MPR_XVLA_CANDIDATE_SELECTED_PRETRAINING_SPEC_PENDING`.
+Status: `MPR_XVLA_ARCHIVED_OFFLINE_NO_PASS_PRC_NOT_ELIGIBLE`.
 
 Decision:
-`TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED`.
+`TASK6_MPR_XVLA_OFFLINE_NO_PASS_RETURN_TO_PRIOR_RESIDUAL_MINING`.
 
 ## Preconditions
 
@@ -65,5 +65,42 @@ Simulator object state is never an inference input.
 - If a frozen closed-loop residual evaluation fails, do not generate a new
   configuration from that failure.
 
-No optimizer step, checkpoint write, training run, or closed-loop Ours
-evaluation has happened for `MPR-XVLA` yet.
+## Post-Training Outcome
+
+`MPR-XVLA` completed the frozen two-arm training/offline-validation gate after
+preoptimizer data-adapter and gradient smokes passed. The first full gate failed
+only during offline validation from an infrastructure scope bug; after commit
+`5faed4dabc7a97fa3d24cfbfafb9262dda6be8f1`, the saved adapters were revalidated.
+
+Repaired offline validation:
+
+- Artifact:
+  `runs/xvla_prior/epoch5_mpr_xvla_offline_validation_step0064_repaired_20260717T2200KST.json`
+- SHA-256:
+  `ede498006a5832e3b2101de41fd344438b1c2dc4cdbd21f1355d8564e03fc59f`
+- Decision: `MPR_XVLA_OFFLINE_SELECTION_NOT_PASSED`
+- Prior phase-1 mean loss: `2.9992184042930603`
+- `MPR-XVLA` phase-1 mean loss: `0.8785358915726343`
+- Uniform-weight X-VLA LoRA phase-1 mean loss: `0.8785358369350433`
+
+Interpretation: `MPR-XVLA` passed the absolute offline-health gate but did not
+beat the required uniform-weight ablation. Closed-loop `MPR-XVLA` Ours
+evaluation is disallowed, and retuning this configuration from the no-pass is
+not authorized.
+
+## Runner-Up Candidate Decision
+
+`PRC-XVLA` remains `NOT_SELECTED` and is not elevated after the `MPR-XVLA`
+no-pass. The reason is evidential rather than merely conservative: the original
+selection rationale required evidence that red-mug/plate distractor confusion,
+rather than generic task6 adaptation or second-subgoal completion, was the
+dominant residual axis. The surviving data audit only shows that the red mug is
+a stable off-plate distractor in demonstrations; it does not show that the
+official prior failures confuse the red mug with the white mug or plate. Promoting
+PRC now would convert an under-supported auxiliary contrast idea into another
+local attachment after the uniform LoRA ablation already explained the offline
+gain.
+
+Next action: return to official-prior-first residual mining and look for a fresh
+condition with matched Base/Prior residual, headroom, and a mechanism-specific
+failure signal before proposing another Ours method.
