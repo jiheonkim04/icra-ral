@@ -225,11 +225,21 @@ Quantized OpenVLA-OFT INT4 on `libero_goal/task_9`, reset identity `20260727`: v
 
 Interpretation: the second prior solved this shared residual. `libero_goal/task_9` identity `20260727` is not an Ours target.
 
+## Post-Second-Prior 20260727 Object Scan
+
+Durable result:
+`reports/post_secondprior_libero_object_20260727_prior_scan_result.json`
+`reports/post_secondprior_libero_object_20260727_prior_scan_result.md`
+
+X-VLA official-prior scan on `libero_object`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 10/10 succeeded, 0 infrastructure failures, summary SHA `459b536a96d201e9e5cbf17ffdc389242332e54898fcb756fca9d40086bc11a6`, manifest SHA `415eb3839501f183bc751ee20240e027fb483d98227fe92d3210870fcb76e182`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_object` identity `20260727` is saturated and creates no Ours target.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Continue bounded official-prior residual mining on a non-redundant condition. Do not design or train Ours for `libero_goal/task_9` identity `20260727`.
+Continue bounded official-prior residual mining on a non-redundant condition. Do not design or train Ours for `libero_goal/task_9` or saturated `libero_object` identity `20260727`.
 
 ## Validation To Run Before Commit
 

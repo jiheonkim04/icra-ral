@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T03:35:06+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan_launch": "4772f75af5e1ea5233ef9a405b65f73daf7f5ab6",
+  "decision": "POST_SECONDPRIOR_LIBERO_OBJECT_IDENTITY20260727_XVLA_PRIOR_SATURATED_NO_TARGET",
+  "suite": "libero_object",
+  "task_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "run_dir": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR_RESIDUAL_MINING",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "windows_wsl_pid": 23332,
+    "wsl_worker_pid": 580
+  },
+  "result": {
+    "task_count": 10,
+    "completed_task_count": 10,
+    "successful_task_count": 10,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "residual_target_created": false,
+    "base_gate_triggered": false,
+    "headroom_gate_triggered": false,
+    "second_prior_gate_triggered": false,
+    "ours_candidate_authorized": false,
+    "training_authorized": false
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/scan_summary.json",
+      "sha256": "459b536a96d201e9e5cbf17ffdc389242332e54898fcb756fca9d40086bc11a6",
+      "length_bytes": 6489
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/scan_manifest.json",
+      "sha256": "415eb3839501f183bc751ee20240e027fb483d98227fe92d3210870fcb76e182",
+      "length_bytes": 739
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/exact_resume_command.txt",
+      "sha256": "b3dc8e46bc1e8ca350f4c59fe465eec69c5bdfb97bf62792fd412ea3f446314e",
+      "length_bytes": 251
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/scan_heartbeat.txt",
+      "sha256": "9bd15cf859e239014035e2a783611b52c6eff559fd1ac8f8250690782acb1612",
+      "heartbeat_at": "2026-07-18T03:34:19+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/windows_wsl_pid.txt",
+      "sha256": "7958a830fd120b50b25a071bc2d464183da2c750205513bbd808b7e0b45d1358"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_object_identity20260727_post_secondprior_20260718T033139KST/scan_worker_pid.txt",
+      "sha256": "f619e0b0036458929950b76340df8b3fdf6ab0b4cf09daa70ca0dbd7d4815d8b"
+    }
+  ],
+  "per_task_result_hashes": [
+    {"task_id": 0, "success": true, "steps": 129, "action_chunk_count": 5, "sha256": "7cc56d36a6d786567afb34c79d650174c7d3016306073f2b2b68eb57a01c788b"},
+    {"task_id": 1, "success": true, "steps": 123, "action_chunk_count": 5, "sha256": "99cb3c60aa97a835c5ee655c7100f96ab8f3bdb832d6fb4809e06d5c14293d60"},
+    {"task_id": 2, "success": true, "steps": 119, "action_chunk_count": 4, "sha256": "2494218feccdc9307f1831bee1ed20985f3cc2c053ff12d37f7f541771337662"},
+    {"task_id": 3, "success": true, "steps": 121, "action_chunk_count": 5, "sha256": "5c78a4f64efea8c7d6c9679a20bb5956f5f2cb2aeca5ccd275da5edda26c8f31"},
+    {"task_id": 4, "success": true, "steps": 142, "action_chunk_count": 5, "sha256": "cdabfc5fd8850d840feda0e20fc0a5be92418d75f171c145d36f05b2c188b1f0"},
+    {"task_id": 5, "success": true, "steps": 137, "action_chunk_count": 5, "sha256": "a66fd31705a737bd6bca1b729c33ce7cbf309490d5ada2e657f925079cc35306"},
+    {"task_id": 6, "success": true, "steps": 150, "action_chunk_count": 5, "sha256": "ab9b40d0fcc5caabe1ec21e90c6aeca1602a1b5a19873cef6a99441c5bfdde23"},
+    {"task_id": 7, "success": true, "steps": 134, "action_chunk_count": 5, "sha256": "2a5e87e60746f9f9b6682b28923c517f4528121897cdc865050b29c770e0333f"},
+    {"task_id": 8, "success": true, "steps": 148, "action_chunk_count": 5, "sha256": "7bd264c38c7e38bd85ef406ba61f02a9726588c4c7c3bdb78738442d0bb4e43e"},
+    {"task_id": 9, "success": true, "steps": 116, "action_chunk_count": 4, "sha256": "204057b53ad5df2be98f9b8d66811e7b5bb31cda8299f8eccc29680cafb2f14a"}
+  ],
+  "next_action": "Scan the next non-redundant official-prior condition; this saturated object scan creates no Ours target."
+}
