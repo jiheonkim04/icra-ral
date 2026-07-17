@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:11:07+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_spec_freeze": "94261b8fe4c47e7754391f709e94c737a758517d",
+  "decision": "R2P_XVLA_FROZEN_NO_TRAINING_SPEC_CREATED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "initial_state_sha256": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "execution_classification": {
+    "execution_type": "REPORT_AND_SPEC_ONLY",
+    "evidence_role": "FROZEN_NO_TRAINING_SPEC",
+    "artifact_status": "TRACKED_SPEC_BUILDER_IGNORED_SPEC_SNAPSHOT",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": false,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0,
+    "model_forward_count": 0
+  },
+  "selected_candidate_reference": {
+    "report_json": "reports/post_secondprior_libero_spatial_20260727_candidate_generation_result.json",
+    "report_sha256": "3d3d3cd4ae2a8a27101be111caf5030e9e3c154b04ef9a3d98148900d00b77ba",
+    "selected_candidate_id": "R2P-XVLA",
+    "candidate_decision": "EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED"
+  },
+  "frozen_spec": {
+    "freeze_id": "epoch5_r2p_xvla_task5_training_spec_v1",
+    "method": "R2P-XVLA",
+    "stage": "epoch_5_r2p_xvla_task5_training_config_frozen_no_training",
+    "spec_snapshot_path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_spec_v1.json",
+    "spec_snapshot_sha256": "d795dc72373f32d36cacd4b5b6a695607154d6f65c588d56e6bd010ef4312f78",
+    "builder_path": "tca_map/xvla_spatial_task5/training_spec.py",
+    "test_path": "tests/test_xvla_spatial_task5_training_spec.py",
+    "arm_count": 2,
+    "arms": [
+      {
+        "arm_id": "r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+        "role": "primary_selected_method",
+        "phase_weight_lambda": 2.0,
+        "phase_loss_weights": {
+          "source_on_ramekin": 1.0,
+          "transit": 2.0,
+          "target_on_plate": 1.5
+        }
+      },
+      {
+        "arm_id": "uniform_task5_xvla_rank8_lambda0_lr1e4_steps64",
+        "role": "uniform_weight_ablation",
+        "phase_weight_lambda": 0.0,
+        "phase_loss_weights": {
+          "source_on_ramekin": 1.0,
+          "transit": 1.0,
+          "target_on_plate": 1.0
+        }
+      }
+    ]
+  },
+  "locked_constraints": {
+    "max_total_training_arms": 2,
+    "new_configs_after_residual_rollout_allowed": false,
+    "residual_rollout_used_for_model_selection": false,
+    "privileged_state_at_inference": false,
+    "phase_labels_at_inference": false,
+    "allowed_deployment_inputs": ["RGB", "wrist RGB", "proprioception", "instruction"],
+    "paper_claim_from_single_identity_allowed": false,
+    "uniform_lora_oft_control_required": true,
+    "no_phase_balancing_ablation_required": true
+  },
+  "pre_optimizer_required_gates": {
+    "xvla_format_data_adapter_materialized": false,
+    "xvla_format_data_adapter_smoke_passed": false,
+    "one_batch_gradient_smoke_passed": false,
+    "optimizer_step_allowed_before_all_gates": false
+  },
+  "authorization_state_after_freeze": {
+    "training_authorized_now": false,
+    "optimizer_step_authorized_now": false,
+    "checkpoint_write_authorized_now": false,
+    "closed_loop_ours_rollout_authorized_now": false,
+    "next_safe_action": "Materialize a tiny X-VLA-format data-adapter smoke artifact and run a one-batch no-optimizer gradient smoke; do not run optimizer.step."
+  },
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false,
+    "simulator_rollout_happened": false,
+    "spec_builder_created": true,
+    "spec_snapshot_written": true
+  },
+  "validation": {
+    "py_compile": "PASS for tca_map/xvla_spatial_task5/training_spec.py and tests/test_xvla_spatial_task5_training_spec.py",
+    "focused_pytest": "3 passed via C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m pytest tests/test_xvla_spatial_task5_training_spec.py -q",
+    "spec_write_command": "C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m tca_map.xvla_spatial_task5.training_spec"
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_spec_v1.json",
+      "sha256": "d795dc72373f32d36cacd4b5b6a695607154d6f65c588d56e6bd010ef4312f78"
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/training_spec.py",
+      "sha256": "356ebd88bc4a9eae83998425279fa00f59207ee2dfecc6b5463cd61f8d90877e"
+    },
+    {
+      "path": "tests/test_xvla_spatial_task5_training_spec.py",
+      "sha256": "8401a109add220310f42f76a7452da2f27685922e0c0e8928be1bac4d484f4c5"
+    }
+  ],
+  "next_action": "Materialize and validate the tiny X-VLA-format data-adapter smoke for R2P-XVLA without optimizer steps, checkpoint writes, downloads, simulator rollouts, or closed-loop Ours evaluation."
+}

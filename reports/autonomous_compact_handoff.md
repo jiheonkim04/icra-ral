@@ -5,7 +5,7 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- HEAD before latest candidate-generation commit: `7528ce99fb1a3f483c0974cf852d92b1f6a8666a`
+- HEAD before latest spec-freeze commit: `94261b8fe4c47e7754391f709e94c737a758517d`
 - Epoch/cycle: `5 / 0`
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
 - Active Ours training/worker: none.
@@ -118,25 +118,41 @@ Exactly two candidates were generated:
 
 No training, optimizer step, checkpoint write, implementation, LoRA/QLoRA training, or closed-loop Ours rollout happened.
 
+## R2P-XVLA Frozen Spec
+
+Reports:
+
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_spec_result.json`
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_spec_result.md`
+
+Decision: `R2P_XVLA_FROZEN_NO_TRAINING_SPEC_CREATED`
+
+Tracked code/tests:
+
+- `tca_map/xvla_spatial_task5/training_spec.py`
+- `tests/test_xvla_spatial_task5_training_spec.py`
+
+Ignored runtime snapshot:
+
+- `runs/xvla_prior/epoch5_r2p_xvla_task5_training_spec_v1.json`, SHA `d795dc72373f32d36cacd4b5b6a695607154d6f65c588d56e6bd010ef4312f78`
+
+Frozen arms:
+
+1. `r2p_xvla_rank8_phase_weights_lr1e4_steps64` — selected method, source/transit/target weights `1.0 / 2.0 / 1.5`.
+2. `uniform_task5_xvla_rank8_lambda0_lr1e4_steps64` — uniform ablation, weights `1.0 / 1.0 / 1.0`.
+
+Still closed: training, optimizer step, checkpoint write, closed-loop Ours rollout, residual-reward checkpoint selection, privileged inference inputs, and paper claim from one identity.
+
+Validation: `py_compile` passed; focused pytest `3 passed`; spec snapshot written without model load/training/rollout.
+
 ## Immediate Next Action
 
-Create a frozen no-training specification for selected candidate `R2P-XVLA`.
-
-Required contents for the spec:
-
-- exact training-data split and phase-label derivation from the data audit;
-- deployment input policy: RGB, wrist RGB, proprioception, instruction only;
-- no privileged object positions or phase labels at inference;
-- uniform LoRA/OFT simple-control role;
-- no-phase-balancing key ablation;
-- clean-retention and validation gates before any closed-loop Ours rollout;
-- explicit prohibition on tuning checkpoint selection from residual rollout reward.
-
-Do not train or run Ours yet.
+Materialize and validate a tiny X-VLA-format data-adapter smoke for `R2P-XVLA`, without optimizer steps, checkpoint writes, downloads, simulator rollouts, or closed-loop Ours evaluation.
 
 ## Validation To Run Before Commit
 
-- Parse new candidate JSON and existing target-chain JSON.
+- Parse new candidate/spec JSON and existing target-chain JSON.
 - Check `reports/autonomous_compact_handoff.md` line count is under 250.
+- `py_compile` and focused pytest for task5 training spec.
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`
