@@ -64,6 +64,8 @@ If no residual remains, move to pi0.5/OpenPI as the second-ranked ecosystem rath
 
 ## Preregistered Residual Diagnostic: `epoch5_libero10_residual_v1`
 
+Execution status: `COMPLETE`
+
 The first residual diagnostic is a bounded LIBERO-10 long-horizon expansion
 using official LIBERO tasks that were not in the saturated hard-slice result.
 
@@ -114,3 +116,49 @@ Decision rules:
 If residual is found, run the smallest available upper-bound/headroom check
 before any Ours design. If no residual remains, preregister the next
 claim-specific condition or fall back to pi0.5/OpenPI.
+
+## Completed Residual Outcome
+
+The frozen `epoch5_libero10_residual_v1` condition completed after
+preregistration:
+
+| Policy | Successes | Episodes | Infrastructure failures |
+|---|---:|---:|---:|
+| SmolVLA frozen-base exact-init | 7 | 16 | 0 |
+| Quantized OpenVLA-OFT INT4 | 14 | 16 | 0 |
+
+OpenVLA-OFT INT4 improves over Base and leaves a residual on
+`libero_10/task_8`:
+
+- task 8: Base 3/8, OpenVLA-OFT 6/8;
+- task 9: Base 4/8, OpenVLA-OFT 8/8.
+
+The two OpenVLA-OFT residual failures are task 8 reset identities `20260721`
+and `20260722`, corresponding to official initial-state indices `10` and `11`.
+
+## Completed Upper/Headroom Diagnostic
+
+The smallest available headroom check was a task-level HDF5 expert exact-init
+teacher replay for task 8:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_libero10_residual_expert_headroom_task8_demo10.json`;
+- task: `libero_10/task_8`;
+- demo: `KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5::demo_10`;
+- result: success, reward `1.0`, done/success at step `377`;
+- exact demo init-state proof: `after_set_state_l2_to_hdf5_init = 0.0`;
+- training/download/VLA load: none.
+
+Caveat: this is not a same-reset upper bound. Local HDF5 demo init-state hashes
+did not match the frozen benchmark initial-state hashes for residual reset
+identities `20260721`/`20260722`. The result is therefore task-level
+recoverability evidence, sufficient to avoid `CONDITION_TOO_SEVERE`, but the
+identity mismatch must be carried into Ours design and claims.
+
+## Current Gate Result
+
+Decision: `RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE`.
+
+Ours design is now permitted only for the exact task-8 residual limitation and
+must generate at most two candidates. Do not broaden into a generic method
+search.

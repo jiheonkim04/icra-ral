@@ -11,10 +11,12 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 import time
 import traceback
 from dataclasses import dataclass
 from pathlib import Path
+import types
 from typing import Any
 
 import numpy as np
@@ -160,6 +162,47 @@ def _first_parameter_summary(policy: Any) -> dict[str, Any]:
     return {"device": None, "dtype": None, "numel": 0}
 
 
+def _install_optional_paligemma_import_stub() -> bool:
+    """Let LeRobot import unused pi0 modules in an OpenVLA transformers fork.
+
+    The local RTX 5080 OpenVLA-OFT environment pins the OpenVLA-compatible
+    transformers fork, which lacks `transformers.models.paligemma`. Recent
+    LeRobot package imports load pi0 symbols from `lerobot.policies.__init__`
+    even when the requested policy is SmolVLA. SmolVLA does not instantiate
+    PaliGemma, so this narrow stub only unblocks the unused import path. If a
+    pi0 policy is accidentally instantiated in this environment, the stub class
+    raises immediately rather than acting as a fake model.
+    """
+
+    try:
+        from transformers.models.paligemma.modeling_paligemma import (  # noqa: F401
+            PaliGemmaForConditionalGeneration,
+        )
+
+        return False
+    except ModuleNotFoundError:
+        pass
+
+    package_name = "transformers.models.paligemma"
+    module_name = f"{package_name}.modeling_paligemma"
+    package = sys.modules.get(package_name) or types.ModuleType(package_name)
+    module = sys.modules.get(module_name) or types.ModuleType(module_name)
+
+    class PaliGemmaForConditionalGeneration:  # pragma: no cover - defensive runtime stub
+        def __init__(self, *args: Any, **kwargs: Any) -> None:
+            raise RuntimeError("PaliGemma is unavailable in this OpenVLA-OFT transformers fork; pi0 is not supported here.")
+
+        @classmethod
+        def from_pretrained(cls, *args: Any, **kwargs: Any) -> "PaliGemmaForConditionalGeneration":
+            raise RuntimeError("PaliGemma is unavailable in this OpenVLA-OFT transformers fork; pi0 is not supported here.")
+
+    module.PaliGemmaForConditionalGeneration = PaliGemmaForConditionalGeneration
+    package.modeling_paligemma = module
+    sys.modules[package_name] = package
+    sys.modules[module_name] = module
+    return True
+
+
 def _dummy_observation(torch_mod: Any) -> dict[str, Any]:
     return {
         "observation.images.image": torch_mod.zeros((1, 3, 256, 256), dtype=torch_mod.float32),
@@ -189,6 +232,9 @@ def _make_env_cfg(task: str, task_ids: list[int] | None = None) -> Any:
 
 def _load_policy_and_processors(args: argparse.Namespace, spec: PolicySpec) -> dict[str, Any]:
     import torch
+
+    paligemma_import_stub_used = _install_optional_paligemma_import_stub()
+
     from lerobot.configs.policies import PreTrainedConfig
     from lerobot.policies.factory import make_policy, make_pre_post_processors
     from lerobot.policies.smolvla.configuration_smolvla import SmolVLAConfig  # noqa: F401
@@ -264,6 +310,7 @@ def _load_policy_and_processors(args: argparse.Namespace, spec: PolicySpec) -> d
         "cuda_memory": _cuda_memory(torch),
         "autocast": _torch_autocast(torch),
         "amp_fp16_or_bf16_active": bool(_torch_autocast(torch)["cuda"]),
+        "paligemma_import_stub_used": bool(paligemma_import_stub_used),
         "peft": peft_audit,
         "rename_map": dict(RENAME_MAP),
         "empty_cameras": int(cfg.empty_cameras),

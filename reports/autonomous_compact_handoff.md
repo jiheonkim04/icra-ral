@@ -5,11 +5,10 @@ Updated: 2026-07-17 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- Branch base: audit commit `b0ecb6ea5f6eba2953b5bd842883c0474d634dff`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_official_prior_ecosystem_selection`
-- Current decision: `STRATEGIC_NEW_EPOCH_OFFICIAL_PRIOR_FIRST`
+- Current stage: `epoch_5_prior_residual_headroom_complete`
+- Current decision: `RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -18,9 +17,9 @@ Updated: 2026-07-17 KST
 ## Audit Anchor
 
 - Full audit: `reports/autonomous_research_full_history_audit.md`
-- Audit branch: `codex/full-history-audit-before-resume`
 - Audit commit: `b0ecb6ea5f6eba2953b5bd842883c0474d634dff`
-- Audit totals accepted by user: 73 routes, 47 formal methods, 31 trained/checkpointed routes, 17 Stage A, 10 Stage B, 0 GO, 0 second-backbone Ours, 0 official prior reproductions.
+- Refreshed audit commit on this branch: `541c82259db2b37adfe3894d2776235302e1c536`
+- Audit totals: 73 routes, 47 formal methods, 31 trained/checkpointed routes, 17 Stage A, 10 Stage B, 0 GO, 0 second-backbone Ours, 0 formal Ours official-prior wins.
 
 ## Epoch 5 Artifacts
 
@@ -33,43 +32,78 @@ Updated: 2026-07-17 KST
 
 Selected: OpenVLA-OFT on LIBERO.
 
-Why: public primary paper, MIT official code, official LIBERO checkpoints, local checkout, local 15G checkpoint, and existing validated INT4 hard-slice run.
+Why: public primary paper, MIT official code, official LIBERO checkpoints,
+local checkout, local 15G checkpoint, and existing validated INT4 hard-slice
+run.
 
-Focused validation command passed:
+Quantization caveat: INT4 is a local prior diagnostic, not a full-precision
+OpenVLA-OFT reproduction.
 
-```powershell
-C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m pytest tests\test_openvla_oft_int4_gate.py -q
-```
+## Completed Prior Diagnostics
 
-Observed: `4 passed in 0.10s`.
-
-## Current Scientific Meaning
-
-OpenVLA-OFT INT4 prior evidence is positive on the recovered hard-slice condition:
+Recovered hard slice:
 
 - OpenVLA-OFT INT4: 20/20.
 - SmolVLA frozen-base exact-init: 11/20.
+- Interpretation: prior positive but saturated; unusable for Ours.
 
-But this condition is saturated by the prior. There is no residual gap on that condition, so Ours design is still blocked.
+Preregistered residual diagnostic `epoch5_libero10_residual_v1`:
+
+- tasks: `libero_10/task_8`, `libero_10/task_9`;
+- reset identities: `20260716..20260723` -> official initial-state indices
+  `5..12`;
+- SmolVLA frozen-base exact-init: 7/16;
+- Quantized OpenVLA-OFT INT4: 14/16;
+- infrastructure failures: 0/32;
+- task 8: Base 3/8, OpenVLA-OFT 6/8;
+- task 9: Base 4/8, OpenVLA-OFT 8/8;
+- OpenVLA residual failures: task 8 reset `20260721` index 10 and reset
+  `20260722` index 11.
+
+Headroom diagnostic:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_libero10_residual_expert_headroom_task8_demo10.json`;
+- type: task-level HDF5 expert exact-init teacher replay;
+- task: `libero_10/task_8`;
+- demo: `KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5::demo_10`;
+- result: success, reward 1.0, done/success at step 377;
+- proof: `after_set_state_l2_to_hdf5_init = 0.0`;
+- caveat: not same benchmark reset; local HDF5 demo init-state hashes do not
+  match residual benchmark initial-state hashes.
+
+## Current Scientific Meaning
+
+The required Base/Prior residual structure is present:
+
+Base fails -> OpenVLA-OFT improves -> residual remains on task 8.
+
+The condition is not classified as too severe because task-level expert
+headroom is positive. However, same-reset upper-bound evidence is unavailable,
+so Ours claims must stay narrow and explicitly carry that caveat.
 
 ## Next Action
 
-Run the preregistered bounded residual-gap diagnostic for OpenVLA-OFT. Candidate residuals must come from official-prior limits or benchmark stressors, not a new acronym.
+Generate at most two Ours method candidates around the exact task-8 residual
+limitation. Do not restart broad search. Each candidate must specify:
 
-Frozen first diagnostic: `epoch5_libero10_residual_v1`.
+- the precise OpenVLA-OFT residual limitation;
+- the actual prior mechanism being extended;
+- one core new mechanism;
+- supervision and deployment inputs;
+- LoRA/QLoRA role as infrastructure only;
+- key ablation;
+- strongest simple alternative explanation;
+- second-backbone path.
 
-- Tasks: `libero_10/task_8` and `libero_10/task_9`.
-- Reset identities: `20260716..20260723` -> official initial-state indices `5..12`.
-- Episodes: `16` SmolVLA frozen-base exact-init and `16` Quantized OpenVLA-OFT INT4.
-- Matched row SHA-256: `13642c7bed5e7d5944f7377e9848aeec1b9090be96d110362b53bc9cd9a3b3b2`.
-- No downloads, training, full-BF16 load, Ours design, or proxy prior.
-
-If no residual remains, move to second-ranked ecosystem: pi0.5/OpenPI.
+Select exactly one method before implementation.
 
 ## Prohibitions
 
-- Do not design Ours yet.
+- Do not design outside the task-8 residual.
 - Do not generate three local method candidates.
-- Do not reopen CAVM, CALA, RAR, MCI, CSPR, or governance-closed prior routes.
-- Do not create cached-feature residuals, frozen-policy gates, history heads, verifiers, visual canonicalizers, memory lookups, or proxy-only prior methods.
-- Do not claim INT4 OpenVLA-OFT is full-precision reproduction.
+- Do not reopen CAVM, CALA, RAR, MCI, CSPR, or governance-closed routes.
+- Do not create generic cached-feature residuals, frozen-policy gates,
+  history heads, verifiers, visual canonicalizers, memory lookups, or proxy-only
+  prior methods.
+- Do not claim INT4 OpenVLA-OFT is a full-precision reproduction.

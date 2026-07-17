@@ -1,21 +1,24 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_official_prior_ecosystem_selection",
-  "decision": "OPENVLA_OFT_PRIOR_REPRODUCTION_RECOVERED_AND_VALIDATED_RESIDUAL_PENDING",
+  "stage": "epoch_5_prior_residual_headroom_complete",
+  "decision": "RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
   "new_method_candidate_generated": false,
   "training_happened": false,
-  "new_rollout_happened": false,
   "new_download_happened": false,
+  "residual_simulator_rollout_happened_after_preregistration": true,
+  "headroom_simulator_replay_happened": true,
+  "full_bf16_attempted": false,
+  "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
     "command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_openvla_oft_int4_gate.py -q",
     "exit_code": 0,
-    "stdout_summary": "4 passed in 0.10s"
+    "stdout_summary": "5 passed"
   },
   "official_sources": {
     "project_page": "https://openvla-oft.github.io/",
@@ -24,21 +27,13 @@
     "libero_instructions": "https://github.com/moojink/openvla-oft/blob/main/LIBERO.md",
     "combined_checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10"
   },
-  "local_prior_artifacts": {
-    "result_json": "reports/openvla_oft_quantized_hard_slice_result.json",
-    "manifest_json": "reports/openvla_oft_quantized_hard_slice_manifest.json",
-    "openvla_run_json": "runs/openvla_oft_int4/hard_slice_openvla_int4.json",
-    "smolvla_base_run_json": "runs/openvla_oft_int4/hard_slice_smolvla_exact.json",
-    "policy_load_report": "reports/openvla_oft_int4_policy_load_result.md",
-    "memory_preflight_report": "reports/openvla_oft_int4_memory_preflight.md"
-  },
   "local_checkpoint": {
     "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
     "du_size": "15G",
     "visible_size_gib_from_prior_result": 14.845,
     "revision_from_prior_result": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7"
   },
-  "matched_diagnostic": {
+  "recovered_hard_slice": {
     "condition": "existing hard-slice exact-init diagnostic",
     "openvla_oft_int4_successes": 20,
     "openvla_oft_int4_total": 20,
@@ -46,21 +41,39 @@
     "smolvla_frozen_base_total": 20,
     "prior_positive_effect": true,
     "residual_gap_remaining_on_this_condition": false,
-    "condition_saturated_by_prior": true
+    "condition_saturated_by_prior": true,
+    "artifacts": {
+      "result_json": "reports/openvla_oft_quantized_hard_slice_result.json",
+      "manifest_json": "reports/openvla_oft_quantized_hard_slice_manifest.json",
+      "openvla_run_json": "runs/openvla_oft_int4/hard_slice_openvla_int4.json",
+      "smolvla_base_run_json": "runs/openvla_oft_int4/hard_slice_smolvla_exact.json",
+      "policy_load_report": "reports/openvla_oft_int4_policy_load_result.md",
+      "memory_preflight_report": "reports/openvla_oft_int4_memory_preflight.md"
+    }
   },
-  "residual_diagnostic_preregistration": {
-    "status": "PREREGISTERED_NOT_RUN",
+  "matched_residual_diagnostic": {
+    "status": "COMPLETE",
     "label": "epoch5_libero10_residual_v1",
     "tasks": [
       {
         "suite": "libero_10",
         "task_id": 8,
-        "instruction": "put both moka pots on the stove"
+        "instruction": "put both moka pots on the stove",
+        "smolvla_successes": 3,
+        "smolvla_total": 8,
+        "openvla_successes": 6,
+        "openvla_total": 8,
+        "prior_leaves_residual": true
       },
       {
         "suite": "libero_10",
         "task_id": 9,
-        "instruction": "put the yellow and white mug in the microwave and close it"
+        "instruction": "put the yellow and white mug in the microwave and close it",
+        "smolvla_successes": 4,
+        "smolvla_total": 8,
+        "openvla_successes": 8,
+        "openvla_total": 8,
+        "prior_leaves_residual": false
       }
     ],
     "reset_identities": [
@@ -89,13 +102,72 @@
       "quantized_openvla_oft_int4"
     ],
     "matched_row_sha256": "13642c7bed5e7d5944f7377e9848aeec1b9090be96d110362b53bc9cd9a3b3b2",
+    "manifest_match_verified": true,
     "openvla_manifest_path": "runs/openvla_oft_int4/epoch5_libero10_residual_openvla_manifest.json",
+    "openvla_manifest_sha256": "b2de1d683d7ab0c5aff7462857f0366bd72c9208c98b2e8566e6a42a296b5adf",
     "smolvla_manifest_path": "runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_manifest.json",
-    "downloads_happened": false,
-    "training_happened": false,
-    "full_bf16_attempted": false,
-    "ours_design_authorized": false
+    "smolvla_manifest_sha256": "6defb7769a75b595bc8456e6938254d7185d2b03fd94a4bda4fd0a95464a837c",
+    "openvla_result_path": "runs/openvla_oft_int4/epoch5_libero10_residual_openvla_int4.json",
+    "openvla_result_sha256": "29cddfb319df9f3ffa19bd34f8b571e69199118783338423eca25e94ee16f1e9",
+    "openvla_successes": 14,
+    "openvla_total": 16,
+    "openvla_infrastructure_failures": 0,
+    "openvla_offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+    "openvla_peak_vram_mib": 5597.605,
+    "smolvla_result_path": "runs/openvla_oft_int4/epoch5_libero10_residual_smolvla_exact.json",
+    "smolvla_result_sha256": "24569154c305ef2dbfe25d71ba2ea8d9c5de5b7c1d85851596ba93671a1e38c1",
+    "smolvla_successes": 7,
+    "smolvla_total": 16,
+    "smolvla_infrastructure_failures": 0,
+    "residual_failures": [
+      {
+        "suite": "libero_10",
+        "task_id": 8,
+        "reset_identity": 20260721,
+        "initial_state_index": 10,
+        "initial_state_sha256": "098c331d6cad1772de3e8ee22a7f983b4c109493f657735e7e7e78319ac1f455"
+      },
+      {
+        "suite": "libero_10",
+        "task_id": 8,
+        "reset_identity": 20260722,
+        "initial_state_index": 11,
+        "initial_state_sha256": "7753c014bd3caf96ff9694b20b5ea40358f64730fa10607312183377f69fb305"
+      }
+    ],
+    "decision": "RESIDUAL_FOUND_PRIOR_POSITIVE"
+  },
+  "headroom_diagnostic": {
+    "status": "COMPLETE_TASK_LEVEL",
+    "artifact": "runs/openvla_oft_int4/epoch5_libero10_residual_expert_headroom_task8_demo10.json",
+    "diagnostic_type": "task_level_hdf5_expert_exact_init_teacher_replay",
+    "task": {
+      "suite": "libero_10",
+      "task_id": 8,
+      "instruction": "put both moka pots on the stove"
+    },
+    "demo": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5::demo_10",
+    "same_benchmark_reset_as_residual_failure": false,
+    "reason_same_reset_unavailable": "local HDF5 demo init-state hashes did not match benchmark initial-state indices 5..12 for task 8 or task 9",
+    "hdf5_demo_init_state_sha256": "3ebe5ab024c6896e57dee59422f47ef631355a9e20f10a082fae7ad7f533f81a",
+    "expert_replay_success": true,
+    "reward_sum": 1.0,
+    "final_success": true,
+    "first_success_index": 377,
+    "first_done_index": 377,
+    "after_set_state_l2_to_hdf5_init": 0.0,
+    "steps_performed": 378,
+    "steps_requested": 388,
+    "decision": "TASK_LEVEL_EXPERT_HEADROOM_POSITIVE"
+  },
+  "required_structure": {
+    "base_has_meaningful_failure": true,
+    "prior_improves": true,
+    "prior_leaves_residual_gap": true,
+    "condition_not_floor_or_saturated": true,
+    "openvla_oft_does_not_fully_solve_task8": true,
+    "upper_headroom_indicates_recoverability": "TASK_LEVEL_POSITIVE_SAME_RESET_UNAVAILABLE"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Preregister and run a bounded residual-gap diagnostic for OpenVLA-OFT before designing Ours; if no residual remains, move to pi0.5/OpenPI."
+  "next_action": "Generate at most two Ours method candidates around the exact task-8 residual limitation, preserving the task-level-not-same-reset headroom caveat."
 }
