@@ -185,11 +185,21 @@ X-VLA official-prior scan on `libero_spatial`, reset identity `20260726`, tasks 
 
 Interpretation: supported `libero_goal`/`libero_object`/`libero_spatial` identity `20260726` scans are saturated and create no Ours target.
 
+## Post-Calibration 20260727 Goal Scan
+
+Durable result:
+`reports/post_calibration_libero_goal_20260727_prior_scan_result.json`
+`reports/post_calibration_libero_goal_20260727_prior_scan_result.md`
+
+X-VLA official-prior scan on `libero_goal`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 9/10 succeeded, task `9` failed cleanly, 0 infrastructure failures, summary SHA `6b08b4bec25019854d5914e28d73f43b8f6b54565122016f2a0a110da4ead6ef`, task-9 result SHA `78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_goal/task_9` identity `20260727` is a first-prior residual only. It does not authorize Ours; next gate is matched SmolVLA Base on the same task/reset.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now. The saturated `20260725` and `20260726` supported-suite sweeps should not be re-run.
+Run matched SmolVLA Base diagnostic for `libero_goal/task_9`, reset identity `20260727`. Do not run headroom, second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until Base is checked.
 
 ## Validation To Run Before Commit
 
