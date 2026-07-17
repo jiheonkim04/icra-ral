@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_xvla_task1_headroom_complete`
-- Current decision: `TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`
+- Current stage: `epoch_5_task1_ours_candidate_design_complete`
+- Current decision: `BR_XVLA_SELECTED_TRAINING_SPEC_PENDING`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -28,6 +28,8 @@ Updated: 2026-07-17 KST
 - Reproduction plan: `reports/epoch5_prior_reproduction_plan.md`
 - Reproduction result: `reports/epoch5_prior_reproduction_result.md`
 - Reproduction result JSON: `reports/epoch5_prior_reproduction_result.json`
+- Current task-1 candidate design:
+  `reports/epoch5_task1_ours_candidate_design.md`
 
 ## Selected Prior Ecosystem
 
@@ -249,9 +251,32 @@ Task-1 headroom:
 - decision:
   `TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
 
-Next: proceed to narrow task-1 Ours candidate design only for shared failure
-`20260727`, carrying the task-level-positive/same-reset-unavailable caveat.
-Treat `20260725` separately because SmolVLA Base already succeeds there.
+Task-1 basket data audit:
+
+- module: `tca_map/xvla_task1/data_audit.py`;
+- artifact:
+  `runs/xvla_prior/diagnostic_task1_basket_data_audit_20260727_20260717T181823KST/result.json`;
+- result: `TASK1_BASKET_DATA_HEALTH_PASS_PREDESIGN_READY`;
+- demos/steps/chunks: 50 / 13,021 / 12,671;
+- one-target-remaining chunks: train 4,607, validation 1,079;
+- all train/validation demos contain this phase; residual hash overlap 0;
+- verified state layout: cream cheese `state[17:20]`, butter `state[52:55]`,
+  basket `state[59:62]`.
+
+Task-1 Ours candidate design:
+
+- exactly two candidates generated, no training/optimizer/checkpoint/closed-loop
+  Ours evaluation;
+- selected: `BR-XVLA`, Basket-Remaining Reweighted X-VLA;
+- mechanism: LoRA/QLoRA infrastructure around X-VLA-Libero with
+  phase-balanced imitation that upweights chunks where exactly one target is
+  already in/near the basket and the other remains out;
+- not selected: `OCB-XVLA`, object-order contrast, broader than evidence.
+
+Next: inspect X-VLA training/adaptation interfaces and freeze a no-training
+two-arm `BR-XVLA` spec before any optimizer step. Keep scope to shared failure
+`20260727`; do not treat `20260725` as an Ours target because SmolVLA Base
+already succeeds there.
 
 ## Prohibitions
 

@@ -4,8 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision:
-`TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+Current decision: `BR_XVLA_SELECTED_TRAINING_SPEC_PENDING`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -37,6 +36,8 @@ benchmark initial-state hashes used in the Base/Prior diagnostic.
 After X-VLA solved the task-8 residual, a fresh task-1 residual was found and
 matched against SmolVLA base. The shared failure `20260727` now has positive
 task-level expert headroom, again with same-reset HDF5 evidence unavailable.
+The task1 basket data audit then passed, and exactly two narrow Ours candidates
+were generated. `BR-XVLA` is selected pending a frozen no-training spec.
 
 ## Validation Commands
 
@@ -1017,3 +1018,54 @@ shared task-1 residual is allowed to proceed to narrow Ours design. The caveat
 is material: there is no same-reset HDF5 expert upper bound for `20260727`.
 The base-only success / X-VLA regression identity `20260725` remains out of
 scope for Ours unless separately governed.
+
+## Task-1 Basket Data-Health Audit
+
+Status: `PASS`.
+
+Decision: `TASK1_BASKET_DATA_HEALTH_PASS_PREDESIGN_READY`.
+
+Artifact:
+`runs/xvla_prior/diagnostic_task1_basket_data_audit_20260727_20260717T181823KST/result.json`.
+
+Module: `tca_map/xvla_task1/data_audit.py`.
+
+| Audit item | Result |
+|---|---:|
+| HDF5 demos | 50 |
+| Total steps | 13,021 |
+| Total 8-step chunks | 12,671 |
+| Train one-target-remaining chunks | 4,607 |
+| Validation one-target-remaining chunks | 1,079 |
+| Train demos with one-target-remaining chunks | 40 |
+| Validation demos with one-target-remaining chunks | 10 |
+| Basket XY threshold | 0.08 |
+| Final target-object XY max distance to basket | 0.05548356006913492 |
+| Initial target-object XY min distance to basket | 0.18621333529485404 |
+| Residual init-state hash overlap | 0 |
+
+Verified state layout:
+
+- `cream_cheese_1_pos = state[17:20]`;
+- `butter_1_pos = state[52:55]`;
+- `basket_1_pos = state[59:62]`.
+
+The phase labels use HDF5 simulator state for training/validation labels only;
+inference inputs remain RGB, wrist RGB, proprioception, and instruction.
+
+## Task-1 Ours Candidate Generation
+
+Status: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED_NO_TRAINING`.
+
+Decision: `BR_XVLA_SELECTED_TRAINING_SPEC_PENDING`.
+
+Detailed artifact: `reports/epoch5_task1_ours_candidate_design.md`.
+
+| Candidate | Contribution type | Core mechanism | Score | Decision |
+|---|---|---|---:|---|
+| `BR-XVLA`: Basket-Remaining Reweighted X-VLA | `PRIOR_EXTENSION` | LoRA/QLoRA-adapt X-VLA-Libero with phase-balanced imitation, upweighting chunks where exactly one target object is in/near the basket and the other remains out. | 86/100 | SELECTED |
+| `OCB-XVLA`: Object-Contrast Basket X-VLA | `PRIOR_EXTENSION` | Balance cream-cheese-first and butter-first object-order supervision. | 73/100 | NOT SELECTED |
+
+No training, optimizer step, checkpoint, or closed-loop Ours evaluation has
+happened for `BR-XVLA`. Next action is to inspect X-VLA adaptation interfaces
+and freeze a two-arm no-training spec before any optimizer step.
