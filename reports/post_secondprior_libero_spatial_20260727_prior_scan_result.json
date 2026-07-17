@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T03:41:27+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan_launch": "4b8a9092c0084576dee0b9276f4ca65d455b85a1",
+  "decision": "POST_SECONDPRIOR_LIBERO_SPATIAL_IDENTITY20260727_XVLA_PRIOR_RESIDUAL_TASK5",
+  "suite": "libero_spatial",
+  "task_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "identity_mapping_rule": "initial_state_index = reset_identity - 20260711 unless identity is in the frozen task-8 map",
+  "run_dir": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_repo": "C:/assets/repos/X-VLA",
+    "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_wsl_pid": 25444,
+    "wsl_worker_pid": 580,
+    "peak_vram_mib": 3518.634,
+    "simulator_episode_count": 10
+  },
+  "result": {
+    "task_count": 10,
+    "completed_task_count": 10,
+    "successful_task_count": 9,
+    "failure_task_ids": [5],
+    "infrastructure_failure_task_ids": [],
+    "failed_task": {
+      "task_id": 5,
+      "task_description": "pick up the black bowl on the ramekin and place it on the plate",
+      "success": false,
+      "final_reward": 0.0,
+      "steps": 900,
+      "action_chunk_count": 30,
+      "result_sha256": "9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be"
+    },
+    "residual_target_created": true,
+    "base_gate_triggered": false,
+    "headroom_gate_triggered": false,
+    "second_prior_gate_triggered": false,
+    "ours_candidate_authorized": false,
+    "training_authorized": false
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/scan_summary.json",
+      "sha256": "768171a6406a3e15d8c47f3a36a3b20f992721316e234f0cb6d8c5525a242e91",
+      "length_bytes": 6746
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/scan_manifest.json",
+      "sha256": "0380bc27d46d05252be3e2405c8d788a43cea35267d3d7c429f8b3da704150cf",
+      "length_bytes": 740
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/exact_resume_command.txt",
+      "sha256": "715e1b22eec06de64a8cec3c116e6788f57fe77c7dab695f575234142bd37906",
+      "length_bytes": 253
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/scan_heartbeat.txt",
+      "sha256": "b0f08a725970dd5cb6fea3cc3d12d80276024b2a9f9d552b0a2b9362e6958e17",
+      "heartbeat_at": "2026-07-18T03:40:41+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/windows_wsl_pid.txt",
+      "sha256": "9156dcf47acc010607ce6b980302ccc6d7dd00d85868d71845a86c8400eada5f"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/scan_worker_pid.txt",
+      "sha256": "f619e0b0036458929950b76340df8b3fdf6ab0b4cf09daa70ca0dbd7d4815d8b"
+    }
+  ],
+  "per_task_result_hashes": [
+    {"task_id": 0, "success": true, "steps": 73, "action_chunk_count": 3, "sha256": "86e5d17764c4f52786ce7d24450c13aedba3b571a6b46b78590c31ed776bb7b5"},
+    {"task_id": 1, "success": true, "steps": 109, "action_chunk_count": 4, "sha256": "688f5e25e097e33134479771fd18d420bb3741e1fa1bb7f4cdc8df6697edb9df"},
+    {"task_id": 2, "success": true, "steps": 93, "action_chunk_count": 4, "sha256": "e769439264ad27c02bb2b1aeab947b97f2b0c989dc53e32e2fd36947e38d1f96"},
+    {"task_id": 3, "success": true, "steps": 81, "action_chunk_count": 3, "sha256": "03863d32f4f083861eac406ff80a6c18c578798af1cfc82a9f2e6c47b67167b6"},
+    {"task_id": 4, "success": true, "steps": 122, "action_chunk_count": 5, "sha256": "acbe758fb8a217318571ed5e053b0e20afbe49eadf0158b95c2956e9e78f0ac4"},
+    {"task_id": 5, "success": false, "steps": 900, "action_chunk_count": 30, "sha256": "9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be"},
+    {"task_id": 6, "success": true, "steps": 107, "action_chunk_count": 4, "sha256": "5fc1e76aad5d33144e971c48eb02f5d1b7d7e89967d1a3d0765ca394048e2edc"},
+    {"task_id": 7, "success": true, "steps": 117, "action_chunk_count": 4, "sha256": "3c4cacb220dbc2ac52e268bca12aa27bfa7e20934e8c83d8e980b912c28cc09b"},
+    {"task_id": 8, "success": true, "steps": 97, "action_chunk_count": 4, "sha256": "55b49d5f3e883136ebb3f3bec3209a8a725f3ddc39b60c024d44afbacd604481"},
+    {"task_id": 9, "success": true, "steps": 124, "action_chunk_count": 5, "sha256": "b3f84fc76b798d7c404fef070b4b0c8053a9a3cf5c7bb52a313a99ef69002704"}
+  ],
+  "next_action": "Run matched SmolVLA Base diagnostic for libero_spatial/task_5 reset identity 20260727 before any headroom, second-prior, candidate generation, Ours design, LoRA/QLoRA training, or training."
+}

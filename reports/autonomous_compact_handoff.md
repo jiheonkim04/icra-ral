@@ -155,35 +155,11 @@ X-VLA official-prior scan on `libero_object`, reset identity `20260725`, tasks `
 
 Interpretation: supported `libero_goal`/`libero_object`/`libero_spatial` identity `20260725` scans are saturated and create no Ours target.
 
-## Post-Calibration 20260726 Goal Scan
+## Post-Calibration 20260726 Saturated Scans
 
-Durable result:
-`reports/post_calibration_libero_goal_20260726_prior_scan_result.json`
-`reports/post_calibration_libero_goal_20260726_prior_scan_result.md`
+Durable results: `reports/post_calibration_libero_goal_20260726_prior_scan_result.*`, `reports/post_calibration_libero_object_20260726_prior_scan_result.*`, and `reports/post_calibration_libero_spatial_20260726_prior_scan_result.*`.
 
-X-VLA official-prior scan on `libero_goal`, reset identity `20260726`, tasks `0..9`: 10/10 completed, 10/10 succeeded, 0 infrastructure failures, summary SHA `831d1c0565f8a12587fd21d60baa92e499083ecca100a159cf24b6ca50b5c23b`, manifest SHA `0a52e99985ab9869b7814e938250ceb42a6ce5203de970d9dc110611c3d9ca8f`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_goal` identity `20260726` is saturated and creates no Ours target.
-
-## Post-Calibration 20260726 Object Scan
-
-Durable result:
-`reports/post_calibration_libero_object_20260726_prior_scan_result.json`
-`reports/post_calibration_libero_object_20260726_prior_scan_result.md`
-
-X-VLA official-prior scan on `libero_object`, reset identity `20260726`, tasks `0..9`: 10/10 completed, 10/10 succeeded, 0 infrastructure failures, summary SHA `f7c2426b1ae19a8420fed2f5e4dcb7628cdd04157934efbed7b48892473dcf49`, manifest SHA `b889bd9ae3002322380d888e2b3a9f35af582e243dfc0d823528cea5df71d09f`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_object` identity `20260726` is saturated and creates no Ours target.
-
-## Post-Calibration 20260726 Spatial Scan
-
-Durable result:
-`reports/post_calibration_libero_spatial_20260726_prior_scan_result.json`
-`reports/post_calibration_libero_spatial_20260726_prior_scan_result.md`
-
-X-VLA official-prior scan on `libero_spatial`, reset identity `20260726`, tasks `0..9`: 10/10 completed, 10/10 succeeded, 0 infrastructure failures, summary SHA `a21cd76d789a04d4a1befc51d7fa78d7d396a84bbb18a89ba57e1b61eaa45979`, manifest SHA `b65c6033ff477c3c6eebc0ea8d6e0f4a64121164b41417f1754bb35e62d4d2bb`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: supported `libero_goal`/`libero_object`/`libero_spatial` identity `20260726` scans are saturated and create no Ours target.
+X-VLA official-prior scans on `libero_goal`, `libero_object`, and `libero_spatial`, reset identity `20260726`, tasks `0..9`: each completed 10/10, succeeded 10/10, had 0 infrastructure failures, and had no training/Ours/checkpoint/optimizer step. Summary SHAs: goal `831d1c0565f8a12587fd21d60baa92e499083ecca100a159cf24b6ca50b5c23b`; object `f7c2426b1ae19a8420fed2f5e4dcb7628cdd04157934efbed7b48892473dcf49`; spatial `a21cd76d789a04d4a1befc51d7fa78d7d396a84bbb18a89ba57e1b61eaa45979`.
 
 ## Post-Calibration 20260727 Goal Scan
 
@@ -235,11 +211,21 @@ X-VLA official-prior scan on `libero_object`, reset identity `20260727`, tasks `
 
 Interpretation: `libero_object` identity `20260727` is saturated and creates no Ours target.
 
+## Post-Second-Prior 20260727 Spatial Scan
+
+Durable result:
+`reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json`
+`reports/post_secondprior_libero_spatial_20260727_prior_scan_result.md`
+
+X-VLA official-prior scan on `libero_spatial`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 9/10 succeeded, task `5` failed cleanly, 0 infrastructure failures, summary SHA `768171a6406a3e15d8c47f3a36a3b20f992721316e234f0cb6d8c5525a242e91`, task-5 result SHA `9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be`, exit code `0`, no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_spatial/task_5` identity `20260727` is a first-prior residual only. It does not authorize Ours; next gate is matched SmolVLA Base on the same task/reset.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Continue bounded official-prior residual mining on a non-redundant condition. Do not design or train Ours for `libero_goal/task_9` or saturated `libero_object` identity `20260727`.
+Run matched SmolVLA Base diagnostic for `libero_spatial/task_5`, reset identity `20260727`. Do not run headroom, second-prior, candidate generation, Ours design, LoRA/QLoRA training, or any training until Base is checked.
 
 ## Validation To Run Before Commit
 
