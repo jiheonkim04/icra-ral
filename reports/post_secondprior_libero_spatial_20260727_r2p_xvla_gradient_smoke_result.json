@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:22:01+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_gradient_smoke": "bc6f289a79d2696f2752bf662afdf47e710677cb",
+  "decision": "R2P_XVLA_GRADIENT_SMOKE_PASS",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "ONE_BATCH_NO_OPTIMIZER_GRADIENT_SMOKE",
+    "evidence_role": "PRE_OPTIMIZER_GRADIENT_GATE",
+    "artifact_status": "TRACKED_SMOKE_CODE_IGNORED_RUNTIME_ARTIFACTS",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": true,
+    "peft_lora_attached": true,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0,
+    "model_forward_count": 1,
+    "backward_count": 1,
+    "optimizer_step_count": 0
+  },
+  "runtime_result": {
+    "result_path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/result.json",
+    "result_sha256": "c170d52cbbc01974ff51c8b3ad6e8d68136abc8cf90d9a3eb6580d72302b1f76",
+    "exit_code": 0,
+    "elapsed_seconds": 11.967,
+    "passed": true,
+    "decision": "R2P_XVLA_GRADIENT_SMOKE_PASS",
+    "local_files_only": true,
+    "offline_env_enforced": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    },
+    "pretrained_load_source": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "pretrained_load_source_is_local_snapshot": true,
+    "source_hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+    "xvla_root": "/mnt/c/assets/repos/X-VLA",
+    "demo_name": "demo_0"
+  },
+  "materialized_adapter": {
+    "clip_steps": 96,
+    "source_start_index": 41,
+    "source_end_index": 137,
+    "abs_action_6d_shape": [96, 10],
+    "phase_counts": {
+      "source_on_ramekin": 26,
+      "transit": 23,
+      "target_on_plate": 47
+    },
+    "phase_weight_mean": 1.484375
+  },
+  "batch_shapes": {
+    "input_ids": [1, 50],
+    "image_input": [1, 3, 3, 224, 224],
+    "image_mask": [1, 3],
+    "domain_id": [1],
+    "proprio": [1, 20],
+    "action": [1, 30, 20]
+  },
+  "losses": {
+    "position_loss": 6.901008129119873,
+    "rotate6D_loss": 1.8289027214050293,
+    "gripper_loss": 0.00015940800949465483,
+    "loss_total": 8.730070114135742,
+    "phase_weight_mean": 1.484375,
+    "weighted_loss": 12.958698272705078
+  },
+  "gradient": {
+    "trainable_parameter_count": 11868760,
+    "grad_tensor_count": 537,
+    "finite_grad_tensor_count": 537,
+    "nonzero_grad_tensor_count": 271,
+    "gradient_global_norm": 2372.1450494696983
+  },
+  "cuda_memory_after_backward": {
+    "allocated_mib": 3465.862,
+    "max_allocated_mib": 5260.354,
+    "reserved_mib": 5362.0,
+    "max_reserved_mib": 5362.0
+  },
+  "no_training_no_rollout_booleans": {
+    "optimizer_created": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "training_run_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "downloads_performed": false
+  },
+  "validation": {
+    "py_compile": "PASS for tca_map/xvla_spatial_task5/gradient_smoke.py and tests/test_r2p_xvla_gradient_smoke.py",
+    "focused_pytest": "3 passed via C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m pytest tests/test_r2p_xvla_gradient_smoke.py -q",
+    "real_smoke_runtime": "WSL Ubuntu-22.04, /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python, HF_HUB_OFFLINE=1, TRANSFORMERS_OFFLINE=1"
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/result.json",
+      "sha256": "c170d52cbbc01974ff51c8b3ad6e8d68136abc8cf90d9a3eb6580d72302b1f76",
+      "length_bytes": 7773
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/stdout.log",
+      "sha256": "b4ef383d73549d8453e6e83c02b5fafb9e34119ae72345e0fff427ad37bd63eb",
+      "length_bytes": 7880
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/stderr.log",
+      "sha256": "e89af65118dd2234ce7a46b5b6a0408f115d7ee3c0d6693ac314069f5182384d",
+      "length_bytes": 1491
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/exit_code.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/adapter/meta.json",
+      "sha256": "073f857035688b7af4a93de446f4df6fce977a499df2323cd99ee78b72ead934",
+      "length_bytes": 325
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/adapter/converted_hdf5/demo_0_r2p_phase_clip.hdf5",
+      "sha256": "7f05c256200b89b64927395aa5d17f1644395199d625c8c76c42a674707dba06",
+      "length_bytes": 4471025
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/gradient_smoke.py",
+      "sha256": "fa3af4117b566919c719bd7ba58b122a848022cffc4ea6e2890822667cdf3f7a",
+      "length_bytes": 14785
+    },
+    {
+      "path": "tests/test_r2p_xvla_gradient_smoke.py",
+      "sha256": "42de8a24507ba2507aa4b808425e197763cb7f198af56b31a1b91ca576a86c8b",
+      "length_bytes": 2864
+    }
+  ],
+  "next_action": "Freeze the first optimizer-step authorization gate for R2P-XVLA. Do not start training until that gate records the exact two arms, output directories, heartbeat/status requirements, and stop conditions."
+}

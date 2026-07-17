@@ -5,7 +5,7 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- HEAD before latest data-adapter-smoke commit: `9386c1171c12b30782fba4eb666a141c8552faab`
+- HEAD before latest gradient-smoke commit: `bc6f289a79d2696f2752bf662afdf47e710677cb`
 - Epoch/cycle: `5 / 0`
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
 - Active Ours training/worker: none.
@@ -165,14 +165,34 @@ Ignored runtime result:
 
 Smoke materialized `demo_0` and `demo_40`; combined source/transit/target phase coverage `128 / 37 / 89`. Official X-VLA reader returned action `[30,20]`, proprio `[20]`, image `[3,3,224,224]`, and `domain_id` int64. No model load, training, backward, optimizer, checkpoint, simulator, or Ours rollout happened.
 
+## R2P-XVLA Gradient Smoke
+
+Reports:
+
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gradient_smoke_result.json`
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gradient_smoke_result.md`
+
+Decision: `R2P_XVLA_GRADIENT_SMOKE_PASS`
+
+Tracked code/tests:
+
+- `tca_map/xvla_spatial_task5/gradient_smoke.py`
+- `tests/test_r2p_xvla_gradient_smoke.py`
+
+Ignored runtime result:
+
+- `runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/result.json`, SHA `c170d52cbbc01974ff51c8b3ad6e8d68136abc8cf90d9a3eb6580d72302b1f76`
+
+WSL/offline gradient smoke loaded cached X-VLA from local snapshot, attached PEFT LoRA, ran one forward/backward, and passed with finite gradients: trainable params `11868760`, grad tensors finite/total `537/537`, nonzero `271`, gradient norm `2372.1450494696983`, weighted loss `12.958698272705078`, max CUDA allocated `5260.354` MiB. No optimizer, checkpoint, training loop, simulator, downloads, or Ours rollout happened.
+
 ## Immediate Next Action
 
-Run a one-batch `R2P-XVLA` gradient smoke under the frozen spec, without `optimizer.step`, checkpoint writes, downloads, simulator rollouts, or closed-loop Ours evaluation.
+Freeze the first optimizer-step authorization gate for `R2P-XVLA`. Do not start training until that gate records the exact two arms, output directories, heartbeat/status requirements, and stop conditions.
 
 ## Validation To Run Before Commit
 
-- Parse new candidate/spec/data-adapter JSON and existing target-chain JSON.
+- Parse new candidate/spec/data-adapter/gradient JSON and existing target-chain JSON.
 - Check `reports/autonomous_compact_handoff.md` line count is under 250.
-- `py_compile` and focused pytest for task5 spec/data-adapter files.
+- `py_compile` and focused pytest for task5 spec/data-adapter/gradient files.
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`
