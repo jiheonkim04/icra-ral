@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_post_mpr_residual_mining_no_fresh_target_yet",
-  "decision": "POST_MPR_XVLA_SCANS_20260728_20260730_SATURATED",
+  "stage": "epoch_5_post_mpr_xvla_identity_grid_no_fresh_target",
+  "decision": "POST_MPR_XVLA_IDENTITY_GRID_NO_FRESH_TARGET",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -57,6 +57,8 @@
   "post_mpr_xvla_prior_failure_scan_20260730_happened": true,
   "post_mpr_xvla_prior_failure_scan_20260729_happened": true,
   "post_mpr_xvla_prior_failure_scan_20260728_happened": true,
+  "post_mpr_xvla_prior_failure_scan_20260726_happened": true,
+  "post_mpr_xvla_prior_failure_scan_20260727_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -2737,11 +2739,40 @@
   },
   "post_mpr_xvla_prior_failure_scans_saturated": {
     "status": "COMPLETE_NO_FRESH_TARGET",
-    "decision": "POST_MPR_XVLA_SCANS_20260728_20260730_SATURATED",
+    "decision": "POST_MPR_XVLA_IDENTITY_GRID_NO_FRESH_TARGET",
     "purpose": "Bounded official-prior residual mining after the identity-20260731 scan found only archived task6.",
     "launcher": "Windows Start-Process wsl.exe hidden foreground-worker",
     "worker_script": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
     "scans": [
+      {
+        "reset_identity": 20260726,
+        "initial_state_index": 15,
+        "output_root": "runs/xvla_prior/failure_scan_libero10_identity20260726_post_mpr_20260717T2237KST",
+        "manifest_sha256": "c53a5d4d653ab16fa153f4349e0a92a9813bf12bdcca6b899d1cc441fcf7fe96",
+        "summary_sha256": "d671ceff291db297ddcb6d25bf676f3648d74be1e84d8382383125510fc674cd",
+        "task1_result_sha256": "04e4d860d90303337103947974198250ea80caadc65ad60b20afc5453a567f25",
+        "task6_result_sha256": "fc2576cb3caace0d33d72ced48e34acb35c99f0fef89583ed88d448328bfb055",
+        "task9_result_sha256": "0769f6db893786fd6ec11a1e41cc9254ce113e9455734a5aefbbdac3a40343d7",
+        "completed_task_count": 10,
+        "successful_task_count": 10,
+        "failure_task_ids": [],
+        "infrastructure_failure_task_ids": []
+      },
+      {
+        "reset_identity": 20260727,
+        "initial_state_index": 16,
+        "output_root": "runs/xvla_prior/failure_scan_libero10_identity20260727_post_mpr_20260717T2240KST",
+        "manifest_sha256": "96f5827ab269316fabf59f071f6babc79a37770f99448106b4e367f7542a04e9",
+        "summary_sha256": "67135954320bba7363f28cddae76cc107a61f0374d4b36083e03c1681cefea55",
+        "task1_result_sha256": "a92105fa12482e77a87ebe40db171736188de2ef7b9f1990479fe6aab3c8ba26",
+        "task6_result_sha256": "e66ddece11fe9cbdee306d3189f14089de20fd6f053dd1e5bcf78dead0eb98d6",
+        "task9_result_sha256": "8936c68da940f20452ef9144e70f580ad33b9502aec2c10890f6089a86deb3bc",
+        "completed_task_count": 10,
+        "successful_task_count": 10,
+        "failure_task_ids": [],
+        "infrastructure_failure_task_ids": [],
+        "caveat": "Earlier focused task1 diagnostic recorded X-VLA failure on 20260727; this all-task scan succeeded, so preserve both as stochastic/protocol-sensitivity evidence rather than overwriting the earlier failure."
+      },
       {
         "reset_identity": 20260728,
         "initial_state_index": 17,
@@ -2786,7 +2817,7 @@
     "optimizer_step_happened": false,
     "checkpoint_written": false,
     "closed_loop_ours_evaluation_happened": false,
-    "interpretation": "Neighboring reset identities 20260728, 20260729, and 20260730 were saturated by X-VLA-Libero on all LIBERO-10 tasks, so none provides a fresh post-MPR residual target."
+    "interpretation": "Post-MPR all-task scans now cover identities 20260726, 20260727, 20260728, 20260729, 20260730, and 20260731, plus the earlier 20260724 and 20260725 scans. No fresh target remains in this local X-VLA LIBERO-10 identity grid: 20260731 only reconfirmed archived task6, 20260725 previously exposed archived task1/task6, and the others are saturated in the all-task scans."
   },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
@@ -2839,5 +2870,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection because the primary did not beat the uniform-weight X-VLA LoRA ablation on phase-1 validation loss. PRC-XVLA is not elevated because there is no independent evidence that red-mug distractor confusion is the residual mechanism. Post-MPR X-VLA prior scans at identities 20260731, 20260730, 20260729, and 20260728 found no fresh target: 20260731 only reconfirmed archived task6, while 20260730, 20260729, and 20260728 were saturated. Reassess the residual-mining strategy before launching more X-VLA identity scans or switching prior ecosystem; no new Ours proposal is authorized until a fresh matched residual has mechanism-specific evidence."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection because the primary did not beat the uniform-weight X-VLA LoRA ablation on phase-1 validation loss. PRC-XVLA is not elevated because there is no independent evidence that red-mug distractor confusion is the residual mechanism. Post-MPR X-VLA all-task scans across the local 20260724..20260731 identity grid found no fresh target beyond already-archived task1/task6 residuals. Do not launch more X-VLA identity-grid scans without a new preregistered condition; next official-prior-first move should select a new residual source or prior ecosystem with explicit feasibility rationale before any new Ours proposal."
 }

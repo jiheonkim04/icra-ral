@@ -1787,7 +1787,14 @@ prior-only worker:
 | `20260730` | `19` | `runs/xvla_prior/failure_scan_libero10_identity20260730_post_mpr_20260717T2217KST/scan_summary.json` | `1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2` | 10/10 succeeded, zero infrastructure failures |
 | `20260729` | `18` | `runs/xvla_prior/failure_scan_libero10_identity20260729_post_mpr_20260717T2222KST/scan_summary.json` | `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653` | 10/10 succeeded, zero infrastructure failures |
 | `20260728` | `17` | `runs/xvla_prior/failure_scan_libero10_identity20260728_post_mpr_20260717T2229KST/scan_summary.json` | `aee8345e213ace165e11891da43c389d91ef361c93535971363037bd4d4ff08c` | 10/10 succeeded, zero infrastructure failures |
+| `20260726` | `15` | `runs/xvla_prior/failure_scan_libero10_identity20260726_post_mpr_20260717T2237KST/scan_summary.json` | `d671ceff291db297ddcb6d25bf676f3648d74be1e84d8382383125510fc674cd` | 10/10 succeeded, zero infrastructure failures |
+| `20260727` | `16` | `runs/xvla_prior/failure_scan_libero10_identity20260727_post_mpr_20260717T2240KST/scan_summary.json` | `67135954320bba7363f28cddae76cc107a61f0374d4b36083e03c1681cefea55` | 10/10 succeeded, zero infrastructure failures |
 
-Interpretation: identities `20260730`, `20260729`, and `20260728` are
-saturated by X-VLA on LIBERO-10, and identity `20260731` only repeats the
-archived task6 residual. No new post-MPR residual target has been found yet.
+Interpretation: the local `20260724..20260731` X-VLA LIBERO-10 identity grid is
+now exhausted for fresh post-MPR targets. The earlier `20260724` scan was
+saturated, `20260725` exposed already-archived task1/task6 candidates,
+`20260731` only repeats archived task6, and identities `20260726..20260730`
+are saturated in these all-task scans. The `20260727` all-task scan succeeded
+on task1 even though the earlier focused task1 diagnostic failed that identity;
+both records are preserved as stochastic/protocol-sensitivity evidence rather
+than rewriting the historical task1 residual.

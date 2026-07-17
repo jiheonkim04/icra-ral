@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_post_mpr_residual_mining_no_fresh_target_yet`
-- Current decision: `POST_MPR_XVLA_SCANS_20260728_20260730_SATURATED`
+- Current stage: `epoch_5_post_mpr_xvla_identity_grid_no_fresh_target`
+- Current decision: `POST_MPR_XVLA_IDENTITY_GRID_NO_FRESH_TARGET`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -205,11 +205,17 @@ Post-MPR scans:
   `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653`.
 - Identity `20260728`: saturated 10/10, summary SHA
   `aee8345e213ace165e11891da43c389d91ef361c93535971363037bd4d4ff08c`.
+- Identity `20260726`: saturated 10/10, summary SHA
+  `d671ceff291db297ddcb6d25bf676f3648d74be1e84d8382383125510fc674cd`.
+- Identity `20260727`: saturated 10/10, summary SHA
+  `67135954320bba7363f28cddae76cc107a61f0374d4b36083e03c1681cefea55`;
+  earlier focused task1 failure at 20260727 remains preserved as instability
+  evidence, not overwritten.
 
-Do not retune/rescue MPR-XVLA from the no-pass. Reassess before more X-VLA
-identity scans or switching prior ecosystem; still avoid broad search, generic
-local heads/gates/memory/verifiers, proxy-only methods, and PRC without
-independent distractor-confusion evidence.
+Do not retune/rescue MPR-XVLA. Do not launch more X-VLA identity-grid scans
+without a new preregistered condition. Next official-prior-first move should
+select a new residual source or prior ecosystem with explicit feasibility
+rationale before any Ours proposal.
 
 ## Report Set
 
