@@ -10,13 +10,16 @@ exercise the safety logic without model loading.
 from __future__ import annotations
 
 import argparse
+import importlib.machinery
 import json
+import logging
 import os
 import shutil
 import subprocess
 import sys
 import time
 import traceback
+import types
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -77,6 +80,39 @@ def _git_commit() -> str | None:
         return result.stdout.strip()
     except Exception:
         return None
+
+
+def _ensure_rich_logging_handler() -> bool:
+    """Install a minimal RichHandler fallback when ``rich`` is absent.
+
+    OpenVLA-OFT's Prismatic logger config references ``rich.logging.RichHandler``.
+    The local WSL training env used for the bounded run may not have the optional
+    ``rich`` package installed; downloading it would violate the no-new-download
+    boundary.  A plain ``logging.StreamHandler`` is sufficient for this detached
+    trainer, so we provide only the handler symbol Prismatic resolves.
+
+    Returns:
+        True if a fallback was installed, False if the real package was present.
+    """
+
+    try:
+        from rich.logging import RichHandler as _RichHandler  # noqa: F401
+
+        return False
+    except ModuleNotFoundError:
+        rich_module = sys.modules.setdefault("rich", types.ModuleType("rich"))
+        rich_module.__spec__ = importlib.machinery.ModuleSpec("rich", loader=None)
+        logging_module = types.ModuleType("rich.logging")
+        logging_module.__spec__ = importlib.machinery.ModuleSpec("rich.logging", loader=None)
+
+        class RichHandler(logging.StreamHandler):
+            def __init__(self, *args: Any, **kwargs: Any) -> None:
+                super().__init__()
+
+        logging_module.RichHandler = RichHandler
+        setattr(rich_module, "logging", logging_module)
+        sys.modules["rich.logging"] = logging_module
+        return True
 
 
 def _load_spec(path: Path) -> dict[str, Any]:
@@ -278,6 +314,8 @@ def run_training_arm(config: TrainArmConfig) -> dict[str, Any]:
         os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
         os.environ.setdefault("HF_DATASETS_OFFLINE", "1")
         sys.path.insert(0, str(config.openvla_repo))
+        rich_logging_fallback_installed = _ensure_rich_logging_handler()
+        result["rich_logging_fallback_installed"] = bool(rich_logging_fallback_installed)
 
         import torch
         from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training

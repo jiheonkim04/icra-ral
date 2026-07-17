@@ -419,10 +419,23 @@
     "dry_run_status": "DRY_RUN",
     "dry_run_training_happened_at_manifest_write": false,
     "dry_run_optimizer_step_happened_at_manifest_write": false,
+    "launch_strategy": "windows_subprocess_popen_wsl_foreground_trainer",
     "wsl_distro": "Ubuntu-22.04",
-    "wsl_python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "wsl_python": "/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python",
     "decision": "R2R_OFT_TRAINER_LAUNCHER_VALIDATED"
   },
+  "r2r_oft_primary_launch_attempt_1": {
+    "status": "FAILED_BEFORE_TRAINING",
+    "arm_id": "r2r_oft_rank4_lambda2_lr2e4_steps64",
+    "commit": "c25fc46792eda395a2af5167306fb8c4f071744a",
+    "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result_failed_missing_rich_20260717T1341KST.json",
+    "cause": "wrong WSL runtime environment missing optional OpenVLA logging dependency rich",
+    "training_happened": false,
+    "optimizer_steps_completed": 0,
+    "checkpoint_written": false,
+    "counts_toward_identical_infrastructure_failures_for_primary_arm": 1,
+    "repair": "launcher default changed to /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python after import probe showed OpenVLA-OFT dependencies and CUDA available"
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Launch the primary frozen R2R-OFT arm r2r_oft_rank4_lambda2_lr2e4_steps64 in a detached WSL job, recording PID, log path, heartbeat, and commit before the first optimizer step, while preserving the task-level-not-same-reset headroom caveat."
+  "next_action": "Relaunch the primary frozen R2R-OFT arm r2r_oft_rank4_lambda2_lr2e4_steps64 with /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python in a detached WSL job, recording PID, log path, heartbeat, and commit before the first optimizer step, while preserving the task-level-not-same-reset headroom caveat."
 }

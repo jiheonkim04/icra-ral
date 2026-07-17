@@ -348,12 +348,28 @@ Validation:
 - training happened at launch-manifest write: false;
 - optimizer step happened at launch-manifest write: false;
 - dry-run command targets `tca_map.r2r_oft.train_qlora`.
+- runtime correction after first launch attempt: the WSL launcher default was
+  switched from `/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python`
+  to `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`, the local venv
+  that imports OpenVLA-OFT/Prismatic dependencies and exposes CUDA.
+
+First launch attempt:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result_failed_missing_rich_20260717T1341KST.json`;
+- commit: `c25fc46792eda395a2af5167306fb8c4f071744a`;
+- status: `FAILED`;
+- cause: wrong WSL runtime environment missing optional OpenVLA logging
+  dependency `rich`;
+- training happened: false;
+- optimizer steps completed: 0;
+- checkpoint written: false.
 
 Gate result: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
 
 ## Next Decision
 
-The next action is to launch the primary frozen arm
+The next action is to relaunch the primary frozen arm
 `r2r_oft_rank4_lambda2_lr2e4_steps64` in a detached WSL job, recording PID, log
 path, heartbeat, and commit before the first optimizer step. Preserve the caveat
 that current upper/headroom evidence is task-level, not same-reset.

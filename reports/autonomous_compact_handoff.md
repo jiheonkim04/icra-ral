@@ -164,6 +164,15 @@ Trainer/launcher validation:
 - dry-run launch manifest:
   `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/launch_manifest.json`;
 - dry-run training / optimizer step: false / false.
+- runtime: `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`.
+
+First primary launch attempt:
+
+- commit: `c25fc46792eda395a2af5167306fb8c4f071744a`;
+- artifact:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result_failed_missing_rich_20260717T1341KST.json`;
+- status: failed before training due wrong WSL env missing `rich`;
+- training / optimizer steps / checkpoint: false / 0 / false.
 
 ## Prohibitions
 

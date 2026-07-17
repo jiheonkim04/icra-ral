@@ -278,9 +278,20 @@ Validation:
   `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/launch_manifest.json`;
 - dry-run status: `DRY_RUN`;
 - training/optimizer step at manifest write: false / false.
+- runtime correction after first launch attempt: use
+  `/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`, not
+  `/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python`.
+
+First launch attempt failed before training:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result_failed_missing_rich_20260717T1341KST.json`;
+- cause: wrong WSL runtime environment missing optional OpenVLA logging
+  dependency `rich`;
+- training happened / optimizer steps / checkpoint written: false / 0 / false.
 
 Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
 
-Next step: launch the primary frozen arm
+Next step: relaunch the primary frozen arm
 `r2r_oft_rank4_lambda2_lr2e4_steps64` in a detached WSL job, recording PID, log
 path, heartbeat, and commit before the first optimizer step.

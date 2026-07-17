@@ -16,7 +16,7 @@ from tca_map.r2r_oft.train_qlora import _arm_by_id, _git_commit, _json_default, 
 
 
 DEFAULT_WSL_DISTRO = "Ubuntu-22.04"
-DEFAULT_WSL_PYTHON = "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python"
+DEFAULT_WSL_PYTHON = "/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python"
 DEFAULT_OUTPUT_ROOT = Path("runs/openvla_oft_int4/epoch5_r2r_oft_training")
 
 
