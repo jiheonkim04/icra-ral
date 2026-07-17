@@ -7,7 +7,7 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
 - Current stage: `epoch_5_post_mpr_residual_mining_no_fresh_target_yet`
-- Current decision: `POST_MPR_XVLA_SCANS_20260729_20260730_SATURATED`
+- Current decision: `POST_MPR_XVLA_SCANS_20260728_20260730_SATURATED`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -203,11 +203,13 @@ Post-MPR scans:
   `1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2`.
 - Identity `20260729`: saturated 10/10, summary SHA
   `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653`.
+- Identity `20260728`: saturated 10/10, summary SHA
+  `aee8345e213ace165e11891da43c389d91ef361c93535971363037bd4d4ff08c`.
 
-Do not retune/rescue MPR-XVLA from the no-pass. Continue bounded official-prior
-residual mining on a new identity for a fresh condition; still avoid broad
-search, generic local heads/gates/memory/verifiers, proxy-only methods, and PRC
-without independent distractor-confusion evidence.
+Do not retune/rescue MPR-XVLA from the no-pass. Reassess before more X-VLA
+identity scans or switching prior ecosystem; still avoid broad search, generic
+local heads/gates/memory/verifiers, proxy-only methods, and PRC without
+independent distractor-confusion evidence.
 
 ## Report Set
 

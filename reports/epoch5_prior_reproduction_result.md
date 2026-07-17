@@ -1786,7 +1786,8 @@ prior-only worker:
 |---:|---:|---|---|---|
 | `20260730` | `19` | `runs/xvla_prior/failure_scan_libero10_identity20260730_post_mpr_20260717T2217KST/scan_summary.json` | `1420c0b4c121e483ac5bec5e65817284613247102e311a77c5d2a3392fd742b2` | 10/10 succeeded, zero infrastructure failures |
 | `20260729` | `18` | `runs/xvla_prior/failure_scan_libero10_identity20260729_post_mpr_20260717T2222KST/scan_summary.json` | `d927a61c2c9fbcefe7bdfdea74b0b7a03f1389ca4b52b95a8a9d5c3868bb0653` | 10/10 succeeded, zero infrastructure failures |
+| `20260728` | `17` | `runs/xvla_prior/failure_scan_libero10_identity20260728_post_mpr_20260717T2229KST/scan_summary.json` | `aee8345e213ace165e11891da43c389d91ef361c93535971363037bd4d4ff08c` | 10/10 succeeded, zero infrastructure failures |
 
-Interpretation: identities `20260730` and `20260729` are saturated by X-VLA on
-LIBERO-10, and identity `20260731` only repeats the archived task6 residual.
-No new post-MPR residual target has been found yet.
+Interpretation: identities `20260730`, `20260729`, and `20260728` are
+saturated by X-VLA on LIBERO-10, and identity `20260731` only repeats the
+archived task6 residual. No new post-MPR residual target has been found yet.
