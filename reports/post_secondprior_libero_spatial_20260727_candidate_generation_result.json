@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:03:29+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_candidate_generation": "7528ce99fb1a3f483c0974cf852d92b1f6a8666a",
+  "decision": "EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "initial_state_index": 16,
+  "initial_state_sha256": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY_CANDIDATE_GENERATION",
+    "evidence_role": "CANDIDATE_SELECTION",
+    "artifact_status": "NO_TRAINING_NO_ROLLOUT_REPORT",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": false,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0,
+    "model_forward_count": 0
+  },
+  "matched_gate_references": {
+    "xvla_prior_report_json": "reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json",
+    "smolvla_base_report_json": "reports/post_secondprior_libero_spatial_20260727_base_gate_result.json",
+    "headroom_report_json": "reports/post_secondprior_libero_spatial_20260727_headroom_result.json",
+    "second_prior_report_json": "reports/post_secondprior_libero_spatial_20260727_second_prior_result.json",
+    "data_audit_report_json": "reports/post_secondprior_libero_spatial_20260727_data_audit_result.json"
+  },
+  "gate_summary": {
+    "xvla_first_prior_clean_failure": true,
+    "smolvla_base_clean_failure": true,
+    "second_prior_clean_failure": true,
+    "task_level_expert_headroom_positive": true,
+    "same_reset_expert_headroom_available": false,
+    "data_audit_passed": true,
+    "candidate_generation_readiness": true,
+    "training_authorized": false,
+    "residual_scope_note": "Candidate generation is limited to the current official-prior-first target. It is not a confirmatory Ours result and does not authorize training or closed-loop Ours rollout."
+  },
+  "data_audit_facts_used": {
+    "hdf5_path": "C:/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+    "demo_count": 50,
+    "train_demo_count": 40,
+    "validation_demo_count": 10,
+    "train_chunk_count": 4325,
+    "validation_chunk_count": 1121,
+    "train_phase_chunk_counts": {
+      "source_on_ramekin": 2627,
+      "transit": 650,
+      "target_on_plate": 1048
+    },
+    "validation_phase_chunk_counts": {
+      "source_on_ramekin": 711,
+      "transit": 164,
+      "target_on_plate": 246
+    },
+    "state_layout": {
+      "target_black_bowl_pos_slice": [10, 13],
+      "ramekin_pos_slice": [31, 34],
+      "plate_pos_slice": [38, 41]
+    },
+    "phase_labels_training_only": true,
+    "privileged_state_at_inference": false,
+    "allowed_deployment_inputs": ["RGB", "wrist RGB", "proprioception", "instruction"]
+  },
+  "candidate_count": 2,
+  "selected_candidate_id": "R2P-XVLA",
+  "selected_candidate_for_next_no_training_spec": true,
+  "frozen_no_training_spec_created": false,
+  "candidates": [
+    {
+      "id": "R2P-XVLA",
+      "name": "Ramekin-to-Plate Phase-Balanced X-VLA Adapter",
+      "status": "SELECTED_FOR_FROZEN_NO_TRAINING_SPEC",
+      "candidate_type": "future_low_compute_prior_extension_not_trained_here",
+      "core_idea": "Use training-only HDF5 geometry to label source-on-ramekin, transit, and target-on-plate chunks, then give the underrepresented transit and placement phases explicit influence in a small adapter/OFT training objective while preserving the original deployment inputs.",
+      "why_this_matches_the_residual": "All three policy references fail the exact bowl-on-ramekin to plate transfer, while the data audit shows balanced enough source/transit/target supervision and no overlap with the residual initial state. The candidate attacks the observed transition/placement bottleneck rather than reopening older broad verifier or repair families.",
+      "future_training_mechanism_if_later_authorized": {
+        "adapter_role": "LoRA/OFT is compute infrastructure only, not the scientific contribution.",
+        "objective_components": [
+          "phase-balanced action imitation over train demos",
+          "extra weighting for transit and target-on-plate chunks",
+          "validation-selected checkpoint using the fixed 40/10 split",
+          "clean-retention guard before any closed-loop Ours rollout"
+        ],
+        "not_authorized_in_this_step": [
+          "training",
+          "optimizer step",
+          "checkpoint creation",
+          "closed-loop Ours evaluation",
+          "test-set tuning"
+        ]
+      },
+      "inference_input_policy": {
+        "uses_privileged_state_at_inference": false,
+        "uses_phase_labels_at_inference": false,
+        "allowed_inputs": ["RGB", "wrist RGB", "proprioception", "instruction"]
+      },
+      "required_comparators": [
+        {
+          "comparator_role": "closest_prior",
+          "policy": "X-VLA-Libero",
+          "scientific_question": "Does the selected mechanism improve the matched residual over the policy it extends?"
+        },
+        {
+          "comparator_role": "second_prior_context",
+          "policy": "Quantized OpenVLA-OFT INT4",
+          "scientific_question": "Does the residual remain a serious target under a different official prior family?"
+        },
+        {
+          "comparator_role": "simple_control",
+          "policy": "uniform LoRA/OFT on the same split and comparable parameter budget",
+          "scientific_question": "Would ordinary task adaptation explain substantially all of the gain?"
+        },
+        {
+          "comparator_role": "key_ablation",
+          "policy": "same adapter without phase balancing / transit-placement weighting",
+          "scientific_question": "Is the phase-balanced component responsible for the claim-specific improvement?"
+        }
+      ],
+      "blocking_conditions_for_future_spec": [
+        "uses residual reset reward/success for checkpoint selection",
+        "requires object positions or phase labels at inference",
+        "uniform LoRA/OFT matches or beats the mechanism under matched compute and split",
+        "clean retention or validation action quality collapses before closed-loop evaluation",
+        "cannot produce a minimal reproducible parameter-count and training-data manifest"
+      ],
+      "selection_score": {
+        "direct_residual_fit": 3.0,
+        "valid_supervision_fit": 2.0,
+        "inference_legality": 2.0,
+        "comparator_clarity": 1.8,
+        "implementation_risk_inverse": 0.7,
+        "total": 9.5
+      }
+    },
+    {
+      "id": "CTR-XVLA",
+      "name": "Clearance-Triggered Temporal Requery X-VLA",
+      "status": "NOT_SELECTED",
+      "candidate_type": "future_inference_wrapper_or_simple_control_candidate_not_trained_here",
+      "core_idea": "Reduce action-chunk staleness around inferred lift-off and placement windows by forcing shorter temporal requery or lower-horizon chunk execution near the source-to-target handoff.",
+      "why_considered": "The first prior took 30 chunks and failed, while OpenVLA-OFT needed 28 chunks and also failed; a temporal-wrapper hypothesis is a plausible lightweight explanation to rule out.",
+      "why_not_selected": "The existing evidence does not show that the failure is primarily chunk staleness rather than object-contact, lift, or placement policy content. A requery wrapper risks becoming a heuristic control and may require privileged or brittle phase detection if not carefully constrained.",
+      "inference_input_policy": {
+        "uses_privileged_state_at_inference": "PROHIBITED_IF_IMPLEMENTED",
+        "allowed_nonprivileged_signals": ["elapsed chunk index", "policy uncertainty if natively exposed", "RGB/wrist/proprio/instruction already available to the policy"],
+        "phase_labels_from_hdf5_at_inference": false
+      },
+      "possible_future_role": "simple-control threat or bounded ablation after the selected phase-balanced candidate has a frozen spec",
+      "blocking_conditions_for_future_spec": [
+        "requires state-layout object positions at inference",
+        "tunes requery thresholds on the residual rollout",
+        "cannot be compared to the frozen original chunking protocol",
+        "adds no mechanism beyond generic shorter chunks"
+      ],
+      "selection_score": {
+        "direct_residual_fit": 1.4,
+        "valid_supervision_fit": 1.0,
+        "inference_legality": 1.1,
+        "comparator_clarity": 1.5,
+        "implementation_risk_inverse": 0.9,
+        "total": 5.9
+      }
+    }
+  ],
+  "excluded_reopen_list": [
+    "R2R-OFT",
+    "BR-XVLA",
+    "MPR-XVLA",
+    "PRC-XVLA",
+    "CR-LightVLA",
+    "ATCD",
+    "MCI-VLA",
+    "CSPR-VLA"
+  ],
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false,
+    "implementation_happened": false,
+    "method_candidate_generation_happened": true
+  },
+  "artifact_hashes_cited": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/scan_summary.json",
+      "sha256": "768171a6406a3e15d8c47f3a36a3b20f992721316e234f0cb6d8c5525a242e91"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260727_post_secondprior_20260718T033637KST/task_5/result.json",
+      "sha256": "9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260727_officialenv_20260718T034354KST/result.json",
+      "sha256": "353e3d66bd98696f2a5d64e86f3eb72295b61b18091aba56fdda09da0b3e0941"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_expert_headroom_20260727_20260718T034720KST/result.json",
+      "sha256": "42c0b9e287904a7781cf077397c64578a3a5fb7ab651f30f85f810f18eb44fb9"
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260727_openvlaenv_20260718T035124KST/result.json",
+      "sha256": "ac550a1cf3c779495f645c6a9f9cf10d336d99723ddefdc872b803e19a69b0f1"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST/result.json",
+      "sha256": "e782d0947edaee4c8eef26d36af3627bd30d787ffe64df22e3678cff9b3abda5"
+    }
+  ],
+  "next_action": "Create a frozen no-training specification for selected candidate R2P-XVLA. Do not train, run optimizer steps, write checkpoints, or launch closed-loop Ours rollouts until that spec is validated."
+}

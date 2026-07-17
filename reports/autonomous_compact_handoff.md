@@ -5,238 +5,138 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- Last pushed task75 decision HEAD: `05a0537db811b3684eb06568ea39c350ee47353e`.
+- HEAD before latest candidate-generation commit: `7528ce99fb1a3f483c0974cf852d92b1f6a8666a`
 - Epoch/cycle: `5 / 0`
-- Current decision: `TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED`
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
-- Active Ours method/training/worker: none.
+- Active Ours training/worker: none.
+- Preserve ignored `rollouts/` and `runs/` artifacts.
 
 ## Standing Rules
 
 - Official-prior-first remains active.
 - Do not rescue or retune MCI/CSPR/R2R/CR-LightVLA/ATCD/BR-XVLA/MPR-XVLA/PRC-XVLA.
-- LoRA/QLoRA is implementation infrastructure only.
-- Do not treat prior failure, prior success, headroom, or uniform-ablation success as Ours.
-- Do not design or train Ours until Base, first prior, valid second prior, repeated residual, and headroom gates are satisfied.
-- Keep this file under 250 lines and preserve ignored `rollouts/` and `runs/` artifacts.
+- LoRA/QLoRA is implementation infrastructure only, never the contribution.
+- Do not treat prior failure, prior success, headroom, candidate generation, or uniform-ablation success as Ours.
+- Candidate generation does not authorize training, optimizer steps, checkpoint writes, or closed-loop Ours rollout.
+- Keep this file under 250 lines.
 
-## Comparator-Role Clarification
+## Comparator Calibration
 
-Durable addendum:
-`reports/comparator_role_calibration.md`
+Durable addendum: `reports/comparator_role_calibration.md`
 
-- This is a clarification, not a new epoch.
-- It does not reopen frozen non-GO decisions or loosen official-prior-first gates.
-- For future unfrozen Ours results, Base/Prior/Ablation/Control must be interpreted by scientific role rather than as a single universal max-score threshold.
-- If a future result was explicitly frozen under a universal beat-all scalar rule, report both `FROZEN_PROTOCOL_DECISION` and `CALIBRATED_SCIENTIFIC_INTERPRETATION`.
+- Future unfrozen results use role-specific Base/Prior/Ablation/Control interpretation.
+- Frozen historical non-GO decisions are not rewritten post hoc.
+- If a future protocol explicitly freezes a universal beat-all scalar rule, report both `FROZEN_PROTOCOL_DECISION` and `CALIBRATED_SCIENTIFIC_INTERPRETATION`.
 
 ## Audit Baseline
 
 Full audit: `reports/autonomous_research_full_history_audit.md`
 
-- Ledger routes: 95.
-- Selected formal Ours methods: 50.
+- Ledger routes: 95; selected formal Ours methods: 50.
 - No paper-ready method.
 - Strongest historical Ours remains CAVM 24/58, but no third expansion is allowed.
 - BR-XVLA and MPR-XVLA are no-pass and must not be reopened.
 
-## Prior Results Summary
+## Closed / Non-Target Evidence
 
-OpenVLA-OFT INT4:
+- Task75 (`libero_90/task_75`, identity `20260725`) has preserved evidence in `reports/task75_local_evidence_manifest.json`; X-VLA and SmolVLA Base failed, task-level headroom was positive, but valid second prior was infrastructure-blocked because local OpenVLA-OFT/LightVLA stats lacked `libero_90`.
+- Task75 second-prior decision: `TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED`; report `reports/task75_second_prior_result.json`.
+- X-VLA scans saturated `libero_spatial`, `libero_goal`, and `libero_object` identity `20260725`.
+- X-VLA scans saturated `libero_goal`, `libero_object`, and `libero_spatial` identity `20260726`.
+- `libero_goal/task_9` identity `20260727` was second-prior-solved by Quantized OpenVLA-OFT INT4 and is closed.
+- `libero_object` identity `20260727` was saturated by X-VLA and creates no Ours target.
 
-- Hard slice saturated: 20/20 vs SmolVLA Base 11/20.
-- Task8 route did not produce a selectable Ours result.
-- Task6 second-prior screen failed cleanly 0/2, enabling MPR-XVLA analysis.
-- Spatial task5 second-prior screen solved 1/1, removing that Ours target.
+## Current Target Chain
 
-LightVLA:
+Target: `libero_spatial/task_5`, reset identity `20260727`, initial-state index `16`.
 
-- Official LightVLA-libero-10 checkpoint loaded and ran locally.
-- It was complementary on task8, but CR-LightVLA and ATCD both closed without prototype-go.
+Instruction: `pick up the black bowl on the ramekin and place it on the plate`
 
-X-VLA:
+Initial-state SHA-256: `7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76`
 
-- Official X-VLA-Libero loaded from cached HF assets.
-- Task8 residual was solved by X-VLA.
-- Task1 led to BR-XVLA; BR-XVLA failed because primary failed while uniform ablation succeeded.
-- Task6 led to MPR-XVLA; MPR-XVLA failed because repaired offline validation did not beat uniform.
+### First Prior
 
-## Task75 Local Evidence
+Report: `reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json`
 
-Task: `libero_90/task_75`, reset identity `20260725`, initial-state index `14`.
+- X-VLA official prior completed 10/10 tasks; 9/10 succeeded.
+- Task `5` failed cleanly; 0 infrastructure failures.
+- Summary SHA `768171a6406a3e15d8c47f3a36a3b20f992721316e234f0cb6d8c5525a242e91`; task-5 result SHA `9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be`.
+- No training/Ours/checkpoint/optimizer step.
 
-Evidence preservation manifest:
-`reports/task75_local_evidence_manifest.json`
+### Base
 
-Local matched evidence:
+Report: `reports/post_secondprior_libero_spatial_20260727_base_gate_result.json`
 
-- X-VLA first prior failed cleanly, result SHA `8270a32c8eb4829db4cb75191f7a55fbf68e2b4db04c68c4424f0c55f56a9bb2`.
-- SmolVLA Base failed cleanly, result SHA `18d6925c257f5ae231d25e39c539e564c0b1b43c9538fc2ec1c4e994d974b0e1`.
-- Base rollout video preserved untracked, SHA `f7d08316d6e72b7e24bef38b75d5398506d35cbb10a9ab95f6b4c8a7d2ff111d`.
-- Expert replay gives task-level headroom but same-reset HDF5 is unavailable, result SHA `768d82bbdc89c3a7bc1a3d11103076a5ecb392f45c878dc90a550d2b313aade0`.
+- SmolVLA Base failed cleanly: 0/1 success, 0 infrastructure failures, 280 env steps, 6 action chunks.
+- Result SHA `353e3d66bd98696f2a5d64e86f3eb72295b61b18091aba56fdda09da0b3e0941`; video SHA `b06bed4febfc09e6891e56e677297683e74f25992d29ac1dfe1282d47aa2ff59`.
+- No training/Ours/checkpoint/optimizer step.
 
-No training, optimizer step, checkpoint write, Ours design, or Ours rollout happened in the task75 diagnostic.
+### Headroom
 
-## Task75 Second-Prior Gate
+Report: `reports/post_secondprior_libero_spatial_20260727_headroom_result.json`
 
-Durable result:
-`reports/task75_second_prior_result.json`
-`reports/task75_second_prior_result.md`
+- Decision: `TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+- Nearest HDF5 demo `demo_9`, L2 `2.984242906`, init SHA `0d599c208cb9d95b4e724e2a883c651a720276cd8e15e754cf6f3a7527ae497f`.
+- Exact selected-demo replay succeeded at index `93`; zero-action control failed.
+- No same-reset HDF5 init-state hash matched the residual.
+- Result SHA `42c0b9e287904a7781cf077397c64578a3a5fb7ab651f30f85f810f18eb44fb9`.
 
-Decision: `TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED`
+### Second Prior
 
-Reason:
+Report: `reports/post_secondprior_libero_spatial_20260727_second_prior_result.json`
 
-- Quantized OpenVLA-OFT INT4 checkpoint statistics contain `libero_spatial_no_noops`, `libero_object_no_noops`, `libero_goal_no_noops`, and `libero_10_no_noops`, but no `libero_90` key.
-- LightVLA-libero-10-4bit contains only `libero_10_no_noops`.
-- RIPT-VLA and VLA-GSE were already resource/comparability blocked.
-- VLA-0 and VLA-JEPA were unselected large-asset fallbacks with no local executable task75 checkpoint.
+- Quantized OpenVLA-OFT INT4 had valid `libero_spatial_no_noops` support and no proxy.
+- It failed cleanly: 0/1 success, 0 infrastructure failures, final reward `0.0`, 230 steps, 28 chunks.
+- Result SHA `ac550a1cf3c779495f645c6a9f9cf10d336d99723ddefdc872b803e19a69b0f1`; video SHA `83c8db433af3c9dfeeb030b4dbd062980c9ba8e347221019576efc91ebdbd2fb`.
+- No training/Ours/checkpoint/optimizer step.
 
-Preflight logs:
-`runs/task75_second_prior/infra_preflight_20260718T0115KST/`
+### Data Audit
 
-- stdout SHA `f2a3e476d8211dc3c498acaa7721ed0e54a0d58a2470c3e51536828fbfe25e67`
-- stderr SHA `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
-- exit code SHA `13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354`, exit code `0`
+Report: `reports/post_secondprior_libero_spatial_20260727_data_audit_result.json`
 
-Published aggregate numbers are not used as kill thresholds. There is no valid local official/quantized task75 second-prior policy result.
+- PASS; candidate-generation readiness true.
+- 50 demos; 40/10 train/validation; train/validation chunks `4325 / 1121`.
+- Terminal reward/done demos `50 / 50`; actions are finite 7D, max abs `1.0`.
+- No residual init-state overlap.
+- Train source/transit/target chunks `2627 / 650 / 1048`; validation `711 / 164 / 246`.
+- Result SHA `e782d0947edaee4c8eef26d36af3627bd30d787ffe64df22e3678cff9b3abda5`.
+- Focused pytest: `2 passed`.
 
-## Post-Task75 Continuation
+## Candidate Generation
 
-Durable result:
-`reports/post_task75_spatial_prior_scan_result.json`
-`reports/post_task75_spatial_prior_scan_result.md`
+Reports:
 
-X-VLA official-prior scan on `libero_spatial`, reset identity `20260725`, tasks `0..9`:
+- `reports/post_secondprior_libero_spatial_20260727_candidate_generation_result.json`
+- `reports/post_secondprior_libero_spatial_20260727_candidate_generation_result.md`
 
-- completed 10/10 tasks;
-- succeeded 10/10 tasks;
-- infrastructure failures: 0;
-- summary SHA `ac9b3351e794aa3fb3ecc6466a5631b55872389a52244ee16c2b1e2992015d3f`;
-- manifest SHA `8a91adb9dafe01fce9c36ff5373620fb40e1ea603be9b295b2d2b3572a1d81e3`;
-- exit code `0`;
-- no training, optimizer step, checkpoint write, Ours design, or Ours rollout.
+Decision: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED`
 
-Interpretation: `libero_spatial` identity `20260725` is saturated and does not create an Ours target.
+Exactly two candidates were generated:
 
-## Post-Calibration Goal Scan
+1. `R2P-XVLA` / Ramekin-to-Plate Phase-Balanced X-VLA Adapter — selected for a frozen no-training spec.
+2. `CTR-XVLA` / Clearance-Triggered Temporal Requery X-VLA — not selected; may later serve as a simple-control threat.
 
-Durable result:
-`reports/post_calibration_libero_goal_prior_scan_result.json`
-`reports/post_calibration_libero_goal_prior_scan_result.md`
-
-X-VLA official-prior scan on `libero_goal`, reset identity `20260725`, tasks `0..9`:
-
-- completed 10/10 tasks;
-- succeeded 10/10 tasks;
-- infrastructure failures: 0;
-- summary SHA `c5054062a8f333d6c7dfda2b5fc77a9c6bcea6d6c2bc06afad5ee84731469979`;
-- manifest SHA `604444510fc717736626f5b84e22dcac9237e13b6c3c3429c24161047f0155e8`;
-- exit code `0`;
-- no training, optimizer step, checkpoint write, Ours design, or Ours rollout.
-
-Interpretation: `libero_goal` identity `20260725` is saturated and does not create an Ours target.
-
-## Post-Calibration Object Scan
-
-Durable result:
-`reports/post_calibration_libero_object_prior_scan_result.json`
-`reports/post_calibration_libero_object_prior_scan_result.md`
-
-X-VLA official-prior scan on `libero_object`, reset identity `20260725`, tasks `0..9`:
-
-- completed 10/10 tasks;
-- succeeded 10/10 tasks;
-- infrastructure failures: 0;
-- summary SHA `3640595f3d4549007d7c80e3546c8575ea9d2b8a5af019db227ec7c2bf4609b7`;
-- manifest SHA `0a3b39a1b4b6b66139b26bbd7f817c1b7cf7aa5f23b8bb2dcb08d2e64c824e0e`;
-- exit code `0`;
-- no training, optimizer step, checkpoint write, Ours design, or Ours rollout.
-
-Interpretation: supported `libero_goal`/`libero_object`/`libero_spatial` identity `20260725` scans are saturated and create no Ours target.
-
-## Post-Calibration 20260726 Saturated Scans
-
-Durable results: `reports/post_calibration_libero_goal_20260726_prior_scan_result.*`, `reports/post_calibration_libero_object_20260726_prior_scan_result.*`, and `reports/post_calibration_libero_spatial_20260726_prior_scan_result.*`.
-
-X-VLA official-prior scans on `libero_goal`, `libero_object`, and `libero_spatial`, reset identity `20260726`, tasks `0..9`: each completed 10/10, succeeded 10/10, had 0 infrastructure failures, and had no training/Ours/checkpoint/optimizer step. Summary SHAs: goal `831d1c0565f8a12587fd21d60baa92e499083ecca100a159cf24b6ca50b5c23b`; object `f7c2426b1ae19a8420fed2f5e4dcb7628cdd04157934efbed7b48892473dcf49`; spatial `a21cd76d789a04d4a1befc51d7fa78d7d396a84bbb18a89ba57e1b61eaa45979`.
-
-## Post-Calibration 20260727 Goal Chain
-
-Durable results: `reports/post_calibration_libero_goal_20260727_prior_scan_result.*`, `reports/post_calibration_libero_goal_20260727_base_gate_result.*`, `reports/post_calibration_libero_goal_20260727_headroom_result.*`, and `reports/post_calibration_libero_goal_20260727_second_prior_result.*`.
-
-X-VLA found clean `libero_goal/task_9` residual at identity `20260727`; SmolVLA Base also failed; task-level headroom was positive but same-reset HDF5 was unavailable; Quantized OpenVLA-OFT INT4 then solved it with valid `libero_goal_no_noops` support. Result SHAs: X-VLA task9 `78a168d5755e025dea13a5e26b5193be5a12b45293c789cfbc57a2203d1433ec`; Base `107d7cb0ff1b31ba98be98b9230fdc859218172a0d1c260f2f88751b8a2d0d5f`; headroom `df3bbadf2c886144fa0c274e0c9f8f4761674d05294c0dc77ffae22fd043f399`; second prior `e900a9105643c2d658d8bddba1a31d8797a35c9c0168511438492ba17e21f4b0`.
-
-Interpretation: `libero_goal/task_9` identity `20260727` is closed as second-prior-solved and is not an Ours target.
-
-## Post-Second-Prior 20260727 Object Scan
-
-Durable result:
-`reports/post_secondprior_libero_object_20260727_prior_scan_result.json`
-`reports/post_secondprior_libero_object_20260727_prior_scan_result.md`
-
-X-VLA official-prior scan on `libero_object`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 10/10 succeeded, 0 infrastructure failures, summary SHA `459b536a96d201e9e5cbf17ffdc389242332e54898fcb756fca9d40086bc11a6`, manifest SHA `415eb3839501f183bc751ee20240e027fb483d98227fe92d3210870fcb76e182`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_object` identity `20260727` is saturated and creates no Ours target.
-
-## Post-Second-Prior 20260727 Spatial Scan
-
-Durable result:
-`reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json`
-`reports/post_secondprior_libero_spatial_20260727_prior_scan_result.md`
-
-X-VLA official-prior scan on `libero_spatial`, reset identity `20260727`, tasks `0..9`: 10/10 completed, 9/10 succeeded, task `5` failed cleanly, 0 infrastructure failures, summary SHA `768171a6406a3e15d8c47f3a36a3b20f992721316e234f0cb6d8c5525a242e91`, task-5 result SHA `9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_spatial/task_5` identity `20260727` is a first-prior residual only. It does not authorize Ours; next gate is matched SmolVLA Base on the same task/reset.
-
-## Post-Second-Prior 20260727 Spatial Base Gate
-
-Durable result:
-`reports/post_secondprior_libero_spatial_20260727_base_gate_result.json`
-`reports/post_secondprior_libero_spatial_20260727_base_gate_result.md`
-
-SmolVLA frozen Base on `libero_spatial/task_5`, reset identity `20260727`: 1/1 completed, 0/1 succeeded, 0 infrastructure failures, 280 steps, 6 action chunks, max reward `0.0`, result SHA `353e3d66bd98696f2a5d64e86f3eb72295b61b18091aba56fdda09da0b3e0941`, video SHA `b06bed4febfc09e6891e56e677297683e74f25992d29ac1dfe1282d47aa2ff59`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_spatial/task_5` identity `20260727` is now a shared X-VLA first-prior and SmolVLA Base clean residual. It still does not authorize Ours; next gate is expert headroom.
-
-## Post-Second-Prior 20260727 Spatial Headroom
-
-Durable result:
-`reports/post_secondprior_libero_spatial_20260727_headroom_result.json`
-`reports/post_secondprior_libero_spatial_20260727_headroom_result.md`
-
-Expert replay on `libero_spatial/task_5`, reset identity `20260727`: completed with exit code `0`; decision `TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`; selected nearest HDF5 `demo_9` with L2 `2.984242906`; exact selected-demo replay succeeded at reward/done/success index `93`; zero-action control failed; no same-reset HDF5 init-state hash matched the residual. Result SHA `42c0b9e287904a7781cf077397c64578a3a5fb7ab651f30f85f810f18eb44fb9`. No training/Ours/checkpoint/optimizer step.
-
-Interpretation: recoverability is positive only at task level, not same-reset oracle. A valid comparable second prior is now required before any Ours proposal.
-
-## Post-Second-Prior 20260727 Spatial Second Prior
-
-Durable result:
-`reports/post_secondprior_libero_spatial_20260727_second_prior_result.json`
-`reports/post_secondprior_libero_spatial_20260727_second_prior_result.md`
-
-Quantized OpenVLA-OFT INT4 on `libero_spatial/task_5`, reset identity `20260727`: valid `libero_spatial_no_noops` support, 1/1 completed, 0/1 succeeded, 0 infrastructure failures, reward `0.0`, 230 steps including 10 wait steps, 28 action chunks, result SHA `ac550a1cf3c779495f645c6a9f9cf10d336d99723ddefdc872b803e19a69b0f1`, video SHA `83c8db433af3c9dfeeb030b4dbd062980c9ba8e347221019576efc91ebdbd2fb`, exit code `0`, no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_spatial/task_5` identity `20260727` now has matched X-VLA failure, matched SmolVLA Base failure, task-level headroom positive, and clean comparable second-prior failure. It remains a potential target, but candidate generation/training still waits for a local data/supervision audit.
-
-## Post-Second-Prior 20260727 Spatial Data Audit
-
-Durable result:
-`reports/post_secondprior_libero_spatial_20260727_data_audit_result.json`
-`reports/post_secondprior_libero_spatial_20260727_data_audit_result.md`
-
-CPU-only HDF5 audit for `libero_spatial/task_5`: PASS. 50 demos; 40/10 train/validation; chunks 4325/1121; terminal reward/done 50/50; actions 7D finite with max abs `1.0`; no residual init-state overlap; train phase chunks source/transit/target `2627/650/1048`; validation `711/164/246`; result SHA `e782d0947edaee4c8eef26d36af3627bd30d787ffe64df22e3678cff9b3abda5`; focused pytest `2 passed`; no training/Ours/checkpoint/optimizer step.
-
-Interpretation: `libero_spatial/task_5` identity `20260727` is candidate-ready, but no candidate generation or training has happened yet.
+No training, optimizer step, checkpoint write, implementation, LoRA/QLoRA training, or closed-loop Ours rollout happened.
 
 ## Immediate Next Action
 
-Do not design or train task75 Ours.
+Create a frozen no-training specification for selected candidate `R2P-XVLA`.
 
-Generate exactly two narrow method candidates for `libero_spatial/task_5` identity `20260727` without training; select at most one for a frozen no-training spec.
+Required contents for the spec:
+
+- exact training-data split and phase-label derivation from the data audit;
+- deployment input policy: RGB, wrist RGB, proprioception, instruction only;
+- no privileged object positions or phase labels at inference;
+- uniform LoRA/OFT simple-control role;
+- no-phase-balancing key ablation;
+- clean-retention and validation gates before any closed-loop Ours rollout;
+- explicit prohibition on tuning checkpoint selection from residual rollout reward.
+
+Do not train or run Ours yet.
 
 ## Validation To Run Before Commit
 
-- JSON parse: task75 result/manifest, all `reports/post_calibration_*_prior_scan_result.json`, and `reports/epoch5_prior_reproduction_result.json`
+- Parse new candidate JSON and existing target-chain JSON.
+- Check `reports/autonomous_compact_handoff.md` line count is under 250.
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`
