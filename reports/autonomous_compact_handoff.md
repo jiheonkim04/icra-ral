@@ -219,11 +219,21 @@ Quantized OpenVLA-OFT INT4 on `libero_spatial/task_5`, reset identity `20260727`
 
 Interpretation: `libero_spatial/task_5` identity `20260727` now has matched X-VLA failure, matched SmolVLA Base failure, task-level headroom positive, and clean comparable second-prior failure. It remains a potential target, but candidate generation/training still waits for a local data/supervision audit.
 
+## Post-Second-Prior 20260727 Spatial Data Audit
+
+Durable result:
+`reports/post_secondprior_libero_spatial_20260727_data_audit_result.json`
+`reports/post_secondprior_libero_spatial_20260727_data_audit_result.md`
+
+CPU-only HDF5 audit for `libero_spatial/task_5`: PASS. 50 demos; 40/10 train/validation; chunks 4325/1121; terminal reward/done 50/50; actions 7D finite with max abs `1.0`; no residual init-state overlap; train phase chunks source/transit/target `2627/650/1048`; validation `711/164/246`; result SHA `e782d0947edaee4c8eef26d36af3627bd30d787ffe64df22e3678cff9b3abda5`; focused pytest `2 passed`; no training/Ours/checkpoint/optimizer step.
+
+Interpretation: `libero_spatial/task_5` identity `20260727` is candidate-ready, but no candidate generation or training has happened yet.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Run a local data/supervision audit for `libero_spatial/task_5` before candidate generation, Ours design, LoRA/QLoRA training, or any training.
+Generate exactly two narrow method candidates for `libero_spatial/task_5` identity `20260727` without training; select at most one for a frozen no-training spec.
 
 ## Validation To Run Before Commit
 

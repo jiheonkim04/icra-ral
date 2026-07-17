@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T03:59:13+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_audit_launch": "6fd9b02f00fa6570e828891e2cd1a0a2e03e0704",
+  "decision": "POST_SECONDPRIOR_LIBERO_SPATIAL_IDENTITY20260727_DATA_AUDIT_PASS_CANDIDATE_READY",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "initial_state_sha256": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "run_dir": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST",
+  "execution_classification": {
+    "execution_type": "CPU_HDF5_DATA_AUDIT",
+    "evidence_role": "DATA_SUPERVISION_AUDIT",
+    "artifact_status": "LOCAL_HDF5_AUDIT",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": false,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "hdf5_path": "C:/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+    "script": "tca_map/xvla_spatial_task5/data_audit.py",
+    "focused_tests": "tests/test_xvla_spatial_task5_data_audit.py"
+  },
+  "matched_gate_references": {
+    "xvla_prior_report_json": "reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json",
+    "smolvla_base_report_json": "reports/post_secondprior_libero_spatial_20260727_base_gate_result.json",
+    "headroom_report_json": "reports/post_secondprior_libero_spatial_20260727_headroom_result.json",
+    "second_prior_report_json": "reports/post_secondprior_libero_spatial_20260727_second_prior_result.json"
+  },
+  "result": {
+    "passes_data_health_gate": true,
+    "candidate_generation_readiness": true,
+    "candidate_generation_happened": false,
+    "training_authorized": false,
+    "demo_count": 50,
+    "train_demo_count": 40,
+    "validation_demo_count": 10,
+    "train_chunk_count": 4325,
+    "validation_chunk_count": 1121,
+    "terminal_reward_demo_count": 50,
+    "terminal_done_demo_count": 50,
+    "action_dim_set": [7],
+    "action_max_abs": 1.0,
+    "residual_overlap_hashes": [],
+    "train_phase_chunk_counts": {
+      "source_on_ramekin": 2627,
+      "transit": 650,
+      "target_on_plate": 1048
+    },
+    "validation_phase_chunk_counts": {
+      "source_on_ramekin": 711,
+      "transit": 164,
+      "target_on_plate": 246
+    },
+    "state_layout": {
+      "target_black_bowl_pos_slice": [10, 13],
+      "ramekin_pos_slice": [31, 34],
+      "plate_pos_slice": [38, 41]
+    }
+  },
+  "gate_checks": {
+    "hdf5_has_50_demos": true,
+    "train_validation_split_nonempty": true,
+    "actions_are_7d": true,
+    "actions_are_finite": true,
+    "actions_within_expected_range": true,
+    "all_demos_have_terminal_reward": true,
+    "all_demos_have_terminal_done": true,
+    "initial_bowl_on_ramekin_all_demos": true,
+    "final_bowl_on_plate_all_demos": true,
+    "train_has_source_transit_target_chunks": true,
+    "validation_has_source_transit_target_chunks": true,
+    "initial_states_do_not_overlap_residual_failures": true
+  },
+  "deployment_input_policy": {
+    "privileged_state_at_inference": false,
+    "phase_labels_training_only": true,
+    "allowed_deployment_inputs": ["RGB", "wrist RGB", "proprioception", "instruction"]
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "validation": {
+    "py_compile": "PASS for tca_map/xvla_spatial_task5/data_audit.py and tests/test_xvla_spatial_task5_data_audit.py",
+    "focused_pytest": "2 passed via C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m pytest tests/test_xvla_spatial_task5_data_audit.py -q"
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST/result.json",
+      "sha256": "e782d0947edaee4c8eef26d36af3627bd30d787ffe64df22e3678cff9b3abda5",
+      "length_bytes": 35675
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST/stdout.log",
+      "sha256": "32f30d65bd46aac76545c78a3d75bcb256e3f8d422bd214ba737dab0d34c06b8",
+      "length_bytes": 306
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST/exit_code.txt",
+      "sha256": "9585fbece5c402088f2d6a2def7e60d1c7ffecc24b16d32d5823a064b008935b",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_spatial_task5_data_audit_20260727_20260718T035845KST/finished_at.txt",
+      "sha256": "65efe033b759c6f4f4cfac1354057daea620a258e02f1298f26a3f5a69dffb85",
+      "finished_at": "2026-07-18T03:58:45.5434182+09:00"
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/data_audit.py",
+      "sha256": "0b29f983621e5075cc6f00537f316a08fd38519adbf927d4727ad9f274575b16"
+    },
+    {
+      "path": "tests/test_xvla_spatial_task5_data_audit.py",
+      "sha256": "a548ee8fba3ee176f7cc76adf112bec009547eadce74e54b4abd1963db3dcfee"
+    }
+  ],
+  "next_action": "Generate exactly two narrow method candidates for libero_spatial/task_5 identity 20260727 without training, then select at most one for a frozen no-training spec."
+}
