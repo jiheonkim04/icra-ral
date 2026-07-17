@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_second_pass_fallback_preflight_complete`
-- Current decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`
+- Current stage: `epoch_5_third_pass_xvla_prior_diagnostic_complete`
+- Current decision: `X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -205,10 +205,30 @@ Second-pass fallback prior preflight:
   8-GPU/80k-step reference training and two-process policy-server evaluation.
 - decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`.
 
-Next: start a third exact-three official-prior ecosystem selection pass. Do not
-train or roll out ATCD; do not claim RIPT-VLA or VLA-GSE prior results from
-source-only/resource-blocked preflights; do not retune on tested task-8
-identities.
+Third-pass X-VLA prior:
+
+- exact-three candidates: X-VLA, VLA-0, VLA-JEPA; selected X-VLA because
+  `2toINF/X-VLA-Libero` is the lightest executable LIBERO-relevant official
+  checkpoint (3.280 GiB vs VLA-0 21.459 GiB and VLA-JEPA 22.961 GiB).
+- source: `C:\assets\repos\X-VLA` HEAD
+  `6bc2513f5f1cbec715cc668b414392a6cae5c671`; model revision
+  `129e71460678b7236cee6fc9707f09d9fa0c3590`.
+- preflight passed: load artifact
+  `runs/xvla_prior/load_xvla_libero_20260717T1649KST/result.json`; action smoke
+  `runs/xvla_prior/action_smoke_xvla_libero_20260717T1654KST/result.json`.
+- runner: `scripts/epoch5_xvla_libero10_task8_eval.py`; full diagnostic:
+  `runs/xvla_prior/diagnostic_xvla_task8_all_20260717T1705KST/result.json`.
+- protocol: official X-VLA LIBERO path, `OffScreenRenderEnv`, absolute
+  controller `use_delta=False`, settle 10, horizon 900, domain 3, denoise 10.
+- result: 8/8 successes, 0 infrastructure failures; success steps by identity
+  `20260716:363`, `20260717:396`, `20260718:373`, `20260719:376`,
+  `20260720:375`, `20260721:375`, `20260722:356`, `20260723:375`.
+- interpretation: current task-8 residual is solved by an executable official
+  prior; no Ours target remains on this residual.
+
+Next: do not design Ours on the current `libero_10/task_8` residual. If the
+campaign continues, select a new residual condition against the latest
+executable official-prior set, with X-VLA included as a prior baseline.
 
 ## Prohibitions
 

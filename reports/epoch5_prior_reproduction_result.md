@@ -795,3 +795,70 @@ locally. LightVLA was executable but no method reached prototype-go evidence;
 RIPT-VLA and VLA-GSE are not fair executable prior results for the current
 residual under local resources. The next action is a third exact-three
 official-prior ecosystem selection pass.
+
+## Third-Pass Official Prior Diagnostic: X-VLA
+
+Decision: `X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET`.
+
+Third-pass exact-three selection:
+
+| Rank | Ecosystem | Official assets | Local status |
+|---|---|---|---|
+| 1 | X-VLA | `https://github.com/2toinf/X-VLA`; `2toINF/X-VLA-Libero`; `2toINF/X-VLA-libero-long-peft` | selected and executed |
+| 2 | VLA-0 | `https://github.com/NVlabs/vla0`; `ankgoyal/vla0-libero` | fallback not executed after X-VLA solved the residual |
+| 3 | VLA-JEPA | `https://github.com/ginwind/VLA-JEPA`; `ginwind/VLA-JEPA` | fallback not executed after X-VLA solved the residual |
+
+X-VLA source and load preflight:
+
+- source clone: `C:\assets\repos\X-VLA`;
+- source HEAD: `6bc2513f5f1cbec715cc668b414392a6cae5c671`;
+- selected model: `2toINF/X-VLA-Libero`;
+- model revision: `129e71460678b7236cee6fc9707f09d9fa0c3590`;
+- model metadata: 15 files, `3.280` GiB;
+- runner: `scripts/epoch5_xvla_libero10_task8_eval.py`;
+- runner SHA-256:
+  `1b0c6d43450a7c5320221308fe461f974c093d1fd2c0fd15d900a89b4f0bd077`.
+
+Preflight artifacts:
+
+| Artifact | Status | Key result |
+|---|---:|---|
+| `runs/xvla_prior/load_xvla_libero_20260717T1649KST/result.json` | pass | 879,482,456 parameters loaded on `cuda:0`; peak allocation `3,518,954,496` bytes |
+| `runs/xvla_prior/action_smoke_xvla_libero_20260717T1654KST/result.json` | pass | finite dummy action tensor shape `[1, 30, 20]`; peak allocation `3,689,555,456` bytes |
+
+Matched task-8 diagnostic:
+
+- artifact:
+  `runs/xvla_prior/diagnostic_xvla_task8_all_20260717T1705KST/result.json`;
+- artifact SHA-256:
+  `b13423bac4bb3f06c74611c42bf7b817cdfa586f1b5e4c3f05e9b73e270a5ef3`;
+- task: `libero_10/task_8`, “put both moka pots on the stove”;
+- reset identities: `20260716..20260723`;
+- official initial-state indices: `5..12`;
+- protocol: official X-VLA LIBERO path using `OffScreenRenderEnv`, absolute
+  controller mode (`robot.controller.use_delta = False`), 10 settle steps,
+  horizon 900, `domain_id=3`, and 10 denoising steps;
+- training / optimizer / checkpoint / Ours design: false / false / false /
+  false.
+
+| Reset identity | Initial-state index | Success | Steps |
+|---:|---:|---:|---:|
+| 20260716 | 5 | true | 363 |
+| 20260717 | 6 | true | 396 |
+| 20260718 | 7 | true | 373 |
+| 20260719 | 8 | true | 376 |
+| 20260720 | 9 | true | 375 |
+| 20260721 | 10 | true | 375 |
+| 20260722 | 11 | true | 356 |
+| 20260723 | 12 | true | 375 |
+
+Summary: X-VLA completed 8/8 episodes with 8/8 successes and zero
+infrastructure failures. It solved both original OpenVLA-OFT failure resets
+(`20260721`, `20260722`) and both LightVLA failure resets (`20260716`,
+`20260723`).
+
+Interpretation: the current task-8 residual is solved by an executable official
+third-pass prior. Therefore no Ours method should be designed, trained, or
+reported on this residual. If Epoch 5 continues, it must select a new residual
+condition against the latest executable official prior set, with X-VLA included
+as a prior baseline.

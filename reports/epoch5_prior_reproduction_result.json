@@ -3,10 +3,11 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_second_pass_fallback_preflight_complete",
-  "decision": "SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO",
+  "stage": "epoch_5_third_pass_xvla_prior_diagnostic_complete",
+  "decision": "X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
+  "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
   "new_method_candidate_generated": true,
@@ -956,6 +957,124 @@
       "classification": "VLA_GSE_SOURCE_ONLY_RESOURCE_BLOCKED"
     }
   },
+  "third_pass_prior_selection": {
+    "status": "COMPLETE",
+    "selection_rule": "exact-three official-prior ecosystem pass after second-pass fallbacks were blocked",
+    "selected": "X-VLA-Libero",
+    "candidates": [
+      {
+        "rank": 1,
+        "name": "X-VLA",
+        "paper": "https://arxiv.org/abs/2510.10274",
+        "official_repo": "https://github.com/2toinf/X-VLA",
+        "official_model": "https://huggingface.co/2toINF/X-VLA-Libero",
+        "official_long_adapter": "https://huggingface.co/2toINF/X-VLA-libero-long-peft",
+        "source_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+        "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+        "model_total_gib": 3.2798624066635966,
+        "status": "selected_and_executed"
+      },
+      {
+        "rank": 2,
+        "name": "VLA-0",
+        "paper": "https://arxiv.org/abs/2510.13054",
+        "official_repo": "https://github.com/NVlabs/vla0",
+        "model_repo": "https://huggingface.co/ankgoyal/vla0-libero",
+        "source_head": "b78db19eda67b02844fe82b8929e1f94de7f2dcc",
+        "model_revision": "6c62a511ad56042b2b3ea0a90c4def33e1ea3b96",
+        "model_total_gib": 21.458927704952657,
+        "status": "fallback_not_executed_after_xvla_solved_residual"
+      },
+      {
+        "rank": 3,
+        "name": "VLA-JEPA",
+        "paper": "https://arxiv.org/abs/2602.10098",
+        "official_repo": "https://github.com/ginwind/VLA-JEPA",
+        "model_repo": "https://huggingface.co/ginwind/VLA-JEPA",
+        "source_head": "ec8c70f6e155e2377bbd4d787004c14179c00c7c",
+        "model_revision": "db32b4a4457c39921869f667ac76cf8a8fc39da8",
+        "model_total_gib": 22.96114828903228,
+        "status": "fallback_not_executed_after_xvla_solved_residual"
+      }
+    ],
+    "decision": "X_VLA_SELECTED_AS_LIGHTEST_EXECUTABLE_LIBERO_RELEVANT_THIRD_PASS_PRIOR"
+  },
+  "third_pass_xvla_prior_diagnostic": {
+    "status": "COMPLETE",
+    "decision": "X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET",
+    "runner": "scripts/epoch5_xvla_libero10_task8_eval.py",
+    "runner_sha256": "1b0c6d43450a7c5320221308fe461f974c093d1fd2c0fd15d900a89b4f0bd077",
+    "source_repo": "C:\\assets\\repos\\X-VLA",
+    "source_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "load_preflight": {
+      "artifact": "runs/xvla_prior/load_xvla_libero_20260717T1649KST/result.json",
+      "artifact_sha256": "ad8fa2ef673f74db94a1b4ebd10411f62363a691ab6a7dd7b4c9084b28f8d47c",
+      "status": "PASS",
+      "parameter_count": 879482456,
+      "hf_total_gib": 3.2798624066635966,
+      "cuda_max_memory_allocated": 3518954496,
+      "elapsed_sec": 86.66146445274353
+    },
+    "action_smoke": {
+      "artifact": "runs/xvla_prior/action_smoke_xvla_libero_20260717T1654KST/result.json",
+      "artifact_sha256": "4a2551b1fd24e74b88e437fbc62a3725e2da924819af59f7bb5888987065fd41",
+      "status": "PASS",
+      "action_shape": [
+        1,
+        30,
+        20
+      ],
+      "action_finite": true,
+      "cuda_max_memory_allocated": 3689555456,
+      "elapsed_sec": 17.238553524017334
+    },
+    "full_task8_diagnostic": {
+      "artifact": "runs/xvla_prior/diagnostic_xvla_task8_all_20260717T1705KST/result.json",
+      "artifact_sha256": "b13423bac4bb3f06c74611c42bf7b817cdfa586f1b5e4c3f05e9b73e270a5ef3",
+      "task_suite": "libero_10",
+      "task_id": 8,
+      "task_description": "put both moka pots on the stove",
+      "reset_identities": [
+        20260716,
+        20260717,
+        20260718,
+        20260719,
+        20260720,
+        20260721,
+        20260722,
+        20260723
+      ],
+      "initial_state_indices": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "official_protocol": "OffScreenRenderEnv, absolute controller use_delta=false, 10 settle steps, horizon 900, domain_id 3, denoise_steps 10",
+      "completed_episode_count": 8,
+      "successful_episode_count": 8,
+      "infrastructure_failure_count": 0,
+      "failures": [],
+      "steps_by_identity": {
+        "20260716": 363,
+        "20260717": 396,
+        "20260718": 373,
+        "20260719": 376,
+        "20260720": 375,
+        "20260721": 375,
+        "20260722": 356,
+        "20260723": 375
+      },
+      "elapsed_seconds": 269.036
+    },
+    "interpretation": "The current task-8 residual is not a valid Ours target because an executable official third-pass prior solves all frozen reset identities."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -1007,5 +1126,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Start a third exact-three official-prior ecosystem selection pass. Do not train or roll out ATCD, do not retune on tested task-8 identities, and do not claim RIPT-VLA or VLA-GSE prior results from source-only/resource-blocked preflights."
+  "next_action": "Do not design Ours on the current libero_10/task_8 residual: X-VLA-Libero solved all frozen task-8 reset identities as an official prior. If continuing Epoch 5, select a new residual condition against the latest executable official prior set, with X-VLA included as a prior baseline."
 }

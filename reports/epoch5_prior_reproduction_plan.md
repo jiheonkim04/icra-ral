@@ -496,3 +496,38 @@ Decision: `SECOND_PASS_PRIOR_FALLBACKS_BLOCKED_AFTER_LIGHTVLA_NO_GO`.
 Next step: start a third exact-three official-prior ecosystem selection pass.
 Do not claim RIPT-VLA or VLA-GSE prior results from these source-only/resource
 preflights.
+
+## Completed Third-Pass Official Prior Diagnostic
+
+Execution status: `COMPLETE_SOLVED_BY_OFFICIAL_PRIOR`
+
+Third-pass exact-three candidates were X-VLA, VLA-0, and VLA-JEPA. X-VLA was
+selected first because it had the lightest executable LIBERO-relevant official
+checkpoint (`2toINF/X-VLA-Libero`, 15 files / 3.280 GiB) plus a LIBERO-long
+adapter option, while VLA-0 and VLA-JEPA model repositories were about 21.459
+GiB and 22.961 GiB respectively.
+
+Local X-VLA preflight passed:
+
+- source: `C:\assets\repos\X-VLA`, HEAD
+  `6bc2513f5f1cbec715cc668b414392a6cae5c671`;
+- load artifact:
+  `runs/xvla_prior/load_xvla_libero_20260717T1649KST/result.json`;
+- action-smoke artifact:
+  `runs/xvla_prior/action_smoke_xvla_libero_20260717T1654KST/result.json`;
+- runner: `scripts/epoch5_xvla_libero10_task8_eval.py`.
+
+The matched task-8 official-prior diagnostic then completed:
+
+| Policy | Task | Episodes | Successes | Infrastructure failures | Artifact |
+|---|---|---:|---:|---:|---|
+| X-VLA-Libero | `libero_10/task_8` | 8 | 8 | 0 | `runs/xvla_prior/diagnostic_xvla_task8_all_20260717T1705KST/result.json` |
+
+Decision: `X_VLA_SOLVES_CURRENT_TASK8_RESIDUAL_NO_OURS_TARGET`.
+
+Planning consequence: do not design Ours on the current task-8 residual. The
+residual is solved by an executable official prior, including the original
+OpenVLA-OFT failures `20260721` and `20260722` and the LightVLA failures
+`20260716` and `20260723`. A fair continuation must select a new residual
+condition against the latest executable official-prior set, with X-VLA included
+as a prior baseline.
