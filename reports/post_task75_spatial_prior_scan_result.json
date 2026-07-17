@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T02:29:22+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan_launch": "05a0537db811b3684eb06568ea39c350ee47353e",
+  "decision": "POST_TASK75_LIBERO_SPATIAL_IDENTITY20260725_XVLA_PRIOR_SATURATED",
+  "suite": "libero_spatial",
+  "task_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "reset_identity": 20260725,
+  "initial_state_index": 14,
+  "identity_mapping_rule": "initial_state_index = reset_identity - 20260711 unless identity is in the frozen task-8 map",
+  "run_dir": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST",
+  "worker_command": "wsl -d Ubuntu-22.04 --cd \"/mnt/c/Users/jiheo/tca_map\" -- bash scripts/run_xvla_prior_failure_scan_identity_worker.sh \"20260725\" \"runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST\" \"0\" \"10\" \"libero_spatial\"",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_repo": "C:/assets/repos/X-VLA",
+    "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_wsl_pid": 4056,
+    "wsl_worker_pid": 314,
+    "peak_vram_mib": 3518.634,
+    "model_forward_count": 39,
+    "model_forward_count_source": "sum of episode.action_chunk_count across 10 task results",
+    "simulator_episode_count": 10
+  },
+  "result": {
+    "task_count": 10,
+    "completed_task_count": 10,
+    "successful_task_count": 10,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "total_env_steps": 1029,
+    "total_action_chunks": 39,
+    "residual_target_created": false,
+    "base_gate_triggered": false,
+    "headroom_gate_triggered": false,
+    "second_prior_gate_triggered": false,
+    "ours_candidate_authorized": false,
+    "training_authorized": false
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_summary.json",
+      "sha256": "ac9b3351e794aa3fb3ecc6466a5631b55872389a52244ee16c2b1e2992015d3f"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_manifest.json",
+      "sha256": "8a91adb9dafe01fce9c36ff5373620fb40e1ea603be9b295b2d2b3572a1d81e3"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/exact_resume_command.txt",
+      "sha256": "4401604242027edb088e98a93f5bab07ec5eb24bbf860bcc101c85900fed8317"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_status.txt",
+      "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1",
+      "status": "complete"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_heartbeat.txt",
+      "sha256": "ec25ee52ecfc954c6dcbd3f3ee6233ce8d56b584588416e85d46b57ed8922e46",
+      "heartbeat_at": "2026-07-18T02:24:11+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/windows_wsl_pid.txt",
+      "sha256": "b100702836953c66833b0dd4bdda87acf61022c01cf6255ffd3a524e27096cb6"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260725_post_task75_block_20260718T0220KST/scan_worker_pid.txt",
+      "sha256": "79d03872c65b8680b09df96eeb31d4713d439108f1bad6a0bf53369a4bb30c7a"
+    }
+  ],
+  "per_task_result_hashes": [
+    {"task_id": 0, "success": true, "steps": 79, "action_chunk_count": 3, "sha256": "f9e38d4d03c3ac1ee87769a4c27e8959ee06aa7268a6e3e8dd5aaeced3d20e2f"},
+    {"task_id": 1, "success": true, "steps": 109, "action_chunk_count": 4, "sha256": "2f286177047d83ca64b9da1f9973cfed8cac26d2639d612799c9bd8a914cd1e2"},
+    {"task_id": 2, "success": true, "steps": 97, "action_chunk_count": 4, "sha256": "ac2d1210aa4f0963d94af604b9517da4dd788fd8c2ee915155def7a6046f4b5b"},
+    {"task_id": 3, "success": true, "steps": 85, "action_chunk_count": 3, "sha256": "b43321e8139c854f18363e5ce7e0d1d724e3892375af998d97cc83f1f2ce4e95"},
+    {"task_id": 4, "success": true, "steps": 130, "action_chunk_count": 5, "sha256": "1f4cd09d9e43979ea7f8e0d69947a0fb626a677601df50f3f8f349b76746caf7"},
+    {"task_id": 5, "success": true, "steps": 96, "action_chunk_count": 4, "sha256": "329e7f1f73eb208b6ebffa237d1b2201ebb3365f28c42a1b7c0b9d02cc2276ce"},
+    {"task_id": 6, "success": true, "steps": 109, "action_chunk_count": 4, "sha256": "0a45a882a0c9d60a31c4e4517a575f2d46d6b4e74b8ce355e6f091574a9ee8e5"},
+    {"task_id": 7, "success": true, "steps": 113, "action_chunk_count": 4, "sha256": "f43766effce7ba4a29dd7fb099b7641aac59ade823e34e83725c48d36d5ece40"},
+    {"task_id": 8, "success": true, "steps": 92, "action_chunk_count": 4, "sha256": "1eae13d99c68488d8e3052f93e22c001815c2617044c6f1bdea695b728868b33"},
+    {"task_id": 9, "success": true, "steps": 119, "action_chunk_count": 4, "sha256": "c38a56b3a580f84df41e05f609b0c05e21114c3977bcd498d00780a2713e3e2e"}
+  ],
+  "next_action": "Do not open a libero_spatial identity 20260725 Ours target. Continue official-prior-first residual search in another preregistered supported suite/reset without restarting prior setup."
+}

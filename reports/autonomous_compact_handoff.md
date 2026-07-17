@@ -5,7 +5,7 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- HEAD at last evidence write: `cec12df369e27b6b92985fe426baefb7d9b6253c` plus local tracked task75 result files.
+- Last pushed task75 decision HEAD: `05a0537db811b3684eb06568ea39c350ee47353e`.
 - Epoch/cycle: `5 / 0`
 - Current decision: `TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED`
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
@@ -19,6 +19,16 @@ Updated: 2026-07-18 KST
 - Do not treat prior failure, prior success, headroom, or uniform-ablation success as Ours.
 - Do not design or train Ours until Base, first prior, valid second prior, repeated residual, and headroom gates are satisfied.
 - Keep this file under 250 lines and preserve ignored `rollouts/` and `runs/` artifacts.
+
+## Comparator-Role Clarification
+
+Durable addendum:
+`reports/comparator_role_calibration.md`
+
+- This is a clarification, not a new epoch.
+- It does not reopen frozen non-GO decisions or loosen official-prior-first gates.
+- For future unfrozen Ours results, Base/Prior/Ablation/Control must be interpreted by scientific role rather than as a single universal max-score threshold.
+- If a future result was explicitly frozen under a universal beat-all scalar rule, report both `FROZEN_PROTOCOL_DECISION` and `CALIBRATED_SCIENTIFIC_INTERPRETATION`.
 
 ## Audit Baseline
 
@@ -91,14 +101,32 @@ Preflight logs:
 
 Published aggregate numbers are not used as kill thresholds. There is no valid local official/quantized task75 second-prior policy result.
 
+## Post-Task75 Continuation
+
+Durable result:
+`reports/post_task75_spatial_prior_scan_result.json`
+`reports/post_task75_spatial_prior_scan_result.md`
+
+X-VLA official-prior scan on `libero_spatial`, reset identity `20260725`, tasks `0..9`:
+
+- completed 10/10 tasks;
+- succeeded 10/10 tasks;
+- infrastructure failures: 0;
+- summary SHA `ac9b3351e794aa3fb3ecc6466a5631b55872389a52244ee16c2b1e2992015d3f`;
+- manifest SHA `8a91adb9dafe01fce9c36ff5373620fb40e1ea603be9b295b2d2b3572a1d81e3`;
+- exit code `0`;
+- no training, optimizer step, checkpoint write, Ours design, or Ours rollout.
+
+Interpretation: `libero_spatial` identity `20260725` is saturated and does not create an Ours target.
+
 ## Immediate Next Action
 
 Do not design or train task75 Ours.
 
-Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now.
+Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support. A task75 method would require a valid clean second-prior failure plus repeated independent residual evidence; neither exists now. The saturated spatial `20260725` scan should not be re-run.
 
 ## Validation To Run Before Commit
 
-- JSON parse: `reports/task75_local_evidence_manifest.json`, `reports/task75_second_prior_result.json`, `reports/epoch5_prior_reproduction_result.json`
+- JSON parse: `reports/task75_local_evidence_manifest.json`, `reports/task75_second_prior_result.json`, `reports/post_task75_spatial_prior_scan_result.json`, `reports/epoch5_prior_reproduction_result.json`
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`

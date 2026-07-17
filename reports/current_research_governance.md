@@ -44,6 +44,20 @@ There is no finite global method-cycle limit. A failed method does not terminate
 - resource monitoring
 - no destructive, paid, credentialed, license-gated, or externally irreversible actions
 
+## Comparator-Role Calibration
+
+Active addendum: `reports/comparator_role_calibration.md`.
+
+This clarification is not a new epoch and is not retroactive to frozen non-GO decisions. For future unfrozen protocols, do not interpret Base, closest Prior, key Ablation, and simple Control as interchangeable entries in a single universal max-score threshold. Each comparator blocks only the claim it was included to test:
+
+- Base tests improvement over the backbone on the prespecified claim axis, with clean retention handled by the frozen margin or an explicit tradeoff claim.
+- Closest Prior tests a matched local prior advance on the same claim axis or a prespecified Pareto axis.
+- Key Ablation tests whether the claimed component is responsible for the effect.
+- Simple Control tests whether a trivial or substantially simpler explanation accounts for the gain.
+- Standard LoRA is included only when generic adaptation is a plausible alternative explanation under a matched setup; it remains implementation infrastructure unless the paper explicitly claims an adaptation algorithm.
+
+If a future experiment is already running under a frozen universal beat-all scalar rule, finish it unchanged and report both `FROZEN_PROTOCOL_DECISION` and `CALIBRATED_SCIENTIFIC_INTERPRETATION`. Do not convert a frozen non-GO into GO post hoc.
+
 ## Epoch And Method Governance
 
 Researcher A must freeze and hash a proposal before Reviewer B begins. Reviewer B independently searches closest primary sources, attacks novelty, identifies direct and simple killer baselines, and checks leakage or trivial equivalence. Governor C enforces this file, prevents premature termination, blocks underpowered permanent kills, and forces epoch pivots after related failures.
