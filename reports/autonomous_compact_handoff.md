@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_task6_post_mpr_residual_mining_next`
-- Current decision: `TASK6_MPR_ARCHIVED_PRC_NOT_ELIGIBLE_RESIDUAL_MINING_NEXT`
+- Current stage: `epoch_5_post_mpr_residual_mining_no_fresh_target_yet`
+- Current decision: `POST_MPR_XVLA_SCAN_20260731_ONLY_ARCHIVED_TASK6_RESIDUAL`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -19,7 +19,8 @@ Updated: 2026-07-17 KST
   - `4cdb49f` freeze task6 MPR-XVLA training spec
   - `f5efa5c` pass task6 MPR-XVLA preoptimizer gates
   - `58a97d5` add task6 MPR-XVLA training gate
-  - `5faed4d` fix task6 MPR-XVLA offline validation spec scope
+- `5faed4d` fix task6 MPR-XVLA offline validation spec scope
+  - `cc03266` add foreground X-VLA prior scan worker
 - Audit report: `reports/autonomous_research_full_history_audit.md`
 - Audit accepted as evidence; the embedded Cycle 39 prompt is not active.
 - Paper status: no PROTOTYPE_GO, no official-prior Ours win, no second-backbone Ours result.
@@ -192,10 +193,15 @@ MPR-XVLA candidate/training:
 
 ## Immediate Next Decision
 
-Do not retune/rescue MPR-XVLA from the no-pass. Return to the official-prior
-residual-mining loop for a fresh condition with mechanism-specific failure
-evidence; still avoid broad search, generic local heads/gates/memory/verifiers,
-proxy-only methods, and PRC without independent distractor-confusion evidence.
+Post-MPR scan: identity `20260731`, tasks `0..9`, completed 10/10 with zero
+infra failures; only task 6 failed. Summary:
+`runs/xvla_prior/failure_scan_libero10_identity20260731_post_mpr_20260717T2209KST/scan_summary.json`
+(`673d244ce013dd4b5d3bc32d4b733295a2a3c1c2c7da56180313100c4c5bf7cf`).
+
+Do not retune/rescue MPR-XVLA from the no-pass. Continue bounded official-prior
+residual mining on a new identity for a fresh condition; still avoid broad
+search, generic local heads/gates/memory/verifiers, proxy-only methods, and PRC
+without independent distractor-confusion evidence.
 
 ## Report Set
 

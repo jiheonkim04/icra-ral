@@ -1756,3 +1756,25 @@ mug is a stable off-plate distractor in demonstrations. It does not show that
 the official prior failures are caused by red-mug confusion. The next action is
 therefore bounded official-prior residual mining for a fresh condition, not a
 contrast-method rescue.
+
+## Post-`MPR-XVLA` X-VLA Prior Residual Scan
+
+Status: `COMPLETE_NO_FRESH_TARGET`.
+
+Decision: `POST_MPR_XVLA_SCAN_20260731_ONLY_TASK6_FAILED`.
+
+Bounded official-prior residual mining was run with X-VLA-Libero at reset
+identity `20260731` across `libero_10` tasks `0..9`. This was launched via a
+Windows `Start-Process wsl.exe` hidden foreground worker; no training,
+optimizer step, checkpoint, or closed-loop Ours evaluation happened.
+
+| Artifact | SHA-256 |
+|---|---|
+| Manifest: `runs/xvla_prior/failure_scan_libero10_identity20260731_post_mpr_20260717T2209KST/scan_manifest.json` | `29c0782311d12d3c299634b392aabc5caf005339872cd10a33dc43ad620c76b2` |
+| Summary: `runs/xvla_prior/failure_scan_libero10_identity20260731_post_mpr_20260717T2209KST/scan_summary.json` | `673d244ce013dd4b5d3bc32d4b733295a2a3c1c2c7da56180313100c4c5bf7cf` |
+| Task-6 result: `runs/xvla_prior/failure_scan_libero10_identity20260731_post_mpr_20260717T2209KST/task_6/result.json` | `5c3f3351686094ef69f206b8e5550b4321f94f664d7544217d16800d498d72d4` |
+
+Result: 10/10 tasks completed with zero infrastructure failures; 9/10
+succeeded. The only failure was task 6, the already-archived `MPR-XVLA` target.
+Therefore this scan reconfirms the task6 residual but does not provide a fresh
+post-MPR target.
