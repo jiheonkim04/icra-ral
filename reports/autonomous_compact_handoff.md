@@ -6,13 +6,14 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_xvla_prior_residual_mining_after_br_xvla_no_pass_complete`
-- Current decision: `X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING`
+- Current stage: `epoch_5_xvla_task6_matched_residual_headroom_complete`
+- Current decision: `TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
   - `5a90911` repair X-VLA optional import boundary
   - `5835ef3` repair X-VLA runner path import
+  - `19177fe` record repaired post-BR-XVLA X-VLA prior scan
 - Audit report: `reports/autonomous_research_full_history_audit.md`
 - Audit accepted as evidence; the embedded Cycle 39 prompt is not active.
 - Paper status: no PROTOTYPE_GO, no official-prior Ours win, no second-backbone Ours result.
@@ -46,6 +47,7 @@ X-VLA:
 - Official X-VLA-Libero loaded from cached HF assets.
 - Task-8 residual was solved by X-VLA; no Ours target there.
 - Task-1 shared residual led to BR-XVLA; BR-XVLA is now closed as a validation no-pass.
+- Task-6 now has matched Base/Prior residual structure and task-level headroom.
 
 ## BR-XVLA Closed-Loop No-Pass
 
@@ -87,7 +89,7 @@ Results:
 | 3 | true | 221 | prior succeeds |
 | 4 | true | 219 | prior succeeds |
 | 5 | true | 180 | prior succeeds |
-| 6 | false | 900 | fresh prior failure; base/headroom pending |
+| 6 | false | 900 | fresh prior failure; matched task-6 diagnostic now complete |
 | 7 | true | 270 | prior succeeds |
 | 8 | true | 368 | prior succeeds |
 | 9 | true | 244 | prior succeeds |
@@ -97,21 +99,54 @@ Invalid attempts to preserve:
 - `...post_brxvla_20260717T2010KST`: invalid infrastructure block, `No module named 'fastapi'`.
 - `...post_brxvla_repaired_20260717T2018KST`: invalid infrastructure block, `No module named 'tca_map'`.
 
+## Task-6 Matched Base/Prior + Headroom
+
+Task: `libero_10/task_6`, identities `20260724..20260731`, indices `13..20`.
+
+Matched window:
+
+- X-VLA prior: 6/8, failures `20260725`, `20260731`.
+- X-VLA result: `runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2043KST/result.json`
+- X-VLA result SHA-256: `d18356bf1a18e4f2053596142d9af13983ffc1ed0ccc74fa525ad4d802ac25aa`
+- SmolVLA base: 3/8, failures `20260724`, `20260725`, `20260727`, `20260730`, `20260731`.
+- Base result: `runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260724_20260731_officialenv_20260717T2047KST/result.json`
+- Base result SHA-256: `749fbc0f25f075902de9e2172c602e99cde020d4b4be735accedbb80c45556c8`
+- Base manifest SHA-256: `19733d8a5490350beba7d4444810e73c90af48c47e21471dca2b5257e0874f89`
+- Shared residuals: `20260725`, `20260731`.
+- X-VLA-only successes: `20260724`, `20260727`, `20260730`.
+- No training, optimizer step, checkpoint, Ours design, or Ours rollout happened.
+
+Headroom script:
+`scripts/epoch5_expert_headroom.py`
+
+- Script SHA-256: `7339d16a9b70665064b437eb7d007d81f6bc99246f0fe28a46b2e33ee321b8b0`
+- `20260725`: positive nearest-demo expert replay, selected `demo_24`, first success 235, same-reset HDF5 matches 0.
+- `20260725` artifact SHA-256: `68b61e5802f6d672d44ab58ee26170cad724fce6c8cc4870065e2b4b2dc7cccd`
+- `20260731`: positive nearest-demo expert replay, selected `demo_6`, first success 217, same-reset HDF5 matches 0.
+- `20260731` artifact SHA-256: `5dac493d0443bb1237b69ca0c0d5c69b2a00259c697de39fe2364550b9d9f49d`
+- Zero-action and default-reset expert replay controls failed for both.
+- Interpretation: recoverable task-level headroom exists, but same-reset HDF5 headroom is unavailable.
+
+Invalid launcher caveat:
+
+- `runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2040KST`: invalid launcher no-result/no-rollout due WSL background session teardown.
+
 ## Immediate Next Gate
 
-Run a matched Base/Prior diagnostic for the fresh task-6 identity-`20260725`
-X-VLA failure, or record a no-go if the structure is unusable.
+Perform narrow task-6 residual characterization, then generate at most two Ours
+candidates around the exact X-VLA task-6 residual.
 
-Required before Ours:
+Still required:
 
-- same task/reset semantics;
-- unmodified Base and selected prior;
-- no training or retuning from BR-XVLA;
-- confirm condition is not floor/saturated;
-- run recoverable headroom if base/prior residual structure is usable.
+- no BR-XVLA rescue/retune;
+- no broad search;
+- no generic local head, residual gate, memory, verifier, cached-feature probe,
+  or proxy-only method;
+- one core mechanism, LoRA/QLoRA only as infrastructure;
+- preserve discovery/validation/confirmatory split.
 
-If task 6 lacks Base/Prior/headroom structure, broaden residual mining under
-official-prior-first rather than inventing a local proxy.
+Do not treat X-VLA gains, X-VLA failures, headroom, or any prior-only result as
+Ours.
 
 ## Report Set
 
@@ -125,6 +160,7 @@ official-prior-first rather than inventing a local proxy.
 
 - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
 - Handoff line count: 134, under the 250-line cap
+- Task-6 update validation pending in this working tree.
 - Scan launcher syntax: pass via WSL `bash -n`
 - X-VLA runner py-compile: pass via official WSL env
 - Focused scan tests: none found

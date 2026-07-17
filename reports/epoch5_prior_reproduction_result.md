@@ -5,7 +5,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 ## Result
 
 Current decision:
-`X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING`.
+`TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -49,8 +49,12 @@ After archiving BR-XVLA as a validation no-pass, a detached X-VLA prior-only
 scan over all LIBERO-10 tasks at reset identity `20260725` completed cleanly.
 It found X-VLA failures on task 1 and task 6. Task 1 is already a known
 X-VLA-regression identity where SmolVLA base succeeded, so it is not an active
-Ours target. Task 6 is the only fresh candidate from this scan, and it requires
-matched Base/Prior plus recoverable-headroom diagnostics before any Ours design.
+Ours target. Task 6 is the fresh candidate from this scan. A matched
+Base/Prior window now confirms usable residual structure: X-VLA improves over
+SmolVLA base (`6/8` versus `3/8`) while leaving shared residual failures at
+`20260725` and `20260731`. Both shared failures have positive task-level HDF5
+expert replay headroom, but no same-reset HDF5 demo init-state match was
+available.
 
 ## Validation Commands
 
@@ -1339,8 +1343,76 @@ Invalid infrastructure attempts preserved for audit:
 | `runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_20260717T2010KST` | `INVALID_INFRASTRUCTURE_BLOCKED` | X-VLA serving-only dependency import reached `fastapi` before import shims. |
 | `runs/xvla_prior/failure_scan_libero10_identity20260725_post_brxvla_repaired_20260717T2018KST` | `INVALID_INFRASTRUCTURE_BLOCKED` | Script-by-path execution lacked repo root on `sys.path`, causing `No module named 'tca_map'`. |
 
-Next action: use this scan only as residual-mining evidence. Do not retune
-BR-XVLA, do not treat task-1 identity `20260725` as an Ours target, and do not
-design Ours yet. The next authorized scientific step is a matched Base/Prior
-plus headroom diagnostic for the fresh task-6 identity-`20260725` X-VLA
-failure, or a documented no-go if that structure is not usable.
+## Task-6 Matched Base/Prior Residual Diagnostic
+
+Status: `COMPLETE_RESIDUAL_STRUCTURE_CONFIRMED`.
+
+Decision at this gate:
+`TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING_AT_RUN_TIME`.
+
+Task: `libero_10/task_6`, "put the white mug on the plate and put the chocolate
+pudding to the right of the plate".
+
+Window: reset identities `20260724..20260731`, initial-state indices `13..20`.
+This was not training and not an Ours evaluation.
+
+| Policy | Completed | Successes | Failures | Infrastructure failures | Artifact | SHA-256 |
+|---|---:|---:|---|---:|---|---|
+| X-VLA prior | 8/8 | 6/8 | `20260725`, `20260731` | 0 | `runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2043KST/result.json` | `d18356bf1a18e4f2053596142d9af13983ffc1ed0ccc74fa525ad4d802ac25aa` |
+| SmolVLA frozen base | 8/8 | 3/8 | `20260724`, `20260725`, `20260727`, `20260730`, `20260731` | 0 | `runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260724_20260731_officialenv_20260717T2047KST/result.json` | `749fbc0f25f075902de9e2172c602e99cde020d4b4be735accedbb80c45556c8` |
+
+SmolVLA base manifest:
+`runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260724_20260731_officialenv_20260717T2047KST/manifest.json`,
+SHA-256 `19733d8a5490350beba7d4444810e73c90af48c47e21471dca2b5257e0874f89`.
+
+Per-identity interpretation:
+
+| Reset identity | Base | X-VLA | Interpretation |
+|---:|---:|---:|---|
+| `20260724` | fail | success | X-VLA-only success |
+| `20260725` | fail | fail | shared residual failure |
+| `20260726` | success | success | both succeed |
+| `20260727` | fail | success | X-VLA-only success |
+| `20260728` | success | success | both succeed |
+| `20260729` | success | success | both succeed |
+| `20260730` | fail | success | X-VLA-only success |
+| `20260731` | fail | fail | shared residual failure |
+
+Interpretation: task 6 now satisfies the official-prior-first structure:
+Base has meaningful failures, the official prior improves the condition, and a
+measurable residual gap remains. This is not an Ours result.
+
+Launcher caveat: an earlier `20260717T2040KST` attempt used a WSL background
+child that was torn down when the shell session exited. It produced no
+`result.json`, no exit code, and no simulator rows, so it is classified as
+`INVALID_LAUNCHER_NO_RESULT_NO_ROLLOUT`, not a scientific run.
+
+## Task-6 Expert Headroom Diagnostics
+
+Status: `COMPLETE_TASK_LEVEL_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+
+Decision:
+`TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+
+Script: `scripts/epoch5_expert_headroom.py`, SHA-256
+`7339d16a9b70665064b437eb7d007d81f6bc99246f0fe28a46b2e33ee321b8b0`.
+
+The diagnostic checked the two shared task-6 residual failures. For both
+identities, the benchmark residual init-state SHA matched the expected value,
+but no HDF5 demo had the same init-state SHA. The nearest-demo exact expert
+replay succeeded for both; zero action and default-reset expert replay did not.
+
+| Reset identity | Residual init SHA-256 | Same-reset HDF5 matches | Selected demo | L2 to residual init | Exact expert replay | First success | Zero action | Default-reset replay | Artifact SHA-256 |
+|---:|---|---:|---|---:|---:|---:|---:|---:|---|
+| `20260725` | `47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82` | 0 | `demo_24` | 0.286668634 | success | 235 | false | false | `68b61e5802f6d672d44ab58ee26170cad724fce6c8cc4870065e2b4b2dc7cccd` |
+| `20260731` | `4f63fc206bad261b4721178ee1859e47c3111c119b2ef428e8d296ae7c0069e3` | 0 | `demo_6` | 0.283710624 | success | 217 | false | false | `5dac493d0443bb1237b69ca0c0d5c69b2a00259c697de39fe2364550b9d9f49d` |
+
+Interpretation: this avoids a no-headroom/no-recoverability stop for task 6,
+but it is weaker than a same-reset oracle. It authorizes narrow task-6 residual
+characterization and at most two candidates around the exact X-VLA task-6
+residual; it does not authorize a broad method search or BR-XVLA retuning.
+
+Next action: perform narrow task-6 residual characterization, then generate at
+most two Ours candidates around this exact X-VLA task-6 residual. Do not create
+generic local heads, residual gates, memory, verifier/proxy-only methods, or
+any BR-XVLA rescue/retune.

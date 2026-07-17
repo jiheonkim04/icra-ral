@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_xvla_prior_residual_mining_after_br_xvla_no_pass_complete",
-  "decision": "X_VLA_POST_BRXVLA_RESIDUAL_SCAN_FOUND_FAILURES_BASE_MATCH_PENDING",
+  "stage": "epoch_5_xvla_task6_matched_residual_headroom_complete",
+  "decision": "TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -38,6 +38,9 @@
   "post_brxvla_xvla_prior_failure_scan_happened": true,
   "post_brxvla_xvla_prior_failure_scan_training_happened": false,
   "post_brxvla_xvla_prior_failure_scan_ours_design_happened": false,
+  "task6_matched_base_prior_diagnostic_happened": true,
+  "task6_headroom_diagnostic_happened": true,
+  "task6_ours_design_happened": false,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -130,6 +133,15 @@
     "git_diff_check": "PASS with LF/CRLF warnings only",
     "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1",
     "direct_tree_check_invocation": "BLOCKED_BY_LOCAL_POWERSHELL_EXECUTION_POLICY"
+  },
+  "validation_after_task6_matched_residual_headroom_update": {
+    "json_parse": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m json.tool",
+    "compact_handoff_lines": 131,
+    "headroom_script_py_compile_windows": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m py_compile scripts\\epoch5_expert_headroom.py",
+    "headroom_script_py_compile_wsl_official": "PASS via /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile scripts/epoch5_expert_headroom.py",
+    "focused_pytest": "NO_FOCUSED_TESTS_RUN; script validation was py_compile only",
+    "git_diff_check": "PASS with LF/CRLF warnings only",
+    "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1"
   },
   "validation_after_training_spec_freeze": {
     "training_spec_json_parse": "PASS",
@@ -1971,6 +1983,225 @@
     ],
     "interpretation": "The repaired scan cleanly completed and found two X-VLA prior failures at reset identity 20260725. This is residual mining only: no Ours method, training, optimizer step, checkpoint, or closed-loop Ours evaluation happened. Task 1 is already a known X-VLA regression identity where SmolVLA base succeeded, so it is not an active Ours target. Task 6 is the only fresh candidate from this scan and requires matched Base/Prior and headroom diagnostics before any method design."
   },
+  "task6_matched_base_prior_diagnostic": {
+    "status": "COMPLETE_RESIDUAL_STRUCTURE_CONFIRMED",
+    "decision": "TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING_AT_RUN_TIME",
+    "purpose": "Verify that the fresh task-6 X-VLA prior failure is not a one-off artifact before any Ours design.",
+    "task_suite": "libero_10",
+    "task_id": 6,
+    "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "reset_identity_window": [
+      20260724,
+      20260725,
+      20260726,
+      20260727,
+      20260728,
+      20260729,
+      20260730,
+      20260731
+    ],
+    "initial_state_indices": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "single_identity_seed_base_check_20260725": {
+      "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260725_officialenv_20260717T2045KST/result.json",
+      "artifact_sha256": "426c71a3f7d8ec5f821a9c1ef0eb480e787570b44bca3fbc2b7ae1bd46f91018",
+      "manifest": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260725_officialenv_20260717T2045KST/manifest.json",
+      "manifest_sha256": "340ec5903094f86210433ee0884b65ca63f1923b8e0b3b284a077b02ea991d8f",
+      "run_success_means_infrastructure_completed": true,
+      "policy_success": false,
+      "env_steps": 520,
+      "reward": 0.0,
+      "initial_state_sha256": "47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82",
+      "interpretation": "Seed check only; superseded by the matched eight-reset Base/Prior window below."
+    },
+    "xvla_prior": {
+      "artifact": "runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2043KST/result.json",
+      "artifact_sha256": "d18356bf1a18e4f2053596142d9af13983ffc1ed0ccc74fa525ad4d802ac25aa",
+      "run_dir": "runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2043KST",
+      "launcher": "Windows Start-Process wsl.exe hidden worker",
+      "exit_code": 0,
+      "completed": 8,
+      "successes": 6,
+      "failures": [
+        20260725,
+        20260731
+      ],
+      "infrastructure_failures": 0,
+      "elapsed_seconds": 165.697
+    },
+    "smolvla_base": {
+      "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260724_20260731_officialenv_20260717T2047KST/result.json",
+      "artifact_sha256": "749fbc0f25f075902de9e2172c602e99cde020d4b4be735accedbb80c45556c8",
+      "manifest": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260724_20260731_officialenv_20260717T2047KST/manifest.json",
+      "manifest_sha256": "19733d8a5490350beba7d4444810e73c90af48c47e21471dca2b5257e0874f89",
+      "run_dir": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task6_id20260724_20260731_officialenv_20260717T2047KST",
+      "launcher": "Windows Start-Process wsl.exe hidden worker",
+      "exit_code": 0,
+      "completed": 8,
+      "successes": 3,
+      "failures": [
+        20260724,
+        20260725,
+        20260727,
+        20260730,
+        20260731
+      ],
+      "infrastructure_failures": 0,
+      "elapsed_seconds": 209.345
+    },
+    "per_identity": [
+      {
+        "reset_identity": 20260724,
+        "initial_state_index": 13,
+        "smolvla_base_success": false,
+        "xvla_prior_success": true,
+        "interpretation": "X-VLA-only success"
+      },
+      {
+        "reset_identity": 20260725,
+        "initial_state_index": 14,
+        "smolvla_base_success": false,
+        "xvla_prior_success": false,
+        "initial_state_sha256": "47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82",
+        "interpretation": "shared residual failure"
+      },
+      {
+        "reset_identity": 20260726,
+        "initial_state_index": 15,
+        "smolvla_base_success": true,
+        "xvla_prior_success": true,
+        "interpretation": "both succeed"
+      },
+      {
+        "reset_identity": 20260727,
+        "initial_state_index": 16,
+        "smolvla_base_success": false,
+        "xvla_prior_success": true,
+        "interpretation": "X-VLA-only success"
+      },
+      {
+        "reset_identity": 20260728,
+        "initial_state_index": 17,
+        "smolvla_base_success": true,
+        "xvla_prior_success": true,
+        "interpretation": "both succeed"
+      },
+      {
+        "reset_identity": 20260729,
+        "initial_state_index": 18,
+        "smolvla_base_success": true,
+        "xvla_prior_success": true,
+        "interpretation": "both succeed"
+      },
+      {
+        "reset_identity": 20260730,
+        "initial_state_index": 19,
+        "smolvla_base_success": false,
+        "xvla_prior_success": true,
+        "interpretation": "X-VLA-only success"
+      },
+      {
+        "reset_identity": 20260731,
+        "initial_state_index": 20,
+        "smolvla_base_success": false,
+        "xvla_prior_success": false,
+        "initial_state_sha256": "4f63fc206bad261b4721178ee1859e47c3111c119b2ef428e8d296ae7c0069e3",
+        "interpretation": "shared residual failure"
+      }
+    ],
+    "structure_summary": {
+      "base_failure_is_meaningful": true,
+      "prior_improves_over_base": "X-VLA 6/8 versus SmolVLA base 3/8",
+      "prior_leaves_measurable_residual": "X-VLA fails identities 20260725 and 20260731",
+      "base_succeeds_prior_fails_count": 0,
+      "xvla_only_successes": [
+        20260724,
+        20260727,
+        20260730
+      ],
+      "shared_residual_failures": [
+        20260725,
+        20260731
+      ],
+      "interpretation": "Task 6 satisfies the preferred official-prior-first structure: Base fails on a meaningful subset, X-VLA improves the window, and a residual gap remains on two shared failures. This is not an Ours result."
+    },
+    "invalid_launcher_no_result_attempts": [
+      {
+        "run_dir": "runs/xvla_prior/diagnostic_xvla_libero10_task6_id20260724_20260731_20260717T2040KST",
+        "classification": "INVALID_LAUNCHER_NO_RESULT_NO_ROLLOUT",
+        "reason": "WSL background child was torn down when the session exited; no result.json, no exit code, and no simulator rows were produced."
+      }
+    ]
+  },
+  "task6_expert_headroom_diagnostics": {
+    "status": "COMPLETE_TASK_LEVEL_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "decision": "TASK6_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "script": "scripts/epoch5_expert_headroom.py",
+    "script_sha256": "7339d16a9b70665064b437eb7d007d81f6bc99246f0fe28a46b2e33ee321b8b0",
+    "scope": "bounded task-level HDF5 expert replay diagnostic for shared task-6 Base/Prior residual failures",
+    "hdf5_path": "/mnt/c/assets/data/libero/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_demo.hdf5",
+    "same_reset_headroom_available": false,
+    "same_reset_unavailability_reason": "No task-6 HDF5 demo init-state SHA-256 matched either benchmark residual initial-state SHA-256.",
+    "task_level_expert_headroom_positive": true,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "diagnostics": [
+      {
+        "reset_identity": 20260725,
+        "initial_state_index": 14,
+        "artifact": "runs/xvla_prior/diagnostic_task6_expert_headroom_20260725_20260717T2050KST/result.json",
+        "artifact_sha256": "68b61e5802f6d672d44ab58ee26170cad724fce6c8cc4870065e2b4b2dc7cccd",
+        "residual_initial_state_sha256": "47a0a589a343a89446f23421036719e5afd5bfd6fb1fc975c9a3546d867c3c82",
+        "computed_hash_matches_expected": true,
+        "same_reset_demo_match_count": 0,
+        "selected_demo": "demo_24",
+        "selected_demo_initial_state_sha256": "b59012b63813193f9f1d36e8781b6e0f66e45b3148ba5c254bc4cf313177e5f0",
+        "selected_demo_l2_to_residual_init": 0.286668634,
+        "selection_reason": "nearest_hdf5_demo_init_state_by_l2_no_hash_match",
+        "exact_expert_replay_success": true,
+        "exact_expert_first_success_index": 235,
+        "exact_expert_reward_sum": 1.0,
+        "zero_action_succeeded": false,
+        "default_reset_expert_replay_succeeded": false,
+        "upper_headroom_indicates_recoverability": "TASK_LEVEL_POSITIVE_SAME_RESET_UNAVAILABLE"
+      },
+      {
+        "reset_identity": 20260731,
+        "initial_state_index": 20,
+        "artifact": "runs/xvla_prior/diagnostic_task6_expert_headroom_20260731_20260717T2055KST/result.json",
+        "artifact_sha256": "5dac493d0443bb1237b69ca0c0d5c69b2a00259c697de39fe2364550b9d9f49d",
+        "residual_initial_state_sha256": "4f63fc206bad261b4721178ee1859e47c3111c119b2ef428e8d296ae7c0069e3",
+        "computed_hash_matches_expected": true,
+        "same_reset_demo_match_count": 0,
+        "selected_demo": "demo_6",
+        "selected_demo_initial_state_sha256": "3f4218ef9008f56e56f28a4a0be16778294dc4d4efb1a1e738a6eb560b9fdc21",
+        "selected_demo_l2_to_residual_init": 0.283710624,
+        "selection_reason": "nearest_hdf5_demo_init_state_by_l2_no_hash_match",
+        "exact_expert_replay_success": true,
+        "exact_expert_first_success_index": 217,
+        "exact_expert_reward_sum": 1.0,
+        "zero_action_succeeded": false,
+        "default_reset_expert_replay_succeeded": false,
+        "upper_headroom_indicates_recoverability": "TASK_LEVEL_POSITIVE_SAME_RESET_UNAVAILABLE"
+      }
+    ],
+    "interpretation": "Both shared task-6 residual failures have positive task-level expert replay evidence, but neither has same-reset HDF5 evidence. This is enough to avoid a no-headroom/no-recoverability stop, but it is not an Ours result and not a same-reset oracle."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -2022,5 +2253,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Use the completed post-BR-XVLA X-VLA prior scan only as residual-mining evidence. Do not retune BR-XVLA, do not treat task-1 identity 20260725 as an Ours target, and do not design Ours yet. The next authorized scientific step is a matched Base/Prior plus headroom diagnostic for the fresh task-6 identity-20260725 X-VLA failure, or a documented no-go if base/prior/headroom structure is not usable."
+  "next_action": "Task 6 now has matched Base/Prior residual structure plus positive task-level headroom with same-reset HDF5 unavailable. The next authorized scientific step is narrow task-6 residual characterization followed by at most two Ours candidates around the exact X-VLA task-6 residual; no broad search, BR-XVLA retune, generic local head, residual gate, memory, verifier, cached-feature probe, or proxy-only method."
 }
