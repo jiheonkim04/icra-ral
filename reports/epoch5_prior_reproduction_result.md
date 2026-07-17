@@ -4,7 +4,10 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`
+Current decision:
+`TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+
+Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
 Epoch 5 completed the selected-prior-first diagnostic sequence before Ours
 design, then generated exactly two Ours candidates and selected `R2R-OFT`.
@@ -30,6 +33,10 @@ The smallest available upper/headroom check was then run as a task-level HDF5
 expert replay on `libero_10/task_8`. It succeeded, but it is not a same-reset
 upper bound because local HDF5 demo init-state hashes do not match the frozen
 benchmark initial-state hashes used in the Base/Prior diagnostic.
+
+After X-VLA solved the task-8 residual, a fresh task-1 residual was found and
+matched against SmolVLA base. The shared failure `20260727` now has positive
+task-level expert headroom, again with same-reset HDF5 evidence unavailable.
 
 ## Validation Commands
 
@@ -975,3 +982,38 @@ Interpretation: X-VLA is a valid stronger official prior overall, but it leaves
 two residual failures. The cleanest headroom target is the shared failure
 `20260727`; `20260725` must be handled separately because the base policy
 already succeeds there. Do not design Ours until residual headroom is verified.
+
+## Task-1 Headroom Diagnostic
+
+Decision:
+`TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+
+Artifact:
+`runs/xvla_prior/diagnostic_task1_expert_headroom_20260727_20260717T180914KST/result.json`.
+
+Script: `scripts/epoch5_task1_expert_headroom.py`.
+
+The diagnostic targeted the matched Base/Prior shared failure `20260727`, which
+maps to LIBERO-10 task-1 initial-state index `16`. The benchmark residual
+initial-state SHA-256 was confirmed as
+`bb8073f96294281b7008501d0b6ebdec3668f90448421c5937b58f57c1b8c5e2`.
+
+| Check | Result |
+|---|---|
+| Task HDF5 demos scanned | 50 |
+| Same-reset HDF5 init-state matches | 0 |
+| Selected replay demo | `demo_48` |
+| Selection reason | nearest HDF5 demo init-state by L2; no hash match |
+| Selected demo L2 to benchmark residual init | 1.309200905 |
+| Exact replay success | true |
+| Exact replay reward / done / success step | 246 / 246 / 246 |
+| Exact replay reward sum | 1.0 |
+| `after_set_state_l2_to_selected_hdf5_init` | 0.0 |
+| Zero-action exact-init control succeeded | false |
+| Default-reset expert replay succeeded | false |
+
+Interpretation: the task is not unrecoverable under expert actions, so the
+shared task-1 residual is allowed to proceed to narrow Ours design. The caveat
+is material: there is no same-reset HDF5 expert upper bound for `20260727`.
+The base-only success / X-VLA regression identity `20260725` remains out of
+scope for Ours unless separately governed.

@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_xvla_task1_matched_base_prior_complete`
-- Current decision: `TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING`
+- Current stage: `epoch_5_xvla_task1_headroom_complete`
+- Current decision: `TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -18,8 +18,9 @@ Updated: 2026-07-17 KST
 
 - Full audit: `reports/autonomous_research_full_history_audit.md`
 - Audit commit: `b0ecb6ea5f6eba2953b5bd842883c0474d634dff`
-- Refreshed audit commit on this branch: `541c82259db2b37adfe3894d2776235302e1c536`
-- Audit totals: 73 routes, 47 formal methods, 31 trained/checkpointed routes, 17 Stage A, 10 Stage B, 0 GO, 0 second-backbone Ours, 0 formal Ours official-prior wins.
+- Refreshed audit commit on this branch: `f0e555b4a4ea9d36db3b26b06b102933dce33398`
+- Audit totals: 87 ledger rows, no missing local evidence paths, 0 formal
+  Ours official-prior wins.
 
 ## Epoch 5 Artifacts
 
@@ -74,13 +75,15 @@ Headroom diagnostic:
 
 ## Current Scientific Meaning
 
-The required Base/Prior residual structure is present:
+The original task-8 residual was solved by executable official prior X-VLA, so
+it is no longer an Ours target. Fresh task-1 mining found a stronger-prior
+residual with matched Base/Prior structure:
 
-Base fails -> OpenVLA-OFT improves -> residual remains on task 8.
+SmolVLA base fails and X-VLA fails on shared identity `20260727`; X-VLA still
+improves overall on the 8-reset window.
 
-The condition is not classified as too severe because task-level expert
-headroom is positive. However, same-reset upper-bound evidence is unavailable,
-so Ours claims must stay narrow and explicitly carry that caveat.
+Task-level expert headroom is positive for task 1, but same-reset upper-bound
+evidence is unavailable. Ours claims must stay narrow and carry this caveat.
 
 ## Selected Method and Completed Checks
 
@@ -230,13 +233,30 @@ Post-X-VLA residual search:
 - task-1 description: put both the cream cheese box and the butter in the
   basket; identities `20260724..20260731`, initial-state indices `13..20`.
 
-Next: run residual headroom before Ours; prioritize shared failure `20260727`.
+Task-1 headroom:
+
+- script: `scripts/epoch5_task1_expert_headroom.py`;
+- artifact:
+  `runs/xvla_prior/diagnostic_task1_expert_headroom_20260727_20260717T180914KST/result.json`;
+- residual: identity `20260727`, initial-state index `16`, hash
+  `bb8073f96294281b7008501d0b6ebdec3668f90448421c5937b58f57c1b8c5e2`;
+- HDF5 demos scanned: 50; same-reset hash matches: 0;
+- selected task-level replay demo: `demo_48`, nearest by init-state L2
+  1.309200905;
+- exact replay succeeded: reward/done/success at step 246, reward sum 1.0;
+- `after_set_state_l2_to_selected_hdf5_init = 0.0`;
+- zero-action exact-init and default-reset controls did not succeed;
+- decision:
+  `TASK1_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
+
+Next: proceed to narrow task-1 Ours candidate design only for shared failure
+`20260727`, carrying the task-level-positive/same-reset-unavailable caveat.
 Treat `20260725` separately because SmolVLA Base already succeeds there.
 
 ## Prohibitions
 
-- Do not design Ours before matched Base/Prior diagnostics and headroom for the
-  currently selected residual candidate.
+- Do not design Ours outside the task-1 `20260727` shared residual without new
+  matched Base/Prior/headroom evidence.
 - Do not generate three local method candidates.
 - Do not reopen CAVM, CALA, RAR, MCI, CSPR, or governance-closed routes.
 - Do not create generic cached-feature residuals, gates, history heads,
