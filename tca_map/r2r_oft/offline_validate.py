@@ -118,7 +118,7 @@ def _predict_rows(
     os.environ.setdefault("HF_DATASETS_OFFLINE", "1")
 
     import torch
-    from peft import PeftModel
+    from peft import PeftModel, prepare_model_for_kbit_training
     from prismatic.models.backbones.llm.prompting import PurePromptBuilder
     from prismatic.training.train_utils import get_current_action_mask, get_next_actions_mask
     from prismatic.util.data_utils import PaddedCollatorForActionPrediction
@@ -149,6 +149,7 @@ def _predict_rows(
         num_trials_per_task=1,
     )
     vla = get_vla(gen_cfg)
+    vla = prepare_model_for_kbit_training(vla, use_gradient_checkpointing=False)
     if adapter_dir is not None:
         vla = PeftModel.from_pretrained(vla, str(adapter_dir))
     check_unnorm_key(gen_cfg, vla)
