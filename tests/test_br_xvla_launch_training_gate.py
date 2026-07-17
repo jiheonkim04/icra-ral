@@ -25,6 +25,8 @@ def test_build_launch_command_preserves_offline_env_and_gate_module(monkeypatch,
     assert "HF_HUB_OFFLINE=1" in launch["inner_command"]
     assert "-m tca_map.xvla_task1.training_gate" in launch["inner_command"]
     assert "--max-steps-override 1" in launch["inner_command"]
+    assert "status=\\$?" in launch["inner_command"]
+    assert '"\\$status"' in launch["inner_command"]
     assert "gate_result.json" in launch["paths"]["gate_result"]
 
 

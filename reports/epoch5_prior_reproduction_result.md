@@ -4,7 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING`.
+Current decision: `BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED_ABLATION_SUCCEEDED`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -37,11 +37,12 @@ After X-VLA solved the task-8 residual, a fresh task-1 residual was found and
 matched against SmolVLA base. The shared failure `20260727` now has positive
 task-level expert headroom, again with same-reset HDF5 evidence unavailable.
 The task1 basket data audit then passed, and exactly two narrow Ours candidates
-were generated. `BR-XVLA` is selected, its no-training two-arm spec was frozen,
+were generated. `BR-XVLA` was selected, its no-training two-arm spec was frozen,
 the tiny X-VLA-format data-adapter smoke passed, the one-batch no-optimizer
 gradient smoke passed, and the bounded two-arm training/offline-validation gate
-now passes. This is still offline evidence only: no closed-loop `BR-XVLA`
-evaluation has happened.
+passed. The subsequent frozen closed-loop residual screen on identity
+`20260727` did not pass: the same-run X-VLA prior failed, the `BR-XVLA` primary
+also failed, and the uniform-weight ablation succeeded.
 
 ## Validation Commands
 
@@ -1070,11 +1071,10 @@ Detailed artifact: `reports/epoch5_task1_ours_candidate_design.md`.
 | `BR-XVLA`: Basket-Remaining Reweighted X-VLA | `PRIOR_EXTENSION` | LoRA/QLoRA-adapt X-VLA-Libero with phase-balanced imitation, upweighting chunks where exactly one target object is in/near the basket and the other remains out. | 86/100 | SELECTED |
 | `OCB-XVLA`: Object-Contrast Basket X-VLA | `PRIOR_EXTENSION` | Balance cream-cheese-first and butter-first object-order supervision. | 73/100 | NOT SELECTED |
 
-Bounded optimizer-step training and checkpoint writes have now happened for
-`BR-XVLA` only inside the frozen two-arm training gate. Closed-loop Ours
-evaluation has not happened. Next action is to freeze and prepare the narrow
-closed-loop residual-manifest evaluation on `20260727`; do not retune from that
-result.
+Bounded optimizer-step training and checkpoint writes happened for `BR-XVLA`
+only inside the frozen two-arm training gate. Closed-loop Ours evaluation then
+happened only inside the frozen one-identity residual-manifest screen below.
+The result is a validation no-pass, and BR-XVLA must not be retuned from it.
 
 ## `BR-XVLA` Training Spec Freeze
 
@@ -1218,7 +1218,53 @@ pass, not as robust evidence that the BR weighting mechanism beats uniform
 adaptation. Both trained adapters are much lower-loss than the unadapted X-VLA
 prior on the fixed offline chunks.
 
-Closed-loop `BR-XVLA` evaluation has not happened. Next gate: freeze the
-closed-loop residual-manifest evaluation on identity `20260727` only, run it
-without retuning from the result, and do not broaden to confirmatory evaluation
-or new method search yet.
+## `BR-XVLA` Frozen Closed-Loop Residual-Manifest Screen
+
+Status: `COMPLETE_NOT_PASSED`.
+
+Decision: `BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED`.
+
+This was a one-identity validation screen, not a broad confirmatory experiment.
+The frozen manifest evaluated `libero_10/task_1`, reset identity `20260727`,
+initial-state index `16`, with denoise steps 10 and horizon 900. Policies were
+same-run X-VLA prior, `BR-XVLA` primary, and uniform-weight ablation.
+
+Launch manifest:
+`runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_launch_manifest.json`,
+SHA-256 `0996517829549c07ac64009ce8e4be3457da5248f64100cfcf3ad449d359f6fd`.
+
+Frozen manifest:
+`runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_manifest.json`,
+SHA-256 `ea222a6014e2cda6a8f7428bdf2d0f0105e1773e0f7a0c6ba3ce5bb74f01dc63`.
+
+Result:
+`runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_result.json`,
+SHA-256 `472904b03472c8b1017aad2080c57e49c0b1064816b430670051330dd970b64f`.
+
+The run used commit `b91a49d8f66253ac85815fdde366a41824397232`, completed its
+Python result in 126.246165868 seconds, used local files only, and performed no
+training, optimizer step, or checkpoint write.
+
+| Policy | Adapter | Success | Steps | Final reward | Chunks | Action range |
+|---|---|---:|---:|---:|---:|---|
+| X-VLA prior base | none | false | 900 | 0.0 | 30 | [-0.3528921604156494, 1.011316180229187] |
+| `BR-XVLA` primary | `br_xvla_rank8_lambda2_lr1e4_steps64/checkpoints/step_0064/adapter` | false | 900 | 0.0 | 30 | [-0.2577773928642273, 1.2225242853164673] |
+| Uniform ablation | `uniform_xvla_rank8_lambda0_lr1e4_steps64/checkpoints/step_0064/adapter` | true | 479 | 1.0 | 16 | [-0.2553746700286865, 1.2284687757492065] |
+
+Interpretation: the residual failure was reproduced for the same-run X-VLA
+prior, but the selected BR-XVLA weighting did not fix it. Worse for the
+mechanism-specific claim, the uniform-weight ablation solved the same identity.
+This archives the frozen BR-XVLA configuration as a validation no-pass. Do not
+retune BR-XVLA from this result.
+
+Launcher caveat: the Python result artifact is complete, but the detached
+wrapper wrote a newline-only `closed_loop_exit_code.txt` and then printed
+`exit: : numeric argument required`. The cause was unescaped dollar variables
+in the Windows-to-WSL `bash -lc` wrapper. The launcher code is patched after
+this run to escape `$?` and `$status` for future exit-code writes; this caveat
+does not change the closed-loop policy outcomes above.
+
+Next action: pivot under official-prior-first governance to a new residual,
+condition, or prior-anchored route. Do not reopen or retune MCI, CSPR, R2R,
+CR-LightVLA, ATCD, or BR-XVLA from this result, and do not treat the uniform
+ablation success as an Ours result.

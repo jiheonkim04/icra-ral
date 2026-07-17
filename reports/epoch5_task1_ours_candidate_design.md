@@ -1,8 +1,8 @@
 # Epoch 5 Task-1 Ours Candidate Design
 
-Status: `BR_XVLA_OFFLINE_VALIDATION_COMPLETE`.
+Status: `BR_XVLA_CLOSED_LOOP_RESIDUAL_SCREEN_COMPLETE`.
 
-Decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING`.
+Decision: `BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED_ABLATION_SUCCEEDED`.
 
 ## Preconditions
 
@@ -68,5 +68,10 @@ The bounded two-arm training/offline-validation gate then passed:
 `runs/xvla_prior/epoch5_br_xvla_offline_validation_step0064.json`.
 The primary-vs-uniform phase-1 offline-loss margin is only
 `4.967053751942781e-8`, so this is an offline screen pass, not closed-loop
-evidence of superiority. Next action is to freeze and prepare the closed-loop
-residual-manifest evaluation on `20260727` only; do not retune from that result.
+evidence of superiority.
+
+The frozen closed-loop residual-manifest screen then ran on `20260727`:
+`runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_result.json`.
+Same-run X-VLA prior failed, `BR-XVLA` primary failed, and the uniform-weight
+ablation succeeded. This is a validation no-pass for the selected BR-XVLA
+mechanism. Do not retune BR-XVLA from this result.

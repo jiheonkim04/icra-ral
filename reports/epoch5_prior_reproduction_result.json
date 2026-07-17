@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_br_xvla_offline_validation_complete",
-  "decision": "BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING",
+  "stage": "epoch_5_br_xvla_closed_loop_residual_screen_complete",
+  "decision": "BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED_ABLATION_SUCCEEDED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -33,7 +33,7 @@
   "task1_br_xvla_gradient_smoke_happened": true,
   "task1_br_xvla_training_gate_happened": true,
   "task1_br_xvla_offline_validation_happened": true,
-  "task1_br_xvla_closed_loop_ours_evaluation_happened": false,
+  "task1_br_xvla_closed_loop_ours_evaluation_happened": true,
   "br_xvla_runtime_dependency_repair_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
@@ -103,6 +103,20 @@
     "launcher_dry_run": "PASS before full launch",
     "one_step_two_arm_training_gate_smoke": "PASS before full launch",
     "full_gate_exit_code": 0
+  },
+  "validation_after_br_xvla_closed_loop_residual_screen": {
+    "json_parse": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m json.tool",
+    "compact_handoff_lines": 239,
+    "py_compile": "PASS for closed_loop_residual_eval.py, launch_closed_loop_residual.py, launch_training_gate.py, and related tests",
+    "focused_pytest_command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_br_xvla_closed_loop_residual_eval.py tests/test_br_xvla_launch_closed_loop_residual.py -q",
+    "focused_pytest_stdout_summary": "27 passed in Windows env; 10 passed in official WSL env for launcher/residual tests",
+    "git_diff_check": "PASS with LF/CRLF warnings only",
+    "tree_check": "PASS via scripts/99_tree_check.ps1",
+    "launcher_dry_run": "PASS before full launch",
+    "full_closed_loop_result_status": "COMPLETE",
+    "full_closed_loop_result_decision": "BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED",
+    "full_closed_loop_exit_code_artifact": "INVALID_NEWLINE_ONLY_DUE_UNESCAPED_DOLLAR_WRAPPER_BUG",
+    "launcher_wrapper_fix": "Escaped WSL bash dollar signs in launch_training_gate.py and launch_closed_loop_residual.py after the result; rerun validation pending."
   },
   "validation_after_training_spec_freeze": {
     "training_spec_json_parse": "PASS",
@@ -1470,7 +1484,7 @@
     "optimizer_step_happened": false,
     "checkpoint_written": false,
     "closed_loop_ours_evaluation_happened": false,
-    "next_action": "BR-XVLA bounded two-arm training and offline validation gate have passed. Next prepare a frozen closed-loop residual-manifest evaluation on 20260727 only; do not retune from it."
+    "next_action": "BR-XVLA closed-loop residual-manifest screen is complete and did not pass: primary failed while uniform ablation succeeded. Do not retune BR-XVLA from this result."
   },
   "br_xvla_training_spec": {
     "status": "FROZEN_PASS_NO_TRAINING",
@@ -1496,7 +1510,7 @@
     "local_data_adapter_required_before_gradient_smoke": true,
     "raw_libero_hdf5_is_not_direct_official_xvla_training_input": true,
     "optimizer_step_allowed_before_all_gates": false,
-    "next_action": "Bounded two-arm training and offline validation have completed under this frozen spec. Next prepare a frozen closed-loop residual-manifest evaluation on 20260727 only; no additional tuning is authorized from that result."
+    "next_action": "The frozen closed-loop residual-manifest screen is complete and did not pass for BR-XVLA primary. No additional tuning of this BR-XVLA configuration is authorized from that result."
   },
   "br_xvla_data_adapter_smoke": {
     "status": "PASS",
@@ -1709,6 +1723,75 @@
     "closed_loop_ours_evaluation_happened": false,
     "interpretation": "The frozen BR-XVLA two-arm training gate completed and the primary arm numerically passed the predefined offline screen. The primary-vs-uniform phase-1 loss margin is extremely small, so this is only an offline validation pass and not closed-loop evidence. The next authorized step is a frozen closed-loop residual-manifest evaluation on identity 20260727 without retuning from the result."
   },
+  "br_xvla_closed_loop_residual_screen": {
+    "status": "COMPLETE_NOT_PASSED",
+    "decision": "BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED",
+    "git_commit_for_screen_run": "b91a49d8f66253ac85815fdde366a41824397232",
+    "method": "BR-XVLA",
+    "task_suite": "libero_10",
+    "task_id": 1,
+    "task_description": "put both the cream cheese box and the butter in the basket",
+    "reset_identity": 20260727,
+    "initial_state_index": 16,
+    "launch_manifest": "runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_launch_manifest.json",
+    "launch_manifest_sha256": "0996517829549c07ac64009ce8e4be3457da5248f64100cfcf3ad449d359f6fd",
+    "frozen_manifest": "runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_manifest.json",
+    "frozen_manifest_sha256": "ea222a6014e2cda6a8f7428bdf2d0f0105e1773e0f7a0c6ba3ce5bb74f01dc63",
+    "result": "runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_result.json",
+    "result_sha256": "472904b03472c8b1017aad2080c57e49c0b1064816b430670051330dd970b64f",
+    "status_artifact_sha256": "472904b03472c8b1017aad2080c57e49c0b1064816b430670051330dd970b64f",
+    "launcher_stdout_sha256": "280bffd895dacee6b9e32f6b72f90ce8bc89032ba7702c270d3913110e6c7e61",
+    "launcher_stderr_sha256": "9fc5fc3f6faf2bfe591d806245ba99499ef380ed5912977156bc21333313fd8f",
+    "exit_code_artifact_valid": false,
+    "exit_code_artifact_contents": "newline_only",
+    "exit_code_artifact_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "exit_code_issue": "The Python result completed and printed COMPLETE, but the Windows-to-WSL bash wrapper used unescaped dollar variables and wrote an invalid newline-only exit-code file, then emitted 'exit: : numeric argument required'. The launcher code is patched after this run to escape dollar signs for future launches.",
+    "elapsed_seconds": 126.246165868,
+    "local_files_only": true,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": true,
+    "decision_summary": {
+      "xvla_prior_failure_reproduced": true,
+      "primary_success": false,
+      "uniform_success": true,
+      "primary_beats_uniform_ablation": false
+    },
+    "policy_results": {
+      "xvla_prior_base": {
+        "success": false,
+        "steps": 900,
+        "final_reward": 0.0,
+        "action_chunk_count": 30,
+        "elapsed_seconds": 41.769,
+        "adapter_dir": null,
+        "action_range_min": -0.3528921604156494,
+        "action_range_max": 1.011316180229187
+      },
+      "br_xvla_primary": {
+        "success": false,
+        "steps": 900,
+        "final_reward": 0.0,
+        "action_chunk_count": 30,
+        "elapsed_seconds": 41.915,
+        "adapter_dir": "runs/xvla_prior/epoch5_br_xvla_training/br_xvla_rank8_lambda2_lr1e4_steps64/checkpoints/step_0064/adapter",
+        "action_range_min": -0.2577773928642273,
+        "action_range_max": 1.2225242853164673
+      },
+      "uniform_xvla_ablation": {
+        "success": true,
+        "steps": 479,
+        "final_reward": 1.0,
+        "action_chunk_count": 16,
+        "elapsed_seconds": 25.053,
+        "adapter_dir": "runs/xvla_prior/epoch5_br_xvla_training/uniform_xvla_rank8_lambda0_lr1e4_steps64/checkpoints/step_0064/adapter",
+        "action_range_min": -0.2553746700286865,
+        "action_range_max": 1.2284687757492065
+      }
+    },
+    "interpretation": "The same-run X-VLA prior reproduced the residual failure, but BR-XVLA primary also failed while the uniform-weight ablation succeeded. This invalidates the BR-XVLA mechanism-specific claim for this frozen configuration and identity. Do not retune BR-XVLA from this result; archive it as a validation no-pass and pivot under official-prior-first governance."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -1760,5 +1843,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Prepare and freeze the narrow BR-XVLA closed-loop residual-manifest evaluation on identity 20260727 only. Do not retune from that result, do not broaden to confirmatory evaluation yet, and do not generate new method candidates."
+  "next_action": "Archive BR-XVLA as a validation no-pass: primary failed on the frozen residual identity while uniform ablation succeeded. Do not retune BR-XVLA from this result. Next pivot under official-prior-first governance to a new residual/condition or prior-anchored route, without reopening MCI/CSPR/R2R/CR-LightVLA/ATCD or generating generic local heads."
 }

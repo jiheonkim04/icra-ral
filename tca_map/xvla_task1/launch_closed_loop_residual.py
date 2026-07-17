@@ -75,9 +75,9 @@ def build_launch_command(config: LaunchClosedLoopConfig) -> dict[str, Any]:
         f"--eval-horizon {int(config.eval_horizon)} "
         f"--settle-steps {int(config.settle_steps)} "
         f"--denoise-steps {int(config.denoise_steps)}; "
-        "status=$?; "
-        f"printf '%s\\n' \"$status\" > {shlex.quote((config.output_root / 'closed_loop_exit_code.txt').as_posix())}; "
-        "exit \"$status\""
+        "status=\\$?; "
+        f"printf '%s\\n' \"\\$status\" > {shlex.quote((config.output_root / 'closed_loop_exit_code.txt').as_posix())}; "
+        "exit \"\\$status\""
     )
     return {
         "repo_wsl": repo_wsl,

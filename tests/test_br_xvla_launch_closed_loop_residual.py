@@ -22,6 +22,8 @@ def test_build_launch_command_freezes_exact_residual_module(monkeypatch, tmp_pat
     assert "-m tca_map.xvla_task1.closed_loop_residual_eval" in launch["inner_command"]
     assert "--identities 20260727" in launch["inner_command"]
     assert "--policies xvla_prior_base,br_xvla_primary,uniform_xvla_ablation" in launch["inner_command"]
+    assert "status=\\$?" in launch["inner_command"]
+    assert '"\\$status"' in launch["inner_command"]
     assert "closed_loop_result.json" in launch["paths"]["eval_result"]
 
 

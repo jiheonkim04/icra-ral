@@ -5,12 +5,12 @@ Updated: 2026-07-17 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- Latest implementation commit before this report update: `06d03d8147df53e54837605e079427eb4f66adfa`
+- Latest implementation commit before this report update: `b91a49d8f66253ac85815fdde366a41824397232`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_br_xvla_offline_validation_complete`
-- Current decision: `BR_XVLA_OFFLINE_PASS_BEATS_ABLATION_CLOSED_LOOP_PENDING`
-- Selected current method: `BR-XVLA`
+- Current stage: `epoch_5_br_xvla_closed_loop_residual_screen_complete`
+- Current decision: `BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED_ABLATION_SUCCEEDED`
+- Selected current method: `BR-XVLA` is now a validation no-pass; do not retune it.
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - Do not rescue or retune MCI/CSPR/R2R/CR-LightVLA/ATCD.
@@ -154,34 +154,72 @@ Offline validation:
 Launcher note:
 
 - Full gate result was complete, but the launcher initially wrote a newline-only `gate_exit_code.txt`.
-- The run artifact has been corrected to `0`, and `tca_map/xvla_task1/launch_training_gate.py` now uses `printf` for future exit-code writes.
+- The run artifact has been corrected to `0`.
+
+## BR-XVLA Closed-Loop Residual Screen
+
+Implementation:
+
+- Commit: `b91a49d8f66253ac85815fdde366a41824397232`
+- Evaluator: `tca_map/xvla_task1/closed_loop_residual_eval.py`
+- Launcher: `tca_map/xvla_task1/launch_closed_loop_residual.py`
+- Tests: `tests/test_br_xvla_closed_loop_residual_eval.py`, `tests/test_br_xvla_launch_closed_loop_residual.py`
+- WSL dry-run launch passed before full run.
+
+Frozen screen:
+
+- Scope: `libero_10/task_1`, identity `20260727`, initial-state index `16`.
+- Policies: same-run X-VLA prior, BR-XVLA primary, uniform-weight ablation.
+- Frozen manifest: `runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_manifest.json`
+- Frozen manifest SHA-256: `ea222a6014e2cda6a8f7428bdf2d0f0105e1773e0f7a0c6ba3ce5bb74f01dc63`
+- Result: `runs/xvla_prior/epoch5_br_xvla_closed_loop_residual_20260727/closed_loop_result.json`
+- Result SHA-256: `472904b03472c8b1017aad2080c57e49c0b1064816b430670051330dd970b64f`
+- Decision: `BR_XVLA_CLOSED_LOOP_RESIDUAL_NOT_PASSED`
+- Python result status: `COMPLETE`; elapsed 126.246165868 seconds.
+- Training/optimizer/checkpoint during screen: false/false/false.
+- Closed-loop Ours evaluation happened: true, only within the frozen one-identity screen.
+
+Policy outcomes:
+
+- X-VLA prior: failed, 900 steps, reward 0.0.
+- BR-XVLA primary: failed, 900 steps, reward 0.0.
+- Uniform ablation: succeeded, 479 steps, reward 1.0.
+- Interpretation: residual reproduced, but selected BR weighting failed and the key ablation solved it. This invalidates the BR-XVLA mechanism-specific claim for this frozen configuration.
+
+Launcher caveat:
+
+- `closed_loop_exit_code.txt` is newline-only because unescaped `$` variables were eaten in Windows-to-WSL `bash -lc`.
+- The Python result artifact is complete and authoritative for policy outcomes.
+- `launch_training_gate.py` and `launch_closed_loop_residual.py` are now patched to escape `\$?` and `\$status`; validation must be rerun before commit.
 
 ## Validation Status
 
 - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`.
-- Handoff line count: 197, under the 250-line cap.
-- `py_compile`: pass for BR-XVLA data adapter, training, offline validation, gate, and launcher modules.
-- Focused pytest: `19 passed`.
+- Handoff line count: 239, under the 250-line cap.
+- Windows focused pytest: `27 passed`.
+- Official WSL launcher/residual tests: `10 passed`.
 - `git diff --check`: pass with LF/CRLF warnings only.
 - `scripts/99_tree_check.ps1`: pass.
 
 ## Immediate Next Gate
 
-Prepare and freeze the narrow closed-loop residual-manifest evaluation on identity `20260727` only.
+Archive BR-XVLA as a validation no-pass and pivot under official-prior-first governance.
 
 Allowed next:
 
-- Validate current reports/code, commit, and push this report update.
-- Build a frozen closed-loop residual-manifest evaluation protocol for `20260727`.
-- Run closed-loop `BR-XVLA` only after the protocol is frozen; do not use the result for retuning.
+- Validate current reports/code and launcher wrapper fix, then commit/push.
+- Do a short BR-XVLA postmortem/synthesis if needed.
+- Choose the next official-prior-first residual/condition or prior-anchored route without using BR-XVLA closed-loop failure for retuning.
 
 Still disallowed:
 
-- Broad confirmatory evaluation before the residual-manifest screen.
+- Retuning BR-XVLA from the failed residual screen.
+- Treating the uniform ablation's single-identity success as an Ours result.
+- Broad confirmatory evaluation for BR-XVLA.
 - New generic method candidates.
 - Retuning/rescuing MCI/CSPR/R2R/CR-LightVLA/ATCD.
 - Treating X-VLA, OpenVLA-OFT INT4, or any prior diagnostic success as an Ours result.
-- Treating the tiny offline primary-vs-uniform margin as closed-loop evidence.
+- Treating the tiny offline primary-vs-uniform margin as evidence after closed-loop ablation domination.
 - Full-model fine-tuning or making LoRA/QLoRA the headline contribution.
 
 ## Commit Scope To Finish This Turn
@@ -189,6 +227,10 @@ Still disallowed:
 Stage and commit only:
 
 - `tca_map/xvla_task1/launch_training_gate.py`
+- `tca_map/xvla_task1/launch_closed_loop_residual.py`
+- `tca_map/xvla_task1/closed_loop_residual_eval.py`
+- `tests/test_br_xvla_closed_loop_residual_eval.py`
+- `tests/test_br_xvla_launch_closed_loop_residual.py`
 - `reports/epoch5_prior_reproduction_result.md`
 - `reports/epoch5_prior_reproduction_result.json`
 - `reports/epoch5_task1_ours_candidate_design.md`
