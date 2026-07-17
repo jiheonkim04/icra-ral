@@ -220,11 +220,12 @@ same-reset HDF5 unavailable: nearest `demo_9`, L2 2.984425805, SHA
 Quantized OpenVLA-OFT INT4 solves exact task5 residual: 1/1 success, 136
 steps, reward 1.0, SHA
 `6da4ea2e072b0a227d19dc25aa18c1f0a61ad22602be22a68f5d59a3f23740e4`.
-Post-second-prior `libero_90` identity `20260724` saturated tasks 0..69:
-0..9 `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f`;
-10..29 `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed`;
-30..49 `9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de`;
-50..69 `1938fac14d4313c7389006efb098af1ef72de86b2141a2cb9fb0409b08a58eb1`.
+`libero_90` identity `20260724`: tasks 0..69 saturated (summary SHAs in
+JSON); final 70..89 shard found clean X-VLA failures task81 front-caddy book
+and task83 right-caddy book, 900 steps/reward0/no infra. Summary SHA
+`86c4f3f4d35adb1581620c07d4287c4b52767baf3c4a404d86a4dfe7d4ec0708`; task
+SHAs `eea33f12c849aae81ec81320ce9cb20b55a1732b882a3dbe671cf15f33d3ccfb`,
+`c826fee1018714e7d65b0c9ad98b2708fd8ba7bcd0310181fa6cd1d406fbf551`.
 
 Do not design Ours for spatial task5. Do not retune/rescue MPR-XVLA. Next:
 select a new preregistered residual source or prior ecosystem.
@@ -240,10 +241,6 @@ select a new preregistered residual source or prior ecosystem.
 
 ## Current Validation Status
 
-- Repaired offline fix validation before commit `5faed4d`:
-  - py_compile: pass for `offline_validate.py` and `test_mpr_xvla_offline_validate.py`
-  - pytest: `5 passed` for offline validator + training gate tests
-  - `git diff --check`: pass with LF/CRLF warnings only
-  - `scripts/99_tree_check.ps1`: pass
-- Repaired offline run completed under official WSL env in 50.325s.
+Latest report validation: JSON parse, `git diff --check`, and tree check pass;
+handoff remains under 250 lines. Repaired MPR offline run completed in 50.325s.
 Do not add `rollouts/2026_07_17/` or ignored run directories.

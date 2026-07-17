@@ -1891,6 +1891,7 @@ After spatial task 5 failed the second-prior gate, a bounded local official
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks10_19_post_secondprior_20260717T235259KST/scan_summary.json` | `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed` | actual tasks 10..29 succeeded 20/20, zero infrastructure failures |
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks30_49_post_secondprior_20260718T000212KST/scan_summary.json` | `9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de` | tasks 30..49 succeeded 20/20, zero infrastructure failures |
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks50_69_post_secondprior_20260718T001128KST/scan_summary.json` | `1938fac14d4313c7389006efb098af1ef72de86b2141a2cb9fb0409b08a58eb1` | tasks 50..69 succeeded 20/20, zero infrastructure failures |
+| `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks70_89_post_secondprior_20260718T001938KST/scan_summary.json` | `86c4f3f4d35adb1581620c07d4287c4b52767baf3c4a404d86a4dfe7d4ec0708` | tasks 81 and 83 failed cleanly; 18/20 successes, zero infrastructure failures |
 
 Manifest SHA-256:
 `aa6e77ec348f44e635c36fe5ff84cf83a56598ed074209a22a026b9cd113e503`.
@@ -1930,3 +1931,20 @@ Task-69 result SHA-256:
 Tasks 65..68 cover red/white/yellow mug placement on left/right plates and all
 four succeeded, so this shard does not provide independent red-mug/distractor
 confusion evidence for PRC-XVLA elevation.
+
+Final shard manifest SHA-256:
+`ce0b9053da881971f58c0f74ddbf11fceef2de1d8d93c7b0fd355432423e9c45`.
+Task-81 result SHA-256:
+`eea33f12c849aae81ec81320ce9cb20b55a1732b882a3dbe671cf15f33d3ccfb`.
+Task-83 result SHA-256:
+`c826fee1018714e7d65b0c9ad98b2708fd8ba7bcd0310181fa6cd1d406fbf551`.
+
+Fresh residuals: task 81, "pick up the book and place it in the front
+compartment of the caddy", and task 83, "pick up the book and place it in the
+right compartment of the caddy". Both ran 900 steps, ended with reward 0.0,
+and had zero infrastructure failures. Tasks 71, 72, 84, and 85 are red/white
+mug tasks in the same shard and all succeeded, so PRC-XVLA remains unelevated.
+
+Interpretation: the local official LIBERO-90 identity `20260724` scan is now
+complete. Tasks 81 and 83 are fresh candidates for matched base/prior and
+headroom diagnostics before any Ours proposal.

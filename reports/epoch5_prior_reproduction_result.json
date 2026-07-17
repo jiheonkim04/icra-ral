@@ -66,6 +66,7 @@
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks10_29_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks30_49_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks50_69_happened": true,
+  "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks70_89_happened": true,
   "xvla_spatial_task5_matched_base_prior_diagnostic_happened": true,
   "xvla_spatial_task5_headroom_diagnostic_happened": true,
   "xvla_spatial_task5_openvla_int4_second_prior_screen_happened": true,
@@ -3180,6 +3181,53 @@
     "closed_loop_ours_evaluation_happened": false,
     "interpretation": "X-VLA-Libero succeeded on all twenty scanned libero_90 tasks 50..69 at identity 20260724, including the red/white/yellow mug plate tasks 65..68. This shard provides no fresh target and no independent PRC-XVLA red-mug/distractor confusion evidence."
   },
+  "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks70_89": {
+    "status": "COMPLETE_RESIDUAL_FOUND",
+    "decision": "POST_SECOND_PRIOR_XVLA_LIBERO90_IDENTITY20260724_TASKS81_83_RESIDUAL_FOUND",
+    "purpose": "Final local official-prior residual-mining shard for libero_90 identity 20260724; no training or Ours evaluation.",
+    "launcher": "Windows Start-Process wsl.exe hidden foreground-worker",
+    "worker_script": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+    "output_root": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks70_89_post_secondprior_20260718T001938KST",
+    "manifest": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks70_89_post_secondprior_20260718T001938KST/scan_manifest.json",
+    "manifest_sha256": "ce0b9053da881971f58c0f74ddbf11fceef2de1d8d93c7b0fd355432423e9c45",
+    "summary": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks70_89_post_secondprior_20260718T001938KST/scan_summary.json",
+    "summary_sha256": "86c4f3f4d35adb1581620c07d4287c4b52767baf3c4a404d86a4dfe7d4ec0708",
+    "reset_identity": 20260724,
+    "initial_state_index": 13,
+    "task_suite": "libero_90",
+    "tasks_requested": "start_task_id=70, task_count=20",
+    "tasks_completed": "70..89",
+    "scan_status": "complete",
+    "scan_exit_code": 0,
+    "completed_task_count": 20,
+    "successful_task_count": 18,
+    "failure_task_ids": [
+      81,
+      83
+    ],
+    "infrastructure_failure_task_ids": [],
+    "task70_result_sha256": "2ff304494e90e99b72dc7d64b19c02cd7051e51277a3571ce214e985ba53ce6b",
+    "task81_result_sha256": "eea33f12c849aae81ec81320ce9cb20b55a1732b882a3dbe671cf15f33d3ccfb",
+    "task83_result_sha256": "c826fee1018714e7d65b0c9ad98b2708fd8ba7bcd0310181fa6cd1d406fbf551",
+    "task89_result_sha256": "bf8df4b43d8ce479c39d0f64fc1d5fa7c6cceedb2cf8db7f3b0e3a3abe8376bf",
+    "task81_description": "pick up the book and place it in the front compartment of the caddy",
+    "task83_description": "pick up the book and place it in the right compartment of the caddy",
+    "task81_steps": 900,
+    "task83_steps": 900,
+    "task81_reward": 0.0,
+    "task83_reward": 0.0,
+    "mug_task_successes": {
+      "71": "put the red mug on the plate",
+      "72": "put the white mug on the plate",
+      "84": "pick up the red mug and place it to the right of the caddy",
+      "85": "pick up the white mug and place it to the right of the caddy"
+    },
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "interpretation": "The full local official LIBERO-90 identity 20260724 scan is now covered. Tasks 81 and 83 are clean X-VLA prior failures with no infrastructure failure and become fresh candidates for matched base/prior plus headroom diagnostics. Mug tasks in this shard succeeded, so PRC-XVLA still lacks independent red-mug/distractor confusion evidence."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -3231,5 +3279,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-MPR X-VLA LIBERO-10, libero_goal, libero_object, and post-second-prior libero_90 tasks 0..69 found no fresh target. Libero_spatial identity 20260724 exposed a fresh X-VLA/SmolVLA shared residual on task 5 with positive task-level headroom, but Quantized OpenVLA-OFT INT4 solved that exact condition in 136 steps. Therefore no Ours design is authorized for spatial task 5. Next action: select a new preregistered residual source or prior ecosystem; do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-second-prior libero_90 identity 20260724 is fully scanned: tasks 0..69 saturated, while tasks 81 and 83 are clean X-VLA prior failures. Next action: run matched SmolVLA base/prior and headroom diagnostics for tasks 81 and 83 before any Ours design. Do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
 }
