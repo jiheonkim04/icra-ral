@@ -4,11 +4,12 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Decision: `R2R_OFT_TRAINING_CONFIG_FROZEN`
+Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`
 
-Epoch 5 has now completed the selected-prior-first diagnostic sequence without
-designing Ours, training, downloading assets, or attempting full-BF16
-OpenVLA-OFT.
+Epoch 5 completed the selected-prior-first diagnostic sequence before Ours
+design, then generated exactly two Ours candidates and selected `R2R-OFT`.
+No optimizer-step training, new download, or full-BF16 OpenVLA-OFT attempt has
+happened.
 
 The recovered hard-slice condition established that the selected prior is
 locally runnable and positive, but saturated. The preregistered
@@ -326,9 +327,33 @@ gate; if it fails, no new configuration may be generated from those resets.
 
 Gate result: `R2R_OFT_TRAINING_CONFIG_FROZEN`.
 
+## `R2R-OFT` Trainer/Launcher Validation
+
+Status: `VALIDATED_NO_TRAINING`
+
+New implementation files:
+
+- `tca_map/r2r_oft/train_qlora.py`;
+- `tca_map/r2r_oft/launch_training.py`;
+- `tests/test_r2r_oft_train_qlora.py`.
+
+Validation:
+
+- `py_compile` passed for `train_qlora.py`, `launch_training.py`, and
+  `training_spec.py`;
+- focused tests passed: `14 passed`;
+- dry-run launch manifest:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/launch_manifest.json`;
+- dry-run status: `DRY_RUN`;
+- training happened at launch-manifest write: false;
+- optimizer step happened at launch-manifest write: false;
+- dry-run command targets `tca_map.r2r_oft.train_qlora`.
+
+Gate result: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
+
 ## Next Decision
 
-The next action is to implement or launch only the frozen two-arm training plan
-in a detached WSL job, recording PID, log path, heartbeat, and commit before the
-first optimizer step. Preserve the caveat that current upper/headroom evidence
-is task-level, not same-reset.
+The next action is to launch the primary frozen arm
+`r2r_oft_rank4_lambda2_lr2e4_steps64` in a detached WSL job, recording PID, log
+path, heartbeat, and commit before the first optimizer step. Preserve the caveat
+that current upper/headroom evidence is task-level, not same-reset.

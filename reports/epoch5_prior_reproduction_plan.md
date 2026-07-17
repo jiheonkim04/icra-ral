@@ -157,7 +157,7 @@ identity mismatch must be carried into Ours design and claims.
 
 ## Current Gate Result
 
-Decision: `R2R_OFT_TRAINING_CONFIG_FROZEN`.
+Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
 
 Ours design is now permitted only for the exact task-8 residual limitation and
 must generate at most two candidates. Do not broaden into a generic method
@@ -260,6 +260,27 @@ gate and may not create a third configuration.
 
 Decision: `R2R_OFT_TRAINING_CONFIG_FROZEN`.
 
-Next step: implement or launch only this frozen two-arm training plan in a
-detached WSL job, recording PID, log path, heartbeat, and commit before the
-first optimizer step.
+## `R2R-OFT` Trainer/Launcher Validation
+
+Execution status: `VALIDATED_NO_TRAINING`
+
+Implementation:
+
+- `tca_map/r2r_oft/train_qlora.py`;
+- `tca_map/r2r_oft/launch_training.py`;
+- `tests/test_r2r_oft_train_qlora.py`.
+
+Validation:
+
+- `py_compile`: pass;
+- focused tests: `14 passed`;
+- dry-run launch manifest:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/launch_manifest.json`;
+- dry-run status: `DRY_RUN`;
+- training/optimizer step at manifest write: false / false.
+
+Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
+
+Next step: launch the primary frozen arm
+`r2r_oft_rank4_lambda2_lr2e4_steps64` in a detached WSL job, recording PID, log
+path, heartbeat, and commit before the first optimizer step.

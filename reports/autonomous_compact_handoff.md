@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_r2r_oft_data_audit_passed`
-- Current decision: `R2R_OFT_DATA_HEALTH_PASS_PRETRAINING_READY`
+- Current stage: `epoch_5_r2r_oft_trainer_launcher_validated`
+- Current decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -154,6 +154,16 @@ Training config freeze:
 - selection: offline validation before closed-loop;
 - residual resets `20260721` and `20260722` cannot be used for selection or
   retuning.
+
+Trainer/launcher validation:
+
+- files: `tca_map/r2r_oft/train_qlora.py`,
+  `tca_map/r2r_oft/launch_training.py`,
+  `tests/test_r2r_oft_train_qlora.py`;
+- focused tests: 14 passed;
+- dry-run launch manifest:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/launch_manifest.json`;
+- dry-run training / optimizer step: false / false.
 
 ## Prohibitions
 
