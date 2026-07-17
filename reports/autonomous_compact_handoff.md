@@ -226,9 +226,12 @@ and task83 right-caddy book, 900 steps/reward0/no infra. Summary SHA
 `86c4f3f4d35adb1581620c07d4287c4b52767baf3c4a404d86a4dfe7d4ec0708`; task
 SHAs `eea33f12c849aae81ec81320ce9cb20b55a1732b882a3dbe671cf15f33d3ccfb`,
 `c826fee1018714e7d65b0c9ad98b2708fd8ba7bcd0310181fa6cd1d406fbf551`.
-
-Do not design Ours for spatial task5. Do not retune/rescue MPR-XVLA. Next:
-select a new preregistered residual source or prior ecosystem.
+Matched base task81/83 is 0/2, zero infra
+(`b23ea884a89e3952e2166c29c924bd3eee0ae520ca8218b00ff051edef708d00`).
+Headroom not verified for both: task81 `f22c80d94b1ae955f40fe375e77b59cdc15a4f3df1029bf4579330ddabab5f23`, task83
+`59a3c93a9b2983929387dde9fcd4b4dbf7fa9b4305b5ce384d74d77b6097c725`.
+Do not design Ours for spatial task5 or LIBERO-90 tasks81/83. Next: select a
+new preregistered residual source, identity, or prior ecosystem.
 
 ## Report Set
 

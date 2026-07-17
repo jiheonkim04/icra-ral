@@ -67,6 +67,7 @@
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks30_49_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks50_69_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks70_89_happened": true,
+  "xvla_libero90_tasks81_83_matched_base_headroom_diagnostic_happened": true,
   "xvla_spatial_task5_matched_base_prior_diagnostic_happened": true,
   "xvla_spatial_task5_headroom_diagnostic_happened": true,
   "xvla_spatial_task5_openvla_int4_second_prior_screen_happened": true,
@@ -3228,6 +3229,71 @@
     "closed_loop_ours_evaluation_happened": false,
     "interpretation": "The full local official LIBERO-90 identity 20260724 scan is now covered. Tasks 81 and 83 are clean X-VLA prior failures with no infrastructure failure and become fresh candidates for matched base/prior plus headroom diagnostics. Mug tasks in this shard succeeded, so PRC-XVLA still lacks independent red-mug/distractor confusion evidence."
   },
+  "xvla_libero90_tasks81_83_matched_base_headroom_diagnostic": {
+    "status": "COMPLETE_HEADROOM_NOT_VERIFIED_NO_OURS_TARGET",
+    "decision": "LIBERO90_TASKS81_83_HEADROOM_NOT_VERIFIED_NO_OURS_TARGET",
+    "task_suite": "libero_90",
+    "reset_identity": 20260724,
+    "initial_state_index": 13,
+    "xvla_prior_scan": {
+      "artifact": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks70_89_post_secondprior_20260718T001938KST/scan_summary.json",
+      "sha256": "86c4f3f4d35adb1581620c07d4287c4b52767baf3c4a404d86a4dfe7d4ec0708",
+      "successful_task_count": 18,
+      "completed_task_count": 20,
+      "policy_failure_task_ids": [
+        81,
+        83
+      ],
+      "infrastructure_failure_task_ids": []
+    },
+    "smolvla_base": {
+      "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero90_tasks81_83_id20260724_officialenv_20260718T003018KST/result.json",
+      "sha256": "b23ea884a89e3952e2166c29c924bd3eee0ae520ca8218b00ff051edef708d00",
+      "completed_episode_count": 2,
+      "successful_episode_count": 0,
+      "infrastructure_failure_count": 0,
+      "task81_episode_length": 400,
+      "task83_episode_length": 400,
+      "task81_max_reward": 0.0,
+      "task83_max_reward": 0.0
+    },
+    "task81_headroom": {
+      "artifact": "runs/xvla_prior/diagnostic_libero90_task81_expert_headroom_20260724_20260718T003247KST/result.json",
+      "sha256": "f22c80d94b1ae955f40fe375e77b59cdc15a4f3df1029bf4579330ddabab5f23",
+      "decision": "TASK81_EXPERT_HEADROOM_NOT_VERIFIED",
+      "task_description": "pick up the book and place it in the front compartment of the caddy",
+      "computed_initial_state_sha256": "5708b55695b97189b8713c450982b19f7d9110ef08fe2e7a003d7ebbdc3bf572",
+      "same_reset_demo_match_count": 0,
+      "selected_demo": "demo_28",
+      "selected_demo_l2_to_benchmark_residual_init": 0.290747268,
+      "zero_action_succeeded": false,
+      "exact_replay_success": false,
+      "default_reset_expert_replay_succeeded": false,
+      "exact_replay_reward_sum": 0.0,
+      "task_level_expert_headroom_positive": false
+    },
+    "task83_headroom": {
+      "artifact": "runs/xvla_prior/diagnostic_libero90_task83_expert_headroom_20260724_20260718T003343KST/result.json",
+      "sha256": "59a3c93a9b2983929387dde9fcd4b4dbf7fa9b4305b5ce384d74d77b6097c725",
+      "decision": "TASK83_EXPERT_HEADROOM_NOT_VERIFIED",
+      "task_description": "pick up the book and place it in the right compartment of the caddy",
+      "computed_initial_state_sha256": "fcba25b965cdc5326ae554cc9871eef14c06fb1839171bd0e77f4f650946c86a",
+      "same_reset_demo_match_count": 0,
+      "selected_demo": "demo_34",
+      "selected_demo_l2_to_benchmark_residual_init": 0.312389089,
+      "zero_action_succeeded": false,
+      "exact_replay_success": false,
+      "default_reset_expert_replay_succeeded": false,
+      "exact_replay_reward_sum": 0.0,
+      "task_level_expert_headroom_positive": false
+    },
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "vla_model_loaded_in_headroom": false,
+    "interpretation": "Tasks 81 and 83 are shared X-VLA/SmolVLA-base residuals, but local HDF5 expert replay did not verify recoverable task-level headroom for either task. Under the headroom gate, no Ours design is authorized for these conditions."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -3279,5 +3345,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-second-prior libero_90 identity 20260724 is fully scanned: tasks 0..69 saturated, while tasks 81 and 83 are clean X-VLA prior failures. Next action: run matched SmolVLA base/prior and headroom diagnostics for tasks 81 and 83 before any Ours design. Do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-second-prior libero_90 identity 20260724 is fully scanned: tasks 81 and 83 are clean X-VLA/SmolVLA-base shared residuals, but expert headroom was not verified for either, so no Ours design is authorized. Next action: select a new residual source, identity, or prior ecosystem; do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat solved or no-headroom conditions as Ours targets."
 }

@@ -1948,3 +1948,18 @@ mug tasks in the same shard and all succeeded, so PRC-XVLA remains unelevated.
 Interpretation: the local official LIBERO-90 identity `20260724` scan is now
 complete. Tasks 81 and 83 are fresh candidates for matched base/prior and
 headroom diagnostics before any Ours proposal.
+
+## LIBERO-90 Tasks 81/83 Matched Base and Headroom Diagnostic
+
+Status: `COMPLETE_HEADROOM_NOT_VERIFIED_NO_OURS_TARGET`.
+
+| Diagnostic | Completed | Successes | Notes | Artifact | SHA-256 |
+|---|---:|---:|---|---|---|
+| X-VLA prior scan | 20 | 18 | tasks 81 and 83 failed cleanly; zero infra failures | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks70_89_post_secondprior_20260718T001938KST/scan_summary.json` | `86c4f3f4d35adb1581620c07d4287c4b52767baf3c4a404d86a4dfe7d4ec0708` |
+| SmolVLA frozen base | 2 | 0 | both tasks reached 400-step limit with max reward 0.0; zero infra failures | `runs/xvla_prior/diagnostic_smolvla_base_libero90_tasks81_83_id20260724_officialenv_20260718T003018KST/result.json` | `b23ea884a89e3952e2166c29c924bd3eee0ae520ca8218b00ff051edef708d00` |
+| Task 81 expert headroom | 3 variants | 0 | nearest `demo_28`, L2 `0.290747268`; no same-reset HDF5 match; exact/default expert replay reward 0.0 | `runs/xvla_prior/diagnostic_libero90_task81_expert_headroom_20260724_20260718T003247KST/result.json` | `f22c80d94b1ae955f40fe375e77b59cdc15a4f3df1029bf4579330ddabab5f23` |
+| Task 83 expert headroom | 3 variants | 0 | nearest `demo_34`, L2 `0.312389089`; no same-reset HDF5 match; exact/default expert replay reward 0.0 | `runs/xvla_prior/diagnostic_libero90_task83_expert_headroom_20260724_20260718T003343KST/result.json` | `59a3c93a9b2983929387dde9fcd4b4dbf7fa9b4305b5ce384d74d77b6097c725` |
+
+Interpretation: tasks 81 and 83 are shared X-VLA/SmolVLA-base residuals, but
+the expert-headroom gate is not satisfied for either. No Ours design is
+authorized for these LIBERO-90 conditions.
