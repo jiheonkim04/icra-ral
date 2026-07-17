@@ -1890,6 +1890,7 @@ After spatial task 5 failed the second-prior gate, a bounded local official
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST/scan_summary.json` | `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f` | 10/10 succeeded, zero infrastructure failures |
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks10_19_post_secondprior_20260717T235259KST/scan_summary.json` | `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed` | actual tasks 10..29 succeeded 20/20, zero infrastructure failures |
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks30_49_post_secondprior_20260718T000212KST/scan_summary.json` | `9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de` | tasks 30..49 succeeded 20/20, zero infrastructure failures |
+| `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks50_69_post_secondprior_20260718T001128KST/scan_summary.json` | `1938fac14d4313c7389006efb098af1ef72de86b2141a2cb9fb0409b08a58eb1` | tasks 50..69 succeeded 20/20, zero infrastructure failures |
 
 Manifest SHA-256:
 `aa6e77ec348f44e635c36fe5ff84cf83a56598ed074209a22a026b9cd113e503`.
@@ -1918,3 +1919,14 @@ Task-30 result SHA-256:
 `0926e23cd86ab74e9db034dd76b2bab75a627072778c93a7adac0aba1eda10f0`.
 Task-49 result SHA-256:
 `6743ba97c66a926eeb413e536112e7161f7173f463a08509ee79ac58d05fade3`.
+
+Fourth shard manifest SHA-256:
+`6f20abc2369b668e2524e363e9cdc7750bf030bbca82aed04bc185859aaf2a32`.
+Task-50 result SHA-256:
+`d765bac1124ab86c15c13aa455f50d7e0002f29dcfb9a554bbeae4f68518249d`.
+Task-69 result SHA-256:
+`b34b036a61060acf22892608ec54b6fa740a21eaed5709d9a649961ec77a62c9`.
+
+Tasks 65..68 cover red/white/yellow mug placement on left/right plates and all
+four succeeded, so this shard does not provide independent red-mug/distractor
+confusion evidence for PRC-XVLA elevation.

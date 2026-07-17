@@ -220,11 +220,11 @@ same-reset HDF5 unavailable: nearest `demo_9`, L2 2.984425805, SHA
 Quantized OpenVLA-OFT INT4 solves exact task5 residual: 1/1 success, 136
 steps, reward 1.0, SHA
 `6da4ea2e072b0a227d19dc25aa18c1f0a61ad22602be22a68f5d59a3f23740e4`.
-Post-second-prior `libero_90` identity `20260724` saturated tasks 0..49:
-0..9 summary `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f`;
-10..29 summary `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed`
-(`tasks10_19` label actually task_count=20); 30..49 summary
-`9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de`.
+Post-second-prior `libero_90` identity `20260724` saturated tasks 0..69:
+0..9 `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f`;
+10..29 `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed`;
+30..49 `9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de`;
+50..69 `1938fac14d4313c7389006efb098af1ef72de86b2141a2cb9fb0409b08a58eb1`.
 
 Do not design Ours for spatial task5. Do not retune/rescue MPR-XVLA. Next:
 select a new preregistered residual source or prior ecosystem.
