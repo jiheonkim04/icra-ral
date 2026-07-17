@@ -3,13 +3,14 @@ set -euo pipefail
 
 IDENTITY="${1:-}"
 if [[ -z "$IDENTITY" ]]; then
-  echo "usage: $0 RESET_IDENTITY [OUTPUT_ROOT] [START_TASK_ID] [TASK_COUNT]" >&2
+  echo "usage: $0 RESET_IDENTITY [OUTPUT_ROOT] [START_TASK_ID] [TASK_COUNT] [TASK_SUITE]" >&2
   exit 2
 fi
 
 OUTPUT_ROOT="${2:-runs/xvla_prior/failure_scan_libero10_identity${IDENTITY}_$(date +%Y%m%dT%H%M%SKST)}"
 START_TASK_ID="${3:-0}"
 TASK_COUNT="${4:-10}"
+TASK_SUITE="${5:-libero_10}"
 
 REPO="/mnt/c/Users/jiheo/tca_map"
 PYTHON_BIN="/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python"
@@ -30,7 +31,7 @@ cat > "$OUTPUT_ROOT/scan_manifest.json" <<EOF
   "policy": "X-VLA-Libero",
   "git_commit": "${GIT_COMMIT}",
   "reset_identity": ${IDENTITY},
-  "task_suite": "libero_10",
+  "task_suite": "${TASK_SUITE}",
   "start_task_id": ${START_TASK_ID},
   "task_count": ${TASK_COUNT},
   "identity_base": ${IDENTITY_BASE},
@@ -47,7 +48,7 @@ cat > "$OUTPUT_ROOT/scan_manifest.json" <<EOF
 EOF
 
 cat > "$OUTPUT_ROOT/exact_resume_command.txt" <<EOF
-wsl -d Ubuntu-22.04 --cd "$REPO" -- bash scripts/run_xvla_prior_failure_scan_identity_worker.sh "$IDENTITY" "$OUTPUT_ROOT" "$START_TASK_ID" "$TASK_COUNT"
+wsl -d Ubuntu-22.04 --cd "$REPO" -- bash scripts/run_xvla_prior_failure_scan_identity_worker.sh "$IDENTITY" "$OUTPUT_ROOT" "$START_TASK_ID" "$TASK_COUNT" "$TASK_SUITE"
 EOF
 
 echo "$$" > "$OUTPUT_ROOT/scan_worker_pid.txt"
@@ -68,7 +69,7 @@ for task_id in $(seq "$START_TASK_ID" "$end_task"); do
     "$PYTHON_BIN" "$RUNNER" \
       --run-dir "$task_dir" \
       --identities "$IDENTITY" \
-      --task-suite libero_10 \
+      --task-suite "$TASK_SUITE" \
       --task-id "$task_id" \
       --identity-base "$IDENTITY_BASE" \
       --eval-horizon "$EVAL_HORIZON" \
