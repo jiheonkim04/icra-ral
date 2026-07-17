@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_r2r_oft_offline_selection_not_passed`
-- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`
+- Current stage: `epoch_5_r2r_oft_offline_selection_not_passed_short_requery_control_recorded`
+- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -82,11 +82,7 @@ The condition is not classified as too severe because task-level expert
 headroom is positive. However, same-reset upper-bound evidence is unavailable,
 so Ours claims must stay narrow and explicitly carry that caveat.
 
-## Next Action
-
-Implement or launch only the frozen two-arm `R2R-OFT` training plan in a
-detached WSL job. Record PID, log path, heartbeat, and commit before the first
-optimizer step.
+## Selected Method and Completed Checks
 
 Selected method:
 
@@ -193,6 +189,25 @@ Offline validation:
 - step 64: primary phase-1 L1 0.2626503886034091, ablation 0.2789938536783059,
   max delta 1.0028839111328125, FAIL;
 - closed-loop Ours rollout: disallowed.
+
+Simple control after offline no-pass:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json`;
+- SHA-256:
+  `6864e691b1ad5dbfe371b309468b9f107806d12b41fe6bd5b51fd99ab00bf37e`;
+- configuration: OpenVLA-OFT INT4, task 8, `num_open_loop_steps=4`, no
+  training;
+- result: 5/8, failures on `20260718`, `20260720`, `20260721`;
+- comparison: original 8-step OpenVLA-OFT task-8 prior was 6/8, failures on
+  `20260721`, `20260722`;
+- decision: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
+
+## Next Action
+
+Pivot without retuning on residual reset identities and without adding a third
+local candidate around the same OpenVLA task-8 residual. Do not run closed-loop
+Ours for the trained `R2R-OFT` checkpoints.
 
 ## Prohibitions
 

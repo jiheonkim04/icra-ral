@@ -11,6 +11,10 @@ design, then generated exactly two Ours candidates and selected `R2R-OFT`.
 Bounded optimizer-step training happened only after the training spec was
 frozen. No new download, full-BF16 OpenVLA-OFT attempt, or closed-loop Ours
 evaluation has happened.
+After the `R2R-OFT` offline no-pass, the preregistered simple alternative
+`shorter OpenVLA-OFT action-chunk requery without training` was run on the
+task-8 residual resets. It did not beat the original 8-step OpenVLA-OFT prior:
+4-step requery was 5/8 versus the original 6/8.
 
 The recovered hard-slice condition established that the selected prior is
 locally runnable and positive, but saturated. The preregistered
@@ -414,9 +418,37 @@ closed-loop evaluation is therefore disallowed.
 
 Gate result: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
+## Simple Control: Shorter OpenVLA-OFT Requery
+
+After the offline gate disallowed closed-loop Ours rollout, the predeclared
+simple alternative from the selected-method sketch was evaluated as a
+no-training prior/control variant, not as Ours.
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json`,
+SHA-256 `6864e691b1ad5dbfe371b309468b9f107806d12b41fe6bd5b51fd99ab00bf37e`.
+
+Configuration: Quantized OpenVLA-OFT INT4, task `libero_10/task_8`, reset
+identities `20260716..20260723`, `num_open_loop_steps=4`, no training, no new
+downloads, no CPU/disk offload detected.
+
+| Variant | Successes | Failures | Failed reset identities |
+|---|---:|---:|---|
+| Original OpenVLA-OFT INT4, 8-step chunks | 6/8 | 2 | `20260721`, `20260722` |
+| Short-requery OpenVLA-OFT INT4, 4-step chunks | 5/8 | 3 | `20260718`, `20260720`, `20260721` |
+
+Interpretation: shorter requery fixed one original residual failure
+(`20260722`) but introduced two regressions (`20260718`, `20260720`) and still
+failed `20260721`. This is a useful control but not a rescue route and not a
+selected method. It reinforces that the task-8 residual is sensitive to action
+chunking and cannot be claimed solved by a trivial requery change.
+
+Gate result: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
+
 ## Next Decision
 
-The next action is to record the `R2R-OFT` no-go decision and pivot without
-retuning on residual reset identities. Closed-loop Ours rollout is disallowed
-for these checkpoints. Preserve the caveat that current upper/headroom evidence
-is task-level, not same-reset.
+The next action is to pivot without retuning on residual reset identities and
+without adding a third local candidate around the same OpenVLA task-8 residual.
+Closed-loop Ours rollout is disallowed for the trained `R2R-OFT` checkpoints.
+Preserve the caveat that current upper/headroom evidence is task-level, not
+same-reset.

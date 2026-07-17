@@ -3,7 +3,7 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_r2r_oft_offline_selection_not_passed",
+  "stage": "epoch_5_r2r_oft_offline_selection_not_passed_short_requery_control_recorded",
   "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -14,6 +14,8 @@
   "qlora_gradient_smoke_happened": true,
   "optimizer_step_happened": true,
   "checkpoint_written": true,
+  "simple_control_short_requery_happened": true,
+  "simple_control_short_requery_selected": false,
   "training_config_frozen": true,
   "trainer_launcher_validated": true,
   "new_download_happened": false,
@@ -523,6 +525,49 @@
     ],
     "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED"
   },
+  "simple_control_short_requery4": {
+    "status": "COMPLETE_NOT_SELECTED",
+    "role": "predeclared_no_training_simple_alternative",
+    "artifact": "runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json",
+    "artifact_sha256": "6864e691b1ad5dbfe371b309468b9f107806d12b41fe6bd5b51fd99ab00bf37e",
+    "policy": "quantized_openvla_oft_int4",
+    "task": "libero_10/task_8",
+    "reset_identities": [
+      20260716,
+      20260717,
+      20260718,
+      20260719,
+      20260720,
+      20260721,
+      20260722,
+      20260723
+    ],
+    "num_open_loop_steps": 4,
+    "completed_episode_count": 8,
+    "successful_episode_count": 5,
+    "infrastructure_failure_count": 0,
+    "failed_reset_identities": [
+      20260718,
+      20260720,
+      20260721
+    ],
+    "fixed_original_failed_reset_identities": [
+      20260722
+    ],
+    "still_failed_original_failed_reset_identities": [
+      20260721
+    ],
+    "new_regression_reset_identities": [
+      20260718,
+      20260720
+    ],
+    "original_openvla_oft_int4_task8_successful_episode_count": 6,
+    "original_openvla_oft_int4_task8_completed_episode_count": 8,
+    "elapsed_seconds": 662.582,
+    "peak_vram_mib": 5590.446,
+    "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
+    "decision": "SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED"
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Record the R2R-OFT no-go decision and pivot without retuning on residual reset identities; closed-loop Ours rollout is disallowed for these checkpoints, while preserving the task-level-not-same-reset headroom caveat."
+  "next_action": "Pivot without retuning on residual reset identities and without adding a third local candidate around the same OpenVLA task-8 residual; closed-loop Ours rollout is disallowed for the trained R2R-OFT checkpoints, while preserving the task-level-not-same-reset headroom caveat."
 }

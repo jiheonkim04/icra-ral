@@ -321,6 +321,23 @@ Fixed validation chunks: 24, from validation demos `40..49`, with phase counts
 
 Decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
-Next step: record the `R2R-OFT` no-go decision and pivot without retuning on
-residual reset identities. Closed-loop Ours rollout is disallowed for these
-checkpoints.
+## Simple Control: Shorter OpenVLA-OFT Requery
+
+The predeclared no-training simple alternative was evaluated after the
+`R2R-OFT` offline no-pass:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json`;
+- SHA-256:
+  `6864e691b1ad5dbfe371b309468b9f107806d12b41fe6bd5b51fd99ab00bf37e`;
+- configuration: Quantized OpenVLA-OFT INT4 with `num_open_loop_steps=4`;
+- task/resets: `libero_10/task_8`, reset identities `20260716..20260723`;
+- result: 5/8, with failures on `20260718`, `20260720`, and `20260721`;
+- comparison: original OpenVLA-OFT INT4 8-step prior was 6/8, with failures on
+  `20260721` and `20260722`.
+
+Decision: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
+
+Next step: pivot without retuning on residual reset identities and without
+adding a third local candidate around the same OpenVLA task-8 residual.
+Closed-loop Ours rollout is disallowed for the trained `R2R-OFT` checkpoints.
