@@ -482,7 +482,7 @@ def load_smoke(args: argparse.Namespace) -> dict[str, Any]:
         num_images_in_input=2,
         use_proprio=True,
         center_crop=True,
-        num_open_loop_steps=8,
+        num_open_loop_steps=int(args.num_open_loop_steps),
         load_in_4bit=bool(args.load_in_4bit),
         load_in_8bit=bool(args.load_in_8bit),
         task_suite_name=str(args.task_suite_name),
@@ -631,7 +631,7 @@ def episode_smoke(args: argparse.Namespace) -> dict[str, Any]:
         num_images_in_input=2,
         use_proprio=True,
         center_crop=True,
-        num_open_loop_steps=8,
+        num_open_loop_steps=int(args.num_open_loop_steps),
         load_in_4bit=bool(args.load_in_4bit),
         load_in_8bit=bool(args.load_in_8bit),
         task_suite_name=str(args.task_suite_name),
@@ -931,7 +931,7 @@ def hard_slice_rollout(args: argparse.Namespace) -> dict[str, Any]:
         num_images_in_input=2,
         use_proprio=True,
         center_crop=True,
-        num_open_loop_steps=8,
+        num_open_loop_steps=int(args.num_open_loop_steps),
         load_in_4bit=bool(args.load_in_4bit),
         load_in_8bit=bool(args.load_in_8bit),
         task_suite_name="libero_spatial",
@@ -1208,6 +1208,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--manifest-label", default="")
     parser.add_argument("--video-index", type=int, default=1)
     parser.add_argument("--seed", type=int, default=20260712)
+    parser.add_argument("--num-open-loop-steps", type=int, default=8)
     args = parser.parse_args(argv)
 
     if args.command == "env-lock":
