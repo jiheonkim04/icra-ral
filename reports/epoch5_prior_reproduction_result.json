@@ -64,6 +64,7 @@
   "post_mpr_xvla_prior_failure_scan_libero_spatial_20260724_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks10_29_happened": true,
+  "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks30_49_happened": true,
   "xvla_spatial_task5_matched_base_prior_diagnostic_happened": true,
   "xvla_spatial_task5_headroom_diagnostic_happened": true,
   "xvla_spatial_task5_openvla_int4_second_prior_screen_happened": true,
@@ -3111,6 +3112,36 @@
     "directory_label_note": "The output root says tasks10_19 because the launch intended a ten-task shard, but the worker's fourth argument is TASK_COUNT. Passing 20 ran tasks 10..29; scan_manifest.json records start_task_id=10 and task_count=20.",
     "interpretation": "X-VLA-Libero succeeded on all twenty scanned libero_90 tasks 10..29 at identity 20260724, so this broader local official LIBERO-90 shard also does not provide a fresh residual target."
   },
+  "post_mpr_xvla_prior_failure_scan_libero90_20260724_tasks30_49": {
+    "status": "COMPLETE_NO_FRESH_TARGET",
+    "decision": "POST_SECOND_PRIOR_XVLA_LIBERO90_IDENTITY20260724_TASKS30_49_SATURATED",
+    "purpose": "Continued local official-prior residual mining after libero_90 tasks 0..29 saturated; no training or Ours evaluation.",
+    "launcher": "Windows Start-Process wsl.exe hidden foreground-worker",
+    "worker_script": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+    "output_root": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks30_49_post_secondprior_20260718T000212KST",
+    "manifest": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks30_49_post_secondprior_20260718T000212KST/scan_manifest.json",
+    "manifest_sha256": "af10f5a25752dc1125085972e7196b64f7ed748ffcaccaccaf445e72d17d82de",
+    "summary": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks30_49_post_secondprior_20260718T000212KST/scan_summary.json",
+    "summary_sha256": "9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de",
+    "reset_identity": 20260724,
+    "initial_state_index": 13,
+    "task_suite": "libero_90",
+    "tasks_requested": "start_task_id=30, task_count=20",
+    "tasks_completed": "30..49",
+    "scan_status": "complete",
+    "scan_exit_code": 0,
+    "completed_task_count": 20,
+    "successful_task_count": 20,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "task30_result_sha256": "0926e23cd86ab74e9db034dd76b2bab75a627072778c93a7adac0aba1eda10f0",
+    "task49_result_sha256": "6743ba97c66a926eeb413e536112e7161f7173f463a08509ee79ac58d05fade3",
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "interpretation": "X-VLA-Libero succeeded on all twenty scanned libero_90 tasks 30..49 at identity 20260724, leaving no fresh target in this shard."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -3162,5 +3193,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-MPR X-VLA LIBERO-10, libero_goal, libero_object, and post-second-prior libero_90 tasks 0..29 found no fresh target. Libero_spatial identity 20260724 exposed a fresh X-VLA/SmolVLA shared residual on task 5 with positive task-level headroom, but Quantized OpenVLA-OFT INT4 solved that exact condition in 136 steps. Therefore no Ours design is authorized for spatial task 5. Next action: select a new preregistered residual source or prior ecosystem; do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-MPR X-VLA LIBERO-10, libero_goal, libero_object, and post-second-prior libero_90 tasks 0..49 found no fresh target. Libero_spatial identity 20260724 exposed a fresh X-VLA/SmolVLA shared residual on task 5 with positive task-level headroom, but Quantized OpenVLA-OFT INT4 solved that exact condition in 136 steps. Therefore no Ours design is authorized for spatial task 5. Next action: select a new preregistered residual source or prior ecosystem; do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
 }

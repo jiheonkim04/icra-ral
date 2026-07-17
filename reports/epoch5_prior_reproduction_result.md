@@ -1889,6 +1889,7 @@ After spatial task 5 failed the second-prior gate, a bounded local official
 |---|---|---|---|
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST/scan_summary.json` | `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f` | 10/10 succeeded, zero infrastructure failures |
 | `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks10_19_post_secondprior_20260717T235259KST/scan_summary.json` | `7616acc53feffd88c9dc342781fab162db1938b34d97924afef4d1b3994452ed` | actual tasks 10..29 succeeded 20/20, zero infrastructure failures |
+| `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks30_49_post_secondprior_20260718T000212KST/scan_summary.json` | `9ee57921eb488b677c826431628a2f87093bf1454f756b918296bb17268f15de` | tasks 30..49 succeeded 20/20, zero infrastructure failures |
 
 Manifest SHA-256:
 `aa6e77ec348f44e635c36fe5ff84cf83a56598ed074209a22a026b9cd113e503`.
@@ -1910,3 +1911,10 @@ Task-10 result SHA-256:
 `79d06407d1f6ad34a6b1559877e297b19bb6cdcbfbc0f57855045681787f0536`.
 Task-29 result SHA-256:
 `ad36b2f9f03ce297cc9ec3c49e7fbed16abd059ee1dd02bb651ec7c21dffc3f7`.
+
+Third shard manifest SHA-256:
+`af10f5a25752dc1125085972e7196b64f7ed748ffcaccaccaf445e72d17d82de`.
+Task-30 result SHA-256:
+`0926e23cd86ab74e9db034dd76b2bab75a627072778c93a7adac0aba1eda10f0`.
+Task-49 result SHA-256:
+`6743ba97c66a926eeb413e536112e7161f7173f463a08509ee79ac58d05fade3`.
