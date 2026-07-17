@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:25:06+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_optimizer_gate_freeze": "2226dae2520c34d1cfc6876ef53e4dd0aa2f6753",
+  "decision": "R2P_XVLA_OPTIMIZER_GATE_FROZEN_TRAINING_NOT_LAUNCHED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY_OPTIMIZER_GATE_FREEZE",
+    "evidence_role": "PRE_TRAINING_AUTHORIZATION_CONTRACT",
+    "artifact_status": "NO_TRAINING_NO_OPTIMIZER_NO_CHECKPOINT_REPORT",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": false,
+    "peft_lora_attached": false,
+    "forward_happened": false,
+    "backward_happened": false,
+    "optimizer_created": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0
+  },
+  "prerequisite_references": {
+    "spec_report_json": {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_spec_result.json",
+      "sha256": "81980077e300597ba911fc2982256cc8ce161ecdb199b1761ef004546ed7dcd4"
+    },
+    "data_adapter_smoke_report_json": {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_data_adapter_smoke_result.json",
+      "sha256": "1f50741d0f2b0f0a6a0fbfa6c6cb5c91c06b7d3ec78f6396f7d6c69fdbe217ff"
+    },
+    "gradient_smoke_report_json": {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gradient_smoke_result.json",
+      "sha256": "52ca7a389e45139fc48d8cb4c5ee508383fb23ad891dcc5e5d53e0dbac5d1612"
+    }
+  },
+  "gate_status": {
+    "frozen": true,
+    "armed_for_training_launch": false,
+    "reason_not_armed": "Task5 spec-locked train_lora runner and offline validation runner are not yet implemented or tested.",
+    "training_launched_now": false,
+    "optimizer_step_authorized_now": false
+  },
+  "frozen_training_contract": {
+    "output_root": "runs/xvla_prior/epoch5_r2p_xvla_task5_training",
+    "spec_snapshot_required": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/<arm_id>/frozen_spec_snapshot.json",
+    "arm_execution_order": [
+      "r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+      "uniform_task5_xvla_rank8_lambda0_lr1e4_steps64"
+    ],
+    "arms": [
+      {
+        "arm_id": "r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+        "role": "primary_selected_method",
+        "output_dir": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+        "max_optimizer_steps": 64,
+        "save_steps": [16, 32, 64],
+        "eval_steps": [0, 16, 32, 64],
+        "phase_loss_weights": {
+          "source_on_ramekin": 1.0,
+          "transit": 2.0,
+          "target_on_plate": 1.5
+        }
+      },
+      {
+        "arm_id": "uniform_task5_xvla_rank8_lambda0_lr1e4_steps64",
+        "role": "uniform_weight_ablation",
+        "output_dir": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/uniform_task5_xvla_rank8_lambda0_lr1e4_steps64",
+        "max_optimizer_steps": 64,
+        "save_steps": [16, 32, 64],
+        "eval_steps": [0, 16, 32, 64],
+        "phase_loss_weights": {
+          "source_on_ramekin": 1.0,
+          "transit": 1.0,
+          "target_on_plate": 1.0
+        }
+      }
+    ],
+    "shared_runtime_limits": {
+      "local_files_only": true,
+      "allow_download": false,
+      "device_index": 0,
+      "batch_size": 1,
+      "learning_rate": 0.0001,
+      "max_cuda_peak_mib": 14500,
+      "max_wall_clock_minutes_per_arm": 90,
+      "closed_loop_rollout_during_training": false
+    }
+  },
+  "required_before_first_optimizer_step": [
+    "task5 train_lora runner implemented and focused tests passed",
+    "runner loads the frozen spec and rejects any unknown arm_id",
+    "runner writes worker.pid before model load",
+    "runner writes training_status.json before optimizer creation",
+    "runner writes heartbeat.json before first optimizer step",
+    "runner writes frozen_spec_snapshot.json into each arm output directory before first optimizer step",
+    "runner enforces HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1",
+    "runner refuses any output directory outside runs/xvla_prior/epoch5_r2p_xvla_task5_training",
+    "runner refuses max_steps_override above 64",
+    "runner records stdout.log, stderr.log, exit_code.txt, result.json, and git commit"
+  ],
+  "stop_conditions": [
+    "attempted network download",
+    "optimizer step before status, heartbeat, and frozen spec snapshot are written",
+    "unknown arm_id or third task5 configuration",
+    "nonfinite loss or gradient",
+    "CUDA peak memory above 14500 MiB",
+    "checkpoint write outside frozen save steps",
+    "closed-loop Ours rollout during training",
+    "residual reward used for checkpoint selection",
+    "privileged object state or phase labels used as inference input",
+    "two identical infrastructure failures for the same arm"
+  ],
+  "offline_selection_after_training": {
+    "required": true,
+    "closed_loop_residual_used_for_model_selection": false,
+    "primary_must_beat_uniform_on_phase_weighted_validation_loss": true,
+    "source_phase_degradation_bound_vs_uniform": 0.05,
+    "clean_retention_manifest_fixed_before_rollout": true
+  },
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "downloads_performed": false
+  },
+  "next_action": "Implement and validate a spec-locked R2P-XVLA train_lora runner under this frozen gate. Do not launch training until runner tests pass and the gate can be armed."
+}
