@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_mpr_xvla_training_gate_debug_passed`
-- Current decision: `MPR_XVLA_ONE_STEP_TRAINING_GATE_SMOKE_PASS_FULL_GATE_PENDING`
+- Current stage: `epoch_5_task6_mpr_xvla_offline_selection_not_passed`
+- Current decision: `MPR_XVLA_OFFLINE_SELECTION_NOT_PASSED_NO_CLOSED_LOOP`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -15,6 +15,11 @@ Updated: 2026-07-17 KST
   - `5835ef3` repair X-VLA runner path import
   - `19177fe` record repaired post-BR-XVLA X-VLA prior scan
   - `e1d67fb` record task6 matched residual headroom
+  - `d387d8a` record task6 second-prior candidate design
+  - `4cdb49f` freeze task6 MPR-XVLA training spec
+  - `f5efa5c` pass task6 MPR-XVLA preoptimizer gates
+  - `58a97d5` add task6 MPR-XVLA training gate
+  - `5faed4d` fix task6 MPR-XVLA offline validation spec scope
 - Audit report: `reports/autonomous_research_full_history_audit.md`
 - Audit accepted as evidence; the embedded Cycle 39 prompt is not active.
 - Paper status: no PROTOTYPE_GO, no official-prior Ours win, no second-backbone Ours result.
@@ -48,9 +53,8 @@ X-VLA:
 - Official X-VLA-Libero loaded from cached HF assets.
 - Task-8 residual was solved by X-VLA; no Ours target there.
 - Task-1 shared residual led to BR-XVLA; BR-XVLA is now closed as a validation no-pass.
-- Task-6 now has matched Base/Prior residual structure, task-level headroom,
-  spatial data-health, OpenVLA-OFT INT4 second-prior no-solve evidence, and a
-  selected candidate design.
+- Task-6 has matched Base/Prior residual, task-level headroom, spatial data
+  health, OpenVLA-OFT INT4 no-solve evidence, and MPR-XVLA offline no-pass.
 
 ## BR-XVLA Closed-Loop No-Pass
 
@@ -161,62 +165,35 @@ Quantized OpenVLA-OFT INT4 second-prior screen:
   - `...20260717T2130KST`: missing `json_numpy`, no result.
   - `...repaired_20260717T2135KST`: missing TensorFlow, no result.
 
-Selected task6 candidate:
-`reports/epoch5_task6_ours_candidate_design.md`
+MPR-XVLA candidate/training:
 
-- Exactly two candidates generated: `MPR-XVLA` selected, `PRC-XVLA` not selected.
-- `MPR-XVLA`: Mug-placed / Pudding-right Reweighted X-VLA.
-- Core objective: upweight HDF5 chunks where mug-on-plate is true and
-  pudding-right is false; LoRA/QLoRA only as infrastructure.
-- Mandatory first spec arms: primary `MPR-XVLA` and uniform-weight X-VLA
-  LoRA/QLoRA ablation.
-- No task6 optimizer step, checkpoint, training, or closed-loop Ours evaluation
-  has happened.
+- Design: `reports/epoch5_task6_ours_candidate_design.md`; exactly two
+  candidates, `MPR-XVLA` selected and `PRC-XVLA` not selected.
+- Frozen spec: `runs/xvla_prior/epoch5_mpr_xvla_training_spec_v1.json`
+  (`5ee2b5d49887d187f5da81cb0d14d0e48feaab2e46dc8ff1ac65bd671808cc98`).
+- Preoptimizer smokes passed:
+  data adapter `62668c2483ab060aaa1a8e1f5d6153dd4f220fbd331658f587acb38003625ee8`;
+  gradient `97b6bbc9a9cd1a2e0e471587196b8f3ad11b5e958f07d66f3eaa6dae60dad552`.
+- One-step two-arm debug gate passed:
+  `272b30f25528ffa9925f71e5fdde1ef09b03bac6d69fe3a6f0731ab40fc94f0e`.
+- Full 64-step two-arm training completed and wrote checkpoints:
+  primary result `168b1720b8911f77700a78057de21d8aad3f08a55ccac7384589f02bf946dcb0`;
+  uniform result `918bbf6c4d1e941b6827b28cc314f91a72982501399b48ce46722601c39d48c7`.
+- Initial full gate failed only during offline validation due
+  `NameError: spec`; invalid artifact
+  `b8ec1ac9fb739877f73f53e76eac8ef00ebf3899f6f77823ceade2f57164fa97`.
+- Repaired offline validation artifact:
+  `runs/xvla_prior/epoch5_mpr_xvla_offline_validation_step0064_repaired_20260717T2200KST.json`
+  (`ede498006a5832e3b2101de41fd344438b1c2dc4cdbd21f1355d8564e03fc59f`).
+- Offline metrics on 24 chunks: prior phase-1 loss 2.999218; MPR 0.878535892;
+  uniform 0.878535837. MPR passed absolute health but did not beat uniform.
+- Closed-loop MPR-XVLA Ours evaluation did not happen and is disallowed.
 
-Frozen no-training spec:
-`runs/xvla_prior/epoch5_mpr_xvla_training_spec_v1.json`
+## Immediate Next Decision
 
-- Result SHA-256: `5ee2b5d49887d187f5da81cb0d14d0e48feaab2e46dc8ff1ac65bd671808cc98`
-- Module/test SHA-256:
-  `d33de054b3e6df2c4ae9552a9b2a2b789f832bd1dff4a3cb2c0aef28b7304c94` /
-  `01541afd2022c5f75ad7916c7d01dd4ab37d849f39605997648751f9ce28022c`
-- Arms: `mpr_xvla_rank8_lambda2_lr1e4_steps64` and
-  `uniform_task6_xvla_rank8_lambda0_lr1e4_steps64`.
-- At freeze: training/optimizer/checkpoint/closed-loop Ours all false.
-- Pre-optimizer smokes passed; one-step two-arm training-gate smoke passed
-  (`272b30f25528ffa9925f71e5fdde1ef09b03bac6d69fe3a6f0731ab40fc94f0e`).
-
-Data-adapter smoke:
-`runs/xvla_prior/mpr_xvla_data_adapter_smoke_20260717T213237KST/result.json`
-
-- Result SHA-256: `62668c2483ab060aaa1a8e1f5d6153dd4f220fbd331658f587acb38003625ee8`
-- Module/test SHA-256:
-  `1c81da527be53922c4be70c67686a3a376c36e88fe19decd5fd0aaaaa9a4963a` /
-  `d54fd1697dbcb2b8177d7335a0d554cef0a874daf39cc3c8511ba76ecb148f59`
-- Official X-VLA reader shapes: action `[30,20]`, proprio `[20]`,
-  image `[3,3,224,224]`; task6 instruction intact.
-
-Gradient smoke:
-`runs/xvla_prior/mpr_xvla_gradient_smoke_localsnapshot2_20260717T213832KST/result.json`
-
-- Result SHA-256: `97b6bbc9a9cd1a2e0e471587196b8f3ad11b5e958f07d66f3eaa6dae60dad552`
-- Module/test SHA-256:
-  `96fd62ee6640516d03ffe9f1ac1faf0ae7c35c68e4be549b12b258eda255d1df` /
-  `7c902ea1af337a9595c70be81fdf16daf1c891f7c140736b12adab3c7c273318`
-- Local snapshot + offline env: true; LoRA attached; forward/backward true.
-- Weighted loss 10.817554; finite gradients 537/537, nonzero 271, norm
-  2161.975; peak CUDA 5260.354 MiB.
-- Invalid/superseded attempts: `...213519KST` and `...213615KST` had remote-code
-  warning caveats; `...213724KST` local path had config only/no weights.
-
-## Immediate Next Gate
-
-Run bounded two-arm task6 `MPR-XVLA` training/offline validation from the frozen
-spec: primary `MPR-XVLA` and uniform-weight X-VLA LoRA/QLoRA ablation only.
-
-Still prohibited: BR-XVLA rescue/retune, broad search, generic local heads,
-residual gates, memory, verifiers, cached-feature probes, proxy-only methods,
-and closed-loop Ours evaluation before an offline gate.
+Do not retune/rescue MPR-XVLA from the no-pass. Return to the official-prior
+task6 residual with a fresh bounded candidate decision; still avoid broad
+search, generic local heads/gates/memory/verifiers/proxy-only methods.
 
 ## Report Set
 
@@ -229,18 +206,12 @@ and closed-loop Ours evaluation before an offline gate.
 
 ## Current Validation Status
 
-- JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-- Handoff line count: 246, under the 250-line cap.
-- Task-6 candidate-design validation:
-  - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-  - py_compile: pass for OpenVLA gate, task6 audit/spec/adapter/gradient, and tests
-  - pytest: `15 passed`
+- Repaired offline fix validation before commit `5faed4d`:
+  - py_compile: pass for `offline_validate.py` and `test_mpr_xvla_offline_validate.py`
+  - pytest: `5 passed` for offline validator + training gate tests
   - `git diff --check`: pass with LF/CRLF warnings only
   - `scripts/99_tree_check.ps1`: pass
-- Scan launcher syntax: pass via WSL `bash -n`
-- X-VLA runner py-compile: pass via official WSL env
-- Focused scan tests: none found
-- `git diff --check`: pass with LF/CRLF warnings only
-- `scripts/99_tree_check.ps1`: pass via one-shot PowerShell execution-policy bypass
+- Repaired offline run completed under official WSL env in 50.325s.
+- Handoff line count remains under 250; recheck before committing.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.

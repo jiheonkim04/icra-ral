@@ -57,13 +57,15 @@ expert replay headroom, but no same-reset HDF5 demo init-state match was
 available. A task6 spatial data audit then passed, and the required
 Quantized OpenVLA-OFT INT4 second-prior screen did not solve either shared
 residual. Exactly two task6 candidates were generated; `MPR-XVLA` was selected
-as the first narrow candidate. No task6 optimizer step, checkpoint, training, or
-closed-loop Ours evaluation has happened. The no-training `MPR-XVLA` two-arm
-training spec is now frozen; pre-optimizer data-adapter and gradient smokes are
-now passed. The next authorized step is the bounded two-arm training/offline
-validation gate. A one-step two-arm training-gate smoke passed; the full
-64-step/offline gate is still pending. Closed-loop Ours evaluation remains
-disallowed.
+as the first narrow candidate. The no-training `MPR-XVLA` two-arm training spec
+was frozen; pre-optimizer data-adapter and gradient smokes passed; a one-step
+two-arm training-gate smoke passed; then the full 64-step two-arm training gate
+completed and wrote checkpoints. The initial offline-validation pass failed from
+an infrastructure bug (`NameError: spec` after training), then the bug was fixed
+and the saved adapters were revalidated. The repaired offline selector did not
+pass: `MPR-XVLA` improved the absolute targeted offline loss versus prior but
+did not beat the required uniform-weight X-VLA LoRA ablation on phase-1
+validation loss. Closed-loop `MPR-XVLA` Ours evaluation remains disallowed.
 
 ## Validation Commands
 
@@ -1700,3 +1702,49 @@ not happen.
 Interpretation: this validates the frozen training-gate runtime path before the
 long run. It is not model selection, not a checkpointed candidate, and not a
 closed-loop result.
+
+## `MPR-XVLA` Full Training and Repaired Offline Selection Gate
+
+Status: `COMPLETE_NO_PASS`.
+
+Decision: `MPR_XVLA_OFFLINE_SELECTION_NOT_PASSED`.
+
+The full frozen two-arm gate completed training for both arms and wrote
+checkpoints under `runs/xvla_prior/epoch5_mpr_xvla_training`. The first full
+gate artifact then failed during offline validation because
+`_evaluate_policy_rows` referenced `spec` out of scope. That artifact is
+classified as an infrastructure failure after training, not as a scientific
+offline decision.
+
+The bug was fixed and pushed in commit
+`5faed4dabc7a97fa3d24cfbfafb9262dda6be8f1`; the saved `step_0064` adapters
+were then revalidated without retraining.
+
+| Artifact | SHA-256 |
+|---|---|
+| Primary training result: `runs/xvla_prior/epoch5_mpr_xvla_training/mpr_xvla_rank8_lambda2_lr1e4_steps64/result.json` | `168b1720b8911f77700a78057de21d8aad3f08a55ccac7384589f02bf946dcb0` |
+| Uniform training result: `runs/xvla_prior/epoch5_mpr_xvla_training/uniform_task6_xvla_rank8_lambda0_lr1e4_steps64/result.json` | `918bbf6c4d1e941b6827b28cc314f91a72982501399b48ce46722601c39d48c7` |
+| Initial full gate result: `runs/xvla_prior/epoch5_mpr_xvla_training/gate_result.json` | `b4d7eae1e1d12a7086a024ad4a13946fd9b3616b02b7bdc1bcc1fc65b9479409` |
+| Initial invalid offline artifact: `runs/xvla_prior/epoch5_mpr_xvla_offline_validation_step0064.json` | `b8ec1ac9fb739877f73f53e76eac8ef00ebf3899f6f77823ceade2f57164fa97` |
+| Repaired offline artifact: `runs/xvla_prior/epoch5_mpr_xvla_offline_validation_step0064_repaired_20260717T2200KST.json` | `ede498006a5832e3b2101de41fd344438b1c2dc4cdbd21f1355d8564e03fc59f` |
+
+| Offline metric | Value |
+|---|---:|
+| Validation chunks | 24 |
+| Phase counts | `0:6, 1:12, 2:6` |
+| Prior phase-1 mean loss | `2.9992184042930603` |
+| `MPR-XVLA` phase-1 mean loss | `0.8785358915726343` |
+| Uniform LoRA phase-1 mean loss | `0.8785358369350433` |
+| `MPR-XVLA` absolute offline gate | `PASS` |
+| `MPR-XVLA` beats uniform ablation | `false` |
+| Clean-phase relative degradation vs prior | `-0.7420015435973544` |
+| Mean abs action delta vs prior | `0.07972310097684737` |
+| Max abs action delta vs prior | `0.9808809226378798` |
+| CUDA peak MiB | `3565.332` |
+
+Interpretation: the selected phase-weighted primary learned a lower offline
+loss than the unadapted X-VLA prior, but the required simple control learned the
+same behavior fractionally better on the targeted phase. Therefore the
+selection gate blocks closed-loop `MPR-XVLA` evaluation from this configuration.
+This is not a paper-candidate result and should not be rescued by retuning the
+same MPR setup.
