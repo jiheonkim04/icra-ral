@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_mpr_xvla_preoptimizer_gates_passed`
-- Current decision: `MPR_XVLA_DATA_ADAPTER_AND_GRADIENT_SMOKES_PASS_NO_OPTIMIZER`
+- Current stage: `epoch_5_mpr_xvla_training_gate_debug_passed`
+- Current decision: `MPR_XVLA_ONE_STEP_TRAINING_GATE_SMOKE_PASS_FULL_GATE_PENDING`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -183,8 +183,8 @@ Frozen no-training spec:
 - Arms: `mpr_xvla_rank8_lambda2_lr1e4_steps64` and
   `uniform_task6_xvla_rank8_lambda0_lr1e4_steps64`.
 - At freeze: training/optimizer/checkpoint/closed-loop Ours all false.
-- Pre-optimizer smokes passed; training/optimizer/checkpoint/closed-loop Ours
-  remain false at this gate.
+- Pre-optimizer smokes passed; one-step two-arm training-gate smoke passed
+  (`272b30f25528ffa9925f71e5fdde1ef09b03bac6d69fe3a6f0731ab40fc94f0e`).
 
 Data-adapter smoke:
 `runs/xvla_prior/mpr_xvla_data_adapter_smoke_20260717T213237KST/result.json`

@@ -61,7 +61,9 @@ as the first narrow candidate. No task6 optimizer step, checkpoint, training, or
 closed-loop Ours evaluation has happened. The no-training `MPR-XVLA` two-arm
 training spec is now frozen; pre-optimizer data-adapter and gradient smokes are
 now passed. The next authorized step is the bounded two-arm training/offline
-validation gate; closed-loop Ours evaluation remains disallowed.
+validation gate. A one-step two-arm training-gate smoke passed; the full
+64-step/offline gate is still pending. Closed-loop Ours evaluation remains
+disallowed.
 
 ## Validation Commands
 
@@ -122,6 +124,15 @@ Task6 candidate-design validation:
 - `git diff --check`: pass with LF/CRLF warnings only;
 - `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
   execution-policy bypass.
+
+`MPR-XVLA` training-gate debug validation:
+
+- py-compile: pass for task6 `train_lora`, `offline_validate`, `training_gate`,
+  and focused tests;
+- focused pytest: `15 passed`;
+- one-step two-arm training-gate smoke: pass via official WSL env;
+- debug result SHA-256:
+  `272b30f25528ffa9925f71e5fdde1ef09b03bac6d69fe3a6f0731ab40fc94f0e`.
 
 ## Recovered Hard-Slice Evidence
 
@@ -1656,3 +1667,36 @@ snapshot, attach PEFT LoRA, consume the task6 X-VLA-format adapter, compute the
 mug-done/pudding-remaining weighted supervised loss, and backpropagate finite
 nonzero trainable gradients without opening any optimizer/checkpoint/training
 gate.
+
+## `MPR-XVLA` One-Step Training-Gate Smoke
+
+Status: `PASS`.
+
+Decision: `MPR_XVLA_TRAINING_DEBUG_COMPLETE_OFFLINE_SKIPPED`.
+
+Artifact:
+`runs/xvla_prior/epoch5_mpr_xvla_training_debug1_20260717T214815KST/gate_result.json`,
+SHA-256 `272b30f25528ffa9925f71e5fdde1ef09b03bac6d69fe3a6f0731ab40fc94f0e`.
+
+Modules:
+
+| Module | SHA-256 |
+|---|---|
+| `tca_map/xvla_task6/train_lora.py` | `bb7a7ffe094665798390b79935671f4557df4172e0991e2239a6e1a5dc958668` |
+| `tca_map/xvla_task6/offline_validate.py` | `23bb52a5b58d8329ca37fcabeedf4e4970f19e6363e648ac5b41c0ad1338a914` |
+| `tca_map/xvla_task6/training_gate.py` | `42dab177926fc33a679c0f4f28979657b224dd64134bfef2acf0be04142f227f` |
+
+The debug gate ran exactly the two frozen arms with `max_steps_override=1`.
+Both completed one optimizer step. No checkpoint was written because the frozen
+save steps are `16/32/64`; offline validation was skipped because the debug run
+did not reach the full frozen 64-step budget. Closed-loop Ours evaluation did
+not happen.
+
+| Arm | Optimizer steps | Checkpoint | Phase weight | Last weighted loss | CUDA peak MiB |
+|---|---:|---:|---:|---:|---:|
+| `mpr_xvla_rank8_lambda2_lr1e4_steps64` | 1 | false | 3.0 | 9.090170860290527 | 5260.354 |
+| `uniform_task6_xvla_rank8_lambda0_lr1e4_steps64` | 1 | false | 1.0 | 3.030056953430176 | 5263.096 |
+
+Interpretation: this validates the frozen training-gate runtime path before the
+long run. It is not model selection, not a checkpointed candidate, and not a
+closed-loop result.

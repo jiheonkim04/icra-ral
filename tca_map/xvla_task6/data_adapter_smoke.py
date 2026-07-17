@@ -19,6 +19,7 @@ import numpy as np
 
 from tca_map.xvla_task1.data_adapter_smoke import (
     _demo_sort_key,
+    _install_mmengine_fileio_shim_if_needed,
     _write_encoded_rgb_frames,
     build_abs_action_6d,
     smoke_xvla_reader,
