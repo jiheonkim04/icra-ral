@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T02:16:01+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_result_creation": "cec12df369e27b6b92985fe426baefb7d9b6253c",
+  "decision": "TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED",
+  "decision_options_considered": [
+    "TASK75_SECOND_PRIOR_SOLVES",
+    "TASK75_SECOND_PRIOR_CLEAN_FAILURE",
+    "TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED",
+    "TASK75_RESULT_INVALID"
+  ],
+  "suite": "libero_90",
+  "task_id": 75,
+  "task_identity": "libero_90/task_75",
+  "task_description": "pick up the book and place it in the right compartment of the caddy",
+  "reset_identity": 20260725,
+  "initial_state_index": 14,
+  "identity_mapping_rule": "reset identity label 20260711 + n maps to official LIBERO initial_state index n per task",
+  "second_prior_gate": {
+    "preferred_prior": "Quantized OpenVLA-OFT INT4",
+    "valid_closed_loop_second_prior_executed": false,
+    "policy_failure_counted": false,
+    "infrastructure_blocked": true,
+    "reason": "No already-preregistered local second-prior checkpoint/runner supports LIBERO-90 task75 action unnormalization and task semantics under the current official-prior-first constraints.",
+    "result_integrity": "TASK75_INPUT_EVIDENCE_VALID_SECOND_PRIOR_UNAVAILABLE",
+    "no_training_happened": true,
+    "no_lora_or_qlora_training_happened": true,
+    "no_optimizer_step_happened": true,
+    "no_checkpoint_written": true,
+    "no_ours_design_happened": true,
+    "no_ours_rollout_happened": true
+  },
+  "execution_records": [
+    {
+      "record_id": "openvla_oft_int4_task75_preflight",
+      "execution_type": "REPORT_ONLY",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "QUANTIZED_OFFICIAL_CHECKPOINT_INFERENCE",
+      "policy": "Quantized OpenVLA-OFT INT4",
+      "exact_checkpoint": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "checkpoint_repo": "moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "checkpoint_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "source_revision": "OpenVLA-OFT local repo /mnt/c/assets/repos/openvla-oft, head e4287e94541f459edc4feabc4e181f537cd569a8 per configs/openvla_oft_int4_repro_lock.yaml",
+      "cuda_device": "NOT_USED_MODEL_NOT_LOADED",
+      "pid": "NOT_APPLICABLE_PREFLIGHT_ONLY",
+      "peak_vram_mib": 0.0,
+      "model_forward_count": 0,
+      "simulator_episode_count": 0,
+      "official_closed_loop_success_measured": false,
+      "success": null,
+      "failure": null,
+      "infrastructure_status": "UNSUPPORTED_LIBERO_90_UNNORM_KEY",
+      "dataset_statistics_sha256": "6ec6ef68d0d5bae4cb5f9fc9acb715a22b9f4545e9e9b300d0d88695cd7afec3",
+      "dataset_statistics_keys": [
+        "libero_10_no_noops",
+        "libero_goal_no_noops",
+        "libero_object_no_noops",
+        "libero_spatial_no_noops"
+      ],
+      "supports_libero_90": false
+    },
+    {
+      "record_id": "lightvla_libero10_task75_preflight",
+      "execution_type": "REPORT_ONLY",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "QUANTIZED_OFFICIAL_CHECKPOINT_INFERENCE",
+      "policy": "LightVLA-libero-10-4bit",
+      "exact_checkpoint": "/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10",
+      "checkpoint_repo": "TTJiang/LightVLA-libero-10",
+      "checkpoint_revision": "NOT_RECORDED_IN_LOCAL_RESULT",
+      "source_revision": "LightVLA local repo C:/assets/repos/LightVLA; exact revision recorded in reports/epoch5_prior_reproduction_result.json",
+      "cuda_device": "NOT_USED_MODEL_NOT_LOADED",
+      "pid": "NOT_APPLICABLE_PREFLIGHT_ONLY",
+      "peak_vram_mib": 0.0,
+      "model_forward_count": 0,
+      "simulator_episode_count": 0,
+      "official_closed_loop_success_measured": false,
+      "success": null,
+      "failure": null,
+      "infrastructure_status": "UNSUPPORTED_LIBERO_90_UNNORM_KEY",
+      "dataset_statistics_keys": [
+        "libero_10_no_noops"
+      ],
+      "supports_libero_90": false
+    },
+    {
+      "record_id": "ript_vla_fallback_status",
+      "execution_type": "REPORT_ONLY",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "NOT_APPLICABLE",
+      "policy": "RIPT-VLA",
+      "exact_checkpoint": "tanshh97/RIPT_VLA preflighted earlier; no valid local task75 checkpoint selected",
+      "source_revision": "reports/epoch5_prior_reproduction_result.json second_pass_fallback_prior_preflight",
+      "cuda_device": "NOT_USED",
+      "pid": "NOT_APPLICABLE",
+      "peak_vram_mib": 0.0,
+      "model_forward_count": 0,
+      "simulator_episode_count": 0,
+      "official_closed_loop_success_measured": false,
+      "infrastructure_status": "PREVIOUSLY_BLOCKED_NOT_COMPARABLE_OR_RESOURCE_BLOCKED"
+    },
+    {
+      "record_id": "vla_gse_fallback_status",
+      "execution_type": "REPORT_ONLY",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "NOT_APPLICABLE",
+      "policy": "VLA-GSE",
+      "exact_checkpoint": "No local trained VLA-GSE checkpoint present",
+      "source_revision": "reports/epoch5_prior_reproduction_result.json second_pass_fallback_prior_preflight",
+      "cuda_device": "NOT_USED",
+      "pid": "NOT_APPLICABLE",
+      "peak_vram_mib": 0.0,
+      "model_forward_count": 0,
+      "simulator_episode_count": 0,
+      "official_closed_loop_success_measured": false,
+      "infrastructure_status": "PREVIOUSLY_BLOCKED_NO_LOCAL_TRAINED_CHECKPOINT_AND_MULTI_GPU_TRAINING_REFERENCE"
+    },
+    {
+      "record_id": "vla0_vlajepa_fallback_status",
+      "execution_type": "REPORT_ONLY",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "NOT_APPLICABLE",
+      "policy": "VLA-0 and VLA-JEPA",
+      "exact_checkpoint": "No local executable checkpoint selected for task75",
+      "source_revision": "reports/epoch5_prior_reproduction_result.json third_pass_prior_selection",
+      "cuda_device": "NOT_USED",
+      "pid": "NOT_APPLICABLE",
+      "peak_vram_mib": 0.0,
+      "model_forward_count": 0,
+      "simulator_episode_count": 0,
+      "official_closed_loop_success_measured": false,
+      "infrastructure_status": "PREVIOUSLY_UNSELECTED_LARGE_ASSET_NO_LOCAL_EXECUTABLE_CHECKPOINT"
+    }
+  ],
+  "published_reference": {
+    "role": "PUBLISHED_REFERENCE",
+    "used_as_kill_threshold": false,
+    "statement": "No aggregate published result, including any OpenPI full-LIBERO average, is used to solve or kill task75. The decision uses only local matched task75 protocol evidence and local prior-support evidence."
+  },
+  "local_official_or_quantized_prior_result": {
+    "role": "LOCAL_OFFICIAL_OR_QUANTIZED_PRIOR_RESULT",
+    "valid_task75_second_prior_rollout": false,
+    "summary": "Preferred Quantized OpenVLA-OFT INT4 and next LightVLA checkpoint are unsupported for LIBERO-90 action unnormalization; remaining preregistered fallbacks are resource/comparability blocked or not locally selected."
+  },
+  "local_matched_task75_result": {
+    "role": "LOCAL_MATCHED_TASK75_RESULT",
+    "xvla_first_prior_success": false,
+    "smolvla_base_success": false,
+    "task_level_expert_headroom": true,
+    "same_reset_expert_headroom": false,
+    "evidence_manifest": "reports/task75_local_evidence_manifest.json"
+  },
+  "preflight_artifacts": [
+    {
+      "path": "runs/task75_second_prior/infra_preflight_20260718T0115KST/stdout.log",
+      "sha256": "f2a3e476d8211dc3c498acaa7721ed0e54a0d58a2470c3e51536828fbfe25e67"
+    },
+    {
+      "path": "runs/task75_second_prior/infra_preflight_20260718T0115KST/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/task75_second_prior/infra_preflight_20260718T0115KST/exit_code.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "exit_code": 0
+    },
+    {
+      "path": "runs/task75_second_prior/infra_preflight_20260718T0115KST/heartbeat.txt",
+      "sha256": "e2d727c16ff73ea5971dad73437a6bb0e73a9054eaaf8ecfafb507a5b76c4354",
+      "heartbeat_at": "2026-07-18T02:16:01.9648254+09:00"
+    }
+  ],
+  "result_implications": {
+    "task75_is_ours_target": false,
+    "task75_policy_failure_by_second_prior": false,
+    "candidate_generation_authorized": false,
+    "training_authorized": false,
+    "residual_confirmation_screen_authorized": false,
+    "next_action": "Do not design or train task75 Ours. Select a new preregistered residual source, reset identity, or prior ecosystem with valid local official-prior support."
+  }
+}
