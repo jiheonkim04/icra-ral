@@ -5,7 +5,7 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- HEAD before latest spec-freeze commit: `94261b8fe4c47e7754391f709e94c737a758517d`
+- HEAD before latest data-adapter-smoke commit: `9386c1171c12b30782fba4eb666a141c8552faab`
 - Epoch/cycle: `5 / 0`
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
 - Active Ours training/worker: none.
@@ -145,14 +145,34 @@ Still closed: training, optimizer step, checkpoint write, closed-loop Ours rollo
 
 Validation: `py_compile` passed; focused pytest `3 passed`; spec snapshot written without model load/training/rollout.
 
+## R2P-XVLA Data-Adapter Smoke
+
+Reports:
+
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_data_adapter_smoke_result.json`
+- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_data_adapter_smoke_result.md`
+
+Decision: `R2P_XVLA_DATA_ADAPTER_SMOKE_PASS`
+
+Tracked code/tests:
+
+- `tca_map/xvla_spatial_task5/data_adapter_smoke.py`
+- `tests/test_r2p_xvla_data_adapter_smoke.py`
+
+Ignored runtime result:
+
+- `runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/result.json`, SHA `c0e44013d31f364beeea134c7991f55fb12d3643e4746961d993eeb2f19288e6`
+
+Smoke materialized `demo_0` and `demo_40`; combined source/transit/target phase coverage `128 / 37 / 89`. Official X-VLA reader returned action `[30,20]`, proprio `[20]`, image `[3,3,224,224]`, and `domain_id` int64. No model load, training, backward, optimizer, checkpoint, simulator, or Ours rollout happened.
+
 ## Immediate Next Action
 
-Materialize and validate a tiny X-VLA-format data-adapter smoke for `R2P-XVLA`, without optimizer steps, checkpoint writes, downloads, simulator rollouts, or closed-loop Ours evaluation.
+Run a one-batch `R2P-XVLA` gradient smoke under the frozen spec, without `optimizer.step`, checkpoint writes, downloads, simulator rollouts, or closed-loop Ours evaluation.
 
 ## Validation To Run Before Commit
 
-- Parse new candidate/spec JSON and existing target-chain JSON.
+- Parse new candidate/spec/data-adapter JSON and existing target-chain JSON.
 - Check `reports/autonomous_compact_handoff.md` line count is under 250.
-- `py_compile` and focused pytest for task5 training spec.
+- `py_compile` and focused pytest for task5 spec/data-adapter files.
 - `git diff --check`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\99_tree_check.ps1`

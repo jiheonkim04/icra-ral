@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T04:15:39+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_data_adapter_smoke": "9386c1171c12b30782fba4eb666a141c8552faab",
+  "decision": "R2P_XVLA_DATA_ADAPTER_SMOKE_PASS",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "DATA_ADAPTER_READER_SMOKE",
+    "evidence_role": "PRE_OPTIMIZER_INTERFACE_GATE",
+    "artifact_status": "TRACKED_SMOKE_CODE_IGNORED_RUNTIME_ARTIFACTS",
+    "official_closed_loop_success_measured": false,
+    "vla_model_loaded": false,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0,
+    "model_forward_count": 0,
+    "official_xvla_dataset_reader_instantiated": true
+  },
+  "spec_reference": {
+    "report_json": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_spec_result.json",
+    "report_sha256": "81980077e300597ba911fc2982256cc8ce161ecdb199b1761ef004546ed7dcd4",
+    "freeze_id": "epoch5_r2p_xvla_task5_training_spec_v1"
+  },
+  "runtime_result": {
+    "result_path": "runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/result.json",
+    "result_sha256": "c0e44013d31f364beeea134c7991f55fb12d3643e4746961d993eeb2f19288e6",
+    "source_hdf5": "C:/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+    "xvla_root": "C:/assets/repos/X-VLA",
+    "demo_names": ["demo_0", "demo_40"],
+    "passed": true,
+    "decision": "R2P_XVLA_DATA_ADAPTER_SMOKE_PASS",
+    "phase_coverage": {
+      "source_on_ramekin": 128,
+      "transit": 37,
+      "target_on_plate": 89
+    },
+    "reader_shapes": {
+      "action": [30, 20],
+      "proprio": [20],
+      "image_input": [3, 3, 224, 224],
+      "image_mask": [3],
+      "domain_id": []
+    },
+    "reader_dtypes": {
+      "action": "torch.float32",
+      "proprio": "torch.float32",
+      "image_input": "torch.float32",
+      "image_mask": "torch.bool",
+      "domain_id": "torch.int64"
+    },
+    "language_instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "mmengine_fileio_shim_used": true
+  },
+  "converted_demo_summaries": [
+    {
+      "demo_name": "demo_0",
+      "steps": 137,
+      "abs_action_6d_shape": [137, 10],
+      "abs_action_6d_finite": true,
+      "abs_action_6d_min": -1.0,
+      "abs_action_6d_max": 1.1689412593841553,
+      "phase_step_counts": {
+        "source_on_ramekin": 67,
+        "transit": 23,
+        "target_on_plate": 47
+      }
+    },
+    {
+      "demo_name": "demo_40",
+      "steps": 117,
+      "abs_action_6d_shape": [117, 10],
+      "abs_action_6d_finite": true,
+      "abs_action_6d_min": -1.0,
+      "abs_action_6d_max": 1.1716097593307495,
+      "phase_step_counts": {
+        "source_on_ramekin": 61,
+        "transit": 14,
+        "target_on_plate": 42
+      }
+    }
+  ],
+  "no_training_no_rollout_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "model_loaded": false,
+    "backward_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "simulator_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "validation": {
+    "py_compile": "PASS for tca_map/xvla_spatial_task5/data_adapter_smoke.py and tests/test_r2p_xvla_data_adapter_smoke.py",
+    "focused_pytest": "2 passed via C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m pytest tests/test_r2p_xvla_data_adapter_smoke.py -q",
+    "real_smoke_command": "C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m tca_map.xvla_spatial_task5.data_adapter_smoke --output-dir runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST --demo-name demo_0 --demo-name demo_40"
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/result.json",
+      "sha256": "c0e44013d31f364beeea134c7991f55fb12d3643e4746961d993eeb2f19288e6",
+      "length_bytes": 3666
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/meta.json",
+      "sha256": "9f0b2e9ae2ef3d76381ef94586d4249dd05ed7a64398790b086d4242308064d5",
+      "length_bytes": 399
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/converted_hdf5/demo_0.hdf5",
+      "sha256": "791897e05b9956f87b4937ef6743c4f8be0219f07fa70a9ccbfcb6dc0083b8f2",
+      "length_bytes": 6294090
+    },
+    {
+      "path": "runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/converted_hdf5/demo_40.hdf5",
+      "sha256": "90bd48e4ad67d91342b02f6c17987c0611e2da157afab38dfb495579ee7cc259",
+      "length_bytes": 5520207
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/data_adapter_smoke.py",
+      "sha256": "9f85a11d5cffb9a77bef5df5c34d556f2e9f807ac6b7c70f94609f7b4e71bc82",
+      "length_bytes": 7582
+    },
+    {
+      "path": "tests/test_r2p_xvla_data_adapter_smoke.py",
+      "sha256": "b47ba8a0f2e3182087a68d8045727c105e24a7c31081194006224851540134f5",
+      "length_bytes": 3619
+    }
+  ],
+  "next_action": "Run a one-batch R2P-XVLA gradient smoke under the frozen spec without optimizer.step, checkpoint writes, downloads, simulator rollouts, or closed-loop Ours evaluation."
+}
