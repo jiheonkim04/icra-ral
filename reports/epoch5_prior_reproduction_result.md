@@ -4,7 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision: `BR_XVLA_SELECTED_TRAINING_SPEC_PENDING`.
+Current decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -37,7 +37,8 @@ After X-VLA solved the task-8 residual, a fresh task-1 residual was found and
 matched against SmolVLA base. The shared failure `20260727` now has positive
 task-level expert headroom, again with same-reset HDF5 evidence unavailable.
 The task1 basket data audit then passed, and exactly two narrow Ours candidates
-were generated. `BR-XVLA` is selected pending a frozen no-training spec.
+were generated. `BR-XVLA` is selected and its no-training two-arm spec is now
+frozen pending an X-VLA-format data-adapter smoke.
 
 ## Validation Commands
 
@@ -1069,3 +1070,29 @@ Detailed artifact: `reports/epoch5_task1_ours_candidate_design.md`.
 No training, optimizer step, checkpoint, or closed-loop Ours evaluation has
 happened for `BR-XVLA`. Next action is to inspect X-VLA adaptation interfaces
 and freeze a two-arm no-training spec before any optimizer step.
+
+## `BR-XVLA` Training Spec Freeze
+
+Status: `FROZEN_PASS_NO_TRAINING`.
+
+Decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`.
+
+Artifact: `runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`.
+
+Module: `tca_map/xvla_task1/training_spec.py`.
+
+The interface audit found official X-VLA PEFT fine-tuning code in
+`C:\assets\repos\X-VLA\peft_train.py`. The frozen spec keeps the first
+adaptation attempt to exactly two arms:
+
+| Arm | Role | Lambda | Max optimizer steps |
+|---|---|---:|---:|
+| `br_xvla_rank8_lambda2_lr1e4_steps64` | primary selected method | 2.0 | 64 |
+| `uniform_xvla_rank8_lambda0_lr1e4_steps64` | uniform-weight ablation | 0.0 | 64 |
+
+At freeze time: training false, optimizer step false, checkpoint false.
+
+Important interface caveat: raw LIBERO HDF5 is not a direct official X-VLA
+training input. Before any optimizer step, the next gate must materialize a
+tiny X-VLA-format data-adapter smoke artifact and then run a one-batch
+no-optimizer gradient smoke.

@@ -2,7 +2,7 @@
 
 Status: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED_NO_TRAINING`.
 
-Decision: `BR_XVLA_SELECTED_TRAINING_SPEC_PENDING`.
+Decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`.
 
 ## Preconditions
 
@@ -56,5 +56,7 @@ two-object completion residual while preserving non-residual phases.
 - If the frozen closed-loop residual evaluation fails, do not generate a new
   configuration from that failure.
 
-Next action: inspect X-VLA training/adaptation interfaces and freeze a no-
-training spec before any optimizer step.
+Update: the no-training `BR-XVLA` spec is now frozen at
+`runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`. Next action is a tiny
+X-VLA-format data-adapter smoke, followed by a one-batch no-optimizer gradient
+smoke before any optimizer step.

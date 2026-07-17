@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_task1_ours_candidate_design_complete`
-- Current decision: `BR_XVLA_SELECTED_TRAINING_SPEC_PENDING`
+- Current stage: `epoch_5_br_xvla_training_spec_frozen`
+- Current decision: `BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -273,10 +273,18 @@ Task-1 Ours candidate design:
   already in/near the basket and the other remains out;
 - not selected: `OCB-XVLA`, object-order contrast, broader than evidence.
 
-Next: inspect X-VLA training/adaptation interfaces and freeze a no-training
-two-arm `BR-XVLA` spec before any optimizer step. Keep scope to shared failure
-`20260727`; do not treat `20260725` as an Ours target because SmolVLA Base
-already succeeds there.
+BR-XVLA no-training spec:
+
+- module: `tca_map/xvla_task1/training_spec.py`;
+- artifact: `runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`;
+- official interface: `C:\assets\repos\X-VLA\peft_train.py`, PEFT LoRA rank 8
+  alpha 16, two arms only (`lambda=2` primary, `lambda=0` ablation);
+- training/optimizer/checkpoint at freeze: false/false/false;
+- raw LIBERO HDF5 is not direct X-VLA trainer input; data-adapter and
+  one-batch no-optimizer gradient-smoke gates remain closed.
+
+Next: materialize tiny X-VLA-format data-adapter smoke, then one-batch
+no-optimizer gradient smoke. Keep scope to `20260727`; do not use `20260725`.
 
 ## Prohibitions
 
