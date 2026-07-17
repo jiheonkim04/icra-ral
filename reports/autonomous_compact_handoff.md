@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_r2r_oft_offline_selection_not_passed_short_requery_control_recorded`
-- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`
+- Current stage: `epoch_5_fallback_prior_preflight_requires_external_setup`
+- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`; `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`; `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -205,9 +205,20 @@ Simple control after offline no-pass:
 
 ## Next Action
 
-Pivot without retuning on residual reset identities and without adding a third
-local candidate around the same OpenVLA task-8 residual. Do not run closed-loop
-Ours for the trained `R2R-OFT` checkpoints.
+Fallback prior preflight:
+
+- pi0.5/OpenPI: official repo reachable, but no local checkout/checkpoint,
+  `uv`, Docker, `gsutil`, `gcloud`, `openpi`, or JAX. Official docs list
+  `>8 GB` inference and `>22.5 GB` LoRA fine-tuning.
+- PCD/PCD-LeRobot: official repos reachable, but no local checkout/checkpoints;
+  checked env lacks SAM2/GroundingDINO/OpenPI, and official setup needs
+  segmentation/inpainting deps plus extra/manual checkpoints.
+- decision: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+
+Next requires user choice before external setup expansion: bounded OpenPI
+pi0.5 inference setup/checkpoint download, bounded PCD setup/download, or a new
+prior-selection strategy. Do not run closed-loop Ours for `R2R-OFT`; do not add
+a third local candidate around the same OpenVLA task-8 residual.
 
 ## Prohibitions
 

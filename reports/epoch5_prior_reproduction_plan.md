@@ -338,6 +338,26 @@ The predeclared no-training simple alternative was evaluated after the
 
 Decision: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
 
-Next step: pivot without retuning on residual reset identities and without
-adding a third local candidate around the same OpenVLA task-8 residual.
-Closed-loop Ours rollout is disallowed for the trained `R2R-OFT` checkpoints.
+## Fallback Prior Ecosystem Preflight
+
+The two preselected fallback ecosystems are not immediately runnable with the
+current local assets:
+
+- pi0.5 / OpenPI LIBERO: official repo reachable at main
+  `15a9616a00943ada6c20a0f158e3adb39df2ccac`, but no local checkout,
+  checkpoint, `uv`, Docker, `gsutil`, `gcloud`, `openpi`, or JAX. Official
+  docs list `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and recommend
+  Docker for LIBERO evaluation.
+- PCD / PCD-LeRobot: official repos reachable at main
+  `cec18b820daeadfdaf080c030a1b5eb080ff75cd` and
+  `519b4a814e85bf9b786677d90b0ff07218729bb2`, but no local checkout or
+  checkpoints. Checked WSL env lacks SAM2/GroundingDINO/OpenPI, and the
+  official README requires segmentation/inpainting dependencies plus
+  extra/manual checkpoint downloads.
+
+Decision: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+
+Next step requires user choice before external setup expansion: bounded OpenPI
+pi0.5 inference setup/checkpoint download, bounded PCD/PCD-LeRobot dependency
+and checkpoint setup, or a new prior-selection strategy. Closed-loop Ours
+rollout is disallowed for the trained `R2R-OFT` checkpoints.

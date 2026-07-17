@@ -445,10 +445,25 @@ chunking and cannot be claimed solved by a trivial requery change.
 
 Gate result: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
 
+## Fallback Prior Ecosystem Preflight
+
+Because the selected OpenVLA-OFT residual route did not produce a selectable
+Ours checkpoint or simple-control rescue, the two preselected fallback
+ecosystems from `reports/epoch5_prior_ecosystem_selection.md` were checked
+before any download, install, or rollout.
+
+| Ecosystem | Local readiness result | Decision |
+|---|---|---|
+| pi0.5 / OpenPI LIBERO | Official repo reachable at main `15a9616a00943ada6c20a0f158e3adb39df2ccac`, but no local OpenPI checkout/checkpoint/tooling. Checked WSL paths lack `uv`, Docker, `gsutil`, `gcloud`, `openpi`, and JAX. Official docs list `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and recommend Docker for LIBERO evaluation. | requires external setup/checkpoint download; not a scientific kill |
+| PCD / PCD-LeRobot | Official repos reachable at main `cec18b820daeadfdaf080c030a1b5eb080ff75cd` and `519b4a814e85bf9b786677d90b0ff07218729bb2`, but no local checkout/checkpoints. Checked WSL env lacks SAM2/GroundingDINO/OpenPI; official README requires segmentation/inpainting dependencies and extra/manual checkpoint downloads. | requires external setup/checkpoint download; not a scientific kill |
+
+Gate result: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+
 ## Next Decision
 
-The next action is to pivot without retuning on residual reset identities and
-without adding a third local candidate around the same OpenVLA task-8 residual.
-Closed-loop Ours rollout is disallowed for the trained `R2R-OFT` checkpoints.
-Preserve the caveat that current upper/headroom evidence is task-level, not
-same-reset.
+The next action requires a user choice before expanding external setup: either
+approve a bounded OpenPI pi0.5 inference setup/checkpoint download, approve a
+bounded PCD/PCD-LeRobot dependency-and-checkpoint setup, or authorize a new
+prior-selection strategy. Closed-loop Ours rollout is disallowed for the trained
+`R2R-OFT` checkpoints, and no third local candidate should be added around the
+same OpenVLA task-8 residual.

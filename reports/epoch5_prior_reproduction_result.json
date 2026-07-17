@@ -3,7 +3,7 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_r2r_oft_offline_selection_not_passed_short_requery_control_recorded",
+  "stage": "epoch_5_fallback_prior_preflight_requires_external_setup",
   "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -16,6 +16,7 @@
   "checkpoint_written": true,
   "simple_control_short_requery_happened": true,
   "simple_control_short_requery_selected": false,
+  "fallback_prior_preflight_happened": true,
   "training_config_frozen": true,
   "trainer_launcher_validated": true,
   "new_download_happened": false,
@@ -568,6 +569,59 @@
     "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED",
     "decision": "SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED"
   },
+  "fallback_prior_preflight": {
+    "status": "REQUIRES_EXTERNAL_SETUP",
+    "decision": "FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP",
+    "not_scientific_kill": true,
+    "checked_before_download_install_or_rollout": true,
+    "openpi_pi05_libero": {
+      "official_repo": "https://github.com/Physical-Intelligence/openpi",
+      "official_repo_main_head": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+      "official_checkpoint": "gs://openpi-assets/checkpoints/pi05_libero",
+      "official_requirements_observed": {
+        "inference_gpu_memory": ">8 GB",
+        "lora_finetuning_gpu_memory": ">22.5 GB",
+        "full_finetuning_gpu_memory": ">70 GB",
+        "libero_workflow": "Docker recommended"
+      },
+      "local_repo_present": false,
+      "local_checkpoint_present": false,
+      "uv_present": false,
+      "docker_present": false,
+      "gsutil_present": false,
+      "gcloud_present": false,
+      "openpi_python_package_present": false,
+      "jax_present_in_checked_paths": false,
+      "gpu": "NVIDIA GeForce RTX 5080, 16303 MiB total",
+      "classification": "FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL"
+    },
+    "pcd": {
+      "official_repo": "https://github.com/pcd-robot/PCD",
+      "official_repo_main_head": "cec18b820daeadfdaf080c030a1b5eb080ff75cd",
+      "official_lerobot_repo": "https://github.com/pcd-robot/PCD-LeRobot",
+      "official_lerobot_repo_main_head": "519b4a814e85bf9b786677d90b0ff07218729bb2",
+      "official_real_repo": "https://github.com/pcd-robot/PCD-real",
+      "official_real_repo_main_head": "369300e3df09ef02f854ad5d83810b7b54111928",
+      "local_repo_present": false,
+      "local_lerobot_repo_present": false,
+      "local_checkpoints_present": false,
+      "sam2_present": false,
+      "groundingdino_present": false,
+      "openpi_present": false,
+      "available_in_checked_openvla_env": [
+        "lerobot",
+        "opencv",
+        "diffusers"
+      ],
+      "external_setup_required": [
+        "SAM2",
+        "GroundingDINO",
+        "Inpaint-Anything/big-lama",
+        "extra pretrained checkpoints"
+      ],
+      "classification": "FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL"
+    }
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Pivot without retuning on residual reset identities and without adding a third local candidate around the same OpenVLA task-8 residual; closed-loop Ours rollout is disallowed for the trained R2R-OFT checkpoints, while preserving the task-level-not-same-reset headroom caveat."
+  "next_action": "Requires user choice before external setup expansion: approve bounded OpenPI pi0.5 inference setup/checkpoint download, approve bounded PCD/PCD-LeRobot dependency-and-checkpoint setup, or authorize a new prior-selection strategy. Closed-loop Ours rollout is disallowed for trained R2R-OFT checkpoints, and no third local candidate should be added around the same OpenVLA task-8 residual."
 }

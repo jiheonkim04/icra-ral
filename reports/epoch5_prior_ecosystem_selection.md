@@ -80,3 +80,23 @@ pi0.5/OpenPI is strong but needs a new OpenPI stack, official GCS checkpoint acq
 PCD is scientifically attractive because it attacks object-relevance and spurious correlations across OpenVLA, Octo, and pi0, but it is not as directly matched to the existing LIBERO/SmolVLA/OpenVLA-OFT local stack and may require extra checkpoints or segmentation/object-mask assets.
 
 Octo and RDT were inspected but not selected into the exact-three set because local LIBERO matching is weaker for Octo and local RTX 5080/24GB RAM feasibility is weaker for RDT-style 1B diffusion foundation models. TinyVLA was not selected because official checkpoint/reproducibility evidence was weaker than the selected three for this repo's immediate LIBERO path.
+
+## Post-OpenVLA Fallback Preflight
+
+Date: 2026-07-17 KST.
+
+After `R2R-OFT` failed its offline selection gate and the no-training
+short-requery control was not selected, the two preselected fallback ecosystems
+were checked for immediate local readiness before any download, install, or
+rollout.
+
+| Ecosystem | Official source state | Local state | Blocking issue | Classification |
+|---|---|---|---|---|
+| pi0.5 / OpenPI LIBERO | `Physical-Intelligence/openpi` reachable at main `15a9616a00943ada6c20a0f158e3adb39df2ccac`; official README lists `gs://openpi-assets/checkpoints/pi05_libero`, `>8 GB` inference, `>22.5 GB` LoRA fine-tuning, and Docker as recommended LIBERO workflow | no `C:\assets\repos\openpi`; no local pi0.5 checkpoint; no `uv`, Docker, `gsutil`, `gcloud`, `openpi`, or JAX in the checked WSL paths; RTX 5080 has 16,303 MiB VRAM | official inference may be possible only after new user-local setup and checkpoint download; official LoRA fine-tuning is over local VRAM budget | `FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL` |
+| PCD / PCD-LeRobot | `pcd-robot/PCD` main `cec18b820daeadfdaf080c030a1b5eb080ff75cd`; `pcd-robot/PCD-LeRobot` main `519b4a814e85bf9b786677d90b0ff07218729bb2`; official READMEs require SAM2, GroundingDINO, Inpaint-Anything/big-lama, and extra pretrained checkpoints | no local PCD checkout; checked OpenVLA WSL env has LeRobot, OpenCV, and diffusers, but no `sam2`, `groundingdino`, or `openpi`; no matching local checkpoints found | official method requires segmentation/inpainting dependency setup and manual/extra checkpoint downloads before a fair prior run | `FALLBACK_REQUIRES_EXTERNAL_SETUP_NOT_SCIENTIFIC_KILL` |
+
+Decision: `FALLBACK_PRIOR_PREFLIGHT_REQUIRES_EXTERNAL_SETUP`.
+
+This is not a paper-method result and not a kill of either external prior. It
+only records that the remaining preselected prior ecosystems are not immediately
+runnable under the current local assets without expanding setup/download scope.
