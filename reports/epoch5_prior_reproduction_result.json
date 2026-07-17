@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_cr_lightvla_stage0_complete",
-  "decision": "CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO",
+  "stage": "epoch_5_atcd_teacher_signal_audit_complete",
+  "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -915,6 +915,56 @@
       "decision": "CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO"
     }
   },
+  "atcd_teacher_signal_audit": {
+    "status": "COMPLETE_NO_GO",
+    "method": "ATCD",
+    "full_name": "Action-Teacher Complementarity Distillation",
+    "role": "second bounded method-candidate audit after CR-LightVLA no-go",
+    "script": "scripts/epoch5_atcd_teacher_signal_audit.py",
+    "script_sha256": "868b235e3c200c8fd27526c531daf08e8c928b987f43d4c049a6b8aaed506d93",
+    "run_dir": "runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST",
+    "result_artifact": "runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/atcd_teacher_signal_result_v2.json",
+    "result_sha256": "9ea69029528a0f81da480e12ea04dffab6a9e51d20a637e13c0f571aa1023921",
+    "openvla_rows": "runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/openvla_oft_int4_rows_v2.json",
+    "openvla_rows_sha256": "86594bde77fdcd573c9c69bfdf05712dfc458c78b26b9e26d2b0fadf1cae7998",
+    "lightvla_rows": "runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/lightvla_rows_v2.json",
+    "lightvla_rows_sha256": "b55087d1f9e9f1ff27b0b3c13372b64be9802dea401d60179467c1e0f99dd174",
+    "scope": "offline teacher-signal audit on fixed task-8 HDF5 validation chunks",
+    "closed_loop_rollout_happened": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "fixed_validation_chunks": 24,
+    "validation_phase_counts": {
+      "0": 6,
+      "1": 12,
+      "2": 6
+    },
+    "action_space": "normalized 8x7 continuous action chunks",
+    "openvla_action_hidden_extraction": "text_mask_after_unpruned_patch_slice",
+    "lightvla_action_hidden_extraction": "final_action_token_span",
+    "openvla_mean_l1": 0.4338486312578122,
+    "lightvla_mean_l1": 0.41920601141949493,
+    "oracle_mean_l1": 0.4083502360930045,
+    "winner_counts": {
+      "openvla_oft_int4": 9,
+      "lightvla": 15,
+      "tie": 0
+    },
+    "oracle_absolute_gain_vs_best_single": 0.010855775326490402,
+    "oracle_relative_gain_vs_best_single": 0.025896039252230916,
+    "phase1_oracle_absolute_gain_vs_best_single": 0.013157747685909271,
+    "pass_criteria": {
+      "openvla_wins_min": 3,
+      "lightvla_wins_min": 3,
+      "oracle_absolute_gain_vs_best_single_min": 0.01,
+      "oracle_relative_gain_vs_best_single_min": 0.03,
+      "phase1_count_min": 6,
+      "phase1_oracle_absolute_gain_vs_best_single_min": 0.01
+    },
+    "failed_criterion": "oracle_relative_gain_vs_best_single 0.025896039252230916 < 0.03",
+    "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Do not claim prototype GO. CR-LightVLA provided mechanistic evidence but tied LightVLA/OpenVLA at 6/8 with a regression. Next scientific action should either end this selected method as Stage-0 no-go or open a new bounded method cycle around the same cross-prior complementarity without retuning on the tested reset identities."
+  "next_action": "Do not train or roll out ATCD from this audit. The offline teacher signal is complementary but below the preregistered relative-gain threshold. Open a new bounded method-selection cycle around the same cross-prior complementarity without retuning on tested reset identities."
 }

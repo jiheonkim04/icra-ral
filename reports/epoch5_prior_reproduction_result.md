@@ -684,3 +684,58 @@ OpenVLA-OFT on total success while changing the failure set. It is useful
 mechanistic evidence that token-collision rescue can fix one over-pruning
 failure without destroying the two OpenVLA-residual wins, but the regression
 shows the fixed rescue rule is not yet a paper candidate.
+
+## Second Method Audit After LightVLA: ATCD Teacher Signal
+
+Decision: `ATCD_TEACHER_SIGNAL_NOT_ENOUGH`.
+
+After `CR-LightVLA` produced no prototype GO, the previously deferred `ATCD`
+candidate was audited before any QLoRA training. The audit asked only whether
+OpenVLA-OFT INT4 and LightVLA produce enough complementary normalized HDF5
+action proposals on the fixed task-8 validation chunks to justify a later
+distillation run. It performed no training, no optimizer step, no checkpoint
+write, and no simulator rollout.
+
+Tracked runner:
+`scripts/epoch5_atcd_teacher_signal_audit.py`, SHA-256
+`868b235e3c200c8fd27526c531daf08e8c928b987f43d4c049a6b8aaed506d93`.
+
+Artifacts:
+
+- result:
+  `runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/atcd_teacher_signal_result_v2.json`,
+  SHA-256 `9ea69029528a0f81da480e12ea04dffab6a9e51d20a637e13c0f571aa1023921`;
+- OpenVLA-OFT rows:
+  `runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/openvla_oft_int4_rows_v2.json`,
+  SHA-256 `86594bde77fdcd573c9c69bfdf05712dfc458c78b26b9e26d2b0fadf1cae7998`;
+- LightVLA rows:
+  `runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/lightvla_rows_v2.json`,
+  SHA-256 `b55087d1f9e9f1ff27b0b3c13372b64be9802dea401d60179467c1e0f99dd174`.
+
+Validation set: 24 fixed task-8 HDF5 validation chunks from demos `40..49`,
+with phase counts `{0: 6, 1: 12, 2: 6}`. The comparison used normalized
+8x7 continuous action chunks. OpenVLA-OFT used the existing unpruned text-mask
+hidden-state extraction; LightVLA used its runtime-compatible final action-token
+span because its pruner changes the hidden-state layout at inference.
+
+| Metric | Value |
+|---|---:|
+| OpenVLA-OFT mean L1 | 0.4338486312578122 |
+| LightVLA mean L1 | 0.41920601141949493 |
+| Oracle best-of-two mean L1 | 0.4083502360930045 |
+| Oracle absolute gain vs best single | 0.010855775326490402 |
+| Oracle relative gain vs best single | 0.025896039252230916 |
+| Phase-1 oracle absolute gain | 0.013157747685909271 |
+| OpenVLA-OFT wins | 9/24 |
+| LightVLA wins | 15/24 |
+
+Predeclared pass criteria required both policies to win at least 3 chunks,
+oracle absolute gain at least `0.01`, oracle relative gain at least `0.03`,
+at least 6 phase-1 chunks, and phase-1 oracle absolute gain at least `0.01`.
+The audit passed all criteria except relative gain: `0.025896 < 0.03`.
+
+Interpretation: ATCD has measurable complementarity, but not enough by the
+frozen threshold to justify a bounded QLoRA distillation run. Do not train or
+roll out ATCD from this audit. The next scientific action is a new bounded
+method-selection cycle around the same cross-prior complementarity, without
+retuning on the tested reset identities.

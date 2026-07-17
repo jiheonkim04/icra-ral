@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_cr_lightvla_stage0_complete`
-- Current decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`
+- Current stage: `epoch_5_atcd_teacher_signal_audit_complete`
+- Current decision: `ATCD_TEACHER_SIGNAL_NOT_ENOUGH`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -121,16 +121,10 @@ QLoRA gradient smoke result:
 
 - artifact:
   `runs/openvla_oft_int4/epoch5_r2r_oft_qlora_gradient_smoke.json`;
-- pass: true;
-- scope: one-batch backward-pass feasibility only;
-- LoRA rank/alpha: 4 / 8;
-- phase-weight lambda: 2.0;
-- weighted loss: 0.99609375;
-- trainable LoRA parameters: 13,853,536;
-- nonzero-gradient parameter tensors: 425;
-- gradient global norm: 4.082890925442449;
-- CUDA allocated/peak: 5,917.196 / 8,121.43 MiB;
-- training run / optimizer step / checkpoint written: false / false / false.
+- pass: true; one-batch backward feasibility only;
+- rank/alpha 4/8, lambda 2.0, weighted loss 0.99609375;
+- trainable LoRA params 13,853,536; nonzero-gradient tensors 425;
+- training / optimizer step / checkpoint: false / false / false.
 
 Training config freeze:
 
@@ -140,12 +134,9 @@ Training config freeze:
   `1875b93f9249597c026f20b0bea32b13751a2df366612b209d6df96eb6870ddb`;
 - arms: primary `r2r_oft_rank4_lambda2_lr2e4_steps64`, ablation
   `uniform_oft_rank4_lambda0_lr2e4_steps64`;
-- max steps: 64 per arm;
-- trainable: VLA LoRA adapters only;
-- frozen: prior action head and proprio projector;
-- selection: offline validation before closed-loop;
-- residual resets `20260721` and `20260722` cannot be used for selection or
-  retuning.
+- max steps: 64 per arm; VLA LoRA adapters only; prior head/projector frozen;
+- selection: offline before closed-loop; residual resets `20260721` and
+  `20260722` cannot be used for selection or retuning.
 
 Trainer/launcher validation:
 
@@ -230,16 +221,29 @@ Selected method: `CR-LightVLA`, collision-rescue token pruning.
 - still failed: `20260723`;
 - decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`.
 
-Next: do not claim prototype GO. Either close this selected method as Stage-0
-no-go or open a new bounded method cycle around the same complementarity
-residual without retuning on tested reset identities.
+ATCD teacher-signal audit:
+
+- runner: `scripts/epoch5_atcd_teacher_signal_audit.py`;
+- result:
+  `runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/atcd_teacher_signal_result_v2.json`;
+- scope: 24 fixed task-8 HDF5 validation chunks, normalized 8x7 action chunks;
+- OpenVLA-OFT wins 9/24, LightVLA wins 15/24;
+- mean L1: OpenVLA 0.4338486312578122, LightVLA 0.41920601141949493,
+  oracle 0.4083502360930045;
+- oracle gain: absolute 0.010855775326490402, relative 0.025896039252230916;
+- phase-1 oracle absolute gain: 0.013157747685909271;
+- no training / optimizer / checkpoint / rollout;
+- decision: `ATCD_TEACHER_SIGNAL_NOT_ENOUGH` because relative gain < 0.03.
+
+Next: do not train or roll out ATCD. Open a new bounded method-selection cycle
+around the same cross-prior complementarity without retuning on tested reset
+identities.
 
 ## Prohibitions
 
 - Do not design outside the task-8 residual.
 - Do not generate three local method candidates.
 - Do not reopen CAVM, CALA, RAR, MCI, CSPR, or governance-closed routes.
-- Do not create generic cached-feature residuals, frozen-policy gates,
-  history heads, verifiers, visual canonicalizers, memory lookups, or proxy-only
-  prior methods.
+- Do not create generic cached-feature residuals, gates, history heads,
+  verifiers, memory lookups, or proxy-only prior methods.
 - Do not claim INT4 OpenVLA-OFT is a full-precision reproduction.

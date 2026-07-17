@@ -440,3 +440,39 @@ successes, failures `20260718` and `20260723`. It fixed `20260716`, preserved
 `20260721`/`20260722`, regressed `20260718`, and failed to fix `20260723`.
 
 Decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`.
+
+## Completed ATCD Teacher-Signal Audit
+
+Execution status: `COMPLETE_NO_GO`
+
+The deferred `ATCD` candidate was audited before any QLoRA training. The audit
+used 24 fixed task-8 HDF5 validation chunks from demos `40..49` and compared
+normalized 8x7 action proposals from OpenVLA-OFT INT4 and LightVLA. It did not
+train, take optimizer steps, write checkpoints, or run closed-loop simulation.
+
+Artifacts:
+
+- runner: `scripts/epoch5_atcd_teacher_signal_audit.py`;
+- result:
+  `runs/lightvla_prior/atcd_teacher_signal_20260717T1620KST/atcd_teacher_signal_result_v2.json`.
+
+Summary:
+
+| Signal | Value |
+|---|---:|
+| OpenVLA-OFT wins | 9/24 |
+| LightVLA wins | 15/24 |
+| OpenVLA-OFT mean L1 | 0.4338486312578122 |
+| LightVLA mean L1 | 0.41920601141949493 |
+| Oracle mean L1 | 0.4083502360930045 |
+| Oracle absolute gain vs best single | 0.010855775326490402 |
+| Oracle relative gain vs best single | 0.025896039252230916 |
+| Phase-1 oracle absolute gain | 0.013157747685909271 |
+
+Decision: `ATCD_TEACHER_SIGNAL_NOT_ENOUGH`.
+
+ATCD has measurable policy complementarity, but it missed the frozen relative
+oracle-gain threshold of `0.03`. Therefore no ATCD training or rollout is
+authorized from this audit. The next plan step is a new bounded method-selection
+cycle around the same cross-prior complementarity, still without retuning on
+the tested reset identities.
