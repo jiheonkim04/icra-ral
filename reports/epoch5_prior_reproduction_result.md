@@ -60,7 +60,8 @@ residual. Exactly two task6 candidates were generated; `MPR-XVLA` was selected
 as the first narrow candidate. No task6 optimizer step, checkpoint, training, or
 closed-loop Ours evaluation has happened. The no-training `MPR-XVLA` two-arm
 training spec is now frozen; pre-optimizer data-adapter and gradient smokes are
-still pending.
+now passed. The next authorized step is the bounded two-arm training/offline
+validation gate; closed-loop Ours evaluation remains disallowed.
 
 ## Validation Commands
 
@@ -106,6 +107,18 @@ Task6 candidate-design validation:
 - py-compile: pass for OpenVLA gate, task6 data audit, MPR-XVLA training spec,
   and focused tests;
 - focused pytest: `11 passed`;
+- `git diff --check`: pass with LF/CRLF warnings only;
+- `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
+  execution-policy bypass.
+
+`MPR-XVLA` pre-optimizer-smoke validation:
+
+- JSON parse: pass via
+  `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`;
+- compact handoff: 246 lines, under the 250-line cap;
+- py-compile: pass for task6 data-adapter smoke, task6 gradient smoke, and
+  focused tests;
+- focused pytest: `15 passed`;
 - `git diff --check`: pass with LF/CRLF warnings only;
 - `scripts/99_tree_check.ps1`: pass via one-shot PowerShell
   execution-policy bypass.
@@ -1568,5 +1581,78 @@ closed-loop Ours evaluation false.
 
 Important interface caveat: raw LIBERO HDF5 is not a direct official X-VLA
 training input. The required tiny X-VLA-format task6 data-adapter smoke and
-one-batch no-optimizer gradient smoke are still pending before any optimizer
-step is allowed.
+one-batch no-optimizer gradient smoke now passed. Optimizer steps remain closed
+until the bounded two-arm training/offline-validation gate is launched from the
+frozen spec.
+
+## `MPR-XVLA` Data-Adapter Smoke
+
+Status: `PASS`.
+
+Decision: `MPR_XVLA_DATA_ADAPTER_SMOKE_PASS`.
+
+Artifact:
+`runs/xvla_prior/mpr_xvla_data_adapter_smoke_20260717T213237KST/result.json`,
+SHA-256 `62668c2483ab060aaa1a8e1f5d6153dd4f220fbd331658f587acb38003625ee8`.
+
+Module: `tca_map/xvla_task6/data_adapter_smoke.py`, SHA-256
+`1c81da527be53922c4be70c67686a3a376c36e88fe19decd5fd0aaaaa9a4963a`.
+
+Test: `tests/test_mpr_xvla_data_adapter_smoke.py`, SHA-256
+`d54fd1697dbcb2b8177d7335a0d554cef0a874daf39cc3c8511ba76ecb148f59`.
+
+Result: demo `demo_0` materialized 203 steps. The official X-VLA reader emitted
+action `[30, 20]`, proprio `[20]`, image input `[3, 3, 224, 224]`, and the task6
+instruction. No model load, training, optimizer step, checkpoint, backward pass,
+or closed-loop evaluation happened.
+
+## `MPR-XVLA` One-Batch No-Optimizer Gradient Smoke
+
+Status: `PASS`.
+
+Decision: `MPR_XVLA_GRADIENT_SMOKE_PASS`.
+
+Final valid artifact:
+`runs/xvla_prior/mpr_xvla_gradient_smoke_localsnapshot2_20260717T213832KST/result.json`,
+SHA-256 `97b6bbc9a9cd1a2e0e471587196b8f3ad11b5e958f07d66f3eaa6dae60dad552`.
+
+Module: `tca_map/xvla_task6/gradient_smoke.py`, SHA-256
+`96fd62ee6640516d03ffe9f1ac1faf0ae7c35c68e4be549b12b258eda255d1df`.
+
+Test: `tests/test_mpr_xvla_gradient_smoke.py`, SHA-256
+`7c902ea1af337a9595c70be81fdf16daf1c891f7c140736b12adab3c7c273318`.
+
+Runtime: local snapshot
+`/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590`,
+with `HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, and `local_files_only=true`.
+
+| Field | Value |
+|---|---:|
+| Clip source | `demo_0`, indices `82..178` |
+| Clip phase | mug done / pudding remaining, fraction `1.0` |
+| Weighted loss | `10.817554473876953` |
+| Phase weight | `3.0` |
+| Trainable parameters | `11,868,760` |
+| Gradient tensors | `537` |
+| Finite gradient tensors | `537` |
+| Nonzero gradient tensors | `271` |
+| Gradient global norm | `2161.9751951690905` |
+| CUDA peak allocated MiB | `5260.354` |
+
+At smoke time: model loaded true, LoRA attached true, forward/backward true,
+optimizer created false, optimizer step false, checkpoint false, training run
+false, and closed-loop Ours evaluation false.
+
+Superseded/invalid attempts preserved for audit:
+
+| Run | Classification | Cause |
+|---|---|---|
+| `runs/xvla_prior/mpr_xvla_gradient_smoke_20260717T213519KST` | `SUPERSEDED_REMOTE_CODE_WARNING` | Mechanical pass, but stderr included a Hugging Face remote-code downloaded warning. |
+| `runs/xvla_prior/mpr_xvla_gradient_smoke_offline_20260717T213615KST` | `SUPERSEDED_REMOTE_CODE_WARNING_DESPITE_OFFLINE_ENV` | Mechanical pass with offline env recorded, but stderr still included the generic warning. |
+| `runs/xvla_prior/mpr_xvla_gradient_smoke_localsnapshot_20260717T213724KST` | `INVALID_LOCAL_SNAPSHOT_PATH_NO_WEIGHTS` | Local path had config only and no model weights; no model load/backward. |
+
+Interpretation: the frozen `MPR-XVLA` path can load cached X-VLA from a local
+snapshot, attach PEFT LoRA, consume the task6 X-VLA-format adapter, compute the
+mug-done/pudding-remaining weighted supervised loss, and backpropagate finite
+nonzero trainable gradients without opening any optimizer/checkpoint/training
+gate.

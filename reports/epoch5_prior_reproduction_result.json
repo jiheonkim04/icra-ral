@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_xvla_task6_ours_candidate_selected",
-  "decision": "TASK6_MPR_XVLA_SELECTED_AFTER_SECOND_PRIOR_RESIDUAL_SURVIVED",
+  "stage": "epoch_5_mpr_xvla_preoptimizer_gates_passed",
+  "decision": "MPR_XVLA_DATA_ADAPTER_AND_GRADIENT_SMOKES_PASS_NO_OPTIMIZER",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -44,6 +44,8 @@
   "task6_second_prior_openvla_int4_check_happened": true,
   "task6_ours_design_happened": true,
   "task6_mpr_xvla_training_spec_frozen": true,
+  "task6_mpr_xvla_data_adapter_smoke_happened": true,
+  "task6_mpr_xvla_gradient_smoke_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -161,6 +163,15 @@
     "py_compile": "PASS for OpenVLA gate, task6 data audit, MPR-XVLA training spec, and focused tests",
     "focused_pytest_command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_openvla_oft_int4_gate.py tests\\test_xvla_task6_data_audit.py tests\\test_mpr_xvla_training_spec.py -q",
     "focused_pytest_stdout_summary": "11 passed",
+    "git_diff_check": "PASS with LF/CRLF warnings only",
+    "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1"
+  },
+  "validation_after_mpr_xvla_preoptimizer_smokes": {
+    "json_parse": "PASS via C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m json.tool reports\\epoch5_prior_reproduction_result.json",
+    "compact_handoff_lines": 246,
+    "py_compile": "PASS for task6 data-adapter smoke, task6 gradient smoke, and focused tests",
+    "focused_pytest_command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_mpr_xvla_data_adapter_smoke.py tests\\test_mpr_xvla_gradient_smoke.py tests\\test_mpr_xvla_training_spec.py tests\\test_xvla_task6_data_audit.py tests\\test_openvla_oft_int4_gate.py -q",
+    "focused_pytest_stdout_summary": "15 passed",
     "git_diff_check": "PASS with LF/CRLF warnings only",
     "tree_check": "PASS via powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\99_tree_check.ps1"
   },
@@ -2458,7 +2469,131 @@
     "raw_libero_hdf5_is_not_direct_official_xvla_training_input": true,
     "optimizer_step_allowed_before_all_gates": false,
     "residual_identities_for_model_selection": "DISALLOWED",
-    "next_action": "Materialize a tiny X-VLA-format task6 data-adapter smoke artifact and run a one-batch no-optimizer gradient smoke; do not run optimizer.step yet."
+    "next_action": "The pre-optimizer data-adapter and no-optimizer gradient smokes have passed. The next authorized step is the bounded two-arm MPR-XVLA training/offline-validation gate from the frozen spec."
+  },
+  "mpr_xvla_data_adapter_smoke": {
+    "status": "PASS",
+    "decision": "MPR_XVLA_DATA_ADAPTER_SMOKE_PASS",
+    "module": "tca_map/xvla_task6/data_adapter_smoke.py",
+    "module_sha256": "1c81da527be53922c4be70c67686a3a376c36e88fe19decd5fd0aaaaa9a4963a",
+    "test": "tests/test_mpr_xvla_data_adapter_smoke.py",
+    "test_sha256": "d54fd1697dbcb2b8177d7335a0d554cef0a874daf39cc3c8511ba76ecb148f59",
+    "artifact": "runs/xvla_prior/mpr_xvla_data_adapter_smoke_20260717T213237KST/result.json",
+    "artifact_sha256": "62668c2483ab060aaa1a8e1f5d6153dd4f220fbd331658f587acb38003625ee8",
+    "demo_names": [
+      "demo_0"
+    ],
+    "converted_demo_steps": 203,
+    "reader_shapes": {
+      "action": [
+        30,
+        20
+      ],
+      "proprio": [
+        20
+      ],
+      "image_input": [
+        3,
+        3,
+        224,
+        224
+      ]
+    },
+    "language_instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "mmengine_fileio_shim_used": true,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "model_loaded": false,
+    "backward_happened": false,
+    "interpretation": "The task6 adapter can materialize official X-VLA LIBERO reader inputs without loading a model or opening any optimizer gate."
+  },
+  "mpr_xvla_gradient_smoke": {
+    "status": "PASS",
+    "decision": "MPR_XVLA_GRADIENT_SMOKE_PASS",
+    "module": "tca_map/xvla_task6/gradient_smoke.py",
+    "module_sha256": "96fd62ee6640516d03ffe9f1ac1faf0ae7c35c68e4be549b12b258eda255d1df",
+    "test": "tests/test_mpr_xvla_gradient_smoke.py",
+    "test_sha256": "7c902ea1af337a9595c70be81fdf16daf1c891f7c140736b12adab3c7c273318",
+    "artifact": "runs/xvla_prior/mpr_xvla_gradient_smoke_localsnapshot2_20260717T213832KST/result.json",
+    "artifact_sha256": "97b6bbc9a9cd1a2e0e471587196b8f3ad11b5e958f07d66f3eaa6dae60dad552",
+    "runtime": {
+      "pretrained_load_source": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590",
+      "pretrained_load_source_is_local_snapshot": true,
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "local_files_only": true
+    },
+    "materialized_clip": {
+      "source_demo": "demo_0",
+      "source_start_index": 82,
+      "source_end_index": 178,
+      "clip_steps": 96,
+      "first_mug_done_pudding_remaining": true,
+      "mug_done_pudding_remaining_fraction": 1.0,
+      "abs_action_6d_shape": [
+        96,
+        10
+      ]
+    },
+    "batch_shapes": {
+      "action": [
+        1,
+        30,
+        20
+      ],
+      "image_input": [
+        1,
+        3,
+        3,
+        224,
+        224
+      ],
+      "proprio": [
+        1,
+        20
+      ],
+      "input_ids": [
+        1,
+        50
+      ]
+    },
+    "losses": {
+      "loss_total": 3.605851650238037,
+      "phase_weight": 3.0,
+      "weighted_loss": 10.817554473876953
+    },
+    "gradient": {
+      "trainable_parameter_count": 11868760,
+      "grad_tensor_count": 537,
+      "finite_grad_tensor_count": 537,
+      "nonzero_grad_tensor_count": 271,
+      "gradient_global_norm": 2161.9751951690905
+    },
+    "cuda_peak_allocated_mib": 5260.354,
+    "training_happened": false,
+    "optimizer_created": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "invalid_or_superseded_attempts": [
+      {
+        "run_dir": "runs/xvla_prior/mpr_xvla_gradient_smoke_20260717T213519KST",
+        "classification": "SUPERSEDED_REMOTE_CODE_WARNING",
+        "reason": "Mechanical pass, but stderr included a Hugging Face remote-code downloaded warning; superseded by offline/local-snapshot run."
+      },
+      {
+        "run_dir": "runs/xvla_prior/mpr_xvla_gradient_smoke_offline_20260717T213615KST",
+        "classification": "SUPERSEDED_REMOTE_CODE_WARNING_DESPITE_OFFLINE_ENV",
+        "reason": "Mechanical pass with offline env recorded, but stderr still included a generic remote-code downloaded warning; superseded by explicit local snapshot load."
+      },
+      {
+        "run_dir": "runs/xvla_prior/mpr_xvla_gradient_smoke_localsnapshot_20260717T213724KST",
+        "classification": "INVALID_LOCAL_SNAPSHOT_PATH_NO_WEIGHTS",
+        "reason": "Attempted local snapshot path contained config only and no model weights; no model load or backward pass."
+      }
+    ],
+    "interpretation": "The frozen MPR-XVLA path can load cached X-VLA from a local snapshot, attach PEFT LoRA, consume the task6 X-VLA-format adapter, compute the mug-done/pudding-remaining weighted supervised loss, and backpropagate finite nonzero trainable gradients without creating an optimizer, stepping, writing a checkpoint, training, or running closed-loop Ours evaluation."
   },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
@@ -2511,5 +2646,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA now has a frozen no-training two-arm spec. The next authorized step is a tiny X-VLA-format task6 data-adapter smoke and one-batch no-optimizer gradient smoke. No optimizer step, checkpoint, training run, or closed-loop Ours evaluation is authorized until those pre-optimizer gates pass."
+  "next_action": "Task 6 MPR-XVLA pre-optimizer data-adapter and no-optimizer gradient smokes passed. The next authorized step is a bounded two-arm training/offline-validation gate from the frozen spec: primary MPR-XVLA and uniform-weight X-VLA LoRA/QLoRA ablation only. Closed-loop Ours evaluation remains disallowed until offline validation passes."
 }

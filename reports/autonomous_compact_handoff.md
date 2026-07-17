@@ -6,8 +6,8 @@ Updated: 2026-07-17 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch/cycle: `5 / 0`
-- Current stage: `epoch_5_mpr_xvla_training_config_frozen_no_training`
-- Current decision: `MPR_XVLA_TRAINING_SPEC_FROZEN_PREOPT_GATES_PENDING`
+- Current stage: `epoch_5_mpr_xvla_preoptimizer_gates_passed`
+- Current decision: `MPR_XVLA_DATA_ADAPTER_AND_GRADIENT_SMOKES_PASS_NO_OPTIMIZER`
 - Latest pushed source commits in this segment:
   - `b90b26b` record BR-XVLA closed-loop no-pass and launcher escaping fix
   - `62713d5` add detached X-VLA prior failure-scan launcher
@@ -183,12 +183,36 @@ Frozen no-training spec:
 - Arms: `mpr_xvla_rank8_lambda2_lr1e4_steps64` and
   `uniform_task6_xvla_rank8_lambda0_lr1e4_steps64`.
 - At freeze: training/optimizer/checkpoint/closed-loop Ours all false.
-- Data-adapter and one-batch no-optimizer gradient smokes still pending.
+- Pre-optimizer smokes passed; training/optimizer/checkpoint/closed-loop Ours
+  remain false at this gate.
+
+Data-adapter smoke:
+`runs/xvla_prior/mpr_xvla_data_adapter_smoke_20260717T213237KST/result.json`
+
+- Result SHA-256: `62668c2483ab060aaa1a8e1f5d6153dd4f220fbd331658f587acb38003625ee8`
+- Module/test SHA-256:
+  `1c81da527be53922c4be70c67686a3a376c36e88fe19decd5fd0aaaaa9a4963a` /
+  `d54fd1697dbcb2b8177d7335a0d554cef0a874daf39cc3c8511ba76ecb148f59`
+- Official X-VLA reader shapes: action `[30,20]`, proprio `[20]`,
+  image `[3,3,224,224]`; task6 instruction intact.
+
+Gradient smoke:
+`runs/xvla_prior/mpr_xvla_gradient_smoke_localsnapshot2_20260717T213832KST/result.json`
+
+- Result SHA-256: `97b6bbc9a9cd1a2e0e471587196b8f3ad11b5e958f07d66f3eaa6dae60dad552`
+- Module/test SHA-256:
+  `96fd62ee6640516d03ffe9f1ac1faf0ae7c35c68e4be549b12b258eda255d1df` /
+  `7c902ea1af337a9595c70be81fdf16daf1c891f7c140736b12adab3c7c273318`
+- Local snapshot + offline env: true; LoRA attached; forward/backward true.
+- Weighted loss 10.817554; finite gradients 537/537, nonzero 271, norm
+  2161.975; peak CUDA 5260.354 MiB.
+- Invalid/superseded attempts: `...213519KST` and `...213615KST` had remote-code
+  warning caveats; `...213724KST` local path had config only/no weights.
 
 ## Immediate Next Gate
 
-Run the pre-optimizer task6 `MPR-XVLA` gates: tiny X-VLA-format data-adapter
-smoke, then one-batch no-optimizer gradient smoke.
+Run bounded two-arm task6 `MPR-XVLA` training/offline validation from the frozen
+spec: primary `MPR-XVLA` and uniform-weight X-VLA LoRA/QLoRA ablation only.
 
 Still prohibited: BR-XVLA rescue/retune, broad search, generic local heads,
 residual gates, memory, verifiers, cached-feature probes, proxy-only methods,
@@ -206,11 +230,11 @@ and closed-loop Ours evaluation before an offline gate.
 ## Current Validation Status
 
 - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-- Handoff line count: 222, under the 250-line cap.
+- Handoff line count: 246, under the 250-line cap.
 - Task-6 candidate-design validation:
   - JSON parse: pass via `C:\Users\jiheo\miniconda3\envs\tca_map\python.exe -m json.tool`
-  - py_compile: pass for OpenVLA gate, task6 data audit, MPR-XVLA spec, and tests
-  - pytest: `11 passed`
+  - py_compile: pass for OpenVLA gate, task6 audit/spec/adapter/gradient, and tests
+  - pytest: `15 passed`
   - `git diff --check`: pass with LF/CRLF warnings only
   - `scripts/99_tree_check.ps1`: pass
 - Scan launcher syntax: pass via WSL `bash -n`
