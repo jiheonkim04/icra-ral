@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_br_xvla_data_adapter_smoke_complete",
-  "decision": "BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING",
+  "stage": "epoch_5_br_xvla_gradient_smoke_complete",
+  "decision": "BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -30,6 +30,8 @@
   "task1_ours_candidate_design_happened": true,
   "task1_br_xvla_training_spec_frozen": true,
   "task1_br_xvla_data_adapter_smoke_happened": true,
+  "task1_br_xvla_gradient_smoke_happened": true,
+  "br_xvla_runtime_dependency_repair_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -77,6 +79,15 @@
     "py_compile": "PASS for data adapter smoke, training spec, and tests",
     "focused_pytest_command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_br_xvla_data_adapter_smoke.py tests/test_br_xvla_training_spec.py tests/test_xvla_task1_data_audit.py -q",
     "focused_pytest_stdout_summary": "6 passed"
+  },
+  "validation_after_br_xvla_gradient_smoke": {
+    "json_parse": "PASS via /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m json.tool",
+    "compact_handoff_lines": 171,
+    "py_compile": "PASS for gradient smoke and test",
+    "focused_pytest_command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_br_xvla_gradient_smoke.py tests/test_br_xvla_data_adapter_smoke.py tests/test_br_xvla_training_spec.py tests/test_xvla_task1_data_audit.py -q",
+    "focused_pytest_stdout_summary": "9 passed",
+    "runtime_dependency_repair": "Installed X-VLA requirements dependency timm==1.0.12 into official-smolvla-libero; no optimizer/checkpoint/training was run by the install.",
+    "gradient_smoke_exit_code": 0
   },
   "validation_after_training_spec_freeze": {
     "training_spec_json_parse": "PASS",
@@ -1444,11 +1455,11 @@
     "optimizer_step_happened": false,
     "checkpoint_written": false,
     "closed_loop_ours_evaluation_happened": false,
-    "next_action": "BR-XVLA spec is frozen; next materialize X-VLA-format data-adapter smoke and run one-batch no-optimizer gradient smoke."
+    "next_action": "BR-XVLA spec, data-adapter smoke, and no-optimizer gradient smoke have passed. Next implement/validate the bounded training launcher/offline gate; do not run closed-loop Ours yet."
   },
   "br_xvla_training_spec": {
     "status": "FROZEN_PASS_NO_TRAINING",
-    "decision": "BR_XVLA_TRAINING_SPEC_FROZEN_ADAPTER_SMOKE_PENDING",
+    "decision": "BR_XVLA_TRAINING_SPEC_FROZEN_PREOPT_GATES_COMPLETE",
     "module": "tca_map/xvla_task1/training_spec.py",
     "module_sha256": "585c7d1f0bd9a04421f1e7f1f15fc9ae13ad357c68b21a10bd131650afbadc98",
     "test": "tests/test_br_xvla_training_spec.py",
@@ -1470,7 +1481,7 @@
     "local_data_adapter_required_before_gradient_smoke": true,
     "raw_libero_hdf5_is_not_direct_official_xvla_training_input": true,
     "optimizer_step_allowed_before_all_gates": false,
-    "next_action": "Data-adapter smoke passed; next run one-batch no-optimizer gradient smoke."
+    "next_action": "Data-adapter and no-optimizer gradient smokes passed; next bounded training launcher/offline validation gate may be prepared under the frozen two-arm spec."
   },
   "br_xvla_data_adapter_smoke": {
     "status": "PASS",
@@ -1510,7 +1521,101 @@
     "backward_happened": false,
     "optimizer_step_happened": false,
     "checkpoint_written": false,
-    "interpretation": "A tiny converted task1 dataset satisfies X-VLA's official LIBERO reader contract. The local runtime lacks mmengine, so a minimal local fileio shim was used for the smoke only; the next gate is still one-batch no-optimizer gradient smoke."
+    "interpretation": "A tiny converted task1 dataset satisfies X-VLA's official LIBERO reader contract. The local runtime lacks mmengine, so a minimal local fileio shim was used for the smoke only. This gate is superseded by the passing one-batch no-optimizer gradient smoke."
+  },
+  "br_xvla_gradient_smoke": {
+    "status": "PASS",
+    "decision": "BR_XVLA_GRADIENT_SMOKE_PASS",
+    "module": "tca_map/xvla_task1/gradient_smoke.py",
+    "module_sha256": "804f2ea8af465ae4c4b39c699c097c86eabc8e2dcc574fce3be929929676d338",
+    "test": "tests/test_br_xvla_gradient_smoke.py",
+    "test_sha256": "763416e0027d754613c2ac1e5d36dcf4622fda937cb3ae9e6c2639a5549488ad",
+    "artifact": "runs/xvla_prior/br_xvla_gradient_smoke_20260717T190919KST/result.json",
+    "artifact_sha256": "d661576639c86fd4657abe983968b8aa3969e934d8de082de3337cb56e7802cd",
+    "run_dir": "runs/xvla_prior/br_xvla_gradient_smoke_20260717T190919KST",
+    "exit_code": 0,
+    "local_files_only": true,
+    "runtime_dependency_versions": {
+      "torch": "2.10.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.19.1",
+      "timm": "1.0.12"
+    },
+    "runtime_dependency_repairs": [
+      "Installed X-VLA requirements dependency timm==1.0.12 in official-smolvla-libero",
+      "Used import-only shims for X-VLA serving-only imports fastapi, uvicorn, json_numpy",
+      "Used existing local mmengine.fileio shim from the X-VLA reader smoke path",
+      "Applied Transformers 4.57.6 compatibility patches: Florence2ForConditionalGeneration._supports_sdpa=False and missing-lm-head-safe get_output_embeddings"
+    ],
+    "materialized_adapter": {
+      "source_demo": "demo_0",
+      "source_start_index": 115,
+      "source_end_index": 211,
+      "clip_steps": 96,
+      "first_count": 1,
+      "one_target_fraction": 1.0
+    },
+    "batch_shapes": {
+      "input_ids": [
+        1,
+        50
+      ],
+      "image_input": [
+        1,
+        3,
+        3,
+        224,
+        224
+      ],
+      "image_mask": [
+        1,
+        3
+      ],
+      "proprio": [
+        1,
+        20
+      ],
+      "action": [
+        1,
+        30,
+        20
+      ],
+      "domain_id": [
+        1
+      ]
+    },
+    "losses": {
+      "position_loss": 0.621952474117279,
+      "rotate6D_loss": 1.9491392374038696,
+      "gripper_loss": 0.05320947989821434,
+      "loss_total": 2.6243011951446533,
+      "phase_weight": 3.0,
+      "weighted_loss": 7.872903823852539
+    },
+    "gradient": {
+      "trainable_parameter_count": 11868760,
+      "grad_tensor_count": 537,
+      "finite_grad_tensor_count": 537,
+      "nonzero_grad_tensor_count": 271,
+      "gradient_global_norm": 1239.7495099257394
+    },
+    "cuda_memory": {
+      "after_load_allocated_mib": 3403.209,
+      "after_backward_allocated_mib": 3465.862,
+      "max_allocated_mib": 5260.354
+    },
+    "policy": {
+      "model_loaded": true,
+      "peft_lora_attached": true,
+      "forward_happened": true,
+      "backward_happened": true,
+      "optimizer_created": false,
+      "optimizer_step_happened": false,
+      "checkpoint_written": false,
+      "training_run_happened": false,
+      "closed_loop_ours_evaluation_happened": false
+    },
+    "interpretation": "The selected BR-XVLA path can load cached X-VLA-Libero, attach PEFT LoRA, consume the task1 X-VLA-format adapter, compute the basket-remaining weighted supervised loss, and backpropagate finite nonzero trainable gradients without creating an optimizer, stepping, writing a checkpoint, training, or running closed-loop Ours evaluation."
   },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
@@ -1563,5 +1668,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Run a one-batch no-optimizer gradient smoke for BR-XVLA using the X-VLA-format adapter path. Keep scope to shared task-1 residual 20260727 and do not run optimizer.step yet."
+  "next_action": "Prepare the bounded BR-XVLA training launcher/offline validation gate under the frozen two-arm spec. Optimizer steps may occur only in that bounded training gate; closed-loop Ours evaluation remains disallowed until offline validation passes."
 }

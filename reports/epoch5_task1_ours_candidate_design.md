@@ -2,7 +2,7 @@
 
 Status: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED_NO_TRAINING`.
 
-Decision: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING`.
+Decision: `BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING`.
 
 ## Preconditions
 
@@ -60,5 +60,7 @@ Update: the no-training `BR-XVLA` spec is frozen at
 `runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`, and the tiny
 X-VLA-format data-adapter smoke passed at
 `runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`.
-Next action is a one-batch no-optimizer gradient smoke before any optimizer
-step.
+The one-batch no-optimizer gradient smoke passed at
+`runs/xvla_prior/br_xvla_gradient_smoke_20260717T190919KST/result.json`.
+Next action is the bounded two-arm training launcher/offline-validation gate;
+closed-loop Ours evaluation remains disallowed until offline validation passes.

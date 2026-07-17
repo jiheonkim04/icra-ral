@@ -4,7 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Current decision: `BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING`.
+Current decision: `BR_XVLA_GRADIENT_SMOKE_PASS_TRAINING_LAUNCHER_PENDING`.
 
 Historical task-8 method decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
@@ -38,7 +38,8 @@ matched against SmolVLA base. The shared failure `20260727` now has positive
 task-level expert headroom, again with same-reset HDF5 evidence unavailable.
 The task1 basket data audit then passed, and exactly two narrow Ours candidates
 were generated. `BR-XVLA` is selected, its no-training two-arm spec is frozen,
-and a tiny X-VLA-format data-adapter smoke now passes.
+the tiny X-VLA-format data-adapter smoke passes, and the one-batch
+no-optimizer gradient smoke now passes.
 
 ## Validation Commands
 
@@ -1067,9 +1068,10 @@ Detailed artifact: `reports/epoch5_task1_ours_candidate_design.md`.
 | `BR-XVLA`: Basket-Remaining Reweighted X-VLA | `PRIOR_EXTENSION` | LoRA/QLoRA-adapt X-VLA-Libero with phase-balanced imitation, upweighting chunks where exactly one target object is in/near the basket and the other remains out. | 86/100 | SELECTED |
 | `OCB-XVLA`: Object-Contrast Basket X-VLA | `PRIOR_EXTENSION` | Balance cream-cheese-first and butter-first object-order supervision. | 73/100 | NOT SELECTED |
 
-No training, optimizer step, checkpoint, or closed-loop Ours evaluation has
-happened for `BR-XVLA`. Next action is to inspect X-VLA adaptation interfaces
-and freeze a two-arm no-training spec before any optimizer step.
+No optimizer-step training, checkpoint, or closed-loop Ours evaluation has
+happened for `BR-XVLA`. Its spec, data-adapter smoke, and no-optimizer gradient
+smoke now pass. Next action is the bounded training launcher/offline validation
+gate under the frozen two-arm spec.
 
 ## `BR-XVLA` Training Spec Freeze
 
@@ -1093,9 +1095,8 @@ adaptation attempt to exactly two arms:
 At freeze time: training false, optimizer step false, checkpoint false.
 
 Important interface caveat: raw LIBERO HDF5 is not a direct official X-VLA
-training input. Before any optimizer step, the next gate must materialize a
-tiny X-VLA-format data-adapter smoke artifact and then run a one-batch
-no-optimizer gradient smoke.
+training input. The required tiny X-VLA-format data-adapter smoke and one-batch
+no-optimizer gradient smoke have both passed before any optimizer step.
 
 ## `BR-XVLA` Data-Adapter Smoke
 
@@ -1121,5 +1122,51 @@ contract, then instantiated X-VLA's `InfiniteDataReader` and pulled one sample.
 | local `mmengine.fileio` shim used | true |
 
 No training, model load, backward pass, optimizer step, checkpoint, or closed-
-loop Ours evaluation happened. Next gate: one-batch no-optimizer gradient
-smoke.
+loop Ours evaluation happened in the data-adapter smoke. This gate is now
+superseded by the passing one-batch no-optimizer gradient smoke below.
+
+## `BR-XVLA` One-Batch No-Optimizer Gradient Smoke
+
+Status: `PASS`.
+
+Artifact:
+`runs/xvla_prior/br_xvla_gradient_smoke_20260717T190919KST/result.json`.
+SHA-256:
+`d661576639c86fd4657abe983968b8aa3969e934d8de082de3337cb56e7802cd`.
+
+This was a mechanism/feasibility smoke only, not a training run. It loaded the
+cached `2toINF/X-VLA-Libero` checkpoint at revision
+`129e71460678b7236cee6fc9707f09d9fa0c3590`, attached the official PEFT LoRA
+configuration from the frozen spec, consumed the task1 X-VLA-format adapter,
+computed the basket-remaining weighted supervised loss on a one-target clip,
+and ran exactly one backward pass.
+
+Runtime repairs were limited to the X-VLA environment boundary: `timm==1.0.12`
+was installed from X-VLA's own requirements, import-only shims were used for
+serving-only dependencies `fastapi`, `uvicorn`, and `json_numpy`, the existing
+local `mmengine.fileio` reader shim was used, and two Transformers 4.57.6
+compatibility patches kept the checked-out X-VLA Florence2 code on the
+conservative path (`_supports_sdpa=False`, missing-`lm_head`
+`get_output_embeddings` returns `None`).
+
+| Smoke item | Result |
+|---|---:|
+| Exit code | 0 |
+| Local files only | true |
+| Weighted loss | 7.872903823852539 |
+| Phase weight | 3.0 |
+| Trainable PEFT parameters | 11,868,760 |
+| Gradient tensors finite / total | 537 / 537 |
+| Nonzero-gradient tensors | 271 |
+| Gradient global norm | 1239.7495099257394 |
+| CUDA max allocated | 5,260.354 MiB |
+| Model loaded / PEFT attached | true / true |
+| Forward / backward happened | true / true |
+| Optimizer created / step | false / false |
+| Checkpoint / training / closed-loop Ours | false / false / false |
+
+Gate result: `BR_XVLA_GRADIENT_SMOKE_PASS`.
+
+Next gate: prepare the bounded two-arm BR-XVLA training launcher and offline
+validation path. Closed-loop Ours evaluation remains disallowed until offline
+validation passes.
