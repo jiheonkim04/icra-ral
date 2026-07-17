@@ -43,7 +43,7 @@ def _wslpath(config: LaunchConfig, path: Path) -> str:
 
 
 def build_launch_command(config: LaunchConfig) -> dict[str, Any]:
-    """Build the WSL launch command and deterministic launch paths."""
+    """Build the WSL command and deterministic launch paths."""
 
     spec = build_epoch5_training_spec()
     arm = _arm_by_id(spec, config.arm_id)
@@ -71,19 +71,13 @@ def build_launch_command(config: LaunchConfig) -> dict[str, Any]:
     launcher_stdout = f"{arm_dir_rel}/launcher_stdout.log"
     launcher_stderr = f"{arm_dir_rel}/launcher_stderr.log"
     worker_pid = f"{arm_dir_rel}/worker_pid.txt"
-    bash_command = (
-        f"cd {shlex.quote(repo_wsl)} || exit 90; "
-        f"mkdir -p {shlex.quote(output_root_wsl + '/' + config.arm_id)} || exit 91; "
-        f"nohup bash -lc {shlex.quote(inner)} > {shlex.quote(launcher_stdout)} 2> {shlex.quote(launcher_stderr)} & "
-        "pid=$!; "
-        f"printf '%s\\n' \"$pid\" > {shlex.quote(worker_pid)}; "
-        "printf '%s\\n' \"$pid\""
-    )
+    popen_args = ["wsl", "-d", config.wsl_distro, "bash", "-lc", inner]
     return {
         "arm": arm,
         "repo_wsl": repo_wsl,
         "output_root_wsl": output_root_wsl,
-        "bash_command": bash_command,
+        "inner_command": inner,
+        "popen_args": popen_args,
         "launcher_stdout": str(config.output_root / config.arm_id / "launcher_stdout.log"),
         "launcher_stderr": str(config.output_root / config.arm_id / "launcher_stderr.log"),
         "worker_pid": str(config.output_root / config.arm_id / "worker_pid.txt"),
@@ -114,7 +108,9 @@ def launch_training_arm(config: LaunchConfig) -> dict[str, Any]:
         "created_unix": time.time(),
         "training_happened_at_launch_manifest_write": False,
         "optimizer_step_happened_at_launch_manifest_write": False,
-        "bash_command": launch["bash_command"],
+        "launch_strategy": "windows_subprocess_popen_wsl_foreground_trainer",
+        "inner_command": launch["inner_command"],
+        "popen_args": launch["popen_args"],
         "paths": {
             key: launch[key]
             for key in (
@@ -144,7 +140,24 @@ def launch_training_arm(config: LaunchConfig) -> dict[str, Any]:
     if config.dry_run:
         return {**manifest, "manifest_path": str(manifest_path), "worker_pid_value": None}
 
-    pid = _run_capture(["wsl", "-d", config.wsl_distro, "bash", "-lc", launch["bash_command"]])
+    stdout_path = arm_dir / "launcher_stdout.log"
+    stderr_path = arm_dir / "launcher_stderr.log"
+    stdout_handle = stdout_path.open("ab")
+    stderr_handle = stderr_path.open("ab")
+    try:
+        proc = subprocess.Popen(
+            launch["popen_args"],
+            cwd=str(config.repo_root),
+            stdout=stdout_handle,
+            stderr=stderr_handle,
+            stdin=subprocess.DEVNULL,
+            close_fds=True,
+        )
+    finally:
+        stdout_handle.close()
+        stderr_handle.close()
+    pid = str(proc.pid)
+    (arm_dir / "worker_pid.txt").write_text(pid + "\n", encoding="utf-8")
     launched = {**manifest, "status": "LAUNCHED", "worker_pid_value": pid, "manifest_path": str(manifest_path)}
     _write_json(manifest_path, launched)
     _write_json(
