@@ -4,12 +4,13 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`
+Decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`
 
 Epoch 5 completed the selected-prior-first diagnostic sequence before Ours
 design, then generated exactly two Ours candidates and selected `R2R-OFT`.
-No optimizer-step training, new download, or full-BF16 OpenVLA-OFT attempt has
-happened.
+Bounded optimizer-step training happened only after the training spec was
+frozen. No new download, full-BF16 OpenVLA-OFT attempt, or closed-loop Ours
+evaluation has happened.
 
 The recovered hard-slice condition established that the selected prior is
 locally runnable and positive, but saturated. The preregistered
@@ -367,9 +368,55 @@ First launch attempt:
 
 Gate result: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
 
+## `R2R-OFT` Frozen Two-Arm Training Result
+
+Status: `COMPLETE`
+
+Both frozen arms completed 64/64 optimizer steps under the committed spec.
+
+| Arm | Artifact | SHA-256 | Steps | Peak CUDA MiB | Checkpoints |
+|---|---|---|---:|---:|---|
+| `r2r_oft_rank4_lambda2_lr2e4_steps64` | `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result.json` | `a03a3703a3ee61c420e082e41bdb22b6ab4105e507edb21f0e323be078b2326d` | 64 | 8,370.589 | 16 / 32 / 64 |
+| `uniform_oft_rank4_lambda0_lr2e4_steps64` | `runs/openvla_oft_int4/epoch5_r2r_oft_training/uniform_oft_rank4_lambda0_lr2e4_steps64/result.json` | `0b741c1f1fbbae5fb8daa623287d319ae548be1ea114945930625de6e41b0cd6` | 64 | 8,370.589 | 16 / 32 / 64 |
+
+The repaired launch used commit
+`71de9562ef467b1f65e481d393ffdaad0547a7a0` and the local OpenVLA runtime
+`/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python`.
+
+## `R2R-OFT` Offline Validation / Selection Gate
+
+Status: `COMPLETE_NO_PASS`
+
+Validation used 24 fixed validation chunks from demos `40..49`, with phase
+counts `{0: 6, 1: 12, 2: 6}`. No closed-loop rollout was run.
+
+Prior phase-1 validation L1: `0.4049811102449894`.
+
+| Checkpoint | Primary phase-1 L1 | Ablation phase-1 L1 | Primary beats ablation | Primary max action delta vs prior | Gate |
+|---|---:|---:|---|---:|---|
+| step 16 | 0.3845006649692853 | 0.38416459163029987 | false | 1.002685546875 | FAIL |
+| step 32 | 0.2876454995324214 | 0.29051600955426693 | true | 1.010009765625 | FAIL |
+| step 64 | 0.2626503886034091 | 0.2789938536783059 | true | 1.0028839111328125 | FAIL |
+
+Artifacts:
+
+- `runs/openvla_oft_int4/epoch5_r2r_oft_offline_validation_step0016.json`,
+  SHA-256 `e0c35f01f95d2b8101ddfc9f9d4ba93af09db84b5bff03cdb8f31ec0cc8b1974`;
+- `runs/openvla_oft_int4/epoch5_r2r_oft_offline_validation_step0032.json`,
+  SHA-256 `125b99249c9e1f2ac5058a1f1bcc43714a0b6311f8e9edb85433d16609254cda`;
+- `runs/openvla_oft_int4/epoch5_r2r_oft_offline_validation_step0064.json`,
+  SHA-256 `a66a02bfc873ea26596321a1147c7b51f8511d5f793abe479bc4f4adc7dbb0fc`.
+
+Interpretation: the selected mechanism improved the residual one-pot validation
+phase, especially at step 64, but all primary checkpoints violated the frozen
+max action-delta bound. Under the preregistered offline-selection rule,
+closed-loop evaluation is therefore disallowed.
+
+Gate result: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
+
 ## Next Decision
 
-The next action is to relaunch the primary frozen arm
-`r2r_oft_rank4_lambda2_lr2e4_steps64` in a detached WSL job, recording PID, log
-path, heartbeat, and commit before the first optimizer step. Preserve the caveat
-that current upper/headroom evidence is task-level, not same-reset.
+The next action is to record the `R2R-OFT` no-go decision and pivot without
+retuning on residual reset identities. Closed-loop Ours rollout is disallowed
+for these checkpoints. Preserve the caveat that current upper/headroom evidence
+is task-level, not same-reset.

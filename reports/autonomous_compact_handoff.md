@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_r2r_oft_trainer_launcher_validated`
-- Current decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`
+- Current stage: `epoch_5_r2r_oft_offline_selection_not_passed`
+- Current decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -173,6 +173,26 @@ First primary launch attempt:
   `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result_failed_missing_rich_20260717T1341KST.json`;
 - status: failed before training due wrong WSL env missing `rich`;
 - training / optimizer steps / checkpoint: false / 0 / false.
+
+Frozen training completed:
+
+- primary result:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result.json`;
+- ablation result:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/uniform_oft_rank4_lambda0_lr2e4_steps64/result.json`;
+- both arms: 64/64 optimizer steps, checkpoints at 16/32/64, peak CUDA
+  8,370.589 MiB.
+
+Offline validation:
+
+- fixed validation chunks: 24 from demos 40..49, phase counts 0/1/2 = 6/12/6;
+- step 16: primary phase-1 L1 0.3845006649692853, ablation 0.38416459163029987,
+  max delta 1.002685546875, FAIL;
+- step 32: primary phase-1 L1 0.2876454995324214, ablation 0.29051600955426693,
+  max delta 1.010009765625, FAIL;
+- step 64: primary phase-1 L1 0.2626503886034091, ablation 0.2789938536783059,
+  max delta 1.0028839111328125, FAIL;
+- closed-loop Ours rollout: disallowed.
 
 ## Prohibitions
 

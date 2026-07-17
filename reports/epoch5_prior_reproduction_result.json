@@ -3,17 +3,17 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_r2r_oft_trainer_launcher_validated",
-  "decision": "R2R_OFT_TRAINER_LAUNCHER_VALIDATED",
+  "stage": "epoch_5_r2r_oft_offline_selection_not_passed",
+  "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
   "new_method_candidate_generated": true,
   "selected_ours_method": "R2R-OFT",
-  "training_happened": false,
+  "training_happened": true,
   "qlora_gradient_smoke_happened": true,
-  "optimizer_step_happened": false,
-  "checkpoint_written": false,
+  "optimizer_step_happened": true,
+  "checkpoint_written": true,
   "training_config_frozen": true,
   "trainer_launcher_validated": true,
   "new_download_happened": false,
@@ -436,6 +436,93 @@
     "counts_toward_identical_infrastructure_failures_for_primary_arm": 1,
     "repair": "launcher default changed to /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python after import probe showed OpenVLA-OFT dependencies and CUDA available"
   },
+  "r2r_oft_bounded_training": {
+    "status": "COMPLETE",
+    "closed_loop_evaluation_happened": false,
+    "runtime_commit": "71de9562ef467b1f65e481d393ffdaad0547a7a0",
+    "arms": [
+      {
+        "arm_id": "r2r_oft_rank4_lambda2_lr2e4_steps64",
+        "role": "primary_selected_method",
+        "result_artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result.json",
+        "result_sha256": "a03a3703a3ee61c420e082e41bdb22b6ab4105e507edb21f0e323be078b2326d",
+        "optimizer_steps_completed": 64,
+        "checkpoint_steps": [
+          16,
+          32,
+          64
+        ],
+        "cuda_peak_mib": 8370.58935546875,
+        "elapsed_seconds": 198.607848114,
+        "success": true
+      },
+      {
+        "arm_id": "uniform_oft_rank4_lambda0_lr2e4_steps64",
+        "role": "uniform_weight_ablation",
+        "result_artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_training/uniform_oft_rank4_lambda0_lr2e4_steps64/result.json",
+        "result_sha256": "0b741c1f1fbbae5fb8daa623287d319ae548be1ea114945930625de6e41b0cd6",
+        "optimizer_steps_completed": 64,
+        "checkpoint_steps": [
+          16,
+          32,
+          64
+        ],
+        "cuda_peak_mib": 8370.58935546875,
+        "elapsed_seconds": 202.719594908,
+        "success": true
+      }
+    ]
+  },
+  "r2r_oft_offline_validation": {
+    "status": "COMPLETE_NO_PASS",
+    "closed_loop_evaluation_happened": false,
+    "fixed_validation_chunks": 24,
+    "validation_phase_counts": {
+      "0": 6,
+      "1": 12,
+      "2": 6
+    },
+    "prior_phase1_l1": 0.4049811102449894,
+    "checkpoint_results": [
+      {
+        "checkpoint_step": 16,
+        "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_offline_validation_step0016.json",
+        "artifact_sha256": "e0c35f01f95d2b8101ddfc9f9d4ba93af09db84b5bff03cdb8f31ec0cc8b1974",
+        "decision": "OFFLINE_SELECTION_NOT_PASSED",
+        "primary_passes_offline_gate": false,
+        "primary_beats_uniform_ablation_on_phase1_l1": false,
+        "primary_phase1_l1": 0.3845006649692853,
+        "ablation_phase1_l1": 0.38416459163029987,
+        "primary_fixed_chunk_max_abs_action_delta": 1.002685546875,
+        "primary_fixed_chunk_mean_abs_action_delta": 0.07541197822207496
+      },
+      {
+        "checkpoint_step": 32,
+        "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_offline_validation_step0032.json",
+        "artifact_sha256": "125b99249c9e1f2ac5058a1f1bcc43714a0b6311f8e9edb85433d16609254cda",
+        "decision": "OFFLINE_SELECTION_NOT_PASSED",
+        "primary_passes_offline_gate": false,
+        "primary_beats_uniform_ablation_on_phase1_l1": true,
+        "primary_phase1_l1": 0.2876454995324214,
+        "ablation_phase1_l1": 0.29051600955426693,
+        "primary_fixed_chunk_max_abs_action_delta": 1.010009765625,
+        "primary_fixed_chunk_mean_abs_action_delta": 0.20450773125603086
+      },
+      {
+        "checkpoint_step": 64,
+        "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_offline_validation_step0064.json",
+        "artifact_sha256": "a66a02bfc873ea26596321a1147c7b51f8511d5f793abe479bc4f4adc7dbb0fc",
+        "decision": "OFFLINE_SELECTION_NOT_PASSED",
+        "primary_passes_offline_gate": false,
+        "primary_beats_uniform_ablation_on_phase1_l1": true,
+        "primary_phase1_l1": 0.2626503886034091,
+        "ablation_phase1_l1": 0.2789938536783059,
+        "primary_fixed_chunk_max_abs_action_delta": 1.0028839111328125,
+        "primary_fixed_chunk_mean_abs_action_delta": 0.17120750745137533
+      }
+    ],
+    "decision": "R2R_OFT_OFFLINE_SELECTION_NOT_PASSED"
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Relaunch the primary frozen R2R-OFT arm r2r_oft_rank4_lambda2_lr2e4_steps64 with /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python in a detached WSL job, recording PID, log path, heartbeat, and commit before the first optimizer step, while preserving the task-level-not-same-reset headroom caveat."
+  "next_action": "Record the R2R-OFT no-go decision and pivot without retuning on residual reset identities; closed-loop Ours rollout is disallowed for these checkpoints, while preserving the task-level-not-same-reset headroom caveat."
 }

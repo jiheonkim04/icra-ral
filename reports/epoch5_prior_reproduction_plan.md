@@ -157,7 +157,7 @@ identity mismatch must be carried into Ours design and claims.
 
 ## Current Gate Result
 
-Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
+Decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
 
 Ours design is now permitted only for the exact task-8 residual limitation and
 must generate at most two candidates. Do not broaden into a generic method
@@ -292,6 +292,35 @@ First launch attempt failed before training:
 
 Decision: `R2R_OFT_TRAINER_LAUNCHER_VALIDATED`.
 
-Next step: relaunch the primary frozen arm
-`r2r_oft_rank4_lambda2_lr2e4_steps64` in a detached WSL job, recording PID, log
-path, heartbeat, and commit before the first optimizer step.
+## Frozen Two-Arm Training Completed
+
+Execution status: `COMPLETE`
+
+Both frozen arms completed 64/64 optimizer steps and wrote checkpoints at
+steps 16, 32, and 64. Peak CUDA allocation was 8,370.589 MiB for both arms.
+
+Artifacts:
+
+- primary:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/r2r_oft_rank4_lambda2_lr2e4_steps64/result.json`;
+- uniform ablation:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_training/uniform_oft_rank4_lambda0_lr2e4_steps64/result.json`.
+
+## Offline Validation / Selection Gate
+
+Execution status: `COMPLETE_NO_PASS`
+
+Fixed validation chunks: 24, from validation demos `40..49`, with phase counts
+`{0: 6, 1: 12, 2: 6}`. Closed-loop rollout happened: false.
+
+| Checkpoint | Primary phase-1 L1 | Ablation phase-1 L1 | Primary max action delta | Gate |
+|---|---:|---:|---:|---|
+| step 16 | 0.3845006649692853 | 0.38416459163029987 | 1.002685546875 | FAIL |
+| step 32 | 0.2876454995324214 | 0.29051600955426693 | 1.010009765625 | FAIL |
+| step 64 | 0.2626503886034091 | 0.2789938536783059 | 1.0028839111328125 | FAIL |
+
+Decision: `R2R_OFT_OFFLINE_SELECTION_NOT_PASSED`.
+
+Next step: record the `R2R-OFT` no-go decision and pivot without retuning on
+residual reset identities. Closed-loop Ours rollout is disallowed for these
+checkpoints.
