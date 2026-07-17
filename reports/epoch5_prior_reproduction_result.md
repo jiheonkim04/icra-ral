@@ -624,3 +624,63 @@ Next action: update the structured report state and compact handoff. Do not
 call the LightVLA result an Ours result. If method design begins later, it must
 target the measured cross-prior complementarity and preserve held-out reset
 discipline.
+
+## First Method After LightVLA: Collision-Rescue LightVLA
+
+Decision before rollout: `SELECTED_CR_LIGHTVLA_FOR_STAGE0`.
+
+Two candidates were considered around the exact measured residual:
+
+| Candidate | Core mechanism | Training? | Decision |
+|---|---|---|---|
+| `CR-LightVLA`: Collision-Rescue LightVLA | Extend LightVLA's own token-pruning rule: keep all original first-choice unique visual tokens, and only when multiple dynamic queries collide on the same first-choice token also keep each collided query's second-choice token. | no | selected |
+| `ATCD`: Action-Teacher Complementarity Distillation | QLoRA-distill the better of LightVLA/OpenVLA-OFT action proposals on training demos using expert L1 as a teacher signal. | yes | not selected for first attempt; higher pseudo-labeling/training complexity |
+
+Why `CR-LightVLA` was selected first: it directly modifies the selected
+LightVLA prior mechanism, adds no parameters, does not use a generic verifier
+or policy gate, and has a fixed rule before rollout.
+
+Tracked runner:
+`scripts/epoch5_lightvla_collision_rescue_eval.py`, SHA-256
+`7b15ba7293ef8ae25f34c383a1d0f07036611122619af088500bb6ffdaec50d4`.
+
+Run artifact:
+`runs/lightvla_prior/cr_lightvla_task8_all_20260717T1600KST/result.json`,
+SHA-256
+`6c604b1493d10d8a8c54afcbecc3d8d6b87bd393483293cbf93f3a0d6474b9e6`.
+
+Configuration:
+
+- same LightVLA checkpoint and same matched `libero_10/task_8` reset identities
+  `20260716..20260723`;
+- no training, no optimizer steps, no checkpoint written;
+- closed-loop rollout happened;
+- official LightVLA scheduler bypassed for the same local 16 GB VRAM reason;
+- official functions still used for load/env/episode execution.
+
+Result:
+
+| Policy | Successes | Failures |
+|---|---:|---|
+| OpenVLA-OFT INT4 | 6/8 | `20260721`, `20260722` |
+| LightVLA 4-bit | 6/8 | `20260716`, `20260723` |
+| `CR-LightVLA` | 6/8 | `20260718`, `20260723` |
+
+Per-reset interpretation:
+
+- fixed one LightVLA failure: `20260716`;
+- preserved LightVLA's wins on OpenVLA-OFT failures: `20260721`, `20260722`;
+- introduced one regression: `20260718`;
+- did not fix LightVLA's other failure: `20260723`.
+
+Telemetry: mean retained tokens increased from roughly `69..73` original
+first-choice unique tokens to roughly `105..112` collision-rescued tokens,
+depending on reset.
+
+Decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`.
+
+`CR-LightVLA` is not a prototype GO because it ties the selected prior and
+OpenVLA-OFT on total success while changing the failure set. It is useful
+mechanistic evidence that token-collision rescue can fix one over-pruning
+failure without destroying the two OpenVLA-residual wins, but the regression
+shows the fixed rescue rule is not yet a paper candidate.

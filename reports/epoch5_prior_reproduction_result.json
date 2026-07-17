@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_second_pass_lightvla_prior_diagnostic_complete",
-  "decision": "LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND",
+  "stage": "epoch_5_cr_lightvla_stage0_complete",
+  "decision": "CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "ordinary_cycle_39_method_search_superseded": true,
@@ -827,6 +827,94 @@
       "ours_design_happened": false
     }
   },
+  "first_method_after_lightvla": {
+    "decision_before_rollout": "SELECTED_CR_LIGHTVLA_FOR_STAGE0",
+    "happened_after_base_prior_headroom_gate": true,
+    "residual_type": "cross_prior_complementarity",
+    "candidates": [
+      {
+        "name": "CR-LightVLA",
+        "full_name": "Collision-Rescue LightVLA token pruning",
+        "closest_prior": "LightVLA on LIBERO-10",
+        "core_mechanism": "Keep original LightVLA first-choice unique tokens; when dynamic queries collide on the same first-choice token, also retain each collided query's second-choice token.",
+        "training_required": false,
+        "trainable_parameters_added": 0,
+        "generic_policy_gate": false,
+        "lora_qlora_role": "not required for this no-training Stage-0 rule",
+        "key_ablation": "original LightVLA token pruning on the same matched reset identities",
+        "simple_control": "OpenVLA-OFT INT4 on the same matched reset identities",
+        "score": 82,
+        "decision": "SELECTED"
+      },
+      {
+        "name": "ATCD",
+        "full_name": "Action-Teacher Complementarity Distillation",
+        "closest_prior": "LightVLA plus OpenVLA-OFT INT4",
+        "core_mechanism": "QLoRA-distill the better of LightVLA/OpenVLA-OFT action proposals on training demos using expert L1 as a teacher signal, then deploy as a single adapted policy.",
+        "training_required": true,
+        "lora_qlora_role": "implementation infrastructure for policy adaptation",
+        "key_ablation": "same QLoRA scaffold without complementarity teacher labels",
+        "score": 74,
+        "decision": "NOT_SELECTED_FIRST_ATTEMPT",
+        "reason_not_selected": "higher pseudo-labeling and training complexity; selected first method should test the LightVLA mechanism directly"
+      }
+    ],
+    "selected": "CR-LightVLA",
+    "stage0_result": {
+      "status": "COMPLETE_NO_PROTOTYPE_GO",
+      "script": "scripts/epoch5_lightvla_collision_rescue_eval.py",
+      "script_sha256": "7b15ba7293ef8ae25f34c383a1d0f07036611122619af088500bb6ffdaec50d4",
+      "artifact": "runs/lightvla_prior/cr_lightvla_task8_all_20260717T1600KST/result.json",
+      "artifact_sha256": "6c604b1493d10d8a8c54afcbecc3d8d6b87bd393483293cbf93f3a0d6474b9e6",
+      "task": "libero_10/task_8",
+      "reset_identities": [
+        20260716,
+        20260717,
+        20260718,
+        20260719,
+        20260720,
+        20260721,
+        20260722,
+        20260723
+      ],
+      "completed_episode_count": 8,
+      "successes": 6,
+      "failures": [
+        20260718,
+        20260723
+      ],
+      "fixed_lightvla_failures": [
+        20260716
+      ],
+      "still_failed_lightvla_failures": [
+        20260723
+      ],
+      "preserved_lightvla_successes_on_openvla_failures": [
+        20260721,
+        20260722
+      ],
+      "new_regressions_vs_lightvla": [
+        20260718
+      ],
+      "openvla_oft_int4_successes": 6,
+      "lightvla_successes": 6,
+      "cr_lightvla_successes": 6,
+      "training_happened": false,
+      "optimizer_step_happened": false,
+      "checkpoint_written": false,
+      "cuda_max_allocated_bytes": 5367590912,
+      "load_elapsed_s": 35.607,
+      "mean_first_unique_tokens_range": [
+        68.908,
+        73.468
+      ],
+      "mean_final_collision_rescued_tokens_range": [
+        105.123,
+        111.833
+      ],
+      "decision": "CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO"
+    }
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Do not claim Ours. Treat LightVLA as a second-pass official prior with a measured cross-prior complementarity residual on LIBERO-10 task 8. The next scientific decision is whether to design at most two candidates around that exact complementarity residual under the official-prior-first rules, with no retuning on held-out reset identities."
+  "next_action": "Do not claim prototype GO. CR-LightVLA provided mechanistic evidence but tied LightVLA/OpenVLA at 6/8 with a regression. Next scientific action should either end this selected method as Stage-0 no-go or open a new bounded method cycle around the same cross-prior complementarity without retuning on the tested reset identities."
 }

@@ -418,3 +418,25 @@ Do not train LightVLA locally, do not retune OpenVLA-OFT, and do not write a
 LightVLA-inspired method as though this were already Ours. The measured
 second-pass residual is cross-prior complementarity: LightVLA solves the two
 OpenVLA-OFT failures, while OpenVLA-OFT solves the two LightVLA failures.
+
+## First Selected Method Around the Complementarity Residual
+
+Decision: `SELECTED_CR_LIGHTVLA_FOR_STAGE0`.
+
+Exactly two candidates were considered:
+
+1. `CR-LightVLA`: a no-training collision-rescue extension of LightVLA's
+   token-pruner. It keeps the original first-choice unique tokens and rescues
+   second-choice tokens only for dynamic-query collisions.
+2. `ATCD`: a QLoRA action-teacher distillation method using LightVLA/OpenVLA
+   proposal complementarity on training demos.
+
+`CR-LightVLA` was selected first because it is the narrowest direct extension
+of LightVLA's actual mechanism and can be evaluated without pseudo-label
+training or a generic policy gate.
+
+Stage-0 result: `CR-LightVLA` completed the same 8 reset identities with 6/8
+successes, failures `20260718` and `20260723`. It fixed `20260716`, preserved
+`20260721`/`20260722`, regressed `20260718`, and failed to fix `20260723`.
+
+Decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`.

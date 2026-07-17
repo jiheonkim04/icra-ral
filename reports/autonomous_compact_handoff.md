@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_second_pass_lightvla_prior_diagnostic_complete`
-- Current decision: `LIGHTVLA_PRIOR_DIAGNOSTIC_COMPLEMENTARY_RESIDUAL_FOUND`
+- Current stage: `epoch_5_cr_lightvla_stage0_complete`
+- Current decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -179,37 +179,21 @@ Offline validation:
 - closed-loop Ours rollout: disallowed.
 
 Simple control after offline no-pass:
-
-- artifact:
-  `runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json`;
-- SHA-256:
-  `6864e691b1ad5dbfe371b309468b9f107806d12b41fe6bd5b51fd99ab00bf37e`;
-- configuration: OpenVLA-OFT INT4, task 8, `num_open_loop_steps=4`, no
-  training;
-- result: 5/8, failures on `20260718`, `20260720`, `20260721`;
-- comparison: original 8-step OpenVLA-OFT task-8 prior was 6/8, failures on
-  `20260721`, `20260722`;
-- decision: `SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
+`runs/openvla_oft_int4/epoch5_task8_short_requery4_openvla_int4.json` tested
+OpenVLA-OFT INT4 with `num_open_loop_steps=4`; result 5/8, failures
+`20260718`, `20260720`, `20260721`; decision
+`SHORT_REQUERY4_SIMPLE_CONTROL_NOT_SELECTED`.
 
 ## Second-Pass LightVLA Prior
 
-Initial exact-three status:
-
-- OpenVLA route: executed; `R2R-OFT` offline no-pass; short requery not selected.
-- OpenPI/pi0.5: source/env/checkpoint present, but policy restore/inference
-  smoke exited `137`; no rollout.
-- PCD/PCD-LeRobot: source-inspected, but fair execution blocked by dependencies,
-  checkpoints, and multi-GPU evaluation requirements.
+Initial exact-three status: OpenVLA route executed but no-go; OpenPI/pi0.5
+resource-blocked after source/env/checkpoint setup; PCD/PCD-LeRobot
+source-inspected but dependency/checkpoint/multi-GPU blocked.
 
 Second exact-three selected LightVLA first:
 
-- source: `C:\assets\repos\LightVLA`, HEAD
-  `a4680fda5ffe73029190ac97328aa34b0e87a45a`;
-- checkpoint: `TTJiang/LightVLA-libero-10`, revision
-  `d40628fe49fbbca841e1ae9c7b17e2fb6abe7aa7`;
-- download run:
-  `runs/lightvla_prior/download_lightvla_libero10_20260717T1520KST`, exit `0`;
-- local checkpoint: `/home/jiheon/assets/checkpoints/lightvla/TTJiang_LightVLA-libero-10`;
+- source/checkpoint: `C:\assets\repos\LightVLA` HEAD `a4680fda...`;
+  `TTJiang/LightVLA-libero-10` revision `d40628fe...`; download run exited `0`;
 - caveat: official loader copied source files/backups into the checkpoint
   directory, so local file count is now 49 and the directory is not pristine;
 - load artifact:
@@ -229,9 +213,26 @@ LightVLA task-8 matched diagnostic:
 - LightVLA solved both OpenVLA failures, while OpenVLA solved both LightVLA
   failures; oracle OpenVLA-or-LightVLA would be 8/8.
 
-Next: do not claim Ours. If the campaign now designs a method, it must be at
-most two candidates around this exact cross-prior complementarity residual,
-with held-out reset discipline and no MCI/R2R rescue.
+## First Method After LightVLA
+
+Selected method: `CR-LightVLA`, collision-rescue token pruning.
+
+- runner: `scripts/epoch5_lightvla_collision_rescue_eval.py`;
+- artifact:
+  `runs/lightvla_prior/cr_lightvla_task8_all_20260717T1600KST/result.json`;
+- rule: keep LightVLA first-choice unique tokens; for dynamic-query collisions,
+  also keep collided queries' second-choice token;
+- training / optimizer / checkpoint: false / false / false;
+- result: 6/8, failures `20260718`, `20260723`;
+- fixed one LightVLA failure: `20260716`;
+- preserved LightVLA wins on OpenVLA failures: `20260721`, `20260722`;
+- regression vs LightVLA/OpenVLA: `20260718`;
+- still failed: `20260723`;
+- decision: `CR_LIGHTVLA_STAGE0_NO_PROTOTYPE_GO`.
+
+Next: do not claim prototype GO. Either close this selected method as Stage-0
+no-go or open a new bounded method cycle around the same complementarity
+residual without retuning on tested reset identities.
 
 ## Prohibitions
 
