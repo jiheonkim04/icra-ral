@@ -241,10 +241,14 @@ def run_offline_validation(config: OfflineValidationConfig) -> dict[str, Any]:
     started = time.monotonic()
     spec = _load_spec(config.spec_path)
     chunks = select_fixed_validation_chunks(hdf5_path=config.hdf5_path, spec=spec, num_chunks=config.num_chunks)
+    primary_step_label = config.primary_adapter_dir.parent.name
+    ablation_step_label = config.ablation_adapter_dir.parent.name
+    primary_label = f"r2r_primary_{primary_step_label}"
+    ablation_label = f"uniform_ablation_{ablation_step_label}"
     policies = [
         ("prior_base", None),
-        ("r2r_primary_step64", config.primary_adapter_dir),
-        ("uniform_ablation_step64", config.ablation_adapter_dir),
+        (primary_label, config.primary_adapter_dir),
+        (ablation_label, config.ablation_adapter_dir),
     ]
     all_rows: dict[str, list[dict[str, Any]]] = {}
     runtimes: dict[str, dict[str, Any]] = {}
@@ -254,12 +258,12 @@ def run_offline_validation(config: OfflineValidationConfig) -> dict[str, Any]:
         runtimes[label] = runtime
 
     summaries = {label: _summarize_predictions(rows) for label, rows in all_rows.items()}
-    for label in ("r2r_primary_step64", "uniform_ablation_step64"):
+    for label in (primary_label, ablation_label):
         summaries[label]["delta_vs_prior"] = _summarize_delta(all_rows[label], all_rows["prior_base"])
 
     prior = summaries["prior_base"]
-    primary = summaries["r2r_primary_step64"]
-    ablation = summaries["uniform_ablation_step64"]
+    primary = summaries[primary_label]
+    ablation = summaries[ablation_label]
     criteria = spec["validation_selection"]["offline_pass_criteria"]
     primary_clean = np.mean([primary["phase_0_mean_l1"], primary["phase_2_mean_l1"]])
     prior_clean = np.mean([prior["phase_0_mean_l1"], prior["phase_2_mean_l1"]])
@@ -286,6 +290,10 @@ def run_offline_validation(config: OfflineValidationConfig) -> dict[str, Any]:
         "git_commit": _git_commit(),
         "spec_path": str(config.spec_path),
         "num_chunks": int(config.num_chunks),
+        "primary_step_label": primary_step_label,
+        "ablation_step_label": ablation_step_label,
+        "primary_summary_key": primary_label,
+        "ablation_summary_key": ablation_label,
         "validation_phase_counts": {
             str(phase): int(sum(1 for chunk in chunks if int(chunk["phase_count_on"]) == phase)) for phase in (0, 1, 2)
         },
