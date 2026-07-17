@@ -1,0 +1,90 @@
+{
+  "schema_version": "2026-07-18.r2p_xvla_archive_decision.v1",
+  "created_at_kst": "2026-07-18T05:11:33+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_archive": "a07c6bd218f140b99e91f6acfc6aedcced845870",
+  "method": "R2P-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "reset_identity": 20260727,
+    "initial_state_index": 16,
+    "initial_state_sha256": "7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76",
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate"
+  },
+  "decision": "R2P_XVLA_ARCHIVED_AT_FROZEN_OFFLINE_SELECTION_GATE",
+  "frozen_protocol_decision": "R2P_XVLA_OFFLINE_SELECTION_NOT_PASSED_NO_CLOSED_LOOP",
+  "calibrated_scientific_interpretation": "The primary R2P phase-weighted arm and the uniform LoRA ablation were effectively tied on the frozen offline metric, with primary worse by 6.08464082452187e-08. The frozen gate blocks any closed-loop rollout or paper claim. Under comparator-role calibration this is a no-pass/tie and not evidence that all phase-weighting ideas are impossible.",
+  "source_result": {
+    "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_result.json",
+    "sha256": "a8e69208cb4a6c39da5226878af64f7df3101de08dee11cdca8568f667da1035",
+    "decision": "R2P_XVLA_OFFLINE_SELECTION_NOT_PASSED_NO_CLOSED_LOOP"
+  },
+  "offline_selection": {
+    "primary_mean_weighted_loss": 0.9418842308223248,
+    "uniform_mean_weighted_loss": 0.9418841699759165,
+    "primary_minus_uniform_weighted_loss": 6.08464082452187e-08,
+    "selection_passed": false,
+    "blocking_reason": "primary_does_not_beat_uniform_on_phase_weighted_validation_loss"
+  },
+  "comparator_role_table": [
+    {
+      "comparator": "Base",
+      "scientific_question": "Does adding R2P-XVLA improve the backbone in closed-loop task success on the residual target?",
+      "matched_result": "Not evaluated because the frozen offline gate failed before any Ours closed-loop rollout.",
+      "uncertainty": "Not applicable",
+      "does_it_block_the_claim": true,
+      "reason": "Closed-loop Base-vs-Ours evidence is missing by design after the offline-selection no-pass."
+    },
+    {
+      "comparator": "Closest Prior",
+      "scientific_question": "Does R2P-XVLA improve over X-VLA on the same residual task protocol?",
+      "matched_result": "Not evaluated in closed loop; offline action delta vs X-VLA prior was measured but not a success metric.",
+      "uncertainty": "Not applicable",
+      "does_it_block_the_claim": true,
+      "reason": "The method cannot claim prior advance without passing the frozen offline selector and running the matched closed-loop gate."
+    },
+    {
+      "comparator": "Uniform LoRA Ablation",
+      "scientific_question": "Is the phase-balanced R2P component responsible for a better offline validation result than generic task adaptation?",
+      "matched_result": "Primary weighted loss 0.9418842308223248 vs uniform 0.9418841699759165; primary-minus-uniform 6.08464082452187e-08.",
+      "uncertainty": "Frozen single offline validation split; no paired uncertainty computed.",
+      "does_it_block_the_claim": true,
+      "reason": "The selected component did not beat the preregistered uniform ablation on the frozen offline selector."
+    },
+    {
+      "comparator": "Simple Control",
+      "scientific_question": "Can a simpler explanation account for the offline result?",
+      "matched_result": "Uniform task5 LoRA matched/slightly exceeded the primary arm on the frozen metric.",
+      "uncertainty": "Microscopic margin; interpreted as no-pass/tie.",
+      "does_it_block_the_claim": true,
+      "reason": "Generic uniform adaptation explains the offline outcome sufficiently to block this R2P component claim."
+    }
+  ],
+  "status_outputs": {
+    "BASE_CLAIM_STATUS": "NOT_EVALUATED_CLOSED_LOOP_BLOCKED_BY_OFFLINE_GATE",
+    "PRIOR_ADVANCE_STATUS": "NOT_EVALUATED_CLOSED_LOOP_BLOCKED_BY_OFFLINE_GATE",
+    "ABLATION_COMPONENT_STATUS": "KEY_COMPONENT_NOT_SUPPORTED_BY_FROZEN_OFFLINE_SELECTION",
+    "SIMPLE_EXPLANATION_STATUS": "UNIFORM_TASK5_LORA_EXPLAINS_OFFLINE_RESULT",
+    "CLEAN_RETENTION_STATUS": "NOT_EVALUATED_CLOSED_LOOP_BLOCKED_BY_OFFLINE_GATE",
+    "GENERALIZATION_STATUS": "MISSING_SINGLE_IDENTITY_ONLY",
+    "OVERALL_PAPER_CANDIDATE_STATUS": "VALID_METHOD_KILL"
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY_ARCHIVE_OF_COMPLETED_BOUNDED_VLA_TRAINING_PLUS_OFFLINE_VALIDATION",
+    "evidence_role": "OURS_AND_UNIFORM_ABLATION_ARCHIVE",
+    "artifact_status": "IGNORED_RUNTIME_ARTIFACTS_HASHED_IN_TRACKED_REPORT",
+    "new_training_happened": false,
+    "new_optimizer_step_happened": false,
+    "new_checkpoint_written": false,
+    "new_closed_loop_ours_evaluation_happened": false,
+    "new_simulator_episode_count": 0
+  },
+  "closure": {
+    "closed_to_closed_loop_rollout": true,
+    "closed_to_task5_retune_or_reopen": true,
+    "closed_to_paper_claim": true,
+    "ctr_xvla_training_authorized": false,
+    "next_action": "Resume official-prior-first residual search under comparator-role calibration."
+  }
+}

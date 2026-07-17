@@ -1,0 +1,155 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_task3_20260729_base_gate.v1",
+  "created_at_kst": "2026-07-18T05:44:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "a07c6bd218f140b99e91f6acfc6aedcced845870",
+  "stage": "epoch_5_official_prior_first_repeated_residual_base_gate",
+  "decision": "TASK3_IDENTITY20260729_BASE_SOLVED_NOT_SHARED_RESIDUAL_REPEATED_RESIDUAL_NOT_CONFIRMED",
+  "suite": "libero_goal",
+  "task_id": 3,
+  "instruction": "open the top drawer and put the bowl inside",
+  "reset_identity": 20260729,
+  "run_dir": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "BASE",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "frozen_base",
+    "model_family": "SmolVLA",
+    "policy_class": "SmolVLAPolicy",
+    "official_path": "LeRobot SmolVLA policy, processors, postprocessors, and LIBERO env wrapper",
+    "peft_used": false,
+    "control_mode": "relative",
+    "old_custom_libero_7d_route_used": false,
+    "paligemma_import_stub_used": false,
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_launcher_pid": 19128,
+    "wsl_worker_pid": 299,
+    "peak_vram_mb": 926.638,
+    "simulator_episode_count": 1,
+    "model_forward_count": 4,
+    "model_forward_count_source": "episode.action_chunks_generated"
+  },
+  "matched_prior_reference": {
+    "prior_report_json": "reports/post_r2p_archive_libero_goal_task3_20260729_31_xvla_repeated_residual_result.json",
+    "prior_policy": "X-VLA-Libero",
+    "prior_success": false,
+    "prior_steps": 900,
+    "prior_final_reward": 0.0,
+    "prior_action_chunk_count": 30,
+    "same_suite_task_and_reset_identity": true
+  },
+  "summary": {
+    "completed_episode_count": 1,
+    "successful_episode_count": 1,
+    "infrastructure_failure_count": 0,
+    "base_success": true,
+    "xvla_prior_success": false,
+    "identity_20260729_shared_base_and_prior_residual": false,
+    "confirmed_shared_residual_identities_after_gate": [
+      20260728
+    ],
+    "candidate_generation_authorized": false,
+    "training_authorized": false,
+    "ours_rollout_authorized": false
+  },
+  "task_result": {
+    "task_id": 3,
+    "instruction": "open the top drawer and put the bowl inside",
+    "initial_state_index": 18,
+    "initial_state_sha256": "1e821e33e15575911206ade86698d9ea538e1d27fc8cdaf98cb8ecd1cea4e966",
+    "base_success": true,
+    "xvla_prior_success": false,
+    "decision": "BASE_SOLVED_NOT_A_SHARED_RESIDUAL",
+    "max_reward": 1.0,
+    "sum_reward": 1.0,
+    "env_steps": 183,
+    "episode_length": 183,
+    "action_chunks_generated": 4,
+    "termination_reason": "success",
+    "video_path": "runs/xvla_prior/smolvla_goal_task3_id20260729_videos/frozen_base/libero_goal/task_3_identity_20260729.mp4",
+    "video_sha256": "4c90414772b06716ba6f6cda7dfdbda769ae2b87bcfe5e02c1ba2c4846cb6240"
+  },
+  "policy_load_audit": {
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_device": "cuda:0",
+    "action_chunk_finite": true,
+    "amp_fp16_or_bf16_active": false,
+    "load_seconds": 6.239,
+    "parameter_dtype": "torch.bfloat16",
+    "parameter_device": "cuda:0",
+    "parameter_numel_sample": 589824
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/result.json",
+      "sha256": "b8d2cc128690e713b89918dfc73ba8ad1772e07d9a8f0d84e123cfa7445bbb13",
+      "length_bytes": 5766
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/resume_command.txt",
+      "sha256": "07a1470d09277c9b30c0ba7f553b96d2a9e9dea797b96dae6c909f035094d05b",
+      "length_bytes": 168
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/worker.sh",
+      "sha256": "075b354c33f8e53d653a925e0e901caf39bde3442964748eb14201712f18ff31",
+      "length_bytes": 922
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/stdout.log",
+      "sha256": "0dccb09c6d145ac3aae16be8f63bc4fada18963f70510dd6ed7e1404a67b1634",
+      "length_bytes": 425
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/stderr.log",
+      "sha256": "f54fc0a27e71d201b211eafb2187df7ec80a9025a3d39b9b7a89aaf44e02420c",
+      "length_bytes": 722
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/heartbeat.txt",
+      "sha256": "45b1ce587e0c2701d86d3b33b64cdadbd56518df7dc33b1ac9aad6a2d9a2097e",
+      "length_bytes": 26
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/windows_launcher_pid.txt",
+      "sha256": "5ba2ef031d057e0b032aaa9bae9e35b94c1a102463307c79f826af786f535797",
+      "length_bytes": 7
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_goal_task3_id20260729_officialenv_20260718T0542KST/wsl_worker_pid.txt",
+      "sha256": "0f3d5add13e3e2b7d1387d7790fe16545c72cdd3d4d27dd5175de4322fae192b",
+      "length_bytes": 4
+    },
+    {
+      "path": "runs/xvla_prior/smolvla_goal_task3_id20260729_videos/frozen_base/libero_goal/task_3_identity_20260729.mp4",
+      "sha256": "4c90414772b06716ba6f6cda7dfdbda769ae2b87bcfe5e02c1ba2c4846cb6240",
+      "length_bytes": 59046
+    },
+    {
+      "path": "tca_map/smolvla/exact_hard_slice_rollout.py",
+      "sha256": "3ca3b09f93ca69f8e779a687b6d00389e2642da6e8c2a08739524c34c3e8fabf"
+    }
+  ],
+  "next_action": "Do not run headroom or second-prior for identity 20260729 because Base solved it. Resume official-prior-first residual search elsewhere; no candidate generation, training, or Ours rollout is authorized."
+}

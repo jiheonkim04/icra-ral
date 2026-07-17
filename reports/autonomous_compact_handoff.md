@@ -241,6 +241,8 @@ Attempt 2 failed before training due Windows X-VLA root in WSL; archived at `run
 
 Attempt 3 completed training/offline selection: both arms reached `64/64`, but frozen offline selection failed (`primary 0.9418842308` vs uniform `0.9418841700` weighted loss; delta `6.08e-08`); report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_result.json`. No closed-loop rollout happened.
 
-## Immediate Next Action
+## Current Immediate Next Action
 
-Do not run closed-loop R2P-XVLA. Archive the method at the frozen offline-selection gate and resume official-prior-first residual search/candidate generation under comparator-role calibration.
+R2P archive: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_archive_decision.json`; latest confirmed shared residual remains `libero_goal/task_3`, identity `20260728` (Base/X-VLA/OpenVLA-INT4 clean failures; task-level headroom positive).
+
+Repeated-residual screen `20260729..31`: X-VLA failed only `20260729`, but matched Base solved `20260729`; reports `reports/post_r2p_archive_libero_goal_task3_20260729_31_xvla_repeated_residual_result.json` and `reports/post_r2p_archive_libero_goal_task3_20260729_base_gate_result.json`. Next: resume official-prior-first residual search elsewhere; no candidate generation, training, or Ours rollout.
