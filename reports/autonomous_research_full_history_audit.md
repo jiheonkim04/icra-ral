@@ -1,18 +1,18 @@
 # Autonomous VLA Research — Full History Audit
 
-This is the mandatory Phase A audit before any resumed VLA research. It refreshes the earlier audit at `b0ecb6e` and the Epoch 5 refresh at `541c822` using the live repository state at scientific HEAD `312baa2b29c5bb9c7e2049ddda25e480d2eacc24`. Evidence precedence: current local git/HEAD, `reports/current_research_governance.md`, current result artifacts, current campaign-state JSON, git history across branches, project state / next actions / decision logs, historical reports, then old prompts. Missing facts are recorded as `NOT_RECORDED`.
+This is the mandatory Phase A audit before any resumed VLA research. It refreshes the earlier audit at `b0ecb6e`, the Epoch 5 refresh at `541c822`, and the post-audit refresh at `f0e555b` using the live repository state at pushed scientific HEAD `0b3697f697f8ab83f80f568ea85e8b4855709d52` plus local uncommitted BR-XVLA gradient-smoke work. Evidence precedence: current local git/HEAD, `reports/current_research_governance.md`, current result artifacts, current campaign-state JSON, git history across branches, project state / next actions / decision logs, historical reports, then old prompts. Missing facts are recorded as `NOT_RECORDED`.
 
 ## 1. Executive Summary
 
 No paper-ready method exists. No valid `PROTOTYPE_GO` method exists. The repository contains substantial reusable infrastructure, many valid scientific kills, many invalid or pre-rollout stops, and several official-prior diagnostics, but it does not contain `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
 
-This audit finds 87 distinct research routes or diagnostic prior routes: the previous 73-route ledger plus 14 post-audit Epoch 5 routes, controls, and official-prior candidates. Formal Ours methods are 48 after adding `R2R-OFT` to the previous 47-method autonomous campaign. Implemented route count is 78/87 using code, runner, or local execution evidence. Trained/checkpointed route count is 32. Closed-loop Stage A count remains 17 formal autonomous methods, or 19 route-level methods when historical prototypes are included. Stage B count remains 10 formal methods, or 11 route-level methods with the repaired PhaseBarrier prototype. Second-backbone Ours count remains 0.
+This audit finds 89 distinct research routes or diagnostic prior routes: the previous 87-route ledger plus the two task-1 X-VLA Ours candidates, `BR-XVLA` and unselected `OCB-XVLA`. Formal selected Ours methods are 49 after adding selected `BR-XVLA` to the previous 48-method autonomous campaign. Implemented route count is 79/89 using code, runner, or local execution evidence. Trained/checkpointed route count is 32. Closed-loop Stage A count remains 17 formal autonomous methods, or 19 route-level methods when historical prototypes are included. Stage B count remains 10 formal methods, or 11 route-level methods with the repaired PhaseBarrier prototype. Second-backbone Ours count remains 0.
 
-Outcome totals: 26 valid scientific kills, 40 non-scientific failures or resource/preimplementation blockers, and 10 underpowered or unresolved results. The increase since the previous audit comes from Epoch 5: `R2R-OFT` failed its offline/action-delta validation gate before closed-loop rollout, `CR-LightVLA` and `ATCD` did not reach prototype GO, multiple official-prior fallback ecosystems were resource- or checkpoint-blocked, and the current X-VLA task-1 residual is matched Base/Prior complete but headroom-pending.
+Outcome totals: 26 valid scientific kills, 41 non-scientific failures or resource/preimplementation blockers, and 11 underpowered or unresolved results. The increase since the previous audit comes from Epoch 5: task-1 headroom is task-level positive but same-reset unavailable; the task-1 basket data audit passed; exactly two BR/OCB-XVLA candidates were generated with `BR-XVLA` selected; the BR-XVLA training spec and X-VLA-format data-adapter smoke passed; and the local one-batch gradient smoke is blocked before model load/backward by an optional dependency shim issue (`fastapi.__spec__ is None`). This is an environment/dependency blocker, not a scientific kill.
 
 The strongest Ours result remains `CAVM-VLA`: full 24/58 versus nearest-success memory 23/58, Base 22/58, and no-contrast 21/58 after one allowed expansion. It is a near-miss, not paper-ready: the advantage is one episode, no third expansion is allowed, and there is no second-backbone or official-prior confirmation. The strongest official-prior result is X-VLA solving the earlier task-8 residual 8/8; that removes that Ours target rather than creating a paper method.
 
-Current active state: Epoch 5, stage `epoch_5_xvla_task1_matched_base_prior_complete`, decision `TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING`. Previous Ours method `MCI-VLA` remains closed as `MCI_STAGE_0_IMPLEMENTATION_FAILURE`. The next scientific action, after user review only, is residual headroom for the X-VLA task-1 shared failure at reset identity `20260727`; no Ours design or training is authorized before that headroom check.
+Current active state: Epoch 5, pushed stage `epoch_5_br_xvla_data_adapter_smoke_complete`, pushed decision `BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING`, with local uncommitted gradient-smoke attempt `BR_XVLA_GRADIENT_SMOKE_BLOCKED_OR_FAIL`. Previous Ours method `MCI-VLA` remains closed as `MCI_STAGE_0_IMPLEMENTATION_FAILURE`. The next scientific action, after user review only, is to repair/record the BR-XVLA no-optimizer gradient-smoke dependency boundary and rerun only that one-batch gate; optimizer steps, checkpointing, and closed-loop Ours rollout remain unauthorized.
 
 Main reasons the campaign is not paper-ready: no Ours method beats Base, closest prior/proxy, key ablation, and simple reviewer-killer control in a valid Stage B; official-prior comparison arrived late and is still diagnostic; many late routes failed from data/headroom/objective-scale/resource issues before rollout; the search repeatedly favored small frozen-SmolVLA attachments; and no same-method Ours evidence exists on Quantized OpenVLA-OFT INT4 or another second backbone.
 
@@ -20,29 +20,31 @@ Main reasons the campaign is not paper-ready: no Ours method beats Base, closest
 
 | Field | Value |
 |---|---|
-| Snapshot timestamp | `2026-07-17T17:47:10+09:00` |
+| Snapshot timestamp | `2026-07-17T18:44:06+09:00` |
 | Repository | `C:\Users\jiheo\tca_map` |
 | Current branch | `codex/epoch5-official-prior-first` |
-| Scientific HEAD | `312baa2b29c5bb9c7e2049ddda25e480d2eacc24` |
-| HEAD subject | `Record task1 matched Base/Prior diagnostic` |
-| Git status | `## codex/epoch5-official-prior-first...origin/codex/epoch5-official-prior-first`; untracked `rollouts/2026_07_17/` |
+| Scientific HEAD | `0b3697f697f8ab83f80f568ea85e8b4855709d52` |
+| HEAD subject | `Record BR-XVLA data adapter smoke` |
+| Git status | `## codex/epoch5-official-prior-first...origin/codex/epoch5-official-prior-first`; untracked `rollouts/2026_07_17/`, `tca_map/xvla_task1/gradient_smoke.py`, `tests/test_br_xvla_gradient_smoke.py` |
 | `main` HEAD | `8dc4de2fdbf576ace8bdf3699d190b761553c1fa` |
 | Active Windows research Python | none detected |
-| Active WSL research Python | none detected; only system Python services listed |
+| Active WSL research Python | none detected; detached WSL PID `23232` is no longer alive |
 | Worker classification | `NO_ACTIVE_SCIENTIFIC_WORKER_AT_AUDIT_SNAPSHOT` |
-| CUDA/GPU snapshot | RTX 5080, 16,303 MiB total, 3,807 MiB used, 29% utilization; process list had desktop/game/UI C/G processes, no research Python compute process |
-| RAM snapshot | Windows about 24,288,100 KiB total / 11,792,036 KiB free; WSL 11 GiB total / 10 GiB available / 3.0 GiB swap free |
-| Disk snapshot | Windows C: 737,203,687,424 bytes used / 261,930,901,504 free; WSL `/mnt/c`: 931G total / 687G used / 244G available; WSL `/`: 1007G total / 86G used / 870G available |
-| Current epoch/cycle/stage | Epoch 5, cycle 0, `epoch_5_xvla_task1_matched_base_prior_complete` |
+| CUDA/GPU snapshot | RTX 5080, 16,303 MiB total, 1,666 MiB used, 14% utilization; no research Python compute process detected |
+| RAM snapshot | Windows about 24,288,100 KiB total / 10,076,748 KiB free; WSL 11 GiB total / 10 GiB available / 3.0 GiB swap free |
+| Disk snapshot | Windows C: 737,070,182,400 bytes used / 262,064,406,528 free; WSL `/mnt/c`: 931G total / 687G used / 245G available; WSL `/`: 1007G total / 86G used / 870G available |
+| Current epoch/cycle/stage | Epoch 5, cycle 0, pushed `epoch_5_br_xvla_data_adapter_smoke_complete`; local gradient-smoke attempt finished blocked |
 | Current prior sequence | OpenVLA-OFT first, LightVLA second, X-VLA third |
-| Current decision | `TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING` |
-| Current next action | run residual headroom for task1 shared failure `20260727`; do not design Ours before headroom |
+| Current decision | pushed `BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING`; local `BR_XVLA_GRADIENT_SMOKE_BLOCKED_OR_FAIL` |
+| Current next action | after user review only, repair/record optional-dependency shim boundary and rerun one-batch no-optimizer BR-XVLA gradient smoke; no optimizer/checkpoint/rollout |
 | Current reports | `reports/epoch5_prior_reproduction_result.md`, `reports/epoch5_prior_reproduction_result.json`, `reports/autonomous_compact_handoff.md` |
 | Current X-VLA result | `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json` |
 | Current Base result | `runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json` |
+| Current BR-XVLA adapter smoke | `runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json` |
+| Local BR-XVLA gradient-smoke attempt | `runs/xvla_prior/br_xvla_gradient_smoke_20260717T184139KST/result.json`, SHA-256 `07562DD5A031E1ADFDA4D10BCB31C6C80308194D568553C62CC8C18750E8D1EC` |
 | State-file caveat | `reports/autonomous_until_paper_state.json` and `reports/autonomous_ral_campaign_state.json` still contain stale `current_commit` values from `b0ecb6e`; live HEAD and current artifacts are authoritative |
 
-Current task-1 diagnostic: X-VLA 6/8 with failures `20260725` and `20260727`; matched SmolVLA Base 3/8 with failures `20260724`, `20260727`, `20260728`, `20260729`, `20260730`. Both succeed on `20260726` and `20260731`; X-VLA-only successes are `20260724`, `20260728`, `20260729`, `20260730`; Base-only success is `20260725`; the clean shared residual is `20260727`.
+Current task-1 diagnostic: X-VLA 6/8 with failures `20260725` and `20260727`; matched SmolVLA Base 3/8 with failures `20260724`, `20260727`, `20260728`, `20260729`, `20260730`. Both succeed on `20260726` and `20260731`; X-VLA-only successes are `20260724`, `20260728`, `20260729`, `20260730`; Base-only success is `20260725`; the clean shared residual is `20260727`. Task-level expert headroom is positive on nearest HDF5 demo `demo_48`, but same-reset HDF5 headroom is unavailable because no HDF5 demo init-state hash matches the benchmark residual init-state hash. BR-XVLA has not loaded a model, attached PEFT, run backward, created an optimizer, written a checkpoint, or run closed-loop Ours evaluation.
 
 ## 3. Major Infrastructure Milestones
 
@@ -62,9 +64,12 @@ Current task-1 diagnostic: X-VLA 6/8 with failures `20260725` and `20260727`; ma
 | R2R-OFT bounded training path | `0af0269`..`9db6abf` | `runs/openvla_oft_int4/epoch5_r2r_oft_training_spec_v1.json` | data audit, QLoRA smoke, 64-step arms, offline no-pass | valid negative development evidence | stopped Ours extension |
 | LightVLA and ATCD diagnostics | `44bcdd6`, `9d1d785`, `ed6837f` | `runs/lightvla_prior/*` | LightVLA 6/8, CR 6/8, ATCD signal below threshold | valid diagnostic | not paper method |
 | X-VLA official-prior runner | `e81387c`..`312baa2` | `scripts/epoch5_xvla_libero10_task8_eval.py`, `runs/xvla_prior/*` | load/smoke/task8/task1 matched diagnostics | valid diagnostic | prerequisite before Ours |
+| Task1 headroom/data gates | `3e49cac`, `ae9505e` | `runs/xvla_prior/diagnostic_task1_expert_headroom_20260727_20260717T180914KST/result.json`, `runs/xvla_prior/diagnostic_task1_basket_data_audit_20260727_20260717T181823KST/result.json` | task-level expert replay succeeds; data audit finds 4,607 train and 1,079 validation one-target chunks | valid but same-reset headroom unavailable | prerequisite before Ours |
+| BR-XVLA bounded spec and data adapter | `04c5239`, `0b3697f` | `runs/xvla_prior/epoch5_br_xvla_training_spec_v1.json`, `runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json` | official X-VLA PEFT rank-8 spec frozen; X-VLA reader smoke passes with local `mmengine.fileio` shim | valid pre-optimizer infrastructure | selected method not yet trained |
+| BR-XVLA gradient-smoke local blocker | local uncommitted | `runs/xvla_prior/br_xvla_gradient_smoke_20260717T184139KST/result.json` | failed before model load because `fastapi.__spec__ is None`; no forward/backward/optimizer/checkpoint | dependency/environment blocker | no scientific method evidence |
 | Partial/resume/durable worker infrastructure | many | `reports/*partial*.json`, `runs/*heartbeat*`, `*.pid` | 52 tracked report partials, 69 heartbeat files, 93 PID-like files | valid operational infrastructure | infrastructure only |
 
-Tracked inventory at audit refresh: 2,657 tracked files; 1,775 under `reports`, 280 under `scripts`, 241 under `tests`, 206 under `tca_map`, 103 under `runs`, and 21 under `rollouts`. Machine-readable inventory includes 152 tracked `reports/*result.json`, 72 report manifests, 52 report partials, 196 `reports`/`runs` result JSONs, 57 exit-code files, 69 heartbeat files, and 93 PID/PID-like files.
+Tracked inventory at audit refresh: 2,666 tracked files; 1,776 under `reports`, 281 under `scripts`, 244 under `tests`, 210 under `tca_map`, 103 under `runs`, and 21 under `rollouts`. Machine-readable inventory from the prior audit remains the latest normalized count: 152 tracked `reports/*result.json`, 72 report manifests, 52 report partials, 196 `reports`/`runs` result JSONs, 57 exit-code files, 69 heartbeat files, and 93 PID/PID-like files.
 
 ## 4. Master Method Ledger
 
@@ -156,9 +161,11 @@ Legend: `Impl`, `Train`, `GPU`, `Sim`, `S0`, `SA`, `SB`, and `2BB` mean implemen
 | 82 | epoch5 prior | VLA-GSE | grounded search/exploration prior fallback | resource check | VLA-GSE | `d762c78` | No | No | No | No | NA | No | No | Diagnostic | no trained checkpoint; 8-GPU/80k-step reference | resource blocker | INVALID_QUARANTINED | No | No | `reports/epoch5_prior_reproduction_result.json` |
 | 83 | epoch5 prior | X-VLA task8 | official X-VLA prior | prior diagnostic | X-VLA | `e81387c` | Yes | No | Yes | Yes | NA | No | No | Diagnostic | task8 8/8, solves prior residual | target removed | VALID_CANONICAL | No | No | `runs/xvla_prior/diagnostic_xvla_task8_all_20260717T1705KST/result.json` |
 | 84 | epoch5 prior | X-VLA identity scan | one-identity LIBERO-10 scan | residual mining | X-VLA | `f74734d` | Yes | No | Yes | Yes | NA | No | No | Diagnostic | 10/10 successes at identity `20260724` | no candidate | VALID_CANONICAL | No | No | `runs/xvla_prior/failure_scan_libero10_identity20260724_20260717T1716KST` |
-| 85 | epoch5 prior | X-VLA task1 residual | matched Base/Prior residual | prior diagnostic | X-VLA | `af25589`, `312baa2` | Yes | No | Yes | Yes | NA | No | No | Diagnostic | X-VLA 6/8 vs Base 3/8; shared failure `20260727` | headroom pending | INCONCLUSIVE | No | Yes | `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json`, `runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json` |
+| 85 | epoch5 prior | X-VLA task1 residual | matched Base/Prior residual | prior diagnostic | X-VLA | `af25589`, `312baa2`, `3e49cac` | Yes | No | Yes | Yes | NA | No | No | Diagnostic | X-VLA 6/8 vs Base 3/8; shared failure `20260727`; task-level headroom positive, same-reset unavailable | continued into BR-XVLA | INCONCLUSIVE | No | Yes | `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json`, `runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json`, `runs/xvla_prior/diagnostic_task1_expert_headroom_20260727_20260717T180914KST/result.json` |
 | 86 | epoch5 prior | VLA-0 | third-pass unselected prior | resource check | VLA-0 | `312baa2` report context | No | No | No | No | NA | No | No | Diagnostic | HF asset 21.459 GiB; not selected over lighter X-VLA | unselected | INVALID_QUARANTINED | No | No | `reports/epoch5_prior_reproduction_result.json` |
 | 87 | epoch5 prior | VLA-JEPA | third-pass unselected prior | resource check | VLA-JEPA | `312baa2` report context | No | No | No | No | NA | No | No | Diagnostic | HF asset 22.961 GiB; not selected over lighter X-VLA | unselected | INVALID_QUARANTINED | No | No | `reports/epoch5_prior_reproduction_result.json` |
+| 88 | epoch5 | BR-XVLA | basket-remaining reweighted X-VLA | prior extension | X-VLA-Libero | `ae9505e`..`0b3697f`; local gradient attempt | Yes | No | No | No | Partial | No | No | No | data-adapter smoke passed; local gradient smoke blocked before model load/backward | active dependency blocker | INCONCLUSIVE | No | Yes | `reports/epoch5_task1_ours_candidate_design.md`, `runs/xvla_prior/br_xvla_data_adapter_smoke_20260717T183355KST/result.json`, `runs/xvla_prior/br_xvla_gradient_smoke_20260717T184139KST/result.json` |
+| 89 | epoch5 candidate | OCB-XVLA | object-contrast basket X-VLA | prior extension candidate | X-VLA-Libero | `ae9505e` | No | No | No | No | No | No | No | No | candidate score 73/100, not selected | not selected | INCONCLUSIVE | No | No | `reports/epoch5_task1_ours_candidate_design.md` |
 
 ## 5. Detailed Chronological Timeline
 
@@ -181,7 +188,10 @@ Legend: `Impl`, `Train`, `GPU`, `Sim`, `S0`, `SA`, `SB`, and `2BB` mean implemen
 | 2026-07-17 | `44bcdd6`, `9d1d785`, `ed6837f` | second-pass prior and methods | LightVLA, CR-LightVLA, ATCD | LightVLA 6/8 complementary; CR 6/8; ATCD below signal threshold | no prototype GO; fallback required |
 | 2026-07-17 | `d762c78` | second-pass fallback preflight | RIPT-VLA, VLA-GSE | source/HF checked, resource/comparability blocked | no local executable prior selected |
 | 2026-07-17 | `e81387c` | third-pass prior diagnostic | X-VLA task8 | 8/8 | task8 residual solved by official prior; no Ours target remains there |
-| 2026-07-17 | `f74734d`, `af25589`, `312baa2` | X-VLA residual search and matched Base/Prior | LIBERO-10 task1 | X-VLA 6/8 vs Base 3/8; shared failure `20260727` | current residual candidate confirmed; headroom pending |
+| 2026-07-17 | `f74734d`, `af25589`, `312baa2` | X-VLA residual search and matched Base/Prior | LIBERO-10 task1 | X-VLA 6/8 vs Base 3/8; shared failure `20260727` | residual candidate confirmed |
+| 2026-07-17 | `3e49cac`, `ae9505e` | task1 headroom/data audit and candidate design | BR-XVLA/OCB-XVLA | task-level headroom positive; data audit passed; BR-XVLA selected | Ours design allowed only after prior/headroom gates |
+| 2026-07-17 | `04c5239`, `0b3697f` | BR-XVLA spec and adapter smoke | BR-XVLA | no-training spec frozen; X-VLA reader smoke passed | pre-optimizer infrastructure ready |
+| 2026-07-17 | local uncommitted | no-optimizer gradient-smoke attempt | BR-XVLA | blocked before model load/backward by `fastapi.__spec__ is None` | dependency blocker, not scientific evidence |
 
 ## 6. Valid Scientific Kills
 
@@ -218,7 +228,7 @@ The 26 valid scientific kills are valid only at their scoped claims. None proves
 
 ## 7. Non-Scientific Failures
 
-These 40 failures/blockers are not proof that a broad scientific family is impossible.
+These 41 failures/blockers are not proof that a broad scientific family is impossible.
 
 | Class | Routes | Why not a scientific kill |
 |---|---|---|
@@ -227,6 +237,7 @@ These 40 failures/blockers are not proof that a broad scientific family is impos
 | CONDITION_TOO_SEVERE_OR_RESOURCE | LIFT, OpenPI/pi0.5, PCD, RIPT-VLA, VLA-GSE, VLA-0, VLA-JEPA | compute/checkpoint/resource comparability blocked local fair execution |
 | NO_USABLE_HEADROOM | PCAV, CFR, TSC, URF | claimed condition did not expose useful residual improvement |
 | MEASUREMENT_INVALIDITY | ContactTube | measurement depended on missing/invalid pose or clipping semantics |
+| ENVIRONMENT/DEPENDENCY FAILURE | BR-XVLA local gradient-smoke attempt | optional server/import shim left `fastapi.__spec__` unset, so Transformers import failed before model load, PEFT attachment, forward, backward, optimizer, or checkpoint |
 | DESIGN_OR_PREPROTOTYPE_NO_GO | CCIF, LCG, BRID, CR-LightVLA, ATCD | design or pre-rollout mechanism did not define enough evidence for prototype GO |
 | CONTEXT/SESSION INTERRUPTION | prior exhausted Codex thread and this Phase A resumption | operational interruption, not scientific evidence |
 
@@ -243,14 +254,15 @@ These 40 failures/blockers are not proof that a broad scientific family is impos
 | CAVM | full 24/58 vs nearest 23/58 | strongest unresolved near-miss | medium-high | No under current governance |
 | CALA | full RMSE 3.1988 vs history-only 3.14397 | possible false negative | medium | Maybe scientifically; not strategically recommended |
 | RAR | full RMSE 0.171954 vs zero-residual 0.165597 | possible false negative | medium | Maybe scientifically; not strategically recommended |
-| X-VLA task1 residual | X-VLA 6/8 vs Base 3/8; shared failure `20260727` | headroom pending | high until headroom known | Yes: continue current headroom only |
+| X-VLA task1 residual | X-VLA 6/8 vs Base 3/8; shared failure `20260727`; task-level expert replay positive but same-reset unavailable | correctly continued into BR-XVLA only with caveat | medium | Yes: continue current BR-XVLA gradient gate only |
+| BR-XVLA | selected after task1 headroom/data gates; spec and data-adapter smoke passed; gradient smoke blocked before model load/backward | unresolved active pre-optimizer route | high until gradient/validation/closed-loop evidence exists | Yes: repair/rerun no-optimizer gradient smoke only |
 
 ## 9. Positive Signals and Near-Misses
 
 | Rank | Route | Positive evidence | Novelty strength | Closed-loop evidence | Strongest comparison | Why not advanced | Reusable? |
 |---:|---|---|---|---|---|---|---|
 | 1 | CAVM | best Ours point estimate 24/58 | moderate memory mechanism | expanded Stage B | nearest 23/58, Base 22/58 | one-episode gain, no third expansion, no second backbone | concept reusable; result closed |
-| 2 | X-VLA task1 residual condition | official prior improves Base 6/8 vs 3/8 and leaves shared failure | not Ours yet | prior/Base closed-loop only | Base 3/8 | headroom not run and no Ours exists | reusable as current problem condition |
+| 2 | BR-XVLA task1 path | official prior improves Base 6/8 vs 3/8; task-level headroom/data audit positive; adapter smoke passed | modest prior-extension novelty | prior/Base closed-loop only; no Ours rollout | X-VLA 6/8, Base 3/8 | gradient smoke blocked before model load/backward; no optimizer, checkpoint, validation pass, or closed-loop Ours evidence | reusable as current active problem condition |
 | 3 | EAC | Stage A promise, Stage B near-tie | moderate adaptive controller | Stage B | Base/AAC/ablation 30/40 vs full 29/40 | controls beat by one | useful control set |
 | 4 | RCV | full beat Base 20/40 vs 14/40 | moderate retrieval | Stage B | stateless/no-context 24/40 | ablations explain benefit | diagnostics reusable |
 | 5 | OpenVLA/LightVLA complementarity | OpenVLA and LightVLA solved each other's task8 failures | prior-comparison signal | prior diagnostics | oracle union 8/8 | ATCD teacher signal below threshold, X-VLA later solved task8 | informs prior-first search |
@@ -259,17 +271,17 @@ Positive offline metrics alone are not ranked as paper results. CensorCredit's a
 
 ## 10. External-Prior Comparison Audit
 
-Among the now 48 formal Ours methods, official external-prior reproduction count remains 0 as an Ours-vs-official-prior result. Proxy comparison count remains 26 for the original 47 formal methods; `R2R-OFT` used a real OpenVLA-OFT prior condition but failed before closed-loop Ours comparison. No-external-prior experiment count for formal Ours methods is therefore still large and reviewer-facing.
+Among the now 49 selected formal Ours methods, official external-prior reproduction count remains 0 as an Ours-vs-official-prior result. Proxy comparison count remains 26 for the original 47 formal methods; `R2R-OFT` used a real OpenVLA-OFT prior condition but failed before closed-loop Ours comparison, and `BR-XVLA` uses a real X-VLA prior condition but has not passed even the no-optimizer gradient gate. `OCB-XVLA` is counted as an unselected candidate route, not a selected formal method. No-external-prior experiment count for formal Ours methods is therefore still large and reviewer-facing.
 
-Epoch 5 materially improved process quality: OpenVLA-OFT, LightVLA, RIPT-VLA, VLA-GSE, X-VLA, VLA-0, and VLA-JEPA were inspected or run before new Ours design. The important result is negative for overclaiming: X-VLA solved the task8 residual 8/8, so that condition cannot be used as an Ours target. Current task1 is a better prior-grounded residual candidate, but it still lacks headroom and Ours evidence.
+Epoch 5 materially improved process quality: OpenVLA-OFT, LightVLA, RIPT-VLA, VLA-GSE, X-VLA, VLA-0, and VLA-JEPA were inspected or run before new Ours design. The important result is negative for overclaiming: X-VLA solved the task8 residual 8/8, so that condition cannot be used as an Ours target. Current task1 is a better prior-grounded residual candidate and has task-level headroom, but it still lacks same-reset upper-bound evidence and all Ours evidence beyond data-adapter compatibility.
 
-Published numbers were generally not treated as direct baselines in later reports, but many methods used transparent proxies rather than official code/checkpoints. The current branch is the first serious correction toward official-prior-first comparison; it must finish residual headroom before any method design.
+Published numbers were generally not treated as direct baselines in later reports, but many methods used transparent proxies rather than official code/checkpoints. The current branch is the first serious correction toward official-prior-first comparison; it must finish the BR-XVLA gradient and offline gates before any optimizer-step scale-up or closed-loop Ours rollout.
 
 ## 11. LoRA / Low-Compute Strategy Audit
 
 LoRA/QLoRA was intended as compute infrastructure, not the contribution. The campaign partially respected this, but it also underused official LoRA early and overemphasized lightweight frozen-policy attachments later.
 
-Verified adapter facts: official SmolVLA rank-4 LoRA targeted `lm_expert` q/v plus state/action projections and had 185,664 trainable parameters, 0.0412% of 450,231,840. Rank-16 feasibility had 742,656 trainable. PatchGuard rank-4 had 9,984 trainable parameters. Custom 7D rank-4/rank-8 adapters had 128,007/131,975 trainable parameters. TG-7D rank-4 had 295,623 trainable. `R2R-OFT` used QLoRA/LoRA as implementation infrastructure for a prior extension but failed validation before closed-loop rollout. Quantized OpenVLA-OFT INT4 and X-VLA are inference diagnostics, not QLoRA training results.
+Verified adapter facts: official SmolVLA rank-4 LoRA targeted `lm_expert` q/v plus state/action projections and had 185,664 trainable parameters, 0.0412% of 450,231,840. Rank-16 feasibility had 742,656 trainable. PatchGuard rank-4 had 9,984 trainable parameters. Custom 7D rank-4/rank-8 adapters had 128,007/131,975 trainable parameters. TG-7D rank-4 had 295,623 trainable. `R2R-OFT` used QLoRA/LoRA as implementation infrastructure for a prior extension but failed validation before closed-loop rollout. `BR-XVLA` freezes the official X-VLA PEFT intent at LoRA rank 8 / alpha 16 with primary `lambda=2` and uniform `lambda=0` arms, but no PEFT adapter was actually attached because the gradient smoke failed during import. Quantized OpenVLA-OFT INT4 and X-VLA are inference diagnostics, not QLoRA training results.
 
 Failure attribution: many failures were not caused by LoRA capacity because they never reached a fair capacity test. Early failures were often action-interface and checkpoint persistence problems; later failures often came from data/headroom/objective-scale collapse. The campaign overemphasized trivial lightweight attachments relative to official prior anchoring. Future LoRA use should be conditional: only after Base/Prior/headroom are proven and only when the scientific mechanism is separable from PEFT.
 
@@ -277,9 +289,10 @@ Failure attribution: many failures were not caused by LoRA capacity because they
 
 | Funnel quantity | Count | Notes |
 |---|---:|---|
-| Total routes/diagnostic routes in ledger | 87 | previous 73 plus 14 post-audit Epoch 5 rows |
-| Formal Ours methods | 48 | previous 47 plus `R2R-OFT` |
-| Implemented routes | 78 | code/runner/local execution evidence |
+| Total routes/diagnostic routes in ledger | 89 | previous 87 plus `BR-XVLA` and unselected `OCB-XVLA` |
+| Formal selected Ours methods | 49 | previous 48 plus selected `BR-XVLA`; unselected `OCB-XVLA` counted as a candidate route only |
+| Current task1 Ours candidates | 2 | `BR-XVLA` selected, `OCB-XVLA` not selected |
+| Implemented routes | 79 | code/runner/local execution evidence; `BR-XVLA` has spec/data-adapter/gradient-smoke code but no successful backward |
 | Trained/checkpointed routes | 32 | includes bounded `R2R-OFT`; prior diagnostics without training excluded |
 | Formal Stage A count | 17 | unchanged |
 | Formal Stage B count | 10 | unchanged |
@@ -289,21 +302,21 @@ Failure attribution: many failures were not caused by LoRA capacity because they
 | Official-prior diagnostic routes | 11 | OpenVLA, OpenPI, PCD, LightVLA, RIPT, VLA-GSE, X-VLA, VLA-0, VLA-JEPA plus controls/scans |
 | Paper-candidate GO count | 0 | no `PROTOTYPE_GO` |
 
-Loss breakdown: 26 valid scientific kills; 40 non-scientific failures/blockers; 10 underpowered/unresolved; 11 infrastructure/diagnostic/no-claim rows. Formal proposal to Stage A: 17/48 = 35.4%. Formal proposal to Stage B: 10/48 = 20.8%. Stage B to GO: 0/10 = 0%. Formal proposal to second-backbone Ours: 0/48 = 0%.
+Loss breakdown: 26 valid scientific kills; 41 non-scientific failures/blockers; 11 underpowered/unresolved; 11 infrastructure/diagnostic/no-claim rows. Formal selected proposal to Stage A: 17/49 = 34.7%. Formal selected proposal to Stage B: 10/49 = 20.4%. Stage B to GO: 0/10 = 0%. Formal selected proposal to second-backbone Ours: 0/49 = 0%.
 
 ## 13. Compute and Operational Audit
 
-Current campaign-state records 5.21 GPU hours and 14.845 GiB downloaded for an earlier autonomous slice, but repo-wide GPU hours are `NOT_RECORDED`. The repository spans from first commit `07c823d` on 2026-06-27 10:30:15+09:00 to this audit on 2026-07-17 17:47:10+09:00, about 20.3 wall-clock days. Git history contains 830 commits across all refs and 826 ancestors of audit HEAD before this report commit.
+Current campaign-state records 5.21 GPU hours and 14.845 GiB downloaded for an earlier autonomous slice, but repo-wide GPU hours are `NOT_RECORDED`. The repository spans from first commit `07c823d` on 2026-06-27 10:30:15+09:00 to this audit on 2026-07-17 18:44:06+09:00, about 20.3 wall-clock days. Git history contains 835 commits across all refs and 831 ancestors of audit HEAD before this report commit.
 
-Simulator episode lower bound from final artifacts remains at least 3,604 completed non-quarantined route-level episodes before adding all invalid attempts. Epoch 5 adds OpenVLA/SmolVLA residual episodes, short-requery episodes, LightVLA/CR/X-VLA/task1 scans, but a globally normalized episode total is `NOT_RECORDED`.
+Simulator episode lower bound from final artifacts remains at least 3,604 completed non-quarantined route-level episodes before adding all invalid attempts. Epoch 5 adds OpenVLA/SmolVLA residual episodes, short-requery episodes, LightVLA/CR/X-VLA/task1 scans, and task-level expert replay, but a globally normalized episode total is `NOT_RECORDED`. The BR-XVLA data-adapter and gradient-smoke attempts did not run simulator rollout.
 
 Asset/storage notes: `C:\assets\data` and model/checkpoint caches dominate storage. Known large prior assets include OpenVLA-OFT around 15 GiB, X-VLA 3.28 GiB, VLA-0 21.46 GiB, VLA-JEPA 22.96 GiB, and SmolVLA under 1 GiB. Current untracked videos under `rollouts/2026_07_17/` include residual and short-requery OpenVLA videos.
 
-Operational overhead includes context exhaustion, many documentation/report commits, durable worker launchers, invalid/repaired attempts, environment mismatch repairs, and branch proliferation. Duplicate/avoidable reruns include official LoRA drift/regeneration, PhaseBarrier invalid retrain then repair, COVI invalid v1 then repair, PCAV expansion resume, VDR self-worker confusion, RAP/KITE/SPARC launcher issues, wrong-env SmolVLA residual attempts, and the current X-VLA Base run first attempted in an incompatible OpenVLA environment.
+Operational overhead includes context exhaustion, many documentation/report commits, durable worker launchers, invalid/repaired attempts, environment mismatch repairs, and branch proliferation. Duplicate/avoidable reruns include official LoRA drift/regeneration, PhaseBarrier invalid retrain then repair, COVI invalid v1 then repair, PCAV expansion resume, VDR self-worker confusion, RAP/KITE/SPARC launcher issues, wrong-env SmolVLA residual attempts, the X-VLA Base run first attempted in an incompatible OpenVLA environment, and two BR-XVLA gradient-smoke dependency failures before model load (`fastapi` missing, then `fastapi.__spec__ is None`).
 
 ## 14. Repetition and Search-Space Audit
 
-Recurring families: candidate ranking/verifiers (`TCA-Select`, `PESA`, `PCAV`, `ECHO`); post-hoc residual correction (`FCAR`, `RAR`, `COVI`, `FAMR`, `SPARC`, `CFR`, `URF`, `BRID`, `CSPR`, `MCI`, `R2R-OFT`); action filtering/damping (`CSS`, `ExecSpec`, `PTC`, `SACF`, `RAC`, `EAC`, `AMP`, `PhaseBarrier`, `CR-LightVLA`); memory/retrieval (`RCV`, `CAVM`, `MTF`, `DAGR`, `RAP`); visual canonicalization/TTA (`PRISM`, `OCFN`, `SCVC`, `FANG`, `VDR`, `COVI`); temporal/history heads (`DICD`, `PSE`, `CALA`, `HEST`, `HASTE`, `TSC`, `MHS`, `NICE`); supervision/credit (`SafeTrace`, `CensorCredit`, `FEDO`, `G3P`, `ATCD`); representation/action generation (`TCA-Map`, `ActionMap`, `TG-7D`, `CBFD`, `EvoState`, `AFID`, `MCI`).
+Recurring families: candidate ranking/verifiers (`TCA-Select`, `PESA`, `PCAV`, `ECHO`); post-hoc residual correction (`FCAR`, `RAR`, `COVI`, `FAMR`, `SPARC`, `CFR`, `URF`, `BRID`, `CSPR`, `MCI`, `R2R-OFT`, `BR-XVLA`); action filtering/damping (`CSS`, `ExecSpec`, `PTC`, `SACF`, `RAC`, `EAC`, `AMP`, `PhaseBarrier`, `CR-LightVLA`); memory/retrieval (`RCV`, `CAVM`, `MTF`, `DAGR`, `RAP`); visual canonicalization/TTA (`PRISM`, `OCFN`, `SCVC`, `FANG`, `VDR`, `COVI`); temporal/history heads (`DICD`, `PSE`, `CALA`, `HEST`, `HASTE`, `TSC`, `MHS`, `NICE`); supervision/credit (`SafeTrace`, `CensorCredit`, `FEDO`, `G3P`, `ATCD`); representation/action generation (`TCA-Map`, `ActionMap`, `TG-7D`, `CBFD`, `EvoState`, `AFID`, `MCI`).
 
 Common failed assumptions: small frozen-policy attachments would produce publishable gains; action L2/offline probes would predict closed-loop success; retrieval/memory would beat stateless/simple controls; visual canonicalization would fix brittleness without clean-behavior disruption; and proxy priors would satisfy reviewer-grade comparison. Epoch 5 improved this by running official priors first, but it has not yet produced Ours evidence.
 
@@ -311,44 +324,44 @@ Common failed assumptions: small frozen-policy attachments would produce publish
 
 Ranked causes by impact:
 
-1. Candidate quality and anchoring: 0/48 formal Ours methods have a completed official-prior Ours comparison. Evidence: ledger rows 27-85 and section 10.
-2. No stable positive problem condition: many late routes found no usable headroom, collapsed labels, or objective-scale failure. Evidence: PCAV/CFR/TSC/URF, NICE/CensorCredit, MCI, R2R-OFT.
+1. Candidate quality and anchoring: 0/49 selected formal Ours methods have a completed official-prior Ours comparison. Evidence: ledger rows 27-88 and section 10.
+2. No stable positive problem condition: many late routes found no usable headroom, collapsed labels, objective-scale failure, or only task-level rather than same-reset headroom. Evidence: PCAV/CFR/TSC/URF, NICE/CensorCredit, MCI, R2R-OFT, BR-XVLA.
 3. Repeated narrow method families: residuals, gates, memories, and history heads were renamed more often than core assumptions changed. Evidence: section 14.
 4. Pretrained-policy disruption/nonacting mechanisms: many Stage A/B methods lost to Base, ablation, or simple controls. Evidence: RCV, DAGR, MARC, MTF, EAC.
 5. Late external-prior comparison: official priors became central only in Epoch 5. Evidence: OpenVLA/LightVLA/X-VLA sequence.
-6. Low-compute strategy confusion: LoRA was useful infrastructure but often turned into a bias toward tiny local attachments. Evidence: section 11.
+6. Low-compute strategy confusion: LoRA was useful infrastructure but often turned into a bias toward tiny local attachments; BR-XVLA is more prior-anchored but has not yet passed the import/gradient boundary. Evidence: section 11.
 7. Underpowered early decisions: DICD, GCAP, CAVM, CALA, and RAR leave false-negative risk but no paper candidate. Evidence: section 8.
 8. Documentation/state churn and context interruptions: state JSON lagged behind HEAD, and a previous Codex context exhausted. Evidence: snapshot caveat and this audit request.
 9. Hardware/resource limits: RTX 5080 supports lightweight and INT4 diagnostics but not every large prior or full finetune. Evidence: LIFT, OpenPI/PCD/RIPT/VLA-GSE/VLA-0/VLA-JEPA blockers.
 
-Scientific difficulty dominates, but process/governance mattered: broad search before stable official simulator evidence and late proxy-heavy comparisons generated many honest negatives without a reviewer-ready positive. The current X-VLA task1 condition is the most concrete live problem condition, but headroom is not yet known.
+Scientific difficulty dominates, but process/governance mattered: broad search before stable official simulator evidence and late proxy-heavy comparisons generated many honest negatives without a reviewer-ready positive. The current BR-XVLA task1 condition is the most concrete live problem condition, but it is still only a pre-optimizer path with a same-reset-headroom caveat and a blocked gradient smoke.
 
 ## 16. False-Negative Audit
 
-Potential false negatives exist, but none should be reopened immediately except the current X-VLA task1 residual headroom continuation. CAVM is strongest historically: 24/58 beat nearest 23/58, Base 22/58, and ablation 21/58, but no third expansion is allowed. CALA and RAR had small offline margins without closed-loop confidence. DICD and GCAP were underpowered Stage A archives, but later related methods tested richer variants.
+Potential false negatives exist, but none should be reopened immediately except the current BR-XVLA gate continuation. CAVM is strongest historically: 24/58 beat nearest 23/58, Base 22/58, and ablation 21/58, but no third expansion is allowed. CALA and RAR had small offline margins without closed-loop confidence. DICD and GCAP were underpowered Stage A archives, but later related methods tested richer variants.
 
-Reviewer B overreach risk is real mainly for Stage 0 point-estimate or offline stops, not for completed Stage B kills. Later governance improved classification: MCI and R2R-OFT are implementation/validation failures, not scientific kills. Do not reopen a route merely because the campaign lacks a positive result.
+Reviewer B overreach risk is real mainly for Stage 0 point-estimate or offline stops, not for completed Stage B kills. Later governance improved classification: MCI and R2R-OFT are implementation/validation failures, not scientific kills. BR-XVLA's current blocker is also not a scientific kill because no model load, PEFT attachment, forward, backward, optimizer, checkpoint, or rollout happened. Do not reopen a route merely because the campaign lacks a positive result.
 
 ## 17. Paper-Readiness Checklist
 
-Nearest live route for checklist: the X-VLA task1 residual condition, because it is the current prior-grounded candidate condition. It is not an Ours method yet.
+Nearest live route for checklist: `BR-XVLA`, because it is the selected prior-grounded Ours candidate for the task1 shared residual. It is an Ours mechanism on paper, but not an executed Ours result.
 
 | Requirement | Status | Gap |
 |---|---|---|
-| Defensible novelty | MISSING | no Ours mechanism exists |
+| Defensible novelty | PARTIAL | BR-XVLA is a narrow prior extension, but novelty has not survived implementation/evaluation |
 | SmolVLA Base vs Base + Ours | MISSING | Base 3/8 exists; no Ours |
 | Closest prior vs Ours | MISSING | X-VLA 6/8 exists; no Ours |
-| Key ablation | MISSING | no method |
+| Key ablation | MISSING | no executed BR-XVLA ablation |
 | Relevant simple control | MISSING | no control for task1 residual |
 | Clean retention | MISSING | not evaluated |
-| Adequate paired statistics | MISSING | only matched Base/Prior diagnostic so far |
+| Adequate paired statistics | MISSING | only matched Base/Prior diagnostic and task-level headroom so far |
 | Quantized OpenVLA-OFT INT4 + Ours | MISSING | OpenVLA was previous prior diagnostic only |
 | Second claim-specific condition | MISSING | not selected |
-| Efficiency | MISSING | no method |
-| Reproducibility | PARTIAL | prior/Base artifacts exist |
+| Efficiency | MISSING | no trained/evaluated method |
+| Reproducibility | PARTIAL | prior/Base/headroom/data-adapter artifacts exist, but gradient-smoke code is local uncommitted and blocked |
 | Figure/table-ready artifacts | MISSING | no paper package |
 
-Exact gap to `READY_TO_DRAFT_RAL_PAPER_PACKAGE`: no `PROTOTYPE_GO`, no Ours method, no residual headroom on the current condition, no official-prior win, no positive Stage B, no second-backbone Ours result, no second condition, and no figure/table package.
+Exact gap to `READY_TO_DRAFT_RAL_PAPER_PACKAGE`: no `PROTOTYPE_GO`, no successful BR-XVLA backward pass, no optimizer-step training, no offline validation pass, no closed-loop Ours result, no official-prior win, no positive Stage B, no second-backbone Ours result, no second condition, and no figure/table package.
 
 ## 18. Missed or Unreported Events
 
@@ -363,7 +376,12 @@ Events likely easy to miss because the previous thread exhausted context:
 - OpenPI/pi0.5, PCD, RIPT-VLA, VLA-GSE, VLA-0, and VLA-JEPA were recorded as fallback or unselected prior/resource routes.
 - LightVLA was runnable and complementary to OpenVLA on task8; `CR-LightVLA` and `ATCD` did not reach prototype GO.
 - X-VLA solved the old task8 residual 8/8; this invalidates task8 as an Ours target.
-- X-VLA task1 residual was then found and matched against SmolVLA Base; shared failure `20260727` is now the clean headroom target.
+- X-VLA task1 residual was then found and matched against SmolVLA Base; shared failure `20260727` became the clean headroom target.
+- Task1 expert replay found positive task-level headroom on nearest HDF5 demo `demo_48`, but no same-reset HDF5 demo hash matched the benchmark reset.
+- The task1 basket data audit passed and exactly two candidates were generated: selected `BR-XVLA` and unselected `OCB-XVLA`.
+- The BR-XVLA training spec was frozen and the X-VLA-format data-adapter smoke passed with a local `mmengine.fileio` shim.
+- Two local BR-XVLA gradient-smoke attempts occurred after that; the latest durable result is `BR_XVLA_GRADIENT_SMOKE_BLOCKED_OR_FAIL` because `fastapi.__spec__ is None`, before model load/PEFT/forward/backward/optimizer/checkpoint.
+- Local uncommitted files remain: `tca_map/xvla_task1/gradient_smoke.py` and `tests/test_br_xvla_gradient_smoke.py`; this audit records them but does not commit them.
 - The first SmolVLA task1 run used an incompatible OpenVLA environment and failed before rollout; the official-env rerun is the valid Base result.
 - Untracked rollout videos remain under `rollouts/2026_07_17/`; this audit did not move, stash, or delete them.
 
@@ -371,7 +389,7 @@ Events likely easy to miss because the previous thread exhausted context:
 
 Recommendation: `CONTINUE_CURRENT_CYCLE`.
 
-Justification: the prior `RESET_CANDIDATE_SELECTION_STRATEGY` recommendation has already been acted on by Epoch 5 official-prior-first. The current state is not a generic local-method cycle; it is a matched official-prior residual diagnosis. X-VLA task1 has Base/Prior residual structure (Base 3/8, X-VLA 6/8, shared failure `20260727`) but headroom is pending. Continue only to the residual headroom check; do not start Ours design, training, or rollout before that.
+Justification: the prior `RESET_CANDIDATE_SELECTION_STRATEGY` recommendation has already been acted on by Epoch 5 official-prior-first. The current state is not a generic local-method cycle; it is a matched official-prior residual diagnosis that has already advanced through task-level headroom, task1 data audit, candidate selection, spec freeze, and data-adapter smoke. Continue only to the BR-XVLA no-optimizer gradient-smoke dependency boundary; do not start optimizer-step training, checkpointing, model selection, or closed-loop Ours rollout before that gate passes and is recorded.
 
 ## 20. Exact Resume Plan
 
@@ -381,28 +399,29 @@ Justification: the prior `RESET_CANDIDATE_SELECTION_STRATEGY` recommendation has
 Resume the autonomous VLA research campaign in C:\Users\jiheo\tca_map after reviewing reports/autonomous_research_full_history_audit.md.
 
 Branch: codex/epoch5-official-prior-first
-Last scientific HEAD before the Phase A audit report commit: 312baa2b29c5bb9c7e2049ddda25e480d2eacc24
-Current scientific state: Epoch 5 official-prior-first, stage epoch_5_xvla_task1_matched_base_prior_complete
-Current decision: TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING
+Last scientific HEAD before the Phase A audit report commit: 0b3697f697f8ab83f80f568ea85e8b4855709d52
+Current scientific state: Epoch 5 official-prior-first, pushed stage epoch_5_br_xvla_data_adapter_smoke_complete, with local uncommitted BR-XVLA gradient-smoke attempt finished blocked
+Current pushed decision: BR_XVLA_DATA_ADAPTER_SMOKE_PASS_GRADIENT_SMOKE_PENDING
+Current local gradient-smoke decision: BR_XVLA_GRADIENT_SMOKE_BLOCKED_OR_FAIL because fastapi.__spec__ is None before model load/backward
 Previous method: MCI-VLA
 Previous decision: MCI_STAGE_0_IMPLEMENTATION_FAILURE
 Selected audit recommendation: CONTINUE_CURRENT_CYCLE
 
 Exact next scientific action:
-Run or preregister the smallest residual-headroom check for LIBERO-10 task 1 reset identity 20260727 / initial-state index 16, where both X-VLA and SmolVLA Base fail. Use existing expert replay/headroom tooling if exact or task-level alignment is possible; otherwise document the exact blocker without inventing an Ours method. Treat 20260725 separately because SmolVLA Base already succeeds there.
+Repair or accurately record the optional-dependency import shim boundary for the local BR-XVLA no-optimizer gradient smoke, then rerun only that one-batch gate. The gate must load cached X-VLA-Libero locally, attach official PEFT LoRA rank 8 / alpha 16, consume the X-VLA-format task1 adapter, compute the basket-remaining weighted supervised loss, call backward once, and prove finite nonzero trainable gradients. It must still not create an optimizer, call optimizer.step, write a checkpoint, or run closed-loop evaluation. If the dependency issue is not safely shim-only, stop and record the blocker.
 
 Prohibited repeats:
-Do not rescue or retune MCI-VLA, CSPR-VLA, R2R-OFT, CR-LightVLA, or ATCD. Do not generate an Ours method, train, download a new method stack, or launch a new rollout before task1 headroom evidence is complete. Do not use the old task8 residual as an Ours target because X-VLA solved it 8/8. Do not claim INT4 OpenVLA-OFT is a full-precision reproduction. Do not switch branches, stash, reset, clean, or delete untracked rollout artifacts without user approval.
+Do not rescue or retune MCI-VLA, CSPR-VLA, R2R-OFT, CR-LightVLA, or ATCD. Do not generate a third task1 Ours candidate. Do not run optimizer-step training, checkpointing, model selection, or closed-loop Ours rollout before the BR-XVLA gradient smoke passes. Do not use the old task8 residual as an Ours target because X-VLA solved it 8/8. Do not claim INT4 OpenVLA-OFT is a full-precision reproduction. Do not switch branches, stash, reset, clean, or delete untracked rollout artifacts without user approval.
 
 Time-to-evidence requirement:
-Produce one durable headroom answer with artifact path, reset identity, init-state hash if available, result JSON, stdout/stderr or log, exit code, and classification. If exact same-reset headroom is unavailable, record whether task-level headroom is available and why same-reset alignment is blocked.
+Produce one durable gradient-smoke answer with artifact path, result JSON, stdout/stderr logs, heartbeat, exit code or process status, model-load/PEFT/forward/backward booleans, gradient finite/nonzero stats if reached, and explicit optimizer/checkpoint/training false booleans. Keep `reports/autonomous_compact_handoff.md` under 250 lines if updated.
 
 LoRA role:
-LoRA/QLoRA is only implementation infrastructure after an Ours mechanism is authorized. For the next step, no LoRA training is authorized.
+LoRA/QLoRA is only implementation infrastructure. For the next step, PEFT attachment and backward-smoke are authorized, but no optimizer-step LoRA training is authorized.
 
 Reviewer false-negative safeguards:
-Do not classify the task1 condition dead from stale files, wrong-env failures, or tiny point estimates. Separate shared failure 20260727 from the X-VLA-only regression 20260725. Preserve invalid/repaired attempts separately.
+Do not classify BR-XVLA dead from stale files, wrong-env failures, missing optional serving packages, or an import-only shim problem. Separate shared failure 20260727 from the X-VLA-only regression 20260725. Preserve invalid/repaired attempts separately.
 
 Conditions for implementation and rollout:
-Ours implementation may start only after Base fails, X-VLA improves, residual remains, and headroom says the shared residual is recoverable. Closed-loop Ours rollout may start only after source, runner, focused tests, exact paired manifest, checkpoint reload, bounded action deltas, key ablation, simple control, clean retention, no privileged inference signal, prior fairness, resource risk, and frozen decision thresholds are documented.
+Optimizer-step BR-XVLA training may start only after source, runner, focused tests, data-adapter smoke, successful no-optimizer gradient smoke, no privileged inference signal, prior fairness, resource risk, and frozen decision thresholds are documented. Closed-loop Ours rollout may start only after a training artifact passes offline validation, checkpoint reload, bounded action deltas, key ablation, simple control, clean retention, and exact paired manifest gates.
 ```
