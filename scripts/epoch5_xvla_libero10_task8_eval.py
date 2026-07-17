@@ -25,6 +25,8 @@ from typing import Any
 
 import numpy as np
 
+from tca_map.xvla_task1.train_lora import XVLA_CACHE_DIR, _prepare_xvla_imports
+
 XVLA_ROOT = "/mnt/c/assets/repos/X-VLA"
 MODEL_ID = "2toINF/X-VLA-Libero"
 MODEL_REVISION = "129e71460678b7236cee6fc9707f09d9fa0c3590"
@@ -127,8 +129,21 @@ class DirectXVLAPolicy:
 
         self.torch = torch
         self.denoise_steps = int(denoise_steps)
-        self.processor = XVLAProcessor.from_pretrained(MODEL_ID, trust_remote_code=True)
-        self.model = XVLA.from_pretrained(MODEL_ID, trust_remote_code=True, torch_dtype=torch.float32)
+        self.processor = XVLAProcessor.from_pretrained(
+            MODEL_ID,
+            revision=MODEL_REVISION,
+            trust_remote_code=True,
+            local_files_only=True,
+            cache_dir=XVLA_CACHE_DIR,
+        )
+        self.model = XVLA.from_pretrained(
+            MODEL_ID,
+            revision=MODEL_REVISION,
+            trust_remote_code=True,
+            torch_dtype=torch.float32,
+            local_files_only=True,
+            cache_dir=XVLA_CACHE_DIR,
+        )
         self.model.eval()
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.model.to(self.device).to(torch.float32)
@@ -243,11 +258,13 @@ def main(argv: list[str] | None = None) -> int:
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
     os.environ.setdefault("HF_HOME", "/home/jiheon/assets/checkpoints/xvla_hf_cache")
+    os.environ.setdefault("HF_HUB_CACHE", "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers")
     os.environ.setdefault("TRANSFORMERS_CACHE", "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers")
+    os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+    os.environ.setdefault("HF_DATASETS_OFFLINE", "1")
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
 
-    if XVLA_ROOT in sys.path:
-        sys.path.remove(XVLA_ROOT)
-    sys.path.insert(0, XVLA_ROOT)
+    xvla_import_prepare = _prepare_xvla_imports(Path(XVLA_ROOT))
 
     started = time.monotonic()
     identities = parse_identities(args.identities)
@@ -289,6 +306,7 @@ def main(argv: list[str] | None = None) -> int:
         "errors": [],
         "started_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "nvidia_smi_before": nvidia_smi(),
+        "xvla_import_prepare": xvla_import_prepare,
     }
     env = None
     policy = None
