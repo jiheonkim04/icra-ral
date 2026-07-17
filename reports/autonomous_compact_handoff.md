@@ -239,6 +239,8 @@ Attempt 1 failed before training due missing `peft` in repo `.venv`; archived at
 
 Attempt 2 failed before training due Windows X-VLA root in WSL; archived at `runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST`; fixed defaults to `/mnt/c/assets/repos/X-VLA`, report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_wsl_root_fix_rearming_result.json`; task5 pytest `25 passed`.
 
+Attempt 3 completed training/offline selection: both arms reached `64/64`, but frozen offline selection failed (`primary 0.9418842308` vs uniform `0.9418841700` weighted loss; delta `6.08e-08`); report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_result.json`. No closed-loop rollout happened.
+
 ## Immediate Next Action
 
-Relaunch the sequential training gate with the repaired interpreter, then monitor initial worker PID/heartbeat/status/log/exit artifacts. Do not change the frozen config.
+Do not run closed-loop R2P-XVLA. Archive the method at the frozen offline-selection gate and resume official-prior-first residual search/candidate generation under comparator-role calibration.

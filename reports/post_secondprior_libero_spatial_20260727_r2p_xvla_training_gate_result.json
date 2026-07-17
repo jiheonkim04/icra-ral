@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T05:05:31+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_training_gate": "8e232af2a2efeca500d1e84871b01015fa08ccf9",
+  "decision": "R2P_XVLA_OFFLINE_SELECTION_NOT_PASSED_NO_CLOSED_LOOP",
+  "frozen_protocol_decision": "R2P_XVLA_OFFLINE_SELECTION_NOT_PASSED",
+  "calibrated_scientific_interpretation": "The primary R2P phase-weighted arm and uniform LoRA ablation were effectively tied on the frozen phase-weighted offline metric, with primary worse by 6.08464082452187e-08. This blocks the frozen rollout gate and does not support the R2P component claim; because the margin is microscopic, it should be reported as a no-pass/tie rather than evidence that all phase-weighting ideas are impossible.",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "execution_classification": {
+    "execution_type": "BOUNDED_VLA_TRAINING_PLUS_OFFLINE_VALIDATION",
+    "evidence_role": "OURS_AND_UNIFORM_ABLATION_OFFLINE_SELECTION",
+    "artifact_status": "IGNORED_RUNTIME_ARTIFACTS_HASHED_IN_TRACKED_REPORT",
+    "vla_model_loaded": true,
+    "peft_lora_attached": true,
+    "training_happened": true,
+    "optimizer_step_happened": true,
+    "checkpoint_written": true,
+    "offline_validation_runtime_happened": true,
+    "closed_loop_ours_evaluation_happened": false,
+    "downloads_performed": false,
+    "simulator_episode_count": 0
+  },
+  "training_summary": {
+    "primary_arm": {
+      "arm_id": "r2p_xvla_rank8_phase_weights_lr1e4_steps64",
+      "decision": "R2P_XVLA_BOUNDED_TRAINING_ARM_COMPLETE",
+      "optimizer_steps_completed": 64,
+      "checkpoint_written": true,
+      "final_step_weighted_loss": 1.8720510005950928,
+      "max_cuda_allocated_mib": 5350.398
+    },
+    "uniform_ablation": {
+      "arm_id": "uniform_task5_xvla_rank8_lambda0_lr1e4_steps64",
+      "decision": "R2P_XVLA_BOUNDED_TRAINING_ARM_COMPLETE",
+      "optimizer_steps_completed": 64,
+      "checkpoint_written": true,
+      "final_step_weighted_loss": 1.1197317838668823,
+      "max_cuda_allocated_mib": 5351.867
+    }
+  },
+  "offline_selection": {
+    "decision": "R2P_XVLA_OFFLINE_SELECTION_NOT_PASSED",
+    "passed": false,
+    "reason": "primary_does_not_beat_uniform_on_phase_weighted_validation_loss",
+    "primary_mean_weighted_loss": 0.9418842308223248,
+    "uniform_mean_weighted_loss": 0.9418841699759165,
+    "primary_minus_uniform_weighted_loss": 6.08464082452187e-08,
+    "source_phase_relative_degradation_vs_uniform": 0.0,
+    "fixed_chunk_mean_abs_action_delta_vs_prior": 0.08167177932163094,
+    "fixed_chunk_max_abs_action_delta_vs_prior": 0.5300083681941032,
+    "cuda_peak_mib": 3573.601,
+    "validation_chunks": 24,
+    "validation_phase_counts": {
+      "source_on_ramekin": 5,
+      "transit": 10,
+      "target_on_plate": 9
+    }
+  },
+  "comparator_role_status": {
+    "base_claim_status": "NOT_EVALUATED_CLOSED_LOOP_BLOCKED_BY_OFFLINE_GATE",
+    "prior_advance_status": "NOT_EVALUATED_CLOSED_LOOP_BLOCKED_BY_OFFLINE_GATE",
+    "ablation_component_status": "KEY_COMPONENT_NOT_SUPPORTED_BY_FROZEN_OFFLINE_SELECTION",
+    "simple_explanation_status": "UNIFORM_TASK5_LORA_EXPLAINS_OFFLINE_RESULT",
+    "clean_retention_status": "NOT_EVALUATED_CLOSED_LOOP_BLOCKED_BY_OFFLINE_GATE",
+    "generalization_status": "MISSING_SINGLE_IDENTITY_ONLY",
+    "overall_paper_candidate_status": "VALID_METHOD_KILL_OR_ARCHIVE_AT_OFFLINE_SELECTION_GATE"
+  },
+  "runtime_artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/gate_result.json",
+      "sha256": "0741f518a690686d1617d6e8af9f6621fbf09cfb66fb6593b5d782bb04113660"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/r2p_xvla_rank8_phase_weights_lr1e4_steps64/result.json",
+      "sha256": "5d2f4dc69c0f699eb537f8883193691efa53c1cb0444659d41f4bd1fce39470d"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/r2p_xvla_rank8_phase_weights_lr1e4_steps64/checkpoints/step_0064/adapter/adapter_model.safetensors",
+      "sha256": "1be2b6407dd5e5bc60e7424fbf3593421a31d3edfcdca0968f98927be6e771c3"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/uniform_task5_xvla_rank8_lambda0_lr1e4_steps64/result.json",
+      "sha256": "1b89f341d2ed9479dcdf901c1a20d09b9092b80c337635bc6522212299a5adcd"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training/uniform_task5_xvla_rank8_lambda0_lr1e4_steps64/checkpoints/step_0064/adapter/adapter_model.safetensors",
+      "sha256": "a2b77d3db08391ebee2623a9e9e03240d5f8b3a3e97f7def3bd0a4b959bf1d54"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_offline_validation_step0064.json",
+      "sha256": "8b355a731e46ff9361bb0ed94b8ab8d99e188cb95b08a780d8c4a37eb4f32f96"
+    }
+  ],
+  "next_action": "Do not run closed-loop R2P-XVLA rollout. Archive this method at the frozen offline-selection gate and resume official-prior-first residual search or candidate generation under the comparator-role calibration rules."
+}
