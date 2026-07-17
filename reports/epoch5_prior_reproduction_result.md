@@ -1761,7 +1761,7 @@ contrast-method rescue.
 
 Status: `COMPLETE_NO_FRESH_TARGET`.
 
-Decision: `POST_MPR_XVLA_LIBERO_OBJECT_SATURATED_NEXT_SPATIAL_SCAN`.
+Decision: `POST_MPR_XVLA_LIBERO_SPATIAL_TASK5_RESIDUAL_FOUND_BASE_MATCH_PENDING`.
 
 Bounded official-prior residual mining was run with X-VLA-Libero at reset
 identity `20260731` across `libero_10` tasks `0..9`. This was launched via a
@@ -1808,6 +1808,7 @@ the same prior-only worker. The worker script was first generalized to accept a
 |---:|---|---|---|---|
 | `20260724` | `libero_goal` | `runs/xvla_prior/failure_scan_libero_goal_identity20260724_post_mpr_20260717T225050+09:00ST/scan_summary.json` | `77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4` | 10/10 succeeded, zero infrastructure failures |
 | `20260724` | `libero_object` | `runs/xvla_prior/failure_scan_libero_object_identity20260724_post_mpr_20260717T225758KST/scan_summary.json` | `5c521e9f229a5e046e06d389e33bd72888e354a4e98e794bff3c7c10097c2808` | 10/10 succeeded, zero infrastructure failures |
+| `20260724` | `libero_spatial` | `runs/xvla_prior/failure_scan_libero_spatial_identity20260724_post_mpr_20260717T230355KST/scan_summary.json` | `596ecd11212f4de4019b171b2809b0242b1d8e734ec9807fe45cb0ab176ec4fd` | task 5 failed; task 7 infrastructure-stalled |
 
 `libero_goal` manifest SHA-256:
 `cae6e68500db7d041de202b03070dd9e8a14773a19967b11a3e0727b47273b4c`.
@@ -1823,12 +1824,22 @@ Task-0 result SHA-256:
 Task-9 result SHA-256:
 `eaeec1e60614c572c06e1292d9c8682eaefd83e312515e5e5265ff5f14c02107`.
 
+`libero_spatial` manifest SHA-256:
+`4c48f9bd4ddafa43879d3524d7506e353a22649f087815a23cb3a5af74c989a8`.
+Task-5 result SHA-256:
+`847317ad60f499dddc3d8f372a47281031f92c8e68137429ca46a220d65207ba`.
+Task-5 description: `pick up the black bowl on the ramekin and place it on
+the plate`; result: 900 steps, reward 0.0, no infrastructure failure. Task 7
+ran for more than 15 minutes without a result file, was terminated with
+SIGTERM, and is classified as `INFRA_STALLED_NO_RESULT_NOT_POLICY_FAILURE`
+with exit code `143`.
+
 No training, optimizer step, checkpoint, or closed-loop Ours evaluation
-happened in either cross-suite scan. The `libero_goal` timestamp contains
+happened in any cross-suite scan. The `libero_goal` timestamp contains
 `+09:00ST` because PowerShell interpreted the launch format token `K`;
 WSL/DrvFS encoded the path safely and the worker completed normally.
 
 Interpretation: `libero_goal` and `libero_object` at identity `20260724` are
-saturated for X-VLA and do not provide a fresh residual target. The next
-preregistered local residual source is a prior-only `libero_spatial` scan, not
-any `MPR-XVLA` rescue or new Ours proposal.
+saturated for X-VLA, but `libero_spatial` exposes a fresh prior failure on task
+5. The next required step is matched base/prior and headroom diagnostics for
+this exact spatial task before any Ours proposal.

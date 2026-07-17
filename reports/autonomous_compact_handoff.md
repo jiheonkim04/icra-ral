@@ -193,31 +193,25 @@ MPR-XVLA candidate/training:
 
 ## Immediate Next Decision
 
-Post-MPR scans: the local X-VLA `libero_10` identity grid is exhausted for
-fresh targets. Identity `20260731` only failed archived task6
-(`673d244ce013dd4b5d3bc32d4b733295a2a3c1c2c7da56180313100c4c5bf7cf`);
-identities `20260726`, `20260727`, `20260728`, `20260729`, and `20260730`
-were saturated 10/10. Earlier focused task1 failure at `20260727` remains
-preserved as instability evidence, not overwritten.
+Post-MPR scans: X-VLA `libero_10` grid is exhausted for fresh targets
+(`20260731` only archived task6; `20260726..30` saturated). `libero_goal`
+identity `20260724` saturated 10/10 (summary
+`77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4`) and
+`libero_object` identity `20260724` saturated 10/10 (summary
+`5c521e9f229a5e046e06d389e33bd72888e354a4e98e794bff3c7c10097c2808`).
 
-Cross-suite scan: `libero_goal`, identity `20260724`, tasks `0..9`, completed
-10/10 with zero infra failures. Manifest SHA
-`cae6e68500db7d041de202b03070dd9e8a14773a19967b11a3e0727b47273b4c`;
-summary SHA `77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4`.
-Worker commit `9117b00e9c1335b54c9b10929e95b10282a99827`; no training,
-optimizer step, checkpoint, or closed-loop Ours evaluation. The output path has
-`+09:00ST` from a PowerShell timestamp-token slip but completed normally.
+Fresh residual: `libero_spatial`, identity `20260724`, task 5 failed:
+`pick up the black bowl on the ramekin and place it on the plate`, 900 steps,
+reward 0.0, result SHA
+`847317ad60f499dddc3d8f372a47281031f92c8e68137429ca46a220d65207ba`.
+Spatial summary SHA `596ecd11212f4de4019b171b2809b0242b1d8e734ec9807fe45cb0ab176ec4fd`;
+manifest SHA `4c48f9bd4ddafa43879d3524d7506e353a22649f087815a23cb3a5af74c989a8`.
+Task 7 stalled >15min, was SIGTERM'd, exit 143, no result; classify as infra,
+not policy failure. No cross-suite scan trained, optimized, checkpointed, or
+evaluated Ours.
 
-Cross-suite scan: `libero_object`, identity `20260724`, tasks `0..9`,
-completed 10/10 with zero infra failures. Manifest SHA
-`7f07453fb4e2f2fae83312b41e8f64ccbe9e18d93acf8e982ba540ba9df5012d`;
-summary SHA `5c521e9f229a5e046e06d389e33bd72888e354a4e98e794bff3c7c10097c2808`.
-Commit `b15fed5efbcf22f0cebf5505aa879f1849b31493`; no training,
-optimizer step, checkpoint, or closed-loop Ours evaluation.
-
-Do not retune/rescue MPR-XVLA. Do not launch more X-VLA `libero_10`
-identity-grid scans. Next preregistered residual source: prior-only
-`libero_spatial` scan, before any Ours proposal.
+Do not retune/rescue MPR-XVLA. Next: matched SmolVLA base/prior and headroom
+diagnostics for `libero_spatial` task 5 before any Ours proposal.
 
 ## Report Set
 
@@ -237,9 +231,7 @@ identity-grid scans. Next preregistered residual source: prior-only
   - `scripts/99_tree_check.ps1`: pass
 - Repaired offline run completed under official WSL env in 50.325s.
 - Handoff line count remains under 250; recheck before committing.
-- `libero_goal` report update validation passed: JSON parse, `git diff --check`
-  warnings only, tree check pass, handoff 236 lines.
-- `libero_object` report update validation passed: JSON parse, `git diff --check`
-  warnings only, tree check pass, handoff 245 lines.
+- Cross-suite residual report update validation passed: JSON parse, `git diff --check`
+  warnings only, tree check pass, handoff 237 lines.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.
