@@ -218,9 +218,12 @@ On comparable tasks excluding X-VLA infra-stalled task7, X-VLA is 8/9 vs base
 3/9; shared residual is task5. Expert headroom is task-level positive but
 same-reset HDF5 unavailable: nearest `demo_9`, L2 2.984425805, SHA
 `4b1107cdeda0044cf53bb0b3656c3b52ca516c6c52b8a7ac1ae991bfb1d0ebdc`.
+Quantized OpenVLA-OFT INT4 solves the exact task5 residual: 1/1 success, 136
+steps, reward 1.0, SHA
+`6da4ea2e072b0a227d19dc25aa18c1f0a61ad22602be22a68f5d59a3f23740e4`.
 
-Do not retune/rescue MPR-XVLA. Next: Quantized OpenVLA-OFT INT4 second-prior
-screen for `libero_spatial` task 5 before any Ours proposal.
+Do not design Ours for spatial task5. Do not retune/rescue MPR-XVLA. Next:
+select a new preregistered residual source or prior ecosystem.
 
 ## Report Set
 
@@ -240,7 +243,6 @@ screen for `libero_spatial` task 5 before any Ours proposal.
   - `scripts/99_tree_check.ps1`: pass
 - Repaired offline run completed under official WSL env in 50.325s.
 - Handoff line count remains under 250; recheck before committing.
-- Matched spatial residual/headroom report update validation passed: JSON parse,
-  `git diff --check` warnings only, tree check pass, handoff 246 lines.
+- Validation passed; handoff 248 lines.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.
