@@ -25,7 +25,6 @@ from typing import Any
 
 import numpy as np
 
-from tca_map.xvla_spatial_task5.data_adapter_smoke import DEFAULT_XVLA_ROOT
 from tca_map.xvla_spatial_task5.gradient_smoke import (
     PHASE_LOSS_WEIGHTS,
     cuda_memory,
@@ -38,6 +37,7 @@ from tca_map.xvla_spatial_task5.gradient_smoke import (
 from tca_map.xvla_spatial_task5.train_lora import (
     DEFAULT_CLIP_STEPS,
     DEFAULT_OUTPUT_ROOT,
+    DEFAULT_XVLA_ROOT,
     XVLA_CACHE_DIR,
     _arm_by_id,
     _first_xvla_reader_sample,

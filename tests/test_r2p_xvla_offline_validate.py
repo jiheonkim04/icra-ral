@@ -8,6 +8,7 @@ import pytest
 
 from tca_map.xvla_spatial_task5.offline_validate import (
     DEFAULT_OUTPUT,
+    DEFAULT_XVLA_ROOT,
     OfflineValidationConfig,
     _assert_output_path_allowed,
     _default_adapter_dirs,
@@ -192,3 +193,7 @@ def test_output_path_guard_rejects_noncanonical_path(tmp_path: Path) -> None:
 def test_run_offline_validation_rejects_downloads_before_runtime_artifacts() -> None:
     with pytest.raises(ValueError, match="downloads are not allowed"):
         run_offline_validation(OfflineValidationConfig(local_files_only=False))
+
+
+def test_offline_validate_default_xvla_root_is_wsl_path() -> None:
+    assert DEFAULT_XVLA_ROOT.as_posix() == "/mnt/c/assets/repos/X-VLA"

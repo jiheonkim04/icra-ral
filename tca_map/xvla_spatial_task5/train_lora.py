@@ -31,12 +31,12 @@ import h5py
 import numpy as np
 
 from tca_map.xvla_spatial_task5.data_adapter_smoke import (
-    DEFAULT_XVLA_ROOT,
     TASK_DESCRIPTION,
     _write_encoded_rgb_frames,
     build_abs_action_6d,
 )
 from tca_map.xvla_spatial_task5.gradient_smoke import (
+    DEFAULT_XVLA_ROOT as WSL_DEFAULT_XVLA_ROOT,
     LOCAL_MODEL_SNAPSHOT,
     PHASE_LOSS_WEIGHTS,
     cuda_memory,
@@ -60,6 +60,7 @@ from tca_map.xvla_task1.data_adapter_smoke import _install_mmengine_fileio_shim_
 
 
 DEFAULT_OUTPUT_ROOT = Path("runs/xvla_prior/epoch5_r2p_xvla_task5_training")
+DEFAULT_XVLA_ROOT = WSL_DEFAULT_XVLA_ROOT
 XVLA_CACHE_DIR = "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers"
 DEFAULT_CLIP_STEPS = 32
 

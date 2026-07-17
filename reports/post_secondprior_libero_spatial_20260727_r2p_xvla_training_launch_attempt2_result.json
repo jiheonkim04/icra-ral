@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T05:01:35+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_launch_attempt": "35fc6860372ee01756a302c972f9a3dbd012973b",
+  "decision": "R2P_XVLA_TRAINING_LAUNCH_ATTEMPT2_XVLA_ROOT_FAILURE_NO_TRAINING",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "failure_class": "ENVIRONMENT_PATH_FAILURE",
+  "failure_reason": "train_lora inherited the Windows data-adapter X-VLA path instead of the WSL path, so the X-VLA models package was not importable.",
+  "archived_runtime_root": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST",
+  "runtime_root_archived_to_preserve_evidence": true,
+  "training_happened": false,
+  "optimizer_created": false,
+  "optimizer_step_happened": false,
+  "optimizer_steps_completed": 0,
+  "checkpoint_written": false,
+  "offline_validation_runtime_happened": false,
+  "closed_loop_ours_evaluation_happened": false,
+  "simulator_rollout_happened": false,
+  "downloads_performed": false,
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST/gate_result.json",
+      "sha256": "cb161b96ef05c8be39405fb585892f9e16749b368976170687788b25b4945ae9"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST/r2p_xvla_rank8_phase_weights_lr1e4_steps64/result.json",
+      "sha256": "57d287c8d5c4ca33f28c140995d49e06fea8e97331f16c0b24eeaacc50a8c47a"
+    },
+    {
+      "path": "runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST/r2p_xvla_rank8_phase_weights_lr1e4_steps64/stderr.log",
+      "sha256": "21006bf636a85a330b0a8e0224dcbd57eccc3a3d1311562b6b745a601ee8401a"
+    }
+  ],
+  "next_action": "Patch train_lora/offline_validate defaults to the WSL X-VLA root and relaunch after validation."
+}

@@ -8,6 +8,7 @@ import pytest
 
 from tca_map.xvla_spatial_task5.train_lora import (
     DEFAULT_OUTPUT_ROOT,
+    DEFAULT_XVLA_ROOT,
     TrainArmConfig,
     _arm_by_id,
     _assert_output_root_allowed,
@@ -136,3 +137,7 @@ def test_run_training_arm_rejects_downloads_before_runtime_artifacts() -> None:
                 local_files_only=False,
             )
         )
+
+
+def test_train_lora_default_xvla_root_is_wsl_path() -> None:
+    assert DEFAULT_XVLA_ROOT.as_posix() == "/mnt/c/assets/repos/X-VLA"

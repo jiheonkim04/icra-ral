@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T05:01:35+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_before_fix": "35fc6860372ee01756a302c972f9a3dbd012973b",
+  "decision": "R2P_XVLA_WSL_ROOT_FIX_VALIDATED_GATE_REARMED",
+  "suite": "libero_spatial",
+  "task_id": 5,
+  "reset_identity": 20260727,
+  "method": "R2P-XVLA",
+  "fix": "Use the WSL X-VLA source root /mnt/c/assets/repos/X-VLA for task5 train_lora and offline_validate defaults.",
+  "tracked_artifacts": {
+    "train_lora": {
+      "path": "tca_map/xvla_spatial_task5/train_lora.py",
+      "sha256": "805bca68dfa3f4755154cbe68f11379611b23ec837a071326670a7c0662dfd0a"
+    },
+    "offline_validate": {
+      "path": "tca_map/xvla_spatial_task5/offline_validate.py",
+      "sha256": "d1a2fa55347004239d67abcda1920367ac5be7e4ea7782c5c4a630890943a304"
+    },
+    "train_lora_tests": {
+      "path": "tests/test_r2p_xvla_train_lora.py",
+      "sha256": "a8d63befa3b03e292ebbe0b4d150bb46d5b35aeb7d34d0a767e44d6d0b1e1f79"
+    },
+    "offline_validate_tests": {
+      "path": "tests/test_r2p_xvla_offline_validate.py",
+      "sha256": "d27e8e3222e88cbf5b236acacc0f42b67ac37919634a7c6e77f659846c13692f"
+    }
+  },
+  "validation": {
+    "py_compile": "passed for train_lora/offline_validate and their tests",
+    "expanded_task5_pytest": "25 passed, 1 existing SciPy/NumPy warning",
+    "wsl_xvla_models_path_exists": true
+  },
+  "training_happened_during_fix": false,
+  "optimizer_step_happened_during_fix": false,
+  "checkpoint_written_during_fix": false,
+  "training_launch_authorized_after_this_report": true,
+  "next_action": "Relaunch the sequential training gate with the repaired interpreter and WSL X-VLA root defaults."
+}

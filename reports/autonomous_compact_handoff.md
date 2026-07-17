@@ -237,6 +237,8 @@ Arming report: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gate_a
 
 Attempt 1 failed before training due missing `peft` in repo `.venv`; archived at `runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST`; report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_launch_attempt1_result.json`. Re-armed with `/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python`.
 
+Attempt 2 failed before training due Windows X-VLA root in WSL; archived at `runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST`; fixed defaults to `/mnt/c/assets/repos/X-VLA`, report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_wsl_root_fix_rearming_result.json`; task5 pytest `25 passed`.
+
 ## Immediate Next Action
 
 Relaunch the sequential training gate with the repaired interpreter, then monitor initial worker PID/heartbeat/status/log/exit artifacts. Do not change the frozen config.
